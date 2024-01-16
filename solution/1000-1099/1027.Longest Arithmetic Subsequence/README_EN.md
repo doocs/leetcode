@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 ans = max(ans, f[i][j])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestArithSeqLength(nums []int) int {
 	n := len(nums)
@@ -129,8 +123,6 @@ func longestArithSeqLength(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestArithSeqLength(nums: number[]): number {
     const n = nums.length;
@@ -147,10 +139,6 @@ function longestArithSeqLength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

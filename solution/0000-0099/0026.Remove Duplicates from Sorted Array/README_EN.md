@@ -61,7 +61,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Solutions
 
-**Solution 1: Single Pass**
+### Solution 1: Single Pass
 
 We use a variable $k$ to record the current length of the processed array. Initially, $k=0$ represents an empty array.
 
@@ -84,8 +84,6 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -96,8 +94,6 @@ class Solution:
                 k += 1
         return k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,18 +124,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        nums.erase(unique(nums.begin(), nums.end()), nums.end());
-        return nums.size();
-    }
-};
-```
-
-### **Go**
-
 ```go
 func removeDuplicates(nums []int) int {
 	k := 0
@@ -155,8 +137,6 @@ func removeDuplicates(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeDuplicates(nums: number[]): number {
     let k: number = 0;
@@ -169,7 +149,20 @@ function removeDuplicates(nums: number[]): number {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        let mut k = 0;
+        for i in 0..nums.len() {
+            if k == 0 || nums[i] != nums[k - 1] {
+                nums[k] = nums[i];
+                k += 1;
+            }
+        }
+        k as i32
+    }
+}
+```
 
 ```js
 /**
@@ -187,8 +180,6 @@ var removeDuplicates = function (nums) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
@@ -202,25 +193,6 @@ public class Solution {
     }
 }
 ```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        let mut k = 0;
-        for i in 0..nums.len() {
-            if k == 0 || nums[i] != nums[k - 1] {
-                nums[k] = nums[i];
-                k += 1;
-            }
-        }
-        k as i32
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -240,10 +212,22 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        nums.erase(unique(nums.begin(), nums.end()), nums.end());
+        return nums.size();
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

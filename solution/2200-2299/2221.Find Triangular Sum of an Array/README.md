@@ -50,13 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +63,6 @@ class Solution:
                 nums[j] = (nums[j] + nums[j + 1]) % 10
         return nums[0]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func triangularSum(nums []int) int {
 	n := len(nums)
@@ -115,16 +103,6 @@ func triangularSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

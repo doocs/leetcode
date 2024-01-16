@@ -48,19 +48,13 @@ L<sub>0</sub> → L<sub>n</sub> → L<sub>1</sub> → L<sub>n - 1</sub> → L<su
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快慢指针 + 反转链表 + 合并链表**
+### 方法一：快慢指针 + 反转链表 + 合并链表
 
 我们先用快慢指针找到链表的中点，然后将链表的后半部分反转，最后将左右两个链表合并。
 
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -96,10 +90,6 @@ class Solution:
             cur.next = pre
             cur, pre = pre.next, t
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -147,8 +137,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -199,8 +187,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -240,7 +226,78 @@ func reorderList(head *ListNode) {
 }
 ```
 
-### **JavaScript**
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+/**
+ Do not return anything, modify head in-place instead.
+ */
+function reorderList(head: ListNode | null): void {
+    const arr = [];
+    let node = head;
+    while (node.next != null) {
+        arr.push(node);
+        node = node.next;
+    }
+    let l = 0;
+    let r = arr.length - 1;
+    while (l < r) {
+        const start = arr[l];
+        const end = arr[r];
+        [end.next.next, start.next, end.next] = [start.next, end.next, null];
+        l++;
+        r--;
+    }
+}
+```
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+use std::collections::VecDeque;
+impl Solution {
+    pub fn reorder_list(head: &mut Option<Box<ListNode>>) {
+        let mut tail = &mut head.as_mut().unwrap().next;
+        let mut head = tail.take();
+        let mut deque = VecDeque::new();
+        while head.is_some() {
+            let next = head.as_mut().unwrap().next.take();
+            deque.push_back(head);
+            head = next;
+        }
+        let mut flag = false;
+        while !deque.is_empty() {
+            *tail = if flag { deque.pop_front().unwrap() } else { deque.pop_back().unwrap() };
+            tail = &mut tail.as_mut().unwrap().next;
+            flag = !flag;
+        }
+    }
+}
+```
 
 ```js
 /**
@@ -288,8 +345,6 @@ var reorderList = function (head) {
     }
 };
 ```
-
-### **C#**
 
 ```cs
 /**
@@ -340,42 +395,11 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
+### 方法二
 
-/**
- Do not return anything, modify head in-place instead.
- */
-function reorderList(head: ListNode | null): void {
-    const arr = [];
-    let node = head;
-    while (node.next != null) {
-        arr.push(node);
-        node = node.next;
-    }
-    let l = 0;
-    let r = arr.length - 1;
-    while (l < r) {
-        const start = arr[l];
-        const end = arr[r];
-        [end.next.next, start.next, end.next] = [start.next, end.next, null];
-        l++;
-        r--;
-    }
-}
-```
+<!-- tabs:start -->
 
 ```ts
 /**
@@ -420,50 +444,6 @@ function reorderList(head: ListNode | null): void {
 }
 ```
 
-### **Rust**
-
-```rust
-// Definition for singly-linked list.
-// #[derive(PartialEq, Eq, Clone, Debug)]
-// pub struct ListNode {
-//   pub val: i32,
-//   pub next: Option<Box<ListNode>>
-// }
-//
-// impl ListNode {
-//   #[inline]
-//   fn new(val: i32) -> Self {
-//     ListNode {
-//       next: None,
-//       val
-//     }
-//   }
-// }
-use std::collections::VecDeque;
-impl Solution {
-    pub fn reorder_list(head: &mut Option<Box<ListNode>>) {
-        let mut tail = &mut head.as_mut().unwrap().next;
-        let mut head = tail.take();
-        let mut deque = VecDeque::new();
-        while head.is_some() {
-            let next = head.as_mut().unwrap().next.take();
-            deque.push_back(head);
-            head = next;
-        }
-        let mut flag = false;
-        while !deque.is_empty() {
-            *tail = if flag { deque.pop_front().unwrap() } else { deque.pop_back().unwrap() };
-            tail = &mut tail.as_mut().unwrap().next;
-            flag = !flag;
-        }
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

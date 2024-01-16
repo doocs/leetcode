@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
             mapper[num].add(i)
         return [mapper[num].pop() for num in nums1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,10 +69,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

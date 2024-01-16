@@ -65,19 +65,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 从字符串的第一个字符开始，枚举所有可能的拆分位置，判断拆分出来的子串是否满足题目要求，如果满足则继续递归判断剩余的子串是否满足题目要求，直到遍历完整个字符串。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
 
         return dfs(0, -1, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func splitString(s string) bool {
 	var dfs func(i, x, k int) bool
@@ -176,10 +162,6 @@ func splitString(s string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

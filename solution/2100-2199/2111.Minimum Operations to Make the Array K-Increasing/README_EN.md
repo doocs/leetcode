@@ -69,9 +69,9 @@ Note that there can be other ways to make the array K-increasing, but none of th
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -88,8 +88,6 @@ class Solution:
 
         return sum(lis(arr[i::k]) for i in range(k))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +132,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func kIncreasing(arr []int, k int) int {
@@ -206,16 +200,6 @@ func kIncreasing(arr []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

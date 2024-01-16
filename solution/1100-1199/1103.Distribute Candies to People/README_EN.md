@@ -49,15 +49,13 @@ On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can directly simulate the process of each person receiving candies, following the rules described in the problem.
 
 The time complexity is $O(\max(\sqrt{candies}, num\_people))$, and the space complexity is $O(num\_people)$. Here, $candies$ is the number of candies.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int[] distributeCandies(int candies, int num_people) {
@@ -85,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distributeCandies(candies int, num_people int) []int {
 	ans := make([]int, num_people)
@@ -114,8 +106,6 @@ func distributeCandies(candies int, num_people int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function distributeCandies(candies: number, num_people: number): number[] {
@@ -128,10 +118,6 @@ function distributeCandies(candies: number, num_people: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 This problem can be transformed into finding the longest increasing subsequence and the longest decreasing subsequence.
 
@@ -57,8 +57,6 @@ Then the final answer is $n - \max(left[i] + right[i] - 1)$, where $1 \leq i \le
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                     right[i] = max(right[i], right[j] + 1)
         return n - max(a + b - 1 for a, b in zip(left, right) if a > 1 and b > 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumMountainRemovals(nums []int) int {
@@ -178,8 +170,6 @@ func minimumMountainRemovals(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumMountainRemovals(nums: number[]): number {
     const n = nums.length;
@@ -208,8 +198,6 @@ function minimumMountainRemovals(nums: number[]): number {
     return n - ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -244,10 +232,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

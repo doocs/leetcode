@@ -64,7 +64,7 @@ M             1000</pre>
 
 ## Solutions
 
-**Solution 1: Hash Table + Simulation**
+### Solution 1: Hash Table + Simulation
 
 First, we use a hash table $d$ to record the numerical value corresponding to each character. Then, we traverse the string $s$ from left to right. If the numerical value corresponding to the current character is less than the numerical value corresponding to the character on the right, we subtract the numerical value corresponding to the current character. Otherwise, we add the numerical value corresponding to the current character.
 
@@ -72,16 +72,12 @@ The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         return sum((-1 if d[a] < d[b] else 1) * d[a] for a, b in pairwise(s)) + d[s[-1]]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func romanToInt(s string) (ans int) {
 	d := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -144,8 +136,6 @@ func romanToInt(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function romanToInt(s: string): number {
@@ -167,8 +157,6 @@ function romanToInt(s: string): number {
 }
 ```
 
-### **JavaScript**
-
 ```js
 const romanToInt = function (s) {
     const d = {
@@ -188,8 +176,6 @@ const romanToInt = function (s) {
     return ans;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -211,8 +197,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -245,10 +229,41 @@ class Solution {
 }
 ```
 
-### **...**
+```rb
+# @param {String} s
+# @return {Integer}
+def roman_to_int(s)
+  hash = Hash[
+      'I' => 1,
+      'V' => 5,
+      'X' => 10,
+      'L' => 50,
+      'C' => 100,
+      'D' => 500,
+      'M' => 1000,
+      'IV' => 4,
+      'IX' => 9,
+      'XL' => 40,
+      'XC' => 90,
+      'CD' => 400,
+      'CM' => 900
+  ]
+  res = 0
+  i = 0
+  while i < s.length
+    if i < s.length - 1 && !hash[s[i..i+1]].nil?
+      res += hash[s[i..i+1]]
+      i += 2
+    else
+      res += hash[s[i]]
+      i += 1
+    end
+  end
 
-```
-
+  res
+end
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

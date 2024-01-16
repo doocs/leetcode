@@ -81,9 +81,9 @@ User 11 did not subscribe in 2021.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -98,3 +98,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学分析**
+### 方法一：数学分析
 
 由于对称性，每次可以选择向左或向右移动，因此，我们可以将 $target$ 统一取绝对值。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def reachNumber(self, target: int) -> int:
@@ -82,10 +76,6 @@ class Solution:
             k += 1
             s += k
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reachNumber(target int) int {
@@ -137,8 +123,6 @@ func reachNumber(target int) int {
 	}
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -158,10 +142,6 @@ var reachNumber = function (target) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

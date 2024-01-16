@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口 + 哈希表或数组**
+### 方法一：滑动窗口 + 哈希表或数组
 
 我们用一个哈希表或数组 $cnt$ 用户记录每个长度为 $k$ 的子数组中数字的出现次数。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$ 或 $O(M)$。其中 $n$ 是数组 $nums$ 的长度；而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \le 10^5$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
             ans.append(len(cnt))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,6 +97,73 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    vector<int> distinctNumbers(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        for (int i = 0; i < k; ++i) {
+            ++cnt[nums[i]];
+        }
+        int n = nums.size();
+        vector<int> ans;
+        ans.push_back(cnt.size());
+        for (int i = k; i < n; ++i) {
+            ++cnt[nums[i]];
+            if (--cnt[nums[i - k]] == 0) {
+                cnt.erase(nums[i - k]);
+            }
+            ans.push_back(cnt.size());
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func distinctNumbers(nums []int, k int) []int {
+	cnt := map[int]int{}
+	for _, x := range nums[:k] {
+		cnt[x]++
+	}
+	ans := []int{len(cnt)}
+	for i := k; i < len(nums); i++ {
+		cnt[nums[i]]++
+		cnt[nums[i-k]]--
+		if cnt[nums[i-k]] == 0 {
+			delete(cnt, nums[i-k])
+		}
+		ans = append(ans, len(cnt))
+	}
+	return ans
+}
+```
+
+```ts
+function distinctNumbers(nums: number[], k: number): number[] {
+    const cnt: Map<number, number> = new Map();
+    for (let i = 0; i < k; ++i) {
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+    }
+    const ans: number[] = [cnt.size];
+    for (let i = k; i < nums.length; ++i) {
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+        cnt.set(nums[i - k], cnt.get(nums[i - k])! - 1);
+        if (cnt.get(nums[i - k]) === 0) {
+            cnt.delete(nums[i - k]);
+        }
+        ans.push(cnt.size);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -139,31 +196,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> distinctNumbers(vector<int>& nums, int k) {
-        unordered_map<int, int> cnt;
-        for (int i = 0; i < k; ++i) {
-            ++cnt[nums[i]];
-        }
-        int n = nums.size();
-        vector<int> ans;
-        ans.push_back(cnt.size());
-        for (int i = k; i < n; ++i) {
-            ++cnt[nums[i]];
-            if (--cnt[nums[i - k]] == 0) {
-                cnt.erase(nums[i - k]);
-            }
-            ans.push_back(cnt.size());
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -194,27 +226,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func distinctNumbers(nums []int, k int) []int {
-	cnt := map[int]int{}
-	for _, x := range nums[:k] {
-		cnt[x]++
-	}
-	ans := []int{len(cnt)}
-	for i := k; i < len(nums); i++ {
-		cnt[nums[i]]++
-		cnt[nums[i-k]]--
-		if cnt[nums[i-k]] == 0 {
-			delete(cnt, nums[i-k])
-		}
-		ans = append(ans, len(cnt))
-	}
-	return ans
-}
-```
-
 ```go
 func distinctNumbers(nums []int, k int) (ans []int) {
 	m := slices.Max(nums)
@@ -242,27 +253,6 @@ func distinctNumbers(nums []int, k int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function distinctNumbers(nums: number[], k: number): number[] {
-    const cnt: Map<number, number> = new Map();
-    for (let i = 0; i < k; ++i) {
-        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
-    }
-    const ans: number[] = [cnt.size];
-    for (let i = k; i < nums.length; ++i) {
-        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
-        cnt.set(nums[i - k], cnt.get(nums[i - k])! - 1);
-        if (cnt.get(nums[i - k]) === 0) {
-            cnt.delete(nums[i - k]);
-        }
-        ans.push(cnt.size);
-    }
-    return ans;
-}
-```
-
 ```ts
 function distinctNumbers(nums: number[], k: number): number[] {
     const m = Math.max(...nums);
@@ -287,10 +277,6 @@ function distinctNumbers(nums: number[], k: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

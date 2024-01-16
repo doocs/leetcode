@@ -48,7 +48,7 @@ So the minimum number of operations is 3.
 
 ## Solutions
 
-**Solution 1: Greedy + Bitwise Operation**
+### Solution 1: Greedy + Bitwise Operation
 
 We convert the integer $n$ to binary, starting from the lowest bit:
 
@@ -60,8 +60,6 @@ Finally, we also need to check whether the current number of consecutive 1s is 1
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the given integer in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
             ans += 2
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minOperations(n int) (ans int) {
@@ -150,8 +142,6 @@ func minOperations(n int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minOperations(n: number): number {
     let [ans, cnt] = [0, 0];
@@ -172,10 +162,6 @@ function minOperations(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们可以考虑每一堵墙是给付费油漆匠刷还是给免费油漆匠刷，设计一个函数 $dfs(i, j)$，表示从第 $i$ 堵墙开始，且当前剩余的免费油漆匠工作时间为 $j$ 时，刷完剩余所有墙壁的最小开销。那么答案为 $dfs(0, 0)$。
 
@@ -62,10 +60,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def paintWalls(self, cost: List[int], time: List[int]) -> int:
@@ -80,10 +74,6 @@ class Solution:
         n = len(cost)
         return dfs(0, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func paintWalls(cost []int, time []int) int {
@@ -169,8 +155,6 @@ func paintWalls(cost []int, time []int) int {
 	return dfs(0, n)
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -213,10 +197,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

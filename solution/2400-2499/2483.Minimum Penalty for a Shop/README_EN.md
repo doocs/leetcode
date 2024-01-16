@@ -62,9 +62,9 @@ Closing the shop at 2<sup>nd</sup> or 4<sup>th</sup> hour gives a minimum penalt
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -80,8 +80,6 @@ class Solution:
                 ans, cost = j, t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,7 +124,26 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func bestClosingTime(customers string) (ans int) {
+	n := len(customers)
+	s := make([]int, n+1)
+	for i, c := range customers {
+		s[i+1] = s[i]
+		if c == 'Y' {
+			s[i+1]++
+		}
+	}
+	cost := 1 << 30
+	for j := 0; j <= n; j++ {
+		t := j - s[j] + s[n] - s[j]
+		if cost > t {
+			ans, cost = j, t
+		}
+	}
+	return
+}
+```
 
 ```rust
 impl Solution {
@@ -157,33 +172,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func bestClosingTime(customers string) (ans int) {
-	n := len(customers)
-	s := make([]int, n+1)
-	for i, c := range customers {
-		s[i+1] = s[i]
-		if c == 'Y' {
-			s[i+1]++
-		}
-	}
-	cost := 1 << 30
-	for j := 0; j <= n; j++ {
-		t := j - s[j] + s[n] - s[j]
-		if cost > t {
-			ans, cost = j, t
-		}
-	}
-	return
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

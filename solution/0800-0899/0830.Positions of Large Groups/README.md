@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用双指针 $i$ 和 $j$ 找到每个分组的起始位置和终止位置，然后判断分组长度是否大于等于 $3$，若是则将其加入结果数组。
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largeGroupPositions(s string) [][]int {
 	i, n := 0, len(s)
@@ -155,10 +141,6 @@ func largeGroupPositions(s string) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

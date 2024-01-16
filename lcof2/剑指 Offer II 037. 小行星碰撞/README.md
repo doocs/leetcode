@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 我们从左到右遍历每个小行星 $x$，由于每个小行星可能与之前的多个小行星发生碰撞，考虑用栈来存储。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $asteroids$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                     stk.append(x)
         return stk
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func asteroidCollision(asteroids []int) (stk []int) {
 	for _, x := range asteroids {
@@ -166,8 +152,6 @@ func asteroidCollision(asteroids []int) (stk []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function asteroidCollision(asteroids: number[]): number[] {
@@ -189,8 +173,6 @@ function asteroidCollision(asteroids: number[]): number[] {
     return stk;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -216,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We count the frequency of each letter in the string `text`, and then divide the frequency of the letters 'o' and 'l' by 2, because the word `balloon` contains the letters 'o' and 'l' twice.
 
@@ -54,8 +54,6 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
@@ -64,8 +62,6 @@ class Solution:
         cnt['l'] >>= 1
         return min(cnt[c] for c in 'balon')
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfBalloons(text string) int {
 	cnt := [26]int{}
@@ -127,8 +119,6 @@ func maxNumberOfBalloons(text string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxNumberOfBalloons(text: string): number {
     const cnt = new Array(26).fill(0);
@@ -138,8 +128,6 @@ function maxNumberOfBalloons(text: string): number {
     return Math.min(cnt[0], cnt[1], cnt[11] >> 1, cnt[14] >> 1, cnt[13]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -176,8 +164,6 @@ impl Solution {
 }
 ```
 
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -206,10 +192,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

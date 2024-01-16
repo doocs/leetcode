@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
 
         return dfs(0, len(s) - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSubstring(s string, k int) int {
 	var dfs func(l, r int) int
@@ -204,10 +198,6 @@ func longestSubstring(s string, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

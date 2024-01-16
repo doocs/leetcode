@@ -36,11 +36,9 @@
 
 ## Solutions
 
-Dynamic programming.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -55,8 +53,6 @@ class Solution:
             f = g
         return min(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minFallingPathSum(matrix [][]int) int {
 	n := len(matrix)
@@ -136,8 +128,6 @@ func minFallingPathSum(matrix [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minFallingPathSum(matrix: number[][]): number {
     const n = matrix.length;
@@ -159,10 +149,6 @@ function minFallingPathSum(matrix: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

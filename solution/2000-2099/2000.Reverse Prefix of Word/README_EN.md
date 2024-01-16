@@ -51,7 +51,7 @@ You should not do any reverse operation, the resulting string is &quot;abcd&quot
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 First, we find the index $i$ where the character $ch$ first appears. Then, we reverse the characters from index $0$ to index $i$ (including index $i$). Finally, we concatenate the reversed string with the string starting from index $i + 1$.
 
@@ -59,16 +59,12 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def reversePrefix(self, word: str, ch: str) -> str:
         i = word.find(ch)
         return word if i == -1 else word[i::-1] + word[i + 1 :]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,23 +84,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String reversePrefix(String word, char ch) {
-        int j = word.indexOf(ch);
-        if (j == -1) {
-            return word;
-        }
-        return new StringBuilder(word.substring(0, j + 1))
-            .reverse()
-            .append(word.substring(j + 1))
-            .toString();
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +96,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reversePrefix(word string, ch byte) string {
@@ -135,8 +112,6 @@ func reversePrefix(word string, ch byte) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reversePrefix(word: string, ch: string): string {
     const i = word.indexOf(ch) + 1;
@@ -146,8 +121,6 @@ function reversePrefix(word: string, ch: string): string {
     return [...word.slice(0, i)].reverse().join('') + word.slice(i);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -159,8 +132,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -188,10 +159,27 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        int j = word.indexOf(ch);
+        if (j == -1) {
+            return word;
+        }
+        return new StringBuilder(word.substring(0, j + 1))
+            .reverse()
+            .append(word.substring(j + 1))
+            .toString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

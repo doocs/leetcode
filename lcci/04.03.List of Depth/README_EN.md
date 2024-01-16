@@ -38,11 +38,9 @@
 
 ## Solutions
 
-Level order traversal.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -76,8 +74,6 @@ class Solution:
             ans.append(dummy.next)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -122,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -170,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -210,8 +202,6 @@ func listOfDepth(tree *TreeNode) (ans []*ListNode) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -258,8 +248,6 @@ function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -331,10 +319,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

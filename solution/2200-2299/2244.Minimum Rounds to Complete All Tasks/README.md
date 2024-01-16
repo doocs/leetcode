@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表统计每个难度级别的任务数量，然后遍历哈希表，对于每个难度级别的任务数量，如果数量为 $1$，则无法完成所有任务，返回 $-1$；否则，计算完成该难度级别的任务需要的轮数，累加到答案中。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `tasks` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             ans += v // 3 + (v % 3 != 0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumRounds(tasks []int) int {
 	cnt := map[int]int{}
@@ -137,8 +123,6 @@ func minimumRounds(tasks []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumRounds(tasks: number[]): number {
     const cnt = new Map();
@@ -156,10 +140,6 @@ function minimumRounds(tasks: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

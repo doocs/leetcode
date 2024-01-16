@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Two DFS**
+### Solution 1: Two DFS
 
 First, perform DFS on any node to find the furthest node, then perform DFS again from this node to reach another furthest node. The node reached by the first DFS can be proven to be one end of the diameter of this graph, and the second DFS will reach the other end. Let's prove this theorem.
 
@@ -62,8 +62,6 @@ Similar problems:
 -   [1522. Diameter of N-Ary Tree](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -91,8 +89,6 @@ class Solution:
         dfs(next, 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func treeDiameter(edges [][]int) int {
 	n := len(edges)
@@ -206,10 +198,6 @@ func treeDiameter(edges [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

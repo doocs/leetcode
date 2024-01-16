@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 树状数组**
+### 方法一：前缀和 + 树状数组
 
 题目要求区间和，因此我们可以先求出前缀和数组 $s$，其中 $s[i]$ 表示 $nums$ 中前 $i$ 个元素的和。那么对于任意的 $i \lt j$，$s[j+1] - s[i]$ 就是 $nums$ 中下标在 $[i, j]$ 的元素之和。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -89,10 +83,6 @@ class Solution:
             tree.update(bisect_left(arr, x) + 1, 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -167,8 +157,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -228,8 +216,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -288,8 +274,6 @@ func countRangeSum(nums []int, lower int, upper int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -363,10 +347,6 @@ function search(nums: number[], r: number, x: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

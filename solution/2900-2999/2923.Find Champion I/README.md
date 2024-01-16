@@ -52,19 +52,13 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举每一支队伍 $i$，如果 $i$ 队的每一场比赛都赢了，那么 $i$ 队就是冠军，直接返回 $i$ 即可。
 
 时间复杂度 $O(n^2)$，其中 $n$ 是队伍数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             if all(x == 1 for j, x in enumerate(row) if i != j):
                 return i
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findChampion(grid [][]int) int {
 	n := len(grid)
@@ -138,8 +124,6 @@ func findChampion(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findChampion(grid: number[][]): number {
     for (let i = 0, n = grid.length; ; ++i) {
@@ -156,10 +140,6 @@ function findChampion(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

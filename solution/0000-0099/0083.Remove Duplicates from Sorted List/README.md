@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 我们用一个指针 $cur$ 来遍历链表。如果当前 $cur$ 与 $cur.next$ 对应的元素相同，我们就将 $cur$ 的 $next$ 指针指向 $cur$ 的下下个节点。否则，说明链表中 $cur$ 对应的元素是不重复的，因此可以将 $cur$ 指针移动到下一个节点。
 
@@ -47,10 +45,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -68,10 +62,6 @@ class Solution:
                 cur = cur.next
         return head
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -150,35 +136,6 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var deleteDuplicates = function (head) {
-    let cur = head;
-    while (cur && cur.next) {
-        if (cur.next.val === cur.val) {
-            cur.next = cur.next.next;
-        } else {
-            cur = cur.next;
-        }
-    }
-    return head;
-};
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -215,7 +172,30 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function (head) {
+    let cur = head;
+    while (cur && cur.next) {
+        if (cur.next.val === cur.val) {
+            cur.next = cur.next.next;
+        } else {
+            cur = cur.next;
+        }
+    }
+    return head;
+};
+```
 
 ```cs
 /**
@@ -244,10 +224,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

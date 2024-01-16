@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 题目是求两个元素的异或最大值，可以从最高位开始考虑。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$，其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组中元素的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -92,10 +86,6 @@ class Solution:
             trie.insert(x)
         return max(trie.search(x) for x in nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -143,8 +133,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -195,8 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -241,8 +227,6 @@ func findMaximumXOR(nums []int) (ans int) {
 	return ans
 }
 ```
-
-### **Rust**
 
 ```rust
 struct Trie {
@@ -296,10 +280,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

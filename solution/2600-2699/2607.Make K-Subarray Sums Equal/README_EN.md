@@ -53,9 +53,9 @@ The array after the operations is [5,5,5,5]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
             ans += sum(abs(x - mid) for x in t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeSubKSumEqual(arr []int, k int) (ans int64) {
@@ -158,8 +152,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makeSubKSumEqual(arr: number[], k: number): number {
     const n = arr.length;
@@ -187,10 +179,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

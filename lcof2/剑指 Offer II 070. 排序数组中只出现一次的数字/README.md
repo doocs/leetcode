@@ -45,15 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二分查找。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
                 left = mid + 1
         return nums[left]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,26 +82,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function singleNonDuplicate(nums: number[]): number {
-    let left = 0,
-        right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] != nums[mid ^ 1]) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return nums[left];
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -146,10 +114,22 @@ func singleNonDuplicate(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function singleNonDuplicate(nums: number[]): number {
+    let left = 0,
+        right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] != nums[mid ^ 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return nums[left];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

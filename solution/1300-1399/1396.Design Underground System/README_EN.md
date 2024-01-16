@@ -95,7 +95,7 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We use two hash tables to store data:
 
@@ -111,8 +111,6 @@ When we want to calculate a passenger's average travel time, we retrieve the pas
 The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the number of passengers.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class UndergroundSystem:
@@ -139,8 +137,6 @@ class UndergroundSystem:
 # obj.checkOut(id,stationName,t)
 # param_3 = obj.getAverageTime(startStation,endStation)
 ```
-
-### **Java**
 
 ```java
 class UndergroundSystem {
@@ -180,8 +176,6 @@ class UndergroundSystem {
  */
 ```
 
-### **C++**
-
 ```cpp
 class UndergroundSystem {
 public:
@@ -217,8 +211,6 @@ private:
  * double param_3 = obj->getAverageTime(startStation,endStation);
  */
 ```
-
-### **Go**
 
 ```go
 type UndergroundSystem struct {
@@ -272,10 +264,6 @@ type pair struct {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

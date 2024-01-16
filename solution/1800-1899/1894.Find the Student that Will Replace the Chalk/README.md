@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：求和取余 + 模拟**
+### 方法一：求和取余 + 模拟
 
 由于学生的回答是一轮一轮循环进行的，因此我们可以将所有学生需要消耗的粉笔数加起来，得到一个总数 $s$。然后我们对 $k$ 取 $s$ 的余数，即可知道最后一轮结束后剩余的粉笔数。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是学生的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 return i
             k -= x
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func chalkReplacer(chalk []int, k int) int {
@@ -144,7 +130,21 @@ func chalkReplacer(chalk []int, k int) int {
 }
 ```
 
-### **Rust**
+```ts
+function chalkReplacer(chalk: number[], k: number): number {
+    let s = 0;
+    for (const x of chalk) {
+        s += x;
+    }
+    k %= s;
+    for (let i = 0; ; ++i) {
+        if (k < chalk[i]) {
+            return i;
+        }
+        k -= chalk[i];
+    }
+}
+```
 
 ```rust
 impl Solution {
@@ -165,28 +165,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function chalkReplacer(chalk: number[], k: number): number {
-    let s = 0;
-    for (const x of chalk) {
-        s += x;
-    }
-    k %= s;
-    for (let i = 0; ; ++i) {
-        if (k < chalk[i]) {
-            return i;
-        }
-        k -= chalk[i];
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

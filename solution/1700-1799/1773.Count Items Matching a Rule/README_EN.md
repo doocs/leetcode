@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
         i = 0 if ruleKey[0] == 't' else (1 if ruleKey[0] == 'c' else 2)
         return sum(v[i] == ruleValue for v in items)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -83,8 +79,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) {
@@ -98,7 +92,24 @@ func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) 
 }
 ```
 
-### **C**
+```ts
+function countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
+    const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
+    return items.reduce((r, v) => r + (v[key] === ruleValue ? 1 : 0), 0);
+}
+```
+
+```rust
+impl Solution {
+    pub fn count_matches(items: Vec<Vec<String>>, rule_key: String, rule_value: String) -> i32 {
+        let key = if rule_key == "type" { 0 } else if rule_key == "color" { 1 } else { 2 };
+        items
+            .iter()
+            .filter(|v| v[key] == rule_value)
+            .count() as i32
+    }
+}
+```
 
 ```c
 int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey, char* ruleValue) {
@@ -114,33 +125,6 @@ int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey,
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
-    const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
-    return items.reduce((r, v) => r + (v[key] === ruleValue ? 1 : 0), 0);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn count_matches(items: Vec<Vec<String>>, rule_key: String, rule_value: String) -> i32 {
-        let key = if rule_key == "type" { 0 } else if rule_key == "color" { 1 } else { 2 };
-        items
-            .iter()
-            .filter(|v| v[key] == rule_value)
-            .count() as i32
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

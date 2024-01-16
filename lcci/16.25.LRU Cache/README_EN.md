@@ -42,9 +42,9 @@ cache.get(4);       // returns 4
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -112,8 +112,6 @@ class LRUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
-
-### **Java**
 
 ```java
 class LRUCache {
@@ -204,10 +202,6 @@ class LRUCache {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

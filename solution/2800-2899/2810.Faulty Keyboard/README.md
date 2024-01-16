@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接模拟键盘的输入过程，用一个字符数组 $t$ 来记录屏幕上的文本，初始时 $t$ 为空。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 t.append(c)
         return "".join(t)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func finalString(s string) string {
 	t := []rune{}
@@ -142,8 +128,6 @@ func finalString(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function finalString(s: string): string {
     const t: string[] = [];
@@ -157,8 +141,6 @@ function finalString(s: string): string {
     return t.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -176,10 +158,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

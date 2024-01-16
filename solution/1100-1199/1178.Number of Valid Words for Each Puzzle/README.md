@@ -51,9 +51,7 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 哈希表 + 子集枚举**
+### 方法一：状态压缩 + 哈希表 + 子集枚举
 
 根据题目描述，对于字谜数组 $puzzles$ 中的每一个字谜 $p$，我们需要统计有多少个单词 $w$ 包含了字谜 $p$ 的第一个字母，且 $w$ 的每一个字母都可以在 $p$ 中找到。
 
@@ -66,10 +64,6 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 时间复杂度 $O(m \times |w| + n \times 2^{|p|})$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别为数组 $words$ 和 $puzzles$ 的长度，而 $|w|$ 和 $|p|$ 分别为数组 $words$ 中单词的最大长度和数组 $puzzles$ 中字谜的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
             ans.append(x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +119,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -164,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	cnt := map[int]int{}
@@ -192,8 +178,6 @@ func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
@@ -224,10 +208,6 @@ function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

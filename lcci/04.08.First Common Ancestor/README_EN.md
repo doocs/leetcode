@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -78,8 +78,6 @@ class Solution:
         right = self.lowestCommonAncestor(root.right, p, q)
         return right if left is None else (left if right is None else root)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -103,10 +101,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

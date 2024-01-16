@@ -89,9 +89,7 @@ Tree table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：条件判断 + 子查询**
+### 方法一：条件判断 + 子查询
 
 我们可以使用 `CASE WHEN` 条件判断语句来判断每个节点的类型，具体地：
 
@@ -100,8 +98,6 @@ Tree table:
 -   否则，该节点为叶子节点。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -116,3 +112,5 @@ FROM Tree;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

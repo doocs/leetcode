@@ -50,9 +50,9 @@ Clearly the destination city is &quot;A&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
         s = {a for a, _ in paths}
         return next(b for _, b in paths if b not in s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func destCity(paths [][]string) string {
 	s := map[string]bool{}
@@ -117,7 +111,35 @@ func destCity(paths [][]string) string {
 }
 ```
 
-### **JavaScript**
+```ts
+function destCity(paths: string[][]): string {
+    const set = new Set(paths.map(([a]) => a));
+    for (const [_, b] of paths) {
+        if (!set.has(b)) {
+            return b;
+        }
+    }
+    return '';
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn dest_city(paths: Vec<Vec<String>>) -> String {
+        let set = paths
+            .iter()
+            .map(|v| &v[0])
+            .collect::<HashSet<&String>>();
+        for path in paths.iter() {
+            if !set.contains(&path[1]) {
+                return path[1].clone();
+            }
+        }
+        String::new()
+    }
+}
+```
 
 ```js
 /**
@@ -138,42 +160,6 @@ var destCity = function (paths) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function destCity(paths: string[][]): string {
-    const set = new Set(paths.map(([a]) => a));
-    for (const [_, b] of paths) {
-        if (!set.has(b)) {
-            return b;
-        }
-    }
-    return '';
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn dest_city(paths: Vec<Vec<String>>) -> String {
-        let set = paths
-            .iter()
-            .map(|v| &v[0])
-            .collect::<HashSet<&String>>();
-        for path in paths.iter() {
-            if !set.contains(&path[1]) {
-                return path[1].clone();
-            }
-        }
-        String::new()
-    }
-}
-```
-
-### **C**
-
 ```c
 char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
     for (int i = 0; i < pathsSize; i++) {
@@ -192,10 +178,6 @@ char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

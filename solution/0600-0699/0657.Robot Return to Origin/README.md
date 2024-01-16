@@ -41,13 +41,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,10 +60,6 @@ class Solution:
                 y -= 1
         return x == 0 and y == 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +81,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function judgeCircle(moves: string): boolean {
     let x = 0,
@@ -110,10 +100,6 @@ function judgeCircle(moves: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

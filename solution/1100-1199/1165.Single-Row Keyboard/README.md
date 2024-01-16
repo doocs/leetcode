@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表或数组**
+### 方法一：哈希表或数组
 
 我们可以用哈希表或者一个长度为 $26$ 的数组 $pos$ 来存储每个字符在键盘上的位置，其中 $pos[c]$ 表示字符 $c$ 在键盘上的位置。
 
@@ -57,10 +55,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def calculateTime(self, keyboard: str, word: str) -> int:
@@ -71,10 +65,6 @@ class Solution:
             i = pos[c]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func calculateTime(keyboard string, word string) (ans int) {
@@ -140,8 +126,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function calculateTime(keyboard: string, word: string): number {
     const pos: number[] = Array(26).fill(0);
@@ -159,10 +143,6 @@ function calculateTime(keyboard: string, word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,9 @@ peekingIterator.hasNext(); // return False
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Below is the interface for Iterator, which is already defined for you.
@@ -123,8 +123,6 @@ class PeekingIterator:
 #     iter.next()         # Should return the same value as [val].
 ```
 
-### **Java**
-
 ```java
 // Java Iterator interface reference:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
@@ -167,8 +165,6 @@ class PeekingIterator implements Iterator<Integer> {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -227,8 +223,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 /*   Below is the interface for Iterator, which is already defined for you.
  *
@@ -276,10 +270,6 @@ func (this *PeekingIterator) peek() int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

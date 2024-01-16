@@ -32,9 +32,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -45,8 +45,6 @@ class Solution:
                 cnt += 1
         return cnt == 0 or cnt == len(word) or (cnt == 1 and word[0].isupper())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -63,8 +61,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -76,8 +72,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func detectCapitalUse(word string) bool {
@@ -91,10 +85,6 @@ func detectCapitalUse(word string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,13 +59,9 @@ ID = 11 的司机从来不是乘客。</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -78,3 +74,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

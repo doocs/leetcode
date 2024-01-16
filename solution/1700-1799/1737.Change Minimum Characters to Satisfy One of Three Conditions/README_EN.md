@@ -47,7 +47,7 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 
 ## Solutions
 
-**Solution 1: Counting + Enumeration**
+### Solution 1: Counting + Enumeration
 
 First, we count the number of occurrences of each letter in strings $a$ and $b$, denoted as $cnt_1$ and $cnt_2$.
 
@@ -60,8 +60,6 @@ The final answer is the minimum of the above three cases.
 The time complexity is $O(m + n + C^2)$, where $m$ and $n$ are the lengths of strings $a$ and $b$ respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,8 +84,6 @@ class Solution:
         f(cnt2, cnt1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCharacters(a string, b string) int {
@@ -190,8 +182,6 @@ func minCharacters(a string, b string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCharacters(a: string, b: string): number {
     const m = a.length,
@@ -222,10 +212,6 @@ function minCharacters(a: string, b: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

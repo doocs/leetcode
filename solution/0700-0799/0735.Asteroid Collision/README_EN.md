@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Stack**
+### Solution 1: Stack
 
 We traverse each asteroid $x$ from left to right. Since each asteroid may collide with multiple asteroids before it, we consider using a stack to store.
 
@@ -58,8 +58,6 @@ Finally, we return the elements in the stack as the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $asteroids$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                     stk.append(x)
         return stk
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func asteroidCollision(asteroids []int) (stk []int) {
 	for _, x := range asteroids {
@@ -150,8 +142,6 @@ func asteroidCollision(asteroids []int) (stk []int) {
 	return
 }
 ```
-
-### TypeScript
 
 ```ts
 function asteroidCollision(asteroids: number[]): number[] {
@@ -173,8 +163,6 @@ function asteroidCollision(asteroids: number[]): number[] {
     return stk;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -200,10 +188,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

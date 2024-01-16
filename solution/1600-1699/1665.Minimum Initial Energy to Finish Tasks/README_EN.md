@@ -68,9 +68,9 @@ Starting with 27 energy, we finish the tasks in the following order:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
             cur -= a
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumEffort(tasks [][]int) (ans int) {
 	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0]-tasks[i][1] < tasks[j][0]-tasks[j][1] })
@@ -142,8 +136,6 @@ func minimumEffort(tasks [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumEffort(tasks: number[][]): number {
@@ -161,10 +153,6 @@ function minimumEffort(tasks: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

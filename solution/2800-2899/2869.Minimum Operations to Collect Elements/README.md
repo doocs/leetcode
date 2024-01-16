@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆序遍历**
+### 方法一：逆序遍历
 
 我们可以逆序遍历数组，每次遍历到的元素如果小于等于 $k$，且没有被添加过，就将其添加到集合中，直到集合中包含了元素 $1$ 到 $k$ 为止。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             if count == k:
                 return n - i
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int, k int) int {
 	isAdded := make([]bool, k)
@@ -145,8 +131,6 @@ func minOperations(nums []int, k int) int {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[], k: number): number {
@@ -166,10 +150,6 @@ function minOperations(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

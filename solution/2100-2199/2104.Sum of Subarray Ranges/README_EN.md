@@ -61,9 +61,9 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,6 +77,101 @@ class Solution:
                 ans += mx - mi
         return ans
 ```
+
+```java
+class Solution {
+    public long subArrayRanges(int[] nums) {
+        long ans = 0;
+        int n = nums.length;
+        for (int i = 0; i < n - 1; ++i) {
+            int mi = nums[i], mx = nums[i];
+            for (int j = i + 1; j < n; ++j) {
+                mi = Math.min(mi, nums[j]);
+                mx = Math.max(mx, nums[j]);
+                ans += (mx - mi);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long subArrayRanges(vector<int>& nums) {
+        long long ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < n - 1; ++i) {
+            int mi = nums[i], mx = nums[i];
+            for (int j = i + 1; j < n; ++j) {
+                mi = min(mi, nums[j]);
+                mx = max(mx, nums[j]);
+                ans += (mx - mi);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func subArrayRanges(nums []int) int64 {
+	var ans int64
+	n := len(nums)
+	for i := 0; i < n-1; i++ {
+		mi, mx := nums[i], nums[i]
+		for j := i + 1; j < n; j++ {
+			mi = min(mi, nums[j])
+			mx = max(mx, nums[j])
+			ans += (int64)(mx - mi)
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function subArrayRanges(nums: number[]): number {
+    const n = nums.length;
+    let res = 0;
+    for (let i = 0; i < n - 1; i++) {
+        let min = nums[i];
+        let max = nums[i];
+        for (let j = i + 1; j < n; j++) {
+            min = Math.min(min, nums[j]);
+            max = Math.max(max, nums[j]);
+            res += max - min;
+        }
+    }
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn sub_array_ranges(nums: Vec<i32>) -> i64 {
+        let n = nums.len();
+        let mut res: i64 = 0;
+        for i in 1..n {
+            let mut min = nums[i - 1];
+            let mut max = nums[i - 1];
+            for j in i..n {
+                min = min.min(nums[j]);
+                max = max.max(nums[j]);
+                res += (max - min) as i64;
+            }
+        }
+        res
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -104,26 +199,6 @@ class Solution:
         mx = f(nums)
         mi = f([-v for v in nums])
         return mx + mi
-```
-
-### **Java**
-
-```java
-class Solution {
-    public long subArrayRanges(int[] nums) {
-        long ans = 0;
-        int n = nums.length;
-        for (int i = 0; i < n - 1; ++i) {
-            int mi = nums[i], mx = nums[i];
-            for (int j = i + 1; j < n; ++j) {
-                mi = Math.min(mi, nums[j]);
-                mx = Math.max(mx, nums[j]);
-                ans += (mx - mi);
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -172,27 +247,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    long long subArrayRanges(vector<int>& nums) {
-        long long ans = 0;
-        int n = nums.size();
-        for (int i = 0; i < n - 1; ++i) {
-            int mi = nums[i], mx = nums[i];
-            for (int j = i + 1; j < n; ++j) {
-                mi = min(mi, nums[j]);
-                mx = max(mx, nums[j]);
-                ans += (mx - mi);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -226,24 +280,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func subArrayRanges(nums []int) int64 {
-	var ans int64
-	n := len(nums)
-	for i := 0; i < n-1; i++ {
-		mi, mx := nums[i], nums[i]
-		for j := i + 1; j < n; j++ {
-			mi = min(mi, nums[j])
-			mx = max(mx, nums[j])
-			ans += (int64)(mx - mi)
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -291,50 +327,6 @@ func subArrayRanges(nums []int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function subArrayRanges(nums: number[]): number {
-    const n = nums.length;
-    let res = 0;
-    for (let i = 0; i < n - 1; i++) {
-        let min = nums[i];
-        let max = nums[i];
-        for (let j = i + 1; j < n; j++) {
-            min = Math.min(min, nums[j]);
-            max = Math.max(max, nums[j]);
-            res += max - min;
-        }
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn sub_array_ranges(nums: Vec<i32>) -> i64 {
-        let n = nums.len();
-        let mut res: i64 = 0;
-        for i in 1..n {
-            let mut min = nums[i - 1];
-            let mut max = nums[i - 1];
-            for j in i..n {
-                min = min.min(nums[j]);
-                max = max.max(nums[j]);
-                res += (max - min) as i64;
-            }
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,17 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-题目可以转换为 `0-1` 背包问题，只不过下标可能会出现负数，需要特殊处理。
-
-也可以用 DFS 记忆化搜索。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-**0-1 背包**
 
 ```python
 class Solution:
@@ -81,65 +73,6 @@ class Solution:
                     dp[i][j - nums[i] + 1000] += dp[i - 1][j + 1000]
         return dp[n - 1][target + 1000]
 ```
-
-设：添加 `-` 号的元素之和为 `x`，则添加 `+` 号的元素之和为 `s - x`，`s - x - x = target`，`2x = s - target`。需要满足 `s - target` 一定大于等于 0，并且能够被 2 整除。
-
-```python
-class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        s = sum(nums)
-        if s - target < 0 or (s - target) % 2 != 0:
-            return 0
-        target = (s - target) // 2 + 1
-        n = len(nums) + 1
-        dp = [[0] * target for _ in range(n)]
-        dp[0][0] = 1
-        for i in range(1, n):
-            for j in range(target):
-                dp[i][j] = dp[i - 1][j]
-                if nums[i - 1] <= j:
-                    dp[i][j] += dp[i - 1][j - nums[i - 1]]
-        return dp[-1][-1]
-```
-
-空间优化：
-
-```python
-class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        s = sum(nums)
-        if s - target < 0 or (s - target) % 2 != 0:
-            return 0
-        target = (s - target) // 2 + 1
-        n = len(nums) + 1
-        dp = [0] * target
-        dp[0] = 1
-        for i in range(1, n):
-            for j in range(target - 1, nums[i - 1] - 1, -1):
-                dp[j] += dp[j - nums[i - 1]]
-        return dp[-1]
-```
-
-**DFS**
-
-```python
-class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        @cache
-        def dfs(i, t):
-            if i == n:
-                if t == target:
-                    return 1
-                return 0
-            return dfs(i + 1, t + nums[i]) + dfs(i + 1, t - nums[i])
-
-        ans, n = 0, len(nums)
-        return dfs(0, 0)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -167,35 +100,6 @@ class Solution {
 }
 ```
 
-空间优化：
-
-```java
-class Solution {
-    public int findTargetSumWays(int[] nums, int target) {
-        int s = 0;
-        for (int x : nums) {
-            s += x;
-        }
-        if (s - target < 0 || (s - target) % 2 != 0) {
-            return 0;
-        }
-        target = (s - target) / 2 + 1;
-        int[] dp = new int[target];
-        dp[0] = 1;
-        for (int i = 1; i < nums.length + 1; ++i) {
-            for (int j = target - 1; j >= nums[i - 1]; --j) {
-                dp[j] += dp[j - nums[i - 1]];
-            }
-        }
-        return dp[target - 1];
-    }
-}
-```
-
-### **C++**
-
-空间优化：
-
 ```cpp
 class Solution {
 public:
@@ -215,10 +119,6 @@ public:
     }
 };
 ```
-
-### **Go**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```go
 func findTargetSumWays(nums []int, target int) int {
@@ -244,7 +144,52 @@ func findTargetSumWays(nums []int, target int) int {
 }
 ```
 
-空间优化：
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        s = sum(nums)
+        if s - target < 0 or (s - target) % 2 != 0:
+            return 0
+        target = (s - target) // 2 + 1
+        n = len(nums) + 1
+        dp = [[0] * target for _ in range(n)]
+        dp[0][0] = 1
+        for i in range(1, n):
+            for j in range(target):
+                dp[i][j] = dp[i - 1][j]
+                if nums[i - 1] <= j:
+                    dp[i][j] += dp[i - 1][j - nums[i - 1]]
+        return dp[-1][-1]
+```
+
+```java
+class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        int s = 0;
+        for (int x : nums) {
+            s += x;
+        }
+        if (s - target < 0 || (s - target) % 2 != 0) {
+            return 0;
+        }
+        target = (s - target) / 2 + 1;
+        int[] dp = new int[target];
+        dp[0] = 1;
+        for (int i = 1; i < nums.length + 1; ++i) {
+            for (int j = target - 1; j >= nums[i - 1]; --j) {
+                dp[j] += dp[j - nums[i - 1]];
+            }
+        }
+        return dp[target - 1];
+    }
+}
+```
 
 ```go
 func findTargetSumWays(nums []int, target int) int {
@@ -267,10 +212,49 @@ func findTargetSumWays(nums []int, target int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法三
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        s = sum(nums)
+        if s - target < 0 or (s - target) % 2 != 0:
+            return 0
+        target = (s - target) // 2 + 1
+        n = len(nums) + 1
+        dp = [0] * target
+        dp[0] = 1
+        for i in range(1, n):
+            for j in range(target - 1, nums[i - 1] - 1, -1):
+                dp[j] += dp[j - nums[i - 1]]
+        return dp[-1]
 ```
 
 <!-- tabs:end -->
+
+### 方法四
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        @cache
+        def dfs(i, t):
+            if i == n:
+                if t == target:
+                    return 1
+                return 0
+            return dfs(i + 1, t + nums[i]) + dfs(i + 1, t - nums[i])
+
+        ans, n = 0, len(nums)
+        return dfs(0, 0)
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

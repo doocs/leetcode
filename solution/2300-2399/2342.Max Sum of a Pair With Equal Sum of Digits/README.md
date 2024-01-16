@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以用一个哈希表 $d$ 记录每个数位和对应的最大值，初始化一个答案变量 $ans = -1$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(D)$，其中 $n$ 是数组 $nums$ 的长度，而 $M$ 和 $D$ 分别是数组 $nums$ 中的元素的最大值和数位和的最大值。本题中 $M \leq 10^9$，$D \leq 81$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             d[x] = max(d[x], v)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSum(nums []int) int {
 	d := [100]int{}
@@ -144,8 +130,6 @@ func maximumSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumSum(nums: number[]): number {
     const d: number[] = Array(100).fill(0);
@@ -163,8 +147,6 @@ function maximumSum(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -190,10 +172,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

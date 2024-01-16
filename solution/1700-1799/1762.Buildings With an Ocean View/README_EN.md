@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                 mx = heights[i]
         return ans[::-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findBuildings(heights []int) (ans []int) {
 	mx := 0
@@ -119,8 +113,6 @@ func findBuildings(heights []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findBuildings(heights: number[]): number[] {
     const ans: number[] = [];
@@ -134,8 +126,6 @@ function findBuildings(heights: number[]): number[] {
     return ans.reverse();
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -155,10 +145,6 @@ var findBuildings = function (heights) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

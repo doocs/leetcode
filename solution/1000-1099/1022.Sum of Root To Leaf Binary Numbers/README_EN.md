@@ -40,11 +40,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -65,8 +63,6 @@ class Solution:
 
         return dfs(root, 0)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -102,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -131,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -158,8 +150,6 @@ func sumRootToLeaf(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -191,8 +181,6 @@ function sumRootToLeaf(root: TreeNode | null): number {
     return dfs(root, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -234,10 +222,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

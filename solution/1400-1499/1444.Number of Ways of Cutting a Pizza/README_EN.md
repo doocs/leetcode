@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
                 s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + int(c == 'A')
         return dfs(0, 0, k - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +160,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func ways(pizza []string, k int) int {
@@ -222,8 +216,6 @@ func ways(pizza []string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function ways(pizza: string[], k: number): number {
     const mod = 1e9 + 7;
@@ -261,10 +253,6 @@ function ways(pizza: string[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

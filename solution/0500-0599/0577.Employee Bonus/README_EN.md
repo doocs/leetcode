@@ -76,13 +76,11 @@ Bonus table:
 
 ## Solutions
 
-**Solution 1: Left Join**
+### Solution 1: Left Join
 
 We can use a left join to join the `Employee` table and the `Bonus` table on `empId`, and then filter out the employees whose bonus is less than $1000$. Note that the employees with `NULL` bonus values after the join should also be filtered out, so we need to use the `IFNULL` function to convert `NULL` values to $0$.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -94,3 +92,5 @@ WHERE IFNULL(bonus, 0) < 1000;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 根据题目描述，我们知道，函数 $func(arr, l, r)$ 实际上就是数组 $arr$ 下标 $l$ 到 $r$ 的元素的按位与运算的结果，即 $arr[l] \& arr[l + 1] \& \cdots \& arr[r]$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 和 $M$ 分别是数组 $arr$ 的长度和数组 $arr$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
             ans = min(ans, min(abs(y - target) for y in s))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closestToTarget(arr []int, target int) int {
@@ -153,8 +139,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function closestToTarget(arr: number[], target: number): number {
     let ans = Math.abs(arr[0] - target);
@@ -175,10 +159,6 @@ function closestToTarget(arr: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

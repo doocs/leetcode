@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们定义两个指针 $i$ 和 $j$，分别指向字符串 $s$ 和 $t$ 的首字符。遍历字符串 $t$，当 $s[i] \neq t[j]$ 时，指针 $i$ 后移，直到 $s[i] = t[j]$ 或者 $i$ 到达字符串 $s$ 的末尾。如果 $i$ 到达字符串 $s$ 的末尾，说明 $t$ 中的字符 $t[j]$ 无法在 $s$ 中找到对应的字符，返回 $t$ 中剩余的字符数。否则，将指针 $i$ 和 $j$ 同时后移，继续遍历字符串 $t$。
 
 时间复杂度 $(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $t$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             i += 1
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func appendCharacters(s string, t string) int {
 	m, n := len(s), len(t)
@@ -137,8 +123,6 @@ func appendCharacters(s string, t string) int {
 	return 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function appendCharacters(s: string, t: string): number {
@@ -156,10 +140,6 @@ function appendCharacters(s: string, t: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

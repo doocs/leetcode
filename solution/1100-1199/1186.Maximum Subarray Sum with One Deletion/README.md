@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 枚举**
+### 方法一：预处理 + 枚举
 
 我们可以先预处理出数组 $arr$ 以每个元素结尾和开头的最大子数组和，分别存入数组 $left$ 和 $right$ 中。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
             ans = max(ans, left[i - 1] + right[i + 1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSum(arr []int) int {
 	n := len(arr)
@@ -160,8 +146,6 @@ func maximumSum(arr []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumSum(arr: number[]): number {
@@ -184,10 +168,6 @@ function maximumSum(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f$, $g$, $h$ 表示前 $i$ 项中，分别以最后三项作为子数组的最大值所需要的最小增量运算数，初始时 $f = 0$, $g = 0$, $h = 0$。
 
@@ -95,10 +93,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minIncrementOperations(self, nums: List[int], k: int) -> int:
@@ -107,10 +101,6 @@ class Solution:
             f, g, h = g, h, min(f, g, h) + max(k - x, 0)
         return min(f, g, h)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minIncrementOperations(nums []int, k int) int64 {
 	var f, g, h int
@@ -156,8 +142,6 @@ func minIncrementOperations(nums []int, k int) int64 {
 	return int64(min(f, g, h))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minIncrementOperations(nums: number[], k: number): number {
@@ -169,10 +153,6 @@ function minIncrementOperations(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

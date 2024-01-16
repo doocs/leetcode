@@ -59,17 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-BFS。
-
-将所有门放入队列，依次向外扩进行宽搜。由于宽度优先搜索保证我们在搜索 d + 1 距离的位置时， 距离为 d 的位置都已经被搜索过了，所以到达每一个房间的时候一定是最短距离。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +83,6 @@ class Solution:
                         rooms[x][y] = d
                         q.append((x, y))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wallsAndGates(rooms [][]int) {
 	m, n := len(rooms), len(rooms[0])
@@ -195,10 +179,6 @@ func wallsAndGates(rooms [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

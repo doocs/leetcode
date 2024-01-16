@@ -62,19 +62,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 枚举数组的左端点 `i`，判断是否存在一个 `i`，满足对于任意 `j∈[0, m * k)`，`arr[i + j] == arr[i + (j % m)]`。存在则返回 `true`，否则返回 `false`。
 
 时间复杂度 $O((n-m\times k)\times m \times k)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func containsPattern(arr []int, m int, k int) bool {
 	n := len(arr)
@@ -157,8 +143,6 @@ func containsPattern(arr []int, m int, k int) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function containsPattern(arr: number[], m: number, k: number): boolean {
@@ -178,10 +162,6 @@ function containsPattern(arr: number[], m: number, k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

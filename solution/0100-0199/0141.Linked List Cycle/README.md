@@ -60,27 +60,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 遍历链表，并使用哈希表记录每个节点。当某个节点二次出现时，则表示存在环，直接返回 `true`。否则链表遍历结束，返回 `false`。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表中的节点数。
 
-**方法二：快慢指针**
-
-我们定义快慢指针 $fast$ 和 $slow$，初始时均指向 $head$。
-
-快指针每次走两步，慢指针每次走一步，不断循环。当快慢指针相遇时，说明链表存在环。如果循环结束依然没有相遇，说明链表不存在环。
-
-时间复杂度 $O(n)$，其中 $n$ 是链表中的节点数。空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -99,10 +85,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -132,8 +114,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -160,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -181,8 +159,6 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -211,35 +187,6 @@ function hasCycle(head: ListNode | null): boolean {
 }
 ```
 
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function hasCycle(head: ListNode | null): boolean {
-    let slow = head;
-    let fast = head;
-    while (fast !== null && fast.next !== null) {
-        slow = slow.next;
-        fast = fast.next.next;
-        if (slow === fast) {
-            return true;
-        }
-    }
-    return false;
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * Definition for singly-linked list.
@@ -266,8 +213,6 @@ var hasCycle = function (head) {
     return false;
 };
 ```
-
-### **C#**
 
 ```cs
 /**
@@ -297,10 +242,45 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二：快慢指针
 
+我们定义快慢指针 $fast$ 和 $slow$，初始时均指向 $head$。
+
+快指针每次走两步，慢指针每次走一步，不断循环。当快慢指针相遇时，说明链表存在环。如果循环结束依然没有相遇，说明链表不存在环。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表中的节点数。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function hasCycle(head: ListNode | null): boolean {
+    let slow = head;
+    let fast = head;
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

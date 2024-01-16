@@ -59,7 +59,7 @@ Number 10 is contained in the table.
 
 ## Solutions
 
-**Solution 1: Group By + Window Function**
+### Solution 1: Group By + Window Function
 
 We need to find a way to group a continuous sequence of logs into the same group, and then aggregate each group to obtain the start and end logs of each group.
 
@@ -69,8 +69,6 @@ There are two ways to implement grouping:
 2. By calculating the difference between the current log and its row number, we obtain the grouping identifier for each row.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -92,6 +90,12 @@ FROM T
 GROUP BY pid;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -107,3 +111,5 @@ GROUP BY pid;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

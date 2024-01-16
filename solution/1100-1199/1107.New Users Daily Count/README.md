@@ -71,11 +71,9 @@ ID 为 5 的用户第一次登陆于 2019-03-01，因此他不算在 2019-06-21 
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -94,3 +92,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

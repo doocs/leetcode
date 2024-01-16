@@ -41,15 +41,13 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We can traverse each cell $(i, j)$ in the matrix `grid2`. If the value of the cell is $1$, we start a depth-first search from this cell, set the value of all cells connected to this cell to $0$, and record whether the corresponding cell in `grid1` is also $1$ for all cells connected to this cell. If it is $1$, it means that this cell is also an island in `grid1`, otherwise it is not. Finally, we count the number of sub-islands in `grid2`.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrices `grid1` and `grid2`, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,30 +65,6 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return sum(dfs(i, j) for i in range(m) for j in range(n) if grid2[i][j])
 ```
-
-```python
-class Solution:
-    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        def bfs(i: int, j: int) -> int:
-            ok = grid1[i][j]
-            q = deque([(i, j)])
-            grid2[i][j] = 0
-            while q:
-                i, j = q.popleft()
-                for a, b in pairwise(dirs):
-                    x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
-                        q.append((x, y))
-                        ok = ok & grid1[x][y]
-                        grid2[x][y] = 0
-            return ok
-
-        m, n = len(grid1), len(grid1[0])
-        dirs = (-1, 0, 1, 0, -1)
-        return sum(bfs(i, j) for i in range(m) for j in range(n) if grid2[i][j])
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSubIslands(grid1 [][]int, grid2 [][]int) (ans int) {
 	m, n := len(grid1), len(grid1[0])
@@ -190,8 +160,6 @@ func countSubIslands(grid1 [][]int, grid2 [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countSubIslands(grid1: number[][], grid2: number[][]): number {
@@ -220,10 +188,34 @@ function countSubIslands(grid1: number[][], grid2: number[][]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        def bfs(i: int, j: int) -> int:
+            ok = grid1[i][j]
+            q = deque([(i, j)])
+            grid2[i][j] = 0
+            while q:
+                i, j = q.popleft()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
+                        q.append((x, y))
+                        ok = ok & grid1[x][y]
+                        grid2[x][y] = 0
+            return ok
+
+        m, n = len(grid1), len(grid1[0])
+        dirs = (-1, 0, 1, 0, -1)
+        return sum(bfs(i, j) for i in range(m) for j in range(n) if grid2[i][j])
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

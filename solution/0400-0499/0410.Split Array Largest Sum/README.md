@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，当子数组的和的最大值越大，子数组的个数越少，当存在一个满足条件的子数组和的最大值时，那么比这个最大值更大的子数组和的最大值一定也满足条件。也就是说，我们可以对子数组和的最大值进行二分查找，找到满足条件的最小值。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(n \times \log m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组的长度和数组所有元素的和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
         left, right = max(nums), sum(nums)
         return left + bisect_left(range(left, right + 1), True, key=check)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func splitArray(nums []int, k int) int {
 	left, right := 0, 0
@@ -177,8 +163,6 @@ func splitArray(nums []int, k int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function splitArray(nums: number[], k: number): number {
@@ -212,10 +196,6 @@ function splitArray(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

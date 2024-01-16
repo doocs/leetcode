@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学（快速幂）**
+### 方法一：数学（快速幂）
 
 根据题目描述，每一只猴子都有两种移动方式，即顺时针或逆时针。因此，一共有 $2^n$ 种移动方式。不碰撞的移动方式只有两种，即所有猴子都顺时针移动或所有猴子都逆时针移动。因此，碰撞的移动方式有 $2^n - 2$ 种。
 
@@ -66,20 +64,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def monkeyMove(self, n: int) -> int:
         mod = 10**9 + 7
         return (pow(2, n, mod) - 2) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func monkeyMove(n int) int {
 	const mod = 1e9 + 7
@@ -142,8 +128,6 @@ func monkeyMove(n int) int {
 	return (qpow(2, n) - 2 + mod) % mod
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function monkeyMove(n: number): number {
@@ -162,10 +146,6 @@ function monkeyMove(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

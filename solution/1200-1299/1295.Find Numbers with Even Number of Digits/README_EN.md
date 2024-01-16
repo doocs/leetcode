@@ -40,17 +40,15 @@ Only 1771 contains an even number of digits.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
         return sum(len(str(v)) % 2 == 0 for v in nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +64,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -81,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findNumbers(nums []int) (ans int) {
 	for _, v := range nums {
@@ -93,8 +87,6 @@ func findNumbers(nums []int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -110,10 +102,6 @@ var findNumbers = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -26,7 +26,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + DFS**
+### Solution 1: Sorting + DFS
 
 We can first sort the array $nums$ to facilitate deduplication.
 
@@ -40,19 +40,7 @@ Finally, we only need to call $dfs(0)$ and return the answer array.
 
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
-**Solution 2: Sorting + Binary Enumeration**
-
-Similar to Solution 1, we first sort the array $nums$ to facilitate deduplication.
-
-Next, we enumerate a binary number $mask$ in the range of $[0, 2^n)$, where the binary representation of $mask$ is an $n$-bit bit string. If the $i$-th bit of $mask$ is $1$, it means to select $nums[i]$, and $0$ means not to select $nums[i]$. Note that if the $i - 1$ bit of $mask$ is $0$, and $nums[i] = nums[i - 1]$, it means that in the current enumerated scheme, the $i$-th element and the $i - 1$-th element are the same. To avoid repetition, we skip this situation. Otherwise, we add the subset corresponding to $mask$ to the answer array.
-
-After the enumeration ends, we return the answer array.
-
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,28 +62,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-```python
-class Solution:
-    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
-        n = len(nums)
-        ans = []
-        for mask in range(1 << n):
-            ok = True
-            t = []
-            for i in range(n):
-                if mask >> i & 1:
-                    if i and (mask >> (i - 1) & 1) == 0 and nums[i] == nums[i - 1]:
-                        ok = False
-                        break
-                    t.append(nums[i])
-            if ok:
-                ans.append(t)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,35 +92,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        List<List<Integer>> ans = new ArrayList<>();
-        for (int mask = 0; mask < 1 << n; ++mask) {
-            List<Integer> t = new ArrayList<>();
-            boolean ok = true;
-            for (int i = 0; i < n; ++i) {
-                if ((mask >> i & 1) == 1) {
-                    if (i > 0 && (mask >> (i - 1) & 1) == 0 && nums[i] == nums[i - 1]) {
-                        ok = false;
-                        break;
-                    }
-                    t.add(nums[i]);
-                }
-            }
-            if (ok) {
-                ans.add(t);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -180,6 +117,144 @@ public:
         return ans;
     }
 };
+```
+
+```go
+func subsetsWithDup(nums []int) (ans [][]int) {
+	sort.Ints(nums)
+	n := len(nums)
+	t := []int{}
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= n {
+			ans = append(ans, slices.Clone(t))
+			return
+		}
+		t = append(t, nums[i])
+		dfs(i + 1)
+		t = t[:len(t)-1]
+		for i+1 < n && nums[i+1] == nums[i] {
+			i++
+		}
+		dfs(i + 1)
+	}
+	dfs(0)
+	return
+}
+```
+
+```ts
+function subsetsWithDup(nums: number[]): number[][] {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const t: number[] = [];
+    const ans: number[][] = [];
+    const dfs = (i: number): void => {
+        if (i >= n) {
+            ans.push([...t]);
+            return;
+        }
+        t.push(nums[i]);
+        dfs(i + 1);
+        t.pop();
+        while (i + 1 < n && nums[i] === nums[i + 1]) {
+            i++;
+        }
+        dfs(i + 1);
+    };
+    dfs(0);
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut nums = nums;
+        nums.sort();
+        let mut ans = Vec::new();
+        let mut t = Vec::new();
+
+        fn dfs(i: usize, nums: &Vec<i32>, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
+            if i >= nums.len() {
+                ans.push(t.clone());
+                return;
+            }
+            t.push(nums[i]);
+            dfs(i + 1, nums, t, ans);
+            t.pop();
+            let mut i = i;
+            while i + 1 < nums.len() && nums[i + 1] == nums[i] {
+                i += 1;
+            }
+            dfs(i + 1, nums, t, ans);
+        }
+
+        dfs(0, &nums, &mut t, &mut ans);
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Sorting + Binary Enumeration
+
+Similar to Solution 1, we first sort the array $nums$ to facilitate deduplication.
+
+Next, we enumerate a binary number $mask$ in the range of $[0, 2^n)$, where the binary representation of $mask$ is an $n$-bit bit string. If the $i$-th bit of $mask$ is $1$, it means to select $nums[i]$, and $0$ means not to select $nums[i]$. Note that if the $i - 1$ bit of $mask$ is $0$, and $nums[i] = nums[i - 1]$, it means that in the current enumerated scheme, the $i$-th element and the $i - 1$-th element are the same. To avoid repetition, we skip this situation. Otherwise, we add the subset corresponding to $mask$ to the answer array.
+
+After the enumeration ends, we return the answer array.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        n = len(nums)
+        ans = []
+        for mask in range(1 << n):
+            ok = True
+            t = []
+            for i in range(n):
+                if mask >> i & 1:
+                    if i and (mask >> (i - 1) & 1) == 0 and nums[i] == nums[i - 1]:
+                        ok = False
+                        break
+                    t.append(nums[i])
+            if ok:
+                ans.append(t)
+        return ans
+```
+
+```java
+class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            List<Integer> t = new ArrayList<>();
+            boolean ok = true;
+            for (int i = 0; i < n; ++i) {
+                if ((mask >> i & 1) == 1) {
+                    if (i > 0 && (mask >> (i - 1) & 1) == 0 && nums[i] == nums[i - 1]) {
+                        ok = false;
+                        break;
+                    }
+                    t.add(nums[i]);
+                }
+            }
+            if (ok) {
+                ans.add(t);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
@@ -210,32 +285,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func subsetsWithDup(nums []int) (ans [][]int) {
-	sort.Ints(nums)
-	n := len(nums)
-	t := []int{}
-	var dfs func(int)
-	dfs = func(i int) {
-		if i >= n {
-			ans = append(ans, slices.Clone(t))
-			return
-		}
-		t = append(t, nums[i])
-		dfs(i + 1)
-		t = t[:len(t)-1]
-		for i+1 < n && nums[i+1] == nums[i] {
-			i++
-		}
-		dfs(i + 1)
-	}
-	dfs(0)
-	return
-}
-```
-
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -257,32 +306,6 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function subsetsWithDup(nums: number[]): number[][] {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    const t: number[] = [];
-    const ans: number[][] = [];
-    const dfs = (i: number): void => {
-        if (i >= n) {
-            ans.push([...t]);
-            return;
-        }
-        t.push(nums[i]);
-        dfs(i + 1);
-        t.pop();
-        while (i + 1 < n && nums[i] === nums[i + 1]) {
-            i++;
-        }
-        dfs(i + 1);
-    };
-    dfs(0);
-    return ans;
 }
 ```
 
@@ -308,37 +331,6 @@ function subsetsWithDup(nums: number[]): number[][] {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut nums = nums;
-        nums.sort();
-        let mut ans = Vec::new();
-        let mut t = Vec::new();
-
-        fn dfs(i: usize, nums: &Vec<i32>, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
-            if i >= nums.len() {
-                ans.push(t.clone());
-                return;
-            }
-            t.push(nums[i]);
-            dfs(i + 1, nums, t, ans);
-            t.pop();
-            let mut i = i;
-            while i + 1 < nums.len() && nums[i + 1] == nums[i] {
-                i += 1;
-            }
-            dfs(i + 1, nums, t, ans);
-        }
-
-        dfs(0, &nums, &mut t, &mut ans);
-        ans
-    }
 }
 ```
 
@@ -370,10 +362,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

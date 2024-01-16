@@ -58,7 +58,7 @@ So, the answer is 2.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 Assume that the current number of devices we have tested is $ans$. When testing a new device $i$, its remaining battery is $\max(0, batteryPercentages[i] - ans)$. If the remaining battery is greater than $0$, it means this device can be tested, and we need to increase $ans$ by $1$.
 
@@ -67,8 +67,6 @@ Finally, return $ans$.
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
             ans += x > 0
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countTestedDevices(batteryPercentages []int) (ans int) {
 	for _, x := range batteryPercentages {
@@ -128,8 +120,6 @@ func countTestedDevices(batteryPercentages []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countTestedDevices(batteryPercentages: number[]): number {
@@ -144,10 +134,6 @@ function countTestedDevices(batteryPercentages: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

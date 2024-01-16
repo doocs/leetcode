@@ -57,9 +57,9 @@ Thus, &quot;<u>021</u>&quot; becomes &quot;<u>934</u>&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                 break
         return ''.join(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumNumber(num string, change []int) string {
 	s := []byte(num)
@@ -130,10 +124,6 @@ func maximumNumber(num string, change []int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

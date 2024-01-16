@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：队列模拟**
+### 方法一：队列模拟
 
 根据题目描述，我们知道，数组 `deck` 逆序排列后的序列就是最终的结果。我们可以从最终结果入手，逆向推导出卡片顺序。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
@@ -81,10 +75,6 @@ class Solution:
             q.appendleft(v)
         return list(q)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func deckRevealedIncreasing(deck []int) []int {
 	sort.Sort(sort.Reverse(sort.IntSlice(deck)))
@@ -143,10 +129,6 @@ func deckRevealedIncreasing(deck []int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

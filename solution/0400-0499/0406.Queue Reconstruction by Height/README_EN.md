@@ -43,9 +43,9 @@ Hence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
             ans.insert(p[1], p)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -89,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reconstructQueue(people [][]int) [][]int {
 	sort.Slice(people, func(i, j int) bool {
@@ -106,10 +100,6 @@ func reconstructQueue(people [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

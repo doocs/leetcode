@@ -55,19 +55,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：有序集合 + 滑动窗口**
+### 方法一：有序集合 + 滑动窗口
 
 我们可以枚举每个位置作为子数组的右端点，找到其对应的最靠左的左端点，满足区间内中最大值与最小值的差值不超过 $limit$。过程中，我们用有序集合维护窗口内的最大值和最小值。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -85,10 +79,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestSubarray(nums []int, limit int) (ans int) {
@@ -162,8 +148,6 @@ func longestSubarray(nums []int, limit int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestSubarray(nums: number[], limit: number): number {
@@ -799,10 +783,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

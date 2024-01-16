@@ -56,15 +56,11 @@ Followers 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组统计**
+### 方法一：分组统计
 
 我们可以直接对 `Followers` 表按照 `user_id` 进行分组，然后使用 `COUNT` 函数统计每个用户的关注者数量即可。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -75,3 +71,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

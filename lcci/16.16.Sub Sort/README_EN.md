@@ -21,7 +21,7 @@
 
 ## Solutions
 
-**Solution 1: Two Passes**
+### Solution 1: Two Passes
 
 We first traverse the array $array$ from left to right, and use $mx$ to record the maximum value encountered so far. If the current value $x$ is less than $mx$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $right$; otherwise, update $mx$.
 
@@ -32,8 +32,6 @@ Finally, return $[left, right]$.
 The time complexity is $O(n)$, where $n$ is the length of the array $array$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -53,8 +51,6 @@ class Solution:
                 mi = array[i]
         return [left, right]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subSort(array []int) []int {
 	n := len(array)
@@ -133,8 +125,6 @@ func subSort(array []int) []int {
 	return []int{left, right}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function subSort(array: number[]): number[] {
@@ -159,10 +149,6 @@ function subSort(array: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

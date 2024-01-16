@@ -57,7 +57,7 @@ There are four ways to partition the array.
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Hash Table**
+### Solution 1: Prefix Sum + Hash Table
 
 We can preprocess to get the prefix sum array $s$ corresponding to the array $nums$, where $s[i]$ represents the sum of the array $nums[0,...i-1]$. Therefore, the sum of all elements in the array is $s[n - 1]$.
 
@@ -70,8 +70,6 @@ Finally, we return $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,8 +96,6 @@ class Solution:
             right[v] -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToPartition(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -196,10 +188,6 @@ func waysToPartition(nums []int, k int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

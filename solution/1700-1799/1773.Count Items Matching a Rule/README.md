@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数模拟**
+### 方法一：计数模拟
 
 由于 `ruleKey` 只可能是 `"type"`、`"color"` 或 `"name"`，我们可以直接取 `ruleKey` 的第一个字符来确定 `item` 的下标 $i$。然后遍历 `items` 数组，统计 `item[i] == ruleValue` 的个数即可。
 
@@ -60,20 +58,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
         i = 0 if ruleKey[0] == 't' else (1 if ruleKey[0] == 'c' else 2)
         return sum(v[i] == ruleValue for v in items)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +89,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) {
@@ -116,7 +102,24 @@ func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) 
 }
 ```
 
-### **C**
+```ts
+function countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
+    const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
+    return items.reduce((r, v) => r + (v[key] === ruleValue ? 1 : 0), 0);
+}
+```
+
+```rust
+impl Solution {
+    pub fn count_matches(items: Vec<Vec<String>>, rule_key: String, rule_value: String) -> i32 {
+        let key = if rule_key == "type" { 0 } else if rule_key == "color" { 1 } else { 2 };
+        items
+            .iter()
+            .filter(|v| v[key] == rule_value)
+            .count() as i32
+    }
+}
+```
 
 ```c
 int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey, char* ruleValue) {
@@ -132,33 +135,6 @@ int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey,
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
-    const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
-    return items.reduce((r, v) => r + (v[key] === ruleValue ? 1 : 0), 0);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn count_matches(items: Vec<Vec<String>>, rule_key: String, rule_value: String) -> i32 {
-        let key = if rule_key == "type" { 0 } else if rule_key == "color" { 1 } else { 2 };
-        items
-            .iter()
-            .filter(|v| v[key] == rule_value)
-            .count() as i32
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

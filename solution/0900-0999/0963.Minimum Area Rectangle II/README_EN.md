@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
                                     ans = min(ans, w * h)
         return 0 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,8 +154,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minAreaFreeRect(points [][]int) float64 {
@@ -200,8 +194,6 @@ func minAreaFreeRect(points [][]int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minAreaFreeRect(points: number[][]): number {
     const n = points.length;
@@ -237,10 +229,6 @@ function minAreaFreeRect(points: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

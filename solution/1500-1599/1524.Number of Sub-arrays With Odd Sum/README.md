@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 计数器**
+### 方法一：前缀和 + 计数器
 
 我们定义一个长度为 $2$ 的数组 $cnt$ 作为计数器，其中 $cnt[0]$ 和 $cnt[1]$ 分别表示前缀和为偶数和奇数的子数组的个数。初始时 $cnt[0] = 1$，而 $cnt[1] = 0$。
 
@@ -75,10 +73,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numOfSubarrays(self, arr: List[int]) -> int:
@@ -91,10 +85,6 @@ class Solution:
             cnt[s & 1] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numOfSubarrays(arr []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -146,8 +132,6 @@ func numOfSubarrays(arr []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numOfSubarrays(arr: number[]): number {
@@ -164,10 +148,6 @@ function numOfSubarrays(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,19 +47,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先根据 $pid$ 和 $ppid$ 构建出图 $g$，其中 $g[i]$ 表示进程 $i$ 的所有子进程。然后从进程 $kill$ 开始，进行深度优先搜索，即可得到所有被杀掉的进程。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是进程的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
         dfs(kill)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	g := map[int][]int{}
@@ -147,8 +133,6 @@ func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function killProcess(pid: number[], ppid: number[], kill: number): number[] {
@@ -170,8 +154,6 @@ function killProcess(pid: number[], ppid: number[], kill: number): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -201,10 +183,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

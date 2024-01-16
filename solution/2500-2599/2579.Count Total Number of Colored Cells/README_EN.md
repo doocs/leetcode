@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 We find that after the $n$th minute, there are a total of $2 \times n - 1$ columns in the grid, and the numbers on each column are respectively $1, 3, 5, \cdots, 2 \times n - 1, 2 \times n - 3, \cdots, 3, 1$. The left and right parts are both arithmetic progressions, and the sum can be obtained by $2 \times n \times (n - 1) + 1$.
 
@@ -49,15 +49,11 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def coloredCells(self, n: int) -> int:
         return 2 * n * (n - 1) + 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +62,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -78,23 +72,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func coloredCells(n int) int64 {
 	return int64(2*n*(n-1) + 1)
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function coloredCells(n: number): number {
     return 2 * n * (n - 1) + 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -104,10 +92,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,13 +60,9 @@ bs.toString(); // 返回 "01010" ，即 bitset 的当前组成情况。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Bitset:
@@ -114,10 +110,6 @@ class Bitset:
 # param_6 = obj.count()
 # param_7 = obj.toString()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Bitset {
@@ -185,8 +177,6 @@ class Bitset {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Bitset {
 public:
@@ -242,8 +232,6 @@ public:
  * string param_7 = obj->toString();
  */
 ```
-
-### **Go**
 
 ```go
 type Bitset struct {
@@ -308,16 +296,6 @@ func (this *Bitset) ToString() string {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

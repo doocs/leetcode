@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示长度为 $i$ 的字符串中满足条件的个数。状态转移方程为：
 
@@ -77,10 +75,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def goodBinaryStrings(
@@ -96,10 +90,6 @@ class Solution:
             f[i] %= mod
         return sum(f[minLength:]) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -151,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func goodBinaryStrings(minLength int, maxLength int, oneGroup int, zeroGroup int) (ans int) {
 	const mod int = 1e9 + 7
@@ -173,8 +159,6 @@ func goodBinaryStrings(minLength int, maxLength int, oneGroup int, zeroGroup int
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function goodBinaryStrings(
@@ -199,10 +183,6 @@ function goodBinaryStrings(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

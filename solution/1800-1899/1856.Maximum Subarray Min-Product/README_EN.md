@@ -54,7 +54,7 @@
 
 ## Solutions
 
-**Solution 1: Monotonic Stack + Prefix Sum**
+### Solution 1: Monotonic Stack + Prefix Sum
 
 We can enumerate each element $nums[i]$ as the minimum value of the subarray, and find the left and right boundaries $left[i]$ and $right[i]$ of the subarray. Where $left[i]$ represents the first position strictly less than $nums[i]$ on the left side of $i$, and $right[i]$ represents the first position less than or equal to $nums[i]$ on the right side of $i$.
 
@@ -65,8 +65,6 @@ Then the minimum product with $nums[i]$ as the minimum value of the subarray is 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -92,8 +90,6 @@ class Solution:
         mod = 10**9 + 7
         return max((s[right[i]] - s[left[i] + 1]) * x for i, x in enumerate(nums)) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -180,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxSumMinProduct(nums []int) int {
@@ -227,8 +219,6 @@ func maxSumMinProduct(nums []int) int {
 }
 ```
 
-### **TypeSript**
-
 ```ts
 function maxSumMinProduct(nums: number[]): number {
     const n = nums.length;
@@ -270,10 +260,6 @@ function maxSumMinProduct(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

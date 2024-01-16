@@ -43,19 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 贪心**
+### 方法一：枚举 + 贪心
 
 我们可以分别枚举偶数位和奇数位作为“比相邻元素小”的元素，然后计算需要的操作次数。取两者的最小值即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                 ans[i] += d
         return min(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func movesToMakeZigzag(nums []int) int {
@@ -142,7 +128,25 @@ func movesToMakeZigzag(nums []int) int {
 }
 ```
 
-### **C#**
+```ts
+function movesToMakeZigzag(nums: number[]): number {
+    const ans: number[] = Array(2).fill(0);
+    const n = nums.length;
+    for (let i = 0; i < 2; ++i) {
+        for (let j = i; j < n; j += 2) {
+            let d = 0;
+            if (j > 0) {
+                d = Math.max(d, nums[j] - nums[j - 1] + 1);
+            }
+            if (j < n - 1) {
+                d = Math.max(d, nums[j] - nums[j + 1] + 1);
+            }
+            ans[i] += d;
+        }
+    }
+    return Math.min(...ans);
+}
+```
 
 ```cs
 public class Solution {
@@ -166,32 +170,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function movesToMakeZigzag(nums: number[]): number {
-    const ans: number[] = Array(2).fill(0);
-    const n = nums.length;
-    for (let i = 0; i < 2; ++i) {
-        for (let j = i; j < n; j += 2) {
-            let d = 0;
-            if (j > 0) {
-                d = Math.max(d, nums[j] - nums[j - 1] + 1);
-            }
-            if (j < n - 1) {
-                d = Math.max(d, nums[j] - nums[j + 1] + 1);
-            }
-            ans[i] += d;
-        }
-    }
-    return Math.min(...ans);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

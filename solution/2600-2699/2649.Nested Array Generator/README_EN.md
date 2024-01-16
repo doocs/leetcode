@@ -46,9 +46,9 @@ generator.next().done; // true
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type MultidimensionalArray = (MultidimensionalArray | number)[];
@@ -71,10 +71,6 @@ function* inorderTraversal(arr: MultidimensionalArray): Generator<number, void, 
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

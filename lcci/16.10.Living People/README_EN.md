@@ -31,7 +31,7 @@ death = {1948, 1951, 2000}
 
 ## Solutions
 
-**Solution 1: Difference Array**
+### Solution 1: Difference Array
 
 The problem is actually about performing addition and subtraction operations on a continuous interval, and then finding the maximum value. This can be solved using a difference array.
 
@@ -42,8 +42,6 @@ We traverse the birth and death years of each person, and add one and subtract o
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the birth and death years, and $C$ is the range of years.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
                 ans = base + i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxAliveYear(birth []int, death []int) (ans int) {
 	base := 1900
@@ -142,8 +134,6 @@ func maxAliveYear(birth []int, death []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxAliveYear(birth: number[], death: number[]): number {
     const base = 1900;
@@ -165,8 +155,6 @@ function maxAliveYear(birth: number[], death: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -193,10 +181,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

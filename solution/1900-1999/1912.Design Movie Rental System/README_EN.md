@@ -63,9 +63,9 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedList
@@ -105,16 +105,6 @@ class MovieRentingSystem:
 # param_4 = obj.report()
 ```
 
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

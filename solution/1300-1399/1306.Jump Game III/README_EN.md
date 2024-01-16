@@ -49,11 +49,9 @@ index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
                     q.append(j)
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canReach(arr []int, start int) bool {
 	q := []int{start}
@@ -145,8 +137,6 @@ func canReach(arr []int, start int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canReach(arr: number[], start: number): boolean {
     const q: number[] = [start];
@@ -167,10 +157,6 @@ function canReach(arr: number[], start: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

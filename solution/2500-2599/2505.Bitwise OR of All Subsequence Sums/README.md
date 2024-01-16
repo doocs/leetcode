@@ -40,19 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们先用数组 $cnt$ 统计每一位上 $1$ 的个数，然后从低位到高位，如果该位上 $1$ 的个数大于 $0$，则将该位所表示的数加入到答案中。然后判断是否可以进位，是则累加到下一位。
 
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别为数组长度和数组中元素的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             cnt[i + 1] += cnt[i] // 2
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subsequenceSumOr(nums []int) int64 {
 	cnt := make([]int, 64)
@@ -146,10 +132,6 @@ func subsequenceSumOr(nums []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

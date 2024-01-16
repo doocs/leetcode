@@ -35,19 +35,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 将数组中的数字转换为字符串，然后按照字符串拼接的大小进行排序。具体地，比较两个字符串 $a$ 和 $b$，如果 $a + b \lt b + a$，则 $a$ 小于 $b$，否则 $a$ 大于 $b$。
 
 时间复杂度 $O(n \times \log n + n \times m)$，空间复杂度 $O(n \times m)$。其中 $n $ 和 $m$ 分别为数组的长度和字符串的平均长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -61,10 +55,6 @@ class Solution:
         return "".join(ans)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public String minNumber(int[] nums) {
@@ -76,8 +66,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minNumber(nums []int) string {
 	arr := []string{}
@@ -112,7 +98,22 @@ func minNumber(nums []int) string {
 }
 ```
 
-### **JavaScript**
+```ts
+function minNumber(nums: number[]): string {
+    return nums.sort((a, b) => Number(`${a}${b}`) - Number(`${b}${a}`)).join('');
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_number(mut nums: Vec<i32>) -> String {
+        nums.sort_by(|a, b| format!("{}{}", a, b).cmp(&format!("{}{}", b, a)));
+        nums.iter()
+            .map(|num| num.to_string())
+            .collect()
+    }
+}
+```
 
 ```js
 /**
@@ -129,29 +130,6 @@ var minNumber = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function minNumber(nums: number[]): string {
-    return nums.sort((a, b) => Number(`${a}${b}`) - Number(`${b}${a}`)).join('');
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn min_number(mut nums: Vec<i32>) -> String {
-        nums.sort_by(|a, b| format!("{}{}", a, b).cmp(&format!("{}{}", b, a)));
-        nums.iter()
-            .map(|num| num.to_string())
-            .collect()
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public string MinNumber(int[] nums) {
@@ -165,10 +143,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

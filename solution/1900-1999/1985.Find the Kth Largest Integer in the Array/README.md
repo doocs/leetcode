@@ -57,15 +57,9 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
         return nums[k - 1]
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public String kthLargestNumber(String[] nums, int k) {
@@ -92,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +93,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func kthLargestNumber(nums []string, k int) string {
@@ -121,10 +107,6 @@ func kthLargestNumber(nums []string, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

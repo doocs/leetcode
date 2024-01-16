@@ -41,13 +41,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +56,6 @@ class Solution:
                         mat[i][j], mat[i + 1][j + 1] = mat[i + 1][j + 1], mat[i][j]
         return mat
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func diagonalSort(mat [][]int) [][]int {
@@ -120,10 +108,6 @@ func diagonalSort(mat [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

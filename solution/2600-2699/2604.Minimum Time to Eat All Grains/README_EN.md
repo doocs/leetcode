@@ -50,7 +50,7 @@ So, the maximum time needed is 1.
 
 ## Solutions
 
-**Solution 1: Sorting + Binary Search**
+### Solution 1: Sorting + Binary Search
 
 First, sort the chickens and grains by their position from left to right. Then enumerate the time $t$ using binary search to find the smallest $t$ such that all the grains can be eaten up in $t$ seconds.
 
@@ -64,8 +64,6 @@ If $j=m$, it means that all the grains have been eaten, return `true`, otherwise
 Time complexity $O(n \times \log n + m \times \log m + (m + n) \times \log U)$, space complexity $O(\log m + \log n)$. $n$ and $m$ are the number of chickens and grains respectively, and $U$ is the maximum value of all the chicken and grain positions.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -95,8 +93,6 @@ class Solution:
         r = abs(hens[0] - grains[0]) + grains[-1] - grains[0] + 1
         return bisect_left(range(r), True, key=check)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -152,8 +148,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -201,8 +195,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumTime(hens []int, grains []int) int {
@@ -255,8 +247,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumTime(hens: number[], grains: number[]): number {
     hens.sort((a, b) => a - b);
@@ -304,10 +294,6 @@ function minimumTime(hens: number[], grains: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

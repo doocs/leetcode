@@ -17,19 +17,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们先对数组进行排序，然后遍历数组，将偶数下标的元素与后一个元素交换即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -38,10 +32,6 @@ class Solution:
         for i in range(0, len(nums), 2):
             nums[i : i + 2] = nums[i : i + 2][::-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -57,8 +47,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -72,8 +60,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wiggleSort(nums []int) {
 	sort.Ints(nums)
@@ -82,8 +68,6 @@ func wiggleSort(nums []int) {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -98,10 +82,6 @@ function wiggleSort(nums: number[]): void {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

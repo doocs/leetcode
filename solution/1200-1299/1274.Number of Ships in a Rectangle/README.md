@@ -51,19 +51,13 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归 + 分治**
+### 方法一：递归 + 分治
 
 由于矩形内最多只有 $10$ 艘船，所以我们可以将矩形划分为四个子矩形，分别求出每个子矩形内船只的数目，然后将四个子矩形内船只的数目相加即可。如果一个子矩形内没有船只，那么就不需要再继续划分了。
 
 时间复杂度 $O(C \times \log \max(m, n))$，空间复杂度 $O(\log \max(m, n))$。其中 $C$ 为船只的数目，而 $m$ 和 $n$ 分别为矩形的长和宽。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -101,10 +95,6 @@ class Solution:
         return dfs(topRight, bottomLeft)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /**
  * // This is Sea's API interface.
@@ -137,8 +127,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -175,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is Sea's API interface.
@@ -208,8 +194,6 @@ func countShips(sea Sea, topRight, bottomLeft []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * // This is the Sea's API interface.
@@ -238,10 +222,6 @@ function countShips(sea: Sea, topRight: number[], bottomLeft: number[]): number 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

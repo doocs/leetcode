@@ -20,9 +20,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -37,8 +37,6 @@ class Solution:
             right[n - i - 1] = max(right[n - i], height[n - i - 1])
         return sum(min(l, r) - h for l, r, h in zip(left, right, height))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -64,8 +62,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -90,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func trap(height []int) (ans int) {
 	n := len(height)
@@ -112,8 +106,6 @@ func trap(height []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function trap(height: number[]): number {
     const n = height.length;
@@ -133,8 +125,6 @@ function trap(height: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -160,10 +150,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

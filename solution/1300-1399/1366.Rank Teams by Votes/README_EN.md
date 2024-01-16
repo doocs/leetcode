@@ -56,15 +56,13 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 
 ## Solutions
 
-**Solution 1: Counting + Custom Sorting**
+### Solution 1: Counting + Custom Sorting
 
 For each candidate, we can count the number of votes they receive in each ranking, and then compare the number of votes according to different rankings. If the number of votes is the same, we compare the letters.
 
 The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Where $n$ is the number of candidates.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                 cnt[c][i] += 1
         return "".join(sorted(votes[0], key=lambda x: (cnt[x], -ord(x)), reverse=True))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rankTeams(votes []string) string {
 	cnt := [26][26]int{}
@@ -166,10 +158,6 @@ func rankTeams(votes []string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

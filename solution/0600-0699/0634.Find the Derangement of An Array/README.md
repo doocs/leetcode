@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示长度为 $i$ 的数组的错位排列的数量。初始时 $f[0] = 1$, $f[1] = 0$。答案即为 $f[n]$。
 
@@ -62,10 +60,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findDerangement(self, n: int) -> int:
@@ -75,20 +69,6 @@ class Solution:
             f[i] = (i - 1) * (f[i - 1] + f[i - 2]) % mod
         return f[n]
 ```
-
-```python
-class Solution:
-    def findDerangement(self, n: int) -> int:
-        mod = 10**9 + 7
-        a, b = 1, 0
-        for i in range(2, n + 1):
-            a, b = b, ((i - 1) * (a + b)) % mod
-        return b
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,23 +84,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findDerangement(int n) {
-        final int mod = (int) 1e9 + 7;
-        long a = 1, b = 0;
-        for (int i = 2; i <= n; ++i) {
-            long c = (i - 1) * (a + b) % mod;
-            a = b;
-            b = c;
-        }
-        return (int) b;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,6 +98,49 @@ public:
         return f[n];
     }
 };
+```
+
+```go
+func findDerangement(n int) int {
+	f := make([]int, n+1)
+	f[0] = 1
+	const mod = 1e9 + 7
+	for i := 2; i <= n; i++ {
+		f[i] = (i - 1) * (f[i-1] + f[i-2]) % mod
+	}
+	return f[n]
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findDerangement(self, n: int) -> int:
+        mod = 10**9 + 7
+        a, b = 1, 0
+        for i in range(2, n + 1):
+            a, b = b, ((i - 1) * (a + b)) % mod
+        return b
+```
+
+```java
+class Solution {
+    public int findDerangement(int n) {
+        final int mod = (int) 1e9 + 7;
+        long a = 1, b = 0;
+        for (int i = 2; i <= n; ++i) {
+            long c = (i - 1) * (a + b) % mod;
+            a = b;
+            b = c;
+        }
+        return (int) b;
+    }
+}
 ```
 
 ```cpp
@@ -153,20 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findDerangement(n int) int {
-	f := make([]int, n+1)
-	f[0] = 1
-	const mod = 1e9 + 7
-	for i := 2; i <= n; i++ {
-		f[i] = (i - 1) * (f[i-1] + f[i-2]) % mod
-	}
-	return f[n]
-}
-```
-
 ```go
 func findDerangement(n int) int {
 	a, b := 1, 0
@@ -178,10 +170,6 @@ func findDerangement(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

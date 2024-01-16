@@ -64,15 +64,13 @@ nums       index     target
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We create a list $target$ to store the target array. Since the problem guarantees that the insertion position always exists, we can directly insert in the given order into the corresponding position.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
             target.insert(i, x)
         return target
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func createTargetArray(nums []int, index []int) []int {
 	target := make([]int, len(nums))
@@ -131,8 +123,6 @@ func createTargetArray(nums []int, index []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function createTargetArray(nums: number[], index: number[]): number[] {
     const ans: number[] = [];
@@ -143,10 +133,6 @@ function createTargetArray(nums: number[], index: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

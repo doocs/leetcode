@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举贡献**
+### 方法一：枚举贡献
 
 我们可以枚举字符串的每个字符 $word[i]$，如果 $word[i]$ 是元音字母，那么 $word[i]$ 一共在 $(i + 1) \times (n - i)$ 个子字符串中出现，将这些子字符串的个数累加即可。
 
@@ -74,20 +72,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countVowels(self, word: str) -> int:
         n = len(word)
         return sum((i + 1) * (n - i) for i, c in enumerate(word) if c in 'aeiou')
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countVowels(word string) (ans int64) {
 	for i, c := range word {
@@ -134,8 +120,6 @@ func countVowels(word string) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countVowels(word: string): number {
@@ -150,10 +134,6 @@ function countVowels(word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

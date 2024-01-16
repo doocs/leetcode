@@ -66,9 +66,9 @@ order_date is sorted in ascending order.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -80,3 +80,5 @@ ORDER BY order_date
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,9 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,6 +75,76 @@ class Solution:
                 dist[t] = min(dist[t], backup[f] + p)
         return -1 if dist[dst] == INF else dist[dst]
 ```
+
+```java
+class Solution {
+    private static final int INF = 0x3f3f3f3f;
+
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+        int[] dist = new int[n];
+        int[] backup = new int[n];
+        Arrays.fill(dist, INF);
+        dist[src] = 0;
+        for (int i = 0; i < k + 1; ++i) {
+            System.arraycopy(dist, 0, backup, 0, n);
+            for (int[] e : flights) {
+                int f = e[0], t = e[1], p = e[2];
+                dist[t] = Math.min(dist[t], backup[f] + p);
+            }
+        }
+        return dist[dst] == INF ? -1 : dist[dst];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        const int inf = 0x3f3f3f3f;
+        vector<int> dist(n, inf);
+        vector<int> backup;
+        dist[src] = 0;
+        for (int i = 0; i < k + 1; ++i) {
+            backup = dist;
+            for (auto& e : flights) {
+                int f = e[0], t = e[1], p = e[2];
+                dist[t] = min(dist[t], backup[f] + p);
+            }
+        }
+        return dist[dst] == inf ? -1 : dist[dst];
+    }
+};
+```
+
+```go
+func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
+	const inf = 0x3f3f3f3f
+	dist := make([]int, n)
+	backup := make([]int, n)
+	for i := range dist {
+		dist[i] = inf
+	}
+	dist[src] = 0
+	for i := 0; i < k+1; i++ {
+		copy(backup, dist)
+		for _, e := range flights {
+			f, t, p := e[0], e[1], e[2]
+			dist[t] = min(dist[t], backup[f]+p)
+		}
+	}
+	if dist[dst] == inf {
+		return -1
+	}
+	return dist[dst]
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -98,29 +168,6 @@ class Solution:
             g[u].append((v, p))
         ans = dfs(src, k + 1)
         return -1 if ans >= inf else ans
-```
-
-### **Java**
-
-```java
-class Solution {
-    private static final int INF = 0x3f3f3f3f;
-
-    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
-        int[] dist = new int[n];
-        int[] backup = new int[n];
-        Arrays.fill(dist, INF);
-        dist[src] = 0;
-        for (int i = 0; i < k + 1; ++i) {
-            System.arraycopy(dist, 0, backup, 0, n);
-            for (int[] e : flights) {
-                int f = e[0], t = e[1], p = e[2];
-                dist[t] = Math.min(dist[t], backup[f] + p);
-            }
-        }
-        return dist[dst] == INF ? -1 : dist[dst];
-    }
-}
 ```
 
 ```java
@@ -167,28 +214,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
-        const int inf = 0x3f3f3f3f;
-        vector<int> dist(n, inf);
-        vector<int> backup;
-        dist[src] = 0;
-        for (int i = 0; i < k + 1; ++i) {
-            backup = dist;
-            for (auto& e : flights) {
-                int f = e[0], t = e[1], p = e[2];
-                dist[t] = min(dist[t], backup[f] + p);
-            }
-        }
-        return dist[dst] == inf ? -1 : dist[dst];
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -219,31 +244,6 @@ public:
         return memo[u][k];
     }
 };
-```
-
-### **Go**
-
-```go
-func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
-	const inf = 0x3f3f3f3f
-	dist := make([]int, n)
-	backup := make([]int, n)
-	for i := range dist {
-		dist[i] = inf
-	}
-	dist[src] = 0
-	for i := 0; i < k+1; i++ {
-		copy(backup, dist)
-		for _, e := range flights {
-			f, t, p := e[0], e[1], e[2]
-			dist[t] = min(dist[t], backup[f]+p)
-		}
-	}
-	if dist[dst] == inf {
-		return -1
-	}
-	return dist[dst]
-}
 ```
 
 ```go
@@ -291,10 +291,6 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

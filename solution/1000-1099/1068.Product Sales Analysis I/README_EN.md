@@ -82,9 +82,9 @@ From sale_id = 7, we can conclude that Apple was sold for 9000 in the year 2011.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -95,3 +95,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

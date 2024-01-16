@@ -81,9 +81,9 @@ values = [[5],[]]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type Fn = (...params: any) => any;
@@ -113,10 +113,6 @@ function memoize(fn: Fn): Fn {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

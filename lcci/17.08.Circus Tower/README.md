@@ -18,9 +18,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 离散化 + 树状数组**
+### 方法一：排序 + 离散化 + 树状数组
 
 我们现将所有人按照身高从小到大排序，若身高相同，则按照体重从大到小排序。这样我们可以将问题转换为求体重数组的最长递增子序列的问题。
 
@@ -29,10 +27,6 @@
 空间复杂度 $O(n)$。其中 $n$ 为人数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -68,10 +62,6 @@ class Solution:
             tree.update(x, t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -190,8 +178,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type BinaryIndexedTree struct {
@@ -253,10 +239,6 @@ func bestSeqAtIndex(height []int, weight []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

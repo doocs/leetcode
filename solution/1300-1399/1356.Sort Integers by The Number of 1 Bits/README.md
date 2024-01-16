@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 我们将数组 $arr$ 按照题目要求排序，即按照二进制表示中数字 $1$ 的数目升序排序，如果存在多个数字二进制中 $1$ 的数目相同，则必须将它们按照数值大小升序排列。
 
@@ -71,19 +69,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sortByBits(self, arr: List[int]) -> List[int]:
         return sorted(arr, key=lambda x: (x.bit_count(), x))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,28 +91,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int[] sortByBits(int[] arr) {
-        int n = arr.length;
-        Integer[] t = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            t[i] = arr[i];
-        }
-        Arrays.sort(t, (a, b) -> {
-            int x = Integer.bitCount(a), y = Integer.bitCount(b);
-            return x == y ? a - b : x - y;
-        });
-        for (int i = 0; i < n; ++i) {
-            arr[i] = t[i];
-        }
-        return arr;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,21 +107,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> sortByBits(vector<int>& arr) {
-        sort(arr.begin(), arr.end(), [&](auto& a, auto& b) -> bool {
-            int x = __builtin_popcount(a), y = __builtin_popcount(b);
-            return x < y || (x == y && a < b);
-        });
-        return arr;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func sortByBits(arr []int) []int {
 	for i, v := range arr {
@@ -166,18 +119,6 @@ func sortByBits(arr []int) []int {
 	return arr
 }
 ```
-
-```go
-func sortByBits(arr []int) []int {
-	sort.Slice(arr, func(i, j int) bool {
-		a, b := bits.OnesCount(uint(arr[i])), bits.OnesCount(uint(arr[j]))
-		return a < b || (a == b && arr[i] < arr[j])
-	})
-	return arr
-}
-```
-
-### **TypeScript**
 
 ```ts
 function sortByBits(arr: number[]): number[] {
@@ -193,8 +134,6 @@ function sortByBits(arr: number[]): number[] {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn sort_by_bits(mut arr: Vec<i32>) -> Vec<i32> {
@@ -209,8 +148,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 /**
@@ -242,10 +179,55 @@ int* sortByBits(int* arr, int arrSize, int* returnSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int[] sortByBits(int[] arr) {
+        int n = arr.length;
+        Integer[] t = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            t[i] = arr[i];
+        }
+        Arrays.sort(t, (a, b) -> {
+            int x = Integer.bitCount(a), y = Integer.bitCount(b);
+            return x == y ? a - b : x - y;
+        });
+        for (int i = 0; i < n; ++i) {
+            arr[i] = t[i];
+        }
+        return arr;
+    }
+}
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> sortByBits(vector<int>& arr) {
+        sort(arr.begin(), arr.end(), [&](auto& a, auto& b) -> bool {
+            int x = __builtin_popcount(a), y = __builtin_popcount(b);
+            return x < y || (x == y && a < b);
+        });
+        return arr;
+    }
+};
+```
+
+```go
+func sortByBits(arr []int) []int {
+	sort.Slice(arr, func(i, j int) bool {
+		a, b := bits.OnesCount(uint(arr[i])), bits.OnesCount(uint(arr[j]))
+		return a < b || (a == b && arr[i] < arr[j])
+	})
+	return arr
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

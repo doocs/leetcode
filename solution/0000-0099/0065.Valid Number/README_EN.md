@@ -67,7 +67,7 @@
 
 ## Solutions
 
-**Solution 1: Case Discussion**
+### Solution 1: Case Discussion
 
 First, we check if the string starts with a positive or negative sign. If it does, we move the pointer $i$ one step forward. If the pointer $i$ has reached the end of the string at this point, it means the string only contains a positive or negative sign, so we return `false`.
 
@@ -86,8 +86,6 @@ After traversing the string, return `true`.
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -120,8 +118,6 @@ class Solution:
             j += 1
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -164,8 +160,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -193,8 +187,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isNumber(s string) bool {
@@ -233,22 +225,6 @@ func isNumber(s string) bool {
 	return true
 }
 ```
-
-### **C#**
-
-```cs
-using System.Text.RegularExpressions;
-
-public class Solution {
-    private readonly Regex _isNumber_Regex = new Regex(@"^\s*[+-]?(\d+(\.\d*)?|\.\d+)([Ee][+-]?\d+)?\s*$");
-
-    public bool IsNumber(string s) {
-        return _isNumber_Regex.IsMatch(s);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -310,10 +286,18 @@ impl Solution {
 }
 ```
 
-### **...**
+```cs
+using System.Text.RegularExpressions;
 
-```
+public class Solution {
+    private readonly Regex _isNumber_Regex = new Regex(@"^\s*[+-]?(\d+(\.\d*)?|\.\d+)([Ee][+-]?\d+)?\s*$");
 
+    public bool IsNumber(string s) {
+        return _isNumber_Regex.IsMatch(s);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

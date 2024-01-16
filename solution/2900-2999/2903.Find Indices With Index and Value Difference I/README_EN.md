@@ -60,7 +60,7 @@ Hence, [-1,-1] is returned.</pre>
 
 ## Solutions
 
-**Solution 1: Two Pointers + Maintaining Maximum and Minimum Values**
+### Solution 1: Two Pointers + Maintaining Maximum and Minimum Values
 
 We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $indexDifference$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $indexDifference$, and $j` points to $0$.
 
@@ -73,8 +73,6 @@ If pointer $i$ moves to the end of the array and we have not found a pair of ind
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -94,8 +92,6 @@ class Solution:
                 return [mx, i]
         return [-1, -1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -122,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 	mi, mx := 0, 0
@@ -173,8 +165,6 @@ func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
     let [mi, mx] = [0, 0];
@@ -196,8 +186,6 @@ function findIndices(nums: number[], indexDifference: number, valueDifference: n
     return [-1, -1];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -231,10 +219,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

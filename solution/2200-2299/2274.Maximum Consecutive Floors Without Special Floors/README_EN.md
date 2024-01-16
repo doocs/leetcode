@@ -42,9 +42,9 @@ Therefore, we return the maximum number which is 3 floors.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             ans = max(ans, special[i] - special[i - 1] - 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxConsecutive(bottom: number, top: number, special: number[]): number {
     let nums = special.slice().sort((a, b) => a - b);
@@ -88,10 +84,6 @@ function maxConsecutive(bottom: number, top: number, special: number[]): number 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

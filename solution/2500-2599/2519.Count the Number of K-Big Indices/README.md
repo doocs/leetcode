@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 我们维护两个树状数组，一个记录当前位置左边小于当前位置的数的个数，另一个记录当前位置右边小于当前位置的数的个数。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -96,10 +90,6 @@ class Solution:
             tree1.update(v, 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -199,8 +187,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -246,10 +232,6 @@ func kBigIndices(nums []int, k int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

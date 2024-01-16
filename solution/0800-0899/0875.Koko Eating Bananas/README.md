@@ -52,19 +52,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 二分枚举速度值，找到能在 $h$ 小时内吃完所有香蕉的最小速度值。
 
 时间复杂度 $O(n\log m)$，空间复杂度 $O(1)$。其中 $n$ 是 `piles` 的长度，而 $m$ 是 `piles` 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minEatingSpeed(piles []int, h int) int {
 	return sort.Search(1e9, func(i int) bool {
@@ -142,8 +128,6 @@ func minEatingSpeed(piles []int, h int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minEatingSpeed(piles: number[], h: number): number {
@@ -164,8 +148,6 @@ function minEatingSpeed(piles: number[], h: number): number {
     return left;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -193,10 +175,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

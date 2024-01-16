@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -60,8 +60,6 @@ class Solution:
                 root = root.right
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -88,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -118,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -141,8 +135,6 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -173,8 +165,6 @@ function inorderSuccessor(root: TreeNode | null, p: TreeNode | null): TreeNode |
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -202,10 +192,6 @@ var inorderSuccessor = function (root, p) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

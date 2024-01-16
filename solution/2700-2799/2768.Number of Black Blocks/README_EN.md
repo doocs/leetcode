@@ -52,7 +52,7 @@ Therefore, we return [0,2,2,0,0].
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 For each $2 \times 2$ submatrix, we can use its upper-left corner coordinate $(x, y)$ to represent it.
 
@@ -65,8 +65,6 @@ Finally, we traverse all the values in $cnt$ (greater than $0$), count the numbe
 Time complexity $O(l)$, space complexity $O(l)$, where $l$ is the length of $coordinates$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
         ans[0] = (m - 1) * (n - 1) - len(cnt.values())
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	cnt := map[int64]int{}
@@ -165,8 +157,6 @@ func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countBlackBlocks(m: number, n: number, coordinates: number[][]): number[] {
@@ -191,10 +181,6 @@ function countBlackBlocks(m: number, n: number, coordinates: number[][]): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

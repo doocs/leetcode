@@ -57,9 +57,9 @@ medianFinder.findMedian(); // return 2.0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MedianFinder:
@@ -87,8 +87,6 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
-
-### **Java**
 
 ```java
 class MedianFinder {
@@ -122,8 +120,6 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MedianFinder {
@@ -161,8 +157,6 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
-
-### **Go**
 
 ```go
 type MedianFinder struct {
@@ -209,45 +203,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * initialize your data structure here.
- */
-var MedianFinder = function () {
-    this.val = [];
-};
-
-/**
- * @param {number} num
- * @return {void}
- */
-MedianFinder.prototype.addNum = function (num) {
-    let left = 0;
-    let right = this.val.length;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (num > this.val[mid]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
-    }
-    this.val.splice(left, 0, num);
-};
-
-/**
- * @return {number}
- */
-MedianFinder.prototype.findMedian = function () {
-    let mid = ~~(this.val.length / 2);
-    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
-};
-```
-
-### **TypeScript**
-
 ```ts
 class MedianFinder {
     private nums: number[];
@@ -288,8 +243,6 @@ class MedianFinder {
  * var param_2 = obj.findMedian()
  */
 ```
-
-### **Rust**
 
 ```rust
 struct MedianFinder {
@@ -335,7 +288,40 @@ impl MedianFinder {
  */
 ```
 
-### **C#**
+```js
+/**
+ * initialize your data structure here.
+ */
+var MedianFinder = function () {
+    this.val = [];
+};
+
+/**
+ * @param {number} num
+ * @return {void}
+ */
+MedianFinder.prototype.addNum = function (num) {
+    let left = 0;
+    let right = this.val.length;
+    while (left < right) {
+        let mid = left + ~~((right - left) / 2);
+        if (num > this.val[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    this.val.splice(left, 0, num);
+};
+
+/**
+ * @return {number}
+ */
+MedianFinder.prototype.findMedian = function () {
+    let mid = ~~(this.val.length / 2);
+    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
+};
+```
 
 ```cs
 public class MedianFinder {
@@ -396,10 +382,6 @@ public class MedianFinder {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,19 +41,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-按 w 进行升序排序，若 w 相同则按 h 降序排序。然后问题转换为求 h 数组的最长递增子序列长度。参考 [300. 最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)。
-
-**方法一：贪心 + 二分查找**
+### 方法一：贪心 + 二分查找
 
 时间复杂度 O(nlogn)。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +62,6 @@ class Solution:
                 d[idx] = h
         return len(d)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxEnvelopes(envelopes [][]int) int {
@@ -171,10 +155,6 @@ func maxEnvelopes(envelopes [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

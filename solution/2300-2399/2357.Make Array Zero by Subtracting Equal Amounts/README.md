@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表或数组**
+### 方法一：哈希表或数组
 
 我们观察到，每一次操作，都可以把数组 `nums` 中相同且非零的元素减少到 $0$，因此，我们只需要统计数组 `nums` 中有多少个不同的非零元素，即为最少操作数。统计不同的非零元素，可以使用哈希表或数组来实现。
 
@@ -56,19 +54,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
         return len({x for x in nums if x})
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumOperations(nums []int) (ans int) {
 	s := [101]bool{true}
@@ -122,8 +108,6 @@ func minimumOperations(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumOperations(nums: number[]): number {
     const set = new Set(nums);
@@ -131,8 +115,6 @@ function minimumOperations(nums: number[]): number {
     return set.size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -144,8 +126,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int minimumOperations(int* nums, int numsSize) {
@@ -163,10 +143,6 @@ int minimumOperations(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

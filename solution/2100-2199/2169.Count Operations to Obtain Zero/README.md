@@ -52,15 +52,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-模拟相减。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,21 +85,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countOperations(num1: number, num2: number): number {
-    let ans = 0;
-    while (num1 && num2) {
-        [num1, num2] = [Math.min(num1, num2), Math.abs(num1 - num2)];
-        ans++;
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countOperations(num1 int, num2 int) int {
 	ans := 0
@@ -141,10 +114,17 @@ func countOperations(num1 int, num2 int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function countOperations(num1: number, num2: number): number {
+    let ans = 0;
+    while (num1 && num2) {
+        [num1, num2] = [Math.min(num1, num2), Math.abs(num1 - num2)];
+        ans++;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

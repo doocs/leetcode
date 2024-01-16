@@ -55,9 +55,9 @@ Thus, the sorted array is [338,38,991].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
         arr.sort()
         return [nums[i] for _, i in arr]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sortJumbled(mapping []int, nums []int) (ans []int) {
@@ -159,8 +153,6 @@ func sortJumbled(mapping []int, nums []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortJumbled(mapping: number[], nums: number[]): number[] {
     const n = nums.length;
@@ -179,10 +171,6 @@ function sortJumbled(mapping: number[], nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

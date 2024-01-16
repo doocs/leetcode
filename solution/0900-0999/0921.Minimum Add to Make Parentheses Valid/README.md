@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 栈**
+### 方法一：贪心 + 栈
 
 这个问题属于经典的括号匹配问题，可以使用“贪心 + 栈”来解决。
 
@@ -64,7 +62,69 @@
 
 时间复杂度为 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
-**方法二：贪心 + 计数**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        stk = []
+        for c in s:
+            if c == ')' and stk and stk[-1] == '(':
+                stk.pop()
+            else:
+                stk.append(c)
+        return len(stk)
+```
+
+```java
+class Solution {
+    public int minAddToMakeValid(String s) {
+        Deque<Character> stk = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            if (c == ')' && !stk.isEmpty() && stk.peek() == '(') {
+                stk.pop();
+            } else {
+                stk.push(c);
+            }
+        }
+        return stk.size();
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minAddToMakeValid(string s) {
+        string stk;
+        for (char c : s) {
+            if (c == ')' && stk.size() && stk.back() == '(')
+                stk.pop_back();
+            else
+                stk.push_back(c);
+        }
+        return stk.size();
+    }
+};
+```
+
+```go
+func minAddToMakeValid(s string) int {
+	stk := []rune{}
+	for _, c := range s {
+		if c == ')' && len(stk) > 0 && stk[len(stk)-1] == '(' {
+			stk = stk[:len(stk)-1]
+		} else {
+			stk = append(stk, c)
+		}
+	}
+	return len(stk)
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：贪心 + 计数
 
 方法一借助了栈来实现括号匹配，也可以直接通过计数来实现。
 
@@ -81,22 +141,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def minAddToMakeValid(self, s: str) -> int:
-        stk = []
-        for c in s:
-            if c == ')' and stk and stk[-1] == '(':
-                stk.pop()
-            else:
-                stk.append(c)
-        return len(stk)
-```
-
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -110,26 +154,6 @@ class Solution:
                 ans += 1
         ans += cnt
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int minAddToMakeValid(String s) {
-        Deque<Character> stk = new ArrayDeque<>();
-        for (char c : s.toCharArray()) {
-            if (c == ')' && !stk.isEmpty() && stk.peek() == '(') {
-                stk.pop();
-            } else {
-                stk.push(c);
-            }
-        }
-        return stk.size();
-    }
-}
 ```
 
 ```java
@@ -151,24 +175,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minAddToMakeValid(string s) {
-        string stk;
-        for (char c : s) {
-            if (c == ')' && stk.size() && stk.back() == '(')
-                stk.pop_back();
-            else
-                stk.push_back(c);
-        }
-        return stk.size();
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -188,22 +194,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minAddToMakeValid(s string) int {
-	stk := []rune{}
-	for _, c := range s {
-		if c == ')' && len(stk) > 0 && stk[len(stk)-1] == '(' {
-			stk = stk[:len(stk)-1]
-		} else {
-			stk = append(stk, c)
-		}
-	}
-	return len(stk)
-}
-```
-
 ```go
 func minAddToMakeValid(s string) int {
 	ans, cnt := 0, 0
@@ -221,10 +211,6 @@ func minAddToMakeValid(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

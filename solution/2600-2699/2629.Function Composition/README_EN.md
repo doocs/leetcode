@@ -57,9 +57,9 @@ The composition of zero functions is the identity function</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type F = (x: number) => number;
@@ -76,10 +76,6 @@ function compose(functions: F[]): F {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

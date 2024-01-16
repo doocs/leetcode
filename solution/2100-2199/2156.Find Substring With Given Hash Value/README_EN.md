@@ -52,21 +52,9 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -108,10 +96,6 @@ function getCode(str, index) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

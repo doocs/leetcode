@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We traverse the string $s$, using two pointers $i$ and $j$ to count the length of each equal substring. If the length modulo $3$ is $1$, it means that the length of this substring does not meet the requirements, so we return `false`. If the length modulo $3$ is $2$, it means that a substring of length $2$ has appeared. If a substring of length $2$ has appeared before, return `false`, otherwise assign the value of $j$ to $i$ and continue to traverse.
 
@@ -61,8 +61,6 @@ After the traversal, check whether a substring of length $2$ has appeared. If no
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,22 +79,6 @@ class Solution:
             i = j
         return cnt2 == 1
 ```
-
-```python
-class Solution:
-    def isDecomposable(self, s: str) -> bool:
-        cnt2 = 0
-        for _, g in groupby(s):
-            m = len(list(g))
-            if m % 3 == 1:
-                return False
-            cnt2 += m % 3 == 2
-            if cnt2 > 1:
-                return False
-        return cnt2 == 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isDecomposable(s string) bool {
 	i, n := 0, len(s)
@@ -173,8 +151,6 @@ func isDecomposable(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isDecomposable(s: string): boolean {
     const n = s.length;
@@ -196,10 +172,26 @@ function isDecomposable(s: string): boolean {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isDecomposable(self, s: str) -> bool:
+        cnt2 = 0
+        for _, g in groupby(s):
+            m = len(list(g))
+            if m % 3 == 1:
+                return False
+            cnt2 += m % 3 == 2
+            if cnt2 > 1:
+                return False
+        return cnt2 == 1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

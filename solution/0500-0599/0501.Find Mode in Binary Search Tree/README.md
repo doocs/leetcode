@@ -49,15 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-中序遍历。其中，mx 表示最大频数，cnt 表示上一个元素出现的次数，prev 表示上一个元素，ans 表示结果列表。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -88,10 +82,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -184,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -224,8 +210,6 @@ func findMode(root *TreeNode) []int {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     private int mx;
@@ -261,10 +245,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

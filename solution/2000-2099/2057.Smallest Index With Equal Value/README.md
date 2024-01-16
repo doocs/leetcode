@@ -60,13 +60,9 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +72,6 @@ class Solution:
                 return i
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,19 +86,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function smallestEqual(nums: number[]): number {
-    for (let i = 0; i < nums.length; i++) {
-        if (i % 10 == nums[i]) return i;
-    }
-    return -1;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestEqual(nums []int) int {
 	for i, v := range nums {
@@ -132,10 +109,15 @@ func smallestEqual(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function smallestEqual(nums: number[]): number {
+    for (let i = 0; i < nums.length; i++) {
+        if (i % 10 == nums[i]) return i;
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

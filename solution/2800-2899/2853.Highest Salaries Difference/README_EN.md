@@ -56,13 +56,11 @@ Salaries table:
 
 ## Solutions
 
-**Solution 1: GROUP BY Clause**
+### Solution 1: GROUP BY Clause
 
 We can first calculate the highest salary for each department, and then calculate the difference between the two highest salaries.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -76,3 +74,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

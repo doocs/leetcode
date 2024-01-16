@@ -50,7 +50,7 @@ The class teacher selects all the students to form the group.
 
 ## Solutions
 
-**Solution 1: Sorting + Enumeration**
+### Solution 1: Sorting + Enumeration
 
 Assume that $k$ students are selected, then the following conditions hold:
 
@@ -68,8 +68,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def countWays(self, nums: List[int]) -> int:
@@ -83,8 +81,6 @@ class Solution:
                 continue
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countWays(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -137,8 +129,6 @@ func countWays(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countWays(nums: number[]): number {
@@ -155,10 +145,6 @@ function countWays(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

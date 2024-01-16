@@ -46,13 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,10 +58,6 @@ class Solution:
             ans[indices[i]] = c
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func restoreString(s string, indices []int) string {
 	ans := make([]rune, len(s))
@@ -107,8 +95,6 @@ func restoreString(s string, indices []int) string {
 	return string(ans)
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -125,10 +111,6 @@ var restoreString = function (s, indices) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

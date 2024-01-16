@@ -61,9 +61,9 @@ bms.scatter(5, 1); // return False
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -161,8 +161,6 @@ class BookMyShow:
 # param_1 = obj.gather(k,maxRow)
 # param_2 = obj.scatter(k,maxRow)
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -298,8 +296,6 @@ class BookMyShow {
  * boolean param_2 = obj.scatter(k,maxRow);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Node {
@@ -439,8 +435,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type BookMyShow struct {
 	n, m int
@@ -570,16 +564,6 @@ func (t *segmentTree) pushup(u int) {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

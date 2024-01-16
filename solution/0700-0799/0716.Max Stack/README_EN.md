@@ -53,9 +53,9 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedList
@@ -130,8 +130,6 @@ class MaxStack:
 # param_4 = obj.peekMax()
 # param_5 = obj.popMax()
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -232,8 +230,6 @@ class MaxStack {
  */
 ```
 
-### **C++**
-
 ```cpp
 class MaxStack {
 public:
@@ -287,10 +283,6 @@ private:
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

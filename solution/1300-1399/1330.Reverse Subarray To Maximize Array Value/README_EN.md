@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
             ans = max(ans, s + max(mx - mi, 0))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxValueAfterReverse(nums []int) int {
@@ -167,8 +161,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxValueAfterReverse(nums: number[]): number {
     const n = nums.length;
@@ -199,10 +191,6 @@ function maxValueAfterReverse(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

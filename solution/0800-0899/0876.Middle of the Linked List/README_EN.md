@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -52,8 +52,6 @@ class Solution:
             slow, fast = slow.next, fast.next.next
         return slow
 ```
-
-### **Java**
 
 ```java
 /**
@@ -77,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -104,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -122,8 +116,6 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -148,8 +140,6 @@ function middleNode(head: ListNode | null): ListNode | null {
     return slow;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -180,30 +170,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
-
-```c
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
-
-struct ListNode* middleNode(struct ListNode* head) {
-    struct ListNode* fast = head;
-    struct ListNode* slow = head;
-    while (fast && fast->next) {
-        fast = fast->next->next;
-        slow = slow->next;
-    }
-    return slow;
-}
-```
-
-### **PHP**
 
 ```php
 /**
@@ -239,10 +205,26 @@ class Solution {
 }
 ```
 
-### **...**
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
 
-```
-
+struct ListNode* middleNode(struct ListNode* head) {
+    struct ListNode* fast = head;
+    struct ListNode* slow = head;
+    while (fast && fast->next) {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

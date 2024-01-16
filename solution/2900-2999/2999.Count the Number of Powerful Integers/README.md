@@ -56,13 +56,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +83,6 @@ class Solution:
         b = dfs(0, True)
         return b - a
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +164,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
@@ -228,8 +216,6 @@ func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfPowerfulInt(start: number, finish: number, limit: number, s: string): number {
     let t: string = (start - 1).toString();
@@ -270,10 +256,6 @@ function numberOfPowerfulInt(start: number, finish: number, limit: number, s: st
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

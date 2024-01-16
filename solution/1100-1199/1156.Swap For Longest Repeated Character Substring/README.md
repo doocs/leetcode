@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们先用哈希表或数组 $cnt$ 统计字符串 $text$ 中每个字符出现的次数。
 
@@ -66,10 +64,6 @@
 时间复杂度为 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串的长度；而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -154,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxRepOpt1(text string) (ans int) {
 	cnt := [26]int{}
@@ -179,8 +165,6 @@ func maxRepOpt1(text string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxRepOpt1(text: string): number {
@@ -210,10 +194,6 @@ function maxRepOpt1(text: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

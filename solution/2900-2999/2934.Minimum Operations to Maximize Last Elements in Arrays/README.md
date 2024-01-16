@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论 + 贪心**
+### 方法一：分情况讨论 + 贪心
 
 我们可以分成两种情况讨论：
 
@@ -87,10 +85,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
         a, b = f(nums1[-1], nums2[-1]), f(nums2[-1], nums1[-1])
         return -1 if a + b == -2 else min(a, b + 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +155,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -193,8 +179,6 @@ func minOperations(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minOperations(nums1: number[], nums2: number[]): number {
     const n = nums1.length;
@@ -217,10 +201,6 @@ function minOperations(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

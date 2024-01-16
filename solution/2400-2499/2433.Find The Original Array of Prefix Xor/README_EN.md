@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Bit Manipulation**
+### Solution 1: Bit Manipulation
 
 According to the problem statement, we have equation one:
 
@@ -72,15 +72,11 @@ The time complexity is $O(n)$, where $n$ is the length of the prefix XOR array. 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def findArray(self, pref: List[int]) -> List[int]:
         return [a ^ b for a, b in pairwise([0] + pref)]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findArray(pref []int) []int {
 	n := len(pref)
@@ -125,7 +117,29 @@ func findArray(pref []int) []int {
 }
 ```
 
-### **C**
+```ts
+function findArray(pref: number[]): number[] {
+    let ans = pref.slice();
+    for (let i = 1; i < pref.length; i++) {
+        ans[i] = pref[i - 1] ^ pref[i];
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_array(pref: Vec<i32>) -> Vec<i32> {
+        let n = pref.len();
+        let mut res = vec![0; n];
+        res[0] = pref[0];
+        for i in 1..n {
+            res[i] = pref[i] ^ pref[i - 1];
+        }
+        res
+    }
+}
+```
 
 ```c
 /**
@@ -142,38 +156,6 @@ int* findArray(int* pref, int prefSize, int* returnSize) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findArray(pref: number[]): number[] {
-    let ans = pref.slice();
-    for (let i = 1; i < pref.length; i++) {
-        ans[i] = pref[i - 1] ^ pref[i];
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_array(pref: Vec<i32>) -> Vec<i32> {
-        let n = pref.len();
-        let mut res = vec![0; n];
-        res[0] = pref[0];
-        for i in 1..n {
-            res[i] = pref[i] ^ pref[i - 1];
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

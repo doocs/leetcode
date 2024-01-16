@@ -53,9 +53,9 @@ Notice that nodes 5, 3 and 2 contain the deepest nodes in the tree but node 2 is
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -79,8 +79,6 @@ class Solution:
 
         return dfs(root)[0]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -121,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -153,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -190,10 +184,6 @@ func subtreeWithAllDeepest(root *TreeNode) *TreeNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

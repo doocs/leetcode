@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针 + 模拟**
+### 方法一：双指针 + 模拟
 
 遍历字符串 `word`，找到每个整数的起始位置和结束位置，截取出这一个子串，将其存入哈希表 $s$ 中。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `word` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             i += 1
         return len(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numDifferentIntegers(word string) int {
@@ -158,8 +144,6 @@ func numDifferentIntegers(word string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numDifferentIntegers(word: string): number {
     return new Set(
@@ -172,8 +156,6 @@ function numDifferentIntegers(word: string): number {
     ).size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -203,10 +185,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

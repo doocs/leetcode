@@ -43,11 +43,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
         dfs(1)
         return path[1:]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -135,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -177,8 +171,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func constructDistancedSequence(n int) []int {
@@ -223,10 +215,6 @@ func constructDistancedSequence(n int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

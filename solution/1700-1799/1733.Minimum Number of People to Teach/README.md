@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟 + 统计**
+### 方法一：模拟 + 统计
 
 对于每个好友关系，如果两个人掌握的语言集合不相交，则需要教一门语言，使得两个人可以相互沟通，我们将这些人放入一个哈希集合 $s$ 中。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(m^2\times k)$。其中 $m$ 为语言的数量，而 $k$ 为好友关系的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                 cnt[l] += 1
         return len(s) - max(cnt.values(), default=0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +166,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 	check := func(u, v int) bool {
@@ -212,10 +198,6 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

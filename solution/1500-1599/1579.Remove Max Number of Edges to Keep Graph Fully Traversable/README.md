@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 并查集**
+### 方法一：贪心 + 并查集
 
 题目要求我们删除最多数目的边，使得 Alice 和 Bob 都可以遍历整个图。也即是说，我们需要保留尽可能少的边，并且要求这些边能够使得 Alice 和 Bob 都可以遍历整个图。
 
@@ -78,10 +76,6 @@
 时间复杂度 $O(m \times \alpha(n))$，空间复杂度 $O(n)$。其中 $m$ 是边数，而 $\alpha(n)$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -127,10 +121,6 @@ class Solution:
                 ans += not ufb.union(u, v)
         return ans if ufa.cnt == 1 and ufb.cnt == 1 else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class UnionFind {
@@ -201,8 +191,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -267,8 +255,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -338,10 +324,6 @@ func maxNumEdgesToRemove(n int, edges [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

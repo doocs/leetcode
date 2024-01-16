@@ -55,9 +55,9 @@ myQueue.empty(); // return false
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MyQueue:
@@ -92,8 +92,6 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 ```
-
-### **Java**
 
 ```java
 class MyQueue {
@@ -139,8 +137,6 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MyQueue {
@@ -192,8 +188,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type MyQueue struct {
 	stk1 []int
@@ -243,8 +237,6 @@ func (this *MyQueue) move() {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class MyQueue {
     stk1: number[];
@@ -291,8 +283,6 @@ class MyQueue {
  * var param_4 = obj.empty()
  */
 ```
-
-### **Rust**
 
 ```rust
 struct MyQueue {
@@ -352,10 +342,6 @@ impl MyQueue {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

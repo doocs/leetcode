@@ -33,9 +33,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 遍历字符串 `s` 中的每个字符 `c`，若栈为空或者栈顶值不等于字符 `c`，将 `c` 入栈，否则栈顶元素出栈。
 
@@ -44,10 +42,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +54,6 @@ class Solution:
                 stk.append(c)
         return ''.join(stk)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeDuplicates(s string) string {
 	stk := []rune{}
@@ -116,7 +102,21 @@ func removeDuplicates(s string) string {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn remove_duplicates(s: String) -> String {
+        let mut stack = Vec::new();
+        for c in s.chars() {
+            if !stack.is_empty() && *stack.last().unwrap() == c {
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+        stack.into_iter().collect()
+    }
+}
+```
 
 ```js
 /**
@@ -136,26 +136,6 @@ var removeDuplicates = function (s) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn remove_duplicates(s: String) -> String {
-        let mut stack = Vec::new();
-        for c in s.chars() {
-            if !stack.is_empty() && *stack.last().unwrap() == c {
-                stack.pop();
-            } else {
-                stack.push(c);
-            }
-        }
-        stack.into_iter().collect()
-    }
-}
-```
-
-### **C**
-
 ```c
 char* removeDuplicates(char* s) {
     int n = strlen(s);
@@ -174,10 +154,6 @@ char* removeDuplicates(char* s) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

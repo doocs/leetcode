@@ -48,13 +48,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +75,6 @@ class Solution:
             return s0n0
         return min(s0n0, s1n0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +110,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -151,10 +141,6 @@ var minSwaps = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

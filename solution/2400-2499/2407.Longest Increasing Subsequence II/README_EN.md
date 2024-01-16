@@ -59,7 +59,7 @@ The subsequence has a length of 1, so we return 1.
 
 ## Solutions
 
-**Solution 1: Segment Tree**
+### Solution 1: Segment Tree
 
 We assume that $f[v]$ represents the length of the longest increasing subsequence ending with the number $v$.
 
@@ -79,8 +79,6 @@ For this problem, the information maintained by the segment tree node is the max
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Node:
@@ -140,8 +138,6 @@ class Solution:
             tree.modify(1, v, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -224,8 +220,6 @@ class SegmentTree {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -294,8 +288,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func lengthOfLIS(nums []int, k int) int {
@@ -375,17 +367,6 @@ func (t *segmentTree) pushup(u int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们记矩阵的列数为 $n$，创建一个长度为 $n$ 的数组 $ans$，其中 $ans[i]$ 表示第 $i$ 列的宽度。初始时，$ans[i]$ 的值均为 $0$。
 
@@ -62,10 +60,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
@@ -76,16 +70,6 @@ class Solution:
                 ans[j] = max(ans[j], w)
         return ans
 ```
-
-```python
-class Solution:
-    def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
-        return [max(len(str(x)) for x in col) for col in zip(*grid)]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findColumnWidth(grid [][]int) []int {
 	ans := make([]int, len(grid[0]))
@@ -136,8 +116,6 @@ func findColumnWidth(grid [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findColumnWidth(grid: number[][]): number[] {
@@ -152,8 +130,6 @@ function findColumnWidth(grid: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -172,10 +148,18 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
+        return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

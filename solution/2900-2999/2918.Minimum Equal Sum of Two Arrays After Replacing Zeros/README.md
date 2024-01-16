@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论**
+### 方法一：分情况讨论
 
 我们记把数组中的 $0$ 视为 $1$，统计两个数组的和，分别记为 $s_1$ 和 $s_2$。不妨设 $s_1 \le s_2$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是数组 $nums1$ 和 $nums2$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
             return s1
         return -1 if nums1.count(0) == 0 else s2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSum(nums1 []int, nums2 []int) int64 {
@@ -154,8 +140,6 @@ func minSum(nums1 []int, nums2 []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSum(nums1: number[], nums2: number[]): number {
     let [s1, s2] = [0, 0];
@@ -179,10 +163,6 @@ function minSum(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

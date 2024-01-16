@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表计数**
+### 方法一：哈希表计数
 
 对于每个 $2 \times 2$ 的子矩阵，我们可以用其左上角的坐标 $(x, y)$ 来表示它。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(l)$，空间复杂度 $O(l)$，其中 $l$ 为 $coordinates$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
         ans[0] = (m - 1) * (n - 1) - len(cnt.values())
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -151,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	cnt := map[int64]int{}
@@ -175,8 +161,6 @@ func countBlackBlocks(m int, n int, coordinates [][]int) []int64 {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countBlackBlocks(m: number, n: number, coordinates: number[][]): number[] {
@@ -201,10 +185,6 @@ function countBlackBlocks(m: number, n: number, coordinates: number[][]): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

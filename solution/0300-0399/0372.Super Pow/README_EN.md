@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
             a = pow(a, 10, mod)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func superPow(a int, b []int) int {
 	const mod int = 1337
@@ -134,8 +128,6 @@ func superPow(a int, b []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function superPow(a: number, b: number[]): number {
@@ -159,10 +151,6 @@ function superPow(a: number, b: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

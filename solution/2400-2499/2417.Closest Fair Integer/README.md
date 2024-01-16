@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 我们记 $n$ 的位数为 $k$，奇数位数、偶数位数分别为 $a$ 和 $b$。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(\sqrt{n} \times \log_{10} n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             return n
         return self.closestFair(n + 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func closestFair(n int) int {
 	a, b := 0, 0
@@ -176,16 +162,6 @@ func closestFair(n int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

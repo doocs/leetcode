@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Offline Query + Binary Trie**
+### Solution 1: Offline Query + Binary Trie
 
 From the problem description, we know that each query is independent and the result of the query is irrelevant to the order of elements in $nums$. Therefore, we consider sorting all queries in ascending order of $m_i$, and also sorting $nums$ in ascending order.
 
@@ -49,8 +49,6 @@ Next, we use a binary trie to maintain the elements in $nums$. We use a pointer 
 The time complexity is $O(m \times \log m + n \times (\log n + \log M))$, and the space complexity is $O(n \times \log M)$. Where $m$ and $n$ are the lengths of the arrays $nums$ and $queries$ respectively, and $M$ is the maximum value in the array $nums$. In this problem, $M \le 10^9$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -95,8 +93,6 @@ class Solution:
             ans[i] = trie.search(x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -154,8 +150,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -217,8 +211,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -282,8 +274,6 @@ func maximizeXor(nums []int, queries [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     children: (Trie | null)[];
@@ -341,10 +331,6 @@ function maximizeXor(nums: number[], queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

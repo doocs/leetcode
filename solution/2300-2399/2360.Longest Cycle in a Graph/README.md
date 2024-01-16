@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历出发点**
+### 方法一：遍历出发点
 
 我们可以遍历 $[0,..,n-1]$ 范围内的每个节点，如果该节点未被访问过，则从该节点出发，搜索邻边节点，直到遇到环或者遇到已经访问过的节点。如果遇到环，则更新答案。
 
@@ -61,10 +59,6 @@
 相似题目：[2127. 参加会议的最多员工数](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
             ans = max(ans, m - k)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestCycle(edges []int) int {
 	vis := make([]bool, len(edges))
@@ -187,8 +173,6 @@ func longestCycle(edges []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestCycle(edges: number[]): number {
@@ -219,10 +203,6 @@ function longestCycle(edges: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

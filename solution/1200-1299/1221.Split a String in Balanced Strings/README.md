@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们用变量 $l$ 维护当前字符串的平衡度，即 $l$ 的值为当前字符串中 $L$ 的数量减去 $R$ 的数量。当 $l$ 的值为 0 时，我们就找到了一个平衡字符串。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func balancedStringSplit(s string) int {
 	ans, l := 0, 0
@@ -144,8 +130,6 @@ func balancedStringSplit(s string) int {
 	return ans
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -169,10 +153,6 @@ var balancedStringSplit = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

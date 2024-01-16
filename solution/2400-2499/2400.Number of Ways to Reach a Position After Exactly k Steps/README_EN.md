@@ -41,7 +41,7 @@ It can be proven that no other way is possible, so we return 3.</pre>
 
 ## Solutions
 
-**Solution 1: Memorization Search**
+### Solution 1: Memorization Search
 
 We design a function $dfs(i, j)$, which represents the number of ways to reach the target position when the current position is $i$ distance from the target position and there are $j$ steps left. The answer is $dfs(abs(startPos - endPos), k)$.
 
@@ -60,8 +60,6 @@ The time complexity is $O(k^2)$, and the space complexity is $O(k^2)$. Here, $k$
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
@@ -76,8 +74,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(abs(startPos - endPos), k)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWays(startPos int, endPos int, k int) int {
@@ -173,8 +165,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWays(startPos: number, endPos: number, k: number): number {
     const mod = 10 ** 9 + 7;
@@ -197,11 +187,6 @@ function numberOfWays(startPos: number, endPos: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

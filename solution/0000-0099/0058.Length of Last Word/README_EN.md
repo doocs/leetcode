@@ -44,15 +44,13 @@
 
 ## Solutions
 
-**Solution 1: Reverse Traversal + Two Pointers**
+### Solution 1: Reverse Traversal + Two Pointers
 
 We start traversing from the end of the string $s$, find the first character that is not a space, which is the last character of the last word, and mark the index as $i$. Then continue to traverse forward, find the first character that is a space, which is the character before the first character of the last word, and mark it as $j$. Then the length of the last word is $i - j$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -65,8 +63,6 @@ class Solution:
             j -= 1
         return i - j
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lengthOfLastWord(s string) int {
 	i := len(s) - 1
@@ -119,7 +111,34 @@ func lengthOfLastWord(s string) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function lengthOfLastWord(s: string): number {
+    let i = s.length - 1;
+    while (i >= 0 && s[i] === ' ') {
+        --i;
+    }
+    let j = i;
+    while (j >= 0 && s[j] !== ' ') {
+        --j;
+    }
+    return i - j;
+}
+```
+
+```rust
+impl Solution {
+    pub fn length_of_last_word(s: String) -> i32 {
+        let s = s.trim_end();
+        let n = s.len();
+        for (i, c) in s.char_indices().rev() {
+            if c == ' ' {
+                return (n - i - 1) as i32;
+            }
+        }
+        n as i32
+    }
+}
+```
 
 ```js
 /**
@@ -139,24 +158,6 @@ var lengthOfLastWord = function (s) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function lengthOfLastWord(s: string): number {
-    let i = s.length - 1;
-    while (i >= 0 && s[i] === ' ') {
-        --i;
-    }
-    let j = i;
-    while (j >= 0 && s[j] !== ' ') {
-        --j;
-    }
-    return i - j;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int LengthOfLastWord(string s) {
@@ -172,25 +173,6 @@ public class Solution {
     }
 }
 ```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn length_of_last_word(s: String) -> i32 {
-        let s = s.trim_end();
-        let n = s.len();
-        for (i, c) in s.char_indices().rev() {
-            if c == ' ' {
-                return (n - i - 1) as i32;
-            }
-        }
-        n as i32
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -212,10 +194,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

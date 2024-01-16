@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
             ans.append(word)
         return ' '.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function toGoatLatin(sentence: string): string {
     return sentence
@@ -112,8 +108,6 @@ function toGoatLatin(sentence: string): string {
         .join(' ');
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -141,10 +135,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表或数组**
+### 方法一：哈希表或数组
 
 我们先用哈希表或者一个长度为 $1001$ 的数组 $s$ 记录数组 $nums1$ 中出现的元素，然后遍历数组 $nums2$ 中每个元素，如果元素 $x$ 在 $s$ 中，那么将 $x$ 加入答案，并且从 $s$ 中移除 $x$。
 
@@ -48,19 +46,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         return list(set(nums1) & set(nums2))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func intersection(nums1 []int, nums2 []int) (ans []int) {
 	s := [1001]bool{}
@@ -121,8 +107,6 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -146,18 +130,21 @@ var intersection = function (nums1, nums2) {
 };
 ```
 
-```js
-/**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number[]}
- */
-var intersection = function (nums1, nums2) {
-    return Array.from(new Set(nums1)).filter(num => new Set(nums2).has(num));
-};
+```cs
+public class Solution {
+    public int[] Intersection(int[] nums1, int[] nums2) {
+        List<int> result = new List<int>();
+        HashSet<int> arr1 = new(nums1);
+        HashSet<int> arr2 = new(nums2);
+        foreach (int x in arr1) {
+            if (arr2.Contains(x)) {
+                result.Add(x);
+            }
+        }
+        return result.ToArray();
+    }
+}
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -183,28 +170,23 @@ class Solution {
 }
 ```
 
-### **C#**
+<!-- tabs:end -->
 
-```cs
-public class Solution {
-    public int[] Intersection(int[] nums1, int[] nums2) {
-        List<int> result = new List<int>();
-        HashSet<int> arr1 = new(nums1);
-        HashSet<int> arr2 = new(nums2);
-        foreach (int x in arr1) {
-            if (arr2.Contains(x)) {
-                result.Add(x);
-            }
-        }
-        return result.ToArray();
-    }
-}
-```
+### 方法二
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function (nums1, nums2) {
+    return Array.from(new Set(nums1)).filter(num => new Set(nums2).has(num));
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

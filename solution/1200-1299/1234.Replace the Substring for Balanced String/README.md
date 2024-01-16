@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 双指针**
+### 方法一：计数 + 双指针
 
 我们先用一个哈希表或数组 `cnt` 统计字符串 $s$ 中每个字符的数量，如果所有字符的数量都不超过 $n/4$，那么字符串 $s$ 就是平衡字符串，直接返回 $0$。
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度；而 $C$ 是字符集的大小，本题中 $C = 4$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +95,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -161,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func balancedString(s string) int {
 	cnt := [4]int{}
@@ -188,10 +174,6 @@ func balancedString(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

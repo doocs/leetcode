@@ -203,19 +203,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
 
-### **Bash**
+```python
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+```
 
-```bash
+```java
+
+```
+
+```cpp
+
+```
+
+```go
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是bash_problem_readme_template结束位置 -->
 
@@ -233,15 +243,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
 
-### **Bash**
+```python
 
-```bash
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是bash_problem_readme_template_en结束位置 -->
 
@@ -261,45 +285,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 
 ```
-
-### **C++**
 
 ```cpp
 
 ```
 
-### **Go**
-
 ```go
 
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是problem_readme_template结束位置 -->
 
@@ -317,39 +325,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 
 ```
 
-### **Java**
-
 ```java
 
 ```
-
-### **C++**
 
 ```cpp
 
 ```
 
-### **Go**
-
 ```go
 
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是problem_readme_template_en结束位置 -->
 
@@ -369,19 +367,17 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是sql_problem_readme_template结束位置 -->
 
@@ -399,15 +395,17 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是sql_problem_readme_template_en结束位置 -->
 
@@ -427,19 +425,17 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是ts_problem_readme_template结束位置 -->
 
@@ -457,14 +453,16 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是ts_problem_readme_template_en结束位置 -->

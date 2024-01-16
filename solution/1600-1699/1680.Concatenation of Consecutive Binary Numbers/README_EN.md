@@ -43,15 +43,13 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 
 ## Solutions
 
-**Solution 1: Bit Manipulation**
+### Solution 1: Bit Manipulation
 
 By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $ans$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted, $shift$, is the number of binary digits in $i$. Since $i$ is continuously incremented by $1$, the number of bits shifted either remains the same as the last shift or increases by one. When $i$ is a power of $2$, that is, when there is only one bit in the binary number of $i$ that is $1$, the number of bits shifted increases by $1$ compared to the last time.
 
 The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,20 +60,6 @@ class Solution:
             ans = (ans << i.bit_length() | i) % mod
         return ans
 ```
-
-```python
-class Solution:
-    def concatenatedBinary(self, n: int) -> int:
-        mod = 10**9 + 7
-        ans = shift = 0
-        for i in range(1, n + 1):
-            if (i & (i - 1)) == 0:
-                shift += 1
-            ans = (ans << shift | i) % mod
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,25 +73,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int concatenatedBinary(int n) {
-        final int mod = (int) 1e9 + 7;
-        long ans = 0;
-        int shift = 0;
-        for (int i = 1; i <= n; ++i) {
-            if ((i & (i - 1)) == 0) {
-                ++shift;
-            }
-            ans = (ans << shift | i) % mod;
-        }
-        return (int) ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,26 +88,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int concatenatedBinary(int n) {
-        const int mod = 1e9 + 7;
-        long ans = 0;
-        int shift = 0;
-        for (int i = 1; i <= n; ++i) {
-            if ((i & (i - 1)) == 0) {
-                ++shift;
-            }
-            ans = (ans << shift | i) % mod;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func concatenatedBinary(n int) (ans int) {
 	const mod = 1e9 + 7
@@ -152,22 +97,6 @@ func concatenatedBinary(n int) (ans int) {
 	return
 }
 ```
-
-```go
-func concatenatedBinary(n int) (ans int) {
-	const mod = 1e9 + 7
-	shift := 0
-	for i := 1; i <= n; i++ {
-		if i&(i-1) == 0 {
-			shift++
-		}
-		ans = (ans<<shift | i) % mod
-	}
-	return
-}
-```
-
-### **TypeScript**
 
 ```ts
 function concatenatedBinary(n: number): number {
@@ -184,10 +113,73 @@ function concatenatedBinary(n: number): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def concatenatedBinary(self, n: int) -> int:
+        mod = 10**9 + 7
+        ans = shift = 0
+        for i in range(1, n + 1):
+            if (i & (i - 1)) == 0:
+                shift += 1
+            ans = (ans << shift | i) % mod
+        return ans
 ```
 
+```java
+class Solution {
+    public int concatenatedBinary(int n) {
+        final int mod = (int) 1e9 + 7;
+        long ans = 0;
+        int shift = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((i & (i - 1)) == 0) {
+                ++shift;
+            }
+            ans = (ans << shift | i) % mod;
+        }
+        return (int) ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int concatenatedBinary(int n) {
+        const int mod = 1e9 + 7;
+        long ans = 0;
+        int shift = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((i & (i - 1)) == 0) {
+                ++shift;
+            }
+            ans = (ans << shift | i) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func concatenatedBinary(n int) (ans int) {
+	const mod = 1e9 + 7
+	shift := 0
+	for i := 1; i <= n; i++ {
+		if i&(i-1) == 0 {
+			shift++
+		}
+		ans = (ans<<shift | i) % mod
+	}
+	return
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -90,13 +90,11 @@ Page 88 is not suggested because user 1 already likes it.
 
 ## Solutions
 
-**Solution 1: Union + Equi-Join + Subquery**
+### Solution 1: Union + Equi-Join + Subquery
 
 First, we query all users who are friends with `user_id = 1` and record them in the `T` table. Then, we query all pages that users in the `T` table like, and finally exclude the pages that `user_id = 1` likes.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -113,6 +111,12 @@ FROM
 WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT DISTINCT page_id AS recommended_page
@@ -127,3 +131,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

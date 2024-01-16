@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,68 +70,6 @@ class Solution:
         ans = max(dist)
         return -1 if ans == INF else ans
 ```
-
-```python
-class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        INF = 0x3F3F
-        g = defaultdict(list)
-        for u, v, w in times:
-            g[u - 1].append((v - 1, w))
-        dist = [INF] * n
-        dist[k - 1] = 0
-        q = [(0, k - 1)]
-        while q:
-            _, u = heappop(q)
-            for v, w in g[u]:
-                if dist[v] > dist[u] + w:
-                    dist[v] = dist[u] + w
-                    heappush(q, (dist[v], v))
-        ans = max(dist)
-        return -1 if ans == INF else ans
-```
-
-```python
-class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        INF = 0x3F3F
-        dist = [INF] * n
-        dist[k - 1] = 0
-        for _ in range(n):
-            backup = dist[:]
-            for u, v, w in times:
-                dist[v - 1] = min(dist[v - 1], dist[u - 1] + w)
-        ans = max(dist)
-        return -1 if ans == INF else ans
-```
-
-```python
-class Solution:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        INF = 0x3F3F
-        dist = [INF] * n
-        vis = [False] * n
-        g = defaultdict(list)
-        for u, v, w in times:
-            g[u - 1].append((v - 1, w))
-        k -= 1
-        dist[k] = 0
-        q = deque([k])
-        vis[k] = True
-        while q:
-            u = q.popleft()
-            vis[u] = False
-            for v, w in g[u]:
-                if dist[v] > dist[u] + w:
-                    dist[v] = dist[u] + w
-                    if not vis[v]:
-                        q.append(v)
-                        vis[v] = True
-        ans = max(dist)
-        return -1 if ans == INF else ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -168,6 +106,98 @@ class Solution {
         return ans == INF ? -1 : ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    const int inf = 0x3f3f;
+
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<vector<int>> g(n, vector<int>(n, inf));
+        for (auto& t : times) g[t[0] - 1][t[1] - 1] = t[2];
+        vector<bool> vis(n);
+        vector<int> dist(n, inf);
+        dist[k - 1] = 0;
+        for (int i = 0; i < n; ++i) {
+            int t = -1;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
+                    t = j;
+                }
+            }
+            vis[t] = true;
+            for (int j = 0; j < n; ++j) {
+                dist[j] = min(dist[j], dist[t] + g[t][j]);
+            }
+        }
+        int ans = *max_element(dist.begin(), dist.end());
+        return ans == inf ? -1 : ans;
+    }
+};
+```
+
+```go
+func networkDelayTime(times [][]int, n int, k int) int {
+	const inf = 0x3f3f
+	dist := make([]int, n)
+	vis := make([]bool, n)
+	g := make([][]int, n)
+	for i := range dist {
+		dist[i] = inf
+		g[i] = make([]int, n)
+		for j := range g[i] {
+			g[i][j] = inf
+		}
+	}
+	for _, t := range times {
+		g[t[0]-1][t[1]-1] = t[2]
+	}
+	dist[k-1] = 0
+	for i := 0; i < n; i++ {
+		t := -1
+		for j := 0; j < n; j++ {
+			if !vis[j] && (t == -1 || dist[t] > dist[j]) {
+				t = j
+			}
+		}
+		vis[t] = true
+		for j := 0; j < n; j++ {
+			dist[j] = min(dist[j], dist[t]+g[t][j])
+		}
+	}
+	ans := slices.Max(dist)
+	if ans == inf {
+		return -1
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        INF = 0x3F3F
+        g = defaultdict(list)
+        for u, v, w in times:
+            g[u - 1].append((v - 1, w))
+        dist = [INF] * n
+        dist[k - 1] = 0
+        q = [(0, k - 1)]
+        while q:
+            _, u = heappop(q)
+            for v, w in g[u]:
+                if dist[v] > dist[u] + w:
+                    dist[v] = dist[u] + w
+                    heappush(q, (dist[v], v))
+        ans = max(dist)
+        return -1 if ans == INF else ans
 ```
 
 ```java
@@ -207,112 +237,34 @@ class Solution {
 }
 ```
 
-```java
+```cpp
 class Solution {
-    private static final int INF = 0x3f3f;
+public:
+    const int inf = 0x3f3f;
 
-    public int networkDelayTime(int[][] times, int n, int k) {
-        int[] dist = new int[n];
-        int[] backup = new int[n];
-        Arrays.fill(dist, INF);
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<vector<vector<int>>> g(n);
+        for (auto& t : times) g[t[0] - 1].push_back({t[1] - 1, t[2]});
+        vector<int> dist(n, inf);
         dist[k - 1] = 0;
-        for (int i = 0; i < n; ++i) {
-            System.arraycopy(dist, 0, backup, 0, n);
-            for (int[] t : times) {
-                int u = t[0] - 1, v = t[1] - 1, w = t[2];
-                dist[v] = Math.min(dist[v], backup[u] + w);
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans = Math.max(ans, dist[i]);
-        }
-        return ans == INF ? -1 : ans;
-    }
-}
-```
-
-```java
-class Solution {
-    private static final int INF = 0x3f3f;
-
-    public int networkDelayTime(int[][] times, int n, int k) {
-        int[] dist = new int[n];
-        boolean[] vis = new boolean[n];
-        List<int[]>[] g = new List[n];
-        for (int i = 0; i < n; ++i) {
-            dist[i] = INF;
-            g[i] = new ArrayList<>();
-        }
-        for (int[] t : times) {
-            int u = t[0] - 1, v = t[1] - 1, w = t[2];
-            g[u].add(new int[] {v, w});
-        }
-        --k;
-        dist[k] = 0;
-        Deque<Integer> q = new ArrayDeque<>();
-        q.offer(k);
-        vis[k] = true;
-        while (!q.isEmpty()) {
-            int u = q.poll();
-            vis[u] = false;
-            for (int[] ne : g[u]) {
+        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> q;
+        q.push({0, k - 1});
+        while (!q.empty()) {
+            auto p = q.top();
+            q.pop();
+            int u = p[1];
+            for (auto& ne : g[u]) {
                 int v = ne[0], w = ne[1];
                 if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
-                    if (!vis[v]) {
-                        q.offer(v);
-                        vis[v] = true;
-                    }
+                    q.push({dist[v], v});
                 }
             }
         }
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans = Math.max(ans, dist[i]);
-        }
-        return ans == INF ? -1 : ans;
+        int ans = *max_element(dist.begin(), dist.end());
+        return ans == inf ? -1 : ans;
     }
-}
-```
-
-### **Go**
-
-```go
-func networkDelayTime(times [][]int, n int, k int) int {
-	const inf = 0x3f3f
-	dist := make([]int, n)
-	vis := make([]bool, n)
-	g := make([][]int, n)
-	for i := range dist {
-		dist[i] = inf
-		g[i] = make([]int, n)
-		for j := range g[i] {
-			g[i][j] = inf
-		}
-	}
-	for _, t := range times {
-		g[t[0]-1][t[1]-1] = t[2]
-	}
-	dist[k-1] = 0
-	for i := 0; i < n; i++ {
-		t := -1
-		for j := 0; j < n; j++ {
-			if !vis[j] && (t == -1 || dist[t] > dist[j]) {
-				t = j
-			}
-		}
-		vis[t] = true
-		for j := 0; j < n; j++ {
-			dist[j] = min(dist[j], dist[t]+g[t][j])
-		}
-	}
-	ans := slices.Max(dist)
-	if ans == inf {
-		return -1
-	}
-	return ans
-}
+};
 ```
 
 ```go
@@ -373,6 +325,72 @@ func networkDelayTime(times [][]int, n int, k int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        INF = 0x3F3F
+        dist = [INF] * n
+        dist[k - 1] = 0
+        for _ in range(n):
+            backup = dist[:]
+            for u, v, w in times:
+                dist[v - 1] = min(dist[v - 1], dist[u - 1] + w)
+        ans = max(dist)
+        return -1 if ans == INF else ans
+```
+
+```java
+class Solution {
+    private static final int INF = 0x3f3f;
+
+    public int networkDelayTime(int[][] times, int n, int k) {
+        int[] dist = new int[n];
+        int[] backup = new int[n];
+        Arrays.fill(dist, INF);
+        dist[k - 1] = 0;
+        for (int i = 0; i < n; ++i) {
+            System.arraycopy(dist, 0, backup, 0, n);
+            for (int[] t : times) {
+                int u = t[0] - 1, v = t[1] - 1, w = t[2];
+                dist[v] = Math.min(dist[v], backup[u] + w);
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = Math.max(ans, dist[i]);
+        }
+        return ans == INF ? -1 : ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int inf = 0x3f3f;
+
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<int> dist(n, inf);
+        dist[k - 1] = 0;
+        for (int i = 0; i < n; ++i) {
+            vector<int> backup = dist;
+            for (auto& e : times) {
+                int u = e[0] - 1, v = e[1] - 1, w = e[2];
+                dist[v] = min(dist[v], backup[u] + w);
+            }
+        }
+        int ans = *max_element(dist.begin(), dist.end());
+        return ans == inf ? -1 : ans;
+    }
+};
+```
+
 ```go
 func networkDelayTime(times [][]int, n int, k int) int {
 	const inf = 0x3f3f
@@ -395,6 +413,120 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	}
 	return ans
 }
+```
+
+<!-- tabs:end -->
+
+### Solution 4
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        INF = 0x3F3F
+        dist = [INF] * n
+        vis = [False] * n
+        g = defaultdict(list)
+        for u, v, w in times:
+            g[u - 1].append((v - 1, w))
+        k -= 1
+        dist[k] = 0
+        q = deque([k])
+        vis[k] = True
+        while q:
+            u = q.popleft()
+            vis[u] = False
+            for v, w in g[u]:
+                if dist[v] > dist[u] + w:
+                    dist[v] = dist[u] + w
+                    if not vis[v]:
+                        q.append(v)
+                        vis[v] = True
+        ans = max(dist)
+        return -1 if ans == INF else ans
+```
+
+```java
+class Solution {
+    private static final int INF = 0x3f3f;
+
+    public int networkDelayTime(int[][] times, int n, int k) {
+        int[] dist = new int[n];
+        boolean[] vis = new boolean[n];
+        List<int[]>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            dist[i] = INF;
+            g[i] = new ArrayList<>();
+        }
+        for (int[] t : times) {
+            int u = t[0] - 1, v = t[1] - 1, w = t[2];
+            g[u].add(new int[] {v, w});
+        }
+        --k;
+        dist[k] = 0;
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(k);
+        vis[k] = true;
+        while (!q.isEmpty()) {
+            int u = q.poll();
+            vis[u] = false;
+            for (int[] ne : g[u]) {
+                int v = ne[0], w = ne[1];
+                if (dist[v] > dist[u] + w) {
+                    dist[v] = dist[u] + w;
+                    if (!vis[v]) {
+                        q.offer(v);
+                        vis[v] = true;
+                    }
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = Math.max(ans, dist[i]);
+        }
+        return ans == INF ? -1 : ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    const int inf = 0x3f3f;
+
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<int> dist(n, inf);
+        vector<vector<vector<int>>> g(n);
+        for (auto& e : times) {
+            int u = e[0] - 1, v = e[1] - 1, w = e[2];
+            g[u].push_back({v, w});
+        }
+        vector<bool> vis(n);
+        --k;
+        queue<int> q{{k}};
+        vis[k] = true;
+        dist[k] = 0;
+        while (!q.empty()) {
+            int u = q.front();
+            q.pop();
+            vis[u] = false;
+            for (auto& ne : g[u]) {
+                int v = ne[0], w = ne[1];
+                if (dist[v] > dist[u] + w) {
+                    dist[v] = dist[u] + w;
+                    if (!vis[v]) {
+                        q.push(v);
+                        vis[v] = true;
+                    }
+                }
+            }
+        }
+        int ans = *max_element(dist.begin(), dist.end());
+        return ans == inf ? -1 : ans;
+    }
+};
 ```
 
 ```go
@@ -437,100 +569,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    const int inf = 0x3f3f;
-
-    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
-        vector<vector<int>> g(n, vector<int>(n, inf));
-        for (auto& t : times) g[t[0] - 1][t[1] - 1] = t[2];
-        vector<bool> vis(n);
-        vector<int> dist(n, inf);
-        dist[k - 1] = 0;
-        for (int i = 0; i < n; ++i) {
-            int t = -1;
-            for (int j = 0; j < n; ++j) {
-                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
-                    t = j;
-                }
-            }
-            vis[t] = true;
-            for (int j = 0; j < n; ++j) {
-                dist[j] = min(dist[j], dist[t] + g[t][j]);
-            }
-        }
-        int ans = *max_element(dist.begin(), dist.end());
-        return ans == inf ? -1 : ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int inf = 0x3f3f;
-
-    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
-        vector<int> dist(n, inf);
-        dist[k - 1] = 0;
-        for (int i = 0; i < n; ++i) {
-            vector<int> backup = dist;
-            for (auto& e : times) {
-                int u = e[0] - 1, v = e[1] - 1, w = e[2];
-                dist[v] = min(dist[v], backup[u] + w);
-            }
-        }
-        int ans = *max_element(dist.begin(), dist.end());
-        return ans == inf ? -1 : ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    const int inf = 0x3f3f;
-
-    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
-        vector<int> dist(n, inf);
-        vector<vector<vector<int>>> g(n);
-        for (auto& e : times) {
-            int u = e[0] - 1, v = e[1] - 1, w = e[2];
-            g[u].push_back({v, w});
-        }
-        vector<bool> vis(n);
-        --k;
-        queue<int> q{{k}};
-        vis[k] = true;
-        dist[k] = 0;
-        while (!q.empty()) {
-            int u = q.front();
-            q.pop();
-            vis[u] = false;
-            for (auto& ne : g[u]) {
-                int v = ne[0], w = ne[1];
-                if (dist[v] > dist[u] + w) {
-                    dist[v] = dist[u] + w;
-                    if (!vis[v]) {
-                        q.push(v);
-                        vis[v] = true;
-                    }
-                }
-            }
-        }
-        int ans = *max_element(dist.begin(), dist.end());
-        return ans == inf ? -1 : ans;
-    }
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

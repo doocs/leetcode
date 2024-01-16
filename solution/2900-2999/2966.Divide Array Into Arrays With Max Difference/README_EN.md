@@ -47,15 +47,13 @@ Note that the order of elements is not important.
 
 ## Solutions
 
-**Solution 1: Sorting**
+### Solution 1: Sorting
 
 First, we sort the array. Then, we take out three elements each time. If the difference between the maximum and minimum values of these three elements is greater than $k$, then the condition cannot be satisfied, and we return an empty array. Otherwise, we add the array composed of these three elements to the answer array.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func divideArray(nums []int, k int) [][]int {
 	sort.Ints(nums)
@@ -128,8 +120,6 @@ func divideArray(nums []int, k int) [][]int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function divideArray(nums: number[], k: number): number[][] {
@@ -146,10 +136,6 @@ function divideArray(nums: number[], k: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈 + 动态规划**
+### 方法一：单调栈 + 动态规划
 
 设 $dp[i]$ 表示以 $books[i]$ 结尾时能取走的书的最大数量。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
             ans = max(ans, dp[i])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -153,8 +143,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -187,8 +175,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumBooks(books []int) int64 {
@@ -227,16 +213,6 @@ func maximumBooks(books []int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

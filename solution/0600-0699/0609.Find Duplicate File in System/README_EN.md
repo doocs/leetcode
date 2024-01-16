@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
                 d[content].append(ps[0] + '/' + name)
         return [v for v in d.values() if len(v) > 1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findDuplicate(paths []string) [][]string {
 	d := map[string][]string{}
@@ -159,8 +153,6 @@ func findDuplicate(paths []string) [][]string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findDuplicate(paths: string[]): string[][] {
     const d = new Map<string, string[]>();
@@ -177,10 +169,6 @@ function findDuplicate(paths: string[]): string[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

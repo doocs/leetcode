@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Dijkstra 算法**
+### 方法一：Dijkstra 算法
 
 我们先根据给定的边构造出图 $g$，其中 $g[u]$ 表示节点 $u$ 的所有邻居节点以及对应的边权重。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n \times k)$。其中 $n$ 表示节点数，而 $k$ 表示最多跨越的边数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
                     heappush(pq, (dis + w, v, t))
         return int(min(dist[d]))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +142,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -187,8 +175,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestPathWithHops(n int, edges [][]int, s int, d int, k int) int {
@@ -235,10 +221,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

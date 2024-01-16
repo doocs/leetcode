@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Floyd 算法**
+### 方法一：Floyd 算法
 
 根据题目描述，我们可以将每个字母看作一个节点，每对字母的转换成本看作一条有向边。那么我们先初始化一个 $26 \times 26$ 的二维数组 $g$，其中 $g[i][j]$ 表示字母 $i$ 转换成字母 $j$ 的最小成本。初始时 $g[i][j] = \infty$，如果 $i = j$，那么 $g[i][j] = 0$。
 
@@ -82,10 +80,6 @@
 时间复杂度 $O(m + n + |\Sigma|^3)$，空间复杂度 $O(|\Sigma|^2)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度；而 $|\Sigma|$ 是字母表的大小，即 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -117,10 +111,6 @@ class Solution:
                 ans += g[x][y]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -161,8 +151,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -206,8 +194,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumCost(source string, target string, original []byte, changed []byte, cost []int) (ans int64) {
@@ -253,8 +239,6 @@ func minimumCost(source string, target string, original []byte, changed []byte, 
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumCost(
     source: string,
@@ -298,10 +282,6 @@ function minimumCost(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

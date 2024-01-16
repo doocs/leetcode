@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们可以从后往前遍历字符串，遇到第一个不是 `0` 的字符时停止遍历，然后返回从头开始到这个字符的子串。
 
@@ -46,19 +44,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def removeTrailingZeros(self, num: str) -> str:
         return num.rstrip("0")
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -72,8 +62,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -86,8 +74,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeTrailingZeros(num string) string {
 	i := len(num) - 1
@@ -98,8 +84,6 @@ func removeTrailingZeros(num string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeTrailingZeros(num: string): string {
     let i = num.length - 1;
@@ -109,8 +93,6 @@ function removeTrailingZeros(num: string): string {
     return num.substring(0, i + 1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -126,6 +108,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn remove_trailing_zeros(num: String) -> String {
@@ -140,10 +128,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,9 +41,7 @@ prefix = [2,5,6,5,2,2,-1] ，分数为 6 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 要使得前缀和数组中正整数的个数最多，就要使得前缀和数组中的元素尽可能大，即尽可能多的正整数相加。因此，我们可以将数组 $nums$ 降序排序，然后遍历数组，维护前缀和 $s$，如果 $s \leq 0$，则说明当前位置以及之后的位置都不可能再有正整数，因此直接返回当前位置即可。
 
@@ -52,10 +50,6 @@ prefix = [2,5,6,5,2,2,-1] ，分数为 6 。
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
                 return i
         return len(nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScore(nums []int) int {
 	sort.Ints(nums)
@@ -127,7 +113,20 @@ func maxScore(nums []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function maxScore(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let s = 0;
+    for (let i = 0; i < n; ++i) {
+        s += nums[n - i - 1];
+        if (s <= 0) {
+            return i;
+        }
+    }
+    return n;
+}
+```
 
 ```rust
 impl Solution {
@@ -145,27 +144,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxScore(nums: number[]): number {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    let s = 0;
-    for (let i = 0; i < n; ++i) {
-        s += nums[n - i - 1];
-        if (s <= 0) {
-            return i;
-        }
-    }
-    return n;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

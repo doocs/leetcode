@@ -38,13 +38,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -57,10 +53,6 @@ class Solution:
             counter[s] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -77,25 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function subarraySum(nums: number[], k: number): number {
-    let ans = 0,
-        s = 0;
-    const counter = new Map();
-    counter.set(0, 1);
-    for (const num of nums) {
-        s += num;
-        ans += counter.get(s - k) || 0;
-        counter.set(s, (counter.get(s) || 0) + 1);
-    }
-    return ans;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subarraySum(nums []int, k int) int {
 	counter := map[int]int{0: 1}
@@ -129,7 +100,20 @@ func subarraySum(nums []int, k int) int {
 }
 ```
 
-### **Rust**
+```ts
+function subarraySum(nums: number[], k: number): number {
+    let ans = 0,
+        s = 0;
+    const counter = new Map();
+    counter.set(0, 1);
+    for (const num of nums) {
+        s += num;
+        ans += counter.get(s - k) || 0;
+        counter.set(s, (counter.get(s) || 0) + 1);
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -153,6 +137,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 use std::collections::HashMap;
 
@@ -172,10 +162,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

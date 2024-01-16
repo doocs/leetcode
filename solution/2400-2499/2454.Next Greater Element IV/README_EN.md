@@ -56,7 +56,7 @@ We return [-1,-1] since neither integer has any integer greater than it.
 
 ## Solutions
 
-**Solution 1: Sorting + Ordered Set**
+### Solution 1: Sorting + Ordered Set
 
 We can convert the elements in the array into pairs $(x, i)$, where $x$ is the value of the element and $i$ is the index of the element. Then sort by the value of the elements in descending order.
 
@@ -65,8 +65,6 @@ Next, we traverse the sorted array, maintaining an ordered set that stores the i
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -86,8 +84,6 @@ class Solution:
             sl.add(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +133,6 @@ public:
     }
 };
 ```
-
-### **TypeScript**
 
 ```ts
 function secondGreaterElement(nums: number[]): number[] {
@@ -806,10 +798,6 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -74,9 +74,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接遍历**
+### 方法一：直接遍历
 
 我们用变量 $last$ 记录上一个任务的结束时间，用变量 $mx$ 记录最长的工作时间，用变量 $ans$ 记录工作时间最长且 $id$ 最小的员工。初始时，三个变量均为 $0$。
 
@@ -87,10 +85,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 $logs$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
             last += t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hardestWorker(n int, logs [][]int) (ans int) {
 	var mx, last int
@@ -166,7 +152,39 @@ func hardestWorker(n int, logs [][]int) (ans int) {
 }
 ```
 
-### **C**
+```ts
+function hardestWorker(n: number, logs: number[][]): number {
+    let [ans, mx, last] = [0, 0, 0];
+    for (let [uid, t] of logs) {
+        t -= last;
+        if (mx < t || (mx == t && ans > uid)) {
+            ans = uid;
+            mx = t;
+        }
+        last += t;
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn hardest_worker(n: i32, logs: Vec<Vec<i32>>) -> i32 {
+        let mut res = 0;
+        let mut max = 0;
+        let mut pre = 0;
+        for log in logs.iter() {
+            let t = log[1] - pre;
+            if t > max || (t == max && res > log[0]) {
+                res = log[0];
+                max = t;
+            }
+            pre = log[1];
+        }
+        res
+    }
+}
+```
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -187,43 +205,11 @@ int hardestWorker(int n, int** logs, int logsSize, int* logsColSize) {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function hardestWorker(n: number, logs: number[][]): number {
-    let [ans, mx, last] = [0, 0, 0];
-    for (let [uid, t] of logs) {
-        t -= last;
-        if (mx < t || (mx == t && ans > uid)) {
-            ans = uid;
-            mx = t;
-        }
-        last += t;
-    }
-    return ans;
-}
-```
+### 方法二
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn hardest_worker(n: i32, logs: Vec<Vec<i32>>) -> i32 {
-        let mut res = 0;
-        let mut max = 0;
-        let mut pre = 0;
-        for log in logs.iter() {
-            let t = log[1] - pre;
-            if t > max || (t == max && res > log[0]) {
-                res = log[0];
-                max = t;
-            }
-            pre = log[1];
-        }
-        res
-    }
-}
-```
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -250,10 +236,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

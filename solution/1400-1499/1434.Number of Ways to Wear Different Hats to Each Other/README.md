@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划**
+### 方法一：状态压缩动态规划
 
 我们注意到 $n$ 不超过 $10$，因此我们考虑使用状态压缩动态规划的方法求解。
 
@@ -84,10 +82,6 @@ $$
 时间复杂度 $O(m \times 2^n \times n)$，空间复杂度 $O(m \times 2^n)$。其中 $m$ 是帽子的最大编号，本题中 $m \leq 40$；而 $n$ 是人的数量，本题中 $n \leq 10$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,10 +103,6 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod
         return f[m][-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +173,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberWays(hats [][]int) int {
 	n := len(hats)
@@ -220,8 +206,6 @@ func numberWays(hats [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberWays(hats: number[][]): number {
     const n = hats.length;
@@ -251,10 +235,6 @@ function numberWays(hats: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

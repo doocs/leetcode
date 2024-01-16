@@ -100,9 +100,9 @@ There are no sales of T-shirts.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -123,3 +123,5 @@ ORDER BY category;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

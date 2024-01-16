@@ -64,9 +64,7 @@ stockPrice.minimum();     // 返回 2 ，最低价格时间戳为 4 ，价格为
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 有序集合**
+### 方法一：哈希表 + 有序集合
 
 我们定义以下几个数据结构或变量，其中：
 
@@ -84,10 +82,6 @@ stockPrice.minimum();     // 返回 2 ，最低价格时间戳为 4 ，价格为
 空间复杂度为 $O(n)$。其中，$n$ 为 `update` 操作的次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -123,10 +117,6 @@ class StockPrice:
 # param_3 = obj.maximum()
 # param_4 = obj.minimum()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class StockPrice {
@@ -172,8 +162,6 @@ class StockPrice {
  */
 ```
 
-### **C++**
-
 ```cpp
 class StockPrice {
 public:
@@ -216,8 +204,6 @@ private:
  * int param_4 = obj->minimum();
  */
 ```
-
-### **Go**
 
 ```go
 type StockPrice struct {
@@ -277,10 +263,6 @@ func (this *StockPrice) Minimum() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

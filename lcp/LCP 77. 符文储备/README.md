@@ -36,19 +36,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们可以将符文按照魔力值从小到大排序，然后使用双指针维护一个滑动窗口，使得滑动窗口中的任意相邻的两块符文之间的魔力值相差不超过，找出满足条件的最大窗口长度即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $runes$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,10 +56,6 @@ class Solution:
                 ans = max(ans, j - i + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func runeReserve(runes []int) (ans int) {
 	sort.Ints(runes)
@@ -120,8 +106,6 @@ func runeReserve(runes []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function runeReserve(runes: number[]): number {
@@ -139,10 +123,6 @@ function runeReserve(runes: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

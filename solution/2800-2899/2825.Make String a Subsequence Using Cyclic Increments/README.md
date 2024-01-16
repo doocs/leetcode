@@ -55,19 +55,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 本题实际上需要我们判断一个字符串 $s$ 是否为另一个字符串 $t$ 的子序列，只不过字符之间可以不完全匹配，如果两个字符相同，或者一个字符是另一个字符的下一个字符，就可以匹配。
 
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是字符串 $str1$ 和 $str2$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 i += 1
         return i == len(str2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canMakeSubsequence(str1 string, str2 string) bool {
 	i, n := 0, len(str2)
@@ -135,8 +121,6 @@ func canMakeSubsequence(str1 string, str2 string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canMakeSubsequence(str1: string, str2: string): boolean {
     let i = 0;
@@ -151,10 +135,6 @@ function canMakeSubsequence(str1: string, str2: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

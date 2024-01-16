@@ -92,13 +92,9 @@ fn = (obj) =&gt; {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 type Obj = Array<any> | Record<any, any>;
@@ -142,3 +138,5 @@ function makeImmutable(obj: Obj): Obj {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

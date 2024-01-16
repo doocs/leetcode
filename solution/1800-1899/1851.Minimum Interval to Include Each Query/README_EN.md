@@ -48,7 +48,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Offline Query + Priority Queue (Min Heap)**
+### Solution 1: Sorting + Offline Query + Priority Queue (Min Heap)
 
 We notice that the order of queries does not affect the answer, and the intervals involved do not change. Therefore, we consider sorting all queries in ascending order, and sorting all intervals in ascending order of the left endpoint.
 
@@ -65,8 +65,6 @@ After the above process is over, we return the answer array $ans$.
 The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the arrays `intervals` and `queries` respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -88,8 +86,6 @@ class Solution:
                 ans[j] = pq[0][0]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minInterval(intervals [][]int, queries []int) []int {
@@ -200,10 +192,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,9 @@ It can be shown that we cannot reduce the sum by at least half in less than 3 op
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func halveArray(nums []int) (ans int) {
@@ -153,6 +147,31 @@ func (h *hp) Pop() any {
 }
 ```
 
+```ts
+function halveArray(nums: number[]): number {
+    let s: number = nums.reduce((a, b) => a + b) / 2;
+    const h = new MaxPriorityQueue();
+    for (const v of nums) {
+        h.enqueue(v, v);
+    }
+    let ans: number = 0;
+    while (s > 0) {
+        let { element: t } = h.dequeue();
+        t /= 2;
+        s -= t;
+        h.enqueue(t, t);
+        ans += 1;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```go
 func halveArray(nums []int) (ans int) {
 	half := 0
@@ -177,31 +196,6 @@ func (hp) Push(any)             {}
 func (hp) Pop() (_ any)         { return }
 ```
 
-### **TypeScript**
-
-```ts
-function halveArray(nums: number[]): number {
-    let s: number = nums.reduce((a, b) => a + b) / 2;
-    const h = new MaxPriorityQueue();
-    for (const v of nums) {
-        h.enqueue(v, v);
-    }
-    let ans: number = 0;
-    while (s > 0) {
-        let { element: t } = h.dequeue();
-        t /= 2;
-        s -= t;
-        h.enqueue(t, t);
-        ans += 1;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

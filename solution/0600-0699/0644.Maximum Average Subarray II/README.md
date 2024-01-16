@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，如果一个长度大于等于 $k$ 的子数组的平均值为 $v$，那么最大平均数一定大于等于 $v$，否则最大平均数一定小于 $v$。因此，我们可以使用二分查找的方法找出最大平均数。
 
@@ -84,10 +82,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
@@ -114,10 +108,6 @@ class Solution:
                 r = mid
         return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -162,8 +152,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -204,8 +192,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaxAverage(nums []int, k int) float64 {
 	eps := 1e-5
@@ -243,8 +229,6 @@ func findMaxAverage(nums []int, k int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMaxAverage(nums: number[], k: number): number {
     const eps = 1e-5;
@@ -279,10 +263,6 @@ function findMaxAverage(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

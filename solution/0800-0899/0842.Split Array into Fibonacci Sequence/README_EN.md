@@ -53,9 +53,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func splitIntoFibonacci(num string) []int {
 	n := len(num)
@@ -195,10 +189,6 @@ func splitIntoFibonacci(num string) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,17 +52,15 @@ Total of operations: 2 + 1 = 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
         return sum(v.bit_count() for v in nums) + max(0, max(nums).bit_length() - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minOperations(nums []int) int {
@@ -120,10 +114,6 @@ func minOperations(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

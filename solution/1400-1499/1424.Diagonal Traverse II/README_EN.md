@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -47,8 +47,6 @@ class Solution:
         arr.sort()
         return [v[2] for v in arr]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +67,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -90,8 +86,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findDiagonalOrder(nums [][]int) []int {
@@ -115,8 +109,6 @@ func findDiagonalOrder(nums [][]int) []int {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int[] FindDiagonalOrder(IList<IList<int>> nums) {
@@ -136,10 +128,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

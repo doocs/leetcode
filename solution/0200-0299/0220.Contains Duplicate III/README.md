@@ -53,9 +53,7 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口 + 有序集合**
+### 方法一：滑动窗口 + 有序集合
 
 我们维护一个大小为 $k$ 的滑动窗口，窗口中的元素保持有序。
 
@@ -64,10 +62,6 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 时间复杂度 $O(n \times \log k)$，其中 $n$ 是数组 `nums` 的长度。对于每个元素，我们需要 $O(\log k)$ 的时间来查找有序集合中的元素，一共有 $n$ 个元素，因此总时间复杂度是 $O(n \times \log k)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -88,10 +82,6 @@ class Solution:
         return False
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
@@ -154,36 +140,6 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	return false
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-        if (k <= 0 || t < 0) return false;
-        var index = new SortedList<int, object>();
-        for (int i = 0; i < nums.Length; ++i) {
-            if (index.ContainsKey(nums[i])) {
-                return true;
-            }
-            index.Add(nums[i], null);
-            var j = index.IndexOfKey(nums[i]);
-            if (j > 0 && (long)nums[i] - index.Keys[j - 1] <= t) {
-                return true;
-            }
-            if (j < index.Count - 1 && (long)index.Keys[j + 1] - nums[i] <= t) {
-                return true;
-            }
-            if (index.Count > k) {
-                index.Remove(nums[i - k]);
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function containsNearbyAlmostDuplicate(
@@ -846,10 +802,32 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if (k <= 0 || t < 0) return false;
+        var index = new SortedList<int, object>();
+        for (int i = 0; i < nums.Length; ++i) {
+            if (index.ContainsKey(nums[i])) {
+                return true;
+            }
+            index.Add(nums[i], null);
+            var j = index.IndexOfKey(nums[i]);
+            if (j > 0 && (long)nums[i] - index.Keys[j - 1] <= t) {
+                return true;
+            }
+            if (j < index.Count - 1 && (long)index.Keys[j + 1] - nums[i] <= t) {
+                return true;
+            }
+            if (index.Count > k) {
+                index.Remove(nums[i - k]);
+            }
+        }
+        return false;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 定义 $dfs(u)$，其中 $u$ 表示当前答案字符串的长度。从 $u=0$ 开始搜索，直至找到第一个符合条件的字符串。
 
 时间复杂度 $O(n!)$，空间复杂度 $O(n)$。其中 $n$ 表示字符串 $pattern$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +166,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestNumber(pattern string) string {
 	vis := make([]bool, 10)
@@ -214,8 +200,6 @@ func smallestNumber(pattern string) string {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function smallestNumber(pattern: string): string {
@@ -272,11 +256,6 @@ function smallestNumber(pattern: string): string {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

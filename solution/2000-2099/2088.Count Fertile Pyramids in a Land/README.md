@@ -89,9 +89,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示以 $(i, j)$ 为顶点的金字塔的最大高度，那么有如下状态转移方程：
 
@@ -114,10 +112,6 @@ $$
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -143,10 +137,6 @@ class Solution:
                     ans += f[i][j]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -182,8 +172,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -221,8 +209,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPyramids(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -258,10 +244,6 @@ func countPyramids(grid [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

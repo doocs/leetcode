@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 构造**
+### 方法一：贪心 + 构造
 
 不妨设 $m$ 是任务的个数，统计每种任务出现的次数，记录在数组 `cnt` 中。
 
@@ -70,10 +68,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
@@ -82,10 +76,6 @@ class Solution:
         s = sum(v == x for v in cnt.values())
         return max(len(tasks), (x - 1) * (n + 1) + s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func leastInterval(tasks []byte, n int) int {
 	cnt := make([]int, 26)
@@ -151,8 +137,6 @@ func leastInterval(tasks []byte, n int) int {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int LeastInterval(char[] tasks, int n) {
@@ -171,10 +155,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

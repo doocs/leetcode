@@ -90,9 +90,9 @@ Since the number of threads for producer/consumer is greater than 1, we do not k
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from threading import Semaphore
@@ -118,8 +118,6 @@ class BoundedBlockingQueue(object):
     def size(self) -> int:
         return len(self.q)
 ```
-
-### **Java**
 
 ```java
 class BoundedBlockingQueue {
@@ -150,8 +148,6 @@ class BoundedBlockingQueue {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 #include <semaphore.h>
@@ -188,3 +184,5 @@ private:
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

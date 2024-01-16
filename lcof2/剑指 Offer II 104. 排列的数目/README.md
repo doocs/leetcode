@@ -55,15 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-简单动态规划，`dp[i]` 表示总和为 `i` 的元素组合的个数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
                     dp[i] += dp[i - num]
         return dp[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func combinationSum4(nums []int, target int) int {
 	dp := make([]int, target+1)
@@ -136,10 +122,6 @@ func combinationSum4(nums []int, target int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

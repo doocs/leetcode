@@ -61,7 +61,7 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 
 ## Solutions
 
-**Solution 1: Ordered Set + Queue**
+### Solution 1: Ordered Set + Queue
 
 We can maintain the following data structures or variables:
 
@@ -84,8 +84,6 @@ When calling the $calculateMKAverage()$ function, if the length of $q$ is less t
 In terms of time complexity, each call to the $addElement(num)$ function has a time complexity of $O(\log m)$, and each call to the $calculateMKAverage()$ function has a time complexity of $O(1)$. The space complexity is $O(m)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -145,55 +143,6 @@ class MKAverage:
 # obj.addElement(num)
 # param_2 = obj.calculateMKAverage()
 ```
-
-```python
-from sortedcontainers import SortedList
-
-
-class MKAverage:
-    def __init__(self, m: int, k: int):
-        self.m = m
-        self.k = k
-        self.sl = SortedList()
-        self.q = deque()
-        self.s = 0
-
-    def addElement(self, num: int) -> None:
-        self.q.append(num)
-        if len(self.q) == self.m:
-            self.sl = SortedList(self.q)
-            self.s = sum(self.sl[self.k : -self.k])
-        elif len(self.q) > self.m:
-            i = self.sl.bisect_left(num)
-            if i < self.k:
-                self.s += self.sl[self.k - 1]
-            elif self.k <= i <= self.m - self.k:
-                self.s += num
-            else:
-                self.s += self.sl[self.m - self.k]
-            self.sl.add(num)
-
-            x = self.q.popleft()
-            i = self.sl.bisect_left(x)
-            if i < self.k:
-                self.s -= self.sl[self.k]
-            elif self.k <= i <= self.m - self.k:
-                self.s -= x
-            else:
-                self.s -= self.sl[self.m - self.k]
-            self.sl.remove(x)
-
-    def calculateMKAverage(self) -> int:
-        return -1 if len(self.sl) < self.m else self.s // (self.m - self.k * 2)
-
-
-# Your MKAverage object will be instantiated and called as such:
-# obj = MKAverage(m, k)
-# obj.addElement(num)
-# param_2 = obj.calculateMKAverage()
-```
-
-### **Java**
 
 ```java
 class MKAverage {
@@ -289,8 +238,6 @@ class MKAverage {
  */
 ```
 
-### **C++**
-
 ```cpp
 class MKAverage {
 public:
@@ -366,8 +313,6 @@ private:
  * int param_2 = obj->calculateMKAverage();
  */
 ```
-
-### **Go**
 
 ```go
 type MKAverage struct {
@@ -464,10 +409,59 @@ func (this *MKAverage) CalculateMKAverage() int {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedList
+
+
+class MKAverage:
+    def __init__(self, m: int, k: int):
+        self.m = m
+        self.k = k
+        self.sl = SortedList()
+        self.q = deque()
+        self.s = 0
+
+    def addElement(self, num: int) -> None:
+        self.q.append(num)
+        if len(self.q) == self.m:
+            self.sl = SortedList(self.q)
+            self.s = sum(self.sl[self.k : -self.k])
+        elif len(self.q) > self.m:
+            i = self.sl.bisect_left(num)
+            if i < self.k:
+                self.s += self.sl[self.k - 1]
+            elif self.k <= i <= self.m - self.k:
+                self.s += num
+            else:
+                self.s += self.sl[self.m - self.k]
+            self.sl.add(num)
+
+            x = self.q.popleft()
+            i = self.sl.bisect_left(x)
+            if i < self.k:
+                self.s -= self.sl[self.k]
+            elif self.k <= i <= self.m - self.k:
+                self.s -= x
+            else:
+                self.s -= self.sl[self.m - self.k]
+            self.sl.remove(x)
+
+    def calculateMKAverage(self) -> int:
+        return -1 if len(self.sl) < self.m else self.s // (self.m - self.k * 2)
+
+
+# Your MKAverage object will be instantiated and called as such:
+# obj = MKAverage(m, k)
+# obj.addElement(num)
+# param_2 = obj.calculateMKAverage()
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

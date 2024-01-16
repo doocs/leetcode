@@ -44,9 +44,7 @@ s 可以由 "i"、"love" 和 "leetcode" 相连得到。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们遍历数组 $words$，用一个变量 $t$ 记录当前已经拼接的字符串，如果 $t$ 的长度大于 $s$ 的长度，说明 $s$ 不是 $words$ 的前缀字符串，返回 $false$；如果 $t$ 的长度等于 $s$ 的长度，返回 $t$ 是否等于 $s$。
 
@@ -55,10 +53,6 @@ s 可以由 "i"、"love" 和 "leetcode" 相连得到。
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +64,6 @@ class Solution:
                 return "".join(words[: i + 1]) == s
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPrefixString(s string, words []string) bool {
 	t := strings.Builder{}
@@ -131,8 +117,6 @@ func isPrefixString(s string, words []string) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isPrefixString(s: string, words: string[]): boolean {
@@ -153,10 +137,6 @@ function isPrefixString(s: string, words: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

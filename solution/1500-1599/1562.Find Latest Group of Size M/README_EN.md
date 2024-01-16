@@ -53,9 +53,9 @@ No group of size 2 exists during any step.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -92,25 +92,6 @@ class Solution:
             vis[v] = True
         return ans
 ```
-
-```python
-class Solution:
-    def findLatestStep(self, arr: List[int], m: int) -> int:
-        n = len(arr)
-        if m == n:
-            return n
-        cnt = [0] * (n + 2)
-        ans = -1
-        for i, v in enumerate(arr):
-            v -= 1
-            l, r = cnt[v - 1], cnt[v + 1]
-            if l == m or r == m:
-                ans = i
-            cnt[v - l] = cnt[v + r] = l + r + 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -167,31 +148,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findLatestStep(int[] arr, int m) {
-        int n = arr.length;
-        if (m == n) {
-            return n;
-        }
-        int[] cnt = new int[n + 2];
-        int ans = -1;
-        for (int i = 0; i < n; ++i) {
-            int v = arr[i];
-            int l = cnt[v - 1], r = cnt[v + 1];
-            if (l == m || r == m) {
-                ans = i;
-            }
-            cnt[v - l] = l + r + 1;
-            cnt[v + r] = l + r + 1;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -234,27 +190,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int findLatestStep(vector<int>& arr, int m) {
-        int n = arr.size();
-        if (m == n) return n;
-        vector<int> cnt(n + 2);
-        int ans = -1;
-        for (int i = 0; i < n; ++i) {
-            int v = arr[i];
-            int l = cnt[v - 1], r = cnt[v + 1];
-            if (l == m || r == m) ans = i;
-            cnt[v - l] = cnt[v + r] = l + r + 1;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -306,6 +241,71 @@ func findLatestStep(arr []int, m int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findLatestStep(self, arr: List[int], m: int) -> int:
+        n = len(arr)
+        if m == n:
+            return n
+        cnt = [0] * (n + 2)
+        ans = -1
+        for i, v in enumerate(arr):
+            v -= 1
+            l, r = cnt[v - 1], cnt[v + 1]
+            if l == m or r == m:
+                ans = i
+            cnt[v - l] = cnt[v + r] = l + r + 1
+        return ans
+```
+
+```java
+class Solution {
+    public int findLatestStep(int[] arr, int m) {
+        int n = arr.length;
+        if (m == n) {
+            return n;
+        }
+        int[] cnt = new int[n + 2];
+        int ans = -1;
+        for (int i = 0; i < n; ++i) {
+            int v = arr[i];
+            int l = cnt[v - 1], r = cnt[v + 1];
+            if (l == m || r == m) {
+                ans = i;
+            }
+            cnt[v - l] = l + r + 1;
+            cnt[v + r] = l + r + 1;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findLatestStep(vector<int>& arr, int m) {
+        int n = arr.size();
+        if (m == n) return n;
+        vector<int> cnt(n + 2);
+        int ans = -1;
+        for (int i = 0; i < n; ++i) {
+            int v = arr[i];
+            int l = cnt[v - 1], r = cnt[v + 1];
+            if (l == m || r == m) ans = i;
+            cnt[v - l] = cnt[v + r] = l + r + 1;
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func findLatestStep(arr []int, m int) int {
 	n := len(arr)
@@ -325,10 +325,6 @@ func findLatestStep(arr []int, m int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

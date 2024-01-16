@@ -54,9 +54,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,23 +65,6 @@ class Solution:
         s = set('aeiou')
         return sum(set(word[i:j]) == s for i in range(n) for j in range(i + 1, n + 1))
 ```
-
-```python
-class Solution:
-    def countVowelSubstrings(self, word: str) -> int:
-        s = set('aeiou')
-        ans, n = 0, len(word)
-        for i in range(n):
-            t = set()
-            for c in word[i:]:
-                if c not in s:
-                    break
-                t.add(c)
-                ans += len(t) == 5
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countVowelSubstrings(word string) int {
 	ans, n := 0, len(word)
@@ -157,8 +136,6 @@ func countVowelSubstrings(word string) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countVowelSubstrings(word: string): number {
@@ -181,10 +158,27 @@ function countVowelSubstrings(word: string): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countVowelSubstrings(self, word: str) -> int:
+        s = set('aeiou')
+        ans, n = 0, len(word)
+        for i in range(n):
+            t = set()
+            for c in word[i:]:
+                if c not in s:
+                    break
+                t.add(c)
+                ans += len(t) == 5
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

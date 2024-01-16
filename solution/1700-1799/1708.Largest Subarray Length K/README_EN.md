@@ -55,7 +55,7 @@ Of these, [4,5,2,3] is the largest.</pre>
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 All integers in the array are distinct, so we can first find the index of the maximum element in the range $[0,..n-k]$, and then take $k$ elements starting from this index.
 
@@ -63,16 +63,12 @@ The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring th
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def largestSubarray(self, nums: List[int], k: int) -> List[int]:
         i = nums.index(max(nums[: len(nums) - k + 1]))
         return nums[i : i + k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +93,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestSubarray(nums []int, k int) []int {
@@ -114,8 +106,6 @@ func largestSubarray(nums []int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestSubarray(nums: number[], k: number): number[] {
     let j = 0;
@@ -127,8 +117,6 @@ function largestSubarray(nums: number[], k: number): number[] {
     return nums.slice(j, j + k);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -144,10 +132,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

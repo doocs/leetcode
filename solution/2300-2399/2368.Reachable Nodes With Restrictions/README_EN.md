@@ -48,9 +48,9 @@ We have that [0,5,6] are the only nodes that can be reached from node 0 without 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,33 +78,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-```python
-class Solution:
-    def reachableNodes(
-        self, n: int, edges: List[List[int]], restricted: List[int]
-    ) -> int:
-        s = set(restricted)
-        g = defaultdict(list)
-        for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
-        q = deque([0])
-        vis = [False] * n
-        for v in restricted:
-            vis[v] = True
-        ans = 0
-        while q:
-            i = q.popleft()
-            ans += 1
-            vis[i] = True
-            for j in g[i]:
-                if not vis[j]:
-                    q.append(j)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -143,6 +116,119 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int ans;
+
+    int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<bool> vis(n);
+        for (int v : restricted) vis[v] = true;
+        ans = 0;
+        dfs(0, g, vis);
+        return ans;
+    }
+
+    void dfs(int u, vector<vector<int>>& g, vector<bool>& vis) {
+        if (vis[u]) return;
+        vis[u] = true;
+        ++ans;
+        for (int v : g[u]) dfs(v, g, vis);
+    }
+};
+```
+
+```go
+func reachableNodes(n int, edges [][]int, restricted []int) int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	vis := make([]bool, n)
+	for _, v := range restricted {
+		vis[v] = true
+	}
+	ans := 0
+	var dfs func(u int)
+	dfs = func(u int) {
+		if vis[u] {
+			return
+		}
+		vis[u] = true
+		ans++
+		for _, v := range g[u] {
+			dfs(v)
+		}
+	}
+	dfs(0)
+	return ans
+}
+```
+
+```ts
+function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
+    let res = 0;
+    const vis = new Array(n).fill(false);
+    const map = new Map<number, number[]>();
+    for (const [start, end] of edges) {
+        map.set(start, [...(map.get(start) ?? []), end]);
+        map.set(end, [...(map.get(end) ?? []), start]);
+    }
+    const dfs = (cur: number) => {
+        if (restricted.includes(cur) || vis[cur]) {
+            return;
+        }
+        res++;
+        vis[cur] = true;
+        for (const item of map.get(cur) ?? []) {
+            dfs(item);
+        }
+    };
+    dfs(0);
+
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reachableNodes(
+        self, n: int, edges: List[List[int]], restricted: List[int]
+    ) -> int:
+        s = set(restricted)
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        q = deque([0])
+        vis = [False] * n
+        for v in restricted:
+            vis[v] = True
+        ans = 0
+        while q:
+            i = q.popleft()
+            ans += 1
+            vis[i] = True
+            for j in g[i]:
+                if not vis[j]:
+                    q.append(j)
+        return ans
+```
+
 ```java
 class Solution {
     public int reachableNodes(int n, int[][] edges, int[] restricted) {
@@ -175,36 +261,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int ans;
-
-    int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
-        vector<vector<int>> g(n);
-        for (auto& e : edges) {
-            int a = e[0], b = e[1];
-            g[a].push_back(b);
-            g[b].push_back(a);
-        }
-        vector<bool> vis(n);
-        for (int v : restricted) vis[v] = true;
-        ans = 0;
-        dfs(0, g, vis);
-        return ans;
-    }
-
-    void dfs(int u, vector<vector<int>>& g, vector<bool>& vis) {
-        if (vis[u]) return;
-        vis[u] = true;
-        ++ans;
-        for (int v : g[u]) dfs(v, g, vis);
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -230,37 +286,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func reachableNodes(n int, edges [][]int, restricted []int) int {
-	g := make([][]int, n)
-	for _, e := range edges {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
-	}
-	vis := make([]bool, n)
-	for _, v := range restricted {
-		vis[v] = true
-	}
-	ans := 0
-	var dfs func(u int)
-	dfs = func(u int) {
-		if vis[u] {
-			return
-		}
-		vis[u] = true
-		ans++
-		for _, v := range g[u] {
-			dfs(v)
-		}
-	}
-	dfs(0)
-	return ans
-}
 ```
 
 ```go
@@ -292,33 +317,6 @@ func reachableNodes(n int, edges [][]int, restricted []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
-    let res = 0;
-    const vis = new Array(n).fill(false);
-    const map = new Map<number, number[]>();
-    for (const [start, end] of edges) {
-        map.set(start, [...(map.get(start) ?? []), end]);
-        map.set(end, [...(map.get(end) ?? []), start]);
-    }
-    const dfs = (cur: number) => {
-        if (restricted.includes(cur) || vis[cur]) {
-            return;
-        }
-        res++;
-        vis[cur] = true;
-        for (const item of map.get(cur) ?? []) {
-            dfs(item);
-        }
-    };
-    dfs(0);
-
-    return res;
-}
-```
-
 ```ts
 function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
     const g = Array.from({ length: n }, () => []);
@@ -346,10 +344,6 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

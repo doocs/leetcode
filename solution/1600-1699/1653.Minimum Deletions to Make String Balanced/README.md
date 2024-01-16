@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示前 $i$ 个字符中，删除最少的字符数，使得字符串平衡。初始时 $f[0]=0$。答案为 $f[n]$。
 
@@ -69,19 +67,7 @@ $$
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
-**方法二：枚举 + 前缀和**
-
-我们可以枚举字符串 $s$ 中的每一个位置 $i$，将字符串 $s$ 分成两部分，分别为 $s[0,..,i-1]$ 和 $s[i+1,..n-1]$，要使得字符串平衡，我们在当前位置 $i$ 需要删除的字符数为 $s[0,..,i-1]$ 中字符 $b$ 的个数加上 $s[i+1,..n-1]$ 中字符 $a$ 的个数。
-
-因此，我们维护两个变量 $lb$ 和 $ra$ 分别表示 $s[0,..,i-1]$ 中字符 $b$ 的个数以及 $s[i+1,..n-1]$ 中字符 $a$ 的个数，那么我们需要删除的字符数为 $lb+ra$。枚举过程中，更新变量 $lb$ 和 $ra$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,34 +83,6 @@ class Solution:
                 f[i] = min(f[i - 1] + 1, b)
         return f[n]
 ```
-
-```python
-class Solution:
-    def minimumDeletions(self, s: str) -> int:
-        ans = b = 0
-        for c in s:
-            if c == 'b':
-                b += 1
-            else:
-                ans = min(ans + 1, b)
-        return ans
-```
-
-```python
-class Solution:
-    def minimumDeletions(self, s: str) -> int:
-        lb, ra = 0, s.count('a')
-        ans = len(s)
-        for c in s:
-            ra -= c == 'a'
-            ans = min(ans, lb + ra)
-            lb += c == 'b'
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,6 +103,86 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumDeletions(string s) {
+        int n = s.size();
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        int b = 0;
+        for (int i = 1; i <= n; ++i) {
+            if (s[i - 1] == 'b') {
+                f[i] = f[i - 1];
+                ++b;
+            } else {
+                f[i] = min(f[i - 1] + 1, b);
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func minimumDeletions(s string) int {
+	n := len(s)
+	f := make([]int, n+1)
+	b := 0
+	for i, c := range s {
+		i++
+		if c == 'b' {
+			f[i] = f[i-1]
+			b++
+		} else {
+			f[i] = min(f[i-1]+1, b)
+		}
+	}
+	return f[n]
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    let b = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (s.charAt(i - 1) === 'b') {
+            f[i] = f[i - 1];
+            ++b;
+        } else {
+            f[i] = Math.min(f[i - 1] + 1, b);
+        }
+    }
+    return f[n];
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：枚举 + 前缀和
+
+我们可以枚举字符串 $s$ 中的每一个位置 $i$，将字符串 $s$ 分成两部分，分别为 $s[0,..,i-1]$ 和 $s[i+1,..n-1]$，要使得字符串平衡，我们在当前位置 $i$ 需要删除的字符数为 $s[0,..,i-1]$ 中字符 $b$ 的个数加上 $s[i+1,..n-1]$ 中字符 $a$ 的个数。
+
+因此，我们维护两个变量 $lb$ 和 $ra$ 分别表示 $s[0,..,i-1]$ 中字符 $b$ 的个数以及 $s[i+1,..n-1]$ 中字符 $a$ 的个数，那么我们需要删除的字符数为 $lb+ra$。枚举过程中，更新变量 $lb$ 和 $ra$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumDeletions(self, s: str) -> int:
+        ans = b = 0
+        for c in s:
+            if c == 'b':
+                b += 1
+            else:
+                ans = min(ans + 1, b)
+        return ans
+```
+
 ```java
 class Solution {
     public int minimumDeletions(String s) {
@@ -160,6 +198,71 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minimumDeletions(string s) {
+        int ans = 0, b = 0;
+        for (char& c : s) {
+            if (c == 'b') {
+                ++b;
+            } else {
+                ans = min(ans + 1, b);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func minimumDeletions(s string) int {
+	ans, b := 0, 0
+	for _, c := range s {
+		if c == 'b' {
+			b++
+		} else {
+			ans = min(ans+1, b)
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    let ans = 0,
+        b = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s.charAt(i) === 'b') {
+            ++b;
+        } else {
+            ans = Math.min(ans + 1, b);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumDeletions(self, s: str) -> int:
+        lb, ra = 0, s.count('a')
+        ans = len(s)
+        for c in s:
+            ra -= c == 'a'
+            ans = min(ans, lb + ra)
+            lb += c == 'b'
+        return ans
 ```
 
 ```java
@@ -183,46 +286,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minimumDeletions(string s) {
-        int n = s.size();
-        int f[n + 1];
-        memset(f, 0, sizeof(f));
-        int b = 0;
-        for (int i = 1; i <= n; ++i) {
-            if (s[i - 1] == 'b') {
-                f[i] = f[i - 1];
-                ++b;
-            } else {
-                f[i] = min(f[i - 1] + 1, b);
-            }
-        }
-        return f[n];
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minimumDeletions(string s) {
-        int ans = 0, b = 0;
-        for (char& c : s) {
-            if (c == 'b') {
-                ++b;
-            } else {
-                ans = min(ans + 1, b);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -237,40 +300,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func minimumDeletions(s string) int {
-	n := len(s)
-	f := make([]int, n+1)
-	b := 0
-	for i, c := range s {
-		i++
-		if c == 'b' {
-			f[i] = f[i-1]
-			b++
-		} else {
-			f[i] = min(f[i-1]+1, b)
-		}
-	}
-	return f[n]
-}
-```
-
-```go
-func minimumDeletions(s string) int {
-	ans, b := 0, 0
-	for _, c := range s {
-		if c == 'b' {
-			b++
-		} else {
-			ans = min(ans+1, b)
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -289,41 +318,6 @@ func minimumDeletions(s string) int {
 		}
 	}
 	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumDeletions(s: string): number {
-    const n = s.length;
-    const f = new Array(n + 1).fill(0);
-    let b = 0;
-    for (let i = 1; i <= n; ++i) {
-        if (s.charAt(i - 1) === 'b') {
-            f[i] = f[i - 1];
-            ++b;
-        } else {
-            f[i] = Math.min(f[i - 1] + 1, b);
-        }
-    }
-    return f[n];
-}
-```
-
-```ts
-function minimumDeletions(s: string): number {
-    const n = s.length;
-    let ans = 0,
-        b = 0;
-    for (let i = 0; i < n; ++i) {
-        if (s.charAt(i) === 'b') {
-            ++b;
-        } else {
-            ans = Math.min(ans + 1, b);
-        }
-    }
-    return ans;
 }
 ```
 
@@ -347,10 +341,6 @@ function minimumDeletions(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

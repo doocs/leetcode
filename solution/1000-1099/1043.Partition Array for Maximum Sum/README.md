@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示将数组的前 $i$ 个元素分隔成若干个子数组，最终的最大元素和。初始时 $f[i]=0$，答案为 $f[n]$。
 
@@ -65,10 +63,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
@@ -81,10 +75,6 @@ class Solution:
                 f[i] = max(f[i], f[j - 1] + mx * (i - j + 1))
         return f[n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSumAfterPartitioning(arr []int, k int) int {
 	n := len(arr)
@@ -140,8 +126,6 @@ func maxSumAfterPartitioning(arr []int, k int) int {
 	return f[n]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSumAfterPartitioning(arr: number[], k: number): number {
@@ -158,10 +142,6 @@ function maxSumAfterPartitioning(arr: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

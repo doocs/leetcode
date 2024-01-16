@@ -43,7 +43,7 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 First, we check if the length of string $s$ is less than $k$. If it is, we cannot construct $k$ palindrome strings, so we can directly return `false`.
 
@@ -53,8 +53,6 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
@@ -63,8 +61,6 @@ class Solution:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) <= k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canConstruct(s string, k int) bool {
 	if len(s) < k {
@@ -126,8 +118,6 @@ func canConstruct(s string, k int) bool {
 	return x <= k
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canConstruct(s: string, k: number): boolean {
@@ -146,10 +136,6 @@ function canConstruct(s: string, k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

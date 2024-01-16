@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 要满足题目要求，那么数组 `nums` 中最多只能存在一个元素，其值大于下一个元素，即 $nums[i] \gt nums[i + 1]$。如果存在多个这样的元素，那么数组 `nums` 无法通过轮转得到。
 
@@ -65,19 +63,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def check(self, nums: List[int]) -> bool:
         return sum(nums[i - 1] > v for i, v in enumerate(nums)) <= 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func check(nums []int) bool {
 	cnt := 0
@@ -122,16 +108,12 @@ func check(nums []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function check(nums: number[]): boolean {
     const n = nums.length;
     return nums.reduce((r, v, i) => r + (v > nums[(i + 1) % n] ? 1 : 0), 0) <= 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -148,8 +130,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 bool check(int* nums, int numsSize) {
     int count = 0;
@@ -162,10 +142,6 @@ bool check(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

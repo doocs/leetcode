@@ -52,7 +52,7 @@ A total of 4 operations were used.
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 Firstly, to make the grid a single-value grid, the remainder of all elements of the grid with $x$ must be the same.
 
@@ -61,8 +61,6 @@ Therefore, we can first traverse the grid to check whether the remainder of all 
 The time complexity is $O((m \times n) \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
         mid = nums[len(nums) >> 1]
         return sum(abs(v - mid) // x for v in nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minOperations(grid [][]int, x int) int {
@@ -165,10 +157,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

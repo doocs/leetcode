@@ -24,7 +24,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We can use a hash table to store the elements in the array, with the keys being the elements in the array and the values being the number of times the element appears.
 
@@ -35,8 +35,6 @@ After the traversal, we can obtain the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -52,8 +50,6 @@ class Solution:
                 cnt[x] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pairSums(nums []int, target int) (ans [][]int) {
 	cnt := map[int]int{}
@@ -115,8 +107,6 @@ func pairSums(nums []int, target int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function pairSums(nums: number[], target: number): number[][] {
@@ -140,10 +130,6 @@ function pairSums(nums: number[], target: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

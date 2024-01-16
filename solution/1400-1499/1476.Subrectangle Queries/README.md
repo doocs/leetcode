@@ -90,15 +90,9 @@ subrectangleQueries.getValue(2, 2); // 返回 20
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-用历史记录列表保存修改历史。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class SubrectangleQueries:
@@ -123,10 +117,6 @@ class SubrectangleQueries:
 # obj.updateSubrectangle(row1,col1,row2,col2,newValue)
 # param_2 = obj.getValue(row,col)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class SubrectangleQueries {
@@ -158,8 +148,6 @@ class SubrectangleQueries {
  * int param_2 = obj.getValue(row,col);
  */
 ```
-
-### **C++**
 
 ```cpp
 class SubrectangleQueries {
@@ -194,8 +182,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 type SubrectangleQueries struct {
 	g   [][]int
@@ -227,8 +213,6 @@ func (this *SubrectangleQueries) GetValue(row int, col int) int {
  * param_2 := obj.GetValue(row,col);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class SubrectangleQueries {
@@ -268,10 +252,6 @@ class SubrectangleQueries {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

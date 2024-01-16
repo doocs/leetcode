@@ -29,23 +29,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def exchangeBits(self, num: int) -> int:
         return ((num & 0x55555555) << 1) | ((num & 0xAAAAAAAA) >> 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -55,7 +47,20 @@ class Solution {
 }
 ```
 
-### **Rust**
+```cpp
+class Solution {
+public:
+    int exchangeBits(int num) {
+        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
+    }
+};
+```
+
+```go
+func exchangeBits(num int) int {
+	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
+}
+```
 
 ```rust
 impl Solution {
@@ -76,29 +81,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int exchangeBits(int num) {
-        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func exchangeBits(num int) int {
-	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

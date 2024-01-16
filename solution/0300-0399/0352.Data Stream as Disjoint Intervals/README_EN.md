@@ -52,9 +52,9 @@ summaryRanges.getIntervals(); // return [[1, 3], [6, 7]]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -94,8 +94,6 @@ class SummaryRanges:
 # # obj.addNum(val)
 # # param_2 = obj.getIntervals()
 ```
-
-### **Java**
 
 ```java
 class SummaryRanges {
@@ -138,8 +136,6 @@ class SummaryRanges {
  */
 ```
 
-### **C++**
-
 ```cpp
 class SummaryRanges {
 private:
@@ -178,10 +174,6 @@ public:
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

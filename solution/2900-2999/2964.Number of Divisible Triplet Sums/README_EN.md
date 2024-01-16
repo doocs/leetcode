@@ -43,15 +43,13 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
 
 ## Solutions
 
-**Solution 1: Hash Table + Enumeration**
+### Solution 1: Hash Table + Enumeration
 
 We can use a hash table $cnt$ to record the occurrence times of $nums[i] \bmod d$, then enumerate $j$ and $k$, calculate the value of $nums[i] \bmod d$ that makes the equation $(nums[i] + nums[j] + nums[k]) \bmod d = 0$ hold, which is $(d - (nums[j] + nums[k]) \bmod d) \bmod d$, and accumulate its occurrence times to the answer. Then we increase the occurrence times of $nums[j] \bmod d$ by one. Continue to enumerate $j$ and $k$ until $j$ reaches the end of the array.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -65,8 +63,6 @@ class Solution:
             cnt[nums[j] % d] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func divisibleTripletCount(nums []int, d int) (ans int) {
 	n := len(nums)
@@ -121,8 +113,6 @@ func divisibleTripletCount(nums []int, d int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function divisibleTripletCount(nums: number[], d: number): number {
@@ -140,10 +130,6 @@ function divisibleTripletCount(nums: number[], d: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

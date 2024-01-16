@@ -52,9 +52,9 @@ It can be proven that the resulting string is the lexicographically smallest.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
             j += 1
         return s[:i] + "".join(chr(ord(c) - 1) for c in s[i:j]) + s[j:]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestString(s string) string {
 	n := len(s)
@@ -143,7 +137,30 @@ func smallestString(s string) string {
 }
 ```
 
-### **Rust**
+```ts
+function smallestString(s: string): string {
+    const cs: string[] = s.split('');
+    const n: number = cs.length;
+    let i: number = 0;
+    while (i < n && cs[i] === 'a') {
+        i++;
+    }
+
+    if (i === n) {
+        cs[n - 1] = 'z';
+        return cs.join('');
+    }
+
+    let j: number = i;
+    while (j < n && cs[j] !== 'a') {
+        const c: number = cs[j].charCodeAt(0);
+        cs[j] = String.fromCharCode(c - 1);
+        j++;
+    }
+
+    return cs.join('');
+}
+```
 
 ```rust
 impl Solution {
@@ -172,37 +189,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function smallestString(s: string): string {
-    const cs: string[] = s.split('');
-    const n: number = cs.length;
-    let i: number = 0;
-    while (i < n && cs[i] === 'a') {
-        i++;
-    }
-
-    if (i === n) {
-        cs[n - 1] = 'z';
-        return cs.join('');
-    }
-
-    let j: number = i;
-    while (j < n && cs[j] !== 'a') {
-        const c: number = cs[j].charCodeAt(0);
-        cs[j] = String.fromCharCode(c - 1);
-        j++;
-    }
-
-    return cs.join('');
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

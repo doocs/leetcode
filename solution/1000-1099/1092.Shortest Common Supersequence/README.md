@@ -41,9 +41,7 @@ str2 = "cab" 是 "cabac" 的一个子串，因为我们可以删去 "cabac" 末�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 构造**
+### 方法一：动态规划 + 构造
 
 我们先用动态规划求出两个字符串的最长公共子序列，然后根据最长公共子序列构造出最短公共超序列。
 
@@ -85,10 +83,6 @@ ans:    c   a   b   a   c
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def shortestCommonSupersequence(self, str1: str, str2: str) -> str:
@@ -121,10 +115,6 @@ class Solution:
                     ans.append(str1[i])
         return ''.join(ans[::-1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -200,8 +188,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestCommonSupersequence(str1 string, str2 string) string {
@@ -248,8 +234,6 @@ func shortestCommonSupersequence(str1 string, str2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestCommonSupersequence(str1: string, str2: string): string {
     const m = str1.length;
@@ -287,10 +271,6 @@ function shortestCommonSupersequence(str1: string, str2: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

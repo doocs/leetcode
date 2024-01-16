@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
             ):
                 nums[i], nums[i - 1] = nums[i - 1], nums[i]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +73,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -90,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wiggleSort(nums []int) {
 	for i := 1; i < len(nums); i++ {
@@ -102,10 +96,6 @@ func wiggleSort(nums []int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

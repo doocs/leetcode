@@ -55,49 +55,9 @@ Hence, the maximum k is 2.
 
 ## Solutions
 
-Binary search.
-
-Template 1:
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right) >> 1;
-        if (check(mid)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-Template 2:
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -121,8 +81,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -155,40 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function maximumRemovals(s: string, p: string, removable: number[]): number {
-    let left = 0,
-        right = removable.length;
-    while (left < right) {
-        let mid = (left + right + 1) >> 1;
-        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-
-function isSub(str: string, sub: string, idxes: Set<number>): boolean {
-    let m = str.length,
-        n = sub.length;
-    let i = 0,
-        j = 0;
-    while (i < m && j < n) {
-        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
-            ++j;
-        }
-        ++i;
-    }
-    return j == n;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -223,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumRemovals(s string, p string, removable []int) int {
 	check := func(k int) bool {
@@ -255,7 +177,35 @@ func maximumRemovals(s string, p string, removable []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function maximumRemovals(s: string, p: string, removable: number[]): number {
+    let left = 0,
+        right = removable.length;
+    while (left < right) {
+        let mid = (left + right + 1) >> 1;
+        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+
+function isSub(str: string, sub: string, idxes: Set<number>): boolean {
+    let m = str.length,
+        n = sub.length;
+    let i = 0,
+        j = 0;
+    while (i < m && j < n) {
+        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
+            ++j;
+        }
+        ++i;
+    }
+    return j == n;
+}
+```
 
 ```rust
 use std::collections::HashSet;
@@ -299,10 +249,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

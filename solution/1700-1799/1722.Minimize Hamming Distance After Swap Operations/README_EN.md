@@ -53,7 +53,7 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 
 ## Solutions
 
-**Solution 1: Union-Find + Hash Table**
+### Solution 1: Union-Find + Hash Table
 
 We can consider each index as a node, and the element corresponding to each index as the value of the node. Then each element `[a_i, b_i]` in the given `allowedSwaps` represents an edge between index `a_i` and `b_i`. Therefore, we can use a union-find set to maintain these connected components.
 
@@ -62,8 +62,6 @@ After obtaining each connected component, we use a two-dimensional hash table $c
 The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the length of the array, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -90,8 +88,6 @@ class Solution:
             ans += cnt[j][x] < 0
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +154,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (ans int) {
@@ -198,8 +190,6 @@ func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (a
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumHammingDistance(
@@ -240,10 +230,6 @@ function minimumHammingDistance(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

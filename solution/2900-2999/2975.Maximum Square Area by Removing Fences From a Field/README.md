@@ -52,19 +52,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举 $hFences$ 中的任意两条水平栅栏 $a$ 和 $b$，计算 $a$ 和 $b$ 之间的距离 $d$，记录在哈希表 $hs$ 中，然后枚举 $vFences$ 中的任意两条垂直栅栏 $c$ 和 $d$，计算 $c$ 和 $d$ 之间的距离 $d$，记录在哈希表 $vs$ 中，最后遍历哈希表 $hs$，如果 $hs$ 中的某个距离 $d$ 在哈希表 $vs$ 中也存在，那么说明存在一个正方形田地，其边长为 $d$，面积为 $d^2$，我们只需要取最大的 $d$，求 $d^2 \bmod 10^9 + 7$ 即可。
 
 时间复杂度 $O(h^2 + v^2)$，空间复杂度 $O(h^2 + v^2)$。其中 $h$ 和 $v$ 分别是 $hFences$ 和 $vFences$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
         ans = max(hs & vs, default=0)
         return ans**2 % mod if ans else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 	f := func(nums []int, k int) map[int]bool {
@@ -180,8 +166,6 @@ func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: number[]): number {
     const f = (nums: number[], k: number): Set<number> => {
@@ -207,10 +191,6 @@ function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: nu
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

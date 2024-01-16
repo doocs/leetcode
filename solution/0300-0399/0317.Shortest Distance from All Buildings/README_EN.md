@@ -58,11 +58,9 @@ So return 7.
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -102,8 +100,6 @@ class Solution:
                     ans = min(ans, dist[i][j])
         return -1 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -155,8 +151,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -205,8 +199,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestDistance(grid [][]int) int {
@@ -264,10 +256,6 @@ func shortestDistance(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

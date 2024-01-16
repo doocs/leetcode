@@ -36,11 +36,9 @@
 
 ## Solutions
 
-Binary Indexed Tree or Segment Tree.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -74,8 +72,6 @@ class Solution:
             tree.update(bisect_left(arr, x) + 1, 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -150,8 +146,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -211,8 +205,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -271,8 +263,6 @@ func countRangeSum(nums []int, lower int, upper int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -346,10 +336,6 @@ function search(nums: number[], r: number, x: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

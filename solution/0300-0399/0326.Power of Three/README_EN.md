@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,14 +58,6 @@ class Solution:
             n //= 3
         return n == 1
 ```
-
-```python
-class Solution:
-    def isPowerOfThree(self, n: int) -> bool:
-        return n > 0 and 1162261467 % n == 0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,16 +72,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean isPowerOfThree(int n) {
-        return n > 0 && 1162261467 % n == 0;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,17 +88,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool isPowerOfThree(int n) {
-        return n > 0 && 1162261467 % n == 0;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func isPowerOfThree(n int) bool {
 	for n > 2 {
@@ -129,21 +100,11 @@ func isPowerOfThree(n int) bool {
 }
 ```
 
-```go
-func isPowerOfThree(n int) bool {
-	return n > 0 && 1162261467%n == 0
-}
-```
-
-### **TypeScript**
-
 ```ts
 function isPowerOfThree(n: number): boolean {
     return n > 0 && 1162261467 % n == 0;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -155,10 +116,41 @@ var isPowerOfThree = function (n) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        return n > 0 and 1162261467 % n == 0
 ```
 
+```java
+class Solution {
+    public boolean isPowerOfThree(int n) {
+        return n > 0 && 1162261467 % n == 0;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        return n > 0 && 1162261467 % n == 0;
+    }
+};
+```
+
+```go
+func isPowerOfThree(n int) bool {
+	return n > 0 && 1162261467%n == 0
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

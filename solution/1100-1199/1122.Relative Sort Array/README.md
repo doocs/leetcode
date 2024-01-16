@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 我们先用哈希表 $pos$ 记录数组 $arr2$ 中每个元素的位置。然后，我们将数组 $arr1$ 中的每个元素映射成一个二元组 $(pos.get(x, 1000 + x), x)$，并对二元组进行排序。最后我们取出所有二元组的第二个元素并返回即可。
 
@@ -49,20 +47,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
         pos = {x: i for i, x in enumerate(arr2)}
         return sorted(arr1, key=lambda x: pos.get(x, 1000 + x))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func relativeSortArray(arr1 []int, arr2 []int) []int {
@@ -134,8 +120,6 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function relativeSortArray(arr1: number[], arr2: number[]): number[] {
     const pos: Map<number, number> = new Map();
@@ -152,10 +136,6 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

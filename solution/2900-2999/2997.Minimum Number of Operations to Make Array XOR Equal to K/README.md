@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们可以将数组 $nums$ 中的所有元素进行异或运算，判断得到的结果与 $k$ 的二进制表示中有多少位不同，这个数就是最少操作次数。
 
@@ -62,19 +60,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
         return reduce(xor, nums, k).bit_count()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int, k int) (ans int) {
 	for _, x := range nums {
@@ -111,8 +97,6 @@ func minOperations(nums []int, k int) (ans int) {
 	return bits.OnesCount(uint(k))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[], k: number): number {
@@ -132,10 +116,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,9 +63,9 @@ The grid happiness is 90 + 80 + 90 = 260.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -110,39 +110,6 @@ class Solution:
                     g[i][j] += h[bits[i][k]][bits[j][k]]
         return dfs(0, 0, introvertsCount, extrovertsCount)
 ```
-
-```python
-class Solution:
-    def getMaxGridHappiness(
-        self, m: int, n: int, introvertsCount: int, extrovertsCount: int
-    ) -> int:
-        @cache
-        def dfs(pos: int, pre: int, ic: int, ec: int) -> int:
-            if pos == m * n or (ic == 0 and ec == 0):
-                return 0
-            ans = 0
-            up = pre // p
-            left = 0 if pos % n == 0 else pre % 3
-            for i in range(3):
-                if (i == 1 and ic == 0) or (i == 2 and ec == 0):
-                    continue
-                cur = pre % p * 3 + i
-                a = h[up][i] + h[left][i]
-                b = dfs(pos + 1, cur, ic - (i == 1), ec - (i == 2))
-                c = 0
-                if i == 1:
-                    c = 120
-                elif i == 2:
-                    c = 40
-                ans = max(ans, a + b + c)
-            return ans
-
-        p = pow(3, n - 1)
-        h = [[0, 0, 0], [0, -60, -10], [0, -10, 40]]
-        return dfs(0, 0, introvertsCount, extrovertsCount)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -212,49 +179,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private int m;
-    private int n;
-    private int p;
-    private final int[][] h = {{0, 0, 0}, {0, -60, -10}, {0, -10, 40}};
-    private Integer[][][][] memo;
-
-    public int getMaxGridHappiness(int m, int n, int introvertsCount, int extrovertsCount) {
-        this.m = m;
-        this.n = n;
-        p = (int) Math.pow(3, n - 1);
-        memo = new Integer[m * n][p * 3][introvertsCount + 1][extrovertsCount + 1];
-        return dfs(0, 0, introvertsCount, extrovertsCount);
-    }
-
-    private int dfs(int pos, int pre, int ic, int ec) {
-        if (pos == m * n || (ic == 0 && ec == 0)) {
-            return 0;
-        }
-        if (memo[pos][pre][ic][ec] != null) {
-            return memo[pos][pre][ic][ec];
-        }
-        int ans = 0;
-        int up = pre / p;
-        int left = pos % n == 0 ? 0 : pre % 3;
-        for (int i = 0; i < 3; ++i) {
-            if (i == 1 && (ic == 0) || (i == 2 && ec == 0)) {
-                continue;
-            }
-            int cur = pre % p * 3 + i;
-            int a = h[up][i] + h[left][i];
-            int b = dfs(pos + 1, cur, ic - (i == 1 ? 1 : 0), ec - (i == 2 ? 1 : 0));
-            int c = i == 1 ? 120 : (i == 2 ? 40 : 0);
-            ans = Math.max(ans, a + b + c);
-        }
-        return memo[pos][pre][ic][ec] = ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -317,43 +241,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int getMaxGridHappiness(int m, int n, int introvertsCount, int extrovertsCount) {
-        int h[3][3] = {{0, 0, 0}, {0, -60, -10}, {0, -10, 40}};
-        int p = pow(3, n - 1);
-        int memo[m * n][p * 3][introvertsCount + 1][extrovertsCount + 1];
-        memset(memo, -1, sizeof(memo));
-        function<int(int, int, int, int)> dfs = [&](int pos, int pre, int ic, int ec) {
-            if (pos == m * n || (ic == 0 && ec == 0)) {
-                return 0;
-            }
-            if (memo[pos][pre][ic][ec] != -1) {
-                return memo[pos][pre][ic][ec];
-            }
-            int ans = 0;
-            int up = pre / p;
-            int left = pos % n == 0 ? 0 : pre % 3;
-            for (int i = 0; i < 3; ++i) {
-                if ((i == 1 && ic == 0) || (i == 2 && ec == 0)) {
-                    continue;
-                }
-                int cur = pre % p * 3 + i;
-                int a = h[up][i] + h[left][i];
-                int b = dfs(pos + 1, cur, ic - (i == 1), ec - (i == 2));
-                int c = i == 1 ? 120 : (i == 2 ? 40 : 0);
-                ans = max(ans, a + b + c);
-            }
-            return memo[pos][pre][ic][ec] = ans;
-        };
-        return dfs(0, 0, introvertsCount, extrovertsCount);
-    }
-};
-```
-
-### **Go**
 
 ```go
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
@@ -426,64 +313,6 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
 ```
-
-```go
-func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
-	p := int(math.Pow(3, float64(n-1)))
-	h := [3][3]int{{0, 0, 0}, {0, -60, -10}, {0, -10, 40}}
-	memo := make([][][][]int, m*n)
-	for i := range memo {
-		memo[i] = make([][][]int, p*3)
-		for j := range memo[i] {
-			memo[i][j] = make([][]int, introvertsCount+1)
-			for k := range memo[i][j] {
-				memo[i][j][k] = make([]int, extrovertsCount+1)
-				for l := range memo[i][j][k] {
-					memo[i][j][k][l] = -1
-				}
-			}
-		}
-	}
-	var dfs func(int, int, int, int) int
-	dfs = func(pos, pre, ic, ec int) int {
-		if pos == m*n || (ic == 0 && ec == 0) {
-			return 0
-		}
-		if memo[pos][pre][ic][ec] != -1 {
-			return memo[pos][pre][ic][ec]
-		}
-		ans := 0
-		up := pre / p
-		left := pre % 3
-		if pos%n == 0 {
-			left = 0
-		}
-		for i := 0; i < 3; i++ {
-			if (i == 1 && ic == 0) || (i == 2 && ec == 0) {
-				continue
-			}
-			cur := pre%p*3 + i
-			nic, nec := ic, ec
-			c := 0
-			if i == 1 {
-				nic--
-				c = 120
-			} else if i == 2 {
-				nec--
-				c = 40
-			}
-			a := h[up][i] + h[left][i]
-			b := dfs(pos+1, cur, nic, nec)
-			ans = max(ans, a+b+c)
-		}
-		memo[pos][pre][ic][ec] = ans
-		return ans
-	}
-	return dfs(0, 0, introvertsCount, extrovertsCount)
-}
-```
-
-### **TypeScript**
 
 ```ts
 function getMaxGridHappiness(
@@ -564,6 +393,175 @@ function getMaxGridHappiness(
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def getMaxGridHappiness(
+        self, m: int, n: int, introvertsCount: int, extrovertsCount: int
+    ) -> int:
+        @cache
+        def dfs(pos: int, pre: int, ic: int, ec: int) -> int:
+            if pos == m * n or (ic == 0 and ec == 0):
+                return 0
+            ans = 0
+            up = pre // p
+            left = 0 if pos % n == 0 else pre % 3
+            for i in range(3):
+                if (i == 1 and ic == 0) or (i == 2 and ec == 0):
+                    continue
+                cur = pre % p * 3 + i
+                a = h[up][i] + h[left][i]
+                b = dfs(pos + 1, cur, ic - (i == 1), ec - (i == 2))
+                c = 0
+                if i == 1:
+                    c = 120
+                elif i == 2:
+                    c = 40
+                ans = max(ans, a + b + c)
+            return ans
+
+        p = pow(3, n - 1)
+        h = [[0, 0, 0], [0, -60, -10], [0, -10, 40]]
+        return dfs(0, 0, introvertsCount, extrovertsCount)
+```
+
+```java
+class Solution {
+    private int m;
+    private int n;
+    private int p;
+    private final int[][] h = {{0, 0, 0}, {0, -60, -10}, {0, -10, 40}};
+    private Integer[][][][] memo;
+
+    public int getMaxGridHappiness(int m, int n, int introvertsCount, int extrovertsCount) {
+        this.m = m;
+        this.n = n;
+        p = (int) Math.pow(3, n - 1);
+        memo = new Integer[m * n][p * 3][introvertsCount + 1][extrovertsCount + 1];
+        return dfs(0, 0, introvertsCount, extrovertsCount);
+    }
+
+    private int dfs(int pos, int pre, int ic, int ec) {
+        if (pos == m * n || (ic == 0 && ec == 0)) {
+            return 0;
+        }
+        if (memo[pos][pre][ic][ec] != null) {
+            return memo[pos][pre][ic][ec];
+        }
+        int ans = 0;
+        int up = pre / p;
+        int left = pos % n == 0 ? 0 : pre % 3;
+        for (int i = 0; i < 3; ++i) {
+            if (i == 1 && (ic == 0) || (i == 2 && ec == 0)) {
+                continue;
+            }
+            int cur = pre % p * 3 + i;
+            int a = h[up][i] + h[left][i];
+            int b = dfs(pos + 1, cur, ic - (i == 1 ? 1 : 0), ec - (i == 2 ? 1 : 0));
+            int c = i == 1 ? 120 : (i == 2 ? 40 : 0);
+            ans = Math.max(ans, a + b + c);
+        }
+        return memo[pos][pre][ic][ec] = ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int getMaxGridHappiness(int m, int n, int introvertsCount, int extrovertsCount) {
+        int h[3][3] = {{0, 0, 0}, {0, -60, -10}, {0, -10, 40}};
+        int p = pow(3, n - 1);
+        int memo[m * n][p * 3][introvertsCount + 1][extrovertsCount + 1];
+        memset(memo, -1, sizeof(memo));
+        function<int(int, int, int, int)> dfs = [&](int pos, int pre, int ic, int ec) {
+            if (pos == m * n || (ic == 0 && ec == 0)) {
+                return 0;
+            }
+            if (memo[pos][pre][ic][ec] != -1) {
+                return memo[pos][pre][ic][ec];
+            }
+            int ans = 0;
+            int up = pre / p;
+            int left = pos % n == 0 ? 0 : pre % 3;
+            for (int i = 0; i < 3; ++i) {
+                if ((i == 1 && ic == 0) || (i == 2 && ec == 0)) {
+                    continue;
+                }
+                int cur = pre % p * 3 + i;
+                int a = h[up][i] + h[left][i];
+                int b = dfs(pos + 1, cur, ic - (i == 1), ec - (i == 2));
+                int c = i == 1 ? 120 : (i == 2 ? 40 : 0);
+                ans = max(ans, a + b + c);
+            }
+            return memo[pos][pre][ic][ec] = ans;
+        };
+        return dfs(0, 0, introvertsCount, extrovertsCount);
+    }
+};
+```
+
+```go
+func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
+	p := int(math.Pow(3, float64(n-1)))
+	h := [3][3]int{{0, 0, 0}, {0, -60, -10}, {0, -10, 40}}
+	memo := make([][][][]int, m*n)
+	for i := range memo {
+		memo[i] = make([][][]int, p*3)
+		for j := range memo[i] {
+			memo[i][j] = make([][]int, introvertsCount+1)
+			for k := range memo[i][j] {
+				memo[i][j][k] = make([]int, extrovertsCount+1)
+				for l := range memo[i][j][k] {
+					memo[i][j][k][l] = -1
+				}
+			}
+		}
+	}
+	var dfs func(int, int, int, int) int
+	dfs = func(pos, pre, ic, ec int) int {
+		if pos == m*n || (ic == 0 && ec == 0) {
+			return 0
+		}
+		if memo[pos][pre][ic][ec] != -1 {
+			return memo[pos][pre][ic][ec]
+		}
+		ans := 0
+		up := pre / p
+		left := pre % 3
+		if pos%n == 0 {
+			left = 0
+		}
+		for i := 0; i < 3; i++ {
+			if (i == 1 && ic == 0) || (i == 2 && ec == 0) {
+				continue
+			}
+			cur := pre%p*3 + i
+			nic, nec := ic, ec
+			c := 0
+			if i == 1 {
+				nic--
+				c = 120
+			} else if i == 2 {
+				nec--
+				c = 40
+			}
+			a := h[up][i] + h[left][i]
+			b := dfs(pos+1, cur, nic, nec)
+			ans = max(ans, a+b+c)
+		}
+		memo[pos][pre][ic][ec] = ans
+		return ans
+	}
+	return dfs(0, 0, introvertsCount, extrovertsCount)
+}
+```
+
 ```ts
 function getMaxGridHappiness(
     m: number,
@@ -616,10 +614,6 @@ function getMaxGridHappiness(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

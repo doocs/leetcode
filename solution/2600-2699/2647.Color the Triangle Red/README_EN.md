@@ -67,7 +67,7 @@ It can be shown that choosing any 2 triangles and running the algorithm will not
 
 ## Solutions
 
-**Solution 1: Find the Pattern**
+### Solution 1: Find the Pattern
 
 We draw a graph to observe, and we can find that the first row only has one triangle and must be colored, and from the last row to the second row, the coloring scheme of every four rows is the same:
 
@@ -85,8 +85,6 @@ Therefore, we can color the first row according to the above rules, and then sta
 The time complexity is $(n^2)$, where $n$ is the parameter given in the problem. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -107,8 +105,6 @@ class Solution:
             k = (k + 1) % 4
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +130,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -163,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func colorRed(n int) (ans [][]int) {
 	ans = append(ans, []int{1, 1})
@@ -186,8 +178,6 @@ func colorRed(n int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function colorRed(n: number): number[][] {
@@ -211,10 +201,6 @@ function colorRed(n: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

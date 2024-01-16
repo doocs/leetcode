@@ -61,15 +61,13 @@ bSTIterator.prev(); // state becomes [3, 7, <u>9</u>, 15, 20], return 9
 
 ## Solutions
 
-**Solution 1: In-order Traversal + Array**
+### Solution 1: In-order Traversal + Array
 
 We can use in-order traversal to store the values of all nodes in the binary search tree into an array $nums$, and then use the array to implement the iterator. We define a pointer $i$, initially $i = -1$, which points to an element in the array $nums$. Each time we call $next()$, we add $1$ to the value of $i$ and return $nums[i]$; each time we call $prev()$, we subtract $1$ from the value of $i$ and return $nums[i]$.
 
 In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $next()$ and $prev()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -114,8 +112,6 @@ class BSTIterator:
 # param_3 = obj.hasPrev()
 # param_4 = obj.prev()
 ```
-
-### **Java**
 
 ```java
 /**
@@ -177,8 +173,6 @@ class BSTIterator {
  */
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -239,8 +233,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -297,8 +289,6 @@ func (this *BSTIterator) Prev() int {
  * param_4 := obj.Prev();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -362,10 +352,6 @@ class BSTIterator {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

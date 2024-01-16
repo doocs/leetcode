@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 declare global {
@@ -74,6 +74,12 @@ Array.prototype.upperBound = function (target: number) {
 // [3,4,6,6,6,6,7].upperBound(6) // 5
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```ts
 declare global {
     interface Array<T> {
@@ -91,3 +97,5 @@ Array.prototype.upperBound = function (target: number) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

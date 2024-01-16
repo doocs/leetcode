@@ -51,32 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
+### 方法一：暴力枚举
 
 注意到数据范围很小，因此，我们可以枚举所有的子串 $s[i..j]$，检查其是否为平衡子串，如果是，则更新答案。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
-**方法二：枚举优化**
-
-我们用变量 $zero$ 和 $one$ 分别记录当前连续的 $0$ 和 $1$ 的个数。
-
-遍历字符串 $s$，对于当前字符 $c$：
-
--   如果当前字符为 `'0'`，我们判断此时 $one$ 是否大于 $0$，是则将 $zero$ 和 $one$ 重置为 $0$，接下来将 $zero$ 加 $1$。
--   如果当前字符为 `'1'`，则将 $one$ 加 $1$，并更新答案为 $ans = \max(ans, 2 \times \min(one, zero))$。
-
-遍历结束后，即可得到最长的平衡子串的长度。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,25 +79,6 @@ class Solution:
                     ans = max(ans, j - i + 1)
         return ans
 ```
-
-```python
-class Solution:
-    def findTheLongestBalancedSubstring(self, s: str) -> int:
-        ans = zero = one = 0
-        for c in s:
-            if c == '0':
-                if one:
-                    zero = one = 0
-                zero += 1
-            else:
-                one += 1
-                ans = max(ans, 2 * min(one, zero))
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -147,29 +109,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findTheLongestBalancedSubstring(String s) {
-        int zero = 0, one = 0;
-        int ans = 0, n = s.length();
-        for (int i = 0; i < n; ++i) {
-            if (s.charAt(i) == '0') {
-                if (one > 0) {
-                    zero = 0;
-                    one = 0;
-                }
-                ++zero;
-            } else {
-                ans = Math.max(ans, 2 * Math.min(zero, ++one));
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -199,30 +138,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int findTheLongestBalancedSubstring(string s) {
-        int zero = 0, one = 0;
-        int ans = 0;
-        for (char& c : s) {
-            if (c == '0') {
-                if (one > 0) {
-                    zero = 0;
-                    one = 0;
-                }
-                ++zero;
-            } else {
-                ans = max(ans, 2 * min(zero, ++one));
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func findTheLongestBalancedSubstring(s string) (ans int) {
 	n := len(s)
@@ -247,26 +162,6 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 	return
 }
 ```
-
-```go
-func findTheLongestBalancedSubstring(s string) (ans int) {
-	zero, one := 0, 0
-	for _, c := range s {
-		if c == '0' {
-			if one > 0 {
-				zero, one = 0, 0
-			}
-			zero++
-		} else {
-			one++
-			ans = max(ans, 2*min(zero, one))
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
 
 ```ts
 function findTheLongestBalancedSubstring(s: string): number {
@@ -293,28 +188,6 @@ function findTheLongestBalancedSubstring(s: string): number {
     return ans;
 }
 ```
-
-```ts
-function findTheLongestBalancedSubstring(s: string): number {
-    let zero = 0;
-    let one = 0;
-    let ans = 0;
-    for (const c of s) {
-        if (c === '0') {
-            if (one > 0) {
-                zero = 0;
-                one = 0;
-            }
-            ++zero;
-        } else {
-            ans = Math.max(ans, 2 * Math.min(zero, ++one));
-        }
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -353,6 +226,119 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：枚举优化
+
+我们用变量 $zero$ 和 $one$ 分别记录当前连续的 $0$ 和 $1$ 的个数。
+
+遍历字符串 $s$，对于当前字符 $c$：
+
+-   如果当前字符为 `'0'`，我们判断此时 $one$ 是否大于 $0$，是则将 $zero$ 和 $one$ 重置为 $0$，接下来将 $zero$ 加 $1$。
+-   如果当前字符为 `'1'`，则将 $one$ 加 $1$，并更新答案为 $ans = \max(ans, 2 \times \min(one, zero))$。
+
+遍历结束后，即可得到最长的平衡子串的长度。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findTheLongestBalancedSubstring(self, s: str) -> int:
+        ans = zero = one = 0
+        for c in s:
+            if c == '0':
+                if one:
+                    zero = one = 0
+                zero += 1
+            else:
+                one += 1
+                ans = max(ans, 2 * min(one, zero))
+        return ans
+```
+
+```java
+class Solution {
+    public int findTheLongestBalancedSubstring(String s) {
+        int zero = 0, one = 0;
+        int ans = 0, n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '0') {
+                if (one > 0) {
+                    zero = 0;
+                    one = 0;
+                }
+                ++zero;
+            } else {
+                ans = Math.max(ans, 2 * Math.min(zero, ++one));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findTheLongestBalancedSubstring(string s) {
+        int zero = 0, one = 0;
+        int ans = 0;
+        for (char& c : s) {
+            if (c == '0') {
+                if (one > 0) {
+                    zero = 0;
+                    one = 0;
+                }
+                ++zero;
+            } else {
+                ans = max(ans, 2 * min(zero, ++one));
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findTheLongestBalancedSubstring(s string) (ans int) {
+	zero, one := 0, 0
+	for _, c := range s {
+		if c == '0' {
+			if one > 0 {
+				zero, one = 0, 0
+			}
+			zero++
+		} else {
+			one++
+			ans = max(ans, 2*min(zero, one))
+		}
+	}
+	return
+}
+```
+
+```ts
+function findTheLongestBalancedSubstring(s: string): number {
+    let zero = 0;
+    let one = 0;
+    let ans = 0;
+    for (const c of s) {
+        if (c === '0') {
+            if (one > 0) {
+                zero = 0;
+                one = 0;
+            }
+            ++zero;
+        } else {
+            ans = Math.max(ans, 2 * Math.min(zero, ++one));
+        }
+    }
+    return ans;
+}
+```
+
 ```rust
 impl Solution {
     pub fn find_the_longest_balanced_substring(s: String) -> i32 {
@@ -378,10 +364,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

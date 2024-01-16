@@ -75,30 +75,4 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

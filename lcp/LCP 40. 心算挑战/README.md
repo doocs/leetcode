@@ -30,9 +30,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 排序先取最大的 $cnt$ 个数，如果和为偶数则直接返回答案。
 
@@ -41,10 +39,6 @@
 时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +54,6 @@ class Solution:
         d = max([v for v in cards[cnt:] if v & 1], default=-inf)
         return max(ans - a + c, ans - b + d, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +120,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxmiumScore(cards []int, cnt int) int {
@@ -165,10 +151,6 @@ func maxmiumScore(cards []int, cnt int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

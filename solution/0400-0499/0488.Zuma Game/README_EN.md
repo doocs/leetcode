@@ -68,9 +68,9 @@ There are still balls remaining on the board, and you are out of balls to insert
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -100,16 +100,6 @@ class Solution:
         return -1
 ```
 
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

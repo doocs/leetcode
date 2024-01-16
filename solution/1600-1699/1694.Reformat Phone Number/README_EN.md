@@ -64,7 +64,7 @@ Joining the blocks gives &quot;123-456-78&quot;.
 
 ## Solutions
 
-**Solution 1: Simple Simulation**
+### Solution 1: Simple Simulation
 
 First, according to the problem description, we remove all spaces and hyphens from the string.
 
@@ -77,8 +77,6 @@ Finally, we add hyphens between all groups and return the result string.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -93,8 +91,6 @@ class Solution:
             ans.append(number[-2:])
         return "-".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -150,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reformatNumber(number string) string {
 	number = strings.ReplaceAll(number, " ", "")
@@ -171,8 +163,6 @@ func reformatNumber(number string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reformatNumber(number: string): string {
     const cs = [...number].filter(c => c !== ' ' && c !== '-');
@@ -187,8 +177,6 @@ function reformatNumber(number: string): string {
         .join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -211,10 +199,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

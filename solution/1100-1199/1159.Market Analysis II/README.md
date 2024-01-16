@@ -109,11 +109,9 @@ id为 4 的用户的查询结果是 no，因为他卖出的第二件商品的品
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -141,3 +139,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

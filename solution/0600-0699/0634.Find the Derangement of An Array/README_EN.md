@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -46,18 +46,6 @@ class Solution:
             f[i] = (i - 1) * (f[i - 1] + f[i - 2]) % mod
         return f[n]
 ```
-
-```python
-class Solution:
-    def findDerangement(self, n: int) -> int:
-        mod = 10**9 + 7
-        a, b = 1, 0
-        for i in range(2, n + 1):
-            a, b = b, ((i - 1) * (a + b)) % mod
-        return b
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,23 +61,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findDerangement(int n) {
-        final int mod = (int) 1e9 + 7;
-        long a = 1, b = 0;
-        for (int i = 2; i <= n; ++i) {
-            long c = (i - 1) * (a + b) % mod;
-            a = b;
-            b = c;
-        }
-        return (int) b;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,6 +75,49 @@ public:
         return f[n];
     }
 };
+```
+
+```go
+func findDerangement(n int) int {
+	f := make([]int, n+1)
+	f[0] = 1
+	const mod = 1e9 + 7
+	for i := 2; i <= n; i++ {
+		f[i] = (i - 1) * (f[i-1] + f[i-2]) % mod
+	}
+	return f[n]
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findDerangement(self, n: int) -> int:
+        mod = 10**9 + 7
+        a, b = 1, 0
+        for i in range(2, n + 1):
+            a, b = b, ((i - 1) * (a + b)) % mod
+        return b
+```
+
+```java
+class Solution {
+    public int findDerangement(int n) {
+        final int mod = (int) 1e9 + 7;
+        long a = 1, b = 0;
+        for (int i = 2; i <= n; ++i) {
+            long c = (i - 1) * (a + b) % mod;
+            a = b;
+            b = c;
+        }
+        return (int) b;
+    }
+}
 ```
 
 ```cpp
@@ -122,20 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findDerangement(n int) int {
-	f := make([]int, n+1)
-	f[0] = 1
-	const mod = 1e9 + 7
-	for i := 2; i <= n; i++ {
-		f[i] = (i - 1) * (f[i-1] + f[i-2]) % mod
-	}
-	return f[n]
-}
-```
-
 ```go
 func findDerangement(n int) int {
 	a, b := 1, 0
@@ -147,10 +147,6 @@ func findDerangement(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

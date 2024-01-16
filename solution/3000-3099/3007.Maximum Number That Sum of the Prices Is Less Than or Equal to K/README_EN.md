@@ -52,9 +52,9 @@ Because the sum of the prices of the first 10 numbers is 8, the answer is 9.</pr
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +81,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +165,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMaximumNumber(k int64, x int) int64 {
@@ -221,10 +215,6 @@ func findMaximumNumber(k int64, x int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

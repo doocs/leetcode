@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: State Compression + Dynamic Programming**
+### Solution 1: State Compression + Dynamic Programming
 
 We notice that the number of rows in the grid does not exceed $5$, so there are at most $3^5=243$ different color schemes in a column.
 
@@ -61,8 +61,6 @@ We notice that $f[i][j]$ is only related to $f[i - 1][k]$, so we can use a rolli
 The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $O(3^m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +98,6 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -168,8 +164,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -232,8 +226,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func colorTheGrid(m int, n int) (ans int) {
 	f1 := func(x int) bool {
@@ -290,8 +282,6 @@ func colorTheGrid(m int, n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function colorTheGrid(m: number, n: number): number {
@@ -351,10 +341,6 @@ function colorTheGrid(m: number, n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

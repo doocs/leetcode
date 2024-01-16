@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
         t = arr[start:end]
         return round(sum(t) / len(t), 5)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,23 +70,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function trimMean(arr: number[]): number {
-    arr.sort((a, b) => a - b);
-    let n = arr.length,
-        rmLen = n * 0.05;
-    let sum = 0;
-    for (let i = rmLen; i < n - rmLen; i++) {
-        sum += arr[i];
-    }
-    return sum / (n * 0.9);
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func trimMean(arr []int) float64 {
 	sort.Ints(arr)
@@ -117,7 +96,18 @@ func trimMean(arr []int) float64 {
 }
 ```
 
-### **Rust**
+```ts
+function trimMean(arr: number[]): number {
+    arr.sort((a, b) => a - b);
+    let n = arr.length,
+        rmLen = n * 0.05;
+    let sum = 0;
+    for (let i = rmLen; i < n - rmLen; i++) {
+        sum += arr[i];
+    }
+    return sum / (n * 0.9);
+}
+```
 
 ```rust
 impl Solution {
@@ -134,10 +124,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

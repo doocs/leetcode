@@ -51,9 +51,7 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：解析存储**
+### 方法一：解析存储
 
 将 `compressedString` 解析成字符 $c$ 和对应的重复次数 $x$，存储在数组或列表 $d$ 中，用 $p$ 指向当前字符。
 
@@ -62,10 +60,6 @@ stringIterator.hasNext(); // 返回 True</pre>
 初始化的时间复杂度为 $O(n)$，其余操作的时间复杂度为 $O(1)$。其中 $n$ 为 `compressedString` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class StringIterator:
@@ -101,10 +95,6 @@ class StringIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class StringIterator {
@@ -158,8 +148,6 @@ class Node {
  */
 ```
 
-### **C++**
-
 ```cpp
 class StringIterator {
 public:
@@ -201,8 +189,6 @@ private:
  * bool param_2 = obj->hasNext();
  */
 ```
-
-### **Go**
 
 ```go
 type pair struct {
@@ -256,10 +242,6 @@ func (this *StringIterator) HasNext() bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

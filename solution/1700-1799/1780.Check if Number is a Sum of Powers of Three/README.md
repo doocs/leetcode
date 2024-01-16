@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学分析**
+### 方法一：数学分析
 
 我们发现，如果一个数 $n$ 可以表示成若干个“不同的”三的幂之和，那么 $n$ 的三进制表示中，每一位上的数字只能是 $0$ 或者 $1$。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(\log_3 n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
             n //= 3
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkPowersOfThree(n int) bool {
 	for n > 0 {
@@ -115,8 +101,6 @@ func checkPowersOfThree(n int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkPowersOfThree(n: number): boolean {
     while (n) {
@@ -127,10 +111,6 @@ function checkPowersOfThree(n: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

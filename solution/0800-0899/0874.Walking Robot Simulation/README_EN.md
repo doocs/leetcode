@@ -79,7 +79,7 @@ The furthest point the robot ever gets from the origin is (0, 6), which squared 
 
 ## Solutions
 
-**Solution 1: Hash table + simulation**
+### Solution 1: Hash table + simulation
 
 We define a direction array $dirs=[0, 1, 0, -1, 0]$ of length $5$, where adjacent elements in the array represent a direction. That is, $(dirs[0], dirs[1])$ represents north, and $(dirs[1], dirs[2])$ represents east, and so on.
 
@@ -98,8 +98,6 @@ Finally return the answer $ans$.
 Time complexity is $O(C \times n + m)$, space complexity is $O(m)$. Where $C$ represents the maximum number of steps that can be moved each time, and $n$ and $m$ respectively represent the lengths of arrays $commands$ and arrays $obstacles$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -122,8 +120,6 @@ class Solution:
                     ans = max(ans, x * x + y * y)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -161,8 +157,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -199,8 +193,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func robotSim(commands []int, obstacles [][]int) (ans int) {
 	dirs := [5]int{0, 1, 0, -1, 0}
@@ -226,8 +218,6 @@ func robotSim(commands []int, obstacles [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function robotSim(commands: number[], obstacles: number[][]): number {
@@ -258,10 +248,6 @@ function robotSim(commands: number[], obstacles: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

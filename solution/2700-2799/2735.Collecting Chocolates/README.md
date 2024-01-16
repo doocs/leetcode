@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们考虑枚举操作的次数，定义 $f[i][j]$ 表示第 $i$ 个巧克力进行了 $j$ 次操作后的最小成本。
 
@@ -77,10 +75,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minCost(self, nums: List[int], x: int) -> int:
@@ -92,10 +86,6 @@ class Solution:
                 f[i][j] = min(f[i][j - 1], nums[(i - j) % n])
         return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(nums []int, x int) int64 {
 	n := len(nums)
@@ -173,8 +159,6 @@ func minCost(nums []int, x int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCost(nums: number[], x: number): number {
     const n = nums.length;
@@ -196,8 +180,6 @@ function minCost(nums: number[], x: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -223,10 +205,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

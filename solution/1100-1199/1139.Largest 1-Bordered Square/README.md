@@ -34,9 +34,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 枚举**
+### 方法一：前缀和 + 枚举
 
 我们可以使用前缀和的方法预处理出每个位置向下和向右的连续 $1$ 的个数，记为 `down[i][j]` 和 `right[i][j]`。
 
@@ -45,10 +43,6 @@
 时间复杂度 $O(m \times n \times \min(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                         return k * k
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largest1BorderedSquare(grid [][]int) int {
@@ -178,10 +164,6 @@ func largest1BorderedSquare(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

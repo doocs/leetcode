@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们用 $x$ 表示字符串中待匹配的左括号的数量，初始时为 $0$。遍历字符串 $s$：
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -118,10 +112,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int minInsertions(String s) {
@@ -148,8 +138,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -179,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minInsertions(s string) int {
 	ans, x, n := 0, 0, len(s)
@@ -205,10 +191,6 @@ func minInsertions(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

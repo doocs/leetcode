@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i, j)$，表示当前已经选了 $i$ 个元音字母，且最后一个元音字母是 $j$ 的方案数。那么答案就是 $dfs(0, 0)$。
 
@@ -62,19 +60,7 @@
 
 时间复杂度 $O(n \times C^2)$，空间复杂度 $O(n \times C)$。其中 $n$ 为题目给定的整数，而 $C$ 是元音字母的数量，本题中 $C = 5$。
 
-**方法二：动态规划 + 前缀和**
-
-定义 $f[i][j]$ 表示当前已经选了 $i$ 个元音字母，且最后一个元音字母是 $j$ 的方案数。初始时 $f[1][j]=1$。答案是 $\sum_{j = 0}^4 f[n][j]$。
-
-我们可以发现 $f[i][j]$ 只与 $f[i - 1][j]$ 有关，因此可以将二维数组压缩为一维数组，从而优化空间复杂度。
-
-时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 为题目给定的整数，而 $C$ 是元音字母的数量，本题中 $C = 5$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,22 +71,6 @@ class Solution:
 
         return dfs(0, 0)
 ```
-
-```python
-class Solution:
-    def countVowelStrings(self, n: int) -> int:
-        f = [1] * 5
-        for _ in range(n - 1):
-            s = 0
-            for j in range(5):
-                s += f[j]
-                f[j] = s
-        return sum(f)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,24 +99,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countVowelStrings(int n) {
-        int[] f = {1, 1, 1, 1, 1};
-        for (int i = 0; i < n - 1; ++i) {
-            int s = 0;
-            for (int j = 0; j < 5; ++j) {
-                s += f[j];
-                f[j] = s;
-            }
-        }
-        return Arrays.stream(f).sum();
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,25 +123,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int countVowelStrings(int n) {
-        int f[5] = {1, 1, 1, 1, 1};
-        for (int i = 0; i < n - 1; ++i) {
-            int s = 0;
-            for (int j = 0; j < 5; ++j) {
-                s += f[j];
-                f[j] = s;
-            }
-        }
-        return accumulate(f, f + 5, 0);
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countVowelStrings(n int) int {
 	f := make([][5]int, n)
@@ -212,6 +145,63 @@ func countVowelStrings(n int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划 + 前缀和
+
+定义 $f[i][j]$ 表示当前已经选了 $i$ 个元音字母，且最后一个元音字母是 $j$ 的方案数。初始时 $f[1][j]=1$。答案是 $\sum_{j = 0}^4 f[n][j]$。
+
+我们可以发现 $f[i][j]$ 只与 $f[i - 1][j]$ 有关，因此可以将二维数组压缩为一维数组，从而优化空间复杂度。
+
+时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 为题目给定的整数，而 $C$ 是元音字母的数量，本题中 $C = 5$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        f = [1] * 5
+        for _ in range(n - 1):
+            s = 0
+            for j in range(5):
+                s += f[j]
+                f[j] = s
+        return sum(f)
+```
+
+```java
+class Solution {
+    public int countVowelStrings(int n) {
+        int[] f = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
+            }
+        }
+        return Arrays.stream(f).sum();
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countVowelStrings(int n) {
+        int f[5] = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
+            }
+        }
+        return accumulate(f, f + 5, 0);
+    }
+};
+```
+
 ```go
 func countVowelStrings(n int) (ans int) {
 	f := [5]int{1, 1, 1, 1, 1}
@@ -229,10 +219,6 @@ func countVowelStrings(n int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

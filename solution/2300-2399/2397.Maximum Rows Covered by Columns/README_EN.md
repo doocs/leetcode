@@ -55,7 +55,7 @@ Therefore, we return 2.
 
 ## Solutions
 
-**Solution 1: Binary Enumeration**
+### Solution 1: Binary Enumeration
 
 First, we convert each row of the matrix into a binary number and record it in the array $rows$. Here, $rows[i]$ represents the binary number corresponding to the $i$-th row, and the $j$-th bit of this binary number $rows[i]$ represents the value of the $i$-th row and $j$-th column.
 
@@ -64,8 +64,6 @@ Next, we enumerate all $2^n$ column selection schemes, where $n$ is the number o
 The time complexity is $O(2^n \times m)$, and the space complexity is $O(m)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,8 +81,6 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumRows(matrix [][]int, numSelect int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -178,8 +170,6 @@ func maximumRows(matrix [][]int, numSelect int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumRows(matrix: number[][], numSelect: number): number {
@@ -218,11 +208,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

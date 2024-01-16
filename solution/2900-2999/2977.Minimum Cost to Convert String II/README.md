@@ -76,9 +76,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字典树 + Floyd 算法 + 记忆化搜索**
+### 方法一：字典树 + Floyd 算法 + 记忆化搜索
 
 根据题目描述，我们可以将每个字符串看作一个节点，每对字符串的转换成本看作一条有向边。那么我们先初始化一个 $26 \times 26$ 的二维数组 $g$，其中 $g[i][j]$ 表示字符串 $i$ 转换成字符串 $j$ 的最小成本。初始时 $g[i][j] = \infty$，如果 $i = j$，那么 $g[i][j] = 0$。在这里，我们可以借助字典树存储 `original` 和 `changed` 中的字符串以及对应的整数编号。
 
@@ -108,10 +106,6 @@ $$
 时间复杂度 $O(m^3 + n^2 + m \times n)$，空间复杂度 $O(m^2 + m \times n + n)$。其中 $m$ 和 $n$ 分别是数组 $original$ 和 $source$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -183,10 +177,6 @@ class Solution:
         ans = dfs(0)
         return -1 if ans >= inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
@@ -276,8 +266,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Node {
@@ -378,8 +366,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 type Node struct {
 	children [26]*Node
@@ -472,8 +458,6 @@ func minimumCost(source string, target string, original []string, changed []stri
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Node {
     children: (Node | null)[] = Array(26).fill(null);
@@ -554,10 +538,6 @@ function minimumCost(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

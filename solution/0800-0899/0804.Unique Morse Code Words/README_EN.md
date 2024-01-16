@@ -57,9 +57,9 @@ There are 2 different transformations: &quot;--...-.&quot; and &quot;--...--.&qu
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -96,8 +96,6 @@ class Solution:
         return len(s)
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
@@ -117,7 +115,38 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int uniqueMorseRepresentations(vector<string>& words) {
+        vector<string> codes = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
+            "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+        unordered_set<string> s;
+        for (auto& word : words) {
+            string t;
+            for (char& c : word) t += codes[c - 'a'];
+            s.insert(t);
+        }
+        return s.size();
+    }
+};
+```
+
+```go
+func uniqueMorseRepresentations(words []string) int {
+	codes := []string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
+		"---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."}
+	s := make(map[string]bool)
+	for _, word := range words {
+		t := &strings.Builder{}
+		for _, c := range word {
+			t.WriteString(codes[c-'a'])
+		}
+		s[t.String()] = true
+	}
+	return len(s)
+}
+```
 
 ```ts
 const codes = [
@@ -160,8 +189,6 @@ function uniqueMorseRepresentations(words: string[]): number {
     ).size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -209,47 +236,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int uniqueMorseRepresentations(vector<string>& words) {
-        vector<string> codes = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
-            "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
-        unordered_set<string> s;
-        for (auto& word : words) {
-            string t;
-            for (char& c : word) t += codes[c - 'a'];
-            s.insert(t);
-        }
-        return s.size();
-    }
-};
-```
-
-### **Go**
-
-```go
-func uniqueMorseRepresentations(words []string) int {
-	codes := []string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
-		"---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."}
-	s := make(map[string]bool)
-	for _, word := range words {
-		t := &strings.Builder{}
-		for _, c := range word {
-			t.WriteString(codes[c-'a'])
-		}
-		s[t.String()] = true
-	}
-	return len(s)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

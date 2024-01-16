@@ -69,11 +69,9 @@ The rows ordered from weakest to strongest are [0,2,3,1].
 
 ## Solutions
 
-Binary search & sort.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
         idx.sort(key=lambda i: ans[i])
         return idx[:k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,31 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function kWeakestRows(mat: number[][], k: number): number[] {
-    let n = mat.length;
-    let sumMap = mat.map((d, i) => [d.reduce((a, c) => a + c, 0), i]);
-    let ans = [];
-    // 冒泡排序
-    for (let i = 0; i < k; i++) {
-        for (let j = i; j < n; j++) {
-            if (
-                sumMap[j][0] < sumMap[i][0] ||
-                (sumMap[j][0] == sumMap[i][0] && sumMap[i][1] > sumMap[j][1])
-            ) {
-                [sumMap[i], sumMap[j]] = [sumMap[j], sumMap[i]];
-            }
-        }
-        ans.push(sumMap[i][1]);
-    }
-    return ans;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -174,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kWeakestRows(mat [][]int, k int) []int {
 	m, n := len(mat), len(mat[0])
@@ -201,10 +170,27 @@ func kWeakestRows(mat [][]int, k int) []int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function kWeakestRows(mat: number[][], k: number): number[] {
+    let n = mat.length;
+    let sumMap = mat.map((d, i) => [d.reduce((a, c) => a + c, 0), i]);
+    let ans = [];
+    // 冒泡排序
+    for (let i = 0; i < k; i++) {
+        for (let j = i; j < n; j++) {
+            if (
+                sumMap[j][0] < sumMap[i][0] ||
+                (sumMap[j][0] == sumMap[i][0] && sumMap[i][1] > sumMap[j][1])
+            ) {
+                [sumMap[i], sumMap[j]] = [sumMap[j], sumMap[i]];
+            }
+        }
+        ans.push(sumMap[i][1]);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

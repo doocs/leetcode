@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Binary Search**
+### Solution 1: Sorting + Binary Search
 
 We can first sort the array $nums$, and initialize the answer as $-1$.
 
@@ -44,19 +44,7 @@ After the enumeration ends, return the answer.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 
-**Solution 2: Sorting + Two Pointers**
-
-Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.
-
-Next, we use two pointers $i$ and $j$ to point to the left and right ends of the array, respectively. Each time we judge whether $s = nums[i] + nums[j]$ is less than $k$. If it is less than $k$, then we can update the answer, i.e., $ans = \max(ans, s)$, and move $i$ one step to the right, otherwise move $j$ one step to the left.
-
-After the enumeration ends, return the answer.
-
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,23 +57,6 @@ class Solution:
                 ans = max(ans, x + nums[j])
         return ans
 ```
-
-```python
-class Solution:
-    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
-        nums.sort()
-        i, j = 0, len(nums) - 1
-        ans = -1
-        while i < j:
-            if (s := nums[i] + nums[j]) < k:
-                ans = max(ans, s)
-                i += 1
-            else:
-                j -= 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,6 +87,83 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int twoSumLessThanK(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int ans = -1, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int j = lower_bound(nums.begin() + i + 1, nums.end(), k - nums[i]) - nums.begin() - 1;
+            if (i < j) {
+                ans = max(ans, nums[i] + nums[j]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func twoSumLessThanK(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := -1
+	for i, x := range nums {
+		j := sort.SearchInts(nums[i+1:], k-x) + i
+		if v := nums[i] + nums[j]; i < j && ans < v {
+			ans = v
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function twoSumLessThanK(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    let ans = -1;
+    for (let i = 0, j = nums.length - 1; i < j; ) {
+        const s = nums[i] + nums[j];
+        if (s < k) {
+            ans = Math.max(ans, s);
+            ++i;
+        } else {
+            --j;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Sorting + Two Pointers
+
+Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.
+
+Next, we use two pointers $i$ and $j$ to point to the left and right ends of the array, respectively. Each time we judge whether $s = nums[i] + nums[j]$ is less than $k$. If it is less than $k$, then we can update the answer, i.e., $ans = \max(ans, s)$, and move $i$ one step to the right, otherwise move $j$ one step to the left.
+
+After the enumeration ends, return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        i, j = 0, len(nums) - 1
+        ans = -1
+        while i < j:
+            if (s := nums[i] + nums[j]) < k:
+                ans = max(ans, s)
+                i += 1
+            else:
+                j -= 1
+        return ans
+```
+
 ```java
 class Solution {
     public int twoSumLessThanK(int[] nums, int k) {
@@ -133,25 +181,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int twoSumLessThanK(vector<int>& nums, int k) {
-        sort(nums.begin(), nums.end());
-        int ans = -1, n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            int j = lower_bound(nums.begin() + i + 1, nums.end(), k - nums[i]) - nums.begin() - 1;
-            if (i < j) {
-                ans = max(ans, nums[i] + nums[j]);
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -174,22 +203,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func twoSumLessThanK(nums []int, k int) int {
-	sort.Ints(nums)
-	ans := -1
-	for i, x := range nums {
-		j := sort.SearchInts(nums[i+1:], k-x) + i
-		if v := nums[i] + nums[j]; i < j && ans < v {
-			ans = v
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func twoSumLessThanK(nums []int, k int) int {
 	sort.Ints(nums)
@@ -206,29 +219,6 @@ func twoSumLessThanK(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function twoSumLessThanK(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    let ans = -1;
-    for (let i = 0, j = nums.length - 1; i < j; ) {
-        const s = nums[i] + nums[j];
-        if (s < k) {
-            ans = Math.max(ans, s);
-            ++i;
-        } else {
-            --j;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

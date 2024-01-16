@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数位 DP**
+### 方法一：数位 DP
 
 这道题实际上是求在给定区间 $[l,..r]$ 中，数字中出现 $d$ 的个数。个数与数的位数以及每一位上的数字有关。我们可以用数位 DP 的思路来解决这道题。数位 DP 中，数的大小对复杂度的影响很小。
 
@@ -71,10 +69,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def digitsCount(self, d: int, low: int, high: int) -> int:
@@ -102,10 +96,6 @@ class Solution:
             n //= 10
         return dfs(l, 0, True, True)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -201,8 +189,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func digitsCount(d int, low int, high int) int {
@@ -258,10 +244,6 @@ func digitsCount(d int, low int, high int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

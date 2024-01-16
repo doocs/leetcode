@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆序遍历**
+### 方法一：逆序遍历
 
 要找到每个以 $i$ 作为起始位置的最短子数组，满足或运算结果最大，那么必须让这个结果的 $1$ 尽可能多。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n \times \log m)$。其中 $n$ 为数组 $nums$ 的长度，而 $m$ 为数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
             ans[i] = t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func smallestSubarrays(nums []int) []int {
@@ -168,17 +154,6 @@ func smallestSubarrays(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

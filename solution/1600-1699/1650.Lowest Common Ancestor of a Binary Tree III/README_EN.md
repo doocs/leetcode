@@ -56,9 +56,9 @@ class Node {
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -80,8 +80,6 @@ class Solution:
             b = b.parent if b.parent else p
         return a
 ```
-
-### **Java**
 
 ```java
 /*
@@ -105,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -133,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -165,10 +159,6 @@ func lowestCommonAncestor(p *Node, q *Node) *Node {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

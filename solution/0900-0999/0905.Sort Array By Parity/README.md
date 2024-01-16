@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用两个指针 $i$ 和 $j$ 分别指向数组的首尾，当 $i < j$ 时，执行以下操作。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                 i, j = i + 1, j - 1
         return nums
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortArrayByParity(nums []int) []int {
 	for i, j := 0, len(nums)-1; i < j; {
@@ -137,7 +123,22 @@ func sortArrayByParity(nums []int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function sortArrayByParity(nums: number[]): number[] {
+    for (let i = 0, j = nums.length - 1; i < j; ) {
+        if (nums[i] % 2 === 0) {
+            ++i;
+        } else if (nums[j] % 2 === 1) {
+            --j;
+        } else {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            ++i;
+            --j;
+        }
+    }
+    return nums;
+}
+```
 
 ```rust
 impl Solution {
@@ -158,27 +159,6 @@ impl Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function sortArrayByParity(nums: number[]): number[] {
-    for (let i = 0, j = nums.length - 1; i < j; ) {
-        if (nums[i] % 2 === 0) {
-            ++i;
-        } else if (nums[j] % 2 === 1) {
-            --j;
-        } else {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-            ++i;
-            --j;
-        }
-    }
-    return nums;
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -201,10 +181,6 @@ var sortArrayByParity = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

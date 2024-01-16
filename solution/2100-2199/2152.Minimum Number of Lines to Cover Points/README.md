@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 记忆化搜索**
+### 方法一：状态压缩 + 记忆化搜索
 
 我们可以用一个整数 `state` 来表示当前已经添加的直线，其中 `state` 的第 $i$ 位表示第 $i$ 条直线是否已经添加。如果 `state` 的第 $i$ 位为 $1$，则表示第 $i$ 条直线已经添加，否则表示第 $i$ 条直线还未添加。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(2^n \times n^3)$，空间复杂度 $O(2^n)$。其中 $n$ 为点的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
         n = len(points)
         return dfs(0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +142,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -193,8 +181,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumLines(points [][]int) int {
@@ -238,16 +224,6 @@ func minimumLines(points [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

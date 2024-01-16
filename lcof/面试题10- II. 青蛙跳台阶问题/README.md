@@ -35,7 +35,7 @@
 
 ## 解法
 
-**方法一：递推**
+### 方法一：递推
 
 青蛙想上第 $n$ 级台阶，可从第 $n-1$ 级台阶跳一级上去，也可从第 $n-2$ 级台阶跳两级上去，即 $f(n) = f(n-1) + f(n-2)$。这实际上可以转换为斐波那契数列的问题。
 
@@ -45,8 +45,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def numWays(self, n: int) -> int:
@@ -55,8 +53,6 @@ class Solution:
             a, b = b, (a + b) % 1000000007
         return a
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -89,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numWays(n int) int {
 	a, b := 1, 1
@@ -101,7 +93,28 @@ func numWays(n int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function numWays(n: number): number {
+    let a = 0;
+    let b = 1;
+    for (let i = 0; i < n; i++) {
+        [a, b] = [b, (a + b) % 1000000007];
+    }
+    return b;
+}
+```
+
+```rust
+impl Solution {
+    pub fn num_ways(n: i32) -> i32 {
+        let mut tup = (0, 1);
+        for _ in 0..n {
+            tup = (tup.1, (tup.0 + tup.1) % 1000000007);
+        }
+        tup.1
+    }
+}
+```
 
 ```js
 /**
@@ -117,35 +130,6 @@ var numWays = function (n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function numWays(n: number): number {
-    let a = 0;
-    let b = 1;
-    for (let i = 0; i < n; i++) {
-        [a, b] = [b, (a + b) % 1000000007];
-    }
-    return b;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn num_ways(n: i32) -> i32 {
-        let mut tup = (0, 1);
-        for _ in 0..n {
-            tup = (tup.1, (tup.0 + tup.1) % 1000000007);
-        }
-        tup.1
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int NumWays(int n) {
@@ -160,10 +144,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

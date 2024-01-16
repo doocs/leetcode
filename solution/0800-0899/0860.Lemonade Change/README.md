@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 模拟**
+### 方法一：贪心 + 模拟
 
 我们从前往后遍历账单数组 $bills$，对于当前遍历到的账单：
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为账单数组 $bills$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lemonadeChange(bills []int) bool {
 	five, ten := 0, 0
@@ -182,8 +168,6 @@ func lemonadeChange(bills []int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function lemonadeChange(bills: number[]): boolean {
@@ -214,8 +198,6 @@ function lemonadeChange(bills: number[]): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -249,10 +231,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

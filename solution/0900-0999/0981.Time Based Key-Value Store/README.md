@@ -50,9 +50,7 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 有序集合（或二分查找）**
+### 方法一：哈希表 + 有序集合（或二分查找）
 
 我们可以用哈希表 $ktv$ 记录键值对，其中键为字符串 $key$，值为一个列表，列表中的每个元素为一个二元组 $(timestamp, value)$，表示键 $key$ 在时间戳 $timestamp$ 时对应的值为 $value$。
 
@@ -61,10 +59,6 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 时间复杂度方面，对于 $set$ 操作，由于哈希表的插入操作的时间复杂度为 $O(1)$，因此时间复杂度为 $O(1)$。对于 $get$ 操作，由于哈希表的查找操作的时间复杂度为 $O(1)$，而二分查找的时间复杂度为 $O(\log n)$，因此时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$，其中 $n$ 为 $set$ 操作的次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class TimeMap:
@@ -87,10 +81,6 @@ class TimeMap:
 # obj.set(key,value,timestamp)
 # param_2 = obj.get(key,timestamp)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class TimeMap {
@@ -121,8 +111,6 @@ class TimeMap {
  */
 ```
 
-### **C++**
-
 ```cpp
 class TimeMap {
 public:
@@ -151,8 +139,6 @@ private:
  * string param_2 = obj->get(key,timestamp);
  */
 ```
-
-### **Go**
 
 ```go
 type TimeMap struct {
@@ -189,10 +175,6 @@ type pair struct {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

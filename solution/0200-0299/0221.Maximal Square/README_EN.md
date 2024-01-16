@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $dp[i + 1][j + 1]$ as the maximum square side length with the lower right corner at index $(i, j)$. The answer is the maximum value among all $dp[i + 1][j + 1]$.
 
@@ -58,8 +58,6 @@ The time complexity is $O(m\times n)$, and the space complexity is $O(m\times n)
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
@@ -73,8 +71,6 @@ class Solution:
                     mx = max(mx, dp[i + 1][j + 1])
         return mx * mx
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximalSquare(matrix [][]byte) int {
 	m, n := len(matrix), len(matrix[0])
@@ -138,8 +130,6 @@ func maximalSquare(matrix [][]byte) int {
 	return mx * mx
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -163,10 +153,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -74,7 +74,7 @@ So the total number of trips is 2 + 2 + 2 = 6.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming + Monotonic Queue Optimization**
+### Solution 1: Dynamic Programming + Monotonic Queue Optimization
 
 We define $f[i]$ as the minimum number of trips required to transport the first $i$ boxes from the warehouse to the corresponding docks, so the answer is $f[n]$.
 
@@ -216,8 +216,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def boxDelivering(
@@ -240,8 +238,6 @@ class Solution:
                 q.append(i)
         return f[n]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -279,8 +275,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -308,8 +302,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
@@ -347,10 +339,6 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

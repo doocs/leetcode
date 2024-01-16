@@ -54,7 +54,7 @@ Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We design a function `dfs(root)` that returns a tuple `(l, d)`, where `l` is the deepest common ancestor of node `root`, and `d` is the depth of node `root`. The execution logic of the function `dfs(root)` is as follows:
 
@@ -66,8 +66,6 @@ In the main function, we call `dfs(root)` and return the first element of its re
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -91,8 +89,6 @@ class Solution:
 
         return dfs(root)[0]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -133,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -170,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -205,8 +197,6 @@ func lcaDeepestLeaves(root *TreeNode) *TreeNode {
 	return dfs(root).first
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -242,10 +232,6 @@ function lcaDeepestLeaves(root: TreeNode | null): TreeNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,19 +61,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以用双指针 $i$ 和 $j$ 分别指向字符串 $s$ 和数组 $spaces$ 的头部，然后从头到尾遍历字符串 $s$，当 $i$ 等于 $spaces[j]$ 时，我们往结果字符串中添加一个空格，然后 $j$ 自增 1。接下来，我们将 $s[i]$ 添加到结果字符串中，然后 $i$ 自增 1。继续这个过程，直到遍历完字符串 $s$。
 
 时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是字符串 $s$ 和数组 $spaces$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,24 +81,6 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
-
-```python
-class Solution:
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
-        ans = []
-        i, j = len(s) - 1, len(spaces) - 1
-        while i >= 0:
-            ans.append(s[i])
-            if j >= 0 and i == spaces[j]:
-                ans.append(' ')
-                j -= 1
-            i -= 1
-        return ''.join(ans[::-1])
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addSpaces(s string, spaces []int) string {
 	var ans []byte
@@ -156,10 +128,6 @@ func addSpaces(s string, spaces []int) string {
 	return string(ans)
 }
 ```
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function addSpaces(s: string, spaces: number[]): string {
@@ -175,10 +143,26 @@ function addSpaces(s: string, spaces: number[]): string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        ans = []
+        i, j = len(s) - 1, len(spaces) - 1
+        while i >= 0:
+            ans.append(s[i])
+            if j >= 0 and i == spaces[j]:
+                ans.append(' ')
+                j -= 1
+            i -= 1
+        return ''.join(ans[::-1])
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

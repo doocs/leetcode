@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀异或**
+### 方法一：前缀异或
 
 我们可以用一个长度为 $n+1$ 的前缀异或数组 $s$ 来存储数组 $arr$ 的前缀异或结果，其中 $s[i] = s[i-1] \oplus arr[i-1]$，即 $s[i]$ 表示 $arr$ 中下标 $[0,i-1]$ 的元素的异或结果。
 
@@ -72,20 +70,12 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
         s = list(accumulate(arr, xor, initial=0))
         return [s[r + 1] ^ s[l] for l, r in queries]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorQueries(arr []int, queries [][]int) (ans []int) {
 	n := len(arr)
@@ -145,8 +131,6 @@ func xorQueries(arr []int, queries [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function xorQueries(arr: number[], queries: number[][]): number[] {
     const n = arr.length;
@@ -161,8 +145,6 @@ function xorQueries(arr: number[], queries: number[][]): number[] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -184,10 +166,6 @@ var xorQueries = function (arr, queries) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

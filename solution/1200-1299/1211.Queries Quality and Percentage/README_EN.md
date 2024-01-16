@@ -76,13 +76,11 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 
 ## Solutions
 
-**Solution 1: Grouping and Aggregation**
+### Solution 1: Grouping and Aggregation
 
 We can group the query results by `query_name`, and then use the `AVG` and `ROUND` functions to calculate `quality` and `poor_query_percentage`.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -95,3 +93,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

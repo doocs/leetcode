@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 前缀和**
+### 方法一：动态规划 + 前缀和
 
 我们定义 $f[i][j]$ 表示数组长度为 $i$，逆序对数为 $j$ 的数组个数。初始时 $f[0][0] = 1$，其余 $f[i][j] = 0$。
 
@@ -65,10 +63,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def kInversePairs(self, n: int, k: int) -> int:
@@ -82,10 +76,6 @@ class Solution:
                 s[j] = (s[j - 1] + f[j - 1]) % mod
         return f[k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kInversePairs(n int, k int) int {
 	f := make([]int, k+1)
@@ -158,8 +144,6 @@ func kInversePairs(n int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kInversePairs(n: number, k: number): number {
     const f: number[] = new Array(k + 1).fill(0);
@@ -179,10 +163,6 @@ function kInversePairs(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

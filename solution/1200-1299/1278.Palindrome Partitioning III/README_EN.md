@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
                         f[i][j] = min(f[i][j], f[h][j - 1] + g[h][i - 1])
         return f[n][k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func palindromePartition(s string, k int) int {
@@ -177,10 +171,6 @@ func palindromePartition(s string, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

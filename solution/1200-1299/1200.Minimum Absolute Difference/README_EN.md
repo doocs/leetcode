@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting**
+### Solution 1: Sorting
 
 According to the problem description, we need to find the minimum absolute difference between any two elements in the array $arr$. Therefore, we can first sort the array $arr$, then traverse the adjacent elements to get the minimum absolute difference $mi$.
 
@@ -56,8 +56,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
@@ -65,8 +63,6 @@ class Solution:
         mi = min(b - a for a, b in pairwise(arr))
         return [[a, b] for a, b in pairwise(arr) if b - a == mi]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumAbsDifference(arr []int) (ans [][]int) {
 	sort.Ints(arr)
@@ -132,8 +124,6 @@ func minimumAbsDifference(arr []int) (ans [][]int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumAbsDifference(arr: number[]): number[][] {
     arr.sort((a, b) => a - b);
@@ -152,10 +142,6 @@ function minimumAbsDifference(arr: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

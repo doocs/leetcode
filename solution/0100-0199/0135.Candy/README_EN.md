@@ -44,7 +44,7 @@ The third child gets 1 candy because it satisfies the above two conditions.
 
 ## Solutions
 
-**Solution 1: Two traversals**
+### Solution 1: Two traversals
 
 We initialize two arrays $left$ and $right$, where $left[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the left child's score, and $right[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the right child's score. Initially, $left[i]=1$, $right[i]=1$.
 
@@ -55,8 +55,6 @@ Finally, we traverse the array of scores once, and the minimum number of candies
 Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the length of the array of scores.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return sum(max(a, b) for a, b in zip(left, right))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,6 +97,116 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    int candy(vector<int>& ratings) {
+        int n = ratings.size();
+        vector<int> left(n, 1);
+        vector<int> right(n, 1);
+        for (int i = 1; i < n; ++i) {
+            if (ratings[i] > ratings[i - 1]) {
+                left[i] = left[i - 1] + 1;
+            }
+        }
+        for (int i = n - 2; ~i; --i) {
+            if (ratings[i] > ratings[i + 1]) {
+                right[i] = right[i + 1] + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += max(left[i], right[i]);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func candy(ratings []int) int {
+	n := len(ratings)
+	left := make([]int, n)
+	right := make([]int, n)
+	for i := range left {
+		left[i] = 1
+		right[i] = 1
+	}
+	for i := 1; i < n; i++ {
+		if ratings[i] > ratings[i-1] {
+			left[i] = left[i-1] + 1
+		}
+	}
+	for i := n - 2; i >= 0; i-- {
+		if ratings[i] > ratings[i+1] {
+			right[i] = right[i+1] + 1
+		}
+	}
+	ans := 0
+	for i, a := range left {
+		b := right[i]
+		ans += max(a, b)
+	}
+	return ans
+}
+```
+
+```ts
+function candy(ratings: number[]): number {
+    const n = ratings.length;
+    const left = new Array(n).fill(1);
+    const right = new Array(n).fill(1);
+    for (let i = 1; i < n; ++i) {
+        if (ratings[i] > ratings[i - 1]) {
+            left[i] = left[i - 1] + 1;
+        }
+    }
+    for (let i = n - 2; i >= 0; --i) {
+        if (ratings[i] > ratings[i + 1]) {
+            right[i] = right[i + 1] + 1;
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.max(left[i], right[i]);
+    }
+    return ans;
+}
+```
+
+```cs
+public class Solution {
+    public int Candy(int[] ratings) {
+        int n = ratings.Length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Array.Fill(left, 1);
+        Array.Fill(right, 1);
+        for (int i = 1; i < n; ++i) {
+            if (ratings[i] > ratings[i - 1]) {
+                left[i] = left[i - 1] + 1;
+            }
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            if (ratings[i] > ratings[i + 1]) {
+                right[i] = right[i + 1] + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Max(left[i], right[i]);
+        }
+        return ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -132,122 +238,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int candy(vector<int>& ratings) {
-        int n = ratings.size();
-        vector<int> left(n, 1);
-        vector<int> right(n, 1);
-        for (int i = 1; i < n; ++i) {
-            if (ratings[i] > ratings[i - 1]) {
-                left[i] = left[i - 1] + 1;
-            }
-        }
-        for (int i = n - 2; ~i; --i) {
-            if (ratings[i] > ratings[i + 1]) {
-                right[i] = right[i + 1] + 1;
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans += max(left[i], right[i]);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func candy(ratings []int) int {
-	n := len(ratings)
-	left := make([]int, n)
-	right := make([]int, n)
-	for i := range left {
-		left[i] = 1
-		right[i] = 1
-	}
-	for i := 1; i < n; i++ {
-		if ratings[i] > ratings[i-1] {
-			left[i] = left[i-1] + 1
-		}
-	}
-	for i := n - 2; i >= 0; i-- {
-		if ratings[i] > ratings[i+1] {
-			right[i] = right[i+1] + 1
-		}
-	}
-	ans := 0
-	for i, a := range left {
-		b := right[i]
-		ans += max(a, b)
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function candy(ratings: number[]): number {
-    const n = ratings.length;
-    const left = new Array(n).fill(1);
-    const right = new Array(n).fill(1);
-    for (let i = 1; i < n; ++i) {
-        if (ratings[i] > ratings[i - 1]) {
-            left[i] = left[i - 1] + 1;
-        }
-    }
-    for (let i = n - 2; i >= 0; --i) {
-        if (ratings[i] > ratings[i + 1]) {
-            right[i] = right[i + 1] + 1;
-        }
-    }
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        ans += Math.max(left[i], right[i]);
-    }
-    return ans;
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int Candy(int[] ratings) {
-        int n = ratings.Length;
-        int[] left = new int[n];
-        int[] right = new int[n];
-        Array.Fill(left, 1);
-        Array.Fill(right, 1);
-        for (int i = 1; i < n; ++i) {
-            if (ratings[i] > ratings[i - 1]) {
-                left[i] = left[i - 1] + 1;
-            }
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            if (ratings[i] > ratings[i + 1]) {
-                right[i] = right[i + 1] + 1;
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans += Math.Max(left[i], right[i]);
-        }
-        return ans;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

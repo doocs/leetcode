@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We can transform this problem into: In a circular array of length $3n$, select $n$ non-adjacent numbers so that the sum of these $n$ numbers is maximized.
 
@@ -74,8 +74,6 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxSizeSlices(self, slices: List[int]) -> int:
@@ -93,8 +91,6 @@ class Solution:
         a, b = g(slices[:-1]), g(slices[1:])
         return max(a, b)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSizeSlices(slices []int) int {
 	n := len(slices) / 3
@@ -176,8 +168,6 @@ func maxSizeSlices(slices []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSizeSlices(slices: number[]): number {
     const n = Math.floor(slices.length / 3);
@@ -199,10 +189,6 @@ function maxSizeSlices(slices: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

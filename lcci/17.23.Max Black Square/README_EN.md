@@ -51,9 +51,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,8 +78,6 @@ class Solution:
                         return [i, j, k]
         return []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findSquare(matrix [][]int) []int {
@@ -180,8 +174,6 @@ func findSquare(matrix [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSquare(matrix: number[][]): number[] {
     const n = matrix.length;
@@ -213,10 +205,6 @@ function findSquare(matrix: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

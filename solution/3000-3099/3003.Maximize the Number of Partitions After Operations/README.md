@@ -81,13 +81,9 @@ s 变为 "xayz"。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -114,10 +110,6 @@ class Solution:
         n = len(s)
         return dfs(0, 0, 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,8 +150,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -193,8 +183,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxPartitionsAfterOperations(s string, k int) int {
@@ -234,8 +222,6 @@ func maxPartitionsAfterOperations(s string, k int) int {
 	return dfs(0, 0, 1)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxPartitionsAfterOperations(s: string, k: number): number {
@@ -283,10 +269,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

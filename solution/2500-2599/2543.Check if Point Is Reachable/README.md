@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们注意到，前两种移动方式不会改变横、纵坐标的最大公约数，而后两种移动方式可以使得横、纵坐标的最大公约数乘上 $2$ 的幂次。也就是说，最后的横、纵坐标的最大公约数必须是 $2$ 的幂次。最大公约数不是 $2$ 的幂次，那么就无法到达。
 
@@ -61,20 +59,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isReachable(self, targetX: int, targetY: int) -> bool:
         x = gcd(targetX, targetY)
         return x & (x - 1) == 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +88,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isReachable(targetX int, targetY int) bool {
@@ -117,8 +103,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isReachable(targetX: number, targetY: number): boolean {
     const x = gcd(targetX, targetY);
@@ -130,10 +114,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

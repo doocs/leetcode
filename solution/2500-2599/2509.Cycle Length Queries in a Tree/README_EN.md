@@ -64,9 +64,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func cycleLengthQueries(n int, queries [][]int) []int {
 	ans := []int{}
@@ -156,10 +150,6 @@ func cycleLengthQueries(n int, queries [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

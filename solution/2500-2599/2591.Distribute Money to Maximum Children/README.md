@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 如果 $money \lt children$，那么一定存在儿童没有分到钱，返回 $-1$。
 
@@ -66,10 +64,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def distMoney(self, money: int, children: int) -> int:
@@ -82,10 +76,6 @@ class Solution:
         # money-8x >= children-x, x <= (money-children)/7
         return (money - children) // 7
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distMoney(money int, children int) int {
 	if money < children {
@@ -144,8 +130,6 @@ func distMoney(money int, children int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distMoney(money: number, children: number): number {
     if (money < children) {
@@ -160,8 +144,6 @@ function distMoney(money: number, children: number): number {
     return Math.floor((money - children) / 7);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -183,10 +165,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

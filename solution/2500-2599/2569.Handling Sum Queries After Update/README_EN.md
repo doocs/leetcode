@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Segment Tree**
+### Solution 1: Segment Tree
 
 According to the problem description:
 
@@ -83,8 +83,6 @@ When executing operation $3$, we just need to add $s$ to the answer array.
 The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays `nums1` and `queries` respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Node:
@@ -164,8 +162,6 @@ class Solution:
                 ans.append(s)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -278,8 +274,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -388,8 +382,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type node struct {
 	l, r, s, lazy int
@@ -490,10 +482,6 @@ func handleQuery(nums1 []int, nums2 []int, queries [][]int) (ans []int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

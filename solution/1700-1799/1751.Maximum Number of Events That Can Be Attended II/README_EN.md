@@ -51,9 +51,9 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,21 +72,6 @@ class Solution:
         events.sort()
         return dfs(0, k)
 ```
-
-```python
-class Solution:
-    def maxValue(self, events: List[List[int]], k: int) -> int:
-        events.sort(key=lambda x: x[1])
-        n = len(events)
-        f = [[0] * (k + 1) for _ in range(n + 1)]
-        for i, (st, _, val) in enumerate(events, 1):
-            p = bisect_left(events, st, hi=i - 1, key=lambda x: x[1])
-            for j in range(1, k + 1):
-                f[i][j] = max(f[i - 1][j], f[p][j - 1] + val)
-        return f[n][k]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,6 +114,105 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int maxValue(vector<vector<int>>& events, int k) {
+        sort(events.begin(), events.end());
+        int n = events.size();
+        int f[n][k + 1];
+        memset(f, 0, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int k) -> int {
+            if (i >= n || k <= 0) {
+                return 0;
+            }
+            if (f[i][k] > 0) {
+                return f[i][k];
+            }
+            int ed = events[i][1], val = events[i][2];
+            vector<int> t = {ed};
+            int p = upper_bound(events.begin() + i + 1, events.end(), t, [](const auto& a, const auto& b) { return a[0] < b[0]; }) - events.begin();
+            f[i][k] = max(dfs(i + 1, k), dfs(p, k - 1) + val);
+            return f[i][k];
+        };
+        return dfs(0, k);
+    }
+};
+```
+
+```go
+func maxValue(events [][]int, k int) int {
+	sort.Slice(events, func(i, j int) bool { return events[i][0] < events[j][0] })
+	n := len(events)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	var dfs func(i, k int) int
+	dfs = func(i, k int) int {
+		if i >= n || k <= 0 {
+			return 0
+		}
+		if f[i][k] > 0 {
+			return f[i][k]
+		}
+		j := sort.Search(n, func(h int) bool { return events[h][0] > events[i][1] })
+		ans := max(dfs(i+1, k), dfs(j, k-1)+events[i][2])
+		f[i][k] = ans
+		return ans
+	}
+	return dfs(0, k)
+}
+```
+
+```ts
+function maxValue(events: number[][], k: number): number {
+    events.sort((a, b) => a[1] - b[1]);
+    const n = events.length;
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
+    const search = (x: number, hi: number): number => {
+        let l = 0;
+        let r = hi;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (events[mid][1] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 1; i <= n; ++i) {
+        const [st, _, val] = events[i - 1];
+        const p = search(st, i - 1);
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
+        }
+    }
+    return f[n][k];
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxValue(self, events: List[List[int]], k: int) -> int:
+        events.sort(key=lambda x: x[1])
+        n = len(events)
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i, (st, _, val) in enumerate(events, 1):
+            p = bisect_left(events, st, hi=i - 1, key=lambda x: x[1])
+            for j in range(1, k + 1):
+                f[i][j] = max(f[i - 1][j], f[p][j - 1] + val)
+        return f[n][k]
+```
+
 ```java
 class Solution {
     public int maxValue(int[][] events, int k) {
@@ -160,34 +244,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxValue(vector<vector<int>>& events, int k) {
-        sort(events.begin(), events.end());
-        int n = events.size();
-        int f[n][k + 1];
-        memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int k) -> int {
-            if (i >= n || k <= 0) {
-                return 0;
-            }
-            if (f[i][k] > 0) {
-                return f[i][k];
-            }
-            int ed = events[i][1], val = events[i][2];
-            vector<int> t = {ed};
-            int p = upper_bound(events.begin() + i + 1, events.end(), t, [](const auto& a, const auto& b) { return a[0] < b[0]; }) - events.begin();
-            f[i][k] = max(dfs(i + 1, k), dfs(p, k - 1) + val);
-            return f[i][k];
-        };
-        return dfs(0, k);
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -209,33 +265,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maxValue(events [][]int, k int) int {
-	sort.Slice(events, func(i, j int) bool { return events[i][0] < events[j][0] })
-	n := len(events)
-	f := make([][]int, n)
-	for i := range f {
-		f[i] = make([]int, k+1)
-	}
-	var dfs func(i, k int) int
-	dfs = func(i, k int) int {
-		if i >= n || k <= 0 {
-			return 0
-		}
-		if f[i][k] > 0 {
-			return f[i][k]
-		}
-		j := sort.Search(n, func(h int) bool { return events[h][0] > events[i][1] })
-		ans := max(dfs(i+1, k), dfs(j, k-1)+events[i][2])
-		f[i][k] = ans
-		return ans
-	}
-	return dfs(0, k)
-}
-```
-
 ```go
 func maxValue(events [][]int, k int) int {
 	sort.Slice(events, func(i, j int) bool { return events[i][1] < events[j][1] })
@@ -255,41 +284,6 @@ func maxValue(events [][]int, k int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxValue(events: number[][], k: number): number {
-    events.sort((a, b) => a[1] - b[1]);
-    const n = events.length;
-    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
-    const search = (x: number, hi: number): number => {
-        let l = 0;
-        let r = hi;
-        while (l < r) {
-            const mid = (l + r) >> 1;
-            if (events[mid][1] >= x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
-    };
-    for (let i = 1; i <= n; ++i) {
-        const [st, _, val] = events[i - 1];
-        const p = search(st, i - 1);
-        for (let j = 1; j <= k; ++j) {
-            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
-        }
-    }
-    return f[n][k];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

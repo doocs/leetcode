@@ -56,15 +56,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 First, we can calculate the total distance $s$ that the bus travels. Then, we simulate the bus's journey, starting from the departure point, moving one stop to the right each time, until we reach the destination. During the simulation, we can record the distance $a$ from the departure point to the destination. Therefore, the shortest distance from the destination to the departure point is $\min(a, s - a)$.
 
 The time complexity is $O(n)$, where $n$ is the number of bus stops. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
             start = (start + 1) % n
         return min(a, sum(distance) - a)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
@@ -129,7 +121,18 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
+    const s = distance.reduce((a, b) => a + b, 0);
+    let a = 0;
+    const n = distance.length;
+    while (start != destination) {
+        a += distance[start];
+        start = (start + 1) % n;
+    }
+    return Math.min(a, s - a);
+}
+```
 
 ```js
 /**
@@ -150,25 +153,6 @@ var distanceBetweenBusStops = function (distance, start, destination) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
-    const s = distance.reduce((a, b) => a + b, 0);
-    let a = 0;
-    const n = distance.length;
-    while (start != destination) {
-        a += distance[start];
-        start = (start + 1) % n;
-    }
-    return Math.min(a, s - a);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

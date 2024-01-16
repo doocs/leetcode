@@ -55,9 +55,7 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优先队列（大根堆）**
+### 方法一：贪心 + 优先队列（大根堆）
 
 根据题目描述，每一次操作，都会将数组中的一个数减半。要使得数组和至少减少一半的操作次数最少，那么每一次操作都应该选择当前数组中的最大值进行减半。
 
@@ -66,10 +64,6 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func halveArray(nums []int) (ans int) {
@@ -171,6 +157,31 @@ func (h *hp) Pop() any {
 }
 ```
 
+```ts
+function halveArray(nums: number[]): number {
+    let s: number = nums.reduce((a, b) => a + b) / 2;
+    const h = new MaxPriorityQueue();
+    for (const v of nums) {
+        h.enqueue(v, v);
+    }
+    let ans: number = 0;
+    while (s > 0) {
+        let { element: t } = h.dequeue();
+        t /= 2;
+        s -= t;
+        h.enqueue(t, t);
+        ans += 1;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```go
 func halveArray(nums []int) (ans int) {
 	half := 0
@@ -195,31 +206,6 @@ func (hp) Push(any)             {}
 func (hp) Pop() (_ any)         { return }
 ```
 
-### **TypeScript**
-
-```ts
-function halveArray(nums: number[]): number {
-    let s: number = nums.reduce((a, b) => a + b) / 2;
-    const h = new MaxPriorityQueue();
-    for (const v of nums) {
-        h.enqueue(v, v);
-    }
-    let ans: number = 0;
-    while (s > 0) {
-        let { element: t } = h.dequeue();
-        t /= 2;
-        s -= t;
-        h.enqueue(t, t);
-        ans += 1;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

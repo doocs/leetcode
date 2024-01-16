@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 考虑**从大到小遍历**数组 $nums$ 中的每个元素 $v$，用并查集来维护以 $v$ 作为子数组最小值的连通块。
 
@@ -62,21 +60,7 @@ $v$ 作为当前连通块的最小值，当前连通块的大小为 $size[find(i
 
 相似题目：[1562. 查找大小为 M 的最新分组](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
 
-**方法二：单调栈**
-
-利用单调栈，得到以当前元素 $nums[i]$ 作为最小元素的左右边界 $left[i]$（左边第一个比 $nums[i]$ 小的元素的位置）, $right[i]$（右边第一个比 $nums[i]$ 小的元素的位置）。
-
-那么对于当前元素 $nums[i]$，有 $k=right[i]-left[i]-1$，若 $nums[i]>\frac{\text{threshold}}{k}$，说明找到了满足条件的子数组，返回 $true$。
-
-否则遍历结束，返回 $-1$。
-
-时间复杂度 $O(n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,37 +92,6 @@ class Solution:
             vis[i] = True
         return -1
 ```
-
-```python
-class Solution:
-    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
-        n = len(nums)
-        left = [-1] * n
-        right = [n] * n
-        stk = []
-        for i, v in enumerate(nums):
-            while stk and nums[stk[-1]] >= v:
-                stk.pop()
-            if stk:
-                left[i] = stk[-1]
-            stk.append(i)
-        stk = []
-        for i in range(n - 1, -1, -1):
-            while stk and nums[stk[-1]] >= nums[i]:
-                stk.pop()
-            if stk:
-                right[i] = stk[-1]
-            stk.append(i)
-        for i, v in enumerate(nums):
-            k = right[i] - left[i] - 1
-            if v > threshold // k:
-                return k
-        return -1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -194,50 +147,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int validSubarraySize(int[] nums, int threshold) {
-        int n = nums.length;
-        int[] left = new int[n];
-        int[] right = new int[n];
-        Arrays.fill(left, -1);
-        Arrays.fill(right, n);
-        Deque<Integer> stk = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
-                stk.pop();
-            }
-            if (!stk.isEmpty()) {
-                left[i] = stk.peek();
-            }
-            stk.push(i);
-        }
-        stk.clear();
-        for (int i = n - 1; i >= 0; --i) {
-            int v = nums[i];
-            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
-                stk.pop();
-            }
-            if (!stk.isEmpty()) {
-                right[i] = stk.peek();
-            }
-            stk.push(i);
-        }
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int k = right[i] - left[i] - 1;
-            if (v > threshold / k) {
-                return k;
-            }
-        }
-        return -1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -278,39 +187,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int validSubarraySize(vector<int>& nums, int threshold) {
-        int n = nums.size();
-        vector<int> left(n, -1);
-        vector<int> right(n, n);
-        stack<int> stk;
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
-            if (!stk.empty()) left[i] = stk.top();
-            stk.push(i);
-        }
-        stk = stack<int>();
-        for (int i = n - 1; ~i; --i) {
-            int v = nums[i];
-            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
-            if (!stk.empty()) right[i] = stk.top();
-            stk.push(i);
-        }
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int k = right[i] - left[i] - 1;
-            if (v > threshold / k) return k;
-        }
-        return -1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func validSubarraySize(nums []int, threshold int) int {
@@ -362,6 +238,120 @@ func validSubarraySize(nums []int, threshold int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：单调栈
+
+利用单调栈，得到以当前元素 $nums[i]$ 作为最小元素的左右边界 $left[i]$（左边第一个比 $nums[i]$ 小的元素的位置）, $right[i]$（右边第一个比 $nums[i]$ 小的元素的位置）。
+
+那么对于当前元素 $nums[i]$，有 $k=right[i]-left[i]-1$，若 $nums[i]>\frac{\text{threshold}}{k}$，说明找到了满足条件的子数组，返回 $true$。
+
+否则遍历结束，返回 $-1$。
+
+时间复杂度 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
+        n = len(nums)
+        left = [-1] * n
+        right = [n] * n
+        stk = []
+        for i, v in enumerate(nums):
+            while stk and nums[stk[-1]] >= v:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        for i, v in enumerate(nums):
+            k = right[i] - left[i] - 1
+            if v > threshold // k:
+                return k
+        return -1
+```
+
+```java
+class Solution {
+    public int validSubarraySize(int[] nums, int threshold) {
+        int n = nums.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Arrays.fill(left, -1);
+        Arrays.fill(right, n);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        stk.clear();
+        for (int i = n - 1; i >= 0; --i) {
+            int v = nums[i];
+            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                right[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            int k = right[i] - left[i] - 1;
+            if (v > threshold / k) {
+                return k;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int validSubarraySize(vector<int>& nums, int threshold) {
+        int n = nums.size();
+        vector<int> left(n, -1);
+        vector<int> right(n, n);
+        stack<int> stk;
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
+            if (!stk.empty()) left[i] = stk.top();
+            stk.push(i);
+        }
+        stk = stack<int>();
+        for (int i = n - 1; ~i; --i) {
+            int v = nums[i];
+            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
+            if (!stk.empty()) right[i] = stk.top();
+            stk.push(i);
+        }
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            int k = right[i] - left[i] - 1;
+            if (v > threshold / k) return k;
+        }
+        return -1;
+    }
+};
+```
+
 ```go
 func validSubarraySize(nums []int, threshold int) int {
 	n := len(nums)
@@ -402,16 +392,6 @@ func validSubarraySize(nums []int, threshold int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

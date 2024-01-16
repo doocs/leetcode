@@ -51,7 +51,7 @@ but the second term did not exist. Since the last term exhausted does not exist,
 
 ## Solutions
 
-**Solution 1: Maintain Two Pointers**
+### Solution 1: Maintain Two Pointers
 
 We define two pointers $i$ and $j$, where pointer $i$ points to the current run-length encoding being read, and pointer $j$ points to which character in the current run-length encoding is being read. Initially, $i = 0$, $j = 0$.
 
@@ -62,8 +62,6 @@ If $i$ exceeds the length of the run-length encoding and there is still no retur
 The time complexity is $O(n + q)$, and the space complexity is $O(n)$. Here, $n$ is the length of the run-length encoding, and $q$ is the number of times `next(n)` is called.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class RLEIterator:
@@ -88,8 +86,6 @@ class RLEIterator:
 # obj = RLEIterator(encoding)
 # param_1 = obj.next(n)
 ```
-
-### **Java**
 
 ```java
 class RLEIterator {
@@ -122,8 +118,6 @@ class RLEIterator {
  * int param_1 = obj.next(n);
  */
 ```
-
-### **C++**
 
 ```cpp
 class RLEIterator {
@@ -159,8 +153,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type RLEIterator struct {
 	encoding []int
@@ -191,8 +183,6 @@ func (this *RLEIterator) Next(n int) int {
  * param_1 := obj.Next(n);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class RLEIterator {
@@ -228,10 +218,6 @@ class RLEIterator {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

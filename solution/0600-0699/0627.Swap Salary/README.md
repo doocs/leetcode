@@ -64,11 +64,9 @@ Salary 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 UPDATE salary
@@ -78,6 +76,12 @@ SET sex = CASE sex
 END;
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 UPDATE Salary
@@ -85,3 +89,5 @@ SET sex = IF(sex = 'f', 'm', 'f');
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

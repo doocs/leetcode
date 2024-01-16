@@ -33,7 +33,7 @@
 
 ## Solutions
 
-**Solution 1: Backtracking**
+### Solution 1: Backtracking
 
 We design a function $dfs(i)$, which represents starting the search from the $i$th row, and the results of the search are added to the answer.
 
@@ -48,8 +48,6 @@ Specifically, we use the $cols$ array to record whether a queen has been placed 
 The time complexity is $O(n!)$, and the space complexity is $O(n)$. Here, $n$ is the number of queens.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func totalNQueens(n int) (ans int) {
 	cols := [10]bool{}
@@ -169,8 +161,6 @@ func totalNQueens(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function totalNQueens(n: number): number {
@@ -198,10 +188,6 @@ function totalNQueens(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

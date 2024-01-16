@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 根据题意，我们需要从 `*` 出发，找到最近的 `#`，返回最短路径长度。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为二维数组的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                             q.append((x, y))
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +173,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getFood(grid [][]byte) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -224,8 +210,6 @@ func getFood(grid [][]byte) (ans int) {
 	return -1
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -270,10 +254,6 @@ var getFood = function (grid) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

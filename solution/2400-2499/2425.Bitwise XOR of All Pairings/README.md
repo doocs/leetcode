@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯 + 位运算**
+### 方法一：脑筋急转弯 + 位运算
 
 由于数组的每个元素都会与另一个数组的每个元素进行异或，我们知道，同一个数异或两次，结果不变，即 $a \oplus a = 0$。因此，我们只需要统计数组的长度，就能知道每个元素与另一个数组的每个元素进行异或的次数。
 
@@ -58,10 +56,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
@@ -74,10 +68,6 @@ class Solution:
                 ans ^= v
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorAllNums(nums1 []int, nums2 []int) int {
 	ans := 0
@@ -139,8 +125,6 @@ func xorAllNums(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function xorAllNums(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -154,10 +138,6 @@ function xorAllNums(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

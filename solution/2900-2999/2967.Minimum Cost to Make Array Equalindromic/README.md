@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 排序 + 二分查找**
+### 方法一：预处理 + 排序 + 二分查找
 
 题目中回文数的范围是 $[1, 10^9]$，回文数由于对称性，我们可以在 $[1, 10^5]$ 的范围内枚举，然后将其翻转后拼接，得到所有的回文数，注意，如果是奇数长度的回文数，我们在翻转前要去掉最后一位。预处理得到的回文数数组记为 $ps$。我们对数组 $ps$ 进行排序。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是回文数组 $ps$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 ps = []
@@ -98,10 +92,6 @@ class Solution:
         i = bisect_left(ps, nums[len(nums) // 2])
         return min(f(ps[j]) for j in range(i - 1, i + 2) if 0 <= j < len(ps))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 public class Solution {
@@ -144,8 +134,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -187,8 +175,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 var ps [2 * 100000]int64
@@ -245,8 +231,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 const ps = Array(2e5).fill(0);
 
@@ -290,10 +274,6 @@ function minimumCost(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：三指针**
+### 方法一：三指针
 
 我们定义三个指针 $i$, $j$ 和 $k$，其中指针 $i$ 用于指向数组中元素值为 $0$ 的最右边界，指针 $j$ 用于指向数组中元素值为 $2$ 的最左边界，初始时 $i=-1$, $j=n$。指针 $k$ 用于指向当前遍历的元素，初始时 $k=0$。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。只需要遍历一遍数组即可。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
             else:
                 k += 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortColors(nums []int) {
 	i, j, k := -1, len(nums), 0
@@ -155,8 +141,6 @@ func sortColors(nums []int) {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -181,8 +165,6 @@ function sortColors(nums: number[]): void {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {
@@ -204,8 +186,6 @@ impl Solution {
     }
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -230,10 +210,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

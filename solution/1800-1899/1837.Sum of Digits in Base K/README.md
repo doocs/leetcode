@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们将 $n$ 除 $k$ 取余，直至为 $0$，余数相加即可得到结果。
 
 时间复杂度 $O(\log_{k}n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,10 +56,6 @@ class Solution:
             n //= k
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumBase(n int, k int) (ans int) {
 	for n > 0 {
@@ -108,7 +94,29 @@ func sumBase(n int, k int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function sumBase(n: number, k: number): number {
+    let ans = 0;
+    while (n) {
+        ans += n % k;
+        n = Math.floor(n / k);
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn sum_base(mut n: i32, k: i32) -> i32 {
+        let mut ans = 0;
+        while n != 0 {
+            ans += n % k;
+            n /= k;
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -126,36 +134,6 @@ var sumBase = function (n, k) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function sumBase(n: number, k: number): number {
-    let ans = 0;
-    while (n) {
-        ans += n % k;
-        n = Math.floor(n / k);
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn sum_base(mut n: i32, k: i32) -> i32 {
-        let mut ans = 0;
-        while n != 0 {
-            ans += n % k;
-            n /= k;
-        }
-        ans
-    }
-}
-```
-
-### **C**
-
 ```c
 int sumBase(int n, int k) {
     int ans = 0;
@@ -167,10 +145,6 @@ int sumBase(int n, int k) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

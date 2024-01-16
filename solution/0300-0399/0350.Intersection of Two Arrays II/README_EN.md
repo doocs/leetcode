@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
                 counter[num] -= 1
         return res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,32 +80,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number[]}
- */
-var intersect = function (nums1, nums2) {
-    const counter = {};
-    for (const num of nums1) {
-        counter[num] = (counter[num] || 0) + 1;
-    }
-    let res = [];
-    for (const num of nums2) {
-        if (counter[num] > 0) {
-            res.push(num);
-            counter[num] -= 1;
-        }
-    }
-    return res;
-};
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func intersect(nums1 []int, nums2 []int) []int {
 	counter := make(map[int]int)
@@ -144,8 +114,6 @@ func intersect(nums1 []int, nums2 []int) []int {
 	return res
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function intersect(nums1: number[], nums2: number[]): number[] {
@@ -164,8 +132,6 @@ function intersect(nums1: number[], nums2: number[]): number[] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -188,32 +154,27 @@ impl Solution {
 }
 ```
 
-### **PHP**
-
-```php
-class Solution {
-    /**
-     * @param Integer[] $nums1
-     * @param Integer[] $nums2
-     * @return Integer[]
-     */
-    function intersect($nums1, $nums2) {
-        $rs = [];
-        for ($i = 0; $i < count($nums1); $i++) {
-            $hashtable[$nums1[$i]] += 1;
-        }
-        for ($j = 0; $j < count($nums2); $j++) {
-            if (isset($hashtable[$nums2[$j]]) && $hashtable[$nums2[$j]] > 0) {
-                array_push($rs, $nums2[$j]);
-                $hashtable[$nums2[$j]] -= 1;
-            }
-        }
-        return $rs;
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersect = function (nums1, nums2) {
+    const counter = {};
+    for (const num of nums1) {
+        counter[num] = (counter[num] || 0) + 1;
     }
-}
+    let res = [];
+    for (const num of nums2) {
+        if (counter[num] > 0) {
+            res.push(num);
+            counter[num] -= 1;
+        }
+    }
+    return res;
+};
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -246,10 +207,29 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums1
+     * @param Integer[] $nums2
+     * @return Integer[]
+     */
+    function intersect($nums1, $nums2) {
+        $rs = [];
+        for ($i = 0; $i < count($nums1); $i++) {
+            $hashtable[$nums1[$i]] += 1;
+        }
+        for ($j = 0; $j < count($nums2); $j++) {
+            if (isset($hashtable[$nums2[$j]]) && $hashtable[$nums2[$j]] > 0) {
+                array_push($rs, $nums2[$j]);
+                $hashtable[$nums2[$j]] -= 1;
+            }
+        }
+        return $rs;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

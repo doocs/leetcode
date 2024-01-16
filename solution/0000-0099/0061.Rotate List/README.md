@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快慢指针 + 链表拼接**
+### 方法一：快慢指针 + 链表拼接
 
 我们先判断链表节点数是否小于 $2$，如果是，直接返回 $head$ 即可。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是链表节点数，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -86,10 +80,6 @@ class Solution:
         fast.next = head
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -132,8 +122,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -179,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -217,8 +203,6 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -262,54 +246,6 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
-public class Solution {
-    public ListNode RotateRight(ListNode head, int k) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        var cur = head;
-        int n = 0;
-        while (cur != null) {
-            cur = cur.next;
-            ++n;
-        }
-        k %= n;
-        if (k == 0) {
-            return head;
-        }
-        var fast = head;
-        var slow = head;
-        while (k-- > 0) {
-            fast = fast.next;
-        }
-        while (fast.next != null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-        var ans = slow.next;
-        slow.next = null;
-        fast.next = head;
-        return ans;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -362,10 +298,50 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode RotateRight(ListNode head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        var cur = head;
+        int n = 0;
+        while (cur != null) {
+            cur = cur.next;
+            ++n;
+        }
+        k %= n;
+        if (k == 0) {
+            return head;
+        }
+        var fast = head;
+        var slow = head;
+        while (k-- > 0) {
+            fast = fast.next;
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        var ans = slow.next;
+        slow.next = null;
+        fast.next = head;
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

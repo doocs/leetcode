@@ -29,7 +29,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table or Array**
+### Solution 1: Hash Table or Array
 
 We can use a hash table or an array $cnt$ of length $26$ to record the number of times each character appears in the string `magazine`. Then traverse the string `ransomNote`, for each character $c$ in it, we decrease the number of $c$ by $1$ in $cnt$. If the number of $c$ is less than $0$ after the decrease, it means that the number of $c$ in `magazine` is not enough, so it cannot be composed of `ransomNote`, just return $false$.
 
@@ -38,8 +38,6 @@ Otherwise, after the traversal, it means that each character in `ransomNote` can
 The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Where $m$ and $n$ are the lengths of the strings `ransomNote` and `magazine` respectively; and $C$ is the size of the character set, which is $26$ in this question.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -51,8 +49,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +66,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canConstruct(ransomNote string, magazine string) bool {
 	cnt := [26]int{}
@@ -109,8 +101,6 @@ func canConstruct(ransomNote string, magazine string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canConstruct(ransomNote: string, magazine: string): boolean {
     const cnt: number[] = Array(26).fill(0);
@@ -125,8 +115,6 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
     return true;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -144,8 +132,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -171,10 +157,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

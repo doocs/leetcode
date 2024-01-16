@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -68,8 +68,6 @@ class Solution:
         right = self.lowestCommonAncestor(root.right, p, q)
         return root if left and right else (left or right)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -93,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -116,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -143,34 +137,6 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return root
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {TreeNode} p
- * @param {TreeNode} q
- * @return {TreeNode}
- */
-var lowestCommonAncestor = function (root, p, q) {
-    if (!root || root == p || root == q) return root;
-    const left = lowestCommonAncestor(root.left, p, q);
-    const right = lowestCommonAncestor(root.right, p, q);
-    if (!left) return right;
-    if (!right) return left;
-    return root;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -209,8 +175,6 @@ function lowestCommonAncestor(
     return find(root);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -263,10 +227,30 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+var lowestCommonAncestor = function (root, p, q) {
+    if (!root || root == p || root == q) return root;
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+    if (!left) return right;
+    if (!right) return left;
+    return root;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

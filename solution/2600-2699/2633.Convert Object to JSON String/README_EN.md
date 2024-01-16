@@ -56,9 +56,9 @@ Primitive types are valid inputs.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function jsonStringify(object: any): string {
@@ -83,10 +83,6 @@ function jsonStringify(object: any): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

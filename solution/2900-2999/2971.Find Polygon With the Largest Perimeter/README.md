@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 前缀和**
+### 方法一：排序 + 前缀和
 
 我们可以将数组 $nums$ 排序，然后定义一个答案变量 $ans$，初始值为 $-1$。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 ans = max(ans, s[k])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestPerimeter(nums []int) int64 {
 	sort.Ints(nums)
@@ -149,8 +135,6 @@ func largestPerimeter(nums []int) int64 {
 	return int64(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestPerimeter(nums: number[]): number {
@@ -170,10 +154,6 @@ function largestPerimeter(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

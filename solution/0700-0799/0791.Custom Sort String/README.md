@@ -43,27 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 一种比较直接的思路是，用哈希表或数组 $d$ 记录字符串 $order$ 中每个字符的位置，然后对字符串 $s$ 中每个字符按照其在 $d$ 中的位置进行排序。如果某个字符不在 $d$ 中，我们可以将其位置置为 $0$。
 
 时间复杂度 $O(m + n\times \log n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是字符串 $order$ 和 $s$ 的长度。
 
-**方法二：字符计数**
-
-我们还可以先统计 $s$ 中每个字符的出现次数，存储在 $cnt$ 数组中。
-
-然后把字符串 $s$ 在 $order$ 中出现的字符按照 $order$ 中的顺序排序，添加到结果字符串中。最后把剩余的字符直接追加到结果字符串中。
-
-时间复杂度 $O(m+n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是字符串 $order$ 和 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,23 +57,6 @@ class Solution:
         d = {c: i for i, c in enumerate(order)}
         return ''.join(sorted(s, key=lambda x: d.get(x, 0)))
 ```
-
-```python
-class Solution:
-    def customSortString(self, order: str, s: str) -> str:
-        cnt = Counter(s)
-        ans = []
-        for c in order:
-            ans.append(c * cnt[c])
-            cnt[c] = 0
-        for c, v in cnt.items():
-            ans.append(c * v)
-        return ''.join(ans)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,6 +73,84 @@ class Solution {
         return cs.stream().map(String::valueOf).collect(Collectors.joining());
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        int d[26] = {0};
+        for (int i = 0; i < order.size(); ++i) d[order[i] - 'a'] = i;
+        sort(s.begin(), s.end(), [&](auto a, auto b) { return d[a - 'a'] < d[b - 'a']; });
+        return s;
+    }
+};
+```
+
+```go
+func customSortString(order string, s string) string {
+	d := [26]int{}
+	for i := range order {
+		d[order[i]-'a'] = i
+	}
+	cs := []byte(s)
+	sort.Slice(cs, func(i, j int) bool { return d[cs[i]-'a'] < d[cs[j]-'a'] })
+	return string(cs)
+}
+```
+
+```ts
+function customSortString(order: string, s: string): string {
+    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const n = order.length;
+    const d = new Array(26).fill(n);
+    for (let i = 0; i < n; i++) {
+        d[toIndex(order[i])] = i;
+    }
+    return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
+}
+```
+
+```rust
+impl Solution {
+    pub fn custom_sort_string(order: String, s: String) -> String {
+        let n = order.len();
+        let mut d = [n; 26];
+        for (i, c) in order.as_bytes().iter().enumerate() {
+            d[(c - b'a') as usize] = i;
+        }
+        let mut ans = s.chars().collect::<Vec<_>>();
+        ans.sort_by(|&a, &b|
+            d[((a as u8) - ('a' as u8)) as usize].cmp(&d[((b as u8) - ('a' as u8)) as usize])
+        );
+        ans.into_iter().collect()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：字符计数
+
+我们还可以先统计 $s$ 中每个字符的出现次数，存储在 $cnt$ 数组中。
+
+然后把字符串 $s$ 在 $order$ 中出现的字符按照 $order$ 中的顺序排序，添加到结果字符串中。最后把剩余的字符直接追加到结果字符串中。
+
+时间复杂度 $O(m+n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是字符串 $order$ 和 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        cnt = Counter(s)
+        ans = []
+        for c in order:
+            ans.append(c * cnt[c])
+            cnt[c] = 0
+        for c, v in cnt.items():
+            ans.append(c * v)
+        return ''.join(ans)
 ```
 
 ```java
@@ -130,20 +177,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string customSortString(string order, string s) {
-        int d[26] = {0};
-        for (int i = 0; i < order.size(); ++i) d[order[i] - 'a'] = i;
-        sort(s.begin(), s.end(), [&](auto a, auto b) { return d[a - 'a'] < d[b - 'a']; });
-        return s;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -158,20 +191,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func customSortString(order string, s string) string {
-	d := [26]int{}
-	for i := range order {
-		d[order[i]-'a'] = i
-	}
-	cs := []byte(s)
-	sort.Slice(cs, func(i, j int) bool { return d[cs[i]-'a'] < d[cs[j]-'a'] })
-	return string(cs)
-}
 ```
 
 ```go
@@ -196,20 +215,6 @@ func customSortString(order string, s string) string {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function customSortString(order: string, s: string): string {
-    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
-    const n = order.length;
-    const d = new Array(26).fill(n);
-    for (let i = 0; i < n; i++) {
-        d[toIndex(order[i])] = i;
-    }
-    return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
-}
-```
-
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -228,25 +233,6 @@ function customSortString(order: string, s: string): string {
         ans.push(String.fromCharCode('a'.charCodeAt(0) + i).repeat(count[i]));
     }
     return ans.join('');
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn custom_sort_string(order: String, s: String) -> String {
-        let n = order.len();
-        let mut d = [n; 26];
-        for (i, c) in order.as_bytes().iter().enumerate() {
-            d[(c - b'a') as usize] = i;
-        }
-        let mut ans = s.chars().collect::<Vec<_>>();
-        ans.sort_by(|&a, &b|
-            d[((a as u8) - ('a' as u8)) as usize].cmp(&d[((b as u8) - ('a' as u8)) as usize])
-        );
-        ans.into_iter().collect()
-    }
 }
 ```
 
@@ -274,10 +260,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

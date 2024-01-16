@@ -29,7 +29,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Backtracking**
+### Solution 1: Sorting + Backtracking
 
 We can first sort the string by characters, which allows us to put duplicate characters together and makes it easier for us to remove duplicates.
 
@@ -43,8 +43,6 @@ In the main function, we first sort the string, then call $dfs(0)$, that is, sta
 The time complexity is $O(n \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$. $n!$ enumerations need to be performed, and each enumeration requires $O(n)$ time to determine whether it is repeated. In addition, we need a marker array to mark whether each position has been used, so the space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func permutation(S string) (ans []string) {
 	cs := []byte(S)
@@ -173,8 +165,6 @@ func permutation(S string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function permutation(S: string): string[] {
     const cs: string[] = S.split('').sort();
@@ -202,8 +192,6 @@ function permutation(S: string): string[] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -237,10 +225,6 @@ var permutation = function (S) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

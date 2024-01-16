@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics (Bézout's Identity)**
+### Solution 1: Mathematics (Bézout's Identity)
 
 First, consider the situation where we select two numbers. If the selected numbers are $a$ and $b$, then according to the problem's requirements, we need to satisfy $a \times x + b \times y = 1$, where $x$ and $y$ are any integers.
 
@@ -58,15 +58,11 @@ The time complexity is $O(n + \log m)$, and the space complexity is $O(1)$. Wher
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def isGoodArray(self, nums: List[int]) -> bool:
         return reduce(gcd, nums) == 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isGoodArray(nums []int) bool {
@@ -118,10 +110,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

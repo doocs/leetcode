@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数位 DP**
+### 方法一：数位 DP
 
 我们先将数字 $n$ 转成字符串 $s$。
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(5^{\log_{10}n})$，空间复杂度 $O(\log_{10}n)$。其中 $5^{\log_{10}n}$ 表示 $n$ 的位数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,10 +103,6 @@ class Solution:
         s = str(n)
         return dfs(0, True, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -182,8 +170,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func confusingNumberII(n int) int {
@@ -220,8 +206,6 @@ func confusingNumberII(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function confusingNumberII(n: number): number {
     const s = n.toString();
@@ -251,10 +235,6 @@ function confusingNumberII(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

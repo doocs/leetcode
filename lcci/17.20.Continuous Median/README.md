@@ -33,9 +33,7 @@ findMedian() -&gt; 2
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（双堆）**
+### 方法一：优先队列（双堆）
 
 创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
 
@@ -48,10 +46,6 @@ findMedian() -&gt; 2
 每次添加元素的时间复杂度为 $O(\log n)$，取中位数的时间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MedianFinder:
@@ -79,10 +73,6 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MedianFinder {
@@ -116,8 +106,6 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MedianFinder {
@@ -155,8 +143,6 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
-
-### **Go**
 
 ```go
 type MedianFinder struct {
@@ -203,10 +189,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

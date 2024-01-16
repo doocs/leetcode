@@ -83,17 +83,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-利用栈存储运算数，每次遇到符号，对栈顶两个元素进行运算。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-需要注意 Python 的整除对负数也是向下取整（例如：`6 // -132 = -1`），和答案对应不上，所以需要特殊处理。
 
 ```python
 class Solution:
@@ -114,10 +106,6 @@ class Solution:
                 nums.pop()
         return nums[0]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +165,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func evalRPN(tokens []string) int {
@@ -214,10 +198,6 @@ func popInt(stack *arraystack.Stack) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

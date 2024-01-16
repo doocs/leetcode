@@ -52,7 +52,7 @@ The total sum is 4 + 6 + 6 + 4 = 20.
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We can enumerate all the substrings that end with each character $s[i]$ and calculate their gravitational value sum $t$. Finally, we add up all the $t$ to get the total gravitational value sum.
 
@@ -69,8 +69,6 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def appealSum(self, s: str) -> int:
@@ -83,8 +81,6 @@ class Solution:
             pos[c] = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func appealSum(s string) int64 {
@@ -142,8 +134,6 @@ func appealSum(s string) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function appealSum(s: string): number {
     const pos: number[] = Array(26).fill(-1);
@@ -160,10 +150,6 @@ function appealSum(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

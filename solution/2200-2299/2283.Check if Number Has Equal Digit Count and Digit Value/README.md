@@ -49,9 +49,7 @@ num[2] = '0' 。数字 2 在 num 中出现了 0 次。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 枚举**
+### 方法一：计数 + 枚举
 
 统计字符串中每个数字出现的次数，然后枚举每个数字，判断其出现的次数是否与其值相等，若都相等则返回 `true`，否则返回 `false`。
 
@@ -59,20 +57,12 @@ num[2] = '0' 。数字 2 在 num 中出现了 0 次。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def digitCount(self, num: str) -> bool:
         cnt = Counter(num)
         return all(cnt[str(i)] == int(v) for i, v in enumerate(num))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func digitCount(num string) bool {
 	cnt := [10]int{}
@@ -129,8 +115,6 @@ func digitCount(num string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function digitCount(num: string): boolean {
     const n = num.length;
@@ -144,8 +128,6 @@ function digitCount(num: string): boolean {
     return count.every(v => v === 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -163,8 +145,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 bool digitCount(char* num) {
@@ -184,10 +164,6 @@ bool digitCount(char* num) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

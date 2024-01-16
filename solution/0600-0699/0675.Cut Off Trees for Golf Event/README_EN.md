@@ -59,9 +59,9 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -100,8 +100,6 @@ class Solution:
             i, j = x, y
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -172,8 +170,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -231,8 +227,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 var dirs = [][]int{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
@@ -296,8 +290,6 @@ func cutOffTree(forest [][]int) int {
 	return ans
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -375,10 +367,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

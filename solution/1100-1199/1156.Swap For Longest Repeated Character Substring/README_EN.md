@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 First, we use a hash table or array $cnt$ to count the occurrence of each character in the string $text$.
 
@@ -54,8 +54,6 @@ Then we skip the character pointed by the pointer $j$, and continue to move the 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxRepOpt1(text string) (ans int) {
 	cnt := [26]int{}
@@ -163,8 +155,6 @@ func maxRepOpt1(text string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxRepOpt1(text: string): number {
@@ -194,10 +184,6 @@ function maxRepOpt1(text: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

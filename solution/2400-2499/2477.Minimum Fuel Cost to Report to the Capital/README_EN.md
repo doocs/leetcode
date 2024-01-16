@@ -68,7 +68,7 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 
 ## Solutions
 
-**Solution 1: Greedy + DFS**
+### Solution 1: Greedy + DFS
 
 According to the problem description, we can find that all cars will only drive towards the capital (node $0$).
 
@@ -79,8 +79,6 @@ We start a depth-first search from node $0$, using a variable $sz$ to count the 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,8 +101,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -140,8 +136,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumFuelCost(roads [][]int, seats int) (ans int64) {
 	n := len(roads) + 1
@@ -199,8 +191,6 @@ func minimumFuelCost(roads [][]int, seats int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumFuelCost(roads: number[][], seats: number): number {
     const n = roads.length + 1;
@@ -225,8 +215,6 @@ function minimumFuelCost(roads: number[][], seats: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -257,10 +245,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

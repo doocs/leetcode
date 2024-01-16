@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：维护前缀最大值**
+### 方法一：维护前缀最大值
 
 根据题意，我们可以发现，一个数组中的局部倒置一定是全局倒置，但是全局倒置不一定是局部倒置。也就是说，全局倒置的数量一定大于等于局部倒置的数量。
 
@@ -68,7 +66,63 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
-**方法二：树状数组**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isIdealPermutation(self, nums: List[int]) -> bool:
+        mx = 0
+        for i in range(2, len(nums)):
+            if (mx := max(mx, nums[i - 2])) > nums[i]:
+                return False
+        return True
+```
+
+```java
+class Solution {
+    public boolean isIdealPermutation(int[] nums) {
+        int mx = 0;
+        for (int i = 2; i < nums.length; ++i) {
+            mx = Math.max(mx, nums[i - 2]);
+            if (mx > nums[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isIdealPermutation(vector<int>& nums) {
+        int mx = 0;
+        for (int i = 2; i < nums.size(); ++i) {
+            mx = max(mx, nums[i - 2]);
+            if (mx > nums[i]) return false;
+        }
+        return true;
+    }
+};
+```
+
+```go
+func isIdealPermutation(nums []int) bool {
+	mx := 0
+	for i := 2; i < len(nums); i++ {
+		mx = max(mx, nums[i-2])
+		if mx > nums[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：树状数组
 
 这道题目实际上是一个“逆序对”问题。
 
@@ -84,20 +138,6 @@
 时间复杂度 $O(n\times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def isIdealPermutation(self, nums: List[int]) -> bool:
-        mx = 0
-        for i in range(2, len(nums)):
-            if (mx := max(mx, nums[i - 2])) > nums[i]:
-                return False
-        return True
-```
 
 ```python
 class BinaryIndexedTree:
@@ -130,25 +170,6 @@ class Solution:
                 return False
             tree.update(v + 1, 1)
         return True
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public boolean isIdealPermutation(int[] nums) {
-        int mx = 0;
-        for (int i = 2; i < nums.length; ++i) {
-            mx = Math.max(mx, nums[i - 2]);
-            if (mx > nums[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
 ```
 
 ```java
@@ -193,22 +214,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isIdealPermutation(vector<int>& nums) {
-        int mx = 0;
-        for (int i = 2; i < nums.size(); ++i) {
-            mx = max(mx, nums[i - 2]);
-            if (mx > nums[i]) return false;
-        }
-        return true;
-    }
-};
-```
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -251,21 +256,6 @@ public:
         return cnt == 0;
     }
 };
-```
-
-### **Go**
-
-```go
-func isIdealPermutation(nums []int) bool {
-	mx := 0
-	for i := 2; i < len(nums); i++ {
-		mx = max(mx, nums[i-2])
-		if mx > nums[i] {
-			return false
-		}
-	}
-	return true
-}
 ```
 
 ```go
@@ -313,10 +303,6 @@ func (this BinaryIndexedTree) query(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

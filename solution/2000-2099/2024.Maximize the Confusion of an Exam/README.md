@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 思路同 [1004. 最大连续 1 的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
 
@@ -75,10 +73,6 @@
 -   移动左端点时，如果可以释放一个资源，k 加 1
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
 
         return max(get('T', k), get('F', k))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
@@ -167,8 +153,6 @@ func maxConsecutiveAnswers(answerKey string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
@@ -188,8 +172,6 @@ function maxConsecutiveAnswers(answerKey: string, k: number): number {
     return Math.max(getMaxCount('T'), getMaxCount('F'));
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -217,10 +199,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

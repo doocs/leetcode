@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Sorting**
+### Solution 1: Hash Table + Sorting
 
 We use the hash table $cnt$ to count the number of times each integer in the array $arr$ appears, and then sort the values in $cnt$ in ascending order, and record them in the array $nums$.
 
@@ -48,8 +48,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$,
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
@@ -60,8 +58,6 @@ class Solution:
                 return len(cnt) - i
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findLeastNumOfUniqueInts(arr []int, k int) int {
 	cnt := map[int]int{}
@@ -131,8 +123,6 @@ func findLeastNumOfUniqueInts(arr []int, k int) int {
 	return 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findLeastNumOfUniqueInts(arr: number[], k: number): number {
@@ -155,10 +145,6 @@ function findLeastNumOfUniqueInts(arr: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

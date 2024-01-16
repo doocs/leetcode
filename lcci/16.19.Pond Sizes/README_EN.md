@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We can traverse each point $(i, j)$ in the integer matrix $land$. If the value of the point is $0$, we start a depth-first search from this point until we reach a point with a non-zero value. The number of points searched during this process is the size of the pond, which is added to the answer array.
 
@@ -48,8 +48,6 @@ Finally, we sort the answer array to obtain the final answer.
 The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix $land$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -66,8 +64,6 @@ class Solution:
         m, n = len(land), len(land[0])
         return sorted(dfs(i, j) for i in range(m) for j in range(n) if land[i][j] == 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pondSizes(land [][]int) (ans []int) {
 	m, n := len(land), len(land[0])
@@ -167,8 +159,6 @@ func pondSizes(land [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function pondSizes(land: number[][]): number[] {
@@ -199,10 +189,6 @@ function pondSizes(land: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

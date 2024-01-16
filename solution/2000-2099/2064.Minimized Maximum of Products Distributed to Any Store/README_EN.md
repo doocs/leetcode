@@ -60,11 +60,9 @@ The maximum number of products given to any store is max(100000) = 100000.
 
 ## Solutions
 
-Binary search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
 
         return 1 + bisect_left(range(1, 10**6), True, key=check)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizedMaximum(n int, quantities []int) int {
 	return 1 + sort.Search(1e5, func(x int) bool {
@@ -136,8 +128,6 @@ func minimizedMaximum(n int, quantities []int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimizedMaximum(n: number, quantities: number[]): number {
@@ -159,10 +149,6 @@ function minimizedMaximum(n: number, quantities: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

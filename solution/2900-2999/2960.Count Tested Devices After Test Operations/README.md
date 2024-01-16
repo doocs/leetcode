@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 假设我们当前已测试的设备数量为 $ans$，当测试新的一台设备 $i$ 时，它的剩余电量为 $\max(0, batteryPercentages[i] - ans)$，如果剩余电量大于 $0$，则说明这台设备可以进行测试，此时我们需要将 $ans$ 增加 $1$。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
             ans += x > 0
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countTestedDevices(batteryPercentages []int) (ans int) {
 	for _, x := range batteryPercentages {
@@ -138,8 +124,6 @@ func countTestedDevices(batteryPercentages []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countTestedDevices(batteryPercentages: number[]): number {
@@ -154,10 +138,6 @@ function countTestedDevices(batteryPercentages: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

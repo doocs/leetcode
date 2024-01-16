@@ -35,23 +35,13 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Traversal**
+### Solution 1: Sorting + Traversal
 
 We can first sort the array `arr`, then traverse the array, and check whether the difference between adjacent items is equal.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `arr`.
 
-**Solution 2: Hash Table + Mathematics**
-
-We first find the minimum value $a$ and the maximum value $b$ in the array $arr$. If the array $arr$ can be rearranged into an arithmetic sequence, then the common difference $d = \frac{b - a}{n - 1}$ must be an integer.
-
-We can use a hash table to record all elements in the array $arr$, then traverse $i \in [0, n)$, and check whether $a + d \times i$ is in the hash table. If not, it means that the array $arr$ cannot be rearranged into an arithmetic sequence, and we return `false`. Otherwise, after traversing the array, we return `true`.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `arr`.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -60,21 +50,6 @@ class Solution:
         d = arr[1] - arr[0]
         return all(b - a == d for a, b in pairwise(arr))
 ```
-
-```python
-class Solution:
-    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
-        a = min(arr)
-        b = max(arr)
-        n = len(arr)
-        if (b - a) % (n - 1):
-            return False
-        d = (b - a) // (n - 1)
-        s = set(arr)
-        return all(a + d * i in s for i in range(n))
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,6 +64,120 @@ class Solution {
         return true;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int d = arr[1] - arr[0];
+        for (int i = 2; i < arr.size(); i++) {
+            if (arr[i] - arr[i - 1] != d) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+```go
+func canMakeArithmeticProgression(arr []int) bool {
+	sort.Ints(arr)
+	d := arr[1] - arr[0]
+	for i := 2; i < len(arr); i++ {
+		if arr[i]-arr[i-1] != d {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```ts
+function canMakeArithmeticProgression(arr: number[]): boolean {
+    arr.sort((a, b) => a - b);
+    const n = arr.length;
+    for (let i = 2; i < n; i++) {
+        if (arr[i - 2] - arr[i - 1] !== arr[i - 1] - arr[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```rust
+impl Solution {
+    pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
+        arr.sort();
+        let n = arr.len();
+        for i in 2..n {
+            if arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i] {
+                return false;
+            }
+        }
+        true
+    }
+}
+```
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function (arr) {
+    arr.sort((a, b) => a - b);
+    for (let i = 1; i < arr.length - 1; i++) {
+        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+};
+```
+
+```c
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
+}
+
+bool canMakeArithmeticProgression(int* arr, int arrSize) {
+    qsort(arr, arrSize, sizeof(int), cmp);
+    for (int i = 2; i < arrSize; i++) {
+        if (arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Hash Table + Mathematics
+
+We first find the minimum value $a$ and the maximum value $b$ in the array $arr$. If the array $arr$ can be rearranged into an arithmetic sequence, then the common difference $d = \frac{b - a}{n - 1}$ must be an integer.
+
+We can use a hash table to record all elements in the array $arr$, then traverse $i \in [0, n)$, and check whether $a + d \times i$ is in the hash table. If not, it means that the array $arr$ cannot be rearranged into an arithmetic sequence, and we return `false`. Otherwise, after traversing the array, we return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `arr`.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        a = min(arr)
+        b = max(arr)
+        n = len(arr)
+        if (b - a) % (n - 1):
+            return False
+        d = (b - a) // (n - 1)
+        s = set(arr)
+        return all(a + d * i in s for i in range(n))
 ```
 
 ```java
@@ -116,24 +205,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool canMakeArithmeticProgression(vector<int>& arr) {
-        sort(arr.begin(), arr.end());
-        int d = arr[1] - arr[0];
-        for (int i = 2; i < arr.size(); i++) {
-            if (arr[i] - arr[i - 1] != d) {
-                return false;
-            }
-        }
-        return true;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -155,21 +226,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func canMakeArithmeticProgression(arr []int) bool {
-	sort.Ints(arr)
-	d := arr[1] - arr[0]
-	for i := 2; i < len(arr); i++ {
-		if arr[i]-arr[i-1] != d {
-			return false
-		}
-	}
-	return true
-}
-```
-
 ```go
 func canMakeArithmeticProgression(arr []int) bool {
 	a, b := slices.Min(arr), slices.Max(arr)
@@ -188,39 +244,6 @@ func canMakeArithmeticProgression(arr []int) bool {
 		}
 	}
 	return true
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} arr
- * @return {boolean}
- */
-var canMakeArithmeticProgression = function (arr) {
-    arr.sort((a, b) => a - b);
-    for (let i = 1; i < arr.length - 1; i++) {
-        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) {
-            return false;
-        }
-    }
-    return true;
-};
-```
-
-### **TypeScript**
-
-```ts
-function canMakeArithmeticProgression(arr: number[]): boolean {
-    arr.sort((a, b) => a - b);
-    const n = arr.length;
-    for (let i = 2; i < n; i++) {
-        if (arr[i - 2] - arr[i - 1] !== arr[i - 1] - arr[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 ```
 
@@ -248,23 +271,6 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
         }
     }
     return true;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
-        arr.sort();
-        let n = arr.len();
-        for i in 2..n {
-            if arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i] {
-                return false;
-            }
-        }
-        true
-    }
 }
 ```
 
@@ -300,28 +306,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int cmp(const void* a, const void* b) {
-    return *(int*) a - *(int*) b;
-}
-
-bool canMakeArithmeticProgression(int* arr, int arrSize) {
-    qsort(arr, arrSize, sizeof(int), cmp);
-    for (int i = 2; i < arrSize; i++) {
-        if (arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i]) {
-            return 0;
-        }
-    }
-    return 1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

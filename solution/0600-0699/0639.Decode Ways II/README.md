@@ -72,15 +72,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-只是在 [91. 解码方法](/solution/0000-0099/0091.Decode%20Ways/README.md) 的基础上加了些关于 `*` 的条件判断
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -123,10 +117,6 @@ class Solution:
 
         return c
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -179,8 +169,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 const mod int = 1e9 + 7
 
@@ -226,10 +214,6 @@ func numDecodings(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

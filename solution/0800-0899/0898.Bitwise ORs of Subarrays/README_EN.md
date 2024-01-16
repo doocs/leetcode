@@ -47,7 +47,7 @@ There are 3 unique values, so the answer is 3.
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 The problem asks for the number of unique bitwise OR operations results of subarrays. If we enumerate the end position $i$ of the subarray, the number of bitwise OR operations results of the subarray ending at $i-1$ does not exceed $32$. This is because the bitwise OR operation is a monotonically increasing operation.
 
@@ -61,8 +61,6 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \t
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
@@ -73,8 +71,6 @@ class Solution:
             ans |= s
         return len(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,29 +92,24 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
-    class Solution {
-    public:
-        int subarrayBitwiseORs(vector<int>& arr) {
-            unordered_set<int> s{{0}};
-            unordered_set<int> ans;
-            for (int& x : arr) {
-                unordered_set<int> t{{x}};
-                for (int y : s) {
-                    t.insert(x | y);
-                }
-                s = move(t);
-                ans.insert(s.begin(), s.end());
+public:
+    int subarrayBitwiseORs(vector<int>& arr) {
+        unordered_set<int> s{{0}};
+        unordered_set<int> ans;
+        for (int& x : arr) {
+            unordered_set<int> t{{x}};
+            for (int y : s) {
+                t.insert(x | y);
             }
-            return ans.size();
+            s = move(t);
+            ans.insert(s.begin(), s.end());
         }
-    };
+        return ans.size();
+    }
+};
 ```
-
-### **Go**
 
 ```go
 func subarrayBitwiseORs(arr []int) int {
@@ -137,8 +128,6 @@ func subarrayBitwiseORs(arr []int) int {
 	return len(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function subarrayBitwiseORs(arr: number[]): number {
@@ -160,10 +149,6 @@ function subarrayBitwiseORs(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,7 +55,7 @@ Coins will be collected from all the nodes using the first way. Therefore, total
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 First, we construct a graph $g$ based on the edges given in the problem, where $g[i]$ represents all adjacent nodes of node $i$. Then we can use the method of memoization search to solve this problem.
 
@@ -74,8 +74,6 @@ In order to avoid repeated calculations, we use the method of memoization search
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Where $M$ represents the maximum value of $coins[i]$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +98,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -144,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +173,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumPoints(edges [][]int, coins []int, k int) int {
@@ -220,8 +212,6 @@ func maximumPoints(edges [][]int, coins []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumPoints(edges: number[][], coins: number[], k: number): number {
     const n = coins.length;
@@ -251,10 +241,6 @@ function maximumPoints(edges: number[][], coins: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

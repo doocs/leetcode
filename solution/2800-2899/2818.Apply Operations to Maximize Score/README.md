@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈 + 排序贪心**
+### 方法一：单调栈 + 排序贪心
 
 我们不妨考虑枚举每个元素 $nums[i]$ 作为质数分数最高的元素，那么我们需要找出左边第一个质数分数大于等于当前元素的位置 $l$，以及右边第一个质数分数大于当前元素的位置 $r$，那么以当前元素为最高质数分数的子数组有 $cnt = (i - l) \times (r - i)$ 个，它对答案的贡献为 $nums[i]^{cnt}$。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 def primeFactors(n):
@@ -129,10 +123,6 @@ class Solution:
                 break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -216,8 +206,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -297,8 +285,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumScore(nums []int, k int) int {
 	n := len(nums)
@@ -376,8 +362,6 @@ func primeFactors(n int) int {
 	return len(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumScore(nums: number[], k: number): number {
@@ -457,10 +441,6 @@ function qpow(a: bigint, n: number, mod: number): bigint {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

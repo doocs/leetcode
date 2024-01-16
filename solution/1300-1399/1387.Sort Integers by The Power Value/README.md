@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 我们先定义一个函数 $f(x)$，表示将数字 $x$ 变成 $1$ 所需要的步数，也即是数字 $x$ 的权重。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n \times \log n \times M)$，空间复杂度 $O(n)$。其中 $n$ 是区间 $[lo, hi]$ 内的数字个数，而 $M$ 是 $f(x)$ 的最大值，本题中 $M$ 最大为 $178$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 @cache
@@ -92,10 +86,6 @@ class Solution:
     def getKth(self, lo: int, hi: int, k: int) -> int:
         return sorted(range(lo, hi + 1), key=f)[k - 1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -159,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getKth(lo int, hi int, k int) int {
 	f := func(x int) (ans int) {
@@ -188,8 +174,6 @@ func getKth(lo int, hi int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getKth(lo: number, hi: number, k: number): number {
     const f = (x: number): number => {
@@ -213,10 +197,6 @@ function getKth(lo: number, hi: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

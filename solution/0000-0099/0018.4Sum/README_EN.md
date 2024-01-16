@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Double Pointers**
+### Solution 1: Sorting + Double Pointers
 
 We notice that the problem requires us to find non-repeating quadruplets. Therefore, we can first sort the array, which makes it easy to skip duplicate elements.
 
@@ -53,8 +53,6 @@ Next, we enumerate the first two elements of the quadruplet, $nums[i]$ and $nums
 The time complexity is $O(n^3)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,8 +84,6 @@ class Solution:
                             l -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +125,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -174,8 +168,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fourSum(nums []int, target int) (ans [][]int) {
 	n := len(nums)
@@ -216,7 +208,44 @@ func fourSum(nums []int, target int) (ans [][]int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function fourSum(nums: number[], target: number): number[][] {
+    const n = nums.length;
+    const ans: number[][] = [];
+    if (n < 4) {
+        return ans;
+    }
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < n - 3; ++i) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
+        for (let j = i + 1; j < n - 2; ++j) {
+            if (j > i + 1 && nums[j] === nums[j - 1]) {
+                continue;
+            }
+            let [k, l] = [j + 1, n - 1];
+            while (k < l) {
+                const x = nums[i] + nums[j] + nums[k] + nums[l];
+                if (x < target) {
+                    ++k;
+                } else if (x > target) {
+                    --l;
+                } else {
+                    ans.push([nums[i], nums[j], nums[k++], nums[l--]]);
+                    while (k < l && nums[k] === nums[k - 1]) {
+                        ++k;
+                    }
+                    while (k < l && nums[l] === nums[l + 1]) {
+                        --l;
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -262,49 +291,6 @@ var fourSum = function (nums, target) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function fourSum(nums: number[], target: number): number[][] {
-    const n = nums.length;
-    const ans: number[][] = [];
-    if (n < 4) {
-        return ans;
-    }
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < n - 3; ++i) {
-        if (i > 0 && nums[i] === nums[i - 1]) {
-            continue;
-        }
-        for (let j = i + 1; j < n - 2; ++j) {
-            if (j > i + 1 && nums[j] === nums[j - 1]) {
-                continue;
-            }
-            let [k, l] = [j + 1, n - 1];
-            while (k < l) {
-                const x = nums[i] + nums[j] + nums[k] + nums[l];
-                if (x < target) {
-                    ++k;
-                } else if (x > target) {
-                    --l;
-                } else {
-                    ans.push([nums[i], nums[j], nums[k++], nums[l--]]);
-                    while (k < l && nums[k] === nums[k - 1]) {
-                        ++k;
-                    }
-                    while (k < l && nums[l] === nums[l + 1]) {
-                        --l;
-                    }
-                }
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public IList<IList<int>> FourSum(int[] nums, int target) {
@@ -346,10 +332,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

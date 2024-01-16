@@ -43,7 +43,7 @@ In the second step, move from index 3 to index 5.
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Dynamic Programming**
+### Solution 1: Prefix Sum + Dynamic Programming
 
 We define a prefix sum array $pre$ of length $n+1$, where $pre[i]$ represents the number of reachable positions in the first $i$ positions of $s$. We define a boolean array $f$ of length $n$, where $f[i]$ indicates whether $s[i]$ is reachable. Initially, $pre[1] = 1$ and $f[0] = true$.
 
@@ -54,8 +54,6 @@ The final answer is $f[n-1]$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
             pre[i + 1] = pre[i] + f[i]
         return f[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canReach(s string, minJump int, maxJump int) bool {
 	n := len(s)
@@ -144,8 +136,6 @@ func canReach(s string, minJump int, maxJump int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canReach(s: string, minJump: number, maxJump: number): boolean {
     const n = s.length;
@@ -163,8 +153,6 @@ function canReach(s: string, minJump: number, maxJump: number): boolean {
     return f[n - 1];
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -190,10 +178,6 @@ var canReach = function (s, minJump, maxJump) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

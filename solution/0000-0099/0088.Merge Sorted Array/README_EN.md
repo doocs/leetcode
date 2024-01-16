@@ -55,7 +55,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We use two pointers $i$ and $j$ pointing to the end of two arrays, and a pointer $k$ pointing to the end of the merged array.
 
@@ -64,8 +64,6 @@ Every time we compare the two elements at the end of the two arrays, and move th
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of two arrays. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
             k -= 1
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -93,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func merge(nums1 []int, m int, nums2 []int, n int) {
@@ -123,8 +115,6 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  Do not return anything, modify nums1 in-place instead.
@@ -135,37 +125,6 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
     }
 }
 ```
-
-```ts
-/**
- Do not return anything, modify nums1 in-place instead.
- */
-function merge(nums1: number[], m: number, nums2: number[], n: number): void {
-    nums1.length = m;
-    nums2.length = n;
-    nums1.push(...nums2);
-    nums1.sort((a, b) => a - b);
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums1
- * @param {number} m
- * @param {number[]} nums2
- * @param {number} n
- * @return {void} Do not return anything, modify nums1 in-place instead.
- */
-var merge = function (nums1, m, nums2, n) {
-    for (let i = m - 1, j = n - 1, k = m + n - 1; j >= 0; --k) {
-        nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
-    }
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -196,7 +155,20 @@ impl Solution {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function (nums1, m, nums2, n) {
+    for (let i = m - 1, j = n - 1, k = m + n - 1; j >= 0; --k) {
+        nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+    }
+};
+```
 
 ```php
 class Solution {
@@ -219,10 +191,24 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+/**
+ Do not return anything, modify nums1 in-place instead.
+ */
+function merge(nums1: number[], m: number, nums2: number[], n: number): void {
+    nums1.length = m;
+    nums2.length = n;
+    nums1.push(...nums2);
+    nums1.sort((a, b) => a - b);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
                 break
         return int(''.join(s))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSwap(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -136,8 +130,6 @@ func maximumSwap(num int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumSwap(num: number): number {
@@ -167,8 +159,6 @@ function maximumSwap(num: number): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -208,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

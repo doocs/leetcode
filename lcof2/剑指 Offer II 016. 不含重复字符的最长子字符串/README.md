@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针 + 哈希表**
+### 方法一：双指针 + 哈希表
 
 我们用两个指针 $j$ 和 $i$ 维护一个不包含重复字符的子串，其中 $j$ 为子串的左边界，$i$ 为子串的右边界，用一个哈希表或数组 $ss$ 记录窗口中所有出现过的字符。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 为字符串 $s$ 的长度，而 $\Sigma$ 表示字符集，本题中字符集为所有 ASCII 码在 $[0, 128)$ 内的字符，即 $|\Sigma|=128$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             ss.add(c)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lengthOfLongestSubstring(s string) (ans int) {
 	ss := make([]bool, 128)
@@ -147,8 +133,6 @@ func lengthOfLongestSubstring(s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function lengthOfLongestSubstring(s: string): number {
     let ans = 0;
@@ -163,6 +147,12 @@ function lengthOfLongestSubstring(s: string): number {
     return ans;
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```ts
 function lengthOfLongestSubstring(s: string): number {
@@ -180,10 +170,6 @@ function lengthOfLongestSubstring(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

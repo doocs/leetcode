@@ -75,9 +75,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 二分查找**
+### 方法一：贪心 + 二分查找
 
 我们将所有晴天都存入 $sunny$ 数组或者有序集合中，使用哈希表 $rainy$ 记录每个湖泊最近一次下雨的日期。初始化答案数组 $ans$ 每个元素为 $-1$。
 
@@ -88,10 +86,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 $rains$ 数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -117,10 +111,6 @@ class Solution:
                 ans[i] = 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +142,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -184,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func avoidFlood(rains []int) []int {
 	n := len(rains)
@@ -214,8 +200,6 @@ func avoidFlood(rains []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function avoidFlood(rains: number[]): number[] {
@@ -734,10 +718,6 @@ class TreeSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

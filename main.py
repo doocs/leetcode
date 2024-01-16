@@ -130,6 +130,8 @@ def extract_solution_paragraph():
             )
 
         prefix = path[: path.rfind("/")]
+        tab_start = "<!-- tabs:start -->"
+        tab_end = "<!-- tabs:end -->"
         for i in range(1, 5):
             codes = []
             for suf in sorted_suffixes:
@@ -146,21 +148,53 @@ def extract_solution_paragraph():
                 if i > len(blocks):
                     seq_dict = {1: '一', 2: '二', 3: '三', 4: '四'}
                     title = f"### 方法{seq_dict[i]}" if is_cn else f"### Solution {i}"
-                    block = title + '\n\n' + '\n\n'.join(codes)
+                    block = (
+                        title
+                        + '\n\n'
+                        + tab_start
+                        + '\n\n'
+                        + '\n\n'.join(codes)
+                        + '\n\n'
+                        + tab_end
+                    )
                     blocks.append(block)
                 else:
-                    block = blocks[i - 1] + '\n\n' + '\n\n'.join(codes)
+                    block = (
+                        blocks[i - 1]
+                        + '\n\n'
+                        + tab_start
+                        + '\n\n'
+                        + '\n\n'.join(codes)
+                        + '\n\n'
+                        + tab_end
+                    )
                     blocks[i - 1] = block
-
+        is_problem = (
+            content.find("## 解法") != -1
+            if is_cn
+            else content.find("## Solutions") != -1
+            and content.find("## Description") != -1
+        )
+        start = '## 解法' if is_cn else '## Solutions'
+        end = '<!-- end -->'
         if blocks:
-            start = '## 解法' if is_cn else '## Solutions'
             content = (
-                content[: content.find(start)] + start + '\n\n' + '\n\n'.join(blocks)
+                content[: content.find(start)]
+                + start
+                + '\n\n'
+                + '\n\n'.join(blocks)
+                + '\n\n'
+                + end
             )
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(content)
+        elif is_problem:
+            start = '## 解法' if is_cn else '## Solutions'
+            content = content[: content.find(start)] + start + '\n\n' + end
             with open(path, "w", encoding="utf-8") as f:
                 f.write(content)
 
 
 if __name__ == "__main__":
-    # extract_code()
+    extract_code()
     extract_solution_paragraph()

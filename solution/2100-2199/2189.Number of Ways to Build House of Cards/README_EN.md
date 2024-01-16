@@ -54,9 +54,9 @@ The third house of cards uses 2 cards.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
 
         return dfs(n, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func houseOfCards(n int) int {
@@ -155,8 +149,6 @@ func houseOfCards(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function houseOfCards(n: number): number {
     const f: number[][] = Array(n + 1)
@@ -179,10 +171,6 @@ function houseOfCards(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

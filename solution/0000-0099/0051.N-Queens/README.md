@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS(回溯)**
+### 方法一：DFS(回溯)
 
 我们定义三个数组 $col$, $dg$ 和 $udg$，分别表示列、正对角线和反对角线上的是否有皇后，如果位置 $(i, j)$ 有皇后，那么 $col[j]$, $dg[i + j]$ 和 $udg[n - i + j]$ 都为 $1$。另外，我们用一个数组 $g$ 记录当前棋盘的状态，初始时 $g$ 中的所有元素都是 `'.'`。
 
@@ -62,10 +60,6 @@
 时间复杂度 $(n^2 \times n!)$，空间复杂度 $O(n)$。其中 $n$ 是题目给定的整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func solveNQueens(n int) (ans [][]string) {
@@ -210,8 +196,6 @@ func solveNQueens(n int) (ans [][]string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function solveNQueens(n: number): string[][] {
     const col: number[] = new Array(n).fill(0);
@@ -240,8 +224,6 @@ function solveNQueens(n: number): string[][] {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -282,10 +264,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

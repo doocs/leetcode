@@ -24,17 +24,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 用列表模拟栈的集合，每个栈的容量为 `cap`，当栈满时，新建一个栈。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class StackOfPlates:
@@ -67,10 +61,6 @@ class StackOfPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAt(index)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class StackOfPlates {
@@ -116,8 +106,6 @@ class StackOfPlates {
  */
 ```
 
-### **C++**
-
 ```cpp
 class StackOfPlates {
 public:
@@ -160,8 +148,6 @@ private:
  * int param_3 = obj->popAt(index);
  */
 ```
-
-### **Go**
 
 ```go
 type StackOfPlates struct {
@@ -208,8 +194,6 @@ func (this *StackOfPlates) PopAt(index int) int {
  * param_3 := obj.PopAt(index);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class StackOfPlates {
@@ -264,10 +248,6 @@ class StackOfPlates {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们递归遍历整棵树，对于当前遍历到的节点 $root$：
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -91,10 +85,6 @@ class Solution:
         root.right = self.sufficientSubset(root.right, limit)
         return None if root.left is None and root.right is None else root
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -128,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -158,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -193,8 +179,6 @@ func sufficientSubset(root *TreeNode, limit int) *TreeNode {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -224,8 +208,6 @@ function sufficientSubset(root: TreeNode | null, limit: number): TreeNode | null
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -254,10 +236,6 @@ var sufficientSubset = function (root, limit) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

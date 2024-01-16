@@ -41,15 +41,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-用哈希表记录访问过的节点。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -71,10 +65,6 @@ class Solution:
         nodes = set()
         return find(root)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -113,38 +103,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function findTarget(root: TreeNode | null, k: number): boolean {
-    let nodes: Set<number> = new Set();
-    return find(root, k, nodes);
-}
-
-function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
-    if (!root) return false;
-    if (nodes.has(k - root.val)) return true;
-    nodes.add(root.val);
-    return find(root.left, k, nodes) || find(root.right, k, nodes);
-}
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -174,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -203,10 +159,34 @@ func findTarget(root *TreeNode, k int) bool {
 }
 ```
 
-### **...**
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
 
-```
+function findTarget(root: TreeNode | null, k: number): boolean {
+    let nodes: Set<number> = new Set();
+    return find(root, k, nodes);
+}
 
+function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
+    if (!root) return false;
+    if (nodes.has(k - root.val)) return true;
+    nodes.add(root.val);
+    return find(root.left, k, nodes) || find(root.right, k, nodes);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

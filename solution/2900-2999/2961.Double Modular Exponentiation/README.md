@@ -54,19 +54,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟 + 快速幂**
+### 方法一：模拟 + 快速幂
 
 我们直接根据题目描述模拟即可。对于幂运算取模，我们可以使用快速幂来加速运算。
 
 时间复杂度 $O(n \times \log M)$，其中 $n$ 为数组 $variables$ 的长度；而 $M$ 为 $b_i$ 和 $c_i$ 中的最大值，本题中 $M \le 10^3$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
             if pow(pow(a, b, 10), c, m) == target
         ]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getGoodIndices(variables [][]int, target int) (ans []int) {
 	qpow := func(a, n, mod int) int {
@@ -161,8 +147,6 @@ func getGoodIndices(variables [][]int, target int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getGoodIndices(variables: number[][], target: number): number[] {
@@ -187,10 +171,6 @@ function getGoodIndices(variables: number[][], target: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

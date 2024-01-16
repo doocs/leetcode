@@ -57,13 +57,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +75,6 @@ class Solution:
             pre[j] = i
         return f[n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaximumLength(nums []int) int {
 	n := len(nums)
@@ -151,8 +139,6 @@ func findMaximumLength(nums []int) int {
 	return f[n]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMaximumLength(nums: number[]): number {
@@ -185,10 +171,6 @@ function findMaximumLength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

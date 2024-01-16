@@ -56,19 +56,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们可以枚举每个格子作为起点，然后从起点开始进行深度优先搜索。在搜索的过程中，每遇到一个非零的格子，就将其变成零，并继续搜索。当无法继续搜索时，计算当前的路径的黄金总数，然后将当前的格子变回非零的格子，从而进行回溯。
 
 时间复杂度 $O(m \times n \times 3^k)$，其中 $k$ 是每条路径的最大长度。由于每个格子最多只能被访问一次，因此时间复杂度不会超过 $O(m \times n \times 3^k)$。空间复杂度 $O(m \times n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getMaximumGold(grid [][]int) (ans int) {
@@ -184,8 +170,6 @@ func getMaximumGold(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMaximumGold(grid: number[][]): number {
     const m = grid.length;
@@ -209,8 +193,6 @@ function getMaximumGold(grid: number[][]): number {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -240,10 +222,6 @@ var getMaximumGold = function (grid) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

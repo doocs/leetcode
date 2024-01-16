@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆向构造 + 优先队列（大根堆）**
+### 方法一：逆向构造 + 优先队列（大根堆）
 
 我们发现，如果从数组 $arr$ 开始正向构造目标数组 $target$，每次都不好确定选择哪个下标 $i$，问题比较复杂。而如果我们从数组 $target$ 开始逆向构造，每次构造都一定是选择当前数组中最大的元素，这样就可以保证每次构造都是唯一的，问题比较简单。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $target$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             s = s - mx + x
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +136,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isPossible(target []int) bool {
@@ -183,8 +169,6 @@ func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
 
-### **TypeScript**
-
 ```ts
 function isPossible(target: number[]): boolean {
     const pq = new MaxPriorityQueue();
@@ -207,10 +191,6 @@ function isPossible(target: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

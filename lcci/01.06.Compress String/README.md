@@ -30,9 +30,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以利用双指针找出每个连续字符的起始位置和结束位置，计算出连续字符的长度，然后将字符和长度拼接到字符串 $t$ 中。
 
@@ -42,34 +40,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def compressString(self, S: str) -> str:
         t = "".join(a + str(len(list(b))) for a, b in groupby(S))
         return min(S, t, key=len)
 ```
-
-```python
-class Solution:
-    def compressString(self, S: str) -> str:
-        t = []
-        i, n = 0, len(S)
-        while i < n:
-            j = i + 1
-            while j < n and S[j] == S[i]:
-                j += 1
-            t.append(S[i] + str(j - i))
-            i = j
-        return min(S, "".join(t), key=len)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func compressString(S string) string {
 	n := len(S)
@@ -133,30 +105,6 @@ func compressString(S string) string {
 	return S
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} S
- * @return {string}
- */
-var compressString = function (S) {
-    const n = S.length;
-    const t = [];
-    for (let i = 0; i < n; ) {
-        let j = i + 1;
-        while (j < n && S.charAt(j) === S.charAt(i)) {
-            ++j;
-        }
-        t.push(S.charAt(i), j - i);
-        i = j;
-    }
-    return t.length < n ? t.join('') : S;
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -185,10 +133,46 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var compressString = function (S) {
+    const n = S.length;
+    const t = [];
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        while (j < n && S.charAt(j) === S.charAt(i)) {
+            ++j;
+        }
+        t.push(S.charAt(i), j - i);
+        i = j;
+    }
+    return t.length < n ? t.join('') : S;
+};
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def compressString(self, S: str) -> str:
+        t = []
+        i, n = 0, len(S)
+        while i < n:
+            j = i + 1
+            while j < n and S[j] == S[i]:
+                j += 1
+            t.append(S[i] + str(j - i))
+            i = j
+        return min(S, "".join(t), key=len)
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

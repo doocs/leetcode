@@ -57,9 +57,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,25 +83,6 @@ class Solution:
                 f[i][2] = (f[i - 1][1] + 2 * f[i - 1][2]) % mod
         return f[n - 1][2]
 ```
-
-```python
-class Solution:
-    def countSpecialSubsequences(self, nums: List[int]) -> int:
-        mod = 10**9 + 7
-        n = len(nums)
-        f = [0] * 3
-        f[0] = nums[0] == 0
-        for i in range(1, n):
-            if nums[i] == 0:
-                f[0] = (2 * f[0] + 1) % mod
-            elif nums[i] == 1:
-                f[1] = (f[0] + 2 * f[1]) % mod
-            else:
-                f[2] = (f[1] + 2 * f[2]) % mod
-        return f[2]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,29 +110,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int countSpecialSubsequences(int[] nums) {
-        final int mod = (int) 1e9 + 7;
-        int n = nums.length;
-        int[] f = new int[3];
-        f[0] = nums[0] == 0 ? 1 : 0;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == 0) {
-                f[0] = (2 * f[0] % mod + 1) % mod;
-            } else if (nums[i] == 1) {
-                f[1] = (f[0] + 2 * f[1] % mod) % mod;
-            } else {
-                f[2] = (f[1] + 2 * f[2] % mod) % mod;
-            }
-        }
-        return f[2];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -182,30 +140,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int countSpecialSubsequences(vector<int>& nums) {
-        const int mod = 1e9 + 7;
-        int n = nums.size();
-        int f[3]{0};
-        f[0] = nums[0] == 0;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == 0) {
-                f[0] = (2 * f[0] % mod + 1) % mod;
-            } else if (nums[i] == 1) {
-                f[1] = (f[0] + 2 * f[1] % mod) % mod;
-            } else {
-                f[2] = (f[1] + 2 * f[2] % mod) % mod;
-            }
-        }
-        return f[2];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countSpecialSubsequences(nums []int) int {
 	const mod = 1e9 + 7
@@ -232,29 +166,6 @@ func countSpecialSubsequences(nums []int) int {
 	return f[n-1][2]
 }
 ```
-
-```go
-func countSpecialSubsequences(nums []int) int {
-	const mod = 1e9 + 7
-	n := len(nums)
-	f := [3]int{}
-	if nums[0] == 0 {
-		f[0] = 1
-	}
-	for i := 1; i < n; i++ {
-		if nums[i] == 0 {
-			f[0] = (2*f[0] + 1) % mod
-		} else if nums[i] == 1 {
-			f[1] = (f[0] + 2*f[1]) % mod
-		} else {
-			f[2] = (f[1] + 2*f[2]) % mod
-		}
-	}
-	return f[2]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function countSpecialSubsequences(nums: number[]): number {
@@ -283,6 +194,93 @@ function countSpecialSubsequences(nums: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countSpecialSubsequences(self, nums: List[int]) -> int:
+        mod = 10**9 + 7
+        n = len(nums)
+        f = [0] * 3
+        f[0] = nums[0] == 0
+        for i in range(1, n):
+            if nums[i] == 0:
+                f[0] = (2 * f[0] + 1) % mod
+            elif nums[i] == 1:
+                f[1] = (f[0] + 2 * f[1]) % mod
+            else:
+                f[2] = (f[1] + 2 * f[2]) % mod
+        return f[2]
+```
+
+```java
+class Solution {
+    public int countSpecialSubsequences(int[] nums) {
+        final int mod = (int) 1e9 + 7;
+        int n = nums.length;
+        int[] f = new int[3];
+        f[0] = nums[0] == 0 ? 1 : 0;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] == 0) {
+                f[0] = (2 * f[0] % mod + 1) % mod;
+            } else if (nums[i] == 1) {
+                f[1] = (f[0] + 2 * f[1] % mod) % mod;
+            } else {
+                f[2] = (f[1] + 2 * f[2] % mod) % mod;
+            }
+        }
+        return f[2];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countSpecialSubsequences(vector<int>& nums) {
+        const int mod = 1e9 + 7;
+        int n = nums.size();
+        int f[3]{0};
+        f[0] = nums[0] == 0;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] == 0) {
+                f[0] = (2 * f[0] % mod + 1) % mod;
+            } else if (nums[i] == 1) {
+                f[1] = (f[0] + 2 * f[1] % mod) % mod;
+            } else {
+                f[2] = (f[1] + 2 * f[2] % mod) % mod;
+            }
+        }
+        return f[2];
+    }
+};
+```
+
+```go
+func countSpecialSubsequences(nums []int) int {
+	const mod = 1e9 + 7
+	n := len(nums)
+	f := [3]int{}
+	if nums[0] == 0 {
+		f[0] = 1
+	}
+	for i := 1; i < n; i++ {
+		if nums[i] == 0 {
+			f[0] = (2*f[0] + 1) % mod
+		} else if nums[i] == 1 {
+			f[1] = (f[0] + 2*f[1]) % mod
+		} else {
+			f[2] = (f[1] + 2*f[2]) % mod
+		}
+	}
+	return f[2]
+}
+```
+
 ```ts
 function countSpecialSubsequences(nums: number[]): number {
     const mod = 1e9 + 7;
@@ -308,10 +306,6 @@ function countSpecialSubsequences(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

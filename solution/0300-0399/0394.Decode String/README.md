@@ -57,24 +57,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-用栈 s1 存储左括号前的数字 num，栈 s2 存储左括号前的字符串 res。
-
-遍历字符串 s 中每个字符 c：
-
--   若 c 是数字，则累乘数字 num
--   若 `c == '['`，则将左括号前的数字 num 存入 s1，左括号前的字符串 res 存入 s2，并将 num 重新置为 0，res 置为空串
--   若 `c == ']'`，则 `res = s2.pop() + res * s1.pop()`
--   若 c 是字符，则累加字符串 res
-
-最后返回 res 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +79,6 @@ class Solution:
                 res += c
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +110,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function decodeString(s: string): string {
     let ans = '';
@@ -156,10 +135,6 @@ function decodeString(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

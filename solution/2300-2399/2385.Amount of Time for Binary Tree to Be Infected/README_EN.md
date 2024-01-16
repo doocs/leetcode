@@ -50,9 +50,9 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -90,41 +90,6 @@ class Solution:
                         q.append(j)
         return ans
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
-        def dfs(root):
-            if root is None:
-                return
-            if root.left:
-                g[root.val].append(root.left.val)
-                g[root.left.val].append(root.val)
-            if root.right:
-                g[root.val].append(root.right.val)
-                g[root.right.val].append(root.val)
-            dfs(root.left)
-            dfs(root.right)
-
-        def dfs2(i, fa):
-            ans = 0
-            for j in g[i]:
-                if j != fa:
-                    ans = max(ans, 1 + dfs2(j, i))
-            return ans
-
-        g = defaultdict(list)
-        dfs(root)
-        return dfs2(start, -1)
-```
-
-### **Java**
 
 ```java
 /**
@@ -186,60 +151,6 @@ class Solution {
 }
 ```
 
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    private Map<Integer, List<Integer>> g = new HashMap<>();
-
-    public int amountOfTime(TreeNode root, int start) {
-        dfs(root);
-        return dfs(start, -1);
-    }
-
-    private int dfs(int i, int fa) {
-        int ans = 0;
-        for (int j : g.getOrDefault(i, Collections.emptyList())) {
-            if (j != fa) {
-                ans = Math.max(ans, 1 + dfs(j, i));
-            }
-        }
-        return ans;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        if (root.left != null) {
-            g.computeIfAbsent(root.left.val, k -> new ArrayList<>()).add(root.val);
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.left.val);
-        }
-        if (root.right != null) {
-            g.computeIfAbsent(root.right.val, k -> new ArrayList<>()).add(root.val);
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.right.val);
-        }
-        dfs(root.left);
-        dfs(root.right);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -293,55 +204,6 @@ public:
 };
 ```
 
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    unordered_map<int, vector<int>> g;
-
-    int amountOfTime(TreeNode* root, int start) {
-        dfs(root);
-        return dfs(start, -1);
-    }
-
-    int dfs(int i, int fa) {
-        int ans = 0;
-        for (int& j : g[i]) {
-            if (j != fa) {
-                ans = max(ans, 1 + dfs(j, i));
-            }
-        }
-        return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        if (root->left) {
-            g[root->val].push_back(root->left->val);
-            g[root->left->val].push_back(root->val);
-        }
-        if (root->right) {
-            g[root->val].push_back(root->right->val);
-            g[root->right->val].push_back(root->val);
-        }
-        dfs(root->left);
-        dfs(root->right);
-    }
-};
-```
-
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -391,6 +253,187 @@ func amountOfTime(root *TreeNode, start int) int {
 }
 ```
 
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function amountOfTime(root: TreeNode | null, start: number): number {
+    const map = new Map<number, number[]>();
+    const create = ({ val, left, right }: TreeNode) => {
+        if (left != null) {
+            map.set(val, [...(map.get(val) ?? []), left.val]);
+            map.set(left.val, [...(map.get(left.val) ?? []), val]);
+            create(left);
+        }
+        if (right != null) {
+            map.set(val, [...(map.get(val) ?? []), right.val]);
+            map.set(right.val, [...(map.get(right.val) ?? []), val]);
+            create(right);
+        }
+    };
+    create(root);
+    const dfs = (st: number, fa: number) => {
+        let res = 0;
+        for (const v of map.get(st) ?? []) {
+            if (v !== fa) {
+                res = Math.max(res, dfs(v, st) + 1);
+            }
+        }
+        return res;
+    };
+    return dfs(start, -1);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
+        def dfs(root):
+            if root is None:
+                return
+            if root.left:
+                g[root.val].append(root.left.val)
+                g[root.left.val].append(root.val)
+            if root.right:
+                g[root.val].append(root.right.val)
+                g[root.right.val].append(root.val)
+            dfs(root.left)
+            dfs(root.right)
+
+        def dfs2(i, fa):
+            ans = 0
+            for j in g[i]:
+                if j != fa:
+                    ans = max(ans, 1 + dfs2(j, i))
+            return ans
+
+        g = defaultdict(list)
+        dfs(root)
+        return dfs2(start, -1)
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private Map<Integer, List<Integer>> g = new HashMap<>();
+
+    public int amountOfTime(TreeNode root, int start) {
+        dfs(root);
+        return dfs(start, -1);
+    }
+
+    private int dfs(int i, int fa) {
+        int ans = 0;
+        for (int j : g.getOrDefault(i, Collections.emptyList())) {
+            if (j != fa) {
+                ans = Math.max(ans, 1 + dfs(j, i));
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        if (root.left != null) {
+            g.computeIfAbsent(root.left.val, k -> new ArrayList<>()).add(root.val);
+            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.left.val);
+        }
+        if (root.right != null) {
+            g.computeIfAbsent(root.right.val, k -> new ArrayList<>()).add(root.val);
+            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.right.val);
+        }
+        dfs(root.left);
+        dfs(root.right);
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_map<int, vector<int>> g;
+
+    int amountOfTime(TreeNode* root, int start) {
+        dfs(root);
+        return dfs(start, -1);
+    }
+
+    int dfs(int i, int fa) {
+        int ans = 0;
+        for (int& j : g[i]) {
+            if (j != fa) {
+                ans = max(ans, 1 + dfs(j, i));
+            }
+        }
+        return ans;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        if (root->left) {
+            g[root->val].push_back(root->left->val);
+            g[root->left->val].push_back(root->val);
+        }
+        if (root->right) {
+            g[root->val].push_back(root->right->val);
+            g[root->right->val].push_back(root->val);
+        }
+        dfs(root->left);
+        dfs(root->right);
+    }
+};
+```
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -435,56 +478,6 @@ func amountOfTime(root *TreeNode, start int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function amountOfTime(root: TreeNode | null, start: number): number {
-    const map = new Map<number, number[]>();
-    const create = ({ val, left, right }: TreeNode) => {
-        if (left != null) {
-            map.set(val, [...(map.get(val) ?? []), left.val]);
-            map.set(left.val, [...(map.get(left.val) ?? []), val]);
-            create(left);
-        }
-        if (right != null) {
-            map.set(val, [...(map.get(val) ?? []), right.val]);
-            map.set(right.val, [...(map.get(right.val) ?? []), val]);
-            create(right);
-        }
-    };
-    create(root);
-    const dfs = (st: number, fa: number) => {
-        let res = 0;
-        for (const v of map.get(st) ?? []) {
-            if (v !== fa) {
-                res = Math.max(res, dfs(v, st) + 1);
-            }
-        }
-        return res;
-    };
-    return dfs(start, -1);
-}
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: Prime Factorization + Combinatorial Mathematics**
+### Solution 1: Prime Factorization + Combinatorial Mathematics
 
 We can perform prime factorization on $k$, i.e., $k = p_1^{x_1} \times p_2^{x_2} \times \cdots \times p_m^{x_m}$, where $p_i$ is a prime number, and $x_i$ is the exponent of $p_i$. The problem is equivalent to: placing $x_1$ $p_1$s, $x_2$ $p_2$s, $\cdots$, $x_m$ $p_m$s into $n$ positions respectively, where a single position can be empty. The question is how many schemes are there.
 
@@ -54,8 +54,6 @@ So, the problem is transformed into how to quickly calculate $C_m^n$. According 
 The time complexity is $O(K \times \log \log K + N + m \times \log K)$, and the space complexity is $O(N)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 N = 10020
@@ -94,8 +92,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -161,8 +157,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 int N = 10020;
 int MOD = 1e9 + 7;
@@ -227,8 +221,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const n = 1e4 + 20
 const mod = 1e9 + 7
@@ -288,10 +280,6 @@ func waysToFillArray(queries [][]int) (ans []int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

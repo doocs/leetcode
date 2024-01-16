@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 遍历 `wordlist`，将单词按照大小写不敏感、元音不敏感的规则分别存入哈希表 `low` 和 `pat` 中，其中 `low` 的键为单词的小写形式，`pat` 的键为将单词的元音字母替换为 `*` 后的字符串，值为单词本身。用哈希表 `s` 存储 `wordlist` 中的单词。
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(n+m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为 `wordlist` 和 `queries` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -117,10 +111,6 @@ class Solution:
             ans.append("")
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -169,8 +159,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -224,8 +212,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func spellchecker(wordlist []string, queries []string) (ans []string) {
 	s := map[string]bool{}
@@ -271,10 +257,6 @@ func spellchecker(wordlist []string, queries []string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

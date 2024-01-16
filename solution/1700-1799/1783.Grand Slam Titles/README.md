@@ -81,15 +81,11 @@ Player 3 (Novak)  没有赢得，因此不包含在结果集中。</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：合并 + 等值连接 + 分组**
+### 方法一：合并 + 等值连接 + 分组
 
 我们可以使用 `UNION ALL`，将所有赢得大满贯比赛的球员 ID 合并到一张表 `T` 中，然后使用等值连接 `JOIN`，将 `T` 表与 `Players` 表按照 `player_id` 进行连接，最后使用 `GROUP BY` 和 `COUNT` 统计每个球员赢得大满贯比赛的次数。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -113,6 +109,12 @@ FROM
     JOIN Players USING (player_id)
 GROUP BY 1;
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -150,3 +152,5 @@ HAVING grand_slams_count > 0;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,11 +42,9 @@
 
 ## Solutions
 
-**Solution 1: Greedy Algorithm**
+### Solution 1: Greedy Algorithm
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -60,8 +58,6 @@ class Solution:
             stk.append(c)
         return ''.join(stk[:remain]).lstrip('0') or '0'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeKdigits(num string, k int) string {
 	stk, remain := make([]byte, 0), len(num)-k
@@ -135,8 +127,6 @@ func removeKdigits(num string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeKdigits(num: string, k: number): string {
     let nums = [...num];
@@ -152,10 +142,6 @@ function removeKdigits(num: string, k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

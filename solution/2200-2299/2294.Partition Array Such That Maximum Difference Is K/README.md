@@ -63,19 +63,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 题目是要求划分子序列，而不是子数组，因此子序列中的元素可以不连续。我们可以将数组 `nums` 排序，假设当前子序列的第一个元素为 $a$，则子序列中的最大值和最小值的差值不会超过 $k$。因此我们可以遍历数组 `nums`，如果当前元素 $b$ 与 $a$ 的差值大于 $k$，则更新 $a$ 为 $b$，并将子序列数目加 1。遍历结束后，即可得到最少子序列数目，注意初始时子序列数目为 $1$。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func partitionArray(nums []int, k int) int {
 	sort.Ints(nums)
@@ -143,8 +129,6 @@ func partitionArray(nums []int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function partitionArray(nums: number[], k: number): number {
@@ -161,10 +145,6 @@ function partitionArray(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -66,13 +66,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +80,6 @@ class Solution:
             mx = max(mx, num)
         return max(0, upper - lower - (mx - mi) + 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfArrays(differences []int, lower int, upper int) int {
 	num, mi, mx := 0, 0, 0
@@ -134,18 +122,6 @@ func numberOfArrays(differences []int, lower int, upper int) int {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

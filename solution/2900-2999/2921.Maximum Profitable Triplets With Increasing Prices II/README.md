@@ -58,19 +58,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 我们可以用两个树状数组分别维护每个价格左边以及右边的最大利润，然后枚举中间的价格，通过树状数组查询左右两边的最大利润，最后取最大值即可。
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $prices$ 的长度，而 $M$ 是数组 $prices$ 中的最大值，本题中 $M \le 5000$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -113,10 +107,6 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -177,8 +167,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -237,8 +225,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type BinaryIndexedTree struct {
@@ -299,8 +285,6 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -360,8 +344,6 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 struct BinaryIndexedTree {
@@ -430,10 +412,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

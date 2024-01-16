@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以用一个长度为 $26$ 的数组 $cnt$ 统计字符串 $chars$ 中每个字母出现的次数。
 
@@ -59,10 +57,6 @@
 时间复杂度 $(L)$，空间复杂度 $O(C)$。其中 $L$ 为题目中所有字符串的长度之和；而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
                 ans += len(w)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countCharacters(words []string, chars string) (ans int) {
 	cnt := [26]int{}
@@ -164,8 +150,6 @@ func countCharacters(words []string, chars string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countCharacters(words: string[], chars: string): number {
     const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -190,8 +174,6 @@ function countCharacters(words: string[], chars: string): number {
     return ans;
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -221,10 +203,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

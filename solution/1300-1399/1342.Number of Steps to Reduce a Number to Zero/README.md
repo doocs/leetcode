@@ -50,13 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,22 +66,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def numberOfSteps(self, num: int) -> int:
-        if num == 0:
-            return 0
-        return 1 + (
-            self.numberOfSteps(num // 2)
-            if num % 2 == 0
-            else self.numberOfSteps(num - 1)
-        )
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,33 +81,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-
-    public int numberOfSteps(int num) {
-        if (num == 0) {
-            return 0;
-        }
-        return 1 + numberOfSteps((num & 1) == 0 ? num >> 1 : num - 1);
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function numberOfSteps(num: number): number {
-    let ans = 0;
-    while (num) {
-        num = num & 1 ? num - 1 : num >>> 1;
-        ans++;
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,18 +94,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int numberOfSteps(int num) {
-        if (num == 0) return 0;
-        return 1 + (num & 1 ? numberOfSteps(num - 1) : numberOfSteps(num >> 1));
-    }
-};
-```
-
-### **Go**
 
 ```go
 func numberOfSteps(num int) int {
@@ -169,19 +110,16 @@ func numberOfSteps(num int) int {
 }
 ```
 
-```go
-func numberOfSteps(num int) int {
-	if num == 0 {
-		return 0
-	}
-	if (num & 1) == 0 {
-		return 1 + numberOfSteps(num>>1)
-	}
-	return 1 + numberOfSteps(num-1)
+```ts
+function numberOfSteps(num: number): number {
+    let ans = 0;
+    while (num) {
+        num = num & 1 ? num - 1 : num >>> 1;
+        ans++;
+    }
+    return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -200,6 +138,58 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        if num == 0:
+            return 0
+        return 1 + (
+            self.numberOfSteps(num // 2)
+            if num % 2 == 0
+            else self.numberOfSteps(num - 1)
+        )
+```
+
+```java
+class Solution {
+
+    public int numberOfSteps(int num) {
+        if (num == 0) {
+            return 0;
+        }
+        return 1 + numberOfSteps((num & 1) == 0 ? num >> 1 : num - 1);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int numberOfSteps(int num) {
+        if (num == 0) return 0;
+        return 1 + (num & 1 ? numberOfSteps(num - 1) : numberOfSteps(num >> 1));
+    }
+};
+```
+
+```go
+func numberOfSteps(num int) int {
+	if num == 0 {
+		return 0
+	}
+	if (num & 1) == 0 {
+		return 1 + numberOfSteps(num>>1)
+	}
+	return 1 + numberOfSteps(num-1)
+}
+```
+
 ```rust
 impl Solution {
     pub fn number_of_steps(mut num: i32) -> i32 {
@@ -214,10 +204,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

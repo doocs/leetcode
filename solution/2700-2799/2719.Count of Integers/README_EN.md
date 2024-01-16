@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Digit DP**
+### Solution 1: Digit DP
 
 The problem is actually asking for the number of integers in the range $[num1,..num2]$ whose digit sum is in the range $[min\_sum,..max\_sum]$. For this kind of range $[l,..r]$ problem, we can consider transforming it into finding the answers for $[1,..r]$ and $[1,..l-1]$, and then subtracting the latter from the former.
 
@@ -57,8 +57,6 @@ Similar problems:
 -   [2801. Count Stepping Numbers in Range](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
         b = dfs(0, 0, True)
         return (a - b) % mod
 ```
-
-### **Java**
 
 ```java
 import java.math.BigInteger;
@@ -124,8 +120,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,8 +165,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func count(num1 string, num2 string, min_sum int, max_sum int) int {
@@ -229,8 +221,6 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function count(num1: string, num2: string, min_sum: number, max_sum: number): number {
     const mod = 1e9 + 7;
@@ -261,10 +251,6 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

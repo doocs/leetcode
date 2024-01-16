@@ -58,9 +58,9 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,23 +78,6 @@ class Solution:
                     ans.append(c)
         return ''.join(ans)
 ```
-
-```python
-class Solution:
-    def removeOuterParentheses(self, s: str) -> str:
-        ans = []
-        cnt = 0
-        for c in s:
-            if c == '(':
-                cnt += 1
-            if cnt > 1:
-                ans.append(c)
-            if c == ')':
-                cnt -= 1
-        return ''.join(ans)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,6 +99,110 @@ class Solution {
         return ans.toString();
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        string ans;
+        int cnt = 0;
+        for (char& c : s) {
+            if (c == '(') {
+                if (++cnt > 1) {
+                    ans.push_back(c);
+                }
+            } else {
+                if (--cnt) {
+                    ans.push_back(c);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func removeOuterParentheses(s string) string {
+	ans := []rune{}
+	cnt := 0
+	for _, c := range s {
+		if c == '(' {
+			cnt++
+			if cnt > 1 {
+				ans = append(ans, c)
+			}
+		} else {
+			cnt--
+			if cnt > 0 {
+				ans = append(ans, c)
+			}
+		}
+	}
+	return string(ans)
+}
+```
+
+```ts
+function removeOuterParentheses(s: string): string {
+    let res = '';
+    let depth = 0;
+    for (const c of s) {
+        if (c === '(') {
+            depth++;
+        }
+        if (depth !== 1) {
+            res += c;
+        }
+        if (c === ')') {
+            depth--;
+        }
+    }
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn remove_outer_parentheses(s: String) -> String {
+        let mut res = String::new();
+        let mut depth = 0;
+        for c in s.chars() {
+            if c == '(' {
+                depth += 1;
+            }
+            if depth != 1 {
+                res.push(c);
+            }
+            if c == ')' {
+                depth -= 1;
+            }
+        }
+        res
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        ans = []
+        cnt = 0
+        for c in s:
+            if c == '(':
+                cnt += 1
+            if cnt > 1:
+                ans.append(c)
+            if c == ')':
+                cnt -= 1
+        return ''.join(ans)
 ```
 
 ```java
@@ -140,30 +227,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string removeOuterParentheses(string s) {
-        string ans;
-        int cnt = 0;
-        for (char& c : s) {
-            if (c == '(') {
-                if (++cnt > 1) {
-                    ans.push_back(c);
-                }
-            } else {
-                if (--cnt) {
-                    ans.push_back(c);
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -186,29 +249,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func removeOuterParentheses(s string) string {
-	ans := []rune{}
-	cnt := 0
-	for _, c := range s {
-		if c == '(' {
-			cnt++
-			if cnt > 1 {
-				ans = append(ans, c)
-			}
-		} else {
-			cnt--
-			if cnt > 0 {
-				ans = append(ans, c)
-			}
-		}
-	}
-	return string(ans)
-}
-```
-
 ```go
 func removeOuterParentheses(s string) string {
 	ans := []rune{}
@@ -228,54 +268,6 @@ func removeOuterParentheses(s string) string {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function removeOuterParentheses(s: string): string {
-    let res = '';
-    let depth = 0;
-    for (const c of s) {
-        if (c === '(') {
-            depth++;
-        }
-        if (depth !== 1) {
-            res += c;
-        }
-        if (c === ')') {
-            depth--;
-        }
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn remove_outer_parentheses(s: String) -> String {
-        let mut res = String::new();
-        let mut depth = 0;
-        for c in s.chars() {
-            if c == '(' {
-                depth += 1;
-            }
-            if depth != 1 {
-                res.push(c);
-            }
-            if c == ')' {
-                depth -= 1;
-            }
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

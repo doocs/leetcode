@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -44,8 +44,6 @@ class Solution:
         nums.sort(key=cmp_to_key(lambda a, b: 1 if a + b < b + a else -1))
         return "0" if nums[0] == "0" else "".join(nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -62,8 +60,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -82,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestNumber(nums []int) string {
 	vs := make([]string, len(nums))
@@ -99,8 +93,6 @@ func largestNumber(nums []int) string {
 	return strings.Join(vs, "")
 }
 ```
-
-### **C#**
 
 ```cs
 using System;
@@ -159,10 +151,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

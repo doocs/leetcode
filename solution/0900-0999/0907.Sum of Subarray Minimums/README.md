@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 题目要求的是每个子数组的最小值之和，实际上相当于，对于每个元素 $arr[i]$，求以 $arr[i]$ 为最小值的子数组的个数，然后乘以 $arr[i]$，最后求和。
 
@@ -77,10 +75,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
@@ -105,10 +99,6 @@ class Solution:
         mod = 10**9 + 7
         return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(arr)) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,8 +176,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sumSubarrayMins(arr []int) (ans int) {
@@ -229,8 +215,6 @@ func sumSubarrayMins(arr []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumSubarrayMins(arr: number[]): number {
     const n: number = arr.length;
@@ -267,8 +251,6 @@ function sumSubarrayMins(arr: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -313,6 +295,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 const MOD: i64 = (1e9 as i64) + 7;
@@ -365,10 +353,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

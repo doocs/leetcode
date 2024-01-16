@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们先遍历棋盘，找到车的位置 $(x, y)$，然后从 $(x, y)$ 出发，向上下左右四个方向遍历：
 
@@ -78,10 +76,6 @@
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是棋盘的行数和列数，本题中 $m = n = 8$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
                                 break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +155,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numRookCaptures(board [][]byte) (ans int) {
 	dirs := [5]int{-1, 0, 1, 0, -1}
@@ -193,10 +179,6 @@ func numRookCaptures(board [][]byte) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

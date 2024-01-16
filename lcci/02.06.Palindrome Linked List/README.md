@@ -28,15 +28,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先用快慢指针找到链表的中点，接着反转右半部分的链表。然后同时遍历前后两段链表，若前后两段链表节点对应的值不等，说明不是回文链表，否则说明是回文链表。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -62,10 +56,6 @@ class Solution:
             pre, head = pre.next, head.next
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -110,7 +100,90 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```go
+func isPalindrome(head *ListNode) bool {
+	if head == nil {
+		return true
+	}
+	m := mid(head)
+	temp := reverse(m.Next)
+	m.Next = nil
+	p, q := head, temp
+	res := true
+	for p != nil && q != nil {
+		if p.Val != q.Val {
+			res = false
+			break
+		}
+		p = p.Next
+		q = q.Next
+	}
+	m.Next = reverse(temp)
+	return res
+}
+
+func mid(head *ListNode) *ListNode {
+	slow, fast := head, head.Next
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+	return slow
+}
+
+func reverse(head *ListNode) *ListNode {
+	var prev *ListNode = nil
+	for head != nil {
+		temp := head.Next
+		head.Next = prev
+		prev = head
+		head = temp
+	}
+	return prev
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function isPalindrome(head: ListNode | null): boolean {
+    if (head == null || head.next == null) return true;
+    // 快慢指针定位到中点
+    let slow: ListNode = head,
+        fast: ListNode = head.next;
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    // 翻转链表
+    let cur: ListNode = slow.next;
+    slow.next = null;
+    let prev: ListNode = null;
+    while (cur != null) {
+        let t: ListNode = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = t;
+    }
+    // 判断回文
+    while (prev != null) {
+        if (prev.val != head.val) return false;
+        prev = prev.next;
+        head = head.next;
+    }
+    return true;
+}
+```
 
 ```js
 /**
@@ -153,8 +226,6 @@ var isPalindrome = function (head) {
     return true;
 };
 ```
-
-### **C#**
 
 ```cs
 /**
@@ -205,49 +276,11 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
+### 方法二
 
-function isPalindrome(head: ListNode | null): boolean {
-    if (head == null || head.next == null) return true;
-    // 快慢指针定位到中点
-    let slow: ListNode = head,
-        fast: ListNode = head.next;
-    while (fast != null && fast.next != null) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    // 翻转链表
-    let cur: ListNode = slow.next;
-    slow.next = null;
-    let prev: ListNode = null;
-    while (cur != null) {
-        let t: ListNode = cur.next;
-        cur.next = prev;
-        prev = cur;
-        cur = t;
-    }
-    // 判断回文
-    while (prev != null) {
-        if (prev.val != head.val) return false;
-        prev = prev.next;
-        head = head.next;
-    }
-    return true;
-}
-```
+<!-- tabs:start -->
 
 ```ts
 /**
@@ -278,55 +311,6 @@ function isPalindrome(head: ListNode | null): boolean {
 }
 ```
 
-### **Go**
-
-```go
-func isPalindrome(head *ListNode) bool {
-	if head == nil {
-		return true
-	}
-	m := mid(head)
-	temp := reverse(m.Next)
-	m.Next = nil
-	p, q := head, temp
-	res := true
-	for p != nil && q != nil {
-		if p.Val != q.Val {
-			res = false
-			break
-		}
-		p = p.Next
-		q = q.Next
-	}
-	m.Next = reverse(temp)
-	return res
-}
-
-func mid(head *ListNode) *ListNode {
-	slow, fast := head, head.Next
-	for fast != nil && fast.Next != nil {
-		slow = slow.Next
-		fast = fast.Next.Next
-	}
-	return slow
-}
-
-func reverse(head *ListNode) *ListNode {
-	var prev *ListNode = nil
-	for head != nil {
-		temp := head.Next
-		head.Next = prev
-		prev = head
-		head = temp
-	}
-	return prev
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

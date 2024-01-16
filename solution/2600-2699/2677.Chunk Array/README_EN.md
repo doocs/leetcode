@@ -53,9 +53,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function chunk(arr: any[], size: number): any[][] {
@@ -66,8 +66,6 @@ function chunk(arr: any[], size: number): any[][] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -85,3 +83,5 @@ var chunk = function (arr, size) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

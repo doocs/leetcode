@@ -64,9 +64,7 @@ Scores 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：使用窗口函数 `DENSE_RANK()`**
+### 方法一：使用窗口函数 `DENSE_RANK()`
 
 使用 `DENSE_RANK()` 函数，语法如下：
 
@@ -84,13 +82,21 @@ DENSE_RANK() OVER (
 
 与 `RANK()` 函数不同，`DENSE_RANK()` 函数始终返回连续的排名值。
 
-**方法二：变量**
-
-MySQL 8 开始才提供了 `ROW_NUMBER()`，`RANK()`，`DENSE_RANK()` 等[窗口函数](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html)，在之前的版本，可以使用变量实现类似的功能。
-
 <!-- tabs:start -->
 
-### **SQL**
+```python
+import pandas as pd
+
+
+def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
+    # Use the rank method to assign ranks to the scores in descending order with no gaps
+    scores["rank"] = scores["score"].rank(method="dense", ascending=False)
+
+    # Drop id column & Sort the DataFrame by score in descending order
+    result_df = scores.drop("id", axis=1).sort_values(by="score", ascending=False)
+
+    return result_df
+```
 
 ```sql
 # Write your MySQL query statement below
@@ -99,6 +105,14 @@ SELECT
     DENSE_RANK() OVER (ORDER BY score DESC) AS 'rank'
 FROM Scores;
 ```
+
+<!-- tabs:end -->
+
+### 方法二：变量
+
+MySQL 8 开始才提供了 `ROW_NUMBER()`，`RANK()`，`DENSE_RANK()` 等[窗口函数](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html)，在之前的版本，可以使用变量实现类似的功能。
+
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -122,20 +136,6 @@ FROM
     ) s;
 ```
 
-### **Pandas**
-
-```python
-import pandas as pd
-
-
-def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
-    # Use the rank method to assign ranks to the scores in descending order with no gaps
-    scores["rank"] = scores["score"].rank(method="dense", ascending=False)
-
-    # Drop id column & Sort the DataFrame by score in descending order
-    result_df = scores.drop("id", axis=1).sort_values(by="score", ascending=False)
-
-    return result_df
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,15 +41,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-由于二叉搜索树的性质，可以利用中序遍历得到递增序列
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -77,37 +71,6 @@ class Solution:
             cur = cur.right
         return head
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def increasingBST(self, root: TreeNode) -> TreeNode:
-        def dfs(root: TreeNode):
-            if root is None:
-                return
-
-            dfs(root.left)
-
-            nonlocal cur
-            cur.right = root
-            root.left = None
-            cur = cur.right
-
-            dfs(root.right)
-
-        cur = dummy = TreeNode()
-        dfs(root)
-        return dummy.right
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -150,110 +113,6 @@ class Solution {
 }
 ```
 
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    private TreeNode cur;
-
-    public TreeNode increasingBST(TreeNode root) {
-        TreeNode dummy = new TreeNode();
-        cur = dummy;
-        dfs(root);
-        return dummy.right;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        dfs(root.left);
-        cur.right = root;
-        root.left = null;
-        cur = cur.right;
-        dfs(root.right);
-    }
-}
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func increasingBST(root *TreeNode) *TreeNode {
-	var head, tail *TreeNode
-	stack := make([]*TreeNode, 0)
-	cur := root
-	for len(stack) > 0 || cur != nil {
-		for cur != nil {
-			stack = append(stack, cur)
-			cur = cur.Left
-		}
-		cur = stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		if head == nil {
-			head = cur
-		} else {
-			tail.Right = cur
-		}
-		tail = cur
-		cur.Left = nil
-		cur = cur.Right
-	}
-	return head
-}
-```
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func increasingBST(root *TreeNode) *TreeNode {
-	dummy := &TreeNode{}
-	cur := dummy
-	var dfs func(*TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left)
-		root.Left = nil
-		cur.Right = root
-		cur = root
-		dfs(root.Right)
-	}
-	dfs(root)
-	return dummy.Right
-}
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -293,40 +152,38 @@ public:
 };
 ```
 
-```cpp
+```go
 /**
  * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
  */
-class Solution {
-public:
-    TreeNode* increasingBST(TreeNode* root) {
-        TreeNode* dummy = new TreeNode();
-        TreeNode* cur = dummy;
-        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
-            if (!root) {
-                return;
-            }
-            dfs(root->left);
-            cur->right = root;
-            root->left = nullptr;
-            cur = cur->right;
-            dfs(root->right);
-        };
-        dfs(root);
-        return dummy->right;
-    }
-};
+func increasingBST(root *TreeNode) *TreeNode {
+	var head, tail *TreeNode
+	stack := make([]*TreeNode, 0)
+	cur := root
+	for len(stack) > 0 || cur != nil {
+		for cur != nil {
+			stack = append(stack, cur)
+			cur = cur.Left
+		}
+		cur = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if head == nil {
+			head = cur
+		} else {
+			tail.Right = cur
+		}
+		tail = cur
+		cur.Left = nil
+		cur = cur.Right
+	}
+	return head
+}
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -359,8 +216,6 @@ function increasingBST(root: TreeNode | null): TreeNode | null {
     return dummy.right;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -416,8 +271,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Definition for a binary tree node.
@@ -448,10 +301,139 @@ struct TreeNode* increasingBST(struct TreeNode* root) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        def dfs(root: TreeNode):
+            if root is None:
+                return
+
+            dfs(root.left)
+
+            nonlocal cur
+            cur.right = root
+            root.left = None
+            cur = cur.right
+
+            dfs(root.right)
+
+        cur = dummy = TreeNode()
+        dfs(root)
+        return dummy.right
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private TreeNode cur;
+
+    public TreeNode increasingBST(TreeNode root) {
+        TreeNode dummy = new TreeNode();
+        cur = dummy;
+        dfs(root);
+        return dummy.right;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        cur.right = root;
+        root.left = null;
+        cur = cur.right;
+        dfs(root.right);
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* increasingBST(TreeNode* root) {
+        TreeNode* dummy = new TreeNode();
+        TreeNode* cur = dummy;
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->left);
+            cur->right = root;
+            root->left = nullptr;
+            cur = cur->right;
+            dfs(root->right);
+        };
+        dfs(root);
+        return dummy->right;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func increasingBST(root *TreeNode) *TreeNode {
+	dummy := &TreeNode{}
+	cur := dummy
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		root.Left = nil
+		cur.Right = root
+		cur = root
+		dfs(root.Right)
+	}
+	dfs(root)
+	return dummy.Right
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

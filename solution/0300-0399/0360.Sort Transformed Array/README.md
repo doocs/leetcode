@@ -40,21 +40,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-双指针。
-
-利用抛物线的性质，i，j 分别指向排序数组首尾，从两端向中间夹逼。
-
--   若 `a > 0`，抛物线向上，两端具有最大值，比较两端点的较大值，添加到结果数组。
--   若 `a < 0`，抛物线向下，两端具有最小值，比较两端点的较小值，添加到结果数组。
--   若 `a == 0`，合并到以上的任意一种情况均可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +75,6 @@ class Solution:
                 k -= 1
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -169,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortTransformedArray(nums []int, a int, b int, c int) []int {
 	n := len(nums)
@@ -209,10 +189,6 @@ func f(a, b, c, x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

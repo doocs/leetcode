@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             cnt[t] += 1
         return max(cnt.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxEqualRowsAfterFlips(matrix [][]int) (ans int) {
@@ -121,8 +115,6 @@ func maxEqualRowsAfterFlips(matrix [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxEqualRowsAfterFlips(matrix: number[][]): number {
     const cnt = new Map<string, number>();
@@ -141,10 +133,6 @@ function maxEqualRowsAfterFlips(matrix: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

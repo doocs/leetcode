@@ -77,15 +77,11 @@ Product 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：使用 `GROUP BY`**
+### 方法一：使用 `GROUP BY`
 
 我们可以使用 `GROUP BY`，按照 `product_id` 分组，然后每一组对 `quantity` 求和。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -95,3 +91,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

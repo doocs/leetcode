@@ -44,15 +44,13 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We first construct a graph $g$ based on $pid$ and $ppid$, where $g[i]$ represents all child processes of process $i$. Then, starting from the process $kill$, we perform depth-first search to obtain all killed processes.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of processes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
         dfs(kill)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	g := map[int][]int{}
@@ -138,8 +130,6 @@ func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function killProcess(pid: number[], ppid: number[], kill: number): number[] {
@@ -161,8 +151,6 @@ function killProcess(pid: number[], ppid: number[], kill: number): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -192,10 +180,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

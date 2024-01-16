@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示前 $i$ 行，且最后一个数字在第 $j$ 列的最小数字和。那么状态转移方程为：
 
@@ -66,10 +64,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minFallingPathSum(self, grid: List[List[int]]) -> int:
@@ -81,30 +75,6 @@ class Solution:
                 f[i][j] = v + x
         return min(f[n])
 ```
-
-```python
-class Solution:
-    def minFallingPathSum(self, grid: List[List[int]]) -> int:
-        f = g = 0
-        fp = -1
-        for row in grid:
-            ff = gg = inf
-            ffp = -1
-            for j, v in enumerate(row):
-                s = (g if j == fp else f) + v
-                if s < ff:
-                    gg = ff
-                    ff = s
-                    ffp = j
-                elif s < gg:
-                    gg = s
-            f, g, fp = ff, gg, ffp
-        return f
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,6 +100,83 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minFallingPathSum(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int f[n + 1][n];
+        memset(f, 0, sizeof(f));
+        const int inf = 1 << 30;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int x = inf;
+                for (int k = 0; k < n; ++k) {
+                    if (k != j) {
+                        x = min(x, f[i - 1][k]);
+                    }
+                }
+                f[i][j] = grid[i - 1][j] + (x == inf ? 0 : x);
+            }
+        }
+        return *min_element(f[n], f[n] + n);
+    }
+};
+```
+
+```go
+func minFallingPathSum(grid [][]int) int {
+	n := len(grid)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	const inf = 1 << 30
+	for i, row := range grid {
+		i++
+		for j, v := range row {
+			x := inf
+			for k := range row {
+				if k != j {
+					x = min(x, f[i-1][k])
+				}
+			}
+			if x == inf {
+				x = 0
+			}
+			f[i][j] = v + x
+		}
+	}
+	return slices.Min(f[n])
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minFallingPathSum(self, grid: List[List[int]]) -> int:
+        f = g = 0
+        fp = -1
+        for row in grid:
+            ff = gg = inf
+            ffp = -1
+            for j, v in enumerate(row):
+                s = (g if j == fp else f) + v
+                if s < ff:
+                    gg = ff
+                    ff = s
+                    ffp = j
+                elif s < gg:
+                    gg = s
+            f, g, fp = ff, gg, ffp
+        return f
 ```
 
 ```java
@@ -158,32 +205,6 @@ class Solution {
         return f;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minFallingPathSum(vector<vector<int>>& grid) {
-        int n = grid.size();
-        int f[n + 1][n];
-        memset(f, 0, sizeof(f));
-        const int inf = 1 << 30;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                int x = inf;
-                for (int k = 0; k < n; ++k) {
-                    if (k != j) {
-                        x = min(x, f[i - 1][k]);
-                    }
-                }
-                f[i][j] = grid[i - 1][j] + (x == inf ? 0 : x);
-            }
-        }
-        return *min_element(f[n], f[n] + n);
-    }
-};
 ```
 
 ```cpp
@@ -215,35 +236,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minFallingPathSum(grid [][]int) int {
-	n := len(grid)
-	f := make([][]int, n+1)
-	for i := range f {
-		f[i] = make([]int, n)
-	}
-	const inf = 1 << 30
-	for i, row := range grid {
-		i++
-		for j, v := range row {
-			x := inf
-			for k := range row {
-				if k != j {
-					x = min(x, f[i-1][k])
-				}
-			}
-			if x == inf {
-				x = 0
-			}
-			f[i][j] = v + x
-		}
-	}
-	return slices.Min(f[n])
-}
-```
-
 ```go
 func minFallingPathSum(grid [][]int) int {
 	const inf = 1 << 30
@@ -270,10 +262,6 @@ func minFallingPathSum(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

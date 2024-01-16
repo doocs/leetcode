@@ -53,19 +53,11 @@ Point 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自连接**
+### 方法一：自连接
 
 我们可以使用自连接，将表中的每个点与其他更大的点进行连接，然后计算两点之间的距离，最后取最小值。
 
-**方法二：窗口函数**
-
-我们也可以使用窗口函数，将表中的点按照 $x$ 排序，然后计算相邻两点之间的距离，最后取最小值。
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -74,6 +66,14 @@ FROM
     Point AS p1
     JOIN Point AS p2 ON p1.x < p2.x;
 ```
+
+<!-- tabs:end -->
+
+### 方法二：窗口函数
+
+我们也可以使用窗口函数，将表中的点按照 $x$ 排序，然后计算相邻两点之间的距离，最后取最小值。
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -84,3 +84,5 @@ LIMIT 1, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

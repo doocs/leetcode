@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 动态规划**
+### 方法一：状态压缩 + 动态规划
 
 我们注意到，网格的行数不超过 $5$，那么一列中最多有 $3^5=243$ 种不同的颜色方案。
 
@@ -67,10 +65,6 @@ $$
 时间复杂度 $O((m + n) \times 3^{2m})$，空间复杂度 $O(3^m)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -178,8 +168,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -242,8 +230,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func colorTheGrid(m int, n int) (ans int) {
 	f1 := func(x int) bool {
@@ -300,8 +286,6 @@ func colorTheGrid(m int, n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function colorTheGrid(m: number, n: number): number {
@@ -361,10 +345,6 @@ function colorTheGrid(m: number, n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,9 @@ There are no cornered paths in the grid that result in a product with a trailing
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -94,8 +94,6 @@ class Solution:
                 ans = max(ans, a, b, c, d)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxTrailingZeros(grid [][]int) (ans int) {
@@ -225,8 +219,6 @@ func get(m, n int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxTrailingZeros(grid: number[][]): number {
     const m = grid.length;
@@ -269,10 +261,6 @@ function maxTrailingZeros(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

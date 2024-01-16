@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 我们先将 $a, b, c$ 排序，记为 $x, y, z$，即 $x \lt y \lt z$。
 
@@ -61,10 +59,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numMovesStones(self, a: int, b: int, c: int) -> List[int]:
@@ -76,10 +70,6 @@ class Solution:
             mx = z - x - 2
         return [mi, mx]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numMovesStones(a int, b int, c int) []int {
 	x := min(a, min(b, c))
@@ -135,8 +121,6 @@ func numMovesStones(a int, b int, c int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numMovesStones(a: number, b: number, c: number): number[] {
     const x = Math.min(a, Math.min(b, c));
@@ -152,10 +136,6 @@ function numMovesStones(a: number, b: number, c: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

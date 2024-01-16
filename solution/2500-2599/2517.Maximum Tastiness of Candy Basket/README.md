@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 二分查找**
+### 方法一：贪心 + 二分查找
 
 我们注意到，如果一个甜蜜度为 $x$ 的礼盒是可行的，那么甜蜜度小于 $x$ 的礼盒也是可行的，这存在着单调性，因此我们可以使用二分查找的方法，找到最大的可行甜蜜度。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n \times (\log n + \log M))$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $price$ 的长度；而 $M$ 是数组 $price$ 中的最大值，本题中 $M \leq 10^9$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumTastiness(price []int, k int) int {
 	sort.Ints(price)
@@ -176,8 +162,6 @@ func maximumTastiness(price []int, k int) int {
 	}) - 1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumTastiness(price: number[], k: number): number {
@@ -205,8 +189,6 @@ function maximumTastiness(price: number[], k: number): number {
     return l;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -237,10 +219,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

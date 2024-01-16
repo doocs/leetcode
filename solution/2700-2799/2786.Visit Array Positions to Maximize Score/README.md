@@ -50,13 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +63,6 @@ class Solution:
             f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
         return max(f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScore(nums []int, x int) int64 {
 	const inf int = 1 << 40
@@ -117,8 +105,6 @@ func maxScore(nums []int, x int) int64 {
 	return int64(max(f[0], f[1]))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxScore(nums: number[], x: number): number {
@@ -132,10 +118,6 @@ function maxScore(nums: number[], x: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

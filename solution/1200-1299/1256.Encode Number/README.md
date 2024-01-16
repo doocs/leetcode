@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们将 $num$ 加一，然后将其转换为二进制字符串，去掉最高位的 $1$ 即可。
 
@@ -46,19 +44,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def encode(self, num: int) -> str:
         return bin(num + 1)[3:]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -67,8 +57,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -85,8 +73,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func encode(num int) string {
 	num++
@@ -94,8 +80,6 @@ func encode(num int) string {
 	return s[1:]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function encode(num: number): string {
@@ -105,10 +89,6 @@ function encode(num: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

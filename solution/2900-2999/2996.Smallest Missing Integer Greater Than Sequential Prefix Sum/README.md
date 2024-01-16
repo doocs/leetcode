@@ -41,19 +41,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟 + 哈希表**
+### 方法一：模拟 + 哈希表
 
 我们先求出数组 $nums$ 的最长顺序前缀和 $s$，然后从 $s$ 开始枚举整数 $x$，如果 $x$ 不在数组 $nums$ 中，那么 $x$ 就是答案。这里我们可以用哈希表来快速判断一个整数是否在数组 $nums$ 中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
             if x not in vis:
                 return x
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func missingInteger(nums []int) int {
 	s := nums[0]
@@ -135,8 +121,6 @@ func missingInteger(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function missingInteger(nums: number[]): number {
     let s = nums[0];
@@ -152,10 +136,6 @@ function missingInteger(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

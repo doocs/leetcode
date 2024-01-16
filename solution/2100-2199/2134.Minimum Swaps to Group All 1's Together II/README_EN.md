@@ -55,9 +55,9 @@ Thus, the minimum number of swaps required is 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                 mx = max(mx, s[j + 1] - s[i])
         return cnt - mx
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,26 +99,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minSwaps(nums: number[]): number {
-    const n = nums.length;
-    const m = nums.reduce((a, c) => a + c, 0);
-    let cnt = nums.reduce((a, c, i) => a + (i < m ? c : 0), 0);
-    let ans = cnt;
-    for (let i = m; i < m + n; i++) {
-        let prev = nums[i - m];
-        let post = nums[i % n];
-        cnt += post - prev;
-        ans = Math.max(cnt, ans);
-    }
-    return m - ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSwaps(nums []int) int {
@@ -164,10 +140,22 @@ func minSwaps(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function minSwaps(nums: number[]): number {
+    const n = nums.length;
+    const m = nums.reduce((a, c) => a + c, 0);
+    let cnt = nums.reduce((a, c, i) => a + (i < m ? c : 0), 0);
+    let ans = cnt;
+    for (let i = m; i < m + n; i++) {
+        let prev = nums[i - m];
+        let post = nums[i % n];
+        cnt += post - prev;
+        ans = Math.max(cnt, ans);
+    }
+    return m - ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

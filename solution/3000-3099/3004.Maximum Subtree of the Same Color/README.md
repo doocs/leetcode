@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先根据题目给定的边的信息，构建一个邻接表 $g$，其中 $g[a]$ 表示节点 $a$ 的所有相邻节点。然后我们创建一个长度为 $n$ 的数组 $size$，其中 $size[a]$ 表示以节点 $a$ 为根的子树的节点数。
 
@@ -76,10 +74,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +174,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 	n := len(edges) + 1
@@ -219,8 +205,6 @@ func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumSubtreeSize(edges: number[][], colors: number[]): number {
     const n = edges.length + 1;
@@ -250,10 +234,6 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

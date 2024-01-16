@@ -64,7 +64,7 @@ There are 2 additional good paths: 0 -&gt; 1 and 2 -&gt; 3.
 
 ## Solutions
 
-**Solution 1: Sorting + Union Find**
+### Solution 1: Sorting + Union Find
 
 To ensure that the starting point (or endpoint) of the path is greater than or equal to all points on the path, we can consider sorting all points from small to large first, then traverse and add them to the connected component, specifically as follows:
 
@@ -73,8 +73,6 @@ When traversing to point $a$, for the adjacent point $b$ that is less than or eq
 The time complexity is $O(n \times \log n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -107,8 +105,6 @@ class Solution:
                     size[pb][v] += size[pa][v]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -160,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -207,8 +201,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfGoodPaths(vals []int, edges [][]int) int {
@@ -260,16 +252,6 @@ func numberOfGoodPaths(vals []int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

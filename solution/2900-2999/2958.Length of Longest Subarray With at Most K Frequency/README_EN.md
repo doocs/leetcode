@@ -53,7 +53,7 @@ It can be shown that there are no good subarrays with length more than 4.
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We can use two pointers $j$ and $i$ to represent the left and right endpoints of the subarray, initially both pointers point to the first element of the array.
 
@@ -62,8 +62,6 @@ Next, we iterate over each element $x$ in the array $nums$. For each element $x$
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSubarrayLength(nums []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -133,8 +125,6 @@ func maxSubarrayLength(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSubarrayLength(nums: number[], k: number): number {
@@ -151,10 +141,6 @@ function maxSubarrayLength(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -39,9 +39,7 @@ iterator.hasNext(); // 返回 false
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们定义两个指针 $i$ 和 $j$，分别指向当前二维向量的行和列，初始时 $i = 0$，$j = 0$。
 
@@ -54,10 +52,6 @@ iterator.hasNext(); // 返回 false
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Vector2D:
@@ -87,10 +81,6 @@ class Vector2D:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Vector2D {
@@ -127,8 +117,6 @@ class Vector2D {
  * boolean param_2 = obj.hasNext();
  */
 ```
-
-### **C++**
 
 ```cpp
 class Vector2D {
@@ -168,8 +156,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type Vector2D struct {
 	i, j int
@@ -206,8 +192,6 @@ func (this *Vector2D) forward() {
  * param_2 := obj.HasNext();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class Vector2D {
@@ -247,10 +231,6 @@ class Vector2D {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

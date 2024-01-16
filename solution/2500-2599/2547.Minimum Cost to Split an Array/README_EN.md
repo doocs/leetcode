@@ -77,7 +77,7 @@ The cost of the split is 10. It can be shown that this is the minimum possible c
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We design a function $dfs(i)$, which represents the minimum cost of splitting from index $i$. So the answer is $dfs(0)$.
 
@@ -90,8 +90,6 @@ During the process, we can use memoization search, that is, use an array $f$ to 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -115,8 +113,6 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -156,8 +152,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -192,8 +186,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(nums []int, k int) int {
 	n := len(nums)
@@ -225,8 +217,6 @@ func minCost(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCost(nums: number[], k: number): number {
     const n = nums.length;
@@ -257,10 +247,6 @@ function minCost(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

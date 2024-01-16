@@ -49,9 +49,7 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组 + 二分查找**
+### 方法一：树状数组 + 二分查找
 
 我们用一个数组 $q$ 维护当前队列中的元素，移动第 $k$ 个元素时，我们考虑不删除该元素，而是直接将其追加到数组末尾。如果不删除，我们如何知道第 $k$ 个元素在数组 $q$ 中的位置呢？
 
@@ -60,10 +58,6 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 时间复杂度 $(\log ^2 n)$，空间复杂度 $O(n)$。其中 $n$ 为队列的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MRUQueue:
@@ -81,53 +75,6 @@ class MRUQueue:
 # obj = MRUQueue(n)
 # param_1 = obj.fetch(k)
 ```
-
-```python
-class BinaryIndexedTree:
-    def __init__(self, n: int):
-        self.n = n
-        self.c = [0] * (n + 1)
-
-    def update(self, x: int, v: int):
-        while x <= self.n:
-            self.c[x] += v
-            x += x & -x
-
-    def query(self, x: int) -> int:
-        s = 0
-        while x:
-            s += self.c[x]
-            x -= x & -x
-        return s
-
-
-class MRUQueue:
-    def __init__(self, n: int):
-        self.q = list(range(n + 1))
-        self.tree = BinaryIndexedTree(n + 2010)
-
-    def fetch(self, k: int) -> int:
-        l, r = 1, len(self.q)
-        while l < r:
-            mid = (l + r) >> 1
-            if mid - self.tree.query(mid) >= k:
-                r = mid
-            else:
-                l = mid + 1
-        x = self.q[l]
-        self.q.append(x)
-        self.tree.update(l, 1)
-        return x
-
-
-# Your MRUQueue object will be instantiated and called as such:
-# obj = MRUQueue(n)
-# param_1 = obj.fetch(k)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -194,8 +141,6 @@ class MRUQueue {
  */
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -260,8 +205,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -324,8 +267,6 @@ func (this *MRUQueue) Fetch(k int) int {
  * param_1 := obj.Fetch(k);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -391,10 +332,55 @@ class MRUQueue {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] += v
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class MRUQueue:
+    def __init__(self, n: int):
+        self.q = list(range(n + 1))
+        self.tree = BinaryIndexedTree(n + 2010)
+
+    def fetch(self, k: int) -> int:
+        l, r = 1, len(self.q)
+        while l < r:
+            mid = (l + r) >> 1
+            if mid - self.tree.query(mid) >= k:
+                r = mid
+            else:
+                l = mid + 1
+        x = self.q[l]
+        self.q.append(x)
+        self.tree.update(l, 1)
+        return x
+
+
+# Your MRUQueue object will be instantiated and called as such:
+# obj = MRUQueue(n)
+# param_1 = obj.fetch(k)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们先判断两个字符串的长度是否相等，如果不相等，说明两个字符串中的字符肯定不同，返回 `false`。
 
@@ -51,10 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$，其中 $n$ 是字符串的长度；而 $C$ 是字符集的大小，本题中 $C=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,16 +62,6 @@ class Solution:
                 return False
         return True
 ```
-
-```python
-class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-        return Counter(s) == Counter(t)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isAnagram(s string, t string) bool {
@@ -140,29 +120,6 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @param {string} t
- * @return {boolean}
- */
-var isAnagram = function (s, t) {
-    if (s.length !== t.length) {
-        return false;
-    }
-    const cnt = new Array(26).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        ++cnt[s.charCodeAt(i) - 'a'.charCodeAt(0)];
-        --cnt[t.charCodeAt(i) - 'a'.charCodeAt(0)];
-    }
-    return cnt.every(x => x === 0);
-};
-```
-
-### **TypeScript**
-
 ```ts
 function isAnagram(s: string, t: string): boolean {
     if (s.length !== t.length) {
@@ -176,26 +133,6 @@ function isAnagram(s: string, t: string): boolean {
     return cnt.every(x => x === 0);
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool IsAnagram(string s, string t) {
-        if (s.Length != t.Length) {
-            return false;
-        }
-        int[] cnt = new int[26];
-        for (int i = 0; i < s.Length; ++i) {
-            ++cnt[s[i] - 'a'];
-            --cnt[t[i] - 'a'];
-        }
-        return cnt.All(x => x == 0);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -219,6 +156,70 @@ impl Solution {
 }
 ```
 
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+    if (s.length !== t.length) {
+        return false;
+    }
+    const cnt = new Array(26).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        ++cnt[s.charCodeAt(i) - 'a'.charCodeAt(0)];
+        --cnt[t.charCodeAt(i) - 'a'.charCodeAt(0)];
+    }
+    return cnt.every(x => x === 0);
+};
+```
+
+```cs
+public class Solution {
+    public bool IsAnagram(string s, string t) {
+        if (s.Length != t.Length) {
+            return false;
+        }
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.Length; ++i) {
+            ++cnt[s[i] - 'a'];
+            --cnt[t[i] - 'a'];
+        }
+        return cnt.All(x => x == 0);
+    }
+}
+```
+
+```c
+int cmp(const void* a, const void* b) {
+    return *(char*) a - *(char*) b;
+}
+
+bool isAnagram(char* s, char* t) {
+    int n = strlen(s);
+    int m = strlen(t);
+    if (n != m) {
+        return 0;
+    }
+    qsort(s, n, sizeof(char), cmp);
+    qsort(t, n, sizeof(char), cmp);
+    return !strcmp(s, t);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+```
+
 ```rust
 impl Solution {
     pub fn is_anagram(s: String, t: String) -> bool {
@@ -235,25 +236,6 @@ impl Solution {
         }
         count.iter().all(|&c| c == 0)
     }
-}
-```
-
-### **C**
-
-```c
-int cmp(const void* a, const void* b) {
-    return *(char*) a - *(char*) b;
-}
-
-bool isAnagram(char* s, char* t) {
-    int n = strlen(s);
-    int m = strlen(t);
-    if (n != m) {
-        return 0;
-    }
-    qsort(s, n, sizeof(char), cmp);
-    qsort(t, n, sizeof(char), cmp);
-    return !strcmp(s, t);
 }
 ```
 
@@ -278,10 +260,6 @@ bool isAnagram(char* s, char* t) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

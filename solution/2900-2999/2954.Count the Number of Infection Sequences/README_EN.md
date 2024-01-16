@@ -54,7 +54,7 @@ Finally, the child at position 2 gets infected because it is adjacent to childre
 
 ## Solutions
 
-**Solution 1: Combinatorial Mathematics + Multiplicative Inverse + Fast Power**
+### Solution 1: Combinatorial Mathematics + Multiplicative Inverse + Fast Power
 
 According to the problem description, the children who have a cold have divided the children who have not yet caught a cold into several continuous segments. We can use an array $nums$ to record the number of children who are not cold in each segment, and there are a total of $s = \sum_{i=0}^{k} nums[k]$ children who are not cold. We can find that the number of cold sequences is the number of permutations of $s$ different elements, that is, $s!$.
 
@@ -73,8 +73,6 @@ Finally, we need to consider that the answer may be very large and need to be mo
 The time complexity is $O(m)$, where $m$ is the length of the array $sick$. Ignoring the space consumption of the preprocessing array, the space complexity is $O(m)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 mod = 10**9 + 7
@@ -98,8 +96,6 @@ class Solution:
                 ans = ans * pow(2, x - 1, mod) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -153,8 +149,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 const int MX = 1e5;
 const int MOD = 1e9 + 7;
@@ -207,8 +201,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 const MX = 1e5
@@ -264,8 +256,6 @@ func numberOfSequence(n int, sick []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 const MX = 1e5;
 const MOD: bigint = BigInt(1e9 + 7);
@@ -315,10 +305,6 @@ function numberOfSequence(n: number, sick: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

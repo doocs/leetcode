@@ -30,7 +30,7 @@
 
 ## Solutions
 
-**Solution 1: DFS (Depth-First Search)**
+### Solution 1: DFS (Depth-First Search)
 
 We design a function $dfs(i, j)$ that returns all feasible binary search trees composed of $[i, j]$, so the answer is $dfs(1, n)$.
 
@@ -42,8 +42,6 @@ The execution steps of the function $dfs(i, j)$ are as follows:
 The time complexity is $O(n \times G(n))$, and the space complexity is $O(n \times G(n))$. Where $G(n)$ is the Catalan number.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -68,8 +66,6 @@ class Solution:
 
         return dfs(1, n)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -112,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -182,8 +174,6 @@ func generateTrees(n int) []*TreeNode {
 	return dfs(1, n)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -220,8 +210,6 @@ function generateTrees(n: number): Array<TreeNode | null> {
     return dfs(1, n);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -279,10 +267,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

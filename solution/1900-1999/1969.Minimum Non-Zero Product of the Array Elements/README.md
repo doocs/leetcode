@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 快速幂**
+### 方法一：贪心 + 快速幂
 
 我们注意到，每一次操作，并不会改变元素的和，而在元素和不变的情况下，要想使得乘积最小，应该尽可能最大化元素的差值。
 
@@ -77,20 +75,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minNonZeroProduct(self, p: int) -> int:
         mod = 10**9 + 7
         return (2**p - 1) * pow(2**p - 2, 2 ** (p - 1) - 1, mod) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minNonZeroProduct(p int) int {
 	const mod int = 1e9 + 7
@@ -159,8 +145,6 @@ func minNonZeroProduct(p int) int {
 	return a * b % mod
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minNonZeroProduct(p: number): number {
@@ -182,10 +166,6 @@ function minNonZeroProduct(p: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

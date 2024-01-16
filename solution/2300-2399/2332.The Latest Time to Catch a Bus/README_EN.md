@@ -57,7 +57,7 @@ Notice if you had arrived any later, then the 6<sup>th</sup> passenger would hav
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 First, we sort, and then use double pointers to simulate the process of passengers getting on the bus: traverse the bus $bus$, passengers follow the principle of "first come, first served".
 
@@ -69,8 +69,6 @@ After the simulation ends, judge whether the last bus still has seats:
 The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + \log m)$. Where $n$ and $m$ are the numbers of buses and passengers respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -90,8 +88,6 @@ class Solution:
             ans, j = ans - 1, j - 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +131,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
@@ -165,8 +157,6 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function latestTimeCatchTheBus(buses: number[], passengers: number[], capacity: number): number {
     buses.sort((a, b) => a - b);
@@ -188,8 +178,6 @@ function latestTimeCatchTheBus(buses: number[], passengers: number[], capacity: 
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -219,10 +207,6 @@ var latestTimeCatchTheBus = function (buses, passengers, capacity) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

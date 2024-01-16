@@ -38,9 +38,9 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int[] constructArray(int n, int k) {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +96,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func constructArray(n int, k int) []int {
@@ -129,8 +123,6 @@ func constructArray(n int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function constructArray(n: number, k: number): number[] {
     let l = 1;
@@ -146,10 +138,6 @@ function constructArray(n: number, k: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

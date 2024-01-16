@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们设计递归函数 `dfs(root, t)`，它接收两个参数：当前节点 `root` 和当前节点的父节点对应的二进制数 `t`。函数的返回值是从当前节点到叶子节点的路径所表示的二进制数之和。答案即为 `dfs(root, 0)`。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。对每个节点访问一次；递归栈需要 $O(n)$ 的空间。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -82,10 +76,6 @@ class Solution:
 
         return dfs(root, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -177,8 +163,6 @@ func sumRootToLeaf(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -210,8 +194,6 @@ function sumRootToLeaf(root: TreeNode | null): number {
     return dfs(root, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -253,10 +235,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

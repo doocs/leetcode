@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们定义一个函数 $dfs(i)$，表示从字符串 $s$ 的第 $i$ 位开始，搜索能够组成的 IP 地址列表。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(n \times 3^4)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -183,8 +171,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func restoreIpAddresses(s string) (ans []string) {
 	n := len(s)
@@ -214,8 +200,6 @@ func restoreIpAddresses(s string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function restoreIpAddresses(s: string): string[] {
     const n = s.length;
@@ -244,8 +228,6 @@ function restoreIpAddresses(s: string): string[] {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -283,10 +265,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

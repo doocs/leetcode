@@ -43,15 +43,13 @@ The answer is the sum of divisors of 21 only.
 
 ## Solutions
 
-**Solution 1: Factor Decomposition**
+### Solution 1: Factor Decomposition
 
 We can perform factor decomposition on each number. If the number of factors is $4$, then this number meets the requirements of the problem, and we can add its factors to the answer.
 
 The time complexity is $O(n \times \sqrt{n})$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
 
         return sum(f(x) for x in nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumFourDivisors(nums []int) (ans int) {
 	f := func(x int) int {
@@ -159,8 +151,6 @@ func sumFourDivisors(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumFourDivisors(nums: number[]): number {
     const f = (x: number): number => {
@@ -186,10 +176,6 @@ function sumFourDivisors(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

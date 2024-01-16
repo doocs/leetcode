@@ -60,17 +60,11 @@ solution.pick(); // 返回 [0, 0]</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 二分查找**
+### 方法一：前缀和 + 二分查找
 
 将矩形面积求前缀和 $s$，然后随机获取到一个面积 $v$，利用二分查找定位到是哪个矩形，然后继续随机获取该矩形的其中一个整数点坐标即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
 # obj = Solution(rects)
 # param_1 = obj.pick()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +157,6 @@ public:
  * vector<int> param_1 = obj->pick();
  */
 ```
-
-### **Go**
 
 ```go
 type Solution struct {
@@ -205,10 +191,6 @@ func (this *Solution) Pick() []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

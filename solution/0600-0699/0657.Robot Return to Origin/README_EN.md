@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
                 y -= 1
         return x == 0 and y == 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function judgeCircle(moves: string): boolean {
     let x = 0,
@@ -102,10 +98,6 @@ function judgeCircle(moves: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

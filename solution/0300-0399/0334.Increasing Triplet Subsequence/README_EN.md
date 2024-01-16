@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
                 mid = num
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,26 +86,39 @@ class Solution {
 }
 ```
 
-```java
+```cpp
 class Solution {
-    public boolean increasingTriplet(int[] nums) {
-        int min = Integer.MAX_VALUE, mid = Integer.MAX_VALUE;
+public:
+    bool increasingTriplet(vector<int>& nums) {
+        int mi = INT_MAX, mid = INT_MAX;
         for (int num : nums) {
-            if (num > mid) {
-                return true;
-            }
-            if (num <= min) {
-                min = num;
-            } else {
+            if (num > mid) return true;
+            if (num <= mi)
+                mi = num;
+            else
                 mid = num;
-            }
         }
         return false;
     }
-}
+};
 ```
 
-### **TypeScript**
+```go
+func increasingTriplet(nums []int) bool {
+	min, mid := math.MaxInt32, math.MaxInt32
+	for _, num := range nums {
+		if num > mid {
+			return true
+		}
+		if num <= min {
+			min = num
+		} else {
+			mid = num
+		}
+	}
+	return false
+}
+```
 
 ```ts
 function increasingTriplet(nums: number[]): boolean {
@@ -127,46 +138,6 @@ function increasingTriplet(nums: number[]): boolean {
     return false;
 }
 ```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool increasingTriplet(vector<int>& nums) {
-        int mi = INT_MAX, mid = INT_MAX;
-        for (int num : nums) {
-            if (num > mid) return true;
-            if (num <= mi)
-                mi = num;
-            else
-                mid = num;
-        }
-        return false;
-    }
-};
-```
-
-### **Go**
-
-```go
-func increasingTriplet(nums []int) bool {
-	min, mid := math.MaxInt32, math.MaxInt32
-	for _, num := range nums {
-		if num > mid {
-			return true
-		}
-		if num <= min {
-			min = num
-		} else {
-			mid = num
-		}
-	}
-	return false
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -191,10 +162,31 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public boolean increasingTriplet(int[] nums) {
+        int min = Integer.MAX_VALUE, mid = Integer.MAX_VALUE;
+        for (int num : nums) {
+            if (num > mid) {
+                return true;
+            }
+            if (num <= min) {
+                min = num;
+            } else {
+                mid = num;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

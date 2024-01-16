@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先统计字符串 $s$ 中 $1$ 的个数，记为 $cnt$。那么我们将 $cnt - 1$ 个 $1$ 放在最高位，剩下的 $|s| - cnt$ 个 $0$ 放在后面，最后再加上一个 $1$ 即可。
 
@@ -54,20 +52,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximumOddBinaryNumber(self, s: str) -> str:
         cnt = s.count("1")
         return "1" * (cnt - 1) + (len(s) - cnt) * "0" + "1"
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -82,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,16 +91,12 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumOddBinaryNumber(s string) string {
 	cnt := strings.Count(s, "1")
 	return strings.Repeat("1", cnt-1) + strings.Repeat("0", len(s)-cnt) + "1"
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumOddBinaryNumber(s: string): string {
@@ -124,10 +108,6 @@ function maximumOddBinaryNumber(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

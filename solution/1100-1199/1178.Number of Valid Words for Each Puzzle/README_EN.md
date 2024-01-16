@@ -52,7 +52,7 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 
 ## Solutions
 
-**Solution 1: State Compression + Hash Table + Subset Enumeration**
+### Solution 1: State Compression + Hash Table + Subset Enumeration
 
 According to the problem description, for each puzzle $p$ in the puzzle array $puzzles$, we need to count how many words $w$ contain the first letter of the puzzle $p$, and every letter in $w$ can be found in $p$.
 
@@ -65,8 +65,6 @@ After the traversal, we can get the number of puzzle solutions corresponding to 
 The time complexity is $O(m \times |w| + n \times 2^{|p|})$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $words$ and $puzzles$ respectively, and $|w|$ and $|p|$ are the maximum length of the words in the array $words$ and the length of the puzzles in the array $puzzles$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -91,8 +89,6 @@ class Solution:
             ans.append(x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +120,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -159,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	cnt := map[int]int{}
@@ -187,8 +179,6 @@ func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
@@ -219,10 +209,6 @@ function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

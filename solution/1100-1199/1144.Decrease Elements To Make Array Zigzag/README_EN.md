@@ -41,15 +41,13 @@
 
 ## Solutions
 
-**Solution 1: Enumeration + Greedy**
+### Solution 1: Enumeration + Greedy
 
 We can separately enumerate the even and odd positions as the elements "smaller than adjacent elements", and then calculate the required number of operations. The minimum of the two is taken.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -66,8 +64,6 @@ class Solution:
                 ans[i] += d
         return min(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func movesToMakeZigzag(nums []int) int {
@@ -134,7 +126,25 @@ func movesToMakeZigzag(nums []int) int {
 }
 ```
 
-### **C#**
+```ts
+function movesToMakeZigzag(nums: number[]): number {
+    const ans: number[] = Array(2).fill(0);
+    const n = nums.length;
+    for (let i = 0; i < 2; ++i) {
+        for (let j = i; j < n; j += 2) {
+            let d = 0;
+            if (j > 0) {
+                d = Math.max(d, nums[j] - nums[j - 1] + 1);
+            }
+            if (j < n - 1) {
+                d = Math.max(d, nums[j] - nums[j + 1] + 1);
+            }
+            ans[i] += d;
+        }
+    }
+    return Math.min(...ans);
+}
+```
 
 ```cs
 public class Solution {
@@ -158,32 +168,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function movesToMakeZigzag(nums: number[]): number {
-    const ans: number[] = Array(2).fill(0);
-    const n = nums.length;
-    for (let i = 0; i < 2; ++i) {
-        for (let j = i; j < n; j += 2) {
-            let d = 0;
-            if (j > 0) {
-                d = Math.max(d, nums[j] - nums[j - 1] + 1);
-            }
-            if (j < n - 1) {
-                d = Math.max(d, nums[j] - nums[j + 1] + 1);
-            }
-            ans[i] += d;
-        }
-    }
-    return Math.min(...ans);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

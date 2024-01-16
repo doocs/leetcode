@@ -56,19 +56,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 从度为一的点开始遍历图，可以用 DFS，也可以直接遍历。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,29 +83,6 @@ class Solution:
             ans[i] = v[0] if v[1] == ans[i - 2] else v[1]
         return ans
 ```
-
-```python
-class Solution:
-    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
-        def dfs(i, fa):
-            ans.append(i)
-            for j in g[i]:
-                if j != fa:
-                    dfs(j, i)
-
-        g = defaultdict(list)
-        for a, b in adjacentPairs:
-            g[a].append(b)
-            g[b].append(a)
-        i = next(i for i, v in g.items() if len(v) == 1)
-        ans = []
-        dfs(i, 1e6)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,41 +110,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    private Map<Integer, List<Integer>> g = new HashMap<>();
-    private int[] ans;
-
-    public int[] restoreArray(int[][] adjacentPairs) {
-        for (var e : adjacentPairs) {
-            int a = e[0], b = e[1];
-            g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
-            g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
-        }
-        int n = adjacentPairs.length + 1;
-        ans = new int[n];
-        for (var e : g.entrySet()) {
-            if (e.getValue().size() == 1) {
-                dfs(e.getKey(), 1000000, 0);
-                break;
-            }
-        }
-        return ans;
-    }
-
-    private void dfs(int i, int fa, int k) {
-        ans[k++] = i;
-        for (int j : g.get(i)) {
-            if (j != fa) {
-                dfs(j, i, k);
-            }
-        }
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -203,39 +139,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
-        unordered_map<int, vector<int>> g;
-        for (auto& e : adjacentPairs) {
-            int a = e[0], b = e[1];
-            g[a].emplace_back(b);
-            g[b].emplace_back(a);
-        }
-        int n = adjacentPairs.size() + 1;
-        vector<int> ans;
-        function<void(int, int)> dfs = [&](int i, int fa) {
-            ans.emplace_back(i);
-            for (int& j : g[i]) {
-                if (j != fa) {
-                    dfs(j, i);
-                }
-            }
-        };
-        for (auto& [i, v] : g) {
-            if (v.size() == 1) {
-                dfs(i, 1e6);
-                break;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func restoreArray(adjacentPairs [][]int) []int {
 	n := len(adjacentPairs) + 1
@@ -263,36 +166,6 @@ func restoreArray(adjacentPairs [][]int) []int {
 	return ans
 }
 ```
-
-```go
-func restoreArray(adjacentPairs [][]int) []int {
-	g := map[int][]int{}
-	for _, e := range adjacentPairs {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
-	}
-	ans := []int{}
-	var dfs func(i, fa int)
-	dfs = func(i, fa int) {
-		ans = append(ans, i)
-		for _, j := range g[i] {
-			if j != fa {
-				dfs(j, i)
-			}
-		}
-	}
-	for i, v := range g {
-		if len(v) == 1 {
-			dfs(i, 1000000)
-			break
-		}
-	}
-	return ans
-}
-```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -332,10 +205,123 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+        def dfs(i, fa):
+            ans.append(i)
+            for j in g[i]:
+                if j != fa:
+                    dfs(j, i)
+
+        g = defaultdict(list)
+        for a, b in adjacentPairs:
+            g[a].append(b)
+            g[b].append(a)
+        i = next(i for i, v in g.items() if len(v) == 1)
+        ans = []
+        dfs(i, 1e6)
+        return ans
 ```
 
+```java
+class Solution {
+    private Map<Integer, List<Integer>> g = new HashMap<>();
+    private int[] ans;
+
+    public int[] restoreArray(int[][] adjacentPairs) {
+        for (var e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
+            g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
+        }
+        int n = adjacentPairs.length + 1;
+        ans = new int[n];
+        for (var e : g.entrySet()) {
+            if (e.getValue().size() == 1) {
+                dfs(e.getKey(), 1000000, 0);
+                break;
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(int i, int fa, int k) {
+        ans[k++] = i;
+        for (int j : g.get(i)) {
+            if (j != fa) {
+                dfs(j, i, k);
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
+        unordered_map<int, vector<int>> g;
+        for (auto& e : adjacentPairs) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        int n = adjacentPairs.size() + 1;
+        vector<int> ans;
+        function<void(int, int)> dfs = [&](int i, int fa) {
+            ans.emplace_back(i);
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs(j, i);
+                }
+            }
+        };
+        for (auto& [i, v] : g) {
+            if (v.size() == 1) {
+                dfs(i, 1e6);
+                break;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func restoreArray(adjacentPairs [][]int) []int {
+	g := map[int][]int{}
+	for _, e := range adjacentPairs {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := []int{}
+	var dfs func(i, fa int)
+	dfs = func(i, fa int) {
+		ans = append(ans, i)
+		for _, j := range g[i] {
+			if j != fa {
+				dfs(j, i)
+			}
+		}
+	}
+	for i, v := range g {
+		if len(v) == 1 {
+			dfs(i, 1000000)
+			break
+		}
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

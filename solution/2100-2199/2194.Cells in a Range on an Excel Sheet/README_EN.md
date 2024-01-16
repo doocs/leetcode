@@ -54,9 +54,9 @@ The red arrow denotes the order in which the cells should be presented.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             for j in range(int(s[1]), int(s[-1]) + 1)
         ]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func cellsInRange(s string) []string {
 	var ans []string
@@ -113,16 +107,6 @@ func cellsInRange(s string) []string {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,9 @@ Now s has no occurrences of &quot;xy&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             s = s.replace(part, '', 1)
         return s
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeOccurrences(s string, part string) string {
 	for strings.Contains(s, part) {
@@ -101,8 +95,6 @@ func removeOccurrences(s string, part string) string {
 	return s
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function removeOccurrences(s: string, part: string): string {
@@ -113,10 +105,6 @@ function removeOccurrences(s: string, part: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

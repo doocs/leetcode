@@ -69,9 +69,9 @@ init = 25
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type Fn = (accum: number, curr: number) => number;
@@ -85,10 +85,6 @@ function reduce(nums: number[], fn: Fn, init: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

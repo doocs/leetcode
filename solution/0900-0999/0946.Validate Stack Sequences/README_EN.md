@@ -40,9 +40,9 @@ pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
                 j += 1
         return j == len(pushed)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validateStackSequences(pushed []int, popped []int) bool {
 	stk := []int{}
@@ -112,8 +106,6 @@ func validateStackSequences(pushed []int, popped []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function validateStackSequences(pushed: number[], popped: number[]): boolean {
     const stk = [];
@@ -128,28 +120,6 @@ function validateStackSequences(pushed: number[], popped: number[]): boolean {
     return j == pushed.length;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool ValidateStackSequences(int[] pushed, int[] popped) {
-        Stack<int> stk = new Stack<int>();
-        int j = 0;
-        foreach (int x in pushed)
-        {
-            stk.Push(x);
-            while (stk.Count != 0 && stk.Peek() == popped[j]) {
-                stk.Pop();
-                ++j;
-            }
-        }
-        return stk.Count == 0;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -167,8 +137,6 @@ impl Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -190,10 +158,24 @@ var validateStackSequences = function (pushed, popped) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool ValidateStackSequences(int[] pushed, int[] popped) {
+        Stack<int> stk = new Stack<int>();
+        int j = 0;
+        foreach (int x in pushed)
+        {
+            stk.Push(x);
+            while (stk.Count != 0 && stk.Peek() == popped[j]) {
+                stk.Pop();
+                ++j;
+            }
+        }
+        return stk.Count == 0;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,7 +49,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Binary Search**
+### Solution 1: Prefix Sum + Binary Search
 
 First, we preprocess the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i+1$ elements of the array $nums$.
 
@@ -65,8 +65,6 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def waysToSplit(self, nums: List[int]) -> int:
@@ -79,8 +77,6 @@ class Solution:
             ans += k - j
         return ans % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToSplit(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -157,8 +149,6 @@ func waysToSplit(nums []int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -193,10 +183,6 @@ var waysToSplit = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

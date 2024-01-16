@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
+### 方法一：暴力枚举
 
 我们注意到，数组 $nums$ 的长度不超过 $200$，因此我们可以枚举所有的数对 $(i, j)$，其中 $i < j$，并判断 $|nums[i] - nums[j]|$ 是否等于 $k$，是则答案加一。
 
@@ -67,19 +65,7 @@
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
-**方法二：哈希表或数组**
-
-我们可以使用哈希表或数组记录数组 $nums$ 中每个数出现的次数，然后枚举数组 $nums$ 中的每个数 $x$，判断 $x + k$ 和 $x - k$ 是否在数组 $nums$ 中，是则答案加上 $x+k$ 和 $x-k$ 出现的次数之和。
-
-最后返回答案即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,21 +75,6 @@ class Solution:
             abs(nums[i] - nums[j]) == k for i in range(n) for j in range(i + 1, n)
         )
 ```
-
-```python
-class Solution:
-    def countKDifference(self, nums: List[int], k: int) -> int:
-        ans = 0
-        cnt = Counter()
-        for num in nums:
-            ans += cnt[num - k] + cnt[num + k]
-            cnt[num] += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,27 +92,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countKDifference(int[] nums, int k) {
-        int ans = 0;
-        int[] cnt = new int[110];
-        for (int num : nums) {
-            if (num >= k) {
-                ans += cnt[num - k];
-            }
-            if (num + k <= 100) {
-                ans += cnt[num + k];
-            }
-            ++cnt[num];
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,28 +107,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int countKDifference(vector<int>& nums, int k) {
-        int ans = 0;
-        int cnt[110]{};
-        for (int num : nums) {
-            if (num >= k) {
-                ans += cnt[num - k];
-            }
-            if (num + k <= 100) {
-                ans += cnt[num + k];
-            }
-            ++cnt[num];
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func countKDifference(nums []int, k int) int {
@@ -202,24 +130,6 @@ func abs(x int) int {
 }
 ```
 
-```go
-func countKDifference(nums []int, k int) (ans int) {
-	cnt := [110]int{}
-	for _, num := range nums {
-		if num >= k {
-			ans += cnt[num-k]
-		}
-		if num+k <= 100 {
-			ans += cnt[num+k]
-		}
-		cnt[num]++
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function countKDifference(nums: number[], k: number): number {
     let ans = 0;
@@ -231,8 +141,6 @@ function countKDifference(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -248,6 +156,84 @@ impl Solution {
         }
         res
     }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：哈希表或数组
+
+我们可以使用哈希表或数组记录数组 $nums$ 中每个数出现的次数，然后枚举数组 $nums$ 中的每个数 $x$，判断 $x + k$ 和 $x - k$ 是否在数组 $nums$ 中，是则答案加上 $x+k$ 和 $x-k$ 出现的次数之和。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countKDifference(self, nums: List[int], k: int) -> int:
+        ans = 0
+        cnt = Counter()
+        for num in nums:
+            ans += cnt[num - k] + cnt[num + k]
+            cnt[num] += 1
+        return ans
+```
+
+```java
+class Solution {
+    public int countKDifference(int[] nums, int k) {
+        int ans = 0;
+        int[] cnt = new int[110];
+        for (int num : nums) {
+            if (num >= k) {
+                ans += cnt[num - k];
+            }
+            if (num + k <= 100) {
+                ans += cnt[num + k];
+            }
+            ++cnt[num];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countKDifference(vector<int>& nums, int k) {
+        int ans = 0;
+        int cnt[110]{};
+        for (int num : nums) {
+            if (num >= k) {
+                ans += cnt[num - k];
+            }
+            if (num + k <= 100) {
+                ans += cnt[num + k];
+            }
+            ++cnt[num];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countKDifference(nums []int, k int) (ans int) {
+	cnt := [110]int{}
+	for _, num := range nums {
+		if num >= k {
+			ans += cnt[num-k]
+		}
+		if num+k <= 100 {
+			ans += cnt[num+k]
+		}
+		cnt[num]++
+	}
+	return
 }
 ```
 
@@ -270,10 +256,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

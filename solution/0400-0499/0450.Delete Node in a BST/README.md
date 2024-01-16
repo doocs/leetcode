@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 二叉搜索树有以下性质：
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(H)$，其中 $H$ 是树的高度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -118,10 +112,6 @@ class Solution:
         root = root.right
         return root
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -169,8 +159,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -205,8 +193,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -244,8 +230,6 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 	return root
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -294,8 +278,6 @@ function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
     return root;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -371,10 +353,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

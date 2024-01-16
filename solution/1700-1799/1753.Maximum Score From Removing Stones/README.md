@@ -63,28 +63,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 模拟**
+### 方法一：贪心 + 模拟
 
 每次贪心地从最大的两堆石子中取石头，直到至少有两堆石子为空。
 
 时间复杂度 $O(n)$，其中 $n$ 为石子总数。
 
-**方法二：贪心 + 数学**
-
-我们不妨设 $a \le b \le c$，那么：
-
--   当 $a + b \le c$ 时，我们可以先从 $a$, $c$ 两堆中取石头，得到分数 $a$；再从 $b$, $c$ 两堆中取石头，得到分数 $b$，总分数为 $a + b$；
--   当 $a + b \gt c$ 时，这时我们每次会从 $c$ 以及 $a$ 和 $b$ 中较大的那一堆中取石头，最终将 $c$ 取空。此时 $a$ 和 $b$ 的大小差最多为 $1$。我们再从 $a$, $b$ 两堆中取石头，直到不能取为止，总分数为 $\left \lfloor \frac{a + b + c}{2}  \right \rfloor$。
-
-时间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,19 +83,6 @@ class Solution:
             s.sort()
         return ans
 ```
-
-```python
-class Solution:
-    def maximumScore(self, a: int, b: int, c: int) -> int:
-        a, b, c = sorted([a, b, c])
-        if a + b < c:
-            return a + b
-        return (a + b + c) >> 1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,21 +100,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int maximumScore(int a, int b, int c) {
-        int[] s = new int[] {a, b, c};
-        Arrays.sort(s);
-        if (s[0] + s[1] < s[2]) {
-            return s[0] + s[1];
-        }
-        return (a + b + c) >> 1;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,20 +119,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maximumScore(int a, int b, int c) {
-        vector<int> s = {a, b, c};
-        sort(s.begin(), s.end());
-        if (s[0] + s[1] < s[2]) return s[0] + s[1];
-        return (a + b + c) >> 1;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maximumScore(a int, b int, c int) (ans int) {
 	s := []int{a, b, c}
@@ -190,6 +133,53 @@ func maximumScore(a int, b int, c int) (ans int) {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：贪心 + 数学
+
+我们不妨设 $a \le b \le c$，那么：
+
+-   当 $a + b \le c$ 时，我们可以先从 $a$, $c$ 两堆中取石头，得到分数 $a$；再从 $b$, $c$ 两堆中取石头，得到分数 $b$，总分数为 $a + b$；
+-   当 $a + b \gt c$ 时，这时我们每次会从 $c$ 以及 $a$ 和 $b$ 中较大的那一堆中取石头，最终将 $c$ 取空。此时 $a$ 和 $b$ 的大小差最多为 $1$。我们再从 $a$, $b$ 两堆中取石头，直到不能取为止，总分数为 $\left \lfloor \frac{a + b + c}{2}  \right \rfloor$。
+
+时间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumScore(self, a: int, b: int, c: int) -> int:
+        a, b, c = sorted([a, b, c])
+        if a + b < c:
+            return a + b
+        return (a + b + c) >> 1
+```
+
+```java
+class Solution {
+    public int maximumScore(int a, int b, int c) {
+        int[] s = new int[] {a, b, c};
+        Arrays.sort(s);
+        if (s[0] + s[1] < s[2]) {
+            return s[0] + s[1];
+        }
+        return (a + b + c) >> 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maximumScore(int a, int b, int c) {
+        vector<int> s = {a, b, c};
+        sort(s.begin(), s.end());
+        if (s[0] + s[1] < s[2]) return s[0] + s[1];
+        return (a + b + c) >> 1;
+    }
+};
+```
+
 ```go
 func maximumScore(a int, b int, c int) int {
 	s := []int{a, b, c}
@@ -201,10 +191,6 @@ func maximumScore(a int, b int, c int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

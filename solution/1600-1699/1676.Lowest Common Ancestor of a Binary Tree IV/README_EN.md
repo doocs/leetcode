@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -75,8 +75,6 @@ class Solution:
         s = {node.val for node in nodes}
         return dfs(root)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -115,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -146,8 +142,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -181,10 +175,6 @@ var lowestCommonAncestor = function (root, nodes) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

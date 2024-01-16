@@ -22,9 +22,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + DFS**
+### 方法一：哈希表 + DFS
 
 对于每个同义词对，我们将其两个名字建立双向边，存放在邻接表 $g$ 中，然后，我们遍历所有名字，将其存放在集合 $s$ 中，同时将其频率存放在哈希表 $cnt$ 中。
 
@@ -35,10 +33,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为名字数组和同义词数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                 ans.append(f"{name}({freq})")
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -180,8 +168,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 	g := map[string][]string{}
@@ -228,8 +214,6 @@ func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     const map = new Map<string, string>();
@@ -261,10 +245,6 @@ function trulyMostPopular(names: string[], synonyms: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

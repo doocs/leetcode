@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 $vis$ 记录机器人在一轮指令执行完毕后所能到达的所有位置。初始时，机器人位于原点 $(0, 0)$，因此 $vis$ 中只包含一个元素 $(0, 0)$。随后我们遍历指令 $command$ 中的每个字符 $c$，更新机器人的位置，加入哈希表 $vis$ 中。记第一轮执行完毕后，机器人所在的位置为 $(i, j)$。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是指令 $command$ 和障碍数组 $obstacles$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -166,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func robot(command string, obstacles [][]int, x int, y int) bool {
 	type pair struct{ i, j int }
@@ -198,8 +184,6 @@ func robot(command string, obstacles [][]int, x int, y int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function robot(command: string, obstacles: number[][], x: number, y: number): boolean {
@@ -234,10 +218,6 @@ function robot(command: string, obstacles: number[][], x: number, y: number): bo
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

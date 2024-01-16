@@ -71,13 +71,9 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 
 ## Solutions
 
-Binary Indexed Tree or Segment Tree.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
-
-Binary Indexed Tree:
 
 ```python
 class BinaryIndexedTree:
@@ -111,7 +107,186 @@ class Solution:
         return ans % mod
 ```
 
-Segment Tree:
+```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        this.c = new int[n + 1];
+    }
+
+    public void update(int x, int v) {
+        while (x <= n) {
+            c[x] += v;
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class Solution {
+    public int createSortedArray(int[] instructions) {
+        int m = 0;
+        for (int x : instructions) {
+            m = Math.max(m, x);
+        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m);
+        int ans = 0;
+        final int mod = (int) 1e9 + 7;
+        for (int i = 0; i < instructions.length; ++i) {
+            int x = instructions[i];
+            int cost = Math.min(tree.query(x - 1), i - tree.query(x));
+            ans = (ans + cost) % mod;
+            tree.update(x, 1);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class BinaryIndexedTree {
+public:
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+
+private:
+    int n;
+    vector<int> c;
+};
+
+class Solution {
+public:
+    int createSortedArray(vector<int>& instructions) {
+        int m = *max_element(instructions.begin(), instructions.end());
+        BinaryIndexedTree tree(m);
+        const int mod = 1e9 + 7;
+        int ans = 0;
+        for (int i = 0; i < instructions.size(); ++i) {
+            int x = instructions[i];
+            int cost = min(tree.query(x - 1), i - tree.query(x));
+            ans = (ans + cost) % mod;
+            tree.update(x, 1);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += x & -x
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= x & -x
+	}
+	return s
+}
+
+func createSortedArray(instructions []int) (ans int) {
+	m := slices.Max(instructions)
+	tree := newBinaryIndexedTree(m)
+	const mod = 1e9 + 7
+	for i, x := range instructions {
+		cost := min(tree.query(x-1), i-tree.query(x))
+		ans = (ans + cost) % mod
+		tree.update(x, 1)
+	}
+	return
+}
+```
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = new Array(n + 1).fill(0);
+    }
+
+    public update(x: number, v: number): void {
+        while (x <= this.n) {
+            this.c[x] += v;
+            x += x & -x;
+        }
+    }
+
+    public query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+function createSortedArray(instructions: number[]): number {
+    const m = Math.max(...instructions);
+    const tree = new BinaryIndexedTree(m);
+    let ans = 0;
+    const mod = 10 ** 9 + 7;
+    for (let i = 0; i < instructions.length; ++i) {
+        const x = instructions[i];
+        const cost = Math.min(tree.query(x - 1), i - tree.query(x));
+        ans = (ans + cost) % mod;
+        tree.update(x, 1);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -173,59 +348,6 @@ class Solution:
             tree.modify(1, num, 1)
         return ans % int((1e9 + 7))
 ```
-
-### **Java**
-
-Binary Indexed Tree:
-
-```java
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        this.c = new int[n + 1];
-    }
-
-    public void update(int x, int v) {
-        while (x <= n) {
-            c[x] += v;
-            x += x & -x;
-        }
-    }
-
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= x & -x;
-        }
-        return s;
-    }
-}
-
-class Solution {
-    public int createSortedArray(int[] instructions) {
-        int m = 0;
-        for (int x : instructions) {
-            m = Math.max(m, x);
-        }
-        BinaryIndexedTree tree = new BinaryIndexedTree(m);
-        int ans = 0;
-        final int mod = (int) 1e9 + 7;
-        for (int i = 0; i < instructions.length; ++i) {
-            int x = instructions[i];
-            int cost = Math.min(tree.query(x - 1), i - tree.query(x));
-            ans = (ans + cost) % mod;
-            tree.update(x, 1);
-        }
-        return ans;
-    }
-}
-```
-
-Segment Tree:
 
 ```java
 class Solution {
@@ -308,58 +430,6 @@ class SegmentTree {
 }
 ```
 
-### **C++**
-
-Binary Indexed Tree:
-
-```cpp
-class BinaryIndexedTree {
-public:
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
-
-    void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += x & -x;
-        }
-    }
-
-    int query(int x) {
-        int s = 0;
-        while (x) {
-            s += c[x];
-            x -= x & -x;
-        }
-        return s;
-    }
-
-private:
-    int n;
-    vector<int> c;
-};
-
-class Solution {
-public:
-    int createSortedArray(vector<int>& instructions) {
-        int m = *max_element(instructions.begin(), instructions.end());
-        BinaryIndexedTree tree(m);
-        const int mod = 1e9 + 7;
-        int ans = 0;
-        for (int i = 0; i < instructions.size(); ++i) {
-            int x = instructions[i];
-            int cost = min(tree.query(x - 1), i - tree.query(x));
-            ans = (ans + cost) % mod;
-            tree.update(x, 1);
-        }
-        return ans;
-    }
-};
-```
-
-Segment Tree:
-
 ```cpp
 class Node {
 public:
@@ -433,98 +503,6 @@ public:
 };
 ```
 
-### **Go**
-
-Binary Indexed Tree:
-
-```go
-type BinaryIndexedTree struct {
-	n int
-	c []int
-}
-
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += x & -x
-	}
-}
-
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= x & -x
-	}
-	return s
-}
-
-func createSortedArray(instructions []int) (ans int) {
-	m := slices.Max(instructions)
-	tree := newBinaryIndexedTree(m)
-	const mod = 1e9 + 7
-	for i, x := range instructions {
-		cost := min(tree.query(x-1), i-tree.query(x))
-		ans = (ans + cost) % mod
-		tree.update(x, 1)
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-class BinaryIndexedTree {
-    private n: number;
-    private c: number[];
-
-    constructor(n: number) {
-        this.n = n;
-        this.c = new Array(n + 1).fill(0);
-    }
-
-    public update(x: number, v: number): void {
-        while (x <= this.n) {
-            this.c[x] += v;
-            x += x & -x;
-        }
-    }
-
-    public query(x: number): number {
-        let s = 0;
-        while (x > 0) {
-            s += this.c[x];
-            x -= x & -x;
-        }
-        return s;
-    }
-}
-
-function createSortedArray(instructions: number[]): number {
-    const m = Math.max(...instructions);
-    const tree = new BinaryIndexedTree(m);
-    let ans = 0;
-    const mod = 10 ** 9 + 7;
-    for (let i = 0; i < instructions.length; ++i) {
-        const x = instructions[i];
-        const cost = Math.min(tree.query(x - 1), i - tree.query(x));
-        ans = (ans + cost) % mod;
-        tree.update(x, 1);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

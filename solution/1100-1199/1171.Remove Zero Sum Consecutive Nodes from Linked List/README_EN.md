@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Hash Table**
+### Solution 1: Prefix Sum + Hash Table
 
 If two prefix sums of the linked list are equal, it means that the sum of the continuous node sequence between the two prefix sums is $0$, so we can remove this part of the continuous nodes.
 
@@ -56,8 +56,6 @@ Finally, we return the head node of the linked list $dummy.next$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -81,8 +79,6 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -117,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -155,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -185,8 +177,6 @@ func removeZeroSumSublists(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -217,8 +207,6 @@ function removeZeroSumSublists(head: ListNode | null): ListNode | null {
     return dummy.next;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -264,10 +252,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

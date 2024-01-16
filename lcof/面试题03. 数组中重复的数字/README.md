@@ -22,27 +22,13 @@
 
 ## 解法
 
-**方法一：排序**
+### 方法一：排序
 
 我们可以先对数组 `nums` 进行排序，然后遍历排序后的数组，判断相邻的两个元素是否相等，如果相等，即找到了一个重复的数字，返回该数字即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
 
-**方法二：哈希表**
-
-我们可以使用哈希表来解决这个问题，遍历数组 `nums`，对于遍历到的每个元素，判断哈希表中是否存在该元素，如果哈希表中存在该元素，即找到了一个重复的数字，返回该数字即可；如果哈希表中不存在该元素，将该元素加入哈希表中。继续遍历，直到找到一个重复的数字。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
-
-**方法三：原地交换**
-
-我们可以遍历数组 `nums`，对于遍历到的每个元素 `nums[i]`，判断 `nums[i]` 是否等于 `i`，如果是，则继续遍历下一个元素；如果不是，则将 `nums[i]` 与 `nums[nums[i]]` 进行交换，交换之后，`nums[i]` 的值和下标都发生了改变，如果 `nums[i]` 与 `nums[nums[i]]` 相等，即找到了一个重复的数字，返回该数字即可；如果 `nums[i]` 与 `nums[nums[i]]` 不相等，继续遍历，直到找到一个重复的数字。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -51,29 +37,6 @@ class Solution:
             if a == b:
                 return a
 ```
-
-```python
-class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
-        vis = set()
-        for v in nums:
-            if v in vis:
-                return v
-            vis.add(v)
-```
-
-```python
-class Solution:
-    def findRepeatNumber(self, nums: List[int]) -> int:
-        for i, v in enumerate(nums):
-            while v != i:
-                if nums[v] == v:
-                    return v
-                nums[i], nums[v] = nums[v], nums[i]
-                v = nums[i]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,39 +50,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int findRepeatNumber(int[] nums) {
-        Set<Integer> vis = new HashSet<>();
-        for (int i = 0;; ++i) {
-            if (!vis.add(nums[i])) {
-                return nums[i];
-            }
-        }
-    }
-}
-```
-
-```java
-class Solution {
-    public int findRepeatNumber(int[] nums) {
-        for (int i = 0;; ++i) {
-            while (nums[i] != i) {
-                int j = nums[i];
-                if (nums[j] == j) {
-                    return j;
-                }
-                int t = nums[i];
-                nums[i] = nums[j];
-                nums[j] = t;
-            }
-        }
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,40 +65,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int findRepeatNumber(vector<int>& nums) {
-        unordered_set<int> vis;
-        for (int i = 0;; ++i) {
-            if (vis.count(nums[i])) {
-                return nums[i];
-            }
-            vis.insert(nums[i]);
-        }
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int findRepeatNumber(vector<int>& nums) {
-        for (int i = 0;; ++i) {
-            while (nums[i] != i) {
-                int j = nums[i];
-                if (nums[j] == j) {
-                    return j;
-                }
-                swap(nums[i], nums[j]);
-            }
-        }
-    }
-};
-```
-
-### **Go**
-
 ```go
 func findRepeatNumber(nums []int) int {
 	sort.Ints(nums)
@@ -180,33 +76,36 @@ func findRepeatNumber(nums []int) int {
 }
 ```
 
-```go
-func findRepeatNumber(nums []int) int {
-	vis := map[int]bool{}
-	for i := 0; ; i++ {
-		if vis[nums[i]] {
-			return nums[i]
-		}
-		vis[nums[i]] = true
-	}
+```ts
+function findRepeatNumber(nums: number[]): number {
+    for (let i = 0; ; ++i) {
+        while (nums[i] != i) {
+            const j = nums[i];
+            if (nums[j] == j) {
+                return j;
+            }
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
+    }
 }
 ```
 
-```go
-func findRepeatNumber(nums []int) int {
-	for i := 0; ; i++ {
-		for nums[i] != i {
-			j := nums[i]
-			if nums[j] == j {
-				return j
-			}
-			nums[i], nums[j] = nums[j], nums[i]
-		}
-	}
+```rust
+impl Solution {
+    pub fn find_repeat_number(mut nums: Vec<i32>) -> i32 {
+        for i in 0..nums.len() {
+            while (i as i32) != nums[i] {
+                let j = nums[i] as usize;
+                if nums[i] == nums[j] {
+                    return nums[i];
+                }
+                nums.swap(i, j);
+            }
+        }
+        -1
+    }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -226,43 +125,6 @@ var findRepeatNumber = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function findRepeatNumber(nums: number[]): number {
-    for (let i = 0; ; ++i) {
-        while (nums[i] != i) {
-            const j = nums[i];
-            if (nums[j] == j) {
-                return j;
-            }
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-        }
-    }
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_repeat_number(mut nums: Vec<i32>) -> i32 {
-        for i in 0..nums.len() {
-            while (i as i32) != nums[i] {
-                let j = nums[i] as usize;
-                if nums[i] == nums[j] {
-                    return nums[i];
-                }
-                nums.swap(i, j);
-            }
-        }
-        -1
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int FindRepeatNumber(int[] nums) {
@@ -280,8 +142,6 @@ public class Solution {
     }
 }
 ```
-
-### **Kotlin**
 
 ```kotlin
 class Solution {
@@ -305,10 +165,136 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：哈希表
+
+我们可以使用哈希表来解决这个问题，遍历数组 `nums`，对于遍历到的每个元素，判断哈希表中是否存在该元素，如果哈希表中存在该元素，即找到了一个重复的数字，返回该数字即可；如果哈希表中不存在该元素，将该元素加入哈希表中。继续遍历，直到找到一个重复的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        vis = set()
+        for v in nums:
+            if v in vis:
+                return v
+            vis.add(v)
 ```
 
+```java
+class Solution {
+    public int findRepeatNumber(int[] nums) {
+        Set<Integer> vis = new HashSet<>();
+        for (int i = 0;; ++i) {
+            if (!vis.add(nums[i])) {
+                return nums[i];
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findRepeatNumber(vector<int>& nums) {
+        unordered_set<int> vis;
+        for (int i = 0;; ++i) {
+            if (vis.count(nums[i])) {
+                return nums[i];
+            }
+            vis.insert(nums[i]);
+        }
+    }
+};
+```
+
+```go
+func findRepeatNumber(nums []int) int {
+	vis := map[int]bool{}
+	for i := 0; ; i++ {
+		if vis[nums[i]] {
+			return nums[i]
+		}
+		vis[nums[i]] = true
+	}
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法三：原地交换
+
+我们可以遍历数组 `nums`，对于遍历到的每个元素 `nums[i]`，判断 `nums[i]` 是否等于 `i`，如果是，则继续遍历下一个元素；如果不是，则将 `nums[i]` 与 `nums[nums[i]]` 进行交换，交换之后，`nums[i]` 的值和下标都发生了改变，如果 `nums[i]` 与 `nums[nums[i]]` 相等，即找到了一个重复的数字，返回该数字即可；如果 `nums[i]` 与 `nums[nums[i]]` 不相等，继续遍历，直到找到一个重复的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        for i, v in enumerate(nums):
+            while v != i:
+                if nums[v] == v:
+                    return v
+                nums[i], nums[v] = nums[v], nums[i]
+                v = nums[i]
+```
+
+```java
+class Solution {
+    public int findRepeatNumber(int[] nums) {
+        for (int i = 0;; ++i) {
+            while (nums[i] != i) {
+                int j = nums[i];
+                if (nums[j] == j) {
+                    return j;
+                }
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findRepeatNumber(vector<int>& nums) {
+        for (int i = 0;; ++i) {
+            while (nums[i] != i) {
+                int j = nums[i];
+                if (nums[j] == j) {
+                    return j;
+                }
+                swap(nums[i], nums[j]);
+            }
+        }
+    }
+};
+```
+
+```go
+func findRepeatNumber(nums []int) int {
+	for i := 0; ; i++ {
+		for nums[i] != i {
+			j := nums[i]
+			if nums[j] == j {
+				return j
+			}
+			nums[i], nums[j] = nums[j], nums[i]
+		}
+	}
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

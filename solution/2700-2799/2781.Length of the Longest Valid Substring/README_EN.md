@@ -43,9 +43,9 @@ It can be shown that all other substrings contain either &quot;de&quot;, &quot;l
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             ans = max(ans, j - i + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestValidSubstring(word string, forbidden []string) (ans int) {
 	s := map[string]bool{}
@@ -126,8 +120,6 @@ func longestValidSubstring(word string, forbidden []string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestValidSubstring(word: string, forbidden: string[]): number {
     const s: Set<string> = new Set(forbidden);
@@ -146,10 +138,6 @@ function longestValidSubstring(word: string, forbidden: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

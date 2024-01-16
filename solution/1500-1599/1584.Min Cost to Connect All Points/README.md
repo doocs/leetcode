@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：朴素 Prim 算法**
+### 方法一：朴素 Prim 算法
 
 我们定义一个数组 $dist$，其中 $dist[i]$ 表示点 $i$ 到当前生成树的距离，初始时 $dist[0] = 0$，其余均为 $+\infty$，定义一个数组 $vis$，其中 $vis[i]$ 表示点 $i$ 是否在生成树中，初始时所有点均不在生成树中，定义一个二维数组 $g$，其中 $g[i][j]$ 表示点 $i$ 到点 $j$ 的距离，那么我们的目标是将所有点都加入到生成树中，且总费用最小。
 
@@ -77,17 +75,7 @@
 
 该算法适用于稠密图，时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为点的数量。
 
-**方法二：Kruskal 算法**
-
-我们先将所有边按照长度由小到大进行排序，循环遍历每条边，逐个加入到图中，当所有点达到一个连通状态时，退出循环，返回此时的总费用即可。
-
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为边的数量，本题中 $m = n^2$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,39 +103,6 @@ class Solution:
                     dist[j] = min(dist[j], g[i][j])
         return ans
 ```
-
-```python
-class Solution:
-    def minCostConnectPoints(self, points: List[List[int]]) -> int:
-        def find(x: int) -> int:
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        n = len(points)
-        g = []
-        for i, (x1, y1) in enumerate(points):
-            for j in range(i + 1, n):
-                x2, y2 = points[j]
-                t = abs(x1 - x2) + abs(y1 - y2)
-                g.append((t, i, j))
-        p = list(range(n))
-        ans = 0
-        for cost, i, j in sorted(g):
-            pa, pb = find(i), find(j)
-            if pa == pb:
-                continue
-            p[pa] = pb
-            ans += cost
-            n -= 1
-            if n == 1:
-                break
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -189,51 +144,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private int[] p;
-
-    public int minCostConnectPoints(int[][] points) {
-        int n = points.length;
-        List<int[]> g = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            int x1 = points[i][0], y1 = points[i][1];
-            for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                g.add(new int[] {Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
-            }
-        }
-        g.sort(Comparator.comparingInt(a -> a[0]));
-        p = new int[n];
-        for (int i = 0; i < n; ++i) {
-            p[i] = i;
-        }
-        int ans = 0;
-        for (int[] e : g) {
-            int cost = e[0], i = e[1], j = e[2];
-            if (find(i) == find(j)) {
-                continue;
-            }
-            p[find(i)] = find(j);
-            ans += cost;
-            if (--n == 1) {
-                return ans;
-            }
-        }
-        return 0;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -274,44 +184,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    vector<int> p;
-
-    int minCostConnectPoints(vector<vector<int>>& points) {
-        int n = points.size();
-        vector<vector<int>> g;
-        for (int i = 0; i < n; ++i) {
-            int x1 = points[i][0], y1 = points[i][1];
-            for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                g.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
-            }
-        }
-        sort(g.begin(), g.end());
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        int ans = 0;
-        for (auto& e : g) {
-            int cost = e[0], i = e[1], j = e[2];
-            if (find(i) == find(j)) continue;
-            p[find(i)] = find(j);
-            ans += cost;
-            if (--n == 1) return ans;
-        }
-        return 0;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minCostConnectPoints(points [][]int) (ans int) {
@@ -357,6 +229,162 @@ func abs(x int) int {
 	}
 	return x
 }
+```
+
+```ts
+function minCostConnectPoints(points: number[][]): number {
+    const n = points.length;
+    const g: number[][] = Array(n)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    const dist: number[] = Array(n).fill(1 << 30);
+    const vis: boolean[] = Array(n).fill(false);
+    for (let i = 0; i < n; ++i) {
+        const [x1, y1] = points[i];
+        for (let j = i + 1; j < n; ++j) {
+            const [x2, y2] = points[j];
+            const t = Math.abs(x1 - x2) + Math.abs(y1 - y2);
+            g[i][j] = t;
+            g[j][i] = t;
+        }
+    }
+    let ans = 0;
+    dist[0] = 0;
+    for (let i = 0; i < n; ++i) {
+        let j = -1;
+        for (let k = 0; k < n; ++k) {
+            if (!vis[k] && (j === -1 || dist[k] < dist[j])) {
+                j = k;
+            }
+        }
+        vis[j] = true;
+        ans += dist[j];
+        for (let k = 0; k < n; ++k) {
+            if (!vis[k]) {
+                dist[k] = Math.min(dist[k], g[j][k]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：Kruskal 算法
+
+我们先将所有边按照长度由小到大进行排序，循环遍历每条边，逐个加入到图中，当所有点达到一个连通状态时，退出循环，返回此时的总费用即可。
+
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为边的数量，本题中 $m = n^2$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minCostConnectPoints(self, points: List[List[int]]) -> int:
+        def find(x: int) -> int:
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        n = len(points)
+        g = []
+        for i, (x1, y1) in enumerate(points):
+            for j in range(i + 1, n):
+                x2, y2 = points[j]
+                t = abs(x1 - x2) + abs(y1 - y2)
+                g.append((t, i, j))
+        p = list(range(n))
+        ans = 0
+        for cost, i, j in sorted(g):
+            pa, pb = find(i), find(j)
+            if pa == pb:
+                continue
+            p[pa] = pb
+            ans += cost
+            n -= 1
+            if n == 1:
+                break
+        return ans
+```
+
+```java
+class Solution {
+    private int[] p;
+
+    public int minCostConnectPoints(int[][] points) {
+        int n = points.length;
+        List<int[]> g = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                g.add(new int[] {Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
+            }
+        }
+        g.sort(Comparator.comparingInt(a -> a[0]));
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        int ans = 0;
+        for (int[] e : g) {
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) {
+                continue;
+            }
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) {
+                return ans;
+            }
+        }
+        return 0;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int minCostConnectPoints(vector<vector<int>>& points) {
+        int n = points.size();
+        vector<vector<int>> g;
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                g.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
+            }
+        }
+        sort(g.begin(), g.end());
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        int ans = 0;
+        for (auto& e : g) {
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) continue;
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) return ans;
+        }
+        return 0;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
 ```
 
 ```go
@@ -408,50 +436,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minCostConnectPoints(points: number[][]): number {
-    const n = points.length;
-    const g: number[][] = Array(n)
-        .fill(0)
-        .map(() => Array(n).fill(0));
-    const dist: number[] = Array(n).fill(1 << 30);
-    const vis: boolean[] = Array(n).fill(false);
-    for (let i = 0; i < n; ++i) {
-        const [x1, y1] = points[i];
-        for (let j = i + 1; j < n; ++j) {
-            const [x2, y2] = points[j];
-            const t = Math.abs(x1 - x2) + Math.abs(y1 - y2);
-            g[i][j] = t;
-            g[j][i] = t;
-        }
-    }
-    let ans = 0;
-    dist[0] = 0;
-    for (let i = 0; i < n; ++i) {
-        let j = -1;
-        for (let k = 0; k < n; ++k) {
-            if (!vis[k] && (j === -1 || dist[k] < dist[j])) {
-                j = k;
-            }
-        }
-        vis[j] = true;
-        ans += dist[j];
-        for (let k = 0; k < n; ++k) {
-            if (!vis[k]) {
-                dist[k] = Math.min(dist[k], g[j][k]);
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

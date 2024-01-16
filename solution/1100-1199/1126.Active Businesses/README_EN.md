@@ -63,9 +63,9 @@ The business with id=1 has 7 &#39;reviews&#39; events (more than 5) and 11 &#39;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -85,6 +85,12 @@ GROUP BY business_id
 HAVING COUNT(1) > 1;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -102,3 +108,5 @@ HAVING COUNT(1) > 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

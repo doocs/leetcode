@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：式子转换 + 哈希表**
+### 方法一：式子转换 + 哈希表
 
 根据题目描述，我们可以得知，对于任意的 $i \lt j$，如果 $j - i \neq nums[j] - nums[i]$，则 $(i, j)$ 是一个坏数对。
 
@@ -58,10 +56,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countBadPairs(self, nums: List[int]) -> int:
@@ -72,10 +66,6 @@ class Solution:
             cnt[i - x] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countBadPairs(nums []int) (ans int64) {
 	cnt := map[int]int{}
@@ -123,8 +109,6 @@ func countBadPairs(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countBadPairs(nums: number[]): number {
@@ -139,10 +123,6 @@ function countBadPairs(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

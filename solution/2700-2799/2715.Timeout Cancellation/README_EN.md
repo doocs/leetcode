@@ -69,9 +69,9 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), w
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
@@ -107,8 +107,6 @@ function cancellable(fn: Function, args: any[], t: number): Function {
  *  }, maxT + 15)
  */
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -152,3 +150,5 @@ var cancellable = function (fn, args, t) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

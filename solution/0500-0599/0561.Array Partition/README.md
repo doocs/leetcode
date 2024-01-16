@@ -43,27 +43,17 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 先排序，然后求相邻的两个元素的最小值，得到的总和即为结果。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
         return sum(sorted(nums)[::2])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -78,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -92,8 +80,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func arrayPairSum(nums []int) int {
 	sort.Ints(nums)
@@ -104,25 +90,6 @@ func arrayPairSum(nums []int) int {
 	return ans
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var arrayPairSum = function (nums) {
-    nums.sort((a, b) => a - b);
-    let ans = 0;
-    for (let i = 0; i < nums.length; i += 2) {
-        ans += nums[i];
-    }
-    return ans;
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -140,16 +107,21 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arrayPairSum = function (nums) {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = 0; i < nums.length; i += 2) {
+        ans += nums[i];
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,9 +59,9 @@ On 2021-08-11, user 1 and 5 had a call. This call was the only call for both of 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -106,3 +106,5 @@ where
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

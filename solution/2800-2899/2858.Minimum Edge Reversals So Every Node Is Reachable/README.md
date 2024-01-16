@@ -68,17 +68,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树形 DP**
+### 方法一：树形 DP
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +142,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -187,8 +175,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minEdgeReversals(n int, edges [][]int) []int {
@@ -227,8 +213,6 @@ func minEdgeReversals(n int, edges [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minEdgeReversals(n: number, edges: number[][]): number[] {
     const g: number[][][] = Array.from({ length: n }, () => []);
@@ -259,10 +243,6 @@ function minEdgeReversals(n: number, edges: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

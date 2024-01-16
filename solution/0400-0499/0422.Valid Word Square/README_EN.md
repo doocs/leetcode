@@ -56,9 +56,9 @@ Therefore, it is NOT a valid word square.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,19 +72,6 @@ class Solution:
                 return False
         return True
 ```
-
-```python
-class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
-        m = len(words)
-        for i, w in enumerate(words):
-            for j, c in enumerate(w):
-                if j >= m or i >= len(words[j]) or c != words[j][i]:
-                    return False
-        return True
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validWordSquare(words []string) bool {
 	m := len(words)
@@ -141,8 +124,6 @@ func validWordSquare(words []string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function validWordSquare(words: string[]): boolean {
@@ -159,10 +140,23 @@ function validWordSquare(words: string[]): boolean {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validWordSquare(self, words: List[str]) -> bool:
+        m = len(words)
+        for i, w in enumerate(words):
+            for j, c in enumerate(w):
+                if j >= m or i >= len(words[j]) or c != words[j][i]:
+                    return False
+        return True
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

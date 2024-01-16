@@ -24,9 +24,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们可以使用深度优先搜索来解决本题。我们从左上角开始，向右或向下移动，直到到达右下角。如果在某一步，我们发现当前位置是障碍物，或者当前位置已经在路径中，那么我们就返回，否则我们将当前位置加入路径中，并且标记当前位置为已经访问过，然后继续向右或向下移动。
 
@@ -35,10 +33,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -57,10 +51,6 @@ class Solution:
         ans = []
         return ans if dfs(0, 0) else []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func pathWithObstacles(obstacleGrid [][]int) [][]int {
@@ -143,8 +129,6 @@ func pathWithObstacles(obstacleGrid [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     const m = obstacleGrid.length;
@@ -168,8 +152,6 @@ function pathWithObstacles(obstacleGrid: number[][]): number[][] {
     return [];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -200,10 +182,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

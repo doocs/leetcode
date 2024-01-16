@@ -42,9 +42,9 @@ From (1,0) to (2,3), all three rectangles overlap.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -112,8 +112,6 @@ class Solution:
         ans %= int(1e9 + 7)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -214,8 +212,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -304,8 +300,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func rectangleArea(rectangles [][]int) int {
@@ -405,10 +399,6 @@ func (t *segmentTree) pushup(u int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

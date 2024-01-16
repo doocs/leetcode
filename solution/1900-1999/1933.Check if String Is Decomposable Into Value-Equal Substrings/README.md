@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 遍历字符串 $s$，用双指针 $i$ 和 $j$ 统计每个等值子字符串的长度。若长度模 $3$ 余 $1$，说明该子字符串长度不符合要求，返回 `false`；若长度模 $3$ 余 $2$，说明出现了长度为 $2$ 的子字符串，若此前已经出现过长度为 $2$ 的子字符串，返回 `false`，否则将 $j$ 的值赋给 $i$，继续遍历。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,24 +80,6 @@ class Solution:
             i = j
         return cnt2 == 1
 ```
-
-```python
-class Solution:
-    def isDecomposable(self, s: str) -> bool:
-        cnt2 = 0
-        for _, g in groupby(s):
-            m = len(list(g))
-            if m % 3 == 1:
-                return False
-            cnt2 += m % 3 == 2
-            if cnt2 > 1:
-                return False
-        return cnt2 == 1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -154,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isDecomposable(s string) bool {
 	i, n := 0, len(s)
@@ -180,8 +152,6 @@ func isDecomposable(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isDecomposable(s: string): boolean {
     const n = s.length;
@@ -203,10 +173,26 @@ function isDecomposable(s: string): boolean {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isDecomposable(self, s: str) -> bool:
+        cnt2 = 0
+        for _, g in groupby(s):
+            m = len(list(g))
+            if m % 3 == 1:
+                return False
+            cnt2 += m % 3 == 2
+            if cnt2 > 1:
+                return False
+        return cnt2 == 1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

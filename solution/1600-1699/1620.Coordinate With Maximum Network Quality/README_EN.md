@@ -66,9 +66,9 @@ No other coordinate has a higher network quality.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -87,8 +87,6 @@ class Solution:
                     ans = [i, j]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func bestCoordinate(towers [][]int, radius int) []int {
 	ans := []int{0, 0}
@@ -168,10 +162,6 @@ func bestCoordinate(towers [][]int, radius int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

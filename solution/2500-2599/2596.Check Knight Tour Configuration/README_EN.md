@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We first use the array $pos$ to record the coordinates of the grid visited by the knight, and then traverse the $pos$ array to check whether the difference between the adjacent two grid coordinates is $(1, 2)$ or $(2, 1)$. If not, return `false`.
 
@@ -50,8 +50,6 @@ Otherwise, return `true` after the traversal ends.
 The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the length of the chessboard.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkValidGrid(grid [][]int) bool {
@@ -167,8 +159,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkValidGrid(grid: number[][]): boolean {
     if (grid[0][0] !== 0) {
@@ -195,10 +185,6 @@ function checkValidGrid(grid: number[][]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们可以统计所有数字中每个位上出现的 $1$ 的个数，然后对 $3$ 取模。如果某一位上的出现的 $1$ 的个数无法被 $3$ 整除，说明只出现一次的数字在该位上是 $1$，否则是 $0$。
 
 时间复杂度 $O(n \times \log M)$，其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组中元素的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                     ans |= 1 << i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func singleNumber(nums []int) int {
 	var ans int32
@@ -127,8 +113,6 @@ func singleNumber(nums []int) int {
 	return int(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function singleNumber(nums: number[]): number {
@@ -145,10 +129,6 @@ function singleNumber(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

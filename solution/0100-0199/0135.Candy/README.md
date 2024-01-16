@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 我们初始化两个数组 $left$ 和 $right$，其中 $left[i]$ 表示当前孩子比左边孩子评分高时，当前孩子至少应该获得的糖果数，而 $right[i]$ 表示当前孩子比右边孩子评分高时，当前孩子至少应该获得的糖果数。初始时 $left[i]=1$, $right[i]=1$。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是评分数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return sum(max(a, b) for a, b in zip(left, right))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,6 +100,116 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    int candy(vector<int>& ratings) {
+        int n = ratings.size();
+        vector<int> left(n, 1);
+        vector<int> right(n, 1);
+        for (int i = 1; i < n; ++i) {
+            if (ratings[i] > ratings[i - 1]) {
+                left[i] = left[i - 1] + 1;
+            }
+        }
+        for (int i = n - 2; ~i; --i) {
+            if (ratings[i] > ratings[i + 1]) {
+                right[i] = right[i + 1] + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += max(left[i], right[i]);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func candy(ratings []int) int {
+	n := len(ratings)
+	left := make([]int, n)
+	right := make([]int, n)
+	for i := range left {
+		left[i] = 1
+		right[i] = 1
+	}
+	for i := 1; i < n; i++ {
+		if ratings[i] > ratings[i-1] {
+			left[i] = left[i-1] + 1
+		}
+	}
+	for i := n - 2; i >= 0; i-- {
+		if ratings[i] > ratings[i+1] {
+			right[i] = right[i+1] + 1
+		}
+	}
+	ans := 0
+	for i, a := range left {
+		b := right[i]
+		ans += max(a, b)
+	}
+	return ans
+}
+```
+
+```ts
+function candy(ratings: number[]): number {
+    const n = ratings.length;
+    const left = new Array(n).fill(1);
+    const right = new Array(n).fill(1);
+    for (let i = 1; i < n; ++i) {
+        if (ratings[i] > ratings[i - 1]) {
+            left[i] = left[i - 1] + 1;
+        }
+    }
+    for (let i = n - 2; i >= 0; --i) {
+        if (ratings[i] > ratings[i + 1]) {
+            right[i] = right[i + 1] + 1;
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.max(left[i], right[i]);
+    }
+    return ans;
+}
+```
+
+```cs
+public class Solution {
+    public int Candy(int[] ratings) {
+        int n = ratings.Length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Array.Fill(left, 1);
+        Array.Fill(right, 1);
+        for (int i = 1; i < n; ++i) {
+            if (ratings[i] > ratings[i - 1]) {
+                left[i] = left[i - 1] + 1;
+            }
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            if (ratings[i] > ratings[i + 1]) {
+                right[i] = right[i + 1] + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Max(left[i], right[i]);
+        }
+        return ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -141,122 +241,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int candy(vector<int>& ratings) {
-        int n = ratings.size();
-        vector<int> left(n, 1);
-        vector<int> right(n, 1);
-        for (int i = 1; i < n; ++i) {
-            if (ratings[i] > ratings[i - 1]) {
-                left[i] = left[i - 1] + 1;
-            }
-        }
-        for (int i = n - 2; ~i; --i) {
-            if (ratings[i] > ratings[i + 1]) {
-                right[i] = right[i + 1] + 1;
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans += max(left[i], right[i]);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func candy(ratings []int) int {
-	n := len(ratings)
-	left := make([]int, n)
-	right := make([]int, n)
-	for i := range left {
-		left[i] = 1
-		right[i] = 1
-	}
-	for i := 1; i < n; i++ {
-		if ratings[i] > ratings[i-1] {
-			left[i] = left[i-1] + 1
-		}
-	}
-	for i := n - 2; i >= 0; i-- {
-		if ratings[i] > ratings[i+1] {
-			right[i] = right[i+1] + 1
-		}
-	}
-	ans := 0
-	for i, a := range left {
-		b := right[i]
-		ans += max(a, b)
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function candy(ratings: number[]): number {
-    const n = ratings.length;
-    const left = new Array(n).fill(1);
-    const right = new Array(n).fill(1);
-    for (let i = 1; i < n; ++i) {
-        if (ratings[i] > ratings[i - 1]) {
-            left[i] = left[i - 1] + 1;
-        }
-    }
-    for (let i = n - 2; i >= 0; --i) {
-        if (ratings[i] > ratings[i + 1]) {
-            right[i] = right[i + 1] + 1;
-        }
-    }
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        ans += Math.max(left[i], right[i]);
-    }
-    return ans;
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int Candy(int[] ratings) {
-        int n = ratings.Length;
-        int[] left = new int[n];
-        int[] right = new int[n];
-        Array.Fill(left, 1);
-        Array.Fill(right, 1);
-        for (int i = 1; i < n; ++i) {
-            if (ratings[i] > ratings[i - 1]) {
-                left[i] = left[i - 1] + 1;
-            }
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            if (ratings[i] > ratings[i + 1]) {
-                right[i] = right[i + 1] + 1;
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans += Math.Max(left[i], right[i]);
-        }
-        return ans;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

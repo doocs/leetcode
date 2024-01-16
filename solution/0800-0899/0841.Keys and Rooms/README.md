@@ -53,15 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-DFS。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
         dfs(0)
         return len(vis) == len(rooms)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canVisitAllRooms(rooms [][]int) bool {
 	vis := make(map[int]bool)
@@ -149,8 +135,6 @@ func canVisitAllRooms(rooms [][]int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canVisitAllRooms(rooms: number[][]): boolean {
     const n = rooms.length;
@@ -166,25 +150,6 @@ function canVisitAllRooms(rooms: number[][]): boolean {
     return isOpen.every(v => v);
 }
 ```
-
-```ts
-function canVisitAllRooms(rooms: number[][]): boolean {
-    const n = rooms.length;
-    const isOpen = new Array(n).fill(false);
-    const keys = [0];
-    while (keys.length !== 0) {
-        const i = keys.pop();
-        if (isOpen[i]) {
-            continue;
-        }
-        isOpen[i] = true;
-        keys.push(...rooms[i]);
-    }
-    return isOpen.every(v => v);
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -205,10 +170,29 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+function canVisitAllRooms(rooms: number[][]): boolean {
+    const n = rooms.length;
+    const isOpen = new Array(n).fill(false);
+    const keys = [0];
+    while (keys.length !== 0) {
+        const i = keys.pop();
+        if (isOpen[i]) {
+            continue;
+        }
+        isOpen[i] = true;
+        keys.push(...rooms[i]);
+    }
+    return isOpen.every(v => v);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

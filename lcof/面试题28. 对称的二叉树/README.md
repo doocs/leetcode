@@ -42,7 +42,7 @@
 
 ## 解法
 
-**方法一：递归**
+### 方法一：递归
 
 我们设计一个递归函数 `dfs`，它接收两个参数 `a` 和 `b`，分别代表两棵树的根节点。我们可以对 `a` 和 `b` 进行如下判断：
 
@@ -56,8 +56,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -79,8 +77,6 @@ class Solution:
 
         return dfs(root, root)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -109,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -163,36 +155,6 @@ func isSymmetric(root *TreeNode) bool {
 	return dfs(root, root)
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {boolean}
- */
-var isSymmetric = function (root) {
-    const dfs = (a, b) => {
-        if (!a && !b) {
-            return true;
-        }
-        if (!a || !b || a.val != b.val) {
-            return false;
-        }
-        return dfs(a.left, b.right) && dfs(a.right, b.left);
-    };
-    return dfs(root, root);
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -222,8 +184,6 @@ function isSymmetric(root: TreeNode | null): boolean {
     return dfs(root, root);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -265,7 +225,31 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function (root) {
+    const dfs = (a, b) => {
+        if (!a && !b) {
+            return true;
+        }
+        if (!a || !b || a.val != b.val) {
+            return false;
+        }
+        return dfs(a.left, b.right) && dfs(a.right, b.left);
+    };
+    return dfs(root, root);
+};
+```
 
 ```cs
 /**
@@ -294,10 +278,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

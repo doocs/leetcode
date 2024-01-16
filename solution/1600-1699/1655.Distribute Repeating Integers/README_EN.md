@@ -54,9 +54,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -89,8 +89,6 @@ class Solution:
                     k = (k - 1) & j
         return f[-1][-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -139,8 +137,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -192,8 +188,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canDistribute(nums []int, quantity []int) bool {
 	m := len(quantity)
@@ -240,8 +234,6 @@ func canDistribute(nums []int, quantity []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canDistribute(nums: number[], quantity: number[]): boolean {
     const m = quantity.length;
@@ -287,10 +279,6 @@ function canDistribute(nums: number[], quantity: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,15 +47,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先用哈希表统计每个元素出现的次数。然后遍历数组，判断比每个元素 `num` 大 1 的数字 `num + 1` 是否在哈希表中，若是，累计 `num` 和 `num + 1` 出现的次数，与最大值 ans 比较。若更大，则替换。最后返回 ans 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,20 +61,6 @@ class Solution:
                 ans = max(ans, counter[num] + counter[num + 1])
         return ans
 ```
-
-```python
-class Solution:
-    def findLHS(self, nums: List[int]) -> int:
-        counter = Counter(nums)
-        return max(
-            [counter[num] + counter[num + 1] for num in nums if num + 1 in counter],
-            default=0,
-        )
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findLHS(nums []int) int {
 	counter := make(map[int]int)
@@ -139,10 +115,22 @@ func findLHS(nums []int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        counter = Counter(nums)
+        return max(
+            [counter[num] + counter[num + 1] for num in nums if num + 1 in counter],
+            default=0,
+        )
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

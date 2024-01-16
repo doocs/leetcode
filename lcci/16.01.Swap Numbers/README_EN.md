@@ -24,7 +24,7 @@
 
 ## Solutions
 
-**Solution 1: Bitwise Operation**
+### Solution 1: Bitwise Operation
 
 We can use the XOR operation $\oplus$ to implement the swap of two numbers.
 
@@ -46,8 +46,6 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def swapNumbers(self, numbers: List[int]) -> List[int]:
@@ -56,8 +54,6 @@ class Solution:
         numbers[0] ^= numbers[1]
         return numbers
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,19 +65,6 @@ class Solution {
     }
 }
 ```
-
-## **TypeScript**
-
-```ts
-function swapNumbers(numbers: number[]): number[] {
-    numbers[0] ^= numbers[1];
-    numbers[1] ^= numbers[0];
-    numbers[0] ^= numbers[1];
-    return numbers;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func swapNumbers(numbers []int) []int {
 	numbers[0] ^= numbers[1]
@@ -106,10 +87,28 @@ func swapNumbers(numbers []int) []int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function swapNumbers(numbers: number[]): number[] {
+    numbers[0] ^= numbers[1];
+    numbers[1] ^= numbers[0];
+    numbers[0] ^= numbers[1];
+    return numbers;
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function swapNumbers(numbers: number[]): number[] {
+    [numbers[0], numbers[1]] = [numbers[1], numbers[0]];
+    return numbers;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

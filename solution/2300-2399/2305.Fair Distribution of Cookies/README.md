@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：回溯 + 剪枝**
+### 方法一：回溯 + 剪枝
 
 我们先对数组 $cookies$ 进行降序排序（减少搜索次数），然后创建一个长度为 $k$ 的数组 $cnt$，用于存储每个孩子分到的饼干数量。另外，用变量 $ans$ 维护当前的最小不公平程度，初始化一个很大的值。
 
@@ -60,10 +58,6 @@
 最后，我们返回 $ans$ 即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -132,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distributeCookies(cookies []int, k int) int {
 	sort.Sort(sort.Reverse(sort.IntSlice(cookies)))
@@ -190,8 +176,6 @@ func distributeCookies(cookies []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distributeCookies(cookies: number[], k: number): number {
     const cnt = new Array(k).fill(0);
@@ -215,10 +199,6 @@ function distributeCookies(cookies: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

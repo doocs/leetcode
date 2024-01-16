@@ -48,15 +48,13 @@ No more operations can be done to this array.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 Simulate each day. For each element, if it is greater than its left and right neighbors, it decreases by 1, otherwise, it increases by 1. If the array no longer changes on a certain day, return that array.
 
 The time complexity is $O(n \times m)$, and the space complexity is $O(n)$. Where $n$ is the length of the array, and $m$ is the maximum value in the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                     f = True
         return arr
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func transformArray(arr []int) []int {
 	f := true
@@ -154,10 +146,6 @@ func transformArray(arr []int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

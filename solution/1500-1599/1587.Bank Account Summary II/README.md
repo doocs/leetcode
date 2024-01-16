@@ -88,17 +88,11 @@ Charlie 的余额为(6000 + 6000 - 4000) = 8000.
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等值连接 + 分组求和**
+### 方法一：等值连接 + 分组求和
 
 我们可以使用等值连接，将 `Users` 和 `Transactions` 表按照 `account` 列连接起来，然后按照 `account` 列分组求和，最后筛选出余额大于 $10000$ 的用户。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -113,3 +107,5 @@ HAVING balance > 10000;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

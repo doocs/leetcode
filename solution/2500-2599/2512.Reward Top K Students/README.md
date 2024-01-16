@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序**
+### 方法一：哈希表 + 排序
 
 我们可以将正面的单词存入哈希表 $ps$ 中，将负面的单词存入哈希表 $ns$ 中。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n \times \log n + (|ps| + |ns| + n) \times |s|)$，空间复杂度 $O((|ps|+|ns|) \times |s| + n)$。其中 $n$ 为学生数量，$|ps|$ 和 $|ns|$ 分别为正面和负面单词的数量，$|s|$ 为单词的平均长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
         arr.sort(key=lambda x: (-x[0], x[1]))
         return [v[1] for v in arr[:k]]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +127,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -181,8 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func topStudents(positive_feedback []string, negative_feedback []string, report []string, student_id []int, k int) (ans []int) {
 	ps := map[string]bool{}
@@ -212,8 +198,6 @@ func topStudents(positive_feedback []string, negative_feedback []string, report 
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function topStudents(
@@ -252,8 +236,6 @@ function topStudents(
         .slice(0, k);
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -297,10 +279,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

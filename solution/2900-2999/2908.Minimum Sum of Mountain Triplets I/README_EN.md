@@ -56,7 +56,7 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 
 ## Solutions
 
-**Solution 1: Preprocessing + Enumeration**
+### Solution 1: Preprocessing + Enumeration
 
 We can preprocess the minimum value on the right side of each position and record it in the array $right[i]$, where $right[i]$ represents the minimum value in $nums[i+1..n-1]$.
 
@@ -67,8 +67,6 @@ Finally, if $ans$ is still the initial value, it means that there is no mountain
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
             left = min(left, x)
         return -1 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSum(nums []int) int {
 	n := len(nums)
@@ -159,8 +151,6 @@ func minimumSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSum(nums: number[]): number {
     const n = nums.length;
@@ -179,10 +169,6 @@ function minimumSum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -35,9 +35,9 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,23 +54,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-```python
-class Solution:
-    def longestOnes(self, nums: List[int], k: int) -> int:
-        l = r = -1
-        while r < len(nums) - 1:
-            r += 1
-            if nums[r] == 0:
-                k -= 1
-            if k < 0:
-                l += 1
-                if nums[l] == 0:
-                    k += 1
-        return r - l
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,25 +75,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int longestOnes(int[] nums, int k) {
-        int l = 0, r = 0;
-        while (r < nums.length) {
-            if (nums[r++] == 0) {
-                --k;
-            }
-            if (k < 0 && nums[l++] == 0) {
-                ++k;
-            }
-        }
-        return r - l;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,22 +98,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int longestOnes(vector<int>& nums, int k) {
-        int l = 0, r = 0;
-        while (r < nums.size()) {
-            if (nums[r++] == 0) --k;
-            if (k < 0 && nums[l++] == 0) ++k;
-        }
-        return r - l;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func longestOnes(nums []int, k int) int {
 	ans := 0
@@ -170,27 +118,6 @@ func longestOnes(nums []int, k int) int {
 }
 ```
 
-```go
-func longestOnes(nums []int, k int) int {
-	l, r := -1, -1
-	for r < len(nums)-1 {
-		r++
-		if nums[r] == 0 {
-			k--
-		}
-		if k < 0 {
-			l++
-			if nums[l] == 0 {
-				k++
-			}
-		}
-	}
-	return r - l
-}
-```
-
-### **TypeScript**
-
 ```ts
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
@@ -206,26 +133,6 @@ function longestOnes(nums: number[], k: number): number {
     return n - l;
 }
 ```
-
-```ts
-function longestOnes(nums: number[], k: number): number {
-    const n = nums.length;
-    let l = 0;
-    let res = k;
-    const count = [0, 0];
-    for (let r = 0; r < n; r++) {
-        count[nums[r]]++;
-        res = Math.max(res, r - l);
-        while (count[0] > k) {
-            count[nums[l]]--;
-            l++;
-        }
-    }
-    return Math.max(res, n - l);
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -248,10 +155,95 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        l = r = -1
+        while r < len(nums) - 1:
+            r += 1
+            if nums[r] == 0:
+                k -= 1
+            if k < 0:
+                l += 1
+                if nums[l] == 0:
+                    k += 1
+        return r - l
 ```
 
+```java
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int l = 0, r = 0;
+        while (r < nums.length) {
+            if (nums[r++] == 0) {
+                --k;
+            }
+            if (k < 0 && nums[l++] == 0) {
+                ++k;
+            }
+        }
+        return r - l;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int l = 0, r = 0;
+        while (r < nums.size()) {
+            if (nums[r++] == 0) --k;
+            if (k < 0 && nums[l++] == 0) ++k;
+        }
+        return r - l;
+    }
+};
+```
+
+```go
+func longestOnes(nums []int, k int) int {
+	l, r := -1, -1
+	for r < len(nums)-1 {
+		r++
+		if nums[r] == 0 {
+			k--
+		}
+		if k < 0 {
+			l++
+			if nums[l] == 0 {
+				k++
+			}
+		}
+	}
+	return r - l
+}
+```
+
+```ts
+function longestOnes(nums: number[], k: number): number {
+    const n = nums.length;
+    let l = 0;
+    let res = k;
+    const count = [0, 0];
+    for (let r = 0; r < n; r++) {
+        count[nums[r]]++;
+        res = Math.max(res, r - l);
+        while (count[0] > k) {
+            count[nums[l]]--;
+            l++;
+        }
+    }
+    return Math.max(res, n - l);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

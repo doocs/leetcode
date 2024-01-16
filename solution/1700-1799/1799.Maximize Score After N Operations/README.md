@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 动态规划**
+### 方法一：状态压缩 + 动态规划
 
 我们可以先预处理得到数组 `nums` 中任意两个数的最大公约数，存储在二维数组 $g$ 中，其中 $g[i][j]$ 表示 $nums[i]$ 和 $nums[j]$ 的最大公约数。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(2^m \times m^2)$，空间复杂度 $O(2^m)$。其中 $m$ 为数组 `nums` 中的元素个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +95,6 @@ class Solution:
                                 )
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +162,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxScore(nums []int) int {
@@ -211,8 +197,6 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxScore(nums: number[]): number {
@@ -256,10 +240,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

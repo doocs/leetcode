@@ -42,9 +42,9 @@ Therefore, 2, 3, 4, or 5 may also be returned.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,35 +76,6 @@ class Solution:
             vis[i] = True
         return -1
 ```
-
-```python
-class Solution:
-    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
-        n = len(nums)
-        left = [-1] * n
-        right = [n] * n
-        stk = []
-        for i, v in enumerate(nums):
-            while stk and nums[stk[-1]] >= v:
-                stk.pop()
-            if stk:
-                left[i] = stk[-1]
-            stk.append(i)
-        stk = []
-        for i in range(n - 1, -1, -1):
-            while stk and nums[stk[-1]] >= nums[i]:
-                stk.pop()
-            if stk:
-                right[i] = stk[-1]
-            stk.append(i)
-        for i, v in enumerate(nums):
-            k = right[i] - left[i] - 1
-            if v > threshold // k:
-                return k
-        return -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -160,50 +131,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int validSubarraySize(int[] nums, int threshold) {
-        int n = nums.length;
-        int[] left = new int[n];
-        int[] right = new int[n];
-        Arrays.fill(left, -1);
-        Arrays.fill(right, n);
-        Deque<Integer> stk = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
-                stk.pop();
-            }
-            if (!stk.isEmpty()) {
-                left[i] = stk.peek();
-            }
-            stk.push(i);
-        }
-        stk.clear();
-        for (int i = n - 1; i >= 0; --i) {
-            int v = nums[i];
-            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
-                stk.pop();
-            }
-            if (!stk.isEmpty()) {
-                right[i] = stk.peek();
-            }
-            stk.push(i);
-        }
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int k = right[i] - left[i] - 1;
-            if (v > threshold / k) {
-                return k;
-            }
-        }
-        return -1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -244,39 +171,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int validSubarraySize(vector<int>& nums, int threshold) {
-        int n = nums.size();
-        vector<int> left(n, -1);
-        vector<int> right(n, n);
-        stack<int> stk;
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
-            if (!stk.empty()) left[i] = stk.top();
-            stk.push(i);
-        }
-        stk = stack<int>();
-        for (int i = n - 1; ~i; --i) {
-            int v = nums[i];
-            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
-            if (!stk.empty()) right[i] = stk.top();
-            stk.push(i);
-        }
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int k = right[i] - left[i] - 1;
-            if (v > threshold / k) return k;
-        }
-        return -1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func validSubarraySize(nums []int, threshold int) int {
@@ -328,6 +222,112 @@ func validSubarraySize(nums []int, threshold int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validSubarraySize(self, nums: List[int], threshold: int) -> int:
+        n = len(nums)
+        left = [-1] * n
+        right = [n] * n
+        stk = []
+        for i, v in enumerate(nums):
+            while stk and nums[stk[-1]] >= v:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        for i, v in enumerate(nums):
+            k = right[i] - left[i] - 1
+            if v > threshold // k:
+                return k
+        return -1
+```
+
+```java
+class Solution {
+    public int validSubarraySize(int[] nums, int threshold) {
+        int n = nums.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Arrays.fill(left, -1);
+        Arrays.fill(right, n);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        stk.clear();
+        for (int i = n - 1; i >= 0; --i) {
+            int v = nums[i];
+            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                right[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            int k = right[i] - left[i] - 1;
+            if (v > threshold / k) {
+                return k;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int validSubarraySize(vector<int>& nums, int threshold) {
+        int n = nums.size();
+        vector<int> left(n, -1);
+        vector<int> right(n, n);
+        stack<int> stk;
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
+            if (!stk.empty()) left[i] = stk.top();
+            stk.push(i);
+        }
+        stk = stack<int>();
+        for (int i = n - 1; ~i; --i) {
+            int v = nums[i];
+            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
+            if (!stk.empty()) right[i] = stk.top();
+            stk.push(i);
+        }
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i];
+            int k = right[i] - left[i] - 1;
+            if (v > threshold / k) return k;
+        }
+        return -1;
+    }
+};
+```
+
 ```go
 func validSubarraySize(nums []int, threshold int) int {
 	n := len(nums)
@@ -368,16 +368,6 @@ func validSubarraySize(nums []int, threshold int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,9 +63,9 @@ obj2[&quot;b&quot;][&quot;c&quot;] has key &quot;e&quot; that obj1 doesn&#39;t h
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function deepMerge(obj1: any, obj2: any): any {
@@ -90,3 +90,5 @@ function deepMerge(obj1: any, obj2: any): any {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

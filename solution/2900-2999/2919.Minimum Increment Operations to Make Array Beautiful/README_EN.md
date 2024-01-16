@@ -69,7 +69,7 @@ Hence, the answer is 0.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f$, $g$, and $h$ as the minimum number of increment operations needed to get the maximum value from the last three items in the first $i$ items, initially $f = 0$, $g = 0$, $h = 0$.
 
@@ -89,8 +89,6 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minIncrementOperations(self, nums: List[int], k: int) -> int:
@@ -99,8 +97,6 @@ class Solution:
             f, g, h = g, h, min(f, g, h) + max(k - x, 0)
         return min(f, g, h)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minIncrementOperations(nums []int, k int) int64 {
 	var f, g, h int
@@ -146,8 +138,6 @@ func minIncrementOperations(nums []int, k int) int64 {
 	return int64(min(f, g, h))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minIncrementOperations(nums: number[], k: number): number {
@@ -159,10 +149,6 @@ function minIncrementOperations(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

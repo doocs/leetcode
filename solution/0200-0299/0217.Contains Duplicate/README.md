@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们先对数组 `nums` 进行排序。
 
@@ -51,33 +49,13 @@
 
 时间复杂度 $O(n \times \log n)$。其中 $n$ 是数组 `nums` 的长度。
 
-**方法二：哈希表**
-
-遍历数组，将出现过的元素记录在哈希表 $s$ 中。若元素第二次出现时，说明数组中存在重复元素，直接返回 `true`。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return any(a == b for a, b in pairwise(sorted(nums)))
 ```
-
-```python
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        return len(set(nums)) < len(nums)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,22 +70,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean containsDuplicate(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            if (!s.add(num)) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,18 +86,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        return s.size() < nums.size();
-    }
-};
-```
-
-### **Go**
-
 ```go
 func containsDuplicate(nums []int) bool {
 	sort.Ints(nums)
@@ -147,33 +97,6 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 ```
-
-```go
-func containsDuplicate(nums []int) bool {
-	s := map[int]bool{}
-	for _, v := range nums {
-		if s[v] {
-			return true
-		}
-		s[v] = true
-	}
-	return false
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {boolean}
- */
-var containsDuplicate = function (nums) {
-    return new Set(nums).size !== nums.length;
-};
-```
-
-### **TypeScript**
 
 ```ts
 function containsDuplicate(nums: number[]): boolean {
@@ -187,14 +110,6 @@ function containsDuplicate(nums: number[]): boolean {
     return false;
 }
 ```
-
-```ts
-function containsDuplicate(nums: number[]): boolean {
-    return new Set<number>(nums).size !== nums.length;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -211,16 +126,36 @@ impl Solution {
 }
 ```
 
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-        nums.iter().collect::<HashSet<&i32>>().len() != nums.len()
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function (nums) {
+    return new Set(nums).size !== nums.length;
+};
+```
+
+```cs
+public class Solution {
+    public bool ContainsDuplicate(int[] nums) {
+        return nums.Distinct().Count() < nums.Length;
     }
 }
 ```
 
-### **C**
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @return Boolean
+     */
+    function containsDuplicate($nums) {
+        $numsUnique = array_unique($nums);
+        return count($nums) != count($numsUnique);
+    }
+}
+```
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -238,35 +173,74 @@ bool containsDuplicate(int* nums, int numsSize) {
 }
 ```
 
-### **C#**
+<!-- tabs:end -->
 
-```cs
-public class Solution {
-    public bool ContainsDuplicate(int[] nums) {
-        return nums.Distinct().Count() < nums.Length;
-    }
-}
+### 方法二：哈希表
+
+遍历数组，将出现过的元素记录在哈希表 $s$ 中。若元素第二次出现时，说明数组中存在重复元素，直接返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(set(nums)) < len(nums)
 ```
 
-### **PHP**
-
-```php
+```java
 class Solution {
-    /**
-     * @param Integer[] $nums
-     * @return Boolean
-     */
-    function containsDuplicate($nums) {
-        $numsUnique = array_unique($nums);
-        return count($nums) != count($numsUnique);
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (!s.add(num)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 ```
 
-### **...**
-
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        return s.size() < nums.size();
+    }
+};
 ```
 
+```go
+func containsDuplicate(nums []int) bool {
+	s := map[int]bool{}
+	for _, v := range nums {
+		if s[v] {
+			return true
+		}
+		s[v] = true
+	}
+	return false
+}
+```
+
+```ts
+function containsDuplicate(nums: number[]): boolean {
+    return new Set<number>(nums).size !== nums.length;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+        nums.iter().collect::<HashSet<&i32>>().len() != nums.len()
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

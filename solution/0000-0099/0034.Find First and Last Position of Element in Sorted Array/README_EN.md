@@ -33,7 +33,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We can perform binary search twice to find the left and right boundaries respectively.
 
@@ -92,8 +92,6 @@ Note that the advantage of these two templates is that they always keep the answ
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
@@ -101,8 +99,6 @@ class Solution:
         r = bisect_left(nums, target + 1)
         return [-1, -1] if l == r else [l, r - 1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func searchRange(nums []int, target int) []int {
 	l := sort.SearchInts(nums, target)
@@ -154,7 +146,25 @@ func searchRange(nums []int, target int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function searchRange(nums: number[], target: number): number[] {
+    const search = (x: number): number => {
+        let [left, right] = [0, nums.length];
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (nums[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    const l = search(target);
+    const r = search(target + 1);
+    return l === r ? [-1, -1] : [l, r - 1];
+}
+```
 
 ```rust
 impl Solution {
@@ -183,30 +193,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function searchRange(nums: number[], target: number): number[] {
-    const search = (x: number): number => {
-        let [left, right] = [0, nums.length];
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (nums[mid] >= x) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
-    };
-    const l = search(target);
-    const r = search(target + 1);
-    return l === r ? [-1, -1] : [l, r - 1];
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -233,10 +219,6 @@ var searchRange = function (nums, target) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

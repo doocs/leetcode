@@ -51,9 +51,9 @@ row 2: 0<u>1</u>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,14 +64,6 @@ class Solution:
             return self.kthGrammar(n - 1, k)
         return self.kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1
 ```
-
-```python
-class Solution:
-    def kthGrammar(self, n: int, k: int) -> int:
-        return (k - 1).bit_count() & 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,16 +79,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int kthGrammar(int n, int k) {
-        return Integer.bitCount(k - 1) & 1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,17 +89,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int kthGrammar(int n, int k) {
-        return __builtin_popcount(k - 1) & 1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func kthGrammar(n int, k int) int {
@@ -131,16 +102,41 @@ func kthGrammar(n int, k int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def kthGrammar(self, n: int, k: int) -> int:
+        return (k - 1).bit_count() & 1
+```
+
+```java
+class Solution {
+    public int kthGrammar(int n, int k) {
+        return Integer.bitCount(k - 1) & 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int kthGrammar(int n, int k) {
+        return __builtin_popcount(k - 1) & 1;
+    }
+};
+```
+
 ```go
 func kthGrammar(n int, k int) int {
 	return bits.OnesCount(uint(k-1)) & 1
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

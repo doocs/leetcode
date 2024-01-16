@@ -68,9 +68,7 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 我们先调用 `reader.query(0, 1, 2, 3)`，将得到的结果记为 $x$。
 
@@ -83,10 +81,6 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -139,10 +133,6 @@ class Solution:
             return -1
         return 3 if a > b else k
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -204,8 +194,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * // This is the ArrayReader's API interface.
@@ -266,8 +254,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the ArrayReader's API interface.
@@ -327,8 +313,6 @@ func guessMajority(reader *ArrayReader) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * // This is the ArrayReader's API interface.
@@ -385,10 +369,6 @@ function guessMajority(reader: ArrayReader): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue**
+### Solution 1: Greedy + Priority Queue
 
 We can greedily choose the apple that is most likely to rot among the unrotten apples, so that we can eat as many apples as possible.
 
@@ -55,8 +55,6 @@ Therefore, we can use a priority queue (min heap) to store the rotting time of t
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `apples` or `days`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -135,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func eatenApples(apples []int, days []int) int {
@@ -174,10 +166,6 @@ func (a *hp) Push(x any)        { *a = append(*a, x.(pair)) }
 func (a *hp) Pop() any          { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

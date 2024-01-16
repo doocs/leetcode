@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次二分查找**
+### 方法一：两次二分查找
 
 中位数实际上是排序后第 $target = \left \lceil \frac{m\times n}{2} \right \rceil$ 个数。
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(m\times \log n \times log M)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为网格的行数和列数；而 $M$ 为网格中的最大元素。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
         target = (m * n + 1) >> 1
         return bisect_left(range(10**6 + 1), target, key=count)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func matrixMedian(grid [][]int) int {
@@ -178,17 +164,6 @@ func matrixMedian(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

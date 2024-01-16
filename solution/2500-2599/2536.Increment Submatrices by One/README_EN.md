@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                     mat[i][j] -= mat[i - 1][j - 1]
         return mat
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -149,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rangeAddQueries(n int, queries [][]int) [][]int {
 	mat := make([][]int, n)
@@ -187,10 +181,6 @@ func rangeAddQueries(n int, queries [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

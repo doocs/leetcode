@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符统计**
+### 方法一：字符统计
 
 首先，先理解亲密字符串的意思：
 
@@ -68,10 +66,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def buddyStrings(self, s: str, goal: str) -> bool:
@@ -84,10 +78,6 @@ class Solution:
         diff = sum(s[i] != goal[i] for i in range(n))
         return diff == 2 or (diff == 0 and any(v > 1 for v in cnt1.values()))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func buddyStrings(s string, goal string) bool {
@@ -178,8 +164,6 @@ func buddyStrings(s string, goal string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function buddyStrings(s: string, goal: string): boolean {
     const m = s.length;
@@ -206,10 +190,6 @@ function buddyStrings(s: string, goal: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

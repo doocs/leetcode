@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举以每个字符 $s[i]$ 结尾的字符串，计算其引力值之和 $t$，最后将所有 $t$ 相加即可。
 
@@ -73,10 +71,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def appealSum(self, s: str) -> int:
@@ -89,10 +83,6 @@ class Solution:
             pos[c] = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func appealSum(s string) int64 {
@@ -150,8 +136,6 @@ func appealSum(s string) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function appealSum(s: string): number {
     const pos: number[] = Array(26).fill(-1);
@@ -168,10 +152,6 @@ function appealSum(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先从右到左遍历数组，找到第一个满足 $arr[i - 1] \gt arr[i]$ 的下标 $i$，此时 $arr[i - 1]$ 就是我们要交换的数字，我们再从右到左遍历数组，找到第一个满足 $arr[j] \lt arr[i - 1]$ 且 $arr[j] \neq arr[j - 1]$ 的下标 $j$，此时我们交换 $arr[i - 1]$ 和 $arr[j]$ 后返回即可。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
                         return arr
         return arr
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func prevPermOpt1(arr []int) []int {
 	n := len(arr)
@@ -141,8 +127,6 @@ func prevPermOpt1(arr []int) []int {
 	return arr
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function prevPermOpt1(arr: number[]): number[] {
@@ -163,10 +147,6 @@ function prevPermOpt1(arr: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

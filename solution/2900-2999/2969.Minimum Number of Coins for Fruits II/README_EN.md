@@ -55,7 +55,7 @@ It can be proven that 2 is the minimum number of coins needed to acquire all the
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the minimum number of coins needed to buy all fruits starting from the $i$th fruit. So the answer is $f[1]$.
 
@@ -73,8 +73,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -90,8 +88,6 @@ class Solution:
             q.append(i)
         return prices[0]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumCoins(prices []int) int {
@@ -219,8 +211,6 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -338,10 +328,6 @@ class Deque<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

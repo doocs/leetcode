@@ -45,7 +45,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the number of ways to make up the total amount $j$ using only the first $i$ types of coins. Initially, $f[0][0]=1$, and the rest of the elements are $0$. The answer is $f[4][n]$.
 
@@ -79,8 +79,6 @@ We notice that the calculation of $f[i][j]$ is only related to $f[i−1][..]$, s
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def waysToChange(self, n: int) -> int:
@@ -95,20 +93,6 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i][j - c]) % mod
         return f[-1][n]
 ```
-
-```python
-class Solution:
-    def waysToChange(self, n: int) -> int:
-        mod = 10**9 + 7
-        coins = [25, 10, 5, 1]
-        f = [1] + [0] * n
-        for c in coins:
-            for j in range(c, n + 1):
-                f[j] = (f[j] + f[j - c]) % mod
-        return f[n]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,25 +113,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int waysToChange(int n) {
-        final int mod = (int) 1e9 + 7;
-        int[] coins = {25, 10, 5, 1};
-        int[] f = new int[n + 1];
-        f[0] = 1;
-        for (int c : coins) {
-            for (int j = c; j <= n; ++j) {
-                f[j] = (f[j] + f[j - c]) % mod;
-            }
-        }
-        return f[n];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,27 +136,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int waysToChange(int n) {
-        const int mod = 1e9 + 7;
-        vector<int> coins = {25, 10, 5, 1};
-        int f[n + 1];
-        memset(f, 0, sizeof(f));
-        f[0] = 1;
-        for (int c : coins) {
-            for (int j = c; j <= n; ++j) {
-                f[j] = (f[j] + f[j - c]) % mod;
-            }
-        }
-        return f[n];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -213,23 +157,6 @@ func waysToChange(n int) int {
 }
 ```
 
-```go
-func waysToChange(n int) int {
-	const mod int = 1e9 + 7
-	coins := []int{25, 10, 5, 1}
-	f := make([]int, n+1)
-	f[0] = 1
-	for _, c := range coins {
-		for j := c; j <= n; j++ {
-			f[j] = (f[j] + f[j-c]) % mod
-		}
-	}
-	return f[n]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -250,6 +177,75 @@ function waysToChange(n: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def waysToChange(self, n: int) -> int:
+        mod = 10**9 + 7
+        coins = [25, 10, 5, 1]
+        f = [1] + [0] * n
+        for c in coins:
+            for j in range(c, n + 1):
+                f[j] = (f[j] + f[j - c]) % mod
+        return f[n]
+```
+
+```java
+class Solution {
+    public int waysToChange(int n) {
+        final int mod = (int) 1e9 + 7;
+        int[] coins = {25, 10, 5, 1};
+        int[] f = new int[n + 1];
+        f[0] = 1;
+        for (int c : coins) {
+            for (int j = c; j <= n; ++j) {
+                f[j] = (f[j] + f[j - c]) % mod;
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int waysToChange(int n) {
+        const int mod = 1e9 + 7;
+        vector<int> coins = {25, 10, 5, 1};
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (int c : coins) {
+            for (int j = c; j <= n; ++j) {
+                f[j] = (f[j] + f[j - c]) % mod;
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func waysToChange(n int) int {
+	const mod int = 1e9 + 7
+	coins := []int{25, 10, 5, 1}
+	f := make([]int, n+1)
+	f[0] = 1
+	for _, c := range coins {
+		for j := c; j <= n; j++ {
+			f[j] = (f[j] + f[j-c]) % mod
+		}
+	}
+	return f[n]
+}
+```
+
 ```ts
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -265,10 +261,6 @@ function waysToChange(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

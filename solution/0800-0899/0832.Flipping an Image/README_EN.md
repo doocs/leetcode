@@ -49,9 +49,9 @@ Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
                 row[i] ^= 1
         return image
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func flipAndInvertImage(image [][]int) [][]int {
 	for _, row := range image {
@@ -133,8 +127,6 @@ func flipAndInvertImage(image [][]int) [][]int {
 	return image
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -159,10 +151,6 @@ var flipAndInvertImage = function (image) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,9 @@ sleep(100).then(() =&gt; {
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 async function sleep(millis: number): Promise<void> {
@@ -51,10 +51,6 @@ async function sleep(millis: number): Promise<void> {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -93,8 +93,6 @@ class Solution:
             ans.append("")
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -143,8 +141,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -198,8 +194,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func spellchecker(wordlist []string, queries []string) (ans []string) {
 	s := map[string]bool{}
@@ -245,10 +239,6 @@ func spellchecker(wordlist []string, queries []string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

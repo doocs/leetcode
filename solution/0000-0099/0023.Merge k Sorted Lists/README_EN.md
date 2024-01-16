@@ -52,15 +52,13 @@ merging them into one sorted list:
 
 ## Solutions
 
-**Solution 1: Priority Queue (Min Heap)**
+### Solution 1: Priority Queue (Min Heap)
 
 We can create a min heap $pq$ to maintain the head nodes of all linked lists. Each time, we take out the node with the smallest value from the min heap, add it to the end of the result linked list, and then add the next node of this node to the heap. Repeat the above steps until the heap is empty.
 
 The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the total number of all linked list nodes, and $k$ is the number of linked lists given in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -82,8 +80,6 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -118,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -158,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -197,8 +189,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(*ListNode)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -232,80 +222,6 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     return dummy.next;
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-var mergeKLists = function (lists) {
-    const pq = new MinPriorityQueue({ priority: node => node.val });
-    for (const head of lists) {
-        if (head) {
-            pq.enqueue(head);
-        }
-    }
-    const dummy = new ListNode();
-    let cur = dummy;
-    while (!pq.isEmpty()) {
-        const node = pq.dequeue().element;
-        cur.next = node;
-        cur = cur.next;
-        if (node.next) {
-            pq.enqueue(node.next);
-        }
-    }
-    return dummy.next;
-};
-```
-
-### **C#**
-
-```cs
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
-public class Solution {
-    public ListNode MergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode, int> pq = new PriorityQueue<ListNode, int>();
-        foreach (var head in lists) {
-            if (head != null) {
-                pq.Enqueue(head, head.val);
-            }
-        }
-        var dummy = new ListNode();
-        var cur = dummy;
-        while (pq.Count > 0) {
-            var node = pq.Dequeue();
-            cur.next = node;
-            cur = cur.next;
-            if (node.next != null) {
-                pq.Enqueue(node.next, node.next.val);
-            }
-        }
-        return dummy.next;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -356,10 +272,74 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ */
+var mergeKLists = function (lists) {
+    const pq = new MinPriorityQueue({ priority: node => node.val });
+    for (const head of lists) {
+        if (head) {
+            pq.enqueue(head);
+        }
+    }
+    const dummy = new ListNode();
+    let cur = dummy;
+    while (!pq.isEmpty()) {
+        const node = pq.dequeue().element;
+        cur.next = node;
+        cur = cur.next;
+        if (node.next) {
+            pq.enqueue(node.next);
+        }
+    }
+    return dummy.next;
+};
 ```
 
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode MergeKLists(ListNode[] lists) {
+        PriorityQueue<ListNode, int> pq = new PriorityQueue<ListNode, int>();
+        foreach (var head in lists) {
+            if (head != null) {
+                pq.Enqueue(head, head.val);
+            }
+        }
+        var dummy = new ListNode();
+        var cur = dummy;
+        while (pq.Count > 0) {
+            var node = pq.Dequeue();
+            cur.next = node;
+            cur = cur.next;
+            if (node.next != null) {
+                pq.Enqueue(node.next, node.next.val);
+            }
+        }
+        return dummy.next;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

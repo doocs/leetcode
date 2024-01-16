@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,22 +61,6 @@ class Solution:
             stk.append(i)
         return sum(j - i for i, j in enumerate(right))
 ```
-
-```python
-class Solution:
-    def validSubarrays(self, nums: List[int]) -> int:
-        n = len(nums)
-        stk = []
-        ans = 0
-        for i in range(n - 1, -1, -1):
-            while stk and nums[stk[-1]] >= nums[i]:
-                stk.pop()
-            ans += (stk[-1] if stk else n) - i
-            stk.append(i)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,27 +87,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int validSubarrays(int[] nums) {
-        int n = nums.length;
-        Deque<Integer> stk = new ArrayDeque<>();
-        int ans = 0;
-        for (int i = n - 1; i >= 0; --i) {
-            while (!stk.isEmpty() && nums[stk.peek()] >= nums[i]) {
-                stk.pop();
-            }
-            ans += (stk.isEmpty() ? n : stk.peek()) - i;
-
-            stk.push(i);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,27 +112,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int validSubarrays(vector<int>& nums) {
-        int n = nums.size();
-        stack<int> stk;
-        int ans = 0;
-        for (int i = n - 1; ~i; --i) {
-            while (stk.size() && nums[stk.top()] >= nums[i]) {
-                stk.pop();
-            }
-            ans += (stk.size() ? stk.top() : n) - i;
-            stk.push(i);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func validSubarrays(nums []int) (ans int) {
 	n := len(nums)
@@ -194,28 +136,6 @@ func validSubarrays(nums []int) (ans int) {
 }
 ```
 
-```go
-func validSubarrays(nums []int) (ans int) {
-	n := len(nums)
-	stk := []int{}
-	for i := n - 1; i >= 0; i-- {
-		for len(stk) > 0 && nums[stk[len(stk)-1]] >= nums[i] {
-			stk = stk[:len(stk)-1]
-		}
-		ans -= i
-		if len(stk) > 0 {
-			ans += stk[len(stk)-1]
-		} else {
-			ans += n
-		}
-		stk = append(stk, i)
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function validSubarrays(nums: number[]): number {
     const n = nums.length;
@@ -238,6 +158,84 @@ function validSubarrays(nums: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validSubarrays(self, nums: List[int]) -> int:
+        n = len(nums)
+        stk = []
+        ans = 0
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            ans += (stk[-1] if stk else n) - i
+            stk.append(i)
+        return ans
+```
+
+```java
+class Solution {
+    public int validSubarrays(int[] nums) {
+        int n = nums.length;
+        Deque<Integer> stk = new ArrayDeque<>();
+        int ans = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && nums[stk.peek()] >= nums[i]) {
+                stk.pop();
+            }
+            ans += (stk.isEmpty() ? n : stk.peek()) - i;
+
+            stk.push(i);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int validSubarrays(vector<int>& nums) {
+        int n = nums.size();
+        stack<int> stk;
+        int ans = 0;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size() && nums[stk.top()] >= nums[i]) {
+                stk.pop();
+            }
+            ans += (stk.size() ? stk.top() : n) - i;
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func validSubarrays(nums []int) (ans int) {
+	n := len(nums)
+	stk := []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] >= nums[i] {
+			stk = stk[:len(stk)-1]
+		}
+		ans -= i
+		if len(stk) > 0 {
+			ans += stk[len(stk)-1]
+		} else {
+			ans += n
+		}
+		stk = append(stk, i)
+	}
+	return
+}
+```
+
 ```ts
 function validSubarrays(nums: number[]): number {
     const n = nums.length;
@@ -254,10 +252,6 @@ function validSubarrays(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算 + 贪心**
+### 方法一：位运算 + 贪心
 
 根据题目描述，对于一个操作，我们可以将 $nums[i]$ 变为 $nums[i] \text{ AND } nums[j]$，将 $nums[j]$ 变为 $nums[i] \text{ OR } nums[j]$。我们不妨按位考虑，两个 $1$ 或两个 $0$ 进行这样的操作，结果都不会改变，如果是 $1$ 和 $0$ 进行这样的操作，结果会变成 $0$ 和 $1$，也即是说，我们可以将 $1$ 转移到 $0$ 上，而 $0$ 不会转移到 $1$ 上。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$，其中 $M$ 是数组中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
             ans = (ans + x * x) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -154,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSum(nums []int, k int) (ans int) {
 	cnt := [31]int{}
@@ -180,8 +166,6 @@ func maxSum(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSum(nums: number[], k: number): number {
@@ -209,10 +193,6 @@ function maxSum(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

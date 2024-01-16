@@ -69,7 +69,7 @@ It can be proven that 6 is the minimum number of days needed.
 
 ## Solutions
 
-**Solution 1: State Compression + Memorization Search or Dynamic Programming**
+### Solution 1: State Compression + Memorization Search or Dynamic Programming
 
 Since defeating monsters can increase the daily magic power gain $gain$, the order of defeating monsters affects the result, so we need to enumerate. Noting that the data range of the problem is small, we consider using state compression dynamic programming to solve it.
 
@@ -78,8 +78,6 @@ We define a state $mask$ to represent the current situation of defeating monster
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the number of monsters.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,22 +96,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def minimumTime(self, power: List[int]) -> int:
-        n = len(power)
-        dp = [inf] * (1 << n)
-        dp[0] = 0
-        for mask in range(1, 1 << n):
-            cnt = mask.bit_count()
-            for i, v in enumerate(power):
-                if (mask >> i) & 1:
-                    dp[mask] = min(dp[mask], dp[mask ^ (1 << i)] + (v + cnt - 1) // cnt)
-        return dp[-1]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -150,28 +132,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long minimumTime(int[] power) {
-        int n = power.length;
-        long[] dp = new long[1 << n];
-        Arrays.fill(dp, Long.MAX_VALUE);
-        dp[0] = 0;
-        for (int mask = 1; mask < 1 << n; ++mask) {
-            int cnt = Integer.bitCount(mask);
-            for (int i = 0; i < n; ++i) {
-                if (((mask >> i) & 1) == 1) {
-                    dp[mask] = Math.min(dp[mask], dp[mask ^ (1 << i)] + (power[i] + cnt - 1) / cnt);
-                }
-            }
-        }
-        return dp[(1 << n) - 1];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -203,28 +163,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    long long minimumTime(vector<int>& power) {
-        int n = power.size();
-        vector<long long> dp(1 << n, LONG_MAX);
-        dp[0] = 0;
-        for (int mask = 1; mask < 1 << n; ++mask) {
-            int cnt = __builtin_popcount(mask);
-            for (int i = 0; i < n; ++i) {
-                if ((mask >> i) & 1) {
-                    dp[mask] = min(dp[mask], dp[mask ^ (1 << i)] + (power[i] + cnt - 1) / cnt);
-                }
-            }
-        }
-        return dp[(1 << n) - 1];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func minimumTime(power []int) int64 {
 	n := len(power)
@@ -254,28 +192,6 @@ func minimumTime(power []int) int64 {
 	return dfs(0)
 }
 ```
-
-```go
-func minimumTime(power []int) int64 {
-	n := len(power)
-	dp := make([]int64, 1<<n)
-	for i := range dp {
-		dp[i] = math.MaxInt64
-	}
-	dp[0] = 0
-	for mask := 1; mask < 1<<n; mask++ {
-		cnt := bits.OnesCount(uint(mask))
-		for i, v := range power {
-			if ((mask >> i) & 1) == 1 {
-				dp[mask] = min(dp[mask], dp[mask^(1<<i)]+int64((v+cnt-1)/cnt))
-			}
-		}
-	}
-	return dp[len(dp)-1]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function minimumTime(power: number[]): number {
@@ -313,6 +229,86 @@ function bitCount(x) {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumTime(self, power: List[int]) -> int:
+        n = len(power)
+        dp = [inf] * (1 << n)
+        dp[0] = 0
+        for mask in range(1, 1 << n):
+            cnt = mask.bit_count()
+            for i, v in enumerate(power):
+                if (mask >> i) & 1:
+                    dp[mask] = min(dp[mask], dp[mask ^ (1 << i)] + (v + cnt - 1) // cnt)
+        return dp[-1]
+```
+
+```java
+class Solution {
+    public long minimumTime(int[] power) {
+        int n = power.length;
+        long[] dp = new long[1 << n];
+        Arrays.fill(dp, Long.MAX_VALUE);
+        dp[0] = 0;
+        for (int mask = 1; mask < 1 << n; ++mask) {
+            int cnt = Integer.bitCount(mask);
+            for (int i = 0; i < n; ++i) {
+                if (((mask >> i) & 1) == 1) {
+                    dp[mask] = Math.min(dp[mask], dp[mask ^ (1 << i)] + (power[i] + cnt - 1) / cnt);
+                }
+            }
+        }
+        return dp[(1 << n) - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long minimumTime(vector<int>& power) {
+        int n = power.size();
+        vector<long long> dp(1 << n, LONG_MAX);
+        dp[0] = 0;
+        for (int mask = 1; mask < 1 << n; ++mask) {
+            int cnt = __builtin_popcount(mask);
+            for (int i = 0; i < n; ++i) {
+                if ((mask >> i) & 1) {
+                    dp[mask] = min(dp[mask], dp[mask ^ (1 << i)] + (power[i] + cnt - 1) / cnt);
+                }
+            }
+        }
+        return dp[(1 << n) - 1];
+    }
+};
+```
+
+```go
+func minimumTime(power []int) int64 {
+	n := len(power)
+	dp := make([]int64, 1<<n)
+	for i := range dp {
+		dp[i] = math.MaxInt64
+	}
+	dp[0] = 0
+	for mask := 1; mask < 1<<n; mask++ {
+		cnt := bits.OnesCount(uint(mask))
+		for i, v := range power {
+			if ((mask >> i) & 1) == 1 {
+				dp[mask] = min(dp[mask], dp[mask^(1<<i)]+int64((v+cnt-1)/cnt))
+			}
+		}
+	}
+	return dp[len(dp)-1]
+}
+```
+
 ```ts
 function minimumTime(power: number[]): number {
     const n = power.length;
@@ -340,11 +336,6 @@ function bitCount(x) {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

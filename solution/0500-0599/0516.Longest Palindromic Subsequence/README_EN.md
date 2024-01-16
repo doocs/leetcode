@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
                     dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
         return dp[0][-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPalindromeSubseq(s string) int {
 	n := len(s)
@@ -127,10 +121,6 @@ func longestPalindromeSubseq(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

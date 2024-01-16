@@ -47,9 +47,9 @@ The only letter that appears twice is &#39;d&#39; so we return &#39;d&#39;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,19 +60,6 @@ class Solution:
             if cnt[c] == 2:
                 return c
 ```
-
-```python
-class Solution:
-    def repeatedCharacter(self, s: str) -> str:
-        mask = 0
-        for c in s:
-            i = ord(c) - ord('a')
-            if mask >> i & 1:
-                return c
-            mask |= 1 << i
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,23 +75,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public char repeatedCharacter(String s) {
-        int mask = 0;
-        for (int i = 0;; ++i) {
-            char c = s.charAt(i);
-            if ((mask >> (c - 'a') & 1) == 1) {
-                return c;
-            }
-            mask |= 1 << (c - 'a');
-        }
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,23 +89,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    char repeatedCharacter(string s) {
-        int mask = 0;
-        for (int i = 0;; ++i) {
-            if (mask >> (s[i] - 'a') & 1) {
-                return s[i];
-            }
-            mask |= 1 << (s[i] - 'a');
-        }
-    }
-};
-```
-
-### **Go**
-
 ```go
 func repeatedCharacter(s string) byte {
 	cnt := [26]int{}
@@ -147,20 +100,6 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
-
-```go
-func repeatedCharacter(s string) byte {
-	mask := 0
-	for i := 0; ; i++ {
-		if mask>>(s[i]-'a')&1 == 1 {
-			return s[i]
-		}
-		mask |= 1 << (s[i] - 'a')
-	}
-}
-```
-
-### **TypeScript**
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -176,22 +115,6 @@ function repeatedCharacter(s: string): string {
 }
 ```
 
-```ts
-function repeatedCharacter(s: string): string {
-    let mask = 0;
-    for (const c of s) {
-        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
-        if (mask & (1 << i)) {
-            return c;
-        }
-        mask |= 1 << i;
-    }
-    return ' ';
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn repeated_character(s: String) -> char {
@@ -206,51 +129,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn repeated_character(s: String) -> char {
-        let mut mask = 0;
-        for &c in s.as_bytes() {
-            if (mask & (1 << ((c - b'a') as i32))) != 0 {
-                return c as char;
-            }
-            mask |= 1 << ((c - b'a') as i32);
-        }
-        ' '
-    }
-}
-```
-
-### **C**
-
-```c
-char repeatedCharacter(char* s) {
-    int vis[26] = {0};
-    for (int i = 0; s[i]; i++) {
-        if (vis[s[i] - 'a']) {
-            return s[i];
-        }
-        vis[s[i] - 'a']++;
-    }
-    return ' ';
-}
-```
-
-```c
-char repeatedCharacter(char* s) {
-    int mask = 0;
-    for (int i = 0; s[i]; i++) {
-        if (mask & (1 << s[i] - 'a')) {
-            return s[i];
-        }
-        mask |= 1 << s[i] - 'a';
-    }
-    return ' ';
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -269,10 +147,120 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+char repeatedCharacter(char* s) {
+    int vis[26] = {0};
+    for (int i = 0; s[i]; i++) {
+        if (vis[s[i] - 'a']) {
+            return s[i];
+        }
+        vis[s[i] - 'a']++;
+    }
+    return ' ';
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+        mask = 0
+        for c in s:
+            i = ord(c) - ord('a')
+            if mask >> i & 1:
+                return c
+            mask |= 1 << i
+```
+
+```java
+class Solution {
+    public char repeatedCharacter(String s) {
+        int mask = 0;
+        for (int i = 0;; ++i) {
+            char c = s.charAt(i);
+            if ((mask >> (c - 'a') & 1) == 1) {
+                return c;
+            }
+            mask |= 1 << (c - 'a');
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+        int mask = 0;
+        for (int i = 0;; ++i) {
+            if (mask >> (s[i] - 'a') & 1) {
+                return s[i];
+            }
+            mask |= 1 << (s[i] - 'a');
+        }
+    }
+};
+```
+
+```go
+func repeatedCharacter(s string) byte {
+	mask := 0
+	for i := 0; ; i++ {
+		if mask>>(s[i]-'a')&1 == 1 {
+			return s[i]
+		}
+		mask |= 1 << (s[i] - 'a')
+	}
+}
+```
+
+```ts
+function repeatedCharacter(s: string): string {
+    let mask = 0;
+    for (const c of s) {
+        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
+        if (mask & (1 << i)) {
+            return c;
+        }
+        mask |= 1 << i;
+    }
+    return ' ';
+}
+```
+
+```rust
+impl Solution {
+    pub fn repeated_character(s: String) -> char {
+        let mut mask = 0;
+        for &c in s.as_bytes() {
+            if (mask & (1 << ((c - b'a') as i32))) != 0 {
+                return c as char;
+            }
+            mask |= 1 << ((c - b'a') as i32);
+        }
+        ' '
+    }
+}
+```
+
+```c
+char repeatedCharacter(char* s) {
+    int mask = 0;
+    for (int i = 0; s[i]; i++) {
+        if (mask & (1 << s[i] - 'a')) {
+            return s[i];
+        }
+        mask |= 1 << s[i] - 'a';
+    }
+    return ' ';
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

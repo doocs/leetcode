@@ -24,7 +24,7 @@
 
 ## 解法
 
-**方法一：双指针**
+### 方法一：双指针
 
 我们定义两个指针 $i$ 和 $j$，其中指针 $i$ 指向当前元素，指针 $j$ 指向当前最后一个奇数的下一个位置。
 
@@ -33,8 +33,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -46,8 +44,6 @@ class Solution:
                 j += 1
         return nums
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +61,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -82,8 +76,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func exchange(nums []int) []int {
 	j := 0
@@ -97,7 +89,34 @@ func exchange(nums []int) []int {
 }
 ```
 
-### **JavaScript**
+```ts
+function exchange(nums: number[]): number[] {
+    let j = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] & 1) {
+            const t = nums[i];
+            nums[i] = nums[j];
+            nums[j++] = t;
+        }
+    }
+    return nums;
+}
+```
+
+```rust
+impl Solution {
+    pub fn exchange(mut nums: Vec<i32>) -> Vec<i32> {
+        let mut j = 0;
+        for i in 0..nums.len() {
+            if nums[i] % 2 == 1 {
+                nums.swap(i, j);
+                j += 1;
+            }
+        }
+        nums
+    }
+}
+```
 
 ```js
 /**
@@ -117,41 +136,6 @@ var exchange = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function exchange(nums: number[]): number[] {
-    let j = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        if (nums[i] & 1) {
-            const t = nums[i];
-            nums[i] = nums[j];
-            nums[j++] = t;
-        }
-    }
-    return nums;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn exchange(mut nums: Vec<i32>) -> Vec<i32> {
-        let mut j = 0;
-        for i in 0..nums.len() {
-            if nums[i] % 2 == 1 {
-                nums.swap(i, j);
-                j += 1;
-            }
-        }
-        nums
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int[] Exchange(int[] nums) {
@@ -168,10 +152,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

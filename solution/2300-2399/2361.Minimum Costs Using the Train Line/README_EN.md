@@ -61,9 +61,9 @@ Note that the expressCost is paid again to transfer back to the express route.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -80,24 +80,6 @@ class Solution:
             cost[i - 1] = min(f[i], g[i])
         return cost
 ```
-
-```python
-class Solution:
-    def minimumCosts(
-        self, regular: List[int], express: List[int], expressCost: int
-    ) -> List[int]:
-        n = len(regular)
-        f, g = 0, inf
-        cost = [0] * n
-        for i, (a, b) in enumerate(zip(regular, express), 1):
-            ff = min(f + a, g + a)
-            gg = min(f + expressCost + b, g + b)
-            f, g = ff, gg
-            cost[i - 1] = min(f, g)
-        return cost
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,29 +101,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long[] minimumCosts(int[] regular, int[] express, int expressCost) {
-        int n = regular.length;
-        long f = 0;
-        long g = 1 << 30;
-        long[] cost = new long[n];
-        for (int i = 0; i < n; ++i) {
-            int a = regular[i];
-            int b = express[i];
-            long ff = Math.min(f + a, g + a);
-            long gg = Math.min(f + expressCost + b, g + b);
-            f = ff;
-            g = gg;
-            cost[i] = Math.min(f, g);
-        }
-        return cost;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,6 +121,83 @@ public:
         return cost;
     }
 };
+```
+
+```go
+func minimumCosts(regular []int, express []int, expressCost int) []int64 {
+	n := len(regular)
+	f := make([]int, n+1)
+	g := make([]int, n+1)
+	g[0] = 1 << 30
+	cost := make([]int64, n)
+	for i := 1; i <= n; i++ {
+		a, b := regular[i-1], express[i-1]
+		f[i] = min(f[i-1]+a, g[i-1]+a)
+		g[i] = min(f[i-1]+expressCost+b, g[i-1]+b)
+		cost[i-1] = int64(min(f[i], g[i]))
+	}
+	return cost
+}
+```
+
+```ts
+function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
+    const n = regular.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    const g: number[] = new Array(n + 1).fill(0);
+    g[0] = 1 << 30;
+    const cost: number[] = new Array(n).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        const [a, b] = [regular[i - 1], express[i - 1]];
+        f[i] = Math.min(f[i - 1] + a, g[i - 1] + a);
+        g[i] = Math.min(f[i - 1] + expressCost + b, g[i - 1] + b);
+        cost[i - 1] = Math.min(f[i], g[i]);
+    }
+    return cost;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumCosts(
+        self, regular: List[int], express: List[int], expressCost: int
+    ) -> List[int]:
+        n = len(regular)
+        f, g = 0, inf
+        cost = [0] * n
+        for i, (a, b) in enumerate(zip(regular, express), 1):
+            ff = min(f + a, g + a)
+            gg = min(f + expressCost + b, g + b)
+            f, g = ff, gg
+            cost[i - 1] = min(f, g)
+        return cost
+```
+
+```java
+class Solution {
+    public long[] minimumCosts(int[] regular, int[] express, int expressCost) {
+        int n = regular.length;
+        long f = 0;
+        long g = 1 << 30;
+        long[] cost = new long[n];
+        for (int i = 0; i < n; ++i) {
+            int a = regular[i];
+            int b = express[i];
+            long ff = Math.min(f + a, g + a);
+            long gg = Math.min(f + expressCost + b, g + b);
+            f = ff;
+            g = gg;
+            cost[i] = Math.min(f, g);
+        }
+        return cost;
+    }
+}
 ```
 
 ```cpp
@@ -186,25 +222,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minimumCosts(regular []int, express []int, expressCost int) []int64 {
-	n := len(regular)
-	f := make([]int, n+1)
-	g := make([]int, n+1)
-	g[0] = 1 << 30
-	cost := make([]int64, n)
-	for i := 1; i <= n; i++ {
-		a, b := regular[i-1], express[i-1]
-		f[i] = min(f[i-1]+a, g[i-1]+a)
-		g[i] = min(f[i-1]+expressCost+b, g[i-1]+b)
-		cost[i-1] = int64(min(f[i], g[i]))
-	}
-	return cost
-}
-```
-
 ```go
 func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	f, g := 0, 1<<30
@@ -217,25 +234,6 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 		cost[i] = int64(min(f, g))
 	}
 	return cost
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
-    const n = regular.length;
-    const f: number[] = new Array(n + 1).fill(0);
-    const g: number[] = new Array(n + 1).fill(0);
-    g[0] = 1 << 30;
-    const cost: number[] = new Array(n).fill(0);
-    for (let i = 1; i <= n; ++i) {
-        const [a, b] = [regular[i - 1], express[i - 1]];
-        f[i] = Math.min(f[i - 1] + a, g[i - 1] + a);
-        g[i] = Math.min(f[i - 1] + expressCost + b, g[i - 1] + b);
-        cost[i - 1] = Math.min(f[i], g[i]);
-    }
-    return cost;
 }
 ```
 
@@ -256,10 +254,6 @@ function minimumCosts(regular: number[], express: number[], expressCost: number)
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

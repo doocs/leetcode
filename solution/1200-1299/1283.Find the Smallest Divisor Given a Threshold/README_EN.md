@@ -38,7 +38,7 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 Notice that for number $v$, if the sum of results of dividing each number in $nums$ by $v$ is less than or equal to $threshold$, then all values greater than $v$ satisfy the condition. There is a monotonicity, so we can use binary search to find the smallest $v$ that satisfies the condition.
 
@@ -49,8 +49,6 @@ Finally, return $l$.
 The time complexity is $O(n \times \log M)$, where $n$ is the length of the array $nums$ and $M$ is the maximum value in the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,18 +62,6 @@ class Solution:
                 l = mid + 1
         return l
 ```
-
-```python
-class Solution:
-    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        def f(v: int) -> bool:
-            v += 1
-            return sum((x + v - 1) // v for x in nums) <= threshold
-
-        return bisect_left(range(max(nums)), True, key=f) + 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestDivisor(nums []int, threshold int) int {
 	return sort.Search(1000000, func(v int) bool {
@@ -138,7 +120,25 @@ func smallestDivisor(nums []int, threshold int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function smallestDivisor(nums: number[], threshold: number): number {
+    let l = 1;
+    let r = Math.max(...nums);
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        let s = 0;
+        for (const x of nums) {
+            s += Math.ceil(x / mid);
+        }
+        if (s <= threshold) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
 
 ```js
 /**
@@ -165,30 +165,6 @@ var smallestDivisor = function (nums, threshold) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function smallestDivisor(nums: number[], threshold: number): number {
-    let l = 1;
-    let r = Math.max(...nums);
-    while (l < r) {
-        const mid = (l + r) >> 1;
-        let s = 0;
-        for (const x of nums) {
-            s += Math.ceil(x / mid);
-        }
-        if (s <= threshold) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return l;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int SmallestDivisor(int[] nums, int threshold) {
@@ -211,10 +187,22 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        def f(v: int) -> bool:
+            v += 1
+            return sum((x + v - 1) // v for x in nums) <= threshold
+
+        return bisect_left(range(max(nums)), True, key=f) + 1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,17 +51,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-可以认为，每次操作只会让壶里的水带来 x 或者 y 的变化量。因此只要满足 `ax + by = z` 即可。
-
-根据裴蜀定理，`ax + by = z` 有解，当且仅当 z 是 x，y 的最大公约数的倍数。所以我们只要找到 x，y 的最大公约数，然后判断 z 是否是这个最大公约数的倍数即可求得答案。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,22 +93,6 @@ class Solution:
                 stk.append([0, cur1 + cur2])
         return False
 ```
-
-```python
-class Solution:
-    def canMeasureWater(
-        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
-    ) -> bool:
-        if jug1Capacity + jug2Capacity < targetCapacity:
-            return False
-        if jug1Capacity == 0 or jug2Capacity == 0:
-            return targetCapacity == 0 or jug1Capacity + jug2Capacity == targetCapacity
-        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -159,26 +135,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
-        if (jug1Capacity + jug2Capacity < targetCapacity) {
-            return false;
-        }
-        if (jug1Capacity == 0 || jug2Capacity == 0) {
-            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
-        }
-        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
-    }
-
-    private int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -194,8 +150,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canMeasureWater(jug1Capacity int, jug2Capacity int, targetCapacity int) bool {
@@ -217,10 +171,70 @@ func canMeasureWater(jug1Capacity int, jug2Capacity int, targetCapacity int) boo
 }
 ```
 
-### **...**
+```cs
+using System;
 
-```
+public class Solution {
+    public bool CanMeasureWater(int x, int y, int z) {
+        if (x == 0 || y == 0) return z == x || z == y;
+        var gcd = GetGcd(x, y);
+        return z >= 0 && z <= x + y && z % gcd == 0;
+    }
 
+    private int GetGcd(int x, int y)
+    {
+        while (x > 0)
+        {
+            var quotient = x / y;
+            var reminder = x % y;
+            if (reminder == 0)
+            {
+                return y;
+            }
+            x = y;
+            y = reminder;
+        }
+        throw new Exception("Invalid x or y");
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canMeasureWater(
+        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
+    ) -> bool:
+        if jug1Capacity + jug2Capacity < targetCapacity:
+            return False
+        if jug1Capacity == 0 or jug2Capacity == 0:
+            return targetCapacity == 0 or jug1Capacity + jug2Capacity == targetCapacity
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0
+```
+
+```java
+class Solution {
+    public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+        if (jug1Capacity + jug2Capacity < targetCapacity) {
+            return false;
+        }
+        if (jug1Capacity == 0 || jug2Capacity == 0) {
+            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
+        }
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

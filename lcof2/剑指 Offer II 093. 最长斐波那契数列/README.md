@@ -53,18 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-动态规划。
-
--   状态表示：`dp[j][i]` 表示斐波那契式最后两项为 `arr[j]`, `arr[i]` 时的最大子序列长度。
--   状态计算：`dp[j][i] = dp[k][j] + 1`（当且仅当 `k < j < i`，并且 `arr[k] + arr[j] == arr[i]`）, `ans = max(ans, dp[j][i])`。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +77,6 @@ class Solution:
                         ans = max(ans, dp[j][i])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lenLongestFibSubseq(arr []int) int {
 	n := len(arr)
@@ -186,10 +169,6 @@ func lenLongestFibSubseq(arr []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

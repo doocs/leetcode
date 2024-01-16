@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 我们可以用哈希表 $d$ 记录每个字母出现的下标，然后遍历哈希表，判断每个字母的下标之差是否等于 `distance` 中对应的值。如果出现不等的情况，直接返回 `false`。如果遍历结束后，没有出现不等的情况，返回 `true`。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             d[c] = i
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkDistances(s string, distance []int) bool {
 	d := [26]int{}
@@ -130,25 +116,6 @@ func checkDistances(s string, distance []int) bool {
 	return true
 }
 ```
-
-### **C**
-
-```c
-bool checkDistances(char* s, int* distance, int distanceSize) {
-    int n = strlen(s);
-    int d[26] = {0};
-    for (int i = 0; i < n; i++) {
-        int j = s[i] - 'a';
-        if (d[j] > 0 && i - d[j] != distance[j]) {
-            return false;
-        }
-        d[j] = i + 1;
-    }
-    return true;
-}
-```
-
-### **TypeScript**
 
 ```ts
 function checkDistances(s: string, distance: number[]): boolean {
@@ -164,8 +131,6 @@ function checkDistances(s: string, distance: number[]): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -186,11 +151,21 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-
+```c
+bool checkDistances(char* s, int* distance, int distanceSize) {
+    int n = strlen(s);
+    int d[26] = {0};
+    for (int i = 0; i < n; i++) {
+        int j = s[i] - 'a';
+        if (d[j] > 0 && i - d[j] != distance[j]) {
+            return false;
+        }
+        d[j] = i + 1;
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -33,11 +33,9 @@
 
 ## Solutions
 
-Binary Indexed Tree.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -78,8 +76,6 @@ class StreamRank:
 # obj.track(x)
 # param_2 = obj.getRankOfNumber(x)
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -135,8 +131,6 @@ class StreamRank {
  * int param_2 = obj.getRankOfNumber(x);
  */
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -194,8 +188,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -252,10 +244,6 @@ func (this *StreamRank) GetRankOfNumber(x int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

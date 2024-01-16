@@ -57,13 +57,9 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
@@ -77,3 +73,5 @@ END;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

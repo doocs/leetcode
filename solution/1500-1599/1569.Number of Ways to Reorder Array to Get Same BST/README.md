@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：组合计数 + 递归**
+### 方法一：组合计数 + 递归
 
 我们设计一个函数 $dfs(nums)$，它的功能是计算以 $nums$ 为节点构成的二叉搜索树的方案数。那么答案就是 $dfs(nums)-1$，因为 $dfs(nums)$ 计算的是以 $nums$ 为节点构成的二叉搜索树的方案数，而题目要求的是重排后与原数组 $nums$ 得到相同二叉搜索树的方案数，因此答案需要减去一。
 
@@ -84,10 +82,6 @@ $$
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
                 c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod
         return (dfs(nums) - 1 + mod) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,8 +148,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -195,8 +183,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numOfWays(nums []int) int {
@@ -234,8 +220,6 @@ func numOfWays(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numOfWays(nums: number[]): number {
     const n = nums.length;
@@ -271,10 +255,6 @@ function numOfWays(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

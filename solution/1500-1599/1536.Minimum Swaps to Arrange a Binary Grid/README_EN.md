@@ -46,15 +46,13 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We process row by row. For the $i$-th row, the position of the last '1' must be less than or equal to $i$. We find the first row that meets the condition in $[i, n)$, denoted as $k$. Then, starting from the $k$-th row, we swap the adjacent two rows upwards until the $i$-th row.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the side length of the grid.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
                 k -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -122,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSwaps(grid [][]int) (ans int) {
 	n := len(grid)
@@ -197,8 +189,6 @@ func minSwaps(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSwaps(grid: number[][]): number {
     const n = grid.length;
@@ -232,10 +222,6 @@ function minSwaps(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

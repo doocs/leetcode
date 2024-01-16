@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆向思维 + 拓扑排序**
+### 方法一：逆向思维 + 拓扑排序
 
 如果我们正向地对序列进行操作，那么处理起来会比较麻烦，因为后续的操作会把前面的操作覆盖掉。我们不妨考虑逆向地对序列进行操作，即从目标字符串 $target$ 开始，考虑将 $target$ 变成 $?????$ 的过程。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n \times (n - m + 1))$，空间复杂度 $O(n \times (n - m + 1))$。其中 $n$ 和 $m$ 分别是目标字符串 $target$ 和字母印章的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
                             q.append(k)
         return ans[::-1] if all(vis) else []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -157,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -205,8 +193,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func movesToStamp(stamp string, target string) (ans []int) {
@@ -258,8 +244,6 @@ func movesToStamp(stamp string, target string) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function movesToStamp(stamp: string, target: string): number[] {
     const m: number = stamp.length;
@@ -302,8 +286,6 @@ function movesToStamp(stamp: string, target: string): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -365,10 +347,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

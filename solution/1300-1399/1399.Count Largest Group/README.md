@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表或数组**
+### 方法一：哈希表或数组
 
 我们注意到数字范围不超过 $10^4$，因此数位和的范围也不超过 $9 \times 4 = 36$，因此我们可以用哈希表或者一个长度为 $40$ 的数组 $cnt$ 来统计每个数位和的个数，用一个变量 $mx$ 表示最大的数位和个数。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $(\log M)$。其中 $n$ 为给定的数字，而 $M$ 是 $n$ 的数字范围。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countLargestGroup(n int) (ans int) {
 	cnt := [40]int{}
@@ -161,8 +147,6 @@ func countLargestGroup(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countLargestGroup(n: number): number {
@@ -186,10 +170,6 @@ function countLargestGroup(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

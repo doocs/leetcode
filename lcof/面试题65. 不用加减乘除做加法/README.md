@@ -24,9 +24,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 两数字 $a$, $b$ 求和。
 
@@ -50,12 +48,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-由于 Python `int` 是无限长整型，左移不会自动溢出，因此需要特殊处理。
-
 ```python
 class Solution:
     def add(self, a: int, b: int) -> int:
@@ -65,10 +57,6 @@ class Solution:
             a, b = a ^ b, c
         return a if a < 0x80000000 else ~(a ^ 0xFFFFFFFF)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -82,19 +70,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int add(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-        return add(a ^ b, (a & b) << 1);
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func add(a int, b int) int {
 	if b == 0 {
@@ -121,7 +94,16 @@ func add(a int, b int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function add(a: number, b: number): number {
+    while (b) {
+        const c = (a & b) << 1;
+        a ^= b;
+        b = c;
+    }
+    return a;
+}
+```
 
 ```js
 /**
@@ -137,8 +119,6 @@ var add = function (a, b) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int Add(int a, int b) {
@@ -153,23 +133,23 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function add(a: number, b: number): number {
-    while (b) {
-        const c = (a & b) << 1;
-        a ^= b;
-        b = c;
+### 方法二
+
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int add(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return add(a ^ b, (a & b) << 1);
     }
-    return a;
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

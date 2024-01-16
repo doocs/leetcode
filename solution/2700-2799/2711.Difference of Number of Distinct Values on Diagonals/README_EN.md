@@ -57,9 +57,9 @@ The answers of other cells are similarly calculated.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
                 ans[i][j] = abs(tl - br)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func differenceOfDistinctValues(grid [][]int) [][]int {
@@ -182,8 +176,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function differenceOfDistinctValues(grid: number[][]): number[][] {
     const m = grid.length;
@@ -212,10 +204,6 @@ function differenceOfDistinctValues(grid: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

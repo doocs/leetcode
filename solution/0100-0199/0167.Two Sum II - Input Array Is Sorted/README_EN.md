@@ -50,21 +50,13 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 Note that the array is sorted in non-decreasing order, so for each `numbers[i]`, we can find the position of `target - numbers[i]` by binary search, and return $[i + 1, j + 1]$ if it exists.
 
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the array `numbers`. The space complexity is $O(1)$.
 
-**Solution 2: Two Pointers**
-
-We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $numbers[i] + numbers[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
-
-The time complexity is $O(n)$, where $n$ is the length of the array `numbers`. The space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,22 +68,6 @@ class Solution:
             if j < n and numbers[j] == x:
                 return [i + 1, j + 1]
 ```
-
-```python
-class Solution:
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        i, j = 0, len(numbers) - 1
-        while i < j:
-            x = numbers[i] + numbers[j]
-            if x == target:
-                return [i + 1, j + 1]
-            if x < target:
-                i += 1
-            else:
-                j -= 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,26 +91,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int[] twoSum(int[] numbers, int target) {
-        for (int i = 0, j = numbers.length - 1;;) {
-            int x = numbers[i] + numbers[j];
-            if (x == target) {
-                return new int[] {i + 1, j + 1};
-            }
-            if (x < target) {
-                ++i;
-            } else {
-                --j;
-            }
-        }
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,27 +106,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        for (int i = 0, j = numbers.size() - 1;;) {
-            int x = numbers[i] + numbers[j];
-            if (x == target) {
-                return {i + 1, j + 1};
-            }
-            if (x < target) {
-                ++i;
-            } else {
-                --j;
-            }
-        }
-    }
-};
-```
-
-### **Go**
-
 ```go
 func twoSum(numbers []int, target int) []int {
 	for i, n := 0, len(numbers); ; i++ {
@@ -183,24 +118,6 @@ func twoSum(numbers []int, target int) []int {
 }
 ```
 
-```go
-func twoSum(numbers []int, target int) []int {
-	for i, j := 0, len(numbers)-1; ; {
-		x := numbers[i] + numbers[j]
-		if x == target {
-			return []int{i + 1, j + 1}
-		}
-		if x < target {
-			i++
-		} else {
-			j--
-		}
-	}
-}
-```
-
-### **TypeScript**
-
 ```ts
 function twoSum(numbers: number[], target: number): number[] {
     const n = numbers.length;
@@ -222,74 +139,6 @@ function twoSum(numbers: number[], target: number): number[] {
     }
 }
 ```
-
-```ts
-function twoSum(numbers: number[], target: number): number[] {
-    for (let i = 0, j = numbers.length - 1; ; ) {
-        const x = numbers[i] + numbers[j];
-        if (x === target) {
-            return [i + 1, j + 1];
-        }
-        if (x < target) {
-            ++i;
-        } else {
-            --j;
-        }
-    }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} numbers
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function (numbers, target) {
-    const n = numbers.length;
-    for (let i = 0; ; ++i) {
-        const x = target - numbers[i];
-        let l = i + 1;
-        let r = n - 1;
-        while (l < r) {
-            const mid = (l + r) >> 1;
-            if (numbers[mid] >= x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        if (numbers[l] === x) {
-            return [i + 1, l + 1];
-        }
-    }
-};
-```
-
-```js
-/**
- * @param {number[]} numbers
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function (numbers, target) {
-    for (let i = 0, j = numbers.length - 1; ; ) {
-        const x = numbers[i] + numbers[j];
-        if (x === target) {
-            return [i + 1, j + 1];
-        }
-        if (x < target) {
-            ++i;
-        } else {
-            --j;
-        }
-    }
-};
-```
-
-### **Rust**
 
 ```rust
 use std::cmp::Ordering;
@@ -317,10 +166,147 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (numbers, target) {
+    const n = numbers.length;
+    for (let i = 0; ; ++i) {
+        const x = target - numbers[i];
+        let l = i + 1;
+        let r = n - 1;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (numbers[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        if (numbers[l] === x) {
+            return [i + 1, l + 1];
+        }
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+### Solution 2: Two Pointers
+
+We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $numbers[i] + numbers[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `numbers`. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i, j = 0, len(numbers) - 1
+        while i < j:
+            x = numbers[i] + numbers[j]
+            if x == target:
+                return [i + 1, j + 1]
+            if x < target:
+                i += 1
+            else:
+                j -= 1
+```
+
+```java
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        for (int i = 0, j = numbers.length - 1;;) {
+            int x = numbers[i] + numbers[j];
+            if (x == target) {
+                return new int[] {i + 1, j + 1};
+            }
+            if (x < target) {
+                ++i;
+            } else {
+                --j;
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        for (int i = 0, j = numbers.size() - 1;;) {
+            int x = numbers[i] + numbers[j];
+            if (x == target) {
+                return {i + 1, j + 1};
+            }
+            if (x < target) {
+                ++i;
+            } else {
+                --j;
+            }
+        }
+    }
+};
+```
+
+```go
+func twoSum(numbers []int, target int) []int {
+	for i, j := 0, len(numbers)-1; ; {
+		x := numbers[i] + numbers[j]
+		if x == target {
+			return []int{i + 1, j + 1}
+		}
+		if x < target {
+			i++
+		} else {
+			j--
+		}
+	}
+}
+```
+
+```ts
+function twoSum(numbers: number[], target: number): number[] {
+    for (let i = 0, j = numbers.length - 1; ; ) {
+        const x = numbers[i] + numbers[j];
+        if (x === target) {
+            return [i + 1, j + 1];
+        }
+        if (x < target) {
+            ++i;
+        } else {
+            --j;
+        }
+    }
+}
+```
+
+```js
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (numbers, target) {
+    for (let i = 0, j = numbers.length - 1; ; ) {
+        const x = numbers[i] + numbers[j];
+        if (x === target) {
+            return [i + 1, j + 1];
+        }
+        if (x < target) {
+            ++i;
+        } else {
+            --j;
+        }
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

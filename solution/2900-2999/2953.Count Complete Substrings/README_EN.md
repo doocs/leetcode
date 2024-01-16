@@ -45,7 +45,7 @@
 
 ## Solutions
 
-**Solution 1: Enumerate Character Types + Sliding Window**
+### Solution 1: Enumerate Character Types + Sliding Window
 
 According to condition 2 in the problem description, we can find that in a complete string, the difference between two adjacent characters does not exceed 2. Therefore, we traverse the string $word$, and we can use two pointers to split $word$ into several substrings. The number of character types in these substrings does not exceed 26, and the difference between adjacent characters does not exceed 2. Next, we only need to count the number of substrings in each substring where each character appears $k$ times.
 
@@ -56,8 +56,6 @@ We can use an array or hash table $cnt$ to maintain the number of times each cha
 The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $word$; and $\Sigma$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -94,8 +92,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -151,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -207,8 +201,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countCompleteSubstrings(word string, k int) (ans int) {
@@ -267,8 +259,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countCompleteSubstrings(word: string, k: number): number {
     const f = (s: string): number => {
@@ -325,10 +315,6 @@ function countCompleteSubstrings(word: string, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示整数 $i$ 的二进制表示中 $1$ 的个数。那么对于一个整数 $i$，它的二进制表示中 $1$ 的个数为 $f[i \wedge (i - 1)] + 1$，其中 $i \wedge (i - 1)$ 是将 $i$ 的二进制表示中的最低位的 $1$ 变成 $0$ 之后的数，显然 $i \wedge (i - 1) \lt i$，且 $f[i \wedge (i - 1)]$ 已经被计算出来了，因此我们可以得到状态转移方程：
 
@@ -71,10 +69,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -83,10 +77,6 @@ class Solution:
             f[i] = f[i & (i - 1)] + 1
         return f
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countBits(n int) []int {
 	f := make([]int, n+1)
@@ -126,8 +112,6 @@ func countBits(n int) []int {
 	return f
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countBits(n: number): number[] {
@@ -139,10 +123,6 @@ function countBits(n: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

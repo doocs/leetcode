@@ -59,9 +59,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
             pos[x].popleft()
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isTransformable(s string, t string) bool {
 	pos := [10][]int{}
@@ -155,10 +149,6 @@ func isTransformable(s string, t string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

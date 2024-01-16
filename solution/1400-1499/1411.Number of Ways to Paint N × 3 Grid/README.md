@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递推**
+### 方法一：递推
 
 把每一行所有可能的状态进行分类。根据对称性原理，当一行只有 $3$ 个元素时，所有合法状态分类为 $010$ 型以及 $012$ 型。
 
@@ -71,7 +69,89 @@
 
 时间复杂度 $O(n)$，其中 $n$ 是网格的行数。空间复杂度 $O(1)$。
 
-**方法二：状态压缩 + 动态规划**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numOfWays(self, n: int) -> int:
+        mod = 10**9 + 7
+        f0 = f1 = 6
+        for _ in range(n - 1):
+            g0 = (3 * f0 + 2 * f1) % mod
+            g1 = (2 * f0 + 2 * f1) % mod
+            f0, f1 = g0, g1
+        return (f0 + f1) % mod
+```
+
+```java
+class Solution {
+    public int numOfWays(int n) {
+        int mod = (int) 1e9 + 7;
+        long f0 = 6, f1 = 6;
+        for (int i = 0; i < n - 1; ++i) {
+            long g0 = (3 * f0 + 2 * f1) % mod;
+            long g1 = (2 * f0 + 2 * f1) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+}
+```
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    int numOfWays(int n) {
+        int mod = 1e9 + 7;
+        ll f0 = 6, f1 = 6;
+        while (--n) {
+            ll g0 = (f0 * 3 + f1 * 2) % mod;
+            ll g1 = (f0 * 2 + f1 * 2) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+};
+```
+
+```go
+func numOfWays(n int) int {
+	mod := int(1e9) + 7
+	f0, f1 := 6, 6
+	for n > 1 {
+		n--
+		g0 := (f0*3 + f1*2) % mod
+		g1 := (f0*2 + f1*2) % mod
+		f0, f1 = g0, g1
+	}
+	return (f0 + f1) % mod
+}
+```
+
+```ts
+function numOfWays(n: number): number {
+    const mod: number = 10 ** 9 + 7;
+    let f0: number = 6;
+    let f1: number = 6;
+
+    for (let i = 1; i < n; i++) {
+        const g0: number = (3 * f0 + 2 * f1) % mod;
+        const g1: number = (2 * f0 + 2 * f1) % mod;
+        f0 = g0;
+        f1 = g1;
+    }
+
+    return (f0 + f1) % mod;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：状态压缩 + 动态规划
 
 我们注意到，网格只有 $3$ 列，那么一行中最多有 $3^3=27$ 种不同的涂色方案。
 
@@ -90,22 +170,6 @@ $$
 时间复杂度 $O((m + n) \times 3^{2m})$，空间复杂度 $O(3^m)$。其中 $n$ 和 $m$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def numOfWays(self, n: int) -> int:
-        mod = 10**9 + 7
-        f0 = f1 = 6
-        for _ in range(n - 1):
-            g0 = (3 * f0 + 2 * f1) % mod
-            g1 = (2 * f0 + 2 * f1) % mod
-            f0, f1 = g0, g1
-        return (f0 + f1) % mod
-```
 
 ```python
 class Solution:
@@ -143,26 +207,6 @@ class Solution:
                     g[j] = (g[j] + f[i]) % mod
             f = g
         return sum(f) % mod
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int numOfWays(int n) {
-        int mod = (int) 1e9 + 7;
-        long f0 = 6, f1 = 6;
-        for (int i = 0; i < n - 1; ++i) {
-            long g0 = (3 * f0 + 2 * f1) % mod;
-            long g1 = (2 * f0 + 2 * f1) % mod;
-            f0 = g0;
-            f1 = g1;
-        }
-        return (int) (f0 + f1) % mod;
-    }
-}
 ```
 
 ```java
@@ -225,27 +269,6 @@ class Solution {
         return true;
     }
 }
-```
-
-### **C++**
-
-```cpp
-using ll = long long;
-
-class Solution {
-public:
-    int numOfWays(int n) {
-        int mod = 1e9 + 7;
-        ll f0 = 6, f1 = 6;
-        while (--n) {
-            ll g0 = (f0 * 3 + f1 * 2) % mod;
-            ll g1 = (f0 * 2 + f1 * 2) % mod;
-            f0 = g0;
-            f1 = g1;
-        }
-        return (int) (f0 + f1) % mod;
-    }
-};
 ```
 
 ```cpp
@@ -311,22 +334,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func numOfWays(n int) int {
-	mod := int(1e9) + 7
-	f0, f1 := 6, 6
-	for n > 1 {
-		n--
-		g0 := (f0*3 + f1*2) % mod
-		g1 := (f0*2 + f1*2) % mod
-		f0, f1 = g0, g1
-	}
-	return (f0 + f1) % mod
-}
-```
-
 ```go
 func numOfWays(n int) (ans int) {
 	f1 := func(x int) bool {
@@ -381,25 +388,6 @@ func numOfWays(n int) (ans int) {
 		ans = (ans + x) % mod
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function numOfWays(n: number): number {
-    const mod: number = 10 ** 9 + 7;
-    let f0: number = 6;
-    let f1: number = 6;
-
-    for (let i = 1; i < n; i++) {
-        const g0: number = (3 * f0 + 2 * f1) % mod;
-        const g1: number = (2 * f0 + 2 * f1) % mod;
-        f0 = g0;
-        f1 = g1;
-    }
-
-    return (f0 + f1) % mod;
 }
 ```
 
@@ -461,10 +449,6 @@ function numOfWays(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

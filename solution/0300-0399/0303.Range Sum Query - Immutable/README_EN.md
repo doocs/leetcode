@@ -46,15 +46,13 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 
 ## Solutions
 
-**Solution 1: Prefix Sum**
+### Solution 1: Prefix Sum
 
 We create a prefix sum array $s$ of length $n + 1$, where $s[i]$ represents the prefix sum of the first $i$ elements, that is, $s[i] = \sum_{j=0}^{i-1} nums[j]$. Therefore, the sum of the elements between the indices $[left, right]$ can be expressed as $s[right + 1] - s[left]$.
 
 The time complexity for initializing the prefix sum array $s$ is $O(n)$, and the time complexity for querying is $O(1)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class NumArray:
@@ -69,8 +67,6 @@ class NumArray:
 # obj = NumArray(nums)
 # param_1 = obj.sumRange(left,right)
 ```
-
-### **Java**
 
 ```java
 class NumArray {
@@ -95,8 +91,6 @@ class NumArray {
  * int param_1 = obj.sumRange(left,right);
  */
 ```
-
-### **C++**
 
 ```cpp
 class NumArray {
@@ -124,8 +118,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type NumArray struct {
 	s []int
@@ -151,38 +143,6 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- */
-var NumArray = function (nums) {
-    const n = nums.length;
-    this.s = Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        this.s[i + 1] = this.s[i] + nums[i];
-    }
-};
-
-/**
- * @param {number} left
- * @param {number} right
- * @return {number}
- */
-NumArray.prototype.sumRange = function (left, right) {
-    return this.s[right + 1] - this.s[left];
-};
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * var obj = new NumArray(nums)
- * var param_1 = obj.sumRange(left,right)
- */
-```
-
-### **TypeScript**
-
 ```ts
 class NumArray {
     private s: number[];
@@ -206,8 +166,6 @@ class NumArray {
  * var param_1 = obj.sumRange(left,right)
  */
 ```
-
-### **Rust**
 
 ```rust
 struct NumArray {
@@ -238,7 +196,62 @@ impl NumArray {
  */
 ```
 
-### **C**
+```js
+/**
+ * @param {number[]} nums
+ */
+var NumArray = function (nums) {
+    const n = nums.length;
+    this.s = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        this.s[i + 1] = this.s[i] + nums[i];
+    }
+};
+
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+NumArray.prototype.sumRange = function (left, right) {
+    return this.s[right + 1] - this.s[left];
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * var param_1 = obj.sumRange(left,right)
+ */
+```
+
+```php
+class NumArray {
+    /**
+     * @param Integer[] $nums
+     */
+    function __construct($nums) {
+        $this->s = [0];
+        foreach ($nums as $x) {
+            $this->s[] = $this->s[count($this->s) - 1] + $x;
+        }
+    }
+
+    /**
+     * @param Integer $left
+     * @param Integer $right
+     * @return Integer
+     */
+    function sumRange($left, $right) {
+        return $this->s[$right + 1] - $this->s[$left];
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * $obj = NumArray($nums);
+ * $ret_1 = $obj->sumRange($left, $right);
+ */
+```
 
 ```c
 typedef struct {
@@ -274,41 +287,6 @@ void numArrayFree(NumArray* obj) {
 */
 ```
 
-### **PHP**
-
-```php
-class NumArray {
-    /**
-     * @param Integer[] $nums
-     */
-    function __construct($nums) {
-        $this->s = [0];
-        foreach ($nums as $x) {
-            $this->s[] = $this->s[count($this->s) - 1] + $x;
-        }
-    }
-
-    /**
-     * @param Integer $left
-     * @param Integer $right
-     * @return Integer
-     */
-    function sumRange($left, $right) {
-        return $this->s[$right + 1] - $this->s[$left];
-    }
-}
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * $obj = NumArray($nums);
- * $ret_1 = $obj->sumRange($left, $right);
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

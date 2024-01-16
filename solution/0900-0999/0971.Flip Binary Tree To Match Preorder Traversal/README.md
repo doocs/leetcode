@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们可以通过深度优先搜索的方式遍历整棵树，用一个下标 $i$ 记录当前遍历到的节点在数组 $voyage$ 中的下标，如果当前遍历到的节点的值不等于 $voyage[i]$，那么说明翻转后无法匹配，我们标记 $ok$ 为 `false`，并直接返回。否则，我们将 $i$ 的值加 $1$，然后判断当前节点是否有左子节点，如果没有，或者左子节点的值等于 $voyage[i]$，那么我们递归遍历当前的左右子节点；否则，我们需要翻转当前节点，然后再递归遍历当前的右子节点和左子节点。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中的节点数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -103,10 +97,6 @@ class Solution:
         dfs(root)
         return ans if ok else [-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -158,8 +148,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -202,8 +190,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -243,8 +229,6 @@ func flipMatchVoyage(root *TreeNode, voyage []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -287,10 +271,6 @@ function flipMatchVoyage(root: TreeNode | null, voyage: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

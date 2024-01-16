@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Find Predecessor Node**
+### Solution 1: Find Predecessor Node
 
 The visit order of preorder traversal is "root, left subtree, right subtree". After the last node of the left subtree is visited, the right subtree node of the root node will be visited next.
 
@@ -55,8 +55,6 @@ Therefore, for the current node, if its left child node is not null, we find the
 The time complexity is $O(n)$, where $n$ is the number of nodes in the tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -81,8 +79,6 @@ class Solution:
             root = root.right
 ```
 
-### **Java**
-
 ```java
 /**
  * Definition for a binary tree node.
@@ -103,11 +99,16 @@ class Solution {
     public void flatten(TreeNode root) {
         while (root != null) {
             if (root.left != null) {
+                // 找到当前节点左子树的最右节点
                 TreeNode pre = root.left;
                 while (pre.right != null) {
                     pre = pre.right;
                 }
+
+                // 将左子树的最右节点指向原来的右子树
                 pre.right = root.right;
+
+                // 将当前节点指向左子树
                 root.right = root.left;
                 root.left = null;
             }
@@ -116,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -150,7 +149,64 @@ public:
 };
 ```
 
-### **Rust**
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func flatten(root *TreeNode) {
+	for root != nil {
+		if root.Left != nil {
+			pre := root.Left
+			for pre.Right != nil {
+				pre = pre.Right
+			}
+			pre.Right = root.Right
+			root.Right = root.Left
+			root.Left = nil
+		}
+		root = root.Right
+	}
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/**
+ Do not return anything, modify root in-place instead.
+ */
+function flatten(root: TreeNode | null): void {
+    while (root !== null) {
+        if (root.left !== null) {
+            let pre = root.left;
+            while (pre.right !== null) {
+                pre = pre.right;
+            }
+            pre.right = root.right;
+            root.right = root.left;
+            root.left = null;
+        }
+        root = root.right;
+    }
+}
+```
 
 ```rust
 // Definition for a binary tree node.
@@ -207,96 +263,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func flatten(root *TreeNode) {
-	for root != nil {
-		if root.Left != nil {
-			pre := root.Left
-			for pre.Right != nil {
-				pre = pre.Right
-			}
-			pre.Right = root.Right
-			root.Right = root.Left
-			root.Left = nil
-		}
-		root = root.Right
-	}
-}
-```
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func flatten(root *TreeNode) {
-	for root != nil {
-		left, right := root.Left, root.Right
-		root.Left = nil
-		if left != nil {
-			root.Right = left
-			for left.Right != nil {
-				left = left.Right
-			}
-			left.Right = right
-		}
-		root = root.Right
-	}
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-/**
- Do not return anything, modify root in-place instead.
- */
-function flatten(root: TreeNode | null): void {
-    while (root !== null) {
-        if (root.left !== null) {
-            let pre = root.left;
-            while (pre.right !== null) {
-                pre = pre.right;
-            }
-            pre.right = root.right;
-            root.right = root.left;
-            root.left = null;
-        }
-        root = root.right;
-    }
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -326,10 +292,37 @@ var flatten = function (root) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func flatten(root *TreeNode) {
+	for root != nil {
+		left, right := root.Left, root.Right
+		root.Left = nil
+		if left != nil {
+			root.Right = left
+			for left.Right != nil {
+				left = left.Right
+			}
+			left.Right = right
+		}
+		root = root.Right
+	}
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

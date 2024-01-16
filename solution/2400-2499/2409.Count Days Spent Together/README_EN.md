@@ -40,15 +40,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We convert the dates into days, and then calculate the number of days both people are in Rome.
 
 The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is a constant.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
         y = sum(days[: int(b[:2]) - 1]) + int(b[3:])
         return max(y - x + 1, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, leaveBob string) int {
@@ -147,17 +139,6 @@ func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, 
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

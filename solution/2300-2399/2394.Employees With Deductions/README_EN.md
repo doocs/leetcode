@@ -95,9 +95,9 @@ Employee 3:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -117,3 +117,5 @@ WHERE IFNULL(tot, 0) < needed_hours;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

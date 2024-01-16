@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 我们可以利用差分数组的思想，将每个行程的乘客数加到起点，减去终点，最后我们只需要判断差分数组的前缀和是否都不大于车的最大载客量即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 是行程数，而 $M$ 是行程中最大的终点，本题中 $M \le 1000$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
             d[t] -= x
         return all(s <= capacity for s in accumulate(d))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func carPooling(trips [][]int, capacity int) bool {
 	d := [1001]int{}
@@ -137,34 +123,6 @@ func carPooling(trips [][]int, capacity int) bool {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} trips
- * @param {number} capacity
- * @return {boolean}
- */
-var carPooling = function (trips, capacity) {
-    const mx = Math.max(...trips.map(([, , t]) => t));
-    const d = Array(mx + 1).fill(0);
-    for (const [x, f, t] of trips) {
-        d[f] += x;
-        d[t] -= x;
-    }
-    let s = 0;
-    for (const x of d) {
-        s += x;
-        if (s > capacity) {
-            return false;
-        }
-    }
-    return true;
-};
-```
-
-### **TypeScript**
-
 ```ts
 function carPooling(trips: number[][], capacity: number): boolean {
     const mx = Math.max(...trips.map(([, , t]) => t));
@@ -183,32 +141,6 @@ function carPooling(trips: number[][], capacity: number): boolean {
     return true;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool CarPooling(int[][] trips, int capacity) {
-        int mx = trips.Max(x => x[2]);
-        int[] d = new int[mx + 1];
-        foreach (var trip in trips) {
-            int x = trip[0], f = trip[1], t = trip[2];
-            d[f] += x;
-            d[t] -= x;
-        }
-        int s = 0;
-        foreach (var x in d) {
-            s += x;
-            if (s > capacity) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -234,10 +166,52 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * @param {number[][]} trips
+ * @param {number} capacity
+ * @return {boolean}
+ */
+var carPooling = function (trips, capacity) {
+    const mx = Math.max(...trips.map(([, , t]) => t));
+    const d = Array(mx + 1).fill(0);
+    for (const [x, f, t] of trips) {
+        d[f] += x;
+        d[t] -= x;
+    }
+    let s = 0;
+    for (const x of d) {
+        s += x;
+        if (s > capacity) {
+            return false;
+        }
+    }
+    return true;
+};
 ```
 
+```cs
+public class Solution {
+    public bool CarPooling(int[][] trips, int capacity) {
+        int mx = trips.Max(x => x[2]);
+        int[] d = new int[mx + 1];
+        foreach (var trip in trips) {
+            int x = trip[0], f = trip[1], t = trip[2];
+            d[f] += x;
+            d[t] -= x;
+        }
+        int s = 0;
+        foreach (var x in d) {
+            s += x;
+            if (s > capacity) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -66,15 +66,13 @@ Hence, the minimum achievable length is 1.
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue (Max Heap)**
+### Solution 1: Greedy + Priority Queue (Max Heap)
 
 We use a hash table $cnt$ to count the occurrence of each element in the array $nums$, then add each value in $cnt$ to a priority queue (max heap) $pq$. Each time we take out two elements $x$ and $y$ from $pq$, decrease their values by one. If the value after decrement is still greater than $0$, we add the decremented value back to $pq$. Each time we take out two elements from $pq$, it means we delete a pair of numbers from the array, so the length of the array decreases by $2$. When the size of $pq$ is less than $2$, we stop the deletion operation.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -94,8 +92,6 @@ class Solution:
             ans -= 2
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,8 +122,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -161,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minLengthAfterRemovals(nums []int) int {
@@ -202,8 +194,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **TypeScript**
-
 ```ts
 function minLengthAfterRemovals(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -230,10 +220,6 @@ function minLengthAfterRemovals(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

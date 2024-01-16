@@ -54,9 +54,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
             ans.append(least < s[t + 1] and most > s[t])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -113,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canEat(candiesCount []int, queries [][]int) (ans []bool) {
 	n := len(candiesCount)
@@ -131,10 +125,6 @@ func canEat(candiesCount []int, queries [][]int) (ans []bool) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

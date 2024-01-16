@@ -54,9 +54,7 @@ nums[0] 和 nums[1] 形成一个数对，并从 nums 中移除，nums = [2] 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以统计数组 `nums` 中每个数字 $x$ 出现的次数，记录在哈希表或数组 `cnt` 中。
 
@@ -70,10 +68,6 @@ nums[0] 和 nums[1] 形成一个数对，并从 nums 中移除，nums = [2] 。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfPairs(self, nums: List[int]) -> List[int]:
@@ -81,10 +75,6 @@ class Solution:
         s = sum(v // 2 for v in cnt.values())
         return [s, len(nums) - s * 2]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfPairs(nums []int) []int {
 	cnt := [101]int{}
@@ -137,8 +123,6 @@ func numberOfPairs(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfPairs(nums: number[]): number[] {
     const n = nums.length;
@@ -150,8 +134,6 @@ function numberOfPairs(nums: number[]): number[] {
     return [sum, n - sum * 2];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -170,7 +152,36 @@ impl Solution {
 }
 ```
 
-### **C**
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var numberOfPairs = function (nums) {
+    const cnt = new Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    const s = cnt.reduce((a, b) => a + (b >> 1), 0);
+    return [s, nums.length - s * 2];
+};
+```
+
+```cs
+public class Solution {
+    public int[] NumberOfPairs(int[] nums) {
+        int[] cnt = new int[101];
+        foreach(int x in nums) {
+            ++cnt[x];
+        }
+        int s = 0;
+        foreach(int v in cnt) {
+            s += v / 2;
+        }
+        return new int[] {s, nums.Length - s * 2};
+    }
+}
+```
 
 ```c
 /**
@@ -193,45 +204,6 @@ int* numberOfPairs(int* nums, int numsSize, int* returnSize) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var numberOfPairs = function (nums) {
-    const cnt = new Array(101).fill(0);
-    for (const x of nums) {
-        ++cnt[x];
-    }
-    const s = cnt.reduce((a, b) => a + (b >> 1), 0);
-    return [s, nums.length - s * 2];
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int[] NumberOfPairs(int[] nums) {
-        int[] cnt = new int[101];
-        foreach(int x in nums) {
-            ++cnt[x];
-        }
-        int s = 0;
-        foreach(int v in cnt) {
-            s += v / 2;
-        }
-        return new int[] {s, nums.Length - s * 2};
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

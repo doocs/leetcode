@@ -112,15 +112,11 @@ Frozen 2 和 Joker 在 2 月的评分都是 3.5，但是 Frozen 2 的字典序�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Union all**
+### 方法一：Union all
 
 分别查询两个结果，然后使用 `union all` 合并结果集。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -147,3 +143,5 @@ UNION ALL
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

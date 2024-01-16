@@ -62,15 +62,13 @@ M             1000</pre>
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We can first list all possible symbols $cs$ and their corresponding values $vs$, then enumerate each value $vs[i]$ from large to small. Each time, we use as many symbols $cs[i]$ corresponding to this value as possible, until the number $num$ becomes $0$.
 
 The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the number of symbols.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
                 ans.append(c)
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func intToRoman(num int) string {
 	cs := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
@@ -142,8 +134,6 @@ func intToRoman(num int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function intToRoman(num: number): string {
     const cs: string[] = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
@@ -158,8 +148,6 @@ function intToRoman(num: number): string {
     return ans.join('');
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -178,10 +166,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

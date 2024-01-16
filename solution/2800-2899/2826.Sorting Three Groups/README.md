@@ -74,9 +74,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示将前 $i$ 个数变成美丽数组，并且第 $i$ 个数变成 $j+1$ 的最少操作次数。那么答案就是 $\min(f[n][0], f[n][1], f[n][2])$。
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,32 +105,6 @@ class Solution:
             f, g, h = ff, gg, hh
         return min(f, g, h)
 ```
-
-```python
-class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
-        f = [0] * 3
-        for x in nums:
-            g = [0] * 3
-            if x == 1:
-                g[0] = f[0]
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f) + 1
-            elif x == 2:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2])
-                g[2] = min(f) + 1
-            else:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f)
-            f = g
-        return min(f)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +131,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -193,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumOperations(nums []int) int {
 	f := make([]int, 3)
@@ -218,8 +182,6 @@ func minimumOperations(nums []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumOperations(nums: number[]): number {
@@ -245,10 +207,34 @@ function minimumOperations(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        f = [0] * 3
+        for x in nums:
+            g = [0] * 3
+            if x == 1:
+                g[0] = f[0]
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f) + 1
+            elif x == 2:
+                g[0] = f[0] + 1
+                g[1] = min(f[:2])
+                g[2] = min(f) + 1
+            else:
+                g[0] = f[0] + 1
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f)
+            f = g
+        return min(f)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

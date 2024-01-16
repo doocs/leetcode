@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 N = 10001
@@ -74,8 +74,6 @@ class Solution:
             ans = (ans + x - 1) % MOD
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +127,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 int N = 10001;
@@ -187,8 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const n = 1e4 + 1
 const mod = 1e9 + 7
@@ -240,10 +234,6 @@ func countGoodSubsequences(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们使用二分，将数组分割成 $[left,.. mid]$, $[mid + 1,.. right]$ 两部分，这时候可以发现，其中有一部分一定是有序的。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(\log n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                     right = mid
         return left if nums[left] == target else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,10 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func search(nums []int, target int) int {
@@ -183,15 +167,8 @@ func search(nums []int, target int) int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var search = function (nums, target) {
+```ts
+function search(nums: number[], target: number): number {
     const n = nums.length;
     let left = 0,
         right = n - 1;
@@ -212,10 +189,8 @@ var search = function (nums, target) {
         }
     }
     return nums[left] == target ? left : -1;
-};
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -247,10 +222,13 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function search(nums: number[], target: number): number {
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function (nums, target) {
     const n = nums.length;
     let left = 0,
         right = n - 1;
@@ -271,13 +249,9 @@ function search(nums: number[], target: number): number {
         }
     }
     return nums[left] == target ? left : -1;
-}
-```
-
-### **...**
-
-```
-
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

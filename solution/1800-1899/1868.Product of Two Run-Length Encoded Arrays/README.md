@@ -59,9 +59,7 @@ prodNums = [2,2,2,6,9,9]，压缩成行程编码数组 [[2,3],[6,1],[9,2]]。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用两个指针 $i$ 和 $j$ 分别指向两个数组的当前位置，然后开始模拟乘法的过程。
 
@@ -72,10 +70,6 @@ prodNums = [2,2,2,6,9,9]，压缩成行程编码数组 [[2,3],[6,1],[9,2]]。
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个数组的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
                     j += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findRLEArray(encoded1 [][]int, encoded2 [][]int) (ans [][]int) {
 	j := 0
@@ -187,10 +173,6 @@ func findRLEArray(encoded1 [][]int, encoded2 [][]int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

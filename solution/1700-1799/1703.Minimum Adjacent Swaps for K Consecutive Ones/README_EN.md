@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Median Enumeration**
+### Solution 1: Prefix Sum + Median Enumeration
 
 We can store the indices of $1$s in the array $nums$ into an array $arr$. Next, we preprocess the prefix sum array $s$ of the array $arr$, where $s[i]$ represents the sum of the first $i$ elements in the array $arr$.
 
@@ -55,8 +55,6 @@ We enumerate the index $i$ of the median, where $x-1\leq i\leq len(arr)-y$. The 
 The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the length of the array $nums$ and the number of $1$s in the array $nums$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,8 +73,6 @@ class Solution:
             ans = min(ans, a + b)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMoves(nums []int, k int) int {
 	arr := []int{}
@@ -172,10 +164,6 @@ func minMoves(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

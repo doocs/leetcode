@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Enumeration**
+### Solution 1: Hash Table + Enumeration
 
 According to the description of the problem, a powerful integer can be represented as $x^i + y^j$, where $i \geq 0$, $j \geq 0$.
 
@@ -56,8 +56,6 @@ Therefore, we can use double loop to enumerate all possible $x^i$ and $y^j$, den
 The time complexity is $O(\log^2 bound)$, and the space complexity is $O(\log^2 bound)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
             a *= x
         return list(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func powerfulIntegers(x int, y int, bound int) (ans []int) {
 	s := map[int]struct{}{}
@@ -145,8 +137,6 @@ func powerfulIntegers(x int, y int, bound int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function powerfulIntegers(x: number, y: number, bound: number): number[] {
     const ans = new Set<number>();
@@ -164,8 +154,6 @@ function powerfulIntegers(x: number, y: number, bound: number): number[] {
     return Array.from(ans);
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -191,10 +179,6 @@ var powerfulIntegers = function (x, y, bound) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

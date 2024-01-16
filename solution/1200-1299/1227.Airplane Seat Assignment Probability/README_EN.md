@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 Let $f(n)$ represent the probability that the $n$th passenger will sit in their own seat when there are $n$ passengers boarding. Consider from the simplest case:
 
@@ -119,15 +119,11 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def nthPersonGetsNthSeat(self, n: int) -> float:
         return 1 if n == 1 else 0.5
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -136,8 +132,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nthPersonGetsNthSeat(n int) float64 {
 	if n == 1 {
@@ -159,10 +151,6 @@ func nthPersonGetsNthSeat(n int) float64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

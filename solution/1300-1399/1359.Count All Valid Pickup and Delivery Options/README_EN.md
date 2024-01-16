@@ -45,7 +45,7 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the number of all valid pickup/delivery sequences for $i$ orders. Initially, $f[1] = 1$.
 
@@ -63,8 +63,6 @@ The time complexity is $O(n)$, where $n$ is the number of orders. The space comp
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def countOrders(self, n: int) -> int:
@@ -74,8 +72,6 @@ class Solution:
             f = (f * i * (2 * i - 1)) % mod
         return f
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,7 +100,16 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func countOrders(n int) int {
+	const mod = 1e9 + 7
+	f := 1
+	for i := 2; i <= n; i++ {
+		f = f * i * (2*i - 1) % mod
+	}
+	return f
+}
+```
 
 ```rust
 const MOD: i64 = (1e9 as i64) + 7;
@@ -123,23 +126,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func countOrders(n int) int {
-	const mod = 1e9 + 7
-	f := 1
-	for i := 2; i <= n; i++ {
-		f = f * i * (2*i - 1) % mod
-	}
-	return f
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

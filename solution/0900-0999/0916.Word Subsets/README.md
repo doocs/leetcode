@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 遍历 `words2` 中的每个单词 `b`，统计每个字母出现的最大次数，记为 `cnt`。
 
@@ -82,10 +80,6 @@
 时间复杂度 $O(L)$，其中 $L$ 为 `words1` 和 `words2` 中所有单词的长度之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
                 ans.append(a)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -181,8 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wordSubsets(words1 []string, words2 []string) (ans []string) {
 	cnt := [26]int{}
@@ -215,10 +201,6 @@ func wordSubsets(words1 []string, words2 []string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

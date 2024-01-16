@@ -38,15 +38,87 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def prefixCount(self, words: List[str], pref: str) -> int:
         return sum(w.startswith(pref) for w in words)
 ```
+
+```java
+class Solution {
+    public int prefixCount(String[] words, String pref) {
+        int ans = 0;
+        for (String w : words) {
+            if (w.startsWith(pref)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int prefixCount(vector<string>& words, string pref) {
+        int ans = 0;
+        for (auto& w : words) ans += w.find(pref) == 0;
+        return ans;
+    }
+};
+```
+
+```go
+func prefixCount(words []string, pref string) (ans int) {
+	for _, w := range words {
+		if strings.HasPrefix(w, pref) {
+			ans++
+		}
+	}
+	return
+}
+```
+
+```ts
+function prefixCount(words: string[], pref: string): number {
+    return words.reduce((r, s) => (r += s.startsWith(pref) ? 1 : 0), 0);
+}
+```
+
+```rust
+impl Solution {
+    pub fn prefix_count(words: Vec<String>, pref: String) -> i32 {
+        words
+            .iter()
+            .filter(|s| s.starts_with(&pref))
+            .count() as i32
+    }
+}
+```
+
+```c
+int prefixCount(char** words, int wordsSize, char* pref) {
+    int ans = 0;
+    int n = strlen(pref);
+    for (int i = 0; i < wordsSize; i++) {
+        if (strncmp(words[i], pref, n) == 0) {
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -79,22 +151,6 @@ class Solution:
         for w in words:
             tree.insert(w)
         return tree.search(pref)
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int prefixCount(String[] words, String pref) {
-        int ans = 0;
-        for (String w : words) {
-            if (w.startsWith(pref)) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -136,19 +192,6 @@ class Solution {
         return tree.search(pref);
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int prefixCount(vector<string>& words, string pref) {
-        int ans = 0;
-        for (auto& w : words) ans += w.find(pref) == 0;
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -199,19 +242,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func prefixCount(words []string, pref string) (ans int) {
-	for _, w := range words {
-		if strings.HasPrefix(w, pref) {
-			ans++
-		}
-	}
-	return
-}
-```
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -255,46 +285,6 @@ func prefixCount(words []string, pref string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function prefixCount(words: string[], pref: string): number {
-    return words.reduce((r, s) => (r += s.startsWith(pref) ? 1 : 0), 0);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn prefix_count(words: Vec<String>, pref: String) -> i32 {
-        words
-            .iter()
-            .filter(|s| s.starts_with(&pref))
-            .count() as i32
-    }
-}
-```
-
-### **C**
-
-```c
-int prefixCount(char** words, int wordsSize, char* pref) {
-    int ans = 0;
-    int n = strlen(pref);
-    for (int i = 0; i < wordsSize; i++) {
-        if (strncmp(words[i], pref, n) == 0) {
-            ans++;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

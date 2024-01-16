@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                 right -= 1
         return nums[left]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,7 +99,40 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+func findMin(nums []int) int {
+	left, right := 0, len(nums)-1
+	for left < right {
+		mid := (left + right) >> 1
+		if nums[mid] > nums[right] {
+			left = mid + 1
+		} else if nums[mid] < nums[right] {
+			right = mid
+		} else {
+			right--
+		}
+	}
+	return nums[left]
+}
+```
+
+```ts
+function findMin(nums: number[]): number {
+    let left = 0,
+        right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else if (nums[mid] < nums[right]) {
+            right = mid;
+        } else {
+            --right;
+        }
+    }
+    return nums[left];
+}
+```
 
 ```js
 /**
@@ -127,49 +156,6 @@ var findMin = function (nums) {
 };
 ```
 
-### **Go**
-
-```go
-func findMin(nums []int) int {
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
-		if nums[mid] > nums[right] {
-			left = mid + 1
-		} else if nums[mid] < nums[right] {
-			right = mid
-		} else {
-			right--
-		}
-	}
-	return nums[left]
-}
-```
-
-### **TypeScript**
-
-```ts
-function findMin(nums: number[]): number {
-    let left = 0,
-        right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
-        } else if (nums[mid] < nums[right]) {
-            right = mid;
-        } else {
-            --right;
-        }
-    }
-    return nums[left];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,9 +45,9 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class RangeFreqQuery:
@@ -68,8 +68,6 @@ class RangeFreqQuery:
 # obj = RangeFreqQuery(arr)
 # param_1 = obj.query(left,right,value)
 ```
-
-### **Java**
 
 ```java
 class RangeFreqQuery {
@@ -112,8 +110,6 @@ class RangeFreqQuery {
  */
 ```
 
-### **C++**
-
 ```cpp
 class RangeFreqQuery {
 public:
@@ -138,8 +134,6 @@ public:
  * int param_1 = obj->query(left,right,value);
  */
 ```
-
-### **Go**
 
 ```go
 type RangeFreqQuery struct {
@@ -168,10 +162,6 @@ func (this *RangeFreqQuery) Query(left int, right int, value int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 哈希表**
+### 方法一：前缀和 + 哈希表
 
 我们可以先求出数组 $nums$ 所有元素之和模 $p$ 的值，记为 $k$。如果 $k$ 为 $0$，说明数组 $nums$ 所有元素之和就是 $p$ 的倍数，直接返回 $0$ 即可。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
             last[cur] = i
         return -1 if ans == len(nums) else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSubarray(nums []int, p int) int {
 	k := 0
@@ -193,8 +179,6 @@ func minSubarray(nums []int, p int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSubarray(nums: number[], p: number): number {
     let k = 0;
@@ -222,10 +206,6 @@ function minSubarray(nums: number[], p: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

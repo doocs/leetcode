@@ -47,25 +47,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟 + 优先队列（小根堆）**
+### 方法一：模拟 + 优先队列（小根堆）
 
 我们可以将数组 $nums$ 中的元素依次放入一个小根堆中，每次从小根堆中取出两个元素 $a$ 和 $b$，然后依次将 $b$ 和 $a$ 放入答案数组中，直到小根堆为空。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
-**方法二：排序 + 交换**
-
-我们可以将数组 $nums$ 排序，然后依次将相邻的两个元素交换位置，即可得到答案数组。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,19 +66,6 @@ class Solution:
             ans.append(a)
         return ans
 ```
-
-```python
-class Solution:
-    def numberGame(self, nums: List[int]) -> List[int]:
-        nums.sort()
-        for i in range(0, len(nums), 2):
-            nums[i], nums[i + 1] = nums[i + 1], nums[i]
-        return nums
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,22 +85,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int[] numberGame(int[] nums) {
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i += 2) {
-            int t = nums[i];
-            nums[i] = nums[i + 1];
-            nums[i + 1] = t;
-        }
-        return nums;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,22 +107,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    vector<int> numberGame(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int n = nums.size();
-        for (int i = 0; i < n; i += 2) {
-            swap(nums[i], nums[i + 1]);
-        }
-        return nums;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func numberGame(nums []int) (ans []int) {
@@ -193,18 +136,6 @@ func (h *hp) Push(x interface{}) {
 }
 ```
 
-```go
-func numberGame(nums []int) []int {
-	sort.Ints(nums)
-	for i := 0; i < len(nums); i += 2 {
-		nums[i], nums[i+1] = nums[i+1], nums[i]
-	}
-	return nums
-}
-```
-
-### **TypeScript**
-
 ```ts
 function numberGame(nums: number[]): number[] {
     const pq = new MinPriorityQueue();
@@ -220,18 +151,6 @@ function numberGame(nums: number[]): number[] {
     return ans;
 }
 ```
-
-```ts
-function numberGame(nums: number[]): number[] {
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length; i += 2) {
-        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
-    }
-    return nums;
-}
-```
-
-### **Rust**
 
 ```rust
 use std::collections::BinaryHeap;
@@ -259,6 +178,73 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：排序 + 交换
+
+我们可以将数组 $nums$ 排序，然后依次将相邻的两个元素交换位置，即可得到答案数组。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numberGame(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        for i in range(0, len(nums), 2):
+            nums[i], nums[i + 1] = nums[i + 1], nums[i]
+        return nums
+```
+
+```java
+class Solution {
+    public int[] numberGame(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i += 2) {
+            int t = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = t;
+        }
+        return nums;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> numberGame(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        for (int i = 0; i < n; i += 2) {
+            swap(nums[i], nums[i + 1]);
+        }
+        return nums;
+    }
+};
+```
+
+```go
+func numberGame(nums []int) []int {
+	sort.Ints(nums)
+	for i := 0; i < len(nums); i += 2 {
+		nums[i], nums[i+1] = nums[i+1], nums[i]
+	}
+	return nums
+}
+```
+
+```ts
+function numberGame(nums: number[]): number[] {
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < nums.length; i += 2) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+    }
+    return nums;
+}
+```
+
 ```rust
 impl Solution {
     pub fn number_game(nums: Vec<i32>) -> Vec<i32> {
@@ -272,10 +258,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

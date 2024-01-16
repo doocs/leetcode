@@ -53,9 +53,9 @@ Hence, [1,2,3] is a valid answer. Other valid answers include [1,2,4], [1,4,2], 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func gardenNoAdj(n int, paths [][]int) []int {
 	g := make([][]int, n)
@@ -164,8 +158,6 @@ func gardenNoAdj(n int, paths [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function gardenNoAdj(n: number, paths: number[][]): number[] {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -190,10 +182,6 @@ function gardenNoAdj(n: number, paths: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

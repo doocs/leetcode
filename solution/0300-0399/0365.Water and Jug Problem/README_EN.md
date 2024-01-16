@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -90,20 +90,6 @@ class Solution:
                 stk.append([0, cur1 + cur2])
         return False
 ```
-
-```python
-class Solution:
-    def canMeasureWater(
-        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
-    ) -> bool:
-        if jug1Capacity + jug2Capacity < targetCapacity:
-            return False
-        if jug1Capacity == 0 or jug2Capacity == 0:
-            return targetCapacity == 0 or jug1Capacity + jug2Capacity == targetCapacity
-        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -146,26 +132,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
-        if (jug1Capacity + jug2Capacity < targetCapacity) {
-            return false;
-        }
-        if (jug1Capacity == 0 || jug2Capacity == 0) {
-            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
-        }
-        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
-    }
-
-    private int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,8 +147,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canMeasureWater(jug1Capacity int, jug2Capacity int, targetCapacity int) bool {
@@ -204,10 +168,70 @@ func canMeasureWater(jug1Capacity int, jug2Capacity int, targetCapacity int) boo
 }
 ```
 
-### **...**
+```cs
+using System;
 
-```
+public class Solution {
+    public bool CanMeasureWater(int x, int y, int z) {
+        if (x == 0 || y == 0) return z == x || z == y;
+        var gcd = GetGcd(x, y);
+        return z >= 0 && z <= x + y && z % gcd == 0;
+    }
 
+    private int GetGcd(int x, int y)
+    {
+        while (x > 0)
+        {
+            var quotient = x / y;
+            var reminder = x % y;
+            if (reminder == 0)
+            {
+                return y;
+            }
+            x = y;
+            y = reminder;
+        }
+        throw new Exception("Invalid x or y");
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canMeasureWater(
+        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
+    ) -> bool:
+        if jug1Capacity + jug2Capacity < targetCapacity:
+            return False
+        if jug1Capacity == 0 or jug2Capacity == 0:
+            return targetCapacity == 0 or jug1Capacity + jug2Capacity == targetCapacity
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0
+```
+
+```java
+class Solution {
+    public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+        if (jug1Capacity + jug2Capacity < targetCapacity) {
+            return false;
+        }
+        if (jug1Capacity == 0 || jug2Capacity == 0) {
+            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
+        }
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

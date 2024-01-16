@@ -43,15 +43,13 @@ Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your tas
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We enumerate all permutations of the three strings, and for each permutation, we merge the three strings to find the shortest string with the smallest lexicographical order.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the maximum length of the three strings.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 ans = s
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumString(a string, b string, c string) string {
 	f := func(s, t string) string {
@@ -180,8 +172,6 @@ func minimumString(a string, b string, c string) string {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumString(a: string, b: string, c: string): string {
@@ -220,8 +210,6 @@ function minimumString(a: string, b: string, c: string): string {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -264,10 +252,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

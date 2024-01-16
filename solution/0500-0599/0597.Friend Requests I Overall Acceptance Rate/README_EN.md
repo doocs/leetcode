@@ -93,9 +93,9 @@ There are 4 unique accepted requests, and there are 5 requests in total. So the 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -113,3 +113,5 @@ SELECT
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

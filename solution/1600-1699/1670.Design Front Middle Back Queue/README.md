@@ -62,9 +62,7 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两个双端队列**
+### 方法一：两个双端队列
 
 我们用两个双端队列，其中 $q_1$ 存储前半部分，而 $q_2$ 存储后半部分。每次由 `rebalance` 函数来维护两个队列的平衡性，即保持 $q_2$ 的长度大于等于 $q_1$ 的长度，且长度之差不超过 $1$。
 
@@ -79,10 +77,6 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(n)$，其中 $n$ 是队列中的元素数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class FrontMiddleBackQueue:
@@ -145,10 +139,6 @@ class FrontMiddleBackQueue:
 # param_5 = obj.popMiddle()
 # param_6 = obj.popBack()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class FrontMiddleBackQueue {
@@ -221,8 +211,6 @@ class FrontMiddleBackQueue {
  * int param_6 = obj.popBack();
  */
 ```
-
-### **C++**
 
 ```cpp
 class FrontMiddleBackQueue {
@@ -308,8 +296,6 @@ private:
  * int param_6 = obj->popBack();
  */
 ```
-
-### **Go**
 
 ```go
 type FrontMiddleBackQueue struct {
@@ -450,8 +436,6 @@ func (q Deque) Get(i int) int {
  * param_6 := obj.PopBack();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class FrontMiddleBackQueue {
@@ -624,8 +608,6 @@ class Deque<T> {
  */
 ```
 
-### **JavaScript**
-
 ```js
 class FrontMiddleBackQueue {
     constructor() {
@@ -786,10 +768,6 @@ class Deque {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

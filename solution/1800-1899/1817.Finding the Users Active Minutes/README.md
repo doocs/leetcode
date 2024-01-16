@@ -54,19 +54,13 @@ ID=2 的用户执行操作的分钟分别是：2 和 3 。因此，该用户的�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 $d$ 记录每个用户的所有去重操作时间，然后遍历哈希表，统计每个用户的用户活跃分钟数，最后统计每个用户活跃分钟数的分布情况。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $logs$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             ans[len(ts) - 1] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findingUsersActiveMinutes(logs [][]int, k int) []int {
 	d := map[int]map[int]bool{}
@@ -141,8 +127,6 @@ func findingUsersActiveMinutes(logs [][]int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findingUsersActiveMinutes(logs: number[][], k: number): number[] {
     const d: Map<number, Set<number>> = new Map();
@@ -160,10 +144,6 @@ function findingUsersActiveMinutes(logs: number[][], k: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

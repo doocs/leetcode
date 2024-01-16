@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSpecial(mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -137,7 +131,60 @@ func numSpecial(mat [][]int) int {
 }
 ```
 
-### **C**
+```ts
+function numSpecial(mat: number[][]): number {
+    const m = mat.length;
+    const n = mat[0].length;
+    const rows = new Array(m).fill(0);
+    const cols = new Array(n).fill(0);
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j] === 1) {
+                rows[i]++;
+                cols[j]++;
+            }
+        }
+    }
+
+    let res = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j] === 1 && rows[i] === 1 && cols[j] === 1) {
+                res++;
+            }
+        }
+    }
+
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn num_special(mat: Vec<Vec<i32>>) -> i32 {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut rows = vec![0; m];
+        let mut cols = vec![0; n];
+        for i in 0..m {
+            for j in 0..n {
+                rows[i] += mat[i][j];
+                cols[j] += mat[i][j];
+            }
+        }
+
+        let mut res = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1 {
+                    res += 1;
+                }
+            }
+        }
+        res
+    }
+}
+```
 
 ```c
 int numSpecial(int** mat, int matSize, int* matColSize) {
@@ -169,69 +216,6 @@ int numSpecial(int** mat, int matSize, int* matColSize) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function numSpecial(mat: number[][]): number {
-    const m = mat.length;
-    const n = mat[0].length;
-    const rows = new Array(m).fill(0);
-    const cols = new Array(n).fill(0);
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (mat[i][j] === 1) {
-                rows[i]++;
-                cols[j]++;
-            }
-        }
-    }
-
-    let res = 0;
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (mat[i][j] === 1 && rows[i] === 1 && cols[j] === 1) {
-                res++;
-            }
-        }
-    }
-
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn num_special(mat: Vec<Vec<i32>>) -> i32 {
-        let m = mat.len();
-        let n = mat[0].len();
-        let mut rows = vec![0; m];
-        let mut cols = vec![0; n];
-        for i in 0..m {
-            for j in 0..n {
-                rows[i] += mat[i][j];
-                cols[j] += mat[i][j];
-            }
-        }
-
-        let mut res = 0;
-        for i in 0..m {
-            for j in 0..n {
-                if mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1 {
-                    res += 1;
-                }
-            }
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

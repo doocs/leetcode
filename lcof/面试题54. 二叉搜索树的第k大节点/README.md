@@ -40,7 +40,7 @@
 
 ## 解法
 
-**方法一：反序中序遍历**
+### 方法一：反序中序遍历
 
 由于二叉搜索树的中序遍历是升序的，因此可以反序中序遍历，即先递归遍历右子树，再访问根节点，最后递归遍历左子树。
 
@@ -49,8 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -77,8 +75,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -145,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -173,75 +165,6 @@ func kthLargest(root *TreeNode, k int) (ans int) {
 	return
 }
 ```
-
-利用 Go 的特性，中序遍历“生产”的数字传到 `channel`，返回第 `k` 个。
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func kthLargest(root *TreeNode, k int) int {
-	ch := make(chan int)
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	go inorder(ctx, root, ch)
-	for ; k > 1; k-- {
-		<-ch
-	}
-	return <-ch
-}
-
-func inorder(ctx context.Context, cur *TreeNode, ch chan<- int) {
-	if cur != nil {
-		inorder(ctx, cur.Right, ch)
-		select {
-		case ch <- cur.Val:
-		case <-ctx.Done():
-			return
-		}
-		inorder(ctx, cur.Left, ch)
-	}
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {number} k
- * @return {number}
- */
-var kthLargest = function (root, k) {
-    let ans = 0;
-    const dfs = root => {
-        if (!root || !k) {
-            return;
-        }
-        dfs(root.right);
-        if (--k == 0) {
-            ans = root.val;
-        }
-        dfs(root.left);
-    };
-    dfs(root);
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -275,8 +198,6 @@ function kthLargest(root: TreeNode | null, k: number): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -317,7 +238,35 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} k
+ * @return {number}
+ */
+var kthLargest = function (root, k) {
+    let ans = 0;
+    const dfs = root => {
+        if (!root || !k) {
+            return;
+        }
+        dfs(root.right);
+        if (--k == 0) {
+            ans = root.val;
+        }
+        dfs(root.left);
+    };
+    dfs(root);
+    return ans;
+};
+```
 
 ```cs
 /**
@@ -352,10 +301,45 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func kthLargest(root *TreeNode, k int) int {
+	ch := make(chan int)
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	go inorder(ctx, root, ch)
+	for ; k > 1; k-- {
+		<-ch
+	}
+	return <-ch
+}
+
+func inorder(ctx context.Context, cur *TreeNode, ch chan<- int) {
+	if cur != nil {
+		inorder(ctx, cur.Right, ch)
+		select {
+		case ch <- cur.Val:
+		case <-ctx.Done():
+			return
+		}
+		inorder(ctx, cur.Left, ch)
+	}
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

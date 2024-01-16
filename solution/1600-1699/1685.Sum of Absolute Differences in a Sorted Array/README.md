@@ -43,9 +43,7 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：求和 + 枚举**
+### 方法一：求和 + 枚举
 
 我们先求出数组 $nums$ 所有元素的和，记为 $s$，用变量 $t$ 记录当前已经枚举过的元素之和。
 
@@ -54,10 +52,6 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +64,6 @@ class Solution:
             t += x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getSumAbsoluteDifferences(nums []int) (ans []int) {
 	var s, t int
@@ -131,8 +117,6 @@ func getSumAbsoluteDifferences(nums []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getSumAbsoluteDifferences(nums: number[]): number[] {
     const s = nums.reduce((a, b) => a + b);
@@ -147,29 +131,6 @@ function getSumAbsoluteDifferences(nums: number[]): number[] {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int[] GetSumAbsoluteDifferences(int[] nums) {
-        int s = 0, t = 0;
-        foreach (int x in nums) {
-            s += x;
-        }
-        int n = nums.Length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
-            ans[i] = v;
-            t += nums[i];
-        }
-        return ans;
-    }
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -190,10 +151,25 @@ var getSumAbsoluteDifferences = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int[] GetSumAbsoluteDifferences(int[] nums) {
+        int s = 0, t = 0;
+        foreach (int x in nums) {
+            s += x;
+        }
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,7 +49,7 @@ The longest subarray with that value is [4], so we return 1.
 
 ## Solutions
 
-**Solution 1: Quick Thinking**
+### Solution 1: Quick Thinking
 
 Due to the bitwise AND operation, the number will not get larger, so the maximum value is the maximum value in the array.
 
@@ -60,8 +60,6 @@ First, traverse the array once to find the maximum value, then traverse the arra
 The time complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                 cnt = 0
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSubarray(nums []int) int {
 	mx := slices.Max(nums)
@@ -139,16 +131,6 @@ func longestSubarray(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接计算**
+### 方法一：直接计算
 
 根据题意，给定的日期是公元纪年法的日期，因此可以直接计算出该日期是当年的第几天。
 
@@ -54,10 +52,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def dayOfYear(self, date: str) -> int:
@@ -66,10 +60,6 @@ class Solution:
         days = [31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         return sum(days[: m - 1]) + d
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func dayOfYear(date string) (ans int) {
 	var y, m, d int
@@ -125,8 +111,6 @@ func dayOfYear(date string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function dayOfYear(date: string): number {
     const y = +date.slice(0, 4);
@@ -137,8 +121,6 @@ function dayOfYear(date: string): number {
     return days.slice(0, m - 1).reduce((a, b) => a + b, d);
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -155,10 +137,6 @@ var dayOfYear = function (date) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

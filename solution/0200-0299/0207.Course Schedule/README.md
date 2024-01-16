@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 对于本题，我们可以将课程看作图中的节点，先修课程看作图中的边，那么我们可以将本题转化为判断有向图中是否存在环。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为课程数和先修课程数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                     q.append(j)
         return cnt == numCourses
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -155,7 +143,64 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func canFinish(numCourses int, prerequisites [][]int) bool {
+	g := make([][]int, numCourses)
+	indeg := make([]int, numCourses)
+	for _, p := range prerequisites {
+		a, b := p[0], p[1]
+		g[b] = append(g[b], a)
+		indeg[a]++
+	}
+	q := []int{}
+	for i, x := range indeg {
+		if x == 0 {
+			q = append(q, i)
+		}
+	}
+	cnt := 0
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		cnt++
+		for _, j := range g[i] {
+			indeg[j]--
+			if indeg[j] == 0 {
+				q = append(q, j)
+			}
+		}
+	}
+	return cnt == numCourses
+}
+```
+
+```ts
+function canFinish(numCourses: number, prerequisites: number[][]): boolean {
+    const g: number[][] = new Array(numCourses).fill(0).map(() => []);
+    const indeg: number[] = new Array(numCourses).fill(0);
+    for (const [a, b] of prerequisites) {
+        g[b].push(a);
+        indeg[a]++;
+    }
+    const q: number[] = [];
+    for (let i = 0; i < numCourses; ++i) {
+        if (indeg[i] == 0) {
+            q.push(i);
+        }
+    }
+    let cnt = 0;
+    while (q.length) {
+        const i = q.shift()!;
+        cnt++;
+        for (const j of g[i]) {
+            if (--indeg[j] == 0) {
+                q.push(j);
+            }
+        }
+    }
+    return cnt == numCourses;
+}
+```
 
 ```rust
 use std::collections::VecDeque;
@@ -207,71 +252,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func canFinish(numCourses int, prerequisites [][]int) bool {
-	g := make([][]int, numCourses)
-	indeg := make([]int, numCourses)
-	for _, p := range prerequisites {
-		a, b := p[0], p[1]
-		g[b] = append(g[b], a)
-		indeg[a]++
-	}
-	q := []int{}
-	for i, x := range indeg {
-		if x == 0 {
-			q = append(q, i)
-		}
-	}
-	cnt := 0
-	for len(q) > 0 {
-		i := q[0]
-		q = q[1:]
-		cnt++
-		for _, j := range g[i] {
-			indeg[j]--
-			if indeg[j] == 0 {
-				q = append(q, j)
-			}
-		}
-	}
-	return cnt == numCourses
-}
-```
-
-### **TypeScript**
-
-```ts
-function canFinish(numCourses: number, prerequisites: number[][]): boolean {
-    const g: number[][] = new Array(numCourses).fill(0).map(() => []);
-    const indeg: number[] = new Array(numCourses).fill(0);
-    for (const [a, b] of prerequisites) {
-        g[b].push(a);
-        indeg[a]++;
-    }
-    const q: number[] = [];
-    for (let i = 0; i < numCourses; ++i) {
-        if (indeg[i] == 0) {
-            q.push(i);
-        }
-    }
-    let cnt = 0;
-    while (q.length) {
-        const i = q.shift()!;
-        cnt++;
-        for (const j of g[i]) {
-            if (--indeg[j] == 0) {
-                q.push(j);
-            }
-        }
-    }
-    return cnt == numCourses;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public bool CanFinish(int numCourses, int[][] prerequisites) {
@@ -306,10 +286,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

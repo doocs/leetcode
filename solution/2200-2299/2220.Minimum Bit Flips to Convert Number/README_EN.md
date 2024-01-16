@@ -45,9 +45,9 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
             t >>= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minBitFlips(start int, goal int) int {
 	t := start ^ goal
@@ -107,8 +101,6 @@ func minBitFlips(start int, goal int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minBitFlips(start: number, goal: number): number {
     let tmp = start ^ goal;
@@ -120,8 +112,6 @@ function minBitFlips(start: number, goal: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -137,8 +127,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int minBitFlips(int start, int goal) {
     int tmp = start ^ goal;
@@ -151,10 +139,6 @@ int minBitFlips(int start, int goal) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

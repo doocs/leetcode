@@ -55,7 +55,7 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 
 ## Solutions
 
-**Solution 1: Mathematical Rule**
+### Solution 1: Mathematical Rule
 
 According to the problem description, the box with the highest number of layers needs to be placed in the corner of the wall, and the arrangement of the boxes is in a step-like shape, which can minimize the number of boxes touching the ground.
 
@@ -66,8 +66,6 @@ If there are still remaining boxes at this point, they can continue to be placed
 The time complexity is $O(\sqrt{n})$, where $n$ is the number of boxes given in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
             k += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumBoxes(n int) int {
 	s, k := 0, 1
@@ -154,10 +146,6 @@ func minimumBoxes(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

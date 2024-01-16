@@ -57,9 +57,7 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (蓝色矩形框的元素总和)
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二维前缀和**
+### 方法一：二维前缀和
 
 我们可以用一个二维数组 $s$ 来保存矩阵 $matrix$ 的前缀和，其中 $s[i+1][j+1]$ 表示矩阵 $matrix$ 中以 $(0,0)$ 为左上角，$(i,j)$ 为右下角的子矩阵中所有元素的和。
 
@@ -89,10 +87,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class NumMatrix:
     def __init__(self, matrix: List[List[int]]):
@@ -116,10 +110,6 @@ class NumMatrix:
 # obj = NumMatrix(matrix)
 # param_1 = obj.sumRegion(row1,col1,row2,col2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class NumMatrix {
@@ -147,8 +137,6 @@ class NumMatrix {
  * int param_1 = obj.sumRegion(row1,col1,row2,col2);
  */
 ```
-
-### **C++**
 
 ```cpp
 class NumMatrix {
@@ -179,8 +167,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type NumMatrix struct {
 	s [][]int
@@ -210,8 +196,6 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
  * param_1 := obj.SumRegion(row1,col1,row2,col2);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class NumMatrix {
@@ -249,10 +233,6 @@ class NumMatrix {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

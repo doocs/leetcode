@@ -51,15 +51,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：堆优化 Dijkstra + 记忆化搜索**
+### 方法一：堆优化 Dijkstra + 记忆化搜索
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,38 +84,6 @@ class Solution:
                     heappush(q, (dist[v], v))
         return dfs(1)
 ```
-
-```python
-class Solution:
-    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
-        g = defaultdict(list)
-        for u, v, w in edges:
-            g[u].append((v, w))
-            g[v].append((u, w))
-        dist = [inf] * (n + 1)
-        dist[n] = 0
-        q = [(0, n)]
-        mod = 10**9 + 7
-        while q:
-            _, u = heappop(q)
-            for v, w in g[u]:
-                if dist[v] > dist[u] + w:
-                    dist[v] = dist[u] + w
-                    heappush(q, (dist[v], v))
-        arr = list(range(1, n + 1))
-        arr.sort(key=lambda i: dist[i])
-        f = [0] * (n + 1)
-        f[n] = 1
-        for i in arr:
-            for j, _ in g[i]:
-                if dist[i] > dist[j]:
-                    f[i] = (f[i] + f[j]) % mod
-        return f[1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -184,57 +146,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private static final int INF = Integer.MAX_VALUE;
-    private static final int MOD = (int) 1e9 + 7;
-
-    public int countRestrictedPaths(int n, int[][] edges) {
-        List<int[]>[] g = new List[n + 1];
-        Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] e : edges) {
-            int u = e[0], v = e[1], w = e[2];
-            g[u].add(new int[] {v, w});
-            g[v].add(new int[] {u, w});
-        }
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        q.offer(new int[] {0, n});
-        int[] dist = new int[n + 1];
-        Arrays.fill(dist, INF);
-        dist[n] = 0;
-        while (!q.isEmpty()) {
-            int[] p = q.poll();
-            int u = p[1];
-            for (int[] ne : g[u]) {
-                int v = ne[0], w = ne[1];
-                if (dist[v] > dist[u] + w) {
-                    dist[v] = dist[u] + w;
-                    q.offer(new int[] {dist[v], v});
-                }
-            }
-        }
-        int[] f = new int[n + 1];
-        f[n] = 1;
-        Integer[] arr = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            arr[i] = i + 1;
-        }
-        Arrays.sort(arr, (i, j) -> dist[i] - dist[j]);
-        for (int i : arr) {
-            for (int[] ne : g[i]) {
-                int j = ne[0];
-                if (dist[i] > dist[j]) {
-                    f[i] = (f[i] + f[j]) % MOD;
-                }
-            }
-        }
-        return f[1];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -287,8 +198,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 const inf = math.MaxInt32
@@ -359,10 +268,89 @@ func countRestrictedPaths(n int, edges [][]int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countRestrictedPaths(self, n: int, edges: List[List[int]]) -> int:
+        g = defaultdict(list)
+        for u, v, w in edges:
+            g[u].append((v, w))
+            g[v].append((u, w))
+        dist = [inf] * (n + 1)
+        dist[n] = 0
+        q = [(0, n)]
+        mod = 10**9 + 7
+        while q:
+            _, u = heappop(q)
+            for v, w in g[u]:
+                if dist[v] > dist[u] + w:
+                    dist[v] = dist[u] + w
+                    heappush(q, (dist[v], v))
+        arr = list(range(1, n + 1))
+        arr.sort(key=lambda i: dist[i])
+        f = [0] * (n + 1)
+        f[n] = 1
+        for i in arr:
+            for j, _ in g[i]:
+                if dist[i] > dist[j]:
+                    f[i] = (f[i] + f[j]) % mod
+        return f[1]
 ```
 
+```java
+class Solution {
+    private static final int INF = Integer.MAX_VALUE;
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int countRestrictedPaths(int n, int[][] edges) {
+        List<int[]>[] g = new List[n + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
+        }
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        q.offer(new int[] {0, n});
+        int[] dist = new int[n + 1];
+        Arrays.fill(dist, INF);
+        dist[n] = 0;
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int u = p[1];
+            for (int[] ne : g[u]) {
+                int v = ne[0], w = ne[1];
+                if (dist[v] > dist[u] + w) {
+                    dist[v] = dist[u] + w;
+                    q.offer(new int[] {dist[v], v});
+                }
+            }
+        }
+        int[] f = new int[n + 1];
+        f[n] = 1;
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = i + 1;
+        }
+        Arrays.sort(arr, (i, j) -> dist[i] - dist[j]);
+        for (int i : arr) {
+            for (int[] ne : g[i]) {
+                int j = ne[0];
+                if (dist[i] > dist[j]) {
+                    f[i] = (f[i] + f[j]) % MOD;
+                }
+            }
+        }
+        return f[1];
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

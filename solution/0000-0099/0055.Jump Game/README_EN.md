@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We use a variable $mx$ to maintain the farthest index that can currently be reached, initially $mx = 0$.
 
@@ -53,8 +53,6 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -65,8 +63,6 @@ class Solution:
             mx = max(mx, i + x)
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,7 +95,31 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func canJump(nums []int) bool {
+	mx := 0
+	for i, x := range nums {
+		if mx < i {
+			return false
+		}
+		mx = max(mx, i+x)
+	}
+	return true
+}
+```
+
+```ts
+function canJump(nums: number[]): boolean {
+    let mx: number = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (mx < i) {
+            return false;
+        }
+        mx = Math.max(mx, i + nums[i]);
+    }
+    return true;
+}
+```
 
 ```rust
 impl Solution {
@@ -122,38 +140,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func canJump(nums []int) bool {
-	mx := 0
-	for i, x := range nums {
-		if mx < i {
-			return false
-		}
-		mx = max(mx, i+x)
-	}
-	return true
-}
-```
-
-### **TypeScript**
-
-```ts
-function canJump(nums: number[]): boolean {
-    let mx: number = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        if (mx < i) {
-            return false;
-        }
-        mx = Math.max(mx, i + nums[i]);
-    }
-    return true;
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -171,8 +157,6 @@ var canJump = function (nums) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public bool CanJump(int[] nums) {
@@ -188,10 +172,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

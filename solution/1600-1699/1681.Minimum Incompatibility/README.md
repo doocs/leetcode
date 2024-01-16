@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 状态压缩 + 动态规划**
+### 方法一：预处理 + 状态压缩 + 动态规划
 
 不妨设划分后每个子集的大小为 $m$，那么 $m=\frac{n}{k}$，其中 $n$ 是数组的长度。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(3^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -118,35 +112,6 @@ class Solution:
                 j = (j - 1) & mask
         return f[-1] if f[-1] != inf else -1
 ```
-
-```python
-class Solution:
-    def minimumIncompatibility(self, nums: List[int], k: int) -> int:
-        @cache
-        def dfs(mask):
-            if mask == (1 << n) - 1:
-                return 0
-            d = {v: i for i, v in enumerate(nums) if (mask >> i & 1) == 0}
-            ans = inf
-            if len(d) < m:
-                return ans
-            for vs in combinations(d.keys(), m):
-                nxt = mask
-                for v in vs:
-                    nxt |= 1 << d[v]
-                ans = min(ans, max(vs) - min(vs) + dfs(nxt))
-            return ans
-
-        n = len(nums)
-        m = n // k
-        ans = dfs(0)
-        dfs.cache_clear()
-        return ans if ans < inf else -1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -204,8 +169,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -262,8 +225,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumIncompatibility(nums []int, k int) int {
@@ -324,8 +285,6 @@ func minimumIncompatibility(nums []int, k int) int {
 	return f[1<<n-1]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumIncompatibility(nums: number[], k: number): number {
@@ -388,8 +347,6 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -457,10 +414,37 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumIncompatibility(self, nums: List[int], k: int) -> int:
+        @cache
+        def dfs(mask):
+            if mask == (1 << n) - 1:
+                return 0
+            d = {v: i for i, v in enumerate(nums) if (mask >> i & 1) == 0}
+            ans = inf
+            if len(d) < m:
+                return ans
+            for vs in combinations(d.keys(), m):
+                nxt = mask
+                for v in vs:
+                    nxt |= 1 << d[v]
+                ans = min(ans, max(vs) - min(vs) + dfs(nxt))
+            return ans
+
+        n = len(nums)
+        m = n // k
+        ans = dfs(0)
+        dfs.cache_clear()
+        return ans if ans < inf else -1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

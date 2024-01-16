@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,8 +85,6 @@ class Solution:
                     union(4 * k + 2, 4 * k + 3)
         return size
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +143,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -194,8 +190,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func regionsBySlashes(grid []string) int {
@@ -246,10 +240,6 @@ func regionsBySlashes(grid []string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

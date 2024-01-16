@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：原地标记**
+### 方法一：原地标记
 
 我们不妨定义两个新的状态，其中状态 $2$ 表示活细胞在下一个状态转为死细胞，状态 $-1$ 表示死细胞在下一个状态转为活细胞。那么，对于当前遍历到的格子，如果格子大于 $0$，就表示当前格子是活细胞，否则就是死细胞。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是面板的行数和列数。我们需要遍历整个面板。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                 elif board[i][j] == -1:
                     board[i][j] = 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -175,7 +163,77 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func gameOfLife(board [][]int) {
+	m, n := len(board), len(board[0])
+	for i := 0; i < m; i++ {
+		for j, v := range board[i] {
+			live := -v
+			for x := i - 1; x <= i+1; x++ {
+				for y := j - 1; y <= j+1; y++ {
+					if x >= 0 && x < m && y >= 0 && y < n && board[x][y] > 0 {
+						live++
+					}
+				}
+			}
+			if v == 1 && (live < 2 || live > 3) {
+				board[i][j] = 2
+			}
+			if v == 0 && live == 3 {
+				board[i][j] = -1
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j, v := range board[i] {
+			if v == 2 {
+				board[i][j] = 0
+			}
+			if v == -1 {
+				board[i][j] = 1
+			}
+		}
+	}
+}
+```
+
+```ts
+/**
+ Do not return anything, modify board in-place instead.
+ */
+function gameOfLife(board: number[][]): void {
+    const m = board.length;
+    const n = board[0].length;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            let live = -board[i][j];
+            for (let x = i - 1; x <= i + 1; ++x) {
+                for (let y = j - 1; y <= j + 1; ++y) {
+                    if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] > 0) {
+                        ++live;
+                    }
+                }
+            }
+            if (board[i][j] === 1 && (live < 2 || live > 3)) {
+                board[i][j] = 2;
+            }
+            if (board[i][j] === 0 && live === 3) {
+                board[i][j] = -1;
+            }
+        }
+    }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (board[i][j] === 2) {
+                board[i][j] = 0;
+            }
+            if (board[i][j] === -1) {
+                board[i][j] = 1;
+            }
+        }
+    }
+}
+```
 
 ```rust
 const DIR: [(i32, i32); 8] = [
@@ -235,84 +293,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func gameOfLife(board [][]int) {
-	m, n := len(board), len(board[0])
-	for i := 0; i < m; i++ {
-		for j, v := range board[i] {
-			live := -v
-			for x := i - 1; x <= i+1; x++ {
-				for y := j - 1; y <= j+1; y++ {
-					if x >= 0 && x < m && y >= 0 && y < n && board[x][y] > 0 {
-						live++
-					}
-				}
-			}
-			if v == 1 && (live < 2 || live > 3) {
-				board[i][j] = 2
-			}
-			if v == 0 && live == 3 {
-				board[i][j] = -1
-			}
-		}
-	}
-	for i := 0; i < m; i++ {
-		for j, v := range board[i] {
-			if v == 2 {
-				board[i][j] = 0
-			}
-			if v == -1 {
-				board[i][j] = 1
-			}
-		}
-	}
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- Do not return anything, modify board in-place instead.
- */
-function gameOfLife(board: number[][]): void {
-    const m = board.length;
-    const n = board[0].length;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            let live = -board[i][j];
-            for (let x = i - 1; x <= i + 1; ++x) {
-                for (let y = j - 1; y <= j + 1; ++y) {
-                    if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] > 0) {
-                        ++live;
-                    }
-                }
-            }
-            if (board[i][j] === 1 && (live < 2 || live > 3)) {
-                board[i][j] = 2;
-            }
-            if (board[i][j] === 0 && live === 3) {
-                board[i][j] = -1;
-            }
-        }
-    }
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (board[i][j] === 2) {
-                board[i][j] = 0;
-            }
-            if (board[i][j] === -1) {
-                board[i][j] = 1;
-            }
-        }
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public void GameOfLife(int[][] board) {
@@ -350,10 +330,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

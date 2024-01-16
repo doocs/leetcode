@@ -70,9 +70,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划（区间 DP）**
+### 方法一：动态规划（区间 DP）
 
 在这道题中，我们需要判断一个字符串是否能够进行压缩，也即是说，一个字符串是否能通过其子串重复多次构成。我们可以利用第 $459$ 题的方法来判断，定义一个方法 $g(i, j)$，表示将字符串 $s[i...j]$ 进行压缩后得到的字符串。
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,10 +109,6 @@ class Solution:
                             f[i][j] = t
         return f[0][-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -160,8 +150,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -200,8 +188,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func encode(s string) string {
 	n := len(s)
@@ -238,8 +224,6 @@ func encode(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function encode(s: string): string {
     const n = s.length;
@@ -273,10 +257,6 @@ function encode(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

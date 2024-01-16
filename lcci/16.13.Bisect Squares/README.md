@@ -24,9 +24,7 @@ square2 = {0, -1, 2}
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：几何数学**
+### 方法一：几何数学
 
 我们知道，如果一条直线可以将两个正方形平分，那么这条直线一定会经过两个正方形的中心点。因此，我们可以先求出两个正方形的中心点，分别记为 $(x_1, y_1)$ 和 $(x_2, y_2)$。
 
@@ -40,10 +38,6 @@ square2 = {0, -1, 2}
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +64,6 @@ class Solution:
             y4 = k * x4 + b
         return [x3, y3, x4, y4]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func cutSquares(square1 []int, square2 []int) []float64 {
 	x1, y1 := float64(square1[0])+float64(square1[2])/2, float64(square1[1])+float64(square1[2])/2
@@ -177,8 +163,6 @@ func cutSquares(square1 []int, square2 []int) []float64 {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function cutSquares(square1: number[], square2: number[]): number[] {
@@ -212,10 +196,6 @@ function cutSquares(square1: number[], square2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

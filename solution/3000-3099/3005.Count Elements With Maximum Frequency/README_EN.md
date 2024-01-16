@@ -39,7 +39,7 @@ So the number of elements in the array with maximum frequency is 5.
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We can use a hash table or array $cnt$ to record the occurrence of each element.
 
@@ -49,8 +49,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
@@ -58,8 +56,6 @@ class Solution:
         mx = max(cnt.values())
         return sum(x for x in cnt.values() if x == mx)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxFrequencyElements(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -125,8 +117,6 @@ func maxFrequencyElements(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxFrequencyElements(nums: number[]): number {
@@ -147,10 +137,6 @@ function maxFrequencyElements(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

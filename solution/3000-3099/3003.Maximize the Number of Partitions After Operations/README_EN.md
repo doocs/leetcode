@@ -78,9 +78,9 @@ It can be shown that it is not possible to obtain more than 4 partitions.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -107,8 +107,6 @@ class Solution:
         n = len(s)
         return dfs(0, 0, 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -149,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -184,8 +180,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxPartitionsAfterOperations(s string, k int) int {
@@ -225,8 +219,6 @@ func maxPartitionsAfterOperations(s string, k int) int {
 	return dfs(0, 0, 1)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxPartitionsAfterOperations(s: string, k: number): number {
@@ -274,10 +266,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,9 @@ myCircularDeque.getFront();     // return 4
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MyCircularDeque:
@@ -152,8 +152,6 @@ class MyCircularDeque:
 # param_7 = obj.isEmpty()
 # param_8 = obj.isFull()
 ```
-
-### **Java**
 
 ```java
 class MyCircularDeque {
@@ -253,8 +251,6 @@ class MyCircularDeque {
  */
 ```
 
-### **C++**
-
 ```cpp
 class MyCircularDeque {
 public:
@@ -337,8 +333,6 @@ public:
  * bool param_8 = obj->isFull();
  */
 ```
-
-### **Go**
 
 ```go
 type MyCircularDeque struct {
@@ -427,8 +421,6 @@ func (this *MyCircularDeque) IsFull() bool {
  * param_8 := obj.IsFull();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class MyCircularDeque {
@@ -546,10 +538,6 @@ class MyCircularDeque {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

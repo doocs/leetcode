@@ -51,9 +51,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,16 +62,6 @@ class Solution:
         b = sum(v < 0 for v in nums)
         return max(a, b)
 ```
-
-```python
-class Solution:
-    def maximumCount(self, nums: List[int]) -> int:
-        a = len(nums) - bisect_left(nums, 1)
-        b = bisect_left(nums, 0)
-        return max(a, b)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,6 +78,99 @@ class Solution {
         return Math.max(a, b);
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        int a = 0, b = 0;
+        for (int& v : nums) {
+            if (v > 0) {
+                ++a;
+            }
+            if (v < 0) {
+                ++b;
+            }
+        }
+        return max(a, b);
+    }
+};
+```
+
+```go
+func maximumCount(nums []int) int {
+	a, b := 0, 0
+	for _, v := range nums {
+		if v > 0 {
+			a++
+		}
+		if v < 0 {
+			b++
+		}
+	}
+	return max(a, b)
+}
+```
+
+```ts
+function maximumCount(nums: number[]): number {
+    const count = [0, 0];
+    for (const num of nums) {
+        if (num < 0) {
+            count[0]++;
+        } else if (num > 0) {
+            count[1]++;
+        }
+    }
+    return Math.max(...count);
+}
+```
+
+```rust
+impl Solution {
+    pub fn maximum_count(nums: Vec<i32>) -> i32 {
+        let mut count = [0, 0];
+        for &num in nums.iter() {
+            if num < 0 {
+                count[0] += 1;
+            } else if num > 0 {
+                count[1] += 1;
+            }
+        }
+        *count.iter().max().unwrap()
+    }
+}
+```
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int maximumCount(int* nums, int numsSize) {
+    int count[2] = {0};
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] < 0) {
+            count[0]++;
+        } else if (nums[i] > 0) {
+            count[1]++;
+        }
+    }
+    return max(count[0], count[1]);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+        a = len(nums) - bisect_left(nums, 1)
+        b = bisect_left(nums, 0)
+        return max(a, b)
 ```
 
 ```java
@@ -113,26 +196,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumCount(vector<int>& nums) {
-        int a = 0, b = 0;
-        for (int& v : nums) {
-            if (v > 0) {
-                ++a;
-            }
-            if (v < 0) {
-                ++b;
-            }
-        }
-        return max(a, b);
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -144,44 +207,11 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maximumCount(nums []int) int {
-	a, b := 0, 0
-	for _, v := range nums {
-		if v > 0 {
-			a++
-		}
-		if v < 0 {
-			b++
-		}
-	}
-	return max(a, b)
-}
-```
-
 ```go
 func maximumCount(nums []int) int {
 	a := len(nums) - sort.SearchInts(nums, 1)
 	b := sort.SearchInts(nums, 0)
 	return max(a, b)
-}
-```
-
-### **TypeScript**
-
-```ts
-function maximumCount(nums: number[]): number {
-    const count = [0, 0];
-    for (const num of nums) {
-        if (num < 0) {
-            count[0]++;
-        } else if (num > 0) {
-            count[1]++;
-        }
-    }
-    return Math.max(...count);
 }
 ```
 
@@ -204,24 +234,6 @@ function maximumCount(nums: number[]): number {
     const i = search(0);
     const j = search(1);
     return Math.max(i, n - j);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn maximum_count(nums: Vec<i32>) -> i32 {
-        let mut count = [0, 0];
-        for &num in nums.iter() {
-            if num < 0 {
-                count[0] += 1;
-            } else if num > 0 {
-                count[1] += 1;
-            }
-        }
-        *count.iter().max().unwrap()
-    }
 }
 ```
 
@@ -250,43 +262,6 @@ impl Solution {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn maximum_count(nums: Vec<i32>) -> i32 {
-        let mut a = 0;
-        let mut b = 0;
-
-        for n in nums {
-            if n > 0 {
-                a += 1;
-            } else if n < 0 {
-                b += 1;
-            }
-        }
-
-        std::cmp::max(a, b)
-    }
-}
-```
-
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int maximumCount(int* nums, int numsSize) {
-    int count[2] = {0};
-    for (int i = 0; i < numsSize; i++) {
-        if (nums[i] < 0) {
-            count[0]++;
-        } else if (nums[i] > 0) {
-            count[1]++;
-        }
-    }
-    return max(count[0], count[1]);
-}
-```
-
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
@@ -311,10 +286,31 @@ int maximumCount(int* nums, int numsSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 3
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn maximum_count(nums: Vec<i32>) -> i32 {
+        let mut a = 0;
+        let mut b = 0;
+
+        for n in nums {
+            if n > 0 {
+                a += 1;
+            } else if n < 0 {
+                b += 1;
+            }
+        }
+
+        std::cmp::max(a, b)
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

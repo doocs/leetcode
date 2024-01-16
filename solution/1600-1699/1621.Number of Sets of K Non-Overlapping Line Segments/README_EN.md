@@ -44,9 +44,9 @@ The image above shows the 5 different ways {(0,2),(2,3)}, {(0,1),(1,3)}, {(0,1),
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
                     g[i][j] %= mod
         return (f[-1][-1] + g[-1][-1]) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfSets(n int, k int) int {
 	f := make([][]int, n+1)
@@ -152,8 +146,6 @@ func numberOfSets(n int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfSets(n: number, k: number): number {
     const f = Array.from({ length: n + 1 }, _ => new Array(k + 1).fill(0));
@@ -176,10 +168,6 @@ function numberOfSets(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

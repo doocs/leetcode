@@ -63,9 +63,7 @@ snakeGame.move("U"); // 返回 -1 ，蛇与边界相撞，游戏结束
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双端队列模拟**
+### 方法一：双端队列模拟
 
 我们可以使用双端队列来模拟蛇的移动。
 
@@ -82,10 +80,6 @@ snakeGame.move("U"); // 返回 -1 ，蛇与边界相撞，游戏结束
 时间复杂度 $O(k)$，空间复杂度 $O(k)$，其中 $k$ 为移动的次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class SnakeGame:
@@ -132,10 +126,6 @@ class SnakeGame:
 # obj = SnakeGame(width, height, food)
 # param_1 = obj.move(direction)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class SnakeGame {
@@ -198,8 +188,6 @@ class SnakeGame {
  * int param_1 = obj.move(direction);
  */
 ```
-
-### **C++**
 
 ```cpp
 class SnakeGame {
@@ -268,8 +256,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type SnakeGame struct {
 	m     int
@@ -327,8 +313,6 @@ func (this *SnakeGame) Move(direction string) int {
  * param_1 := obj.Move(direction);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class SnakeGame {
@@ -396,10 +380,6 @@ class SnakeGame {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

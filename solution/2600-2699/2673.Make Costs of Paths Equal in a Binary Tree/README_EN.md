@@ -52,9 +52,9 @@ It can be shown that this is the minimum answer we can achieve.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
         dfs(1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minIncrements(n int, cost []int) (ans int) {
 	var dfs func(int) int
@@ -138,8 +132,6 @@ func minIncrements(n int, cost []int) (ans int) {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minIncrements(n: number, cost: number[]): number {
@@ -157,10 +149,6 @@ function minIncrements(n: number, cost: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

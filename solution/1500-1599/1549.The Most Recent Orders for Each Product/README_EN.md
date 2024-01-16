@@ -115,13 +115,11 @@ The hard disk was never ordered and we do not include it in the result table.
 
 ## Solutions
 
-**Solution 1: Equi-Join + Window Function**
+### Solution 1: Equi-Join + Window Function
 
 We can use an equi-join to join the `Orders` table and the `Products` table based on `product_id`, and then use the window function `rank()`, which assigns a rank to each `product_id` in the `Orders` table based on its `order_date` in descending order. Finally, we can select the rows with a rank of $1$ for each `product_id`.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -144,3 +142,5 @@ ORDER BY 1, 2, 3;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

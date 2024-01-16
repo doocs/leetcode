@@ -37,9 +37,9 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,17 +51,6 @@ class Solution:
             f[i] = max(f[i - 1], f[i - 2] + nums[i - 1])
         return f[n]
 ```
-
-```python
-class Solution:
-    def rob(self, nums: List[int]) -> int:
-        f = g = 0
-        for x in nums:
-            f, g = max(f, g), f + x
-        return max(f, g)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,22 +65,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int rob(int[] nums) {
-        int f = 0, g = 0;
-        for (int x : nums) {
-            int ff = Math.max(f, g);
-            g = f + x;
-            f = ff;
-        }
-        return Math.max(f, g);
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,6 +82,71 @@ public:
 };
 ```
 
+```go
+func rob(nums []int) int {
+	n := len(nums)
+	f := make([]int, n+1)
+	f[1] = nums[0]
+	for i := 2; i <= n; i++ {
+		f[i] = max(f[i-1], f[i-2]+nums[i-1])
+	}
+	return f[n]
+}
+```
+
+```ts
+function rob(nums: number[]): number {
+    const n = nums.length;
+    const f: number[] = Array(n + 1).fill(0);
+    f[1] = nums[0];
+    for (let i = 2; i <= n; ++i) {
+        f[i] = Math.max(f[i - 1], f[i - 2] + nums[i - 1]);
+    }
+    return f[n];
+}
+```
+
+```rust
+impl Solution {
+    pub fn rob(nums: Vec<i32>) -> i32 {
+        let mut f = [0, 0];
+        for x in nums {
+            f = [f[0].max(f[1]), f[0] + x];
+        }
+        f[0].max(f[1])
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        f = g = 0
+        for x in nums:
+            f, g = max(f, g), f + x
+        return max(f, g)
+```
+
+```java
+class Solution {
+    public int rob(int[] nums) {
+        int f = 0, g = 0;
+        for (int x : nums) {
+            int ff = Math.max(f, g);
+            g = f + x;
+            f = ff;
+        }
+        return Math.max(f, g);
+    }
+}
+```
+
 ```cpp
 class Solution {
 public:
@@ -124,20 +162,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func rob(nums []int) int {
-	n := len(nums)
-	f := make([]int, n+1)
-	f[1] = nums[0]
-	for i := 2; i <= n; i++ {
-		f[i] = max(f[i-1], f[i-2]+nums[i-1])
-	}
-	return f[n]
-}
-```
-
 ```go
 func rob(nums []int) int {
 	f, g := 0, 0
@@ -145,20 +169,6 @@ func rob(nums []int) int {
 		f, g = max(f, g), f+x
 	}
 	return max(f, g)
-}
-```
-
-### **TypeScript**
-
-```ts
-function rob(nums: number[]): number {
-    const n = nums.length;
-    const f: number[] = Array(n + 1).fill(0);
-    f[1] = nums[0];
-    for (let i = 2; i <= n; ++i) {
-        f[i] = Math.max(f[i - 1], f[i - 2] + nums[i - 1]);
-    }
-    return f[n];
 }
 ```
 
@@ -172,24 +182,6 @@ function rob(nums: number[]): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn rob(nums: Vec<i32>) -> i32 {
-        let mut f = [0, 0];
-        for x in nums {
-            f = [f[0].max(f[1]), f[0] + x];
-        }
-        f[0].max(f[1])
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

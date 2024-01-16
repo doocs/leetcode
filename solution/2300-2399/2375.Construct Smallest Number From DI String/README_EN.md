@@ -49,9 +49,9 @@ It can be proven that &quot;4321&quot; is the smallest possible num that meets t
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +81,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestNumber(pattern string) string {
 	vis := make([]bool, 10)
@@ -198,8 +192,6 @@ func smallestNumber(pattern string) string {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function smallestNumber(pattern: string): string {
@@ -256,11 +248,6 @@ function smallestNumber(pattern: string): string {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

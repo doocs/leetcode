@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We use an array $cnt$ of length $10001$ to count the frequency of each number. We sequentially traverse each number in the matrix and increment its frequency. When the frequency of a number equals the number of rows in the matrix, it means that this number appears in each row, and thus it is the smallest common element. We return this number.
 
@@ -45,8 +45,6 @@ If we do not find the smallest common element after the traversal, we return $-1
 The time complexity is $O(m \times n)$, and the space complexity is $O(10^4)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -59,8 +57,6 @@ class Solution:
                     return x
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestCommonElement(mat [][]int) int {
 	cnt := [10001]int{}
@@ -114,8 +106,6 @@ func smallestCommonElement(mat [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function smallestCommonElement(mat: number[][]): number {
     const cnt: number[] = new Array(10001).fill(0);
@@ -130,10 +120,6 @@ function smallestCommonElement(mat: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

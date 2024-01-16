@@ -48,7 +48,7 @@ The product of their lengths is: 5 * 5 = 25.
 
 ## Solutions
 
-**Solution 1: Binary Enumeration**
+### Solution 1: Binary Enumeration
 
 We notice that the length of the string $s$ does not exceed $12$, so we can use the method of binary enumeration to enumerate all subsequences of $s$. Suppose the length of $s$ is $n$, we can use $2^n$ binary numbers of length $n$ to represent all subsequences of $s$. For each binary number, the $i$-th bit being $1$ means the $i$-th character of $s$ is in the subsequence, and $0$ means it is not in the subsequence. For each binary number, we judge whether it is a palindrome subsequence and record it in the array $p$.
 
@@ -57,8 +57,6 @@ Next, we enumerate each number $i$ in $p$. If $i$ is a palindrome subsequence, t
 The time complexity is $(2^n \times n + 3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -89,8 +87,6 @@ class Solution:
                     j = (j - 1) & mx
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +163,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxProduct(s string) (ans int) {
@@ -210,10 +202,6 @@ func maxProduct(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

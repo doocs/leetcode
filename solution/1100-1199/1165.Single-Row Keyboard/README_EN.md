@@ -39,7 +39,7 @@ Total time = 2 + 1 + 1 = 4.
 
 ## Solutions
 
-**Solution 1: Hash Table or Array**
+### Solution 1: Hash Table or Array
 
 We can use a hash table or an array $pos$ of length $26$ to store the position of each character on the keyboard, where $pos[c]$ represents the position of character $c$ on the keyboard.
 
@@ -51,8 +51,6 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def calculateTime(self, keyboard: str, word: str) -> int:
@@ -63,8 +61,6 @@ class Solution:
             i = pos[c]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +98,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func calculateTime(keyboard string, word string) (ans int) {
@@ -130,8 +122,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function calculateTime(keyboard: string, word: string): number {
     const pos: number[] = Array(26).fill(0);
@@ -149,10 +139,6 @@ function calculateTime(keyboard: string, word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串哈希**
+### 方法一：字符串哈希
 
 **字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 0。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
 
@@ -53,10 +51,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def longestPrefix(self, s: str) -> str:
@@ -65,10 +59,6 @@ class Solution:
                 return s[i:]
         return ''
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef unsigned long long ULL;
 
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPrefix(s string) string {
 	base := 131
@@ -150,8 +136,6 @@ func longestPrefix(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestPrefix(s: string): string {
     const n = s.length;
@@ -163,8 +147,6 @@ function longestPrefix(s: string): string {
     return '';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -180,10 +162,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

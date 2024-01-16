@@ -44,7 +44,7 @@ The best solution that has 4 ones is:
 
 ## Solutions
 
-**Solution 1: Count Equivalent Positions**
+### Solution 1: Count Equivalent Positions
 
 For convenience, let's denote $x = sideLength$.
 
@@ -53,8 +53,6 @@ Consider a $x \times x$ square, we need to select at most $maxOnes$ points insid
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
         cnt.sort(reverse=True)
         return sum(cnt[:maxOnes])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumNumberOfOnes(width int, height int, sideLength int, maxOnes int) int {
 	x := sideLength
@@ -138,8 +130,6 @@ func maximumNumberOfOnes(width int, height int, sideLength int, maxOnes int) int
 	return ans
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -163,10 +153,6 @@ var maximumNumberOfOnes = function (width, height, sideLength, maxOnes) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

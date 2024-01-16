@@ -52,15 +52,9 @@ kthLargest.add(4);   // return 8
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-小根堆存放最大的 k 个元素，那么堆顶就是第 k 大的元素。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class KthLargest:
@@ -81,10 +75,6 @@ class KthLargest:
 # obj = KthLargest(k, nums)
 # param_1 = obj.add(val)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class KthLargest {
@@ -115,8 +105,6 @@ class KthLargest {
  */
 ```
 
-### **C++**
-
 ```cpp
 class KthLargest {
 public:
@@ -141,8 +129,6 @@ public:
  * int param_1 = obj->add(val);
  */
 ```
-
-### **Go**
 
 ```go
 type KthLargest struct {
@@ -220,10 +206,6 @@ func (h *IntHeap) Top() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

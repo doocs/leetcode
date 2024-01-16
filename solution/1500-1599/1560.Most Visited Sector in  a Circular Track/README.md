@@ -50,15 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：考虑开始、结束的位置关系**
+### 方法一：考虑开始、结束的位置关系
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
             return list(range(rounds[0], rounds[-1] + 1))
         return list(range(1, rounds[-1] + 1)) + list(range(rounds[0], n + 1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostVisited(n int, rounds []int) []int {
@@ -135,10 +121,6 @@ func mostVisited(n int, rounds []int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

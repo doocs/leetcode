@@ -50,9 +50,7 @@ majorityChecker.query(2,3,2); // 返回 2
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：线段树 + 摩尔投票 + 二分查找**
+### 方法一：线段树 + 摩尔投票 + 二分查找
 
 我们注意到，题目需要我们找出特定区间内可能的众数，考虑使用线段树来维护每个区间内的候选众数以及其出现的次数。
 
@@ -76,10 +74,6 @@ majorityChecker.query(2,3,2); // 返回 2
 时间复杂度方面，初始化方法的时间复杂度为 $O(n)$，查询方法的时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -155,10 +149,6 @@ class MajorityChecker:
 # obj = MajorityChecker(arr)
 # param_1 = obj.query(left,right,threshold)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
@@ -271,8 +261,6 @@ class MajorityChecker {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -378,8 +366,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type node struct {
 	l, r, x, cnt int
@@ -483,10 +469,6 @@ func (this *MajorityChecker) Query(left int, right int, threshold int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

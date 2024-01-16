@@ -74,19 +74,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 大根堆**
+### 方法一：DFS + 大根堆
 
 我们可以使用 DFS 后序遍历整棵树，对于每个节点，我们维护一个大根堆，堆中存储该节点的所有子树中最小的 k 个节点的值，如果当前节点的值大于堆顶元素，那么该节点就是一个「足够大」的节点，我们将答案加一。
 
 时间复杂度 $O(n \times k \times \log k)$，空间复杂度 $(n \times k)$。其中 $n$ 是树中节点的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -118,10 +112,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -173,8 +163,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -218,8 +206,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -270,10 +256,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

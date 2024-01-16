@@ -56,9 +56,9 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             left += x
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pivotIndex(nums []int) int {
 	var left, right int
@@ -128,7 +122,36 @@ func pivotIndex(nums []int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function pivotIndex(nums: number[]): number {
+    let left = 0,
+        right = nums.reduce((a, b) => a + b);
+    for (let i = 0; i < nums.length; ++i) {
+        right -= nums[i];
+        if (left == right) {
+            return i;
+        }
+        left += nums[i];
+    }
+    return -1;
+}
+```
+
+```rust
+impl Solution {
+    pub fn pivot_index(nums: Vec<i32>) -> i32 {
+        let (mut left, mut right): (i32, i32) = (0, nums.iter().sum());
+        for i in 0..nums.len() {
+            right -= nums[i];
+            if left == right {
+                return i as i32;
+            }
+            left += nums[i];
+        }
+        -1
+    }
+}
+```
 
 ```js
 /**
@@ -149,45 +172,6 @@ var pivotIndex = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function pivotIndex(nums: number[]): number {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
-    for (let i = 0; i < nums.length; ++i) {
-        right -= nums[i];
-        if (left == right) {
-            return i;
-        }
-        left += nums[i];
-    }
-    return -1;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn pivot_index(nums: Vec<i32>) -> i32 {
-        let (mut left, mut right): (i32, i32) = (0, nums.iter().sum());
-        for i in 0..nums.len() {
-            right -= nums[i];
-            if left == right {
-                return i as i32;
-            }
-            left += nums[i];
-        }
-        -1
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

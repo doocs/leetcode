@@ -95,9 +95,9 @@ Dortmund is the first team in the table. Ajax and Arsenal have the same points, 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -140,3 +140,5 @@ ORDER BY points DESC, goal_diff DESC, team_name;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

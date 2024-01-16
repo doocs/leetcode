@@ -49,13 +49,119 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：深度优先搜索**
+### 方法一：深度优先搜索
 
 判断城市之间是否属于同一个连通分量，最后连通分量的总数即为结果。
 
-**方法二：并查集**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        def dfs(i):
+            vis[i] = True
+            for j in range(n):
+                if not vis[j] and isConnected[i][j]:
+                    dfs(j)
+
+        n = len(isConnected)
+        vis = [False] * n
+        ans = 0
+        for i in range(n):
+            if not vis[i]:
+                dfs(i)
+                ans += 1
+        return ans
+```
+
+```java
+class Solution {
+    private int[][] isConnected;
+    private boolean[] vis;
+    private int n;
+
+    public int findCircleNum(int[][] isConnected) {
+        n = isConnected.length;
+        vis = new boolean[n];
+        this.isConnected = isConnected;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!vis[i]) {
+                dfs(i);
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(int i) {
+        vis[i] = true;
+        for (int j = 0; j < n; ++j) {
+            if (!vis[j] && isConnected[i][j] == 1) {
+                dfs(j);
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> isConnected;
+    vector<bool> vis;
+    int n;
+
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        n = isConnected.size();
+        vis.resize(n);
+        this->isConnected = isConnected;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!vis[i]) {
+                dfs(i);
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    void dfs(int i) {
+        vis[i] = true;
+        for (int j = 0; j < n; ++j)
+            if (!vis[j] && isConnected[i][j])
+                dfs(j);
+    }
+};
+```
+
+```go
+func findCircleNum(isConnected [][]int) int {
+	n := len(isConnected)
+	vis := make([]bool, n)
+	var dfs func(i int)
+	dfs = func(i int) {
+		vis[i] = true
+		for j := 0; j < n; j++ {
+			if !vis[j] && isConnected[i][j] == 1 {
+				dfs(j)
+			}
+		}
+	}
+	ans := 0
+	for i := 0; i < n; i++ {
+		if !vis[i] {
+			dfs(i)
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：并查集
 
 模板 1——朴素并查集：
 
@@ -122,33 +228,6 @@ d[find(a)] = distance
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-深度优先搜索：
-
-```python
-class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        def dfs(i):
-            vis[i] = True
-            for j in range(n):
-                if not vis[j] and isConnected[i][j]:
-                    dfs(j)
-
-        n = len(isConnected)
-        vis = [False] * n
-        ans = 0
-        for i in range(n):
-            if not vis[i]:
-                dfs(i)
-                ans += 1
-        return ans
-```
-
-并查集：
-
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
@@ -165,45 +244,6 @@ class Solution:
                     p[find(i)] = find(j)
         return sum(i == v for i, v in enumerate(p))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-深度优先搜索：
-
-```java
-class Solution {
-    private int[][] isConnected;
-    private boolean[] vis;
-    private int n;
-
-    public int findCircleNum(int[][] isConnected) {
-        n = isConnected.length;
-        vis = new boolean[n];
-        this.isConnected = isConnected;
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (!vis[i]) {
-                dfs(i);
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    private void dfs(int i) {
-        vis[i] = true;
-        for (int j = 0; j < n; ++j) {
-            if (!vis[j] && isConnected[i][j] == 1) {
-                dfs(j);
-            }
-        }
-    }
-}
-```
-
-并查集：
 
 ```java
 class Solution {
@@ -240,42 +280,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-深度优先搜索：
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> isConnected;
-    vector<bool> vis;
-    int n;
-
-    int findCircleNum(vector<vector<int>>& isConnected) {
-        n = isConnected.size();
-        vis.resize(n);
-        this->isConnected = isConnected;
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (!vis[i]) {
-                dfs(i);
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    void dfs(int i) {
-        vis[i] = true;
-        for (int j = 0; j < n; ++j)
-            if (!vis[j] && isConnected[i][j])
-                dfs(j);
-    }
-};
-```
-
-并查集：
-
 ```cpp
 class Solution {
 public:
@@ -302,36 +306,6 @@ public:
     }
 };
 ```
-
-### **Go**
-
-深度优先搜索：
-
-```go
-func findCircleNum(isConnected [][]int) int {
-	n := len(isConnected)
-	vis := make([]bool, n)
-	var dfs func(i int)
-	dfs = func(i int) {
-		vis[i] = true
-		for j := 0; j < n; j++ {
-			if !vis[j] && isConnected[i][j] == 1 {
-				dfs(j)
-			}
-		}
-	}
-	ans := 0
-	for i := 0; i < n; i++ {
-		if !vis[i] {
-			dfs(i)
-			ans++
-		}
-	}
-	return ans
-}
-```
-
-并查集：
 
 ```go
 func findCircleNum(isConnected [][]int) int {
@@ -364,10 +338,6 @@ func findCircleNum(isConnected [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

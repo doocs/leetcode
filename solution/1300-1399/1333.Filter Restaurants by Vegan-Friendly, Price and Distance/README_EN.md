@@ -55,9 +55,9 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public List<Integer> filterRestaurants(
@@ -93,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func filterRestaurants(restaurants [][]int, veganFriendly int, maxPrice int, maxDistance int) (ans []int) {
 	sort.Slice(restaurants, func(i, j int) bool {
@@ -136,8 +130,6 @@ func filterRestaurants(restaurants [][]int, veganFriendly int, maxPrice int, max
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function filterRestaurants(
@@ -157,10 +149,6 @@ function filterRestaurants(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

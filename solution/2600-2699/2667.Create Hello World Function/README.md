@@ -44,11 +44,9 @@ f({}, null, 42); // "Hello World"
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
 
 ```ts
 function createHelloWorld() {
@@ -63,10 +61,6 @@ function createHelloWorld() {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

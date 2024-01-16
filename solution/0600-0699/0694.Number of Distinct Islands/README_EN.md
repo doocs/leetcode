@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                     path.clear()
         return len(paths)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numDistinctIslands(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -177,8 +171,6 @@ func numDistinctIslands(grid [][]int) int {
 	return len(paths)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numDistinctIslands(grid: number[][]): number {
@@ -211,10 +203,6 @@ function numDistinctIslands(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

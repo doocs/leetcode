@@ -44,13 +44,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -77,10 +73,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -123,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -160,8 +150,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -200,8 +188,6 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -242,10 +228,6 @@ function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

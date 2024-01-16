@@ -34,17 +34,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def removeTrailingZeros(self, num: str) -> str:
         return num.rstrip("0")
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -58,8 +56,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -72,8 +68,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeTrailingZeros(num string) string {
 	i := len(num) - 1
@@ -84,8 +78,6 @@ func removeTrailingZeros(num string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeTrailingZeros(num: string): string {
     let i = num.length - 1;
@@ -95,8 +87,6 @@ function removeTrailingZeros(num: string): string {
     return num.substring(0, i + 1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -112,6 +102,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn remove_trailing_zeros(num: String) -> String {
@@ -126,10 +122,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

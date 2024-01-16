@@ -38,9 +38,9 @@ Can you solve it without using additional space?</p>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -64,8 +64,6 @@ class Solution:
             p, slow = p.next, slow.next
         return p
 ```
-
-### **Java**
 
 ```java
 /**
@@ -101,8 +99,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -136,7 +132,31 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func detectCycle(head *ListNode) *ListNode {
+	slow, fast := head, head
+	hasCycle := false
+	for !hasCycle && fast != nil && fast.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+		hasCycle = slow == fast
+	}
+	if !hasCycle {
+		return nil
+	}
+	p := head
+	for p != slow {
+		p, slow = p.Next, slow.Next
+	}
+	return p
+}
+```
 
 ```js
 /**
@@ -172,38 +192,6 @@ var detectCycle = function (head) {
 };
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func detectCycle(head *ListNode) *ListNode {
-	slow, fast := head, head
-	hasCycle := false
-	for !hasCycle && fast != nil && fast.Next != nil {
-		slow, fast = slow.Next, fast.Next.Next
-		hasCycle = slow == fast
-	}
-	if !hasCycle {
-		return nil
-	}
-	p := head
-	for p != slow {
-		p, slow = p.Next, slow.Next
-	}
-	return p
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

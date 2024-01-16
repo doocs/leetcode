@@ -35,23 +35,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-我们注意到，时间点最多只有 `24 * 60` 个，因此，当 timePoints 长度超过 `24 * 60`，说明有重复的时间点，提前返回 0。
-
-接下来：
-
-首先，遍历时间列表，将其转换为“分钟制”列表 `mins`，比如，对于时间点 `13:14`，将其转换为 `13 * 60 + 14`。
-
-接着将“分钟制”列表按升序排列，然后将此列表的最小时间 `mins[0]` 加上 `24 * 60` 追加至列表尾部，用于处理最大值、最小值的差值这种特殊情况。
-
-最后遍历“分钟制”列表，找出相邻两个时间的最小值即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -65,10 +51,6 @@ class Solution:
             res = min(res, mins[i] - mins[i - 1])
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMinDifference(timePoints []string) int {
@@ -137,8 +115,6 @@ func findMinDifference(timePoints []string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMinDifference(timePoints: string[]): number {
     const mins = timePoints
@@ -158,10 +134,6 @@ function findMinDifference(timePoints: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

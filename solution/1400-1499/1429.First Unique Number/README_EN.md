@@ -80,9 +80,9 @@ firstUnique.showFirstUnique(); // return -1
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class FirstUnique:
@@ -106,30 +106,6 @@ class FirstUnique:
 # param_1 = obj.showFirstUnique()
 # obj.add(value)
 ```
-
-```python
-class FirstUnique:
-    def __init__(self, nums: List[int]):
-        self.cnt = Counter(nums)
-        self.q = deque(nums)
-
-    def showFirstUnique(self) -> int:
-        while self.q and self.cnt[self.q[0]] != 1:
-            self.q.popleft()
-        return -1 if not self.q else self.q[0]
-
-    def add(self, value: int) -> None:
-        self.cnt[value] += 1
-        self.q.append(value)
-
-
-# Your FirstUnique object will be instantiated and called as such:
-# obj = FirstUnique(nums)
-# param_1 = obj.showFirstUnique()
-# obj.add(value)
-```
-
-### **Java**
 
 ```java
 class FirstUnique {
@@ -169,41 +145,6 @@ class FirstUnique {
  */
 ```
 
-```java
-class FirstUnique {
-    private Map<Integer, Integer> cnt = new HashMap<>();
-    private Deque<Integer> q = new ArrayDeque<>();
-
-    public FirstUnique(int[] nums) {
-        for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
-            q.offer(v);
-        }
-    }
-
-    public int showFirstUnique() {
-        while (!q.isEmpty() && cnt.get(q.peekFirst()) != 1) {
-            q.poll();
-        }
-        return q.isEmpty() ? -1 : q.peekFirst();
-    }
-
-    public void add(int value) {
-        cnt.put(value, cnt.getOrDefault(value, 0) + 1);
-        q.offer(value);
-    }
-}
-
-/**
- * Your FirstUnique object will be instantiated and called as such:
- * FirstUnique obj = new FirstUnique(nums);
- * int param_1 = obj.showFirstUnique();
- * obj.add(value);
- */
-```
-
-### **C++**
-
 ```cpp
 class FirstUnique {
 public:
@@ -236,8 +177,6 @@ private:
  * obj->add(value);
  */
 ```
-
-### **Go**
 
 ```go
 type FirstUnique struct {
@@ -276,10 +215,67 @@ func (this *FirstUnique) Add(value int) {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class FirstUnique:
+    def __init__(self, nums: List[int]):
+        self.cnt = Counter(nums)
+        self.q = deque(nums)
+
+    def showFirstUnique(self) -> int:
+        while self.q and self.cnt[self.q[0]] != 1:
+            self.q.popleft()
+        return -1 if not self.q else self.q[0]
+
+    def add(self, value: int) -> None:
+        self.cnt[value] += 1
+        self.q.append(value)
+
+
+# Your FirstUnique object will be instantiated and called as such:
+# obj = FirstUnique(nums)
+# param_1 = obj.showFirstUnique()
+# obj.add(value)
 ```
 
+```java
+class FirstUnique {
+    private Map<Integer, Integer> cnt = new HashMap<>();
+    private Deque<Integer> q = new ArrayDeque<>();
+
+    public FirstUnique(int[] nums) {
+        for (int v : nums) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            q.offer(v);
+        }
+    }
+
+    public int showFirstUnique() {
+        while (!q.isEmpty() && cnt.get(q.peekFirst()) != 1) {
+            q.poll();
+        }
+        return q.isEmpty() ? -1 : q.peekFirst();
+    }
+
+    public void add(int value) {
+        cnt.put(value, cnt.getOrDefault(value, 0) + 1);
+        q.offer(value);
+    }
+}
+
+/**
+ * Your FirstUnique object will be instantiated and called as such:
+ * FirstUnique obj = new FirstUnique(nums);
+ * int param_1 = obj.showFirstUnique();
+ * obj.add(value);
+ */
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

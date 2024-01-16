@@ -65,11 +65,9 @@ id=1 的业务有 7 个 'reviews' 事件(多于 5 个)和 11 个 'ads' 事件(�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -89,6 +87,12 @@ GROUP BY business_id
 HAVING COUNT(1) > 1;
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -106,3 +110,5 @@ HAVING COUNT(1) > 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

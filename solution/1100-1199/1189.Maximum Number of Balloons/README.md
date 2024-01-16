@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们统计字符串 `text` 中每个字母出现的次数，然后将其中字母 `'o'` 和 `'l'` 的出现次数分别除以 2，这是因为单词 `balloon` 中字母 `'o'` 和 `'l'` 都出现了 2 次。
 
@@ -57,10 +55,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
@@ -69,10 +63,6 @@ class Solution:
         cnt['l'] >>= 1
         return min(cnt[c] for c in 'balon')
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfBalloons(text string) int {
 	cnt := [26]int{}
@@ -134,8 +120,6 @@ func maxNumberOfBalloons(text string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxNumberOfBalloons(text: string): number {
     const cnt = new Array(26).fill(0);
@@ -145,8 +129,6 @@ function maxNumberOfBalloons(text: string): number {
     return Math.min(cnt[0], cnt[1], cnt[11] >> 1, cnt[14] >> 1, cnt[13]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -183,8 +165,6 @@ impl Solution {
 }
 ```
 
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -213,10 +193,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

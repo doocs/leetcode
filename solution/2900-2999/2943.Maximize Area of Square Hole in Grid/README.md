@@ -98,9 +98,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 题目实际上要我们找出数组中最长的连续递增子序列的长度，然后再加上 $1$。
 
@@ -113,10 +111,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $hBars$ 或 $vBars$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -136,10 +130,6 @@ class Solution:
 
         return min(f(hBars), f(vBars)) ** 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -187,8 +175,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeSquareHoleArea(n int, m int, hBars []int, vBars []int) int {
 	f := func(nums []int) int {
@@ -209,8 +195,6 @@ func maximizeSquareHoleArea(n int, m int, hBars []int, vBars []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSquareHoleArea(n: number, m: number, hBars: number[], vBars: number[]): number {
     const f = (nums: number[]): number => {
@@ -228,8 +212,6 @@ function maximizeSquareHoleArea(n: number, m: number, hBars: number[], vBars: nu
     return Math.min(f(hBars), f(vBars)) ** 2;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -257,10 +239,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

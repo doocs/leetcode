@@ -55,9 +55,9 @@ No more pairs can be formed. A total of 1 pair has been formed, and there are 0 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
         s = sum(v // 2 for v in cnt.values())
         return [s, len(nums) - s * 2]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfPairs(nums []int) []int {
 	cnt := [101]int{}
@@ -120,8 +114,6 @@ func numberOfPairs(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfPairs(nums: number[]): number[] {
     const n = nums.length;
@@ -133,8 +125,6 @@ function numberOfPairs(nums: number[]): number[] {
     return [sum, n - sum * 2];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -153,7 +143,36 @@ impl Solution {
 }
 ```
 
-### **C**
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var numberOfPairs = function (nums) {
+    const cnt = new Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    const s = cnt.reduce((a, b) => a + (b >> 1), 0);
+    return [s, nums.length - s * 2];
+};
+```
+
+```cs
+public class Solution {
+    public int[] NumberOfPairs(int[] nums) {
+        int[] cnt = new int[101];
+        foreach(int x in nums) {
+            ++cnt[x];
+        }
+        int s = 0;
+        foreach(int v in cnt) {
+            s += v / 2;
+        }
+        return new int[] {s, nums.Length - s * 2};
+    }
+}
+```
 
 ```c
 /**
@@ -176,45 +195,6 @@ int* numberOfPairs(int* nums, int numsSize, int* returnSize) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var numberOfPairs = function (nums) {
-    const cnt = new Array(101).fill(0);
-    for (const x of nums) {
-        ++cnt[x];
-    }
-    const s = cnt.reduce((a, b) => a + (b >> 1), 0);
-    return [s, nums.length - s * 2];
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int[] NumberOfPairs(int[] nums) {
-        int[] cnt = new int[101];
-        foreach(int x in nums) {
-            ++cnt[x];
-        }
-        int s = 0;
-        foreach(int v in cnt) {
-            s += v / 2;
-        }
-        return new int[] {s, nums.Length - s * 2};
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

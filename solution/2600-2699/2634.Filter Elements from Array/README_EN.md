@@ -56,15 +56,13 @@ Falsey values such as 0 should be filtered out
 
 ## Solutions
 
-**Solution 1: Traversal**
+### Solution 1: Traversal
 
 We traverse the array $arr$ and for each element $arr[i]$, if $fn(arr[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $arr$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **TypeScript**
 
 ```ts
 function filter(arr: number[], fn: (n: number, i: number) => any): number[] {
@@ -78,10 +76,6 @@ function filter(arr: number[], fn: (n: number, i: number) => any): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

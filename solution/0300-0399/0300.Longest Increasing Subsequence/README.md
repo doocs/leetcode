@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示以 $nums[i]$ 结尾的最长递增子序列的长度，初始时 $f[i] = 1$，答案为 $f[i]$ 的最大值。
 
@@ -64,21 +62,7 @@
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
-**方法二：离散化 + 树状数组**
-
-我们将数组中的元素离散化，然后使用树状数组维护不大于某个元素的最长递增子序列的长度。
-
-遍历数组中的每个元素 $x$，将其离散化，然后在树状数组中查找不大于 $x-1$ 的最长递增子序列的长度 $t$，则 $x$ 的最长递增子序列的长度为 $t+1$，更新答案，并且更新树状数组中 $x$ 的最长递增子序列的长度。
-
-遍历完数组中的所有元素，即可得到答案。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,6 +75,110 @@ class Solution:
                     f[i] = max(f[i], f[j] + 1)
         return max(f)
 ```
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        int ans = 1;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> f(n, 1);
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    f[i] = max(f[i], f[j] + 1);
+                }
+            }
+        }
+        return *max_element(f.begin(), f.end());
+    }
+};
+```
+
+```go
+func lengthOfLIS(nums []int) int {
+	n := len(nums)
+	f := make([]int, n)
+	for i := range f {
+		f[i] = 1
+	}
+	ans := 1
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			if nums[j] < nums[i] {
+				f[i] = max(f[i], f[j]+1)
+				ans = max(ans, f[i])
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function lengthOfLIS(nums: number[]): number {
+    const n = nums.length;
+    const f: number[] = new Array(n).fill(1);
+    for (let i = 1; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (nums[j] < nums[i]) {
+                f[i] = Math.max(f[i], f[j] + 1);
+            }
+        }
+    }
+    return Math.max(...f);
+}
+```
+
+```rust
+impl Solution {
+    pub fn length_of_lis(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut f = vec![1; n];
+        for i in 1..n {
+            for j in 0..i {
+                if nums[j] < nums[i] {
+                    f[i] = f[i].max(f[j] + 1);
+                }
+            }
+        }
+        *f.iter().max().unwrap()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：离散化 + 树状数组
+
+我们将数组中的元素离散化，然后使用树状数组维护不大于某个元素的最长递增子序列的长度。
+
+遍历数组中的每个元素 $x$，将其离散化，然后在树状数组中查找不大于 $x-1$ 的最长递增子序列的长度 $t$，则 $x$ 的最长递增子序列的长度为 $t+1$，更新答案，并且更新树状数组中 $x$ 的最长递增子序列的长度。
+
+遍历完数组中的所有元素，即可得到答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -121,30 +209,6 @@ class Solution:
             t = tree.query(x - 1) + 1
             tree.update(x, t)
         return tree.query(m)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int lengthOfLIS(int[] nums) {
-        int n = nums.length;
-        int[] f = new int[n];
-        Arrays.fill(f, 1);
-        int ans = 1;
-        for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i]) {
-                    f[i] = Math.max(f[i], f[j] + 1);
-                }
-            }
-            ans = Math.max(ans, f[i]);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -209,26 +273,6 @@ class BinaryIndexedTree {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> f(n, 1);
-        for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i]) {
-                    f[i] = max(f[i], f[j] + 1);
-                }
-            }
-        }
-        return *max_element(f.begin(), f.end());
-    }
-};
-```
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -272,28 +316,6 @@ public:
         return tree.query(s.size());
     }
 };
-```
-
-### **Go**
-
-```go
-func lengthOfLIS(nums []int) int {
-	n := len(nums)
-	f := make([]int, n)
-	for i := range f {
-		f[i] = 1
-	}
-	ans := 1
-	for i := 1; i < n; i++ {
-		for j := 0; j < i; j++ {
-			if nums[j] < nums[i] {
-				f[i] = max(f[i], f[j]+1)
-				ans = max(ans, f[i])
-			}
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -341,23 +363,6 @@ func lengthOfLIS(nums []int) int {
 		tree.update(x, t)
 	}
 	return tree.query(m)
-}
-```
-
-### **TypeScript**
-
-```ts
-function lengthOfLIS(nums: number[]): number {
-    const n = nums.length;
-    const f: number[] = new Array(n).fill(1);
-    for (let i = 1; i < n; ++i) {
-        for (let j = 0; j < i; ++j) {
-            if (nums[j] < nums[i]) {
-                f[i] = Math.max(f[i], f[j] + 1);
-            }
-        }
-    }
-    return Math.max(...f);
 }
 ```
 
@@ -415,29 +420,6 @@ function search(nums: number[], x: number): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn length_of_lis(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut f = vec![1; n];
-        for i in 1..n {
-            for j in 0..i {
-                if nums[j] < nums[i] {
-                    f[i] = f[i].max(f[j] + 1);
-                }
-            }
-        }
-        *f.iter().max().unwrap()
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

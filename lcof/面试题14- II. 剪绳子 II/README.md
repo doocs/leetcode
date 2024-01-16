@@ -32,15 +32,13 @@
 
 ## 解法
 
-**方法一：数学（快速幂）**
+### 方法一：数学（快速幂）
 
 当 $n \lt 4$，此时 $n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -54,8 +52,6 @@ class Solution:
             return (pow(3, n // 3 - 1, mod) * 4) % mod
         return pow(3, n // 3, mod) * 2 % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func cuttingRope(n int) int {
 	if n < 4 {
@@ -146,7 +138,21 @@ func cuttingRope(n int) int {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn cutting_rope(mut n: i32) -> i32 {
+        if n < 4 {
+            return n - 1;
+        }
+        let mut res = 1i64;
+        while n > 4 {
+            res = (res * 3) % 1000000007;
+            n -= 3;
+        }
+        ((res * (n as i64)) % 1000000007) as i32
+    }
+}
+```
 
 ```js
 /**
@@ -179,26 +185,6 @@ var cuttingRope = function (n) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn cutting_rope(mut n: i32) -> i32 {
-        if n < 4 {
-            return n - 1;
-        }
-        let mut res = 1i64;
-        while n > 4 {
-            res = (res * 3) % 1000000007;
-            n -= 3;
-        }
-        ((res * (n as i64)) % 1000000007) as i32
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int CuttingRope(int n) {
@@ -218,10 +204,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

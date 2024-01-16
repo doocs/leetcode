@@ -49,9 +49,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
             i -= 1
         return ans[::-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,7 +83,43 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    vector<int> addToArrayForm(vector<int>& num, int k) {
+        int i = num.size() - 1, carry = 0;
+        vector<int> ans;
+        for (; i >= 0 || k || carry; --i) {
+            carry += (i < 0 ? 0 : num[i]) + k % 10;
+            ans.push_back(carry % 10);
+            carry /= 10;
+            k /= 10;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+```go
+func addToArrayForm(num []int, k int) []int {
+	i, carry := len(num)-1, 0
+	ans := []int{}
+	for ; i >= 0 || k > 0 || carry > 0; i-- {
+		if i >= 0 {
+			carry += num[i]
+		}
+		carry += k % 10
+		ans = append(ans, carry%10)
+		carry /= 10
+		k /= 10
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return ans
+}
+```
 
 ```ts
 function addToArrayForm(num: number[], k: number): number[] {
@@ -102,24 +136,6 @@ function addToArrayForm(num: number[], k: number): number[] {
     return ans;
 }
 ```
-
-```ts
-function addToArrayForm(num: number[], k: number): number[] {
-    const n = num.length;
-    const res = [];
-    let sum = 0;
-    for (let i = 0; i < n || sum !== 0 || k !== 0; i++) {
-        sum += num[n - i - 1] ?? 0;
-        sum += k % 10;
-        res.push(sum % 10);
-        k = Math.floor(k / 10);
-        sum = Math.floor(sum / 10);
-    }
-    return res.reverse();
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -143,52 +159,28 @@ impl Solution {
 }
 ```
 
-### **C++**
+<!-- tabs:end -->
 
-```cpp
-class Solution {
-public:
-    vector<int> addToArrayForm(vector<int>& num, int k) {
-        int i = num.size() - 1, carry = 0;
-        vector<int> ans;
-        for (; i >= 0 || k || carry; --i) {
-            carry += (i < 0 ? 0 : num[i]) + k % 10;
-            ans.push_back(carry % 10);
-            carry /= 10;
-            k /= 10;
-        }
-        reverse(ans.begin(), ans.end());
-        return ans;
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function addToArrayForm(num: number[], k: number): number[] {
+    const n = num.length;
+    const res = [];
+    let sum = 0;
+    for (let i = 0; i < n || sum !== 0 || k !== 0; i++) {
+        sum += num[n - i - 1] ?? 0;
+        sum += k % 10;
+        res.push(sum % 10);
+        k = Math.floor(k / 10);
+        sum = Math.floor(sum / 10);
     }
-};
-```
-
-### **Go**
-
-```go
-func addToArrayForm(num []int, k int) []int {
-	i, carry := len(num)-1, 0
-	ans := []int{}
-	for ; i >= 0 || k > 0 || carry > 0; i-- {
-		if i >= 0 {
-			carry += num[i]
-		}
-		carry += k % 10
-		ans = append(ans, carry%10)
-		carry /= 10
-		k /= 10
-	}
-	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
-		ans[i], ans[j] = ans[j], ans[i]
-	}
-	return ans
+    return res.reverse();
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

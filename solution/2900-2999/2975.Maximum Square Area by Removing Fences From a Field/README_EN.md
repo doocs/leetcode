@@ -48,15 +48,13 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We can enumerate any two horizontal fences $a$ and $b$ in $hFences$, calculate the distance $d$ between $a$ and $b$, and record it in the hash table $hs$. Then, we enumerate any two vertical fences $c$ and $d$ in $vFences$, calculate the distance $d$ between $c$ and $d$, and record it in the hash table $vs$. Finally, we traverse the hash table $hs$. If a distance $d$ in $hs$ also exists in the hash table $vs$, it means that there exists a square field with a side length of $d$ and an area of $d^2$. We just need to take the largest $d$ and calculate $d^2 \bmod 10^9 + 7$.
 
 The time complexity is $O(h^2 + v^2)$, and the space complexity is $O(h^2 + v^2)$. Where $h$ and $v$ are the lengths of $hFences$ and $vFences$ respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
         ans = max(hs & vs, default=0)
         return ans**2 % mod if ans else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 	f := func(nums []int, k int) map[int]bool {
@@ -170,8 +162,6 @@ func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: number[]): number {
     const f = (nums: number[], k: number): Set<number> => {
@@ -197,10 +187,6 @@ function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: nu
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

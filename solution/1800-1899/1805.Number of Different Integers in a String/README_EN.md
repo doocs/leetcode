@@ -47,7 +47,7 @@ the leading zeros are ignored when comparing their decimal values.
 
 ## Solutions
 
-**Solution 1: Double Pointers + Simulation**
+### Solution 1: Double Pointers + Simulation
 
 Traverse the string `word`, find the start and end positions of each integer, cut out this substring, and store it in the hash set $s$.
 
@@ -58,8 +58,6 @@ After the traversal, return the size of the hash set $s$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string `word`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             i += 1
         return len(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +119,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numDifferentIntegers(word string) int {
@@ -149,8 +141,6 @@ func numDifferentIntegers(word string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numDifferentIntegers(word: string): number {
     return new Set(
@@ -163,8 +153,6 @@ function numDifferentIntegers(word: string): number {
     ).size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -194,10 +182,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

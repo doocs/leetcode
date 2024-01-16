@@ -47,7 +47,7 @@ All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in t
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We design a function $dfs(i)$ to represent the number of good strings constructed starting from the $i$-th position. The answer is $dfs(0)$.
 
@@ -61,8 +61,6 @@ During the process, we need to take the modulus of the answer, and we can use me
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n = high$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countGoodStrings(low int, high int, zero int, one int) int {
@@ -174,16 +166,6 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table or Array**
+### Solution 1: Hash Table or Array
 
 We can use two hash tables or arrays $d_1$ and $d_2$ to record the character mapping relationship between $s$ and $t$.
 
@@ -41,8 +41,6 @@ Traverse $s$ and $t$, if the corresponding character mapping relationships in $d
 The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $C = 256$ in this problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -56,20 +54,6 @@ class Solution:
             d2[b] = a
         return True
 ```
-
-```python
-class Solution:
-    def isIsomorphic(self, s: str, t: str) -> bool:
-        d1, d2 = [0] * 256, [0] * 256
-        for i, (a, b) in enumerate(zip(s, t), 1):
-            a, b = ord(a), ord(b)
-            if d1[a] != d2[b]:
-                return False
-            d1[a] = d2[b] = i
-        return True
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,27 +77,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean isIsomorphic(String s, String t) {
-        int[] d1 = new int[256];
-        int[] d2 = new int[256];
-        int n = s.length();
-        for (int i = 0; i < n; ++i) {
-            char a = s.charAt(i), b = t.charAt(i);
-            if (d1[a] != d2[b]) {
-                return false;
-            }
-            d1[a] = i + 1;
-            d2[b] = i + 1;
-        }
-        return true;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isIsomorphic(s string, t string) bool {
 	d1 := [256]int{}
@@ -149,29 +110,6 @@ func isIsomorphic(s string, t string) bool {
 	return true
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool IsIsomorphic(string s, string t) {
-        int[] d1 = new int[256];
-        int[] d2 = new int[256];
-        for (int i = 0; i < s.Length; ++i) {
-            var a = s[i];
-            var b = t[i];
-            if (d1[a] != d2[b]) {
-                return false;
-            }
-            d1[a] = i + 1;
-            d2[b] = i + 1;
-        }
-        return true;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function isIsomorphic(s: string, t: string): boolean {
@@ -189,8 +127,6 @@ function isIsomorphic(s: string, t: string): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -216,10 +152,62 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool IsIsomorphic(string s, string t) {
+        int[] d1 = new int[256];
+        int[] d2 = new int[256];
+        for (int i = 0; i < s.Length; ++i) {
+            var a = s[i];
+            var b = t[i];
+            if (d1[a] != d2[b]) {
+                return false;
+            }
+            d1[a] = i + 1;
+            d2[b] = i + 1;
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        d1, d2 = [0] * 256, [0] * 256
+        for i, (a, b) in enumerate(zip(s, t), 1):
+            a, b = ord(a), ord(b)
+            if d1[a] != d2[b]:
+                return False
+            d1[a] = d2[b] = i
+        return True
+```
+
+```java
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        int[] d1 = new int[256];
+        int[] d2 = new int[256];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            char a = s.charAt(i), b = t.charAt(i);
+            if (d1[a] != d2[b]) {
+                return false;
+            }
+            d1[a] = i + 1;
+            d2[b] = i + 1;
+        }
+        return true;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

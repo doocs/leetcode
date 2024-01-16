@@ -89,9 +89,9 @@ Rounds table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -105,3 +105,5 @@ HAVING SUM(score) > 15;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

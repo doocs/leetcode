@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 枚举**
+### 方法一：计数 + 枚举
 
 我们先用两个长度为 $26$ 的数组分别统计字符串 $word1$ 和 $word2$ 中每个字母的出现次数，记为 $cnt1$ 和 $cnt2$。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n + C^3)$，空间复杂度 $O(C)$，其中 $n$ 是字符串的长度，而 $C$ 是字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                     cnt1[j], cnt2[i] = cnt1[j] - 1, cnt2[i] - 1
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -180,8 +168,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isItPossible(word1 string, word2 string) bool {
 	cnt1 := [26]int{}
@@ -218,10 +204,6 @@ func isItPossible(word1 string, word2 string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

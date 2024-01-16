@@ -82,11 +82,9 @@ Orders 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -100,3 +98,5 @@ HAVING SUM(IF(dispatch_date >= '2018-06-23', quantity, 0)) < 10;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

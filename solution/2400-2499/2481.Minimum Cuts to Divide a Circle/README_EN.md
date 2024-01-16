@@ -45,17 +45,15 @@ Also note that the first cut will not divide the circle into distinct parts.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def numberOfCuts(self, n: int) -> int:
         return n if (n > 1 and n & 1) else n >> 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -64,8 +62,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -76,8 +72,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfCuts(n int) int {
 	if n > 1 && n%2 == 1 {
@@ -87,25 +81,11 @@ func numberOfCuts(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfCuts(n: number): number {
     return n > 1 && n & 1 ? n : n >> 1;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int NumberOfCuts(int n) {
-        return n > 1 && n % 2 == 1 ? n : n >> 1;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -118,10 +98,14 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int NumberOfCuts(int n) {
+        return n > 1 && n % 2 == 1 ? n : n >> 1;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

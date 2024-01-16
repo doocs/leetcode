@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以判断 $n$ 从低位到高位的每一位，如果该位为 $1$，那么答案的该位为 $1$，否则为 $0$。如果该位为 $1$，那么我们需要将 $n$ 减去 $k$。接下来我们更新 $n = \lfloor n / 2 \rfloor$, $k = -k$。继续判断下一位。
 
@@ -61,10 +59,6 @@
 -   [1073. 负二进制数相加](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
             k *= -1
         return ''.join(ans[::-1]) or '0'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func baseNeg2(n int) string {
 	if n == 0 {
@@ -162,8 +148,6 @@ func baseNeg2(n int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function baseNeg2(n: number): string {
     if (n === 0) {
@@ -185,10 +169,6 @@ function baseNeg2(n: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

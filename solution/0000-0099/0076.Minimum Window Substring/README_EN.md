@@ -49,7 +49,7 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 
 ## Solutions
 
-**Solution 1: Counting + Two Pointers**
+### Solution 1: Counting + Two Pointers
 
 We use a hash table or array $need$ to count the number of occurrences of each character in string $t$, and another hash table or array $window$ to count the number of occurrences of each character in the sliding window. In addition, we define two pointers $j$ and $i$ to point to the left and right boundaries of the window, respectively. The variable $cnt$ represents how many characters in $t$ are already included in the window. The variables $k$ and $mi$ represent the starting position and length of the minimum covering substring, respectively.
 
@@ -62,8 +62,6 @@ After the traversal, if the minimum covering substring is not found, return an e
 The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the lengths of strings $s$ and $t$ respectively; and $C$ is the size of the character set, in this problem $C = 128$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
                 j += 1
         return '' if k < 0 else s[k : k + mi]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minWindow(s string, t string) string {
 	need := [128]int{}
@@ -187,8 +179,6 @@ func minWindow(s string, t string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minWindow(s: string, t: string): string {
     const need: number[] = new Array(128).fill(0);
@@ -219,40 +209,6 @@ function minWindow(s: string, t: string): string {
     return k < 0 ? '' : s.slice(k, k + mi);
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public string MinWindow(string s, string t) {
-        int[] need = new int[128];
-        int[] window = new int[128];
-        foreach (var c in t) {
-            ++need[c];
-        }
-        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
-        for (int i = 0; i < s.Length; ++i) {
-            ++window[s[i]];
-            if (need[s[i]] >= window[s[i]]) {
-                ++cnt;
-            }
-            while (cnt == t.Length) {
-                if (i - j + 1 < mi) {
-                    mi = i - j + 1;
-                    k = j;
-                }
-                if (need[s[j]] >= window[s[j]]) {
-                    --cnt;
-                }
-                --window[s[j++]];
-            }
-        }
-        return k < 0 ? "" : s.Substring(k, mi);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -290,10 +246,36 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public string MinWindow(string s, string t) {
+        int[] need = new int[128];
+        int[] window = new int[128];
+        foreach (var c in t) {
+            ++need[c];
+        }
+        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
+        for (int i = 0; i < s.Length; ++i) {
+            ++window[s[i]];
+            if (need[s[i]] >= window[s[i]]) {
+                ++cnt;
+            }
+            while (cnt == t.Length) {
+                if (i - j + 1 < mi) {
+                    mi = i - j + 1;
+                    k = j;
+                }
+                if (need[s[j]] >= window[s[j]]) {
+                    --cnt;
+                }
+                --window[s[j++]];
+            }
+        }
+        return k < 0 ? "" : s.Substring(k, mi);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 贪心**
+### 方法一：二分查找 + 贪心
 
 题目求的是窃贼的最小窃取能力，我们可以二分枚举窃贼的窃取能力，对于枚举的能力 $x$，我们可以通过贪心的方式判断窃贼是否能够窃取至少 $k$ 间房屋，具体地，我们从左到右遍历数组，对于当前遍历到的房屋 $i$，如果 $nums[i] \leq x$ 且 $i$ 与上一个窃取的房屋的下标之差大于 $1$，则窃贼可以窃取房屋 $i$，否则窃贼不能窃取房屋 $i$。累计窃取的房屋数，如果窃取的房屋数大于等于 $k$，则说明窃贼可以窃取至少 $k$ 间房屋，此时窃贼的窃取能力 $x$ 可能是最小的，否则窃贼的窃取能力 $x$ 不是最小的。
 
 时间复杂度 $O(n \times \log m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 的长度和数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
 
         return bisect_left(range(max(nums) + 1), True, key=f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCapability(nums []int, k int) int {
 	return sort.Search(1e9+1, func(x int) bool {
@@ -163,8 +149,6 @@ func minCapability(nums []int, k int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minCapability(nums: number[], k: number): number {
@@ -194,10 +178,6 @@ function minCapability(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

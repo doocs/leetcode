@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -59,8 +59,6 @@ class Solution:
 
         return max(dfs(root))
 ```
-
-### **Java**
 
 ```java
 /**
@@ -95,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -126,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -151,8 +145,6 @@ func rob(root *TreeNode) int {
 	return max(a, b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -182,10 +174,6 @@ function rob(root: TreeNode | null): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,8 +52,6 @@ class Solution:
         vals = Counter(deck).values()
         return reduce(gcd, vals) >= 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +75,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func hasGroupsSizeX(deck []int) bool {
@@ -125,10 +119,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

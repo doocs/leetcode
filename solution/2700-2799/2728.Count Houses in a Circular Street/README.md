@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们先循环 $k$ 次，每次打开当前房子的门，然后向左移动一格，循环结束后，所有房子的门都是打开的。
 
@@ -66,10 +64,6 @@
 -   [2753. 计算一个环形街道上的房屋数量 II](/solution/2700-2799/2753.Count%20Houses%20in%20a%20Circular%20Street%20II/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a street.
@@ -96,10 +90,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -129,8 +119,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a street.
@@ -188,8 +174,6 @@ func houseCount(street Street, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -218,10 +202,6 @@ function houseCount(street: Street | null, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

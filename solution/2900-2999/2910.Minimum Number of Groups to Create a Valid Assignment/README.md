@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 我们用一个哈希表 $cnt$ 统计数组 $nums$ 中每个数字出现的次数，我们记数字次数的最小值为 $k$，那么我们可以在 $[k,..1]$ 的范围内枚举分组的大小。由于每个组的大小差值不超过 $1$，那么分组大小为 $k$ 或 $k+1$。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
             if ans:
                 return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minGroupsForValidAssignment(nums []int) int {
 	cnt := map[int]int{}
@@ -184,8 +170,6 @@ func minGroupsForValidAssignment(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minGroupsForValidAssignment(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -207,8 +191,6 @@ function minGroupsForValidAssignment(nums: number[]): number {
     }
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -250,10 +232,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

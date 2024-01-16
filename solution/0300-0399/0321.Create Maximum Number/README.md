@@ -41,9 +41,7 @@ k = <code>3</code>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 单调栈**
+### 方法一：枚举 + 单调栈
 
 我们可以枚举从数组 $nums1$ 中取出 $x$ 个数，那么从数组 $nums2$ 中就需要取出 $k-x$ 个数。其中 $x \in [max(0, k-n), min(k, m)]$。
 
@@ -54,10 +52,6 @@ k = <code>3</code>
 时间复杂度 $O(k \times (m + n + k^2))$，空间复杂度 $O(k)$。其中 $m$ 和 $n$ 分别是数组 $nums1$ 和 $nums2$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -113,10 +107,6 @@ class Solution:
                 ans = arr
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -186,8 +176,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -255,8 +243,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxNumber(nums1 []int, nums2 []int, k int) []int {
@@ -328,8 +314,6 @@ func maxNumber(nums1 []int, nums2 []int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxNumber(nums1: number[], nums2: number[], k: number): number[] {
     const m = nums1.length;
@@ -400,10 +384,6 @@ function merge(nums1: number[], nums2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 将字符串 $s1$, $s2$ 分别进行升序排序。然后同时遍历两个字符串，对应字符进行大小比较。若对于任意 $i∈[0, n)，都有 $s1[i] \le s2[i]$，或者都有 $s1[i] \ge s2[i]$，则存在一个排列可以打破另一个排列。
 
 时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
             a <= b for a, b in zip(cs1, cs2)
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkIfCanBreak(s1 string, s2 string) bool {
 	cs1 := []byte(s1)
@@ -135,8 +121,6 @@ func checkIfCanBreak(s1 string, s2 string) bool {
 	return check(cs1, cs2) || check(cs2, cs1)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkIfCanBreak(s1: string, s2: string): boolean {
@@ -156,10 +140,6 @@ function checkIfCanBreak(s1: string, s2: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

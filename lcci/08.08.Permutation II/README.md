@@ -23,9 +23,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 回溯**
+### 方法一：排序 + 回溯
 
 我们可以先对字符串按照字符进行排序，这样就可以将重复的字符放在一起，方便我们进行去重。
 
@@ -39,10 +37,6 @@
 时间复杂度 $O(n \times n!)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。需要进行 $n!$ 次枚举，每次枚举需要 $O(n)$ 的时间来判断是否重复。另外，我们需要一个标记数组来标记每个位置是否被使用过，因此空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func permutation(S string) (ans []string) {
 	cs := []byte(S)
@@ -173,8 +159,6 @@ func permutation(S string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function permutation(S: string): string[] {
     const cs: string[] = S.split('').sort();
@@ -202,8 +186,6 @@ function permutation(S: string): string[] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -237,10 +219,6 @@ var permutation = function (S) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

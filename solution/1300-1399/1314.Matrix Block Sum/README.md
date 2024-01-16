@@ -43,15 +43,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-动态规划-二维前缀和。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                 )
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func matrixBlockSum(mat [][]int, k int) [][]int {
@@ -184,10 +170,6 @@ func matrixBlockSum(mat [][]int, k int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

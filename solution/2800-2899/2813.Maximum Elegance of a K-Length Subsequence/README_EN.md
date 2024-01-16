@@ -63,7 +63,7 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We can sort all items by profit from large to small. First choose the first $k$ items and calculate the total profit $tot$. Use a hash table $vis$ to record the categories of these $k$ items, use a stack $dup$ to record the profits of the repeated categories in order, and use a variable $ans$ to record the current maximum elegance.
 
@@ -74,8 +74,6 @@ Finally, we return $ans$.
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of items.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
             ans = max(ans, tot + len(vis) ** 2)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +127,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -170,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaximumElegance(items [][]int, k int) int64 {
 	sort.Slice(items, func(i, j int) bool { return items[i][0] > items[j][0] })
@@ -202,8 +194,6 @@ func findMaximumElegance(items [][]int, k int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMaximumElegance(items: number[][], k: number): number {
     items.sort((a, b) => b[0] - a[0]);
@@ -231,10 +221,6 @@ function findMaximumElegance(items: number[][], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

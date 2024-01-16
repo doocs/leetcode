@@ -37,15 +37,13 @@
 
 ## Solutions
 
-**Solution 1: Bitwise Operation**
+### Solution 1: Bitwise Operation
 
 We notice that the array $perm$ is a permutation of the first $n$ positive integers, so the XOR of all elements in $perm$ is $1 \oplus 2 \oplus \cdots \oplus n$, denoted as $a$. And $encode[i]=perm[i] \oplus perm[i+1]$, if we denote the XOR of all elements $encode[0],encode[2],\cdots,encode[n-3]$ as $b$, then $perm[n-1]=a \oplus b$. Knowing the last element of $perm$, we can find all elements of $perm$ by traversing the array $encode$ in reverse order.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $perm$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
             perm[i] = encoded[i] ^ perm[i + 1]
         return perm
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func decode(encoded []int) []int {
 	n := len(encoded) + 1
@@ -131,10 +123,6 @@ func decode(encoded []int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

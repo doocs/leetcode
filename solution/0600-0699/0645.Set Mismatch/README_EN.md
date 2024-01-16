@@ -28,7 +28,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 We denote $s_1$ as the sum of all numbers from $[1,..n]$, $s_2$ as the sum of the numbers in the array $nums$ after removing duplicates, and $s$ as the sum of the numbers in the array $nums$.
 
@@ -36,27 +36,7 @@ Then $s - s_2$ is the duplicate number, and $s_1 - s_2$ is the missing number.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$. Extra space is needed to store the array after de-duplication.
 
-**Solution 2: Hash Table**
-
-We can also use a more intuitive method, using a hash table $cnt$ to count the occurrence of each number in the array $nums$.
-
-Next, iterate through $x \in [1, n]$, if $cnt[x] = 2$, then $x$ is the duplicate number, if $cnt[x] = 0$, then $x$ is the missing number.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
-
-**Solution 3: Bit Operation**
-
-According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $xs = a \oplus b$.
-
-Since these two numbers are not equal, there must be at least one bit in the XOR result that is $1$. We find the lowest bit of $1$ in the XOR result through the $lowbit$ operation, and then divide all numbers in the array $nums$ and all numbers $i \in [1, n]$ into two groups according to whether this bit is $1$. In this way, the two numbers are divided into different groups. The XOR result of one group of numbers is $a$, and the XOR result of the other group is $b$. These two numbers are the answers we are looking for.
-
-Next, we only need to determine which of $a$ and $b$ is the duplicate number and which is the missing number. Therefore, iterate through the array $nums$, for the traversed number $x$, if $x=a$, then $a$ is the duplicate number, return $[a, b]$, otherwise, at the end of the iteration, return $[b, a]$.
-
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$, only using a constant size of extra space.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,42 +47,6 @@ class Solution:
         s = sum(nums)
         return [s - s2, s1 - s2]
 ```
-
-```python
-class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
-        cnt = Counter(nums)
-        n = len(nums)
-        ans = [0] * 2
-        for x in range(1, n + 1):
-            if cnt[x] == 2:
-                ans[0] = x
-            if cnt[x] == 0:
-                ans[1] = x
-        return ans
-```
-
-```python
-class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
-        xs = 0
-        for i, x in enumerate(nums, 1):
-            xs ^= i ^ x
-        a = 0
-        lb = xs & -xs
-        for i, x in enumerate(nums, 1):
-            if i & lb:
-                a ^= i
-            if x & lb:
-                a ^= x
-        b = xs ^ a
-        for x in nums:
-            if x == a:
-                return [a, b]
-        return [b, a]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,6 +65,89 @@ class Solution {
         return new int[] {s - s2, s1 - s2};
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        int s1 = (1 + n) * n / 2;
+        int s2 = 0;
+        unordered_set<int> set(nums.begin(), nums.end());
+        for (int x : set) {
+            s2 += x;
+        }
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        return {s - s2, s1 - s2};
+    }
+};
+```
+
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	s1 := (1 + n) * n / 2
+	s2, s := 0, 0
+	set := map[int]bool{}
+	for _, x := range nums {
+		if !set[x] {
+			set[x] = true
+			s2 += x
+		}
+		s += x
+	}
+	return []int{s - s2, s1 - s2}
+}
+```
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    const n = nums.length;
+    const s1 = (n * (n + 1)) >> 1;
+    const s2 = [...new Set(nums)].reduce((a, b) => a + b);
+    const s = nums.reduce((a, b) => a + b);
+    return [s - s2, s1 - s2];
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len() as i32;
+        let s1 = ((1 + n) * n) / 2;
+        let s2 = nums.iter().cloned().collect::<HashSet<i32>>().iter().sum::<i32>();
+        let s: i32 = nums.iter().sum();
+        vec![s - s2, s1 - s2]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Hash Table
+
+We can also use a more intuitive method, using a hash table $cnt$ to count the occurrence of each number in the array $nums$.
+
+Next, iterate through $x \in [1, n]$, if $cnt[x] = 2$, then $x$ is the duplicate number, if $cnt[x] = 0$, then $x$ is the missing number.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        cnt = Counter(nums)
+        n = len(nums)
+        ans = [0] * 2
+        for x in range(1, n + 1):
+            if cnt[x] == 2:
+                ans[0] = x
+            if cnt[x] == 0:
+                ans[1] = x
+        return ans
 ```
 
 ```java
@@ -143,6 +170,129 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        vector<int> ans(2);
+        for (int x = 1; x <= n; ++x) {
+            if (cnt[x] == 2) {
+                ans[0] = x;
+            } else if (cnt[x] == 0) {
+                ans[1] = x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	ans := make([]int, 2)
+	for x := 1; x <= n; x++ {
+		if cnt[x] == 2 {
+			ans[0] = x
+		} else if cnt[x] == 0 {
+			ans[1] = x
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    const n = nums.length;
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    const ans: number[] = new Array(2).fill(0);
+    for (let x = 1; x <= n; ++x) {
+        const t = cnt.get(x) || 0;
+        if (t === 2) {
+            ans[0] = x;
+        } else if (t === 0) {
+            ans[1] = x;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let mut xs = 0;
+        for (i, x) in nums.iter().enumerate() {
+            xs ^= ((i + 1) as i32) ^ x;
+        }
+        let mut a = 0;
+        let lb = xs & -xs;
+        for (i, x) in nums.iter().enumerate() {
+            if (((i + 1) as i32) & lb) != 0 {
+                a ^= (i + 1) as i32;
+            }
+            if (*x & lb) != 0 {
+                a ^= *x;
+            }
+        }
+        let b = xs ^ a;
+        for x in nums.iter() {
+            if *x == a {
+                return vec![a, b];
+            }
+        }
+        vec![b, a]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 3: Bit Operation
+
+According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $xs = a \oplus b$.
+
+Since these two numbers are not equal, there must be at least one bit in the XOR result that is $1$. We find the lowest bit of $1$ in the XOR result through the $lowbit$ operation, and then divide all numbers in the array $nums$ and all numbers $i \in [1, n]$ into two groups according to whether this bit is $1$. In this way, the two numbers are divided into different groups. The XOR result of one group of numbers is $a$, and the XOR result of the other group is $b$. These two numbers are the answers we are looking for.
+
+Next, we only need to determine which of $a$ and $b$ is the duplicate number and which is the missing number. Therefore, iterate through the array $nums$, for the traversed number $x$, if $x=a$, then $a$ is the duplicate number, return $[a, b]$, otherwise, at the end of the iteration, return $[b, a]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$, only using a constant size of extra space.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        xs = 0
+        for i, x in enumerate(nums, 1):
+            xs ^= i ^ x
+        a = 0
+        lb = xs & -xs
+        for i, x in enumerate(nums, 1):
+            if i & lb:
+                a ^= i
+            if x & lb:
+                a ^= x
+        b = xs ^ a
+        for x in nums:
+            if x == a:
+                return [a, b]
+        return [b, a]
 ```
 
 ```java
@@ -172,47 +322,6 @@ class Solution {
         return new int[] {b, a};
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> findErrorNums(vector<int>& nums) {
-        int n = nums.size();
-        int s1 = (1 + n) * n / 2;
-        int s2 = 0;
-        unordered_set<int> set(nums.begin(), nums.end());
-        for (int x : set) {
-            s2 += x;
-        }
-        int s = accumulate(nums.begin(), nums.end(), 0);
-        return {s - s2, s1 - s2};
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    vector<int> findErrorNums(vector<int>& nums) {
-        int n = nums.size();
-        unordered_map<int, int> cnt;
-        for (int x : nums) {
-            ++cnt[x];
-        }
-        vector<int> ans(2);
-        for (int x = 1; x <= n; ++x) {
-            if (cnt[x] == 2) {
-                ans[0] = x;
-            } else if (cnt[x] == 0) {
-                ans[1] = x;
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -245,44 +354,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findErrorNums(nums []int) []int {
-	n := len(nums)
-	s1 := (1 + n) * n / 2
-	s2, s := 0, 0
-	set := map[int]bool{}
-	for _, x := range nums {
-		if !set[x] {
-			set[x] = true
-			s2 += x
-		}
-		s += x
-	}
-	return []int{s - s2, s1 - s2}
-}
-```
-
-```go
-func findErrorNums(nums []int) []int {
-	n := len(nums)
-	cnt := map[int]int{}
-	for _, x := range nums {
-		cnt[x]++
-	}
-	ans := make([]int, 2)
-	for x := 1; x <= n; x++ {
-		if cnt[x] == 2 {
-			ans[0] = x
-		} else if cnt[x] == 0 {
-			ans[1] = x
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func findErrorNums(nums []int) []int {
 	xs := 0
@@ -309,81 +380,6 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len() as i32;
-        let s1 = ((1 + n) * n) / 2;
-        let s2 = nums.iter().cloned().collect::<HashSet<i32>>().iter().sum::<i32>();
-        let s: i32 = nums.iter().sum();
-        vec![s - s2, s1 - s2]
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
-        let mut xs = 0;
-        for (i, x) in nums.iter().enumerate() {
-            xs ^= ((i + 1) as i32) ^ x;
-        }
-        let mut a = 0;
-        let lb = xs & -xs;
-        for (i, x) in nums.iter().enumerate() {
-            if (((i + 1) as i32) & lb) != 0 {
-                a ^= (i + 1) as i32;
-            }
-            if (*x & lb) != 0 {
-                a ^= *x;
-            }
-        }
-        let b = xs ^ a;
-        for x in nums.iter() {
-            if *x == a {
-                return vec![a, b];
-            }
-        }
-        vec![b, a]
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function findErrorNums(nums: number[]): number[] {
-    const n = nums.length;
-    const s1 = (n * (n + 1)) >> 1;
-    const s2 = [...new Set(nums)].reduce((a, b) => a + b);
-    const s = nums.reduce((a, b) => a + b);
-    return [s - s2, s1 - s2];
-}
-```
-
-```ts
-function findErrorNums(nums: number[]): number[] {
-    const n = nums.length;
-    const cnt: Map<number, number> = new Map();
-    for (const x of nums) {
-        cnt.set(x, (cnt.get(x) || 0) + 1);
-    }
-    const ans: number[] = new Array(2).fill(0);
-    for (let x = 1; x <= n; ++x) {
-        const t = cnt.get(x) || 0;
-        if (t === 2) {
-            ans[0] = x;
-        } else if (t === 0) {
-            ans[1] = x;
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
@@ -406,10 +402,6 @@ function findErrorNums(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

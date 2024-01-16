@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Custom Sorting**
+### Solution 1: Hash Table + Custom Sorting
 
 We traverse `responses`, and for each word in `responses[i]`, we temporarily store it in a hash table `vis`. Next, we record the words in `vis` into the hash table `cnt`, recording the number of times each word appears.
 
@@ -52,8 +52,6 @@ Next, we use custom sorting to sort the words in `features` in descending order 
 The time complexity is $O(n \times \log n)$, where $n$ is the length of `features`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
                 cnt[w] += 1
         return sorted(features, key=lambda w: -cnt[w])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortFeatures(features []string, responses []string) []string {
 	cnt := map[string]int{}
@@ -150,8 +142,6 @@ func sortFeatures(features []string, responses []string) []string {
 	return features
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sortFeatures(features: string[], responses: string[]): string[] {
@@ -177,10 +167,6 @@ function sortFeatures(features: string[], responses: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

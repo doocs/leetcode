@@ -35,11 +35,9 @@
 
 ## Solutions
 
-First enumerate two edges, and then use binary search to locate the third edge.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -52,8 +50,6 @@ class Solution:
                 ans += k - j
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,6 +72,95 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    int triangleNumber(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n - 2; ++i) {
+            for (int j = i + 1; j < n - 1; ++j) {
+                int k = lower_bound(nums.begin() + j + 1, nums.end(), nums[i] + nums[j]) - nums.begin() - 1;
+                ans += k - j;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func triangleNumber(nums []int) int {
+	sort.Ints(nums)
+	ans := 0
+	for i, n := 0, len(nums); i < n-2; i++ {
+		for j := i + 1; j < n-1; j++ {
+			left, right := j+1, n
+			for left < right {
+				mid := (left + right) >> 1
+				if nums[mid] >= nums[i]+nums[j] {
+					right = mid
+				} else {
+					left = mid + 1
+				}
+			}
+			ans += left - j - 1
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function triangleNumber(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let n = nums.length;
+    let ans = 0;
+    for (let i = n - 1; i >= 2; i--) {
+        let left = 0,
+            right = i - 1;
+        while (left < right) {
+            if (nums[left] + nums[right] > nums[i]) {
+                ans += right - left;
+                right--;
+            } else {
+                left++;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn triangle_number(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let mut res = 0;
+        for i in (2..n).rev() {
+            let mut left = 0;
+            let mut right = i - 1;
+            while left < right {
+                if nums[left] + nums[right] > nums[i] {
+                    res += right - left;
+                    right -= 1;
+                } else {
+                    left += 1;
+                }
+            }
+        }
+        res as i32
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -101,101 +186,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function triangleNumber(nums: number[]): number {
-    nums.sort((a, b) => a - b);
-    let n = nums.length;
-    let ans = 0;
-    for (let i = n - 1; i >= 2; i--) {
-        let left = 0,
-            right = i - 1;
-        while (left < right) {
-            if (nums[left] + nums[right] > nums[i]) {
-                ans += right - left;
-                right--;
-            } else {
-                left++;
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **Go**
-
-```go
-func triangleNumber(nums []int) int {
-	sort.Ints(nums)
-	ans := 0
-	for i, n := 0, len(nums); i < n-2; i++ {
-		for j := i + 1; j < n-1; j++ {
-			left, right := j+1, n
-			for left < right {
-				mid := (left + right) >> 1
-				if nums[mid] >= nums[i]+nums[j] {
-					right = mid
-				} else {
-					left = mid + 1
-				}
-			}
-			ans += left - j - 1
-		}
-	}
-	return ans
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int triangleNumber(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int ans = 0, n = nums.size();
-        for (int i = 0; i < n - 2; ++i) {
-            for (int j = i + 1; j < n - 1; ++j) {
-                int k = lower_bound(nums.begin() + j + 1, nums.end(), nums[i] + nums[j]) - nums.begin() - 1;
-                ans += k - j;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn triangle_number(mut nums: Vec<i32>) -> i32 {
-        nums.sort();
-        let n = nums.len();
-        let mut res = 0;
-        for i in (2..n).rev() {
-            let mut left = 0;
-            let mut right = i - 1;
-            while left < right {
-                if nums[left] + nums[right] > nums[i] {
-                    res += right - left;
-                    right -= 1;
-                } else {
-                    left += 1;
-                }
-            }
-        }
-        res as i32
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,7 +44,7 @@ It can be proven that no longer nice subarray can be obtained, so we return 3.</
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We define a variable $mask$ to record the bitwise OR result of the elements in the current subarray, initially $mask = 0$. Also, we use two pointers $j$ and $i$ to point to the left and right endpoints of the current subarray, initially $i = j = 0$.
 
@@ -62,8 +62,6 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
@@ -76,8 +74,6 @@ class Solution:
             mask |= x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestNiceSubarray(nums []int) (ans int) {
 	mask, j := 0, 0
@@ -132,8 +124,6 @@ func longestNiceSubarray(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestNiceSubarray(nums: number[]): number {
     let mask = 0;
@@ -149,11 +139,6 @@ function longestNiceSubarray(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

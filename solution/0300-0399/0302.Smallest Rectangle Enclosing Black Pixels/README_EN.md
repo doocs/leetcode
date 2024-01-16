@@ -43,11 +43,9 @@
 
 ## Solutions
 
-Binary search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
         r = left
         return (d - u + 1) * (r - l + 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -171,8 +167,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -229,8 +223,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minArea(image [][]byte, x int, y int) int {
@@ -295,10 +287,6 @@ func minArea(image [][]byte, x int, y int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们可以用变量 $mx$ 记录当前位置能够到达的最远位置，用变量 $last$ 记录上一次跳跃到的位置，用变量 $ans$ 记录跳跃的次数。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -82,10 +76,6 @@ class Solution:
                 last = mx
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func jump(nums []int) (ans int) {
 	mx, last := 0, 0
@@ -138,8 +124,6 @@ func jump(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function jump(nums: number[]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -153,45 +137,6 @@ function jump(nums: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int Jump(int[] nums) {
-        int ans = 0, mx = 0, last = 0;
-        for (int i = 0; i < nums.Length - 1; ++i) {
-            mx = Math.Max(mx, i + nums[i]);
-            if (last == i) {
-                ++ans;
-                last = mx;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C**
-
-```c
-#define min(a, b) a < b ? a : b
-int jump(int* nums, int numsSize) {
-    int dp[numsSize];
-    for (int i = 0; i < numsSize; i++) {
-        dp[i] = numsSize;
-    }
-    dp[0] = 0;
-    for (int i = 0; i < numsSize - 1; i++) {
-        for (int j = i + 1; j < (min(i + nums[i] + 1, numsSize)); j++) {
-            dp[j] = min(dp[j], dp[i] + 1);
-        }
-    }
-    return dp[numsSize - 1];
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -212,10 +157,39 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```cs
+public class Solution {
+    public int Jump(int[] nums) {
+        int ans = 0, mx = 0, last = 0;
+        for (int i = 0; i < nums.Length - 1; ++i) {
+            mx = Math.Max(mx, i + nums[i]);
+            if (last == i) {
+                ++ans;
+                last = mx;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
+```c
+#define min(a, b) a < b ? a : b
+int jump(int* nums, int numsSize) {
+    int dp[numsSize];
+    for (int i = 0; i < numsSize; i++) {
+        dp[i] = numsSize;
+    }
+    dp[0] = 0;
+    for (int i = 0; i < numsSize - 1; i++) {
+        for (int j = i + 1; j < (min(i + nums[i] + 1, numsSize)); j++) {
+            dp[j] = min(dp[j], dp[i] + 1);
+        }
+    }
+    return dp[numsSize - 1];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们可以遍历数组 $nums$，找到数组中的最大值 $x$ 和第二大的值 $y$，如果 $x \ge 2y$，则返回 $x$ 的下标，否则返回 $-1$。
 
@@ -52,20 +50,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
         x, y = nlargest(2, nums)
         return nums.index(x) if x >= 2 * y else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func dominantIndex(nums []int) int {
 	k := 0
@@ -129,8 +115,6 @@ func dominantIndex(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function dominantIndex(nums: number[]): number {
     let k = 0;
@@ -147,8 +131,6 @@ function dominantIndex(nums: number[]): number {
     return k;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -171,10 +153,6 @@ var dominantIndex = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

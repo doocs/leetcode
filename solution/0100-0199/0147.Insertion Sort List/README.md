@@ -53,20 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-遍历链表，每次将遍历到的结点 cur 与前一个结点 pre 进行值比较：
-
--   若结点 cur 的值比 pre 的大，说明当前 cur 已在正确的位置，直接往下遍历。
--   否则，从链表第一个结点开始遍历，将结点 cur 插入到正确的位置。
-
-依次遍历，直至 cur 指向空，遍历结束。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -94,10 +83,6 @@ class Solution:
             cur = t
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -138,8 +123,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for singly-linked list.
@@ -177,10 +160,6 @@ var insertionSortList = function (head) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

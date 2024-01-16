@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举计数**
+### 方法一：枚举计数
 
 我们定义 $f[i][j]$ 表示 $ideas$ 中以第 $i$ 个字母开头，替换为第 $j$ 个字母后，不在 $ideas$ 中的字符串的个数。初始时 $f[i][j] = 0$。另外，用一个哈希表 $s$ 记录 $ideas$ 中的字符串，方便我们开快速判断某个字符串是否在 $ideas$ 中。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n \times m \times |\Sigma|)$，空间复杂度 $O(|\Sigma|^2)$。其中 $n$ 和 $m$ 分别是 $ideas$ 中字符串的个数和字符串的最大长度，而 $|\Sigma|$ 是字符串中出现的字符集，本题中 $|\Sigma| \leq 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
                     ans += f[j][i]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func distinctNames(ideas []string) (ans int64) {
@@ -205,8 +191,6 @@ func distinctNames(ideas []string) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distinctNames(ideas: string[]): number {
     const s = new Set(ideas);
@@ -238,10 +222,6 @@ function distinctNames(ideas: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,23 +58,6 @@ class Solution:
             ans += max(0, cnt - 2)
         return ans
 ```
-
-```python
-class Solution:
-    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
-        ans = cnt = 0
-        d = 3000
-        for a, b in pairwise(nums):
-            if b - a == d:
-                cnt += 1
-            else:
-                d = b - a
-                cnt = 0
-            ans += cnt
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfArithmeticSlices(nums []int) (ans int) {
 	cnt, d := 0, 3000
@@ -135,8 +114,6 @@ func numberOfArithmeticSlices(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfArithmeticSlices(nums: number[]): number {
@@ -158,10 +135,27 @@ function numberOfArithmeticSlices(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        ans = cnt = 0
+        d = 3000
+        for a, b in pairwise(nums):
+            if b - a == d:
+                cnt += 1
+            else:
+                d = b - a
+                cnt = 0
+            ans += cnt
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

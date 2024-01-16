@@ -34,15 +34,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We create two linked lists, one to store nodes less than $x$, and the other to store nodes greater than or equal to $x$. Then we concatenate them.
 
 The time complexity is $O(n)$, where $n$ is the length of the original linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -66,8 +64,6 @@ class Solution:
         t2.next = None
         return d1.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -101,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -139,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -167,44 +159,6 @@ func partition(head *ListNode, x int) *ListNode {
 	return d1.Next
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number} x
- * @return {ListNode}
- */
-var partition = function (head, x) {
-    const d1 = new ListNode();
-    const d2 = new ListNode();
-    let t1 = d1,
-        t2 = d2;
-    while (head) {
-        if (head.val < x) {
-            t1.next = head;
-            t1 = t1.next;
-        } else {
-            t2.next = head;
-            t2 = t2.next;
-        }
-        head = head.next;
-    }
-    t1.next = d2.next;
-    t2.next = null;
-    return d1.next;
-};
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -245,10 +199,40 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} x
+ * @return {ListNode}
+ */
+var partition = function (head, x) {
+    const d1 = new ListNode();
+    const d2 = new ListNode();
+    let t1 = d1,
+        t2 = d2;
+    while (head) {
+        if (head.val < x) {
+            t1.next = head;
+            t1 = t1.next;
+        } else {
+            t2.next = head;
+            t2 = t2.next;
+        }
+        head = head.next;
+    }
+    t1.next = d2.next;
+    t2.next = null;
+    return d1.next;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

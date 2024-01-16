@@ -61,9 +61,7 @@ class FooBar {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：多线程 + 信号量**
+### 方法一：多线程 + 信号量
 
 我们用两个信号量 $f$ 和 $b$ 来控制两个线程的执行顺序，其中 $f$ 初始值为 $1$，而 $b$ 初始值为 $0$，表示线程 $A$ 先执行。
 
@@ -76,10 +74,6 @@ class FooBar {
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from threading import Semaphore
@@ -105,10 +99,6 @@ class FooBar:
             printBar()
             self.f.release()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class FooBar {
@@ -139,8 +129,6 @@ class FooBar {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 #include <semaphore.h>
@@ -177,10 +165,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

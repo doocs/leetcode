@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 Since the value of each row and column depends on the last modification, we can traverse all queries in reverse order and use hash tables $row$ and $col$ to record which rows and columns have been modified.
 
@@ -60,8 +60,6 @@ Finally, return the answer.
 The time complexity is $O(m)$, and the space complexity is $O(n)$. Here, $m$ represents the number of queries.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
                     col.add(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	row, col := map[int]bool{}, map[int]bool{}
@@ -159,8 +151,6 @@ func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function matrixSumQueries(n: number, queries: number[][]): number {
@@ -185,10 +175,6 @@ function matrixSumQueries(n: number, queries: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

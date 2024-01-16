@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈 + 动态规划**
+### 方法一：单调栈 + 动态规划
 
 根据题目描述，我们实际上需要找到 $nums[i]$ 的下一个大于等于 $nums[i]$ 的位置 $j$，以及下一个小于 $nums[i]$ 的位置 $j$。我们利用单调栈可以在 $O(n)$ 的时间内找到这两个位置，然后构建邻接表 $g$，其中 $g[i]$ 表示下标 $i$ 可以跳转到的下标。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                 f[j] = min(f[j], f[i] + costs[j])
         return f[n - 1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,8 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(nums []int, costs []int) int64 {
 	n := len(nums)
@@ -220,8 +206,6 @@ func minCost(nums []int, costs []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCost(nums: number[], costs: number[]): number {
     const n = nums.length;
@@ -257,10 +241,6 @@ function minCost(nums: number[], costs: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

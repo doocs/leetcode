@@ -33,27 +33,4 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-<!-- tabs:start -->
-
-### **Bash**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```sh
-# Read from the file file.txt and output all valid phone numbers to stdout.
-grep -P '^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$' file.txt
-```
-
-```sh
-# Read from the file file.txt and output all valid phone numbers to stdout.
-sed -n -E '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/p' file.txt
-```
-
-```sh
-# Read from the file file.txt and output all valid phone numbers to stdout.
-awk '/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/' file.txt
-```
-
-<!-- tabs:end -->
+<!-- end -->

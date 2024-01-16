@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 sign = c
         return sum(stk)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func calculate(s string) (ans int) {
 	n := len(s)
@@ -176,8 +170,6 @@ func calculate(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function calculate(s: string): number {
@@ -211,10 +203,6 @@ function calculate(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

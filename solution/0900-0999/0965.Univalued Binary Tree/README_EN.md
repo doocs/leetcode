@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -53,8 +53,6 @@ class Solution:
 
         return dfs(root)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -86,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -113,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -135,8 +129,6 @@ func isUnivalTree(root *TreeNode) bool {
 	return dfs(root)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -164,8 +156,6 @@ function isUnivalTree(root: TreeNode | null): boolean {
     return dfs(root.left) && dfs(root.right);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -203,10 +193,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

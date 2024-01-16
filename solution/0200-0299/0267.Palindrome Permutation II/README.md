@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：回溯**
+### 方法一：回溯
 
 回文排列需要满足至多有一个字符出现奇数次数。若不满足条件，答案提前返回。
 
@@ -49,10 +47,6 @@
 时间复杂度 $O(n \times \frac{n}{2}!)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
         dfs(mid)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func generatePalindromes(s string) []string {
 	cnt := map[byte]int{}
@@ -204,10 +190,6 @@ func generatePalindromes(s string) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

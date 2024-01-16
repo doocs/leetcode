@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 判断一棵树是否是二叉搜索树，需要满足以下四个条件：
 
@@ -105,10 +103,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -134,10 +128,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -181,8 +171,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -221,8 +209,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -251,8 +237,6 @@ func maxSumBST(root *TreeNode) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -290,10 +274,6 @@ function maxSumBST(root: TreeNode | null): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

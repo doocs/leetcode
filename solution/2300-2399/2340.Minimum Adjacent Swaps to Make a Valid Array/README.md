@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：维护最值下标 + 分类讨论**
+### 方法一：维护最值下标 + 分类讨论
 
 我们可以用下标 $i$ 和 $j$ 分别记录数组 `nums` 第一个最小值和最后一个最大值的下标，遍历数组 `nums`，更新 $i$ 和 $j$ 的值。
 
@@ -70,10 +68,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumSwaps(self, nums: List[int]) -> int:
@@ -85,10 +79,6 @@ class Solution:
                 j = k
         return 0 if i == j else i + len(nums) - 1 - j - (i > j)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSwaps(nums []int) int {
 	var i, j int
@@ -158,8 +144,6 @@ func minimumSwaps(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSwaps(nums: number[]): number {
     let i = 0;
@@ -177,10 +161,6 @@ function minimumSwaps(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

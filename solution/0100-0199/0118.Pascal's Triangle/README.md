@@ -38,19 +38,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们先创建一个答案数组 $f$，然后将 $f$ 的第一行元素设为 $[1]$。接下来，我们从第二行开始，每一行的开头和结尾元素都是 $1$，其它 $f[i][j] = f[i - 1][j - 1] + f[i - 1][j]$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是行数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -61,10 +55,6 @@ class Solution:
             f.append(g)
         return f
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,7 +95,35 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func generate(numRows int) [][]int {
+	f := [][]int{[]int{1}}
+	for i := 0; i < numRows-1; i++ {
+		g := []int{1}
+		for j := 0; j < len(f[i])-1; j++ {
+			g = append(g, f[i][j]+f[i][j+1])
+		}
+		g = append(g, 1)
+		f = append(f, g)
+	}
+	return f
+}
+```
+
+```ts
+function generate(numRows: number): number[][] {
+    const f: number[][] = [[1]];
+    for (let i = 0; i < numRows - 1; ++i) {
+        const g: number[] = [1];
+        for (let j = 0; j < f[i].length - 1; ++j) {
+            g.push(f[i][j] + f[i][j + 1]);
+        }
+        g.push(1);
+        f.push(g);
+    }
+    return f;
+}
+```
 
 ```rust
 impl Solution {
@@ -130,42 +146,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func generate(numRows int) [][]int {
-	f := [][]int{[]int{1}}
-	for i := 0; i < numRows-1; i++ {
-		g := []int{1}
-		for j := 0; j < len(f[i])-1; j++ {
-			g = append(g, f[i][j]+f[i][j+1])
-		}
-		g = append(g, 1)
-		f = append(f, g)
-	}
-	return f
-}
-```
-
-### **TypeScript**
-
-```ts
-function generate(numRows: number): number[][] {
-    const f: number[][] = [[1]];
-    for (let i = 0; i < numRows - 1; ++i) {
-        const g: number[] = [1];
-        for (let j = 0; j < f[i].length - 1; ++j) {
-            g.push(f[i][j] + f[i][j + 1]);
-        }
-        g.push(1);
-        f.push(g);
-    }
-    return f;
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number} numRows
@@ -185,10 +165,6 @@ var generate = function (numRows) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
                 ans[p] = val
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +124,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getDistances(arr []int) []int64 {
@@ -159,16 +153,6 @@ func getDistances(arr []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

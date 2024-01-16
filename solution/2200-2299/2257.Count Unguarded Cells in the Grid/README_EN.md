@@ -45,7 +45,7 @@ There are a total of 4 unguarded cells, so we return 4.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We create a two-dimensional array $g$ of size $m \times n$, where $g[i][j]$ represents the cell in row $i$ and column $j$. Initially, the value of $g[i][j]$ is $0$, indicating that the cell is not guarded.
 
@@ -58,8 +58,6 @@ Finally, we traverse $g$ and count the number of cells with a value of $0$, whic
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
                     g[x][y] = 1
         return sum(v == 0 for row in g for v in row)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -152,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
@@ -189,8 +181,6 @@ func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countUnguarded(m: number, n: number, guards: number[][], walls: number[][]): number {
     const g: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
@@ -222,10 +212,6 @@ function countUnguarded(m: number, n: number, guards: number[][], walls: number[
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

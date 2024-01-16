@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -59,8 +59,6 @@ class Solution:
         mx = max(counter.values())
         return [k for k, v in counter.items() if v == mx]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -111,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -186,8 +180,6 @@ func findFrequentTreeSum(root *TreeNode) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -227,8 +219,6 @@ function findFrequentTreeSum(root: TreeNode | null): number[] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -283,10 +273,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

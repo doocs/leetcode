@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 First, we convert the tree into a graph $g$, where $g[i]$ represents all the child nodes of node $i$.
 
@@ -57,8 +57,6 @@ In this function, we recursively calculate the number of nodes and the sum of th
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             g[parent[i]].append(i)
         return dfs(0)[1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func deleteTreeNodes(nodes int, parent []int, value []int) int {
 	g := make([][]int, nodes)
@@ -164,10 +156,6 @@ func deleteTreeNodes(nodes int, parent []int, value []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

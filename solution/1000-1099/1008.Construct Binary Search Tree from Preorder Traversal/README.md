@@ -46,15 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-根据二叉搜索树的性质，DFS 构建即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -82,10 +76,6 @@ class Solution:
 
         return dfs(preorder)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -168,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -202,8 +188,6 @@ func bstFromPreorder(preorder []int) *TreeNode {
 	return dfs(0, len(preorder)-1)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -241,8 +225,6 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
     return dfs(0, n);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -304,10 +286,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,11 +59,9 @@ Seat 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -73,6 +71,12 @@ FROM
     LEFT JOIN Seat AS s2 ON (s1.id + 1) ^ 1 - 1 = s2.id
 ORDER BY 1;
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -90,6 +94,12 @@ FROM Seat
 ORDER BY 1;
 ```
 
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -97,6 +107,12 @@ SELECT
     student
 FROM Seat;
 ```
+
+<!-- tabs:end -->
+
+### 方法四
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -112,3 +128,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -62,7 +62,7 @@ Only one ring is given. Thus, no rods have all three colors.
 
 ## Solutions
 
-**Solution 1: Bit Manipulation**
+### Solution 1: Bit Manipulation
 
 We can use an array $mask$ of length $10$ to represent the color situation of the rings on each rod, where $mask[i]$ represents the color situation of the ring on the $i$th rod. If there are red, green, and blue rings on the $i$th rod, then the binary representation of $mask[i]$ is $111$, that is, $mask[i] = 7$.
 
@@ -73,8 +73,6 @@ Finally, we count the number of elements in $mask$ that are $7$, which is the nu
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ represents the length of the string $rings$, and $|\Sigma|$ represents the size of the character set.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
             mask[j] |= d[c]
         return mask.count(7)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPoints(rings string) (ans int) {
@@ -152,8 +144,6 @@ func countPoints(rings string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPoints(rings: string): number {
     const idx = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
@@ -170,18 +160,6 @@ function countPoints(rings: string): number {
     return mask.filter(x => x === 7).length;
 }
 ```
-
-```ts
-function countPoints(rings: string): number {
-    let c = 0;
-    for (let i = 0; i <= 9; i++) {
-        if (rings.includes('B' + i) && rings.includes('R' + i) && rings.includes('G' + i)) c++;
-    }
-    return c;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -208,8 +186,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int countPoints(char* rings) {
@@ -239,10 +215,22 @@ int countPoints(char* rings) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function countPoints(rings: string): number {
+    let c = 0;
+    for (let i = 0; i <= 9; i++) {
+        if (rings.includes('B' + i) && rings.includes('R' + i) && rings.includes('G' + i)) c++;
+    }
+    return c;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

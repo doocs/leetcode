@@ -55,9 +55,9 @@ Since we need to return the answer modulo 10<sup>9</sup> + 7, we return 20828761
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 mod = 10**9 + 7
@@ -76,8 +76,6 @@ class Solution:
             ans = ans * (g[m] if ch in "79" else f[m]) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +115,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 const mod int = 1e9 + 7
 const n int = 1e5 + 10
@@ -153,16 +149,6 @@ func countTexts(pressedKeys string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

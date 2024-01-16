@@ -45,7 +45,7 @@ One can prove that it is impossible to make arrays equal in fewer operations.</p
 
 ## Solutions
 
-**Solution 1: Single Pass**
+### Solution 1: Single Pass
 
 We use a variable $x$ to record the difference in the number of additions and subtractions, and a variable $ans$ to record the number of operations.
 
@@ -56,8 +56,6 @@ Finally, if $x \neq 0$, then it is impossible to make the two arrays equal, so w
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,8 +73,6 @@ class Solution:
             x += y
         return -1 if x else ans // 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minOperations(nums1 []int, nums2 []int, k int) int64 {
@@ -163,8 +155,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minOperations(nums1: number[], nums2: number[], k: number): number {
     const n = nums1.length;
@@ -187,8 +177,6 @@ function minOperations(nums1: number[], nums2: number[], k: number): number {
     return sum2 / (k * 2);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -225,8 +213,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 long long minOperations(int* nums1, int nums1Size, int* nums2, int nums2Size, int k) {
     if (k == 0) {
@@ -254,10 +240,6 @@ long long minOperations(int* nums1, int nums1Size, int* nums2, int nums2Size, in
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

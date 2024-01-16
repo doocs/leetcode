@@ -61,9 +61,9 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 50 banknote
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class ATM:
@@ -92,8 +92,6 @@ class ATM:
 # obj.deposit(banknotesCount)
 # param_2 = obj.withdraw(amount)
 ```
-
-### **Java**
 
 ```java
 class ATM {
@@ -132,8 +130,6 @@ class ATM {
  * int[] param_2 = obj.withdraw(amount);
  */
 ```
-
-### **C++**
 
 ```cpp
 class ATM {
@@ -175,8 +171,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type ATM struct {
 	d   [5]int
@@ -216,16 +210,6 @@ func (this *ATM) Withdraw(amount int) []int {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

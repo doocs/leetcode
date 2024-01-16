@@ -72,9 +72,7 @@ func(sequence, target)
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：维护前缀最大值和后缀最小值**
+### 方法一：维护前缀最大值和后缀最小值
 
 我们注意到，对于数组中的每个元素，如果它是可被二分搜索的，那么需要满足两个条件：
 
@@ -92,10 +90,6 @@ func(sequence, target)
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,10 +109,6 @@ class Solution:
                 mi = nums[i]
         return sum(ok)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,8 +136,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +161,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func binarySearchableNumbers(nums []int) (ans int) {
@@ -203,10 +189,6 @@ func binarySearchableNumbers(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,7 +40,7 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 
 ## Solutions
 
-**Solution 1: Binary Code to Gray Code**
+### Solution 1: Binary Code to Gray Code
 
 We observe the arrangement in the problem, and find that in its binary representation, only one bit is different between any two (including the first and last) adjacent numbers. This kind of coding method is Gray code, which is a coding method we will encounter in engineering.
 
@@ -60,17 +60,7 @@ We can directly convert the integers $[0,..2^n - 1]$ into the corresponding Gray
 
 The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the integer given in the problem.
 
-**Solution 2: Conversion Optimization**
-
-Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only one binary bit different from $gray(i-1)$, so $gray(i) \oplus start$ is also only one binary bit different from $gray(i-1) \oplus start$.
-
-Therefore, we can also directly convert the integers $[0,..2^n - 1]$ into the corresponding $gray(i) \oplus start$ to get the Gray code arrangement with $start$ as the first term.
-
-The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,14 +69,6 @@ class Solution:
         j = g.index(start)
         return g[j:] + g[:j]
 ```
-
-```python
-class Solution:
-    def circularPermutation(self, n: int, start: int) -> List[int]:
-        return [i ^ (i >> 1) ^ start for i in range(1 << n)]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,20 +89,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public List<Integer> circularPermutation(int n, int start) {
-        List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < 1 << n; ++i) {
-            ans.add(i ^ (i >> 1) ^ start);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,21 +111,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> circularPermutation(int n, int start) {
-        vector<int> ans(1 << n);
-        for (int i = 0; i < 1 << n; ++i) {
-            ans[i] = i ^ (i >> 1) ^ start;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func circularPermutation(n int, start int) []int {
 	g := make([]int, 1<<n)
@@ -172,17 +125,6 @@ func circularPermutation(n int, start int) []int {
 }
 ```
 
-```go
-func circularPermutation(n int, start int) (ans []int) {
-	for i := 0; i < 1<<n; i++ {
-		ans = append(ans, i^(i>>1)^start)
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function circularPermutation(n: number, start: number): number[] {
     const ans: number[] = [];
@@ -193,10 +135,58 @@ function circularPermutation(n: number, start: number): number[] {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2: Conversion Optimization
+
+Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only one binary bit different from $gray(i-1)$, so $gray(i) \oplus start$ is also only one binary bit different from $gray(i-1) \oplus start$.
+
+Therefore, we can also directly convert the integers $[0,..2^n - 1]$ into the corresponding $gray(i) \oplus start$ to get the Gray code arrangement with $start$ as the first term.
+
+The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def circularPermutation(self, n: int, start: int) -> List[int]:
+        return [i ^ (i >> 1) ^ start for i in range(1 << n)]
 ```
 
+```java
+class Solution {
+    public List<Integer> circularPermutation(int n, int start) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << n; ++i) {
+            ans.add(i ^ (i >> 1) ^ start);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> circularPermutation(int n, int start) {
+        vector<int> ans(1 << n);
+        for (int i = 0; i < 1 << n; ++i) {
+            ans[i] = i ^ (i >> 1) ^ start;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func circularPermutation(n int, start int) (ans []int) {
+	for i := 0; i < 1<<n; i++ {
+		ans = append(ans, i^(i>>1)^start)
+	}
+	return
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

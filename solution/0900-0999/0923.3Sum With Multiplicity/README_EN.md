@@ -52,9 +52,9 @@ and two 2s from [2,2,2,2] in 6 ways.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
                 ans = (ans + cnt[c]) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func threeSumMulti(arr []int, target int) int {
 	const mod int = 1e9 + 7
@@ -154,10 +148,6 @@ func threeSumMulti(arr []int, target int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

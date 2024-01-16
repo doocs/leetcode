@@ -58,15 +58,13 @@
 
 ## Solutions
 
-**Solution 1: Counting In-degrees**
+### Solution 1: Counting In-degrees
 
 Based on the problem description, we only need to count the in-degrees of each node and record them in an array $indeg$. If only one node has an in-degree of $0$, then this node is the champion; otherwise, there is no unique champion.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
             indeg[v] += 1
         return -1 if indeg.count(0) != 1 else indeg.index(0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findChampion(n int, edges [][]int) int {
 	indeg := make([]int, n)
@@ -143,8 +135,6 @@ func findChampion(n int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findChampion(n: number, edges: number[][]): number {
     const indeg: number[] = Array(n).fill(0);
@@ -162,10 +152,6 @@ function findChampion(n: number, edges: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,6 +53,190 @@ class Solution:
                 return True
         return False
 ```
+
+```java
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+        if (n > m) {
+            return false;
+        }
+        int[] cnt1 = new int[26];
+        int[] cnt2 = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[s1.charAt(i) - 'a'];
+            ++cnt2[s2.charAt(i) - 'a'];
+        }
+        if (Arrays.equals(cnt1, cnt2)) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            ++cnt2[s2.charAt(i) - 'a'];
+            --cnt2[s2.charAt(i - n) - 'a'];
+            if (Arrays.equals(cnt1, cnt2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        int n = s1.size(), m = s2.size();
+        if (n > m) {
+            return false;
+        }
+        vector<int> cnt1(26), cnt2(26);
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[s1[i] - 'a'];
+            ++cnt2[s2[i] - 'a'];
+        }
+        if (cnt1 == cnt2) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            ++cnt2[s2[i] - 'a'];
+            --cnt2[s2[i - n] - 'a'];
+            if (cnt1 == cnt2) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+```go
+func checkInclusion(s1 string, s2 string) bool {
+	n, m := len(s1), len(s2)
+	if n > m {
+		return false
+	}
+	cnt1 := [26]int{}
+	cnt2 := [26]int{}
+	for i := range s1 {
+		cnt1[s1[i]-'a']++
+		cnt2[s2[i]-'a']++
+	}
+	if cnt1 == cnt2 {
+		return true
+	}
+	for i := n; i < m; i++ {
+		cnt2[s2[i]-'a']++
+		cnt2[s2[i-n]-'a']--
+		if cnt1 == cnt2 {
+			return true
+		}
+	}
+	return false
+}
+```
+
+```ts
+function checkInclusion(s1: string, s2: string): boolean {
+    // 滑动窗口方案
+    if (s1.length > s2.length) {
+        return false;
+    }
+
+    const n = s1.length;
+    const m = s2.length;
+
+    const toCode = (s: string) => s.charCodeAt(0) - 97;
+    const isMatch = () => {
+        for (let i = 0; i < 26; i++) {
+            if (arr1[i] !== arr2[i]) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    const arr1 = new Array(26).fill(0);
+    for (const s of s1) {
+        const index = toCode(s);
+        arr1[index]++;
+    }
+
+    const arr2 = new Array(26).fill(0);
+    for (let i = 0; i < n; i++) {
+        const index = toCode(s2[i]);
+        arr2[index]++;
+    }
+
+    for (let l = 0, r = n; r < m; l++, r++) {
+        if (isMatch()) {
+            return true;
+        }
+
+        const i = toCode(s2[l]);
+        const j = toCode(s2[r]);
+        arr2[i]--;
+        arr2[j]++;
+    }
+    return isMatch();
+}
+```
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    // 测试两个哈希表是否匹配
+    fn is_match(m1: &HashMap<char, i32>, m2: &HashMap<char, i32>) -> bool {
+        for (k, v) in m1.iter() {
+            if m2.get(k).unwrap_or(&0) != v {
+                return false;
+            }
+        }
+        true
+    }
+    pub fn check_inclusion(s1: String, s2: String) -> bool {
+        if s1.len() > s2.len() {
+            return false;
+        }
+        let mut m1 = HashMap::new();
+        let mut m2 = HashMap::new();
+        // 初始化表 1
+        for c in s1.chars() {
+            m1.insert(c, m1.get(&c).unwrap_or(&0) + 1);
+        }
+        let cs: Vec<char> = s2.chars().collect();
+        // 初始化窗口
+        let mut i = 0;
+        while i < s1.len() {
+            m2.insert(cs[i], m2.get(&cs[i]).unwrap_or(&0) + 1);
+            i += 1;
+        }
+        if Self::is_match(&m1, &m2) {
+            return true;
+        }
+        // 持续滑动窗口，直到匹配或超出边界
+        let mut j = 0;
+        while i < cs.len() {
+            m2.insert(cs[j], m2.get(&cs[j]).unwrap_or(&1) - 1);
+            m2.insert(cs[i], m2.get(&cs[i]).unwrap_or(&0) + 1);
+            j += 1;
+            i += 1;
+            if Self::is_match(&m1, &m2) {
+                return true;
+            }
+        }
+        false
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,37 +269,6 @@ class Solution:
             if diff == 0:
                 return True
         return False
-```
-
-### **Java**
-
-```java
-class Solution {
-    public boolean checkInclusion(String s1, String s2) {
-        int n = s1.length();
-        int m = s2.length();
-        if (n > m) {
-            return false;
-        }
-        int[] cnt1 = new int[26];
-        int[] cnt2 = new int[26];
-        for (int i = 0; i < n; ++i) {
-            ++cnt1[s1.charAt(i) - 'a'];
-            ++cnt2[s2.charAt(i) - 'a'];
-        }
-        if (Arrays.equals(cnt1, cnt2)) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            ++cnt2[s2.charAt(i) - 'a'];
-            --cnt2[s2.charAt(i - n) - 'a'];
-            if (Arrays.equals(cnt1, cnt2)) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
 ```
 
 ```java
@@ -164,36 +317,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool checkInclusion(string s1, string s2) {
-        int n = s1.size(), m = s2.size();
-        if (n > m) {
-            return false;
-        }
-        vector<int> cnt1(26), cnt2(26);
-        for (int i = 0; i < n; ++i) {
-            ++cnt1[s1[i] - 'a'];
-            ++cnt2[s2[i] - 'a'];
-        }
-        if (cnt1 == cnt2) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            ++cnt2[s2[i] - 'a'];
-            --cnt2[s2[i - n] - 'a'];
-            if (cnt1 == cnt2) {
-                return true;
-            }
-        }
-        return false;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -240,34 +363,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func checkInclusion(s1 string, s2 string) bool {
-	n, m := len(s1), len(s2)
-	if n > m {
-		return false
-	}
-	cnt1 := [26]int{}
-	cnt2 := [26]int{}
-	for i := range s1 {
-		cnt1[s1[i]-'a']++
-		cnt2[s2[i]-'a']++
-	}
-	if cnt1 == cnt2 {
-		return true
-	}
-	for i := n; i < m; i++ {
-		cnt2[s2[i]-'a']++
-		cnt2[s2[i-n]-'a']--
-		if cnt1 == cnt2 {
-			return true
-		}
-	}
-	return false
-}
-```
-
 ```go
 func checkInclusion(s1 string, s2 string) bool {
 	n, m := len(s1), len(s2)
@@ -312,101 +407,11 @@ func checkInclusion(s1 string, s2 string) bool {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function checkInclusion(s1: string, s2: string): boolean {
-    if (s1.length > s2.length) {
-        return false;
-    }
+### Solution 3
 
-    const n = s1.length;
-    const m = s2.length;
-
-    const toCode = (s: string) => s.charCodeAt(0) - 97;
-    const isMatch = () => {
-        for (let i = 0; i < 26; i++) {
-            if (arr1[i] !== arr2[i]) {
-                return false;
-            }
-        }
-        return true;
-    };
-
-    const arr1 = new Array(26).fill(0);
-    for (const s of s1) {
-        const index = toCode(s);
-        arr1[index]++;
-    }
-
-    const arr2 = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        const index = toCode(s2[i]);
-        arr2[index]++;
-    }
-
-    for (let l = 0, r = n; r < m; l++, r++) {
-        if (isMatch()) {
-            return true;
-        }
-
-        const i = toCode(s2[l]);
-        const j = toCode(s2[r]);
-        arr2[i]--;
-        arr2[j]++;
-    }
-    return isMatch();
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashMap;
-
-impl Solution {
-    fn is_match(m1: &HashMap<char, i32>, m2: &HashMap<char, i32>) -> bool {
-        for (k, v) in m1.iter() {
-            if m2.get(k).unwrap_or(&0) != v {
-                return false;
-            }
-        }
-        true
-    }
-    pub fn check_inclusion(s1: String, s2: String) -> bool {
-        if s1.len() > s2.len() {
-            return false;
-        }
-        let mut m1 = HashMap::new();
-        let mut m2 = HashMap::new();
-        for c in s1.chars() {
-            m1.insert(c, m1.get(&c).unwrap_or(&0) + 1);
-        }
-        let cs: Vec<char> = s2.chars().collect();
-        let mut i = 0;
-        while i < s1.len() {
-            m2.insert(cs[i], m2.get(&cs[i]).unwrap_or(&0) + 1);
-            i += 1;
-        }
-        if Self::is_match(&m1, &m2) {
-            return true;
-        }
-        let mut j = 0;
-        while i < cs.len() {
-            m2.insert(cs[j], m2.get(&cs[j]).unwrap_or(&1) - 1);
-            m2.insert(cs[i], m2.get(&cs[i]).unwrap_or(&0) + 1);
-            j += 1;
-            i += 1;
-            if Self::is_match(&m1, &m2) {
-                return true;
-            }
-        }
-        false
-    }
-}
-```
-
-### **Go**
+<!-- tabs:start -->
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
@@ -421,7 +426,6 @@ func checkInclusion(s1 string, s2 string) bool {
 		if need[c] == window[c] {
 			validate++
 		}
-		// shrink window
 		for right-left+1 >= len(s1) {
 			if validate == len(need) {
 				return true
@@ -438,10 +442,6 @@ func checkInclusion(s1 string, s2 string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

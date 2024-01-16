@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: Two Passes**
+### Solution 1: Two Passes
 
 We define two variables $left$ and $right$, which represent the product of all elements to the left and right of the current element respectively. Initially, $left=1$, $right=1$. Define an answer array $ans$ of length $n$.
 
@@ -45,8 +45,6 @@ After the traversal, the array `ans` is the answer.
 The time complexity is $O(n)$, where $n$ is the length of the array `nums`. Ignore the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
             right *= nums[i]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func productExceptSelf(nums []int) []int {
 	n := len(nums)
@@ -123,7 +115,39 @@ func productExceptSelf(nums []int) []int {
 }
 ```
 
-### **JavaScript**
+```ts
+function productExceptSelf(nums: number[]): number[] {
+    const n = nums.length;
+    const ans: number[] = new Array(n);
+    for (let i = 0, left = 1; i < n; ++i) {
+        ans[i] = left;
+        left *= nums[i];
+    }
+    for (let i = n - 1, right = 1; i >= 0; --i) {
+        ans[i] *= right;
+        right *= nums[i];
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut ans = vec![1; n];
+        for i in 1..n {
+            ans[i] = ans[i - 1] * nums[i - 1];
+        }
+        let mut r = 1;
+        for i in (0..n).rev() {
+            ans[i] *= r;
+            r *= nums[i];
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -145,52 +169,6 @@ var productExceptSelf = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function productExceptSelf(nums: number[]): number[] {
-    const n = nums.length;
-    const ans: number[] = new Array(n);
-    for (let i = 0, left = 1; i < n; ++i) {
-        ans[i] = left;
-        left *= nums[i];
-    }
-    for (let i = n - 1, right = 1; i >= 0; --i) {
-        ans[i] *= right;
-        right *= nums[i];
-    }
-    return ans;
-}
-```
-
-```ts
-function productExceptSelf(nums: number[]): number[] {
-    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
-        let mut ans = vec![1; n];
-        for i in 1..n {
-            ans[i] = ans[i - 1] * nums[i - 1];
-        }
-        let mut r = 1;
-        for i in (0..n).rev() {
-            ans[i] *= r;
-            r *= nums[i];
-        }
-        ans
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int[] ProductExceptSelf(int[] nums) {
@@ -208,8 +186,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -233,10 +209,18 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function productExceptSelf(nums: number[]): number[] {
+    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

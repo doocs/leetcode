@@ -55,29 +55,11 @@ Employee table:
 
 ## Solutions
 
-**Solution 1: Grouping and Joining**
+### Solution 1: Grouping and Joining
 
 We can first count the number of direct subordinates for each manager, and then join the `Employee` table to find the managers whose number of direct subordinates is greater than or equal to $5$.
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT name
-FROM
-    Employee
-    JOIN (
-        SELECT managerId AS id, COUNT(1) AS cnt
-        FROM Employee
-        GROUP BY 1
-        HAVING cnt >= 5
-    ) AS t
-        USING (id);
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -103,4 +85,20 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT name
+FROM
+    Employee
+    JOIN (
+        SELECT managerId AS id, COUNT(1) AS cnt
+        FROM Employee
+        GROUP BY 1
+        HAVING cnt >= 5
+    ) AS t
+        USING (id);
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,7 +52,7 @@ Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 
 ## Solutions
 
-**Solution 1: Difference Array**
+### Solution 1: Difference Array
 
 Let's denote $a$ as the smaller value between $nums[i]$ and $nums[n-i-1]$, and $b$ as the larger value between $nums[i]$ and $nums[n-i-1]$.
 
@@ -77,8 +77,6 @@ We can see that this is actually adding and subtracting elements in a continuous
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -105,8 +103,6 @@ class Solution:
                 ans = s
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +133,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMoves(nums []int, limit int) int {
 	d := make([]int, limit*2+2)
@@ -199,10 +191,6 @@ func minMoves(nums []int, limit int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
         zx = sum(max(col) for col in zip(*grid))
         return xy + yz + zx
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,7 +83,44 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int projectionArea(vector<vector<int>>& grid) {
+        int xy = 0, yz = 0, zx = 0;
+        for (int i = 0, n = grid.size(); i < n; ++i) {
+            int maxYz = 0, maxZx = 0;
+            for (int j = 0; j < n; ++j) {
+                xy += grid[i][j] > 0;
+                maxYz = max(maxYz, grid[i][j]);
+                maxZx = max(maxZx, grid[j][i]);
+            }
+            yz += maxYz;
+            zx += maxZx;
+        }
+        return xy + yz + zx;
+    }
+};
+```
+
+```go
+func projectionArea(grid [][]int) int {
+	xy, yz, zx := 0, 0, 0
+	for i, row := range grid {
+		maxYz, maxZx := 0, 0
+		for j, v := range row {
+			if v > 0 {
+				xy++
+			}
+			maxYz = max(maxYz, v)
+			maxZx = max(maxZx, grid[j][i])
+		}
+		yz += maxYz
+		zx += maxZx
+	}
+	return xy + yz + zx
+}
+```
 
 ```ts
 function projectionArea(grid: number[][]): number {
@@ -103,8 +138,6 @@ function projectionArea(grid: number[][]): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -129,53 +162,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int projectionArea(vector<vector<int>>& grid) {
-        int xy = 0, yz = 0, zx = 0;
-        for (int i = 0, n = grid.size(); i < n; ++i) {
-            int maxYz = 0, maxZx = 0;
-            for (int j = 0; j < n; ++j) {
-                xy += grid[i][j] > 0;
-                maxYz = max(maxYz, grid[i][j]);
-                maxZx = max(maxZx, grid[j][i]);
-            }
-            yz += maxYz;
-            zx += maxZx;
-        }
-        return xy + yz + zx;
-    }
-};
-```
-
-### **Go**
-
-```go
-func projectionArea(grid [][]int) int {
-	xy, yz, zx := 0, 0, 0
-	for i, row := range grid {
-		maxYz, maxZx := 0, 0
-		for j, v := range row {
-			if v > 0 {
-				xy++
-			}
-			maxYz = max(maxYz, v)
-			maxZx = max(maxZx, grid[j][i])
-		}
-		yz += maxYz
-		zx += maxZx
-	}
-	return xy + yz + zx
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

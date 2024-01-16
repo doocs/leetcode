@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 我们可以先将 $edges$ 中的边转换成邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻接节点，用集合表示。
 
@@ -86,10 +84,6 @@
 -   [2603. 收集树中金币](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,10 +109,6 @@ class Solution:
             ans[i] = ans[f[i]] + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,8 +148,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -203,8 +191,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distanceToCycle(n int, edges [][]int) []int {
 	g := make([]map[int]bool, n)
@@ -246,8 +232,6 @@ func distanceToCycle(n int, edges [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distanceToCycle(n: number, edges: number[][]): number[] {
     const g: Set<number>[] = new Array(n).fill(0).map(() => new Set<number>());
@@ -284,10 +268,6 @@ function distanceToCycle(n: number, edges: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

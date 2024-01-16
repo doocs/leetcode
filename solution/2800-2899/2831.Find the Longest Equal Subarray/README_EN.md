@@ -46,7 +46,7 @@ It can be proven that no longer equal subarrays can be created.
 
 ## Solutions
 
-**Solution 1: Hash Table + Two Pointers**
+### Solution 1: Hash Table + Two Pointers
 
 We use two pointers to maintain a monotonically variable length window, and a hash table to maintain the number of occurrences of each element in the window.
 
@@ -59,8 +59,6 @@ After the traversal, return the number of the most frequently occurring element.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                 l += 1
         return mx
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestEqualSubarray(nums []int, k int) int {
 	cnt := map[int]int{}
@@ -132,8 +124,6 @@ func longestEqualSubarray(nums []int, k int) int {
 	return mx
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestEqualSubarray(nums: number[], k: number): number {
@@ -152,10 +142,6 @@ function longestEqualSubarray(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

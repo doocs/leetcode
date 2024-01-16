@@ -56,17 +56,11 @@ Orders table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：求和**
+### 方法一：求和
 
 我们使用 `SUM` 函数求出总的商品数量和总的订单数，然后相除，得到平均值，最后使用 `ROUND` 函数保留两位小数即可。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -79,3 +73,5 @@ FROM Orders;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

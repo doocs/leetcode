@@ -39,9 +39,9 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,8 +52,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -82,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numWaterBottles(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -93,8 +87,6 @@ func numWaterBottles(numBottles int, numExchange int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numWaterBottles(numBottles: number, numExchange: number): number {
@@ -106,7 +98,20 @@ function numWaterBottles(numBottles: number, numExchange: number): number {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {number} numBottles
+ * @param {number} numExchange
+ * @return {number}
+ */
+var numWaterBottles = function (numBottles, numExchange) {
+    let ans = numBottles;
+    for (; numBottles >= numExchange; ++ans) {
+        numBottles -= numExchange - 1;
+    }
+    return ans;
+};
+```
 
 ```php
 class Solution {
@@ -126,27 +131,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} numBottles
- * @param {number} numExchange
- * @return {number}
- */
-var numWaterBottles = function (numBottles, numExchange) {
-    let ans = numBottles;
-    for (; numBottles >= numExchange; ++ans) {
-        numBottles -= numExchange - 1;
-    }
-    return ans;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们可以先遍历矩阵的每一行，将每一行排序。
 
@@ -56,10 +54,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def matrixSum(self, nums: List[List[int]]) -> int:
@@ -67,10 +61,6 @@ class Solution:
             row.sort()
         return sum(map(max, zip(*nums)))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matrixSum(nums [][]int) (ans int) {
 	for _, row := range nums {
@@ -130,8 +116,6 @@ func matrixSum(nums [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function matrixSum(nums: number[][]): number {
@@ -149,8 +133,6 @@ function matrixSum(nums: number[][]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -175,6 +157,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn matrix_sum(nums: Vec<Vec<i32>>) -> i32 {
@@ -197,10 +185,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

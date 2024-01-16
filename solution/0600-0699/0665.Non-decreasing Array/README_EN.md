@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
                 return is_sorted(nums)
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkPossibility(nums []int) bool {
@@ -140,8 +134,6 @@ func checkPossibility(nums []int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkPossibility(nums: number[]): boolean {
@@ -170,10 +162,6 @@ function checkPossibility(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

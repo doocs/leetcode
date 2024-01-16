@@ -53,7 +53,7 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 To determine whether a tree is a binary search tree, it needs to meet the following four conditions:
 
@@ -85,8 +85,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -112,8 +110,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -157,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -197,8 +191,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -227,8 +219,6 @@ func maxSumBST(root *TreeNode) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -266,10 +256,6 @@ function maxSumBST(root: TreeNode | null): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

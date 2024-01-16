@@ -49,7 +49,7 @@ Initially, the 2d grid is filled with water.
 
 ## Solutions
 
-**Solution 1: Union-Find**
+### Solution 1: Union-Find
 
 We use a two-dimensional array $grid$ to represent a map, where $0$ and $1$ represent water and land respectively. Initially, all cells in $grid$ are water cells (i.e., all cells are $0$), and we use a variable $cnt$ to record the number of islands. The connectivity between islands can be maintained by a union-find set $uf$.
 
@@ -58,8 +58,6 @@ Next, we traverse each position $(i, j)$ in the array $positions$. If $grid[i][j
 The time complexity is $O(k \times \alpha(m \times n))$ or $O(k \times \log(m \times n))$, where $k$ is the length of $positions$, and $\alpha$ is the inverse function of the Ackermann function. In this problem, $\alpha(m \times n)$ can be considered as a very small constant.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class UnionFind:
@@ -110,8 +108,6 @@ class Solution:
             ans.append(cnt)
         return ans
 ```
-
-### **Java**
 
 ```java
 class UnionFind {
@@ -179,8 +175,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -245,8 +239,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -313,8 +305,6 @@ func numIslands2(m int, n int, positions [][]int) (ans []int) {
 }
 ```
 
-## **TypeScript**
-
 ```ts
 class UnionFind {
     p: number[];
@@ -377,10 +367,6 @@ function numIslands2(m: number, n: number, positions: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

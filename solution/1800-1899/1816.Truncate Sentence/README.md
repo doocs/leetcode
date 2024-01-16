@@ -55,9 +55,7 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们从前往后遍历字符串 $s$，对于当前遍历到的字符 $s[i]$，如果 $s[i]$ 是空格，那么 $k$ 自减 $1$，当 $k$ 为 $0$ 时，说明已经截取了 $k$ 个单词，截取字符串 $s[0..i)$ 返回即可。
 
@@ -67,29 +65,11 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
         return ' '.join(s.split()[:k])
 ```
-
-```python
-class Solution:
-    def truncateSentence(self, s: str, k: int) -> str:
-        for i, c in enumerate(s):
-            k -= c == ' '
-            if k == 0:
-                return s[:i]
-        return s
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func truncateSentence(s string, k int) string {
 	for i, c := range s {
@@ -136,8 +112,6 @@ func truncateSentence(s string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function truncateSentence(s: string, k: number): string {
     for (let i = 0; i < s.length; ++i) {
@@ -148,8 +122,6 @@ function truncateSentence(s: string, k: number): string {
     return s;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -167,10 +139,22 @@ var truncateSentence = function (s, k) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        for i, c in enumerate(s):
+            k -= c == ' '
+            if k == 0:
+                return s[:i]
+        return s
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

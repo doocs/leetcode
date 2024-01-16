@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i, j)$，表示将字符串 $s[i..j]$ 变成回文串所需要的最少操作次数。那么答案就是 $dfs(0, n - 1)$。
 
@@ -67,34 +65,7 @@
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
 
-**方法二：动态规划（区间 DP）**
-
-我们定义 $f[i][j]$ 表示将字符串 $s[i..j]$ 变成回文串所需要的最少操作次数。初始时 $f[i][j]=0$，答案即为 $f[0][n-1]$。
-
-对于 $f[i][j]$，如果 $s[i]=s[j]$，那么我们只需要将 $s[i+1..j-1]$ 变成回文串，因此 $f[i][j]=f[i+1][j-1]$。否则，我们可以在 $s[i]$ 的左侧或者 $s[j]$ 的右侧插入一个与另一侧相同的字符，那么 $f[i][j]=\min(f[i+1][j],f[i][j-1])+1$。
-
-综上，我们可以得到状态转移方程：
-
-$$
-f[i][j]=\left\{\begin{array}{ll}f[i+1][j-1], & s[i]=s[j]\\ \min(f[i+1][j],f[i][j-1])+1, & s[i]\neq s[j]\end{array}\right.
-$$
-
-在枚举时，我们可以有两种枚举的方式：
-
-1. 从大到小枚举 $i$，从小到大枚举 $j$，这样可以保证在计算状态 $f[i][j]$ 时，状态 $f[i+1][j-1]$ 和 $f[i][j-1]$ 都已经计算过了；
-1. 从小到大枚举区间长度 $k$，然后枚举区间的左端点 $i$，那么可以得到右端点 $j=i+k-1$，这样也可以保证在计算较大区间 $f[i][j]$ 时，较小区间 $f[i+1][j]$ 和 $f[i][j-1]$ 都已经计算过了。
-
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
-
-相似题目：
-
--   [1039. 多边形三角剖分的最低得分](/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,39 +80,6 @@ class Solution:
 
         return dfs(0, len(s) - 1)
 ```
-
-```python
-class Solution:
-    def minInsertions(self, s: str) -> int:
-        n = len(s)
-        f = [[0] * n for _ in range(n)]
-        for i in range(n - 2, -1, -1):
-            for j in range(i + 1, n):
-                if s[i] == s[j]:
-                    f[i][j] = f[i + 1][j - 1]
-                else:
-                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
-        return f[0][-1]
-```
-
-```python
-class Solution:
-    def minInsertions(self, s: str) -> int:
-        n = len(s)
-        f = [[0] * n for _ in range(n)]
-        for k in range(2, n + 1):
-            for i in range(n - k + 1):
-                j = i + k - 1
-                if s[i] == s[j]:
-                    f[i][j] = f[i + 1][j - 1]
-                else:
-                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
-        return f[0][n - 1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -173,47 +111,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minInsertions(String s) {
-        int n = s.length();
-        int[][] f = new int[n][n];
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    f[i][j] = f[i + 1][j - 1];
-                } else {
-                    f[i][j] = Math.min(f[i + 1][j], f[i][j - 1]) + 1;
-                }
-            }
-        }
-        return f[0][n - 1];
-    }
-}
-```
-
-```java
-class Solution {
-    public int minInsertions(String s) {
-        int n = s.length();
-        int[][] f = new int[n][n];
-        for (int k = 2; k <= n; ++k) {
-            for (int i = 0; i + k - 1 < n; ++i) {
-                int j = i + k - 1;
-                if (s.charAt(i) == s.charAt(j)) {
-                    f[i][j] = f[i + 1][j - 1];
-                } else {
-                    f[i][j] = Math.min(f[i + 1][j], f[i][j - 1]) + 1;
-                }
-            }
-        }
-        return f[0][n - 1];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -240,51 +137,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minInsertions(string s) {
-        int n = s.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (s[i] == s[j]) {
-                    f[i][j] = f[i + 1][j - 1];
-                } else {
-                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1;
-                }
-            }
-        }
-        return f[0][n - 1];
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minInsertions(string s) {
-        int n = s.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        for (int k = 2; k <= n; ++k) {
-            for (int i = 0; i + k - 1 < n; ++i) {
-                int j = i + k - 1;
-                if (s[i] == s[j]) {
-                    f[i][j] = f[i + 1][j - 1];
-                } else {
-                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1;
-                }
-            }
-        }
-        return f[0][n - 1];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minInsertions(s string) int {
@@ -317,6 +169,87 @@ func minInsertions(s string) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划（区间 DP）
+
+我们定义 $f[i][j]$ 表示将字符串 $s[i..j]$ 变成回文串所需要的最少操作次数。初始时 $f[i][j]=0$，答案即为 $f[0][n-1]$。
+
+对于 $f[i][j]$，如果 $s[i]=s[j]$，那么我们只需要将 $s[i+1..j-1]$ 变成回文串，因此 $f[i][j]=f[i+1][j-1]$。否则，我们可以在 $s[i]$ 的左侧或者 $s[j]$ 的右侧插入一个与另一侧相同的字符，那么 $f[i][j]=\min(f[i+1][j],f[i][j-1])+1$。
+
+综上，我们可以得到状态转移方程：
+
+$$
+f[i][j]=\left\{\begin{array}{ll}f[i+1][j-1], & s[i]=s[j]\\ \min(f[i+1][j],f[i][j-1])+1, & s[i]\neq s[j]\end{array}\right.
+$$
+
+在枚举时，我们可以有两种枚举的方式：
+
+1. 从大到小枚举 $i$，从小到大枚举 $j$，这样可以保证在计算状态 $f[i][j]$ 时，状态 $f[i+1][j-1]$ 和 $f[i][j-1]$ 都已经计算过了；
+1. 从小到大枚举区间长度 $k$，然后枚举区间的左端点 $i$，那么可以得到右端点 $j=i+k-1$，这样也可以保证在计算较大区间 $f[i][j]$ 时，较小区间 $f[i+1][j]$ 和 $f[i][j-1]$ 都已经计算过了。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
+
+相似题目：
+
+-   [1039. 多边形三角剖分的最低得分](/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minInsertions(self, s: str) -> int:
+        n = len(s)
+        f = [[0] * n for _ in range(n)]
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                if s[i] == s[j]:
+                    f[i][j] = f[i + 1][j - 1]
+                else:
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
+        return f[0][-1]
+```
+
+```java
+class Solution {
+    public int minInsertions(String s) {
+        int n = s.length();
+        int[][] f = new int[n][n];
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = Math.min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minInsertions(string s) {
+        int n = s.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+};
+```
+
 ```go
 func minInsertions(s string) int {
 	n := len(s)
@@ -335,6 +268,69 @@ func minInsertions(s string) int {
 	}
 	return f[0][n-1]
 }
+```
+
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minInsertions(self, s: str) -> int:
+        n = len(s)
+        f = [[0] * n for _ in range(n)]
+        for k in range(2, n + 1):
+            for i in range(n - k + 1):
+                j = i + k - 1
+                if s[i] == s[j]:
+                    f[i][j] = f[i + 1][j - 1]
+                else:
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
+        return f[0][n - 1]
+```
+
+```java
+class Solution {
+    public int minInsertions(String s) {
+        int n = s.length();
+        int[][] f = new int[n][n];
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i + k - 1 < n; ++i) {
+                int j = i + k - 1;
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = Math.min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minInsertions(string s) {
+        int n = s.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i + k - 1 < n; ++i) {
+                int j = i + k - 1;
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+};
 ```
 
 ```go
@@ -358,10 +354,6 @@ func minInsertions(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

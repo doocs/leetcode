@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Single Pass**
+### Solution 1: Single Pass
 
 We use a variable $mx$ to record the maximum value of the current strictly increasing array, initially $mx = 0$.
 
@@ -59,8 +59,6 @@ Traverse the array `nums` from left to right. For the current element $v$, if $v
 The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
             mx = max(mx + 1, v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int) (ans int) {
 	mx := 0
@@ -115,23 +107,6 @@ func minOperations(nums []int) (ans int) {
 	return
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MinOperations(int[] nums) {
-        int ans = 0, mx = 0;
-        foreach (int v in nums) {
-            ans += Math.Max(0, mx + 1 - v);
-            mx = Math.Max(mx + 1, v);
-        }
-        return ans;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[]): number {
@@ -144,8 +119,6 @@ function minOperations(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -161,7 +134,18 @@ impl Solution {
 }
 ```
 
-### **C**
+```cs
+public class Solution {
+    public int MinOperations(int[] nums) {
+        int ans = 0, mx = 0;
+        foreach (int v in nums) {
+            ans += Math.Max(0, mx + 1 - v);
+            mx = Math.Max(mx + 1, v);
+        }
+        return ans;
+    }
+}
+```
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -177,10 +161,6 @@ int minOperations(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

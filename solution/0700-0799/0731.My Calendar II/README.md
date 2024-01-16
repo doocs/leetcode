@@ -46,37 +46,13 @@ MyCalendar.book(25, 55); // returns true
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分**
+### 方法一：差分
 
 利用有序哈希表实现。
 
 时间复杂度 $O(n^2)$，其中 $n$ 表示日程安排的数量。
 
-**方法二：线段树**
-
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $log(width)$。更新某个元素的值，只需要更新 $log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
-
--   线段树的每个节点代表一个区间；
--   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1,N]$；
--   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x, x]$；
--   对于每个内部节点 $[l,r]$，它的左儿子是 $[l,mid]$，右儿子是 $[mid+1,r]$, 其中 $mid = ⌊(l+r)/2⌋$ (即向下取整)。
-
-对于本题，线段树节点维护的信息有：
-
-1. 区间范围内被预定的次数的最大值 $v$
-1. 懒标记 $add$
-
-由于时间范围为 $10^9$，非常大，因此我们采用动态开点。
-
-时间复杂度 $O(nlogn)$，其中 $n$ 表示日程安排的数量。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -103,6 +79,128 @@ class MyCalendarTwo:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
 ```
+
+```java
+class MyCalendarTwo {
+    private Map<Integer, Integer> tm = new TreeMap<>();
+
+    public MyCalendarTwo() {
+    }
+
+    public boolean book(int start, int end) {
+        tm.put(start, tm.getOrDefault(start, 0) + 1);
+        tm.put(end, tm.getOrDefault(end, 0) - 1);
+        int s = 0;
+        for (int v : tm.values()) {
+            s += v;
+            if (s > 2) {
+                tm.put(start, tm.get(start) - 1);
+                tm.put(end, tm.get(end) + 1);
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */
+```
+
+```cpp
+class MyCalendarTwo {
+public:
+    map<int, int> m;
+
+    MyCalendarTwo() {
+    }
+
+    bool book(int start, int end) {
+        ++m[start];
+        --m[end];
+        int s = 0;
+        for (auto& [_, v] : m) {
+            s += v;
+            if (s > 2) {
+                --m[start];
+                ++m[end];
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo* obj = new MyCalendarTwo();
+ * bool param_1 = obj->book(start,end);
+ */
+```
+
+```go
+type MyCalendarTwo struct {
+	*redblacktree.Tree
+}
+
+func Constructor() MyCalendarTwo {
+	return MyCalendarTwo{redblacktree.NewWithIntComparator()}
+}
+
+func (this *MyCalendarTwo) Book(start int, end int) bool {
+	add := func(key, val int) {
+		if v, ok := this.Get(key); ok {
+			this.Put(key, v.(int)+val)
+		} else {
+			this.Put(key, val)
+		}
+	}
+	add(start, 1)
+	add(end, -1)
+	s := 0
+	it := this.Iterator()
+	for it.Next() {
+		s += it.Value().(int)
+		if s > 2 {
+			add(start, -1)
+			add(end, 1)
+			return false
+		}
+	}
+	return true
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Book(start,end);
+ */
+```
+
+<!-- tabs:end -->
+
+### 方法二：线段树
+
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $log(width)$。更新某个元素的值，只需要更新 $log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
+
+-   线段树的每个节点代表一个区间；
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1,N]$；
+-   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x, x]$；
+-   对于每个内部节点 $[l,r]$，它的左儿子是 $[l,mid]$，右儿子是 $[mid+1,r]$, 其中 $mid = ⌊(l+r)/2⌋$ (即向下取整)。
+
+对于本题，线段树节点维护的信息有：
+
+1. 区间范围内被预定的次数的最大值 $v$
+1. 懒标记 $add$
+
+由于时间范围为 $10^9$，非常大，因此我们采用动态开点。
+
+时间复杂度 $O(nlogn)$，其中 $n$ 表示日程安排的数量。
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -181,40 +279,6 @@ class MyCalendarTwo:
 # Your MyCalendarTwo object will be instantiated and called as such:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class MyCalendarTwo {
-    private Map<Integer, Integer> tm = new TreeMap<>();
-
-    public MyCalendarTwo() {
-    }
-
-    public boolean book(int start, int end) {
-        tm.put(start, tm.getOrDefault(start, 0) + 1);
-        tm.put(end, tm.getOrDefault(end, 0) - 1);
-        int s = 0;
-        for (int v : tm.values()) {
-            s += v;
-            if (s > 2) {
-                tm.put(start, tm.get(start) - 1);
-                tm.put(end, tm.get(end) + 1);
-                return false;
-            }
-        }
-        return true;
-    }
-}
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * MyCalendarTwo obj = new MyCalendarTwo();
- * boolean param_1 = obj.book(start,end);
- */
 ```
 
 ```java
@@ -328,39 +392,6 @@ class MyCalendarTwo {
  */
 ```
 
-### **C++**
-
-```cpp
-class MyCalendarTwo {
-public:
-    map<int, int> m;
-
-    MyCalendarTwo() {
-    }
-
-    bool book(int start, int end) {
-        ++m[start];
-        --m[end];
-        int s = 0;
-        for (auto& [_, v] : m) {
-            s += v;
-            if (s > 2) {
-                --m[start];
-                ++m[end];
-                return false;
-            }
-        }
-        return true;
-    }
-};
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * MyCalendarTwo* obj = new MyCalendarTwo();
- * bool param_1 = obj->book(start,end);
- */
-```
-
 ```cpp
 class Node {
 public:
@@ -458,47 +489,6 @@ public:
  * Your MyCalendarTwo object will be instantiated and called as such:
  * MyCalendarTwo* obj = new MyCalendarTwo();
  * bool param_1 = obj->book(start,end);
- */
-```
-
-### **Go**
-
-```go
-type MyCalendarTwo struct {
-	*redblacktree.Tree
-}
-
-func Constructor() MyCalendarTwo {
-	return MyCalendarTwo{redblacktree.NewWithIntComparator()}
-}
-
-func (this *MyCalendarTwo) Book(start int, end int) bool {
-	add := func(key, val int) {
-		if v, ok := this.Get(key); ok {
-			this.Put(key, v.(int)+val)
-		} else {
-			this.Put(key, val)
-		}
-	}
-	add(start, 1)
-	add(end, -1)
-	s := 0
-	it := this.Iterator()
-	for it.Next() {
-		s += it.Value().(int)
-		if s > 2 {
-			add(start, -1)
-			add(end, 1)
-			return false
-		}
-	}
-	return true
-}
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * obj := Constructor();
- * param_1 := obj.Book(start,end);
  */
 ```
 
@@ -608,10 +598,6 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

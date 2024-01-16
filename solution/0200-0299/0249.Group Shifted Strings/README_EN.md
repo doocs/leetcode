@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
             mp[k].append(s)
         return list(mp.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func groupStrings(strings []string) [][]string {
 	mp := make(map[string][]string)
@@ -128,10 +122,6 @@ func groupStrings(strings []string) [][]string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

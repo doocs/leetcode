@@ -81,13 +81,11 @@ The salary of employee 2 is missing.
 
 ## Solutions
 
-**Solution 1: Subquery + Union**
+### Solution 1: Subquery + Union
 
 We can first find all `employee_id` that are not in the `Salaries` table from the `Employees` table, and then find all `employee_id` that are not in the `Employees` table from the `Salaries` table. Finally, we can combine the two results using the `UNION` operator, and sort the result by `employee_id`.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -102,3 +100,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

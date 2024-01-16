@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：0-1 字典树**
+### 方法一：0-1 字典树
 
 对于这种区间 $[low, high]$ 统计的问题，我们可以考虑将其转换为统计 $[0, high]$ 和 $[0, low - 1]$ 的问题，然后相减即可得到答案。
 
@@ -79,10 +77,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 为数组 `nums` 的长度，而 $M$ 为数组 `nums` 中的最大值。本题中我们直接取 $\log M = 16$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -124,10 +118,6 @@ class Solution:
             tree.insert(x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -176,8 +166,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -234,8 +222,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -284,10 +270,6 @@ func countPairs(nums []int, low int, high int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

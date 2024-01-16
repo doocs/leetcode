@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们假设数字 $x$ 是最小的不能表示的正整数，那么 $[1,..x-1]$ 的这些数都是可以表示的。为了能表示数字 $x$，我们需要添加一个小于等于 $x$ 的数：
 
@@ -76,10 +74,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minPatches(self, nums: List[int], n: int) -> int:
@@ -94,10 +88,6 @@ class Solution:
                 x <<= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minPatches(nums []int, n int) (ans int) {
 	x := 1
@@ -155,8 +141,6 @@ func minPatches(nums []int, n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minPatches(nums: number[], n: number): number {
@@ -174,10 +158,6 @@ function minPatches(nums: number[], n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

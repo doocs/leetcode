@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + DFS**
+### 方法一：枚举 + DFS
 
 我们枚举 $i$，其中 $1 \leq i \leq n$，对于每个 $i$，我们将 $x = i^2$ 的十进制表示的字符串进行分割，然后判断是否满足题目要求。如果满足，我们就将 $x$ 累加到答案中。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n^{1 + 2 \log_{10}^2})$，空间复杂度 $O(\log n)$。其中 $n$ 为给定的正整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                 ans += x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -166,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func punishmentNumber(n int) (ans int) {
 	var check func(string, int, int) bool
@@ -198,8 +184,6 @@ func punishmentNumber(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function punishmentNumber(n: number): number {
@@ -232,10 +216,6 @@ function punishmentNumber(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

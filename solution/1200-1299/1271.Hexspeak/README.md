@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 将数字转换为十六进制字符串，然后遍历字符串，将数字 $0$ 转换为字母 $O$，将数字 $1$ 转换为字母 $I$，最后判断转换后的字符串是否合法。
 
 时间复杂度 $O(\log n)$，其中 $n$ 为 $num$ 所表示的十进制数字的大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +54,6 @@ class Solution:
         t = hex(int(num))[2:].upper().replace('0', 'O').replace('1', 'I')
         return t if all(c in s for c in t) else 'ERROR'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func toHexspeak(num string) string {
 	x, _ := strconv.Atoi(num)
@@ -122,10 +108,6 @@ func toHexspeak(num string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

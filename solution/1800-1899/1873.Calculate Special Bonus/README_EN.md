@@ -59,13 +59,11 @@ The rest of the employees get a 100% bonus.
 
 ## Solutions
 
-**Solution 1: IF Statement + ORDER BY Clause**
+### Solution 1: IF Statement + ORDER BY Clause
 
 We can use the `IF` statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by `employee_id`.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -83,3 +81,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

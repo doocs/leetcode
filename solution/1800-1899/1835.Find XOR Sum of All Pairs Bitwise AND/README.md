@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 假设数组 $arr1$ 的元素分别为 $a_1, a_2, \cdots, a_n$，数组 $arr2$ 的元素分别为 $b_1, b_2, \cdots, b_m$，那么题目答案为：
 
@@ -72,10 +70,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def getXORSum(self, arr1: List[int], arr2: List[int]) -> int:
@@ -83,10 +77,6 @@ class Solution:
         b = reduce(xor, arr2)
         return a & b
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +103,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getXORSum(arr1 []int, arr2 []int) int {
@@ -131,8 +117,6 @@ func getXORSum(arr1 []int, arr2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getXORSum(arr1: number[], arr2: number[]): number {
     const a = arr1.reduce((acc, x) => acc ^ x);
@@ -141,10 +125,6 @@ function getXORSum(arr1: number[], arr2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

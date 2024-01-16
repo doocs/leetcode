@@ -49,44 +49,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
+### 方法一：暴力枚举
 
 我们注意到，数组 $nums$ 的长度只有不超过 $200$，因此可以直接暴力枚举 $i$, $j$, $k$，判断是否满足条件，若满足，累加三元组数目。
 
 时间复杂度 $O(n^3)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
-**方法二：数组或哈希表**
-
-我们可以先将 $nums$ 中的元素存入哈希表或数组 $vis$ 中，然后枚举 $nums$ 中的每个元素 $x$，判断 $x+diff$, $x+diff+diff$ 是否也在 $vis$ 中，若是，累加三元组数目。
-
-枚举结束后，返回答案。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         return sum(b - a == diff and c - b == diff for a, b, c in combinations(nums, 3))
 ```
-
-```python
-class Solution:
-    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
-        vis = set(nums)
-        return sum(x + diff in vis and x + diff * 2 in vis for x in nums)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,26 +81,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int arithmeticTriplets(int[] nums, int diff) {
-        boolean[] vis = new boolean[301];
-        for (int x : nums) {
-            vis[x] = true;
-        }
-        int ans = 0;
-        for (int x : nums) {
-            if (vis[x + diff] && vis[x + diff + diff]) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,6 +102,76 @@ public:
 };
 ```
 
+```go
+func arithmeticTriplets(nums []int, diff int) (ans int) {
+	n := len(nums)
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			for k := j + 1; k < n; k++ {
+				if nums[j]-nums[i] == diff && nums[k]-nums[j] == diff {
+					ans++
+				}
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+function arithmeticTriplets(nums: number[], diff: number): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            for (let k = j + 1; k < n; ++k) {
+                if (nums[j] - nums[i] === diff && nums[k] - nums[j] === diff) {
+                    ++ans;
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：数组或哈希表
+
+我们可以先将 $nums$ 中的元素存入哈希表或数组 $vis$ 中，然后枚举 $nums$ 中的每个元素 $x$，判断 $x+diff$, $x+diff+diff$ 是否也在 $vis$ 中，若是，累加三元组数目。
+
+枚举结束后，返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        vis = set(nums)
+        return sum(x + diff in vis and x + diff * 2 in vis for x in nums)
+```
+
+```java
+class Solution {
+    public int arithmeticTriplets(int[] nums, int diff) {
+        boolean[] vis = new boolean[301];
+        for (int x : nums) {
+            vis[x] = true;
+        }
+        int ans = 0;
+        for (int x : nums) {
+            if (vis[x + diff] && vis[x + diff + diff]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ```cpp
 class Solution {
 public:
@@ -164,24 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func arithmeticTriplets(nums []int, diff int) (ans int) {
-	n := len(nums)
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
-			for k := j + 1; k < n; k++ {
-				if nums[j]-nums[i] == diff && nums[k]-nums[j] == diff {
-					ans++
-				}
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func arithmeticTriplets(nums []int, diff int) (ans int) {
 	vis := [301]bool{}
@@ -194,25 +201,6 @@ func arithmeticTriplets(nums []int, diff int) (ans int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function arithmeticTriplets(nums: number[], diff: number): number {
-    const n = nums.length;
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        for (let j = i + 1; j < n; ++j) {
-            for (let k = j + 1; k < n; ++k) {
-                if (nums[j] - nums[i] === diff && nums[k] - nums[j] === diff) {
-                    ++ans;
-                }
-            }
-        }
-    }
-    return ans;
 }
 ```
 
@@ -232,10 +220,6 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

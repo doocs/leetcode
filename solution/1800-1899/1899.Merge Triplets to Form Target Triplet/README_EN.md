@@ -59,9 +59,9 @@ The target triplet [5,5,5] is now an element of triplets.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
                 f = max(f, c)
         return [d, e, f] == target
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mergeTriplets(triplets [][]int, target []int) bool {
 	x, y, z := target[0], target[1], target[2]
@@ -135,8 +129,6 @@ func mergeTriplets(triplets [][]int, target []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mergeTriplets(triplets: number[][], target: number[]): boolean {
     const [x, y, z] = target;
@@ -152,10 +144,6 @@ function mergeTriplets(triplets: number[][], target: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

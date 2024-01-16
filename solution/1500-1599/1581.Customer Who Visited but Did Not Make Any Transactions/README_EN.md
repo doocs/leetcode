@@ -87,19 +87,11 @@ As we can see, users with IDs 30 and 96 visited the mall one time without making
 
 ## Solutions
 
-**Solution 1: Subquery + Grouping**
+### Solution 1: Subquery + Grouping
 
 We can use a subquery to first find all `visit_id`s that have not made any transactions, and then group by `customer_id` to count the number of times each customer has not made any transactions.
 
-**Solution 2: Left Join + Grouping**
-
-We can also use a left join to join the `Visits` table and the `Transactions` table on `visit_id`, and then filter out the records where `amount` is `NULL`. After that, we can group by `customer_id` to count the number of times each customer has not made any transactions.
-
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -108,6 +100,14 @@ FROM Visits
 WHERE visit_id NOT IN (SELECT visit_id FROM Transactions)
 GROUP BY 1;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2: Left Join + Grouping
+
+We can also use a left join to join the `Visits` table and the `Transactions` table on `visit_id`, and then filter out the records where `amount` is `NULL`. After that, we can group by `customer_id` to count the number of times each customer has not made any transactions.
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -120,3 +120,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

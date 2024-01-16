@@ -59,13 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +74,6 @@ class Solution:
                     dp[i] = max(dp[i], dp[j] + 1)
         return n - max(dp)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDeletionSize(strs []string) int {
@@ -170,10 +158,6 @@ func minDeletionSize(strs []string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

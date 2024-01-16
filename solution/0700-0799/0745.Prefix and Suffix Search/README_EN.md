@@ -40,9 +40,9 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class WordFilter:
@@ -64,6 +64,109 @@ class WordFilter:
 # obj = WordFilter(words)
 # param_1 = obj.f(pref,suff)
 ```
+
+```java
+class WordFilter {
+    private Map<String, Integer> d = new HashMap<>();
+
+    public WordFilter(String[] words) {
+        for (int k = 0; k < words.length; ++k) {
+            String w = words[k];
+            int n = w.length();
+            for (int i = 0; i <= n; ++i) {
+                String a = w.substring(0, i);
+                for (int j = 0; j <= n; ++j) {
+                    String b = w.substring(j);
+                    d.put(a + "." + b, k);
+                }
+            }
+        }
+    }
+
+    public int f(String pref, String suff) {
+        return d.getOrDefault(pref + "." + suff, -1);
+    }
+}
+
+/**
+ * Your WordFilter object will be instantiated and called as such:
+ * WordFilter obj = new WordFilter(words);
+ * int param_1 = obj.f(pref,suff);
+ */
+```
+
+```cpp
+class WordFilter {
+public:
+    unordered_map<string, int> d;
+
+    WordFilter(vector<string>& words) {
+        for (int k = 0; k < words.size(); ++k) {
+            string w = words[k];
+            int n = w.size();
+            for (int i = 0; i <= n; ++i) {
+                string a = w.substr(0, i);
+                for (int j = 0; j <= n; ++j) {
+                    string b = w.substr(j, n - j);
+                    d[a + "." + b] = k;
+                }
+            }
+        }
+    }
+
+    int f(string pref, string suff) {
+        string key = pref + "." + suff;
+        if (d.count(key)) return d[key];
+        return -1;
+    }
+};
+
+/**
+ * Your WordFilter object will be instantiated and called as such:
+ * WordFilter* obj = new WordFilter(words);
+ * int param_1 = obj->f(pref,suff);
+ */
+```
+
+```go
+type WordFilter struct {
+	d map[string]int
+}
+
+func Constructor(words []string) WordFilter {
+	d := map[string]int{}
+	for k, w := range words {
+		n := len(w)
+		for i := 0; i <= n; i++ {
+			a := w[:i]
+			for j := 0; j <= n; j++ {
+				b := w[j:]
+				d[a+"."+b] = k
+			}
+		}
+	}
+	return WordFilter{d}
+}
+
+func (this *WordFilter) F(pref string, suff string) int {
+	if v, ok := this.d[pref+"."+suff]; ok {
+		return v
+	}
+	return -1
+}
+
+/**
+ * Your WordFilter object will be instantiated and called as such:
+ * obj := Constructor(words);
+ * param_1 := obj.F(pref,suff);
+ */
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -117,38 +220,6 @@ class WordFilter:
 # Your WordFilter object will be instantiated and called as such:
 # obj = WordFilter(words)
 # param_1 = obj.f(pref,suff)
-```
-
-### **Java**
-
-```java
-class WordFilter {
-    private Map<String, Integer> d = new HashMap<>();
-
-    public WordFilter(String[] words) {
-        for (int k = 0; k < words.length; ++k) {
-            String w = words[k];
-            int n = w.length();
-            for (int i = 0; i <= n; ++i) {
-                String a = w.substring(0, i);
-                for (int j = 0; j <= n; ++j) {
-                    String b = w.substring(j);
-                    d.put(a + "." + b, k);
-                }
-            }
-        }
-    }
-
-    public int f(String pref, String suff) {
-        return d.getOrDefault(pref + "." + suff, -1);
-    }
-}
-
-/**
- * Your WordFilter object will be instantiated and called as such:
- * WordFilter obj = new WordFilter(words);
- * int param_1 = obj.f(pref,suff);
- */
 ```
 
 ```java
@@ -220,77 +291,6 @@ class WordFilter {
  * Your WordFilter object will be instantiated and called as such:
  * WordFilter obj = new WordFilter(words);
  * int param_1 = obj.f(pref,suff);
- */
-```
-
-### **C++**
-
-```cpp
-class WordFilter {
-public:
-    unordered_map<string, int> d;
-
-    WordFilter(vector<string>& words) {
-        for (int k = 0; k < words.size(); ++k) {
-            string w = words[k];
-            int n = w.size();
-            for (int i = 0; i <= n; ++i) {
-                string a = w.substr(0, i);
-                for (int j = 0; j <= n; ++j) {
-                    string b = w.substr(j, n - j);
-                    d[a + "." + b] = k;
-                }
-            }
-        }
-    }
-
-    int f(string pref, string suff) {
-        string key = pref + "." + suff;
-        if (d.count(key)) return d[key];
-        return -1;
-    }
-};
-
-/**
- * Your WordFilter object will be instantiated and called as such:
- * WordFilter* obj = new WordFilter(words);
- * int param_1 = obj->f(pref,suff);
- */
-```
-
-### **Go**
-
-```go
-type WordFilter struct {
-	d map[string]int
-}
-
-func Constructor(words []string) WordFilter {
-	d := map[string]int{}
-	for k, w := range words {
-		n := len(w)
-		for i := 0; i <= n; i++ {
-			a := w[:i]
-			for j := 0; j <= n; j++ {
-				b := w[j:]
-				d[a+"."+b] = k
-			}
-		}
-	}
-	return WordFilter{d}
-}
-
-func (this *WordFilter) F(pref string, suff string) int {
-	if v, ok := this.d[pref+"."+suff]; ok {
-		return v
-	}
-	return -1
-}
-
-/**
- * Your WordFilter object will be instantiated and called as such:
- * obj := Constructor(words);
- * param_1 := obj.F(pref,suff);
  */
 ```
 
@@ -378,10 +378,6 @@ func reverse(w string) string {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

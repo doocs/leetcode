@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：中序遍历 + 双指针**
+### 方法一：中序遍历 + 双指针
 
 我们分别对两棵树进行中序遍历，得到两个有序数组 $nums[0]$ 和 $nums[1]$，然后使用双指针的方法判断是否存在两个数的和为目标值。双指针判断方法如下：
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两棵树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -91,10 +85,6 @@ class Solution:
                 j -= 1
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -145,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -190,8 +178,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -229,8 +215,6 @@ func twoSumBSTs(root1 *TreeNode, root2 *TreeNode, target int) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -278,10 +262,6 @@ function twoSumBSTs(root1: TreeNode | null, root2: TreeNode | null, target: numb
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

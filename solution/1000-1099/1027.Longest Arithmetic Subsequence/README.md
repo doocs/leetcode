@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示以 $nums[i]$ 结尾且公差为 $j$ 的等差数列的最大长度。初始时 $f[i][j]=1$，即每个元素自身都是一个长度为 $1$ 的等差数列。
 
@@ -68,10 +66,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def longestArithSeqLength(self, nums: List[int]) -> int:
@@ -85,10 +79,6 @@ class Solution:
                 ans = max(ans, f[i][j])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestArithSeqLength(nums []int) int {
 	n := len(nums)
@@ -151,8 +137,6 @@ func longestArithSeqLength(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestArithSeqLength(nums: number[]): number {
     const n = nums.length;
@@ -169,10 +153,6 @@ function longestArithSeqLength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

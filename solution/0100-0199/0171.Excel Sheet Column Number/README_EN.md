@@ -52,9 +52,9 @@ AB -&gt; 28
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
             res = res * 26 + (ord(c) - ord('A') + 1)
         return res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,20 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function titleToNumber(columnTitle: string): number {
-    let res: number = 0;
-    for (let char of columnTitle) {
-        res = res * 26 + char.charCodeAt(0) - 64;
-    }
-    return res;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func titleToNumber(columnTitle string) int {
 	res := 0
@@ -118,10 +100,16 @@ func titleToNumber(columnTitle string) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function titleToNumber(columnTitle: string): number {
+    let res: number = 0;
+    for (let char of columnTitle) {
+        res = res * 26 + char.charCodeAt(0) - 64;
+    }
+    return res;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

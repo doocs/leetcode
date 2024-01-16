@@ -103,9 +103,9 @@ For company C, the rows sorted are as follows:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -129,3 +129,5 @@ WHERE rk >= n / 2 AND rk <= n / 2 + 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

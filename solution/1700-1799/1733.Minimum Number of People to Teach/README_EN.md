@@ -50,9 +50,9 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,8 +77,6 @@ class Solution:
                 cnt[l] += 1
         return len(s) - max(cnt.values(), default=0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +155,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 	check := func(u, v int) bool {
@@ -193,10 +187,6 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

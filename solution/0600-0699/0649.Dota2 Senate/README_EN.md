@@ -54,9 +54,9 @@ And in round 2, the third senator can just announce the victory since he is the 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,8 +78,6 @@ class Solution:
             qd.popleft()
         return "Radiant" if qr else "Dire"
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func predictPartyVictory(senate string) string {
 	n := len(senate)
@@ -170,8 +164,6 @@ func predictPartyVictory(senate string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function predictPartyVictory(senate: string): string {
     const n = senate.length;
@@ -196,8 +188,6 @@ function predictPartyVictory(senate: string): string {
     return qr.length > 0 ? 'Radiant' : 'Dire';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -232,10 +222,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

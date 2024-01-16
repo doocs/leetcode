@@ -49,9 +49,9 @@ The other answers can be filled out with similar reasoning.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
             dfs(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func loudAndRich(richer [][]int, quiet []int) []int {
@@ -181,8 +175,6 @@ func loudAndRich(richer [][]int, quiet []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function loudAndRich(richer: number[][], quiet: number[]): number[] {
     const n = quiet.length;
@@ -210,10 +202,6 @@ function loudAndRich(richer: number[][], quiet: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

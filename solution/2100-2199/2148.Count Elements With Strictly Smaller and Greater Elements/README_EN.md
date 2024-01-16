@@ -36,9 +36,9 @@ Since there are two elements with the value 3, in total there are 2 elements hav
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -46,8 +46,6 @@ class Solution:
         mi, mx = min(nums), max(nums)
         return sum(mi < num < mx for num in nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +67,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -88,8 +84,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countElements(nums []int) int {
@@ -112,8 +106,6 @@ func countElements(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countElements(nums: number[]): number {
     const min = Math.min(...nums),
@@ -129,10 +121,6 @@ function countElements(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

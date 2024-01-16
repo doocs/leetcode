@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，如果一个膨胀值 $x$ 满足条件，那么所有小于 $x$ 的值也都满足条件，这存在着单调性。因此我们可以使用二分查找的方法，找到最大的满足条件的膨胀值。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $rampart$ 的长度和二分查找的右边界，本题中右边界最大为 $range=rampart[1][0]-rampart[0][1]+rampart[2][0]-rampart[1][1]$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +148,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rampartDefensiveLine(rampart [][]int) int {
 	check := func(w int) bool {
@@ -190,8 +176,6 @@ func rampartDefensiveLine(rampart [][]int) int {
 	return left
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function rampartDefensiveLine(rampart: number[][]): number {
@@ -222,10 +206,6 @@ function rampartDefensiveLine(rampart: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

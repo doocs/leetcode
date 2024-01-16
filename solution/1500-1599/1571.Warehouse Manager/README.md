@@ -94,15 +94,11 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等值连接 + 分组求和**
+### 方法一：等值连接 + 分组求和
 
 我们可以使用等值连接将 `Warehouse` 表和 `Products` 表按照 `product_id` 进行连接，并按照仓库名称进行分组，然后使用 `SUM` 函数计算每个仓库的存货量。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -116,3 +112,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

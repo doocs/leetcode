@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Math + Simulation**
+### Solution 1: Math + Simulation
 
 We implement a function `is_prime` to check whether a number is prime.
 
@@ -56,8 +56,6 @@ Then we iterate the array and check whether the numbers on the diagonals are pri
 The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the number of rows of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                 ans = max(ans, row[n - i - 1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func diagonalPrime(nums [][]int) (ans int) {
 	n := len(nums)
@@ -170,8 +162,6 @@ func isPrime(x int) bool {
 	return true
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -208,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

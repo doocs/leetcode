@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$，其中 $n$ 是数组的长度。在每一步二分查找中，我们找到当前区间的中间元素 $mid$，然后比较 $mid$ 与其右边元素 $mid+1$ 的值：
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(\log n)$，其中 $n$ 是数组 $nums$ 的长度。每一步二分查找可以将搜索区间减少一半，因此时间复杂度为 $O(\log n)$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPeakElement(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -132,8 +118,6 @@ func findPeakElement(nums []int) int {
 	return left
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findPeakElement(nums: number[]): number {
@@ -150,10 +134,6 @@ function findPeakElement(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

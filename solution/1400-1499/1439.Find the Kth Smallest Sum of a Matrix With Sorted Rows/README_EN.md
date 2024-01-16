@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             pre = sorted(a + b for a in pre for b in cur[:k])[:k]
         return pre[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthSmallest(mat [][]int, k int) int {
 	pre := []int{0}
@@ -137,8 +131,6 @@ func kthSmallest(mat [][]int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kthSmallest(mat: number[][], k: number): number {
     let pre: number[] = [0];
@@ -155,10 +147,6 @@ function kthSmallest(mat: number[][], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,7 +57,7 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 
 ## Solutions
 
-**Solution 1: Sorting + Dynamic Programming**
+### Solution 1: Sorting + Dynamic Programming
 
 According to the problem description, box $j$ can be placed on box $i$ if and only if the "length, width, and height" of box $j$ are less than or equal to the "length, width, and height" of box $i$.
 
@@ -81,8 +81,6 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxHeight(self, cuboids: List[List[int]]) -> int:
@@ -98,8 +96,6 @@ class Solution:
             f[i] += cuboids[i][2]
         return max(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxHeight(cuboids [][]int) int {
@@ -171,8 +163,6 @@ func maxHeight(cuboids [][]int) int {
 	return slices.Max(f)
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -201,10 +191,6 @@ var maxHeight = function (cuboids) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

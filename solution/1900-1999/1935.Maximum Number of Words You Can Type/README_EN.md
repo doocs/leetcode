@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Array or Hash Table**
+### Solution 1: Array or Hash Table
 
 We can use a hash table or an array $s$ of length $26$ to record all the broken letter keys.
 
@@ -58,16 +58,12 @@ The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
         s = set(brokenLetters)
         return sum(all(c not in s for c in w) for w in text.split())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	s := [26]bool{}
@@ -151,8 +143,6 @@ func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canBeTypedWords(text: string, brokenLetters: string): number {
@@ -173,8 +163,6 @@ function canBeTypedWords(text: string, brokenLetters: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -199,10 +187,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

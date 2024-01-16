@@ -44,9 +44,9 @@ One series of moves that transforms the starting point to the target is:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
             return tx > sx and (tx - sx) % ty == 0
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reachingPoints(sx int, sy int, tx int, ty int) bool {
@@ -135,10 +129,6 @@ func reachingPoints(sx int, sy int, tx int, ty int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

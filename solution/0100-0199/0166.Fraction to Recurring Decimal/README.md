@@ -48,15 +48,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-在进行除法时使用 HashMap 存储余数及其关联的索引，这样每当出现相同的余数时，我们就知道有一个重复的小数部分。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 break
         return ''.join(res)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using LL = long long;
 
@@ -161,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func fractionToDecimal(numerator int, denominator int) string {
@@ -207,10 +193,66 @@ func abs(x int) int {
 }
 ```
 
-### **...**
+```cs
+﻿// https://leetcode.com/problems/fraction-to-recurring-decimal/
 
-```
+using System.Collections.Generic;
+using System.Text;
 
+public partial class Solution
+{
+    public string FractionToDecimal(int numerator, int denominator)
+    {
+        var n = (long)numerator;
+        var d = (long)denominator;
+        var sb = new StringBuilder();
+        if (n < 0)
+        {
+            n = -n;
+            if (d < 0)
+            {
+                d = -d;
+            }
+            else
+            {
+                sb.Append('-');
+            }
+        }
+        else if (n > 0 && d < 0)
+        {
+            d = -d;
+            sb.Append('-');
+        }
+
+        sb.Append(n / d);
+        n = n % d;
+        if (n != 0)
+        {
+            sb.Append('.');
+            var dict = new Dictionary<long, int>();
+            while (n != 0)
+            {
+                int index;
+                if (dict.TryGetValue(n, out index))
+                {
+                    sb.Insert(index, '(');
+                    sb.Append(')');
+                    break;
+                }
+                else
+                {
+                    dict.Add(n, sb.Length);
+                    n *= 10;
+                    sb.Append(n / d);
+                    n %= d;
+                }
+            }
+        }
+        return sb.ToString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

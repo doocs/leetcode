@@ -44,19 +44,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 先对 position 进行排序。
 
 然后二分枚举磁力值（相邻两球的最小间距），统计当前最小磁力值下能放下多少个小球，记为 cnt。若 `cnt >= m`，说明此磁力值符合条件。继续二分查找，最终找到符合条件的最大磁力值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDistance(position []int, m int) int {
 	sort.Ints(position)
@@ -177,8 +163,6 @@ func maxDistance(position []int, m int) int {
 	return left
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -216,10 +200,6 @@ var maxDistance = function (position, m) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 要想得到最大差值，那么我们应该拿到最大值与最小值，这样差值最大。
 
@@ -82,10 +80,6 @@
 时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,10 +98,6 @@ class Solution:
                     break
         return int(a) - int(b)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDiff(num int) int {
 	a, b := num, num
@@ -197,10 +183,6 @@ func maxDiff(num int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,9 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class DataStream:
@@ -63,8 +63,6 @@ class DataStream:
 # obj = DataStream(value, k)
 # param_1 = obj.consec(num)
 ```
-
-### **Java**
 
 ```java
 class DataStream {
@@ -89,8 +87,6 @@ class DataStream {
  * boolean param_1 = obj.consec(num);
  */
 ```
-
-### **C++**
 
 ```cpp
 class DataStream {
@@ -117,8 +113,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type DataStream struct {
 	val, k, cnt int
@@ -143,8 +137,6 @@ func (this *DataStream) Consec(num int) bool {
  * param_1 := obj.Consec(num);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class DataStream {
@@ -171,10 +163,6 @@ class DataStream {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

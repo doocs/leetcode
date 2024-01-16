@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
                         return arr
         return arr
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func prevPermOpt1(arr []int) []int {
 	n := len(arr)
@@ -123,8 +117,6 @@ func prevPermOpt1(arr []int) []int {
 	return arr
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function prevPermOpt1(arr: number[]): number[] {
@@ -145,10 +137,6 @@ function prevPermOpt1(arr: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

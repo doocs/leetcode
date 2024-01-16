@@ -42,23 +42,15 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
         return [nums[num] for num in nums]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -71,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func buildArray(nums []int) []int {
 	ans := make([]int, len(nums))
@@ -99,7 +87,21 @@ func buildArray(nums []int) []int {
 }
 ```
 
-### **JavaScript**
+```ts
+function buildArray(nums: number[]): number[] {
+    return nums.map(v => nums[v]);
+}
+```
+
+```rust
+impl Solution {
+    pub fn build_array(nums: Vec<i32>) -> Vec<i32> {
+        nums.iter()
+            .map(|&v| nums[v as usize])
+            .collect()
+    }
+}
+```
 
 ```js
 /**
@@ -115,28 +117,6 @@ var buildArray = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function buildArray(nums: number[]): number[] {
-    return nums.map(v => nums[v]);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn build_array(nums: Vec<i32>) -> Vec<i32> {
-        nums.iter()
-            .map(|&v| nums[v as usize])
-            .collect()
-    }
-}
-```
-
-### **C**
-
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -151,10 +131,6 @@ int* buildArray(int* nums, int numsSize, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

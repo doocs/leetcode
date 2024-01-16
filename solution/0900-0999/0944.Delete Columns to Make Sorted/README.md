@@ -69,13 +69,9 @@ cae</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +85,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,7 +124,21 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minDeletionSize(strs []string) int {
+	m, n := len(strs[0]), len(strs)
+	ans := 0
+	for j := 0; j < m; j++ {
+		for i := 1; i < n; i++ {
+			if strs[i][j] < strs[i-1][j] {
+				ans++
+				break
+			}
+		}
+	}
+	return ans
+}
+```
 
 ```rust
 impl Solution {
@@ -155,28 +159,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minDeletionSize(strs []string) int {
-	m, n := len(strs[0]), len(strs)
-	ans := 0
-	for j := 0; j < m; j++ {
-		for i := 1; i < n; i++ {
-			if strs[i][j] < strs[i-1][j] {
-				ans++
-				break
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

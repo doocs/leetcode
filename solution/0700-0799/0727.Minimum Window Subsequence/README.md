@@ -33,9 +33,7 @@ S = &quot;abcdebdde&quot;, T = &quot;bde&quot;
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示字符串 $s1$ 的前 $i$ 个字符包含字符串 $s2$ 的前 $j$ 个字符时的最短子串的起始位置，如果不存在则为 $0$。
 
@@ -54,10 +52,6 @@ $$
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为字符串 $s1$ 和 $s2$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                     p = j
         return "" if k > m else s1[p : p + k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minWindow(s1 string, s2 string) string {
@@ -185,8 +171,6 @@ func minWindow(s1 string, s2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minWindow(s1: string, s2: string): string {
     const m = s1.length;
@@ -218,10 +202,6 @@ function minWindow(s1: string, s2: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

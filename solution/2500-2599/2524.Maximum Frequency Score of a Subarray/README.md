@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 滑动窗口 + 快速幂**
+### 方法一：哈希表 + 滑动窗口 + 快速幂
 
 我们用哈希表 `cnt` 维护窗口大小为 $k$ 的元素及其出现的次数。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -177,8 +165,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxFrequencyScore(nums []int, k int) int {
@@ -225,10 +211,6 @@ func maxFrequencyScore(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

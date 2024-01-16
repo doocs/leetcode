@@ -40,19 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 维护前缀最大值**
+### 方法一：枚举 + 维护前缀最大值
 
 我们可以在 $[1,..n - 1]$ 的范围内枚举 $j$，那么我们要在 $[0,..j - 1]$ 的范围内找到一个 $i$，使得 $values[i] + values[j] + i - j$ 的值最大。我们可以维护一个前缀最大值，即 $values[i] + i$ 的最大值，那么我们只需要在枚举 $j$ 的过程中，不断地更新答案即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
             mx = max(mx, values[j] + j)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScoreSightseeingPair(values []int) (ans int) {
 	for j, mx := 1, values[0]; j < len(values); j++ {
@@ -108,8 +94,6 @@ func maxScoreSightseeingPair(values []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxScoreSightseeingPair(values: number[]): number {
@@ -123,10 +107,6 @@ function maxScoreSightseeingPair(values: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

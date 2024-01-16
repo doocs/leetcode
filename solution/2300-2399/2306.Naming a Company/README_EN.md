@@ -56,7 +56,7 @@ The following are some examples of invalid selections:
 
 ## Solutions
 
-**Solution 1: Enumeration Counting**
+### Solution 1: Enumeration Counting
 
 We define $f[i][j]$ to represent the number of strings in $ideas$ that start with the $i$th letter and are not in $ideas$ after being replaced with the $j$th letter. Initially, $f[i][j] = 0$. Additionally, we use a hash table $s$ to record the strings in $ideas$, which allows us to quickly determine whether a string is in $ideas$.
 
@@ -69,8 +69,6 @@ The final answer is $ans$.
 The time complexity is $O(n \times m \times |\Sigma|)$, and the space complexity is $O(|\Sigma|^2)$. Here, $n$ and $m$ are the number of strings in $ideas$ and the maximum length of the strings, respectively, and $|\Sigma|$ is the character set that appears in the string. In this problem, $|\Sigma| \leq 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -94,8 +92,6 @@ class Solution:
                     ans += f[j][i]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func distinctNames(ideas []string) (ans int64) {
@@ -197,8 +189,6 @@ func distinctNames(ideas []string) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distinctNames(ideas: string[]): number {
     const s = new Set(ideas);
@@ -230,10 +220,6 @@ function distinctNames(ideas: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

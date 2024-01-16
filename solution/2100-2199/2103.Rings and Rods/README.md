@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们可以用一个长度为 $10$ 的数组 $mask$ 来表示每根杆上的环的颜色情况，其中 $mask[i]$ 表示第 $i$ 根杆上的环的颜色情况，如果第 $i$ 根杆上有红色、绿色、蓝色的环，那么 $mask[i]$ 的二进制表示为 $111$，即 $mask[i] = 7$。
 
@@ -79,10 +77,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 表示字符串 $rings$ 的长度，而 $|\Sigma|$ 表示字符集的大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
             mask[j] |= d[c]
         return mask.count(7)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPoints(rings string) (ans int) {
@@ -162,8 +148,6 @@ func countPoints(rings string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPoints(rings: string): number {
     const idx = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
@@ -180,18 +164,6 @@ function countPoints(rings: string): number {
     return mask.filter(x => x === 7).length;
 }
 ```
-
-```ts
-function countPoints(rings: string): number {
-    let c = 0;
-    for (let i = 0; i <= 9; i++) {
-        if (rings.includes('B' + i) && rings.includes('R' + i) && rings.includes('G' + i)) c++;
-    }
-    return c;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -218,8 +190,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int countPoints(char* rings) {
@@ -249,10 +219,22 @@ int countPoints(char* rings) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+function countPoints(rings: string): number {
+    let c = 0;
+    for (let i = 0; i <= 9; i++) {
+        if (rings.includes('B' + i) && rings.includes('R' + i) && rings.includes('G' + i)) c++;
+    }
+    return c;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

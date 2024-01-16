@@ -24,19 +24,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们先将 $N$ 的第 $i$ 位到第 $j$ 位清零，然后再将 $M$ 左移 $i$ 位，最后将 $M$ 与 $N$ 进行或运算。
 
 时间复杂度 $O(\log n)$，其中 $n$ 是 $N$ 的大小。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -45,10 +39,6 @@ class Solution:
             N &= ~(1 << k)
         return N | M << i
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -60,8 +50,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -75,8 +63,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func insertBits(N int, M int, i int, j int) int {
 	for k := i; k <= j; k++ {
@@ -85,8 +71,6 @@ func insertBits(N int, M int, i int, j int) int {
 	return N | M<<i
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function insertBits(N: number, M: number, i: number, j: number): number {
@@ -97,10 +81,6 @@ function insertBits(N: number, M: number, i: number, j: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

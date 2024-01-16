@@ -43,7 +43,7 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 According to the problem description, we know that in order to make all values in $tops$ or all values in $bottoms$ the same, the value must be one of $tops[0]$ or $bottoms[0]$.
 
@@ -56,8 +56,6 @@ We use two variables $cnt1$ and $cnt2$ to count the number of occurrences of $x$
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
         ans = min(f(tops[0]), f(bottoms[0]))
         return -1 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDominoRotations(tops []int, bottoms []int) int {
@@ -158,8 +150,6 @@ func minDominoRotations(tops []int, bottoms []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minDominoRotations(tops: number[], bottoms: number[]): number {
     const n = tops.length;
@@ -179,10 +169,6 @@ function minDominoRotations(tops: number[], bottoms: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

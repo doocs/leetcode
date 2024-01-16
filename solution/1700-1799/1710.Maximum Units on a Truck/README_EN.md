@@ -47,7 +47,7 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 
 ## Solutions
 
-**Solution 1: Greedy + Sorting**
+### Solution 1: Greedy + Sorting
 
 According to the problem, we should choose as many units as possible. Therefore, we first sort `boxTypes` in descending order of the number of units.
 
@@ -55,17 +55,7 @@ Then we traverse `boxTypes` from front to back, choose up to `truckSize` boxes, 
 
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the two-dimensional array `boxTypes`.
 
-**Solution 2: Counting Sort**
-
-We can also use the idea of counting sort, create an array $cnt$ of length $1001$, where $cnt[b]$ represents the number of boxes with $b$ units.
-
-Then starting from the box with the maximum number of units, choose up to `truckSize` boxes, and accumulate the number of units.
-
-The time complexity is $O(M)$, where $M$ is the maximum number of units. In this problem, $M=1000$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,25 +68,6 @@ class Solution:
                 break
         return ans
 ```
-
-```python
-class Solution:
-    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
-        cnt = [0] * 1001
-        for a, b in boxTypes:
-            cnt[b] += a
-        ans = 0
-        for b in range(1000, 0, -1):
-            a = cnt[b]
-            if a:
-                ans += b * min(truckSize, a)
-                truckSize -= a
-                if truckSize <= 0:
-                    break
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,6 +85,105 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
+        sort(boxTypes.begin(), boxTypes.end(), [](auto& a, auto& b) { return a[1] > b[1]; });
+        int ans = 0;
+        for (auto& e : boxTypes) {
+            int a = e[0], b = e[1];
+            ans += b * min(truckSize, a);
+            truckSize -= a;
+            if (truckSize <= 0) break;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
+	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
+	for _, e := range boxTypes {
+		a, b := e[0], e[1]
+		ans += b * min(truckSize, a)
+		truckSize -= a
+		if truckSize <= 0 {
+			break
+		}
+	}
+	return
+}
+```
+
+```ts
+function maximumUnits(boxTypes: number[][], truckSize: number): number {
+    boxTypes.sort((a, b) => b[1] - a[1]);
+    let sum = 0;
+    let ans = 0;
+    for (const [count, size] of boxTypes) {
+        if (sum + count < truckSize) {
+            ans += size * count;
+            sum += count;
+        } else {
+            ans += (truckSize - sum) * size;
+            break;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn maximum_units(mut box_types: Vec<Vec<i32>>, truck_size: i32) -> i32 {
+        box_types.sort_by(|a, b| b[1].cmp(&a[1]));
+        let mut sum = 0;
+        let mut ans = 0;
+        for box_type in box_types.iter() {
+            if sum + box_type[0] < truck_size {
+                sum += box_type[0];
+                ans += box_type[0] * box_type[1];
+            } else {
+                ans += (truck_size - sum) * box_type[1];
+                break;
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Counting Sort
+
+We can also use the idea of counting sort, create an array $cnt$ of length $1001$, where $cnt[b]$ represents the number of boxes with $b$ units.
+
+Then starting from the box with the maximum number of units, choose up to `truckSize` boxes, and accumulate the number of units.
+
+The time complexity is $O(M)$, where $M$ is the maximum number of units. In this problem, $M=1000$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        cnt = [0] * 1001
+        for a, b in boxTypes:
+            cnt[b] += a
+        ans = 0
+        for b in range(1000, 0, -1):
+            a = cnt[b]
+            if a:
+                ans += b * min(truckSize, a)
+                truckSize -= a
+                if truckSize <= 0:
+                    break
+        return ans
 ```
 
 ```java
@@ -135,25 +205,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
-        sort(boxTypes.begin(), boxTypes.end(), [](auto& a, auto& b) { return a[1] > b[1]; });
-        int ans = 0;
-        for (auto& e : boxTypes) {
-            int a = e[0], b = e[1];
-            ans += b * min(truckSize, a);
-            truckSize -= a;
-            if (truckSize <= 0) break;
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -178,23 +229,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
-	sort.Slice(boxTypes, func(i, j int) bool { return boxTypes[i][1] > boxTypes[j][1] })
-	for _, e := range boxTypes {
-		a, b := e[0], e[1]
-		ans += b * min(truckSize, a)
-		truckSize -= a
-		if truckSize <= 0 {
-			break
-		}
-	}
-	return
-}
-```
-
 ```go
 func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	cnt := [1001]int{}
@@ -210,26 +244,6 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function maximumUnits(boxTypes: number[][], truckSize: number): number {
-    boxTypes.sort((a, b) => b[1] - a[1]);
-    let sum = 0;
-    let ans = 0;
-    for (const [count, size] of boxTypes) {
-        if (sum + count < truckSize) {
-            ans += size * count;
-            sum += count;
-        } else {
-            ans += (truckSize - sum) * size;
-            break;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -251,32 +265,6 @@ function maximumUnits(boxTypes: number[][], truckSize: number): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn maximum_units(mut box_types: Vec<Vec<i32>>, truck_size: i32) -> i32 {
-        box_types.sort_by(|a, b| b[1].cmp(&a[1]));
-        let mut sum = 0;
-        let mut ans = 0;
-        for box_type in box_types.iter() {
-            if sum + box_type[0] < truck_size {
-                sum += box_type[0];
-                ans += box_type[0] * box_type[1];
-            } else {
-                ans += (truck_size - sum) * box_type[1];
-                break;
-            }
-        }
-        ans
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

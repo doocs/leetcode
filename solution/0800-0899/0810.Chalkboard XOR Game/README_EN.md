@@ -48,17 +48,15 @@ If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elem
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def xorGame(self, nums: List[int]) -> bool:
         return len(nums) % 2 == 0 or reduce(xor, nums) == 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -67,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -81,8 +77,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func xorGame(nums []int) bool {
@@ -97,10 +91,6 @@ func xorGame(nums []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

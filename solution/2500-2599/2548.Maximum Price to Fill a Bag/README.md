@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 我们将物品按照单位价格从大到小排序，然后依次取出物品，直到背包装满。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为物品数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
             capacity -= v
         return -1 if capacity else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxPrice(items [][]int, capacity int) (ans float64) {
 	sort.Slice(items, func(i, j int) bool { return items[i][1]*items[j][0] < items[i][0]*items[j][1] })
@@ -139,8 +125,6 @@ func maxPrice(items [][]int, capacity int) (ans float64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxPrice(items: number[][], capacity: number): number {
     items.sort((a, b) => a[1] * b[0] - a[0] * b[1]);
@@ -154,10 +138,6 @@ function maxPrice(items: number[][], capacity: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

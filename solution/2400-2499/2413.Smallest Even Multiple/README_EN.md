@@ -32,7 +32,7 @@ Given a <strong>positive</strong> integer <code>n</code>, return <em>the smalles
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 If $n$ is even, then the least common multiple (LCM) of $2$ and $n$ is $n$ itself. Otherwise, the LCM of $2$ and $n$ is $n \times 2$.
 
@@ -40,15 +40,11 @@ The time complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def smallestEvenMultiple(self, n: int) -> int:
         return n if n % 2 == 0 else n * 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -57,8 +53,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -69,8 +63,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestEvenMultiple(n int) int {
 	if n%2 == 0 {
@@ -80,23 +72,11 @@ func smallestEvenMultiple(n int) int {
 }
 ```
 
-### **C**
-
-```c
-int smallestEvenMultiple(int n) {
-    return n % 2 == 0 ? n : n * 2;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function smallestEvenMultiple(n: number): number {
     return n % 2 === 0 ? n : n * 2;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -109,10 +89,12 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int smallestEvenMultiple(int n) {
+    return n % 2 == 0 ? n : n * 2;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

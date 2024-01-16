@@ -71,29 +71,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举所有子字符串 $s[i: j]$，其中 $i \lt j$，并检查它们是否是美丽子字符串。如果是，我们就更新答案。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
-**方法二：双指针**
-
-我们也可以用两个指针维护一个滑动窗口，其中指针 $i$ 指向滑动窗口的左端点，指针 $j$ 指向滑动窗口的右端点。初始时 $i = j = 0$。另外，我们用变量 $cnt$ 记录滑动窗口中的 $1$ 的个数。
-
-我们首先将指针 $j$ 向右移动，将 $s[j]$ 加入到滑动窗口中，并更新 $cnt$。如果 $cnt \gt k$，或者 $i \lt j$ 并且 $s[i]=0$，我们就循环将指针 $i$ 往右移动，并且更新 $cnt$。
-
-当 $cnt = k$ 时，我们就找到了一个美丽子字符串。我们将它与当前的答案进行比较，并更新答案。
-
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,29 +93,6 @@ class Solution:
                     ans = t
         return ans
 ```
-
-```python
-class Solution:
-    def shortestBeautifulSubstring(self, s: str, k: int) -> str:
-        i = j = cnt = 0
-        n = len(s)
-        ans = ""
-        while j < n:
-            cnt += s[j] == "1"
-            while cnt > k or (i < j and s[i] == "0"):
-                cnt -= s[i] == "1"
-                i += 1
-            j += 1
-            if cnt == k and (
-                not ans or j - i < len(ans) or (j - i == len(ans) and s[i:j] < ans)
-            ):
-                ans = s[i:j]
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -155,6 +116,122 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    string shortestBeautifulSubstring(string s, int k) {
+        int n = s.size();
+        string ans = "";
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + k; j <= n; ++j) {
+                string t = s.substr(i, j - i);
+                int cnt = count(t.begin(), t.end(), '1');
+                if (cnt == k && (ans == "" || j - i < ans.size() || (j - i == ans.size() && t < ans))) {
+                    ans = t;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func shortestBeautifulSubstring(s string, k int) (ans string) {
+	n := len(s)
+	for i := 0; i < n; i++ {
+		for j := i + k; j <= n; j++ {
+			t := s[i:j]
+			cnt := 0
+			for _, c := range t {
+				if c == '1' {
+					cnt++
+				}
+			}
+			if cnt == k && (ans == "" || j-i < len(ans) || (j-i == len(ans) && t < ans)) {
+				ans = t
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+function shortestBeautifulSubstring(s: string, k: number): string {
+    const n = s.length;
+    let ans: string = '';
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + k; j <= n; ++j) {
+            const t = s.slice(i, j);
+            const cnt = t.split('').filter(c => c === '1').length;
+            if (
+                cnt === k &&
+                (ans === '' || j - i < ans.length || (j - i === ans.length && t < ans))
+            ) {
+                ans = t;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn shortest_beautiful_substring(s: String, k: i32) -> String {
+        let n = s.len();
+        let mut ans = String::new();
+
+        for i in 0..n {
+            for j in i + (k as usize)..=n {
+                let t = &s[i..j];
+                if
+                    (t.matches('1').count() as i32) == k &&
+                    (ans.is_empty() || j - i < ans.len() || (j - i == ans.len() && t < &ans))
+                {
+                    ans = t.to_string();
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：双指针
+
+我们也可以用两个指针维护一个滑动窗口，其中指针 $i$ 指向滑动窗口的左端点，指针 $j$ 指向滑动窗口的右端点。初始时 $i = j = 0$。另外，我们用变量 $cnt$ 记录滑动窗口中的 $1$ 的个数。
+
+我们首先将指针 $j$ 向右移动，将 $s[j]$ 加入到滑动窗口中，并更新 $cnt$。如果 $cnt \gt k$，或者 $i \lt j$ 并且 $s[i]=0$，我们就循环将指针 $i$ 往右移动，并且更新 $cnt$。
+
+当 $cnt = k$ 时，我们就找到了一个美丽子字符串。我们将它与当前的答案进行比较，并更新答案。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def shortestBeautifulSubstring(self, s: str, k: int) -> str:
+        i = j = cnt = 0
+        n = len(s)
+        ans = ""
+        while j < n:
+            cnt += s[j] == "1"
+            while cnt > k or (i < j and s[i] == "0"):
+                cnt -= s[i] == "1"
+                i += 1
+            j += 1
+            if cnt == k and (
+                not ans or j - i < len(ans) or (j - i == len(ans) and s[i:j] < ans)
+            ):
+                ans = s[i:j]
+        return ans
 ```
 
 ```java
@@ -182,28 +259,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string shortestBeautifulSubstring(string s, int k) {
-        int n = s.size();
-        string ans = "";
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + k; j <= n; ++j) {
-                string t = s.substr(i, j - i);
-                int cnt = count(t.begin(), t.end(), '1');
-                if (cnt == k && (ans == "" || j - i < ans.size() || (j - i == ans.size() && t < ans))) {
-                    ans = t;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -227,29 +282,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func shortestBeautifulSubstring(s string, k int) (ans string) {
-	n := len(s)
-	for i := 0; i < n; i++ {
-		for j := i + k; j <= n; j++ {
-			t := s[i:j]
-			cnt := 0
-			for _, c := range t {
-				if c == '1' {
-					cnt++
-				}
-			}
-			if cnt == k && (ans == "" || j-i < len(ans) || (j-i == len(ans) && t < ans)) {
-				ans = t
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func shortestBeautifulSubstring(s string, k int) (ans string) {
 	i, j, cnt := 0, 0, 0
@@ -270,28 +302,6 @@ func shortestBeautifulSubstring(s string, k int) (ans string) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function shortestBeautifulSubstring(s: string, k: number): string {
-    const n = s.length;
-    let ans: string = '';
-    for (let i = 0; i < n; ++i) {
-        for (let j = i + k; j <= n; ++j) {
-            const t = s.slice(i, j);
-            const cnt = t.split('').filter(c => c === '1').length;
-            if (
-                cnt === k &&
-                (ans === '' || j - i < ans.length || (j - i === ans.length && t < ans))
-            ) {
-                ans = t;
-            }
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function shortestBeautifulSubstring(s: string, k: number): string {
     let [i, j, cnt] = [0, 0, 0];
@@ -309,30 +319,6 @@ function shortestBeautifulSubstring(s: string, k: number): string {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn shortest_beautiful_substring(s: String, k: i32) -> String {
-        let n = s.len();
-        let mut ans = String::new();
-
-        for i in 0..n {
-            for j in i + (k as usize)..=n {
-                let t = &s[i..j];
-                if
-                    (t.matches('1').count() as i32) == k &&
-                    (ans.is_empty() || j - i < ans.len() || (j - i == ans.len() && t < &ans))
-                {
-                    ans = t.to_string();
-                }
-            }
-        }
-        ans
-    }
 }
 ```
 
@@ -373,10 +359,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

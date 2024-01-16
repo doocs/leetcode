@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历 + 计数**
+### 方法一：遍历 + 计数
 
 我们先找到中位数 $k$ 在数组中的位置 $i$，然后从 $i$ 开始向两边遍历，统计中位数为 $k$ 的子数组的数目。
 
@@ -71,10 +69,6 @@
 > 在编码上，我们可以直接开一个长度为 $2 \times n + 1$ 的数组，用于统计当前数组中，比 $k$ 大的元素的个数与比 $k$ 小的元素的个数的差值，每一次我们将差值加上 $n$，即可将差值的范围从 $[-n, n]$ 转换为 $[0, 2n]$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
             ans += cnt[-x] + cnt[-x + 1]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countSubarrays(nums []int, k int) int {
@@ -199,8 +185,6 @@ func countSubarrays(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSubarrays(nums: number[], k: number): number {
     const i = nums.indexOf(k);
@@ -223,10 +207,6 @@ function countSubarrays(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

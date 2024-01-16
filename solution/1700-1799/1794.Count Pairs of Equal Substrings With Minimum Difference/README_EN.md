@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Hash Table**
+### Solution 1: Greedy + Hash Table
 
 The problem actually asks us to find a smallest index $i$ and a largest index $j$ such that $firstString[i]$ equals $secondString[j]$, and the value of $i - j$ is the smallest among all index pairs that meet the conditions.
 
@@ -51,8 +51,6 @@ Therefore, we first use a hash table $last$ to record the index of the last occu
 The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the lengths of $firstString$ and $secondString$ respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countQuadruples(firstString string, secondString string) (ans int) {
 	last := [26]int{}
@@ -149,8 +141,6 @@ func countQuadruples(firstString string, secondString string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countQuadruples(firstString: string, secondString: string): number {
@@ -175,10 +165,6 @@ function countQuadruples(firstString: string, secondString: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

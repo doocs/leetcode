@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表模拟**
+### 方法一：哈希表模拟
 
 我们用哈希表 $d$ 维护字符串的差值数组和字符串的映射关系，其中差值数组为字符串的相邻字符的差值构成的数组。由于题目保证了除了一个字符串以外，其他字符串的差值数组都相同，因此我们只需要找到差值数组不同的字符串即可。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为字符串的长度和字符串的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             d[t].append(s)
         return next(ss[0] for ss in d.values() if len(ss) == 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func oddString(words []string) string {
 	d := map[string][]string{}
@@ -152,8 +138,6 @@ func oddString(words []string) string {
 	return ""
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function oddString(words: string[]): string {
@@ -177,8 +161,6 @@ function oddString(words: string[]): string {
     return '';
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -204,6 +186,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 use std::collections::HashMap;
@@ -240,10 +228,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

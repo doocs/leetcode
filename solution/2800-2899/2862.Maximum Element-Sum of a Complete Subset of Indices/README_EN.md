@@ -50,7 +50,7 @@ Hence, the maximum element-sum of a complete subset of indices is 19.
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We note that if a number can be expressed in the form of $k \times j^2$, then all numbers of this form have the same $k$.
 
@@ -61,8 +61,6 @@ Finally, return the answer $ans$.
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,25 +103,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long maximumSum(List<Integer> nums) {
-        long ans = 0;
-        int n = nums.size();
-        for (int k = 1; k <= n; ++k) {
-            long t = 0;
-            for (int j = 1; k * j * j <= n; ++j) {
-                t += nums.get(k * j * j - 1);
-            }
-            ans = Math.max(ans, t);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSum(nums []int) (ans int64) {
 	n := len(nums)
@@ -159,8 +134,6 @@ func maximumSum(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumSum(nums: number[]): number {
@@ -177,10 +150,29 @@ function maximumSum(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public long maximumSum(List<Integer> nums) {
+        long ans = 0;
+        int n = nums.size();
+        for (int k = 1; k <= n; ++k) {
+            long t = 0;
+            for (int j = 1; k * j * j <= n; ++j) {
+                t += nums.get(k * j * j - 1);
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

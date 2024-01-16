@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以模拟卡车的行驶过程，每次消耗 $1$ 升主油箱中的燃料，行驶 $10$ 公里。每当主油箱中的燃料消耗 $5$ 升时，如果副油箱中有燃料，则将副油箱中的 $1$ 升燃料转移到主油箱中。一直模拟到主油箱中的燃料消耗完为止。
 
 时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是主油箱和副油箱中的燃料数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                 mainTank += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	cur := 0
@@ -133,8 +119,6 @@ func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	return
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -158,10 +142,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

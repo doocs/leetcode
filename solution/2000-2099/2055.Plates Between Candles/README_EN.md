@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,8 +78,6 @@ class Solution:
                 ans[k] = presum[j] - presum[i + 1]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func platesBetweenCandles(s string, queries [][]int) []int {
@@ -182,10 +176,6 @@ func platesBetweenCandles(s string, queries [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,13 +54,9 @@ AB -&gt; 28
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +66,6 @@ class Solution:
             res = res * 26 + (ord(c) - ord('A') + 1)
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,20 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function titleToNumber(columnTitle: string): number {
-    let res: number = 0;
-    for (let char of columnTitle) {
-        res = res * 26 + char.charCodeAt(0) - 64;
-    }
-    return res;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func titleToNumber(columnTitle string) int {
 	res := 0
@@ -126,10 +102,16 @@ func titleToNumber(columnTitle string) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function titleToNumber(columnTitle: string): number {
+    let res: number = 0;
+    for (let char of columnTitle) {
+        res = res * 26 + char.charCodeAt(0) - 64;
+    }
+    return res;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

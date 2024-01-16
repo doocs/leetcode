@@ -72,15 +72,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二分查找。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
                 res = (res + left + 1) % 1000000007
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func breakfastNumber(staple []int, drinks []int, x int) int {
 	res, n := 0, len(drinks)
@@ -182,10 +168,6 @@ func breakfastNumber(staple []int, drinks []int, x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

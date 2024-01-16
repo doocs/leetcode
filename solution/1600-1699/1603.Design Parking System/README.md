@@ -46,19 +46,13 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 为每种车维护一个计数器，初始值为车位的数目。此后，每来一辆车，就将对应类型的计数器减 `1`。当计数器为 `0` 时，说明车位已满。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class ParkingSystem:
@@ -76,10 +70,6 @@ class ParkingSystem:
 # obj = ParkingSystem(big, medium, small)
 # param_1 = obj.addCar(carType)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class ParkingSystem {
@@ -105,8 +95,6 @@ class ParkingSystem {
  */
 ```
 
-### **C++**
-
 ```cpp
 class ParkingSystem {
 public:
@@ -129,8 +117,6 @@ public:
  * bool param_1 = obj->addCar(carType);
  */
 ```
-
-### **Go**
 
 ```go
 type ParkingSystem struct {
@@ -156,8 +142,6 @@ func (this *ParkingSystem) AddCar(carType int) bool {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class ParkingSystem {
     private count: [number, number, number];
@@ -181,8 +165,6 @@ class ParkingSystem {
  * var param_1 = obj.addCar(carType)
  */
 ```
-
-### **Rust**
 
 ```rust
 struct ParkingSystem {
@@ -215,7 +197,30 @@ impl ParkingSystem {
  */
 ```
 
-### **C**
+```cs
+public class ParkingSystem {
+
+    private List<int> cnt;
+
+    public ParkingSystem(int big, int medium, int small) {
+        cnt = new List<int>() {0 , big, medium, small};
+    }
+
+    public bool AddCar(int carType) {
+        if (cnt[carType] == 0) {
+            return false;
+        }
+        --cnt[carType];
+        return true;
+    }
+}
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * ParkingSystem obj = new ParkingSystem(big, medium, small);
+ * bool param_1 = obj.AddCar(carType);
+ */
+```
 
 ```c
 typedef struct {
@@ -253,37 +258,6 @@ void parkingSystemFree(ParkingSystem* obj) {
 */
 ```
 
-### **C#**
-
-```cs
-public class ParkingSystem {
-
-    private List<int> cnt;
-
-    public ParkingSystem(int big, int medium, int small) {
-        cnt = new List<int>() {0 , big, medium, small};
-    }
-
-    public bool AddCar(int carType) {
-        if (cnt[carType] == 0) {
-            return false;
-        }
-        --cnt[carType];
-        return true;
-    }
-}
-
-/**
- * Your ParkingSystem object will be instantiated and called as such:
- * ParkingSystem obj = new ParkingSystem(big, medium, small);
- * bool param_1 = obj.AddCar(carType);
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

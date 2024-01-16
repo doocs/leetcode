@@ -59,13 +59,9 @@ Alice 可能发出的文字信息包括：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 mod = 10**9 + 7
@@ -84,10 +80,6 @@ class Solution:
             ans = ans * (g[m] if ch in "79" else f[m]) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +119,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 const mod int = 1e9 + 7
 const n int = 1e5 + 10
@@ -163,16 +153,6 @@ func countTexts(pressedKeys string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -71,27 +71,9 @@ countAndSay(4) = 读 "21" = 一 个 2 + 一 个 1 = "12" + "11" = "1211"
 
 ## 解法
 
-**方法一: 模拟**
-
-题目要求输出第 $n$ 项的外观序列，而第 $n$ 项是序列中第 $n-1$ 项的描述。所以我们遍历 $n-1$ 次，每次迭代用快慢指针 j 和 i，分别记录当前字符的位置以及下一个不等于当前字符的位置，更新上一项的序列为 $j-i$ 个当前字符。
-
-时间复杂度：
-
-1. 外部循环迭代 `for _ in range(n - 1)`，这会执行 `n-1` 次。
-2. 在内部循环中，我们遍历了字符串`s`, 长度最大为上一项的长度。
-3. 内部循环嵌套循环执行了一些基本操作，如比较和字符串拼接，这些基本操作的复杂度可以视为 $O(1)$ 。
-
-综合考虑，整体时间复杂度为 $O(n \times m)$, 其中 n 是要生成的序列的项数， m 是前一项的最大长度。
-
-空间复杂度： $O(m)$, 其中 m 是前一项的最大长度。
-
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -110,10 +92,6 @@ class Solution:
             s = ''.join(t)
         return s
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countAndSay(n int) string {
@@ -183,7 +157,74 @@ func countAndSay(n int) string {
 }
 ```
 
-### **C#**
+```ts
+function countAndSay(n: number): string {
+    let s = '1';
+    for (let i = 1; i < n; i++) {
+        let t = '';
+        let cur = s[0];
+        let count = 1;
+        for (let j = 1; j < s.length; j++) {
+            if (s[j] !== cur) {
+                t += `${count}${cur}`;
+                cur = s[j];
+                count = 0;
+            }
+            count++;
+        }
+        t += `${count}${cur}`;
+        s = t;
+    }
+    return s;
+}
+```
+
+```rust
+use std::iter::once;
+
+impl Solution {
+    pub fn count_and_say(n: i32) -> String {
+        (1..n)
+            .fold(vec![1], |curr, _| {
+                let mut next = vec![];
+                let mut slow = 0;
+                for fast in 0..=curr.len() {
+                    if fast == curr.len() || curr[slow] != curr[fast] {
+                        next.extend(once((fast - slow) as u8).chain(once(curr[slow])));
+                        slow = fast;
+                    }
+                }
+                next
+            })
+            .into_iter()
+            .map(|digit| (digit + b'0') as char)
+            .collect()
+    }
+}
+```
+
+```js
+const countAndSay = function (n) {
+    let s = '1';
+
+    for (let i = 2; i <= n; i++) {
+        let count = 1,
+            str = '',
+            len = s.length;
+
+        for (let j = 0; j < len; j++) {
+            if (j < len - 1 && s[j] === s[j + 1]) {
+                count++;
+            } else {
+                str += `${count}${s[j]}`;
+                count = 1;
+            }
+        }
+        s = str;
+    }
+    return s;
+};
+```
 
 ```cs
 using System.Text;
@@ -225,85 +266,6 @@ public class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-const countAndSay = function (n) {
-    let s = '1';
-
-    for (let i = 2; i <= n; i++) {
-        let count = 1,
-            str = '',
-            len = s.length;
-
-        for (let j = 0; j < len; j++) {
-            if (j < len - 1 && s[j] === s[j + 1]) {
-                count++;
-            } else {
-                str += `${count}${s[j]}`;
-                count = 1;
-            }
-        }
-        s = str;
-    }
-    return s;
-};
-```
-
-### **TypeScript**
-
-```ts
-function countAndSay(n: number): string {
-    let s = '1';
-    for (let i = 1; i < n; i++) {
-        let t = '';
-        let cur = s[0];
-        let count = 1;
-        for (let j = 1; j < s.length; j++) {
-            if (s[j] !== cur) {
-                t += `${count}${cur}`;
-                cur = s[j];
-                count = 0;
-            }
-            count++;
-        }
-        t += `${count}${cur}`;
-        s = t;
-    }
-    return s;
-}
-```
-
-### **Rust**
-
-```rust
-use std::iter::once;
-
-impl Solution {
-    pub fn count_and_say(n: i32) -> String {
-        (1..n)
-            .fold(vec![1], |curr, _| {
-                let mut next = vec![];
-                let mut slow = 0;
-                for fast in 0..=curr.len() {
-                    if fast == curr.len() || curr[slow] != curr[fast] {
-                        next.extend(once((fast - slow) as u8).chain(once(curr[slow])));
-                        slow = fast;
-                    }
-                }
-                next
-            })
-            .into_iter()
-            .map(|digit| (digit + b'0') as char)
-            .collect()
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

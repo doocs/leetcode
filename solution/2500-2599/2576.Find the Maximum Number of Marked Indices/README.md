@@ -56,19 +56,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 双指针**
+### 方法一：贪心 + 双指针
 
 为了将下标尽可能多地标记，我们可以将数组 `nums` 排序，然后从左到右遍历数组，对于每个下标 $i$，我们在数组的右半部分找到第一个满足 $2 \times nums[i] \leq nums[j]$ 的下标 $j$，然后标记下标 $i$ 和 $j$。继续遍历下一个下标 $i$。当我们遍历完数组的右半部分时，说明标记已经完成，此时标记的下标数目即为答案。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             i, j = i + 1, j + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumOfMarkedIndices(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -148,8 +134,6 @@ func maxNumOfMarkedIndices(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNumOfMarkedIndices(nums: number[]): number {
@@ -168,10 +152,6 @@ function maxNumOfMarkedIndices(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

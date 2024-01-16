@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Kruskal's Algorithm**
+### Solution 1: Kruskal's Algorithm
 
 Kruskal's algorithm is a greedy algorithm used to compute the minimum spanning tree.
 
@@ -52,8 +52,6 @@ For this problem, we can sort the edges in ascending order of connection cost, u
 The time complexity is $O(m \times \log m)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of edges and vertices, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                 return ans
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumCost(n int, connections [][]int) (ans int) {
@@ -178,8 +170,6 @@ func minimumCost(n int, connections [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumCost(n: number, connections: number[][]): number {
     const p = new Array(n);
@@ -208,10 +198,6 @@ function minimumCost(n: number, connections: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

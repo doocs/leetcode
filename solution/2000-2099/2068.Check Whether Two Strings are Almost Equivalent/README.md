@@ -58,19 +58,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以创建一个长度为 $26$ 的数组 $cnt$，记录两个字符串中每个字母出现的次数之差。最后遍历 $cnt$，如果有任意一个字母出现的次数之差大于 $3$，则返回 `false`，否则返回 `true`。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串的长度；而 $C$ 是字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             cnt[c] -= 1
         return all(abs(x) <= 3 for x in cnt.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkAlmostEquivalent(word1 string, word2 string) bool {
 	cnt := [26]int{}
@@ -148,8 +134,6 @@ func checkAlmostEquivalent(word1 string, word2 string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkAlmostEquivalent(word1: string, word2: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -163,7 +147,26 @@ function checkAlmostEquivalent(word1: string, word2: string): boolean {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {boolean}
+ */
+var checkAlmostEquivalent = function (word1, word2) {
+    const m = new Map();
+    for (let i = 0; i < word1.length; i++) {
+        m.set(word1[i], (m.get(word1[i]) || 0) + 1);
+        m.set(word2[i], (m.get(word2[i]) || 0) - 1);
+    }
+    for (const v of m.values()) {
+        if (Math.abs(v) > 3) {
+            return false;
+        }
+    }
+    return true;
+};
+```
 
 ```cs
 public class Solution {
@@ -179,8 +182,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -205,33 +206,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} word1
- * @param {string} word2
- * @return {boolean}
- */
-var checkAlmostEquivalent = function (word1, word2) {
-    const m = new Map();
-    for (let i = 0; i < word1.length; i++) {
-        m.set(word1[i], (m.get(word1[i]) || 0) + 1);
-        m.set(word2[i], (m.get(word2[i]) || 0) - 1);
-    }
-    for (const v of m.values()) {
-        if (Math.abs(v) > 3) {
-            return false;
-        }
-    }
-    return true;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

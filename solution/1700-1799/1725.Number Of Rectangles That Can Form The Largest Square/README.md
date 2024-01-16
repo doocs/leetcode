@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 我们定义一个变量 $ans$ 来记录当前最大边长的正方形的个数，定义另一个变量 $mx$ 来记录当前最大的边长。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 $rectangles$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countGoodRectangles(rectangles [][]int) (ans int) {
 	mx := 0
@@ -137,8 +123,6 @@ func countGoodRectangles(rectangles [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countGoodRectangles(rectangles: number[][]): number {
@@ -156,10 +140,6 @@ function countGoodRectangles(rectangles: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

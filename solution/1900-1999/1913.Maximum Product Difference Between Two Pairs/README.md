@@ -45,13 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -59,10 +55,6 @@ class Solution:
         nums.sort()
         return nums[-1] * nums[-2] - nums[0] * nums[1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -74,7 +66,24 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```cpp
+class Solution {
+public:
+    int maxProductDifference(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        return nums[n - 1] * nums[n - 2] - nums[0] * nums[1];
+    }
+};
+```
+
+```go
+func maxProductDifference(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	return nums[n-1]*nums[n-2] - nums[0]*nums[1]
+}
+```
 
 ```js
 /**
@@ -89,33 +98,6 @@ var maxProductDifference = function (nums) {
 };
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxProductDifference(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int n = nums.size();
-        return nums[n - 1] * nums[n - 2] - nums[0] * nums[1];
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxProductDifference(nums []int) int {
-	sort.Ints(nums)
-	n := len(nums)
-	return nums[n-1]*nums[n-2] - nums[0]*nums[1]
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

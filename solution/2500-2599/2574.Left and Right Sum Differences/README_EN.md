@@ -49,7 +49,7 @@ The array answer is [|0 - 0|] = [0].
 
 ## Solutions
 
-**Solution 1: Prefix Sum**
+### Solution 1: Prefix Sum
 
 We define a variable $left$ to represent the sum of the elements to the left of index $i$ in the array `nums`, and a variable $right$ to represent the sum of the elements to the right of index $i$ in the array `nums`. Initially, $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$.
 
@@ -66,8 +66,6 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
@@ -79,8 +77,6 @@ class Solution:
             left += x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func leftRigthDifference(nums []int) (ans []int) {
@@ -140,8 +132,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function leftRigthDifference(nums: number[]): number[] {
     let left = 0,
@@ -155,21 +145,6 @@ function leftRigthDifference(nums: number[]): number[] {
     return ans;
 }
 ```
-
-```ts
-function leftRigthDifference(nums: number[]): number[] {
-    let left = 0;
-    let right = nums.reduce((r, v) => r + v);
-    return nums.map(v => {
-        right -= v;
-        const res = Math.abs(left - right);
-        left += v;
-        return res;
-    });
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -185,6 +160,46 @@ impl Solution {
             })
             .collect()
     }
+}
+```
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
+    int left = 0;
+    int right = 0;
+    for (int i = 0; i < numsSize; i++) {
+        right += nums[i];
+    }
+    int* ans = malloc(sizeof(int) * numsSize);
+    for (int i = 0; i < numsSize; i++) {
+        right -= nums[i];
+        ans[i] = abs(left - right);
+        left += nums[i];
+    }
+    *returnSize = numsSize;
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function leftRigthDifference(nums: number[]): number[] {
+    let left = 0;
+    let right = nums.reduce((r, v) => r + v);
+    return nums.map(v => {
+        right -= v;
+        const res = Math.abs(left - right);
+        left += v;
+        return res;
+    });
 }
 ```
 
@@ -212,6 +227,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
@@ -230,33 +251,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
-    int left = 0;
-    int right = 0;
-    for (int i = 0; i < numsSize; i++) {
-        right += nums[i];
-    }
-    int* ans = malloc(sizeof(int) * numsSize);
-    for (int i = 0; i < numsSize; i++) {
-        right -= nums[i];
-        ans[i] = abs(left - right);
-        left += nums[i];
-    }
-    *returnSize = numsSize;
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

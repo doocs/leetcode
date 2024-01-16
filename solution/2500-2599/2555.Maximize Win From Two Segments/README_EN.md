@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming + Binary Search**
+### Solution 1: Dynamic Programming + Binary Search
 
 We define $f[i]$ as the maximum number of prizes that can be obtained by selecting a segment of length $k$ from the first $i$ prizes. Initially, $f[0] = 0$. We define the answer variable as $ans = 0$.
 
@@ -63,8 +63,6 @@ Finally, we return $ans$.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of prizes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             f[i] = max(f[i - 1], i - j)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeWin(prizePositions []int, k int) (ans int) {
 	n := len(prizePositions)
@@ -145,8 +137,6 @@ func maximizeWin(prizePositions []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximizeWin(prizePositions: number[], k: number): number {
@@ -176,10 +166,6 @@ function maximizeWin(prizePositions: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

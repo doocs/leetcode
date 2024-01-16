@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
                     s.add(normalize(shape))
         return len(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -181,8 +179,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef pair<int, int> PII;
 
@@ -239,10 +235,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

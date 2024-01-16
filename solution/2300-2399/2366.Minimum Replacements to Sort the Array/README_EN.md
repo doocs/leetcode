@@ -43,9 +43,9 @@ There are 2 steps to sort the array in non-decreasing order. Therefore, we retur
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             mx = nums[i] // k
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,7 +104,40 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minimumReplacement(nums []int) (ans int64) {
+	n := len(nums)
+	mx := nums[n-1]
+	for i := n - 2; i >= 0; i-- {
+		if nums[i] <= mx {
+			mx = nums[i]
+			continue
+		}
+		k := (nums[i] + mx - 1) / mx
+		ans += int64(k - 1)
+		mx = nums[i] / k
+	}
+	return
+}
+```
+
+```ts
+function minimumReplacement(nums: number[]): number {
+    const n = nums.length;
+    let mx = nums[n - 1];
+    let ans = 0;
+    for (let i = n - 2; i >= 0; --i) {
+        if (nums[i] <= mx) {
+            mx = nums[i];
+            continue;
+        }
+        const k = Math.ceil(nums[i] / mx);
+        ans += k - 1;
+        mx = Math.floor(nums[i] / k);
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -139,49 +168,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minimumReplacement(nums []int) (ans int64) {
-	n := len(nums)
-	mx := nums[n-1]
-	for i := n - 2; i >= 0; i-- {
-		if nums[i] <= mx {
-			mx = nums[i]
-			continue
-		}
-		k := (nums[i] + mx - 1) / mx
-		ans += int64(k - 1)
-		mx = nums[i] / k
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumReplacement(nums: number[]): number {
-    const n = nums.length;
-    let mx = nums[n - 1];
-    let ans = 0;
-    for (let i = n - 2; i >= 0; --i) {
-        if (nums[i] <= mx) {
-            mx = nums[i];
-            continue;
-        }
-        const k = Math.ceil(nums[i] / mx);
-        ans += k - 1;
-        mx = Math.floor(nums[i] / k);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,9 +63,9 @@ Hall 3:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -109,3 +109,5 @@ GROUP BY hall_id, gid;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

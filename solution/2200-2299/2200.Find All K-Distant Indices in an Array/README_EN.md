@@ -46,29 +46,13 @@ Hence, we return [0,1,2,3,4].
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We enumerate the index $i$ in the range $[0, n)$, and for each index $i$, we enumerate the index $j$ in the range $[0, n)$. If $|i - j| \leq k$ and $nums[j] = key$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array, then break the inner loop and enumerate the next index $i$.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
-**Solution 2: Preprocessing + Binary Search**
-
-We can preprocess to get the indices of all elements equal to $key$, recorded in the array $idx$. All index elements in the array $idx$ are sorted in ascending order.
-
-Next, we enumerate the index $i$. For each index $i$, we can use binary search to find elements in the range $[i - k, i + k]$ in the array $idx$. If there are elements, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.
-
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
-
-**Solution 3: Two Pointers**
-
-We enumerate the index $i$, and use a pointer $j$ to point to the smallest index that satisfies $j \geq i - k$ and $nums[j] = key$. If $j$ exists and $j \leq i + k$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.
-
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,34 +64,6 @@ class Solution:
                 ans.append(i)
         return ans
 ```
-
-```python
-class Solution:
-    def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
-        idx = [i for i, x in enumerate(nums) if x == key]
-        ans = []
-        for i in range(len(nums)):
-            l = bisect_left(idx, i - k)
-            r = bisect_right(idx, i + k) - 1
-            if l <= r:
-                ans.append(i)
-        return ans
-```
-
-```python
-class Solution:
-    def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
-        ans = []
-        j, n = 0, len(nums)
-        for i in range(n):
-            while j < i - k or (j < n and nums[j] != key):
-                j += 1
-            if j < n and j <= (i + k):
-                ans.append(i)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,6 +81,87 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
+        int n = nums.size();
+        vector<int> ans;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (abs(i - j) <= k && nums[j] == key) {
+                    ans.push_back(i);
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findKDistantIndices(nums []int, key int, k int) (ans []int) {
+	for i := range nums {
+		for j, x := range nums {
+			if abs(i-j) <= k && x == key {
+				ans = append(ans, i)
+				break
+			}
+		}
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+```ts
+function findKDistantIndices(nums: number[], key: number, k: number): number[] {
+    const n = nums.length;
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (Math.abs(i - j) <= k && nums[j] === key) {
+                ans.push(i);
+                break;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Preprocessing + Binary Search
+
+We can preprocess to get the indices of all elements equal to $key$, recorded in the array $idx$. All index elements in the array $idx$ are sorted in ascending order.
+
+Next, we enumerate the index $i$. For each index $i$, we can use binary search to find elements in the range $[i - k, i + k]$ in the array $idx$. If there are elements, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
+        idx = [i for i, x in enumerate(nums) if x == key]
+        ans = []
+        for i in range(len(nums)):
+            l = bisect_left(idx, i - k)
+            r = bisect_right(idx, i + k) - 1
+            if l <= r:
+                ans.append(i)
+        return ans
 ```
 
 ```java
@@ -151,45 +188,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public List<Integer> findKDistantIndices(int[] nums, int key, int k) {
-        int n = nums.length;
-        List<Integer> ans = new ArrayList<>();
-        for (int i = 0, j = 0; i < n; ++i) {
-            while (j < i - k || (j < n && nums[j] != key)) {
-                ++j;
-            }
-            if (j < n && j <= i + k) {
-                ans.add(i);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
-        int n = nums.size();
-        vector<int> ans;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (abs(i - j) <= k && nums[j] == key) {
-                    ans.push_back(i);
-                    break;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -214,48 +212,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
-        int n = nums.size();
-        vector<int> ans;
-        for (int i = 0, j = 0; i < n; ++i) {
-            while (j < i - k || (j < n && nums[j] != key)) {
-                ++j;
-            }
-            if (j < n && j <= i + k) {
-                ans.push_back(i);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func findKDistantIndices(nums []int, key int, k int) (ans []int) {
-	for i := range nums {
-		for j, x := range nums {
-			if abs(i-j) <= k && x == key {
-				ans = append(ans, i)
-				break
-			}
-		}
-	}
-	return ans
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
-```
-
 ```go
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 	idx := []int{}
@@ -272,39 +228,6 @@ func findKDistantIndices(nums []int, key int, k int) (ans []int) {
 		}
 	}
 	return
-}
-```
-
-```go
-func findKDistantIndices(nums []int, key int, k int) (ans []int) {
-	n := len(nums)
-	for i, j := 0, 0; i < n; i++ {
-		for j < i-k || (j < n && nums[j] != key) {
-			j++
-		}
-		if j < n && j <= i+k {
-			ans = append(ans, i)
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function findKDistantIndices(nums: number[], key: number, k: number): number[] {
-    const n = nums.length;
-    const ans: number[] = [];
-    for (let i = 0; i < n; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (Math.abs(i - j) <= k && nums[j] === key) {
-                ans.push(i);
-                break;
-            }
-        }
-    }
-    return ans;
 }
 ```
 
@@ -341,6 +264,81 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 3: Two Pointers
+
+We enumerate the index $i$, and use a pointer $j$ to point to the smallest index that satisfies $j \geq i - k$ and $nums[j] = key$. If $j$ exists and $j \leq i + k$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
+        ans = []
+        j, n = 0, len(nums)
+        for i in range(n):
+            while j < i - k or (j < n and nums[j] != key):
+                j += 1
+            if j < n and j <= (i + k):
+                ans.append(i)
+        return ans
+```
+
+```java
+class Solution {
+    public List<Integer> findKDistantIndices(int[] nums, int key, int k) {
+        int n = nums.length;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (j < i - k || (j < n && nums[j] != key)) {
+                ++j;
+            }
+            if (j < n && j <= i + k) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
+        int n = nums.size();
+        vector<int> ans;
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (j < i - k || (j < n && nums[j] != key)) {
+                ++j;
+            }
+            if (j < n && j <= i + k) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findKDistantIndices(nums []int, key int, k int) (ans []int) {
+	n := len(nums)
+	for i, j := 0, 0; i < n; i++ {
+		for j < i-k || (j < n && nums[j] != key) {
+			j++
+		}
+		if j < n && j <= i+k {
+			ans = append(ans, i)
+		}
+	}
+	return
+}
+```
+
 ```ts
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
     const n = nums.length;
@@ -357,10 +355,6 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

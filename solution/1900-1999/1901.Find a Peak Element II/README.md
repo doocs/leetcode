@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 记 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
@@ -78,10 +76,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findPeakGrid(self, mat: List[List[int]]) -> List[int]:
@@ -95,10 +89,6 @@ class Solution:
                 l = mid + 1
         return [l, mat[l].index(max(mat[l]))]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findPeakGrid(mat [][]int) []int {
@@ -178,8 +164,6 @@ func findPeakGrid(mat [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findPeakGrid(mat: number[][]): number[] {
     let [l, r] = [0, mat.length - 1];
@@ -195,8 +179,6 @@ function findPeakGrid(mat: number[][]): number[] {
     return [l, mat[l].indexOf(Math.max(...mat[l]))];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -224,10 +206,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

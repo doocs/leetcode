@@ -74,9 +74,9 @@ curriedLife() === 42
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function curry(fn: Function): Function {
@@ -95,10 +95,6 @@ function curry(fn: Function): Function {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

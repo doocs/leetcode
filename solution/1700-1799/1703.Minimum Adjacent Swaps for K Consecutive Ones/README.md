@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 中位数枚举**
+### 方法一：前缀和 + 中位数枚举
 
 我们可以将数组 $nums$ 中的 $1$ 的下标存入数组 $arr$ 中。接下来，我们预处理数组 $arr$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $arr$ 中前 $i$ 个元素的和。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为数组 $nums$ 的长度以及数组 $nums$ 中 $1$ 的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             ans = min(ans, a + b)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMoves(nums []int, k int) int {
 	arr := []int{}
@@ -179,10 +165,6 @@ func minMoves(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

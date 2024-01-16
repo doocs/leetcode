@@ -62,13 +62,11 @@ We order the result table by transaction_id after collecting these IDs.
 
 ## Solutions
 
-**Solution 1: Window Function**
+### Solution 1: Window Function
 
 We can use the window function `RANK()`, which assigns a rank to each transaction based on its amount in descending order, and then select the transactions with a rank of $1$.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -89,3 +87,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

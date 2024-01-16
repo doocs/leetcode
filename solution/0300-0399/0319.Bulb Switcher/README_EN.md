@@ -45,9 +45,9 @@ So you should return 1 because there is only one bulb is on.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,16 +55,14 @@ class Solution:
         return int(n ** (1 / 2))
 ```
 
-### **Java**
-
 ```java
-
-```
-
-### **...**
-
-```
-
+class Solution {
+    public int bulbSwitch(int n) {
+        return (int) Math.sqrt(n);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

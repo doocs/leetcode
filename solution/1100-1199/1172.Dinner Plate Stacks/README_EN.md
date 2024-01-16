@@ -72,7 +72,7 @@ D.pop()            // Returns -1.  There are still no stacks.
 
 ## Solutions
 
-**Solution 1: Stack Array + Ordered Set**
+### Solution 1: Stack Array + Ordered Set
 
 We define the following data structures or variables:
 
@@ -98,8 +98,6 @@ For the `pop()` operation:
 The time complexity is $(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of operations.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedSet
@@ -144,8 +142,6 @@ class DinnerPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAtStack(index)
 ```
-
-### **Java**
 
 ```java
 class DinnerPlates {
@@ -202,8 +198,6 @@ class DinnerPlates {
  * int param_3 = obj.popAtStack(index);
  */
 ```
-
-### **C++**
 
 ```cpp
 class DinnerPlates {
@@ -264,8 +258,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type DinnerPlates struct {
 	capacity int
@@ -321,8 +313,6 @@ func (this *DinnerPlates) PopAtStack(index int) int {
  * param_3 := obj.PopAtStack(index);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class DinnerPlates {
@@ -871,10 +861,6 @@ class TreeSet<T = number> {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

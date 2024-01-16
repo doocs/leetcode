@@ -55,9 +55,9 @@ Total distance = 6
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -87,8 +87,6 @@ class Solution:
         b = min(f[n - 1][j][ord(word[-1]) - ord('A')] for j in range(26))
         return int(min(a, b))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,8 +177,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumDistance(word string) int {
@@ -236,10 +230,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

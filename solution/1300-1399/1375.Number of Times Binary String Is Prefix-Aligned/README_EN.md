@@ -49,7 +49,7 @@ We can see that the string was prefix-aligned 1 time, so we return 1.
 
 ## Solutions
 
-**Solution 1: Direct Traversal**
+### Solution 1: Direct Traversal
 
 We can traverse the array $flips$, keeping track of the maximum value $mx$ of the elements we have traversed so far. If $mx$ equals the current index $i$ we are traversing, it means that the first $i$ elements have all been flipped, i.e., the prefix is consistent, and we increment the answer.
 
@@ -58,8 +58,6 @@ After the traversal is finished, we return the answer.
 The time complexity is $O(n)$, where $n$ is the length of the array $flips$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
             ans += mx == i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numTimesAllBlue(flips []int) (ans int) {
 	mx := 0
@@ -118,8 +110,6 @@ func numTimesAllBlue(flips []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numTimesAllBlue(flips: number[]): number {
@@ -135,10 +125,6 @@ function numTimesAllBlue(flips: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两遍扫描**
+### 方法一：两遍扫描
 
 我们先从左向右扫描，将多余的右括号删除，再从右向左扫描，将多余的左括号删除。
 
@@ -70,10 +68,6 @@
 -   [2116. 判断一个括号字符串是否有效](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
             ans.append(c)
         return ''.join(ans[::-1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +162,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minRemoveToMakeValid(s string) string {
@@ -214,8 +200,6 @@ func minRemoveToMakeValid(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minRemoveToMakeValid(s: string): string {
     let left = 0;
@@ -251,8 +235,6 @@ function minRemoveToMakeValid(s: string): string {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -301,10 +283,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

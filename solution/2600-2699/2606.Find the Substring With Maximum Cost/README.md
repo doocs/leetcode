@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 维护前缀和的最小值**
+### 方法一：前缀和 + 维护前缀和的最小值
 
 我们根据题目描述，遍历字符串 $s$ 的每个字符 $c$，求出其对应的价值 $v$，然后更新当前的前缀和 $tot=tot+v$，那么以 $c$ 结尾的最大开销子字符串的开销为 $tot$ 减去前缀和的最小值 $mi$，即 $tot-mi$，我们更新答案 $ans=max(ans,tot-mi)$，并维护前缀和的最小值 $mi=min(mi,tot)$。
 
@@ -68,19 +66,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
 
-**方法二：转化为最大子数组和问题**
-
-我们可以将每个字符 $c$ 的价值 $v$ 看作是一个整数，那么题目实际上转化为求最大子数组和问题。
-
-我们用变量 $f$ 维护以当前字符 $c$ 结尾的最大开销子字符串的开销，每次遍历到一个字符 $c$，更新 $f=max(f, 0) + v$，然后更新答案 $ans=max(ans,f)$ 即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,22 +80,6 @@ class Solution:
             mi = min(mi, tot)
         return ans
 ```
-
-```python
-class Solution:
-    def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
-        d = {c: v for c, v in zip(chars, vals)}
-        ans = f = 0
-        for c in s:
-            v = d.get(c, ord(c) - ord('a') + 1)
-            f = max(f, 0) + v
-            ans = max(ans, f)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,6 +105,90 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int maximumCostSubstring(string s, string chars, vector<int>& vals) {
+        vector<int> d(26);
+        iota(d.begin(), d.end(), 1);
+        int m = chars.size();
+        for (int i = 0; i < m; ++i) {
+            d[chars[i] - 'a'] = vals[i];
+        }
+        int ans = 0, tot = 0, mi = 0;
+        for (char& c : s) {
+            int v = d[c - 'a'];
+            tot += v;
+            ans = max(ans, tot - mi);
+            mi = min(mi, tot);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
+	d := [26]int{}
+	for i := range d {
+		d[i] = i + 1
+	}
+	for i, c := range chars {
+		d[c-'a'] = vals[i]
+	}
+	tot, mi := 0, 0
+	for _, c := range s {
+		v := d[c-'a']
+		tot += v
+		ans = max(ans, tot-mi)
+		mi = min(mi, tot)
+	}
+	return
+}
+```
+
+```ts
+function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
+    const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
+    for (let i = 0; i < chars.length; ++i) {
+        d[chars.charCodeAt(i) - 97] = vals[i];
+    }
+    let ans = 0;
+    let tot = 0;
+    let mi = 0;
+    for (const c of s) {
+        tot += d[c.charCodeAt(0) - 97];
+        ans = Math.max(ans, tot - mi);
+        mi = Math.min(mi, tot);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：转化为最大子数组和问题
+
+我们可以将每个字符 $c$ 的价值 $v$ 看作是一个整数，那么题目实际上转化为求最大子数组和问题。
+
+我们用变量 $f$ 维护以当前字符 $c$ 结尾的最大开销子字符串的开销，每次遍历到一个字符 $c$，更新 $f=max(f, 0) + v$，然后更新答案 $ans=max(ans,f)$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
+        d = {c: v for c, v in zip(chars, vals)}
+        ans = f = 0
+        for c in s:
+            v = d.get(c, ord(c) - ord('a') + 1)
+            f = max(f, 0) + v
+            ans = max(ans, f)
+        return ans
+```
+
 ```java
 class Solution {
     public int maximumCostSubstring(String s, String chars, int[] vals) {
@@ -158,30 +212,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumCostSubstring(string s, string chars, vector<int>& vals) {
-        vector<int> d(26);
-        iota(d.begin(), d.end(), 1);
-        int m = chars.size();
-        for (int i = 0; i < m; ++i) {
-            d[chars[i] - 'a'] = vals[i];
-        }
-        int ans = 0, tot = 0, mi = 0;
-        for (char& c : s) {
-            int v = d[c - 'a'];
-            tot += v;
-            ans = max(ans, tot - mi);
-            mi = min(mi, tot);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -203,28 +233,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
-	d := [26]int{}
-	for i := range d {
-		d[i] = i + 1
-	}
-	for i, c := range chars {
-		d[c-'a'] = vals[i]
-	}
-	tot, mi := 0, 0
-	for _, c := range s {
-		v := d[c-'a']
-		tot += v
-		ans = max(ans, tot-mi)
-		mi = min(mi, tot)
-	}
-	return
-}
-```
-
 ```go
 func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	d := [26]int{}
@@ -244,26 +252,6 @@ func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
-    const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
-    for (let i = 0; i < chars.length; ++i) {
-        d[chars.charCodeAt(i) - 97] = vals[i];
-    }
-    let ans = 0;
-    let tot = 0;
-    let mi = 0;
-    for (const c of s) {
-        tot += d[c.charCodeAt(0) - 97];
-        ans = Math.max(ans, tot - mi);
-        mi = Math.min(mi, tot);
-    }
-    return ans;
-}
-```
-
 ```ts
 function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
     const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
@@ -280,10 +268,6 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -69,17 +69,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
-
-**方法二：前缀树**
+### 方法一：哈希表
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,6 +85,79 @@ class Solution:
                     break
         return ' '.join(words)
 ```
+
+```java
+class Solution {
+    public String replaceWords(List<String> dictionary, String sentence) {
+        Set<String> s = new HashSet<>(dictionary);
+        String[] words = sentence.split(" ");
+        for (int i = 0; i < words.length; ++i) {
+            String word = words[i];
+            for (int j = 1; j <= word.length(); ++j) {
+                String t = word.substring(0, j);
+                if (s.contains(t)) {
+                    words[i] = t;
+                    break;
+                }
+            }
+        }
+        return String.join(" ", words);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string replaceWords(vector<string>& dictionary, string sentence) {
+        unordered_set<string> s(dictionary.begin(), dictionary.end());
+        istringstream is(sentence);
+        vector<string> words;
+        string ss;
+        while (is >> ss) words.push_back(ss);
+        for (int i = 0; i < words.size(); ++i) {
+            string word = words[i];
+            for (int j = 1; j <= word.size(); ++j) {
+                string t = word.substr(0, j);
+                if (s.count(t)) {
+                    words[i] = t;
+                    break;
+                }
+            }
+        }
+        string ans = "";
+        for (string& word : words) ans += word + " ";
+        ans.pop_back();
+        return ans;
+    }
+};
+```
+
+```go
+func replaceWords(dictionary []string, sentence string) string {
+	s := map[string]bool{}
+	for _, v := range dictionary {
+		s[v] = true
+	}
+	words := strings.Split(sentence, " ")
+	for i, word := range words {
+		for j := 1; j <= len(word); j++ {
+			t := word[:j]
+			if s[t] {
+				words[i] = t
+				break
+			}
+		}
+	}
+	return strings.Join(words, " ")
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：前缀树
+
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -127,30 +192,6 @@ class Solution:
         for v in dictionary:
             trie.insert(v)
         return ' '.join(trie.search(v) for v in sentence.split())
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public String replaceWords(List<String> dictionary, String sentence) {
-        Set<String> s = new HashSet<>(dictionary);
-        String[] words = sentence.split(" ");
-        for (int i = 0; i < words.length; ++i) {
-            String word = words[i];
-            for (int j = 1; j <= word.length(); ++j) {
-                String t = word.substring(0, j);
-                if (s.contains(t)) {
-                    words[i] = t;
-                    break;
-                }
-            }
-        }
-        return String.join(" ", words);
-    }
-}
 ```
 
 ```java
@@ -201,35 +242,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string replaceWords(vector<string>& dictionary, string sentence) {
-        unordered_set<string> s(dictionary.begin(), dictionary.end());
-        istringstream is(sentence);
-        vector<string> words;
-        string ss;
-        while (is >> ss) words.push_back(ss);
-        for (int i = 0; i < words.size(); ++i) {
-            string word = words[i];
-            for (int j = 1; j <= word.size(); ++j) {
-                string t = word.substr(0, j);
-                if (s.count(t)) {
-                    words[i] = t;
-                    break;
-                }
-            }
-        }
-        string ans = "";
-        for (string& word : words) ans += word + " ";
-        ans.pop_back();
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Trie {
 public:
@@ -276,28 +288,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func replaceWords(dictionary []string, sentence string) string {
-	s := map[string]bool{}
-	for _, v := range dictionary {
-		s[v] = true
-	}
-	words := strings.Split(sentence, " ")
-	for i, word := range words {
-		for j := 1; j <= len(word); j++ {
-			t := word[:j]
-			if s[t] {
-				words[i] = t
-				break
-			}
-		}
-	}
-	return strings.Join(words, " ")
-}
 ```
 
 ```go
@@ -349,10 +339,6 @@ func replaceWords(dictionary []string, sentence string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

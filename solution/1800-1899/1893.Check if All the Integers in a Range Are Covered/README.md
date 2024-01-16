@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 我们可以使用差分数组的思想，对于每个区间 $[l, r]$，我们将 $diff[l]$ 加 $1$，将 $diff[r + 1]$ 减 $1$。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为区间的数量和区间的范围。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isCovered(ranges [][]int, left int, right int) bool {
 	diff := [52]int{}
@@ -148,8 +134,6 @@ func isCovered(ranges [][]int, left int, right int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isCovered(ranges: number[][], left: number, right: number): boolean {
     const diff = new Array(52).fill(0);
@@ -167,8 +151,6 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
     return true;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -194,10 +176,6 @@ var isCovered = function (ranges, left, right) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

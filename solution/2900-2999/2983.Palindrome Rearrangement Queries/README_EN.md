@@ -85,7 +85,7 @@ Now, s is a palindrome. So, answer[0] = true.</pre>
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Case Discussion**
+### Solution 1: Prefix Sum + Case Discussion
 
 Let's denote the length of string $s$ as $n$, then half of the length is $m = \frac{n}{2}$. Next, we divide string $s$ into two equal-length segments, where the second segment is reversed to get string $t$, and the first segment remains as $s$. For each query $[a_i, b_i, c_i, d_i]$, where $c_i$ and $d_i$ need to be transformed to $n - 1 - d_i$ and $n - 1 - c_i$. The problem is transformed into: for each query $[a_i, b_i, c_i, d_i]$, determine whether $s[a_i, b_i]$ and $t[c_i, d_i]$ can be rearranged to make strings $s$ and $t$ equal.
 
@@ -107,8 +107,6 @@ Based on the above analysis, we iterate through each query $[a_i, b_i, c_i, d_i]
 The time complexity is $O((n + q) \times |\Sigma|)$, and the space complexity is $O(n \times |\Sigma|)$. Where $n$ and $q$ are the lengths of string $s$ and the query array $queries$ respectively; and $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -165,8 +163,6 @@ class Solution:
             ans.append(ok)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -234,8 +230,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -308,8 +302,6 @@ private:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canMakePalindromeQueries(s string, queries [][]int) (ans []bool) {
@@ -392,8 +384,6 @@ func reverse(s string) string {
 	return string(runes)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canMakePalindromeQueries(s: string, queries: number[][]): boolean[] {
@@ -478,10 +468,6 @@ function arraysEqual(arr1: number[], arr2: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

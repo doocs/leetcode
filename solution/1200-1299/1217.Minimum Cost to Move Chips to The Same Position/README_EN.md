@@ -51,15 +51,13 @@ Total cost is 1.
 
 ## Solutions
 
-**Solution 1: Quick Thinking**
+### Solution 1: Quick Thinking
 
 Move all chips at even indices to position 0, and all chips at odd indices to position 1, all at a cost of 0. Then, choose the position (either 0 or 1) with fewer chips and move these chips to the other position. The minimum cost required is the smaller quantity of chips.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the number of chips.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
         b = len(position) - a
         return min(a, b)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCostToMoveChips(position []int) int {
@@ -113,8 +105,6 @@ func minCostToMoveChips(position []int) int {
 	return b
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -131,10 +121,6 @@ var minCostToMoveChips = function (position) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

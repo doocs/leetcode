@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Counting + Two Pointers**
+### Solution 1: Counting + Two Pointers
 
 First, we use a hash table or array `cnt` to count the number of each character in string $s$. If the count of all characters does not exceed $n/4$, then the string $s$ is balanced, and we directly return $0$.
 
@@ -60,8 +60,6 @@ Finally, we return the answer.
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, in this problem $C = 4$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func balancedString(s string) int {
 	cnt := [4]int{}
@@ -164,10 +156,6 @@ func balancedString(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

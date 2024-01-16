@@ -55,9 +55,9 @@ It can be shown that no grouping is possible.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -106,8 +106,6 @@ class Solution:
                 ans += t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -189,8 +187,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -258,8 +254,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func magnificentSets(n int, edges [][]int) int {
@@ -341,8 +335,6 @@ func abs(x int) int {
 }
 ```
 
-### **JavaScript**
-
 ```js
 var magnificentSets = function (n, edges) {
     const graph = Array.from({ length: n + 1 }, () => new Set());
@@ -387,10 +379,6 @@ var magnificentSets = function (n, edges) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

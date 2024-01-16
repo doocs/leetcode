@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 根据题目描述，我们只需要找出每块连通的水域中鱼的数目，然后取最大值即可。因此，我们可以使用深度优先搜索的方法来解决本题。
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格图的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                     ans = max(ans, dfs(i, j))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaxFish(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -198,8 +184,6 @@ func findMaxFish(grid [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMaxFish(grid: number[][]): number {
@@ -232,10 +216,6 @@ function findMaxFish(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

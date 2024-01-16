@@ -55,7 +55,7 @@
 
 ## Solutions
 
-**Solution 1: Reverse Thinking + Topological Sorting**
+### Solution 1: Reverse Thinking + Topological Sorting
 
 If we operate on the sequence in a forward manner, it would be quite complicated because subsequent operations would overwrite previous ones. Therefore, we consider operating on the sequence in a reverse manner, i.e., starting from the target string $target$ and considering the process of turning $target$ into $?????$.
 
@@ -78,8 +78,6 @@ After the topological sorting is over, if every position of the target string $t
 The time complexity is $O(n \times (n - m + 1))$, and the space complexity is $O(n \times (n - m + 1))$. Here, $n$ and $m$ are the lengths of the target string $target$ and the stamp, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -110,8 +108,6 @@ class Solution:
                             q.append(k)
         return ans[::-1] if all(vis) else []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -160,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -208,8 +202,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func movesToStamp(stamp string, target string) (ans []int) {
@@ -261,8 +253,6 @@ func movesToStamp(stamp string, target string) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function movesToStamp(stamp: string, target: string): number[] {
     const m: number = stamp.length;
@@ -305,8 +295,6 @@ function movesToStamp(stamp: string, target: string): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -368,10 +356,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

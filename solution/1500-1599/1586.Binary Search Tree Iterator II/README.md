@@ -63,19 +63,13 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：中序遍历 + 数组**
+### 方法一：中序遍历 + 数组
 
 我们可以使用中序遍历将二叉搜索树的所有节点的值存储到数组 $nums$ 中，然后使用数组实现迭代器。我们定义一个指针 $i$，初始时 $i = -1$，表示指向数组 $nums$ 中的一个元素。每次调用 $next()$ 时，我们将 $i$ 的值加 $1$，并返回 $nums[i]$；每次调用 $prev()$ 时，我们将 $i$ 的值减 $1$，并返回 $nums[i]$。
 
 时间复杂度方面，初始化迭代器需要 $O(n)$ 的时间，其中 $n$ 是二叉搜索树的节点数。每次调用 $next()$ 和 $prev()$ 都需要 $O(1)$ 的时间。空间复杂度方面，我们需要 $O(n)$ 的空间存储二叉搜索树的所有节点的值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -120,10 +114,6 @@ class BSTIterator:
 # param_3 = obj.hasPrev()
 # param_4 = obj.prev()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -185,8 +175,6 @@ class BSTIterator {
  */
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -247,8 +235,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -305,8 +291,6 @@ func (this *BSTIterator) Prev() int {
  * param_4 := obj.Prev();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -370,10 +354,6 @@ class BSTIterator {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

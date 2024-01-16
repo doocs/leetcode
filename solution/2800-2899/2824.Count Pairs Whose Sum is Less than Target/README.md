@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找**
+### 方法一：排序 + 二分查找
 
 我们先对数组 $nums$ 进行排序，然后枚举 $j$，在 $[0, j)$ 的范围内使用二分查找第一个大于等于 $target - nums[j]$ 的下标 $i$，那么 $[0, i)$ 的范围内的所有下标 $k$ 都满足条件，因此答案增加 $i$。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
             ans += i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPairs(nums []int, target int) (ans int) {
 	sort.Ints(nums)
@@ -139,8 +125,6 @@ func countPairs(nums []int, target int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countPairs(nums: number[], target: number): number {
@@ -166,10 +150,6 @@ function countPairs(nums: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

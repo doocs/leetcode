@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
 
         return (zeros + 1) * sum(dp[l : r + 1]) % kMod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,22 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

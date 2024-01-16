@@ -40,21 +40,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 用哈希表存放所有单词。遍历这些单词，找出**长度最长且字典序最小**的单词。
 
-**方法二：排序**
-
-优先返回符合条件、**长度最长且字典序最小**的单词，那么可以进行依照该规则，先对 `words` 进行排序，免去多个结果之间的比较。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +60,6 @@ class Solution:
                     ans = w
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,59 +94,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function longestWord(words: string[]): string {
-    words.sort((a, b) => {
-        const n = a.length;
-        const m = b.length;
-        if (n === m) {
-            return a < b ? -1 : 1;
-        }
-        return m - n;
-    });
-    for (const word of words) {
-        let isPass = true;
-        for (let i = 1; i <= word.length; i++) {
-            if (!words.includes(word.slice(0, i))) {
-                isPass = false;
-                break;
-            }
-        }
-        if (isPass) {
-            return word;
-        }
-    }
-    return '';
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn longest_word(mut words: Vec<String>) -> String {
-        words.sort_unstable_by(|a, b| (b.len(), a).cmp(&(a.len(), b)));
-        for word in words.iter() {
-            let mut is_pass = true;
-            for i in 1..=word.len() {
-                if !words.contains(&word[..i].to_string()) {
-                    is_pass = false;
-                    break;
-                }
-            }
-            if is_pass {
-                return word.clone();
-            }
-        }
-        String::new()
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -189,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestWord(words []string) string {
@@ -222,10 +153,57 @@ func longestWord(words []string) string {
 }
 ```
 
-### **...**
-
+```ts
+function longestWord(words: string[]): string {
+    words.sort((a, b) => {
+        const n = a.length;
+        const m = b.length;
+        if (n === m) {
+            return a < b ? -1 : 1;
+        }
+        return m - n;
+    });
+    for (const word of words) {
+        let isPass = true;
+        for (let i = 1; i <= word.length; i++) {
+            if (!words.includes(word.slice(0, i))) {
+                isPass = false;
+                break;
+            }
+        }
+        if (isPass) {
+            return word;
+        }
+    }
+    return '';
+}
 ```
 
+```rust
+impl Solution {
+    pub fn longest_word(mut words: Vec<String>) -> String {
+        words.sort_unstable_by(|a, b| (b.len(), a).cmp(&(a.len(), b)));
+        for word in words.iter() {
+            let mut is_pass = true;
+            for i in 1..=word.len() {
+                if !words.contains(&word[..i].to_string()) {
+                    is_pass = false;
+                    break;
+                }
+            }
+            if is_pass {
+                return word.clone();
+            }
+        }
+        String::new()
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：排序
+
+优先返回符合条件、**长度最长且字典序最小**的单词，那么可以进行依照该规则，先对 `words` 进行排序，免去多个结果之间的比较。
+
+<!-- end -->

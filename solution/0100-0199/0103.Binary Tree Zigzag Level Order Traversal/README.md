@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 为了实现锯齿形层序遍历，需要在层序遍历的基础上增加一个标志位 `left`，用于标记当前层的节点值的顺序。如果 `left` 为 `true`，则当前层的节点值按照从左到右的顺序存入结果数组 `ans` 中；如果 `left` 为 `false`，则当前层的节点值按照从右到左的顺序存入结果数组 `ans` 中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -84,10 +78,6 @@ class Solution:
             left ^= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -137,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -175,8 +163,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -218,52 +204,6 @@ func zigzagLevelOrder(root *TreeNode) (ans [][]int) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number[][]}
- */
-var zigzagLevelOrder = function (root) {
-    const ans = [];
-    if (!root) {
-        return ans;
-    }
-    const q = [root];
-    let left = 1;
-    while (q.length) {
-        const t = [];
-        for (let n = q.length; n; --n) {
-            const node = q.shift();
-            t.push(node.val);
-            if (node.left) {
-                q.push(node.left);
-            }
-            if (node.right) {
-                q.push(node.right);
-            }
-        }
-        if (!left) {
-            t.reverse();
-        }
-        ans.push(t);
-        left ^= 1;
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -299,8 +239,6 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -358,10 +296,48 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var zigzagLevelOrder = function (root) {
+    const ans = [];
+    if (!root) {
+        return ans;
+    }
+    const q = [root];
+    let left = 1;
+    while (q.length) {
+        const t = [];
+        for (let n = q.length; n; --n) {
+            const node = q.shift();
+            t.push(node.val);
+            if (node.left) {
+                q.push(node.left);
+            }
+            if (node.right) {
+                q.push(node.right);
+            }
+        }
+        if (!left) {
+            t.reverse();
+        }
+        ans.push(t);
+        left ^= 1;
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

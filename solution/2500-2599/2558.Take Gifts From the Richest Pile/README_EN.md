@@ -51,7 +51,7 @@ So, the total gifts remaining are 4.
 
 ## Solutions
 
-**Solution 1: Priority Queue (Max Heap)**
+### Solution 1: Priority Queue (Max Heap)
 
 We can store the array $gifts$ in a max heap, and then loop $k$ times, each time taking out the top element of the heap, taking the square root of it, and putting the result back into the heap.
 
@@ -60,8 +60,6 @@ Finally, we add up all the elements in the heap as the answer.
 The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $gifts$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
             heapreplace(h, -int(sqrt(-h[0])))
         return -sum(h)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func pickGifts(gifts []int, k int) (ans int64) {
@@ -134,8 +126,6 @@ func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
 
-### **TypeScript**
-
 ```ts
 function pickGifts(gifts: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -152,8 +142,6 @@ function pickGifts(gifts: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -177,10 +165,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

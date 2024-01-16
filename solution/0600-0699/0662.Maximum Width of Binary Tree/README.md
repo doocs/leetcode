@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 对节点进行编号，初始根节点编号为 $1$。
 
@@ -67,17 +65,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
-**方法二：DFS**
-
-定义 `dfs(root, depth, i)` 表示从深度为 `depth`，且编号为 `i` 的节点 `root` 开始往下搜索。记录每一层最先访问到的节点的编号。访问到当前层其它节点时，求当前节点编号与当前层最小编号的差再加一，更新当前层的最大宽度。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -100,36 +88,6 @@ class Solution:
                     q.append((root.right, i << 1 | 1))
         return ans
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        def dfs(root, depth, i):
-            if root is None:
-                return
-            if len(t) == depth:
-                t.append(i)
-            else:
-                nonlocal ans
-                ans = max(ans, i - t[depth] + 1)
-            dfs(root.left, depth + 1, i << 1)
-            dfs(root.right, depth + 1, i << 1 | 1)
-
-        ans = 1
-        t = []
-        dfs(root, 0, 1)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -169,6 +127,112 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int widthOfBinaryTree(TreeNode* root) {
+        queue<pair<TreeNode*, int>> q;
+        q.push({root, 1});
+        int ans = 0;
+        while (!q.empty()) {
+            ans = max(ans, q.back().second - q.front().second + 1);
+            int i = q.front().second;
+            for (int n = q.size(); n; --n) {
+                auto p = q.front();
+                q.pop();
+                root = p.first;
+                int j = p.second;
+                if (root->left) q.push({root->left, (j << 1) - (i << 1)});
+                if (root->right) q.push({root->right, (j << 1 | 1) - (i << 1)});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func widthOfBinaryTree(root *TreeNode) int {
+	q := []pair{{root, 1}}
+	ans := 0
+	for len(q) > 0 {
+		ans = max(ans, q[len(q)-1].i-q[0].i+1)
+		for n := len(q); n > 0; n-- {
+			p := q[0]
+			q = q[1:]
+			root = p.node
+			if root.Left != nil {
+				q = append(q, pair{root.Left, p.i << 1})
+			}
+			if root.Right != nil {
+				q = append(q, pair{root.Right, p.i<<1 | 1})
+			}
+		}
+	}
+	return ans
+}
+
+type pair struct {
+	node *TreeNode
+	i    int
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：DFS
+
+定义 `dfs(root, depth, i)` 表示从深度为 `depth`，且编号为 `i` 的节点 `root` 开始往下搜索。记录每一层最先访问到的节点的编号。访问到当前层其它节点时，求当前节点编号与当前层最小编号的差再加一，更新当前层的最大宽度。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        def dfs(root, depth, i):
+            if root is None:
+                return
+            if len(t) == depth:
+                t.append(i)
+            else:
+                nonlocal ans
+                ans = max(ans, i - t[depth] + 1)
+            dfs(root.left, depth + 1, i << 1)
+            dfs(root.right, depth + 1, i << 1 | 1)
+
+        ans = 1
+        t = []
+        dfs(root, 0, 1)
+        return ans
 ```
 
 ```java
@@ -211,45 +275,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-`i << 1` 表示下一层的起点。计算下一层左右子树索引时，减去 `i << 1`，可以防止溢出。
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    int widthOfBinaryTree(TreeNode* root) {
-        queue<pair<TreeNode*, int>> q;
-        q.push({root, 1});
-        int ans = 0;
-        while (!q.empty()) {
-            ans = max(ans, q.back().second - q.front().second + 1);
-            int i = q.front().second;
-            for (int n = q.size(); n; --n) {
-                auto p = q.front();
-                q.pop();
-                root = p.first;
-                int j = p.second;
-                if (root->left) q.push({root->left, (j << 1) - (i << 1)});
-                if (root->right) q.push({root->right, (j << 1 | 1) - (i << 1)});
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -286,43 +311,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func widthOfBinaryTree(root *TreeNode) int {
-	q := []pair{{root, 1}}
-	ans := 0
-	for len(q) > 0 {
-		ans = max(ans, q[len(q)-1].i-q[0].i+1)
-		for n := len(q); n > 0; n-- {
-			p := q[0]
-			q = q[1:]
-			root = p.node
-			if root.Left != nil {
-				q = append(q, pair{root.Left, p.i << 1})
-			}
-			if root.Right != nil {
-				q = append(q, pair{root.Right, p.i<<1 | 1})
-			}
-		}
-	}
-	return ans
-}
-
-type pair struct {
-	node *TreeNode
-	i    int
-}
-```
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -353,10 +341,6 @@ func widthOfBinaryTree(root *TreeNode) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

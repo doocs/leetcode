@@ -46,9 +46,9 @@ solution.flip();  // return [2, 0], [0,0], [1,0], and [2,0] should be equally li
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
 # param_1 = obj.flip()
 # obj.reset()
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,10 +111,6 @@ class Solution {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

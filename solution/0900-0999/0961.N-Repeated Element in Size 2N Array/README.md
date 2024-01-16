@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 由于数组 $nums$ 一共有 $2n$ 个元素，其中有 $n + 1$ 个不同的元素，且有一个元素重复了 $n$ 次，说明数组中的其余 $n$ 个元素都是不同的。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
                 return x
             s.add(x)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func repeatedNTimes(nums []int) int {
 	s := map[int]bool{}
@@ -130,8 +116,6 @@ func repeatedNTimes(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function repeatedNTimes(nums: number[]): number {
     const s: Set<number> = new Set();
@@ -143,8 +127,6 @@ function repeatedNTimes(nums: number[]): number {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -162,10 +144,6 @@ var repeatedNTimes = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

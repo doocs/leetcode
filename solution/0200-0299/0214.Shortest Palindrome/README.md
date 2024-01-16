@@ -35,9 +35,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串哈希**
+### 方法一：字符串哈希
 
 **字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 0。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
 
@@ -52,10 +50,6 @@
 记 s 的长度为 n，其最长回文前缀的长度为 m，将 s 的后 n-m 个字符反序并添加到 s 的前面即可构成最短回文串。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
                 idx = i + 1
         return s if idx == n else s[idx:][::-1] + s
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef unsigned long long ull;
 
@@ -132,8 +120,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestPalindrome(s string) string {
@@ -161,8 +147,6 @@ func shortestPalindrome(s string) string {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn shortest_palindrome(s: String) -> String {
@@ -187,10 +171,48 @@ impl Solution {
 }
 ```
 
-### **...**
+```cs
+﻿// https://leetcode.com/problems/shortest-palindrome/
 
-```
+using System.Text;
 
+public partial class Solution
+{
+    public string ShortestPalindrome(string s)
+    {
+        for (var i = s.Length - 1; i >= 0; --i)
+        {
+            var k = i;
+            var j = 0;
+            while (j < k)
+            {
+                if (s[j] == s[k])
+                {
+                    ++j;
+                    --k;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (j >= k)
+            {
+                var sb = new StringBuilder(s.Length * 2 - i - 1);
+                for (var l = s.Length - 1; l >= i + 1; --l)
+                {
+                    sb.Append(s[l]);
+                }
+                sb.Append(s);
+                return sb.ToString();
+            }
+        }
+
+        return string.Empty;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

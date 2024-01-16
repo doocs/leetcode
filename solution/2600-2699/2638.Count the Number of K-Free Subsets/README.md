@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组 + 动态规划**
+### 方法一：分组 + 动态规划
 
 我们先将数组 $nums$ 按照升序排序，然后将数组中的元素按照模 $k$ 分组，即 $nums[i] \bmod k$ 相同的元素放在同一组中。那么对于任意两个不同组的元素，它们的差值的绝对值一定不等于 $k$。因此，我们可以求出每一组的子集个数，然后将每一组的子集个数相乘即可得到答案。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             ans *= f[m]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	sort.Ints(nums)
@@ -182,8 +168,6 @@ func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countTheNumOfKFreeSubsets(nums: number[], k: number): number {
@@ -214,10 +198,6 @@ function countTheNumOfKFreeSubsets(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

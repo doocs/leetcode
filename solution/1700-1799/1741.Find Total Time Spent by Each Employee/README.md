@@ -63,15 +63,11 @@ Employees table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组求和**
+### 方法一：分组求和
 
 我们可以先按照 `emp_id` 和 `event_day` 进行分组，然后计算每个分组的总时间。总时间等于每个分组的 `out_time` 减去 `in_time` 的和。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -81,3 +77,5 @@ GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

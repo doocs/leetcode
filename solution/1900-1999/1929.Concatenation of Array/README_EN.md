@@ -41,17 +41,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def getConcatenation(self, nums: List[int]) -> List[int]:
         return nums + nums
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +64,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -80,15 +76,25 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getConcatenation(nums []int) []int {
 	return append(nums, nums...)
 }
 ```
 
-### **JavaScript**
+```ts
+function getConcatenation(nums: number[]): number[] {
+    return [...nums, ...nums];
+}
+```
+
+```rust
+impl Solution {
+    pub fn get_concatenation(nums: Vec<i32>) -> Vec<i32> {
+        nums.repeat(2)
+    }
+}
+```
 
 ```js
 /**
@@ -101,26 +107,6 @@ var getConcatenation = function (nums) {
     return ans;
 };
 ```
-
-### **TypeScript**
-
-```ts
-function getConcatenation(nums: number[]): number[] {
-    return [...nums, ...nums];
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn get_concatenation(nums: Vec<i32>) -> Vec<i32> {
-        nums.repeat(2)
-    }
-}
-```
-
-### **C**
 
 ```c
 /**
@@ -136,10 +122,6 @@ int* getConcatenation(int* nums, int numsSize, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

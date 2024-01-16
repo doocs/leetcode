@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 在最多改变一个元素的情况下，若要将数组变成非递减数列，那么数组最多只能有一个位置，其左右两侧的元素不满足非递减数列的要求。也即数组中只会存在一个位置 $i$，使得 $nums[i] \gt nums[i+1]$。
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
                 return is_sorted(nums)
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkPossibility(nums []int) bool {
@@ -161,8 +147,6 @@ func checkPossibility(nums []int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkPossibility(nums: number[]): boolean {
@@ -191,10 +175,6 @@ function checkPossibility(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

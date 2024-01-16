@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们定义一个函数 $dfs(v)$，表示用 $x$ 凑成数字 $v$ 所需要的最少运算符数量。那么答案就是 $dfs(target)$。
 
@@ -76,10 +74,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def leastOpsExpressTarget(self, x: int, target: int) -> int:
@@ -96,10 +90,6 @@ class Solution:
 
         return dfs(target)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func leastOpsExpressTarget(x int, target int) int {
 	f := map[int]int{}
@@ -196,8 +182,6 @@ func leastOpsExpressTarget(x int, target int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function leastOpsExpressTarget(x: number, target: number): number {
     const f: Map<number, number> = new Map();
@@ -225,10 +209,6 @@ function leastOpsExpressTarget(x: number, target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

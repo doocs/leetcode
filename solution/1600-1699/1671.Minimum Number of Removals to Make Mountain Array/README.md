@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 本题可以转化为求最长上升子序列和最长下降子序列。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                     right[i] = max(right[i], right[j] + 1)
         return n - max(a + b - 1 for a, b in zip(left, right) if a > 1 and b > 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumMountainRemovals(nums []int) int {
@@ -188,8 +174,6 @@ func minimumMountainRemovals(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumMountainRemovals(nums: number[]): number {
     const n = nums.length;
@@ -218,8 +202,6 @@ function minimumMountainRemovals(nums: number[]): number {
     return n - ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -254,10 +236,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

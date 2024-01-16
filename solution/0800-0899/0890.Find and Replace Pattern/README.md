@@ -38,15 +38,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -61,10 +55,6 @@ class Solution:
 
         return [word for word in words if match(word, pattern)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findAndReplacePattern(words []string, pattern string) []string {
@@ -144,8 +130,6 @@ func findAndReplacePattern(words []string, pattern string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findAndReplacePattern(words: string[], pattern: string): string[] {
     return words.filter(word => {
@@ -162,8 +146,6 @@ function findAndReplacePattern(words: string[], pattern: string): string[] {
     });
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -191,10 +173,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们可以用一个长度为 $k$ 的滑动窗口来模拟这个过程。
 
@@ -76,10 +74,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
@@ -89,10 +83,6 @@ class Solution:
             ans = max(ans, s)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxScore(cardPoints []int, k int) int {
@@ -147,8 +133,6 @@ func maxScore(cardPoints []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxScore(cardPoints: number[], k: number): number {
     const n = cardPoints.length;
@@ -161,8 +145,6 @@ function maxScore(cardPoints: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -180,7 +162,23 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {number[]} cardPoints
+ * @param {number} k
+ * @return {number}
+ */
+var maxScore = function (cardPoints, k) {
+    const n = cardPoints.length;
+    let s = cardPoints.slice(-k).reduce((a, b) => a + b);
+    let ans = s;
+    for (let i = 0; i < k; ++i) {
+        s += cardPoints[i] - cardPoints[n - k + i];
+        ans = Math.max(ans, s);
+    }
+    return ans;
+};
+```
 
 ```cs
 public class Solution {
@@ -196,8 +194,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -219,24 +215,20 @@ class Solution {
 }
 ```
 
-### **Kotlin**
-
-```kotlin
-class Solution {
-    fun maxScore(cardPoints: IntArray, k: Int): Int {
-        val n = cardPoints.size
-        var s = cardPoints.sliceArray(n - k until n).sum()
+```scala
+object Solution {
+    def maxScore(cardPoints: Array[Int], k: Int): Int = {
+        val n = cardPoints.length
+        var s = cardPoints.takeRight(k).sum
         var ans = s
-        for (i in 0 until k) {
-            s += cardPoints[i] - cardPoints[n - k + i]
-            ans = maxOf(ans, s)
+        for (i <- 0 until k) {
+            s += cardPoints(i) - cardPoints(n - k + i)
+            ans = ans.max(s)
         }
-        return ans
+        ans
     }
 }
 ```
-
-### **Swift**
 
 ```swift
 class Solution {
@@ -252,45 +244,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} cardPoints
- * @param {number} k
- * @return {number}
- */
-var maxScore = function (cardPoints, k) {
-    const n = cardPoints.length;
-    let s = cardPoints.slice(-k).reduce((a, b) => a + b);
-    let ans = s;
-    for (let i = 0; i < k; ++i) {
-        s += cardPoints[i] - cardPoints[n - k + i];
-        ans = Math.max(ans, s);
-    }
-    return ans;
-};
-```
-
-### **Dart**
-
-```dart
-class Solution {
-  int maxScore(List<int> cardPoints, int k) {
-    int n = cardPoints.length;
-    int s = cardPoints.sublist(n - k).reduce((a, b) => a + b);
-    int ans = s;
-    for (int i = 0; i < k; ++i) {
-      s += cardPoints[i] - cardPoints[n - k + i];
-      ans = s > ans ? s : ans;
-    }
-    return ans;
-  }
-}
-```
-
-### **Ruby**
 
 ```rb
 # @param {Integer[]} card_points
@@ -308,27 +261,21 @@ def max_score(card_points, k)
 end
 ```
 
-### **Scala**
-
-```scala
-object Solution {
-    def maxScore(cardPoints: Array[Int], k: Int): Int = {
-        val n = cardPoints.length
-        var s = cardPoints.takeRight(k).sum
+```kotlin
+class Solution {
+    fun maxScore(cardPoints: IntArray, k: Int): Int {
+        val n = cardPoints.size
+        var s = cardPoints.sliceArray(n - k until n).sum()
         var ans = s
-        for (i <- 0 until k) {
-            s += cardPoints(i) - cardPoints(n - k + i)
-            ans = ans.max(s)
+        for (i in 0 until k) {
+            s += cardPoints[i] - cardPoints[n - k + i]
+            ans = maxOf(ans, s)
         }
-        ans
+        return ans
     }
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,7 +59,7 @@
 
 ## Solutions
 
-**Solution 1: Memoization**
+### Solution 1: Memoization
 
 We design a function $dfs(i, k)$, which represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $dfs(start, fuel)$.
 
@@ -74,21 +74,7 @@ To avoid repeated calculations, we can use memoization.
 
 The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
 
-**Solution 2: Dynamic Programming**
-
-We can also convert the memoization of solution 1 into dynamic programming.
-
-We define $f[i][k]$ represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $f[start][fuel]$. Initially $f[finish][k]=1$, others are $0$.
-
-Next, we enumerate the remaining fuel $k$ from small to large, and then enumerate all cities $i$. For each city $i$, we enumerate all cities $j$. If $j \ne i$, and $|locations[i] - locations[j]| \le k$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |locations[i] - locations[j]|$. Then we can add the number of paths to the answer $f[j][k - |locations[i] - locations[j]|]$.
-
-Finally, we return the number of paths to the answer $f[start][fuel]$.
-
-The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -108,28 +94,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(start, fuel)
 ```
-
-```python
-class Solution:
-    def countRoutes(
-        self, locations: List[int], start: int, finish: int, fuel: int
-    ) -> int:
-        mod = 10**9 + 7
-        n = len(locations)
-        f = [[0] * (fuel + 1) for _ in range(n)]
-        for k in range(fuel + 1):
-            f[finish][k] = 1
-        for k in range(fuel + 1):
-            for i in range(n):
-                for j in range(n):
-                    if j != i and abs(locations[i] - locations[j]) <= k:
-                        f[i][k] = (
-                            f[i][k] + f[j][k - abs(locations[i] - locations[j])]
-                        ) % mod
-        return f[start][fuel]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -165,31 +129,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countRoutes(int[] locations, int start, int finish, int fuel) {
-        final int mod = (int) 1e9 + 7;
-        int n = locations.length;
-        int[][] f = new int[n][fuel + 1];
-        for (int k = 0; k <= fuel; ++k) {
-            f[finish][k] = 1;
-        }
-        for (int k = 0; k <= fuel; ++k) {
-            for (int i = 0; i < n; ++i) {
-                for (int j = 0; j < n; ++j) {
-                    if (j != i && Math.abs(locations[i] - locations[j]) <= k) {
-                        f[i][k] = (f[i][k] + f[j][k - Math.abs(locations[i] - locations[j])]) % mod;
-                    }
-                }
-            }
-        }
-        return f[start][fuel];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -217,33 +156,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int countRoutes(vector<int>& locations, int start, int finish, int fuel) {
-        const int mod = 1e9 + 7;
-        int n = locations.size();
-        int f[n][fuel + 1];
-        memset(f, 0, sizeof(f));
-        for (int k = 0; k <= fuel; ++k) {
-            f[finish][k] = 1;
-        }
-        for (int k = 0; k <= fuel; ++k) {
-            for (int i = 0; i < n; ++i) {
-                for (int j = 0; j < n; ++j) {
-                    if (j != i && abs(locations[i] - locations[j]) <= k) {
-                        f[i][k] = (f[i][k] + f[j][k - abs(locations[i] - locations[j])]) % mod;
-                    }
-                }
-            }
-        }
-        return f[start][fuel];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func countRoutes(locations []int, start int, finish int, fuel int) int {
@@ -286,6 +198,115 @@ func abs(x int) int {
 }
 ```
 
+```ts
+function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
+    const n = locations.length;
+    const f = Array.from({ length: n }, () => Array(fuel + 1).fill(-1));
+    const mod = 1e9 + 7;
+    const dfs = (i: number, k: number): number => {
+        if (k < Math.abs(locations[i] - locations[finish])) {
+            return 0;
+        }
+        if (f[i][k] !== -1) {
+            return f[i][k];
+        }
+        let ans = i === finish ? 1 : 0;
+        for (let j = 0; j < n; ++j) {
+            if (j !== i) {
+                const x = Math.abs(locations[i] - locations[j]);
+                ans = (ans + dfs(j, k - x)) % mod;
+            }
+        }
+        return (f[i][k] = ans);
+    };
+    return dfs(start, fuel);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Dynamic Programming
+
+We can also convert the memoization of solution 1 into dynamic programming.
+
+We define $f[i][k]$ represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $f[start][fuel]$. Initially $f[finish][k]=1$, others are $0$.
+
+Next, we enumerate the remaining fuel $k$ from small to large, and then enumerate all cities $i$. For each city $i$, we enumerate all cities $j$. If $j \ne i$, and $|locations[i] - locations[j]| \le k$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |locations[i] - locations[j]|$. Then we can add the number of paths to the answer $f[j][k - |locations[i] - locations[j]|]$.
+
+Finally, we return the number of paths to the answer $f[start][fuel]$.
+
+The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countRoutes(
+        self, locations: List[int], start: int, finish: int, fuel: int
+    ) -> int:
+        mod = 10**9 + 7
+        n = len(locations)
+        f = [[0] * (fuel + 1) for _ in range(n)]
+        for k in range(fuel + 1):
+            f[finish][k] = 1
+        for k in range(fuel + 1):
+            for i in range(n):
+                for j in range(n):
+                    if j != i and abs(locations[i] - locations[j]) <= k:
+                        f[i][k] = (
+                            f[i][k] + f[j][k - abs(locations[i] - locations[j])]
+                        ) % mod
+        return f[start][fuel]
+```
+
+```java
+class Solution {
+    public int countRoutes(int[] locations, int start, int finish, int fuel) {
+        final int mod = (int) 1e9 + 7;
+        int n = locations.length;
+        int[][] f = new int[n][fuel + 1];
+        for (int k = 0; k <= fuel; ++k) {
+            f[finish][k] = 1;
+        }
+        for (int k = 0; k <= fuel; ++k) {
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    if (j != i && Math.abs(locations[i] - locations[j]) <= k) {
+                        f[i][k] = (f[i][k] + f[j][k - Math.abs(locations[i] - locations[j])]) % mod;
+                    }
+                }
+            }
+        }
+        return f[start][fuel];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countRoutes(vector<int>& locations, int start, int finish, int fuel) {
+        const int mod = 1e9 + 7;
+        int n = locations.size();
+        int f[n][fuel + 1];
+        memset(f, 0, sizeof(f));
+        for (int k = 0; k <= fuel; ++k) {
+            f[finish][k] = 1;
+        }
+        for (int k = 0; k <= fuel; ++k) {
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    if (j != i && abs(locations[i] - locations[j]) <= k) {
+                        f[i][k] = (f[i][k] + f[j][k - abs(locations[i] - locations[j])]) % mod;
+                    }
+                }
+            }
+        }
+        return f[start][fuel];
+    }
+};
+```
+
 ```go
 func countRoutes(locations []int, start int, finish int, fuel int) int {
 	n := len(locations)
@@ -317,33 +338,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
-    const n = locations.length;
-    const f = Array.from({ length: n }, () => Array(fuel + 1).fill(-1));
-    const mod = 1e9 + 7;
-    const dfs = (i: number, k: number): number => {
-        if (k < Math.abs(locations[i] - locations[finish])) {
-            return 0;
-        }
-        if (f[i][k] !== -1) {
-            return f[i][k];
-        }
-        let ans = i === finish ? 1 : 0;
-        for (let j = 0; j < n; ++j) {
-            if (j !== i) {
-                const x = Math.abs(locations[i] - locations[j]);
-                ans = (ans + dfs(j, k - x)) % mod;
-            }
-        }
-        return (f[i][k] = ans);
-    };
-    return dfs(start, fuel);
-}
-```
-
 ```ts
 function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
     const n = locations.length;
@@ -365,10 +359,6 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

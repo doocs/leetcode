@@ -64,13 +64,11 @@ Only Chicago and Los Angeles have average home prices exceeding the national ave
 
 ## Solutions
 
-**Solution 1: Grouping Aggregation + Subquery**
+### Solution 1: Grouping Aggregation + Subquery
 
 We group the `Listings` table by `city`, then calculate the average house price for each city, and finally filter out the cities where the average house price is greater than the national average house price.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -82,3 +80,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,9 +63,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -108,8 +108,6 @@ class Solution:
             prev.next = reverse(prev.next, left)
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -166,8 +164,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -209,10 +205,6 @@ function reverseEvenLengthGroups(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

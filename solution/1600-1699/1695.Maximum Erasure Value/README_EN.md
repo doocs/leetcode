@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: Array or Hash Table + Prefix Sum**
+### Solution 1: Array or Hash Table + Prefix Sum
 
 We use an array or hash table $d$ to record the last occurrence of each number, use $s$ to record the prefix sum, and use $j$ to record the left endpoint of the current non-repeating subarray.
 
@@ -46,8 +46,6 @@ We traverse the array, for each number $v$, if $d[v]$ exists, then we update $j$
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -61,8 +59,6 @@ class Solution:
             d[v] = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumUniqueSubarray(nums []int) (ans int) {
 	d := [10001]int{}
@@ -129,8 +121,6 @@ func maximumUniqueSubarray(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumUniqueSubarray(nums: number[]): number {
@@ -151,10 +141,6 @@ function maximumUniqueSubarray(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -142,9 +142,9 @@ The first yielded promise immediately rejects. This error is caught. Because the
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => void, Promise<T>] {
@@ -181,10 +181,6 @@ function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => 
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

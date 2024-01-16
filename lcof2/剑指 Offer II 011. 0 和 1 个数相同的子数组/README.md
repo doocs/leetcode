@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 前缀和**
+### 方法一：哈希表 + 前缀和
 
 我们可以将数组中的 $0$ 视作 $-1$，那么可以将问题转化为求最长的连续子数组，其元素和为 $0$。
 
@@ -48,10 +46,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
                 d[s] = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaxLength(nums []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -135,8 +121,6 @@ func findMaxLength(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMaxLength(nums: number[]): number {
     const d: Map<number, number> = new Map();
@@ -156,10 +140,6 @@ function findMaxLength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -27,9 +27,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -44,8 +44,6 @@ class Solution:
                 s.append(chars[x])
         return ''.join(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -68,27 +66,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String toHex(int num) {
-        if (num == 0) {
-            return "0";
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 7; i >= 0; --i) {
-            int x = (num >> (4 * i)) & 0xf;
-            if (sb.length() > 0 || x != 0) {
-                char c = x < 10 ? (char) (x + '0') : (char) (x - 10 + 'a');
-                sb.append(c);
-            }
-        }
-        return sb.toString();
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -106,8 +83,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func toHex(num int) string {
@@ -131,10 +106,31 @@ func toHex(num int) string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public String toHex(int num) {
+        if (num == 0) {
+            return "0";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 7; i >= 0; --i) {
+            int x = (num >> (4 * i)) & 0xf;
+            if (sb.length() > 0 || x != 0) {
+                char c = x < 10 ? (char) (x + '0') : (char) (x - 10 + 'a');
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

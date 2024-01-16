@@ -47,9 +47,9 @@ Then the 1<sup>st</sup> smallest distance pair is (1,1), and its distance is 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
         nums.sort()
         return bisect_left(range(nums[-1] - nums[0]), k, key=count)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,36 +102,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function smallestDistancePair(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    let left = 0,
-        right = nums[n - 1] - nums[0];
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        let count = 0,
-            i = 0;
-        for (let j = 0; j < n; j++) {
-            while (nums[j] - nums[i] > mid) {
-                i++;
-            }
-            count += j - i;
-        }
-        if (count >= k) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func smallestDistancePair(nums []int, k int) int {
@@ -198,10 +164,33 @@ func smallestDistancePair(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function smallestDistancePair(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let left = 0,
+        right = nums[n - 1] - nums[0];
+    while (left < right) {
+        let mid = (left + right) >> 1;
+        let count = 0,
+            i = 0;
+        for (let j = 0; j < n; j++) {
+            // 索引[i, j]距离nums[j]的距离<=mid
+            while (nums[j] - nums[i] > mid) {
+                i++;
+            }
+            count += j - i;
+        }
+        if (count >= k) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

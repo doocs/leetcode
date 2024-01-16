@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组或线段树**
+### 方法一：树状数组或线段树
 
 对于本题，我们先用 pos 记录每个数在 nums2 中的位置，然后依次对 nums1 中的每个元素进行处理。
 
@@ -82,12 +80,6 @@
 > 本题 Python3 线段树代码 TLE。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-树状数组：
 
 ```python
 class BinaryIndexedTree:
@@ -127,7 +119,164 @@ class Solution:
         return ans
 ```
 
-线段树：
+```java
+class Solution {
+    public long goodTriplets(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int[] pos = new int[n];
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        for (int i = 0; i < n; ++i) {
+            pos[nums2[i]] = i + 1;
+        }
+        long ans = 0;
+        for (int num : nums1) {
+            int p = pos[num];
+            long left = tree.query(p);
+            long right = n - p - (tree.query(n) - tree.query(p));
+            ans += left * right;
+            tree.update(p, 1);
+        }
+        return ans;
+    }
+}
+
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    public static int lowbit(int x) {
+        return x & -x;
+    }
+}
+```
+
+```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    int lowbit(int x) {
+        return x & -x;
+    }
+};
+
+class Solution {
+public:
+    long long goodTriplets(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        vector<int> pos(n);
+        for (int i = 0; i < n; ++i) pos[nums2[i]] = i + 1;
+        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
+        long long ans = 0;
+        for (int& num : nums1) {
+            int p = pos[num];
+            int left = tree->query(p);
+            int right = n - p - (tree->query(n) - tree->query(p));
+            ans += 1ll * left * right;
+            tree->update(p, 1);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += this.lowbit(x)
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= this.lowbit(x)
+	}
+	return s
+}
+
+func goodTriplets(nums1 []int, nums2 []int) int64 {
+	n := len(nums1)
+	pos := make([]int, n)
+	for i, v := range nums2 {
+		pos[v] = i + 1
+	}
+	tree := newBinaryIndexedTree(n)
+	var ans int64
+	for _, num := range nums1 {
+		p := pos[num]
+		left := tree.query(p)
+		right := n - p - (tree.query(n) - tree.query(p))
+		ans += int64(left) * int64(right)
+		tree.update(p, 1)
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -191,66 +340,6 @@ class Solution:
             tree.modify(1, p, 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-树状数组：
-
-```java
-class Solution {
-    public long goodTriplets(int[] nums1, int[] nums2) {
-        int n = nums1.length;
-        int[] pos = new int[n];
-        BinaryIndexedTree tree = new BinaryIndexedTree(n);
-        for (int i = 0; i < n; ++i) {
-            pos[nums2[i]] = i + 1;
-        }
-        long ans = 0;
-        for (int num : nums1) {
-            int p = pos[num];
-            long left = tree.query(p);
-            long right = n - p - (tree.query(n) - tree.query(p));
-            ans += left * right;
-            tree.update(p, 1);
-        }
-        return ans;
-    }
-}
-
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        c = new int[n + 1];
-    }
-
-    public void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
-    }
-}
-```
-
-线段树：
 
 ```java
 class Solution {
@@ -336,63 +425,6 @@ class SegmentTree {
 }
 ```
 
-### **C++**
-
-树状数组：
-
-```cpp
-class BinaryIndexedTree {
-public:
-    int n;
-    vector<int> c;
-
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
-
-    void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
-    }
-};
-
-class Solution {
-public:
-    long long goodTriplets(vector<int>& nums1, vector<int>& nums2) {
-        int n = nums1.size();
-        vector<int> pos(n);
-        for (int i = 0; i < n; ++i) pos[nums2[i]] = i + 1;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
-        long long ans = 0;
-        for (int& num : nums1) {
-            int p = pos[num];
-            int left = tree->query(p);
-            int right = n - p - (tree->query(n) - tree->query(p));
-            ans += 1ll * left * right;
-            tree->update(p, 1);
-        }
-        return ans;
-    }
-};
-```
-
-线段树：
-
 ```cpp
 class Node {
 public:
@@ -467,68 +499,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-type BinaryIndexedTree struct {
-	n int
-	c []int
-}
-
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
-}
-
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
-	}
-}
-
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
-	}
-	return s
-}
-
-func goodTriplets(nums1 []int, nums2 []int) int64 {
-	n := len(nums1)
-	pos := make([]int, n)
-	for i, v := range nums2 {
-		pos[v] = i + 1
-	}
-	tree := newBinaryIndexedTree(n)
-	var ans int64
-	for _, num := range nums1 {
-		p := pos[num]
-		left := tree.query(p)
-		right := n - p - (tree.query(n) - tree.query(p))
-		ans += int64(left) * int64(right)
-		tree.update(p, 1)
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

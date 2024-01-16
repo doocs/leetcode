@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
         s = min_x + max_x
         return all((s - x, y) in point_set for x, y in points)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isReflected(points [][]int) bool {
 	const inf = 1 << 30
@@ -129,10 +123,6 @@ func isReflected(points [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

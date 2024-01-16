@@ -45,15 +45,13 @@ answer = [7,1,3,9].
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 Split each number in the array into digits, then put the split numbers into the answer array in order.
 
 The time complexity is $O(n \times \log_{10} M)$, and the space complexity is $O(n \times \log_{10} M)$. Where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,8 +65,6 @@ class Solution:
             ans.extend(t[::-1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func separateDigits(nums []int) (ans []int) {
 	for _, x := range nums {
@@ -131,8 +123,6 @@ func separateDigits(nums []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function separateDigits(nums: number[]): number[] {
     const ans: number[] = [];
@@ -147,8 +137,6 @@ function separateDigits(nums: number[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -169,32 +157,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn separate_digits(nums: Vec<i32>) -> Vec<i32> {
-        let mut ans = vec![];
-
-        for n in nums {
-            let mut t = vec![];
-            let mut x = n;
-
-            while x != 0 {
-                t.push(x % 10);
-                x /= 10;
-            }
-
-            for i in (0..t.len()).rev() {
-                ans.push(t[i]);
-            }
-        }
-
-        ans
-    }
-}
-```
-
-### **C**
 
 ```c
 /**
@@ -222,10 +184,36 @@ int* separateDigits(int* nums, int numsSize, int* returnSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn separate_digits(nums: Vec<i32>) -> Vec<i32> {
+        let mut ans = vec![];
+
+        for n in nums {
+            let mut t = vec![];
+            let mut x = n;
+
+            while x != 0 {
+                t.push(x % 10);
+                x /= 10;
+            }
+
+            for i in (0..t.len()).rev() {
+                ans.push(t[i]);
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

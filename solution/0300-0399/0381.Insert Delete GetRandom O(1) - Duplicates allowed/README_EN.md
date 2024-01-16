@@ -56,9 +56,9 @@ randomizedCollection.getRandom(); // getRandom should return 1 or 2, both equall
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class RandomizedCollection:
@@ -114,8 +114,6 @@ class RandomizedCollection:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
-
-### **Java**
 
 ```java
 class RandomizedCollection {
@@ -182,10 +180,6 @@ class RandomizedCollection {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

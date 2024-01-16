@@ -66,7 +66,7 @@ It can be shown that these are the minimum possible relative losses.
 
 ## Solutions
 
-**Solution 1: Sorting + Binary Search + Prefix Sum**
+### Solution 1: Sorting + Binary Search + Prefix Sum
 
 Based on the problem description, we know:
 
@@ -83,8 +83,6 @@ In the second binary search process mentioned above, we need to judge whether $p
 The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $prices$ and $queries$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -113,8 +111,6 @@ class Solution:
             ans.append(loss)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -160,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -199,8 +193,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	n := len(prices)
@@ -235,8 +227,6 @@ func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumRelativeLosses(prices: number[], queries: number[][]): number[] {
@@ -285,10 +275,6 @@ function minimumRelativeLosses(prices: number[], queries: number[][]): number[] 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 For a point $(x, y)$, its shortest distance to the center of the circle $(xCenter, yCenter)$ is $\sqrt{(x - xCenter)^2 + (y - yCenter)^2}$. If this distance is less than or equal to the radius $radius$, then this point is within the circle (including the boundary).
 
@@ -62,8 +62,6 @@ Similarly, we can find the minimum value of $|y - yCenter|$ when $y \in [y_1, y_
 That is, $a = f(x_1, x_2, xCenter)$, $b = f(y_1, y_2, yCenter)$. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
         return a * a + b * b <= radius * radius
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public boolean checkOverlap(
@@ -107,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, y2 int) bool {
 	f := func(i, j, k int) int {
@@ -144,8 +136,6 @@ func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, 
 	return a*a+b*b <= radius*radius
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkOverlap(
@@ -169,10 +159,6 @@ function checkOverlap(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

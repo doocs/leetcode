@@ -50,9 +50,9 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeFancyString(s string) string {
 	ans := []rune{}
@@ -115,8 +109,6 @@ func makeFancyString(s string) string {
 	return string(ans)
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -138,10 +130,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,17 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-拓扑排序，BFS 实现。
-
-每一轮删除入度为 1 的节点，同时减小与之连接的节点的入度。循环此操作，最后一轮删除的节点，即为要找的最小高度树的根节点。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +78,6 @@ class Solution:
                         q.append(b)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +153,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMinHeightTrees(n int, edges [][]int) []int {
@@ -209,10 +193,6 @@ func findMinHeightTrees(n int, edges [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

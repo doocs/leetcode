@@ -87,7 +87,7 @@ Content table:
 
 ## Solutions
 
-**Solution 1: Equi-Join + Conditional Filtering**
+### Solution 1: Equi-Join + Conditional Filtering
 
 We can first use an equi-join to join the two tables based on the `content_id` field, and then use conditional filtering to select the child-friendly movies that were played in June 2020.
 
@@ -106,3 +106,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示 $text1$ 的前 $i$ 个字符和 $text2$ 的前 $j$ 个字符的最长公共子序列的长度。那么答案为 $f[m][n]$，其中 $m$ 和 $n$ 分别为 $text1$ 和 $text2$ 的长度。
 
@@ -75,10 +73,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
@@ -92,10 +86,6 @@ class Solution:
                     f[i][j] = max(f[i - 1][j], f[i][j - 1])
         return f[-1][-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestCommonSubsequence(text1 string, text2 string) int {
 	m, n := len(text1), len(text2)
@@ -160,7 +146,43 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function longestCommonSubsequence(text1: string, text2: string): number {
+    const m = text1.length;
+    const n = text2.length;
+    const f: number[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (text1[i - 1] == text2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1] + 1;
+            } else {
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
+            }
+        }
+    }
+    return f[m][n];
+}
+```
+
+```rust
+impl Solution {
+    pub fn longest_common_subsequence(text1: String, text2: String) -> i32 {
+        let (m, n) = (text1.len(), text2.len());
+        let (text1, text2) = (text1.as_bytes(), text2.as_bytes());
+        let mut f = vec![vec![0; n + 1]; m + 1];
+        for i in 1..=m {
+            for j in 1..=n {
+                f[i][j] = if text1[i - 1] == text2[j - 1] {
+                    f[i - 1][j - 1] + 1
+                } else {
+                    f[i - 1][j].max(f[i][j - 1])
+                };
+            }
+        }
+        f[m][n]
+    }
+}
+```
 
 ```js
 /**
@@ -185,30 +207,45 @@ var longestCommonSubsequence = function (text1, text2) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function longestCommonSubsequence(text1: string, text2: string): number {
-    const m = text1.length;
-    const n = text2.length;
-    const f: number[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
-    for (let i = 1; i <= m; ++i) {
-        for (let j = 1; j <= n; ++j) {
-            if (text1[i - 1] == text2[j - 1]) {
-                f[i][j] = f[i - 1][j - 1] + 1;
-            } else {
-                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
+```cs
+public class Solution {
+    public int LongestCommonSubsequence(string text1, string text2) {
+        int m = text1.Length, n = text2.Length;
+        int[,] f = new int[m + 1, n + 1];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (text1[i - 1] == text2[j - 1]) {
+                    f[i, j] = f[i - 1, j - 1] + 1;
+                } else {
+                    f[i, j] = Math.Max(f[i - 1, j], f[i, j - 1]);
+                }
             }
         }
+        return f[m, n];
     }
-    return f[m][n];
 }
 ```
 
-### **...**
-
-```
-
+```kotlin
+class Solution {
+    fun longestCommonSubsequence(text1: String, text2: String): Int {
+        val m = text1.length
+        val n = text2.length
+        val f = Array(m + 1) { IntArray(n + 1) }
+        for (i in 1..m) {
+            for (j in 1..n) {
+                if (text1[i - 1] == text2[j - 1]) {
+                    f[i][j] = f[i - 1][j - 1] + 1
+                } else {
+                    f[i][j] = Math.max(f[i - 1][j], f[i][j - 1])
+                }
+            }
+        }
+        return f[m][n]
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

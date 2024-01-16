@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Preprocessing**
+### Solution 1: Greedy + Preprocessing
 
 We notice that in order to maximize the answer, we should apply $k$ times of bitwise OR to the same number.
 
@@ -49,8 +49,6 @@ Next, we traverse the array $nums$ from left to right, and maintain the current 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -65,8 +63,6 @@ class Solution:
             pre |= x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumOr(nums []int, k int) int64 {
 	n := len(nums)
@@ -126,8 +118,6 @@ func maximumOr(nums []int, k int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumOr(nums: number[], k: number): number {
     const n = nums.length;
@@ -143,8 +133,6 @@ function maximumOr(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -169,10 +157,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

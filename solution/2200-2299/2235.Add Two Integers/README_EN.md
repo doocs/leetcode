@@ -32,15 +32,64 @@ Given two integers <code>num1</code> and <code>num2</code>, return <em>the <stro
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def sum(self, num1: int, num2: int) -> int:
         return num1 + num2
 ```
+
+```java
+class Solution {
+    public int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+};
+```
+
+```go
+func sum(num1 int, num2 int) int {
+	return num1 + num2
+}
+```
+
+```ts
+function sum(num1: number, num2: number): number {
+    return num1 + num2;
+}
+```
+
+```rust
+impl Solution {
+    pub fn sum(num1: i32, num2: i32) -> i32 {
+        num1 + num2
+    }
+}
+```
+
+```c
+int sum(int num1, int num2) {
+    return num1 + num2;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,16 +99,6 @@ class Solution:
             carry = ((num1 & num2) << 1) & 0xFFFFFFFF
             num1, num2 = num1 ^ num2, carry
         return num1 if num1 < 0x80000000 else ~(num1 ^ 0xFFFFFFFF)
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int sum(int num1, int num2) {
-        return num1 + num2;
-    }
-}
 ```
 
 ```java
@@ -73,17 +112,6 @@ class Solution {
         return num1;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int sum(int num1, int num2) {
-        return num1 + num2;
-    }
-};
 ```
 
 ```cpp
@@ -100,14 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func sum(num1 int, num2 int) int {
-	return num1 + num2
-}
-```
-
 ```go
 func sum(num1 int, num2 int) int {
 	for num2 != 0 {
@@ -119,14 +139,6 @@ func sum(num1 int, num2 int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function sum(num1: number, num2: number): number {
-    return num1 + num2;
-}
-```
-
 ```ts
 function sum(num1: number, num2: number): number {
     while (num2) {
@@ -135,16 +147,6 @@ function sum(num1: number, num2: number): number {
         num2 = carry;
     }
     return num1;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn sum(num1: i32, num2: i32) -> i32 {
-        num1 + num2
-    }
 }
 ```
 
@@ -163,18 +165,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int sum(int num1, int num2) {
-    return num1 + num2;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

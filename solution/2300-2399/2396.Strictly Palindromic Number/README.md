@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 当 $n=4$ 时，二进制表示为 $100$，不是回文串；
 
@@ -56,19 +54,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isStrictlyPalindromic(self, n: int) -> bool:
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -77,8 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -89,23 +77,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isStrictlyPalindromic(n int) bool {
 	return false
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isStrictlyPalindromic(n: number): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -115,19 +97,12 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 bool isStrictlyPalindromic(int n) {
     return 0;
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们可以遍历字符串，维护当前的嵌套深度，遇到左括号时深度加一，并且更新组最大深大；遇到右括号时深度减一。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 d -= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDepth(s string) (ans int) {
 	d := 0
@@ -142,7 +128,20 @@ func maxDepth(s string) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function maxDepth(s: string): number {
+    let ans = 0;
+    let d = 0;
+    for (const c of s) {
+        if (c === '(') {
+            ans = Math.max(ans, ++d);
+        } else if (c === ')') {
+            --d;
+        }
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -163,8 +162,6 @@ var maxDepth = function (s) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxDepth(string s) {
@@ -181,27 +178,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxDepth(s: string): number {
-    let ans = 0;
-    let d = 0;
-    for (const c of s) {
-        if (c === '(') {
-            ans = Math.max(ans, ++d);
-        } else if (c === ')') {
-            --d;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

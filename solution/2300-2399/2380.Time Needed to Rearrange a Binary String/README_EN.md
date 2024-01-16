@@ -48,9 +48,9 @@ so we return 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,20 +61,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def secondsToRemoveOccurrences(self, s: str) -> int:
-        ans = cnt = 0
-        for c in s:
-            if c == '0':
-                cnt += 1
-            elif cnt:
-                ans = max(ans + 1, cnt)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,24 +88,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int secondsToRemoveOccurrences(String s) {
-        int ans = 0, cnt = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '0') {
-                ++cnt;
-            } else if (cnt > 0) {
-                ans = Math.max(ans + 1, cnt);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,25 +112,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int secondsToRemoveOccurrences(string s) {
-        int ans = 0, cnt = 0;
-        for (char c : s) {
-            if (c == '0') {
-                ++cnt;
-            } else if (cnt) {
-                ans = max(ans + 1, cnt);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func secondsToRemoveOccurrences(s string) int {
 	cs := []byte(s)
@@ -185,6 +134,57 @@ func secondsToRemoveOccurrences(s string) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def secondsToRemoveOccurrences(self, s: str) -> int:
+        ans = cnt = 0
+        for c in s:
+            if c == '0':
+                cnt += 1
+            elif cnt:
+                ans = max(ans + 1, cnt)
+        return ans
+```
+
+```java
+class Solution {
+    public int secondsToRemoveOccurrences(String s) {
+        int ans = 0, cnt = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '0') {
+                ++cnt;
+            } else if (cnt > 0) {
+                ans = Math.max(ans + 1, cnt);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int secondsToRemoveOccurrences(string s) {
+        int ans = 0, cnt = 0;
+        for (char c : s) {
+            if (c == '0') {
+                ++cnt;
+            } else if (cnt) {
+                ans = max(ans + 1, cnt);
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func secondsToRemoveOccurrences(s string) int {
 	ans, cnt := 0, 0
@@ -199,17 +199,6 @@ func secondsToRemoveOccurrences(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

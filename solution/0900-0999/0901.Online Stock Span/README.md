@@ -56,9 +56,7 @@ stockSpanner.next(85);  // 返回 6
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 根据题目描述，我们可以知道，对于当日价格 $price$，从这个价格开始往前找，找到第一个比这个价格大的价格，这两个价格的下标差 $cnt$ 就是当日价格的跨度。
 
@@ -73,10 +71,6 @@ stockSpanner.next(85);  // 返回 6
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是调用 `next(price)` 的次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class StockSpanner:
@@ -95,10 +89,6 @@ class StockSpanner:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class StockSpanner {
@@ -123,8 +113,6 @@ class StockSpanner {
  * int param_1 = obj.next(price);
  */
 ```
-
-### **C++**
 
 ```cpp
 class StockSpanner {
@@ -152,8 +140,6 @@ private:
  * int param_1 = obj->next(price);
  */
 ```
-
-### **Go**
 
 ```go
 type StockSpanner struct {
@@ -183,8 +169,6 @@ type pair struct{ price, cnt int }
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class StockSpanner {
     private stk: number[][];
@@ -209,8 +193,6 @@ class StockSpanner {
  * var param_1 = obj.next(price)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -244,10 +226,6 @@ impl StockSpanner {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

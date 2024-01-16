@@ -89,19 +89,11 @@ MyNumbers table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组 + 子查询**
+### 方法一：分组 + 子查询
 
 我们可以先将 `MyNumbers` 表按照 `num` 进行分组统计，找出只出现一次的数字，然后使用子查询找出最大的数字即可。
 
-**方法二：分组 + `CASE` 表达式**
-
-与方法一类似，我们可以先将 `MyNumbers` 表按照 `num` 进行分组统计，然后使用 `CASE` 表达式，找出只出现一次的数字，然后按数字降序排序，取第一个即可。
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -114,6 +106,14 @@ FROM
         HAVING COUNT(1) = 1
     ) AS t;
 ```
+
+<!-- tabs:end -->
+
+### 方法二：分组 + `CASE` 表达式
+
+与方法一类似，我们可以先将 `MyNumbers` 表按照 `num` 进行分组统计，然后使用 `CASE` 表达式，找出只出现一次的数字，然后按数字降序排序，取第一个即可。
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -129,3 +129,5 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

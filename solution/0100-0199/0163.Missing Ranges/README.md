@@ -44,19 +44,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接按照题意模拟即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             ans.append([nums[-1] + 1, upper])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	n := len(nums)
@@ -154,8 +140,6 @@ func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMissingRanges(nums: number[], lower: number, upper: number): number[][] {
@@ -179,10 +163,6 @@ function findMissingRanges(nums: number[], lower: number, upper: number): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

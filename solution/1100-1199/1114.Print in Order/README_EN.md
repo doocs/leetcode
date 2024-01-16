@@ -46,7 +46,7 @@ public class Foo {
 
 ## Solutions
 
-**Solution 1: Multithreading + Lock or Semaphore**
+### Solution 1: Multithreading + Lock or Semaphore
 
 We can use three semaphores $a$, $b$, and $c$ to control the execution order of the three threads. Initially, the count of semaphore $a$ is $1$, and the counts of $b$ and $c$ are $0$.
 
@@ -59,8 +59,6 @@ When thread $C$ executes the `third()` method, it first needs to acquire semapho
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Foo:
@@ -83,37 +81,6 @@ class Foo:
         self.l3.acquire()
         printThird()
 ```
-
-```python
-from threading import Semaphore
-
-
-class Foo:
-    def __init__(self):
-        self.a = Semaphore(1)
-        self.b = Semaphore(0)
-        self.c = Semaphore(0)
-
-    def first(self, printFirst: 'Callable[[], None]') -> None:
-        self.a.acquire()
-        # printFirst() outputs "first". Do not change or remove this line.
-        printFirst()
-        self.b.release()
-
-    def second(self, printSecond: 'Callable[[], None]') -> None:
-        self.b.acquire()
-        # printSecond() outputs "second". Do not change or remove this line.
-        printSecond()
-        self.c.release()
-
-    def third(self, printThird: 'Callable[[], None]') -> None:
-        self.c.acquire()
-        # printThird() outputs "third". Do not change or remove this line.
-        printThird()
-        self.a.release()
-```
-
-### **Java**
 
 ```java
 class Foo {
@@ -147,8 +114,6 @@ class Foo {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Foo {
 private:
@@ -176,6 +141,41 @@ public:
         printThird();
     }
 };
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+from threading import Semaphore
+
+
+class Foo:
+    def __init__(self):
+        self.a = Semaphore(1)
+        self.b = Semaphore(0)
+        self.c = Semaphore(0)
+
+    def first(self, printFirst: 'Callable[[], None]') -> None:
+        self.a.acquire()
+        # printFirst() outputs "first". Do not change or remove this line.
+        printFirst()
+        self.b.release()
+
+    def second(self, printSecond: 'Callable[[], None]') -> None:
+        self.b.acquire()
+        # printSecond() outputs "second". Do not change or remove this line.
+        printSecond()
+        self.c.release()
+
+    def third(self, printThird: 'Callable[[], None]') -> None:
+        self.c.acquire()
+        # printThird() outputs "third". Do not change or remove this line.
+        printThird()
+        self.a.release()
 ```
 
 ```cpp
@@ -215,10 +215,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

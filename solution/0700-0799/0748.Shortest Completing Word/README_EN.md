@@ -47,7 +47,7 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 First, we use a hash table or an array $cnt$ of length $26$ to count the frequency of each letter in the string `licensePlate`. Note that we convert all letters to lowercase for counting.
 
@@ -56,8 +56,6 @@ Then, we traverse each word $w$ in the array `words`. If the length of the word 
 The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the array `words`, and $\Sigma$ is the character set. In this case, the character set is all lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
                 ans = w
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	cnt := [26]int{}
@@ -179,8 +171,6 @@ func shortestCompletingWord(licensePlate string, words []string) (ans string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function shortestCompletingWord(licensePlate: string, words: string[]): string {
@@ -214,8 +204,6 @@ function shortestCompletingWord(licensePlate: string, words: string[]): string {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -251,10 +239,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

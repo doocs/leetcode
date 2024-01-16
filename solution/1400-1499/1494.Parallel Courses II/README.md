@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + BFS + 子集枚举**
+### 方法一：状态压缩 + BFS + 子集枚举
 
 我们用数组 $d[i]$ 表示课程 $i$ 的先修课程的集合。由于数据规模 $n\lt 15$，我们可以用一个整数的二进制位（状态压缩）来表示集合，其中第 $j$ 位为 $1$ 表示课程 $j$ 是课程 $i$ 的先修课程。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(3^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是题目给定的课程数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,10 +101,6 @@ class Solution:
                         q.append((nxt | cur, t + 1))
                     nxt = (nxt - 1) & x
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -202,8 +190,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minNumberOfSemesters(n int, relations [][]int, k int) int {
 	d := make([]int, n+1)
@@ -247,10 +233,6 @@ func minNumberOfSemesters(n int, relations [][]int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

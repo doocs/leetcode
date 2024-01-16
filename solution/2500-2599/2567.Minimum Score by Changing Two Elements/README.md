@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 根据题意我们知道，最小得分实际上是排序数组相邻两个元素的最小差值，最大得分是排序数组首尾元素的差值。数组 $nums$ 的分数是最小得分与最大得分的和。
 
@@ -75,20 +73,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimizeSum(self, nums: List[int]) -> int:
         nums.sort()
         return min(nums[-1] - nums[2], nums[-2] - nums[1], nums[-3] - nums[0])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizeSum(nums []int) int {
 	sort.Ints(nums)
@@ -126,8 +112,6 @@ func minimizeSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimizeSum(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -135,8 +119,6 @@ function minimizeSum(nums: number[]): number {
     return Math.min(nums[n - 3] - nums[0], nums[n - 2] - nums[1], nums[n - 1] - nums[2]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -147,8 +129,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -163,10 +143,6 @@ int minimizeSum(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

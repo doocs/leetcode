@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: Fast and Slow Pointers + Link List Concatenation**
+### Solution 1: Fast and Slow Pointers + Link List Concatenation
 
 First, we check whether the number of nodes in the linked list is less than $2$. If so, we directly return $head$.
 
@@ -47,8 +47,6 @@ Finally, we concatenate the linked list.
 The time complexity is $O(n)$, where $n$ is the number of nodes in the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -78,8 +76,6 @@ class Solution:
         fast.next = head
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -122,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -169,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -207,8 +199,6 @@ func rotateRight(head *ListNode, k int) *ListNode {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -252,54 +242,6 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
-public class Solution {
-    public ListNode RotateRight(ListNode head, int k) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        var cur = head;
-        int n = 0;
-        while (cur != null) {
-            cur = cur.next;
-            ++n;
-        }
-        k %= n;
-        if (k == 0) {
-            return head;
-        }
-        var fast = head;
-        var slow = head;
-        while (k-- > 0) {
-            fast = fast.next;
-        }
-        while (fast.next != null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-        var ans = slow.next;
-        slow.next = null;
-        fast.next = head;
-        return ans;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -352,10 +294,50 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode RotateRight(ListNode head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        var cur = head;
+        int n = 0;
+        while (cur != null) {
+            cur = cur.next;
+            ++n;
+        }
+        k %= n;
+        if (k == 0) {
+            return head;
+        }
+        var fast = head;
+        var slow = head;
+        while (k-- > 0) {
+            fast = fast.next;
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        var ans = slow.next;
+        slow.next = null;
+        fast.next = head;
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

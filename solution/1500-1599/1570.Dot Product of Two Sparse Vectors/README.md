@@ -58,9 +58,7 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 $d$ 来存储非零元素，其中键为下标，值为对应的值。我们遍历 $nums$，如果 $nums[i]$ 不为 $0$，我们就将 $(i, nums[i])$ 加入到哈希表 $d$ 中。
 
@@ -69,10 +67,6 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class SparseVector:
@@ -92,10 +86,6 @@ class SparseVector:
 # v2 = SparseVector(nums2)
 # ans = v1.dotProduct(v2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class SparseVector {
@@ -133,8 +123,6 @@ class SparseVector {
 // int ans = v1.dotProduct(v2);
 ```
 
-### **C++**
-
 ```cpp
 class SparseVector {
 public:
@@ -170,8 +158,6 @@ public:
 // SparseVector v2(nums2);
 // int ans = v1.dotProduct(v2);
 ```
-
-### **Go**
 
 ```go
 type SparseVector struct {
@@ -209,8 +195,6 @@ func (this *SparseVector) dotProduct(vec SparseVector) (ans int) {
  * ans := v1.dotProduct(v2);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class SparseVector {
@@ -250,10 +234,6 @@ class SparseVector {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

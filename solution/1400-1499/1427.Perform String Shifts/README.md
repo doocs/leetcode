@@ -54,19 +54,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们不妨记字符串 $s$ 的长度为 $n$。接下来遍历数组 $shift$，累加得到最终的偏移量 $x$，然后将 $x$ 对 $n$ 取模，最终结果就是将 $s$ 的前 $n - x$ 个字符移动到末尾。
 
 时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是字符串 $s$ 的长度和数组 $shift$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
         x %= len(s)
         return s[-x:] + s[:-x]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stringShift(s string, shift [][]int) string {
 	x := 0
@@ -134,8 +120,6 @@ func stringShift(s string, shift [][]int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function stringShift(s: string, shift: number[][]): string {
     let x = 0;
@@ -150,10 +134,6 @@ function stringShift(s: string, shift: number[][]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

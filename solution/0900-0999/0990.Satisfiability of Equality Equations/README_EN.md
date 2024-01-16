@@ -40,11 +40,9 @@ There is no way to assign the variables to satisfy both equations.
 
 ## Solutions
 
-Union find.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -65,8 +63,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func equationsPossible(equations []string) bool {
@@ -159,8 +151,6 @@ func equationsPossible(equations []string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class UnionFind {
@@ -205,10 +195,6 @@ function equationsPossible(equations: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

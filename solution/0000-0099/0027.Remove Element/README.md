@@ -63,9 +63,7 @@ for (int i = 0; i &lt; len; i++) {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 我们用变量 $k$ 记录当前不等于 $val$ 的元素个数。
 
@@ -77,10 +75,6 @@ for (int i = 0; i &lt; len; i++) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
@@ -91,10 +85,6 @@ class Solution:
                 k += 1
         return k
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeElement(nums []int, val int) int {
 	k := 0
@@ -142,8 +128,6 @@ func removeElement(nums []int, val int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeElement(nums: number[], val: number): number {
     let k: number = 0;
@@ -156,7 +140,20 @@ function removeElement(nums: number[], val: number): number {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
+        let mut k = 0;
+        for i in 0..nums.len() {
+            if nums[i] != val {
+                nums[k] = nums[i];
+                k += 1;
+            }
+        }
+        k as i32
+    }
+}
+```
 
 ```js
 /**
@@ -175,25 +172,6 @@ var removeElement = function (nums, val) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
-        let mut k = 0;
-        for i in 0..nums.len() {
-            if nums[i] != val {
-                nums[k] = nums[i];
-                k += 1;
-            }
-        }
-        k as i32
-    }
-}
-```
-
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -211,10 +189,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

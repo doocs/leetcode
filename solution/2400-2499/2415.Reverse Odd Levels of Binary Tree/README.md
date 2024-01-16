@@ -61,19 +61,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们可以使用广度优先搜索的方法，用一个队列 $q$ 来存储每一层的节点，用一个变量 $i$ 记录当前层数。若 $i$ 为奇数，则将当前层的节点值反转。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -100,10 +94,6 @@ class Solution:
             i += 1
         return root
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -148,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -188,8 +176,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -221,8 +207,6 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 	return root
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -259,8 +243,6 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -331,10 +313,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

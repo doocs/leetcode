@@ -55,25 +55,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举中间元素**
+### 方法一：枚举中间元素
 
 我们可以枚举数组 $rating$ 中每个元素 $rating[i]$ 作为中间元素，然后统计左边比它小的元素的个数 $l$，右边比它大的元素的个数 $r$，那么以该元素为中间元素的作战单位的个数为 $l \times r + (i - l) \times (n - i - 1 - r)$，累加到答案中即可。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $rating$ 的长度。
 
-**方法二：树状数组**
-
-我们可以用两个树状数组分别维护数组 $rating$ 中每个元素的左边比它小的元素的个数 $l$，右边比它大的元素的个数 $r$，然后统计以该元素为中间元素的作战单位的个数为 $l \times r + (i - l) \times (n - i - 1 - r)$，累加到答案中即可。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $rating$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,6 +74,113 @@ class Solution:
             ans += (i - l) * (n - i - 1 - r)
         return ans
 ```
+
+```java
+class Solution {
+    public int numTeams(int[] rating) {
+        int n = rating.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int l = 0, r = 0;
+            for (int j = 0; j < i; ++j) {
+                if (rating[j] < rating[i]) {
+                    ++l;
+                }
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (rating[j] > rating[i]) {
+                    ++r;
+                }
+            }
+            ans += l * r;
+            ans += (i - l) * (n - i - 1 - r);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int numTeams(vector<int>& rating) {
+        int n = rating.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int l = 0, r = 0;
+            for (int j = 0; j < i; ++j) {
+                if (rating[j] < rating[i]) {
+                    ++l;
+                }
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (rating[j] > rating[i]) {
+                    ++r;
+                }
+            }
+            ans += l * r;
+            ans += (i - l) * (n - i - 1 - r);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numTeams(rating []int) (ans int) {
+	n := len(rating)
+	for i, b := range rating {
+		l, r := 0, 0
+		for _, a := range rating[:i] {
+			if a < b {
+				l++
+			}
+		}
+		for _, c := range rating[i+1:] {
+			if c < b {
+				r++
+			}
+		}
+		ans += l * r
+		ans += (i - l) * (n - i - 1 - r)
+	}
+	return
+}
+```
+
+```ts
+function numTeams(rating: number[]): number {
+    let ans = 0;
+    const n = rating.length;
+    for (let i = 0; i < n; ++i) {
+        let l = 0;
+        let r = 0;
+        for (let j = 0; j < i; ++j) {
+            if (rating[j] < rating[i]) {
+                ++l;
+            }
+        }
+        for (let j = i + 1; j < n; ++j) {
+            if (rating[j] > rating[i]) {
+                ++r;
+            }
+        }
+        ans += l * r;
+        ans += (i - l) * (n - i - 1 - r);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：树状数组
+
+我们可以用两个树状数组分别维护数组 $rating$ 中每个元素的左边比它小的元素的个数 $l$，右边比它大的元素的个数 $r$，然后统计以该元素为中间元素的作战单位的个数为 $l \times r + (i - l) \times (n - i - 1 - r)$，累加到答案中即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $rating$ 的长度。
+
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -126,35 +221,6 @@ class Solution:
             ans += l * r
             ans += (i - l) * (n - i - 1 - r)
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int numTeams(int[] rating) {
-        int n = rating.length;
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int l = 0, r = 0;
-            for (int j = 0; j < i; ++j) {
-                if (rating[j] < rating[i]) {
-                    ++l;
-                }
-            }
-            for (int j = i + 1; j < n; ++j) {
-                if (rating[j] > rating[i]) {
-                    ++r;
-                }
-            }
-            ans += l * r;
-            ans += (i - l) * (n - i - 1 - r);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -230,34 +296,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numTeams(vector<int>& rating) {
-        int n = rating.size();
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int l = 0, r = 0;
-            for (int j = 0; j < i; ++j) {
-                if (rating[j] < rating[i]) {
-                    ++l;
-                }
-            }
-            for (int j = i + 1; j < n; ++j) {
-                if (rating[j] > rating[i]) {
-                    ++r;
-                }
-            }
-            ans += l * r;
-            ans += (i - l) * (n - i - 1 - r);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -315,30 +353,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func numTeams(rating []int) (ans int) {
-	n := len(rating)
-	for i, b := range rating {
-		l, r := 0, 0
-		for _, a := range rating[:i] {
-			if a < b {
-				l++
-			}
-		}
-		for _, c := range rating[i+1:] {
-			if c < b {
-				r++
-			}
-		}
-		ans += l * r
-		ans += (i - l) * (n - i - 1 - r)
-	}
-	return
-}
-```
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -394,32 +408,6 @@ func numTeams(rating []int) (ans int) {
 		ans += (i - l) * (n - i - 1 - r)
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function numTeams(rating: number[]): number {
-    let ans = 0;
-    const n = rating.length;
-    for (let i = 0; i < n; ++i) {
-        let l = 0;
-        let r = 0;
-        for (let j = 0; j < i; ++j) {
-            if (rating[j] < rating[i]) {
-                ++l;
-            }
-        }
-        for (let j = i + 1; j < n; ++j) {
-            if (rating[j] > rating[i]) {
-                ++r;
-            }
-        }
-        ans += l * r;
-        ans += (i - l) * (n - i - 1 - r);
-    }
-    return ans;
 }
 ```
 
@@ -493,10 +481,6 @@ function numTeams(rating: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

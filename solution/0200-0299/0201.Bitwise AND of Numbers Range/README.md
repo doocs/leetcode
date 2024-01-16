@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 题目可以转换为求数字的公共二进制前缀。
 
@@ -53,10 +51,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def rangeBitwiseAnd(self, left: int, right: int) -> int:
@@ -64,10 +58,6 @@ class Solution:
             right &= right - 1
         return right
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -94,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rangeBitwiseAnd(left int, right int) int {
 	for left < right {
@@ -104,21 +90,6 @@ func rangeBitwiseAnd(left int, right int) int {
 	return right
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int RangeBitwiseAnd(int left, int right) {
-        while (left < right) {
-            right &= (right - 1);
-        }
-        return right;
-    }
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -134,10 +105,17 @@ var rangeBitwiseAnd = function (left, right) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int RangeBitwiseAnd(int left, int right) {
+        while (left < right) {
+            right &= (right - 1);
+        }
+        return right;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

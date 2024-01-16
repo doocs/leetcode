@@ -60,9 +60,9 @@ For 2020-06-02, the Sold item is (Mask), we just return it.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -75,3 +75,5 @@ ORDER BY sell_date;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

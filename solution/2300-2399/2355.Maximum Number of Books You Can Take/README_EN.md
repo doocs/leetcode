@@ -62,9 +62,9 @@ It can be proven that 13 is the maximum number of books you can take.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -91,8 +91,6 @@ class Solution:
             ans = max(ans, dp[i])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -165,8 +161,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumBooks(books []int) int64 {
@@ -205,16 +199,6 @@ func maximumBooks(books []int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,7 +58,7 @@ The total hiring cost is 4.
 
 ## Solutions
 
-**Solution 1: Priority Queue (Min Heap)**
+### Solution 1: Priority Queue (Min Heap)
 
 We maintain a priority queue (min heap) for the current candidate workers, and use variables $i$ and $j$ to mark the minimum index of the frontmost worker and the minimum index of the rearmost worker. Initially, $i = \text{candidates} - 1$ and $j = n - \text{candidates}$.
 
@@ -71,8 +71,6 @@ After the traversal ends, we return the accumulated cost as the answer.
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $costs$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +98,6 @@ class Solution:
                     heappush(q, (costs[j], j))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -143,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -177,8 +171,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func totalCost(costs []int, k int, candidates int) int64 {
@@ -225,16 +217,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 中位数**
+### 方法一：排序 + 中位数
 
 这个问题可以抽象为，在数轴上有 $n$ 个点，找到一个点使得所有点到该点的距离之和最小。答案为 $n$ 个点的中位数。
 
@@ -62,17 +60,7 @@
 -   [296. 最佳的碰头地点](/solution/0200-0299/0296.Best%20Meeting%20Point/README.md)
 -   [2448. 使数组相等的最小开销](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
 
-**方法二：排序 + 前缀和**
-
-如果我们不知道中位数的性质，也可以使用前缀和的方法来求解。
-
-时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,25 +69,6 @@ class Solution:
         k = nums[len(nums) >> 1]
         return sum(abs(v - k) for v in nums)
 ```
-
-```python
-class Solution:
-    def minMoves2(self, nums: List[int]) -> int:
-        def move(i):
-            v = nums[i]
-            a = v * i - s[i]
-            b = s[-1] - s[i + 1] - v * (n - i - 1)
-            return a + b
-
-        nums.sort()
-        s = [0] + list(accumulate(nums))
-        n = len(nums)
-        return min(move(i) for i in range(n))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +96,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minMoves2(nums []int) int {
@@ -151,8 +116,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minMoves2(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -160,8 +123,6 @@ function minMoves2(nums: number[]): number {
     return nums.reduce((r, v) => r + Math.abs(v - mid), 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -177,10 +138,31 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二：排序 + 前缀和
 
+如果我们不知道中位数的性质，也可以使用前缀和的方法来求解。
+
+时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minMoves2(self, nums: List[int]) -> int:
+        def move(i):
+            v = nums[i]
+            a = v * i - s[i]
+            b = s[-1] - s[i + 1] - v * (n - i - 1)
+            return a + b
+
+        nums.sort()
+        s = [0] + list(accumulate(nums))
+        n = len(nums)
+        return min(move(i) for i in range(n))
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

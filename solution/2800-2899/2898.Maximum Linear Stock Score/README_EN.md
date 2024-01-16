@@ -53,7 +53,7 @@ The sum of all the elements is 35 which is the maximum possible some out of ever
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We can transform the equation as follows:
 
@@ -69,8 +69,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxScore(self, prices: List[int]) -> int:
@@ -79,8 +77,6 @@ class Solution:
             cnt[x - i] += x
         return max(cnt.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScore(prices []int) (ans int64) {
 	cnt := map[int]int{}
@@ -132,7 +124,16 @@ func maxScore(prices []int) (ans int64) {
 }
 ```
 
-### **Rust**
+```ts
+function maxScore(prices: number[]): number {
+    const cnt: Map<number, number> = new Map();
+    for (let i = 0; i < prices.length; ++i) {
+        const j = prices[i] - i;
+        cnt.set(j, (cnt.get(j) || 0) + prices[i]);
+    }
+    return Math.max(...cnt.values());
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -152,23 +153,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxScore(prices: number[]): number {
-    const cnt: Map<number, number> = new Map();
-    for (let i = 0; i < prices.length; ++i) {
-        const j = prices[i] - i;
-        cnt.set(j, (cnt.get(j) || 0) + prices[i]);
-    }
-    return Math.max(...cnt.values());
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

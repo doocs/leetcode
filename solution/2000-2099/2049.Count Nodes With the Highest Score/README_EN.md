@@ -50,7 +50,7 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $ans$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
 
@@ -73,8 +73,6 @@ In the end, we call `dfs(0, -1)` and return $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -104,8 +102,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -149,8 +145,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -189,8 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countHighestScoreNodes(parents []int) (ans int) {
 	n := len(parents)
@@ -225,8 +217,6 @@ func countHighestScoreNodes(parents []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countHighestScoreNodes(parents: number[]): number {
     const n = parents.length;
@@ -259,8 +249,6 @@ function countHighestScoreNodes(parents: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -311,10 +299,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

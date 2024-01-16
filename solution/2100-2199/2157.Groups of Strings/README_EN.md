@@ -69,9 +69,9 @@ Thus, the size of the largest group is 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -115,8 +115,6 @@ class Solution:
                             union(x, x ^ (1 << i) | (1 << j))
         return [n, mx]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -180,8 +178,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -229,8 +225,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func groupStrings(words []string) []int {
@@ -286,16 +280,6 @@ func groupStrings(words []string) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

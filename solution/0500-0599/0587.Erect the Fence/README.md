@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Andrew 算法**
+### 方法一：Andrew 算法
 
 原理：
 
@@ -64,10 +62,6 @@
 时间复杂度 O(nlogn)。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
         stk.pop()
         return [trees[i] for i in stk]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +164,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func outerTrees(trees [][]int) [][]int {
@@ -223,10 +209,6 @@ func outerTrees(trees [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

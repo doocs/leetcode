@@ -48,7 +48,7 @@ The sum of our high and low score is 3, which we can prove to be minimal.
 
 ## Solutions
 
-**Solution 1: Sorting + Greedy**
+### Solution 1: Sorting + Greedy
 
 From the problem description, we know that the minimum score is actually the minimum difference between two adjacent elements in the sorted array, and the maximum score is the difference between the first and last elements of the sorted array. The score of the array $nums$ is the sum of the minimum score and the maximum score.
 
@@ -67,16 +67,12 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minimizeSum(self, nums: List[int]) -> int:
         nums.sort()
         return min(nums[-1] - nums[2], nums[-2] - nums[1], nums[-3] - nums[0])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizeSum(nums []int) int {
 	sort.Ints(nums)
@@ -114,8 +106,6 @@ func minimizeSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimizeSum(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -123,8 +113,6 @@ function minimizeSum(nums: number[]): number {
     return Math.min(nums[n - 3] - nums[0], nums[n - 2] - nums[1], nums[n - 1] - nums[2]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -135,8 +123,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -151,10 +137,6 @@ int minimizeSum(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

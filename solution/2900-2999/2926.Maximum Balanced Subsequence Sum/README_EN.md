@@ -61,7 +61,7 @@ It is a balanced subsequence, and its sum is the maximum among the balanced subs
 
 ## Solutions
 
-**Solution 1: Dynamic Programming + Binary Indexed Tree**
+### Solution 1: Dynamic Programming + Binary Indexed Tree
 
 According to the problem description, we can transform the inequality $nums[i] - nums[j] \ge i - j$ into $nums[i] - i \ge nums[j] - j$. Therefore, we consider defining a new array $arr$, where $arr[i] = nums[i] - i$. A balanced subsequence satisfies that for any $j < i$, $arr[j] \le arr[i]$. The problem is transformed into selecting an increasing subsequence in $arr$ such that the corresponding sum in $nums$ is maximized.
 
@@ -82,8 +82,6 @@ We can use a Binary Indexed Tree to maintain the maximum value of the prefix, i.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -115,8 +113,6 @@ class Solution:
             tree.update(j, v)
         return tree.query(len(s))
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -185,8 +181,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -238,8 +232,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 const inf int = 1e18
@@ -297,8 +289,6 @@ func maxBalancedSubsequenceSum(nums []int) int64 {
 	return int64(tree.query(m))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -363,10 +353,6 @@ function maxBalancedSubsequenceSum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

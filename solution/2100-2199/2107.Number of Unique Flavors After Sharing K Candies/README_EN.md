@@ -54,7 +54,7 @@ There are 3 unique flavors, so return 3.
 
 ## Solutions
 
-**Solution 1: Sliding Window + Hash Table**
+### Solution 1: Sliding Window + Hash Table
 
 We can maintain a sliding window of size $k$, where the candies outside the window are for ourselves, and the $k$ candies inside the window are shared with our sister and mother. We can use a hash table $cnt$ to record the flavors of the candies outside the window and their corresponding quantities.
 
@@ -67,8 +67,6 @@ After traversing all the candies, we can get the maximum number of unique flavor
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of candies.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,8 +81,6 @@ class Solution:
             ans = max(ans, len(cnt))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shareCandies(candies []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -152,7 +144,24 @@ func shareCandies(candies []int, k int) (ans int) {
 }
 ```
 
-### **Rust**
+```ts
+function shareCandies(candies: number[], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    for (const x of candies.slice(k)) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    let ans = cnt.size;
+    for (let i = k; i < candies.length; ++i) {
+        cnt.set(candies[i - k], (cnt.get(candies[i - k]) || 0) + 1);
+        cnt.set(candies[i], (cnt.get(candies[i]) || 0) - 1);
+        if (cnt.get(candies[i]) === 0) {
+            cnt.delete(candies[i]);
+        }
+        ans = Math.max(ans, cnt.size);
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -185,31 +194,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function shareCandies(candies: number[], k: number): number {
-    const cnt: Map<number, number> = new Map();
-    for (const x of candies.slice(k)) {
-        cnt.set(x, (cnt.get(x) || 0) + 1);
-    }
-    let ans = cnt.size;
-    for (let i = k; i < candies.length; ++i) {
-        cnt.set(candies[i - k], (cnt.get(candies[i - k]) || 0) + 1);
-        cnt.set(candies[i], (cnt.get(candies[i]) || 0) - 1);
-        if (cnt.get(candies[i]) === 0) {
-            cnt.delete(candies[i]);
-        }
-        ans = Math.max(ans, cnt.size);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

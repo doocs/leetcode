@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串哈希 + 二分查找**
+### 方法一：字符串哈希 + 二分查找
 
 **字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 0。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
 
@@ -56,10 +54,6 @@
 相似题目：[1062. 最长重复子串](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 right = mid - 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef unsigned long long ULL;
 
@@ -182,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestDupSubstring(s string) string {
 	base, n := 131, len(s)
@@ -222,10 +208,6 @@ func longestDupSubstring(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

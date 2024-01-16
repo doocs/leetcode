@@ -48,9 +48,9 @@ Two operations could be performed to make s a palindrome so return true.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             i, j = i + 1, j - 1
         return cnt <= 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makePalindrome(s string) bool {
 	cnt := 0
@@ -110,8 +104,6 @@ func makePalindrome(s string) bool {
 	return cnt <= 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function makePalindrome(s: string): boolean {
@@ -127,10 +119,6 @@ function makePalindrome(s: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

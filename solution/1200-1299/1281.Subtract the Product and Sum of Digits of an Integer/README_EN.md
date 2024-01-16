@@ -38,7 +38,7 @@ Result = 32 - 11 = 21
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We use two variables $x$ and $y$ to record the product of the digits and the sum of the digits respectively. At the beginning, $x=1,y=0$.
 
@@ -50,8 +50,6 @@ The time complexity is $O(\log n)$, where $n$ is the given integer. The space co
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
@@ -62,15 +60,6 @@ class Solution:
             y += v
         return x - y
 ```
-
-```python
-class Solution:
-    def subtractProductAndSum(self, n: int) -> int:
-        nums = list(map(int, str(n)))
-        return prod(nums) - sum(nums)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subtractProductAndSum(n int) int {
 	x, y := 1, 0
@@ -117,8 +102,6 @@ func subtractProductAndSum(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function subtractProductAndSum(n: number): number {
     let [x, y] = [1, 0];
@@ -130,8 +113,6 @@ function subtractProductAndSum(n: number): number {
     return x - y;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -149,23 +130,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int subtractProductAndSum(int n) {
-    int x = 1;
-    int y = 0;
-    for (; n > 0; n /= 10) {
-        int v = n % 10;
-        x *= v;
-        y += v;
-    }
-    return x - y;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int SubtractProductAndSum(int n) {
@@ -181,10 +145,32 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int subtractProductAndSum(int n) {
+    int x = 1;
+    int y = 0;
+    for (; n > 0; n /= 10) {
+        int v = n % 10;
+        x *= v;
+        y += v;
+    }
+    return x - y;
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        nums = list(map(int, str(n)))
+        return prod(nums) - sum(nums)
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

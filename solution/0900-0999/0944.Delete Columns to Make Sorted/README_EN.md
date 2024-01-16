@@ -70,9 +70,9 @@ All 3 columns are not sorted, so you will delete all 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -86,8 +86,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,7 +125,21 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minDeletionSize(strs []string) int {
+	m, n := len(strs[0]), len(strs)
+	ans := 0
+	for j := 0; j < m; j++ {
+		for i := 1; i < n; i++ {
+			if strs[i][j] < strs[i-1][j] {
+				ans++
+				break
+			}
+		}
+	}
+	return ans
+}
+```
 
 ```rust
 impl Solution {
@@ -150,28 +160,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minDeletionSize(strs []string) int {
-	m, n := len(strs[0]), len(strs)
-	ans := 0
-	for j := 0; j < m; j++ {
-		for i := 1; i < n; i++ {
-			if strs[i][j] < strs[i-1][j] {
-				ans++
-				break
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

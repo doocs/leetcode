@@ -44,9 +44,9 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
                     ans = f[1]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestVariance(s string) int {
 	ans, n := 0, len(s)
@@ -153,16 +147,6 @@ func largestVariance(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

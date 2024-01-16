@@ -59,9 +59,9 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 declare global {
@@ -82,3 +82,5 @@ Function.prototype.callPolyfill = function (context, ...args): any {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

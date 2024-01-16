@@ -67,13 +67,125 @@ It can be shown that there exists no other beautiful configuration with a sum of
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We can enumerate each tower as the tallest tower, each time expanding to the left and right, calculating the height of each other position, and then accumulating to get the height sum $t$. The maximum of all height sums is the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $maxHeights$.
 
-**Solution 2: Dynamic Programming + Monotonic Stack**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
+        ans, n = 0, len(maxHeights)
+        for i, x in enumerate(maxHeights):
+            y = t = x
+            for j in range(i - 1, -1, -1):
+                y = min(y, maxHeights[j])
+                t += y
+            y = x
+            for j in range(i + 1, n):
+                y = min(y, maxHeights[j])
+                t += y
+            ans = max(ans, t)
+        return ans
+```
+
+```java
+class Solution {
+    public long maximumSumOfHeights(List<Integer> maxHeights) {
+        long ans = 0;
+        int n = maxHeights.size();
+        for (int i = 0; i < n; ++i) {
+            int y = maxHeights.get(i);
+            long t = y;
+            for (int j = i - 1; j >= 0; --j) {
+                y = Math.min(y, maxHeights.get(j));
+                t += y;
+            }
+            y = maxHeights.get(i);
+            for (int j = i + 1; j < n; ++j) {
+                y = Math.min(y, maxHeights.get(j));
+                t += y;
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long maximumSumOfHeights(vector<int>& maxHeights) {
+        long long ans = 0;
+        int n = maxHeights.size();
+        for (int i = 0; i < n; ++i) {
+            long long t = maxHeights[i];
+            int y = t;
+            for (int j = i - 1; ~j; --j) {
+                y = min(y, maxHeights[j]);
+                t += y;
+            }
+            y = maxHeights[i];
+            for (int j = i + 1; j < n; ++j) {
+                y = min(y, maxHeights[j]);
+                t += y;
+            }
+            ans = max(ans, t);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maximumSumOfHeights(maxHeights []int) (ans int64) {
+	n := len(maxHeights)
+	for i, x := range maxHeights {
+		y, t := x, x
+		for j := i - 1; j >= 0; j-- {
+			y = min(y, maxHeights[j])
+			t += y
+		}
+		y = x
+		for j := i + 1; j < n; j++ {
+			y = min(y, maxHeights[j])
+			t += y
+		}
+		ans = max(ans, int64(t))
+	}
+	return
+}
+```
+
+```ts
+function maximumSumOfHeights(maxHeights: number[]): number {
+    let ans = 0;
+    const n = maxHeights.length;
+    for (let i = 0; i < n; ++i) {
+        const x = maxHeights[i];
+        let [y, t] = [x, x];
+        for (let j = i - 1; ~j; --j) {
+            y = Math.min(y, maxHeights[j]);
+            t += y;
+        }
+        y = x;
+        for (let j = i + 1; j < n; ++j) {
+            y = Math.min(y, maxHeights[j]);
+            t += y;
+        }
+        ans = Math.max(ans, t);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Dynamic Programming + Monotonic Stack
 
 Solution 1 is sufficient to pass this problem, but the time complexity is relatively high. We can use "Dynamic Programming + Monotonic Stack" to optimize the enumeration process.
 
@@ -94,25 +206,6 @@ We can use a similar method to find $g[i]$, which represents the height sum of t
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $maxHeights$.
 
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-class Solution:
-    def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
-        ans, n = 0, len(maxHeights)
-        for i, x in enumerate(maxHeights):
-            y = t = x
-            for j in range(i - 1, -1, -1):
-                y = min(y, maxHeights[j])
-                t += y
-            y = x
-            for j in range(i + 1, n):
-                y = min(y, maxHeights[j])
-                t += y
-            ans = max(ans, t)
-        return ans
-```
 
 ```python
 class Solution:
@@ -150,32 +243,6 @@ class Solution:
                 j = right[i]
                 g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
         return max(a + b - c for a, b, c in zip(f, g, maxHeights))
-```
-
-### **Java**
-
-```java
-class Solution {
-    public long maximumSumOfHeights(List<Integer> maxHeights) {
-        long ans = 0;
-        int n = maxHeights.size();
-        for (int i = 0; i < n; ++i) {
-            int y = maxHeights.get(i);
-            long t = y;
-            for (int j = i - 1; j >= 0; --j) {
-                y = Math.min(y, maxHeights.get(j));
-                t += y;
-            }
-            y = maxHeights.get(i);
-            for (int j = i + 1; j < n; ++j) {
-                y = Math.min(y, maxHeights.get(j));
-                t += y;
-            }
-            ans = Math.max(ans, t);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -237,33 +304,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    long long maximumSumOfHeights(vector<int>& maxHeights) {
-        long long ans = 0;
-        int n = maxHeights.size();
-        for (int i = 0; i < n; ++i) {
-            long long t = maxHeights[i];
-            int y = t;
-            for (int j = i - 1; ~j; --j) {
-                y = min(y, maxHeights[j]);
-                t += y;
-            }
-            y = maxHeights[i];
-            for (int j = i + 1; j < n; ++j) {
-                y = min(y, maxHeights[j]);
-                t += y;
-            }
-            ans = max(ans, t);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -319,28 +359,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func maximumSumOfHeights(maxHeights []int) (ans int64) {
-	n := len(maxHeights)
-	for i, x := range maxHeights {
-		y, t := x, x
-		for j := i - 1; j >= 0; j-- {
-			y = min(y, maxHeights[j])
-			t += y
-		}
-		y = x
-		for j := i + 1; j < n; j++ {
-			y = min(y, maxHeights[j])
-			t += y
-		}
-		ans = max(ans, int64(t))
-	}
-	return
-}
 ```
 
 ```go
@@ -405,30 +423,6 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maximumSumOfHeights(maxHeights: number[]): number {
-    let ans = 0;
-    const n = maxHeights.length;
-    for (let i = 0; i < n; ++i) {
-        const x = maxHeights[i];
-        let [y, t] = [x, x];
-        for (let j = i - 1; ~j; --j) {
-            y = Math.min(y, maxHeights[j]);
-            t += y;
-        }
-        y = x;
-        for (let j = i + 1; j < n; ++j) {
-            y = Math.min(y, maxHeights[j]);
-            t += y;
-        }
-        ans = Math.max(ans, t);
-    }
-    return ans;
-}
-```
-
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {
     const n = maxHeights.length;
@@ -484,10 +478,6 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

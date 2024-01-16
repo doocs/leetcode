@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：折半查找 + 二进制枚举**
+### 方法一：折半查找 + 二进制枚举
 
 根据题目要求，要判断是否可以将数组 `nums` 划分为两个子数组 $A$ 和 $B$，使得两个子数组的平均值相等。
 
@@ -92,10 +90,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def splitArraySameAverage(self, nums: List[int]) -> bool:
@@ -118,10 +112,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -164,8 +154,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -193,8 +181,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func splitArraySameAverage(nums []int) bool {
@@ -238,10 +224,6 @@ func splitArraySameAverage(nums []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

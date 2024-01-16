@@ -58,19 +58,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 从左到右遍历字符串 `num`，找到第一个比 `change` 中对应数字小的数字，然后将其替换为 `change` 中对应的数字，直到遇到比 `change` 中对应数字大的数字，停止替换。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `num` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 break
         return ''.join(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumNumber(num string, change []int) string {
 	s := []byte(num)
@@ -143,10 +129,6 @@ func maximumNumber(num string, change []int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

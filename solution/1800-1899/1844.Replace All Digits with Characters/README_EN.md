@@ -49,7 +49,7 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 Traverse the string, for characters at odd indices, replace them with the character that is a certain number of positions after the previous character.
 
@@ -59,8 +59,6 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignori
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def replaceDigits(self, s: str) -> str:
@@ -69,8 +67,6 @@ class Solution:
             s[i] = chr(ord(s[i - 1]) + int(s[i]))
         return ''.join(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func replaceDigits(s string) string {
 	cs := []byte(s)
@@ -110,8 +102,6 @@ func replaceDigits(s string) string {
 	return string(cs)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function replaceDigits(s: string): string {
@@ -123,8 +113,6 @@ function replaceDigits(s: string): string {
     return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -141,8 +129,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 char* replaceDigits(char* s) {
     int n = strlen(s);
@@ -153,10 +139,6 @@ char* replaceDigits(char* s) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

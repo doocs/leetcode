@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 异或运算有以下性质：
 
@@ -65,10 +63,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
@@ -81,10 +75,6 @@ class Solution:
         b = xs ^ a
         return [a, b]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func singleNumber(nums []int) []int {
 	xs := 0
@@ -149,7 +135,20 @@ func singleNumber(nums []int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function singleNumber(nums: number[]): number[] {
+    const xs = nums.reduce((a, b) => a ^ b);
+    const lb = xs & -xs;
+    let a = 0;
+    for (const x of nums) {
+        if (x & lb) {
+            a ^= x;
+        }
+    }
+    const b = xs ^ a;
+    return [a, b];
+}
+```
 
 ```rust
 impl Solution {
@@ -167,44 +166,6 @@ impl Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function singleNumber(nums: number[]): number[] {
-    const xs = nums.reduce((a, b) => a ^ b);
-    const lb = xs & -xs;
-    let a = 0;
-    for (const x of nums) {
-        if (x & lb) {
-            a ^= x;
-        }
-    }
-    const b = xs ^ a;
-    return [a, b];
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int[] SingleNumber(int[] nums) {
-        int xs = nums.Aggregate(0, (a, b) => a ^ b);
-        int lb = xs & -xs;
-        int a = 0;
-        foreach(int x in nums) {
-            if ((x & lb) != 0) {
-                a ^= x;
-            }
-        }
-        int b = xs ^ a;
-        return new int[] {a, b};
-    }
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -225,10 +186,23 @@ var singleNumber = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int[] SingleNumber(int[] nums) {
+        int xs = nums.Aggregate(0, (a, b) => a ^ b);
+        int lb = xs & -xs;
+        int a = 0;
+        foreach(int x in nums) {
+            if ((x & lb) != 0) {
+                a ^= x;
+            }
+        }
+        int b = xs ^ a;
+        return new int[] {a, b};
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

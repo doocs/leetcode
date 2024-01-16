@@ -67,7 +67,7 @@ The difference between their scores is (-22) - 0 = -22.
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Memoization Search**
+### Solution 1: Prefix Sum + Memoization Search
 
 According to the problem description, each time we take the leftmost $x$ stones, add their sum to our score, and then put a stone with this sum value on the leftmost side, it is equivalent to merging these $x$ stones into a stone with this sum value, and the prefix sum remains unchanged.
 
@@ -86,33 +86,7 @@ To avoid repeated calculations, we can use memoization search.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $stones$.
 
-**Solution 2: Prefix Sum + Dynamic Programming**
-
-We can also use dynamic programming to solve this problem.
-
-Similar to Solution 1, we first use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $stones$, where $s[i]$ represents the sum of the elements $stones[0..i]$.
-
-We define $f[i]$ to represent the maximum score difference that the current player can get when taking stones from $stones[i:]$.
-
-If the player chooses to take the stones $stones[:i]$, then the score obtained is $s[i]$. At this time, the other player will take stones from $stones[i+1:]$, and the maximum score difference that the other player can get is $f[i+1]$. Therefore, the maximum score difference that the current player can get is $s[i] - f[i+1]$.
-
-If the player chooses to take stones from $stones[i+1:]$, then the maximum score difference obtained is $f[i+1]$.
-
-Therefore, we can get the state transition equation:
-
-$$
-f[i] = \max\{s[i] - f[i+1], f[i+1]\}
-$$
-
-Finally, we can get the score difference between Alice and Bob as $f[1]$, that is, Alice must start the game by taking stones from $stones[1:]$.
-
-We notice that $f[i]$ is only related to $f[i+1]$, so we only need to use a variable $f$ to represent $f[i]$.
-
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $stones$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -126,18 +100,6 @@ class Solution:
         s = list(accumulate(stones))
         return dfs(1)
 ```
-
-```python
-class Solution:
-    def stoneGameVIII(self, stones: List[int]) -> int:
-        s = list(accumulate(stones))
-        f = s[-1]
-        for i in range(len(s) - 2, 0, -1):
-            f = max(f, s[i] - f)
-        return f
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -167,24 +129,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int stoneGameVIII(int[] stones) {
-        int n = stones.length;
-        for (int i = 1; i < n; ++i) {
-            stones[i] += stones[i - 1];
-        }
-        int f = stones[n - 1];
-        for (int i = n - 2; i > 0; --i) {
-            f = Math.max(f, stones[i] - f);
-        }
-        return f;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -208,25 +152,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int stoneGameVIII(vector<int>& stones) {
-        int n = stones.size();
-        for (int i = 1; i < n; ++i) {
-            stones[i] += stones[i - 1];
-        }
-        int f = stones.back();
-        for (int i = n - 2; i; --i) {
-            f = max(f, stones[i] - f);
-        }
-        return f;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func stoneGameVIII(stones []int) int {
@@ -252,22 +177,6 @@ func stoneGameVIII(stones []int) int {
 }
 ```
 
-```go
-func stoneGameVIII(stones []int) int {
-	n := len(stones)
-	for i := 1; i < n; i++ {
-		stones[i] += stones[i-1]
-	}
-	f := stones[n-1]
-	for i := n - 2; i > 0; i-- {
-		f = max(f, stones[i]-f)
-	}
-	return f
-}
-```
-
-### **TypeScript**
-
 ```ts
 function stoneGameVIII(stones: number[]): number {
     const n = stones.length;
@@ -288,6 +197,77 @@ function stoneGameVIII(stones: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Prefix Sum + Dynamic Programming
+
+We can also use dynamic programming to solve this problem.
+
+Similar to Solution 1, we first use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $stones$, where $s[i]$ represents the sum of the elements $stones[0..i]$.
+
+We define $f[i]$ to represent the maximum score difference that the current player can get when taking stones from $stones[i:]$.
+
+If the player chooses to take the stones $stones[:i]$, then the score obtained is $s[i]$. At this time, the other player will take stones from $stones[i+1:]$, and the maximum score difference that the other player can get is $f[i+1]$. Therefore, the maximum score difference that the current player can get is $s[i] - f[i+1]$.
+
+If the player chooses to take stones from $stones[i+1:]$, then the maximum score difference obtained is $f[i+1]$.
+
+Therefore, we can get the state transition equation:
+
+$$
+f[i] = \max\{s[i] - f[i+1], f[i+1]\}
+$$
+
+Finally, we can get the score difference between Alice and Bob as $f[1]$, that is, Alice must start the game by taking stones from $stones[1:]$.
+
+We notice that $f[i]$ is only related to $f[i+1]$, so we only need to use a variable $f$ to represent $f[i]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $stones$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def stoneGameVIII(self, stones: List[int]) -> int:
+        s = list(accumulate(stones))
+        f = s[-1]
+        for i in range(len(s) - 2, 0, -1):
+            f = max(f, s[i] - f)
+        return f
+```
+
+```java
+class Solution {
+    public int stoneGameVIII(int[] stones) {
+        int n = stones.length;
+        for (int i = 1; i < n; ++i) {
+            stones[i] += stones[i - 1];
+        }
+        int f = stones[n - 1];
+        for (int i = n - 2; i > 0; --i) {
+            f = Math.max(f, stones[i] - f);
+        }
+        return f;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int stoneGameVIII(vector<int>& stones) {
+        int n = stones.size();
+        for (int i = 1; i < n; ++i) {
+            stones[i] += stones[i - 1];
+        }
+        int f = stones.back();
+        for (int i = n - 2; i; --i) {
+            f = max(f, stones[i] - f);
+        }
+        return f;
+    }
+};
+```
+
 ```ts
 function stoneGameVIII(stones: number[]): number {
     const n = stones.length;
@@ -302,10 +282,6 @@ function stoneGameVIII(stones: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

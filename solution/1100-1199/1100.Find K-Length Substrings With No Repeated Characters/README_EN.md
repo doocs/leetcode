@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers + Counter**
+### Solution 1: Two Pointers + Counter
 
 We observe that all characters are lowercase letters, so there are at most $26$ different characters. Therefore, if $k > 26$ or $k > n$, it is impossible to find any substring of length $k$ without repeated characters, and we can directly return $0$.
 
@@ -47,8 +47,6 @@ After the traversal ends, we can get the number of all substrings that meet the 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -66,25 +64,6 @@ class Solution:
             ans += i - j + 1 == k
         return ans
 ```
-
-```python
-class Solution:
-    def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
-        n = len(s)
-        if k > n:
-            return 0
-        cnt = Counter(s[:k])
-        ans = int(len(cnt) == k)
-        for i in range(k, n):
-            cnt[s[i]] += 1
-            cnt[s[i - k]] -= 1
-            if cnt[s[i - k]] == 0:
-                cnt.pop(s[i - k])
-            ans += len(cnt) == k
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,6 +84,119 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int numKLenSubstrNoRepeats(string s, int k) {
+        int n = s.size();
+        if (k > n || k > 26) {
+            return 0;
+        }
+        int cnt[128]{};
+        int ans = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            ++cnt[s[i]];
+            while (cnt[s[i]] > 1 || i - j + 1 > k) {
+                --cnt[s[j++]];
+            }
+            ans += i - j + 1 == k;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numKLenSubstrNoRepeats(s string, k int) (ans int) {
+	if k > len(s) || k > 26 {
+		return 0
+	}
+	cnt := [128]int{}
+	for i, j := 0, 0; i < len(s); i++ {
+		cnt[s[i]]++
+		for cnt[s[i]] > 1 || i-j+1 > k {
+			cnt[s[j]]--
+			j++
+		}
+		if i-j+1 == k {
+			ans++
+		}
+	}
+	return
+}
+```
+
+```ts
+function numKLenSubstrNoRepeats(s: string, k: number): number {
+    const n = s.length;
+    if (k > n) {
+        return 0;
+    }
+    const cnt: Map<string, number> = new Map();
+    for (let i = 0; i < k; ++i) {
+        cnt.set(s[i], (cnt.get(s[i]) ?? 0) + 1);
+    }
+    let ans = cnt.size === k ? 1 : 0;
+    for (let i = k; i < n; ++i) {
+        cnt.set(s[i], (cnt.get(s[i]) ?? 0) + 1);
+        cnt.set(s[i - k], (cnt.get(s[i - k]) ?? 0) - 1);
+        if (cnt.get(s[i - k]) === 0) {
+            cnt.delete(s[i - k]);
+        }
+        ans += cnt.size === k ? 1 : 0;
+    }
+    return ans;
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param String $s
+     * @param Integer $k
+     * @return Integer
+     */
+    function numKLenSubstrNoRepeats($s, $k) {
+        $sum = ($k * ($k + 1)) / 2 - $k;
+        $cnt = $tmp = 0;
+        for ($i = 0; $i < strlen($s) - $k + 1; $i++) {
+            $str = substr($s, $i, $k);
+            for ($j = 0; $j < $k; $j++) {
+                $tmp += strpos($str, $str[$j]);
+            }
+            if ($tmp === $sum) {
+                $cnt++;
+            }
+            $tmp = 0;
+        }
+        return $cnt;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
+        n = len(s)
+        if k > n:
+            return 0
+        cnt = Counter(s[:k])
+        ans = int(len(cnt) == k)
+        for i in range(k, n):
+            cnt[s[i]] += 1
+            cnt[s[i - k]] -= 1
+            if cnt[s[i - k]] == 0:
+                cnt.pop(s[i - k])
+            ans += len(cnt) == k
+        return ans
 ```
 
 ```java
@@ -131,30 +223,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numKLenSubstrNoRepeats(string s, int k) {
-        int n = s.size();
-        if (k > n || k > 26) {
-            return 0;
-        }
-        int cnt[128]{};
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            ++cnt[s[i]];
-            while (cnt[s[i]] > 1 || i - j + 1 > k) {
-                --cnt[s[j++]];
-            }
-            ans += i - j + 1 == k;
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -179,28 +247,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func numKLenSubstrNoRepeats(s string, k int) (ans int) {
-	if k > len(s) || k > 26 {
-		return 0
-	}
-	cnt := [128]int{}
-	for i, j := 0, 0; i < len(s); i++ {
-		cnt[s[i]]++
-		for cnt[s[i]] > 1 || i-j+1 > k {
-			cnt[s[j]]--
-			j++
-		}
-		if i-j+1 == k {
-			ans++
-		}
-	}
-	return
-}
 ```
 
 ```go
@@ -230,62 +276,6 @@ func numKLenSubstrNoRepeats(s string, k int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function numKLenSubstrNoRepeats(s: string, k: number): number {
-    const n = s.length;
-    if (k > n) {
-        return 0;
-    }
-    const cnt: Map<string, number> = new Map();
-    for (let i = 0; i < k; ++i) {
-        cnt.set(s[i], (cnt.get(s[i]) ?? 0) + 1);
-    }
-    let ans = cnt.size === k ? 1 : 0;
-    for (let i = k; i < n; ++i) {
-        cnt.set(s[i], (cnt.get(s[i]) ?? 0) + 1);
-        cnt.set(s[i - k], (cnt.get(s[i - k]) ?? 0) - 1);
-        if (cnt.get(s[i - k]) === 0) {
-            cnt.delete(s[i - k]);
-        }
-        ans += cnt.size === k ? 1 : 0;
-    }
-    return ans;
-}
-```
-
-### **PHP**
-
-```php
-class Solution {
-    /**
-     * @param String $s
-     * @param Integer $k
-     * @return Integer
-     */
-    function numKLenSubstrNoRepeats($s, $k) {
-        $sum = ($k * ($k + 1)) / 2 - $k;
-        $cnt = $tmp = 0;
-        for ($i = 0; $i < strlen($s) - $k + 1; $i++) {
-            $str = substr($s, $i, $k);
-            for ($j = 0; $j < $k; $j++) {
-                $tmp += strpos($str, $str[$j]);
-            }
-            if ($tmp === $sum) {
-                $cnt++;
-            }
-            $tmp = 0;
-        }
-        return $cnt;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

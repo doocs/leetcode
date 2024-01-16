@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 动态规划**
+### 方法一：哈希表 + 动态规划
 
 我们可以用一个哈希表 $ss$ 记录字段中的所有单词，方便我们快速判断一个字符串是否在字典中。
 
@@ -62,21 +60,7 @@ $$
 
 时间复杂度 $O(n^3 + L)$，空间复杂度 $O(n + L)$。其中 $n$ 是字符串 $s$ 的长度，而 $L$ 是字典中所有单词的长度之和。
 
-**方法二：字典树 + 动态规划**
-
-我们可以借助字典树来优化方法一的时间复杂度。
-
-具体地，我们首先将字典中的每个单词逆序插入到字典树 $root$ 中，然后我们定义 $f[i]$ 表示字符串 $s$ 的前 $i$ 个字符的最小额外字符数，初始时 $f[0] = 0$。
-
-当 $i \ge 1$ 时，第 $i$ 个字符 $s[i - 1]$ 可以作为一个额外字符，此时 $f[i] = f[i - 1] + 1$；我们也可以在 $[0..i-1]$ 的范围内逆序枚举下标 $j$，判断 $s[j..i)$ 是否在字典树 $root$ 中，如果存在，那么我们可以将 $s[j..i)$ 作为一个单词，此时 $f[i] = f[j]$。
-
-时间复杂度 $O(n^2 + L)$，空间复杂度 $O(n + L \times |\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $L$ 是字典中所有单词的长度之和，另外 $|\Sigma|$ 是字符集的大小，本题中字符集为小写英文字母，因此 $|\Sigma| = 26$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,6 +75,122 @@ class Solution:
                     f[i] = f[j]
         return f[n]
 ```
+
+```java
+class Solution {
+    public int minExtraChar(String s, String[] dictionary) {
+        Set<String> ss = new HashSet<>();
+        for (String w : dictionary) {
+            ss.add(w);
+        }
+        int n = s.length();
+        int[] f = new int[n + 1];
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i - 1] + 1;
+            for (int j = 0; j < i; ++j) {
+                if (ss.contains(s.substring(j, i))) {
+                    f[i] = Math.min(f[i], f[j]);
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minExtraChar(string s, vector<string>& dictionary) {
+        unordered_set<string> ss(dictionary.begin(), dictionary.end());
+        int n = s.size();
+        int f[n + 1];
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i - 1] + 1;
+            for (int j = 0; j < i; ++j) {
+                if (ss.count(s.substr(j, i - j))) {
+                    f[i] = min(f[i], f[j]);
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func minExtraChar(s string, dictionary []string) int {
+	ss := map[string]bool{}
+	for _, w := range dictionary {
+		ss[w] = true
+	}
+	n := len(s)
+	f := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		f[i] = f[i-1] + 1
+		for j := 0; j < i; j++ {
+			if ss[s[j:i]] && f[j] < f[i] {
+				f[i] = f[j]
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+```ts
+function minExtraChar(s: string, dictionary: string[]): number {
+    const ss = new Set(dictionary);
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        f[i] = f[i - 1] + 1;
+        for (let j = 0; j < i; ++j) {
+            if (ss.has(s.substring(j, i))) {
+                f[i] = Math.min(f[i], f[j]);
+            }
+        }
+    }
+    return f[n];
+}
+```
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
+        let ss: HashSet<String> = dictionary.into_iter().collect();
+        let n = s.len();
+        let mut f = vec![0; n + 1];
+        for i in 1..=n {
+            f[i] = f[i - 1] + 1;
+            for j in 0..i {
+                if ss.contains(&s[j..i]) {
+                    f[i] = f[i].min(f[j]);
+                }
+            }
+        }
+        f[n]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：字典树 + 动态规划
+
+我们可以借助字典树来优化方法一的时间复杂度。
+
+具体地，我们首先将字典中的每个单词逆序插入到字典树 $root$ 中，然后我们定义 $f[i]$ 表示字符串 $s$ 的前 $i$ 个字符的最小额外字符数，初始时 $f[0] = 0$。
+
+当 $i \ge 1$ 时，第 $i$ 个字符 $s[i - 1]$ 可以作为一个额外字符，此时 $f[i] = f[i - 1] + 1$；我们也可以在 $[0..i-1]$ 的范围内逆序枚举下标 $j$，判断 $s[j..i)$ 是否在字典树 $root$ 中，如果存在，那么我们可以将 $s[j..i)$ 作为一个单词，此时 $f[i] = f[j]$。
+
+时间复杂度 $O(n^2 + L)$，空间复杂度 $O(n + L \times |\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $L$ 是字典中所有单词的长度之和，另外 $|\Sigma|$ 是字符集的大小，本题中字符集为小写英文字母，因此 $|\Sigma| = 26$。
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -125,33 +225,6 @@ class Solution:
                 if node.is_end and f[j] < f[i]:
                     f[i] = f[j]
         return f[n]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int minExtraChar(String s, String[] dictionary) {
-        Set<String> ss = new HashSet<>();
-        for (String w : dictionary) {
-            ss.add(w);
-        }
-        int n = s.length();
-        int[] f = new int[n + 1];
-        f[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            f[i] = f[i - 1] + 1;
-            for (int j = 0; j < i; ++j) {
-                if (ss.contains(s.substring(j, i))) {
-                    f[i] = Math.min(f[i], f[j]);
-                }
-            }
-        }
-        return f[n];
-    }
-}
 ```
 
 ```java
@@ -192,29 +265,6 @@ class Solution {
         return f[n];
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minExtraChar(string s, vector<string>& dictionary) {
-        unordered_set<string> ss(dictionary.begin(), dictionary.end());
-        int n = s.size();
-        int f[n + 1];
-        f[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            f[i] = f[i - 1] + 1;
-            for (int j = 0; j < i; ++j) {
-                if (ss.count(s.substr(j, i - j))) {
-                    f[i] = min(f[i], f[j]);
-                }
-            }
-        }
-        return f[n];
-    }
-};
 ```
 
 ```cpp
@@ -264,28 +314,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minExtraChar(s string, dictionary []string) int {
-	ss := map[string]bool{}
-	for _, w := range dictionary {
-		ss[w] = true
-	}
-	n := len(s)
-	f := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		f[i] = f[i-1] + 1
-		for j := 0; j < i; j++ {
-			if ss[s[j:i]] && f[j] < f[i] {
-				f[i] = f[j]
-			}
-		}
-	}
-	return f[n]
-}
-```
-
 ```go
 type Node struct {
 	children [26]*Node
@@ -322,25 +350,6 @@ func minExtraChar(s string, dictionary []string) int {
 		}
 	}
 	return f[n]
-}
-```
-
-### **TypeScript**
-
-```ts
-function minExtraChar(s: string, dictionary: string[]): number {
-    const ss = new Set(dictionary);
-    const n = s.length;
-    const f = new Array(n + 1).fill(0);
-    for (let i = 1; i <= n; ++i) {
-        f[i] = f[i - 1] + 1;
-        for (let j = 0; j < i; ++j) {
-            if (ss.has(s.substring(j, i))) {
-                f[i] = Math.min(f[i], f[j]);
-            }
-        }
-    }
-    return f[n];
 }
 ```
 
@@ -384,33 +393,6 @@ function minExtraChar(s: string, dictionary: string[]): number {
 }
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-
-impl Solution {
-    pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
-        let ss: HashSet<String> = dictionary.into_iter().collect();
-        let n = s.len();
-        let mut f = vec![0; n + 1];
-        for i in 1..=n {
-            f[i] = f[i - 1] + 1;
-            for j in 0..i {
-                if ss.contains(&s[j..i]) {
-                    f[i] = f[i].min(f[j]);
-                }
-            }
-        }
-        f[n]
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

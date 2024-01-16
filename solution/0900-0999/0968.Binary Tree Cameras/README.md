@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划（树形 DP）**
+### 方法一：动态规划（树形 DP）
 
 对于每个节点，我们定义三种状态：
 
@@ -70,10 +68,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -96,10 +90,6 @@ class Solution:
         a, b, _ = dfs(root)
         return min(a, b)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -136,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -176,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -204,8 +190,6 @@ func minCameraCover(root *TreeNode) int {
 	return min(a, b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -239,10 +223,6 @@ function minCameraCover(root: TreeNode | null): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

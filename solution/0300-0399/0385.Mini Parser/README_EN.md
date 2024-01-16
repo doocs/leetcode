@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Recursion**
+### Solution 1: Recursion
 
 We first judge whether the string $s$ is empty or an empty list. If so, simply return an empty `NestedInteger`. If $s$ is an integer, we simply return a `NestedInteger` containing this integer. Otherwise, we traverse the string $s$ from left to right. If the current depth is $0$ and we encounter a comma or the end of the string $s$, we take a substring and recursively call the function to parse the substring and add the return value to the list. Otherwise, if the current encounter is a left parenthesis, we increase the depth by $1$ and continue to traverse. If we encounter a right parenthesis, we decrease the depth by $1$ and continue to traverse.
 
@@ -50,24 +50,7 @@ After the traversal is over, return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
-**Solution 2: Stack**
-
-We can use a stack to simulate the recursive process.
-
-We first judge whether the string $s$ is an integer. If so, we simply return a `NestedInteger` containing this integer. Otherwise, we traverse the string $s$ from left to right. For the character $c$ currently traversed:
-
--   If $c$ is a negative sign, we set the negative sign to `true`;
--   If $c$ is a number, we add the number to the current number $x$, where the initial value of $x$ is $0$;
--   If $c$ is a left parenthesis, we push a new `NestedInteger` onto the stack;
--   If $c$ is a right parenthesis or comma, we judge whether the previous character of the current character is a number. If so, we add the current number $x$ to the top `NestedInteger` of the stack according to the negative sign, and then reset the negative sign to `false` and the current number $x$ to $0$. If $c$ is a right parenthesis and the size of the current stack is greater than $1$, we pop the top `NestedInteger` of the stack and add it to the top `NestedInteger` of the stack.
-
-After the traversal is over, return the top `NestedInteger` of the stack.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # """
@@ -130,6 +113,249 @@ class Solution:
                 depth -= 1
         return ans
 ```
+
+```java
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * public interface NestedInteger {
+ *     // Constructor initializes an empty nested list.
+ *     public NestedInteger();
+ *
+ *     // Constructor initializes a single integer.
+ *     public NestedInteger(int value);
+ *
+ *     // @return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     public boolean isInteger();
+ *
+ *     // @return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // Return null if this NestedInteger holds a nested list
+ *     public Integer getInteger();
+ *
+ *     // Set this NestedInteger to hold a single integer.
+ *     public void setInteger(int value);
+ *
+ *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ *     public void add(NestedInteger ni);
+ *
+ *     // @return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // Return empty list if this NestedInteger holds a single integer
+ *     public List<NestedInteger> getList();
+ * }
+ */
+class Solution {
+    public NestedInteger deserialize(String s) {
+        if ("".equals(s) || "[]".equals(s)) {
+            return new NestedInteger();
+        }
+        if (s.charAt(0) != '[') {
+            return new NestedInteger(Integer.parseInt(s));
+        }
+        NestedInteger ans = new NestedInteger();
+        int depth = 0;
+        for (int i = 1, j = 1; i < s.length(); ++i) {
+            if (depth == 0 && (s.charAt(i) == ',' || i == s.length() - 1)) {
+                ans.add(deserialize(s.substring(j, i)));
+                j = i + 1;
+            } else if (s.charAt(i) == '[') {
+                ++depth;
+            } else if (s.charAt(i) == ']') {
+                --depth;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * class NestedInteger {
+ *   public:
+ *     // Constructor initializes an empty nested list.
+ *     NestedInteger();
+ *
+ *     // Constructor initializes a single integer.
+ *     NestedInteger(int value);
+ *
+ *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     bool isInteger() const;
+ *
+ *     // Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // The result is undefined if this NestedInteger holds a nested list
+ *     int getInteger() const;
+ *
+ *     // Set this NestedInteger to hold a single integer.
+ *     void setInteger(int value);
+ *
+ *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ *     void add(const NestedInteger &ni);
+ *
+ *     // Return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // The result is undefined if this NestedInteger holds a single integer
+ *     const vector<NestedInteger> &getList() const;
+ * };
+ */
+class Solution {
+public:
+    NestedInteger deserialize(string s) {
+        if (s == "" || s == "[]") {
+            return NestedInteger();
+        }
+        if (s[0] != '[') {
+            return NestedInteger(stoi(s));
+        }
+        NestedInteger ans;
+        int depth = 0;
+        for (int i = 1, j = 1; i < s.size(); ++i) {
+            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
+                ans.add(deserialize(s.substr(j, i - j)));
+                j = i + 1;
+            } else if (s[i] == '[') {
+                ++depth;
+            } else if (s[i] == ']') {
+                --depth;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * type NestedInteger struct {
+ * }
+ *
+ * // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ * func (n NestedInteger) IsInteger() bool {}
+ *
+ * // Return the single integer that this NestedInteger holds, if it holds a single integer
+ * // The result is undefined if this NestedInteger holds a nested list
+ * // So before calling this method, you should have a check
+ * func (n NestedInteger) GetInteger() int {}
+ *
+ * // Set this NestedInteger to hold a single integer.
+ * func (n *NestedInteger) SetInteger(value int) {}
+ *
+ * // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ * func (n *NestedInteger) Add(elem NestedInteger) {}
+ *
+ * // Return the nested list that this NestedInteger holds, if it holds a nested list
+ * // The list length is zero if this NestedInteger holds a single integer
+ * // You can access NestedInteger's List element directly if you want to modify it
+ * func (n NestedInteger) GetList() []*NestedInteger {}
+ */
+func deserialize(s string) *NestedInteger {
+	ans := &NestedInteger{}
+	if s == "" || s == "[]" {
+		return ans
+	}
+	if s[0] != '[' {
+		v, _ := strconv.Atoi(s)
+		ans.SetInteger(v)
+		return ans
+	}
+	depth := 0
+	for i, j := 1, 1; i < len(s); i++ {
+		if depth == 0 && (s[i] == ',' || i == len(s)-1) {
+			(*ans).Add(*deserialize(s[j:i]))
+			j = i + 1
+		} else if s[i] == '[' {
+			depth++
+		} else if s[i] == ']' {
+			depth--
+		}
+	}
+	return ans
+}
+```
+
+```ts
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * class NestedInteger {
+ *     If value is provided, then it holds a single integer
+ *     Otherwise it holds an empty nested list
+ *     constructor(value?: number) {
+ *         ...
+ *     };
+ *
+ *     Return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     isInteger(): boolean {
+ *         ...
+ *     };
+ *
+ *     Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     Return null if this NestedInteger holds a nested list
+ *     getInteger(): number | null {
+ *         ...
+ *     };
+ *
+ *     Set this NestedInteger to hold a single integer equal to value.
+ *     setInteger(value: number) {
+ *         ...
+ *     };
+ *
+ *     Set this NestedInteger to hold a nested list and adds a nested integer elem to it.
+ *     add(elem: NestedInteger) {
+ *         ...
+ *     };
+ *
+ *     Return the nested list that this NestedInteger holds,
+ *     or an empty list if this NestedInteger holds a single integer
+ *     getList(): NestedInteger[] {
+ *         ...
+ *     };
+ * };
+ */
+
+function deserialize(s: string): NestedInteger {
+    if (s === '' || s === '[]') {
+        return new NestedInteger();
+    }
+    if (s[0] !== '[') {
+        return new NestedInteger(+s);
+    }
+    const ans: NestedInteger = new NestedInteger();
+    let depth = 0;
+    for (let i = 1, j = 1; i < s.length; ++i) {
+        if (depth === 0 && (s[i] === ',' || i === s.length - 1)) {
+            ans.add(deserialize(s.slice(j, i)));
+            j = i + 1;
+        } else if (s[i] === '[') {
+            ++depth;
+        } else if (s[i] === ']') {
+            --depth;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Stack
+
+We can use a stack to simulate the recursive process.
+
+We first judge whether the string $s$ is an integer. If so, we simply return a `NestedInteger` containing this integer. Otherwise, we traverse the string $s$ from left to right. For the character $c$ currently traversed:
+
+-   If $c$ is a negative sign, we set the negative sign to `true`;
+-   If $c$ is a number, we add the number to the current number $x$, where the initial value of $x$ is $0$;
+-   If $c$ is a left parenthesis, we push a new `NestedInteger` onto the stack;
+-   If $c$ is a right parenthesis or comma, we judge whether the previous character of the current character is a number. If so, we add the current number $x$ to the top `NestedInteger` of the stack according to the negative sign, and then reset the negative sign to `false` and the current number $x$ to $0$. If $c$ is a right parenthesis and the size of the current stack is greater than $1$, we pop the top `NestedInteger` of the stack and add it to the top `NestedInteger` of the stack.
+
+After the traversal is over, return the top `NestedInteger` of the stack.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+
+<!-- tabs:start -->
 
 ```python
 # """
@@ -198,62 +424,6 @@ class Solution:
         return stk.pop()
 ```
 
-### **Java**
-
-```java
-/**
- * // This is the interface that allows for creating nested lists.
- * // You should not implement it, or speculate about its implementation
- * public interface NestedInteger {
- *     // Constructor initializes an empty nested list.
- *     public NestedInteger();
- *
- *     // Constructor initializes a single integer.
- *     public NestedInteger(int value);
- *
- *     // @return true if this NestedInteger holds a single integer, rather than a nested list.
- *     public boolean isInteger();
- *
- *     // @return the single integer that this NestedInteger holds, if it holds a single integer
- *     // Return null if this NestedInteger holds a nested list
- *     public Integer getInteger();
- *
- *     // Set this NestedInteger to hold a single integer.
- *     public void setInteger(int value);
- *
- *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
- *     public void add(NestedInteger ni);
- *
- *     // @return the nested list that this NestedInteger holds, if it holds a nested list
- *     // Return empty list if this NestedInteger holds a single integer
- *     public List<NestedInteger> getList();
- * }
- */
-class Solution {
-    public NestedInteger deserialize(String s) {
-        if ("".equals(s) || "[]".equals(s)) {
-            return new NestedInteger();
-        }
-        if (s.charAt(0) != '[') {
-            return new NestedInteger(Integer.parseInt(s));
-        }
-        NestedInteger ans = new NestedInteger();
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.length(); ++i) {
-            if (depth == 0 && (s.charAt(i) == ',' || i == s.length() - 1)) {
-                ans.add(deserialize(s.substring(j, i)));
-                j = i + 1;
-            } else if (s.charAt(i) == '[') {
-                ++depth;
-            } else if (s.charAt(i) == ']') {
-                --depth;
-            }
-        }
-        return ans;
-    }
-}
-```
-
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -317,64 +487,6 @@ class Solution {
         return stk.peek();
     }
 }
-```
-
-### **C++**
-
-```cpp
-/**
- * // This is the interface that allows for creating nested lists.
- * // You should not implement it, or speculate about its implementation
- * class NestedInteger {
- *   public:
- *     // Constructor initializes an empty nested list.
- *     NestedInteger();
- *
- *     // Constructor initializes a single integer.
- *     NestedInteger(int value);
- *
- *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
- *     bool isInteger() const;
- *
- *     // Return the single integer that this NestedInteger holds, if it holds a single integer
- *     // The result is undefined if this NestedInteger holds a nested list
- *     int getInteger() const;
- *
- *     // Set this NestedInteger to hold a single integer.
- *     void setInteger(int value);
- *
- *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
- *     void add(const NestedInteger &ni);
- *
- *     // Return the nested list that this NestedInteger holds, if it holds a nested list
- *     // The result is undefined if this NestedInteger holds a single integer
- *     const vector<NestedInteger> &getList() const;
- * };
- */
-class Solution {
-public:
-    NestedInteger deserialize(string s) {
-        if (s == "" || s == "[]") {
-            return NestedInteger();
-        }
-        if (s[0] != '[') {
-            return NestedInteger(stoi(s));
-        }
-        NestedInteger ans;
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.size(); ++i) {
-            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
-                ans.add(deserialize(s.substr(j, i - j)));
-                j = i + 1;
-            } else if (s[i] == '[') {
-                ++depth;
-            } else if (s[i] == ']') {
-                --depth;
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -444,59 +556,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-/**
- * // This is the interface that allows for creating nested lists.
- * // You should not implement it, or speculate about its implementation
- * type NestedInteger struct {
- * }
- *
- * // Return true if this NestedInteger holds a single integer, rather than a nested list.
- * func (n NestedInteger) IsInteger() bool {}
- *
- * // Return the single integer that this NestedInteger holds, if it holds a single integer
- * // The result is undefined if this NestedInteger holds a nested list
- * // So before calling this method, you should have a check
- * func (n NestedInteger) GetInteger() int {}
- *
- * // Set this NestedInteger to hold a single integer.
- * func (n *NestedInteger) SetInteger(value int) {}
- *
- * // Set this NestedInteger to hold a nested list and adds a nested integer to it.
- * func (n *NestedInteger) Add(elem NestedInteger) {}
- *
- * // Return the nested list that this NestedInteger holds, if it holds a nested list
- * // The list length is zero if this NestedInteger holds a single integer
- * // You can access NestedInteger's List element directly if you want to modify it
- * func (n NestedInteger) GetList() []*NestedInteger {}
- */
-func deserialize(s string) *NestedInteger {
-	ans := &NestedInteger{}
-	if s == "" || s == "[]" {
-		return ans
-	}
-	if s[0] != '[' {
-		v, _ := strconv.Atoi(s)
-		ans.SetInteger(v)
-		return ans
-	}
-	depth := 0
-	for i, j := 1, 1; i < len(s); i++ {
-		if depth == 0 && (s[i] == ',' || i == len(s)-1) {
-			(*ans).Add(*deserialize(s[j:i]))
-			j = i + 1
-		} else if s[i] == '[' {
-			depth++
-		} else if s[i] == ']' {
-			depth--
-		}
-	}
-	return ans
-}
-```
-
 ```go
 /**
  * // This is the interface that allows for creating nested lists.
@@ -559,71 +618,6 @@ func deserialize(s string) *NestedInteger {
 		}
 	}
 	return stk[0]
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * // This is the interface that allows for creating nested lists.
- * // You should not implement it, or speculate about its implementation
- * class NestedInteger {
- *     If value is provided, then it holds a single integer
- *     Otherwise it holds an empty nested list
- *     constructor(value?: number) {
- *         ...
- *     };
- *
- *     Return true if this NestedInteger holds a single integer, rather than a nested list.
- *     isInteger(): boolean {
- *         ...
- *     };
- *
- *     Return the single integer that this NestedInteger holds, if it holds a single integer
- *     Return null if this NestedInteger holds a nested list
- *     getInteger(): number | null {
- *         ...
- *     };
- *
- *     Set this NestedInteger to hold a single integer equal to value.
- *     setInteger(value: number) {
- *         ...
- *     };
- *
- *     Set this NestedInteger to hold a nested list and adds a nested integer elem to it.
- *     add(elem: NestedInteger) {
- *         ...
- *     };
- *
- *     Return the nested list that this NestedInteger holds,
- *     or an empty list if this NestedInteger holds a single integer
- *     getList(): NestedInteger[] {
- *         ...
- *     };
- * };
- */
-
-function deserialize(s: string): NestedInteger {
-    if (s === '' || s === '[]') {
-        return new NestedInteger();
-    }
-    if (s[0] !== '[') {
-        return new NestedInteger(+s);
-    }
-    const ans: NestedInteger = new NestedInteger();
-    let depth = 0;
-    for (let i = 1, j = 1; i < s.length; ++i) {
-        if (depth === 0 && (s[i] === ',' || i === s.length - 1)) {
-            ans.add(deserialize(s.slice(j, i)));
-            j = i + 1;
-        } else if (s[i] === '[') {
-            ++depth;
-        } else if (s[i] === ']') {
-            --depth;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -697,10 +691,6 @@ function deserialize(s: string): NestedInteger {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

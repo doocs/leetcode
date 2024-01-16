@@ -54,9 +54,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) (ans int) {
 	n := len(values)
@@ -150,8 +144,6 @@ func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit i
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestValsFromLabels(
@@ -180,10 +172,6 @@ function largestValsFromLabels(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

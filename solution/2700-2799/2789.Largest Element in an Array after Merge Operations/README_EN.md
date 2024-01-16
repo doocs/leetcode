@@ -48,9 +48,9 @@ There is only one element in the final array, which is 11.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                 nums[i] += nums[i + 1]
         return max(nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxArrayValue(nums []int) int64 {
 	n := len(nums)
@@ -120,8 +114,6 @@ func maxArrayValue(nums []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxArrayValue(nums: number[]): number {
     for (let i = nums.length - 2; i >= 0; --i) {
@@ -133,10 +125,6 @@ function maxArrayValue(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

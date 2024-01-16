@@ -42,15 +42,13 @@ There are 0 even and 1 odd indices.
 
 ## Solutions
 
-**Solution 1: Enumerate**
+### Solution 1: Enumerate
 
 According to the problem description, enumerate the binary representation of $n$ from the low bit to the high bit. If the bit is $1$, add $1$ to the corresponding counter according to whether the index of the bit is odd or even.
 
 The time complexity is $O(\log n)$ and the space complexity is $O(1)$. Where $n$ is the given integer.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,17 +62,6 @@ class Solution:
         return ans
 ```
 
-```python
-class Solution:
-    def evenOddBit(self, n: int) -> List[int]:
-        mask = 0x5555
-        even = (n & mask).bit_count()
-        odd = (n & ~mask).bit_count()
-        return [even, odd]
-```
-
-### **Java**
-
 ```java
 class Solution {
     public int[] evenOddBit(int n) {
@@ -86,19 +73,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int[] evenOddBit(int n) {
-        int mask = 0x5555;
-        int even = Integer.bitCount(n & mask);
-        int odd = Integer.bitCount(n & ~mask);
-        return new int[] {even, odd};
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,6 +87,70 @@ public:
 };
 ```
 
+```go
+func evenOddBit(n int) []int {
+	ans := make([]int, 2)
+	for i := 0; n != 0; n, i = n>>1, i^1 {
+		ans[i] += n & 1
+	}
+	return ans
+}
+```
+
+```ts
+function evenOddBit(n: number): number[] {
+    const ans = new Array(2).fill(0);
+    for (let i = 0; n > 0; n >>= 1, i ^= 1) {
+        ans[i] += n & 1;
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn even_odd_bit(mut n: i32) -> Vec<i32> {
+        let mut ans = vec![0; 2];
+
+        let mut i = 0;
+        while n != 0 {
+            ans[i] += n & 1;
+
+            n >>= 1;
+            i ^= 1;
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def evenOddBit(self, n: int) -> List[int]:
+        mask = 0x5555
+        even = (n & mask).bit_count()
+        odd = (n & ~mask).bit_count()
+        return [even, odd]
+```
+
+```java
+class Solution {
+    public int[] evenOddBit(int n) {
+        int mask = 0x5555;
+        int even = Integer.bitCount(n & mask);
+        int odd = Integer.bitCount(n & ~mask);
+        return new int[] {even, odd};
+    }
+}
+```
+
 ```cpp
 class Solution {
 public:
@@ -125,36 +163,12 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func evenOddBit(n int) []int {
-	ans := make([]int, 2)
-	for i := 0; n != 0; n, i = n>>1, i^1 {
-		ans[i] += n & 1
-	}
-	return ans
-}
-```
-
 ```go
 func evenOddBit(n int) []int {
 	mask := 0x5555
 	even := bits.OnesCount32(uint32(n & mask))
 	odd := bits.OnesCount32(uint32(n & ^mask))
 	return []int{even, odd}
-}
-```
-
-### **TypeScript**
-
-```ts
-function evenOddBit(n: number): number[] {
-    const ans = new Array(2).fill(0);
-    for (let i = 0; n > 0; n >>= 1, i ^= 1) {
-        ans[i] += n & 1;
-    }
-    return ans;
 }
 ```
 
@@ -176,26 +190,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn even_odd_bit(mut n: i32) -> Vec<i32> {
-        let mut ans = vec![0; 2];
-
-        let mut i = 0;
-        while n != 0 {
-            ans[i] += n & 1;
-
-            n >>= 1;
-            i ^= 1;
-        }
-
-        ans
-    }
-}
-```
-
 ```rust
 impl Solution {
     pub fn even_odd_bit(n: i32) -> Vec<i32> {
@@ -207,10 +201,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

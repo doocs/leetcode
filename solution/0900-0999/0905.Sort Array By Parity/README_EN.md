@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We use two pointers $i$ and $j$ to point to the beginning and end of the array respectively. When $i < j$, we perform the following operations.
 
@@ -47,8 +47,6 @@ Finally, return the array $nums$.
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
                 i, j = i + 1, j - 1
         return nums
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortArrayByParity(nums []int) []int {
 	for i, j := 0, len(nums)-1; i < j; {
@@ -127,7 +119,22 @@ func sortArrayByParity(nums []int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function sortArrayByParity(nums: number[]): number[] {
+    for (let i = 0, j = nums.length - 1; i < j; ) {
+        if (nums[i] % 2 === 0) {
+            ++i;
+        } else if (nums[j] % 2 === 1) {
+            --j;
+        } else {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            ++i;
+            --j;
+        }
+    }
+    return nums;
+}
+```
 
 ```rust
 impl Solution {
@@ -148,27 +155,6 @@ impl Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function sortArrayByParity(nums: number[]): number[] {
-    for (let i = 0, j = nums.length - 1; i < j; ) {
-        if (nums[i] % 2 === 0) {
-            ++i;
-        } else if (nums[j] % 2 === 1) {
-            --j;
-        } else {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-            ++i;
-            --j;
-        }
-    }
-    return nums;
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -191,10 +177,6 @@ var sortArrayByParity = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

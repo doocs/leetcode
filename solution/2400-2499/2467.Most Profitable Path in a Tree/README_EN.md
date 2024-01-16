@@ -76,7 +76,7 @@ Thus, Alice opens the gate at node 0 only. Hence, her net income is -7280.
 
 ## Solutions
 
-**Solution 1: Two DFS Traversals**
+### Solution 1: Two DFS Traversals
 
 According to the problem, we know that Bob's moving path is fixed, that is, starting from node $bob$ and finally reaching node $0$. Therefore, we can first run a DFS to find out the time it takes for Bob to reach each node, which we record in the array $ts$.
 
@@ -91,8 +91,6 @@ When Alice reaches a leaf node, update the maximum score.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -134,8 +132,6 @@ class Solution:
         dfs2(0, -1, 0, 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -195,8 +191,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -242,8 +236,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostProfitablePath(edges [][]int, bob int, amount []int) int {
@@ -297,16 +289,6 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

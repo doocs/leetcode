@@ -49,13 +49,9 @@ grade 列的数据类型已转换为整数。</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Pandas**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 import pandas as pd
@@ -66,10 +62,6 @@ def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
     return students
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

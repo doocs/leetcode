@@ -64,15 +64,13 @@ You have no income to tax, so you have to pay a total of 0 in taxes.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We traverse `brackets`, and for each tax bracket, we calculate the tax amount for that bracket, then accumulate it.
 
 The time complexity is $O(n)$, where $n$ is the length of `brackets`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,8 +81,6 @@ class Solution:
             prev = upper
         return ans / 100
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func calculateTax(brackets [][]int, income int) float64 {
 	var ans, prev int
@@ -131,7 +123,17 @@ func calculateTax(brackets [][]int, income int) float64 {
 }
 ```
 
-### **Rust**
+```ts
+function calculateTax(brackets: number[][], income: number): number {
+    let ans = 0;
+    let prev = 0;
+    for (const [upper, percent] of brackets) {
+        ans += Math.max(0, Math.min(income, upper) - prev) * percent;
+        prev = upper;
+    }
+    return ans / 100;
+}
+```
 
 ```rust
 impl Solution {
@@ -150,24 +152,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function calculateTax(brackets: number[][], income: number): number {
-    let ans = 0;
-    let prev = 0;
-    for (const [upper, percent] of brackets) {
-        ans += Math.max(0, Math.min(income, upper) - prev) * percent;
-        prev = upper;
-    }
-    return ans / 100;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

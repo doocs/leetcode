@@ -30,11 +30,9 @@
 
 ## Solutions
 
-simple digital dp problem (or it can be solved by finding a rule)
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -57,8 +55,6 @@ class Solution:
             l += 1
         return dfs(l, 0, True)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countDigitOne(n int) int {
@@ -182,8 +174,6 @@ func countDigitOne(n int) int {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int CountDigitOne(int n) {
@@ -204,10 +194,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

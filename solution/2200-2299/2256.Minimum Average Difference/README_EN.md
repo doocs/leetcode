@@ -54,7 +54,7 @@ The average difference of index 0 is: |0 / 1 - 0| = |0 - 0| = 0.
 
 ## Solutions
 
-**Solution 1: Traverse**
+### Solution 1: Traverse
 
 We directly traverse the array $nums$. For each index $i$, we maintain the sum of the first $i+1$ elements $pre$ and the sum of the last $n-i-1$ elements $suf$. We calculate the absolute difference of the average of the first $i+1$ elements and the average of the last $n-i-1$ elements, denoted as $t$. If $t$ is less than the current minimum value $mi$, we update the answer $ans=i$ and the minimum value $mi=t$.
 
@@ -63,8 +63,6 @@ After the traversal, we return the answer.
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
                 mi = t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +132,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumAverageDifference(nums []int) (ans int) {
@@ -173,8 +165,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumAverageDifference(nums: number[]): number {
     const n = nums.length;
@@ -197,10 +187,6 @@ function minimumAverageDifference(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

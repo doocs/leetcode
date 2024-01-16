@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 一开始，我们考虑相距最远的两个柱子所能容纳水的容量。水的宽度是两根柱子之间的距离，而水的高度取决于两根柱子之间较短的那个。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 `height` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
                 j -= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxArea(height []int) (ans int) {
 	i, j := 0, len(height)-1
@@ -140,7 +126,42 @@ func maxArea(height []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function maxArea(height: number[]): number {
+    let i = 0;
+    let j = height.length - 1;
+    let ans = 0;
+    while (i < j) {
+        const t = Math.min(height[i], height[j]) * (j - i);
+        ans = Math.max(ans, t);
+        if (height[i] < height[j]) {
+            ++i;
+        } else {
+            --j;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_area(height: Vec<i32>) -> i32 {
+        let mut i = 0;
+        let mut j = height.len() - 1;
+        let mut res = 0;
+        while i < j {
+            res = res.max(height[i].min(height[j]) * ((j - i) as i32));
+            if height[i] <= height[j] {
+                i += 1;
+            } else {
+                j -= 1;
+            }
+        }
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -164,28 +185,6 @@ var maxArea = function (height) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function maxArea(height: number[]): number {
-    let i = 0;
-    let j = height.length - 1;
-    let ans = 0;
-    while (i < j) {
-        const t = Math.min(height[i], height[j]) * (j - i);
-        ans = Math.max(ans, t);
-        if (height[i] < height[j]) {
-            ++i;
-        } else {
-            --j;
-        }
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxArea(int[] height) {
@@ -205,31 +204,6 @@ public class Solution {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn max_area(height: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = height.len() - 1;
-        let mut res = 0;
-        while i < j {
-            res = res.max(height[i].min(height[j]) * ((j - i) as i32));
-            if height[i] <= height[j] {
-                i += 1;
-            } else {
-                j -= 1;
-            }
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

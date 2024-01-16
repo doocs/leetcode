@@ -58,7 +58,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the number of different ways to distribute $i$ candies to $j$ bags. Initially, $f[0][0]=1$, and the answer is $f[n][k]$.
 
@@ -74,8 +74,6 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n \times 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def waysToDistribute(self, n: int, k: int) -> int:
@@ -87,8 +85,6 @@ class Solution:
                 f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod
         return f[n][k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToDistribute(n int, k int) int {
 	f := make([][]int, n+1)
@@ -145,8 +137,6 @@ func waysToDistribute(n int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function waysToDistribute(n: number, k: number): number {
     const mod = 10 ** 9 + 7;
@@ -163,10 +153,6 @@ function waysToDistribute(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

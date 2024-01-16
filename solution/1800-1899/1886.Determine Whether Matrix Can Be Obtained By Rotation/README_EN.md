@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,18 +66,6 @@ class Solution:
             rotate(mat)
         return False
 ```
-
-```python
-class Solution:
-    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
-        for _ in range(4):
-            mat = [list(col) for col in zip(*mat[::-1])]
-            if mat == target:
-                return True
-        return False
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,41 +107,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean findRotation(int[][] mat, int[][] target) {
-        int n = mat.length;
-        for (int k = 0; k < 4; ++k) {
-            int[][] g = new int[n][n];
-            for (int i = 0; i < n; ++i) {
-                for (int j = 0; j < n; ++j) {
-                    g[i][j] = mat[j][n - i - 1];
-                }
-            }
-            if (equals(g, target)) {
-                return true;
-            }
-            mat = g;
-        }
-        return false;
-    }
-
-    private boolean equals(int[][] a, int[][] b) {
-        int n = a.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (a[i][j] != b[i][j]) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +124,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findRotation(mat [][]int, target [][]int) bool {
@@ -206,8 +157,6 @@ func equals(a, b [][]int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findRotation(mat: number[][], target: number[][]): boolean {
@@ -252,8 +201,6 @@ function rotate(matrix: number[][]): void {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn find_rotation(mat: Vec<Vec<i32>>, target: Vec<Vec<i32>>) -> bool {
@@ -280,10 +227,55 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
+        for _ in range(4):
+            mat = [list(col) for col in zip(*mat[::-1])]
+            if mat == target:
+                return True
+        return False
 ```
 
+```java
+class Solution {
+    public boolean findRotation(int[][] mat, int[][] target) {
+        int n = mat.length;
+        for (int k = 0; k < 4; ++k) {
+            int[][] g = new int[n][n];
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    g[i][j] = mat[j][n - i - 1];
+                }
+            }
+            if (equals(g, target)) {
+                return true;
+            }
+            mat = g;
+        }
+        return false;
+    }
+
+    private boolean equals(int[][] a, int[][] b) {
+        int n = a.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (a[i][j] != b[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

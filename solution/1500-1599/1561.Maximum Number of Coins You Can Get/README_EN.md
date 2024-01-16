@@ -55,11 +55,9 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 
 ## Solutions
 
-Greedy.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,10 +66,9 @@ class Solution:
         return sum(piles[-2 : len(piles) // 3 - 1 : -2])
 ```
 
-### **Java**
-
 ```java
 class Solution {
+
     public int maxCoins(int[] piles) {
         Arrays.sort(piles);
         int ans = 0;
@@ -82,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxCoins(piles []int) int {
 	sort.Ints(piles)
@@ -109,8 +102,6 @@ func maxCoins(piles []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxCoins(piles: number[]): number {
@@ -123,8 +114,6 @@ function maxCoins(piles: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -139,8 +128,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -157,10 +144,6 @@ int maxCoins(int* piles, int pilesSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

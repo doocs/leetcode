@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数位 DP**
+### 方法一：数位 DP
 
 题目实际上求的是区间 $[num1,..num2]$ 中，数位和在 $[min\_sum,..max\_sum]$ 的数的个数。对于这种区间 $[l,..r]$ 的问题，我们可以考虑转化为求 $[1,..r]$ 和 $[1,..l-1]$ 的答案，然后相减即可。
 
@@ -63,10 +61,6 @@
 -   [2801. 统计范围内的步进数字数目](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
         b = dfs(0, 0, True)
         return (a - b) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.math.BigInteger;
@@ -134,8 +124,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -181,8 +169,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func count(num1 string, num2 string, min_sum int, max_sum int) int {
@@ -239,8 +225,6 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function count(num1: string, num2: string, min_sum: number, max_sum: number): number {
     const mod = 1e9 + 7;
@@ -271,10 +255,6 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

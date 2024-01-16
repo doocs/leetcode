@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学（裴蜀定理）**
+### 方法一：数学（裴蜀定理）
 
 我们先可以考虑选取两个数的情况，若选取的数是 $a$ 和 $b$，那么根据题目的要求，我们需要满足 $a \times x + b \times y = 1$，其中 $x$ 和 $y$ 是任意整数。
 
@@ -61,19 +59,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isGoodArray(self, nums: List[int]) -> bool:
         return reduce(gcd, nums) == 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +93,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isGoodArray(nums []int) bool {
@@ -125,10 +111,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

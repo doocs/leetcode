@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Two Passes**
+### Solution 1: Two Passes
 
 First, we scan from left to right and remove the extra right parentheses. Then, we scan from right to left and remove the extra left parentheses.
 
@@ -62,8 +62,6 @@ Similar problems:
 -   [2116. Check if a Parentheses String Can Be Valid](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -90,8 +88,6 @@ class Solution:
             ans.append(c)
         return ''.join(ans[::-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minRemoveToMakeValid(s string) string {
@@ -202,8 +194,6 @@ func minRemoveToMakeValid(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minRemoveToMakeValid(s: string): string {
     let left = 0;
@@ -239,8 +229,6 @@ function minRemoveToMakeValid(s: string): string {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -289,10 +277,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

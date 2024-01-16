@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Maintain Row Minimum and Column Maximum**
+### Solution 1: Maintain Row Minimum and Column Maximum
 
 We can use two arrays $rows$ and $cols$ to record the minimum value of each row and the maximum value of each column in the matrix. Then, we traverse each element in the matrix, checking whether this element is the minimum value of its row and the maximum value of its column. If it is, then this element is a lucky number, and we add it to the answer array.
 
@@ -56,8 +56,6 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
@@ -65,8 +63,6 @@ class Solution:
         cols = {max(col) for col in zip(*matrix)}
         return list(rows & cols)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func luckyNumbers(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -150,8 +142,6 @@ func luckyNumbers(matrix [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function luckyNumbers(matrix: number[][]): number[] {
     const m = matrix.length;
@@ -175,8 +165,6 @@ function luckyNumbers(matrix: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -206,10 +194,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

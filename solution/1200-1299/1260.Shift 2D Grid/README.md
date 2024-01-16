@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二维数组展开**
+### 方法一：二维数组展开
 
 根据题目描述，如果我们将二维数组展开成一维数组，那么每次迁移操作就是将数组中的元素向右移动一个位置，最后一个元素移动到数组的首位。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是二维数组 `grid` 的行数和列数。需要遍历二维数组 `grid` 一次，计算每个元素在最后的位置。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                 ans[x][y] = v
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +123,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shiftGrid(grid [][]int, k int) [][]int {
@@ -156,8 +142,6 @@ func shiftGrid(grid [][]int, k int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shiftGrid(grid: number[][], k: number): number[][] {
     const [m, n] = [grid.length, grid[0].length];
@@ -173,10 +157,6 @@ function shiftGrid(grid: number[][], k: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

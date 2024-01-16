@@ -50,9 +50,9 @@ Type 2: (3,0,1).  nums2[3]<sup>2</sup> = nums1[0] * nums1[1].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
                         ans += x * y * cnt1[c]
         return ans >> 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +116,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 func numTriplets(nums1 []int, nums2 []int) (ans int) {
 	cnt1 := map[int]int{}
@@ -155,10 +151,6 @@ func numTriplets(nums1 []int, nums2 []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

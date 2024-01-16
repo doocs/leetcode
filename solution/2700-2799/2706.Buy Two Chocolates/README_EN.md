@@ -38,21 +38,13 @@
 
 ## Solutions
 
-**Solution 1: Sorting**
+### Solution 1: Sorting
 
 We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $cost$ of buying two chocolates. If this cost is greater than the money we have, then we return `money`. Otherwise, we return `money - cost`.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `prices`.
 
-**Solution 2: One-pass Traversal**
-
-We can find the two smallest prices in one pass, and then calculate the cost.
-
-The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -61,6 +53,69 @@ class Solution:
         cost = prices[0] + prices[1]
         return money if money < cost else money - cost
 ```
+
+```java
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        Arrays.sort(prices);
+        int cost = prices[0] + prices[1];
+        return money < cost ? money : money - cost;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int buyChoco(vector<int>& prices, int money) {
+        sort(prices.begin(), prices.end());
+        int cost = prices[0] + prices[1];
+        return money < cost ? money : money - cost;
+    }
+};
+```
+
+```go
+func buyChoco(prices []int, money int) int {
+	sort.Ints(prices)
+	cost := prices[0] + prices[1]
+	if money < cost {
+		return money
+	}
+	return money - cost
+}
+```
+
+```ts
+function buyChoco(prices: number[], money: number): number {
+    prices.sort((a, b) => a - b);
+    const cost = prices[0] + prices[1];
+    return money < cost ? money : money - cost;
+}
+```
+
+```rust
+impl Solution {
+    pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
+        prices.sort();
+        let cost = prices[0] + prices[1];
+        if cost > money {
+            return money;
+        }
+        money - cost
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: One-pass Traversal
+
+We can find the two smallest prices in one pass, and then calculate the cost.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,18 +130,6 @@ class Solution:
         return money if money < cost else money - cost
 ```
 
-### **Java**
-
-```java
-class Solution {
-    public int buyChoco(int[] prices, int money) {
-        Arrays.sort(prices);
-        int cost = prices[0] + prices[1];
-        return money < cost ? money : money - cost;
-    }
-}
-```
-
 ```java
 class Solution {
     public int buyChoco(int[] prices, int money) {
@@ -103,19 +146,6 @@ class Solution {
         return money < cost ? money : money - cost;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int buyChoco(vector<int>& prices, int money) {
-        sort(prices.begin(), prices.end());
-        int cost = prices[0] + prices[1];
-        return money < cost ? money : money - cost;
-    }
-};
 ```
 
 ```cpp
@@ -135,19 +165,6 @@ public:
         return money < cost ? money : money - cost;
     }
 };
-```
-
-### **Go**
-
-```go
-func buyChoco(prices []int, money int) int {
-	sort.Ints(prices)
-	cost := prices[0] + prices[1]
-	if money < cost {
-		return money
-	}
-	return money - cost
-}
 ```
 
 ```go
@@ -168,16 +185,6 @@ func buyChoco(prices []int, money int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function buyChoco(prices: number[], money: number): number {
-    prices.sort((a, b) => a - b);
-    const cost = prices[0] + prices[1];
-    return money < cost ? money : money - cost;
-}
-```
-
 ```ts
 function buyChoco(prices: number[], money: number): number {
     let [a, b] = [1000, 1000];
@@ -191,21 +198,6 @@ function buyChoco(prices: number[], money: number): number {
     }
     const cost = a + b;
     return money < cost ? money : money - cost;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
-        prices.sort();
-        let cost = prices[0] + prices[1];
-        if cost > money {
-            return money;
-        }
-        money - cost
-    }
 }
 ```
 
@@ -232,10 +224,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

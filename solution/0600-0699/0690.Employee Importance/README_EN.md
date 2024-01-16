@@ -50,11 +50,9 @@ Thus, the total importance value of employee 5 is -3.
 
 ## Solutions
 
-"all their subordinates" include "subordinates of subordinates", first use a hash table to store the mapping relationship between `employee.id` and `employee`, and then recursively solve it (it can also be implemented with BFS)
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 """
@@ -80,8 +78,6 @@ class Solution:
 
         return dfs(id)
 ```
-
-### **Java**
 
 ```java
 /*
@@ -115,8 +111,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for Employee.
@@ -149,10 +143,6 @@ var GetImportance = function (employees, id) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

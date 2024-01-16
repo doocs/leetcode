@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们直接遍历字符串数组 $words$ 中的每一个字符串 $words[i]$，如果 $x$ 在 $words[i]$ 中出现，就将 $i$ 加入答案数组中。
 
@@ -63,19 +61,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findWordsContaining(self, words: List[str], x: str) -> List[int]:
         return [i for i, w in enumerate(words) if x in w]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findWordsContaining(words []string, x byte) (ans []int) {
 	for i, w := range words {
@@ -124,8 +110,6 @@ func findWordsContaining(words []string, x byte) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findWordsContaining(words: string[], x: string): number[] {
     const ans: number[] = [];
@@ -138,10 +122,6 @@ function findWordsContaining(words: string[], x: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

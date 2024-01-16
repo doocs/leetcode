@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示以 $nums1[i - 1]$ 和 $nums2[j - 1]$ 结尾的最长公共子数组的长度，那么我们可以得到状态转移方程：
 
@@ -56,10 +54,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findLength(self, nums1: List[int], nums2: List[int]) -> int:
@@ -73,10 +67,6 @@ class Solution:
                     ans = max(ans, f[i][j])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findLength(nums1 []int, nums2 []int) (ans int) {
@@ -143,8 +129,6 @@ func findLength(nums1 []int, nums2 []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findLength(nums1: number[], nums2: number[]): number {
     const m = nums1.length;
@@ -162,8 +146,6 @@ function findLength(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -188,10 +170,6 @@ var findLength = function (nums1, nums2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

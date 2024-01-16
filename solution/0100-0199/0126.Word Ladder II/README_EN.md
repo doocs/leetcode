@@ -49,11 +49,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -105,8 +103,6 @@ class Solution:
             dfs(path, endWord)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -176,8 +172,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func findLadders(beginWord string, endWord string, wordList []string) [][]string {
@@ -251,10 +245,6 @@ func findLadders(beginWord string, endWord string, wordList []string) [][]string
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

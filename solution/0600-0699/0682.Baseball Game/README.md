@@ -72,15 +72,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-利用栈简单模拟即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                 stk.append(int(op))
         return sum(stk)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func calPoints(ops []string) int {
@@ -177,8 +163,6 @@ func calPoints(ops []string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function calPoints(ops: string[]): number {
     const stack = [];
@@ -197,8 +181,6 @@ function calPoints(ops: string[]): number {
     return stack.reduce((p, v) => p + v);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -226,10 +208,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

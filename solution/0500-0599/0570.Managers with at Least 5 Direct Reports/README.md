@@ -57,31 +57,11 @@ Employee 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组统计 + 连接**
+### 方法一：分组统计 + 连接
 
 我们可以先统计每个经理的直接下属人数，然后再连接 `Employee` 表，找出直接下属人数大于等于 $5$ 的经理。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT name
-FROM
-    Employee
-    JOIN (
-        SELECT managerId AS id, COUNT(1) AS cnt
-        FROM Employee
-        GROUP BY 1
-        HAVING cnt >= 5
-    ) AS t
-        USING (id);
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -107,4 +87,20 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT name
+FROM
+    Employee
+    JOIN (
+        SELECT managerId AS id, COUNT(1) AS cnt
+        FROM Employee
+        GROUP BY 1
+        HAVING cnt >= 5
+    ) AS t
+        USING (id);
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

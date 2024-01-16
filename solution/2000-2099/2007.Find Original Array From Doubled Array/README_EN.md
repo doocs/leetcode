@@ -47,7 +47,7 @@ Other original arrays could be [4,3,1] or [3,1,4].
 
 ## Solutions
 
-**Solution 1: Sorting + Counting + Traversal**
+### Solution 1: Sorting + Counting + Traversal
 
 First, we check if the length $n$ of the array `changed` is odd. If it is, we directly return an empty array.
 
@@ -60,8 +60,6 @@ After the traversal, we check if the length of the answer array `ans` is $\frac{
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `changed`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
             cnt[x * 2] -= 1
         return ans if len(ans) == n // 2 else []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findOriginalArray(changed []int) []int {
@@ -179,8 +171,6 @@ func findOriginalArray(changed []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findOriginalArray(changed: number[]): number[] {
     const n = changed.length;
@@ -208,10 +198,6 @@ function findOriginalArray(changed: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

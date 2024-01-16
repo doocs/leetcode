@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们思考二叉树递归问题的经典套路：
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -98,10 +92,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -139,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -172,8 +160,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -199,8 +185,6 @@ func maxPathSum(root *TreeNode) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -232,75 +216,6 @@ function maxPathSum(root: TreeNode | null): number {
     return ans;
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number}
- */
-var maxPathSum = function (root) {
-    let ans = -1001;
-    const dfs = root => {
-        if (!root) {
-            return 0;
-        }
-        const left = Math.max(0, dfs(root.left));
-        const right = Math.max(0, dfs(root.right));
-        ans = Math.max(ans, left + right + root.val);
-        return Math.max(left, right) + root.val;
-    };
-    dfs(root);
-    return ans;
-};
-```
-
-### **C#**
-
-```cs
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     public int val;
- *     public TreeNode left;
- *     public TreeNode right;
- *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-public class Solution {
-    private int ans = -1001;
-
-    public int MaxPathSum(TreeNode root) {
-        dfs(root);
-        return ans;
-    }
-
-    private int dfs(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int left = Math.Max(0, dfs(root.left));
-        int right = Math.Max(0, dfs(root.right));
-        ans = Math.Max(ans, left + right + root.val);
-        return root.val + Math.Max(left, right);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -343,10 +258,69 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxPathSum = function (root) {
+    let ans = -1001;
+    const dfs = root => {
+        if (!root) {
+            return 0;
+        }
+        const left = Math.max(0, dfs(root.left));
+        const right = Math.max(0, dfs(root.right));
+        ans = Math.max(ans, left + right + root.val);
+        return Math.max(left, right) + root.val;
+    };
+    dfs(root);
+    return ans;
+};
 ```
 
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private int ans = -1001;
+
+    public int MaxPathSum(TreeNode root) {
+        dfs(root);
+        return ans;
+    }
+
+    private int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = Math.Max(0, dfs(root.left));
+        int right = Math.Max(0, dfs(root.right));
+        ans = Math.Max(ans, left + right + root.val);
+        return root.val + Math.Max(left, right);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -78,17 +78,11 @@ Department table:
 
 ## Solutions
 
-**Solution 1: Equi-Join + Subquery**
+### Solution 1: Equi-Join + Subquery
 
 We can use an equi-join to join the `Employee` table and the `Department` table based on `Employee.departmentId = Department.id`, and then use a subquery to find the highest salary for each department. Finally, we can use a `WHERE` clause to filter out the employees with the highest salary in each department.
 
-**Solution 2: Equi-Join + Window Function**
-
-We can use an equi-join to join the `Employee` table and the `Department` table based on `Employee.departmentId = Department.id`, and then use the window function `rank()`, which assigns a rank to each employee in each department based on their salary. Finally, we can select the rows with a rank of $1$ for each department.
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -103,6 +97,14 @@ WHERE
         GROUP BY 1
     );
 ```
+
+<!-- tabs:end -->
+
+### Solution 2: Equi-Join + Window Function
+
+We can use an equi-join to join the `Employee` table and the `Department` table based on `Employee.departmentId = Department.id`, and then use the window function `rank()`, which assigns a rank to each employee in each department based on their salary. Finally, we can select the rows with a rank of $1$ for each department.
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -126,3 +128,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,7 @@ trie.search(&quot;app&quot;);     // 返回 True
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 前缀树每个节点包括两部分：
 
@@ -84,10 +82,6 @@ trie.search(&quot;app&quot;);     // 返回 True
 若搜索到了前缀的末尾，就说明字典树中存在该前缀。此外，若前缀末尾对应节点的 $isEnd$ 为真，则说明字典树中存在该字符串。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -128,10 +122,6 @@ class Trie:
 # param_2 = obj.search(word)
 # param_3 = obj.startsWith(prefix)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -186,7 +176,109 @@ class Trie {
  */
 ```
 
-### **JavaScript**
+```cpp
+class Trie {
+private:
+    vector<Trie*> children;
+    bool isEnd;
+
+    Trie* searchPrefix(string s) {
+        Trie* node = this;
+        for (char c : s) {
+            int idx = c - 'a';
+            if (!node->children[idx]) return nullptr;
+            node = node->children[idx];
+        }
+        return node;
+    }
+
+public:
+    Trie()
+        : children(26)
+        , isEnd(false) {}
+
+    void insert(string word) {
+        Trie* node = this;
+        for (char c : word) {
+            int idx = c - 'a';
+            if (!node->children[idx]) node->children[idx] = new Trie();
+            node = node->children[idx];
+        }
+        node->isEnd = true;
+    }
+
+    bool search(string word) {
+        Trie* node = searchPrefix(word);
+        return node != nullptr && node->isEnd;
+    }
+
+    bool startsWith(string prefix) {
+        Trie* node = searchPrefix(prefix);
+        return node != nullptr;
+    }
+};
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
+```
+
+```go
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
+}
+
+func Constructor() Trie {
+	return Trie{}
+}
+
+func (this *Trie) Insert(word string) {
+	node := this
+	for _, c := range word {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
+		}
+		node = node.children[idx]
+	}
+	node.isEnd = true
+}
+
+func (this *Trie) Search(word string) bool {
+	node := this.SearchPrefix(word)
+	return node != nil && node.isEnd
+}
+
+func (this *Trie) StartsWith(prefix string) bool {
+	node := this.SearchPrefix(prefix)
+	return node != nil
+}
+
+func (this *Trie) SearchPrefix(s string) *Trie {
+	node := this
+	for _, c := range s {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			return nil
+		}
+		node = node.children[idx]
+	}
+	return node
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Insert(word);
+ * param_2 := obj.Search(word);
+ * param_3 := obj.StartsWith(prefix);
+ */
+```
 
 ```js
 /**
@@ -249,116 +341,6 @@ Trie.prototype.startsWith = function (prefix) {
  */
 ```
 
-### **C++**
-
-```cpp
-class Trie {
-private:
-    vector<Trie*> children;
-    bool isEnd;
-
-    Trie* searchPrefix(string s) {
-        Trie* node = this;
-        for (char c : s) {
-            int idx = c - 'a';
-            if (!node->children[idx]) return nullptr;
-            node = node->children[idx];
-        }
-        return node;
-    }
-
-public:
-    Trie()
-        : children(26)
-        , isEnd(false) {}
-
-    void insert(string word) {
-        Trie* node = this;
-        for (char c : word) {
-            int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
-            node = node->children[idx];
-        }
-        node->isEnd = true;
-    }
-
-    bool search(string word) {
-        Trie* node = searchPrefix(word);
-        return node != nullptr && node->isEnd;
-    }
-
-    bool startsWith(string prefix) {
-        Trie* node = searchPrefix(prefix);
-        return node != nullptr;
-    }
-};
-
-/**
- * Your Trie object will be instantiated and called as such:
- * Trie* obj = new Trie();
- * obj->insert(word);
- * bool param_2 = obj->search(word);
- * bool param_3 = obj->startsWith(prefix);
- */
-```
-
-### **Go**
-
-```go
-type Trie struct {
-	children [26]*Trie
-	isEnd    bool
-}
-
-func Constructor() Trie {
-	return Trie{}
-}
-
-func (this *Trie) Insert(word string) {
-	node := this
-	for _, c := range word {
-		idx := c - 'a'
-		if node.children[idx] == nil {
-			node.children[idx] = &Trie{}
-		}
-		node = node.children[idx]
-	}
-	node.isEnd = true
-}
-
-func (this *Trie) Search(word string) bool {
-	node := this.SearchPrefix(word)
-	return node != nil && node.isEnd
-}
-
-func (this *Trie) StartsWith(prefix string) bool {
-	node := this.SearchPrefix(prefix)
-	return node != nil
-}
-
-func (this *Trie) SearchPrefix(s string) *Trie {
-	node := this
-	for _, c := range s {
-		idx := c - 'a'
-		if node.children[idx] == nil {
-			return nil
-		}
-		node = node.children[idx]
-	}
-	return node
-}
-
-/**
- * Your Trie object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Insert(word);
- * param_2 := obj.Search(word);
- * param_3 := obj.StartsWith(prefix);
- */
-```
-
-### **C#**
-
 ```cs
 public class Trie {
     bool isEnd;
@@ -413,10 +395,6 @@ public class Trie {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

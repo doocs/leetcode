@@ -33,15 +33,13 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $left[i]$ as the height of the highest bar to the left of and including the position at index $i$, and $right[i]$ as the height of the highest bar to the right of and including the position at index $i$. Therefore, the amount of rainwater that can be trapped at index $i$ is $min(left[i], right[i]) - height[i]$. We traverse the array to calculate $left[i]$ and $right[i]$, and the final answer is $\sum_{i=0}^{n-1} min(left[i], right[i]) - height[i]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -54,8 +52,6 @@ class Solution:
             right[n - i - 1] = max(right[n - i], height[n - i - 1])
         return sum(min(l, r) - h for l, r, h in zip(left, right, height))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,7 +95,39 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func trap(height []int) (ans int) {
+	n := len(height)
+	left := make([]int, n)
+	right := make([]int, n)
+	left[0], right[n-1] = height[0], height[n-1]
+	for i := 1; i < n; i++ {
+		left[i] = max(left[i-1], height[i])
+		right[n-i-1] = max(right[n-i], height[n-i-1])
+	}
+	for i, h := range height {
+		ans += min(left[i], right[i]) - h
+	}
+	return
+}
+```
+
+```ts
+function trap(height: number[]): number {
+    const n = height.length;
+    const left: number[] = new Array(n).fill(height[0]);
+    const right: number[] = new Array(n).fill(height[n - 1]);
+    for (let i = 1; i < n; ++i) {
+        left[i] = Math.max(left[i - 1], height[i]);
+        right[n - i - 1] = Math.max(right[n - i], height[n - i - 1]);
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.min(left[i], right[i]) - height[i];
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -132,46 +158,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func trap(height []int) (ans int) {
-	n := len(height)
-	left := make([]int, n)
-	right := make([]int, n)
-	left[0], right[n-1] = height[0], height[n-1]
-	for i := 1; i < n; i++ {
-		left[i] = max(left[i-1], height[i])
-		right[n-i-1] = max(right[n-i], height[n-i-1])
-	}
-	for i, h := range height {
-		ans += min(left[i], right[i]) - h
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function trap(height: number[]): number {
-    const n = height.length;
-    const left: number[] = new Array(n).fill(height[0]);
-    const right: number[] = new Array(n).fill(height[n - 1]);
-    for (let i = 1; i < n; ++i) {
-        left[i] = Math.max(left[i - 1], height[i]);
-        right[n - i - 1] = Math.max(right[n - i], height[n - i - 1]);
-    }
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        ans += Math.min(left[i], right[i]) - height[i];
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int Trap(int[] height) {
@@ -193,10 +179,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

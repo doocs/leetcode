@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 二分查找**
+### 方法一：前缀和 + 二分查找
 
 我们先预处理出数组 $nums$ 的前缀和数组 $s$，其中 $s[i]$ 表述数组 $nums$ 前 $i+1$ 个元素之和。
 
@@ -71,10 +69,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def waysToSplit(self, nums: List[int]) -> int:
@@ -87,10 +81,6 @@ class Solution:
             ans += k - j
         return ans % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToSplit(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -167,8 +153,6 @@ func waysToSplit(nums []int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -203,10 +187,6 @@ var waysToSplit = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

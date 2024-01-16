@@ -68,9 +68,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀异或 + 计数**
+### 方法一：前缀异或 + 计数
 
 由于字符串中只包含 $10$ 个小写字母，因此可以用一个长度为 $10$ 的二进制数表示字符串中每个字母的奇偶性，其中第 $i$ 位为 $1$ 表示第 $i$ 个字母出现了奇数次，为 $0$ 表示第 $i$ 个字母出现了偶数次。
 
@@ -86,10 +84,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def wonderfulSubstrings(self, word: str) -> int:
@@ -103,10 +97,6 @@ class Solution:
             cnt[st] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wonderfulSubstrings(word string) (ans int64) {
 	cnt := [1024]int{1}
@@ -167,8 +153,6 @@ func wonderfulSubstrings(word string) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function wonderfulSubstrings(word: string): number {
@@ -187,8 +171,6 @@ function wonderfulSubstrings(word: string): number {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -212,10 +194,6 @@ var wonderfulSubstrings = function (word) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

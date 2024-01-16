@@ -65,9 +65,9 @@ For product 3, the price is 1000 in Shop and 1900 in Souq. It is not sold in the
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 CREATE PROCEDURE PivotProducts()
@@ -90,3 +90,5 @@ END
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

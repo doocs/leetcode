@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们定义函数 $f(x)$ 表示一个整数 $x$ 的每一位数字之和，那么题目求的是 $f(n + x) \leq target$ 的最小非负整数 $x$。
 
@@ -71,10 +69,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
@@ -95,10 +89,6 @@ class Solution:
             x = (y // 10 + 1) * p - n
         return x
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeIntegerBeautiful(n int64, target int) (x int64) {
 	f := func(x int64) (y int) {
@@ -180,8 +166,6 @@ func makeIntegerBeautiful(n int64, target int) (x int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function makeIntegerBeautiful(n: number, target: number): number {
@@ -207,10 +191,6 @@ function makeIntegerBeautiful(n: number, target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

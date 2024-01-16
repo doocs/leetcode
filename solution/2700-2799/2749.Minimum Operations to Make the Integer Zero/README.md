@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 如果我们操作了 $k$ 次，那么问题实际上就变成了：判断 $num1 - k \times num2$ 能否拆分成 $k$ 个 $2^i$ 之和。
 
@@ -65,10 +63,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def makeTheIntegerZero(self, num1: int, num2: int) -> int:
@@ -80,10 +74,6 @@ class Solution:
                 return k
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeTheIntegerZero(num1 int, num2 int) int {
 	for k := 1; ; k++ {
@@ -140,10 +126,6 @@ func makeTheIntegerZero(num1 int, num2 int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,17 +61,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
--   排序链表：二叉搜索树中序遍历得到有序序列
--   循环链表：头节点指向链表尾节点，尾节点指向链表头节点
--   双向链表：`prev.right = cur`、`cur.left = prev`、`prev = cur`
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -107,10 +99,6 @@ class Solution:
         head.left = prev
         return head
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -167,8 +155,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -223,8 +209,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -262,8 +246,6 @@ func treeToDoublyList(root *Node) *Node {
 	return head
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -303,10 +285,6 @@ var treeToDoublyList = function (root) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

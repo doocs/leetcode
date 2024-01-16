@@ -72,9 +72,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接计算**
+### 方法一：直接计算
 
 我们先初始化一个数组 $ans$，长度为 $m$，用于存储答案，初始化所有元素为 $-1$。
 
@@ -89,10 +87,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def elementInNums(self, nums: List[int], queries: List[List[int]]) -> List[int]:
@@ -106,10 +100,6 @@ class Solution:
                 ans[j] = nums[i]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func elementInNums(nums []int, queries [][]int) []int {
 	n, m := len(nums), len(queries)
@@ -173,16 +159,6 @@ func elementInNums(nums []int, queries [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

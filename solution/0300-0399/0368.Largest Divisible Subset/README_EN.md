@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             i -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestDivisibleSubset(nums []int) (ans []int) {
 	sort.Ints(nums)
@@ -168,10 +162,6 @@ func largestDivisibleSubset(nums []int) (ans []int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

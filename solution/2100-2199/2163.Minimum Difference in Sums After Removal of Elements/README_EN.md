@@ -58,9 +58,9 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -91,8 +91,6 @@ class Solution:
 
         return min(pre[i] - suf[i + 1] for i in range(n, n * 2 + 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +129,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -176,8 +172,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumDifference(nums []int) int64 {
@@ -226,8 +220,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumDifference(nums: number[]): number {
     const m = nums.length;
@@ -264,10 +256,6 @@ function minimumDifference(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

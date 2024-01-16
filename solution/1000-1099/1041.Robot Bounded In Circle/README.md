@@ -85,9 +85,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以模拟机器人的行走过程，用一个变量 $k$ 表示机器人的方向，初始值为 $0$，表示机器人面向北方。变量 $k$ 的取值范围为 $[0, 3]$，分别表示机器人面向北、西、南、东。另外，我们用一个长度为 $4$ 的数组 $dist$ 记录机器人在四个方向上行走的距离，初始值为 $[0, 0, 0, 0]$。
 
@@ -108,10 +106,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
@@ -126,10 +120,6 @@ class Solution:
                 dist[k] += 1
         return (dist[0] == dist[2] and dist[1] == dist[3]) or k != 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +161,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isRobotBounded(instructions string) bool {
 	dist := [4]int{}
@@ -191,8 +177,6 @@ func isRobotBounded(instructions string) bool {
 	return (dist[0] == dist[2] && dist[1] == dist[3]) || k != 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isRobotBounded(instructions: string): boolean {
@@ -211,10 +195,6 @@ function isRobotBounded(instructions: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

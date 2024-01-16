@@ -63,9 +63,7 @@ derived[1] = original[1] ⊕ original[0] = 1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们不妨假设原始二进制数组为 $a$，派生数组为 $b$，那么有：
 
@@ -88,19 +86,11 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def doesValidArrayExist(self, derived: List[int]) -> bool:
         return reduce(xor, derived) == 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func doesValidArrayExist(derived []int) bool {
 	s := 0
@@ -140,8 +126,6 @@ func doesValidArrayExist(derived []int) bool {
 	return s == 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
@@ -153,16 +137,18 @@ function doesValidArrayExist(derived: number[]): boolean {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
     return derived.reduce((acc, x) => acc ^ x, 0) === 0;
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

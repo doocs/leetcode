@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接搜索**
+### 方法一：直接搜索
 
 我们先将所有皇后的位置存入哈希表或者二维数组 $s$ 中。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。本题中 $n = 8$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                             break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -149,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func queensAttacktheKing(queens [][]int, king []int) (ans [][]int) {
 	n := 8
@@ -177,8 +163,6 @@ func queensAttacktheKing(queens [][]int, king []int) (ans [][]int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function queensAttacktheKing(queens: number[][], king: number[]): number[][] {
     const n = 8;
@@ -204,10 +188,6 @@ function queensAttacktheKing(queens: number[][], king: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

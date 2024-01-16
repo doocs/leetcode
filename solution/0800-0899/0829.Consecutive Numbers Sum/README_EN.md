@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,10 +56,9 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
 ```java
 class Solution {
+
     public int consecutiveNumbersSum(int n) {
         n <<= 1;
         int ans = 0;
@@ -72,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func consecutiveNumbersSum(n int) int {
 	n <<= 1
@@ -106,10 +101,6 @@ func consecutiveNumbersSum(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

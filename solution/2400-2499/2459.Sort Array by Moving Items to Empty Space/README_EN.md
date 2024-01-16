@@ -63,7 +63,7 @@ It can be proven that 2 is the minimum number of operations needed.
 
 ## Solutions
 
-**Solution 1: Permutation Cycle**
+### Solution 1: Permutation Cycle
 
 For a permutation cycle of length $m$, if $0$ is in the cycle, the number of swaps is $m-1$; otherwise, the number of swaps is $m+1$.
 
@@ -74,8 +74,6 @@ Here, $0$ can be at position $0$ or at position $n-1$. We take the minimum of th
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
         b = f([(v - 1 + n) % n for v in nums], n - 1)
         return min(a, b)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -138,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +164,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sortArray(nums []int) int {
@@ -206,16 +198,6 @@ func sortArray(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,7 +53,7 @@
 
 ## Solutions
 
-**Solution 1: Preprocessing Right Minimum + Traversing to Maintain Left Maximum**
+### Solution 1: Preprocessing Right Minimum + Traversing to Maintain Left Maximum
 
 We can preprocess the right minimum array $right$, where $right[i]$ represents the minimum value in $nums[i..n-1]$.
 
@@ -64,8 +64,6 @@ After the traversal, we can get the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
             l = max(l, nums[i])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfBeauties(nums []int) (ans int) {
 	n := len(nums)
@@ -161,8 +153,6 @@ func sumOfBeauties(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfBeauties(nums: number[]): number {
@@ -185,10 +175,6 @@ function sumOfBeauties(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

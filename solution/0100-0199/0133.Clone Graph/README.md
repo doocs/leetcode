@@ -78,13 +78,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -113,10 +109,6 @@ class Solution:
 
         return clone(node)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -159,45 +151,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for Node.
- * class Node {
- *     val: number
- *     neighbors: Node[]
- *     constructor(val?: number, neighbors?: Node[]) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.neighbors = (neighbors===undefined ? [] : neighbors)
- *     }
- * }
- */
-
-function cloneGraph(node: Node | null): Node | null {
-    if (node == null) return null;
-
-    const visited = new Map();
-    visited.set(node, new Node(node.val));
-    const queue = [node];
-    while (queue.length) {
-        const cur = queue.shift();
-        for (let neighbor of cur.neighbors || []) {
-            if (!visited.has(neighbor)) {
-                queue.push(neighbor);
-                const newNeighbor = new Node(neighbor.val, []);
-                visited.set(neighbor, newNeighbor);
-            }
-            const newNode = visited.get(cur);
-            newNode.neighbors.push(visited.get(neighbor));
-        }
-    }
-    return visited.get(node);
-}
-```
-
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -236,8 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -269,10 +220,78 @@ func cloneGraph(node *Node) *Node {
 }
 ```
 
-### **...**
+```ts
+/**
+ * Definition for Node.
+ * class Node {
+ *     val: number
+ *     neighbors: Node[]
+ *     constructor(val?: number, neighbors?: Node[]) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.neighbors = (neighbors===undefined ? [] : neighbors)
+ *     }
+ * }
+ */
 
+function cloneGraph(node: Node | null): Node | null {
+    if (node == null) return null;
+
+    const visited = new Map();
+    visited.set(node, new Node(node.val));
+    const queue = [node];
+    while (queue.length) {
+        const cur = queue.shift();
+        for (let neighbor of cur.neighbors || []) {
+            if (!visited.has(neighbor)) {
+                queue.push(neighbor);
+                const newNeighbor = new Node(neighbor.val, []);
+                visited.set(neighbor, newNeighbor);
+            }
+            const newNode = visited.get(cur);
+            newNode.neighbors.push(visited.get(neighbor));
+        }
+    }
+    return visited.get(node);
+}
 ```
 
+```cs
+using System.Collections.Generic;
+
+public class Solution {
+    public Node CloneGraph(Node node) {
+        if (node == null) return null;
+        var dict = new Dictionary<int, Node>();
+        var queue = new Queue<Node>();
+        queue.Enqueue(CloneVal(node));
+        dict.Add(node.val, queue.Peek());
+        while (queue.Count > 0)
+        {
+            var current = queue.Dequeue();
+            var newNeighbors = new List<Node>(current.neighbors.Count);
+            foreach (var oldNeighbor in current.neighbors)
+            {
+                Node newNeighbor;
+                if (!dict.TryGetValue(oldNeighbor.val, out newNeighbor))
+                {
+                    newNeighbor = CloneVal(oldNeighbor);
+                    queue.Enqueue(newNeighbor);
+                    dict.Add(newNeighbor.val, newNeighbor);
+                }
+                newNeighbors.Add(newNeighbor);
+            }
+            current.neighbors = newNeighbors;
+        }
+        return dict[node.val];
+    }
+
+    private Node CloneVal(Node node)
+    {
+        return new Node(node.val, new List<Node>(node.neighbors));
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

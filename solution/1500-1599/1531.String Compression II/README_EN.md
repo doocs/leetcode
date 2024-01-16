@@ -47,15 +47,9 @@
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,10 +103,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

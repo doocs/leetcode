@@ -40,35 +40,19 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 
 ## Solutions
 
-**Solution 1: Using `replace()` function**
+### Solution 1: Using `replace()` function
 
 Directly use `replace` to replace all ` ` with `%20`:
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
-**Solution 2: Simulation**
-
-Traverse each character $c$ in the string. When encountering a space, add `%20` to the result, otherwise add $c$.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
         return S[:length].replace(' ', '%20')
 ```
-
-```python
-class Solution:
-    def replaceSpaces(self, S: str, length: int) -> str:
-        return ''.join(['%20' if c == ' ' else c for c in S[:length]])
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,21 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} S
- * @param {number} length
- * @return {string}
- */
-var replaceSpaces = function (S, length) {
-    return encodeURI(S.substring(0, length));
-};
-```
-
-### **Go**
 
 ```go
 func replaceSpaces(S string, length int) string {
@@ -124,15 +93,11 @@ func replaceSpaces(S string, length int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function replaceSpaces(S: string, length: number): string {
     return S.slice(0, length).replace(/\s/g, '%20');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -140,6 +105,33 @@ impl Solution {
         s[..length as usize].replace(' ', "%20")
     }
 }
+```
+
+```js
+/**
+ * @param {string} S
+ * @param {number} length
+ * @return {string}
+ */
+var replaceSpaces = function (S, length) {
+    return encodeURI(S.substring(0, length));
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Simulation
+
+Traverse each character $c$ in the string. When encountering a space, add `%20` to the result, otherwise add $c$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def replaceSpaces(self, S: str, length: int) -> str:
+        return ''.join(['%20' if c == ' ' else c for c in S[:length]])
 ```
 
 ```rust
@@ -155,10 +147,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

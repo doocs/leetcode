@@ -42,13 +42,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +56,6 @@ class Solution:
         nums.sort()
         return 10 * (nums[0] + nums[1]) + nums[2] + nums[3]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -78,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSum(num int) int {
 	var nums []int
@@ -110,8 +98,6 @@ func minimumSum(num int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSum(num: number): number {
     const nums = new Array(4).fill(0);
@@ -123,8 +109,6 @@ function minimumSum(num: number): number {
     return 10 * (nums[0] + nums[1]) + nums[2] + nums[3];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -139,8 +123,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -158,10 +140,6 @@ int minimumSum(int num) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

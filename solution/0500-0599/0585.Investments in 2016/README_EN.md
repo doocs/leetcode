@@ -67,9 +67,9 @@ So, the result is the sum of tiv_2016 of the first and last record, which is 45.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -87,3 +87,5 @@ WHERE cnt1 > 1 AND cnt2 = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

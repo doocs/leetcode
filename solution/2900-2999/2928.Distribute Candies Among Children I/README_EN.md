@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion**
+### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
 
 According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, limit]$ candies.
 
@@ -46,8 +46,6 @@ We need to exclude the schemes where the number of balls in a box exceeds $limit
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -61,8 +59,6 @@ class Solution:
             ans += 3 * comb(n - 2 * limit, 2)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distributeCandies(n int, limit int) int {
 	comb2 := func(n int) int {
@@ -131,8 +123,6 @@ func distributeCandies(n int, limit int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distributeCandies(n: number, limit: number): number {
     const comb2 = (n: number) => (n * (n - 1)) / 2;
@@ -150,10 +140,6 @@ function distributeCandies(n: number, limit: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

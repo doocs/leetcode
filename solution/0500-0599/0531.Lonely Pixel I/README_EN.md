@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
                         break
         return res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findLonelyPixel(picture [][]byte) int {
 	m, n := len(picture), len(picture[0])
@@ -155,10 +149,6 @@ func findLonelyPixel(picture [][]byte) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

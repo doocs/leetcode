@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
             default=0,
         )
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -141,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -195,8 +191,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxKilledEnemies(grid [][]byte) int {
@@ -257,10 +251,6 @@ func maxKilledEnemies(grid [][]byte) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

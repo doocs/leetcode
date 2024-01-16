@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：构造**
+### 方法一：构造
 
 根据题目描述，所有数字之和为 $(n + m) \times mean$，已知的数字之和为 `sum(rolls)`，那么缺失的数字之和为 $s = (n + m) \times mean - sum(rolls)$。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为缺失的数字个数和已知的数字个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
             ans[i] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,7 +108,41 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
+        int m = rolls.size();
+        int s = (n + m) * mean;
+        for (int& v : rolls) s -= v;
+        if (s > n * 6 || s < n) return {};
+        vector<int> ans(n, s / n);
+        for (int i = 0; i < s % n; ++i) ++ans[i];
+        return ans;
+    }
+};
+```
+
+```go
+func missingRolls(rolls []int, mean int, n int) []int {
+	m := len(rolls)
+	s := (n + m) * mean
+	for _, v := range rolls {
+		s -= v
+	}
+	if s > n*6 || s < n {
+		return []int{}
+	}
+	ans := make([]int, n)
+	for i, j := 0, 0; i < n; i, j = i+1, j+1 {
+		ans[i] = s / n
+		if j < s%n {
+			ans[i]++
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function missingRolls(rolls: number[], mean: number, n: number): number[] {
@@ -151,8 +175,6 @@ function missingRolls(rolls: number[], mean: number, n: number): number[] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -191,50 +213,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
-        int m = rolls.size();
-        int s = (n + m) * mean;
-        for (int& v : rolls) s -= v;
-        if (s > n * 6 || s < n) return {};
-        vector<int> ans(n, s / n);
-        for (int i = 0; i < s % n; ++i) ++ans[i];
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func missingRolls(rolls []int, mean int, n int) []int {
-	m := len(rolls)
-	s := (n + m) * mean
-	for _, v := range rolls {
-		s -= v
-	}
-	if s > n*6 || s < n {
-		return []int{}
-	}
-	ans := make([]int, n)
-	for i, j := 0, 0; i < n; i, j = i+1, j+1 {
-		ans[i] = s / n
-		if j < s%n {
-			ans[i]++
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

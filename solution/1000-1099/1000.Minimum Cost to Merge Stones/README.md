@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划（区间 DP）+ 前缀和**
+### 方法一：动态规划（区间 DP）+ 前缀和
 
 我们不妨记题目中的 $k$ 为 $K$，石头的堆数为 $n$。
 
@@ -84,10 +82,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def mergeStones(self, stones: List[int], K: int) -> int:
@@ -107,10 +101,6 @@ class Solution:
                 f[i][j][1] = f[i][j][K] + s[j] - s[i - 1]
         return f[1][n][1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -184,8 +172,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mergeStones(stones []int, K int) int {
@@ -225,10 +211,6 @@ func mergeStones(stones []int, K int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

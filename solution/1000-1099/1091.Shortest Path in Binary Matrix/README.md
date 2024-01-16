@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 根据题目描述，一条畅通路径是从左上角单元格 $(0, 0)$ 到右下角单元格 $(n - 1, n - 1)$ 的路径，且路径上所有单元格的值都是 $0$。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是给定的二进制矩阵的边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -169,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestPathBinaryMatrix(grid [][]int) int {
 	if grid[0][0] == 1 {
@@ -201,8 +187,6 @@ func shortestPathBinaryMatrix(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestPathBinaryMatrix(grid: number[][]): number {
     if (grid[0][0]) {
@@ -231,8 +215,6 @@ function shortestPathBinaryMatrix(grid: number[][]): number {
     return -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -270,10 +252,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

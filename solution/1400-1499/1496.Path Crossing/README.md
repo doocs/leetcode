@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以用一个哈希表 $vis$ 记录路径上的点。初始时 $vis$ 中只有原点 $(0, 0)$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $path$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
             vis.add((i, j))
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPathCrossing(path string) bool {
 	i, j := 0, 0
@@ -163,8 +149,6 @@ func isPathCrossing(path string) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isPathCrossing(path: string): boolean {
@@ -191,10 +175,6 @@ function isPathCrossing(path: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Single Pass**
+### Solution 1: Single Pass
 
 Traverse the array, find all indices equal to $target$, then calculate $|i - start|$, and take the minimum value.
 
@@ -55,15 +55,11 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
         return min(abs(i - start) for i, x in enumerate(nums) if x == target)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getMinDistance(nums []int, target int, start int) int {
@@ -119,8 +111,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMinDistance(nums: number[], target: number, start: number): number {
     let ans = Infinity;
@@ -132,8 +122,6 @@ function getMinDistance(nums: number[], target: number, start: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -148,10 +136,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

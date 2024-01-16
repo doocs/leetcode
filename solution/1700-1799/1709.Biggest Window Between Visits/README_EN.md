@@ -66,13 +66,11 @@ For the third user, the only window in question is between dates 2020-11-11 and 
 
 ## Solutions
 
-**Solution 1: Window Function**
+### Solution 1: Window Function
 
 We can use the window function `LEAD` to obtain the date of the next visit for each user (if the date of the next visit does not exist, it is considered as `2021-1-1`), and then use the `DATEDIFF` function to calculate the number of days between two visits. Finally, we can take the maximum value of the number of days between visits for each user.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -96,3 +94,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 优先队列（小根堆）**
+### 方法一：哈希表 + 优先队列（小根堆）
 
 由于题目中的子序列是由连续整数组成的，因此，只要知道子序列的最后一个数以及子序列的长度，就能够确定子序列。
 
@@ -79,10 +77,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isPossible(self, nums: List[int]) -> bool:
@@ -94,10 +88,6 @@ class Solution:
                 heappush(d[v], 1)
         return all(not v or v and v[0] > 2 for v in d.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -152,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isPossible(nums []int) bool {
@@ -190,10 +176,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

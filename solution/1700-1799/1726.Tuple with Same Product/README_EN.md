@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Combination + Hash Table**
+### Solution 1: Combination + Hash Table
 
 Assuming there are $n$ pairs of numbers, for any two pairs of numbers $a, b$ and $c, d$ that satisfy the condition $a \times b = c \times d$, there are a total of $\mathrm{C}_n^2 = \frac{n \times (n-1)}{2}$ such combinations.
 
@@ -49,8 +49,6 @@ According to the problem description, each combination that satisfies the above 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
                 cnt[x] += 1
         return sum(v * (v - 1) // 2 for v in cnt.values()) << 3
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func tupleSameProduct(nums []int) int {
 	cnt := map[int]int{}
@@ -125,7 +117,22 @@ func tupleSameProduct(nums []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function tupleSameProduct(nums: number[]): number {
+    const cnt: Map<number, number> = new Map();
+    for (let i = 1; i < nums.length; ++i) {
+        for (let j = 0; j < i; ++j) {
+            const x = nums[i] * nums[j];
+            cnt.set(x, (cnt.get(x) ?? 0) + 1);
+        }
+    }
+    let ans = 0;
+    for (const [_, v] of cnt) {
+        ans += (v * (v - 1)) / 2;
+    }
+    return ans << 3;
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -151,29 +158,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function tupleSameProduct(nums: number[]): number {
-    const cnt: Map<number, number> = new Map();
-    for (let i = 1; i < nums.length; ++i) {
-        for (let j = 0; j < i; ++j) {
-            const x = nums[i] * nums[j];
-            cnt.set(x, (cnt.get(x) ?? 0) + 1);
-        }
-    }
-    let ans = 0;
-    for (const [_, v] of cnt) {
-        ans += (v * (v - 1)) / 2;
-    }
-    return ans << 3;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

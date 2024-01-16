@@ -61,7 +61,7 @@ Note that the starting and ending square can be anywhere in the grid.
 
 ## Solutions
 
-**Solution 1: Backtracking**
+### Solution 1: Backtracking
 
 We can first traverse the entire grid, find the starting point $(x, y)$, and count the number of blank spaces $cnt$.
 
@@ -76,8 +76,6 @@ Finally, we return the path number from the starting point, that is, $dfs(x, y, 
 The time complexity is $O(3^{m \times n})$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -101,8 +99,6 @@ class Solution:
         vis = {start}
         return dfs(*start, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -151,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -195,8 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func uniquePathsIII(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -238,8 +230,6 @@ func uniquePathsIII(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function uniquePathsIII(grid: number[][]): number {
     const m = grid.length;
@@ -279,10 +269,6 @@ function uniquePathsIII(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

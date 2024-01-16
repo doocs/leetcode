@@ -28,15 +28,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-将每个字符串第一个字母变成 'a'。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -54,10 +48,6 @@ class Solution:
             mp[k].append(s)
         return list(mp.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func groupStrings(strings []string) [][]string {
 	mp := make(map[string][]string)
@@ -127,10 +113,6 @@ func groupStrings(strings []string) [][]string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,7 +50,7 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 
 ## Solutions
 
-**Solution 1: Calculate the Contribution of Each Character**
+### Solution 1: Calculate the Contribution of Each Character
 
 For each character $c_i$ in the string $s$, when it appears only once in a substring, it contributes to the count of unique characters in that substring.
 
@@ -63,8 +63,6 @@ For each character $c_i$, we iterate through each position $p$ in $d[c_i]$, find
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
                 ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func uniqueLetterString(s string) (ans int) {
 	d := make([][]int, 26)
@@ -148,8 +140,6 @@ func uniqueLetterString(s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function uniqueLetterString(s: string): number {
     const d: number[][] = Array.from({ length: 26 }, () => [-1]);
@@ -167,8 +157,6 @@ function uniqueLetterString(s: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -189,10 +177,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

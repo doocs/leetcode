@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 如果 `obj` 不是对象或为空，函数会原封不动地返回，因为无需检查非对象值中的键。
 
@@ -59,35 +57,6 @@
 时间复杂度 $O(n)$, 空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **JavaScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```js
-var compactObject = function (obj) {
-    if (obj === null || typeof obj !== 'object') {
-        return obj;
-    }
-
-    if (Array.isArray(obj)) {
-        return obj.filter(Boolean).map(compactObject);
-    }
-
-    const result = {};
-    for (const key in obj) {
-        const value = compactObject(obj[key]);
-        if (Boolean(value)) {
-            result[key] = value;
-        }
-    }
-    return result;
-};
-```
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 type Obj = Record<any, any>;
@@ -111,4 +80,27 @@ function compactObject(obj: Obj): Obj {
 }
 ```
 
+```js
+var compactObject = function (obj) {
+    if (obj === null || typeof obj !== 'object') {
+        return obj;
+    }
+
+    if (Array.isArray(obj)) {
+        return obj.filter(Boolean).map(compactObject);
+    }
+
+    const result = {};
+    for (const key in obj) {
+        const value = compactObject(obj[key]);
+        if (Boolean(value)) {
+            result[key] = value;
+        }
+    }
+    return result;
+};
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

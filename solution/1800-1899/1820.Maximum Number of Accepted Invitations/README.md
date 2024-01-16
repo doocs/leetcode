@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：匈牙利算法**
+### 方法一：匈牙利算法
 
 本题属于二分图最大匹配问题，适合用匈牙利算法来求解。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(m \times n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
             ans += find(i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +150,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumInvitations(grid [][]int) int {
@@ -197,10 +183,6 @@ func maximumInvitations(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

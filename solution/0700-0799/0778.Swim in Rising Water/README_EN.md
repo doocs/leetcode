@@ -45,9 +45,9 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                     return t
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,42 +117,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function swimInWater(grid: number[][]): number {
-    const m = grid.length,
-        n = grid[0].length;
-    let visited = Array.from({ length: m }, () => new Array(n).fill(false));
-    let ans = 0;
-    let stack = [[0, 0, grid[0][0]]];
-    const dir = [
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ];
-
-    while (stack.length) {
-        let [i, j] = stack.shift();
-        ans = Math.max(grid[i][j], ans);
-        if (i == m - 1 && j == n - 1) break;
-        for (let [dx, dy] of dir) {
-            let x = i + dx,
-                y = j + dy;
-            if (x < m && x > -1 && y < n && y > -1 && !visited[x][y]) {
-                visited[x][y] = true;
-                stack.push([x, y, grid[x][y]]);
-            }
-        }
-        stack.sort((a, b) => a[2] - b[2]);
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,7 +150,74 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func swimInWater(grid [][]int) int {
+	n := len(grid)
+	p := make([]int, n*n)
+	for i := range p {
+		p[i] = i
+	}
+	hi := make([]int, n*n)
+	for i, row := range grid {
+		for j, h := range row {
+			hi[h] = i*n + j
+		}
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	dirs := []int{-1, 0, 1, 0, -1}
+	for t := 0; t < n*n; t++ {
+		i, j := hi[t]/n, hi[t]%n
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t {
+				p[find(x*n+y)] = find(hi[t])
+			}
+			if find(0) == find(n*n-1) {
+				return t
+			}
+		}
+	}
+	return -1
+}
+```
+
+```ts
+function swimInWater(grid: number[][]): number {
+    const m = grid.length,
+        n = grid[0].length;
+    let visited = Array.from({ length: m }, () => new Array(n).fill(false));
+    let ans = 0;
+    let stack = [[0, 0, grid[0][0]]];
+    const dir = [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ];
+
+    while (stack.length) {
+        let [i, j] = stack.shift();
+        ans = Math.max(grid[i][j], ans);
+        if (i == m - 1 && j == n - 1) break;
+        for (let [dx, dy] of dir) {
+            let x = i + dx,
+                y = j + dy;
+            if (x < m && x > -1 && y < n && y > -1 && !visited[x][y]) {
+                visited[x][y] = true;
+                stack.push([x, y, grid[x][y]]);
+            }
+        }
+        stack.sort((a, b) => a[2] - b[2]);
+    }
+    return ans;
+}
+```
 
 ```rust
 const DIR: [(i32, i32); 4] = [
@@ -271,49 +300,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func swimInWater(grid [][]int) int {
-	n := len(grid)
-	p := make([]int, n*n)
-	for i := range p {
-		p[i] = i
-	}
-	hi := make([]int, n*n)
-	for i, row := range grid {
-		for j, h := range row {
-			hi[h] = i*n + j
-		}
-	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for t := 0; t < n*n; t++ {
-		i, j := hi[t]/n, hi[t]%n
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t {
-				p[find(x*n+y)] = find(hi[t])
-			}
-			if find(0) == find(n*n-1) {
-				return t
-			}
-		}
-	}
-	return -1
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

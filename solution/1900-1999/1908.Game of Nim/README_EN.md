@@ -60,9 +60,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -80,8 +80,6 @@ class Solution:
 
         return dfs(tuple(piles))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,8 +164,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nimGame(piles []int) bool {
@@ -210,8 +204,6 @@ func nimGame(piles []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function nimGame(piles: number[]): boolean {
     const p: number[] = Array(8).fill(1);
@@ -249,10 +241,6 @@ function nimGame(piles: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -81,7 +81,7 @@ From the beginning of the second 3, the network becomes idle.
 
 ## Solutions
 
-**Solution 1: BFS**
+### Solution 1: BFS
 
 First, we construct an undirected graph $g$ based on the 2D array $edges$, where $g[u]$ represents all neighboring nodes of node $u$.
 
@@ -90,8 +90,6 @@ Then, we can use breadth-first search (BFS) to find the shortest distance $d_i$ 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -115,8 +113,6 @@ class Solution:
                         ans = max(ans, (t - 1) // patience[v] * patience[v] + t + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -152,8 +148,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -191,8 +185,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func networkBecomesIdle(edges [][]int, patience []int) (ans int) {
 	n := len(patience)
@@ -222,8 +214,6 @@ func networkBecomesIdle(edges [][]int, patience []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function networkBecomesIdle(edges: number[][], patience: number[]): number {
@@ -255,10 +245,6 @@ function networkBecomesIdle(edges: number[][], patience: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

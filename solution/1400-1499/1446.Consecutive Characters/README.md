@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 我们定义一个变量 $t$，表示当前连续字符的长度，初始时 $t=1$。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                 t = 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxPower(s string) int {
 	ans, t := 1, 1
@@ -125,8 +111,6 @@ func maxPower(s string) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxPower(s: string): number {
@@ -143,10 +127,6 @@ function maxPower(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

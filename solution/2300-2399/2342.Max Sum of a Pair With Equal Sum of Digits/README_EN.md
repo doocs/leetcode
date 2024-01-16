@@ -38,7 +38,7 @@ So the maximum sum that we can obtain is 54.
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We can use a hash table $d$ to record the maximum value corresponding to each digit sum, and initialize an answer variable $ans = -1$.
 
@@ -51,8 +51,6 @@ Since the maximum element in $nums$ is $10^9$, the maximum digit sum is $9 \time
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(D)$. Here, $n$ is the length of the array $nums$, and $M$ and $D$ are the maximum value of the elements in the array $nums$ and the maximum value of the digit sum, respectively. In this problem, $M \leq 10^9$, $D \leq 81$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
             d[x] = max(d[x], v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSum(nums []int) int {
 	d := [100]int{}
@@ -135,8 +127,6 @@ func maximumSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumSum(nums: number[]): number {
     const d: number[] = Array(100).fill(0);
@@ -154,8 +144,6 @@ function maximumSum(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -181,10 +169,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

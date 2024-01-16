@@ -55,9 +55,9 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +81,6 @@ class Solution:
                 ans += x == y
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func equalCountSubstrings(s string, count int) (ans int) {
@@ -194,8 +188,6 @@ func equalCountSubstrings(s string, count int) (ans int) {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -228,10 +220,6 @@ var equalCountSubstrings = function (s, count) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

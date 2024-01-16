@@ -74,9 +74,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 模拟**
+### 方法一：哈希表 + 模拟
 
 我们先用哈希表 $d$ 记录 `knowledge` 中的键值对。
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(L)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 和列表 `knowledge` 的长度，而 $L$ 为 `knowledge` 中所有字符串的长度之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
             i += 1
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -132,8 +122,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func evaluate(s string, knowledge [][]string) string {
@@ -188,8 +174,6 @@ func evaluate(s string, knowledge [][]string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function evaluate(s: string, knowledge: string[][]): string {
     const n = s.length;
@@ -212,8 +196,6 @@ function evaluate(s: string, knowledge: string[][]): string {
     return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -248,10 +230,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用双指针 $i$ 和 $j$ 分别指向字符串 $s$ 的两端，接下来循环以下过程，直至 $i \geq j$：
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 i, j = i + 1, j - 1
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +123,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isPalindrome(s string) bool {
@@ -167,54 +153,6 @@ func tolower(ch byte) byte {
 }
 ```
 
-### **C#**
-
-```cs
-public class Solution {
-    public bool IsPalindrome(string s) {
-        int i = 0, j = s.Length - 1;
-        while (i < j) {
-            if (!char.IsLetterOrDigit(s[i])) {
-                ++i;
-            } else if (!char.IsLetterOrDigit(s[j])) {
-                --j;
-            } else if (char.ToLower(s[i++]) != char.ToLower(s[j--])) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @return {boolean}
- */
-var isPalindrome = function (s) {
-    let i = 0;
-    let j = s.length - 1;
-    while (i < j) {
-        if (!/[a-zA-Z0-9]/.test(s[i])) {
-            ++i;
-        } else if (!/[a-zA-Z0-9]/.test(s[j])) {
-            --j;
-        } else if (s[i].toLowerCase() !== s[j].toLowerCase()) {
-            return false;
-        } else {
-            ++i;
-            --j;
-        }
-    }
-    return true;
-};
-```
-
-### **TypeScript**
-
 ```ts
 function isPalindrome(s: string): boolean {
     let i = 0;
@@ -234,8 +172,6 @@ function isPalindrome(s: string): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -264,7 +200,47 @@ impl Solution {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function (s) {
+    let i = 0;
+    let j = s.length - 1;
+    while (i < j) {
+        if (!/[a-zA-Z0-9]/.test(s[i])) {
+            ++i;
+        } else if (!/[a-zA-Z0-9]/.test(s[j])) {
+            --j;
+        } else if (s[i].toLowerCase() !== s[j].toLowerCase()) {
+            return false;
+        } else {
+            ++i;
+            --j;
+        }
+    }
+    return true;
+};
+```
+
+```cs
+public class Solution {
+    public bool IsPalindrome(string s) {
+        int i = 0, j = s.Length - 1;
+        while (i < j) {
+            if (!char.IsLetterOrDigit(s[i])) {
+                ++i;
+            } else if (!char.IsLetterOrDigit(s[j])) {
+                --j;
+            } else if (char.ToLower(s[i++]) != char.ToLower(s[j--])) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
 ```php
 class Solution {
@@ -290,10 +266,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

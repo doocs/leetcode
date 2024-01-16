@@ -38,21 +38,13 @@ Thus, 101 is not a majority element because 2 &gt; 4/2 is false.
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We notice that the elements in the array $nums$ are non-decreasing, that is, the elements in the array $nums$ are monotonically increasing. Therefore, we can use the method of binary search to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. If $right - left > \frac{n}{2}$, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
 
-**Solution 2: Binary Search (Optimized)**
-
-In Solution 1, we used binary search twice to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. However, we can use binary search once to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and then judge whether $nums[left + \frac{n}{2}]$ is equal to $target$. If they are equal, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
-
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -61,16 +53,6 @@ class Solution:
         right = bisect_right(nums, target)
         return right - left > len(nums) // 2
 ```
-
-```python
-class Solution:
-    def isMajorityElement(self, nums: List[int], target: int) -> bool:
-        left = bisect_left(nums, target)
-        right = left + len(nums) // 2
-        return right < len(nums) and nums[right] == target
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,6 +75,64 @@ class Solution {
         return left;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool isMajorityElement(vector<int>& nums, int target) {
+        auto left = lower_bound(nums.begin(), nums.end(), target);
+        auto right = upper_bound(nums.begin(), nums.end(), target);
+        return right - left > nums.size() / 2;
+    }
+};
+```
+
+```go
+func isMajorityElement(nums []int, target int) bool {
+	left := sort.SearchInts(nums, target)
+	right := sort.SearchInts(nums, target+1)
+	return right-left > len(nums)/2
+}
+```
+
+```ts
+function isMajorityElement(nums: number[], target: number): boolean {
+    const search = (x: number) => {
+        let left = 0;
+        let right = nums.length;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (nums[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    const left = search(target);
+    const right = search(target + 1);
+    return right - left > nums.length >> 1;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Binary Search (Optimized)
+
+In Solution 1, we used binary search twice to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. However, we can use binary search once to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and then judge whether $nums[left + \frac{n}{2}]$ is equal to $target$. If they are equal, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isMajorityElement(self, nums: List[int], target: int) -> bool:
+        left = bisect_left(nums, target)
+        right = left + len(nums) // 2
+        return right < len(nums) and nums[right] == target
 ```
 
 ```java
@@ -119,19 +159,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isMajorityElement(vector<int>& nums, int target) {
-        auto left = lower_bound(nums.begin(), nums.end(), target);
-        auto right = upper_bound(nums.begin(), nums.end(), target);
-        return right - left > nums.size() / 2;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -144,45 +171,12 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func isMajorityElement(nums []int, target int) bool {
-	left := sort.SearchInts(nums, target)
-	right := sort.SearchInts(nums, target+1)
-	return right-left > len(nums)/2
-}
-```
-
 ```go
 func isMajorityElement(nums []int, target int) bool {
 	n := len(nums)
 	left := sort.SearchInts(nums, target)
 	right := left + n/2
 	return right < n && nums[right] == target
-}
-```
-
-### **TypeScript**
-
-```ts
-function isMajorityElement(nums: number[], target: number): boolean {
-    const search = (x: number) => {
-        let left = 0;
-        let right = nums.length;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (nums[mid] >= x) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
-    };
-    const left = search(target);
-    const right = search(target + 1);
-    return right - left > nums.length >> 1;
 }
 ```
 
@@ -208,10 +202,6 @@ function isMajorityElement(nums: number[], target: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

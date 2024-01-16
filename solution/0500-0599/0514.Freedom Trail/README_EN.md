@@ -48,9 +48,9 @@ So the final output is 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
                     )
         return min(f[-1][j] for j in pos[key[-1]])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findRotateSteps(ring string, key string) int {
@@ -180,10 +174,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

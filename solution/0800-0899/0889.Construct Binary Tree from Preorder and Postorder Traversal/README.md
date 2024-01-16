@@ -44,19 +44,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 1. 以 preorder 的第一个元素或 postorder 的最后一个元素为根节点的值。
 2. 以 preorder 的第二个元素作为左子树的根节点，在 postorder 中找到该元素的索引 i，然后基于索引 i 可以计算出左右子树的长度。
 3. 最后基于左右子树的长度，分别划分出前序和后序遍历序列中的左右子树，递归构造左右子树即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -85,45 +79,6 @@ class Solution:
                 )
                 return root
 ```
-
-### **Go**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
-	postMap := make(map[int]int)
-	for index, v := range postorder {
-		postMap[v] = index
-	}
-	var dfs func(prel, prer, postl, postr int) *TreeNode
-	dfs = func(prel, prer, postl, postr int) *TreeNode {
-		if prel > prer {
-			return nil
-		}
-		root := &TreeNode{Val: preorder[prel]}
-		if prel == prer {
-			return root
-		}
-		leftRootIndex := postMap[preorder[prel+1]]
-		leftLength := leftRootIndex - postl + 1
-		root.Left = dfs(prel+1, prel+leftLength, postl, leftRootIndex)
-		root.Right = dfs(prel+leftLength+1, prer, leftRootIndex+1, postr-1)
-		return root
-	}
-	return dfs(0, len(preorder)-1, 0, len(postorder)-1)
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -160,10 +115,39 @@ public:
 };
 ```
 
-### **...**
-
-```
-
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
+	postMap := make(map[int]int)
+	for index, v := range postorder {
+		postMap[v] = index
+	}
+	var dfs func(prel, prer, postl, postr int) *TreeNode
+	dfs = func(prel, prer, postl, postr int) *TreeNode {
+		if prel > prer {
+			return nil
+		}
+		root := &TreeNode{Val: preorder[prel]}
+		if prel == prer {
+			return root
+		}
+		leftRootIndex := postMap[preorder[prel+1]]
+		leftLength := leftRootIndex - postl + 1
+		root.Left = dfs(prel+1, prel+leftLength, postl, leftRootIndex)
+		root.Right = dfs(prel+leftLength+1, prer, leftRootIndex+1, postr-1)
+		return root
+	}
+	return dfs(0, len(preorder)-1, 0, len(postorder)-1)
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

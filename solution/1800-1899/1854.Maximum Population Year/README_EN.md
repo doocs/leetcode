@@ -38,7 +38,7 @@ The earlier year between them is 1960.</pre>
 
 ## Solutions
 
-**Solution 1: Difference Array**
+### Solution 1: Difference Array
 
 We notice that the range of years is $[1950,..2050]$. Therefore, we can map these years to an array $d$ of length $101$, where the index of the array represents the value of the year minus $1950$.
 
@@ -47,8 +47,6 @@ Next, we traverse $logs$. For each person, we increment $d[birth_i - 1950]$ by $
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the array $logs$, and $C$ is the range size of the years, i.e., $2050 - 1950 + 1 = 101$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -66,8 +64,6 @@ class Solution:
                 mx, j = s, i
         return j + offset
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumPopulation(logs [][]int) int {
 	d := [101]int{}
@@ -145,7 +137,25 @@ func maximumPopulation(logs [][]int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function maximumPopulation(logs: number[][]): number {
+    const d: number[] = new Array(101).fill(0);
+    const offset = 1950;
+    for (const [birth, death] of logs) {
+        d[birth - offset]++;
+        d[death - offset]--;
+    }
+    let j = 0;
+    for (let i = 0, s = 0, mx = 0; i < d.length; ++i) {
+        s += d[i];
+        if (mx < s) {
+            mx = s;
+            j = i;
+        }
+    }
+    return j + offset;
+}
+```
 
 ```js
 /**
@@ -173,32 +183,6 @@ var maximumPopulation = function (logs) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function maximumPopulation(logs: number[][]): number {
-    const d: number[] = new Array(101).fill(0);
-    const offset = 1950;
-    for (const [birth, death] of logs) {
-        d[birth - offset]++;
-        d[death - offset]--;
-    }
-    let j = 0;
-    for (let i = 0, s = 0, mx = 0; i < d.length; ++i) {
-        s += d[i];
-        if (mx < s) {
-            mx = s;
-            j = i;
-        }
-    }
-    return j + offset;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

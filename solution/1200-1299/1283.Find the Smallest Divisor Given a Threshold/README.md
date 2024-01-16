@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，对于一个数字 $v$，如果将 $nums$ 中的每个数字都除以 $v$ 的结果之和小于等于 $threshold$，那么所有大于 $v$ 的值都满足条件。这存在着单调性，因此我们可以使用二分查找的方法找到最小的满足条件的 $v$。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n \times \log M)$，其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,20 +75,6 @@ class Solution:
                 l = mid + 1
         return l
 ```
-
-```python
-class Solution:
-    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        def f(v: int) -> bool:
-            v += 1
-            return sum((x + v - 1) // v for x in nums) <= threshold
-
-        return bisect_left(range(max(nums)), True, key=f) + 1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestDivisor(nums []int, threshold int) int {
 	return sort.Search(1000000, func(v int) bool {
@@ -157,7 +133,25 @@ func smallestDivisor(nums []int, threshold int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function smallestDivisor(nums: number[], threshold: number): number {
+    let l = 1;
+    let r = Math.max(...nums);
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        let s = 0;
+        for (const x of nums) {
+            s += Math.ceil(x / mid);
+        }
+        if (s <= threshold) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
 
 ```js
 /**
@@ -184,30 +178,6 @@ var smallestDivisor = function (nums, threshold) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function smallestDivisor(nums: number[], threshold: number): number {
-    let l = 1;
-    let r = Math.max(...nums);
-    while (l < r) {
-        const mid = (l + r) >> 1;
-        let s = 0;
-        for (const x of nums) {
-            s += Math.ceil(x / mid);
-        }
-        if (s <= threshold) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return l;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int SmallestDivisor(int[] nums, int threshold) {
@@ -230,10 +200,22 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        def f(v: int) -> bool:
+            v += 1
+            return sum((x + v - 1) // v for x in nums) <= threshold
+
+        return bisect_left(range(max(nums)), True, key=f) + 1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + State Compression + Memorized Search**
+### Solution 1: Greedy + State Compression + Memorized Search
 
 The problem actually asks us to find an arrangement order that maximizes the number of groups whose prefix sum (referring to "number of people" here) modulo $batchSize$ equals $0$. Therefore, we can divide all customers into two categories:
 
@@ -55,8 +55,6 @@ During the process, we can use memorized search to avoid repeated calculation of
 The time complexity does not exceed $O(10^7)$, and the space complexity does not exceed $O(10^6)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,29 +78,6 @@ class Solution:
         ans += dfs(state, 0)
         return ans
 ```
-
-```python
-class Solution:
-    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
-        @cache
-        def dfs(state, x):
-            if state == mask:
-                return 0
-            vis = [False] * batchSize
-            res = 0
-            for i, v in enumerate(g):
-                if state >> i & 1 == 0 and not vis[v]:
-                    vis[v] = True
-                    y = (x + v) % batchSize
-                    res = max(res, dfs(state | 1 << i, y))
-            return res + (x == 0)
-
-        g = [v % batchSize for v in groups if v % batchSize]
-        mask = (1 << len(g)) - 1
-        return len(groups) - len(g) + dfs(0, 0)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -142,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxHappyGroups(batchSize int, groups []int) (ans int) {
@@ -217,10 +188,33 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+        @cache
+        def dfs(state, x):
+            if state == mask:
+                return 0
+            vis = [False] * batchSize
+            res = 0
+            for i, v in enumerate(g):
+                if state >> i & 1 == 0 and not vis[v]:
+                    vis[v] = True
+                    y = (x + v) % batchSize
+                    res = max(res, dfs(state | 1 << i, y))
+            return res + (x == 0)
+
+        g = [v % batchSize for v in groups if v % batchSize]
+        mask = (1 << len(g)) - 1
+        return len(groups) - len(g) + dfs(0, 0)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -34,19 +34,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们不妨假设 `num` 大于等于 $0$，那么，如果 `num` 等于 $0$，只需要返回 $0$ 即可。否则，我们将 $num$ 模 $7$ 的结果保存起来，最后逆序拼接成字符串即可。
 
 时间复杂度 $O(\log n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 是 `num` 的绝对值大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -61,10 +55,6 @@ class Solution:
             num //= 7
         return ''.join(ans[::-1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,7 +75,38 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    string convertToBase7(int num) {
+        if (num == 0) return "0";
+        if (num < 0) return "-" + convertToBase7(-num);
+        string ans = "";
+        while (num) {
+            ans = to_string(num % 7) + ans;
+            num /= 7;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func convertToBase7(num int) string {
+	if num == 0 {
+		return "0"
+	}
+	if num < 0 {
+		return "-" + convertToBase7(-num)
+	}
+	ans := []byte{}
+	for num != 0 {
+		ans = append([]byte{'0' + byte(num%7)}, ans...)
+		num /= 7
+	}
+	return string(ans)
+}
+```
 
 ```ts
 function convertToBase7(num: number): string {
@@ -105,8 +126,6 @@ function convertToBase7(num: number): string {
     return isMinus ? '-' + res : res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -131,47 +150,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string convertToBase7(int num) {
-        if (num == 0) return "0";
-        if (num < 0) return "-" + convertToBase7(-num);
-        string ans = "";
-        while (num) {
-            ans = to_string(num % 7) + ans;
-            num /= 7;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func convertToBase7(num int) string {
-	if num == 0 {
-		return "0"
-	}
-	if num < 0 {
-		return "-" + convertToBase7(-num)
-	}
-	ans := []byte{}
-	for num != 0 {
-		ans = append([]byte{'0' + byte(num%7)}, ans...)
-		num /= 7
-	}
-	return string(ans)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

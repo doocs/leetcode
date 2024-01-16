@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们将数组转换为字符串，然后从左到右遍历字符串，找到第一个出现的 $6$，将其替换为 $9$，然后返回转换后的字符串对应的整数即可。
 
@@ -59,19 +57,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximum69Number(self, num: int) -> int:
         return int(str(num).replace("6", "9", 1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximum69Number(num int) int {
 	s := strconv.Itoa(num)
@@ -116,15 +102,11 @@ func maximum69Number(num int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximum69Number(num: number): number {
     return Number((num + '').replace('6', '9'));
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -134,7 +116,20 @@ impl Solution {
 }
 ```
 
-### **C**
+```php
+class Solution {
+    /**
+     * @param Integer $num
+     * @return Integer
+     */
+    function maximum69Number($num) {
+        $num = strval($num);
+        $n = strpos($num, '6');
+        $num[$n] = 9;
+        return intval($num);
+    }
+}
+```
 
 ```c
 int maximum69Number(int num) {
@@ -152,27 +147,6 @@ int maximum69Number(int num) {
 }
 ```
 
-### **PHP**
-
-```php
-class Solution {
-    /**
-     * @param Integer $num
-     * @return Integer
-     */
-    function maximum69Number($num) {
-        $num = strval($num);
-        $n = strpos($num, '6');
-        $num[$n] = 9;
-        return intval($num);
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

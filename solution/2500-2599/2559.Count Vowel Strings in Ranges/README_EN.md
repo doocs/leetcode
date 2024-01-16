@@ -46,7 +46,7 @@ We return [2,3,0].
 
 ## Solutions
 
-**Solution 1: Preprocessing + Binary Search**
+### Solution 1: Preprocessing + Binary Search
 
 We can preprocess all the indices of the strings that start and end with a vowel, and record them in order in the array $nums$.
 
@@ -54,19 +54,7 @@ Next, we iterate through each query $(l, r)$, and use binary search to find the 
 
 The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
 
-**Solution 2: Prefix Sum**
-
-We can create a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the number of strings that start and end with a vowel in the first $i$ strings of the array $words$. Initially, $s[0] = 0$.
-
-Next, we iterate through the array $words$. If the current string starts and ends with a vowel, then $s[i+1] = s[i] + 1$, otherwise $s[i+1] = s[i]$.
-
-Finally, we iterate through each query $(l, r)$. Therefore, the answer to the current query is $s[r+1] - s[l]$.
-
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,20 +63,6 @@ class Solution:
         nums = [i for i, w in enumerate(words) if w[0] in vowels and w[-1] in vowels]
         return [bisect_right(nums, r) - bisect_left(nums, l) for l, r in queries]
 ```
-
-```python
-class Solution:
-    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
-        vowels = set("aeiou")
-        s = list(
-            accumulate(
-                (int(w[0] in vowels and w[-1] in vowels) for w in words), initial=0
-            )
-        )
-        return [s[r + 1] - s[l] for l, r in queries]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,29 +100,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int[] vowelStrings(String[] words, int[][] queries) {
-        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
-        int n = words.length;
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            char a = words[i].charAt(0), b = words[i].charAt(words[i].length() - 1);
-            s[i + 1] = s[i] + (vowels.contains(a) && vowels.contains(b) ? 1 : 0);
-        }
-        int m = queries.length;
-        int[] ans = new int[m];
-        for (int i = 0; i < m; ++i) {
-            int l = queries[i][0], r = queries[i][1];
-            ans[i] = s[r + 1] - s[l];
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -172,30 +123,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
-        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
-        int n = words.size();
-        int s[n + 1];
-        s[0] = 0;
-        for (int i = 0; i < n; ++i) {
-            char a = words[i][0], b = words[i].back();
-            s[i + 1] = s[i] + (vowels.count(a) && vowels.count(b));
-        }
-        vector<int> ans;
-        for (auto& q : queries) {
-            int l = q[0], r = q[1];
-            ans.push_back(s[r + 1] - s[l]);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
@@ -213,29 +140,6 @@ func vowelStrings(words []string, queries [][]int) []int {
 	return ans
 }
 ```
-
-```go
-func vowelStrings(words []string, queries [][]int) []int {
-	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
-	n := len(words)
-	s := make([]int, n+1)
-	for i, w := range words {
-		x := 0
-		if vowels[w[0]] && vowels[w[len(w)-1]] {
-			x = 1
-		}
-		s[i+1] = s[i] + x
-	}
-	ans := make([]int, len(queries))
-	for i, q := range queries {
-		l, r := q[0], q[1]
-		ans[i] = s[r+1] - s[l]
-	}
-	return ans
-}
-```
-
-### **TypeScript**
 
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
@@ -263,6 +167,96 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Prefix Sum
+
+We can create a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the number of strings that start and end with a vowel in the first $i$ strings of the array $words$. Initially, $s[0] = 0$.
+
+Next, we iterate through the array $words$. If the current string starts and ends with a vowel, then $s[i+1] = s[i] + 1$, otherwise $s[i+1] = s[i]$.
+
+Finally, we iterate through each query $(l, r)$. Therefore, the answer to the current query is $s[r+1] - s[l]$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $words$ and $queries$, respectively.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
+        vowels = set("aeiou")
+        s = list(
+            accumulate(
+                (int(w[0] in vowels and w[-1] in vowels) for w in words), initial=0
+            )
+        )
+        return [s[r + 1] - s[l] for l, r in queries]
+```
+
+```java
+class Solution {
+    public int[] vowelStrings(String[] words, int[][] queries) {
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
+        int n = words.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            char a = words[i].charAt(0), b = words[i].charAt(words[i].length() - 1);
+            s[i + 1] = s[i] + (vowels.contains(a) && vowels.contains(b) ? 1 : 0);
+        }
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int l = queries[i][0], r = queries[i][1];
+            ans[i] = s[r + 1] - s[l];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
+        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+        int n = words.size();
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            char a = words[i][0], b = words[i].back();
+            s[i + 1] = s[i] + (vowels.count(a) && vowels.count(b));
+        }
+        vector<int> ans;
+        for (auto& q : queries) {
+            int l = q[0], r = q[1];
+            ans.push_back(s[r + 1] - s[l]);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func vowelStrings(words []string, queries [][]int) []int {
+	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
+	n := len(words)
+	s := make([]int, n+1)
+	for i, w := range words {
+		x := 0
+		if vowels[w[0]] && vowels[w[len(w)-1]] {
+			x = 1
+		}
+		s[i+1] = s[i] + x
+	}
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		l, r := q[0], q[1]
+		ans[i] = s[r+1] - s[l]
+	}
+	return ans
+}
+```
+
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
@@ -279,10 +273,6 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,7 +56,7 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 First, according to the edge information given in the problem, we construct an adjacency list $g$, where $g[a]$ represents all adjacent nodes of node $a$. Then we create an array $size$ of length $n$, where $size[a]$ represents the number of nodes in the subtree with node $a$ as the root.
 
@@ -72,8 +72,6 @@ We call $dfs(0, -1)$, where $0$ represents the root node number, and $-1$ repres
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +98,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -143,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 	n := len(edges) + 1
@@ -211,8 +203,6 @@ func maximumSubtreeSize(edges [][]int, colors []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumSubtreeSize(edges: number[][], colors: number[]): number {
     const n = edges.length + 1;
@@ -242,10 +232,6 @@ function maximumSubtreeSize(edges: number[][], colors: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

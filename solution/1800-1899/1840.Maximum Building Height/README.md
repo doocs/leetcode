@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 数学**
+### 方法一：排序 + 数学
 
 首先，我们将所有的限制条件按照建筑物的编号从小到大排序。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为限制条件的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +155,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxBuilding(n int, restrictions [][]int) (ans int) {
 	r := restrictions
@@ -192,10 +178,6 @@ func maxBuilding(n int, restrictions [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

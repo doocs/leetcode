@@ -51,9 +51,9 @@ allOne.getMinKey(); // return &quot;leet&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -132,8 +132,6 @@ class AllOne:
 # param_3 = obj.getMaxKey()
 # param_4 = obj.getMinKey()
 ```
-
-### **Java**
 
 ```java
 class AllOne {
@@ -237,10 +235,6 @@ class Node {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

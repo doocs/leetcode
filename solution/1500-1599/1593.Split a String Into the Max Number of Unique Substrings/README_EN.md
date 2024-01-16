@@ -49,11 +49,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxUniqueSplit(s string) int {
 	ans := 1
@@ -164,10 +156,6 @@ func maxUniqueSplit(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

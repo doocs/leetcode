@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 $cnt$ 统计所有偶数元素出现的次数，然后找出出现次数最多且值最小的偶数元素。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                 ans, mx = x, v
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostFrequentEven(nums []int) int {
 	cnt := map[int]int{}
@@ -139,8 +125,6 @@ func mostFrequentEven(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function mostFrequentEven(nums: number[]): number {
@@ -161,8 +145,6 @@ function mostFrequentEven(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -186,8 +168,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -214,10 +194,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

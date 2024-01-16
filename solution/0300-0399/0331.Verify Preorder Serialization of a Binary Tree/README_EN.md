@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
                 stk.append("#")
         return len(stk) == 1 and stk[0] == "#"
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,27 +74,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean isValidSerialization(String preorder) {
-        List<String> stk = new ArrayList<>();
-        for (String s : preorder.split(",")) {
-            stk.add(s);
-            while (stk.size() >= 3 && stk.get(stk.size() - 1).equals("#")
-                && stk.get(stk.size() - 2).equals("#") && !stk.get(stk.size() - 3).equals("#")) {
-                stk.remove(stk.size() - 1);
-                stk.remove(stk.size() - 1);
-                stk.remove(stk.size() - 1);
-                stk.add("#");
-            }
-        }
-        return stk.size() == 1 && stk.get(0).equals("#");
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isValidSerialization(preorder string) bool {
 	stk := []string{}
@@ -135,10 +110,31 @@ func isValidSerialization(preorder string) bool {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public boolean isValidSerialization(String preorder) {
+        List<String> stk = new ArrayList<>();
+        for (String s : preorder.split(",")) {
+            stk.add(s);
+            while (stk.size() >= 3 && stk.get(stk.size() - 1).equals("#")
+                && stk.get(stk.size() - 2).equals("#") && !stk.get(stk.size() - 3).equals("#")) {
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.add("#");
+            }
+        }
+        return stk.size() == 1 && stk.get(0).equals("#");
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

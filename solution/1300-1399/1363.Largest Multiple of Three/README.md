@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 动态规划 + 逆推**
+### 方法一：贪心 + 动态规划 + 逆推
 
 我们定义 $f[i][j]$ 表示在前 $i$ 个数中选取若干个数，使得选取的数的和模 $3$ 为 $j$ 的最大长度。为了使得选取的数最大，我们需要尽可能选取更多的数，因此我们需要使得 $f[i][j]$ 尽可能大。我们初始化 $f[0][0] = 0$，其余的 $f[0][j] = -\infty$。
 
@@ -70,10 +68,6 @@ $$
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
             i += 1
         return "".join(map(str, arr[i:]))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +163,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestMultipleOfThree(digits []int) string {
@@ -215,8 +201,6 @@ func largestMultipleOfThree(digits []int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestMultipleOfThree(digits: number[]): string {
     digits.sort((a, b) => a - b);
@@ -247,10 +231,6 @@ function largestMultipleOfThree(digits: number[]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

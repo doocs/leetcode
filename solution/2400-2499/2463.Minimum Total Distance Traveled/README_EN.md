@@ -65,7 +65,7 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 First, we sort the robots and factories in ascending order. Then we define a function $dfs(i, j)$ to represent the minimum total moving distance starting from the $i$-th robot and the $j$-th factory.
 
@@ -74,8 +74,6 @@ For $dfs(i, j)$, if the $j$-th factory does not repair the robot, then $dfs(i, j
 The time complexity is $O(m^2 \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of robots and factories, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -101,8 +99,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -144,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -173,8 +167,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumTotalDistance(robot []int, factory [][]int) int64 {
@@ -218,16 +210,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

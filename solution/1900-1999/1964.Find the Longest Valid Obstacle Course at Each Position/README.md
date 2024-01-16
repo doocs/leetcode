@@ -70,9 +70,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 我们可以用树状数组维护一个最长递增子序列的长度数组。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为障碍的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -119,10 +113,6 @@ class Solution:
             tree.update(i, ans[-1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -168,8 +158,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -220,8 +208,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -260,8 +246,6 @@ func longestObstacleCourseAtEachPosition(obstacles []int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -317,10 +301,6 @@ function longestObstacleCourseAtEachPosition(obstacles: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,13 +61,9 @@ AB -> 28
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +75,6 @@ class Solution:
             columnNumber //= 26
         return ''.join(res[::-1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,7 +90,30 @@ class Solution {
 }
 ```
 
-### **Rust**
+```go
+func convertToTitle(columnNumber int) string {
+	res := []rune{}
+	for columnNumber != 0 {
+		columnNumber -= 1
+		res = append([]rune{rune(columnNumber%26 + int('A'))}, res...)
+		columnNumber /= 26
+	}
+	return string(res)
+}
+```
+
+```ts
+function convertToTitle(columnNumber: number): string {
+    let res: string[] = [];
+    while (columnNumber > 0) {
+        --columnNumber;
+        let num: number = columnNumber % 26;
+        res.unshift(String.fromCharCode(num + 65));
+        columnNumber = Math.floor(columnNumber / 26);
+    }
+    return res.join('');
+}
+```
 
 ```rust
 impl Solution {
@@ -124,23 +139,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function convertToTitle(columnNumber: number): string {
-    let res: string[] = [];
-    while (columnNumber > 0) {
-        --columnNumber;
-        let num: number = columnNumber % 26;
-        res.unshift(String.fromCharCode(num + 65));
-        columnNumber = Math.floor(columnNumber / 26);
-    }
-    return res.join('');
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public string ConvertToTitle(int columnNumber) {
@@ -155,24 +153,6 @@ public class Solution {
 }
 ```
 
-### **Go**
-
-```go
-func convertToTitle(columnNumber int) string {
-	res := []rune{}
-	for columnNumber != 0 {
-		columnNumber -= 1
-		res = append([]rune{rune(columnNumber%26 + int('A'))}, res...)
-		columnNumber /= 26
-	}
-	return string(res)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

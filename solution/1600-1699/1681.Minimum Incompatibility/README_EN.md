@@ -50,7 +50,7 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 
 ## Solutions
 
-**Solution 1: Preprocessing + State Compression + Dynamic Programming**
+### Solution 1: Preprocessing + State Compression + Dynamic Programming
 
 Let's assume that the size of each subset after partitioning is $m$, so $m=\frac{n}{k}$, where $n$ is the length of the array.
 
@@ -67,8 +67,6 @@ Finally, if $f[2^n-1]=+\infty$, it means that it cannot be partitioned into $k$ 
 The time complexity is $O(3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -110,33 +108,6 @@ class Solution:
                 j = (j - 1) & mask
         return f[-1] if f[-1] != inf else -1
 ```
-
-```python
-class Solution:
-    def minimumIncompatibility(self, nums: List[int], k: int) -> int:
-        @cache
-        def dfs(mask):
-            if mask == (1 << n) - 1:
-                return 0
-            d = {v: i for i, v in enumerate(nums) if (mask >> i & 1) == 0}
-            ans = inf
-            if len(d) < m:
-                return ans
-            for vs in combinations(d.keys(), m):
-                nxt = mask
-                for v in vs:
-                    nxt |= 1 << d[v]
-                ans = min(ans, max(vs) - min(vs) + dfs(nxt))
-            return ans
-
-        n = len(nums)
-        m = n // k
-        ans = dfs(0)
-        dfs.cache_clear()
-        return ans if ans < inf else -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -194,8 +165,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -252,8 +221,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumIncompatibility(nums []int, k int) int {
@@ -314,8 +281,6 @@ func minimumIncompatibility(nums []int, k int) int {
 	return f[1<<n-1]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumIncompatibility(nums: number[], k: number): number {
@@ -378,8 +343,6 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -447,10 +410,37 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumIncompatibility(self, nums: List[int], k: int) -> int:
+        @cache
+        def dfs(mask):
+            if mask == (1 << n) - 1:
+                return 0
+            d = {v: i for i, v in enumerate(nums) if (mask >> i & 1) == 0}
+            ans = inf
+            if len(d) < m:
+                return ans
+            for vs in combinations(d.keys(), m):
+                nxt = mask
+                for v in vs:
+                    nxt |= 1 << d[v]
+                ans = min(ans, max(vs) - min(vs) + dfs(nxt))
+            return ans
+
+        n = len(nums)
+        m = n // k
+        ans = dfs(0)
+        dfs.cache_clear()
+        return ans if ans < inf else -1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

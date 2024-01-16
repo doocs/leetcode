@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: In-order Traversal + Construct Balanced Binary Search Tree**
+### Solution 1: In-order Traversal + Construct Balanced Binary Search Tree
 
 Since the original tree is a binary search tree, we can save the result of the in-order traversal in an array $nums$. Then we design a function $build(i, j)$, which is used to construct a balanced binary search tree within the index range $[i, j]$ in $nums$. The answer is $build(0, |nums| - 1)$.
 
@@ -46,8 +46,6 @@ The execution logic of the function $build(i, j)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -77,8 +75,6 @@ class Solution:
         dfs(root)
         return build(0, len(nums) - 1)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -125,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -170,8 +164,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -206,8 +198,6 @@ func balanceBST(root *TreeNode) *TreeNode {
 	return build(0, len(ans)-1)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -248,10 +238,6 @@ function balanceBST(root: TreeNode | null): TreeNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

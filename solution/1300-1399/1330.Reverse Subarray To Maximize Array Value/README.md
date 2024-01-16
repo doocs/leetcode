@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论 + 枚举**
+### 方法一：分类讨论 + 枚举
 
 根据题目描述，我们需要求出：在翻转一次子数组的情况下，数组值 $\sum_{i=0}^{n-2} |a_i - a_{i+1}|$ 的最大值。
 
@@ -89,10 +87,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxValueAfterReverse(self, nums: List[int]) -> int:
@@ -110,10 +104,6 @@ class Solution:
             ans = max(ans, s + max(mx - mi, 0))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -148,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,8 +169,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxValueAfterReverse(nums []int) int {
@@ -222,8 +208,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxValueAfterReverse(nums: number[]): number {
     const n = nums.length;
@@ -254,10 +238,6 @@ function maxValueAfterReverse(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

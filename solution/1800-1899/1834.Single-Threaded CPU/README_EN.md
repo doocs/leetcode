@@ -61,7 +61,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Priority Queue (Min Heap)**
+### Solution 1: Sorting + Priority Queue (Min Heap)
 
 First, we sort the tasks by `enqueueTime` in ascending order. Next, we use a priority queue (min heap) to maintain the currently executable tasks. The elements in the queue are `(processingTime, index)`, which represent the execution time and the index of the task. We also use a variable $t$ to represent the current time, initially set to $0$.
 
@@ -76,8 +76,6 @@ We repeat the above process until the queue is empty and all tasks have been add
 The time complexity is $O(n \times \log n)$, where $n$ is the number of tasks.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +98,6 @@ class Solution:
             t += pt
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getOrder(tasks [][]int) (ans []int) {
@@ -198,10 +190,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

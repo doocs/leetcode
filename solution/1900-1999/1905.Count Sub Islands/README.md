@@ -43,19 +43,13 @@ grid2 中标红的 1 区域是子岛屿，总共有 2 个子岛屿。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们可以遍历矩阵 `grid2` 中的每一个格子 $(i, j)$，如果该格子为 $1$，则从该格子开始进行深度优先搜索，将与该格子相连的所有格子的值都置为 $0$，并记录与该格子相连的所有格子中，`grid1` 中对应格子的值是否为 $1$，如果为 $1$，则说明该格子在 `grid1` 中也是一个岛屿，否则不是。最后统计 `grid2` 中子岛屿的数量即可。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵 `grid1` 和 `grid2` 的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,32 +67,6 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return sum(dfs(i, j) for i in range(m) for j in range(n) if grid2[i][j])
 ```
-
-```python
-class Solution:
-    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        def bfs(i: int, j: int) -> int:
-            ok = grid1[i][j]
-            q = deque([(i, j)])
-            grid2[i][j] = 0
-            while q:
-                i, j = q.popleft()
-                for a, b in pairwise(dirs):
-                    x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
-                        q.append((x, y))
-                        ok = ok & grid1[x][y]
-                        grid2[x][y] = 0
-            return ok
-
-        m, n = len(grid1), len(grid1[0])
-        dirs = (-1, 0, 1, 0, -1)
-        return sum(bfs(i, j) for i in range(m) for j in range(n) if grid2[i][j])
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSubIslands(grid1 [][]int, grid2 [][]int) (ans int) {
 	m, n := len(grid1), len(grid1[0])
@@ -198,8 +162,6 @@ func countSubIslands(grid1 [][]int, grid2 [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countSubIslands(grid1: number[][], grid2: number[][]): number {
@@ -228,10 +190,34 @@ function countSubIslands(grid1: number[][], grid2: number[][]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        def bfs(i: int, j: int) -> int:
+            ok = grid1[i][j]
+            q = deque([(i, j)])
+            grid2[i][j] = 0
+            while q:
+                i, j = q.popleft()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
+                        q.append((x, y))
+                        ok = ok & grid1[x][y]
+                        grid2[x][y] = 0
+            return ok
+
+        m, n = len(grid1), len(grid1[0])
+        dirs = (-1, 0, 1, 0, -1)
+        return sum(bfs(i, j) for i in range(m) for j in range(n) if grid2[i][j])
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,9 @@ Note that if the number of students is odd, there is no need to change the last 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -69,6 +69,12 @@ FROM
     LEFT JOIN Seat AS s2 ON (s1.id + 1) ^ 1 - 1 = s2.id
 ORDER BY 1;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -86,6 +92,12 @@ FROM Seat
 ORDER BY 1;
 ```
 
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -93,6 +105,12 @@ SELECT
     student
 FROM Seat;
 ```
+
+<!-- tabs:end -->
+
+### Solution 4
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -108,3 +126,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

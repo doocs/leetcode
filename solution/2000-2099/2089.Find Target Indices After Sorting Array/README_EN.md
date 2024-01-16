@@ -48,9 +48,9 @@ The index where nums[i] == 5 is 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
         nums.sort()
         return [i for i, v in enumerate(nums) if v == target]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -94,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func targetIndices(nums []int, target int) (ans []int) {
 	sort.Ints(nums)
@@ -107,8 +101,6 @@ func targetIndices(nums []int, target int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function targetIndices(nums: number[], target: number): number[] {
@@ -123,10 +115,6 @@ function targetIndices(nums: number[], target: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

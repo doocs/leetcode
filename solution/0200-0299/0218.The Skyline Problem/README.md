@@ -53,17 +53,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：扫描线+优先队列**
+### 方法一：扫描线+优先队列
 
 记录下所有建筑物的左右边界线，升序排序之后得到序列 lines。对于每一个边界线 lines[i]，找出所有包含 lines[i] 的建筑物，并确保建筑物的左边界小于等于 lines[i]，右边界大于 lines[i]，则这些建筑物中高度最高的建筑物的高度就是该线轮廓点的高度。可以使用建筑物的高度构建优先队列（大根堆），同时需要注意高度相同的轮廓点需要合并为一个。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from queue import PriorityQueue
@@ -91,9 +85,44 @@ class Solution:
         return skys
 ```
 
-### **Go**
+```cpp
+class Solution {
+public:
+    vector<pair<int, int>> getSkyline(vector<vector<int>>& buildings) {
+        set<int> poss;
+        map<int, int> m;
+        for (auto v : buildings) {
+            poss.insert(v[0]);
+            poss.insert(v[1]);
+        }
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+        int i = 0;
+        for (int pos : poss)
+            m.insert(pair<int, int>(pos, i++));
+
+        vector<int> highs(m.size(), 0);
+        for (auto v : buildings) {
+            const int b = m[v[0]], e = m[v[1]];
+            for (int i = b; i < e; ++i)
+                highs[i] = max(highs[i], v[2]);
+        }
+
+        vector<pair<int, int>> res;
+        vector<int> mm(poss.begin(), poss.end());
+        for (int i = 0; i < highs.size(); ++i) {
+            if (highs[i] != highs[i + 1])
+                res.push_back(pair<int, int>(mm[i], highs[i]));
+            else {
+                const int start = i;
+                res.push_back(pair<int, int>(mm[start], highs[i]));
+                while (highs[i] == highs[i + 1])
+                    ++i;
+            }
+        }
+        return res;
+    }
+};
+```
 
 ```go
 type Matrix struct{ left, right, height int }
@@ -143,49 +172,6 @@ func getSkyline(buildings [][]int) [][]int {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<pair<int, int>> getSkyline(vector<vector<int>>& buildings) {
-        set<int> poss;
-        map<int, int> m;
-        for (auto v : buildings) {
-            poss.insert(v[0]);
-            poss.insert(v[1]);
-        }
-
-        int i = 0;
-        for (int pos : poss)
-            m.insert(pair<int, int>(pos, i++));
-
-        vector<int> highs(m.size(), 0);
-        for (auto v : buildings) {
-            const int b = m[v[0]], e = m[v[1]];
-            for (int i = b; i < e; ++i)
-                highs[i] = max(highs[i], v[2]);
-        }
-
-        vector<pair<int, int>> res;
-        vector<int> mm(poss.begin(), poss.end());
-        for (int i = 0; i < highs.size(); ++i) {
-            if (highs[i] != highs[i + 1])
-                res.push_back(pair<int, int>(mm[i], highs[i]));
-            else {
-                const int start = i;
-                res.push_back(pair<int, int>(mm[start], highs[i]));
-                while (highs[i] == highs[i + 1])
-                    ++i;
-            }
-        }
-        return res;
-    }
-};
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn get_skyline(buildings: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
@@ -221,10 +207,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

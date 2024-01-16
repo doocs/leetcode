@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 自定义排序**
+### 方法一：哈希表 + 自定义排序
 
 我们遍历 `responses`，对于 `responses[i]` 中的每个单词，我们用一个哈希表 `vis` 暂存。接下来将 `vis` 中的单词记录到哈希表 `cnt` 中，记录每个单词出现的次数。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n \times \log n)$，其中 $n$ 为 `features` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                 cnt[w] += 1
         return sorted(features, key=lambda w: -cnt[w])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortFeatures(features []string, responses []string) []string {
 	cnt := map[string]int{}
@@ -160,8 +146,6 @@ func sortFeatures(features []string, responses []string) []string {
 	return features
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sortFeatures(features: string[], responses: string[]): string[] {
@@ -187,10 +171,6 @@ function sortFeatures(features: string[], responses: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

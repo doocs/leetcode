@@ -55,9 +55,9 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,25 +78,6 @@ class Solution:
         n = len(arr)
         return max(dfs(i) for i in range(n))
 ```
-
-```python
-class Solution:
-    def maxJumps(self, arr: List[int], d: int) -> int:
-        n = len(arr)
-        f = [1] * n
-        for x, i in sorted(zip(arr, range(n))):
-            for j in range(i - 1, -1, -1):
-                if i - j > d or arr[j] >= x:
-                    break
-                f[i] = max(f[i], 1 + f[j])
-            for j in range(i + 1, n):
-                if j - i > d or arr[j] >= x:
-                    break
-                f[i] = max(f[i], 1 + f[j])
-        return max(f)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -139,40 +120,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int maxJumps(int[] arr, int d) {
-        int n = arr.length;
-        Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            idx[i] = i;
-        }
-        Arrays.sort(idx, (i, j) -> arr[i] - arr[j]);
-        int[] f = new int[n];
-        Arrays.fill(f, 1);
-        int ans = 0;
-        for (int i : idx) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (i - j > d || arr[j] >= arr[i]) {
-                    break;
-                }
-                f[i] = Math.max(f[i], 1 + f[j]);
-            }
-            for (int j = i + 1; j < n; ++j) {
-                if (j - i > d || arr[j] >= arr[i]) {
-                    break;
-                }
-                f[i] = Math.max(f[i], 1 + f[j]);
-            }
-            ans = Math.max(ans, f[i]);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -208,36 +155,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maxJumps(vector<int>& arr, int d) {
-        int n = arr.size();
-        vector<int> idx(n);
-        iota(idx.begin(), idx.end(), 0);
-        sort(idx.begin(), idx.end(), [&](int i, int j) { return arr[i] < arr[j]; });
-        vector<int> f(n, 1);
-        for (int i : idx) {
-            for (int j = i - 1; j >= 0; --j) {
-                if (i - j > d || arr[j] >= arr[i]) {
-                    break;
-                }
-                f[i] = max(f[i], 1 + f[j]);
-            }
-            for (int j = i + 1; j < n; ++j) {
-                if (j - i > d || arr[j] >= arr[i]) {
-                    break;
-                }
-                f[i] = max(f[i], 1 + f[j]);
-            }
-        }
-        return *max_element(f.begin(), f.end());
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxJumps(arr []int, d int) (ans int) {
 	n := len(arr)
@@ -270,6 +187,89 @@ func maxJumps(arr []int, d int) (ans int) {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxJumps(self, arr: List[int], d: int) -> int:
+        n = len(arr)
+        f = [1] * n
+        for x, i in sorted(zip(arr, range(n))):
+            for j in range(i - 1, -1, -1):
+                if i - j > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+            for j in range(i + 1, n):
+                if j - i > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+        return max(f)
+```
+
+```java
+class Solution {
+    public int maxJumps(int[] arr, int d) {
+        int n = arr.length;
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> arr[i] - arr[j]);
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        int ans = 0;
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxJumps(vector<int>& arr, int d) {
+        int n = arr.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return arr[i] < arr[j]; });
+        vector<int> f(n, 1);
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+        }
+        return *max_element(f.begin(), f.end());
+    }
+};
+```
+
 ```go
 func maxJumps(arr []int, d int) int {
 	n := len(arr)
@@ -298,10 +298,6 @@ func maxJumps(arr []int, d int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

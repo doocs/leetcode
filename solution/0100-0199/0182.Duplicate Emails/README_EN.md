@@ -49,35 +49,11 @@ Person table:
 
 ## Solutions
 
-**Solution 1: Group By + Having**
+### Solution 1: Group By + Having
 
 We can use the `GROUP BY` statement to group the data by the `email` field, and then use the `HAVING` statement to filter out the `email` addresses that appear more than once.
 
-**Solution 2: Self-Join**
-
-We can use a self-join to join the `Person` table with itself, and then filter out the records where the `id` is different but the `email` is the same.
-
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT email
-FROM Person
-GROUP BY 1
-HAVING COUNT(1) > 1;
-```
-
-```sql
-SELECT DISTINCT p1.email
-FROM
-    person AS p1,
-    person AS p2
-WHERE p1.id != p2.id AND p1.email = p2.email;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -91,4 +67,30 @@ def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
     return results.drop_duplicates()
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT email
+FROM Person
+GROUP BY 1
+HAVING COUNT(1) > 1;
+```
+
 <!-- tabs:end -->
+
+### Solution 2: Self-Join
+
+We can use a self-join to join the `Person` table with itself, and then filter out the records where the `id` is different but the `email` is the same.
+
+<!-- tabs:start -->
+
+```sql
+SELECT DISTINCT p1.email
+FROM
+    person AS p1,
+    person AS p2
+WHERE p1.id != p2.id AND p1.email = p2.email;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

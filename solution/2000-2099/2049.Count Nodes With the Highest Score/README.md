@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先根据给定的父节点数组 `parents` 构建图 $g$，其中 $g[i]$ 表示节点 $i$ 的所有子节点。定义变量 $ans$ 表示最高得分的节点数目，变量 $mx$ 表示最高得分。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -114,10 +108,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -161,8 +151,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -201,8 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countHighestScoreNodes(parents []int) (ans int) {
 	n := len(parents)
@@ -237,8 +223,6 @@ func countHighestScoreNodes(parents []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countHighestScoreNodes(parents: number[]): number {
     const n = parents.length;
@@ -271,8 +255,6 @@ function countHighestScoreNodes(parents: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -323,10 +305,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

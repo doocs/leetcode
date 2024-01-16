@@ -56,19 +56,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算 + 状态压缩**
+### 方法一：位运算 + 状态压缩
 
 状态压缩，用一个 $32$ 位数记录字母的出现情况，`masks` 存储之前枚举的字符串。
 
 时间复杂度 $O(2^n + L)$，空间复杂度 $O(2^n)$。其中 $n$ 和 $L$ 分别是字符串数组的长度和字符串数组中字符串的长度之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                     ans = max(ans, (m | mask).bit_count())
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxLength(arr []string) (ans int) {
 	masks := []int{0}
@@ -194,10 +180,6 @@ func maxLength(arr []string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

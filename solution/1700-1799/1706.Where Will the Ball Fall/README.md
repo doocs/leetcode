@@ -64,9 +64,7 @@ b4 球开始放在第 4 列上，会卡在第 2、3 列和第 1 行之间的 "V"
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论 + DFS**
+### 方法一：分情况讨论 + DFS
 
 我们可以使用 DFS 来模拟球的运动过程，设计一个函数 $dfs(i, j)$，表示球从第 $i$ 行第 $j$ 列出发，最终会落在第几列。对于以下情况，球会卡住：
 
@@ -80,10 +78,6 @@ b4 球开始放在第 4 列上，会卡在第 2、3 列和第 1 行之间的 "V"
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是数组 $grid$ 的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,10 +98,6 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return [dfs(0, j) for j in range(n)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -147,8 +137,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -180,8 +168,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findBall(grid [][]int) (ans []int) {
@@ -215,8 +201,6 @@ func findBall(grid [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findBall(grid: number[][]): number[] {
     const m = grid.length;
@@ -244,8 +228,6 @@ function findBall(grid: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -278,10 +260,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

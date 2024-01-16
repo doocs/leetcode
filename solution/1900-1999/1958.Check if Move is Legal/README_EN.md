@@ -42,9 +42,9 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
@@ -148,10 +142,6 @@ func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

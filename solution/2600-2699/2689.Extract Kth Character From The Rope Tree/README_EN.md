@@ -71,9 +71,9 @@ You can see that S[root] = &quot;ropetree&quot;. So S[root][7], which represents
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a rope tree node.
@@ -94,8 +94,6 @@ class Solution:
 
         return dfs(root)[k - 1]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -141,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a rope tree node.
@@ -176,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a rope tree node.
@@ -204,10 +198,6 @@ func getKthCharacter(root *RopeTreeNode, k int) byte {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

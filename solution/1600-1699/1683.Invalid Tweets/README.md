@@ -53,9 +53,7 @@ Tweets 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：使用 `CHAR_LENGTH` 函数**
+### 方法一：使用 `CHAR_LENGTH` 函数
 
 `CHAR_LENGTH()` 函数返回字符串的长度，其中中文、数字、字母都是 $1$ 字节。
 
@@ -64,8 +62,6 @@ Tweets 表：
 对于本题，我们直接用 `CHAR_LENGTH` 函数获取字符串长度，筛选出长度大于 $15$ 的推文 ID 即可。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -76,3 +72,5 @@ WHERE CHAR_LENGTH(content) > 15;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

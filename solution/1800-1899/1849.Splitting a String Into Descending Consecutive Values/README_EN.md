@@ -53,15 +53,13 @@ The values are in descending order with adjacent values differing by 1.
 
 ## Solutions
 
-**Solution 1: DFS (Depth-First Search)**
+### Solution 1: DFS (Depth-First Search)
 
 Starting from the first character of the string, enumerate all possible split positions. Check if the split substring meets the requirements of the problem. If it does, continue to recursively check whether the remaining substring meets the requirements, until the entire string is traversed.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
 
         return dfs(0, -1, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func splitString(s string) bool {
 	var dfs func(i, x, k int) bool
@@ -158,10 +150,6 @@ func splitString(s string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

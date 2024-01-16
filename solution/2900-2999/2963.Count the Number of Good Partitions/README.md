@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 分组 + 快速幂**
+### 方法一：哈希表 + 分组 + 快速幂
 
 根据题目描述，我们可以知道，相同的数字必须在同一个子数组中。因此，我们用一个哈希表 $last$ 记录每个数字最后一次出现的下标。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfGoodPartitions(self, nums: List[int]) -> int:
@@ -82,10 +76,6 @@ class Solution:
             k += i == j
         return pow(2, k - 1, mod)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfGoodPartitions(nums []int) int {
 	qpow := func(a, n, mod int) int {
@@ -179,8 +165,6 @@ func numberOfGoodPartitions(nums []int) int {
 	return qpow(2, k-1, mod)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfGoodPartitions(nums: number[]): number {
@@ -211,10 +195,6 @@ function numberOfGoodPartitions(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

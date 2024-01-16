@@ -59,17 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-动态规划。
-
-完全背包问题。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +73,6 @@ class Solution:
                 dp[j] += dp[j - coin]
         return dp[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,14 +92,53 @@ class Solution {
 }
 ```
 
-下面对 k 这层循环进行优化：
+```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        vector<int> dp(amount + 1);
+        dp[0] = 1;
+        for (auto coin : coins) {
+            for (int j = coin; j <= amount; ++j) {
+                dp[j] += dp[j - coin];
+            }
+        }
+        return dp[amount];
+    }
+};
+```
 
-由于：
+```go
+func change(amount int, coins []int) int {
+	dp := make([]int, amount+1)
+	dp[0] = 1
+	for _, coin := range coins {
+		for j := coin; j <= amount; j++ {
+			dp[j] += dp[j-coin]
+		}
+	}
+	return dp[amount]
+}
+```
 
--   `dp[i][j] = dp[i - 1][j] + dp[i - 1][j - v] + dp[i - 1][j - 2v] + ... + dp[i - 1][j - kv]`
--   `dp[i][j - v] = dp[i - 1][j - v] + dp[i - 1][j - 2v] + ... + dp[i - 1][j - kv]`
+```ts
+function change(amount: number, coins: number[]): number {
+    let dp = new Array(amount + 1).fill(0);
+    dp[0] = 1;
+    for (let coin of coins) {
+        for (let i = coin; i <= amount; ++i) {
+            dp[i] += dp[i - coin];
+        }
+    }
+    return dp.pop();
+}
+```
 
-因此 `dp[i][j] = dp[i - 1][j] + dp[i][j - v]`。
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -133,7 +160,11 @@ class Solution {
 }
 ```
 
-空间优化：
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -151,58 +182,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function change(amount: number, coins: number[]): number {
-    let dp = new Array(amount + 1).fill(0);
-    dp[0] = 1;
-    for (let coin of coins) {
-        for (let i = coin; i <= amount; ++i) {
-            dp[i] += dp[i - coin];
-        }
-    }
-    return dp.pop();
-}
-```
-
-### **Go**
-
-```go
-func change(amount int, coins []int) int {
-	dp := make([]int, amount+1)
-	dp[0] = 1
-	for _, coin := range coins {
-		for j := coin; j <= amount; j++ {
-			dp[j] += dp[j-coin]
-		}
-	}
-	return dp[amount]
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int change(int amount, vector<int>& coins) {
-        vector<int> dp(amount + 1);
-        dp[0] = 1;
-        for (auto coin : coins) {
-            for (int j = coin; j <= amount; ++j) {
-                dp[j] += dp[j - coin];
-            }
-        }
-        return dp[amount];
-    }
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

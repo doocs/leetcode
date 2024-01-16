@@ -62,9 +62,7 @@ for (int i = 0; i &lt; k; i++) {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 我们用一个变量 $k$ 记录当前已经处理好的数组的长度，初始时 $k=0$，表示空数组。
 
@@ -87,10 +85,6 @@ for (int i = 0; i &lt; k; i++) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -101,10 +95,6 @@ class Solution:
                 k += 1
         return k
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,18 +125,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        nums.erase(unique(nums.begin(), nums.end()), nums.end());
-        return nums.size();
-    }
-};
-```
-
-### **Go**
-
 ```go
 func removeDuplicates(nums []int) int {
 	k := 0
@@ -162,8 +138,6 @@ func removeDuplicates(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeDuplicates(nums: number[]): number {
     let k: number = 0;
@@ -176,7 +150,20 @@ function removeDuplicates(nums: number[]): number {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        let mut k = 0;
+        for i in 0..nums.len() {
+            if k == 0 || nums[i] != nums[k - 1] {
+                nums[k] = nums[i];
+                k += 1;
+            }
+        }
+        k as i32
+    }
+}
+```
 
 ```js
 /**
@@ -194,8 +181,6 @@ var removeDuplicates = function (nums) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
@@ -209,25 +194,6 @@ public class Solution {
     }
 }
 ```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        let mut k = 0;
-        for i in 0..nums.len() {
-            if k == 0 || nums[i] != nums[k - 1] {
-                nums[k] = nums[i];
-                k += 1;
-            }
-        }
-        k as i32
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -247,10 +213,22 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        nums.erase(unique(nums.begin(), nums.end()), nums.end());
+        return nums.size();
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

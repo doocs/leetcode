@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 优先队列（小根堆）**
+### 方法一：排序 + 优先队列（小根堆）
 
 我们先将任务按照 `enqueueTime` 从小到大排序，接下来用一个优先队列（小根堆）维护当前可执行的任务，队列中的元素为 `(processingTime, index)`，即任务的执行时间和任务的编号。另外用一个变量 $t$ 表示当前时间，初始值为 $0$。
 
@@ -79,10 +77,6 @@
 时间复杂度 $O(n \times \log n)$，其中 $n$ 为任务的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
             t += pt
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +157,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getOrder(tasks [][]int) (ans []int) {
@@ -205,10 +191,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

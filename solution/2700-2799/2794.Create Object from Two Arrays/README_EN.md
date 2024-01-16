@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
@@ -62,8 +62,6 @@ function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -84,3 +82,5 @@ var createObject = function (keysArr, valuesArr) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,15 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-对 people 按照身高降序排列，若身高相同，则按照人数 k 升序排列。然后按照索引位置依次将 people 插入到结果列表中即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             ans.insert(p[1], p)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reconstructQueue(people [][]int) [][]int {
 	sort.Slice(people, func(i, j int) bool {
@@ -121,10 +107,6 @@ func reconstructQueue(people [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

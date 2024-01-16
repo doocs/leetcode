@@ -68,15 +68,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩（位运算） + 并查集**
+### 方法一：状态压缩（位运算） + 并查集
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -120,10 +114,6 @@ class Solution:
                             union(x, x ^ (1 << i) | (1 << j))
         return [n, mx]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -187,8 +177,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -236,8 +224,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func groupStrings(words []string) []int {
@@ -293,16 +279,6 @@ func groupStrings(words []string) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

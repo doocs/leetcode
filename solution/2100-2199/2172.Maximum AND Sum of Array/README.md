@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 动态规划**
+### 方法一：状态压缩 + 动态规划
 
 由于每个篮子最多只能放两个数，我们不妨将篮子数乘以 $2$，这样每个篮子最多只能放一个数。
 
@@ -72,10 +70,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximumANDSum(self, nums: List[int], numSlots: int) -> int:
@@ -91,10 +85,6 @@ class Solution:
                     f[i] = max(f[i], f[i ^ (1 << j)] + (nums[cnt - 1] & (j // 2 + 1)))
         return max(f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumANDSum(nums []int, numSlots int) int {
 	n := len(nums)
@@ -167,8 +153,6 @@ func maximumANDSum(nums []int, numSlots int) int {
 	return slices.Max(f)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumANDSum(nums: number[], numSlots: number): number {
@@ -193,10 +177,6 @@ function maximumANDSum(nums: number[], numSlots: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

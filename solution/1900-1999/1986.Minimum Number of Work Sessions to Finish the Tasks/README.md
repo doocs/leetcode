@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划 + 枚举子集**
+### 方法一：状态压缩动态规划 + 枚举子集
 
 我们注意到 $n$ 不超过 $14$，因此，我们可以考虑使用状态压缩动态规划的方法求解本题。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(n \times 3^n)$，空间复杂度 $O(2^n)$。其中 $n$ 为任务的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
                 j = (j - 1) & i
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -165,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSessions(tasks []int, sessionTime int) int {
 	n := len(tasks)
@@ -192,8 +178,6 @@ func minSessions(tasks []int, sessionTime int) int {
 	return f[1<<n-1]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minSessions(tasks: number[], sessionTime: number): number {
@@ -222,10 +206,6 @@ function minSessions(tasks: number[], sessionTime: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

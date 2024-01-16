@@ -55,17 +55,11 @@ Enrollments table:
 
 ## Solutions
 
-**Solution 1: RANK() OVER() Window Function**
+### Solution 1: RANK() OVER() Window Function
 
 We can use the `RANK() OVER()` window function to sort the grades of each student in descending order. If the grades are the same, we sort them in ascending order by course number, and then select the record with a rank of $1$ for each student.
 
-**Solution 2: Subquery**
-
-We can first query the highest grade of each student, and then query the minimum course number corresponding to the highest grade of each student.
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -85,6 +79,14 @@ WHERE rk = 1
 ORDER BY student_id;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Subquery
+
+We can first query the highest grade of each student, and then query the minimum course number corresponding to the highest grade of each student.
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT student_id, MIN(course_id) AS course_id, grade
@@ -100,3 +102,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

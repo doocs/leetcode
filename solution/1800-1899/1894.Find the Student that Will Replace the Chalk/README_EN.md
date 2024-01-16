@@ -55,7 +55,7 @@ Student number 1 does not have enough chalk, so they will have to replace it.
 
 ## Solutions
 
-**Solution 1: Sum and Modulo + Simulation**
+### Solution 1: Sum and Modulo + Simulation
 
 Since the students' answers are conducted in rounds, we can add up the chalk needed by all students to get a total $s$. Then we take the remainder of $k$ by $s$, which can tell us the remaining number of chalks after the last round.
 
@@ -64,8 +64,6 @@ Next, we just need to simulate the last round. Initially, the remaining number o
 The time complexity is $O(n)$, where $n$ is the number of students. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                 return i
             k -= x
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func chalkReplacer(chalk []int, k int) int {
@@ -134,7 +126,21 @@ func chalkReplacer(chalk []int, k int) int {
 }
 ```
 
-### **Rust**
+```ts
+function chalkReplacer(chalk: number[], k: number): number {
+    let s = 0;
+    for (const x of chalk) {
+        s += x;
+    }
+    k %= s;
+    for (let i = 0; ; ++i) {
+        if (k < chalk[i]) {
+            return i;
+        }
+        k -= chalk[i];
+    }
+}
+```
 
 ```rust
 impl Solution {
@@ -155,28 +161,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function chalkReplacer(chalk: number[], k: number): number {
-    let s = 0;
-    for (const x of chalk) {
-        s += x;
-    }
-    k %= s;
-    for (let i = 0; ; ++i) {
-        if (k < chalk[i]) {
-            return i;
-        }
-        k -= chalk[i];
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

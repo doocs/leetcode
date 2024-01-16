@@ -58,9 +58,9 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                 ans = min(ans, t, n - t)
         return -1 if ans == n else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closetTarget(words []string, target string, startIndex int) int {
@@ -139,8 +133,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function closetTarget(words: string[], target: string, startIndex: number): number {
     const n = words.length;
@@ -152,8 +144,6 @@ function closetTarget(words: string[], target: string, startIndex: number): numb
     return -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -172,6 +162,23 @@ impl Solution {
     }
 }
 ```
+
+```c
+int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
+    for (int i = 0; i <= wordsSize >> 1; i++) {
+        if (strcmp(words[(startIndex - i + wordsSize) % wordsSize], target) == 0 || strcmp(words[(startIndex + i) % wordsSize], target) == 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 use std::cmp::min;
@@ -196,23 +203,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
-    for (int i = 0; i <= wordsSize >> 1; i++) {
-        if (strcmp(words[(startIndex - i + wordsSize) % wordsSize], target) == 0 || strcmp(words[(startIndex + i) % wordsSize], target) == 0) {
-            return i;
-        }
-    }
-    return -1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

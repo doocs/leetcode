@@ -23,9 +23,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：十进制小数转二进制小数**
+### 方法一：十进制小数转二进制小数
 
 十进制小数转二进制小数的方法是：小数部分乘以 $2$，取整数部分作为二进制小数的下一位，小数部分作为下一次乘法的被乘数，直到小数部分为 $0$ 或者二进制小数的长度超过 $32$ 位。
 
@@ -50,10 +48,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def printBin(self, num: float) -> str:
@@ -65,10 +59,6 @@ class Solution:
             num -= x
         return 'ERROR' if num else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +75,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -102,8 +90,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func printBin(num float64) string {
@@ -122,10 +108,6 @@ func printBin(num float64) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

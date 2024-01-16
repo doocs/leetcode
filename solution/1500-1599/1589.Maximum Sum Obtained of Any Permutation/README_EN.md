@@ -54,9 +54,9 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(a * b for a, b in zip(nums, d)) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
 	n := len(nums)
@@ -159,10 +153,7 @@ func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
 		ans = (ans + a*b) % mod
 	}
 	return
-}
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSumRangeQuery(nums: number[], requests: number[][]): number {
@@ -188,10 +179,6 @@ function maxSumRangeQuery(nums: number[], requests: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

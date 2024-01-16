@@ -41,19 +41,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接判断**
+### 方法一：直接判断
 
 我们直接判断根节点的值是否等于左右子节点的值之和即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -66,10 +60,6 @@ class Solution:
     def checkTree(self, root: Optional[TreeNode]) -> bool:
         return root.val == root.left.val + root.right.val
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -131,8 +117,6 @@ func checkTree(root *TreeNode) bool {
 	return root.Val == root.Left.Val+root.Right.Val
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -153,8 +137,6 @@ function checkTree(root: TreeNode | null): boolean {
     return root.val === root.left.val + root.right.val;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -187,8 +169,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Definition for a binary tree node.
@@ -204,10 +184,6 @@ bool checkTree(struct TreeNode* root) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -70,19 +70,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优先队列（大根堆）**
+### 方法一：贪心 + 优先队列（大根堆）
 
 我们用一个哈希表 $cnt$ 统计数组 $nums$ 中每个元素的出现次数，然后将 $cnt$ 中的每个值加入一个优先队列（大根堆） $pq$ 中。每次从 $pq$ 中取出两个元素 $x$ 和 $y$，将它们的值减一，如果减一后的值仍大于 $0$，则将减一后的值重新加入 $pq$。每次从 $pq$ 中取出两个元素，表示将数组中的两个数对删除，因此数组的长度减少 $2$。当 $pq$ 的大小小于 $2$ 时，停止删除操作。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
             ans -= 2
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minLengthAfterRemovals(nums []int) int {
@@ -212,8 +198,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **TypeScript**
-
 ```ts
 function minLengthAfterRemovals(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -240,10 +224,6 @@ function minLengthAfterRemovals(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

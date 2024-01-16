@@ -55,7 +55,7 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can split the string $s$ into several words by spaces. Then, for each word, check if it is a number. If it is a number, convert it to an integer, compare it with the previous number. If it is not strictly increasing, return `false`. Otherwise, assign the current number to the previous number and continue the traversal.
 
@@ -64,8 +64,6 @@ If the traversal ends, it means that the numbers in the string are strictly incr
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,27 +76,6 @@ class Solution:
                 pre = cur
         return True
 ```
-
-```python
-class Solution:
-    def areNumbersAscending(self, s: str) -> bool:
-        pre = i = 0
-        n = len(s)
-        while i < n:
-            if s[i].isdigit():
-                cur = 0
-                while i < n and s[i].isdigit():
-                    cur = cur * 10 + int(s[i])
-                    i += 1
-                if pre >= cur:
-                    return False
-                pre = cur
-            else:
-                i += 1
-        return True
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areNumbersAscending(s string) bool {
 	pre := 0
@@ -159,8 +132,6 @@ func areNumbersAscending(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function areNumbersAscending(s: string): boolean {
     let pre = -1;
@@ -176,8 +147,6 @@ function areNumbersAscending(s: string): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -196,8 +165,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 bool areNumbersAscending(char* s) {
@@ -223,10 +190,31 @@ bool areNumbersAscending(char* s) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def areNumbersAscending(self, s: str) -> bool:
+        pre = i = 0
+        n = len(s)
+        while i < n:
+            if s[i].isdigit():
+                cur = 0
+                while i < n and s[i].isdigit():
+                    cur = cur * 10 + int(s[i])
+                    i += 1
+                if pre >= cur:
+                    return False
+                pre = cur
+            else:
+                i += 1
+        return True
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

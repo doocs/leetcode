@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
             r -= 1
         return l == r
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -94,8 +90,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validMountainArray(arr []int) bool {
@@ -114,10 +108,6 @@ func validMountainArray(arr []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

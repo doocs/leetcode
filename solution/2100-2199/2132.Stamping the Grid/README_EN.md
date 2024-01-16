@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Two-Dimensional Prefix Sum + Two-Dimensional Difference**
+### Solution 1: Two-Dimensional Prefix Sum + Two-Dimensional Difference
 
 According to the problem description, every empty cell must be covered by a stamp, and no occupied cell can be covered. Therefore, we can traverse the two-dimensional matrix, and for each cell, if all cells in the area of $stampHeight \times stampWidth$ with this cell as the upper left corner are empty (i.e., not occupied), then we can place a stamp at this cell.
 
@@ -72,8 +72,6 @@ Finally, we perform a prefix sum operation on the two-dimensional difference arr
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the height and width of the two-dimensional matrix, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -101,8 +99,6 @@ class Solution:
                     return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -138,8 +134,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -178,8 +172,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
@@ -223,8 +215,6 @@ func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: number): boolean {
     const m = grid.length;
@@ -260,8 +250,6 @@ function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: numb
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -332,8 +320,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[][]} grid
@@ -376,10 +362,6 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

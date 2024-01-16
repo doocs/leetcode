@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Two Pointers**
+### Solution 1: Greedy + Two Pointers
 
 We use two pointers $i$ and $j$ to point to the beginning and end of the string, initially $i = 0$, $j = n - 1$.
 
@@ -56,8 +56,6 @@ Next, each time we greedily modify $s[i]$ and $s[j]$ to their smaller value to m
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
@@ -111,8 +103,6 @@ func makeSmallestPalindrome(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
@@ -122,8 +112,6 @@ function makeSmallestPalindrome(s: string): string {
     return cs.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -140,10 +128,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

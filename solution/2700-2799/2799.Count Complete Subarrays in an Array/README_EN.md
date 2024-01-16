@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,26 +60,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def countCompleteSubarrays(self, nums: List[int]) -> int:
-        cnt = len(set(nums))
-        d = Counter()
-        ans, n = 0, len(nums)
-        i = 0
-        for j, x in enumerate(nums):
-            d[x] += 1
-            while len(d) == cnt:
-                ans += n - j
-                d[nums[i]] -= 1
-                if d[nums[i]] == 0:
-                    d.pop(nums[i])
-                i += 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,6 +82,113 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int countCompleteSubarrays(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        int cnt = s.size();
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            s.clear();
+            for (int j = i; j < n; ++j) {
+                s.insert(nums[j]);
+                if (s.size() == cnt) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countCompleteSubarrays(nums []int) (ans int) {
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
+	}
+	cnt := len(s)
+	for i := range nums {
+		s = map[int]bool{}
+		for _, x := range nums[i:] {
+			s[x] = true
+			if len(s) == cnt {
+				ans++
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+function countCompleteSubarrays(nums: number[]): number {
+    const s: Set<number> = new Set(nums);
+    const cnt = s.size;
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        s.clear();
+        for (let j = i; j < n; ++j) {
+            s.add(nums[j]);
+            if (s.size === cnt) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn count_complete_subarrays(nums: Vec<i32>) -> i32 {
+        let mut set: HashSet<&i32> = nums.iter().collect();
+        let n = nums.len();
+        let m = set.len();
+        let mut ans = 0;
+        for i in 0..n {
+            set.clear();
+            for j in i..n {
+                set.insert(&nums[j]);
+                if set.len() == m {
+                    ans += n - j;
+                    break;
+                }
+            }
+        }
+        ans as i32
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countCompleteSubarrays(self, nums: List[int]) -> int:
+        cnt = len(set(nums))
+        d = Counter()
+        ans, n = 0, len(nums)
+        i = 0
+        for j, x in enumerate(nums):
+            d[x] += 1
+            while len(d) == cnt:
+                ans += n - j
+                d[nums[i]] -= 1
+                if d[nums[i]] == 0:
+                    d.pop(nums[i])
+                i += 1
+        return ans
 ```
 
 ```java
@@ -127,29 +214,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countCompleteSubarrays(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        int cnt = s.size();
-        int ans = 0, n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            s.clear();
-            for (int j = i; j < n; ++j) {
-                s.insert(nums[j]);
-                if (s.size() == cnt) {
-                    ++ans;
-                }
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -178,28 +242,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countCompleteSubarrays(nums []int) (ans int) {
-	s := map[int]bool{}
-	for _, x := range nums {
-		s[x] = true
-	}
-	cnt := len(s)
-	for i := range nums {
-		s = map[int]bool{}
-		for _, x := range nums[i:] {
-			s[x] = true
-			if len(s) == cnt {
-				ans++
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func countCompleteSubarrays(nums []int) (ans int) {
 	d := map[int]int{}
@@ -221,27 +263,6 @@ func countCompleteSubarrays(nums []int) (ans int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function countCompleteSubarrays(nums: number[]): number {
-    const s: Set<number> = new Set(nums);
-    const cnt = s.size;
-    const n = nums.length;
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        s.clear();
-        for (let j = i; j < n; ++j) {
-            s.add(nums[j]);
-            if (s.size === cnt) {
-                ++ans;
-            }
-        }
-    }
-    return ans;
 }
 ```
 
@@ -268,31 +289,6 @@ function countCompleteSubarrays(nums: number[]): number {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn count_complete_subarrays(nums: Vec<i32>) -> i32 {
-        let mut set: HashSet<&i32> = nums.iter().collect();
-        let n = nums.len();
-        let m = set.len();
-        let mut ans = 0;
-        for i in 0..n {
-            set.clear();
-            for j in i..n {
-                set.insert(&nums[j]);
-                if set.len() == m {
-                    ans += n - j;
-                    break;
-                }
-            }
-        }
-        ans as i32
-    }
 }
 ```
 
@@ -323,10 +319,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -23,9 +23,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -40,8 +40,6 @@ class Solution:
                 mul *= 10
         return ans if num < 2 and ans <= 2**31 - 1 else 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -63,8 +61,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -88,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestFactorization(num int) int {
 	if num < 2 {
@@ -112,10 +106,6 @@ func smallestFactorization(num int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

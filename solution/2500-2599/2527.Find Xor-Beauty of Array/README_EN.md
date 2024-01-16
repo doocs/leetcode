@@ -55,17 +55,15 @@ Xor-beauty of array will be bitwise XOR of all beauties = 1 ^ 0 ^ 1 ^ 4 ^ 1 ^ 4 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def xorBeauty(self, nums: List[int]) -> int:
         return reduce(xor, nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -94,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorBeauty(nums []int) (ans int) {
 	for _, x := range nums {
@@ -105,18 +99,12 @@ func xorBeauty(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function xorBeauty(nums: number[]): number {
     return nums.reduce((acc, cur) => acc ^ cur, 0);
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

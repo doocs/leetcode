@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示以 $nums[i]$ 结尾，且没有进行替换的最大子数组和，另外定义 $g[i]$ 表示以 $nums[i]$ 结尾，且进行了替换的最大子数组和。那么有如下状态转移方程：
 
@@ -58,10 +56,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxSumAfterOperation(self, nums: List[int]) -> int:
@@ -74,10 +68,6 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,7 +104,19 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func maxSumAfterOperation(nums []int) int {
+	var f, g int
+	ans := -(1 << 30)
+	for _, x := range nums {
+		ff := max(f, 0) + x
+		gg := max(max(f, 0)+x*x, g+x)
+		f, g = ff, gg
+		ans = max(ans, max(f, g))
+	}
+	return ans
+}
+```
 
 ```rust
 impl Solution {
@@ -146,26 +146,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func maxSumAfterOperation(nums []int) int {
-	var f, g int
-	ans := -(1 << 30)
-	for _, x := range nums {
-		ff := max(f, 0) + x
-		gg := max(max(f, 0)+x*x, g+x)
-		f, g = ff, gg
-		ans = max(ans, max(f, g))
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,13 +56,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +77,6 @@ class Solution:
             y += min(cnt1[i], cnt2[i])
         return f'{x}A{y}B'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getHint(secret string, guess string) string {
 	x, y := 0, 0
@@ -155,8 +143,6 @@ func getHint(secret string, guess string) string {
 	return fmt.Sprintf("%dA%dB", x, y)
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -187,10 +173,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

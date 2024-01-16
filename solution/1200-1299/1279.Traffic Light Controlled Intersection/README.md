@@ -83,11 +83,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from threading import Lock
@@ -117,8 +115,6 @@ class TrafficLight:
         self.lock.release()
 ```
 
-### **Java**
-
 ```java
 class TrafficLight {
     private int road = 1;
@@ -141,10 +137,6 @@ class TrafficLight {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,9 @@ Because distance[0] = 1, s is not a well-spaced string.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
             d[c] = i
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkDistances(s string, distance []int) bool {
 	d := [26]int{}
@@ -116,25 +110,6 @@ func checkDistances(s string, distance []int) bool {
 	return true
 }
 ```
-
-### **C**
-
-```c
-bool checkDistances(char* s, int* distance, int distanceSize) {
-    int n = strlen(s);
-    int d[26] = {0};
-    for (int i = 0; i < n; i++) {
-        int j = s[i] - 'a';
-        if (d[j] > 0 && i - d[j] != distance[j]) {
-            return false;
-        }
-        d[j] = i + 1;
-    }
-    return true;
-}
-```
-
-### **TypeScript**
 
 ```ts
 function checkDistances(s: string, distance: number[]): boolean {
@@ -150,8 +125,6 @@ function checkDistances(s: string, distance: number[]): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -172,11 +145,21 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-
+```c
+bool checkDistances(char* s, int* distance, int distanceSize) {
+    int n = strlen(s);
+    int d[26] = {0};
+    for (int i = 0; i < n; i++) {
+        int j = s[i] - 'a';
+        if (d[j] > 0 && i - d[j] != distance[j]) {
+            return false;
+        }
+        d[j] = i + 1;
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

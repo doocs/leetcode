@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -86,8 +86,6 @@ class Solution:
         vis = [False] * 10
         return dfs(1) * 4 + dfs(2) * 4 + dfs(5)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -128,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +163,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfPatterns(m int, n int) int {
@@ -213,8 +207,6 @@ func numberOfPatterns(m int, n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfPatterns(m: number, n: number): number {
     const cross: number[][] = Array(10)
@@ -251,10 +243,6 @@ function numberOfPatterns(m: number, n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

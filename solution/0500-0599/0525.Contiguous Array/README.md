@@ -35,23 +35,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-前缀和 + 哈希表，把 0 当作 -1 处理，题目变成求和为 0 的子数组。
-
-遍历数组，用哈希表 mp 记录某个前缀和第一次出现的位置。初始值 `mp[0] = -1`。
-
-当前缀和 s 在此前出现过，说明这两个前缀和区间差构成的所有元素和为 0，满足条件，更新 ans 值。否则将 s 记录到 mp 中。
-
-最后返回 ans。
-
-> 这里初始化 `mp[0] = -1`，是为了统一操作。当数组从第一个元素开始的前 n 个元素的和为 0 时，也可以用 `ans = max(ans, i - mp[s])`。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +52,6 @@ class Solution:
                 mp[s] = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +90,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMaxLength(nums []int) int {
@@ -132,8 +110,6 @@ func findMaxLength(nums []int) int {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -153,10 +129,6 @@ var findMaxLength = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

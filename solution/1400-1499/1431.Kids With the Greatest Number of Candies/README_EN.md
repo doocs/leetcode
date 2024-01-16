@@ -52,9 +52,9 @@ Kid 1 will always have the greatest number of candies, even if a different kid i
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
         mx = max(candies)
         return [candy + extraCandies >= mx for candy in candies]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kidsWithCandies(candies []int, extraCandies int) (ans []bool) {
 	mx := slices.Max(candies)
@@ -109,16 +103,12 @@ func kidsWithCandies(candies []int, extraCandies int) (ans []bool) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kidsWithCandies(candies: number[], extraCandies: number): boolean[] {
     const max = candies.reduce((r, v) => Math.max(r, v));
     return candies.map(v => v + extraCandies >= max);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -132,7 +122,23 @@ impl Solution {
 }
 ```
 
-### **C**
+```php
+class Solution {
+    /**
+     * @param Integer[] $candies
+     * @param Integer $extraCandies
+     * @return Boolean[]
+     */
+    function kidsWithCandies($candies, $extraCandies) {
+        $max = max($candies);
+        $rs = [];
+        for ($i = 0; $i < count($candies); $i++) {
+            array_push($rs, $candies[$i] + $extraCandies >= $max);
+        }
+        return $rs;
+    }
+}
+```
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -153,30 +159,6 @@ bool* kidsWithCandies(int* candies, int candiesSize, int extraCandies, int* retu
 }
 ```
 
-### **PHP**
-
-```php
-class Solution {
-    /**
-     * @param Integer[] $candies
-     * @param Integer $extraCandies
-     * @return Boolean[]
-     */
-    function kidsWithCandies($candies, $extraCandies) {
-        $max = max($candies);
-        $rs = [];
-        for ($i = 0; $i < count($candies); $i++) {
-            array_push($rs, $candies[$i] + $extraCandies >= $max);
-        }
-        return $rs;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

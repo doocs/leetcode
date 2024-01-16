@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划**
+### 方法一：状态压缩动态规划
 
 我们注意到题目中数组的长度最大不超过 $14$，因此，我们可以用一个整数来表示当前的状态，其中第 $i$ 位为 $1$ 表示数组中的第 $i$ 个数已经被选取，为 $0$ 表示数组中的第 $i$ 个数还未被选取。
 
@@ -65,10 +63,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def specialPerm(self, nums: List[int]) -> int:
@@ -88,10 +82,6 @@ class Solution:
                             f[i][j] = (f[i][j] + f[ii][k]) % mod
         return sum(f[-1]) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -161,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func specialPerm(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -195,10 +181,6 @@ func specialPerm(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

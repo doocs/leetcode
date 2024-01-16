@@ -25,9 +25,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们先考虑如何找出第一个比 $num$ 大且二进制表示中 $1$ 的个数相同的数。
 
@@ -42,10 +40,6 @@
 时间复杂度 $O(\log n)$，其中 $n$ 是 $num$ 的大小。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findClosedNumbers(num int) []int {
 	ans := []int{-1, -1}
@@ -184,8 +170,6 @@ func findClosedNumbers(num int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findClosedNumbers(num: number): number[] {
@@ -220,10 +204,6 @@ function findClosedNumbers(num: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

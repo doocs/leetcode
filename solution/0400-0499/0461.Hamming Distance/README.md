@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们将 $x$ 和 $y$ 按位异或，得到的结果中的 $1$ 的个数就是汉明距离。
 
@@ -51,19 +49,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
         return (x ^ y).bit_count()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -72,8 +62,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -84,15 +72,23 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hammingDistance(x int, y int) int {
 	return bits.OnesCount(uint(x ^ y))
 }
 ```
 
-### **JavaScript**
+```ts
+function hammingDistance(x: number, y: number): number {
+    x ^= y;
+    let ans = 0;
+    while (x) {
+        x -= x & -x;
+        ++ans;
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -111,24 +107,6 @@ var hammingDistance = function (x, y) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function hammingDistance(x: number, y: number): number {
-    x ^= y;
-    let ans = 0;
-    while (x) {
-        x -= x & -x;
-        ++ans;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

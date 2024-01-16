@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: DFS (Backtracking)**
+### Solution 1: DFS (Backtracking)
 
 We define three arrays $col$, $dg$, and $udg$ to represent whether there is a queen in the column, the main diagonal, and the anti-diagonal, respectively. If there is a queen at position $(i, j)$, then $col[j]$, $dg[i + j]$, and $udg[n - i + j]$ are all $1$. In addition, we use an array $g$ to record the current state of the chessboard, where all elements in $g$ are initially `'.'`.
 
@@ -50,8 +50,6 @@ In the main function, we call $dfs(0)$ to start recursion, and finally return th
 The time complexity is $O(n^2 \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func solveNQueens(n int) (ans [][]string) {
@@ -194,8 +186,6 @@ func solveNQueens(n int) (ans [][]string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function solveNQueens(n: number): string[][] {
     const col: number[] = new Array(n).fill(0);
@@ -224,8 +214,6 @@ function solveNQueens(n: number): string[][] {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -266,10 +254,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

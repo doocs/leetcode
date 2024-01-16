@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 When encountering the character '_', we can choose to move left or right. The problem requires us to find the farthest point from the origin. Therefore, we can first traverse once, greedily move all '_' to the left, and find the farthest point from the origin at this time. Then traverse again, greedily move all '\_' to the right, and find the farthest point from the origin at this time. Finally, take the maximum of the two traversals.
 
@@ -60,15 +60,11 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def furthestDistanceFromOrigin(self, moves: str) -> int:
         return abs(moves.count("L") - moves.count("R")) + moves.count("_")
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func furthestDistanceFromOrigin(moves string) int {
@@ -118,8 +110,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function furthestDistanceFromOrigin(moves: string): number {
     const count = (c: string) => moves.split('').filter(x => x === c).length;
@@ -127,10 +117,6 @@ function furthestDistanceFromOrigin(moves: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

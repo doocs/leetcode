@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 我们可以遍历数组 $hours$，对于每个员工，如果其工作时长 $x$ 大于等于 $target$，则将计数器 $ans$ 加一。
 
@@ -60,19 +58,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
         return sum(x >= target for x in hours)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
 	for _, x := range hours {
@@ -115,8 +101,6 @@ func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfEmployeesWhoMetTarget(hours: number[], target: number): number {
@@ -129,8 +113,6 @@ function numberOfEmployeesWhoMetTarget(hours: number[], target: number): number 
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -146,10 +128,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

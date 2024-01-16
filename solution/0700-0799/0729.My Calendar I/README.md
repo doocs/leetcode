@@ -47,13 +47,9 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -75,10 +71,6 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.util.Map;
@@ -111,39 +103,6 @@ class MyCalendar {
  */
 ```
 
-### **Go**
-
-```go
-type MyCalendar struct {
-	rbt *redblacktree.Tree
-}
-
-func Constructor() MyCalendar {
-	return MyCalendar{
-		rbt: redblacktree.NewWithIntComparator(),
-	}
-}
-
-func (this *MyCalendar) Book(start int, end int) bool {
-	if p, ok := this.rbt.Floor(start); ok && p.Value.(int) > start {
-		return false
-	}
-	if p, ok := this.rbt.Ceiling(start); ok && p.Key.(int) < end {
-		return false
-	}
-	this.rbt.Put(start, end)
-	return true
-}
-
-/**
- * Your MyCalendar object will be instantiated and called as such:
- * obj := Constructor();
- * param_1 := obj.Book(start,end);
- */
-```
-
-### **C++**
-
 ```cpp
 class MyCalendar {
 public:
@@ -175,7 +134,34 @@ public:
  */
 ```
 
-### **TypeScript**
+```go
+type MyCalendar struct {
+	rbt *redblacktree.Tree
+}
+
+func Constructor() MyCalendar {
+	return MyCalendar{
+		rbt: redblacktree.NewWithIntComparator(),
+	}
+}
+
+func (this *MyCalendar) Book(start int, end int) bool {
+	if p, ok := this.rbt.Floor(start); ok && p.Value.(int) > start {
+		return false
+	}
+	if p, ok := this.rbt.Ceiling(start); ok && p.Key.(int) < end {
+		return false
+	}
+	this.rbt.Put(start, end)
+	return true
+}
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Book(start,end);
+ */
+```
 
 ```ts
 class MyCalendar {
@@ -203,8 +189,6 @@ class MyCalendar {
  * var param_1 = obj.book(start,end)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BTreeMap;
@@ -246,10 +230,6 @@ impl MyCalendar {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

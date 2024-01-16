@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 预处理**
+### 方法一：枚举 + 预处理
 
 我们可以枚举四元组中的 $j$ 和 $k$，那么问题转化为，对于当前的 $j$ 和 $k$：
 
@@ -62,10 +60,6 @@
 时间复杂度为 $O(n^2)$，空间复杂度为 $O(n^2)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +128,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 const int N = 4001;
@@ -189,8 +177,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countQuadruplets(nums []int) int64 {
 	n := len(nums)
@@ -236,10 +222,6 @@ func countQuadruplets(nums []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

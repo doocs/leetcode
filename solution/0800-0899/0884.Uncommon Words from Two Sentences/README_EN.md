@@ -30,9 +30,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -40,8 +40,6 @@ class Solution:
         cnt = Counter(s1.split()) + Counter(s2.split())
         return [s for s, v in cnt.items() if v == 1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -64,8 +62,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -86,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func uncommonFromSentences(s1 string, s2 string) (ans []string) {
 	cnt := map[string]int{}
@@ -106,8 +100,6 @@ func uncommonFromSentences(s1 string, s2 string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function uncommonFromSentences(s1: string, s2: string): string[] {
     const cnt: Map<string, number> = new Map();
@@ -123,8 +115,6 @@ function uncommonFromSentences(s1: string, s2: string): string[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -149,8 +139,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s1
@@ -172,10 +160,6 @@ var uncommonFromSentences = function (s1, s2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

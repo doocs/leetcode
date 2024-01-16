@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func containsPattern(arr []int, m int, k int) bool {
 	n := len(arr)
@@ -130,8 +124,6 @@ func containsPattern(arr []int, m int, k int) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function containsPattern(arr: number[], m: number, k: number): boolean {
@@ -151,10 +143,6 @@ function containsPattern(arr: number[], m: number, k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

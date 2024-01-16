@@ -62,7 +62,7 @@ Hence, it is the only answer.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the length of the longest adjacent non-equal subsequence ending with the $i$-th word, and $g[i]$ as the predecessor index of the longest adjacent non-equal subsequence ending with the $i$-th word. Initially, we set $f[i] = 1$ and $g[i] = -1$.
 
@@ -79,8 +79,6 @@ The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. He
 In **Solution 1**, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -109,8 +107,6 @@ class Solution:
                 break
         return ans[::-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -157,56 +153,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
-        int[] dp = new int[n];
-        int[] next = new int[n];
-        Map<String, List<Integer>> strToIdxMap = new HashMap<>();
-        int maxIdx = n;
-        for (int i = n - 1; i >= 0; i--) {
-            int prevIdx = n;
-            char[] word = words[i].toCharArray();
-            for (int j = 0; j < word.length; j++) {
-                // convert word to pattern with '*'.
-                char temp = word[j];
-                word[j] = '*';
-                String curr = new String(word);
-
-                // search matches and update dp.
-                List<Integer> prevList = strToIdxMap.getOrDefault(curr, List.of());
-                for (int prev : prevList) {
-                    if (groups[prev] == groups[i] || dp[prev] < dp[i]) {
-                        continue;
-                    }
-                    dp[i] = dp[prev] + 1;
-                    prevIdx = prev;
-                }
-
-                // append current pattern to dictionary.
-                strToIdxMap.computeIfAbsent(curr, k -> new ArrayList<>()).add(i);
-
-                // restore pattern to orignal word.
-                word[j] = temp;
-            }
-            if (maxIdx >= n || dp[i] > dp[maxIdx]) {
-                maxIdx = i;
-            }
-            next[i] = prevIdx;
-        }
-        int curr = maxIdx;
-        List<String> ans = new ArrayList<>();
-        while (curr < n) {
-            ans.add(words[curr]);
-            curr = next[curr];
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -247,8 +193,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) []string {
@@ -298,8 +242,6 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
     const f: number[] = Array(n).fill(1);
@@ -338,8 +280,6 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
     return ans.reverse();
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -395,10 +335,60 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+        int[] dp = new int[n];
+        int[] next = new int[n];
+        Map<String, List<Integer>> strToIdxMap = new HashMap<>();
+        int maxIdx = n;
+        for (int i = n - 1; i >= 0; i--) {
+            int prevIdx = n;
+            char[] word = words[i].toCharArray();
+            for (int j = 0; j < word.length; j++) {
+                // convert word to pattern with '*'.
+                char temp = word[j];
+                word[j] = '*';
+                String curr = new String(word);
+
+                // search matches and update dp.
+                List<Integer> prevList = strToIdxMap.getOrDefault(curr, List.of());
+                for (int prev : prevList) {
+                    if (groups[prev] == groups[i] || dp[prev] < dp[i]) {
+                        continue;
+                    }
+                    dp[i] = dp[prev] + 1;
+                    prevIdx = prev;
+                }
+
+                // append current pattern to dictionary.
+                strToIdxMap.computeIfAbsent(curr, k -> new ArrayList<>()).add(i);
+
+                // restore pattern to orignal word.
+                word[j] = temp;
+            }
+            if (maxIdx >= n || dp[i] > dp[maxIdx]) {
+                maxIdx = i;
+            }
+            next[i] = prevIdx;
+        }
+        int curr = maxIdx;
+        List<String> ans = new ArrayList<>();
+        while (curr < n) {
+            ans.add(words[curr]);
+            curr = next[curr];
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

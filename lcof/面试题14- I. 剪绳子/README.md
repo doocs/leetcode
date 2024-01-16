@@ -26,7 +26,7 @@
 
 ## 解法
 
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $dp[i]$ 表示正整数 $n$ 能获得的最大乘积，初始化 $dp[1] = 1$。答案即为 $dp[n]$。
 
@@ -38,15 +38,7 @@ $$
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为正整数 $n$。
 
-**方法二：数学**
-
-当 $n \lt 4$，此时 $n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
-
-时间复杂度 $O(1)$，空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -57,20 +49,6 @@ class Solution:
                 dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
         return dp[n]
 ```
-
-```python
-class Solution:
-    def cuttingRope(self, n: int) -> int:
-        if n < 4:
-            return n - 1
-        if n % 3 == 0:
-            return pow(3, n // 3)
-        if n % 3 == 1:
-            return pow(3, n // 3 - 1) * 4
-        return pow(3, n // 3) * 2
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,25 +64,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int cuttingRope(int n) {
-        if (n < 4) {
-            return n - 1;
-        }
-        if (n % 3 == 0) {
-            return (int) Math.pow(3, n / 3);
-        }
-        if (n % 3 == 1) {
-            return (int) Math.pow(3, n / 3 - 1) * 4;
-        }
-        return (int) Math.pow(3, n / 3) * 2;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,26 +81,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int cuttingRope(int n) {
-        if (n < 4) {
-            return n - 1;
-        }
-        if (n % 3 == 0) {
-            return pow(3, n / 3);
-        }
-        if (n % 3 == 1) {
-            return pow(3, n / 3 - 1) * 4;
-        }
-        return pow(3, n / 3) * 2;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func cuttingRope(n int) int {
 	dp := make([]int, n+1)
@@ -155,22 +94,33 @@ func cuttingRope(n int) int {
 }
 ```
 
-```go
-func cuttingRope(n int) int {
-	if n < 4 {
-		return n - 1
-	}
-	if n%3 == 0 {
-		return int(math.Pow(3, float64(n/3)))
-	}
-	if n%3 == 1 {
-		return int(math.Pow(3, float64(n/3-1))) * 4
-	}
-	return int(math.Pow(3, float64(n/3))) * 2
+```ts
+function cuttingRope(n: number): number {
+    if (n < 4) {
+        return n - 1;
+    }
+    const m = Math.floor(n / 3);
+    if (n % 3 == 0) {
+        return 3 ** m;
+    }
+    if (n % 3 == 1) {
+        return 3 ** (m - 1) * 4;
+    }
+    return 3 ** m * 2;
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn cutting_rope(n: i32) -> i32 {
+        if n < 4 {
+            return n - 1;
+        }
+        let count = (n - 2) / 3;
+        (3i32).pow(count as u32) * (n - count * 3)
+    }
+}
+```
 
 ```js
 /**
@@ -192,40 +142,6 @@ var cuttingRope = function (n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function cuttingRope(n: number): number {
-    if (n < 4) {
-        return n - 1;
-    }
-    const m = Math.floor(n / 3);
-    if (n % 3 == 0) {
-        return 3 ** m;
-    }
-    if (n % 3 == 1) {
-        return 3 ** (m - 1) * 4;
-    }
-    return 3 ** m * 2;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn cutting_rope(n: i32) -> i32 {
-        if n < 4 {
-            return n - 1;
-        }
-        let count = (n - 2) / 3;
-        (3i32).pow(count as u32) * (n - count * 3)
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int CuttingRope(int n) {
@@ -243,10 +159,78 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：数学
+
+当 $n \lt 4$，此时 $n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def cuttingRope(self, n: int) -> int:
+        if n < 4:
+            return n - 1
+        if n % 3 == 0:
+            return pow(3, n // 3)
+        if n % 3 == 1:
+            return pow(3, n // 3 - 1) * 4
+        return pow(3, n // 3) * 2
 ```
 
+```java
+class Solution {
+    public int cuttingRope(int n) {
+        if (n < 4) {
+            return n - 1;
+        }
+        if (n % 3 == 0) {
+            return (int) Math.pow(3, n / 3);
+        }
+        if (n % 3 == 1) {
+            return (int) Math.pow(3, n / 3 - 1) * 4;
+        }
+        return (int) Math.pow(3, n / 3) * 2;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int cuttingRope(int n) {
+        if (n < 4) {
+            return n - 1;
+        }
+        if (n % 3 == 0) {
+            return pow(3, n / 3);
+        }
+        if (n % 3 == 1) {
+            return pow(3, n / 3 - 1) * 4;
+        }
+        return pow(3, n / 3) * 2;
+    }
+};
+```
+
+```go
+func cuttingRope(n int) int {
+	if n < 4 {
+		return n - 1
+	}
+	if n%3 == 0 {
+		return int(math.Pow(3, float64(n/3)))
+	}
+	if n%3 == 1 {
+		return int(math.Pow(3, float64(n/3-1))) * 4
+	}
+	return int(math.Pow(3, float64(n/3))) * 2
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

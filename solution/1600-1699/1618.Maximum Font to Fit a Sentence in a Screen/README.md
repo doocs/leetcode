@@ -77,9 +77,7 @@ interface FontInfo {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 根据题目描述，字体数组按升序排列。因此，我们可以二分枚举字体大小 `fontSize`，找到最大的并且能够在屏幕上显示文本字体大小即可。
 
@@ -88,10 +86,6 @@ interface FontInfo {
 关于二分查找，见[整数二分算法模板 2](/basic/searching/BinarySearch/README.md)。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -132,10 +126,6 @@ class Solution:
         return fonts[left] if check(fonts[left]) else -1
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /**
  * // This is the FontInfo's API interface.
@@ -174,8 +164,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * // This is the FontInfo's API interface.
@@ -213,8 +201,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -269,10 +255,6 @@ var maxFont = function (text, w, h, fonts, fontInfo) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

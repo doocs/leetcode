@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 贪心**
+### 方法一：二分查找 + 贪心
 
 我们注意到，最大差值具备单调性，即如果最大差值 $x$ 满足条件，那么 $x-1$ 也一定满足条件。因此我们可以使用二分查找的方法，找到最小的满足条件的最大差值。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n \times (\log n + \log m))$，其中 $n$ 是数组 `nums` 的长度，而 $m$ 是数组 `nums` 中的最大值与最小值的差值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
         nums.sort()
         return bisect_left(range(nums[-1] - nums[0] + 1), True, key=check)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizeMax(nums []int, p int) int {
 	sort.Ints(nums)
@@ -164,10 +150,6 @@ func minimizeMax(nums []int, p int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

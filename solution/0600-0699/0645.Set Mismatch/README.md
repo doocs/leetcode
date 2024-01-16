@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们用 $s_1$ 表示 $[1,..n]$ 所有数字的和，用 $s_2$ 表示数组 $nums$ 去重后的数字和，用 $s$ 表示数组 $nums$ 的数字和。
 
@@ -49,29 +47,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。需要额外的空间对数组去重。
 
-**方法二：哈希表**
-
-我们也可以一种更加直观的方法，直接用哈希表 $cnt$ 统计数组 $nums$ 中每个数字出现的次数。
-
-接下来遍历 $x \in [1, n]$，如果 $cnt[x] = 2$，那么 $x$ 就是重复的数字，如果 $cnt[x] = 0$，那么 $x$ 就是缺失的数字。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。
-
-**方法三：位运算**
-
-根据异或运算的性质，对于整数 $x$，有 $x \oplus x = 0$ 以及 $x \oplus 0 = x$，因此我们对数组 $nums$ 中的所有元素以及 $i \in [1, n]$ 的所有数字进行异或运算，可以消除出现两次的数字，最终只留下缺失的数字和重复的数字的异或结果，即 $xs = a \oplus b$。
-
-由于这两个数字不相等，因此异或结果中至少存在一位为 $1$。我们通过 $lowbit$ 运算找到异或结果中最低位的 $1$，然后将数组 $nums$ 中所有数字以及 $i \in [1, n]$ 的所有数字按照该位是否为 $1$ 分为两组，这样两个数字就被分到了不同的组中。其中一组数字的异或结果为 $a$，另一组数字的异或结果为 $b$。那么这两个数字就是我们要找的答案。
-
-接下来我们只需要判断 $a$ 和 $b$ 哪个数字是重复的数字，哪个数字是缺失的数字即可。因此，遍历数组 $nums$，对于遍历到的数字 $x$，如果 $x=a$，那么 $a$ 就是重复的数字，返回 $[a, b]$，否则遍历结束，返回 $[b, a]$。
-
-时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$，仅使用常数大小的额外空间。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,44 +58,6 @@ class Solution:
         s = sum(nums)
         return [s - s2, s1 - s2]
 ```
-
-```python
-class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
-        cnt = Counter(nums)
-        n = len(nums)
-        ans = [0] * 2
-        for x in range(1, n + 1):
-            if cnt[x] == 2:
-                ans[0] = x
-            if cnt[x] == 0:
-                ans[1] = x
-        return ans
-```
-
-```python
-class Solution:
-    def findErrorNums(self, nums: List[int]) -> List[int]:
-        xs = 0
-        for i, x in enumerate(nums, 1):
-            xs ^= i ^ x
-        a = 0
-        lb = xs & -xs
-        for i, x in enumerate(nums, 1):
-            if i & lb:
-                a ^= i
-            if x & lb:
-                a ^= x
-        b = xs ^ a
-        for x in nums:
-            if x == a:
-                return [a, b]
-        return [b, a]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,6 +76,89 @@ class Solution {
         return new int[] {s - s2, s1 - s2};
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        int s1 = (1 + n) * n / 2;
+        int s2 = 0;
+        unordered_set<int> set(nums.begin(), nums.end());
+        for (int x : set) {
+            s2 += x;
+        }
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        return {s - s2, s1 - s2};
+    }
+};
+```
+
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	s1 := (1 + n) * n / 2
+	s2, s := 0, 0
+	set := map[int]bool{}
+	for _, x := range nums {
+		if !set[x] {
+			set[x] = true
+			s2 += x
+		}
+		s += x
+	}
+	return []int{s - s2, s1 - s2}
+}
+```
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    const n = nums.length;
+    const s1 = (n * (n + 1)) >> 1;
+    const s2 = [...new Set(nums)].reduce((a, b) => a + b);
+    const s = nums.reduce((a, b) => a + b);
+    return [s - s2, s1 - s2];
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len() as i32;
+        let s1 = ((1 + n) * n) / 2;
+        let s2 = nums.iter().cloned().collect::<HashSet<i32>>().iter().sum::<i32>();
+        let s: i32 = nums.iter().sum();
+        vec![s - s2, s1 - s2]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：哈希表
+
+我们也可以一种更加直观的方法，直接用哈希表 $cnt$ 统计数组 $nums$ 中每个数字出现的次数。
+
+接下来遍历 $x \in [1, n]$，如果 $cnt[x] = 2$，那么 $x$ 就是重复的数字，如果 $cnt[x] = 0$，那么 $x$ 就是缺失的数字。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        cnt = Counter(nums)
+        n = len(nums)
+        ans = [0] * 2
+        for x in range(1, n + 1):
+            if cnt[x] == 2:
+                ans[0] = x
+            if cnt[x] == 0:
+                ans[1] = x
+        return ans
 ```
 
 ```java
@@ -160,6 +181,129 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        vector<int> ans(2);
+        for (int x = 1; x <= n; ++x) {
+            if (cnt[x] == 2) {
+                ans[0] = x;
+            } else if (cnt[x] == 0) {
+                ans[1] = x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	ans := make([]int, 2)
+	for x := 1; x <= n; x++ {
+		if cnt[x] == 2 {
+			ans[0] = x
+		} else if cnt[x] == 0 {
+			ans[1] = x
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    const n = nums.length;
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    const ans: number[] = new Array(2).fill(0);
+    for (let x = 1; x <= n; ++x) {
+        const t = cnt.get(x) || 0;
+        if (t === 2) {
+            ans[0] = x;
+        } else if (t === 0) {
+            ans[1] = x;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let mut xs = 0;
+        for (i, x) in nums.iter().enumerate() {
+            xs ^= ((i + 1) as i32) ^ x;
+        }
+        let mut a = 0;
+        let lb = xs & -xs;
+        for (i, x) in nums.iter().enumerate() {
+            if (((i + 1) as i32) & lb) != 0 {
+                a ^= (i + 1) as i32;
+            }
+            if (*x & lb) != 0 {
+                a ^= *x;
+            }
+        }
+        let b = xs ^ a;
+        for x in nums.iter() {
+            if *x == a {
+                return vec![a, b];
+            }
+        }
+        vec![b, a]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三：位运算
+
+根据异或运算的性质，对于整数 $x$，有 $x \oplus x = 0$ 以及 $x \oplus 0 = x$，因此我们对数组 $nums$ 中的所有元素以及 $i \in [1, n]$ 的所有数字进行异或运算，可以消除出现两次的数字，最终只留下缺失的数字和重复的数字的异或结果，即 $xs = a \oplus b$。
+
+由于这两个数字不相等，因此异或结果中至少存在一位为 $1$。我们通过 $lowbit$ 运算找到异或结果中最低位的 $1$，然后将数组 $nums$ 中所有数字以及 $i \in [1, n]$ 的所有数字按照该位是否为 $1$ 分为两组，这样两个数字就被分到了不同的组中。其中一组数字的异或结果为 $a$，另一组数字的异或结果为 $b$。那么这两个数字就是我们要找的答案。
+
+接下来我们只需要判断 $a$ 和 $b$ 哪个数字是重复的数字，哪个数字是缺失的数字即可。因此，遍历数组 $nums$，对于遍历到的数字 $x$，如果 $x=a$，那么 $a$ 就是重复的数字，返回 $[a, b]$，否则遍历结束，返回 $[b, a]$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$，仅使用常数大小的额外空间。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        xs = 0
+        for i, x in enumerate(nums, 1):
+            xs ^= i ^ x
+        a = 0
+        lb = xs & -xs
+        for i, x in enumerate(nums, 1):
+            if i & lb:
+                a ^= i
+            if x & lb:
+                a ^= x
+        b = xs ^ a
+        for x in nums:
+            if x == a:
+                return [a, b]
+        return [b, a]
 ```
 
 ```java
@@ -189,47 +333,6 @@ class Solution {
         return new int[] {b, a};
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> findErrorNums(vector<int>& nums) {
-        int n = nums.size();
-        int s1 = (1 + n) * n / 2;
-        int s2 = 0;
-        unordered_set<int> set(nums.begin(), nums.end());
-        for (int x : set) {
-            s2 += x;
-        }
-        int s = accumulate(nums.begin(), nums.end(), 0);
-        return {s - s2, s1 - s2};
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    vector<int> findErrorNums(vector<int>& nums) {
-        int n = nums.size();
-        unordered_map<int, int> cnt;
-        for (int x : nums) {
-            ++cnt[x];
-        }
-        vector<int> ans(2);
-        for (int x = 1; x <= n; ++x) {
-            if (cnt[x] == 2) {
-                ans[0] = x;
-            } else if (cnt[x] == 0) {
-                ans[1] = x;
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -262,44 +365,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findErrorNums(nums []int) []int {
-	n := len(nums)
-	s1 := (1 + n) * n / 2
-	s2, s := 0, 0
-	set := map[int]bool{}
-	for _, x := range nums {
-		if !set[x] {
-			set[x] = true
-			s2 += x
-		}
-		s += x
-	}
-	return []int{s - s2, s1 - s2}
-}
-```
-
-```go
-func findErrorNums(nums []int) []int {
-	n := len(nums)
-	cnt := map[int]int{}
-	for _, x := range nums {
-		cnt[x]++
-	}
-	ans := make([]int, 2)
-	for x := 1; x <= n; x++ {
-		if cnt[x] == 2 {
-			ans[0] = x
-		} else if cnt[x] == 0 {
-			ans[1] = x
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func findErrorNums(nums []int) []int {
 	xs := 0
@@ -326,81 +391,6 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len() as i32;
-        let s1 = ((1 + n) * n) / 2;
-        let s2 = nums.iter().cloned().collect::<HashSet<i32>>().iter().sum::<i32>();
-        let s: i32 = nums.iter().sum();
-        vec![s - s2, s1 - s2]
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
-        let mut xs = 0;
-        for (i, x) in nums.iter().enumerate() {
-            xs ^= ((i + 1) as i32) ^ x;
-        }
-        let mut a = 0;
-        let lb = xs & -xs;
-        for (i, x) in nums.iter().enumerate() {
-            if (((i + 1) as i32) & lb) != 0 {
-                a ^= (i + 1) as i32;
-            }
-            if (*x & lb) != 0 {
-                a ^= *x;
-            }
-        }
-        let b = xs ^ a;
-        for x in nums.iter() {
-            if *x == a {
-                return vec![a, b];
-            }
-        }
-        vec![b, a]
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function findErrorNums(nums: number[]): number[] {
-    const n = nums.length;
-    const s1 = (n * (n + 1)) >> 1;
-    const s2 = [...new Set(nums)].reduce((a, b) => a + b);
-    const s = nums.reduce((a, b) => a + b);
-    return [s - s2, s1 - s2];
-}
-```
-
-```ts
-function findErrorNums(nums: number[]): number[] {
-    const n = nums.length;
-    const cnt: Map<number, number> = new Map();
-    for (const x of nums) {
-        cnt.set(x, (cnt.get(x) || 0) + 1);
-    }
-    const ans: number[] = new Array(2).fill(0);
-    for (let x = 1; x <= n; ++x) {
-        const t = cnt.get(x) || 0;
-        if (t === 2) {
-            ans[0] = x;
-        } else if (t === 0) {
-            ans[1] = x;
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
@@ -423,10 +413,6 @@ function findErrorNums(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,19 +50,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组 + 枚举**
+### 方法一：数组 + 枚举
 
 我们可以先将每个数组中的元素放入数组中，然后枚举 $1$ 到 $100$ 中的每个数 $i$，判断 $i$ 是否在至少两个数组中出现过。若是，则将 $i$ 加入答案数组中。
 
 时间复杂度 $O(n_1 + n_2 + n_3)$，空间复杂度 $O(n_1 + n_2 + n_3)$。其中 $n_1, n_2, n_3$ 分别为数组 `nums1`、`nums2` 和 `nums3` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
         s1, s2, s3 = set(nums1), set(nums2), set(nums3)
         return [i for i in range(1, 101) if (i in s1) + (i in s2) + (i in s3) > 1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
 	get := func(nums []int) (s [101]int) {
@@ -143,8 +129,6 @@ func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): number[] {
     const count = new Array(101).fill(0);
@@ -160,8 +144,6 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -203,10 +185,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

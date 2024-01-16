@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -46,8 +46,6 @@ class Solution:
         cnt = Counter(s)
         return len(set(cnt.values())) == 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areOccurrencesEqual(s string) bool {
 	cnt := [26]int{}
@@ -117,8 +111,6 @@ func areOccurrencesEqual(s string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function areOccurrencesEqual(s: string): boolean {
@@ -140,19 +132,6 @@ function areOccurrencesEqual(s: string): boolean {
 }
 ```
 
-```ts
-function areOccurrencesEqual(s: string): boolean {
-    const cnt: number[] = new Array(26).fill(0);
-    for (const c of s) {
-        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
-    }
-    const x = cnt.find(v => v);
-    return cnt.every(v => !v || v === x);
-}
-```
-
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -169,10 +148,23 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function areOccurrencesEqual(s: string): boolean {
+    const cnt: number[] = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    const x = cnt.find(v => v);
+    return cnt.every(v => !v || v === x);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

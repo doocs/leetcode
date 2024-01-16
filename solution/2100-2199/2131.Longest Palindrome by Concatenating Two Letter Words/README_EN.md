@@ -51,9 +51,9 @@ Note that &quot;ll&quot; is another longest palindrome that can be created, and 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
         ans += 2 if x else 0
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +117,6 @@ public:
     }
 };
 ```
-
-## **Go**
 
 ```go
 func longestPalindrome(words []string) int {
@@ -149,16 +143,6 @@ func longestPalindrome(words []string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

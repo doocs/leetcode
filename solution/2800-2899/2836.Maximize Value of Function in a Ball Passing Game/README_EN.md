@@ -128,7 +128,7 @@ Hence, the output is 10.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming + Binary Lifting**
+### Solution 1: Dynamic Programming + Binary Lifting
 
 The problem asks us to find the maximum sum of the player IDs who have touched the ball within $k$ passes starting from each player $i$. If we solve it by brute force, we need to traverse upwards $k$ times starting from $i$, with a time complexity of $O(k)$, which will obviously time out.
 
@@ -149,8 +149,6 @@ Similar problems:
 -   [1483. Kth Ancestor of a Tree Node](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -175,8 +173,6 @@ class Solution:
             ans = max(ans, t + p)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -210,8 +206,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -247,8 +241,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 	n, m := len(receiver), bits.Len(uint(k))
@@ -281,10 +273,6 @@ func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

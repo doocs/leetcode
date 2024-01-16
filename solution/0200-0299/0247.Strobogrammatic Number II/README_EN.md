@@ -25,9 +25,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -47,8 +47,6 @@ class Solution:
 
         return dfs(n)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +99,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findStrobogrammatic(n int) []string {
@@ -132,10 +126,6 @@ func findStrobogrammatic(n int) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

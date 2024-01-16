@@ -51,7 +51,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Sorting**
+### Solution 1: Greedy + Sorting
 
 To buy as many ice creams as possible, and they can be purchased in any order, we should prioritize choosing ice creams with lower prices.
 
@@ -60,8 +60,6 @@ Sort the $costs$ array, and then start buying from the ice cream with the lowest
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the $costs$ array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
             coins -= c
         return len(costs)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxIceCream(costs []int, coins int) int {
 	sort.Ints(costs)
@@ -123,8 +115,6 @@ func maxIceCream(costs []int, coins int) int {
 	return len(costs)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxIceCream(costs: number[], coins: number): number {
@@ -139,8 +129,6 @@ function maxIceCream(costs: number[], coins: number): number {
     return n;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -161,10 +149,6 @@ var maxIceCream = function (costs, coins) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

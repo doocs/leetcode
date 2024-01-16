@@ -41,9 +41,9 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
                     right -= (idx[i + 1] - idx[i]) * (len(idx) - i - 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distance(nums []int) []int64 {
 	n := len(nums)
@@ -153,10 +147,6 @@ func distance(nums []int) []int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

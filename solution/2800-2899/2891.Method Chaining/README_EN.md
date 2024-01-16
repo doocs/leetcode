@@ -59,9 +59,9 @@ The results should be sorted in descending order of weight.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -73,10 +73,6 @@ def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
     ]
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -69,15 +69,9 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-“前缀和 + 二分查找”。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
 # obj = Solution(w)
 # param_1 = obj.pickIndex()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -142,8 +132,6 @@ class Solution {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +164,6 @@ public:
  * int param_1 = obj->pickIndex();
  */
 ```
-
-### **Go**
 
 ```go
 type Solution struct {
@@ -214,48 +200,6 @@ func (this *Solution) PickIndex() int {
  * param_1 := obj.PickIndex();
  */
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} w
- */
-var Solution = function (w) {
-    const n = w.length;
-    this.s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        this.s[i + 1] = this.s[i] + w[i];
-    }
-};
-
-/**
- * @return {number}
- */
-Solution.prototype.pickIndex = function () {
-    const n = this.s.length;
-    const x = 1 + Math.floor(Math.random() * this.s[n - 1]);
-    let left = 1,
-        right = n - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (this.s[mid] >= x) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left - 1;
-};
-
-/**
- * Your Solution object will be instantiated and called as such:
- * var obj = new Solution(w)
- * var param_1 = obj.pickIndex()
- */
-```
-
-### **Rust**
 
 ```rust
 use rand::{ thread_rng, Rng };
@@ -298,10 +242,44 @@ impl Solution {
  */
 ```
 
-### **...**
+```js
+/**
+ * @param {number[]} w
+ */
+var Solution = function (w) {
+    const n = w.length;
+    this.s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        this.s[i + 1] = this.s[i] + w[i];
+    }
+};
 
-```
+/**
+ * @return {number}
+ */
+Solution.prototype.pickIndex = function () {
+    const n = this.s.length;
+    const x = 1 + Math.floor(Math.random() * this.s[n - 1]);
+    let left = 1,
+        right = n - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (this.s[mid] >= x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left - 1;
+};
 
+/**
+ * Your Solution object will be instantiated and called as such:
+ * var obj = new Solution(w)
+ * var param_1 = obj.pickIndex()
+ */
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@ a = 3, b = 1 和 c = 2.
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：带权并查集**
+### 方法一：带权并查集
 
 我们先将字符串转换成从 $0$ 开始的整数，然后遍历所有的等式，将等式中的两个字符串映射成对应的整数 $a$ 和 $b$，如果这两个整数不在同一个集合中，就将它们合并到同一个集合中，并且记录下两个整数的权值，即 $a$ 与 $b$ 的比值。如果这两个整数在同一个集合中，就判断它们的权值是否满足等式，如果不满足就返回 `true`。
 
@@ -70,10 +68,6 @@ a = 3, b = 1 和 c = 2.
 -   [399. 除法求值](/solution/0300-0399/0399.Evaluate%20Division/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,10 +101,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -159,8 +149,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -200,8 +188,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkContradictions(equations [][]string, values []float64) bool {
@@ -253,8 +239,6 @@ func checkContradictions(equations [][]string, values []float64) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkContradictions(equations: string[][], values: number[]): boolean {
     const d: { [key: string]: number } = {};
@@ -301,10 +285,6 @@ function checkContradictions(equations: string[][], values: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

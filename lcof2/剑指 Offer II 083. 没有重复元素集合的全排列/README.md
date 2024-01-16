@@ -45,15 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-深度优先搜索。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
         dfs(0)
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,7 +102,62 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> res;
+        vector<int> path(n, 0);
+        vector<bool> used(n, false);
+        dfs(0, n, nums, used, path, res);
+        return res;
+    }
+
+    void dfs(int u, int n, vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
+        if (u == n) {
+            res.emplace_back(path);
+            return;
+        }
+        for (int i = 0; i < n; ++i) {
+            if (!used[i]) {
+                path[u] = nums[i];
+                used[i] = true;
+                dfs(u + 1, n, nums, used, path, res);
+                used[i] = false;
+            }
+        }
+    }
+};
+```
+
+```go
+func permute(nums []int) [][]int {
+	n := len(nums)
+	res := make([][]int, 0)
+	path := make([]int, n)
+	used := make([]bool, n)
+	dfs(0, n, nums, used, path, &res)
+	return res
+}
+
+func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
+	if u == n {
+		t := make([]int, n)
+		copy(t, path)
+		*res = append(*res, t)
+		return
+	}
+	for i := 0; i < n; i++ {
+		if !used[i] {
+			path[u] = nums[i]
+			used[i] = true
+			dfs(u+1, n, nums, used, path, res)
+			used[i] = false
+		}
+	}
+}
+```
 
 ```js
 /**
@@ -145,71 +190,40 @@ function dfs(u, n, nums, used, path, res) {
 }
 ```
 
-### **C++**
+```cs
+using System.Collections.Generic;
+using System.Linq;
 
-```cpp
-class Solution {
-public:
-    vector<vector<int>> permute(vector<int>& nums) {
-        int n = nums.size();
-        vector<vector<int>> res;
-        vector<int> path(n, 0);
-        vector<bool> used(n, false);
-        dfs(0, n, nums, used, path, res);
-        return res;
+public class Solution {
+    public IList<IList<int>> Permute(int[] nums) {
+        var results = new List<IList<int>>();
+        var temp = new List<int>();
+        var visited = new bool[nums.Length];
+        Search(nums, visited, temp, results);
+        return results;
     }
 
-    void dfs(int u, int n, vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
-        if (u == n) {
-            res.emplace_back(path);
-            return;
+    private void Search(int[] nums, bool[] visited, IList<int> temp, IList<IList<int>> results)
+    {
+        int count = 0;
+        for (var i = 0; i < nums.Length; ++i)
+        {
+            if (visited[i]) continue;
+            ++count;
+            temp.Add(nums[i]);
+            visited[i] = true;
+            Search(nums, visited, temp, results);
+            temp.RemoveAt(temp.Count - 1);
+            visited[i] = false;
         }
-        for (int i = 0; i < n; ++i) {
-            if (!used[i]) {
-                path[u] = nums[i];
-                used[i] = true;
-                dfs(u + 1, n, nums, used, path, res);
-                used[i] = false;
-            }
+        if (count == 0 && temp.Any())
+        {
+            results.Add(new List<int>(temp));
         }
     }
-};
-```
-
-### **Go**
-
-```go
-func permute(nums []int) [][]int {
-	n := len(nums)
-	res := make([][]int, 0)
-	path := make([]int, n)
-	used := make([]bool, n)
-	dfs(0, n, nums, used, path, &res)
-	return res
 }
-
-func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
-	if u == n {
-		t := make([]int, n)
-		copy(t, path)
-		*res = append(*res, t)
-		return
-	}
-	for i := 0; i < n; i++ {
-		if !used[i] {
-			path[u] = nums[i]
-			used[i] = true
-			dfs(u+1, n, nums, used, path, res)
-			used[i] = false
-		}
-	}
-}
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

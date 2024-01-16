@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论**
+### 方法一：分情况讨论
 
 记 $m$ 表示字符串 $s$ 的长度，$n$ 表示字符串 $t$ 的长度。我们可以假定 $m$ 恒大于等于 $n$。
 
@@ -63,10 +61,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isOneEditDistance(self, s: str, t: str) -> bool:
@@ -80,10 +74,6 @@ class Solution:
                 return s[i + 1 :] == t[i + 1 :] if m == n else s[i + 1 :] == t[i:]
         return m == n + 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isOneEditDistance(s string, t string) bool {
@@ -151,10 +137,6 @@ func isOneEditDistance(s string, t string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

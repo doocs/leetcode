@@ -37,11 +37,9 @@
 
 ## Solutions
 
-Union find.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -59,8 +57,6 @@ class Solution:
             n -= 1
         return n == 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validTree(n int, edges [][]int) bool {
@@ -143,8 +135,6 @@ func validTree(n int, edges [][]int) bool {
 	return n == 1
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -174,10 +164,6 @@ var validTree = function (n, edges) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

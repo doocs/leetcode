@@ -89,9 +89,9 @@ fn = (obj) =&gt; {
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type Obj = Array<any> | Record<any, any>;
@@ -135,3 +135,5 @@ function makeImmutable(obj: Obj): Obj {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

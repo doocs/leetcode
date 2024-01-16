@@ -31,7 +31,7 @@
 
 ## 解法
 
-**方法一：双栈**
+### 方法一：双栈
 
 我们可以使用两个栈来实现队列，其中一个栈 `stk1` 用来存储输入的元素，另一个栈 `stk2` 用来输出元素。
 
@@ -42,8 +42,6 @@
 时间复杂度上，对于 `appendTail()` 方法，时间复杂度为 $O(1)$；对于 `deleteHead()` 方法，时间复杂度为 $O(n)$；空间复杂度为 $O(n)$。其中 $n$ 为队列中的元素个数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class CQueue:
@@ -66,8 +64,6 @@ class CQueue:
 # obj.appendTail(value)
 # param_2 = obj.deleteHead()
 ```
-
-### **Java**
 
 ```java
 class CQueue {
@@ -98,8 +94,6 @@ class CQueue {
  * int param_2 = obj.deleteHead();
  */
 ```
-
-### **C++**
 
 ```cpp
 class CQueue {
@@ -138,8 +132,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type CQueue struct {
 	stk1, stk2 []int
@@ -176,44 +168,6 @@ func (this *CQueue) DeleteHead() int {
  */
 ```
 
-### **JavaScript**
-
-```js
-var CQueue = function () {
-    this.stk1 = [];
-    this.stk2 = [];
-};
-
-/**
- * @param {number} value
- * @return {void}
- */
-CQueue.prototype.appendTail = function (value) {
-    this.stk1.push(value);
-};
-
-/**
- * @return {number}
- */
-CQueue.prototype.deleteHead = function () {
-    if (!this.stk2.length) {
-        while (this.stk1.length) {
-            this.stk2.push(this.stk1.pop());
-        }
-    }
-    return this.stk2.length ? this.stk2.pop() : -1;
-};
-
-/**
- * Your CQueue object will be instantiated and called as such:
- * var obj = new CQueue()
- * obj.appendTail(value)
- * var param_2 = obj.deleteHead()
- */
-```
-
-### **TypeScript**
-
 ```ts
 class CQueue {
     private stk1: number[];
@@ -245,8 +199,6 @@ class CQueue {
  * var param_2 = obj.deleteHead()
  */
 ```
-
-### **Rust**
 
 ```rust
 struct CQueue {
@@ -289,7 +241,39 @@ impl CQueue {
  */
 ```
 
-### **C#**
+```js
+var CQueue = function () {
+    this.stk1 = [];
+    this.stk2 = [];
+};
+
+/**
+ * @param {number} value
+ * @return {void}
+ */
+CQueue.prototype.appendTail = function (value) {
+    this.stk1.push(value);
+};
+
+/**
+ * @return {number}
+ */
+CQueue.prototype.deleteHead = function () {
+    if (!this.stk2.length) {
+        while (this.stk1.length) {
+            this.stk2.push(this.stk1.pop());
+        }
+    }
+    return this.stk2.length ? this.stk2.pop() : -1;
+};
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * var obj = new CQueue()
+ * obj.appendTail(value)
+ * var param_2 = obj.deleteHead()
+ */
+```
 
 ```cs
 public class CQueue {
@@ -322,10 +306,6 @@ public class CQueue {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

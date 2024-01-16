@@ -27,9 +27,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 根据示例，可以假定字符串中只包含小写字母（实际验证，也符合假设）。
 
@@ -38,10 +36,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -54,10 +48,6 @@ class Solution:
             mask |= 1 << i
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -74,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -94,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isUnique(astr string) bool {
 	mask := 0
@@ -110,7 +96,19 @@ func isUnique(astr string) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+function isUnique(astr: string): boolean {
+    let mask = 0;
+    for (let j = 0; j < astr.length; ++j) {
+        const i = astr.charCodeAt(j) - 'a'.charCodeAt(0);
+        if ((mask >> i) & 1) {
+            return false;
+        }
+        mask |= 1 << i;
+    }
+    return true;
+}
+```
 
 ```js
 /**
@@ -130,26 +128,6 @@ var isUnique = function (astr) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function isUnique(astr: string): boolean {
-    let mask = 0;
-    for (let j = 0; j < astr.length; ++j) {
-        const i = astr.charCodeAt(j) - 'a'.charCodeAt(0);
-        if ((mask >> i) & 1) {
-            return false;
-        }
-        mask |= 1 << i;
-    }
-    return true;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

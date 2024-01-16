@@ -39,15 +39,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-将数字的二进制位每 4 个一组转换为 16 进制即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,10 +56,6 @@ class Solution:
                 s.append(chars[x])
         return ''.join(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,27 +78,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String toHex(int num) {
-        if (num == 0) {
-            return "0";
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 7; i >= 0; --i) {
-            int x = (num >> (4 * i)) & 0xf;
-            if (sb.length() > 0 || x != 0) {
-                char c = x < 10 ? (char) (x + '0') : (char) (x - 10 + 'a');
-                sb.append(c);
-            }
-        }
-        return sb.toString();
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func toHex(num int) string {
@@ -151,10 +118,31 @@ func toHex(num int) string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public String toHex(int num) {
+        if (num == 0) {
+            return "0";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 7; i >= 0; --i) {
+            int x = (num >> (4 * i)) & 0xf;
+            if (sb.length() > 0 || x != 0) {
+                char c = x < 10 ? (char) (x + '0') : (char) (x - 10 + 'a');
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

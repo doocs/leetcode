@@ -49,9 +49,9 @@ region2 = &quot;New York&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
             region2 = m[region2]
         return region1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +119,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findSmallestRegion(regions [][]string, region1 string, region2 string) string {
@@ -149,10 +143,6 @@ func findSmallestRegion(regions [][]string, region1 string, region2 string) stri
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

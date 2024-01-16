@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用两个指针 $i$ 和 $j$ 分别指向字符串 $s$ 的第一个字符和最后一个字符，然后向中间移动指针，每次判断 $s[i]$ 和 $s[j]$ 是否相等：
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validPalindrome(s string) bool {
 	check := func(i, j int) bool {
@@ -153,8 +139,6 @@ func validPalindrome(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function validPalindrome(s: string): boolean {
     const check = (i: number, j: number): boolean => {
@@ -173,8 +157,6 @@ function validPalindrome(s: string): boolean {
     return true;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -199,10 +181,6 @@ var validPalindrome = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

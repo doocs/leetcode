@@ -49,9 +49,7 @@ nums 中的所有元素都有用到，并且每一行都由不同的整数组成
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 我们先用数组或哈希表 $cnt$ 统计数组 $nums$ 中每个元素出现的次数。
 
@@ -62,10 +60,6 @@ nums 中的所有元素都有用到，并且每一行都由不同的整数组成
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 ans[i].append(x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMatrix(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -153,8 +139,6 @@ func findMatrix(nums []int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMatrix(nums: number[]): number[][] {
@@ -176,10 +160,6 @@ function findMatrix(nums: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

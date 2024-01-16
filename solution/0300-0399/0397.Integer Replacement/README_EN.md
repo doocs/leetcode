@@ -47,9 +47,9 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func integerReplacement(n int) int {
 	ans := 0
@@ -128,10 +122,6 @@ func integerReplacement(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

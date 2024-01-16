@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：统计偶数个数**
+### 方法一：统计偶数个数
 
 根据题意，我们可以知道，如果数组中存在两个或两个以上的元素，其按位或运算结果存在尾随零，那么数组中必然存在至少两个偶数。因此，我们可以统计数组中偶数的个数，如果偶数的个数大于等于 $2$，那么就返回 `true`，否则返回 `false`。
 
@@ -62,19 +60,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def hasTrailingZeros(self, nums: List[int]) -> bool:
         return sum(x & 1 ^ 1 for x in nums) >= 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hasTrailingZeros(nums []int) bool {
 	cnt := 0
@@ -114,8 +100,6 @@ func hasTrailingZeros(nums []int) bool {
 	return cnt >= 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function hasTrailingZeros(nums: number[]): boolean {
@@ -127,10 +111,6 @@ function hasTrailingZeros(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

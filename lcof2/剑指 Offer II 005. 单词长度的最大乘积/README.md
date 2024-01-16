@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算 + 枚举**
+### 方法一：位运算 + 枚举
 
 由于题目限定了字符串中只包含英语的小写字母，因此每个字符串可以用一个 $32$ 位整数表示，该整数的每个二进制位都是 $0$ 或 $1$，分别对应字符串的每个字母是否出现。这样一来，我们判断两个字符串是否含有相同字符，只需要将对应的整数进行按位与运算，即可得到一个新的整数，如果新的整数的二进制表示中的每一位都是 $0$，就说明两个字符串不含有相同的字符。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n \times (n + |S|))$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度，而 $|S|$ 是字符串的最大长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
                     ans = max(ans, len(a) * len(b))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxProduct(words []string) (ans int) {
 	n := len(words)
@@ -152,8 +138,6 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxProduct(words: string[]): number {
@@ -176,10 +160,6 @@ function maxProduct(words: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

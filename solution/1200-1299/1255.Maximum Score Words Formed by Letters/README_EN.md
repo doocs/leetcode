@@ -54,7 +54,7 @@ Letter &quot;e&quot; can only be used once.</pre>
 
 ## Solutions
 
-**Solution 1: Binary Enumeration**
+### Solution 1: Binary Enumeration
 
 Given the small data range in the problem, we can use binary enumeration to enumerate all word combinations for the given word list. Then, we check whether each word combination meets the requirements of the problem. If it does, we calculate its score and finally take the word combination with the highest score.
 
@@ -67,8 +67,6 @@ Then, we count the number of occurrences of each letter in the current word comb
 The time complexity is $(2^n \times n \times M)$, and the space complexity is $O(C)$. Where $n$ and $M$ are the number of words in the word set and the maximum length of the word, respectively; and $C$ is the number of letters in the alphabet, in this problem, $C=26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
                 ans = max(ans, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +119,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -163,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScoreWords(words []string, letters []byte, score []int) (ans int) {
 	cnt := [26]int{}
@@ -198,10 +190,6 @@ func maxScoreWords(words []string, letters []byte, score []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

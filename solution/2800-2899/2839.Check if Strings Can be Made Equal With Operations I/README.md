@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们观察题目中的操作，可以发现，如果字符串的两个下标 $i$ 和 $j$ 的奇偶性相同，那么它们可以通过交换改变顺序。
 
@@ -63,10 +61,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canBeEqual(self, s1: str, s2: str) -> bool:
@@ -74,10 +68,6 @@ class Solution:
             s2[1::2]
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canBeEqual(s1 string, s2 string) bool {
 	cnt := [2][26]int{}
@@ -135,8 +121,6 @@ func canBeEqual(s1 string, s2 string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canBeEqual(s1: string, s2: string): boolean {
@@ -154,10 +138,6 @@ function canBeEqual(s1: string, s2: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

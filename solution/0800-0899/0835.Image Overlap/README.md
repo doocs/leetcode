@@ -59,19 +59,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举 $img1$ 和 $img2$ 的每个 $1$ 的位置，分别记为 $(i, j)$ 和 $(h, k)$。然后我们计算得到偏移量 $(i - h, j - k)$，记为 $(dx, dy)$，用哈希表 $cnt$ 记录每个偏移量出现的次数。最后我们遍历哈希表 $cnt$，找到出现次数最多的偏移量，即为答案。
 
 时间复杂度 $O(n^4)$，空间复杂度 $O(n^2)$。其中 $n$ 是 $img1$ 的边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                                 cnt[(i - h, j - k)] += 1
         return max(cnt.values()) if cnt else 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
 	type pair struct{ x, y int }
@@ -168,8 +154,6 @@ func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestOverlap(img1: number[][], img2: number[][]): number {
@@ -195,10 +179,6 @@ function largestOverlap(img1: number[][], img2: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

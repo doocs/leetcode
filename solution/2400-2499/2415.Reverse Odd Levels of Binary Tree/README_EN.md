@@ -58,15 +58,13 @@ The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1
 
 ## Solutions
 
-**Solution 1: BFS**
+### Solution 1: BFS
 
 We can use the Breadth-First Search (BFS) method, using a queue $q$ to store the nodes of each level, and a variable $i$ to record the current level. If $i$ is odd, we reverse the values of the nodes at the current level.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -93,8 +91,6 @@ class Solution:
             i += 1
         return root
 ```
-
-### **Java**
 
 ```java
 /**
@@ -139,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -179,8 +173,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -212,8 +204,6 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 	return root
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -250,8 +240,6 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -322,10 +310,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

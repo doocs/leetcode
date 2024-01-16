@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们用一个哈希表或一个长度为 $26$ 的数组 $cnt$ 记录字符串 $s$ 中每个字符出现的次数。
 
@@ -50,20 +48,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
         cnt = Counter(s)
         return len(set(cnt.values())) == 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areOccurrencesEqual(s string) bool {
 	cnt := [26]int{}
@@ -133,8 +119,6 @@ func areOccurrencesEqual(s string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function areOccurrencesEqual(s: string): boolean {
@@ -156,19 +140,6 @@ function areOccurrencesEqual(s: string): boolean {
 }
 ```
 
-```ts
-function areOccurrencesEqual(s: string): boolean {
-    const cnt: number[] = new Array(26).fill(0);
-    for (const c of s) {
-        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
-    }
-    const x = cnt.find(v => v);
-    return cnt.every(v => !v || v === x);
-}
-```
-
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -185,10 +156,23 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+function areOccurrencesEqual(s: string): boolean {
+    const cnt: number[] = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    const x = cnt.find(v => v);
+    return cnt.every(v => !v || v === x);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

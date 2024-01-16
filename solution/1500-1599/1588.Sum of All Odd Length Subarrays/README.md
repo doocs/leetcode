@@ -62,19 +62,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 前缀和**
+### 方法一：枚举 + 前缀和
 
 我们可以枚举子数组的起点 $i$ 和终点 $j$，其中 $i \leq j$，维护每个子数组的和，然后判断子数组的长度是否为奇数，如果是，则将子数组的和加入答案。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                     ans += s
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOddLengthSubarrays(arr []int) (ans int) {
 	n := len(arr)
@@ -151,8 +137,6 @@ func sumOddLengthSubarrays(arr []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOddLengthSubarrays(arr: number[]): number {
@@ -170,8 +154,6 @@ function sumOddLengthSubarrays(arr: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -192,8 +174,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int sumOddLengthSubarrays(int* arr, int arrSize) {
     int ans = 0;
@@ -210,10 +190,6 @@ int sumOddLengthSubarrays(int* arr, int arrSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,19 +46,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 环状排列意味着第一个房屋和最后一个房屋中最多只能选择一个偷窃，因此可以把此环状排列房间问题约化为两个单排排列房屋子问题。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             return nums[0]
         return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rob(nums []int) int {
 	n := len(nums)
@@ -145,8 +131,6 @@ func robRange(nums []int, l, r int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rob(nums: number[]): number {
     const n = nums.length;
@@ -163,8 +147,6 @@ function rob(nums: number[]): number {
     return Math.max(robRange(0, n - 2), robRange(1, n - 1));
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -185,10 +167,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

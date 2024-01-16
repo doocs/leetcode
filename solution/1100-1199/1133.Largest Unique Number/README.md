@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 倒序遍历**
+### 方法一：计数 + 倒序遍历
 
 注意到题目的数据范围，我们可以使用一个长度为 $1001$ 的数组来统计每个数字出现的次数，然后倒序遍历数组，找到第一个出现次数为 $1$ 的数字即可。如果没有找到，则返回 $-1$。
 
@@ -49,27 +47,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def largestUniqueNumber(self, nums: List[int]) -> int:
         cnt = Counter(nums)
         return next((x for x in range(1000, -1, -1) if cnt[x] == 1), -1)
 ```
-
-```python
-class Solution:
-    def largestUniqueNumber(self, nums: List[int]) -> int:
-        cnt = Counter(nums)
-        return max((x for x, v in cnt.items() if v == 1), default=-1)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestUniqueNumber(nums []int) int {
 	cnt := [1001]int{}
@@ -125,7 +104,20 @@ func largestUniqueNumber(nums []int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function largestUniqueNumber(nums: number[]): number {
+    const cnt = new Array(1001).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    for (let x = 1000; x >= 0; --x) {
+        if (cnt[x] == 1) {
+            return x;
+        }
+    }
+    return -1;
+}
+```
 
 ```js
 /**
@@ -146,27 +138,19 @@ var largestUniqueNumber = function (nums) {
 };
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function largestUniqueNumber(nums: number[]): number {
-    const cnt = new Array(1001).fill(0);
-    for (const x of nums) {
-        ++cnt[x];
-    }
-    for (let x = 1000; x >= 0; --x) {
-        if (cnt[x] == 1) {
-            return x;
-        }
-    }
-    return -1;
-}
-```
+### 方法二
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```python
+class Solution:
+    def largestUniqueNumber(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        return max((x for x, v in cnt.items() if v == 1), default=-1)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

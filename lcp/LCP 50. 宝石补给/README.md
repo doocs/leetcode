@@ -55,19 +55,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接模拟宝石的赠送过程，最后返回最大值和最小值的差值即可。
 
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是数组 `gem` 和 `operations` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             gem[x] -= v
         return max(gem) - min(gem)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func giveGem(gem []int, operations [][]int) int {
 	for _, op := range operations {
@@ -135,8 +121,6 @@ func giveGem(gem []int, operations [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function giveGem(gem: number[], operations: number[][]): number {
     for (const [x, y] of operations) {
@@ -148,10 +132,6 @@ function giveGem(gem: number[], operations: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

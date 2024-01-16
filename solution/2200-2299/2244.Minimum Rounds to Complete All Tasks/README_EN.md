@@ -40,9 +40,9 @@ It can be shown that all the tasks cannot be completed in fewer than 4 rounds, s
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             ans += v // 3 + (v % 3 != 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumRounds(tasks []int) int {
 	cnt := map[int]int{}
@@ -121,8 +115,6 @@ func minimumRounds(tasks []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumRounds(tasks: number[]): number {
     const cnt = new Map();
@@ -140,10 +132,6 @@ function minimumRounds(tasks: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

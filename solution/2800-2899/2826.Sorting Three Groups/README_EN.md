@@ -70,7 +70,7 @@ After sorting the numbers in each group, group 1 becomes empty, group 2 becomes 
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the minimum number of operations to turn the first $i$ numbers into a beautiful array, and the $i$th number is changed to $j+1$. The answer is $\min(f[n][0], f[n][1], f[n][2])$.
 
@@ -79,8 +79,6 @@ We can enumerate all cases where the $i$th number is changed to $j+1$, and then 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,30 +101,6 @@ class Solution:
             f, g, h = ff, gg, hh
         return min(f, g, h)
 ```
-
-```python
-class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
-        f = [0] * 3
-        for x in nums:
-            g = [0] * 3
-            if x == 1:
-                g[0] = f[0]
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f) + 1
-            elif x == 2:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2])
-                g[2] = min(f) + 1
-            else:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f)
-            f = g
-        return min(f)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -153,8 +127,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -183,8 +155,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumOperations(nums []int) int {
 	f := make([]int, 3)
@@ -208,8 +178,6 @@ func minimumOperations(nums []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumOperations(nums: number[]): number {
@@ -235,10 +203,34 @@ function minimumOperations(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        f = [0] * 3
+        for x in nums:
+            g = [0] * 3
+            if x == 1:
+                g[0] = f[0]
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f) + 1
+            elif x == 2:
+                g[0] = f[0] + 1
+                g[1] = min(f[:2])
+                g[2] = min(f) + 1
+            else:
+                g[0] = f[0] + 1
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f)
+            f = g
+        return min(f)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

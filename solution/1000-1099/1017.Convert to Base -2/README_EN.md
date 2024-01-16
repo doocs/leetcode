@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
             k *= -1
         return ''.join(ans[::-1]) or '0'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func baseNeg2(n int) string {
 	if n == 0 {
@@ -140,8 +134,6 @@ func baseNeg2(n int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function baseNeg2(n: number): string {
     if (n === 0) {
@@ -163,10 +155,6 @@ function baseNeg2(n: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

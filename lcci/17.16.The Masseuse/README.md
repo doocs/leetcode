@@ -34,9 +34,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义状态 $f[i]$ 表示考虑前 $i$ 个预约，且第 $i$ 个预约被接受的情况下，最长的预约时长；定义状态 $g[i]$ 表示考虑前 $i$ 个预约，且第 $i$ 个预约被拒绝的情况下，最长的预约时长。
 
@@ -57,10 +55,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def massage(self, nums: List[int]) -> int:
@@ -69,10 +63,6 @@ class Solution:
             f, g = g + x, max(f, g)
         return max(f, g)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func massage(nums []int) int {
 	f, g := 0, 0
@@ -118,8 +104,6 @@ func massage(nums []int) int {
 	return max(f, g)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function massage(nums: number[]): number {
@@ -135,10 +119,6 @@ function massage(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

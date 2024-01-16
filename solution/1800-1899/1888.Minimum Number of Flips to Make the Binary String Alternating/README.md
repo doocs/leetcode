@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们注意到，操作 $1$ 的作用实际上是让字符串成为一个环，而操作 $2$ 是使得环中的一段长度为 $n$ 的子串变成交替二进制串。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             ans = min(ans, cnt, n - cnt)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minFlips(s string) int {
 	n := len(s)
@@ -170,8 +156,6 @@ func minFlips(s string) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minFlips(s: string): number {
@@ -197,10 +181,6 @@ function minFlips(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

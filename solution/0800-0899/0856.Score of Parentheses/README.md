@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们通过观察发现，`()` 是唯一贡献分数的结构，外括号只是为该结构添加了一些乘数。所以我们只需要关心 `()`。
 
@@ -82,10 +80,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def scoreOfParentheses(self, s: str) -> int:
@@ -99,10 +93,6 @@ class Solution:
                     ans += 1 << d
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func scoreOfParentheses(s string) int {
 	ans, d := 0, 0
@@ -164,10 +150,6 @@ func scoreOfParentheses(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

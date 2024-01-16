@@ -92,9 +92,9 @@ Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -108,3 +108,5 @@ HAVING unit >= 100;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

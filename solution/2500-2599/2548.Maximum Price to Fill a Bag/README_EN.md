@@ -51,7 +51,7 @@ It can be proved that 55.0 is the maximum total price that we can achieve.
 
 ## Solutions
 
-**Solution 1: Greedy + Sorting**
+### Solution 1: Greedy + Sorting
 
 We sort the items in descending order by unit price, and then take out the items one by one until the backpack is full.
 
@@ -60,8 +60,6 @@ If the backpack is not full in the end, return $-1$, otherwise return the total 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of items.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
             capacity -= v
         return -1 if capacity else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxPrice(items [][]int, capacity int) (ans float64) {
 	sort.Slice(items, func(i, j int) bool { return items[i][1]*items[j][0] < items[i][0]*items[j][1] })
@@ -129,8 +121,6 @@ func maxPrice(items [][]int, capacity int) (ans float64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxPrice(items: number[][], capacity: number): number {
     items.sort((a, b) => a[1] * b[0] - a[0] * b[1]);
@@ -144,10 +134,6 @@ function maxPrice(items: number[][], capacity: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

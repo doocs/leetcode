@@ -54,7 +54,7 @@ It can be shown that there aren&#39;t any subarrays with the given condition wit
 
 ## Solutions
 
-**Solution 1: Hash Table + Sorting**
+### Solution 1: Hash Table + Sorting
 
 The problem is essentially finding the maximum length of the inverse pairs. We can use a hash table $d$ to record the index $i$ corresponding to each number $x$ in the array.
 
@@ -63,8 +63,6 @@ Next, we traverse the keys of the hash table in descending order of the numbers.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             k = min(k, d[x][0])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxSubarrayLength(nums []int) (ans int) {
@@ -141,8 +133,6 @@ func maxSubarrayLength(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSubarrayLength(nums: number[]): number {
     const d: Map<number, number[]> = new Map();
@@ -164,10 +154,6 @@ function maxSubarrayLength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

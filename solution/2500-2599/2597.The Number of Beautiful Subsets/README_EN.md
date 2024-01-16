@@ -41,7 +41,7 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 
 ## Solutions
 
-**Solution 1: Counting + Backtracking**
+### Solution 1: Counting + Backtracking
 
 We use a hash table or an array $cnt$ to record the currently selected numbers and their counts, and use $ans$ to record the number of beautiful subsets, initially $ans = -1$, indicating that the empty set is excluded.
 
@@ -55,8 +55,6 @@ Finally, we return $ans$.
 Time complexity $O(2^n)$, space complexity $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautifulSubsets(nums []int, k int) int {
 	ans := -1
@@ -168,8 +160,6 @@ func beautifulSubsets(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function beautifulSubsets(nums: number[], k: number): number {
     let ans: number = -1;
@@ -194,10 +184,6 @@ function beautifulSubsets(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

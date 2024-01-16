@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 双指针**
+### 方法一：贪心 + 双指针
 
 我们用两个指针 $i$ 和 $j$ 分别指向字符串的首尾，初始时 $i = 0$, $j = n - 1$。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
@@ -120,8 +106,6 @@ func makeSmallestPalindrome(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
@@ -131,8 +115,6 @@ function makeSmallestPalindrome(s: string): string {
     return cs.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -149,10 +131,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

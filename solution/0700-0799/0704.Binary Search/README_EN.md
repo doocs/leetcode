@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
                 left = mid + 1
         return left if nums[left] == target else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +71,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -91,8 +87,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func search(nums []int, target int) int {
@@ -111,33 +105,6 @@ func search(nums []int, target int) int {
 	return -1
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var search = function (nums, target) {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return nums[left] == target ? left : -1;
-};
-```
-
-### **Rust**
-
-Cycle:
 
 ```rust
 use std::cmp::Ordering;
@@ -165,7 +132,32 @@ impl Solution {
 }
 ```
 
-Recursion:
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function (nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return nums[left] == target ? left : -1;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 use std::cmp::Ordering;
@@ -190,10 +182,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

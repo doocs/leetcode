@@ -53,9 +53,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,28 +74,6 @@ class Solution:
                     ans = max(ans, f[i] + g[i] - 1)
         return ans
 ```
-
-```python
-class Solution:
-    def longestMountain(self, arr: List[int]) -> int:
-        n = len(arr)
-        ans = l = 0
-        while l + 2 < n:
-            r = l + 1
-            if arr[l] < arr[r]:
-                while r + 1 < n and arr[r] < arr[r + 1]:
-                    r += 1
-                if r < n - 1 and arr[r] > arr[r + 1]:
-                    while r < n - 1 and arr[r] > arr[r + 1]:
-                        r += 1
-                    ans = max(ans, r - l + 1)
-                else:
-                    r += 1
-            l = r
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,34 +101,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int longestMountain(int[] arr) {
-        int n = arr.length;
-        int ans = 0;
-        for (int l = 0, r = 0; l + 2 < n; l = r) {
-            r = l + 1;
-            if (arr[l] < arr[r]) {
-                while (r + 1 < n && arr[r] < arr[r + 1]) {
-                    ++r;
-                }
-                if (r + 1 < n && arr[r] > arr[r + 1]) {
-                    while (r + 1 < n && arr[r] > arr[r + 1]) {
-                        ++r;
-                    }
-                    ans = Math.max(ans, r - l + 1);
-                } else {
-                    ++r;
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -180,6 +130,84 @@ public:
 };
 ```
 
+```go
+func longestMountain(arr []int) (ans int) {
+	n := len(arr)
+	f := make([]int, n)
+	g := make([]int, n)
+	for i := range f {
+		f[i] = 1
+		g[i] = 1
+	}
+	for i := 1; i < n; i++ {
+		if arr[i] > arr[i-1] {
+			f[i] = f[i-1] + 1
+		}
+	}
+	for i := n - 2; i >= 0; i-- {
+		if arr[i] > arr[i+1] {
+			g[i] = g[i+1] + 1
+			if f[i] > 1 {
+				ans = max(ans, f[i]+g[i]-1)
+			}
+		}
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def longestMountain(self, arr: List[int]) -> int:
+        n = len(arr)
+        ans = l = 0
+        while l + 2 < n:
+            r = l + 1
+            if arr[l] < arr[r]:
+                while r + 1 < n and arr[r] < arr[r + 1]:
+                    r += 1
+                if r < n - 1 and arr[r] > arr[r + 1]:
+                    while r < n - 1 and arr[r] > arr[r + 1]:
+                        r += 1
+                    ans = max(ans, r - l + 1)
+                else:
+                    r += 1
+            l = r
+        return ans
+```
+
+```java
+class Solution {
+    public int longestMountain(int[] arr) {
+        int n = arr.length;
+        int ans = 0;
+        for (int l = 0, r = 0; l + 2 < n; l = r) {
+            r = l + 1;
+            if (arr[l] < arr[r]) {
+                while (r + 1 < n && arr[r] < arr[r + 1]) {
+                    ++r;
+                }
+                if (r + 1 < n && arr[r] > arr[r + 1]) {
+                    while (r + 1 < n && arr[r] > arr[r + 1]) {
+                        ++r;
+                    }
+                    ans = Math.max(ans, r - l + 1);
+                } else {
+                    ++r;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ```cpp
 class Solution {
 public:
@@ -207,34 +235,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func longestMountain(arr []int) (ans int) {
-	n := len(arr)
-	f := make([]int, n)
-	g := make([]int, n)
-	for i := range f {
-		f[i] = 1
-		g[i] = 1
-	}
-	for i := 1; i < n; i++ {
-		if arr[i] > arr[i-1] {
-			f[i] = f[i-1] + 1
-		}
-	}
-	for i := n - 2; i >= 0; i-- {
-		if arr[i] > arr[i+1] {
-			g[i] = g[i+1] + 1
-			if f[i] > 1 {
-				ans = max(ans, f[i]+g[i]-1)
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func longestMountain(arr []int) (ans int) {
 	n := len(arr)
@@ -258,10 +258,6 @@ func longestMountain(arr []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 我们假设可以将数组分成 $m$ 个长度至少为 $k$ 的严格递增子序列，如果数组中出现次数最多的数字的个数为 $cnt$，那么这 $cnt$ 个数字必须在不同的子序列中，所以 $m \geq cnt$，又因为 $m$ 个子序列的长度至少为 $k$，因此，子序列的个数越少越好，所以 $m = cnt$。那么 $cnt \times k \leq n$，才能满足题意。因此，我们只需要统计数组中出现次数最多的数字的个数 $cnt$，然后判断 $cnt \times k \leq n$ 即可。如果是，返回 `true`，否则返回 `false`。
 
@@ -48,20 +46,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canDivideIntoSubsequences(self, nums: List[int], k: int) -> bool:
         mx = max(len(list(x)) for _, x in groupby(nums))
         return mx * k <= len(nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -75,25 +65,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean canDivideIntoSubsequences(int[] nums, int k) {
-        int cnt = 0;
-        int a = 0;
-        for (int b : nums) {
-            cnt = a == b ? cnt + 1 : 1;
-            if (cnt * k > nums.length) {
-                return false;
-            }
-            a = b;
-        }
-        return true;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canDivideIntoSubsequences(nums []int, k int) bool {
 	cnt, a := 0, 0
@@ -132,10 +101,29 @@ func canDivideIntoSubsequences(nums []int, k int) bool {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public boolean canDivideIntoSubsequences(int[] nums, int k) {
+        int cnt = 0;
+        int a = 0;
+        for (int b : nums) {
+            cnt = a == b ? cnt + 1 : 1;
+            if (cnt * k > nums.length) {
+                return false;
+            }
+            a = b;
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

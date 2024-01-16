@@ -53,7 +53,7 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
 
 ## Solutions
 
-**Solution 1: Ordered List + Two Pointers**
+### Solution 1: Ordered List + Two Pointers
 
 We can use two pointers, $i$ and $j$, to maintain the left and right endpoints of the current subarray, and use an ordered list to maintain all elements in the current subarray.
 
@@ -64,8 +64,6 @@ After the iteration, return the answer.
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -83,8 +81,6 @@ class Solution:
             ans += len(sl)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func continuousSubarrays(nums []int) (ans int64) {
@@ -161,10 +153,6 @@ func continuousSubarrays(nums []int) (ans int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

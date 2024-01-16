@@ -41,7 +41,7 @@ Thus, one possible nums3 array is [2,5,1,6].
 
 ## Solutions
 
-**Solution 1: Quick Thinking + Bit Manipulation**
+### Solution 1: Quick Thinking + Bit Manipulation
 
 Since each element of the array will be XORed with each element of another array, we know that the result remains the same when the same number is XORed twice, i.e., $a \oplus a = 0$. Therefore, we only need to count the length of the array to know how many times each element is XORed with each element of another array.
 
@@ -55,8 +55,6 @@ The time complexity is $O(m+n)$. Where $m$ and $n$ are the lengths of the `nums1
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
@@ -69,8 +67,6 @@ class Solution:
                 ans ^= v
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorAllNums(nums1 []int, nums2 []int) int {
 	ans := 0
@@ -132,8 +124,6 @@ func xorAllNums(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function xorAllNums(nums1: number[], nums2: number[]): number {
     let ans = 0;
@@ -147,10 +137,6 @@ function xorAllNums(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

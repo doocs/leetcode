@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆向计算**
+### 方法一：逆向计算
 
 我们可以采用逆向计算的方式，从 `target` 开始，如果 `target` 是奇数，则 `target++`，否则 `target >>= 1`，累加操作次数，直到 `target` 小于等于 `startValue`，此时的操作次数加上 `startValue - target` 即为最终结果。
 
 时间复杂度 $O(\log n)$，其中 $n$ 为 `target`。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
         ans += startValue - target
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func brokenCalc(startValue int, target int) (ans int) {
 	for startValue < target {
@@ -139,10 +125,6 @@ func brokenCalc(startValue int, target int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

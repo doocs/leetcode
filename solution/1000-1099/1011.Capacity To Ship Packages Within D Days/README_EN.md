@@ -59,11 +59,9 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 
 ## Solutions
 
-Binary search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
         left, right = max(weights), sum(weights) + 1
         return left + bisect_left(range(left, right), True, key=check)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shipWithinDays(weights []int, days int) int {
 	var left, right int
@@ -176,8 +168,6 @@ func shipWithinDays(weights []int, days int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function shipWithinDays(weights: number[], days: number): number {
@@ -211,10 +201,6 @@ function shipWithinDays(weights: number[], days: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

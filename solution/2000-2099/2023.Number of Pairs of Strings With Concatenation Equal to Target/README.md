@@ -57,25 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 遍历数组 `nums`，对于每个 $i$，枚举所有 $j$，如果 $i \neq j$ 且 $nums[i] + nums[j] = target$，则答案加一。
 
 时间复杂度 $O(n^2 \times m)$，其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。空间复杂度 $O(1)$。
 
-**方法二：哈希表**
-
-我们可以用哈希表统计数组 `nums` 中每个字符串出现的次数，然后遍历字符串 `target` 的所有前缀和后缀，如果前缀和后缀都在哈希表中，则答案加上它们出现的次数的乘积。
-
-时间复杂度 $O(n + m^2)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,24 +73,6 @@ class Solution:
             i != j and nums[i] + nums[j] == target for i in range(n) for j in range(n)
         )
 ```
-
-```python
-class Solution:
-    def numOfPairs(self, nums: List[str], target: str) -> int:
-        cnt = Counter(nums)
-        ans = 0
-        for i in range(1, len(target)):
-            a, b = target[:i], target[i:]
-            if a != b:
-                ans += cnt[a] * cnt[b]
-            else:
-                ans += cnt[a] * (cnt[a] - 1)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,6 +89,59 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int numOfPairs(vector<string>& nums, string target) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i != j && nums[i] + nums[j] == target) ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numOfPairs(nums []string, target string) (ans int) {
+	for i, a := range nums {
+		for j, b := range nums {
+			if i != j && a+b == target {
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：哈希表
+
+我们可以用哈希表统计数组 `nums` 中每个字符串出现的次数，然后遍历字符串 `target` 的所有前缀和后缀，如果前缀和后缀都在哈希表中，则答案加上它们出现的次数的乘积。
+
+时间复杂度 $O(n + m^2)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numOfPairs(self, nums: List[str], target: str) -> int:
+        cnt = Counter(nums)
+        ans = 0
+        for i in range(1, len(target)):
+            a, b = target[:i], target[i:]
+            if a != b:
+                ans += cnt[a] * cnt[b]
+            else:
+                ans += cnt[a] * (cnt[a] - 1)
+        return ans
 ```
 
 ```java
@@ -145,24 +168,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numOfPairs(vector<string>& nums, string target) {
-        int n = nums.size();
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (i != j && nums[i] + nums[j] == target) ++ans;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -185,21 +190,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func numOfPairs(nums []string, target string) (ans int) {
-	for i, a := range nums {
-		for j, b := range nums {
-			if i != j && a+b == target {
-				ans++
-			}
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func numOfPairs(nums []string, target string) (ans int) {
 	cnt := map[string]int{}
@@ -218,10 +208,6 @@ func numOfPairs(nums []string, target string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

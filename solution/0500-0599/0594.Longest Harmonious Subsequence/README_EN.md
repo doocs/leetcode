@@ -43,32 +43,20 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
-        counter = Counter(nums)
         ans = 0
+        counter = Counter(nums)
         for num in nums:
             if num + 1 in counter:
                 ans = max(ans, counter[num] + counter[num + 1])
         return ans
 ```
-
-```python
-class Solution:
-    def findLHS(self, nums: List[int]) -> int:
-        counter = Counter(nums)
-        return max(
-            [counter[num] + counter[num + 1] for num in nums if num + 1 in counter],
-            default=0,
-        )
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findLHS(nums []int) int {
 	counter := make(map[int]int)
@@ -127,10 +111,22 @@ func findLHS(nums []int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        counter = Counter(nums)
+        return max(
+            [counter[num] + counter[num + 1] for num in nums if num + 1 in counter],
+            default=0,
+        )
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

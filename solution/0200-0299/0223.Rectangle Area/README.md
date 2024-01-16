@@ -43,19 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计算重叠面积**
+### 方法一：计算重叠面积
 
 我们先计算出两个矩形各自的面积，记为 $a$ 和 $b$，然后计算重叠的宽度 $width$ 和高度 $height$，那么重叠的面积为 $max(width, 0) \times max(height, 0)$，最后将 $a$, $b$ 和重叠面积相减即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
         return a + b - max(height, 0) * max(width, 0)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -92,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, by2 int) int {
 	a := (ax2 - ax1) * (ay2 - ay1)
@@ -119,8 +105,6 @@ func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, 
 	return a + b - max(height, 0)*max(width, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function computeArea(
@@ -141,8 +125,6 @@ function computeArea(
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int ComputeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -155,10 +137,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

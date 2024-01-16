@@ -48,9 +48,9 @@ Some of them are (0, 2), (2, 0), (2, 4), (3, 2), and (4, 4).
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
                         break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countLatticePoints(circles [][]int) (ans int) {
 	mx, my := 0, 0
@@ -147,10 +141,31 @@ func countLatticePoints(circles [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function countLatticePoints(circles: number[][]): number {
+    let mx = 0;
+    let my = 0;
+    for (const [x, y, r] of circles) {
+        mx = Math.max(mx, x + r);
+        my = Math.max(my, y + r);
+    }
+    let ans = 0;
+    for (let i = 0; i <= mx; ++i) {
+        for (let j = 0; j <= my; ++j) {
+            for (const [x, y, r] of circles) {
+                const dx = i - x;
+                const dy = j - y;
+                if (dx * dx + dy * dy <= r * r) {
+                    ++ans;
+                    break;
+                }
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

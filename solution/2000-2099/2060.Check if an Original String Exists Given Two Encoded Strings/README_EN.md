@@ -78,23 +78,9 @@
 
 ## Solutions
 
-Dynamic Programming
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **TypeScript**
 
 ```ts
 function possiblyEquals(s1: string, s2: string): boolean {
@@ -159,10 +145,6 @@ function isDigit(char: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

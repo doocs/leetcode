@@ -38,31 +38,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（最小堆）**
+### 方法一：优先队列（最小堆）
 
 初始时，将第一个丑数 $1$ 加入堆。每次取出堆顶元素 $x$，由于 $2x$, $3x$, $5x$ 也是丑数，因此将它们加入堆中。为了避免重复元素，可以用哈希表 $vis$ 去重。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。
 
-**方法二：动态规划**
-
-定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。
-
-定义 $3$ 个指针 $p_2$, $p_3$ 和 $p_5$，表示下一个丑数是当前指针指向的丑数乘以对应的质因数。初始时，三个指针的值都指向 $0$。
-
-当 $i$ 在 $[1,2..n-1]$ 范围内，我们更新 $dp[i]=\min(dp[p_2] \times 2, dp[p_3] \times 3, dp[p_5] \times 5)$，然后分别比较 $dp[i]$ 与 $dp[p_2] \times 2$, $dp[p_3] \times 3$, $dp[p_5] \times 5$ 是否相等，若是，则对应的指针加 $1$。
-
-最后返回 $dp[n - 1]$ 即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,27 +61,6 @@ class Solution:
                     heappush(h, nxt)
         return ans
 ```
-
-```python
-class Solution:
-    def nthUglyNumber(self, n: int) -> int:
-        dp = [1] * n
-        p2 = p3 = p5 = 0
-        for i in range(1, n):
-            next2, next3, next5 = dp[p2] * 2, dp[p3] * 3, dp[p5] * 5
-            dp[i] = min(next2, next3, next5)
-            if dp[i] == next2:
-                p2 += 1
-            if dp[i] == next3:
-                p3 += 1
-            if dp[i] == next5:
-                p5 += 1
-        return dp[-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,26 +84,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int nthUglyNumber(int n) {
-        int[] dp = new int[n];
-        dp[0] = 1;
-        int p2 = 0, p3 = 0, p5 = 0;
-        for (int i = 1; i < n; ++i) {
-            int next2 = dp[p2] * 2, next3 = dp[p3] * 3, next5 = dp[p5] * 5;
-            dp[i] = Math.min(next2, Math.min(next3, next5));
-            if (dp[i] == next2) ++p2;
-            if (dp[i] == next3) ++p3;
-            if (dp[i] == next5) ++p5;
-        }
-        return dp[n - 1];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -168,27 +109,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int nthUglyNumber(int n) {
-        vector<int> dp(n);
-        dp[0] = 1;
-        int p2 = 0, p3 = 0, p5 = 0;
-        for (int i = 1; i < n; ++i) {
-            int next2 = dp[p2] * 2, next3 = dp[p3] * 3, next5 = dp[p5] * 5;
-            dp[i] = min(next2, min(next3, next5));
-            if (dp[i] == next2) ++p2;
-            if (dp[i] == next3) ++p3;
-            if (dp[i] == next5) ++p5;
-        }
-        return dp[n - 1];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func nthUglyNumber(n int) int {
@@ -227,30 +147,6 @@ func (h *IntHeap) Pop() any {
 }
 ```
 
-```go
-func nthUglyNumber(n int) int {
-	dp := make([]int, n)
-	dp[0] = 1
-	p2, p3, p5 := 0, 0, 0
-	for i := 1; i < n; i++ {
-		next2, next3, next5 := dp[p2]*2, dp[p3]*3, dp[p5]*5
-		dp[i] = min(next2, min(next3, next5))
-		if dp[i] == next2 {
-			p2++
-		}
-		if dp[i] == next3 {
-			p3++
-		}
-		if dp[i] == next5 {
-			p5++
-		}
-	}
-	return dp[n-1]
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number} n
@@ -274,8 +170,6 @@ var nthUglyNumber = function (n) {
     return dp[n - 1];
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -301,10 +195,98 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：动态规划
+
+定义数组 $dp$，其中 $dp[i-1]$ 表示第 $i$ 个丑数，那么第 $n$ 个丑数就是 $dp[n - 1]$。最小的丑数是 $1$，所以 $dp[0]=1$。
+
+定义 $3$ 个指针 $p_2$, $p_3$ 和 $p_5$，表示下一个丑数是当前指针指向的丑数乘以对应的质因数。初始时，三个指针的值都指向 $0$。
+
+当 $i$ 在 $[1,2..n-1]$ 范围内，我们更新 $dp[i]=\min(dp[p_2] \times 2, dp[p_3] \times 3, dp[p_5] \times 5)$，然后分别比较 $dp[i]$ 与 $dp[p_2] \times 2$, $dp[p_3] \times 3$, $dp[p_5] \times 5$ 是否相等，若是，则对应的指针加 $1$。
+
+最后返回 $dp[n - 1]$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def nthUglyNumber(self, n: int) -> int:
+        dp = [1] * n
+        p2 = p3 = p5 = 0
+        for i in range(1, n):
+            next2, next3, next5 = dp[p2] * 2, dp[p3] * 3, dp[p5] * 5
+            dp[i] = min(next2, next3, next5)
+            if dp[i] == next2:
+                p2 += 1
+            if dp[i] == next3:
+                p3 += 1
+            if dp[i] == next5:
+                p5 += 1
+        return dp[-1]
 ```
 
+```java
+class Solution {
+    public int nthUglyNumber(int n) {
+        int[] dp = new int[n];
+        dp[0] = 1;
+        int p2 = 0, p3 = 0, p5 = 0;
+        for (int i = 1; i < n; ++i) {
+            int next2 = dp[p2] * 2, next3 = dp[p3] * 3, next5 = dp[p5] * 5;
+            dp[i] = Math.min(next2, Math.min(next3, next5));
+            if (dp[i] == next2) ++p2;
+            if (dp[i] == next3) ++p3;
+            if (dp[i] == next5) ++p5;
+        }
+        return dp[n - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        vector<int> dp(n);
+        dp[0] = 1;
+        int p2 = 0, p3 = 0, p5 = 0;
+        for (int i = 1; i < n; ++i) {
+            int next2 = dp[p2] * 2, next3 = dp[p3] * 3, next5 = dp[p5] * 5;
+            dp[i] = min(next2, min(next3, next5));
+            if (dp[i] == next2) ++p2;
+            if (dp[i] == next3) ++p3;
+            if (dp[i] == next5) ++p5;
+        }
+        return dp[n - 1];
+    }
+};
+```
+
+```go
+func nthUglyNumber(n int) int {
+	dp := make([]int, n)
+	dp[0] = 1
+	p2, p3, p5 := 0, 0, 0
+	for i := 1; i < n; i++ {
+		next2, next3, next5 := dp[p2]*2, dp[p3]*3, dp[p5]*5
+		dp[i] = min(next2, min(next3, next5))
+		if dp[i] == next2 {
+			p2++
+		}
+		if dp[i] == next3 {
+			p3++
+		}
+		if dp[i] == next5 {
+			p5++
+		}
+	}
+	return dp[n-1]
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

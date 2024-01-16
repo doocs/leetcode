@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逐行遍历 + 排序**
+### 方法一：逐行遍历 + 排序
 
 根据题目描述，我们需要找出前 $m$ 行的所有可能数组中的第 $k$ 个最小数组和。
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def kthSmallest(self, mat: List[List[int]], k: int) -> int:
@@ -84,10 +78,6 @@ class Solution:
             pre = sorted(a + b for a in pre for b in cur[:k])[:k]
         return pre[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthSmallest(mat [][]int, k int) int {
 	pre := []int{0}
@@ -161,8 +147,6 @@ func kthSmallest(mat [][]int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kthSmallest(mat: number[][], k: number): number {
     let pre: number[] = [0];
@@ -179,10 +163,6 @@ function kthSmallest(mat: number[][], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

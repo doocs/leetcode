@@ -69,15 +69,9 @@ obj.input("#"); // return []. The user finished the input, the sentence "i a" sh
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树 + 排序/优先队列**
+### 方法一：前缀树 + 排序/优先队列
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -142,10 +136,6 @@ class AutocompleteSystem:
 # obj = AutocompleteSystem(sentences, times)
 # param_1 = obj.input(c)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -234,10 +224,6 @@ class AutocompleteSystem {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

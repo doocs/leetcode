@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 根据题目描述，两个字符串 $s1$ 和 $s2$ 都只包含字符 $x$ 和 $y$，且长度相同，因此可以将 $s1$ 和 $s2$ 中的字符一一对应起来，即 $s1[i]$ 和 $s2[i]$。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s1$ 和 $s2$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,8 +76,6 @@ class Solution:
             return -1
         return xy // 2 + yx // 2 + xy % 2 + yx % 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSwap(s1 string, s2 string) int {
 	xy, yx := 0, 0
@@ -145,8 +133,6 @@ func minimumSwap(s1 string, s2 string) int {
 	return xy/2 + yx/2 + xy%2 + yx%2
 }
 ```
-
-### **JavaScript**
 
 ```js
 var minimumSwap = function (s1, s2) {
@@ -169,10 +155,6 @@ var minimumSwap = function (s1, s2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

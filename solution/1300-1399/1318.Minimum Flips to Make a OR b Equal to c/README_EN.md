@@ -42,9 +42,9 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
                 ans += 2 if x == 1 and y == 1 else 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -92,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minFlips(a int, b int, c int) (ans int) {
 	for i := 0; i < 30; i++ {
@@ -110,10 +104,6 @@ func minFlips(a int, b int, c int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

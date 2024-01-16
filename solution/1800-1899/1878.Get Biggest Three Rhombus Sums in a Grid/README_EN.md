@@ -55,7 +55,7 @@
 
 ## Solutions
 
-**Solution 1: Enumerate Diamond Center + Prefix Sum + Ordered Set**
+### Solution 1: Enumerate Diamond Center + Prefix Sum + Ordered Set
 
 We can preprocess to get two prefix sum arrays $s_1$ and $s_2$, where $s_1[i][j]$ represents the sum of the elements on the upper left diagonal ending at $(i, j)$, and $s_2[i][j]$ represents the sum of the elements on the upper right diagonal ending at $(i, j)$.
 
@@ -74,8 +74,6 @@ We add this value to the ordered set $ss$, while ensuring that the size of the o
 The time complexity is $O(m \times n \times \min(m, n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedSet
@@ -107,8 +105,6 @@ class Solution:
                     ss.remove(ss[0])
         return list(ss)[::-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -148,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -184,8 +178,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getBiggestThree(grid [][]int) []int {
@@ -228,8 +220,6 @@ func getBiggestThree(grid [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getBiggestThree(grid: number[][]): number[] {
@@ -904,10 +894,6 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

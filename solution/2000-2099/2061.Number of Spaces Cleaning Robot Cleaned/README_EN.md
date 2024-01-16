@@ -55,9 +55,9 @@ The robot has cleaned 1 space, so return 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,27 +81,6 @@ class Solution:
         dfs(0, 0, 0)
         return ans
 ```
-
-```python
-class Solution:
-    def numberOfCleanRooms(self, room: List[List[int]]) -> int:
-        dirs = (0, 1, 0, -1, 0)
-        i = j = k = 0
-        ans = 0
-        vis = set()
-        while (i, j, k) not in vis:
-            vis.add((i, j, k))
-            ans += room[i][j] == 0
-            room[i][j] = -1
-            x, y = i + dirs[k], j + dirs[k + 1]
-            if 0 <= x < len(room) and 0 <= y < len(room[0]) and room[x][y] != 1:
-                i, j = x, y
-            else:
-                k = (k + 1) % 4
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,33 +113,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int numberOfCleanRooms(int[][] room) {
-        int[] dirs = {0, 1, 0, -1, 0};
-        int i = 0, j = 0, k = 0;
-        int m = room.length, n = room[0].length;
-        boolean[][][] vis = new boolean[m][n][4];
-        int ans = 0;
-        while (!vis[i][j][k]) {
-            vis[i][j][k] = true;
-            ans += room[i][j] == 0 ? 1 : 0;
-            room[i][j] = -1;
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1) {
-                i = x;
-                j = y;
-            } else {
-                k = (k + 1) % 4;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -189,35 +141,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int numberOfCleanRooms(vector<vector<int>>& room) {
-        int dirs[5] = {0, 1, 0, -1, 0};
-        int i = 0, j = 0, k = 0;
-        int m = room.size(), n = room[0].size();
-        bool vis[m][n][4];
-        memset(vis, false, sizeof(vis));
-        int ans = 0;
-        while (!vis[i][j][k]) {
-            vis[i][j][k] = true;
-            ans += room[i][j] == 0 ? 1 : 0;
-            room[i][j] = -1;
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1) {
-                i = x;
-                j = y;
-            } else {
-                k = (k + 1) % 4;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func numberOfCleanRooms(room [][]int) (ans int) {
@@ -249,6 +172,83 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numberOfCleanRooms(self, room: List[List[int]]) -> int:
+        dirs = (0, 1, 0, -1, 0)
+        i = j = k = 0
+        ans = 0
+        vis = set()
+        while (i, j, k) not in vis:
+            vis.add((i, j, k))
+            ans += room[i][j] == 0
+            room[i][j] = -1
+            x, y = i + dirs[k], j + dirs[k + 1]
+            if 0 <= x < len(room) and 0 <= y < len(room[0]) and room[x][y] != 1:
+                i, j = x, y
+            else:
+                k = (k + 1) % 4
+        return ans
+```
+
+```java
+class Solution {
+    public int numberOfCleanRooms(int[][] room) {
+        int[] dirs = {0, 1, 0, -1, 0};
+        int i = 0, j = 0, k = 0;
+        int m = room.length, n = room[0].length;
+        boolean[][][] vis = new boolean[m][n][4];
+        int ans = 0;
+        while (!vis[i][j][k]) {
+            vis[i][j][k] = true;
+            ans += room[i][j] == 0 ? 1 : 0;
+            room[i][j] = -1;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1) {
+                i = x;
+                j = y;
+            } else {
+                k = (k + 1) % 4;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int numberOfCleanRooms(vector<vector<int>>& room) {
+        int dirs[5] = {0, 1, 0, -1, 0};
+        int i = 0, j = 0, k = 0;
+        int m = room.size(), n = room[0].size();
+        bool vis[m][n][4];
+        memset(vis, false, sizeof(vis));
+        int ans = 0;
+        while (!vis[i][j][k]) {
+            vis[i][j][k] = true;
+            ans += room[i][j] == 0 ? 1 : 0;
+            room[i][j] = -1;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1) {
+                i = x;
+                j = y;
+            } else {
+                k = (k + 1) % 4;
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func numberOfCleanRooms(room [][]int) (ans int) {
 	m, n := len(room), len(room[0])
@@ -275,10 +275,6 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

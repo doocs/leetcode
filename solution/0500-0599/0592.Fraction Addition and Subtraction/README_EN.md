@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
         y //= z
         return f'{x}/{y}'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func fractionAddition(expression string) string {
@@ -152,10 +148,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

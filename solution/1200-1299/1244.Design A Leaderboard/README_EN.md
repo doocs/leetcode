@@ -50,7 +50,7 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 
 ## Solutions
 
-**Solution 1: Hash Table + Ordered List**
+### Solution 1: Hash Table + Ordered List
 
 We use a hash table $d$ to record the scores of each player, and an ordered list $rank$ to record the scores of all players.
 
@@ -63,8 +63,6 @@ When the `reset` function is called, we first remove the player from the hash ta
 The space complexity is $O(n)$, where $n$ is the number of players.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -97,8 +95,6 @@ class Leaderboard:
 # param_2 = obj.top(K)
 # obj.reset(playerId)
 ```
-
-### **Java**
 
 ```java
 class Leaderboard {
@@ -148,8 +144,6 @@ class Leaderboard {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Leaderboard {
 public:
@@ -195,8 +189,6 @@ private:
  * obj->reset(playerId);
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BTreeMap;
@@ -256,10 +248,6 @@ impl Leaderboard {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

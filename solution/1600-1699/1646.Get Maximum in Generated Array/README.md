@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们先判断 $n$ 的值，如果 $n < 2$，则直接返回 $n$。
 
@@ -78,10 +76,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def getMaximumGenerated(self, n: int) -> int:
@@ -93,10 +87,6 @@ class Solution:
             nums[i] = nums[i >> 1] if i % 2 == 0 else nums[i >> 1] + nums[(i >> 1) + 1]
         return max(nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaximumGenerated(n int) int {
 	if n < 2 {
@@ -154,8 +140,6 @@ func getMaximumGenerated(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMaximumGenerated(n: number): number {
     if (n === 0) {
@@ -170,10 +154,6 @@ function getMaximumGenerated(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

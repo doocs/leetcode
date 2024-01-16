@@ -57,7 +57,7 @@
 
 ## Solutions
 
-**Solution 1: Determine if the last player to move can win**
+### Solution 1: Determine if the last player to move can win
 
 Since all `moves` are valid, that is, there is no situation where a person continues to play after someone has won. Therefore, we only need to determine whether the last player to move can win.
 
@@ -68,8 +68,6 @@ If the last player to move does not win, then we determine whether the board is 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of `moves`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -88,8 +86,6 @@ class Solution:
                 return "B" if k & 1 else "A"
         return "Draw" if n == 9 else "Pending"
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func tictactoe(moves [][]int) string {
@@ -172,8 +164,6 @@ func tictactoe(moves [][]int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function tictactoe(moves: number[][]): string {
     const n = moves.length;
@@ -196,10 +186,6 @@ function tictactoe(moves: number[][]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

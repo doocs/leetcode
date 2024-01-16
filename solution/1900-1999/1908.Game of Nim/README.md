@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们发现，一共最多有 $7$ 堆石头，每堆石头最多有 $7$ 个，那么一共有 $7^7$ 种状态，因此我们可以用一个八进制数来表示当前的状态。
 
@@ -82,10 +80,6 @@
 时间复杂度 $(7^7 \times 7^2)$，空间复杂度 $O(7^7)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
 
         return dfs(tuple(piles))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -193,8 +181,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nimGame(piles []int) bool {
@@ -235,8 +221,6 @@ func nimGame(piles []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function nimGame(piles: number[]): boolean {
     const p: number[] = Array(8).fill(1);
@@ -274,10 +258,6 @@ function nimGame(piles: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,9 @@ It can be seen that there does not exist any path from node 1 to node 2, hence t
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,8 +85,6 @@ class Solution:
         ans = min(sum(v) for v in zip(d1, d2, d3))
         return -1 if ans >= inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -150,16 +148,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

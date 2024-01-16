@@ -53,7 +53,7 @@ Since &quot;b&quot; is lexicographically smaller than &quot;c&quot;, it is inclu
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We traverse the three arrays, use a hash table $cnt$ to count the total play count for each creator, and use a hash table $d$ to record the index of the video with the highest play count for each creator.
 
@@ -62,8 +62,6 @@ Then, we traverse the hash table $cnt$ to find the maximum play count $mx$; then
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of videos.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
         mx = max(cnt.values())
         return [[c, ids[d[c]]] for c, x in cnt.items() if x == mx]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]string) {
 	cnt := map[string]int{}
@@ -173,8 +165,6 @@ func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]s
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostPopularCreator(creators: string[], ids: string[], views: number[]): string[][] {
     const cnt: Map<string, number> = new Map();
@@ -198,10 +188,6 @@ function mostPopularCreator(creators: string[], ids: string[], views: number[]):
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,15 +56,13 @@
 
 ## Solutions
 
-**Solution 1: Node assignment**
+### Solution 1: Node assignment
 
 We can replace the value of the current node with the value of the next node, and then delete the next node. This can achieve the purpose of deleting the current node.
 
 Time complexity $O(1)$, space complexity $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -84,8 +82,6 @@ class Solution:
         node.next = node.next.next
 ```
 
-### **Java**
-
 ```java
 /**
  * Definition for singly-linked list.
@@ -102,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -123,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -138,8 +130,6 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -163,27 +153,6 @@ function deleteNode(node: ListNode | null): void {
 }
 ```
 
-### **C#**
-
-```cs
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int x) { val = x; }
- * }
- */
-public class Solution {
-    public void DeleteNode(ListNode node) {
-        node.val = node.next.val;
-        node.next = node.next.next;
-    }
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * Definition for singly-linked list.
@@ -202,10 +171,37 @@ var deleteNode = function (node) {
 };
 ```
 
-### **...**
-
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void DeleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
 ```
 
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+void deleteNode(struct ListNode* node) {
+    node->val = node->next->val;
+    node->next = node->next->next;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

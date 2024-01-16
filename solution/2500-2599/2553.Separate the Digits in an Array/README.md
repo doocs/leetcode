@@ -47,19 +47,13 @@ answer = [7,1,3,9] 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 将数组中的每个数字进行数位分割，然后将分割后的数字依次放入答案数组中。
 
 时间复杂度 $O(n \times \log_{10} M)$，空间复杂度 $O(n \times \log_{10} M)$，其中 $n$ 为数组 $nums$ 的长度，而 $M$ 为数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             ans.extend(t[::-1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func separateDigits(nums []int) (ans []int) {
 	for _, x := range nums {
@@ -139,8 +125,6 @@ func separateDigits(nums []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function separateDigits(nums: number[]): number[] {
     const ans: number[] = [];
@@ -155,8 +139,6 @@ function separateDigits(nums: number[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -177,32 +159,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn separate_digits(nums: Vec<i32>) -> Vec<i32> {
-        let mut ans = vec![];
-
-        for n in nums {
-            let mut t = vec![];
-            let mut x = n;
-
-            while x != 0 {
-                t.push(x % 10);
-                x /= 10;
-            }
-
-            for i in (0..t.len()).rev() {
-                ans.push(t[i]);
-            }
-        }
-
-        ans
-    }
-}
-```
-
-### **C**
 
 ```c
 /**
@@ -230,10 +186,36 @@ int* separateDigits(int* nums, int numsSize, int* returnSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn separate_digits(nums: Vec<i32>) -> Vec<i32> {
+        let mut ans = vec![];
+
+        for n in nums {
+            let mut t = vec![];
+            let mut x = n;
+
+            while x != 0 {
+                t.push(x % 10);
+                x /= 10;
+            }
+
+            for i in (0..t.len()).rev() {
+                ans.push(t[i]);
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

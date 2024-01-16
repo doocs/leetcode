@@ -88,19 +88,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二进制枚举**
+### 方法一：二进制枚举
 
 二进制枚举好人的状态 $mask$，由于“好人只说真话”，我们借此判断 $statements$ 与 $mask$ 是否存在矛盾，不存在则获取 $mask$ 中好人的数量 $cnt$。迭代获取最大的合法 $cnt$。
 
 时间复杂度 $O(2^n*n^2)$，其中 $n$ 表示 $statements$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -117,10 +111,6 @@ class Solution:
 
         return max(check(mask) for mask in range(1, 1 << len(statements)))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumGood(statements [][]int) int {
 	n := len(statements)
@@ -205,8 +191,6 @@ func maximumGood(statements [][]int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumGood(statements: number[][]): number {
@@ -234,10 +218,6 @@ function maximumGood(statements: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

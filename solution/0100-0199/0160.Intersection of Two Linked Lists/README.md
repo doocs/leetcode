@@ -92,9 +92,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 使用两个指针 $a$, $b$ 分别指向两个链表 $headA$, $headB$。
 
@@ -105,10 +103,6 @@
 时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别是链表 $headA$ 和 $headB$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -126,10 +120,6 @@ class Solution:
             b = b.next if b else headA
         return a
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -155,8 +145,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -178,35 +166,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-
-/**
- * @param {ListNode} headA
- * @param {ListNode} headB
- * @return {ListNode}
- */
-var getIntersectionNode = function (headA, headB) {
-    let a = headA;
-    let b = headB;
-    while (a != b) {
-        a = a ? a.next : headB;
-        b = b ? b.next : headA;
-    }
-    return a;
-};
-```
-
-### **Go**
 
 ```go
 /**
@@ -234,8 +193,6 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -260,7 +217,30 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
 }
 ```
 
-### **Swift**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function (headA, headB) {
+    let a = headA;
+    let b = headB;
+    while (a != b) {
+        a = a ? a.next : headB;
+        b = b ? b.next : headA;
+    }
+    return a;
+};
+```
 
 ```swift
 /**
@@ -288,10 +268,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

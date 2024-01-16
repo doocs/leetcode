@@ -48,9 +48,9 @@ It can be shown that it is not possible to obtain a palindrome in less than 2 mo
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMovesToMakePalindrome(s string) int {
 	cs := []byte(s)
@@ -162,16 +156,6 @@ func minMovesToMakePalindrome(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

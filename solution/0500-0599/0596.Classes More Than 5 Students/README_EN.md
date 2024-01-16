@@ -59,13 +59,11 @@ Courses table:
 
 ## Solutions
 
-**Solution 1: Grouping and Aggregation**
+### Solution 1: Grouping and Aggregation
 
 We can use the `GROUP BY` statement to group by class and then use the `HAVING` statement to filter out the classes with a student count greater than or equal to $5$.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -76,3 +74,5 @@ HAVING COUNT(1) >= 5;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

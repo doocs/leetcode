@@ -39,7 +39,7 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 
 ## Solutions
 
-**Solution 1: Summation + Enumeration**
+### Solution 1: Summation + Enumeration
 
 First, we calculate the sum of all elements in the array $nums$, denoted as $s$. We use a variable $t$ to record the sum of the elements that have been enumerated so far.
 
@@ -48,8 +48,6 @@ Next, we enumerate $nums[i]$. Then $ans[i] = nums[i] \times i - t + s - t - nums
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
             t += x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getSumAbsoluteDifferences(nums []int) (ans []int) {
 	var s, t int
@@ -121,8 +113,6 @@ func getSumAbsoluteDifferences(nums []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getSumAbsoluteDifferences(nums: number[]): number[] {
     const s = nums.reduce((a, b) => a + b);
@@ -137,29 +127,6 @@ function getSumAbsoluteDifferences(nums: number[]): number[] {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int[] GetSumAbsoluteDifferences(int[] nums) {
-        int s = 0, t = 0;
-        foreach (int x in nums) {
-            s += x;
-        }
-        int n = nums.Length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
-            ans[i] = v;
-            t += nums[i];
-        }
-        return ans;
-    }
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -180,10 +147,25 @@ var getSumAbsoluteDifferences = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int[] GetSumAbsoluteDifferences(int[] nums) {
+        int s = 0, t = 0;
+        foreach (int x in nums) {
+            s += x;
+        }
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int v = nums[i] * i - t + s - t - nums[i] * (n - i);
+            ans[i] = v;
+            t += nums[i];
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

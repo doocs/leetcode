@@ -47,7 +47,7 @@ We earn 9 + 5 + 6 = 20 dollars in total.</pre>
 
 ## Solutions
 
-**Solution 1: Memoization Search + Binary Search**
+### Solution 1: Memoization Search + Binary Search
 
 First, we sort $rides$ in ascending order by $start$. Then we design a function $dfs(i)$, which represents the maximum tip that can be obtained from accepting orders starting from the $i$-th passenger. The answer is $dfs(0)$.
 
@@ -65,30 +65,7 @@ In this process, we can use memoization search to save the answer of each state 
 
 The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the length of $rides$.
 
-**Solution 2: Dynamic Programming + Binary Search**
-
-We can change the memoization search in Solution 1 to dynamic programming.
-
-First, sort $rides$, this time we sort by $end$ in ascending order. Then define $f[i]$, which represents the maximum tip that can be obtained from the first $i$ passengers. Initially, $f[0] = 0$, and the answer is $f[m]$.
-
-For the $i$-th passenger, we can choose to accept or not to accept the order. If we don't accept the order, the maximum tip that can be obtained is $f[i-1]$. If we accept the order, we can use binary search to find the last passenger whose drop-off point is not greater than $start_i$ before the $i$-th passenger gets on the car, denoted as $j$. The maximum tip that can be obtained is $f[j] + end_i - start_i + tip_i$. Take the larger of the two. That is:
-
-$$
-f[i] = \max(f[i - 1], f[j] + end_i - start_i + tip_i)
-$$
-
-Where $j$ is the largest index that satisfies $end_j \le start_i$, which can be obtained by binary search.
-
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the length of $rides$.
-
-Similar problems:
-
--   [1235. Maximum Profit in Job Scheduling](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
--   [1751. Maximum Number of Events That Can Be Attended II](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README_EN.md)
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -104,19 +81,6 @@ class Solution:
         rides.sort()
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
-        rides.sort(key=lambda x: x[1])
-        f = [0] * (len(rides) + 1)
-        for i, (st, ed, tip) in enumerate(rides, 1):
-            j = bisect_left(rides, st + 1, hi=i, key=lambda x: x[1])
-            f[i] = max(f[i - 1], f[j] + ed - st + tip)
-        return f[-1]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -160,38 +124,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long maxTaxiEarnings(int n, int[][] rides) {
-        Arrays.sort(rides, (a, b) -> a[1] - b[1]);
-        int m = rides.length;
-        long[] f = new long[m + 1];
-        for (int i = 1; i <= m; ++i) {
-            int[] r = rides[i - 1];
-            int st = r[0], ed = r[1], tip = r[2];
-            int j = search(rides, st + 1, i);
-            f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
-        }
-        return f[m];
-    }
-
-    private int search(int[][] nums, int x, int r) {
-        int l = 0;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (nums[mid][1] >= x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -217,27 +149,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    long long maxTaxiEarnings(int n, vector<vector<int>>& rides) {
-        sort(rides.begin(), rides.end(), [](const vector<int>& a, const vector<int>& b) { return a[1] < b[1]; });
-        int m = rides.size();
-        vector<long long> f(m + 1);
-        for (int i = 1; i <= m; ++i) {
-            auto& r = rides[i - 1];
-            int st = r[0], ed = r[1], tip = r[2];
-            auto it = lower_bound(rides.begin(), rides.begin() + i, st + 1, [](auto& a, int val) { return a[1] < val; });
-            int j = distance(rides.begin(), it);
-            f[i] = max(f[i - 1], f[j] + ed - st + tip);
-        }
-        return f.back();
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool { return rides[i][0] < rides[j][0] })
@@ -258,23 +169,6 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	return dfs(0)
 }
 ```
-
-```go
-func maxTaxiEarnings(n int, rides [][]int) int64 {
-	sort.Slice(rides, func(i, j int) bool { return rides[i][1] < rides[j][1] })
-	m := len(rides)
-	f := make([]int64, m+1)
-	for i := 1; i <= m; i++ {
-		r := rides[i-1]
-		st, ed, tip := r[0], r[1], r[2]
-		j := sort.Search(m, func(j int) bool { return rides[j][1] >= st+1 })
-		f[i] = max(f[i-1], f[j]+int64(ed-st+tip))
-	}
-	return f[m]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function maxTaxiEarnings(n: number, rides: number[][]): number {
@@ -308,6 +202,106 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Dynamic Programming + Binary Search
+
+We can change the memoization search in Solution 1 to dynamic programming.
+
+First, sort $rides$, this time we sort by $end$ in ascending order. Then define $f[i]$, which represents the maximum tip that can be obtained from the first $i$ passengers. Initially, $f[0] = 0$, and the answer is $f[m]$.
+
+For the $i$-th passenger, we can choose to accept or not to accept the order. If we don't accept the order, the maximum tip that can be obtained is $f[i-1]$. If we accept the order, we can use binary search to find the last passenger whose drop-off point is not greater than $start_i$ before the $i$-th passenger gets on the car, denoted as $j$. The maximum tip that can be obtained is $f[j] + end_i - start_i + tip_i$. Take the larger of the two. That is:
+
+$$
+f[i] = \max(f[i - 1], f[j] + end_i - start_i + tip_i)
+$$
+
+Where $j$ is the largest index that satisfies $end_j \le start_i$, which can be obtained by binary search.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the length of $rides$.
+
+Similar problems:
+
+-   [1235. Maximum Profit in Job Scheduling](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
+-   [1751. Maximum Number of Events That Can Be Attended II](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README_EN.md)
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
+        rides.sort(key=lambda x: x[1])
+        f = [0] * (len(rides) + 1)
+        for i, (st, ed, tip) in enumerate(rides, 1):
+            j = bisect_left(rides, st + 1, hi=i, key=lambda x: x[1])
+            f[i] = max(f[i - 1], f[j] + ed - st + tip)
+        return f[-1]
+```
+
+```java
+class Solution {
+    public long maxTaxiEarnings(int n, int[][] rides) {
+        Arrays.sort(rides, (a, b) -> a[1] - b[1]);
+        int m = rides.length;
+        long[] f = new long[m + 1];
+        for (int i = 1; i <= m; ++i) {
+            int[] r = rides[i - 1];
+            int st = r[0], ed = r[1], tip = r[2];
+            int j = search(rides, st + 1, i);
+            f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
+        }
+        return f[m];
+    }
+
+    private int search(int[][] nums, int x, int r) {
+        int l = 0;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid][1] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long maxTaxiEarnings(int n, vector<vector<int>>& rides) {
+        sort(rides.begin(), rides.end(), [](const vector<int>& a, const vector<int>& b) { return a[1] < b[1]; });
+        int m = rides.size();
+        vector<long long> f(m + 1);
+        for (int i = 1; i <= m; ++i) {
+            auto& r = rides[i - 1];
+            int st = r[0], ed = r[1], tip = r[2];
+            auto it = lower_bound(rides.begin(), rides.begin() + i, st + 1, [](auto& a, int val) { return a[1] < val; });
+            int j = distance(rides.begin(), it);
+            f[i] = max(f[i - 1], f[j] + ed - st + tip);
+        }
+        return f.back();
+    }
+};
+```
+
+```go
+func maxTaxiEarnings(n int, rides [][]int) int64 {
+	sort.Slice(rides, func(i, j int) bool { return rides[i][1] < rides[j][1] })
+	m := len(rides)
+	f := make([]int64, m+1)
+	for i := 1; i <= m; i++ {
+		r := rides[i-1]
+		st, ed, tip := r[0], r[1], r[2]
+		j := sort.Search(m, func(j int) bool { return rides[j][1] >= st+1 })
+		f[i] = max(f[i-1], f[j]+int64(ed-st+tip))
+	}
+	return f[m]
+}
+```
+
 ```ts
 function maxTaxiEarnings(n: number, rides: number[][]): number {
     rides.sort((a, b) => a[1] - b[1]);
@@ -334,10 +328,6 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,9 +43,9 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
                 return k
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeTheIntegerZero(num1 int, num2 int) int {
 	for k := 1; ; k++ {
@@ -116,10 +110,6 @@ func makeTheIntegerZero(num1 int, num2 int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

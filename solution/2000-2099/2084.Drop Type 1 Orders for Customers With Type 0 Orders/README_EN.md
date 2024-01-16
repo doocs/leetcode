@@ -71,9 +71,9 @@ Customer 4 has two orders of type 1. We return both of them.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -88,6 +88,12 @@ FROM Orders AS o
 WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o.customer_id);
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 SELECT DISTINCT
     a.order_id,
@@ -100,3 +106,5 @@ WHERE b.order_type IS NULL OR b.order_type = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

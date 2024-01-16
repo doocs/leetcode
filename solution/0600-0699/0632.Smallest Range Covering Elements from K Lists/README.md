@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 滑动窗口**
+### 方法一：排序 + 滑动窗口
 
 将每个数字 $v$ 及其所在的组 $i$，构成数据项 $(v, i)$，存放在一个新的列表或者数组中，记为 `t`。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n\log n)$。其中 $n$ 是所有数字的总数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestRange(nums [][]int) []int {
 	t := [][]int{}
@@ -208,8 +194,6 @@ func smallestRange(nums [][]int) []int {
 	return ans
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -252,10 +236,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论**
+### 方法一：分情况讨论
 
 首先，我们判断字符串是否以正负号开头，如果是，将指针 $i$ 向后移动一位。如果此时指针 $i$ 已经到达字符串末尾，说明字符串只有一个正负号，返回 `false`。
 
@@ -94,10 +92,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -130,10 +124,6 @@ class Solution:
             j += 1
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -176,8 +166,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -205,8 +193,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isNumber(s string) bool {
@@ -245,22 +231,6 @@ func isNumber(s string) bool {
 	return true
 }
 ```
-
-### **C#**
-
-```cs
-using System.Text.RegularExpressions;
-
-public class Solution {
-    private readonly Regex _isNumber_Regex = new Regex(@"^\s*[+-]?(\d+(\.\d*)?|\.\d+)([Ee][+-]?\d+)?\s*$");
-
-    public bool IsNumber(string s) {
-        return _isNumber_Regex.IsMatch(s);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -322,10 +292,18 @@ impl Solution {
 }
 ```
 
-### **...**
+```cs
+using System.Text.RegularExpressions;
 
-```
+public class Solution {
+    private readonly Regex _isNumber_Regex = new Regex(@"^\s*[+-]?(\d+(\.\d*)?|\.\d+)([Ee][+-]?\d+)?\s*$");
 
+    public bool IsNumber(string s) {
+        return _isNumber_Regex.IsMatch(s);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

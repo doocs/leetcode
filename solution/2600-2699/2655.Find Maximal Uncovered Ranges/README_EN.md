@@ -62,9 +62,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
             ans.append([last + 1, n - 1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 	sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] })
@@ -151,10 +145,6 @@ func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

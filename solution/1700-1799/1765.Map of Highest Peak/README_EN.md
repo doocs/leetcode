@@ -59,19 +59,9 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 
 ## Solutions
 
-**Method One: Multi-Source BFS**
-
-Based on the problem description, the height of the water area must be $0$, and the height difference between any adjacent cells can be at most $1$.
-
-Therefore, we can start from all water cells, perform BFS to search for adjacent and unvisited cells, and set their heights to the height of the current cell plus one.
-
-Finally, return the resulting matrix.
-
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the integer matrix isWater, respectively.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -93,30 +83,6 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
-
-```python
-class Solution:
-    def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
-        m, n = len(isWater), len(isWater[0])
-        ans = [[-1] * n for _ in range(m)]
-        q = deque()
-        for i, row in enumerate(isWater):
-            for j, v in enumerate(row):
-                if v:
-                    q.append((i, j))
-                    ans[i][j] = 0
-        while q:
-            for _ in range(len(q)):
-                i, j = q.popleft()
-                for a, b in pairwise((-1, 0, 1, 0, -1)):
-                    x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and ans[x][y] == -1:
-                        ans[x][y] = ans[i][j] + 1
-                        q.append((x, y))
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -148,41 +114,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int[][] highestPeak(int[][] isWater) {
-        int m = isWater.length, n = isWater[0].length;
-        int[][] ans = new int[m][n];
-        Deque<int[]> q = new ArrayDeque<>();
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                ans[i][j] = isWater[i][j] - 1;
-                if (ans[i][j] == 0) {
-                    q.offer(new int[] {i, j});
-                }
-            }
-        }
-        int[] dirs = {-1, 0, 1, 0, -1};
-        while (!q.isEmpty()) {
-            for (int t = q.size(); t > 0; --t) {
-                var p = q.poll();
-                int i = p[0], j = p[1];
-                for (int k = 0; k < 4; ++k) {
-                    int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
-                        ans[x][y] = ans[i][j] + 1;
-                        q.offer(new int[] {x, y});
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -217,42 +148,70 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    const int dirs[5] = {-1, 0, 1, 0, -1};
-
-    vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
-        int m = isWater.size(), n = isWater[0].size();
-        vector<vector<int>> ans(m, vector<int>(n));
-        queue<pair<int, int>> q;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                ans[i][j] = isWater[i][j] - 1;
-                if (ans[i][j] == 0) {
-                    q.emplace(i, j);
-                }
-            }
-        }
-        while (!q.empty()) {
-            for (int t = q.size(); t; --t) {
-                auto [i, j] = q.front();
-                q.pop();
-                for (int k = 0; k < 4; ++k) {
-                    int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
-                        ans[x][y] = ans[i][j] + 1;
-                        q.emplace(x, y);
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-};
+```go
+func highestPeak(isWater [][]int) [][]int {
+	m, n := len(isWater), len(isWater[0])
+	ans := make([][]int, m)
+	type pair struct{ i, j int }
+	q := []pair{}
+	for i, row := range isWater {
+		ans[i] = make([]int, n)
+		for j, v := range row {
+			ans[i][j] = v - 1
+			if v == 1 {
+				q = append(q, pair{i, j})
+			}
+		}
+	}
+	dirs := []int{-1, 0, 1, 0, -1}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		i, j := p.i, p.j
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
+				ans[x][y] = ans[i][j] + 1
+				q = append(q, pair{x, y})
+			}
+		}
+	}
+	return ans
+}
 ```
 
-### **Rust**
+```ts
+function highestPeak(isWater: number[][]): number[][] {
+    const m = isWater.length;
+    const n = isWater[0].length;
+    let ans: number[][] = [];
+    let q: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        ans.push(new Array(n).fill(-1));
+        for (let j = 0; j < n; ++j) {
+            if (isWater[i][j]) {
+                q.push([i, j]);
+                ans[i][j] = 0;
+            }
+        }
+    }
+    const dirs = [-1, 0, 1, 0, -1];
+    while (q.length) {
+        let tq: number[][] = [];
+        for (const [i, j] of q) {
+            for (let k = 0; k < 4; k++) {
+                const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
+                    tq.push([x, y]);
+                    ans[x][y] = ans[i][j] + 1;
+                }
+            }
+        }
+        q = tq;
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::VecDeque;
@@ -306,38 +265,100 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func highestPeak(isWater [][]int) [][]int {
-	m, n := len(isWater), len(isWater[0])
-	ans := make([][]int, m)
-	type pair struct{ i, j int }
-	q := []pair{}
-	for i, row := range isWater {
-		ans[i] = make([]int, n)
-		for j, v := range row {
-			ans[i][j] = v - 1
-			if v == 1 {
-				q = append(q, pair{i, j})
-			}
-		}
-	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for len(q) > 0 {
-		p := q[0]
-		q = q[1:]
-		i, j := p.i, p.j
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
-				ans[x][y] = ans[i][j] + 1
-				q = append(q, pair{x, y})
-			}
-		}
-	}
-	return ans
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
+        m, n = len(isWater), len(isWater[0])
+        ans = [[-1] * n for _ in range(m)]
+        q = deque()
+        for i, row in enumerate(isWater):
+            for j, v in enumerate(row):
+                if v:
+                    q.append((i, j))
+                    ans[i][j] = 0
+        while q:
+            for _ in range(len(q)):
+                i, j = q.popleft()
+                for a, b in pairwise((-1, 0, 1, 0, -1)):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and ans[x][y] == -1:
+                        ans[x][y] = ans[i][j] + 1
+                        q.append((x, y))
+        return ans
+```
+
+```java
+class Solution {
+    public int[][] highestPeak(int[][] isWater) {
+        int m = isWater.length, n = isWater[0].length;
+        int[][] ans = new int[m][n];
+        Deque<int[]> q = new ArrayDeque<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans[i][j] = isWater[i][j] - 1;
+                if (ans[i][j] == 0) {
+                    q.offer(new int[] {i, j});
+                }
+            }
+        }
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            for (int t = q.size(); t > 0; --t) {
+                var p = q.poll();
+                int i = p[0], j = p[1];
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dirs[k], y = j + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
+                        ans[x][y] = ans[i][j] + 1;
+                        q.offer(new int[] {x, y});
+                    }
+                }
+            }
+        }
+        return ans;
+    }
 }
+```
+
+```cpp
+class Solution {
+public:
+    const int dirs[5] = {-1, 0, 1, 0, -1};
+
+    vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
+        int m = isWater.size(), n = isWater[0].size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        queue<pair<int, int>> q;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans[i][j] = isWater[i][j] - 1;
+                if (ans[i][j] == 0) {
+                    q.emplace(i, j);
+                }
+            }
+        }
+        while (!q.empty()) {
+            for (int t = q.size(); t; --t) {
+                auto [i, j] = q.front();
+                q.pop();
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dirs[k], y = j + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
+                        ans[x][y] = ans[i][j] + 1;
+                        q.emplace(x, y);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
@@ -374,45 +395,6 @@ func highestPeak(isWater [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function highestPeak(isWater: number[][]): number[][] {
-    const m = isWater.length;
-    const n = isWater[0].length;
-    let ans: number[][] = [];
-    let q: number[][] = [];
-    for (let i = 0; i < m; ++i) {
-        ans.push(new Array(n).fill(-1));
-        for (let j = 0; j < n; ++j) {
-            if (isWater[i][j]) {
-                q.push([i, j]);
-                ans[i][j] = 0;
-            }
-        }
-    }
-    const dirs = [-1, 0, 1, 0, -1];
-    while (q.length) {
-        let tq: number[][] = [];
-        for (const [i, j] of q) {
-            for (let k = 0; k < 4; k++) {
-                const [x, y] = [i + dirs[k], j + dirs[k + 1]];
-                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
-                    tq.push([x, y]);
-                    ans[x][y] = ans[i][j] + 1;
-                }
-            }
-        }
-        q = tq;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 枚举**
+### 方法一：预处理 + 枚举
 
 我们可以先预处理出所有长度为 $1$ 到 $32$ 的子串对应的十进制值，找到每个值对应的最小下标以及对应的右端点下标，存放在哈希表 $d$ 中。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n \times \log M + m)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 和查询数组 $queries$ 的长度，而 $M$ 可以取整数的最大值 $2^{31} - 1$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                     break
         return [d.get(first ^ second, [-1, -1]) for first, second in queries]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -157,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 	d := map[int][]int{}
@@ -187,10 +173,6 @@ func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

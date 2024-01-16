@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 根据题目描述，数组 $arr$ 是一个首项为 $1$，公差为 $2$ 的等差数列。那么数组前 $n$ 项的和为：
 
@@ -63,19 +61,11 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minOperations(self, n: int) -> int:
         return sum(n - (i << 1 | 1) for i in range(n >> 1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(n int) (ans int) {
 	for i := 0; i < n>>1; i++ {
@@ -114,8 +100,6 @@ func minOperations(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(n: number): number {
@@ -127,10 +111,6 @@ function minOperations(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

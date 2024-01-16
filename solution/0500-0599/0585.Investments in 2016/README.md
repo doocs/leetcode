@@ -72,11 +72,9 @@ tiv_2015 值为 10 与第三条和第四条记录相同，且其位置是唯一�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -94,3 +92,5 @@ WHERE cnt1 > 1 AND cnt2 = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

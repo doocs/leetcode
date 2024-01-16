@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 前缀和 + 二分查找**
+### 方法一：排序 + 前缀和 + 二分查找
 
 题目求的是在最多进行 $k$ 次操作的情况下，我们能得到的众数的最大频率。如果我们将数组 $nums$ 按照从小到大的顺序排列，那么最好就是将一段连续的数字都变成同一个数，这样可以使得操作次数较少，并且众数的频率较高。
 
@@ -89,10 +87,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxFrequencyScore(self, nums: List[int], k: int) -> int:
@@ -117,10 +111,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,8 +148,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -201,8 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxFrequencyScore(nums []int, k int64) int {
 	sort.Ints(nums)
@@ -240,8 +226,6 @@ func maxFrequencyScore(nums []int, k int64) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxFrequencyScore(nums: number[], k: number): number {
     nums.sort((a, b) => a - b);
@@ -277,10 +261,6 @@ function maxFrequencyScore(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,9 @@ myLinkedList.get(1);              // return 3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MyLinkedList:
@@ -103,72 +103,6 @@ class MyLinkedList:
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
 ```
-
-```python
-class MyLinkedList:
-    def __init__(self):
-        self.e = [0] * 1010
-        self.ne = [0] * 1010
-        self.idx = 0
-        self.head = -1
-        self.cnt = 0
-
-    def get(self, index: int) -> int:
-        if index < 0 or index >= self.cnt:
-            return -1
-        i = self.head
-        for _ in range(index):
-            i = self.ne[i]
-        return self.e[i]
-
-    def addAtHead(self, val: int) -> None:
-        self.e[self.idx] = val
-        self.ne[self.idx] = self.head
-        self.head = self.idx
-        self.idx += 1
-        self.cnt += 1
-
-    def addAtTail(self, val: int) -> None:
-        self.addAtIndex(self.cnt, val)
-
-    def addAtIndex(self, index: int, val: int) -> None:
-        if index > self.cnt:
-            return
-        if index <= 0:
-            self.addAtHead(val)
-            return
-        i = self.head
-        for _ in range(index - 1):
-            i = self.ne[i]
-        self.e[self.idx] = val
-        self.ne[self.idx] = self.ne[i]
-        self.ne[i] = self.idx
-        self.idx += 1
-        self.cnt += 1
-
-    def deleteAtIndex(self, index: int) -> None:
-        if index < 0 or index >= self.cnt:
-            return -1
-        self.cnt -= 1
-        if index == 0:
-            self.head = self.ne[self.head]
-            return
-        i = self.head
-        for _ in range(index - 1):
-            i = self.ne[i]
-        self.ne[i] = self.ne[self.ne[i]]
-
-
-# Your MyLinkedList object will be instantiated and called as such:
-# obj = MyLinkedList()
-# param_1 = obj.get(index)
-# obj.addAtHead(val)
-# obj.addAtTail(val)
-# obj.addAtIndex(index,val)
-# obj.deleteAtIndex(index)
-```
-
-### **Java**
 
 ```java
 class MyLinkedList {
@@ -234,87 +168,6 @@ class MyLinkedList {
  * obj.deleteAtIndex(index);
  */
 ```
-
-```java
-class MyLinkedList {
-    private int[] e = new int[1010];
-    private int[] ne = new int[1010];
-    private int head = -1;
-    private int idx;
-    private int cnt;
-
-    public MyLinkedList() {
-    }
-
-    public int get(int index) {
-        if (index < 0 || index >= cnt) {
-            return -1;
-        }
-        int i = head;
-        while (index-- > 0) {
-            i = ne[i];
-        }
-        return e[i];
-    }
-
-    public void addAtHead(int val) {
-        e[idx] = val;
-        ne[idx] = head;
-        head = idx++;
-        ++cnt;
-    }
-
-    public void addAtTail(int val) {
-        addAtIndex(cnt, val);
-    }
-
-    public void addAtIndex(int index, int val) {
-        if (index > cnt) {
-            return;
-        }
-        if (index <= 0) {
-            addAtHead(val);
-            return;
-        }
-        int i = head;
-        while (--index > 0) {
-            i = ne[i];
-        }
-        e[idx] = val;
-        ne[idx] = ne[i];
-        ne[i] = idx++;
-        ++cnt;
-    }
-
-    public void deleteAtIndex(int index) {
-        if (index < 0 || index >= cnt) {
-            return;
-        }
-        --cnt;
-        if (index == 0) {
-            head = ne[head];
-            return;
-        }
-        int i = head;
-        while (--index > 0) {
-            i = ne[i];
-        }
-        ne[i] = ne[ne[i]];
-    }
-}
-
-/**
- * Your MyLinkedList object will be instantiated and called as such:
- * MyLinkedList obj = new MyLinkedList();
- * int param_1 = obj.get(index);
- * obj.addAtHead(val);
- * obj.addAtTail(val);
- * obj.addAtIndex(index,val);
- * obj.deleteAtIndex(index);
- */
-```
-
-### **C++**
 
 ```cpp
 class MyLinkedList {
@@ -383,86 +236,6 @@ public:
  */
 ```
 
-```cpp
-class MyLinkedList {
-private:
-    int e[1010], ne[1010];
-    int head = -1, idx = 0, cnt = 0;
-
-public:
-    MyLinkedList() {
-    }
-
-    int get(int index) {
-        if (index < 0 || index >= cnt) {
-            return -1;
-        }
-        int i = head;
-        while (index--) {
-            i = ne[i];
-        }
-        return e[i];
-    }
-
-    void addAtHead(int val) {
-        e[idx] = val;
-        ne[idx] = head;
-        head = idx++;
-        ++cnt;
-    }
-
-    void addAtTail(int val) {
-        addAtIndex(cnt, val);
-    }
-
-    void addAtIndex(int index, int val) {
-        if (index > cnt) {
-            return;
-        }
-        if (index <= 0) {
-            addAtHead(val);
-            return;
-        }
-        int i = head;
-        while (--index) {
-            i = ne[i];
-        }
-        e[idx] = val;
-        ne[idx] = ne[i];
-        ne[i] = idx++;
-        ++cnt;
-    }
-
-    void deleteAtIndex(int index) {
-        if (index < 0 || index >= cnt) {
-            return;
-        }
-        --cnt;
-        if (index == 0) {
-            head = ne[head];
-            return;
-        }
-        int i = head;
-        while (--index) {
-            i = ne[i];
-        }
-        ne[i] = ne[ne[i]];
-    }
-};
-
-/**
- * Your MyLinkedList object will be instantiated and called as such:
- * MyLinkedList* obj = new MyLinkedList();
- * int param_1 = obj->get(index);
- * obj->addAtHead(val);
- * obj->addAtTail(val);
- * obj->addAtIndex(index,val);
- * obj->deleteAtIndex(index);
- */
-```
-
-### **Go**
-
 ```go
 type MyLinkedList struct {
 	dummy *ListNode
@@ -528,92 +301,6 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
  * obj.DeleteAtIndex(index);
  */
 ```
-
-```go
-type MyLinkedList struct {
-	e    []int
-	ne   []int
-	idx  int
-	head int
-	cnt  int
-}
-
-func Constructor() MyLinkedList {
-	e := make([]int, 1010)
-	ne := make([]int, 1010)
-	return MyLinkedList{e, ne, 0, -1, 0}
-}
-
-func (this *MyLinkedList) Get(index int) int {
-	if index < 0 || index >= this.cnt {
-		return -1
-	}
-	i := this.head
-	for ; index > 0; index-- {
-		i = this.ne[i]
-	}
-	return this.e[i]
-}
-
-func (this *MyLinkedList) AddAtHead(val int) {
-	this.e[this.idx] = val
-	this.ne[this.idx] = this.head
-	this.head = this.idx
-	this.idx++
-	this.cnt++
-}
-
-func (this *MyLinkedList) AddAtTail(val int) {
-	this.AddAtIndex(this.cnt, val)
-}
-
-func (this *MyLinkedList) AddAtIndex(index int, val int) {
-	if index > this.cnt {
-		return
-	}
-	if index <= 0 {
-		this.AddAtHead(val)
-		return
-	}
-	i := this.head
-	for ; index > 1; index-- {
-		i = this.ne[i]
-	}
-	this.e[this.idx] = val
-	this.ne[this.idx] = this.ne[i]
-	this.ne[i] = this.idx
-	this.idx++
-	this.cnt++
-}
-
-func (this *MyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index >= this.cnt {
-		return
-	}
-	this.cnt--
-	if index == 0 {
-		this.head = this.ne[this.head]
-		return
-	}
-	i := this.head
-	for ; index > 1; index-- {
-		i = this.ne[i]
-	}
-	this.ne[i] = this.ne[this.ne[i]]
-}
-
-/**
- * Your MyLinkedList object will be instantiated and called as such:
- * obj := Constructor();
- * param_1 := obj.Get(index);
- * obj.AddAtHead(val);
- * obj.AddAtTail(val);
- * obj.AddAtIndex(index,val);
- * obj.DeleteAtIndex(index);
- */
-```
-
-### **TypeScript**
 
 ```ts
 class LinkNode {
@@ -712,92 +399,6 @@ class MyLinkedList {
  * obj.deleteAtIndex(index)
  */
 ```
-
-```ts
-class MyLinkedList {
-    e: Array<number>;
-    ne: Array<number>;
-    idx: number;
-    head: number;
-    cnt: number;
-
-    constructor() {
-        this.e = new Array(1010).fill(0);
-        this.ne = new Array(1010).fill(0);
-        this.head = -1;
-        this.idx = 0;
-        this.cnt = 0;
-    }
-
-    get(index: number): number {
-        if (index < 0 || index >= this.cnt) {
-            return -1;
-        }
-        let i = this.head;
-        while (index--) {
-            i = this.ne[i];
-        }
-        return this.e[i];
-    }
-
-    addAtHead(val: number): void {
-        this.e[this.idx] = val;
-        this.ne[this.idx] = this.head;
-        this.head = this.idx++;
-        this.cnt++;
-    }
-
-    addAtTail(val: number): void {
-        this.addAtIndex(this.cnt, val);
-    }
-
-    addAtIndex(index: number, val: number): void {
-        if (index > this.cnt) {
-            return;
-        }
-        if (index <= 0) {
-            this.addAtHead(val);
-            return;
-        }
-        let i = this.head;
-        while (--index) {
-            i = this.ne[i];
-        }
-        this.e[this.idx] = val;
-        this.ne[this.idx] = this.ne[i];
-        this.ne[i] = this.idx++;
-        this.cnt++;
-    }
-
-    deleteAtIndex(index: number): void {
-        if (index < 0 || index >= this.cnt) {
-            return;
-        }
-        this.cnt--;
-        if (index == 0) {
-            this.head = this.ne[this.head];
-            return;
-        }
-        let i = this.head;
-        while (--index) {
-            i = this.ne[i];
-        }
-        this.ne[i] = this.ne[this.ne[i]];
-    }
-}
-
-/**
- * Your MyLinkedList object will be instantiated and called as such:
- * var obj = new MyLinkedList()
- * var param_1 = obj.get(index)
- * obj.addAtHead(val)
- * obj.addAtTail(val)
- * obj.addAtIndex(index,val)
- * obj.deleteAtIndex(index)
- */
-```
-
-### **Rust**
 
 ```rust
 #[derive(Default)]
@@ -903,10 +504,401 @@ impl MyLinkedList {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class MyLinkedList:
+    def __init__(self):
+        self.e = [0] * 1010
+        self.ne = [0] * 1010
+        self.idx = 0
+        self.head = -1
+        self.cnt = 0
+
+    def get(self, index: int) -> int:
+        if index < 0 or index >= self.cnt:
+            return -1
+        i = self.head
+        for _ in range(index):
+            i = self.ne[i]
+        return self.e[i]
+
+    def addAtHead(self, val: int) -> None:
+        self.e[self.idx] = val
+        self.ne[self.idx] = self.head
+        self.head = self.idx
+        self.idx += 1
+        self.cnt += 1
+
+    def addAtTail(self, val: int) -> None:
+        self.addAtIndex(self.cnt, val)
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index > self.cnt:
+            return
+        if index <= 0:
+            self.addAtHead(val)
+            return
+        i = self.head
+        for _ in range(index - 1):
+            i = self.ne[i]
+        self.e[self.idx] = val
+        self.ne[self.idx] = self.ne[i]
+        self.ne[i] = self.idx
+        self.idx += 1
+        self.cnt += 1
+
+    def deleteAtIndex(self, index: int) -> None:
+        if index < 0 or index >= self.cnt:
+            return -1
+        self.cnt -= 1
+        if index == 0:
+            self.head = self.ne[self.head]
+            return
+        i = self.head
+        for _ in range(index - 1):
+            i = self.ne[i]
+        self.ne[i] = self.ne[self.ne[i]]
+
+
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)
 ```
 
+```java
+class MyLinkedList {
+    private int[] e = new int[1010];
+    private int[] ne = new int[1010];
+    private int head = -1;
+    private int idx;
+    private int cnt;
+
+    public MyLinkedList() {
+    }
+
+    public int get(int index) {
+        if (index < 0 || index >= cnt) {
+            return -1;
+        }
+        int i = head;
+        while (index-- > 0) {
+            i = ne[i];
+        }
+        return e[i];
+    }
+
+    public void addAtHead(int val) {
+        e[idx] = val;
+        ne[idx] = head;
+        head = idx++;
+        ++cnt;
+    }
+
+    public void addAtTail(int val) {
+        addAtIndex(cnt, val);
+    }
+
+    public void addAtIndex(int index, int val) {
+        if (index > cnt) {
+            return;
+        }
+        if (index <= 0) {
+            addAtHead(val);
+            return;
+        }
+        int i = head;
+        while (--index > 0) {
+            i = ne[i];
+        }
+        e[idx] = val;
+        ne[idx] = ne[i];
+        ne[i] = idx++;
+        ++cnt;
+    }
+
+    public void deleteAtIndex(int index) {
+        if (index < 0 || index >= cnt) {
+            return;
+        }
+        --cnt;
+        if (index == 0) {
+            head = ne[head];
+            return;
+        }
+        int i = head;
+        while (--index > 0) {
+            i = ne[i];
+        }
+        ne[i] = ne[ne[i]];
+    }
+}
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList obj = new MyLinkedList();
+ * int param_1 = obj.get(index);
+ * obj.addAtHead(val);
+ * obj.addAtTail(val);
+ * obj.addAtIndex(index,val);
+ * obj.deleteAtIndex(index);
+ */
+```
+
+```cpp
+class MyLinkedList {
+private:
+    int e[1010], ne[1010];
+    int head = -1, idx = 0, cnt = 0;
+
+public:
+    MyLinkedList() {
+    }
+
+    int get(int index) {
+        if (index < 0 || index >= cnt) {
+            return -1;
+        }
+        int i = head;
+        while (index--) {
+            i = ne[i];
+        }
+        return e[i];
+    }
+
+    void addAtHead(int val) {
+        e[idx] = val;
+        ne[idx] = head;
+        head = idx++;
+        ++cnt;
+    }
+
+    void addAtTail(int val) {
+        addAtIndex(cnt, val);
+    }
+
+    void addAtIndex(int index, int val) {
+        if (index > cnt) {
+            return;
+        }
+        if (index <= 0) {
+            addAtHead(val);
+            return;
+        }
+        int i = head;
+        while (--index) {
+            i = ne[i];
+        }
+        e[idx] = val;
+        ne[idx] = ne[i];
+        ne[i] = idx++;
+        ++cnt;
+    }
+
+    void deleteAtIndex(int index) {
+        if (index < 0 || index >= cnt) {
+            return;
+        }
+        --cnt;
+        if (index == 0) {
+            head = ne[head];
+            return;
+        }
+        int i = head;
+        while (--index) {
+            i = ne[i];
+        }
+        ne[i] = ne[ne[i]];
+    }
+};
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList* obj = new MyLinkedList();
+ * int param_1 = obj->get(index);
+ * obj->addAtHead(val);
+ * obj->addAtTail(val);
+ * obj->addAtIndex(index,val);
+ * obj->deleteAtIndex(index);
+ */
+```
+
+```go
+type MyLinkedList struct {
+	e    []int
+	ne   []int
+	idx  int
+	head int
+	cnt  int
+}
+
+func Constructor() MyLinkedList {
+	e := make([]int, 1010)
+	ne := make([]int, 1010)
+	return MyLinkedList{e, ne, 0, -1, 0}
+}
+
+func (this *MyLinkedList) Get(index int) int {
+	if index < 0 || index >= this.cnt {
+		return -1
+	}
+	i := this.head
+	for ; index > 0; index-- {
+		i = this.ne[i]
+	}
+	return this.e[i]
+}
+
+func (this *MyLinkedList) AddAtHead(val int) {
+	this.e[this.idx] = val
+	this.ne[this.idx] = this.head
+	this.head = this.idx
+	this.idx++
+	this.cnt++
+}
+
+func (this *MyLinkedList) AddAtTail(val int) {
+	this.AddAtIndex(this.cnt, val)
+}
+
+func (this *MyLinkedList) AddAtIndex(index int, val int) {
+	if index > this.cnt {
+		return
+	}
+	if index <= 0 {
+		this.AddAtHead(val)
+		return
+	}
+	i := this.head
+	for ; index > 1; index-- {
+		i = this.ne[i]
+	}
+	this.e[this.idx] = val
+	this.ne[this.idx] = this.ne[i]
+	this.ne[i] = this.idx
+	this.idx++
+	this.cnt++
+}
+
+func (this *MyLinkedList) DeleteAtIndex(index int) {
+	if index < 0 || index >= this.cnt {
+		return
+	}
+	this.cnt--
+	if index == 0 {
+		this.head = this.ne[this.head]
+		return
+	}
+	i := this.head
+	for ; index > 1; index-- {
+		i = this.ne[i]
+	}
+	this.ne[i] = this.ne[this.ne[i]]
+}
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Get(index);
+ * obj.AddAtHead(val);
+ * obj.AddAtTail(val);
+ * obj.AddAtIndex(index,val);
+ * obj.DeleteAtIndex(index);
+ */
+```
+
+```ts
+class MyLinkedList {
+    e: Array<number>;
+    ne: Array<number>;
+    idx: number;
+    head: number;
+    cnt: number;
+
+    constructor() {
+        this.e = new Array(1010).fill(0);
+        this.ne = new Array(1010).fill(0);
+        this.head = -1;
+        this.idx = 0;
+        this.cnt = 0;
+    }
+
+    get(index: number): number {
+        if (index < 0 || index >= this.cnt) {
+            return -1;
+        }
+        let i = this.head;
+        while (index--) {
+            i = this.ne[i];
+        }
+        return this.e[i];
+    }
+
+    addAtHead(val: number): void {
+        this.e[this.idx] = val;
+        this.ne[this.idx] = this.head;
+        this.head = this.idx++;
+        this.cnt++;
+    }
+
+    addAtTail(val: number): void {
+        this.addAtIndex(this.cnt, val);
+    }
+
+    addAtIndex(index: number, val: number): void {
+        if (index > this.cnt) {
+            return;
+        }
+        if (index <= 0) {
+            this.addAtHead(val);
+            return;
+        }
+        let i = this.head;
+        while (--index) {
+            i = this.ne[i];
+        }
+        this.e[this.idx] = val;
+        this.ne[this.idx] = this.ne[i];
+        this.ne[i] = this.idx++;
+        this.cnt++;
+    }
+
+    deleteAtIndex(index: number): void {
+        if (index < 0 || index >= this.cnt) {
+            return;
+        }
+        this.cnt--;
+        if (index == 0) {
+            this.head = this.ne[this.head];
+            return;
+        }
+        let i = this.head;
+        while (--index) {
+            i = this.ne[i];
+        }
+        this.ne[i] = this.ne[this.ne[i]];
+    }
+}
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * var obj = new MyLinkedList()
+ * var param_1 = obj.get(index)
+ * obj.addAtHead(val)
+ * obj.addAtTail(val)
+ * obj.addAtIndex(index,val)
+ * obj.deleteAtIndex(index)
+ */
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 二分查找**
+### 方法一：贪心 + 二分查找
 
 将任务按照完成时间从小到大排序，将工人按照能力从小到大排序。
 
@@ -92,10 +90,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为任务数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -133,10 +127,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -193,8 +183,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -238,8 +226,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxTaskAssign(tasks []int, workers []int, pills int, strength int) int {
 	sort.Ints(tasks)
@@ -281,10 +267,6 @@ func maxTaskAssign(tasks []int, workers []int, pills int, strength int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

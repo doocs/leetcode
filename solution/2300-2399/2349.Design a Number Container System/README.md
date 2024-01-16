@@ -55,15 +55,9 @@ nc.find(10); // 数字 10 所在下标为 2 ，3 和 5 。最小下标为 2 ，�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -91,10 +85,6 @@ class NumberContainers:
 # obj.change(index,number)
 # param_2 = obj.find(number)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class NumberContainers {
@@ -129,8 +119,6 @@ class NumberContainers {
  */
 ```
 
-### **C++**
-
 ```cpp
 class NumberContainers {
 public:
@@ -163,8 +151,6 @@ public:
  * int param_2 = obj->find(number);
  */
 ```
-
-### **Go**
 
 ```go
 type NumberContainers struct {
@@ -203,16 +189,6 @@ func (this *NumberContainers) Find(number int) int {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

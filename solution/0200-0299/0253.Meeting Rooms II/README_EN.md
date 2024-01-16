@@ -24,9 +24,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -37,8 +37,6 @@ class Solution:
             delta[end] -= 1
         return max(accumulate(delta))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -59,8 +57,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -79,7 +75,20 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minMeetingRooms(intervals [][]int) int {
+	n := 1000010
+	delta := make([]int, n)
+	for _, e := range intervals {
+		delta[e[0]]++
+		delta[e[1]]--
+	}
+	for i := 1; i < n; i++ {
+		delta[i] += delta[i-1]
+	}
+	return slices.Max(delta)
+}
+```
 
 ```rust
 use std::{ collections::BinaryHeap, cmp::Reverse };
@@ -119,27 +128,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minMeetingRooms(intervals [][]int) int {
-	n := 1000010
-	delta := make([]int, n)
-	for _, e := range intervals {
-		delta[e[0]]++
-		delta[e[1]]--
-	}
-	for i := 1; i < n; i++ {
-		delta[i] += delta[i-1]
-	}
-	return slices.Max(delta)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

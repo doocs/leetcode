@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划 + 子集枚举**
+### 方法一：状态压缩动态规划 + 子集枚举
 
 我们先遍历数组 `transactions`，统计每个人的收支情况，然后将所有收支不为零的人的收支情况存入数组 $nums$ 中。如果我们可以找到一个子集，子集中共有 $k$ 个人，且这 $k$ 个人的收支情况之和为零，那么我们最多通过 $k-1$ 次交易，就能够使得这 $k$ 个人的收支情况全部清零。这样，我们就能将原问题转化成一个子集枚举的问题。
 
@@ -75,10 +73,6 @@ $$
 时间复杂度 $O(3^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是人的数量，本题中 $n \leq 12$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,10 +98,6 @@ class Solution:
                     j = (j - 1) & i
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,8 +135,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -186,8 +174,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minTransfers(transactions [][]int) int {
 	g := [12]int{}
@@ -221,8 +207,6 @@ func minTransfers(transactions [][]int) int {
 	return f[1<<m-1]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minTransfers(transactions: number[][]): number {
@@ -262,10 +246,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

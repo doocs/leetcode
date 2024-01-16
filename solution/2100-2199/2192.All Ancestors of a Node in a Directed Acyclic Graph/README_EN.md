@@ -57,11 +57,9 @@ The above diagram represents the input graph.
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
             bfs(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +161,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getAncestors(n int, edges [][]int) [][]int {
 	g := make([][]int, n)
@@ -199,8 +191,6 @@ func getAncestors(n int, edges [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getAncestors(n: number, edges: number[][]): number[][] {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -230,10 +220,6 @@ function getAncestors(n: number, edges: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

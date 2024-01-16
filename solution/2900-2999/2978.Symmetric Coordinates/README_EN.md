@@ -57,13 +57,11 @@ The output table is sorted by X and Y in ascending order.
 
 ## Solutions
 
-**Solution 1: Window Function + Self Join**
+### Solution 1: Window Function + Self Join
 
 We can use the window function `ROW_NUMBER()` to add an auto-incrementing sequence number to each row. Then, we perform a self join on the two tables, with the join conditions being `p1.x = p2.y AND p1.y = p2.x AND p1.x <= p1.y AND p1.id != p2.id`. Finally, we sort and remove duplicates.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -85,3 +83,5 @@ ORDER BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

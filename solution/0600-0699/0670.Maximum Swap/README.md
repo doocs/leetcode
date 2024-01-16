@@ -32,9 +32,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 先将数字转为字符串 `s`，然后从右往左遍历字符串 `s`，用数组或哈希表 `d` 记录每个数字右侧的最大数字的位置（可以是字符本身的位置）。
 
@@ -45,10 +43,6 @@
 时间复杂度 $O(\log C)$，空间复杂度 $O(\log C)$。其中 $C$ 是数字 `num` 的值域。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -65,10 +59,6 @@ class Solution:
                 break
         return int(''.join(s))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSwap(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -150,8 +136,6 @@ func maximumSwap(num int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumSwap(num: number): number {
@@ -181,8 +165,6 @@ function maximumSwap(num: number): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -222,10 +204,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

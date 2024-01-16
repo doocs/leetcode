@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们用一个变量 $carry$ 记录当前的进位，用两个指针 $i$ 和 $j$ 分别指向 $a$ 和 $b$ 的末尾，从末尾到开头逐位相加即可。
 
@@ -48,32 +46,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
         return bin(int(a, 2) + int(b, 2))[2:]
 ```
-
-```python
-class Solution:
-    def addBinary(self, a: str, b: str) -> str:
-        ans = []
-        i, j, carry = len(a) - 1, len(b) - 1, 0
-        while i >= 0 or j >= 0 or carry:
-            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
-            carry, v = divmod(carry, 2)
-            ans.append(str(v))
-            i, j = i - 1, j - 1
-        return ''.join(ans[::-1])
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +66,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +83,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func addBinary(a string, b string) string {
@@ -132,30 +105,11 @@ func addBinary(a string, b string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function addBinary(a: string, b: string): string {
     return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
 }
 ```
-
-```ts
-function addBinary(a: string, b: string): string {
-    let i = a.length - 1;
-    let j = b.length - 1;
-    let ans: number[] = [];
-    for (let carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
-        carry += (i >= 0 ? a[i] : '0').charCodeAt(0) - '0'.charCodeAt(0);
-        carry += (j >= 0 ? b[j] : '0').charCodeAt(0) - '0'.charCodeAt(0);
-        ans.push(carry % 2);
-        carry >>= 1;
-    }
-    return ans.reverse().join('');
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -183,10 +137,59 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public string AddBinary(string a, string b) {
+        int i = a.Length - 1;
+        int j = b.Length - 1;
+        var sb = new StringBuilder();
+        for (int carry = 0; i >= 0 || j >= 0 || carry > 0; --i, --j) {
+            carry += i >= 0 ? a[i] - '0' : 0;
+            carry += j >= 0 ? b[j] - '0' : 0;
+            sb.Append(carry % 2);
+            carry /= 2;
+        }
+        var ans = sb.ToString().ToCharArray();
+        Array.Reverse(ans);
+        return new string(ans);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        ans = []
+        i, j, carry = len(a) - 1, len(b) - 1, 0
+        while i >= 0 or j >= 0 or carry:
+            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
+            carry, v = divmod(carry, 2)
+            ans.append(str(v))
+            i, j = i - 1, j - 1
+        return ''.join(ans[::-1])
+```
+
+```ts
+function addBinary(a: string, b: string): string {
+    let i = a.length - 1;
+    let j = b.length - 1;
+    let ans: number[] = [];
+    for (let carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
+        carry += (i >= 0 ? a[i] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        carry += (j >= 0 ? b[j] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        ans.push(carry % 2);
+        carry >>= 1;
+    }
+    return ans.reverse().join('');
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

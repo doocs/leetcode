@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示前 $i$ 个数中选取若干个数，使得这若干个数的和模 $3$ 余 $j$ 的最大值。初始时 $f[0][0]=0$，其余为 $-\infty$。
 
@@ -69,10 +67,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxSumDivThree(self, nums: List[int]) -> int:
@@ -84,22 +78,6 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[i - 1][(j - x) % 3] + x)
         return f[n][0]
 ```
-
-```python
-class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
-        f = [0, -inf, -inf]
-        for x in nums:
-            g = f[:]
-            for j in range(3):
-                g[j] = max(f[j], f[(j - x) % 3] + x)
-            f = g
-        return f[0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,25 +96,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int maxSumDivThree(int[] nums) {
-        final int inf = 1 << 30;
-        int[] f = new int[] {0, -inf, -inf};
-        for (int x : nums) {
-            int[] g = f.clone();
-            for (int j = 0; j < 3; ++j) {
-                g[j] = Math.max(f[j], f[(j - x % 3 + 3) % 3] + x);
-            }
-            f = g;
-        }
-        return f[0];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,26 +117,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maxSumDivThree(vector<int>& nums) {
-        const int inf = 1 << 30;
-        vector<int> f = {0, -inf, -inf};
-        for (int& x : nums) {
-            vector<int> g = f;
-            for (int j = 0; j < 3; ++j) {
-                g[j] = max(f[j], f[(j - x % 3 + 3) % 3] + x);
-            }
-            f = move(g);
-        }
-        return f[0];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxSumDivThree(nums []int) int {
 	n := len(nums)
@@ -193,23 +132,6 @@ func maxSumDivThree(nums []int) int {
 	return f[n][0]
 }
 ```
-
-```go
-func maxSumDivThree(nums []int) int {
-	const inf = 1 << 30
-	f := [3]int{0, -inf, -inf}
-	for _, x := range nums {
-		g := [3]int{}
-		for j := range f {
-			g[j] = max(f[j], f[(j-x%3+3)%3]+x)
-		}
-		f = g
-	}
-	return f[0]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function maxSumDivThree(nums: number[]): number {
@@ -229,6 +151,74 @@ function maxSumDivThree(nums: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxSumDivThree(self, nums: List[int]) -> int:
+        f = [0, -inf, -inf]
+        for x in nums:
+            g = f[:]
+            for j in range(3):
+                g[j] = max(f[j], f[(j - x) % 3] + x)
+            f = g
+        return f[0]
+```
+
+```java
+class Solution {
+    public int maxSumDivThree(int[] nums) {
+        final int inf = 1 << 30;
+        int[] f = new int[] {0, -inf, -inf};
+        for (int x : nums) {
+            int[] g = f.clone();
+            for (int j = 0; j < 3; ++j) {
+                g[j] = Math.max(f[j], f[(j - x % 3 + 3) % 3] + x);
+            }
+            f = g;
+        }
+        return f[0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxSumDivThree(vector<int>& nums) {
+        const int inf = 1 << 30;
+        vector<int> f = {0, -inf, -inf};
+        for (int& x : nums) {
+            vector<int> g = f;
+            for (int j = 0; j < 3; ++j) {
+                g[j] = max(f[j], f[(j - x % 3 + 3) % 3] + x);
+            }
+            f = move(g);
+        }
+        return f[0];
+    }
+};
+```
+
+```go
+func maxSumDivThree(nums []int) int {
+	const inf = 1 << 30
+	f := [3]int{0, -inf, -inf}
+	for _, x := range nums {
+		g := [3]int{}
+		for j := range f {
+			g[j] = max(f[j], f[(j-x%3+3)%3]+x)
+		}
+		f = g
+	}
+	return f[0]
+}
+```
+
 ```ts
 function maxSumDivThree(nums: number[]): number {
     const inf = 1 << 30;
@@ -243,10 +233,6 @@ function maxSumDivThree(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

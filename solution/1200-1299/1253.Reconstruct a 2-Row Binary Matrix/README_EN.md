@@ -55,7 +55,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 First, we create an answer array $ans$, where $ans[0]$ and $ans[1]$ represent the first and second rows of the matrix, respectively.
 
@@ -71,8 +71,6 @@ At the end of the traversal, if both $upper$ and $lower$ are $0$, then we return
 The time complexity is $O(n)$, where $n$ is the length of the array $colsum$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -96,8 +94,6 @@ class Solution:
                 return []
         return ans if lower == upper == 0 else []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
@@ -198,8 +190,6 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reconstructMatrix(upper: number, lower: number, colsum: number[]): number[][] {
     const n = colsum.length;
@@ -228,10 +218,6 @@ function reconstructMatrix(upper: number, lower: number, colsum: number[]): numb
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

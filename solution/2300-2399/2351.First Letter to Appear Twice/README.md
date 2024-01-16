@@ -49,25 +49,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 遍历字符串 $s$，用数组或哈希表 `cnt` 记录每个字母出现的次数，当某个字母出现两次时，返回该字母。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
 
-**方法二：位运算**
-
-我们也可以用一个整数 `mask` 记录每个字母是否出现过，其中 `mask` 的第 $i$ 位表示第 $i$ 个字母是否出现过。当某个字母出现两次时，返回该字母。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,21 +66,6 @@ class Solution:
             if cnt[c] == 2:
                 return c
 ```
-
-```python
-class Solution:
-    def repeatedCharacter(self, s: str) -> str:
-        mask = 0
-        for c in s:
-            i = ord(c) - ord('a')
-            if mask >> i & 1:
-                return c
-            mask |= 1 << i
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,23 +81,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public char repeatedCharacter(String s) {
-        int mask = 0;
-        for (int i = 0;; ++i) {
-            char c = s.charAt(i);
-            if ((mask >> (c - 'a') & 1) == 1) {
-                return c;
-            }
-            mask |= 1 << (c - 'a');
-        }
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,23 +95,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    char repeatedCharacter(string s) {
-        int mask = 0;
-        for (int i = 0;; ++i) {
-            if (mask >> (s[i] - 'a') & 1) {
-                return s[i];
-            }
-            mask |= 1 << (s[i] - 'a');
-        }
-    }
-};
-```
-
-### **Go**
-
 ```go
 func repeatedCharacter(s string) byte {
 	cnt := [26]int{}
@@ -167,20 +106,6 @@ func repeatedCharacter(s string) byte {
 	}
 }
 ```
-
-```go
-func repeatedCharacter(s string) byte {
-	mask := 0
-	for i := 0; ; i++ {
-		if mask>>(s[i]-'a')&1 == 1 {
-			return s[i]
-		}
-		mask |= 1 << (s[i] - 'a')
-	}
-}
-```
-
-### **TypeScript**
 
 ```ts
 function repeatedCharacter(s: string): string {
@@ -196,22 +121,6 @@ function repeatedCharacter(s: string): string {
 }
 ```
 
-```ts
-function repeatedCharacter(s: string): string {
-    let mask = 0;
-    for (const c of s) {
-        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
-        if (mask & (1 << i)) {
-            return c;
-        }
-        mask |= 1 << i;
-    }
-    return ' ';
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn repeated_character(s: String) -> char {
@@ -226,51 +135,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn repeated_character(s: String) -> char {
-        let mut mask = 0;
-        for &c in s.as_bytes() {
-            if (mask & (1 << ((c - b'a') as i32))) != 0 {
-                return c as char;
-            }
-            mask |= 1 << ((c - b'a') as i32);
-        }
-        ' '
-    }
-}
-```
-
-### **C**
-
-```c
-char repeatedCharacter(char* s) {
-    int vis[26] = {0};
-    for (int i = 0; s[i]; i++) {
-        if (vis[s[i] - 'a']) {
-            return s[i];
-        }
-        vis[s[i] - 'a']++;
-    }
-    return ' ';
-}
-```
-
-```c
-char repeatedCharacter(char* s) {
-    int mask = 0;
-    for (int i = 0; s[i]; i++) {
-        if (mask & (1 << s[i] - 'a')) {
-            return s[i];
-        }
-        mask |= 1 << s[i] - 'a';
-    }
-    return ' ';
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -289,10 +153,124 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+char repeatedCharacter(char* s) {
+    int vis[26] = {0};
+    for (int i = 0; s[i]; i++) {
+        if (vis[s[i] - 'a']) {
+            return s[i];
+        }
+        vis[s[i] - 'a']++;
+    }
+    return ' ';
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：位运算
+
+我们也可以用一个整数 `mask` 记录每个字母是否出现过，其中 `mask` 的第 $i$ 位表示第 $i$ 个字母是否出现过。当某个字母出现两次时，返回该字母。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+        mask = 0
+        for c in s:
+            i = ord(c) - ord('a')
+            if mask >> i & 1:
+                return c
+            mask |= 1 << i
+```
+
+```java
+class Solution {
+    public char repeatedCharacter(String s) {
+        int mask = 0;
+        for (int i = 0;; ++i) {
+            char c = s.charAt(i);
+            if ((mask >> (c - 'a') & 1) == 1) {
+                return c;
+            }
+            mask |= 1 << (c - 'a');
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+        int mask = 0;
+        for (int i = 0;; ++i) {
+            if (mask >> (s[i] - 'a') & 1) {
+                return s[i];
+            }
+            mask |= 1 << (s[i] - 'a');
+        }
+    }
+};
+```
+
+```go
+func repeatedCharacter(s string) byte {
+	mask := 0
+	for i := 0; ; i++ {
+		if mask>>(s[i]-'a')&1 == 1 {
+			return s[i]
+		}
+		mask |= 1 << (s[i] - 'a')
+	}
+}
+```
+
+```ts
+function repeatedCharacter(s: string): string {
+    let mask = 0;
+    for (const c of s) {
+        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
+        if (mask & (1 << i)) {
+            return c;
+        }
+        mask |= 1 << i;
+    }
+    return ' ';
+}
+```
+
+```rust
+impl Solution {
+    pub fn repeated_character(s: String) -> char {
+        let mut mask = 0;
+        for &c in s.as_bytes() {
+            if (mask & (1 << ((c - b'a') as i32))) != 0 {
+                return c as char;
+            }
+            mask |= 1 << ((c - b'a') as i32);
+        }
+        ' '
+    }
+}
+```
+
+```c
+char repeatedCharacter(char* s) {
+    int mask = 0;
+    for (int i = 0; s[i]; i++) {
+        if (mask & (1 << s[i] - 'a')) {
+            return s[i];
+        }
+        mask |= 1 << s[i] - 'a';
+    }
+    return ' ';
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

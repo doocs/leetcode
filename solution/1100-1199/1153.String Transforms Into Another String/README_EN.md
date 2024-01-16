@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 First, we can check if `str1` and `str2` are equal. If they are, return `true` directly.
 
@@ -50,8 +50,6 @@ After the traversal, return `true`.
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string `str1`, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canConvert(str1 string, str2 string) bool {
 	if str1 == str2 {
@@ -164,8 +156,6 @@ func canConvert(str1 string, str2 string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canConvert(str1: string, str2: string): boolean {
     if (str1 === str2) {
@@ -186,10 +176,6 @@ function canConvert(str1: string, str2: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -69,15 +69,9 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-“前缀和 + 二分查找”。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,10 +98,6 @@ class Solution:
 # obj = Solution(w)
 # param_1 = obj.pickIndex()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,8 +134,6 @@ class Solution {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +166,6 @@ public:
  * int param_1 = obj->pickIndex();
  */
 ```
-
-### **Go**
 
 ```go
 type Solution struct {
@@ -217,10 +203,6 @@ func (this *Solution) PickIndex() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

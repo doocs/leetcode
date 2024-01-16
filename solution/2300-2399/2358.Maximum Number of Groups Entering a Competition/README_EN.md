@@ -44,9 +44,9 @@ It can be shown that it is not possible to form more than 3 groups.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
         n = len(grades)
         return bisect_right(range(n + 1), n * 2, key=lambda x: x * x + x) - 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumGroups(grades []int) int {
 	n := len(grades)
@@ -107,8 +101,6 @@ func maximumGroups(grades []int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumGroups(grades: number[]): number {
@@ -127,10 +119,6 @@ function maximumGroups(grades: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

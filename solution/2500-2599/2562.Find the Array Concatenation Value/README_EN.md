@@ -78,15 +78,13 @@ Since the concatenation value is 673 so the answer is 673.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 Starting from both ends of the array, we take out one element at a time, concatenate it with another element, and then add the concatenated result to the answer. We repeat this process until the array is empty.
 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +98,6 @@ class Solution:
             ans += nums[i]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findTheArrayConcVal(nums []int) (ans int64) {
 	i, j := 0, len(nums)-1
@@ -153,8 +145,6 @@ func findTheArrayConcVal(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findTheArrayConcVal(nums: number[]): number {
@@ -173,8 +163,6 @@ function findTheArrayConcVal(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -195,29 +183,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn find_the_array_conc_val(nums: Vec<i32>) -> i64 {
-        let mut ans = 0;
-        let mut n = nums.len();
-
-        for i in 0..n / 2 {
-            ans += format!("{}{}", nums[i], nums[n - i - 1])
-                .parse::<i64>()
-                .unwrap();
-        }
-
-        if n % 2 != 0 {
-            ans += nums[n / 2] as i64;
-        }
-
-        ans
-    }
-}
-```
-
-### **C**
 
 ```c
 int getLen(int num) {
@@ -245,10 +210,33 @@ long long findTheArrayConcVal(int* nums, int numsSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn find_the_array_conc_val(nums: Vec<i32>) -> i64 {
+        let mut ans = 0;
+        let mut n = nums.len();
+
+        for i in 0..n / 2 {
+            ans += format!("{}{}", nums[i], nums[n - i - 1])
+                .parse::<i64>()
+                .unwrap();
+        }
+
+        if n % 2 != 0 {
+            ans += nums[n / 2] as i64;
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

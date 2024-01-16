@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接遍历每个下标 $i$，判断其二进制表示中 $1$ 的个数是否等于 $k$，如果等于则将其对应的元素累加到答案 $ans$ 中。
 
@@ -68,19 +66,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
         return sum(x for i, x in enumerate(nums) if i.bit_count() == k)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	for i, x := range nums {
@@ -125,8 +111,6 @@ func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumIndicesWithKSetBits(nums: number[], k: number): number {
@@ -149,10 +133,6 @@ function bitCount(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

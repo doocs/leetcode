@@ -59,9 +59,9 @@ Thus, answer[0] = [1,2,5,6] and answer[1] = [].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
         ans[1].sort()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findWinners(matches [][]int) [][]int {
@@ -155,8 +149,6 @@ func findWinners(matches [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findWinners(matches: number[][]): number[][] {
     const cnt: Map<number, number> = new Map();
@@ -175,8 +167,6 @@ function findWinners(matches: number[][]): number[][] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -200,6 +190,12 @@ var findWinners = function (matches) {
     return ans;
 };
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```js
 /**
@@ -231,16 +227,6 @@ var findWinners = function (matches) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

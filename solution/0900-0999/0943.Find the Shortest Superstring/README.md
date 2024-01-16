@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 动态规划**
+### 方法一：状态压缩 + 动态规划
 
 由于题目中字符串数组 `words` 的长度不超过 12，因此可以使用状态压缩的方法来表示字符串数组中的每个字符串是否被选中。
 
@@ -57,10 +55,6 @@ $$
 时间复杂度 $O(2^n \times n^2)$，空间复杂度 $O(2^n \times n)$。其中 $n$ 为字符串数组 `words` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +95,6 @@ class Solution:
         ans = [words[arr[0]]] + [words[j][g[i][j] :] for i, j in pairwise(arr)]
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -175,8 +165,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -244,8 +232,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestSuperstring(words []string) string {
@@ -316,10 +302,6 @@ func shortestSuperstring(words []string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

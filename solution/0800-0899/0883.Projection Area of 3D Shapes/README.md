@@ -66,21 +66,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-根据题意：
-
--   xy 表示 grid 中大于 0 的元素个数
--   yz 表示 grid 每一行的最大值之和
--   zx 表示 grid 每一列的最大值之和
-
-遍历 grid，更新 xy, yz, zx。遍历结束返回 `xy + yz + zx`。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +78,6 @@ class Solution:
         zx = sum(max(col) for col in zip(*grid))
         return xy + yz + zx
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,7 +101,44 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int projectionArea(vector<vector<int>>& grid) {
+        int xy = 0, yz = 0, zx = 0;
+        for (int i = 0, n = grid.size(); i < n; ++i) {
+            int maxYz = 0, maxZx = 0;
+            for (int j = 0; j < n; ++j) {
+                xy += grid[i][j] > 0;
+                maxYz = max(maxYz, grid[i][j]);
+                maxZx = max(maxZx, grid[j][i]);
+            }
+            yz += maxYz;
+            zx += maxZx;
+        }
+        return xy + yz + zx;
+    }
+};
+```
+
+```go
+func projectionArea(grid [][]int) int {
+	xy, yz, zx := 0, 0, 0
+	for i, row := range grid {
+		maxYz, maxZx := 0, 0
+		for j, v := range row {
+			if v > 0 {
+				xy++
+			}
+			maxYz = max(maxYz, v)
+			maxZx = max(maxZx, grid[j][i])
+		}
+		yz += maxYz
+		zx += maxZx
+	}
+	return xy + yz + zx
+}
+```
 
 ```ts
 function projectionArea(grid: number[][]): number {
@@ -135,8 +156,6 @@ function projectionArea(grid: number[][]): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -161,53 +180,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int projectionArea(vector<vector<int>>& grid) {
-        int xy = 0, yz = 0, zx = 0;
-        for (int i = 0, n = grid.size(); i < n; ++i) {
-            int maxYz = 0, maxZx = 0;
-            for (int j = 0; j < n; ++j) {
-                xy += grid[i][j] > 0;
-                maxYz = max(maxYz, grid[i][j]);
-                maxZx = max(maxZx, grid[j][i]);
-            }
-            yz += maxYz;
-            zx += maxZx;
-        }
-        return xy + yz + zx;
-    }
-};
-```
-
-### **Go**
-
-```go
-func projectionArea(grid [][]int) int {
-	xy, yz, zx := 0, 0, 0
-	for i, row := range grid {
-		maxYz, maxZx := 0, 0
-		for j, v := range row {
-			if v > 0 {
-				xy++
-			}
-			maxYz = max(maxYz, v)
-			maxZx = max(maxZx, grid[j][i])
-		}
-		yz += maxYz
-		zx += maxZx
-	}
-	return xy + yz + zx
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

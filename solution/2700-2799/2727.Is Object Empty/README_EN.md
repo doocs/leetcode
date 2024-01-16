@@ -51,9 +51,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function isEmpty(obj: Record<string, any> | any[]): boolean {
@@ -63,14 +63,6 @@ function isEmpty(obj: Record<string, any> | any[]): boolean {
     return true;
 }
 ```
-
-```ts
-function isEmpty(obj: Record<string, any> | any[]): boolean {
-    return Object.keys(obj).length === 0;
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -86,3 +78,17 @@ var isEmpty = function (obj) {
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function isEmpty(obj: Record<string, any> | any[]): boolean {
+    return Object.keys(obj).length === 0;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

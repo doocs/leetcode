@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先同时遍历数组 `nums1` 和 `nums2`，统计相同位置上的值相同的个数 `same`，这些位置上的值必须交换，因此，将这些位置下标累加到答案中。另外，用数组或哈希表 `cnt` 统计这些相同值的出现次数。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums1` 或 `nums2` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
                 m -= 1
         return -1 if m else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -182,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
 	same, n := 0, len(nums1)
@@ -218,10 +204,6 @@ func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

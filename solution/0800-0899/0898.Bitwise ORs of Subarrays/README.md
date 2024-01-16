@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 题目求的是子数组按位或操作的结果的数量，如果我们枚举子数组的结束位置 $i$，那么以 $i-1$ 结尾的子数组按位或操作的结果的数量最多不超过 $32$ 个。这是因为，按位或是一个单调递增的操作。
 
@@ -70,10 +68,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
@@ -84,10 +78,6 @@ class Solution:
             ans |= s
         return len(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subarrayBitwiseORs(arr []int) int {
 	ans := map[int]bool{}
@@ -149,8 +135,6 @@ func subarrayBitwiseORs(arr []int) int {
 	return len(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function subarrayBitwiseORs(arr: number[]): number {
@@ -172,10 +156,6 @@ function subarrayBitwiseORs(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 定义 $f[i][j]$ 表示前 $i$ 个字符分割成 $j$ 段的方案数。初始化 $f[0][0] = 1$，其余 $f[i][j] = 0$。
 
@@ -89,10 +87,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def beautifulPartitions(self, s: str, k: int, minLength: int) -> int:
@@ -112,10 +106,6 @@ class Solution:
                 g[i][j] = (g[i - 1][j] + f[i][j]) % mod
         return f[n][k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +167,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func beautifulPartitions(s string, k int, minLength int) int {
@@ -213,16 +199,6 @@ func beautifulPartitions(s string, k int, minLength int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

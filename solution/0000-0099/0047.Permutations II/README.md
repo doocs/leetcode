@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 回溯**
+### 方法一：排序 + 回溯
 
 我们可以先对数组进行排序，这样就可以将重复的数字放在一起，方便我们进行去重。
 
@@ -58,10 +56,6 @@
 -   [46. 全排列](/solution/0000-0099/0046.Permutations/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func permuteUnique(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -185,8 +171,6 @@ func permuteUnique(nums []int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function permuteUnique(nums: number[]): number[][] {
@@ -215,7 +199,34 @@ function permuteUnique(nums: number[]): number[][] {
 }
 ```
 
-### **C#**
+```rust
+use std::collections::HashSet;
+impl Solution {
+    fn dfs(i: usize, nums: &mut Vec<i32>, res: &mut Vec<Vec<i32>>) {
+        let n = nums.len();
+        if i == n {
+            res.push(nums.clone());
+            return;
+        }
+        let mut set = HashSet::new();
+        for j in i..n {
+            if set.contains(&nums[j]) {
+                continue;
+            }
+            set.insert(nums[j]);
+            nums.swap(i, j);
+            Self::dfs(i + 1, nums, res);
+            nums.swap(i, j);
+        }
+    }
+
+    pub fn permute_unique(mut nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut res = vec![];
+        Self::dfs(0, &mut nums, &mut res);
+        res
+    }
+}
+```
 
 ```cs
 public class Solution {
@@ -252,41 +263,6 @@ public class Solution {
 }
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    fn dfs(i: usize, nums: &mut Vec<i32>, res: &mut Vec<Vec<i32>>) {
-        let n = nums.len();
-        if i == n {
-            res.push(nums.clone());
-            return;
-        }
-        let mut set = HashSet::new();
-        for j in i..n {
-            if set.contains(&nums[j]) {
-                continue;
-            }
-            set.insert(nums[j]);
-            nums.swap(i, j);
-            Self::dfs(i + 1, nums, res);
-            nums.swap(i, j);
-        }
-    }
-
-    pub fn permute_unique(mut nums: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        Self::dfs(0, &mut nums, &mut res);
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

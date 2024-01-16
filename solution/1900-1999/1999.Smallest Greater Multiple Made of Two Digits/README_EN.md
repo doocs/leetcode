@@ -53,9 +53,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
             if digit1 != digit2:
                 q.append(x * 10 + digit2)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findInteger(k int, digit1 int, digit2 int) int {
 	if digit1 == 0 && digit2 == 0 {
@@ -165,10 +159,6 @@ func findInteger(k int, digit1 int, digit2 int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

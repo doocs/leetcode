@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：翻转链表 + 模拟**
+### 方法一：翻转链表 + 模拟
 
 我们先将链表翻转，然后模拟乘法运算，最后再将链表翻转回来。
 
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。忽略答案链表的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -84,10 +78,6 @@ class Solution:
             cur.next = ListNode(carry)
         return reverse(dummy.next)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -132,8 +122,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -180,8 +168,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -220,8 +206,6 @@ func reverse(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -268,10 +252,6 @@ function reverse(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

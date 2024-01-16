@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 遍历括号字符串 $s$，遇到左括号时，压入当前的左括号；遇到右括号时，弹出栈顶元素（若栈为空，直接返回 `false`），判断是否匹配，若不匹配，直接返回 `false`。
 
@@ -66,10 +64,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
@@ -82,10 +76,6 @@ class Solution:
                 return False
         return not stk
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isValid(s string) bool {
 	stk := []rune{}
@@ -153,7 +139,47 @@ func match(l, r rune) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+const map = new Map([
+    ['(', ')'],
+    ['[', ']'],
+    ['{', '}'],
+]);
+
+function isValid(s: string): boolean {
+    const stack = [];
+    for (const c of s) {
+        if (map.has(c)) {
+            stack.push(map.get(c));
+        } else if (stack.pop() !== c) {
+            return false;
+        }
+    }
+    return stack.length === 0;
+}
+```
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn is_valid(s: String) -> bool {
+        let mut map = HashMap::new();
+        map.insert('(', ')');
+        map.insert('[', ']');
+        map.insert('{', '}');
+        let mut stack = vec![];
+        for c in s.chars() {
+            if map.contains_key(&c) {
+                stack.push(map[&c]);
+            } else if stack.pop().unwrap_or(' ') != c {
+                return false;
+            }
+        }
+        stack.len() == 0
+    }
+}
+```
 
 ```js
 /**
@@ -179,7 +205,25 @@ function match(l, r) {
 }
 ```
 
-### **Ruby**
+```cs
+public class Solution {
+    public bool IsValid(string s) {
+        Stack<char> stk = new Stack<char>();
+        foreach (var c in s.ToCharArray()) {
+            if (c == '(') {
+                stk.Push(')');
+            } else if (c == '[') {
+                stk.Push(']');
+            } else if (c == '{') {
+                stk.Push('}');
+            } else if (stk.Count == 0 || stk.Pop() != c) {
+                return false;
+            }
+        }
+        return stk.Count == 0;
+    }
+}
+```
 
 ```rb
 # @param {String} s
@@ -206,78 +250,6 @@ def is_valid(s)
 end
 ```
 
-### **TypeScript**
-
-```ts
-const map = new Map([
-    ['(', ')'],
-    ['[', ']'],
-    ['{', '}'],
-]);
-
-function isValid(s: string): boolean {
-    const stack = [];
-    for (const c of s) {
-        if (map.has(c)) {
-            stack.push(map.get(c));
-        } else if (stack.pop() !== c) {
-            return false;
-        }
-    }
-    return stack.length === 0;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashMap;
-
-impl Solution {
-    pub fn is_valid(s: String) -> bool {
-        let mut map = HashMap::new();
-        map.insert('(', ')');
-        map.insert('[', ']');
-        map.insert('{', '}');
-        let mut stack = vec![];
-        for c in s.chars() {
-            if map.contains_key(&c) {
-                stack.push(map[&c]);
-            } else if stack.pop().unwrap_or(' ') != c {
-                return false;
-            }
-        }
-        stack.len() == 0
-    }
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool IsValid(string s) {
-        Stack<char> stk = new Stack<char>();
-        foreach (var c in s.ToCharArray()) {
-            if (c == '(') {
-                stk.Push(')');
-            } else if (c == '[') {
-                stk.Push(']');
-            } else if (c == '{') {
-                stk.Push('}');
-            } else if (stk.Count == 0 || stk.Pop() != c) {
-                return false;
-            }
-        }
-        return stk.Count == 0;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

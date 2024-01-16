@@ -53,9 +53,9 @@ The total cost is 3 + 2 + 6 + 7 = 18</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
             ans += sum(colCosts[y:j])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCost(startPos []int, homePos []int, rowCosts []int, colCosts []int) (ans int) {
@@ -162,10 +156,6 @@ func sum(nums []int, i, j int) (s int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

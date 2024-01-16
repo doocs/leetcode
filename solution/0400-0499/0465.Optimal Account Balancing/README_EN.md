@@ -46,9 +46,9 @@ Therefore, person #1 only need to give person #0 4, and all debt is settled.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                     j = (j - 1) & i
         return f[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -154,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minTransfers(transactions [][]int) int {
 	g := [12]int{}
@@ -189,8 +183,6 @@ func minTransfers(transactions [][]int) int {
 	return f[1<<m-1]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minTransfers(transactions: number[][]): number {
@@ -230,10 +222,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

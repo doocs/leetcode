@@ -55,13 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +71,6 @@ class Solution:
                     return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areSimilar(mat [][]int, k int) bool {
 	n := len(mat[0])
@@ -142,8 +130,6 @@ func areSimilar(mat [][]int, k int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function areSimilar(mat: number[][], k: number): boolean {
@@ -164,10 +150,6 @@ function areSimilar(mat: number[][], k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

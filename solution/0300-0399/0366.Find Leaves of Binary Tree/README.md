@@ -55,15 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-添加前置节点 prev，初始时 `prev.left = root`。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -94,10 +88,6 @@ class Solution:
             res.append(t)
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -145,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -186,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -230,10 +216,6 @@ func dfs(root, prev *TreeNode, t *[]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

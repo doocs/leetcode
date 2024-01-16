@@ -59,9 +59,9 @@ In total, you spent 17 and covered all the days of your travel.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,8 +78,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mincostTickets(days []int, costs []int) int {
@@ -206,8 +200,6 @@ func lowerBound(arr []int, x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mincostTickets(days: number[], costs: number[]): number {
     const n = days.length,
@@ -224,10 +216,6 @@ function mincostTickets(days: number[], costs: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

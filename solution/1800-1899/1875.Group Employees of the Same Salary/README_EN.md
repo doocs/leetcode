@@ -72,9 +72,9 @@ Juan&#39;s salary of 6100 is not included in the ranking because they are not on
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -97,3 +97,5 @@ ORDER BY 4, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

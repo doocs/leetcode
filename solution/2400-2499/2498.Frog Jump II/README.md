@@ -60,19 +60,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 要使得跳跃过程中的每一步的最大跳跃长度最小，我们应该将跳跃过程切分成尽可能多的连续的步骤。通过观察，间隔跳跃可以获取最优解。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `stones` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             ans = max(ans, stones[i] - stones[i - 2])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxJump(stones []int) int {
 	ans := stones[1] - stones[0]
@@ -124,10 +110,6 @@ func maxJump(stones []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

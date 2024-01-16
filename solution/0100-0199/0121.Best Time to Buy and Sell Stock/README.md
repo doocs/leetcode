@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 维护前缀最小值**
+### 方法一：枚举 + 维护前缀最小值
 
 我们可以枚举数组 $nums$ 每个元素作为卖出价格，那么我们需要在前面找到一个最小值作为买入价格，这样才能使得利润最大化。
 
@@ -56,10 +54,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -69,10 +63,6 @@ class Solution:
             mi = min(mi, v)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxProfit(prices []int) (ans int) {
 	mi := prices[0]
@@ -116,7 +102,31 @@ func maxProfit(prices []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function maxProfit(prices: number[]): number {
+    let ans = 0;
+    let mi = prices[0];
+    for (const v of prices) {
+        ans = Math.max(ans, v - mi);
+        mi = Math.min(mi, v);
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut res = 0;
+        let mut min = i32::MAX;
+        for price in prices {
+            res = res.max(price - min);
+            min = min.min(price);
+        }
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -134,8 +144,6 @@ var maxProfit = function (prices) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -148,38 +156,6 @@ public class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function maxProfit(prices: number[]): number {
-    let ans = 0;
-    let mi = prices[0];
-    for (const v of prices) {
-        ans = Math.max(ans, v - mi);
-        mi = Math.min(mi, v);
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn max_profit(prices: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut min = i32::MAX;
-        for price in prices {
-            res = res.max(price - min);
-            min = min.min(price);
-        }
-        res
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -200,10 +176,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 我们不妨记 $queries[i] = [l_i, r_i]$，其中 $l_i \le r_i$。如果 $l_i = r_i$ 或者 $heights[l_i] \lt heights[r_i]$，那么答案就是 $r_i$。否则，我们需要在所有满足 $j \gt r_i$，且 $heights[j] \gt heights[l_i]$ 的 $j$ 中找到最小的 $j$。
 
@@ -75,10 +73,6 @@
 -   [2736. 最大和查询](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -125,10 +119,6 @@ class Solution:
                 ans[i] = tree.query(k)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -196,8 +186,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -268,8 +256,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const inf int = 1 << 30
 
@@ -339,8 +325,6 @@ func leftmostBuildingQueries(heights []int, queries [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -417,10 +401,6 @@ function leftmostBuildingQueries(heights: number[], queries: number[][]): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

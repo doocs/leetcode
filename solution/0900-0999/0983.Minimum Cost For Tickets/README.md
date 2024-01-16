@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索 + 二分查找**
+### 方法一：记忆化搜索 + 二分查找
 
 定义 $dfs(i)$ 表示从第 $i$ 次出行开始的最低消费。答案为 $dfs(0)$。
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `days` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,8 +136,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +166,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mincostTickets(days []int, costs []int) int {
@@ -222,8 +208,6 @@ func lowerBound(arr []int, x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mincostTickets(days: number[], costs: number[]): number {
     const n = days.length,
@@ -240,10 +224,6 @@ function mincostTickets(days: number[], costs: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

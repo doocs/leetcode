@@ -25,9 +25,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -35,8 +35,6 @@ class Solution:
         intervals.sort()
         return all(a[1] <= b[0] for a, b in pairwise(intervals))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -53,8 +51,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -73,7 +69,31 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func canAttendMeetings(intervals [][]int) bool {
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] < intervals[i-1][1] {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```ts
+function canAttendMeetings(intervals: number[][]): boolean {
+    intervals.sort((a, b) => a[0] - b[0]);
+    for (let i = 1; i < intervals.length; ++i) {
+        if (intervals[i][0] < intervals[i - 1][1]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
 
 ```rust
 impl Solution {
@@ -108,40 +128,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func canAttendMeetings(intervals [][]int) bool {
-	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][0] < intervals[j][0]
-	})
-	for i := 1; i < len(intervals); i++ {
-		if intervals[i][0] < intervals[i-1][1] {
-			return false
-		}
-	}
-	return true
-}
-```
-
-### **TypeScript**
-
-```ts
-function canAttendMeetings(intervals: number[][]): boolean {
-    intervals.sort((a, b) => a[0] - b[0]);
-    for (let i = 1; i < intervals.length; ++i) {
-        if (intervals[i][0] < intervals[i - 1][1]) {
-            return false;
-        }
-    }
-    return true;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

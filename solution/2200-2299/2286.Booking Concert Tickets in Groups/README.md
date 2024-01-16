@@ -65,9 +65,7 @@ bms.scatter(5, 1); // 返回 False
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：线段树**
+### 方法一：线段树
 
 分析题意我们得知：
 
@@ -104,10 +102,6 @@ bms.scatter(5, 1); // 返回 False
 整体时间复杂度为 $O(n + q \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别为行数和操作数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -205,10 +199,6 @@ class BookMyShow:
 # param_1 = obj.gather(k,maxRow)
 # param_2 = obj.scatter(k,maxRow)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
@@ -344,8 +334,6 @@ class BookMyShow {
  * boolean param_2 = obj.scatter(k,maxRow);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Node {
@@ -485,8 +473,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type BookMyShow struct {
 	n, m int
@@ -616,16 +602,6 @@ func (t *segmentTree) pushup(u int) {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

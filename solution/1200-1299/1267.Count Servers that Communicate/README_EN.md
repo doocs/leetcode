@@ -51,7 +51,7 @@ Return the number of servers&nbsp;that communicate with any other server.</p>
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We can count the number of servers in each row and each column, then traverse each server. If the number of servers in the current server's row or column exceeds $1$, it means the current server meets the condition, and we increment the result by $1$.
 
@@ -60,8 +60,6 @@ After the traversal, we return the result.
 The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
             for j in range(n)
         )
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countServers(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -161,8 +153,6 @@ func countServers(grid [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countServers(grid: number[][]): number {
@@ -190,10 +180,6 @@ function countServers(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

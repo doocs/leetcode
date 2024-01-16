@@ -90,9 +90,9 @@ The selector function splits the array by whether each number is greater than 5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 declare global {
@@ -118,10 +118,6 @@ Array.prototype.groupBy = function (fn) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

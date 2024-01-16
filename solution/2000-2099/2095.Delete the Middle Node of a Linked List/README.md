@@ -64,13 +64,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -88,10 +84,6 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -117,38 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function deleteMiddle(head: ListNode | null): ListNode | null {
-    if (!head || !head.next) return null;
-    let fast = head.next,
-        slow = head;
-    while (fast.next && fast.next.next) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    slow.next = slow.next.next;
-    return head;
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -177,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -198,10 +156,32 @@ func deleteMiddle(head *ListNode) *ListNode {
 }
 ```
 
-### **...**
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
 
-```
-
+function deleteMiddle(head: ListNode | null): ListNode | null {
+    if (!head || !head.next) return null;
+    let fast = head.next,
+        slow = head;
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    slow.next = slow.next.next;
+    return head;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

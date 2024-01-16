@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # The knows API is already defined for you.
@@ -66,8 +66,6 @@ class Solution:
                     return -1
         return ans
 ```
-
-### **Java**
 
 ```java
 /* The knows API is defined in the parent class Relation.
@@ -92,8 +90,6 @@ public class Solution extends Relation {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /* The knows API is defined for you.
@@ -120,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * The knows API is already defined for you.
@@ -147,10 +141,6 @@ func solution(knows func(a int, b int) bool) func(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

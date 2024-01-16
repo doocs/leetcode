@@ -56,7 +56,7 @@ It can be shown that the other 3 permutations are not self-divisible. Hence the 
 
 ## Solutions
 
-**Solution 1: State Compression + Memoization Search**
+### Solution 1: State Compression + Memoization Search
 
 We can use a binary number $mask$ to represent the current permutation state, where the $i$-th bit is $1$ indicates that the number $i$ has been used, and $0$ indicates that the number $i$ has not been used yet.
 
@@ -72,19 +72,7 @@ Finally, we can get the value of $dfs(0)$, which is the answer.
 
 The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the length of the permutation.
 
-**Solution 2: State Compression + Dynamic Programming**
-
-We can rewrite the memoization search in Solution 1 into the form of dynamic programming, define $f[mask]$ to represent the number of permutations that the current permutation state is $mask$ and meet the requirements of the problem. Initially, $f[0]=1$, and the rest are $0$.
-
-We enumerate $mask$ in the range of $[0, 2^n)$, for each $mask$, we use $i$ to represent which number is the last one to join the permutation, then we enumerate the last number $j$ added to the current permutation. If $i$ and $j$ meet the requirements of the problem, then the state $f[mask]$ can be transferred from the state $f[mask \oplus 2^(j-1)]$, where $\oplus$ represents bitwise XOR operation. We add all the values of the transferred state $f[mask \oplus 2^(j-1)]$ to $f[mask]$, which is the value of $f[mask]$.
-
-Finally, we can get the value of $f[2^n - 1]$, which is the answer.
-
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the length of the permutation.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -102,21 +90,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def selfDivisiblePermutationCount(self, n: int) -> int:
-        f = [0] * (1 << n)
-        f[0] = 1
-        for mask in range(1 << n):
-            i = mask.bit_count()
-            for j in range(1, n + 1):
-                if (mask >> (j - 1) & 1) == 1 and (i % j == 0 or j % i == 0):
-                    f[mask] += f[mask ^ (1 << (j - 1))]
-        return f[-1]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -148,26 +121,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int selfDivisiblePermutationCount(int n) {
-        int[] f = new int[1 << n];
-        f[0] = 1;
-        for (int mask = 0; mask < 1 << n; ++mask) {
-            int i = Integer.bitCount(mask);
-            for (int j = 1; j <= n; ++j) {
-                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
-                    f[mask] += f[mask ^ (1 << (j - 1))];
-                }
-            }
-        }
-        return f[(1 << n) - 1];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -195,28 +148,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int selfDivisiblePermutationCount(int n) {
-        int f[1 << n];
-        memset(f, 0, sizeof(f));
-        f[0] = 1;
-        for (int mask = 0; mask < 1 << n; ++mask) {
-            int i = __builtin_popcount(mask);
-            for (int j = 1; j <= n; ++j) {
-                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
-                    f[mask] += f[mask ^ (1 << (j - 1))];
-                }
-            }
-        }
-        return f[(1 << n) - 1];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func selfDivisiblePermutationCount(n int) int {
 	f := make([]int, 1<<(n+1))
@@ -243,24 +174,6 @@ func selfDivisiblePermutationCount(n int) int {
 	return dfs(0)
 }
 ```
-
-```go
-func selfDivisiblePermutationCount(n int) int {
-	f := make([]int, 1<<n)
-	f[0] = 1
-	for mask := 0; mask < 1<<n; mask++ {
-		i := bits.OnesCount(uint(mask))
-		for j := 1; j <= n; j++ {
-			if mask>>(j-1)&1 == 1 && (i%j == 0 || j%i == 0) {
-				f[mask] += f[mask^(1<<(j-1))]
-			}
-		}
-	}
-	return f[(1<<n)-1]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function selfDivisiblePermutationCount(n: number): number {
@@ -294,6 +207,87 @@ function bitCount(i: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: State Compression + Dynamic Programming
+
+We can rewrite the memoization search in Solution 1 into the form of dynamic programming, define $f[mask]$ to represent the number of permutations that the current permutation state is $mask$ and meet the requirements of the problem. Initially, $f[0]=1$, and the rest are $0$.
+
+We enumerate $mask$ in the range of $[0, 2^n)$, for each $mask$, we use $i$ to represent which number is the last one to join the permutation, then we enumerate the last number $j$ added to the current permutation. If $i$ and $j$ meet the requirements of the problem, then the state $f[mask]$ can be transferred from the state $f[mask \oplus 2^(j-1)]$, where $\oplus$ represents bitwise XOR operation. We add all the values of the transferred state $f[mask \oplus 2^(j-1)]$ to $f[mask]$, which is the value of $f[mask]$.
+
+Finally, we can get the value of $f[2^n - 1]$, which is the answer.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the length of the permutation.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def selfDivisiblePermutationCount(self, n: int) -> int:
+        f = [0] * (1 << n)
+        f[0] = 1
+        for mask in range(1 << n):
+            i = mask.bit_count()
+            for j in range(1, n + 1):
+                if (mask >> (j - 1) & 1) == 1 and (i % j == 0 or j % i == 0):
+                    f[mask] += f[mask ^ (1 << (j - 1))]
+        return f[-1]
+```
+
+```java
+class Solution {
+    public int selfDivisiblePermutationCount(int n) {
+        int[] f = new int[1 << n];
+        f[0] = 1;
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            int i = Integer.bitCount(mask);
+            for (int j = 1; j <= n; ++j) {
+                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
+                    f[mask] += f[mask ^ (1 << (j - 1))];
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int selfDivisiblePermutationCount(int n) {
+        int f[1 << n];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            int i = __builtin_popcount(mask);
+            for (int j = 1; j <= n; ++j) {
+                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
+                    f[mask] += f[mask ^ (1 << (j - 1))];
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+};
+```
+
+```go
+func selfDivisiblePermutationCount(n int) int {
+	f := make([]int, 1<<n)
+	f[0] = 1
+	for mask := 0; mask < 1<<n; mask++ {
+		i := bits.OnesCount(uint(mask))
+		for j := 1; j <= n; j++ {
+			if mask>>(j-1)&1 == 1 && (i%j == 0 || j%i == 0) {
+				f[mask] += f[mask^(1<<(j-1))]
+			}
+		}
+	}
+	return f[(1<<n)-1]
+}
+```
+
 ```ts
 function selfDivisiblePermutationCount(n: number): number {
     const f: number[] = Array(1 << n).fill(0);
@@ -319,10 +313,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

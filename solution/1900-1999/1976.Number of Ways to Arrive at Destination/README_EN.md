@@ -48,9 +48,9 @@ The four ways to get there in 7 minutes are:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -84,8 +84,6 @@ class Solution:
                     w[i] += w[t]
         return w[-1] % MOD
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -135,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef long long ll;
 
@@ -178,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPaths(n int, roads [][]int) int {
@@ -228,10 +222,6 @@ func countPaths(n int, roads [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序**
+### 方法一：哈希表 + 排序
 
 题目实际上是求逆序对的最大长度，我们不妨用哈希表 $d$ 记录数组中每个数字 $x$ 对应的下标 $i$。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             k = min(k, d[x][0])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxSubarrayLength(nums []int) (ans int) {
@@ -151,8 +137,6 @@ func maxSubarrayLength(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSubarrayLength(nums: number[]): number {
     const d: Map<number, number[]> = new Map();
@@ -174,10 +158,6 @@ function maxSubarrayLength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

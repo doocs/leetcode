@@ -53,15 +53,13 @@ It can be shown that the length of the longest subsequence of indices that satis
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We can traverse the array $groups$, and for the current index $i$, if $i=0$ or $groups[i] \neq groups[i - 1]$, we add $words[i]$ to the answer array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $groups$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
     ) -> List[str]:
         return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
 	for i, x := range groups {
@@ -116,8 +108,6 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []st
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
@@ -130,8 +120,6 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -153,10 +141,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

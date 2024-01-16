@@ -89,9 +89,7 @@ a<sub>0</sub> = 1, b<sub>0</sub> = 2, c<sub>0</sub> = 4, d<sub>0</sub> = 5.
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 分类讨论**
+### 方法一：前缀和 + 分类讨论
 
 我们记字符串 $s$ 的长度为 $n$，那么一半的长度为 $m = \frac{n}{2}$。接下来，我们把字符串 $s$ 分成长度相等的两段，其中第二段反转后得到字符串 $t$，第一段记为 $s$。那么对于每个查询 $[a_i, b_i, c_i, d_i]$，其中 $c_i$ 和 $d_i$ 需要变换为 $n - 1 - d_i$ 和 $n - 1 - c_i$。问题转化为：对于每个查询 $[a_i, b_i, c_i, d_i]$，判断 $s[a_i, b_i]$ 和 $t[c_i, d_i]$ 是否可以通过重新排列，使得字符串 $s$ 和 $t$ 相等。
 
@@ -113,10 +111,6 @@ a<sub>0</sub> = 1, b<sub>0</sub> = 2, c<sub>0</sub> = 4, d<sub>0</sub> = 5.
 时间复杂度 $O((n + q) \times |\Sigma|)$，空间复杂度 $O(n \times |\Sigma|)$。其中 $n$ 和 $q$ 分别是字符串 $s$ 的长度和查询数组 $queries$ 的长度；而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写英文字母，因此 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -173,10 +167,6 @@ class Solution:
             ans.append(ok)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -244,8 +234,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -318,8 +306,6 @@ private:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canMakePalindromeQueries(s string, queries [][]int) (ans []bool) {
@@ -402,8 +388,6 @@ func reverse(s string) string {
 	return string(runes)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canMakePalindromeQueries(s: string, queries: number[][]): boolean[] {
@@ -488,10 +472,6 @@ function arraysEqual(arr1: number[], arr2: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

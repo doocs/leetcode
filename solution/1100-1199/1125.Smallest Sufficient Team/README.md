@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划**
+### 方法一：状态压缩动态规划
 
 我们注意到，技能清单 `req_skills` 的长度不超过 $16$，因此，我们可以用一个长度不超过 $16$ 的二进制数来表示每一种技能是否被掌握。不妨记数组 `req_skills` 的长度为 $m$，数组 `people` 的长度为 $n$。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(2^m \times n)$，空间复杂度 $O(2^m)$。其中 $m$ 和 $n$ 分别为 `req_skills` 和 `people` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -110,10 +104,6 @@ class Solution:
             i = h[i]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -157,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -201,8 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestSufficientTeam(req_skills []string, people [][]string) (ans []int) {
 	d := map[string]int{}
@@ -243,8 +229,6 @@ func smallestSufficientTeam(req_skills []string, people [][]string) (ans []int) 
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function smallestSufficientTeam(req_skills: string[], people: string[][]): number[] {
     const d: Map<string, number> = new Map();
@@ -284,10 +268,6 @@ function smallestSufficientTeam(req_skills: string[], people: string[][]): numbe
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

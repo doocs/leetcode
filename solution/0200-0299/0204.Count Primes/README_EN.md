@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
                     primes[j] = False
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -94,8 +90,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPrimes(n int) int {
@@ -116,8 +110,6 @@ func countPrimes(n int) int {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number} n
@@ -137,8 +129,6 @@ var countPrimes = function (n) {
     return ans;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -161,10 +151,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

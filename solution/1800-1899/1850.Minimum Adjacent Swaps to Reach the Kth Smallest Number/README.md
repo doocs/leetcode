@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：求下一个排列 + 逆序对**
+### 方法一：求下一个排列 + 逆序对
 
 我们可以调用 $k$ 次 `next_permutation` 函数，得到第 $k$ 个最小妙数 $s$。
 
@@ -96,10 +94,6 @@ $$
 时间复杂度 $O(n \times (k + n))$，空间复杂度 $O(n)$。其中 $n$ 是 $num$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -134,10 +128,6 @@ class Solution:
             idx[j] += 1
         return sum(arr[j] > arr[i] for i in range(n) for j in range(i))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -196,8 +186,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -228,8 +216,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getMinSwaps(num string, k int) (ans int) {
@@ -281,8 +267,6 @@ func nextPermutation(nums []byte) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMinSwaps(num: string, k: number): number {
     const n = num.length;
@@ -331,10 +315,6 @@ function nextPermutation(nums: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

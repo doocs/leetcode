@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 递推**
+### 方法一：预处理 + 递推
 
 我们预处理出以字符串 $s2$ 的每个位置 $i$ 开始匹配一个完整的 $s1$ 后，下一个位置 $j$ 以及经过了多少个 $s2$，即 $d[i] = (cnt, j)$，其中 $cnt$ 表示匹配了多少个 $s2$，而 $j$ 表示字符串 $s2$ 的下一个位置。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(m \times n + n1)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是 $s1$ 和 $s2$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             ans += cnt
         return ans // n2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 	n := len(s2)
@@ -184,8 +170,6 @@ func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): number {
     const n = s2.length;
@@ -212,10 +196,6 @@ function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): numb
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

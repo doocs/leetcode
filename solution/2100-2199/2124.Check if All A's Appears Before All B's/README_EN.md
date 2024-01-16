@@ -46,17 +46,15 @@ There are no &#39;a&#39;s, hence, every &#39;a&#39; appears before every &#39;b&
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def checkString(self, s: str) -> bool:
         return "ba" not in s
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -77,24 +73,12 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkString(s string) bool {
 	return !strings.Contains(s, "ba")
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

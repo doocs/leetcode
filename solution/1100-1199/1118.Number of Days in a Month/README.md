@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：判断闰年**
+### 方法一：判断闰年
 
 我们可以先判断给定的年份是否为闰年，如果年份能被 $4$ 整除但不能被 $100$ 整除，或者能被 $400$ 整除，那么这一年就是闰年。
 
@@ -56,10 +54,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfDays(self, year: int, month: int) -> int:
@@ -67,10 +61,6 @@ class Solution:
         days = [0, 31, 29 if leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         return days[month]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -82,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -94,8 +82,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfDays(year int, month int) int {
@@ -109,8 +95,6 @@ func numberOfDays(year int, month int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfDays(year: number, month: number): number {
     const leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
@@ -119,10 +103,6 @@ function numberOfDays(year: number, month: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

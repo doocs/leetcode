@@ -50,9 +50,9 @@ No operations were done so return 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -88,8 +88,6 @@ class Solution:
             ans += find(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -142,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -192,8 +188,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumOperations(grid [][]int) (ans int) {
@@ -244,8 +238,6 @@ func minimumOperations(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumOperations(grid: number[][]): number {
     const m = grid.length;
@@ -294,10 +286,6 @@ function minimumOperations(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

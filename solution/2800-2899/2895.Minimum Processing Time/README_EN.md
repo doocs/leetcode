@@ -47,7 +47,7 @@ Hence, it can be shown that the minimum time taken to execute all the tasks is 2
 
 ## Solutions
 
-**Solution 1: Greedy + Sorting**
+### Solution 1: Greedy + Sorting
 
 To minimize the time required to process all tasks, the four tasks with the longest processing time should be assigned to the processors that become idle earliest.
 
@@ -56,8 +56,6 @@ Therefore, we sort the processors by their idle time and sort the tasks by their
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of tasks.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
             i -= 4
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minProcessingTime(processorTime []int, tasks []int) (ans int) {
 	sort.Ints(processorTime)
@@ -121,8 +113,6 @@ func minProcessingTime(processorTime []int, tasks []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minProcessingTime(processorTime: number[], tasks: number[]): number {
@@ -137,10 +127,6 @@ function minProcessingTime(processorTime: number[], tasks: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

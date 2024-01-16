@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们设计一个函数 $dfs(root1, root2)$，用于判断两个二叉树是否对称。答案即为 $dfs(root, root)$。
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -77,10 +71,6 @@ class Solution:
 
         return dfs(root, root)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -115,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -167,8 +153,6 @@ func isSymmetric(root *TreeNode) bool {
 	return dfs(root, root)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -199,8 +183,6 @@ function isSymmetric(root: TreeNode | null): boolean {
     return dfs(root.left, root.right);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -244,6 +226,35 @@ impl Solution {
     }
 }
 ```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function (root) {
+    function dfs(root1, root2) {
+        if (!root1 && !root2) return true;
+        if (!root1 || !root2 || root1.val != root2.val) return false;
+        return dfs(root1.left, root2.right) && dfs(root1.right, root2.left);
+    }
+    return dfs(root, root);
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 // Definition for a binary tree node.
@@ -295,14 +306,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
 
-```
-
-```
+<!-- end -->

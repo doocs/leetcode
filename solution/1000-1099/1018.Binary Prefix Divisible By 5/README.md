@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 遍历数组，每一次遍历都将当前数字加到前面的数字上，然后对 $5$ 取模，如果结果为 $0$，则当前数字可以被 $5$ 整除，答案设置为 `true`，否则为 `false`。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             ans.append(x == 0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func prefixesDivBy5(nums []int) (ans []bool) {
 	x := 0
@@ -117,8 +103,6 @@ func prefixesDivBy5(nums []int) (ans []bool) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function prefixesDivBy5(nums: number[]): boolean[] {
@@ -132,10 +116,6 @@ function prefixesDivBy5(nums: number[]): boolean[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

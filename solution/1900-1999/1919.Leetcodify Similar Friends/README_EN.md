@@ -95,9 +95,9 @@ Users 2 and 5 are friends and listened to songs 10, 11, and 12, but they did not
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -112,3 +112,5 @@ HAVING COUNT(DISTINCT l1.song_id) >= 3;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

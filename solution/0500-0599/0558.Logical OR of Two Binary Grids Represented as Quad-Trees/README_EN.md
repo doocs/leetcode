@@ -79,9 +79,9 @@ The resulting matrix is of size 1*1 with also zero.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -129,8 +129,6 @@ class Solution:
 
         return dfs(quadTree1, quadTree2)
 ```
-
-### **Java**
 
 ```java
 /*
@@ -183,8 +181,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -250,8 +246,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a QuadTree node.
@@ -300,10 +294,6 @@ func intersect(quadTree1 *Node, quadTree2 *Node) *Node {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

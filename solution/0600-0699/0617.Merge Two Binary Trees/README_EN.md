@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -61,8 +61,6 @@ class Solution:
         node.right = self.mergeTrees(root1.right, root2.right)
         return node
 ```
-
-### **Java**
 
 ```java
 /**
@@ -96,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -123,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -147,8 +141,6 @@ func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	return node
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -174,8 +166,6 @@ function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | 
     return new TreeNode(root1.val + root2.val, left, right);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -222,8 +212,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -252,10 +240,6 @@ var mergeTrees = function (root1, root2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

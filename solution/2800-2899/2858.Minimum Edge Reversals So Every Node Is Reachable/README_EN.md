@@ -64,9 +64,9 @@ So, answer[2] = 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -94,8 +94,6 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -138,8 +136,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +169,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minEdgeReversals(n int, edges [][]int) []int {
@@ -213,8 +207,6 @@ func minEdgeReversals(n int, edges [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minEdgeReversals(n: number, edges: number[][]): number[] {
     const g: number[][][] = Array.from({ length: n }, () => []);
@@ -245,10 +237,6 @@ function minEdgeReversals(n: number, edges: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

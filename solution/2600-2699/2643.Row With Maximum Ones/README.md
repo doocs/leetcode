@@ -50,19 +50,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接遍历矩阵，统计每一行中 $1$ 的个数，更新最大值和对应的行下标。注意，如果当前行的 $1$ 的个数与最大值相等，我们需要选择行下标较小的那一行。
 
 时间复杂度 $(m \times n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
                 ans = [i, cnt]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rowAndMaximumOnes(mat [][]int) []int {
 	ans := make([]int, 2)
@@ -142,8 +128,6 @@ func rowAndMaximumOnes(mat [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rowAndMaximumOnes(mat: number[][]): number[] {
     const ans: number[] = [0, 0];
@@ -157,8 +141,6 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -181,10 +163,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

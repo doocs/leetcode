@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,21 +51,6 @@ class Solution:
                 f[i][j] = f[i - 1][j] or (j >= x and f[i - 1][j - x])
         return f[n][m]
 ```
-
-```python
-class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
-        m, mod = divmod(sum(nums), 2)
-        if mod:
-            return False
-        f = [True] + [False] * m
-        for x in nums:
-            for j in range(m, x - 1, -1):
-                f[j] = f[j] or f[j - x]
-        return f[m]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,32 +78,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean canPartition(int[] nums) {
-        // int s = Arrays.stream(nums).sum();
-        int s = 0;
-        for (int x : nums) {
-            s += x;
-        }
-        if (s % 2 == 1) {
-            return false;
-        }
-        int m = s >> 1;
-        boolean[] f = new boolean[m + 1];
-        f[0] = true;
-        for (int x : nums) {
-            for (int j = m; j >= x; --j) {
-                f[j] |= f[j - x];
-            }
-        }
-        return f[m];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,29 +102,52 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool canPartition(vector<int>& nums) {
-        int s = accumulate(nums.begin(), nums.end(), 0);
-        if (s % 2 == 1) {
-            return false;
-        }
-        int m = s >> 1;
-        bool f[m + 1];
-        memset(f, false, sizeof(f));
-        f[0] = true;
-        for (int& x : nums) {
-            for (int j = m; j >= x; --j) {
-                f[j] |= f[j - x];
-            }
-        }
-        return f[m];
-    }
-};
+```go
+func canPartition(nums []int) bool {
+	s := 0
+	for _, x := range nums {
+		s += x
+	}
+	if s%2 == 1 {
+		return false
+	}
+	n, m := len(nums), s>>1
+	f := make([][]bool, n+1)
+	for i := range f {
+		f[i] = make([]bool, m+1)
+	}
+	f[0][0] = true
+	for i := 1; i <= n; i++ {
+		x := nums[i-1]
+		for j := 0; j <= m; j++ {
+			f[i][j] = f[i-1][j] || (j >= x && f[i-1][j-x])
+		}
+	}
+	return f[n][m]
+}
 ```
 
-### **Rust**
+```ts
+function canPartition(nums: number[]): boolean {
+    const s = nums.reduce((a, b) => a + b, 0);
+    if (s % 2 === 1) {
+        return false;
+    }
+    const n = nums.length;
+    const m = s >> 1;
+    const f: boolean[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(m + 1).fill(false));
+    f[0][0] = true;
+    for (let i = 1; i <= n; ++i) {
+        const x = nums[i - 1];
+        for (let j = 0; j <= m; ++j) {
+            f[i][j] = f[i - 1][j] || (j >= x && f[i - 1][j - x]);
+        }
+    }
+    return f[n][m];
+}
+```
 
 ```rust
 impl Solution {
@@ -200,6 +182,136 @@ impl Solution {
 
         dp[n][m]
     }
+}
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var canPartition = function (nums) {
+    const s = nums.reduce((a, b) => a + b, 0);
+    if (s % 2 === 1) {
+        return false;
+    }
+    const n = nums.length;
+    const m = s >> 1;
+    const f = Array(n + 1)
+        .fill(0)
+        .map(() => Array(m + 1).fill(false));
+    f[0][0] = true;
+    for (let i = 1; i <= n; ++i) {
+        const x = nums[i - 1];
+        for (let j = 0; j <= m; ++j) {
+            f[i][j] = f[i - 1][j] || (j >= x && f[i - 1][j - x]);
+        }
+    }
+    return f[n][m];
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        m, mod = divmod(sum(nums), 2)
+        if mod:
+            return False
+        f = [True] + [False] * m
+        for x in nums:
+            for j in range(m, x - 1, -1):
+                f[j] = f[j] or f[j - x]
+        return f[m]
+```
+
+```java
+class Solution {
+    public boolean canPartition(int[] nums) {
+        // int s = Arrays.stream(nums).sum();
+        int s = 0;
+        for (int x : nums) {
+            s += x;
+        }
+        if (s % 2 == 1) {
+            return false;
+        }
+        int m = s >> 1;
+        boolean[] f = new boolean[m + 1];
+        f[0] = true;
+        for (int x : nums) {
+            for (int j = m; j >= x; --j) {
+                f[j] |= f[j - x];
+            }
+        }
+        return f[m];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        if (s % 2 == 1) {
+            return false;
+        }
+        int m = s >> 1;
+        bool f[m + 1];
+        memset(f, false, sizeof(f));
+        f[0] = true;
+        for (int& x : nums) {
+            for (int j = m; j >= x; --j) {
+                f[j] |= f[j - x];
+            }
+        }
+        return f[m];
+    }
+};
+```
+
+```go
+func canPartition(nums []int) bool {
+	s := 0
+	for _, x := range nums {
+		s += x
+	}
+	if s%2 == 1 {
+		return false
+	}
+	m := s >> 1
+	f := make([]bool, m+1)
+	f[0] = true
+	for _, x := range nums {
+		for j := m; j >= x; j-- {
+			f[j] = f[j] || f[j-x]
+		}
+	}
+	return f[m]
+}
+```
+
+```ts
+function canPartition(nums: number[]): boolean {
+    const s = nums.reduce((a, b) => a + b, 0);
+    if (s % 2 === 1) {
+        return false;
+    }
+    const m = s >> 1;
+    const f: boolean[] = Array(m + 1).fill(false);
+    f[0] = true;
+    for (const x of nums) {
+        for (let j = m; j >= x; --j) {
+            f[j] = f[j] || f[j - x];
+        }
+    }
+    return f[m];
 }
 ```
 
@@ -239,124 +351,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func canPartition(nums []int) bool {
-	s := 0
-	for _, x := range nums {
-		s += x
-	}
-	if s%2 == 1 {
-		return false
-	}
-	n, m := len(nums), s>>1
-	f := make([][]bool, n+1)
-	for i := range f {
-		f[i] = make([]bool, m+1)
-	}
-	f[0][0] = true
-	for i := 1; i <= n; i++ {
-		x := nums[i-1]
-		for j := 0; j <= m; j++ {
-			f[i][j] = f[i-1][j] || (j >= x && f[i-1][j-x])
-		}
-	}
-	return f[n][m]
-}
-```
-
-```go
-func canPartition(nums []int) bool {
-	s := 0
-	for _, x := range nums {
-		s += x
-	}
-	if s%2 == 1 {
-		return false
-	}
-	m := s >> 1
-	f := make([]bool, m+1)
-	f[0] = true
-	for _, x := range nums {
-		for j := m; j >= x; j-- {
-			f[j] = f[j] || f[j-x]
-		}
-	}
-	return f[m]
-}
-```
-
-### **TypeScript**
-
-```ts
-function canPartition(nums: number[]): boolean {
-    const s = nums.reduce((a, b) => a + b, 0);
-    if (s % 2 === 1) {
-        return false;
-    }
-    const n = nums.length;
-    const m = s >> 1;
-    const f: boolean[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
-    f[0][0] = true;
-    for (let i = 1; i <= n; ++i) {
-        const x = nums[i - 1];
-        for (let j = 0; j <= m; ++j) {
-            f[i][j] = f[i - 1][j] || (j >= x && f[i - 1][j - x]);
-        }
-    }
-    return f[n][m];
-}
-```
-
-```ts
-function canPartition(nums: number[]): boolean {
-    const s = nums.reduce((a, b) => a + b, 0);
-    if (s % 2 === 1) {
-        return false;
-    }
-    const m = s >> 1;
-    const f: boolean[] = Array(m + 1).fill(false);
-    f[0] = true;
-    for (const x of nums) {
-        for (let j = m; j >= x; --j) {
-            f[j] = f[j] || f[j - x];
-        }
-    }
-    return f[m];
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {boolean}
- */
-var canPartition = function (nums) {
-    const s = nums.reduce((a, b) => a + b, 0);
-    if (s % 2 === 1) {
-        return false;
-    }
-    const n = nums.length;
-    const m = s >> 1;
-    const f = Array(n + 1)
-        .fill(0)
-        .map(() => Array(m + 1).fill(false));
-    f[0][0] = true;
-    for (let i = 1; i <= n; ++i) {
-        const x = nums[i - 1];
-        for (let j = 0; j <= m; ++j) {
-            f[i][j] = f[i - 1][j] || (j >= x && f[i - 1][j - x]);
-        }
-    }
-    return f[n][m];
-};
-```
-
 ```js
 /**
  * @param {number[]} nums
@@ -379,10 +373,6 @@ var canPartition = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

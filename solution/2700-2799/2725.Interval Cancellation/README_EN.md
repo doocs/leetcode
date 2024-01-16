@@ -102,9 +102,9 @@ Cancelled at 180ms
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
@@ -140,3 +140,5 @@ function cancellable(fn: Function, args: any[], t: number): Function {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

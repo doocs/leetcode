@@ -46,7 +46,7 @@ majorityChecker.query(2, 3, 2); // return 2
 
 ## Solutions
 
-**Solution 1: Segment Tree + Boyer-Moore Voting Algorithm + Binary Search**
+### Solution 1: Segment Tree + Boyer-Moore Voting Algorithm + Binary Search
 
 We notice that the problem requires us to find the possible majority element in a specific interval, so we consider using a segment tree to maintain the candidate majority element and its occurrence in each interval.
 
@@ -70,8 +70,6 @@ In the `query(left, right, threshold)` method, we directly call the `query` meth
 In terms of time complexity, the time complexity of the initialization method is $O(n)$, and the time complexity of the query method is $O(\log n)$. The space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Node:
@@ -147,8 +145,6 @@ class MajorityChecker:
 # obj = MajorityChecker(arr)
 # param_1 = obj.query(left,right,threshold)
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -261,8 +257,6 @@ class MajorityChecker {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -368,8 +362,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type node struct {
 	l, r, x, cnt int
@@ -473,10 +465,6 @@ func (this *MajorityChecker) Query(left int, right int, threshold int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

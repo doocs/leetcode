@@ -55,42 +55,9 @@ It can be proven that 2 is the minimum number of coins needed to acquire all the
 
 ## Solutions
 
-**Method 1: Memoization Search**
-
-We define a function $dfs(i)$, which represents the minimum number of coins needed to buy all fruits starting from the $i$th fruit. So the answer is $dfs(1)$.
-
-The execution logic of the function $dfs(i)$ is as follows:
-
--   If $i \times 2 \geq n$, it means that we only need to buy the $i - 1$th fruit, and the remaining fruits can be obtained for free, so return $prices[i - 1]$.
--   Otherwise, we can buy fruit $i$, and then choose a fruit $j$ to start buying from the next $i + 1$ to $2i + 1$ fruits, so $dfs(i) = prices[i - 1] + \min_{i + 1 \le j \le 2i + 1} dfs(j)$.
-
-To avoid repeated calculations, we use the method of memoization search, save the calculated results, and directly return the result when encountering the same situation next time.
-
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $prices$.
-
-**Method 2: Dynamic Programming**
-
-We can rewrite the memoization search in Method 1 into the form of dynamic programming.
-
-Similar to Method 1, we define $f[i]$ as the minimum number of coins needed to buy all fruits starting from the $i$th fruit. So the answer is $f[1]$.
-
-The state transition equation is $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + prices[i - 1]$.
-
-In implementation, we calculate from back to front, and we can directly perform state transition on the array $prices$, which can save space.
-
-The time complexity is $O(n^2)$, where $n$ is the length of the array $prices$. The space complexity is $O(1)$.
-
-**Method 3: Dynamic Programming + Monotonic Queue Optimization**
-
-We observe the state transition equation in Method 2, and find that for each $i$, we need to find the minimum value of $f[i + 1], f[i + 2], \cdots, f[2i + 1]$, and as $i$ decreases, the range of these values is also decreasing. This is actually finding the minimum value of a monotonically narrowing sliding window, and we can use a monotonic queue to optimize.
-
-We calculate from back to front, maintain a monotonically increasing queue $q$, and the queue stores the index. If the head element of $q$ is greater than $i \times 2 + 1$, it means that the elements after $i$ will not be used, so we dequeue the head element. If $i$ is not greater than $(n - 1) / 2$, then we can add $prices[q[0] - 1]$ to $prices[i - 1]$, and then add $i$ to the tail of the queue. If the price of the fruit corresponding to the tail element of $q$ is greater than or equal to $prices[i - 1]$, then we dequeue the tail element until the price of the fruit corresponding to the tail element is less than $prices[i - 1]$ or the queue is empty, and then add $i$ to the tail of the queue.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $prices$.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,33 +70,6 @@ class Solution:
 
         return dfs(1)
 ```
-
-```python
-class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
-        n = len(prices)
-        for i in range((n - 1) // 2, 0, -1):
-            prices[i - 1] += min(prices[i : i * 2 + 1])
-        return prices[0]
-```
-
-```python
-class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
-        n = len(prices)
-        q = deque()
-        for i in range(n, 0, -1):
-            while q and q[0] > i * 2 + 1:
-                q.popleft()
-            if i <= (n - 1) // 2:
-                prices[i - 1] += prices[q[0] - 1]
-            while q and prices[q[-1] - 1] >= prices[i - 1]:
-                q.pop()
-            q.append(i)
-        return prices[0]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -159,6 +99,85 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumCoins(vector<int>& prices) {
+        int n = prices.size();
+        int f[n + 1];
+        memset(f, 0x3f, sizeof(f));
+        function<int(int)> dfs = [&](int i) {
+            if (i * 2 >= n) {
+                return prices[i - 1];
+            }
+            if (f[i] == 0x3f3f3f3f) {
+                for (int j = i + 1; j <= i * 2 + 1; ++j) {
+                    f[i] = min(f[i], prices[i - 1] + dfs(j));
+                }
+            }
+            return f[i];
+        };
+        return dfs(1);
+    }
+};
+```
+
+```go
+func minimumCoins(prices []int) int {
+	n := len(prices)
+	f := make([]int, n+1)
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i*2 >= n {
+			return prices[i-1]
+		}
+		if f[i] == 0 {
+			f[i] = 1 << 30
+			for j := i + 1; j <= i*2+1; j++ {
+				f[i] = min(f[i], dfs(j)+prices[i-1])
+			}
+		}
+		return f[i]
+	}
+	return dfs(1)
+}
+```
+
+```ts
+function minimumCoins(prices: number[]): number {
+    const n = prices.length;
+    const f: number[] = Array(n + 1).fill(0);
+    const dfs = (i: number): number => {
+        if (i * 2 >= n) {
+            return prices[i - 1];
+        }
+        if (f[i] === 0) {
+            f[i] = 1 << 30;
+            for (let j = i + 1; j <= i * 2 + 1; ++j) {
+                f[i] = Math.min(f[i], prices[i - 1] + dfs(j));
+            }
+        }
+        return f[i];
+    };
+    return dfs(1);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumCoins(self, prices: List[int]) -> int:
+        n = len(prices)
+        for i in range((n - 1) // 2, 0, -1):
+            prices[i - 1] += min(prices[i : i * 2 + 1])
+        return prices[0]
+```
+
 ```java
 class Solution {
     public int minimumCoins(int[] prices) {
@@ -173,6 +192,59 @@ class Solution {
         return prices[0];
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minimumCoins(vector<int>& prices) {
+        int n = prices.size();
+        for (int i = (n - 1) / 2; i; --i) {
+            prices[i - 1] += *min_element(prices.begin() + i, prices.begin() + 2 * i + 1);
+        }
+        return prices[0];
+    }
+};
+```
+
+```go
+func minimumCoins(prices []int) int {
+	for i := (len(prices) - 1) / 2; i > 0; i-- {
+		prices[i-1] += slices.Min(prices[i : i*2+1])
+	}
+	return prices[0]
+}
+```
+
+```ts
+function minimumCoins(prices: number[]): number {
+    for (let i = (prices.length - 1) >> 1; i; --i) {
+        prices[i - 1] += Math.min(...prices.slice(i, i * 2 + 1));
+    }
+    return prices[0];
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumCoins(self, prices: List[int]) -> int:
+        n = len(prices)
+        q = deque()
+        for i in range(n, 0, -1):
+            while q and q[0] > i * 2 + 1:
+                q.popleft()
+            if i <= (n - 1) // 2:
+                prices[i - 1] += prices[q[0] - 1]
+            while q and prices[q[-1] - 1] >= prices[i - 1]:
+                q.pop()
+            q.append(i)
+        return prices[0]
 ```
 
 ```java
@@ -197,44 +269,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minimumCoins(vector<int>& prices) {
-        int n = prices.size();
-        int f[n + 1];
-        memset(f, 0x3f, sizeof(f));
-        function<int(int)> dfs = [&](int i) {
-            if (i * 2 >= n) {
-                return prices[i - 1];
-            }
-            if (f[i] == 0x3f3f3f3f) {
-                for (int j = i + 1; j <= i * 2 + 1; ++j) {
-                    f[i] = min(f[i], prices[i - 1] + dfs(j));
-                }
-            }
-            return f[i];
-        };
-        return dfs(1);
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minimumCoins(vector<int>& prices) {
-        int n = prices.size();
-        for (int i = (n - 1) / 2; i; --i) {
-            prices[i - 1] += *min_element(prices.begin() + i, prices.begin() + 2 * i + 1);
-        }
-        return prices[0];
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -256,38 +290,6 @@ public:
         return prices[0];
     }
 };
-```
-
-### **Go**
-
-```go
-func minimumCoins(prices []int) int {
-	n := len(prices)
-	f := make([]int, n+1)
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if i*2 >= n {
-			return prices[i-1]
-		}
-		if f[i] == 0 {
-			f[i] = 1 << 30
-			for j := i + 1; j <= i*2+1; j++ {
-				f[i] = min(f[i], dfs(j)+prices[i-1])
-			}
-		}
-		return f[i]
-	}
-	return dfs(1)
-}
-```
-
-```go
-func minimumCoins(prices []int) int {
-	for i := (len(prices) - 1) / 2; i > 0; i-- {
-		prices[i-1] += slices.Min(prices[i : i*2+1])
-	}
-	return prices[0]
-}
 ```
 
 ```go
@@ -365,37 +367,6 @@ func (q Deque) Get(i int) int {
 		return q.l[len(q.l)-1-i]
 	}
 	return q.r[i-len(q.l)]
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumCoins(prices: number[]): number {
-    const n = prices.length;
-    const f: number[] = Array(n + 1).fill(0);
-    const dfs = (i: number): number => {
-        if (i * 2 >= n) {
-            return prices[i - 1];
-        }
-        if (f[i] === 0) {
-            f[i] = 1 << 30;
-            for (let j = i + 1; j <= i * 2 + 1; ++j) {
-                f[i] = Math.min(f[i], prices[i - 1] + dfs(j));
-            }
-        }
-        return f[i];
-    };
-    return dfs(1);
-}
-```
-
-```ts
-function minimumCoins(prices: number[]): number {
-    for (let i = (prices.length - 1) >> 1; i; --i) {
-        prices[i - 1] += Math.min(...prices.slice(i, i * 2 + 1));
-    }
-    return prices[0];
 }
 ```
 
@@ -515,10 +486,6 @@ class Deque<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

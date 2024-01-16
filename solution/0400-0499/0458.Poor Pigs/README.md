@@ -54,17 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-每只 🐖 可以喝液体的次数是 `minutesToTest / minutesToDie`，那么 🐖 会有 `(minutesToTest / minutesToDie) + 1` 种状态，即喝完第 1 次死亡，喝完第 2 次死亡，...，喝完第 `minutesToTest / minutesToDie` 死亡，喝完第 `minutesToTest / minutesToDie` 次依然存活。
-
-我们设定 `base = (minutesToTest / minutesToDie) + 1`，n 只 🐖 能验证的范围是 `pow(base, n)`，因此求 `pow(base, n) >= buckets` 的最小 n 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +68,6 @@ class Solution:
             res += 1
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
 	base := minutesToTest/minutesToDie + 1
@@ -121,10 +105,6 @@ func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

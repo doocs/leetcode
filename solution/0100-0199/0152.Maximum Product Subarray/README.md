@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义两个变量 $f$ 和 $g$，其中 $f$ 表示以 $nums[i]$ 结尾的乘积最大子数组的乘积，而 $g$ 表示以 $nums[i]$ 结尾的乘积最小子数组的乘积。初始时 $f$ 和 $g$ 都等于 $nums[0]$。答案为所有 $f$ 中的最大值。
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。我们只需要遍历数组一次即可求得答案。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +64,6 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxProduct(nums []int) int {
 	f, g, ans := nums[0], nums[0], nums[0]
@@ -123,8 +109,6 @@ func maxProduct(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxProduct(nums: number[]): number {
     let [f, g, ans] = [nums[0], nums[0], nums[0]];
@@ -137,25 +121,6 @@ function maxProduct(nums: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MaxProduct(int[] nums) {
-        int f = nums[0], g = nums[0], ans = nums[0];
-        for (int i = 1; i < nums.Length; ++i) {
-            int ff = f, gg = g;
-            f = Math.Max(nums[i], Math.Max(ff * nums[i], gg * nums[i]));
-            g = Math.Min(nums[i], Math.Min(ff * nums[i], gg * nums[i]));
-            ans = Math.Max(ans, f);
-        }
-        return ans;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -174,8 +139,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -193,10 +156,21 @@ var maxProduct = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int MaxProduct(int[] nums) {
+        int f = nums[0], g = nums[0], ans = nums[0];
+        for (int i = 1; i < nums.Length; ++i) {
+            int ff = f, gg = g;
+            f = Math.Max(nums[i], Math.Max(ff * nums[i], gg * nums[i]));
+            g = Math.Min(nums[i], Math.Min(ff * nums[i], gg * nums[i]));
+            ans = Math.Max(ans, f);
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

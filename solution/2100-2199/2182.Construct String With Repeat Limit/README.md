@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先用一个长度为 $26$ 的数组 $cnt$ 统计字符串 $s$ 中每个字符出现的次数，然后从大到小枚举字母表的第 $i$ 个字母，每次取出最多 $\min(cnt[i], repeatLimit)$ 个字母 $i$，如果取完后 $cnt[i]$ 还大于 $0$，则继续取字母表中第 $j$ 个字母，其中 $j$ 是最大的满足 $j < i$ 且 $cnt[j] > 0$ 的下标，直到取完所有字母。
 
 时间复杂度 $O(n + |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $\Sigma$ 是字符集，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
                 ans.append(ascii_lowercase[j])
         return "".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func repeatLimitedString(s string, repeatLimit int) string {
 	cnt := [26]int{}
@@ -195,8 +181,6 @@ func repeatLimitedString(s string, repeatLimit int) string {
 	return string(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function repeatLimitedString(s: string, repeatLimit: number): string {
@@ -229,10 +213,6 @@ function repeatLimitedString(s: string, repeatLimit: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

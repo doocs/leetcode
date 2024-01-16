@@ -52,9 +52,9 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
                     return v
         return ''
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func kthDistinct(arr []string, k int) string {
@@ -129,10 +123,6 @@ func kthDistinct(arr []string, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

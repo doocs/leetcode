@@ -49,7 +49,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Two Pointers**
+### Solution 1: Greedy + Two Pointers
 
 We can start from both ends of the string, looking for the shortest, identical, and non-overlapping prefixes and suffixes:
 
@@ -64,17 +64,7 @@ Suppose there is a prefix $A_1$ and a suffix $A_2$ that meet the conditions, and
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$ or $O(1)$. Here, $n$ is the length of the string.
 
-**Solution 2: String Hash**
-
-**String hash** is to map a string of any length to a non-negative integer, and its collision probability is almost $0$. String hash is used to calculate the hash value of a string and quickly determine whether two strings are equal.
-
-Therefore, based on Solution 1, we can use the method of string hash to compare whether two strings are equal in $O(1)$ time.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,6 +77,81 @@ class Solution:
                 return 2 + self.longestDecomposition(text[i:-i])
         return 1
 ```
+
+```java
+class Solution {
+    public int longestDecomposition(String text) {
+        int n = text.length();
+        if (n < 2) {
+            return n;
+        }
+        for (int i = 1; i <= n >> 1; ++i) {
+            if (text.substring(0, i).equals(text.substring(n - i))) {
+                return 2 + longestDecomposition(text.substring(i, n - i));
+            }
+        }
+        return 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int longestDecomposition(string text) {
+        int n = text.size();
+        if (n < 2) return n;
+        for (int i = 1; i <= n >> 1; ++i) {
+            if (text.substr(0, i) == text.substr(n - i)) {
+                return 2 + longestDecomposition(text.substr(i, n - i - i));
+            }
+        }
+        return 1;
+    }
+};
+```
+
+```go
+func longestDecomposition(text string) int {
+	n := len(text)
+	if n < 2 {
+		return n
+	}
+	for i := 1; i <= n>>1; i++ {
+		if text[:i] == text[n-i:] {
+			return 2 + longestDecomposition(text[i:n-i])
+		}
+	}
+	return 1
+}
+```
+
+```ts
+function longestDecomposition(text: string): number {
+    const n: number = text.length;
+    if (n < 2) {
+        return n;
+    }
+    for (let i: number = 1; i <= n >> 1; i++) {
+        if (text.slice(0, i) === text.slice(n - i)) {
+            return 2 + longestDecomposition(text.slice(i, n - i));
+        }
+    }
+    return 1;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: String Hash
+
+**String hash** is to map a string of any length to a non-negative integer, and its collision probability is almost $0$. String hash is used to calculate the hash value of a string and quickly determine whether two strings are equal.
+
+Therefore, based on Solution 1, we can use the method of string hash to compare whether two strings are equal in $O(1)$ time.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -108,60 +173,6 @@ class Solution:
                 ans += 1
                 break
         return ans
-```
-
-```python
-class Solution:
-    def longestDecomposition(self, text: str) -> int:
-        def get(l, r):
-            return (h[r] - h[l - 1] * p[r - l + 1]) % mod
-
-        n = len(text)
-        base = 131
-        mod = int(1e9) + 7
-        h = [0] * (n + 10)
-        p = [1] * (n + 10)
-        for i, c in enumerate(text):
-            t = ord(c) - ord('a') + 1
-            h[i + 1] = (h[i] * base) % mod + t
-            p[i + 1] = (p[i] * base) % mod
-
-        ans = 0
-        i, j = 0, n - 1
-        while i <= j:
-            k = 1
-            ok = False
-            while i + k - 1 < j - k + 1:
-                if get(i + 1, i + k) == get(j - k + 2, j + 1):
-                    ans += 2
-                    i += k
-                    j -= k
-                    ok = True
-                    break
-                k += 1
-            if not ok:
-                ans += 1
-                break
-        return ans
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int longestDecomposition(String text) {
-        int n = text.length();
-        if (n < 2) {
-            return n;
-        }
-        for (int i = 1; i <= n >> 1; ++i) {
-            if (text.substring(0, i).equals(text.substring(n - i))) {
-                return 2 + longestDecomposition(text.substring(i, n - i));
-            }
-        }
-        return 1;
-    }
-}
 ```
 
 ```java
@@ -196,6 +207,126 @@ class Solution {
         return true;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int longestDecomposition(string text) {
+        int ans = 0;
+        auto check = [&](int i, int j, int k) -> bool {
+            while (k--) {
+                if (text[i++] != text[j++]) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        for (int i = 0, j = text.size() - 1; i <= j;) {
+            bool ok = false;
+            for (int k = 1; i + k - 1 < j - k + 1; ++k) {
+                if (check(i, j - k + 1, k)) {
+                    ans += 2;
+                    i += k;
+                    j -= k;
+                    ok = true;
+                    break;
+                }
+            }
+            if (!ok) {
+                ans += 1;
+                break;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func longestDecomposition(text string) (ans int) {
+	for i, j := 0, len(text)-1; i <= j; {
+		ok := false
+		for k := 1; i+k-1 < j-k+1; k++ {
+			if text[i:i+k] == text[j-k+1:j+1] {
+				ans += 2
+				i += k
+				j -= k
+				ok = true
+				break
+			}
+		}
+		if !ok {
+			ans++
+			break
+		}
+	}
+	return
+}
+```
+
+```ts
+function longestDecomposition(text: string): number {
+    let ans = 0;
+    for (let i = 0, j = text.length - 1; i <= j; ) {
+        let ok = false;
+        for (let k = 1; i + k - 1 < j - k + 1; ++k) {
+            if (text.slice(i, i + k) === text.slice(j - k + 1, j + 1)) {
+                ans += 2;
+                i += k;
+                j -= k;
+                ok = true;
+                break;
+            }
+        }
+        if (!ok) {
+            ++ans;
+            break;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def longestDecomposition(self, text: str) -> int:
+        def get(l, r):
+            return (h[r] - h[l - 1] * p[r - l + 1]) % mod
+
+        n = len(text)
+        base = 131
+        mod = int(1e9) + 7
+        h = [0] * (n + 10)
+        p = [1] * (n + 10)
+        for i, c in enumerate(text):
+            t = ord(c) - ord('a') + 1
+            h[i + 1] = (h[i] * base) % mod + t
+            p[i + 1] = (p[i] * base) % mod
+
+        ans = 0
+        i, j = 0, n - 1
+        while i <= j:
+            k = 1
+            ok = False
+            while i + k - 1 < j - k + 1:
+                if get(i + 1, i + k) == get(j - k + 2, j + 1):
+                    ans += 2
+                    i += k
+                    j -= k
+                    ok = True
+                    break
+                k += 1
+            if not ok:
+                ans += 1
+                break
+        return ans
 ```
 
 ```java
@@ -240,58 +371,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int longestDecomposition(string text) {
-        int n = text.size();
-        if (n < 2) return n;
-        for (int i = 1; i <= n >> 1; ++i) {
-            if (text.substr(0, i) == text.substr(n - i)) {
-                return 2 + longestDecomposition(text.substr(i, n - i - i));
-            }
-        }
-        return 1;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int longestDecomposition(string text) {
-        int ans = 0;
-        auto check = [&](int i, int j, int k) -> bool {
-            while (k--) {
-                if (text[i++] != text[j++]) {
-                    return false;
-                }
-            }
-            return true;
-        };
-        for (int i = 0, j = text.size() - 1; i <= j;) {
-            bool ok = false;
-            for (int k = 1; i + k - 1 < j - k + 1; ++k) {
-                if (check(i, j - k + 1, k)) {
-                    ans += 2;
-                    i += k;
-                    j -= k;
-                    ok = true;
-                    break;
-                }
-            }
-            if (!ok) {
-                ans += 1;
-                break;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -334,45 +413,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func longestDecomposition(text string) int {
-	n := len(text)
-	if n < 2 {
-		return n
-	}
-	for i := 1; i <= n>>1; i++ {
-		if text[:i] == text[n-i:] {
-			return 2 + longestDecomposition(text[i:n-i])
-		}
-	}
-	return 1
-}
-```
-
-```go
-func longestDecomposition(text string) (ans int) {
-	for i, j := 0, len(text)-1; i <= j; {
-		ok := false
-		for k := 1; i+k-1 < j-k+1; k++ {
-			if text[i:i+k] == text[j-k+1:j+1] {
-				ans += 2
-				i += k
-				j -= k
-				ok = true
-				break
-			}
-		}
-		if !ok {
-			ans++
-			break
-		}
-	}
-	return
-}
-```
-
 ```go
 func longestDecomposition(text string) (ans int) {
 	n := len(text)
@@ -409,50 +449,6 @@ func longestDecomposition(text string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function longestDecomposition(text: string): number {
-    const n: number = text.length;
-    if (n < 2) {
-        return n;
-    }
-    for (let i: number = 1; i <= n >> 1; i++) {
-        if (text.slice(0, i) === text.slice(n - i)) {
-            return 2 + longestDecomposition(text.slice(i, n - i));
-        }
-    }
-    return 1;
-}
-```
-
-```ts
-function longestDecomposition(text: string): number {
-    let ans = 0;
-    for (let i = 0, j = text.length - 1; i <= j; ) {
-        let ok = false;
-        for (let k = 1; i + k - 1 < j - k + 1; ++k) {
-            if (text.slice(i, i + k) === text.slice(j - k + 1, j + 1)) {
-                ans += 2;
-                i += k;
-                j -= k;
-                ok = true;
-                break;
-            }
-        }
-        if (!ok) {
-            ++ans;
-            break;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

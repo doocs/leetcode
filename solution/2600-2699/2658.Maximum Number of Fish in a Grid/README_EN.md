@@ -51,7 +51,7 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 According to the problem description, we only need to find the number of fish in each connected water area and then take the maximum value. Therefore, we can use the depth-first search method to solve this problem.
 
@@ -64,8 +64,6 @@ In the main function, we traverse all the cells $(i, j)$. If the current cell is
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. where $m$ and $n$ are the number of rows and columns of the grid graph respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
                     ans = max(ans, dfs(i, j))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaxFish(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -186,8 +178,6 @@ func findMaxFish(grid [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMaxFish(grid: number[][]): number {
@@ -220,10 +210,6 @@ function findMaxFish(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

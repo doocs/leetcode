@@ -74,9 +74,9 @@ Explanation: The two lists do not intersect, so return null.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -94,8 +94,6 @@ class Solution:
             b = b.next if b else headA
         return a
 ```
-
-### **Java**
 
 ```java
 /**
@@ -121,8 +119,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -144,35 +140,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-
-/**
- * @param {ListNode} headA
- * @param {ListNode} headB
- * @return {ListNode}
- */
-var getIntersectionNode = function (headA, headB) {
-    let a = headA;
-    let b = headB;
-    while (a != b) {
-        a = a ? a.next : headB;
-        b = b ? b.next : headA;
-    }
-    return a;
-};
-```
-
-### **Go**
 
 ```go
 /**
@@ -200,8 +167,6 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -226,7 +191,30 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
 }
 ```
 
-### **Swift**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function (headA, headB) {
+    let a = headA;
+    let b = headB;
+    while (a != b) {
+        a = a ? a.next : headB;
+        b = b ? b.next : headA;
+    }
+    return a;
+};
+```
 
 ```swift
 /**
@@ -254,10 +242,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

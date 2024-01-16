@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             j = i
         return 0 if j == -1 else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfGoodSubarraySplits(nums []int) int {
 	const mod int = 1e9 + 7
@@ -126,8 +120,6 @@ func numberOfGoodSubarraySplits(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfGoodSubarraySplits(nums: number[]): number {
     let ans = 1;
@@ -146,8 +138,6 @@ function numberOfGoodSubarraySplits(nums: number[]): number {
     return j === -1 ? 0 : ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -169,10 +159,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

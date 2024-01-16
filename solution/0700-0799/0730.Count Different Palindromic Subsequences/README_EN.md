@@ -40,9 +40,9 @@ Note that &#39;bcb&#39; is counted only once, even though it occurs twice.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
                         dp[i][j][k] = dp[i + 1][j - 1][k]
         return sum(dp[0][-1]) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -141,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPalindromicSubsequences(s string) int {
@@ -183,10 +177,6 @@ func countPalindromicSubsequences(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

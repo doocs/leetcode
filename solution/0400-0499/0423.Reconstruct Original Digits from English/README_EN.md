@@ -25,9 +25,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
 
         return ''.join(cnt[i] * str(i) for i in range(10))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func originalDigits(s string) string {
 	counter := make([]int, 26)
@@ -146,10 +140,6 @@ func originalDigits(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,9 @@ The last space in the matrix is set to -1.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -71,8 +71,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -115,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -152,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -192,8 +186,6 @@ func spiralMatrix(m int, n int, head *ListNode) [][]int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -234,10 +226,6 @@ function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二维前缀和 + 二维差分**
+### 方法一：二维前缀和 + 二维差分
 
 根据题目描述，每一个空格子都必须被邮票覆盖，而且不能覆盖任何被占据的格子。因此，我们可以遍历二维矩阵，对于每个格子，如果以该格子为左上角的 $stampHeight \times stampWidth$ 的区域内的所有格子都是空格子（即没有被占据），那么我们就可以在该格子处放置一个邮票。
 
@@ -80,10 +78,6 @@ $$
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维矩阵的高度和宽度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
                     return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,8 +140,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -190,8 +178,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
@@ -235,8 +221,6 @@ func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: number): boolean {
     const m = grid.length;
@@ -272,8 +256,6 @@ function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: numb
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -344,8 +326,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[][]} grid
@@ -388,10 +368,6 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

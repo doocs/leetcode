@@ -49,7 +49,7 @@ So the total cost of this path is 5 + 1 = 6.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ to represent the minimum path cost from the first row to the $i$th row and $j$th column. Since we can only move from a column in the previous row to a column in the current row, the value of $f[i][j]$ can be transferred from $f[i - 1][k]$, where the range of $k$ is $[0, n - 1]$. Therefore, the state transition equation is:
 
@@ -67,8 +67,6 @@ The time complexity is $O(m \times n^2)$, and the space complexity is $O(n)$. He
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minPathCost(self, grid: List[List[int]], moveCost: List[List[int]]) -> int:
@@ -82,8 +80,6 @@ class Solution:
             f = g
         return min(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minPathCost(grid [][]int, moveCost [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -155,7 +147,23 @@ func minPathCost(grid [][]int, moveCost [][]int) int {
 }
 ```
 
-### **Rust**
+```ts
+function minPathCost(grid: number[][], moveCost: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const f = grid[0];
+    for (let i = 1; i < m; ++i) {
+        const g: number[] = Array(n).fill(Infinity);
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < n; ++k) {
+                g[j] = Math.min(g[j], f[k] + moveCost[grid[i - 1][k]][j] + grid[i][j]);
+            }
+        }
+        f.splice(0, n, ...g);
+    }
+    return Math.min(...f);
+}
+```
 
 ```rust
 impl Solution {
@@ -179,30 +187,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minPathCost(grid: number[][], moveCost: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    const f = grid[0];
-    for (let i = 1; i < m; ++i) {
-        const g: number[] = Array(n).fill(Infinity);
-        for (let j = 0; j < n; ++j) {
-            for (let k = 0; k < n; ++k) {
-                g[j] = Math.min(g[j], f[k] + moveCost[grid[i - 1][k]][j] + grid[i][j]);
-            }
-        }
-        f.splice(0, n, ...g);
-    }
-    return Math.min(...f);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

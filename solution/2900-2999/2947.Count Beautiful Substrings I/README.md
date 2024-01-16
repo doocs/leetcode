@@ -72,13 +72,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +91,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +115,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -152,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautifulSubstrings(s string, k int) (ans int) {
 	n := len(s)
@@ -174,8 +162,6 @@ func beautifulSubstrings(s string, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function beautifulSubstrings(s: string, k: number): number {
@@ -199,10 +185,6 @@ function beautifulSubstrings(s: string, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,11 +55,9 @@ The length of the path is 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12.
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
                     q.append((x, y))
         return -1 if dist[di][dj] == inf else dist[di][dj]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestDistance(maze [][]int, start []int, destination []int) int {
@@ -202,8 +194,6 @@ func shortestDistance(maze [][]int, start []int, destination []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestDistance(maze: number[][], start: number[], destination: number[]): number {
     const m = maze.length;
@@ -236,10 +226,6 @@ function shortestDistance(maze: number[][], start: number[], destination: number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

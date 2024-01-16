@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们注意到，可被 $3$ 整除的偶数一定是 $6$ 的倍数，因此我们只需要遍历数组，统计所有 $6$ 的倍数的和与个数，然后计算平均值即可。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
                 n += 1
         return 0 if n == 0 else s // n
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -82,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func averageValue(nums []int) int {
 	var s, n int
@@ -119,8 +105,6 @@ func averageValue(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function averageValue(nums: number[]): number {
     let s = 0;
@@ -134,23 +118,6 @@ function averageValue(nums: number[]): number {
     return n === 0 ? 0 : ~~(s / n);
 }
 ```
-
-### **C**
-
-```c
-int averageValue(int* nums, int numsSize) {
-    int s = 0, n = 0;
-    for (int i = 0; i < numsSize; ++i) {
-        if (nums[i] % 6 == 0) {
-            s += nums[i];
-            ++n;
-        }
-    }
-    return n == 0 ? 0 : s / n;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -171,6 +138,25 @@ impl Solution {
 }
 ```
 
+```c
+int averageValue(int* nums, int numsSize) {
+    int s = 0, n = 0;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] % 6 == 0) {
+            s += nums[i];
+            ++n;
+        }
+    }
+    return n == 0 ? 0 : s / n;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn average_value(nums: Vec<i32>) -> i32 {
@@ -189,10 +175,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

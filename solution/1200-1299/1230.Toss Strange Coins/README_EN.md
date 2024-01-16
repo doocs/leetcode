@@ -28,7 +28,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 Let $f[i][j]$ represent the probability of having $j$ coins facing up in the first $i$ coins, and initially $f[0][0]=1$. The answer is $f[n][target]$.
 
@@ -49,8 +49,6 @@ The time complexity is $O(n \times target)$, and the space complexity is $O(targ
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def probabilityOfHeads(self, prob: List[float], target: int) -> float:
@@ -64,21 +62,6 @@ class Solution:
                     f[i][j] += p * f[i - 1][j - 1]
         return f[n][target]
 ```
-
-```python
-class Solution:
-    def probabilityOfHeads(self, prob: List[float], target: int) -> float:
-        f = [0] * (target + 1)
-        f[0] = 1
-        for p in prob:
-            for j in range(target, -1, -1):
-                f[j] *= 1 - p
-                if j:
-                    f[j] += p * f[j - 1]
-        return f[target]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,26 +81,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public double probabilityOfHeads(double[] prob, int target) {
-        double[] f = new double[target + 1];
-        f[0] = 1;
-        for (double p : prob) {
-            for (int j = target; j >= 0; --j) {
-                f[j] *= (1 - p);
-                if (j > 0) {
-                    f[j] += p * f[j - 1];
-                }
-            }
-        }
-        return f[target];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,28 +103,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    double probabilityOfHeads(vector<double>& prob, int target) {
-        double f[target + 1];
-        memset(f, 0, sizeof(f));
-        f[0] = 1;
-        for (double p : prob) {
-            for (int j = target; j >= 0; --j) {
-                f[j] *= (1 - p);
-                if (j > 0) {
-                    f[j] += p * f[j - 1];
-                }
-            }
-        }
-        return f[target];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func probabilityOfHeads(prob []float64, target int) float64 {
 	n := len(prob)
@@ -182,24 +123,6 @@ func probabilityOfHeads(prob []float64, target int) float64 {
 }
 ```
 
-```go
-func probabilityOfHeads(prob []float64, target int) float64 {
-	f := make([]float64, target+1)
-	f[0] = 1
-	for _, p := range prob {
-		for j := target; j >= 0; j-- {
-			f[j] *= (1 - p)
-			if j > 0 {
-				f[j] += p * f[j-1]
-			}
-		}
-	}
-	return f[target]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function probabilityOfHeads(prob: number[], target: number): number {
     const n = prob.length;
@@ -214,6 +137,79 @@ function probabilityOfHeads(prob: number[], target: number): number {
         }
     }
     return f[n][target];
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def probabilityOfHeads(self, prob: List[float], target: int) -> float:
+        f = [0] * (target + 1)
+        f[0] = 1
+        for p in prob:
+            for j in range(target, -1, -1):
+                f[j] *= 1 - p
+                if j:
+                    f[j] += p * f[j - 1]
+        return f[target]
+```
+
+```java
+class Solution {
+    public double probabilityOfHeads(double[] prob, int target) {
+        double[] f = new double[target + 1];
+        f[0] = 1;
+        for (double p : prob) {
+            for (int j = target; j >= 0; --j) {
+                f[j] *= (1 - p);
+                if (j > 0) {
+                    f[j] += p * f[j - 1];
+                }
+            }
+        }
+        return f[target];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    double probabilityOfHeads(vector<double>& prob, int target) {
+        double f[target + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (double p : prob) {
+            for (int j = target; j >= 0; --j) {
+                f[j] *= (1 - p);
+                if (j > 0) {
+                    f[j] += p * f[j - 1];
+                }
+            }
+        }
+        return f[target];
+    }
+};
+```
+
+```go
+func probabilityOfHeads(prob []float64, target int) float64 {
+	f := make([]float64, target+1)
+	f[0] = 1
+	for _, p := range prob {
+		for j := target; j >= 0; j-- {
+			f[j] *= (1 - p)
+			if j > 0 {
+				f[j] += p * f[j-1]
+			}
+		}
+	}
+	return f[target]
 }
 ```
 
@@ -233,10 +229,6 @@ function probabilityOfHeads(prob: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

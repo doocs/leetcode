@@ -36,19 +36,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用两个指针 $i$ 和 $j$，初始时分别指向数组的首尾，每次将 $i$ 和 $j$ 对应的元素交换，然后 $i$ 向后移动，$j$ 向前移动，直到 $i$ 和 $j$ 相遇。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -58,16 +52,6 @@ class Solution:
             s[i], s[j] = s[j], s[i]
             i, j = i + 1, j - 1
 ```
-
-```python
-class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        s[:] = s[::-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +65,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -94,8 +76,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reverseString(s []byte) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
@@ -104,8 +84,6 @@ func reverseString(s []byte) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  Do not return anything, modify s in-place instead.
@@ -116,31 +94,6 @@ function reverseString(s: string[]): void {
     }
 }
 ```
-
-```ts
-/**
- Do not return anything, modify s in-place instead.
- */
-function reverseString(s: string[]): void {
-    s.reverse();
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {character[]} s
- * @return {void} Do not return anything, modify s in-place instead.
- */
-var reverseString = function (s) {
-    for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
-        [s[i], s[j]] = [s[j], s[i]];
-    }
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -156,10 +109,39 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
+ */
+var reverseString = function (s) {
+    for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
+        [s[i], s[j]] = [s[j], s[i]];
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        s[:] = s[::-1]
+```
+
+```ts
+/**
+ Do not return anything, modify s in-place instead.
+ */
+function reverseString(s: string[]): void {
+    s.reverse();
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

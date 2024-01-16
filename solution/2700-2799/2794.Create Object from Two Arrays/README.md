@@ -50,13 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
@@ -70,8 +66,6 @@ function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -92,3 +86,5 @@ var createObject = function (keysArr, valuesArr) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

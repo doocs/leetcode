@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：统计等效位置**
+### 方法一：统计等效位置
 
 为了方便说明，我们不妨令 $x = sideLength$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
         cnt.sort(reverse=True)
         return sum(cnt[:maxOnes])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumNumberOfOnes(width int, height int, sideLength int, maxOnes int) int {
 	x := sideLength
@@ -148,8 +134,6 @@ func maximumNumberOfOnes(width int, height int, sideLength int, maxOnes int) int
 	return ans
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -173,10 +157,6 @@ var maximumNumberOfOnes = function (width, height, sideLength, maxOnes) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

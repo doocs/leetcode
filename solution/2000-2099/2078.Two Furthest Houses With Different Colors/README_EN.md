@@ -53,9 +53,9 @@ House 0 has color 0, and house 1 has color 1. The distance between them is abs(0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,22 +67,6 @@ class Solution:
                     ans = max(ans, abs(i - j))
         return ans
 ```
-
-```python
-class Solution:
-    def maxDistance(self, colors: List[int]) -> int:
-        n = len(colors)
-        if colors[0] != colors[-1]:
-            return n - 1
-        i, j = 1, n - 2
-        while colors[i] == colors[0]:
-            i += 1
-        while colors[j] == colors[0]:
-            j -= 1
-        return max(n - i - 1, j)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,25 +84,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int maxDistance(int[] colors) {
-        int n = colors.length;
-        if (colors[0] != colors[n - 1]) {
-            return n - 1;
-        }
-        int i = 0, j = n - 1;
-        while (colors[++i] == colors[0])
-            ;
-        while (colors[--j] == colors[0])
-            ;
-        return Math.max(n - i - 1, j);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,24 +97,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int maxDistance(vector<int>& colors) {
-        int n = colors.size();
-        if (colors[0] != colors[n - 1]) return n - 1;
-        int i = 0, j = n;
-        while (colors[++i] == colors[0])
-            ;
-        while (colors[--j] == colors[0])
-            ;
-        return max(n - i - 1, j);
-    }
-};
-```
-
-### **Go**
 
 ```go
 func maxDistance(colors []int) int {
@@ -172,6 +119,59 @@ func abs(x int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxDistance(self, colors: List[int]) -> int:
+        n = len(colors)
+        if colors[0] != colors[-1]:
+            return n - 1
+        i, j = 1, n - 2
+        while colors[i] == colors[0]:
+            i += 1
+        while colors[j] == colors[0]:
+            j -= 1
+        return max(n - i - 1, j)
+```
+
+```java
+class Solution {
+    public int maxDistance(int[] colors) {
+        int n = colors.length;
+        if (colors[0] != colors[n - 1]) {
+            return n - 1;
+        }
+        int i = 0, j = n - 1;
+        while (colors[++i] == colors[0])
+            ;
+        while (colors[--j] == colors[0])
+            ;
+        return Math.max(n - i - 1, j);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxDistance(vector<int>& colors) {
+        int n = colors.size();
+        if (colors[0] != colors[n - 1]) return n - 1;
+        int i = 0, j = n;
+        while (colors[++i] == colors[0])
+            ;
+        while (colors[--j] == colors[0])
+            ;
+        return max(n - i - 1, j);
+    }
+};
+```
+
 ```go
 func maxDistance(colors []int) int {
 	n := len(colors)
@@ -189,10 +189,6 @@ func maxDistance(colors []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

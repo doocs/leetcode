@@ -58,7 +58,7 @@ Each prefix has a score of one, so the total is answer[0] = 1 + 1 + 1 + 1 = 4.
 
 ## Solutions
 
-**Solution 1: Trie**
+### Solution 1: Trie
 
 Use a trie to maintain the prefixes of all strings and the occurrence count of each prefix.
 
@@ -67,8 +67,6 @@ Then, traverse each string, accumulating the occurrence count of each prefix.
 The time complexity is $O(n \times m)$. Here, $n$ and $m$ are the length of the string array `words` and the maximum length of the strings in it, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -104,8 +102,6 @@ class Solution:
             trie.insert(w)
         return [trie.search(w) for w in words]
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -153,8 +149,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -206,8 +200,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -256,8 +248,6 @@ func sumPrefixScores(words []string) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumPrefixScores(words: string[]): number[] {
     const map = new Map();
@@ -281,6 +271,12 @@ function sumPrefixScores(words: string[]): number[] {
     });
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```ts
 class Trie {
@@ -332,11 +328,6 @@ function sumPrefixScores(words: string[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

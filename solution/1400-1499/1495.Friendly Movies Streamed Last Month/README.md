@@ -89,15 +89,11 @@ TVProgram</code> 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等值连接 + 条件筛选**
+### 方法一：等值连接 + 条件筛选
 
 我们可以先通过等值连接将两张表按照 `content_id` 字段连接起来，然后再通过条件筛选出在 $2020$ 年 $6$ 月份播放的儿童适宜电影。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -112,3 +108,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

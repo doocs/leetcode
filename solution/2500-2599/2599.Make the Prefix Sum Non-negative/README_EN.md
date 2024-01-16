@@ -43,7 +43,7 @@ The array after the operation is [3,-2,6,-5]. The prefix sum array is [3, 1, 7, 
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue (Min Heap)**
+### Solution 1: Greedy + Priority Queue (Min Heap)
 
 We use a variable $s$ to record the prefix sum of the current array.
 
@@ -52,8 +52,6 @@ Traverse the array $nums$, add the current element $x$ to the prefix sum $s$. If
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makePrefSumNonNegative(nums []int) (ans int) {
@@ -149,8 +141,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makePrefSumNonNegative(nums: number[]): number {
     const pq = new MinPriorityQueue();
@@ -170,10 +160,6 @@ function makePrefSumNonNegative(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

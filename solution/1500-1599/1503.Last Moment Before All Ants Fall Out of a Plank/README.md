@@ -68,9 +68,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 题目关键点在于两只蚂蚁相遇，然后分别调转方向的情况，实际上相当于两只蚂蚁继续往原来的方向移动。因此，我们只需要求出所有蚂蚁中最远的那只蚂蚁的移动距离即可。
 
@@ -79,10 +77,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为木板的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
             ans = max(ans, n - x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getLastMoment(n int, left []int, right []int) (ans int) {
 	for _, x := range left {
@@ -145,8 +131,6 @@ func getLastMoment(n int, left []int, right []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getLastMoment(n: number, left: number[], right: number[]): number {
@@ -161,10 +145,6 @@ function getLastMoment(n: number, left: number[], right: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

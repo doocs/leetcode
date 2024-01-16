@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们定义 $cur$ 表示当前已经从 `list` 中读取到的数字，初始时 $cur = 0$，用一个数组 $ans$ 存储答案。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 `target` 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             ans.append('Push')
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func buildArray(target []int, n int) []string {
 	cur := 0
@@ -149,7 +135,38 @@ func buildArray(target []int, n int) []string {
 }
 ```
 
-### **C**
+```ts
+function buildArray(target: number[], n: number): string[] {
+    const res = [];
+    let cur = 0;
+    for (const num of target) {
+        while (++cur < num) {
+            res.push('Push', 'Pop');
+        }
+        res.push('Push');
+    }
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn build_array(target: Vec<i32>, n: i32) -> Vec<String> {
+        let mut res = Vec::new();
+        let mut cur = 1;
+        for &num in target.iter() {
+            while cur < num {
+                res.push("Push");
+                res.push("Pop");
+                cur += 1;
+            }
+            res.push("Push");
+            cur += 1;
+        }
+        res.into_iter().map(String::from).collect()
+    }
+}
+```
 
 ```c
 /**
@@ -174,47 +191,6 @@ char** buildArray(int* target, int targetSize, int n, int* returnSize) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function buildArray(target: number[], n: number): string[] {
-    const res = [];
-    let cur = 0;
-    for (const num of target) {
-        while (++cur < num) {
-            res.push('Push', 'Pop');
-        }
-        res.push('Push');
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn build_array(target: Vec<i32>, n: i32) -> Vec<String> {
-        let mut res = Vec::new();
-        let mut cur = 1;
-        for &num in target.iter() {
-            while cur < num {
-                res.push("Push");
-                res.push("Pop");
-                cur += 1;
-            }
-            res.push("Push");
-            cur += 1;
-        }
-        res.into_iter().map(String::from).collect()
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

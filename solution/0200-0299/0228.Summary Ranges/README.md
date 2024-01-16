@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以用双指针 $i$ 和 $j$ 找出每个区间的左右端点。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
             i = j + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,7 +123,42 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func summaryRanges(nums []int) (ans []string) {
+	f := func(i, j int) string {
+		if i == j {
+			return strconv.Itoa(nums[i])
+		}
+		return strconv.Itoa(nums[i]) + "->" + strconv.Itoa(nums[j])
+	}
+	for i, j, n := 0, 0, len(nums); i < n; i = j + 1 {
+		j = i
+		for j+1 < n && nums[j+1] == nums[j]+1 {
+			j++
+		}
+		ans = append(ans, f(i, j))
+	}
+	return
+}
+```
+
+```ts
+function summaryRanges(nums: number[]): string[] {
+    const f = (i: number, j: number): string => {
+        return i === j ? `${nums[i]}` : `${nums[i]}->${nums[j]}`;
+    };
+    const n = nums.length;
+    const ans: string[] = [];
+    for (let i = 0, j = 0; i < n; i = j + 1) {
+        j = i;
+        while (j + 1 < n && nums[j + 1] === nums[j] + 1) {
+            ++j;
+        }
+        ans.push(f(i, j));
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -177,49 +200,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func summaryRanges(nums []int) (ans []string) {
-	f := func(i, j int) string {
-		if i == j {
-			return strconv.Itoa(nums[i])
-		}
-		return strconv.Itoa(nums[i]) + "->" + strconv.Itoa(nums[j])
-	}
-	for i, j, n := 0, 0, len(nums); i < n; i = j + 1 {
-		j = i
-		for j+1 < n && nums[j+1] == nums[j]+1 {
-			j++
-		}
-		ans = append(ans, f(i, j))
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function summaryRanges(nums: number[]): string[] {
-    const f = (i: number, j: number): string => {
-        return i === j ? `${nums[i]}` : `${nums[i]}->${nums[j]}`;
-    };
-    const n = nums.length;
-    const ans: string[] = [];
-    for (let i = 0, j = 0; i < n; i = j + 1) {
-        j = i;
-        while (j + 1 < n && nums[j + 1] === nums[j] + 1) {
-            ++j;
-        }
-        ans.push(f(i, j));
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public IList<string> SummaryRanges(int[] nums) {
@@ -240,10 +220,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

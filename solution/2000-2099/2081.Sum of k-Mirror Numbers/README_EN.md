@@ -67,15 +67,9 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,10 +105,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

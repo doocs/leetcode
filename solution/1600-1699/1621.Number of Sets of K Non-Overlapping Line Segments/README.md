@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 记 $f[i][j]$ 表示使用前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点不为 $i$ 的方案数；记 $g[i][j]$ 表示使用了前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点为 $i$ 的方案数。初始时 $f[1][0]=1$。
 
@@ -91,10 +89,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfSets(self, n: int, k: int) -> int:
@@ -113,10 +107,6 @@ class Solution:
                     g[i][j] %= mod
         return (f[-1][-1] + g[-1][-1]) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -142,8 +132,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -173,8 +161,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfSets(n int, k int) int {
 	f := make([][]int, n+1)
@@ -201,8 +187,6 @@ func numberOfSets(n int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfSets(n: number, k: number): number {
     const f = Array.from({ length: n + 1 }, _ => new Array(k + 1).fill(0));
@@ -225,10 +209,6 @@ function numberOfSets(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,13 +61,11 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 ## Solutions
 
-**Solution 1: Recursion + Left Join + Date Functions**
+### Solution 1: Recursion + Left Join + Date Functions
 
 We can generate a table `T` that contains all dates in November 2023 using recursion, then use a left join to connect `T` and the `Purchases` table by date. Finally, group and sum according to the requirements of the problem.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 WITH RECURSIVE
@@ -91,3 +89,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

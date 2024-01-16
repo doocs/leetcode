@@ -71,13 +71,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +88,6 @@ class Solution:
                 ans += i * 2 + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wateringPlants(plants []int, capacity int) int {
 	ans, cap := 0, capacity
@@ -153,8 +141,6 @@ func wateringPlants(plants []int, capacity int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function wateringPlants(plants: number[], capacity: number): number {
@@ -173,8 +159,6 @@ function wateringPlants(plants: number[], capacity: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -196,8 +180,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int wateringPlants(int* plants, int plantsSize, int capacity) {
     int ans = 0;
@@ -215,10 +197,6 @@ int wateringPlants(int* plants, int plantsSize, int capacity) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

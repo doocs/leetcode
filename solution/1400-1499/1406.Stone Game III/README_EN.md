@@ -54,7 +54,7 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We design a function $dfs(i)$, which represents the maximum score difference that the current player can obtain when playing the game in the range $[i, n)$. If $dfs(0) > 0$, it means that the first player Alice can win; if $dfs(0) < 0$, it means that the second player Bob can win; otherwise, it means that the two players tie.
 
@@ -72,8 +72,6 @@ To prevent repeated calculations, we can use memoization search.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of piles of stones.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -96,8 +94,6 @@ class Solution:
             return 'Tie'
         return 'Alice' if ans > 0 else 'Bob'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func stoneGameIII(stoneValue []int) string {
@@ -203,8 +195,6 @@ func stoneGameIII(stoneValue []int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function stoneGameIII(stoneValue: number[]): string {
     const n = stoneValue.length;
@@ -233,10 +223,6 @@ function stoneGameIII(stoneValue: number[]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

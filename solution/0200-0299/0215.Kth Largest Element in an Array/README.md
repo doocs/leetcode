@@ -38,27 +38,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们可以将数组 $nums$ 升序排列，然后获取 $nums[n-k]$。
 
 时间复杂度 $O(n \times \log n)$，其中 $n$ 表示数组 $nums$ 的长度。
 
-**方法二：Partition**
-
-我们注意到，并不是所有时候，都需要整个数组进入有序状态，只需要**局部有序**，或者说，从大到小排序，只要 $[0..k)$ 位置的元素有序，那么就能确定结果，此处使用**快速排序**。
-
-快速排序有一特点，每一次循环结束时，能够确定的是 $partition$ 一定处于它该处于的索引位置。从而根据它得知，结果值是在左数组还是在右数组当中，然后对那一数组进行排序即可。
-
-时间复杂度 $O(n)$，其中 $n$ 表示数组 $nums$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +72,6 @@ class Solution:
         n = len(nums)
         return quick_sort(0, n - 1, n - k)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findKthLargest(nums []int, k int) int {
@@ -187,8 +165,6 @@ func quickSort(nums []int, left, right, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findKthLargest(nums: number[], k: number): number {
     const n = nums.length;
@@ -217,8 +193,6 @@ function findKthLargest(nums: number[], k: number): number {
     return nums[k - 1];
 }
 ```
-
-### **Rust**
 
 ```rust
 use rand::Rng;
@@ -252,6 +226,18 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：Partition
+
+我们注意到，并不是所有时候，都需要整个数组进入有序状态，只需要**局部有序**，或者说，从大到小排序，只要 $[0..k)$ 位置的元素有序，那么就能确定结果，此处使用**快速排序**。
+
+快速排序有一特点，每一次循环结束时，能够确定的是 $partition$ 一定处于它该处于的索引位置。从而根据它得知，结果值是在左数组还是在右数组当中，然后对那一数组进行排序即可。
+
+时间复杂度 $O(n)$，其中 $n$ 表示数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
 ```rust
 use rand::Rng;
 
@@ -283,10 +269,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

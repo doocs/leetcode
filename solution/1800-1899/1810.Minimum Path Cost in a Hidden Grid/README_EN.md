@@ -89,9 +89,9 @@ We now know that the target is the cell (1, 0), and the minimum total cost to re
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # """
@@ -155,8 +155,6 @@ class Solution(object):
                     heappush(q, (dist[x][y], x, y))
         return 0
 ```
-
-### **Java**
 
 ```java
 /**
@@ -227,10 +225,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

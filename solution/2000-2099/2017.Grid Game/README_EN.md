@@ -55,7 +55,7 @@ The second robot will collect 0 + 1 + 3 + 3 + 0 = 7 points.
 
 ## Solutions
 
-**Solution 1: Prefix Sum**
+### Solution 1: Prefix Sum
 
 We notice that if we determine the position $j$ where the first robot turns down, then the optimal path of the second robot is also determined. The optimal path of the second robot is the prefix sum of the first row from $j+1$ to $n-1$, or the prefix sum of the second row from $0$ to $j-1$, taking the maximum of the two.
 
@@ -69,8 +69,6 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def gridGame(self, grid: List[List[int]]) -> int:
@@ -82,8 +80,6 @@ class Solution:
             s2 += grid[1][j]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using ll = long long;
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func gridGame(grid [][]int) int64 {
 	ans := math.MaxInt64
@@ -144,8 +136,6 @@ func gridGame(grid [][]int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function gridGame(grid: number[][]): number {
     let ans = Number.MAX_SAFE_INTEGER;
@@ -160,10 +150,6 @@ function gridGame(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

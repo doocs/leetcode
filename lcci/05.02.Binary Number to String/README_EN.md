@@ -30,7 +30,7 @@
 
 ## Solutions
 
-**Solution 1: Decimal Fraction to Binary Fraction**
+### Solution 1: Decimal Fraction to Binary Fraction
 
 The method of converting a decimal fraction to a binary fraction is as follows: multiply the decimal part by $2$, take the integer part as the next digit of the binary fraction, and take the decimal part as the multiplicand for the next multiplication, until the decimal part is $0$ or the length of the binary fraction exceeds $32$ bits.
 
@@ -55,8 +55,6 @@ The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def printBin(self, num: float) -> str:
@@ -68,8 +66,6 @@ class Solution:
             num -= x
         return 'ERROR' if num else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func printBin(num float64) string {
@@ -123,10 +115,6 @@ func printBin(num float64) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

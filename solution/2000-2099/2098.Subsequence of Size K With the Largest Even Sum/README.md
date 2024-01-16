@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 我们注意到，题目选取的是子序列，因此我们可以考虑先对数组进行排序。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
         ans = max(ans - mi1 + mx1, ans - mi2 + mx2, -1)
         return -1 if ans % 2 else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -175,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestEvenSum(nums []int, k int) int64 {
 	sort.Ints(nums)
@@ -213,16 +199,6 @@ func largestEvenSum(nums []int, k int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

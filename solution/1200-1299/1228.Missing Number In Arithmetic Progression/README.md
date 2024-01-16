@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等差数列求和公式**
+### 方法一：等差数列求和公式
 
 等差数列求和公式为 $\frac{n(a_1 + a_n)}{2}$，其中 $n$ 为等差数列的项数，$a_1$ 为等差数列的首项，$a_n$ 为等差数列的末项。
 
@@ -55,30 +53,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def missingNumber(self, arr: List[int]) -> int:
         return (arr[0] + arr[-1]) * (len(arr) + 1) // 2 - sum(arr)
 ```
-
-```python
-class Solution:
-    def missingNumber(self, arr: List[int]) -> int:
-        n = len(arr)
-        d = (arr[-1] - arr[0]) // n
-        for i in range(1, n):
-            if arr[i] != arr[i - 1] + d:
-                return arr[i - 1] + d
-        return arr[0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,6 +68,48 @@ class Solution {
         return x - y;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& arr) {
+        int n = arr.size();
+        int x = (arr[0] + arr[n - 1]) * (n + 1) / 2;
+        int y = accumulate(arr.begin(), arr.end(), 0);
+        return x - y;
+    }
+};
+```
+
+```go
+func missingNumber(arr []int) int {
+	n := len(arr)
+	d := (arr[n-1] - arr[0]) / n
+	for i := 1; i < n; i++ {
+		if arr[i] != arr[i-1]+d {
+			return arr[i-1] + d
+		}
+	}
+	return arr[0]
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def missingNumber(self, arr: List[int]) -> int:
+        n = len(arr)
+        d = (arr[-1] - arr[0]) // n
+        for i in range(1, n):
+            if arr[i] != arr[i - 1] + d:
+                return arr[i - 1] + d
+        return arr[0]
 ```
 
 ```java
@@ -106,20 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int missingNumber(vector<int>& arr) {
-        int n = arr.size();
-        int x = (arr[0] + arr[n - 1]) * (n + 1) / 2;
-        int y = accumulate(arr.begin(), arr.end(), 0);
-        return x - y;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -133,25 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func missingNumber(arr []int) int {
-	n := len(arr)
-	d := (arr[n-1] - arr[0]) / n
-	for i := 1; i < n; i++ {
-		if arr[i] != arr[i-1]+d {
-			return arr[i-1] + d
-		}
-	}
-	return arr[0]
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,9 @@ Patients table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -68,3 +68,5 @@ WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%';
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

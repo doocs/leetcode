@@ -56,7 +56,7 @@
 
 ## Solutions
 
-**Solution 1: Brute Force Enumeration**
+### Solution 1: Brute Force Enumeration
 
 We notice that the length of the array $nums$ does not exceed $200$, so we can enumerate all pairs $(i, j)$, where $i < j$, and check if $|nums[i] - nums[j]|$ equals $k$. If it does, we increment the answer by one.
 
@@ -64,17 +64,7 @@ Finally, we return the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
 
-**Solution 2: Hash Table or Array**
-
-We can use a hash table or array to record the occurrence count of each number in the array $nums$. Then, we enumerate each number $x$ in the array $nums$, and check if $x + k$ and $x - k$ are in the array $nums$. If they are, we increment the answer by the sum of the occurrence counts of $x + k$ and $x - k$.
-
-Finally, we return the answer.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,19 +74,6 @@ class Solution:
             abs(nums[i] - nums[j]) == k for i in range(n) for j in range(i + 1, n)
         )
 ```
-
-```python
-class Solution:
-    def countKDifference(self, nums: List[int], k: int) -> int:
-        ans = 0
-        cnt = Counter()
-        for num in nums:
-            ans += cnt[num - k] + cnt[num + k]
-            cnt[num] += 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,27 +91,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countKDifference(int[] nums, int k) {
-        int ans = 0;
-        int[] cnt = new int[110];
-        for (int num : nums) {
-            if (num >= k) {
-                ans += cnt[num - k];
-            }
-            if (num + k <= 100) {
-                ans += cnt[num + k];
-            }
-            ++cnt[num];
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,28 +106,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int countKDifference(vector<int>& nums, int k) {
-        int ans = 0;
-        int cnt[110]{};
-        for (int num : nums) {
-            if (num >= k) {
-                ans += cnt[num - k];
-            }
-            if (num + k <= 100) {
-                ans += cnt[num + k];
-            }
-            ++cnt[num];
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func countKDifference(nums []int, k int) int {
@@ -195,24 +129,6 @@ func abs(x int) int {
 }
 ```
 
-```go
-func countKDifference(nums []int, k int) (ans int) {
-	cnt := [110]int{}
-	for _, num := range nums {
-		if num >= k {
-			ans += cnt[num-k]
-		}
-		if num+k <= 100 {
-			ans += cnt[num+k]
-		}
-		cnt[num]++
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function countKDifference(nums: number[], k: number): number {
     let ans = 0;
@@ -224,8 +140,6 @@ function countKDifference(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -241,6 +155,84 @@ impl Solution {
         }
         res
     }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Hash Table or Array
+
+We can use a hash table or array to record the occurrence count of each number in the array $nums$. Then, we enumerate each number $x$ in the array $nums$, and check if $x + k$ and $x - k$ are in the array $nums$. If they are, we increment the answer by the sum of the occurrence counts of $x + k$ and $x - k$.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countKDifference(self, nums: List[int], k: int) -> int:
+        ans = 0
+        cnt = Counter()
+        for num in nums:
+            ans += cnt[num - k] + cnt[num + k]
+            cnt[num] += 1
+        return ans
+```
+
+```java
+class Solution {
+    public int countKDifference(int[] nums, int k) {
+        int ans = 0;
+        int[] cnt = new int[110];
+        for (int num : nums) {
+            if (num >= k) {
+                ans += cnt[num - k];
+            }
+            if (num + k <= 100) {
+                ans += cnt[num + k];
+            }
+            ++cnt[num];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countKDifference(vector<int>& nums, int k) {
+        int ans = 0;
+        int cnt[110]{};
+        for (int num : nums) {
+            if (num >= k) {
+                ans += cnt[num - k];
+            }
+            if (num + k <= 100) {
+                ans += cnt[num + k];
+            }
+            ++cnt[num];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countKDifference(nums []int, k int) (ans int) {
+	cnt := [110]int{}
+	for _, num := range nums {
+		if num >= k {
+			ans += cnt[num-k]
+		}
+		if num+k <= 100 {
+			ans += cnt[num+k]
+		}
+		cnt[num]++
+	}
+	return
 }
 ```
 
@@ -263,10 +255,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

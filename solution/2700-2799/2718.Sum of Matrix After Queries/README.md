@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 由于每一行、每一列的值取决于最后一次的修改，因此，我们不妨倒序遍历所有的查询，使用哈希表 $row$ 和 $col$ 记录有哪些行和列被修改过。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(m)$，空间复杂度 $O(n)$。其中 $m$ 表示查询的次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                     col.add(i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	row, col := map[int]bool{}, map[int]bool{}
@@ -171,8 +157,6 @@ func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function matrixSumQueries(n: number, queries: number[][]): number {
@@ -197,10 +181,6 @@ function matrixSumQueries(n: number, queries: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

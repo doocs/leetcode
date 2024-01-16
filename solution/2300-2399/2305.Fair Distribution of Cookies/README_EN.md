@@ -47,7 +47,7 @@ It can be shown that there is no distribution with an unfairness less than 7.
 
 ## Solutions
 
-**Solution 1: Backtracking + Pruning**
+### Solution 1: Backtracking + Pruning
 
 First, we sort the array $cookies$ in descending order (to reduce the number of searches), and then create an array $cnt$ of length $k$ to store the number of cookies each child gets. Also, we use a variable $ans$ to maintain the current minimum degree of unfairness, initialized to a very large value.
 
@@ -56,8 +56,6 @@ Next, we start from the first snack pack. For the current snack pack $i$, we enu
 Finally, we return $ans$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
 ```java
 class Solution {
     private int[] cookies;
@@ -94,9 +90,11 @@ class Solution {
     public int distributeCookies(int[] cookies, int k) {
         n = cookies.length;
         cnt = new int[k];
+        // 升序排列
         Arrays.sort(cookies);
         this.cookies = cookies;
         this.k = k;
+        // 这里搜索顺序是 n-1, n-2,...0
         dfs(n - 1);
         return ans;
     }
@@ -121,8 +119,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distributeCookies(cookies []int, k int) int {
 	sort.Sort(sort.Reverse(sort.IntSlice(cookies)))
@@ -180,8 +174,6 @@ func distributeCookies(cookies []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distributeCookies(cookies: number[], k: number): number {
     const cnt = new Array(k).fill(0);
@@ -205,10 +197,6 @@ function distributeCookies(cookies: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

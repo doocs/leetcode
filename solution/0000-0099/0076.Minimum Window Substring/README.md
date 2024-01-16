@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 双指针**
+### 方法一：计数 + 双指针
 
 我们用一个哈希表或数组 $need$ 统计字符串 $t$ 中每个字符出现的次数，用另一个哈希表或数组 $window$ 统计滑动窗口中每个字符出现的次数。另外，定义两个指针 $j$ 和 $i$ 分别指向窗口的左右边界，变量 $cnt$ 表示窗口中已经包含了 $t$ 中的多少个字符，变量 $k$ 和 $mi$ 分别表示最小覆盖子串的起始位置和长度。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $t$ 的长度；而 $C$ 是字符集的大小，本题中 $C = 128$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
                 j += 1
         return '' if k < 0 else s[k : k + mi]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -169,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minWindow(s string, t string) string {
 	need := [128]int{}
@@ -203,8 +189,6 @@ func minWindow(s string, t string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minWindow(s: string, t: string): string {
     const need: number[] = new Array(128).fill(0);
@@ -235,40 +219,6 @@ function minWindow(s: string, t: string): string {
     return k < 0 ? '' : s.slice(k, k + mi);
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public string MinWindow(string s, string t) {
-        int[] need = new int[128];
-        int[] window = new int[128];
-        foreach (var c in t) {
-            ++need[c];
-        }
-        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
-        for (int i = 0; i < s.Length; ++i) {
-            ++window[s[i]];
-            if (need[s[i]] >= window[s[i]]) {
-                ++cnt;
-            }
-            while (cnt == t.Length) {
-                if (i - j + 1 < mi) {
-                    mi = i - j + 1;
-                    k = j;
-                }
-                if (need[s[j]] >= window[s[j]]) {
-                    --cnt;
-                }
-                --window[s[j++]];
-            }
-        }
-        return k < 0 ? "" : s.Substring(k, mi);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -306,10 +256,36 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public string MinWindow(string s, string t) {
+        int[] need = new int[128];
+        int[] window = new int[128];
+        foreach (var c in t) {
+            ++need[c];
+        }
+        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
+        for (int i = 0; i < s.Length; ++i) {
+            ++window[s[i]];
+            if (need[s[i]] >= window[s[i]]) {
+                ++cnt;
+            }
+            while (cnt == t.Length) {
+                if (i - j + 1 < mi) {
+                    mi = i - j + 1;
+                    k = j;
+                }
+                if (need[s[j]] >= window[s[j]]) {
+                    --cnt;
+                }
+                --window[s[j++]];
+            }
+        }
+        return k < 0 ? "" : s.Substring(k, mi);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

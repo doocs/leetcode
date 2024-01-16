@@ -63,17 +63,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和**
+### 方法一：前缀和
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `candiesCount` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             ans.append(least < s[t + 1] and most > s[t])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -132,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canEat(candiesCount []int, queries [][]int) (ans []bool) {
 	n := len(candiesCount)
@@ -150,10 +136,6 @@ func canEat(candiesCount []int, queries [][]int) (ans []bool) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

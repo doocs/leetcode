@@ -51,7 +51,7 @@ It can be shown that we cannot achieve a smaller total cost than 5.
 
 ## Solutions
 
-**Solution 1: Dijkstra**
+### Solution 1: Dijkstra
 
 We can find that for each coordinate $(x, y)$ we visit, suppose the minimum cost from the start point to $(x, y)$ is $d$. If we choose to move directly to $(targetX, targetY)$, then the total cost is $d + |x - targetX| + |y - targetY|$. If we choose to go through a special path $(x_1, y_1) \rightarrow (x_2, y_2)$, then we need to spend $|x - x_1| + |y - y_1| + cost$ to move from $(x, y)$ to $(x_2, y_2)$.
 
@@ -66,8 +66,6 @@ Finally, when the queue is empty, we can get the answer.
 The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Where $n$ is the number of special paths.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -90,8 +88,6 @@ class Solution:
                 heappush(q, (d + dist(x, y, x1, y1) + cost, x2, y2))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumCost(start []int, target []int, specialRoads [][]int) int {
@@ -205,8 +197,6 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumCost(start: number[], target: number[], specialRoads: number[][]): number {
@@ -300,10 +290,6 @@ class Heap<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

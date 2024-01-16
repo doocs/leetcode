@@ -93,15 +93,9 @@ cdata <strong>不</strong>是 <strong>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈模拟**
+### 方法一：栈模拟
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -139,10 +133,6 @@ class Solution:
             i += 1
         return not stk
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -199,8 +189,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -241,8 +229,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isValid(code string) bool {
@@ -303,8 +289,6 @@ func check(tag string) bool {
 	return true
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -370,10 +354,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,13 +48,9 @@ rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class RangeFreqQuery:
@@ -75,10 +71,6 @@ class RangeFreqQuery:
 # obj = RangeFreqQuery(arr)
 # param_1 = obj.query(left,right,value)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class RangeFreqQuery {
@@ -121,8 +113,6 @@ class RangeFreqQuery {
  */
 ```
 
-### **C++**
-
 ```cpp
 class RangeFreqQuery {
 public:
@@ -147,8 +137,6 @@ public:
  * int param_1 = obj->query(left,right,value);
  */
 ```
-
-### **Go**
 
 ```go
 type RangeFreqQuery struct {
@@ -177,10 +165,6 @@ func (this *RangeFreqQuery) Query(left int, right int, value int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 According to the problem description, a lucky number only contains the digits $4$ and $7$, so the number of $n$-digit lucky numbers is $2^n$.
 
@@ -53,8 +53,6 @@ If $k$ is less than or equal to $2^{n-1}$, then the first digit of the $k$-th lu
 The time complexity is $O(\log k)$, and the space complexity is $O(\log k)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
                 k -= 1 << n
         return "".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthLuckyNumber(k int) string {
 	n := 1
@@ -146,8 +138,6 @@ func kthLuckyNumber(k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kthLuckyNumber(k: number): string {
     let n = 1;
@@ -168,10 +158,6 @@ function kthLuckyNumber(k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

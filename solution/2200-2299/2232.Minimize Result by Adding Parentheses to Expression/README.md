@@ -53,15 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举左右括号的插入位置**
+### 方法一：枚举左右括号的插入位置
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                     ans = f"{l[:i]}({l[i:]}+{r[: j + 1]}){r[j + 1:]}"
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimizeResult(expression: string): string {
@@ -143,10 +131,6 @@ function getNum(arr: Array<string>): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

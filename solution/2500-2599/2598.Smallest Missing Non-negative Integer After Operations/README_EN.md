@@ -53,7 +53,7 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 
 ## Solutions
 
-**Solution 1: Count**
+### Solution 1: Count
 
 We use a hash table or array $cnt$ to count the number of times each remainder of $value$ is taken modulo in the array.
 
@@ -62,8 +62,6 @@ Then start from $0$ and traverse, for the current number $i$ traversed, if $cnt[
 The time complexity is $O(n)$ and the space complexity is $O(value)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 return i
             cnt[i % value] -= 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSmallestInteger(nums []int, value int) int {
 	cnt := make([]int, value)
@@ -130,8 +122,6 @@ func findSmallestInteger(nums []int, value int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSmallestInteger(nums: number[], value: number): number {
     const cnt: number[] = new Array(value).fill(0);
@@ -146,10 +136,6 @@ function findSmallestInteger(nums: number[], value: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

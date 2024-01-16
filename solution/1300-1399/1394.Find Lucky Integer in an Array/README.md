@@ -61,19 +61,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以用哈希表或数组 $cnt$ 统计 $arr$ 中每个数字出现的次数，然后遍历 $cnt$，找到满足 $cnt[x] = x$ 的最大的 $x$ 即可。如果没有这样的 $x$，则返回 $-1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $arr$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 ans = x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findLucky(arr []int) int {
 	cnt := [510]int{}
@@ -148,7 +134,21 @@ func findLucky(arr []int) int {
 }
 ```
 
-### **PHP**
+```ts
+function findLucky(arr: number[]): number {
+    const cnt = new Array(510).fill(0);
+    for (const x of arr) {
+        ++cnt[x];
+    }
+    let ans = -1;
+    for (let x = 1; x < cnt.length; ++x) {
+        if (cnt[x] === x) {
+            ans = x;
+        }
+    }
+    return ans;
+}
+```
 
 ```php
 class Solution {
@@ -172,28 +172,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findLucky(arr: number[]): number {
-    const cnt = new Array(510).fill(0);
-    for (const x of arr) {
-        ++cnt[x];
-    }
-    let ans = -1;
-    for (let x = 1; x < cnt.length; ++x) {
-        if (cnt[x] === x) {
-            ans = x;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

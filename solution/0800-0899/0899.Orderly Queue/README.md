@@ -43,13 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**前言**
-
-对于任何字符串，如果可以交换任意相邻字符，则可以对字符串中的字符做类似冒泡排序的操作，最终得到一个升序排列的字符串。
-
-**方法一：分情况判断**
+### 方法一：分情况判断
 
 若 $k = 1$，我们每次只能将字符串首字符移动到字符串末尾，总共有 $|s|$ 种不同的状态，我们返回其中字典序最小的字符串即可。
 
@@ -60,10 +54,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +66,6 @@ class Solution:
             return ans
         return "".join(sorted(s))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func orderlyQueue(s string, k int) string {
@@ -142,8 +124,6 @@ func orderlyQueue(s string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function orderlyQueue(s: string, k: number): string {
     if (k > 1) {
@@ -161,10 +141,6 @@ function orderlyQueue(s: string, k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

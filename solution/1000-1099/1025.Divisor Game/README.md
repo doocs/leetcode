@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学归纳法**
+### 方法一：数学归纳法
 
 -   当 $n=1$，先手败
 -   当 $n=2$，先手拿 $1$，剩下 $1$，后手败，先手胜
@@ -75,19 +73,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def divisorGame(self, n: int) -> bool:
         return n % 2 == 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,18 +96,12 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func divisorGame(n int) bool {
 	return n%2 == 0
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

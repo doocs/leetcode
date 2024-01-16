@@ -40,9 +40,7 @@ T_4 = 1 + 1 + 2 = 4
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 根据题目中给出的递推式，我们可以使用动态规划求解。
 
@@ -52,7 +50,143 @@ T_4 = 1 + 1 + 2 = 4
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为给定的整数。
 
-**方法二：矩阵快速幂加速递推**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        a, b, c = 0, 1, 1
+        for _ in range(n):
+            a, b, c = b, c, a + b + c
+        return a
+```
+
+```java
+class Solution {
+    public int tribonacci(int n) {
+        int a = 0, b = 1, c = 1;
+        while (n-- > 0) {
+            int d = a + b + c;
+            a = b;
+            b = c;
+            c = d;
+        }
+        return a;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int tribonacci(int n) {
+        long long a = 0, b = 1, c = 1;
+        while (n--) {
+            long long d = a + b + c;
+            a = b;
+            b = c;
+            c = d;
+        }
+        return (int) a;
+    }
+};
+```
+
+```go
+func tribonacci(n int) int {
+	a, b, c := 0, 1, 1
+	for i := 0; i < n; i++ {
+		a, b, c = b, c, a+b+c
+	}
+	return a
+}
+```
+
+```ts
+function tribonacci(n: number): number {
+    if (n === 0) {
+        return 0;
+    }
+    if (n < 3) {
+        return 1;
+    }
+    const a = [
+        [1, 1, 0],
+        [1, 0, 1],
+        [1, 0, 0],
+    ];
+    return pow(a, n - 3)[0].reduce((a, b) => a + b);
+}
+
+function mul(a: number[][], b: number[][]): number[][] {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < b.length; ++k) {
+                c[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a: number[][], n: number): number[][] {
+    let res = [[1, 1, 0]];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
+    }
+    return res;
+}
+```
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var tribonacci = function (n) {
+    let a = 0;
+    let b = 1;
+    let c = 1;
+    while (n--) {
+        let d = a + b + c;
+        a = b;
+        b = c;
+        c = d;
+    }
+    return a;
+};
+```
+
+```php
+class Solution {
+    /**
+     * @param Integer $n
+     * @return Integer
+     */
+    function tribonacci($n) {
+        if ($n == 0) {
+            return 0;
+        } elseif ($n == 1 || $n == 2) {
+            return 1;
+        }
+        $dp = [0, 1, 1];
+        for ($i = 3; $i <= $n; $i++) {
+            $dp[$i] = $dp[$i - 1] + $dp[$i - 2] + $dp[$i - 3];
+        }
+        return $dp[$n];
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：矩阵快速幂加速递推
 
 我们设 $Tib(n)$ 表示一个 $1 \times 3$ 的矩阵 $\begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}$，其中 $T_n$, $T_{n - 1}$ 和 $T_{n - 2}$ 分别表示第 $n$ 个、第 $n - 1$ 个和第 $n - 2$ 个泰波那契数。
 
@@ -79,19 +213,6 @@ $$
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def tribonacci(self, n: int) -> int:
-        a, b, c = 0, 1, 1
-        for _ in range(n):
-            a, b, c = b, c, a + b + c
-        return a
-```
 
 ```python
 class Solution:
@@ -120,46 +241,6 @@ class Solution:
             return 1
         a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
         return sum(pow(a, n - 3)[0])
-```
-
-```python
-import numpy as np
-
-
-class Solution:
-    def tribonacci(self, n: int) -> int:
-        if n == 0:
-            return 0
-        if n < 3:
-            return 1
-        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
-        res = np.mat([(1, 1, 0)], np.dtype("O"))
-        n -= 3
-        while n:
-            if n & 1:
-                res *= factor
-            factor *= factor
-            n >>= 1
-        return res.sum()
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int tribonacci(int n) {
-        int a = 0, b = 1, c = 1;
-        while (n-- > 0) {
-            int d = a + b + c;
-            a = b;
-            b = c;
-            c = d;
-        }
-        return a;
-    }
-}
 ```
 
 ```java
@@ -207,24 +288,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int tribonacci(int n) {
-        long long a = 0, b = 1, c = 1;
-        while (n--) {
-            long long d = a + b + c;
-            a = b;
-            b = c;
-            c = d;
-        }
-        return (int) a;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -267,18 +330,6 @@ private:
         return res;
     }
 };
-```
-
-### **Go**
-
-```go
-func tribonacci(n int) int {
-	a, b, c := 0, 1, 1
-	for i := 0; i < n; i++ {
-		a, b, c = b, c, a+b+c
-	}
-	return a
-}
 ```
 
 ```go
@@ -324,27 +375,6 @@ func pow(a [][]int, n int) [][]int {
 	}
 	return res
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var tribonacci = function (n) {
-    let a = 0;
-    let b = 1;
-    let c = 1;
-    while (n--) {
-        let d = a + b + c;
-        a = b;
-        b = c;
-        c = d;
-    }
-    return a;
-};
 ```
 
 ```js
@@ -393,77 +423,33 @@ function pow(a, n) {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function tribonacci(n: number): number {
-    if (n === 0) {
-        return 0;
-    }
-    if (n < 3) {
-        return 1;
-    }
-    const a = [
-        [1, 1, 0],
-        [1, 0, 1],
-        [1, 0, 0],
-    ];
-    return pow(a, n - 3)[0].reduce((a, b) => a + b);
-}
+### 方法三
 
-function mul(a: number[][], b: number[][]): number[][] {
-    const [m, n] = [a.length, b[0].length];
-    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            for (let k = 0; k < b.length; ++k) {
-                c[i][j] += a[i][k] * b[k][j];
-            }
-        }
-    }
-    return c;
-}
+<!-- tabs:start -->
 
-function pow(a: number[][], n: number): number[][] {
-    let res = [[1, 1, 0]];
-    while (n) {
-        if (n & 1) {
-            res = mul(res, a);
-        }
-        a = mul(a, a);
-        n >>= 1;
-    }
-    return res;
-}
-```
+```python
+import numpy as np
 
-### **PHP**
 
-```php
-class Solution {
-    /**
-     * @param Integer $n
-     * @return Integer
-     */
-    function tribonacci($n) {
-        if ($n == 0) {
-            return 0;
-        } elseif ($n == 1 || $n == 2) {
-            return 1;
-        }
-        $dp = [0, 1, 1];
-        for ($i = 3; $i <= $n; $i++) {
-            $dp[$i] = $dp[$i - 1] + $dp[$i - 2] + $dp[$i - 3];
-        }
-        return $dp[$n];
-    }
-}
-```
-
-### **...**
-
-```
-
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        if n == 0:
+            return 0
+        if n < 3:
+            return 1
+        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
+        res = np.mat([(1, 1, 0)], np.dtype("O"))
+        n -= 3
+        while n:
+            if n & 1:
+                res *= factor
+            factor *= factor
+            n >>= 1
+        return res.sum()
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

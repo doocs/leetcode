@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 异或运算的性质：
 
@@ -71,17 +69,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
-**方法二：数学**
-
-我们也可以用数学求解。求出 $[0,..n]$ 的和，减去数组中所有数的和，就得到了缺失的数字。
-
-时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,17 +77,6 @@ class Solution:
         return reduce(xor, (i ^ v for i, v in enumerate(nums, 1)))
 ```
 
-```python
-class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        n = len(nums)
-        return (1 + n) * n // 2 - sum(nums)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int missingNumber(int[] nums) {
@@ -112,21 +89,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int missingNumber(int[] nums) {
-        int n = nums.length;
-        int ans = n;
-        for (int i = 0; i < n; ++i) {
-            ans += i - nums[i];
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,18 +103,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        int n = nums.size();
-        return (1 + n) * n / 2 - accumulate(nums.begin(), nums.end(), 0);
-    }
-};
-```
-
-### **Go**
 
 ```go
 func missingNumber(nums []int) (ans int) {
@@ -165,18 +115,16 @@ func missingNumber(nums []int) (ans int) {
 }
 ```
 
-```go
-func missingNumber(nums []int) (ans int) {
-	n := len(nums)
-	ans = n
-	for i, v := range nums {
-		ans += i - v
-	}
-	return
+```ts
+function missingNumber(nums: number[]): number {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans ^= i ^ nums[i];
+    }
+    return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -191,45 +139,6 @@ impl Solution {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn missing_number(nums: Vec<i32>) -> i32 {
-        let n = nums.len() as i32;
-        let mut ans = n;
-        for (i, &v) in nums.iter().enumerate() {
-            ans += (i as i32) - v;
-        }
-        ans
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function missingNumber(nums: number[]): number {
-    const n = nums.length;
-    let ans = n;
-    for (let i = 0; i < n; ++i) {
-        ans ^= i ^ nums[i];
-    }
-    return ans;
-}
-```
-
-```ts
-function missingNumber(nums: number[]): number {
-    const n = nums.length;
-    let ans = n;
-    for (let i = 0; i < n; ++i) {
-        ans += i - nums[i];
-    }
-    return ans;
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -244,23 +153,6 @@ var missingNumber = function (nums) {
     return ans;
 };
 ```
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var missingNumber = function (nums) {
-    const n = nums.length;
-    let ans = n;
-    for (let i = 0; i < n; ++i) {
-        ans += i - nums[i];
-    }
-    return ans;
-};
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -279,10 +171,96 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：数学
+
+我们也可以用数学求解。求出 $[0,..n]$ 的和，减去数组中所有数的和，就得到了缺失的数字。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        return (1 + n) * n // 2 - sum(nums)
 ```
 
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            ans += i - nums[i];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        return (1 + n) * n / 2 - accumulate(nums.begin(), nums.end(), 0);
+    }
+};
+```
+
+```go
+func missingNumber(nums []int) (ans int) {
+	n := len(nums)
+	ans = n
+	for i, v := range nums {
+		ans += i - v
+	}
+	return
+}
+```
+
+```ts
+function missingNumber(nums: number[]): number {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans += i - nums[i];
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut ans = n;
+        for (i, &v) in nums.iter().enumerate() {
+            ans += (i as i32) - v;
+        }
+        ans
+    }
+}
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans += i - nums[i];
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

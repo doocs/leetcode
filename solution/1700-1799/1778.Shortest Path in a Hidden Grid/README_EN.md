@@ -86,7 +86,7 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 
 ## Solutions
 
-**Solution 1: DFS for Graph Construction + BFS for Shortest Path**
+### Solution 1: DFS for Graph Construction + BFS for Shortest Path
 
 We can assume that the robot starts from the coordinate $(0, 0)$. Then, we can use DFS to find all reachable coordinates and record them in the hash table $vis$. In addition, we also need to record the coordinates of the endpoint $target$.
 
@@ -99,8 +99,6 @@ Similar problems:
 -   [1810. Minimum Path Cost in a Hidden Grid](/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # """
@@ -157,8 +155,6 @@ class Solution(object):
                         q.append((x, y))
         return -1
 ```
-
-### **Java**
 
 ```java
 /**
@@ -221,8 +217,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -291,10 +285,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

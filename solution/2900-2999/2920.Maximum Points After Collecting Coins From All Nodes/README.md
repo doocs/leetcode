@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们先根据题目给定的边构建图 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻接节点。然后我们可以使用记忆化搜索的方法求解本题。
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $M$ 表示 $coins[i]$ 的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -189,8 +177,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumPoints(edges [][]int, coins []int, k int) int {
@@ -230,8 +216,6 @@ func maximumPoints(edges [][]int, coins []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumPoints(edges: number[][], coins: number[], k: number): number {
     const n = coins.length;
@@ -261,10 +245,6 @@ function maximumPoints(edges: number[][], coins: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

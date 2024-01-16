@@ -52,9 +52,9 @@ Note that other answers, such as [3, 3], would also be accepted.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
                 reverse(arr, i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,36 +111,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function pancakeSort(arr: number[]): number[] {
-    let ans = [];
-    for (let n = arr.length; n > 1; n--) {
-        let index = 0;
-        for (let i = 1; i < n; i++) {
-            if (arr[i] >= arr[index]) {
-                index = i;
-            }
-        }
-        if (index == n - 1) continue;
-        reverse(arr, index);
-        reverse(arr, n - 1);
-        ans.push(index + 1);
-        ans.push(n);
-    }
-    return ans;
-}
-
-function reverse(nums: Array<number>, end: number): void {
-    for (let i = 0, j = end; i < j; i++, j--) {
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func pancakeSort(arr []int) []int {
@@ -194,7 +160,31 @@ func pancakeSort(arr []int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function pancakeSort(arr: number[]): number[] {
+    let ans = [];
+    for (let n = arr.length; n > 1; n--) {
+        let index = 0;
+        for (let i = 1; i < n; i++) {
+            if (arr[i] >= arr[index]) {
+                index = i;
+            }
+        }
+        if (index == n - 1) continue;
+        reverse(arr, index);
+        reverse(arr, n - 1);
+        ans.push(index + 1);
+        ans.push(n);
+    }
+    return ans;
+}
+
+function reverse(nums: Array<number>, end: number): void {
+    for (let i = 0, j = end; i < j; i++, j--) {
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+}
+```
 
 ```rust
 impl Solution {
@@ -221,10 +211,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,9 +45,9 @@ The string is now alternating.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
             return s0n0
         return min(s0n0, s1n0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +107,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -142,10 +138,6 @@ var minSwaps = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

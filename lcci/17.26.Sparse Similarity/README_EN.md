@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
             ans.append(f'{i},{j}: {x:.4f}')
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using pii = pair<int, int>;
@@ -144,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func computeSimilarities(docs [][]int) []string {
 	d := map[int][]int{}
@@ -176,10 +170,6 @@ func computeSimilarities(docs [][]int) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

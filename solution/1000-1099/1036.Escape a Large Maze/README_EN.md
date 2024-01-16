@@ -46,9 +46,9 @@ We cannot move south or west because we cannot go outside of the grid.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
         blocked = set((x, y) for x, y in blocked)
         return dfs(source, target, set()) and dfs(target, source, set())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef unsigned long long ULL;
 
@@ -147,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 	const N = 1e6
@@ -180,8 +174,6 @@ func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 	return dfs(source, target, s1) && dfs(target, source, s2)
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashSet, VecDeque };
@@ -233,10 +225,6 @@ fn bfs(block: &HashSet<(i32, i32)>, source: &Vec<i32>, target: &Vec<i32>) -> boo
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们发现，如果我们能够得到长度为 $x$ 的 $k$ 根绳子，那么我们一定能够得到长度为 $x - 1$ 的 $k$ 根绳子，这存在着单调性。因此，我们可以使用二分查找的方法，找到最大的长度 $x$，使得我们能够得到长度为 $x$ 的 $k$ 根绳子。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别为绳子的数量和绳子的最大长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxLength(ribbons []int, k int) int {
 	left, right := 0, slices.Max(ribbons)
@@ -168,35 +154,6 @@ func maxLength(ribbons []int, k int) int {
 	return left
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} ribbons
- * @param {number} k
- * @return {number}
- */
-var maxLength = function (ribbons, k) {
-    let left = 0;
-    let right = Math.max(...ribbons);
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        let cnt = 0;
-        for (const x of ribbons) {
-            cnt += Math.floor(x / mid);
-        }
-        if (cnt >= k) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-};
-```
-
-### **TypeScript**
 
 ```ts
 function maxLength(ribbons: number[], k: number): number {
@@ -217,8 +174,6 @@ function maxLength(ribbons: number[], k: number): number {
     return left;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -245,10 +200,31 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} ribbons
+ * @param {number} k
+ * @return {number}
+ */
+var maxLength = function (ribbons, k) {
+    let left = 0;
+    let right = Math.max(...ribbons);
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        let cnt = 0;
+        for (const x of ribbons) {
+            cnt += Math.floor(x / mid);
+        }
+        if (cnt >= k) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

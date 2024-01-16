@@ -91,9 +91,9 @@ Exam table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -105,3 +105,5 @@ GROUP BY school_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,7 +50,7 @@ It can be proven that there is no string that is lexicographically larger than t
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We can find that a palindrome string of length $2$ must have two adjacent characters equal; and a palindrome string of length $3$ must have two characters at the beginning and end equal. Therefore, a beautiful string does not contain any palindrome substring of length $2$ or longer, which means that each character in the string is different from its previous two adjacent characters.
 
@@ -62,8 +62,6 @@ We can greedily search backwards from the last index of the string, find an inde
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
                 return ''.join(cs)
         return ''
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +148,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestBeautifulString(s string, k int) string {
 	cs := []byte(s)
@@ -184,8 +176,6 @@ func smallestBeautifulString(s string, k int) string {
 	return ""
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function smallestBeautifulString(s: string, k: number): string {
@@ -216,10 +206,6 @@ function smallestBeautifulString(s: string, k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

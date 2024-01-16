@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
         dfs(row, col, grid[row][col])
         return grid
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -178,8 +172,6 @@ func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function colorBorder(grid: number[][], row: number, col: number, color: number): number[][] {
     const m = grid.length;
@@ -209,10 +201,6 @@ function colorBorder(grid: number[][], row: number, col: number, color: number):
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

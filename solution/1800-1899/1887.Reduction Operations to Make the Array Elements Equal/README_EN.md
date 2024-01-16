@@ -56,9 +56,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,18 +71,6 @@ class Solution:
             ans += cnt
         return ans
 ```
-
-```python
-class Solution:
-    def reductionOperations(self, nums: List[int]) -> int:
-        ans = cnt = 0
-        for _, v in sorted(Counter(nums).items()):
-            ans += cnt * v
-            cnt += 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,6 +86,82 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int reductionOperations(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0, cnt = 0;
+        for (int i = 1; i < nums.size(); ++i) {
+            cnt += nums[i] != nums[i - 1];
+            ans += cnt;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func reductionOperations(nums []int) int {
+	sort.Ints(nums)
+	ans, cnt := 0, 0
+	for i, v := range nums[1:] {
+		if v != nums[i] {
+			cnt++
+		}
+		ans += cnt
+	}
+	return ans
+}
+```
+
+```ts
+function reductionOperations(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    let cnt = 0;
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] != nums[i - 1]) {
+            ++cnt;
+        }
+        ans += cnt;
+    }
+    return ans;
+}
+```
+
+```cs
+public class Solution {
+    public int ReductionOperations(int[] nums) {
+        Array.Sort(nums);
+        int ans = 0, up = 0;
+        for (int i = 1; i < nums.Length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                up++;
+            }
+            ans += up;
+        }
+        return ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reductionOperations(self, nums: List[int]) -> int:
+        ans = cnt = 0
+        for _, v in sorted(Counter(nums).items()):
+            ans += cnt * v
+            cnt += 1
+        return ans
 ```
 
 ```java
@@ -117,40 +181,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function reductionOperations(nums: number[]): number {
-    nums.sort((a, b) => a - b);
-    let ans = 0;
-    let cnt = 0;
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] != nums[i - 1]) {
-            ++cnt;
-        }
-        ans += cnt;
-    }
-    return ans;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int reductionOperations(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int ans = 0, cnt = 0;
-        for (int i = 1; i < nums.size(); ++i) {
-            cnt += nums[i] != nums[i - 1];
-            ans += cnt;
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -167,44 +197,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func reductionOperations(nums []int) int {
-	sort.Ints(nums)
-	ans, cnt := 0, 0
-	for i, v := range nums[1:] {
-		if v != nums[i] {
-			cnt++
-		}
-		ans += cnt
-	}
-	return ans
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int ReductionOperations(int[] nums) {
-        Array.Sort(nums);
-        int ans = 0, up = 0;
-        for (int i = 1; i < nums.Length; i++) {
-            if (nums[i] != nums[i - 1]) {
-                up++;
-            }
-            ans += up;
-        }
-        return ans;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

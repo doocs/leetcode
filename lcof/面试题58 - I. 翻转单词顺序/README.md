@@ -42,7 +42,7 @@
 
 ## 解法
 
-**方法一：字符串分割 + 反转拼接**
+### 方法一：字符串分割 + 反转拼接
 
 我们先去除字符串首尾的空格，然后将字符串按照空格分割成数组，再将数组反转，最后将数组拼接成以空格分割的字符串即可。
 
@@ -50,15 +50,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
         return " ".join(s.strip().split()[::-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reverseWords(s string) string {
 	s = strings.Trim(s, " ")
@@ -123,7 +115,25 @@ func reverseWords(s string) string {
 }
 ```
 
-### **JavaScript**
+```ts
+function reverseWords(s: string): string {
+    return s.trim().split(/\s+/).reverse().join(' ');
+}
+```
+
+```rust
+impl Solution {
+    pub fn reverse_words(mut s: String) -> String {
+        let mut res = s.trim().split(' ').rev().collect::<Vec<&str>>();
+        for i in (0..res.len()).rev() {
+            if res[i] == "" {
+                res.remove(i);
+            }
+        }
+        res.join(" ")
+    }
+}
+```
 
 ```js
 /**
@@ -139,17 +149,33 @@ var reverseWords = function (s) {
 };
 ```
 
-### **TypeScript**
+```cs
+public class Solution {
+    public string ReverseWords(string s) {
+        string[] tmp = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        Stack<string> ss = new Stack<string>();
+        string res = "";
 
-API：
+        foreach (var i in tmp) {
+            ss.Push(i);
+        }
 
-```ts
-function reverseWords(s: string): string {
-    return s.trim().split(/\s+/).reverse().join(' ');
+        while (ss.Count > 0) {
+            res += ss.Pop();
+            if (ss.Count > 0) {
+                res += " ";
+            }
+        }
+        return res;
+    }
 }
 ```
 
-双指针：
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```ts
 function reverseWords(s: string): string {
@@ -171,26 +197,6 @@ function reverseWords(s: string): string {
 }
 ```
 
-### **Rust**
-
-传统：
-
-```rust
-impl Solution {
-    pub fn reverse_words(mut s: String) -> String {
-        let mut res = s.trim().split(' ').rev().collect::<Vec<&str>>();
-        for i in (0..res.len()).rev() {
-            if res[i] == "" {
-                res.remove(i);
-            }
-        }
-        res.join(" ")
-    }
-}
-```
-
-函数式：
-
 ```rust
 impl Solution {
     pub fn reverse_words(s: String) -> String {
@@ -203,7 +209,11 @@ impl Solution {
 }
 ```
 
-使用 `split_whitespace()`：
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -213,7 +223,11 @@ impl Solution {
 }
 ```
 
-双指针：
+<!-- tabs:end -->
+
+### 方法四
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -250,34 +264,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
-```cs
-public class Solution {
-    public string ReverseWords(string s) {
-        string[] tmp = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        Stack<string> ss = new Stack<string>();
-        string res = "";
-
-        foreach (var i in tmp) {
-            ss.Push(i);
-        }
-
-        while (ss.Count > 0) {
-            res += ss.Pop();
-            if (ss.Count > 0) {
-                res += " ";
-            }
-        }
-        return res;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

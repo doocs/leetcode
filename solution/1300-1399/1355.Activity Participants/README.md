@@ -84,11 +84,9 @@ Singing 活动有两个人参加 (Victor J. and Jade W.)</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -104,3 +102,5 @@ WHERE cnt > (SELECT MIN(cnt) FROM t) AND cnt < (SELECT MAX(cnt) FROM t);
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

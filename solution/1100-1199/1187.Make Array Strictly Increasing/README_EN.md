@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the minimum number of operations to convert $arr1[0,..,i]$ into a strictly increasing array, and $arr1[i]$ is not replaced. Therefore, we set two sentinels $-\infty$ and $\infty$ at the beginning and end of $arr1$. The last number is definitely not replaced, so $f[n-1]$ is the answer. We initialize $f[0]=0$, and the rest $f[i]=\infty$.
 
@@ -59,8 +59,6 @@ Finally, if $f[n-1] \geq \infty$, it means that it cannot be converted into a st
 The time complexity is $(n \times (\log m + \min(m, n)))$, and the space complexity is $O(n)$. Here, $n$ is the length of $arr1$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
                     f[i] = min(f[i], f[i - k - 1] + k)
         return -1 if f[n - 1] >= inf else f[n - 1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -135,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeArrayIncreasing(arr1 []int, arr2 []int) int {
@@ -204,8 +196,6 @@ func makeArrayIncreasing(arr1 []int, arr2 []int) int {
 	return f[n-1]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
@@ -249,8 +239,6 @@ function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
     return f[n - 1] >= inf ? -1 : f[n - 1];
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -301,10 +289,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

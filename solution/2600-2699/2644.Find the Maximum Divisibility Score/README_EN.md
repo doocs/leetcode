@@ -56,9 +56,9 @@ Since divisors[0] and divisors[1] both have the maximum divisibility score, we r
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
                 ans = div
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDivScore(nums []int, divisors []int) int {
 	ans, mx := divisors[0], 0
@@ -146,8 +140,6 @@ func maxDivScore(nums []int, divisors []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxDivScore(nums: number[], divisors: number[]): number {
     let ans: number = divisors[0];
@@ -164,8 +156,6 @@ function maxDivScore(nums: number[], divisors: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -193,10 +183,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

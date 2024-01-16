@@ -56,19 +56,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 一次遍历**
+### 方法一：贪心 + 一次遍历
 
 我们可以遍历数组 $groups$，对于当前遍历到的下标 $i$，如果 $i=0$ 或者 $groups[i] \neq groups[i - 1]$，我们就将 $words[i]$ 加入答案数组中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $groups$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
     ) -> List[str]:
         return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
 	for i, x := range groups {
@@ -125,8 +111,6 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []st
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
@@ -139,8 +123,6 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -162,10 +144,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

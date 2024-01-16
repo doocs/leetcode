@@ -60,19 +60,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优先队列（大根堆）**
+### 方法一：贪心 + 优先队列（大根堆）
 
 利用优先队列记录所有已经到达过的加油站的加油量，每次当油量不足时，从队列中取出最大加油量，并累计加油次数 ans。
 
 时间复杂度 $O(nlogn)$。其中 $n$ 表示数组 `stations` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
             prev = a
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
@@ -189,10 +175,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

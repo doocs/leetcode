@@ -53,19 +53,13 @@ Bob 可以移除下标 2 的蓝色气球。这将花费 3 秒。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针 + 贪心**
+### 方法一：双指针 + 贪心
 
 我们可以用双指针指向当前连续相同颜色的气球的首尾，然后计算出当前连续相同颜色的气球的总时间 $s$，以及最大的时间 $mx$。如果当前连续相同颜色的气球个数大于 $1$，那么我们可以贪心地选择保留时间最大的气球，然后移除其它相同颜色的气球，耗时 $s - mx$，累加到答案中。接下来继续遍历，直到遍历完所有气球。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为气球的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(colors string, neededTime []int) (ans int) {
 	n := len(colors)
@@ -160,16 +146,6 @@ func minCost(colors string, neededTime []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

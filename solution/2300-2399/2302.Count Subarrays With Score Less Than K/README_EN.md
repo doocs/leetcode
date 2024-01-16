@@ -52,7 +52,7 @@ Thus, there are 5 subarrays having scores less than 5.
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Binary Search**
+### Solution 1: Prefix Sum + Binary Search
 
 First, we calculate the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.
 
@@ -60,15 +60,7 @@ Next, we enumerate each element of the array $nums$ as the last element of the s
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
-**Solution 2: Two Pointers**
-
-We can use two pointers to maintain a sliding window, so that the sum of the elements in the window is less than $k$. The number of subarrays with the current element as the last element is the length of the window, and we add all window lengths to get the answer.
-
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,21 +78,6 @@ class Solution:
             ans += left
         return ans
 ```
-
-```python
-class Solution:
-    def countSubarrays(self, nums: List[int], k: int) -> int:
-        ans = s = j = 0
-        for i, v in enumerate(nums):
-            s += v
-            while s * (i - j + 1) >= k:
-                s -= nums[j]
-                j += 1
-            ans += i - j + 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,24 +104,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public long countSubarrays(int[] nums, long k) {
-        long ans = 0, s = 0;
-        for (int i = 0, j = 0; i < nums.length; ++i) {
-            s += nums[i];
-            while (s * (i - j + 1) >= k) {
-                s -= nums[j++];
-            }
-            ans += i - j + 1;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -174,25 +133,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    long long countSubarrays(vector<int>& nums, long long k) {
-        long long ans = 0, s = 0;
-        for (int i = 0, j = 0; i < nums.size(); ++i) {
-            s += nums[i];
-            while (s * (i - j + 1) >= k) {
-                s -= nums[j++];
-            }
-            ans += i - j + 1;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countSubarrays(nums []int, k int64) (ans int64) {
 	n := len(nums)
@@ -216,6 +156,62 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Two Pointers
+
+We can use two pointers to maintain a sliding window, so that the sum of the elements in the window is less than $k$. The number of subarrays with the current element as the last element is the length of the window, and we add all window lengths to get the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        ans = s = j = 0
+        for i, v in enumerate(nums):
+            s += v
+            while s * (i - j + 1) >= k:
+                s -= nums[j]
+                j += 1
+            ans += i - j + 1
+        return ans
+```
+
+```java
+class Solution {
+    public long countSubarrays(int[] nums, long k) {
+        long ans = 0, s = 0;
+        for (int i = 0, j = 0; i < nums.length; ++i) {
+            s += nums[i];
+            while (s * (i - j + 1) >= k) {
+                s -= nums[j++];
+            }
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, long long k) {
+        long long ans = 0, s = 0;
+        for (int i = 0, j = 0; i < nums.size(); ++i) {
+            s += nums[i];
+            while (s * (i - j + 1) >= k) {
+                s -= nums[j++];
+            }
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func countSubarrays(nums []int, k int64) (ans int64) {
 	s, j := 0, 0
@@ -231,16 +227,6 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,7 +51,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Bit Manipulation**
+### Solution 1: Hash Table + Bit Manipulation
 
 We use a hash table $d$ to store all the reserved seats, where the key is the row number, and the value is the state of the reserved seats in that row, i.e., a binary number. The $j$-th bit being $1$ means the $j$-th seat is reserved, and $0$ means the $j$-th seat is not reserved.
 
@@ -66,8 +66,6 @@ After the traversal, we get the final answer.
 The time complexity is $O(m)$, and the space complexity is $O(m)$. Where $m$ is the length of $reservedSeats$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 	d := map[int]int{}
@@ -159,8 +151,6 @@ func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
     const d: Map<number, number> = new Map();
@@ -181,10 +171,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

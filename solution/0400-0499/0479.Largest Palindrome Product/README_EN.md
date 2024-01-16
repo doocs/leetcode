@@ -31,9 +31,9 @@ Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,8 +51,6 @@ class Solution:
                 t -= 1
         return 9
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestPalindrome(n int) int {
 	mx := int(math.Pow10(n)) - 1
@@ -119,10 +113,6 @@ func largestPalindrome(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

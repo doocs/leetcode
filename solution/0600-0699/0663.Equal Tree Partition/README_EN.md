@@ -32,9 +32,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -59,8 +59,6 @@ class Solution:
         seen.pop()
         return s // 2 in seen
 ```
-
-### **Java**
 
 ```java
 /**
@@ -104,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -138,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -177,10 +171,6 @@ func checkEqualTree(root *TreeNode) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

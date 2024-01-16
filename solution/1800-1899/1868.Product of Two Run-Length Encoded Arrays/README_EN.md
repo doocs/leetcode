@@ -57,9 +57,9 @@ prodNums = [2,2,2,6,9,9], which is compressed into the run-length encoded array 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
                     j += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findRLEArray(encoded1 [][]int, encoded2 [][]int) (ans [][]int) {
 	j := 0
@@ -169,10 +163,6 @@ func findRLEArray(encoded1 [][]int, encoded2 [][]int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

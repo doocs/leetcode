@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Find the Pattern**
+### Solution 1: Find the Pattern
 
 By observing the chessboard, we find that two squares $(x_1, y_1)$ and $(x_2, y_2)$ with the same color satisfy that both $x_1 + y_1$ and $x_2 + y_2$ are either odd or even.
 
@@ -57,15 +57,11 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def squareIsWhite(self, coordinates: str) -> bool:
         return (ord(coordinates[0]) + ord(coordinates[1])) % 2 == 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,15 +80,26 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func squareIsWhite(coordinates string) bool {
 	return (coordinates[0]+coordinates[1])%2 == 1
 }
 ```
 
-### **JavaScript**
+```ts
+function squareIsWhite(coordinates: string): boolean {
+    return ((coordinates.charCodeAt(0) + coordinates.charCodeAt(1)) & 1) === 1;
+}
+```
+
+```rust
+impl Solution {
+    pub fn square_is_white(coordinates: String) -> bool {
+        let s = coordinates.as_bytes();
+        ((s[0] + s[1]) & 1) == 1
+    }
+}
+```
 
 ```js
 /**
@@ -108,37 +113,12 @@ var squareIsWhite = function (coordinates) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function squareIsWhite(coordinates: string): boolean {
-    return ((coordinates.charCodeAt(0) + coordinates.charCodeAt(1)) & 1) === 1;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn square_is_white(coordinates: String) -> bool {
-        let s = coordinates.as_bytes();
-        ((s[0] + s[1]) & 1) == 1
-    }
-}
-```
-
-### **C**
-
 ```c
 bool squareIsWhite(char* coordinates) {
     return (coordinates[0] + coordinates[1]) & 1;
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

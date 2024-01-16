@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,19 +70,6 @@ class Solution:
             i = j
         return ans
 ```
-
-```python
-class Solution:
-    def countHomogenous(self, s: str) -> int:
-        mod = 10**9 + 7
-        ans = cnt = 1
-        for a, b in pairwise(s):
-            cnt = cnt + 1 if a == b else 1
-            ans = (ans + cnt) % mod
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,24 +92,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
-    public int countHomogenous(String s) {
-        int n = s.length();
-        int ans = 1, cnt = 1;
-        for (int i = 1; i < n; ++i) {
-            cnt = s.charAt(i) == s.charAt(i - 1) ? cnt + 1 : 1;
-            ans = (ans + cnt) % MOD;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,25 +112,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    const int mod = 1e9 + 7;
-
-    int countHomogenous(string s) {
-        int n = s.size();
-        int ans = 1, cnt = 1;
-        for (int i = 1; i < n; ++i) {
-            cnt = s[i] == s[i - 1] ? cnt + 1 : 1;
-            ans = (ans + cnt) % mod;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countHomogenous(s string) (ans int) {
 	n := len(s)
@@ -179,25 +129,6 @@ func countHomogenous(s string) (ans int) {
 }
 ```
 
-```go
-func countHomogenous(s string) int {
-	n := len(s)
-	const mod int = 1e9 + 7
-	ans, cnt := 1, 1
-	for i := 1; i < n; i++ {
-		if s[i] == s[i-1] {
-			cnt++
-		} else {
-			cnt = 1
-		}
-		ans = (ans + cnt) % mod
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
 ```ts
 function countHomogenous(s: string): number {
     const mod = 1e9 + 7;
@@ -212,8 +143,6 @@ function countHomogenous(s: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -234,24 +163,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int countHomogenous(char* s) {
-    int MOD = 1e9 + 7;
-    int ans = 0;
-    for (int i = 0, j = 0; s[j]; j++) {
-        if (s[i] != s[j]) {
-            i = j;
-        }
-        ans = (ans + j - i + 1) % MOD;
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int CountHomogenous(string s) {
@@ -271,10 +182,87 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int countHomogenous(char* s) {
+    int MOD = 1e9 + 7;
+    int ans = 0;
+    for (int i = 0, j = 0; s[j]; j++) {
+        if (s[i] != s[j]) {
+            i = j;
+        }
+        ans = (ans + j - i + 1) % MOD;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countHomogenous(self, s: str) -> int:
+        mod = 10**9 + 7
+        ans = cnt = 1
+        for a, b in pairwise(s):
+            cnt = cnt + 1 if a == b else 1
+            ans = (ans + cnt) % mod
+        return ans
+```
+
+```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int countHomogenous(String s) {
+        int n = s.length();
+        int ans = 1, cnt = 1;
+        for (int i = 1; i < n; ++i) {
+            cnt = s.charAt(i) == s.charAt(i - 1) ? cnt + 1 : 1;
+            ans = (ans + cnt) % MOD;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countHomogenous(string s) {
+        int n = s.size();
+        int ans = 1, cnt = 1;
+        for (int i = 1; i < n; ++i) {
+            cnt = s[i] == s[i - 1] ? cnt + 1 : 1;
+            ans = (ans + cnt) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countHomogenous(s string) int {
+	n := len(s)
+	const mod int = 1e9 + 7
+	ans, cnt := 1, 1
+	for i := 1; i < n; i++ {
+		if s[i] == s[i-1] {
+			cnt++
+		} else {
+			cnt = 1
+		}
+		ans = (ans + cnt) % mod
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

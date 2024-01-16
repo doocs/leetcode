@@ -81,9 +81,9 @@ We return only product 1 as it is the product that was only sold in the spring o
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -96,3 +96,5 @@ HAVING COUNT(1) = SUM(sale_date BETWEEN '2019-01-01' AND '2019-03-31');
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

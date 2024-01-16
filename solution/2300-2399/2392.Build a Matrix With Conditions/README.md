@@ -67,19 +67,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 利用拓扑排序，找到一个合法的 `row` 序列和 `col` 序列，然后根据这两个序列构造出矩阵。
 
 时间复杂度 $O(m+n+k)$。其中 $m$ 和 $n$ 分别为 `rowConditions` 和 `colConditions` 的长度，而 $k$ 为题目中给定的正整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -116,10 +110,6 @@ class Solution:
             ans[i][m[v]] = v
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -175,8 +165,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -229,8 +217,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func buildMatrix(k int, rowConditions [][]int, colConditions [][]int) [][]int {
@@ -288,8 +274,6 @@ func buildMatrix(k int, rowConditions [][]int, colConditions [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function buildMatrix(k: number, rowConditions: number[][], colConditions: number[][]): number[][] {
     function f(cond) {
@@ -335,11 +319,6 @@ function buildMatrix(k: number, rowConditions: number[][], colConditions: number
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

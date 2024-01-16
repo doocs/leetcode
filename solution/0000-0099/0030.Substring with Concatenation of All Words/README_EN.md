@@ -59,7 +59,7 @@ The substring starting at 12 is &quot;thefoobar&quot;. It is the concatenation o
 
 ## Solutions
 
-**Solution 1: Hash Table + Sliding Window**
+### Solution 1: Hash Table + Sliding Window
 
 We use a hash table $cnt$ to count the number of times each word appears in $words$, and use a hash table $cnt1$ to count the number of times each word appears in the current sliding window. We denote the length of the string $s$ as $m$, the number of words in the string array $words$ as $n$, and the length of each word as $k$.
 
@@ -70,8 +70,6 @@ Each time, we extract the string $s[r:r+k]$. If $s[r:r+k]$ is not in the hash ta
 The time complexity is $O(m \times k)$, and the space complexity is $O(n \times k)$. Here, $m$ and $n$ are the lengths of the string $s$ and the string array $words$ respectively, and $k$ is the length of the words in the string array $words$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,8 +101,6 @@ class Solution:
                     ans.append(l)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -147,8 +143,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -190,36 +184,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> findSubstring(string s, vector<string>& words) {
-        unordered_map<string, int> d;
-        for (auto& w : words) ++d[w];
-        vector<int> ans;
-        int n = s.size(), m = words.size(), k = words[0].size();
-        for (int i = 0; i < k; ++i) {
-            int cnt = 0;
-            unordered_map<string, int> t;
-            for (int j = i; j <= n; j += k) {
-                if (j - i >= m * k) {
-                    auto s1 = s.substr(j - m * k, k);
-                    --t[s1];
-                    cnt -= d[s1] > t[s1];
-                }
-                auto s2 = s.substr(j, k);
-                ++t[s2];
-                cnt += d[s2] >= t[s2];
-                if (cnt == m) ans.emplace_back(j - (m - 1) * k);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func findSubstring(s string, words []string) (ans []int) {
 	cnt := map[string]int{}
@@ -254,7 +218,46 @@ func findSubstring(s string, words []string) (ans []int) {
 }
 ```
 
-### **C#**
+```ts
+function findSubstring(s: string, words: string[]): number[] {
+    const cnt: Map<string, number> = new Map();
+    for (const w of words) {
+        cnt.set(w, (cnt.get(w) || 0) + 1);
+    }
+    const m = s.length;
+    const n = words.length;
+    const k = words[0].length;
+    const ans: number[] = [];
+    for (let i = 0; i < k; ++i) {
+        const cnt1: Map<string, number> = new Map();
+        let l = i;
+        let r = i;
+        let t = 0;
+        while (r + k <= m) {
+            const w = s.slice(r, r + k);
+            r += k;
+            if (!cnt.has(w)) {
+                cnt1.clear();
+                l = r;
+                t = 0;
+                continue;
+            }
+            cnt1.set(w, (cnt1.get(w) || 0) + 1);
+            ++t;
+            while (cnt1.get(w)! - cnt.get(w)! > 0) {
+                const remove = s.slice(l, l + k);
+                cnt1.set(remove, cnt1.get(remove)! - 1);
+                l += k;
+                --t;
+            }
+            if (t === n) {
+                ans.push(l);
+            }
+        }
+    }
+    return ans;
+}
+```
 
 ```cs
 public class Solution {
@@ -300,53 +303,40 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function findSubstring(s: string, words: string[]): number[] {
-    const cnt: Map<string, number> = new Map();
-    for (const w of words) {
-        cnt.set(w, (cnt.get(w) || 0) + 1);
-    }
-    const m = s.length;
-    const n = words.length;
-    const k = words[0].length;
-    const ans: number[] = [];
-    for (let i = 0; i < k; ++i) {
-        const cnt1: Map<string, number> = new Map();
-        let l = i;
-        let r = i;
-        let t = 0;
-        while (r + k <= m) {
-            const w = s.slice(r, r + k);
-            r += k;
-            if (!cnt.has(w)) {
-                cnt1.clear();
-                l = r;
-                t = 0;
-                continue;
-            }
-            cnt1.set(w, (cnt1.get(w) || 0) + 1);
-            ++t;
-            while (cnt1.get(w)! - cnt.get(w)! > 0) {
-                const remove = s.slice(l, l + k);
-                cnt1.set(remove, cnt1.get(remove)! - 1);
-                l += k;
-                --t;
-            }
-            if (t === n) {
-                ans.push(l);
+### Solution 2
+
+<!-- tabs:start -->
+
+```cpp
+class Solution {
+public:
+    vector<int> findSubstring(string s, vector<string>& words) {
+        unordered_map<string, int> d;
+        for (auto& w : words) ++d[w];
+        vector<int> ans;
+        int n = s.size(), m = words.size(), k = words[0].size();
+        for (int i = 0; i < k; ++i) {
+            int cnt = 0;
+            unordered_map<string, int> t;
+            for (int j = i; j <= n; j += k) {
+                if (j - i >= m * k) {
+                    auto s1 = s.substr(j - m * k, k);
+                    --t[s1];
+                    cnt -= d[s1] > t[s1];
+                }
+                auto s2 = s.substr(j, k);
+                ++t[s2];
+                cnt += d[s2] >= t[s2];
+                if (cnt == m) ans.emplace_back(j - (m - 1) * k);
             }
         }
+        return ans;
     }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二进制枚举**
+### 方法一：二进制枚举
 
 我们先将矩阵中的每一行转换成一个二进制数，记录在数组 $rows$ 中，其中 $rows[i]$ 表示第 $i$ 行对应的二进制数，而 $rows[i]$ 这个二进制数的第 $j$ 位表示第 $i$ 行第 $j$ 列的值。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(2^n \times m)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumRows(matrix [][]int, numSelect int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -195,8 +181,6 @@ func maximumRows(matrix [][]int, numSelect int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumRows(matrix: number[][], numSelect: number): number {
@@ -235,11 +219,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

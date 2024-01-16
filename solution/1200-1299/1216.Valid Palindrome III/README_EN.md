@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 The problem requires us to remove at most $k$ characters to make the remaining string a palindrome. This can be transformed into finding the longest palindromic subsequence.
 
@@ -50,8 +50,6 @@ Finally, we check whether there exists $f[i][j] + k \geq n$, where $n$ is the le
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isValidPalindrome(s string, k int) bool {
 	n := len(s)
@@ -153,8 +145,6 @@ func isValidPalindrome(s string, k int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isValidPalindrome(s: string, k: number): boolean {
     const n = s.length;
@@ -177,8 +167,6 @@ function isValidPalindrome(s: string, k: number): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -210,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

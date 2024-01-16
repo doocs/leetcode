@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示考虑前 $i$ 条道路，恰好跳过 $j$ 次休息时间的最短用时。初始时 $f[0][0]=0$，其余 $f[i][j]=\infty$。
 
@@ -86,10 +84,6 @@ $$
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是道路的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,28 +103,6 @@ class Solution:
                 return j
         return -1
 ```
-
-```python
-class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
-        n = len(dist)
-        f = [[inf] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        for i, x in enumerate(dist, 1):
-            for j in range(i + 1):
-                if j < i:
-                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
-                if j:
-                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
-        for j in range(n + 1):
-            if f[n][j] <= hoursBefore * speed:
-                return j
-        return -1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -192,8 +162,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSkips(dist []int, speed int, hoursBefore int) int {
@@ -226,8 +194,6 @@ func minSkips(dist []int, speed int, hoursBefore int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSkips(dist: number[], speed: number, hoursBefore: number): number {
     const n = dist.length;
@@ -253,10 +219,30 @@ function minSkips(dist: number[], speed: number, hoursBefore: number): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        f = [[inf] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(dist, 1):
+            for j in range(i + 1):
+                if j < i:
+                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
+                if j:
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
+        for j in range(n + 1):
+            if f[n][j] <= hoursBefore * speed:
+                return j
+        return -1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

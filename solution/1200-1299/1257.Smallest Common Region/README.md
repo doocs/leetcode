@@ -44,15 +44,9 @@ region2 = &quot;New York&quot;
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-题目可转换为“求最近公共祖先”问题。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             region2 = m[region2]
         return region1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findSmallestRegion(regions [][]string, region1 string, region2 string) string {
@@ -152,10 +138,6 @@ func findSmallestRegion(regions [][]string, region1 string, region2 string) stri
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

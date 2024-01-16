@@ -45,7 +45,7 @@ There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 According to the problem description, if we determine the value of $nums[index]$ as $x$, we can find a minimum array sum. That is, the elements on the left side of $index$ in the array decrease from $x-1$ to $1$, and if there are remaining elements, the remaining elements are all $1$; similarly, the elements at $index$ and on the right side of the array decrease from $x$ to $1$, and if there are remaining elements, the remaining elements are all $1$.
 
@@ -64,8 +64,6 @@ The time complexity is $O(\log M)$, where $M=maxSum$. The space complexity is $O
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxValue(self, n: int, index: int, maxSum: int) -> int:
@@ -83,8 +81,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxValue(n int, index int, maxSum int) int {
 	sum := func(x, cnt int) int {
@@ -147,10 +139,6 @@ func maxValue(n int, index int, maxSum int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

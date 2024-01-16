@@ -141,19 +141,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以模拟每一单位的水滴下落的过程，每次下落时，我们首先尝试向左移动，如果可以移动到更低的高度，则移动到最低的高度处；如果不能移动到更低的高度，则尝试向右移动，如果可以移动到更低的高度，则移动到最低的高度处；如果不能移动到更低的高度，则在当前位置上升。
 
 时间复杂度 $O(v \times n)，空间复杂度 O(1)$。其中 $v$ 和 $n$ 分别是水滴的数量和高度数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -172,10 +166,6 @@ class Solution:
                 heights[k] += 1
         return heights
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -203,8 +193,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -234,10 +222,32 @@ public:
 };
 ```
 
-### **...**
-
-```
-
+```go
+func pourWater(heights []int, volume int, k int) []int {
+	for ; volume > 0; volume-- {
+		find := false
+		for _, d := range [2]int{-1, 1} {
+			i, j := k, k
+			for i+d >= 0 && i+d < len(heights) && heights[i+d] <= heights[i] {
+				if heights[i+d] < heights[i] {
+					j = i + d
+				}
+				i += d
+			}
+			if j != k {
+				find = true
+				heights[j]++
+				break
+			}
+		}
+		if !find {
+			heights[k]++
+		}
+	}
+	return heights
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

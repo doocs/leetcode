@@ -72,23 +72,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-题目性质：假设祖先节点为 x ，后代节点为 y ，则 x 在 pairs 中的出现次数一定大于等于 y 在 pairs 中的出现次数，且当等号成立时 x、y 可互换位置。
-
-思路：
-
-1. 用邻接矩阵、邻接表存放 pairs。
-1. 将树中所有节点 nodes 按照出现的次数升序排列。设置 equal 标志，用来记录是否出现“次数相同”的祖孙节点，root 用来记录没有父节点的节点数。
-1. 遍历每个节点 `nodes[i]`(记为 x)，找出出现次数大于 x 的节点 y。如果 x 跟 y 构成祖孙关系，那么 y 的邻居 z 也需要构成祖孙关系。否则直接返回 0。
-
-遍历结束，判断 root 的个数，若大于 1，说明不满足只有一个根节点，返回 0。若 equal 为真，说明存在可互换祖孙关系的节点对，返回 2；否则返回 1。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -124,10 +110,6 @@ class Solution:
             return 0
         return 2 if equal else 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -179,8 +161,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -223,8 +203,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkWays(pairs [][]int) int {
@@ -280,10 +258,6 @@ func checkWays(pairs [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

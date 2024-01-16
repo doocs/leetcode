@@ -55,9 +55,9 @@ The column names are changed accordingly.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -76,10 +76,6 @@ def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
     return students
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

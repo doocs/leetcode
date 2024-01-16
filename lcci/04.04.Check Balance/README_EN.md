@@ -52,9 +52,9 @@ return&nbsp;false.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -76,30 +76,6 @@ class Solution:
 
         return dfs(root)[1]
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        def dfs(root: TreeNode):
-            if root is None:
-                return 0
-            l, r = dfs(root.left), dfs(root.right)
-            if l == -1 or r == -1 or abs(l - r) > 1:
-                return -1
-            return max(l, r) + 1
-
-        return dfs(root) >= 0
-```
-
-### **Java**
 
 ```java
 /**
@@ -130,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -160,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -195,8 +167,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -228,10 +198,34 @@ function isBalanced(root: TreeNode | null): boolean {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def dfs(root: TreeNode):
+            if root is None:
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return max(l, r) + 1
+
+        return dfs(root) >= 0
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

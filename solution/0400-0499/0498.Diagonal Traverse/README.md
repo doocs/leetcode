@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：定点遍历**
+### 方法一：定点遍历
 
 对于每一轮 $k$，我们固定从右上方开始往左下方遍历，得到 $t$。如果 $k$ 为偶数，再将 $t$ 逆序。然后将 $t$ 添加到结果数组 `ans` 中。
 
@@ -49,10 +47,6 @@
 时间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
             ans.extend(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findDiagonalOrder(mat [][]int) []int {
@@ -159,8 +145,6 @@ func findDiagonalOrder(mat [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findDiagonalOrder(mat: number[][]): number[] {
@@ -200,8 +184,6 @@ function findDiagonalOrder(mat: number[][]): number[] {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn find_diagonal_order(mat: Vec<Vec<i32>>) -> Vec<i32> {
@@ -236,10 +218,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

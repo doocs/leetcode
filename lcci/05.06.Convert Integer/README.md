@@ -29,19 +29,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们将 A 和 B 进行异或运算，得到的结果中 $1$ 的个数即为需要改变的位数。
 
 时间复杂度 $O(\log n)$，其中 $n$ 为 A 和 B 的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -51,10 +45,6 @@ class Solution:
         return (A ^ B).bit_count()
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int convertInteger(int A, int B) {
@@ -62,8 +52,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -75,15 +63,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func convertInteger(A int, B int) int {
 	return bits.OnesCount32(uint32(A ^ B))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function convertInteger(A: number, B: number): number {
@@ -99,8 +83,6 @@ function convertInteger(A: number, B: number): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn convert_integer(a: i32, b: i32) -> i32 {
@@ -109,11 +91,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

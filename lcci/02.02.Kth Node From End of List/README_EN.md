@@ -22,9 +22,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -43,8 +43,6 @@ class Solution:
             slow, fast = slow.next, fast.next
         return slow.val
 ```
-
-### **Java**
 
 ```java
 /**
@@ -69,37 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number} k
- * @return {number}
- */
-var kthToLast = function (head, k) {
-    let fast = head,
-        slow = head;
-    for (let i = 0; i < k; i++) {
-        fast = fast.next;
-    }
-    while (fast != null) {
-        fast = fast.next;
-        slow = slow.next;
-    }
-    return slow.val;
-};
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -127,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthToLast(head *ListNode, k int) int {
 	slow, fast := head, head
@@ -142,8 +107,6 @@ func kthToLast(head *ListNode, k int) int {
 	return slow.Val
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -178,10 +141,33 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {number}
+ */
+var kthToLast = function (head, k) {
+    let fast = head,
+        slow = head;
+    for (let i = 0; i < k; i++) {
+        fast = fast.next;
+    }
+    while (fast != null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+    return slow.val;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,7 +63,7 @@ It can be proven that 28 is the maximum total tastiness that can be obtained.
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We design a function $dfs(i, j, k)$ to represent the maximum total tastiness starting from the $i$th fruit, with $j$ money left, and $k$ coupons left.
 
@@ -78,8 +78,6 @@ The final answer is $dfs(0, maxAmount, maxCoupons)$.
 The time complexity is $O(n \times maxAmount \times maxCoupons)$, where $n$ is the number of fruits.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
 
         return dfs(0, maxAmount, maxCoupons)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +156,6 @@ private:
     int f[101][1001][6];
 };
 ```
-
-### **Go**
 
 ```go
 func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) int {
@@ -197,16 +189,6 @@ func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) i
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

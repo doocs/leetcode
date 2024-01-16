@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +75,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortArrayByParityII(nums []int) []int {
 	for i, j := 0, 1; i < len(nums); i += 2 {
@@ -111,8 +105,6 @@ func sortArrayByParityII(nums []int) []int {
 	return nums
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -132,10 +124,6 @@ var sortArrayByParityII = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

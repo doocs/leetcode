@@ -53,9 +53,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             cnt[i] -= 1
         return all(v == 0 for v in cnt.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isGood(nums []int) bool {
 	n := len(nums) - 1
@@ -139,8 +133,6 @@ func isGood(nums []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
@@ -156,10 +148,6 @@ function isGood(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

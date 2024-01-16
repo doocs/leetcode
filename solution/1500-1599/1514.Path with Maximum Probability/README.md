@@ -57,21 +57,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：堆优化 Dijkstra 算法**
+### 方法一：堆优化 Dijkstra 算法
 
 时间复杂度 O(mlogn)。
 
-**方法二：SPFA 算法**
-
-时间复杂度，平均情况下 O(m)，最坏情况下 O(nm)，n 表示点数，m 表示边数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,41 +91,6 @@ class Solution:
                     heappush(q, (-d[v], v))
         return d[end]
 ```
-
-```python
-class Solution:
-    def maxProbability(
-        self,
-        n: int,
-        edges: List[List[int]],
-        succProb: List[float],
-        start: int,
-        end: int,
-    ) -> float:
-        g = defaultdict(list)
-        for (a, b), s in zip(edges, succProb):
-            g[a].append((b, s))
-            g[b].append((a, s))
-        d = [0] * n
-        vis = [False] * n
-        d[start] = 1
-        q = deque([start])
-        vis[start] = True
-        while q:
-            i = q.popleft()
-            vis[i] = False
-            for j, s in g[i]:
-                if d[j] < d[i] * s:
-                    d[j] = d[i] * s
-                    if not vis[j]:
-                        q.append(j)
-                        vis[j] = True
-        return d[end]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -170,6 +125,117 @@ class Solution {
         return d[end];
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
+        vector<vector<pair<int, double>>> g(n);
+        for (int i = 0; i < edges.size(); ++i) {
+            int a = edges[i][0], b = edges[i][1];
+            double s = succProb[i];
+            g[a].push_back({b, s});
+            g[b].push_back({a, s});
+        }
+        vector<double> d(n);
+        d[start] = 1.0;
+        queue<pair<double, int>> q;
+        q.push({1.0, start});
+        while (!q.empty()) {
+            auto p = q.front();
+            q.pop();
+            double w = p.first;
+            int u = p.second;
+            if (d[u] > w) continue;
+            for (auto& e : g[u]) {
+                int v = e.first;
+                double t = e.second;
+                if (d[v] < d[u] * t) {
+                    d[v] = d[u] * t;
+                    q.push({d[v], v});
+                }
+            }
+        }
+        return d[end];
+    }
+};
+```
+
+```go
+func maxProbability(n int, edges [][]int, succProb []float64, start int, end int) float64 {
+	g := make([][]pair, n)
+	for i, e := range edges {
+		a, b, s := e[0], e[1], succProb[i]
+		g[a] = append(g[a], pair{b, s})
+		g[b] = append(g[b], pair{a, s})
+	}
+	d := make([]float64, n)
+	d[start] = 1
+	vis := make([]bool, n)
+	q := []int{start}
+	vis[start] = true
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		vis[i] = false
+		for _, ne := range g[i] {
+			j, s := ne.idx, ne.s
+			if d[j] < d[i]*s {
+				d[j] = d[i] * s
+				if !vis[j] {
+					q = append(q, j)
+					vis[j] = true
+				}
+			}
+		}
+	}
+	return d[end]
+}
+
+type pair struct {
+	idx int
+	s   float64
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：SPFA 算法
+
+时间复杂度，平均情况下 O(m)，最坏情况下 O(nm)，n 表示点数，m 表示边数。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxProbability(
+        self,
+        n: int,
+        edges: List[List[int]],
+        succProb: List[float],
+        start: int,
+        end: int,
+    ) -> float:
+        g = defaultdict(list)
+        for (a, b), s in zip(edges, succProb):
+            g[a].append((b, s))
+            g[b].append((a, s))
+        d = [0] * n
+        vis = [False] * n
+        d[start] = 1
+        q = deque([start])
+        vis[start] = True
+        while q:
+            i = q.popleft()
+            vis[i] = False
+            for j, s in g[i]:
+                if d[j] < d[i] * s:
+                    d[j] = d[i] * s
+                    if not vis[j]:
+                        q.append(j)
+                        vis[j] = True
+        return d[end]
 ```
 
 ```java
@@ -209,43 +275,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
-        vector<vector<pair<int, double>>> g(n);
-        for (int i = 0; i < edges.size(); ++i) {
-            int a = edges[i][0], b = edges[i][1];
-            double s = succProb[i];
-            g[a].push_back({b, s});
-            g[b].push_back({a, s});
-        }
-        vector<double> d(n);
-        d[start] = 1.0;
-        queue<pair<double, int>> q;
-        q.push({1.0, start});
-        while (!q.empty()) {
-            auto p = q.front();
-            q.pop();
-            double w = p.first;
-            int u = p.second;
-            if (d[u] > w) continue;
-            for (auto& e : g[u]) {
-                int v = e.first;
-                double t = e.second;
-                if (d[v] < d[u] * t) {
-                    d[v] = d[u] * t;
-                    q.push({d[v], v});
-                }
-            }
-        }
-        return d[end];
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -283,49 +312,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maxProbability(n int, edges [][]int, succProb []float64, start int, end int) float64 {
-	g := make([][]pair, n)
-	for i, e := range edges {
-		a, b, s := e[0], e[1], succProb[i]
-		g[a] = append(g[a], pair{b, s})
-		g[b] = append(g[b], pair{a, s})
-	}
-	d := make([]float64, n)
-	d[start] = 1
-	vis := make([]bool, n)
-	q := []int{start}
-	vis[start] = true
-	for len(q) > 0 {
-		i := q[0]
-		q = q[1:]
-		vis[i] = false
-		for _, ne := range g[i] {
-			j, s := ne.idx, ne.s
-			if d[j] < d[i]*s {
-				d[j] = d[i] * s
-				if !vis[j] {
-					q = append(q, j)
-					vis[j] = true
-				}
-			}
-		}
-	}
-	return d[end]
-}
-
-type pair struct {
-	idx int
-	s   float64
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

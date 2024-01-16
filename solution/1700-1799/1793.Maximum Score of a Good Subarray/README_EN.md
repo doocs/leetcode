@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Monotonic Stack**
+### Solution 1: Monotonic Stack
 
 We can enumerate each element $nums[i]$ in $nums$ as the minimum value of the subarray, and use a monotonic stack to find the first position $left[i]$ on the left that is less than $nums[i]$ and the first position $right[i]$ on the right that is less than or equal to $nums[i]$. Then, the score of the subarray with $nums[i]$ as the minimum value is $nums[i] \times (right[i] - left[i] - 1)$.
 
@@ -47,8 +47,6 @@ It should be noted that the answer can only be updated when the left and right b
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                 ans = max(ans, v * (right[i] - left[i] - 1))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumScore(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -204,8 +196,6 @@ func maximumScore(nums []int, k int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumScore(nums: number[], k: number): number {
     const n = nums.length;
@@ -241,10 +231,6 @@ function maximumScore(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -33,9 +33,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 枚举**
+### 方法一：预处理 + 枚举
 
 我们可以预处理出每个位置 $(i, j)$ 向下和向右的连续 $0$ （黑色像素）的个数，记为 $down[i][j]$ 和 $right[i][j]$。递推公式如下：
 
@@ -71,10 +69,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findSquare(self, matrix: List[List[int]]) -> List[int]:
@@ -98,10 +92,6 @@ class Solution:
                         return [i, j, k]
         return []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -164,8 +152,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findSquare(matrix [][]int) []int {
@@ -202,8 +188,6 @@ func findSquare(matrix [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSquare(matrix: number[][]): number[] {
     const n = matrix.length;
@@ -235,10 +219,6 @@ function findSquare(matrix: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

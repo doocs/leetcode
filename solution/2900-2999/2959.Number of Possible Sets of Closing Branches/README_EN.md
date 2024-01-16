@@ -76,7 +76,7 @@ It can be proven, that there are only 2 possible sets of closing branches.
 
 ## Solutions
 
-**Solution 1: Binary Enumeration + Floyd Algorithm**
+### Solution 1: Binary Enumeration + Floyd Algorithm
 
 We notice that $n \leq 10$, so we might as well consider using the method of binary enumeration to enumerate all subsets of departments.
 
@@ -85,8 +85,6 @@ For each subset of departments, we can use the Floyd algorithm to calculate the 
 The time complexity is $O(2^n \times (n^3 + m))$, and the space complexity is $O(n^2)$. Here, $n$ and $m$ are the number of departments and the number of roads, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -115,8 +113,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -161,8 +157,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -202,8 +196,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfSets(n int, maxDistance int, roads [][]int) (ans int) {
@@ -246,8 +238,6 @@ func numberOfSets(n int, maxDistance int, roads [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfSets(n: number, maxDistance: number, roads: number[][]): number {
     let ans = 0;
@@ -283,10 +273,6 @@ function numberOfSets(n: number, maxDistance: number, roads: number[][]): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

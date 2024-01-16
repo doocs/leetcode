@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 判断子序列**
+### 方法一：二分查找 + 判断子序列
 
 二分枚举整数 k，找到满足要求的最大 k 即可。
 
@@ -118,10 +116,6 @@ int search(int left, int right) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
@@ -144,10 +138,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -180,40 +170,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function maximumRemovals(s: string, p: string, removable: number[]): number {
-    let left = 0,
-        right = removable.length;
-    while (left < right) {
-        let mid = (left + right + 1) >> 1;
-        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-
-function isSub(str: string, sub: string, idxes: Set<number>): boolean {
-    let m = str.length,
-        n = sub.length;
-    let i = 0,
-        j = 0;
-    while (i < m && j < n) {
-        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
-            ++j;
-        }
-        ++i;
-    }
-    return j == n;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -248,8 +204,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumRemovals(s string, p string, removable []int) int {
 	check := func(k int) bool {
@@ -280,7 +234,35 @@ func maximumRemovals(s string, p string, removable []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function maximumRemovals(s: string, p: string, removable: number[]): number {
+    let left = 0,
+        right = removable.length;
+    while (left < right) {
+        let mid = (left + right + 1) >> 1;
+        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+
+function isSub(str: string, sub: string, idxes: Set<number>): boolean {
+    let m = str.length,
+        n = sub.length;
+    let i = 0,
+        j = 0;
+    while (i < m && j < n) {
+        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
+            ++j;
+        }
+        ++i;
+    }
+    return j == n;
+}
+```
 
 ```rust
 use std::collections::HashSet;
@@ -324,10 +306,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

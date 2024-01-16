@@ -50,9 +50,9 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedList
@@ -104,8 +104,6 @@ class ExamRoom:
 # param_1 = obj.seat()
 # obj.leave(p)
 ```
-
-### **Java**
 
 ```java
 class ExamRoom {
@@ -168,8 +166,6 @@ class ExamRoom {
  * obj.leave(p);
  */
 ```
-
-### **C++**
 
 ```cpp
 int N;
@@ -243,8 +239,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type ExamRoom struct {
 	rbt   *redblacktree.Tree
@@ -315,10 +309,6 @@ func (this *ExamRoom) del(s []int) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -79,13 +79,11 @@ Employee table:
 
 ## Solutions
 
-**Solution 1: Inner Join + Window Function**
+### Solution 1: Inner Join + Window Function
 
 We can first perform an inner join between the `Project` table and the `Employee` table, and then use the window function `rank()` to group the `Project` table, sort it in descending order by `experience_years`, and finally select the most experienced employee for each project.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -107,3 +105,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

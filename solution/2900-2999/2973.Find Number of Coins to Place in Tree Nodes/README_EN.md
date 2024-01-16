@@ -61,7 +61,7 @@
 
 ## Solutions
 
-**Solution 1: DFS + Sorting**
+### Solution 1: DFS + Sorting
 
 According to the problem description, there are two situations for the number of coins placed at each node $a$:
 
@@ -89,8 +89,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
@@ -115,8 +113,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -163,8 +159,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -202,8 +196,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func placedCoins(edges [][]int, cost []int) []int64 {
@@ -243,8 +235,6 @@ func placedCoins(edges [][]int, cost []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function placedCoins(edges: number[][], cost: number[]): number[] {
     const n = cost.length;
@@ -278,10 +268,6 @@ function placedCoins(edges: number[][], cost: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

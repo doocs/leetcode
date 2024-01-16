@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -86,8 +86,6 @@ class Solution:
             rotate(p, k)
         return grid
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -140,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +182,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func rotateGrid(grid [][]int, k int) [][]int {
@@ -237,8 +231,6 @@ func rotateGrid(grid [][]int, k int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rotateGrid(grid: number[][], k: number): number[][] {
     const m = grid.length;
@@ -282,10 +274,6 @@ function rotateGrid(grid: number[][], k: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

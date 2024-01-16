@@ -50,19 +50,13 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和**
+### 方法一：前缀和
 
 我们创建一个长度为 $n + 1$ 的前缀和数组 $s$，其中 $s[i]$ 表示前 $i$ 个元素的前缀和，即 $s[i] = \sum_{j=0}^{i-1} nums[j]$，那么索引 $[left, right]$ 之间的元素的和就可以表示为 $s[right + 1] - s[left]$。
 
 初始化前缀和数组 $s$ 的时间复杂度为 $O(n)$，查询的时间复杂度为 $O(1)$。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class NumArray:
@@ -77,10 +71,6 @@ class NumArray:
 # obj = NumArray(nums)
 # param_1 = obj.sumRange(left,right)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class NumArray {
@@ -105,8 +95,6 @@ class NumArray {
  * int param_1 = obj.sumRange(left,right);
  */
 ```
-
-### **C++**
 
 ```cpp
 class NumArray {
@@ -134,8 +122,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type NumArray struct {
 	s []int
@@ -161,38 +147,6 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- */
-var NumArray = function (nums) {
-    const n = nums.length;
-    this.s = Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        this.s[i + 1] = this.s[i] + nums[i];
-    }
-};
-
-/**
- * @param {number} left
- * @param {number} right
- * @return {number}
- */
-NumArray.prototype.sumRange = function (left, right) {
-    return this.s[right + 1] - this.s[left];
-};
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * var obj = new NumArray(nums)
- * var param_1 = obj.sumRange(left,right)
- */
-```
-
-### **TypeScript**
-
 ```ts
 class NumArray {
     private s: number[];
@@ -216,8 +170,6 @@ class NumArray {
  * var param_1 = obj.sumRange(left,right)
  */
 ```
-
-### **Rust**
 
 ```rust
 struct NumArray {
@@ -248,7 +200,62 @@ impl NumArray {
  */
 ```
 
-### **C**
+```js
+/**
+ * @param {number[]} nums
+ */
+var NumArray = function (nums) {
+    const n = nums.length;
+    this.s = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        this.s[i + 1] = this.s[i] + nums[i];
+    }
+};
+
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+NumArray.prototype.sumRange = function (left, right) {
+    return this.s[right + 1] - this.s[left];
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * var param_1 = obj.sumRange(left,right)
+ */
+```
+
+```php
+class NumArray {
+    /**
+     * @param Integer[] $nums
+     */
+    function __construct($nums) {
+        $this->s = [0];
+        foreach ($nums as $x) {
+            $this->s[] = $this->s[count($this->s) - 1] + $x;
+        }
+    }
+
+    /**
+     * @param Integer $left
+     * @param Integer $right
+     * @return Integer
+     */
+    function sumRange($left, $right) {
+        return $this->s[$right + 1] - $this->s[$left];
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * $obj = NumArray($nums);
+ * $ret_1 = $obj->sumRange($left, $right);
+ */
+```
 
 ```c
 typedef struct {
@@ -284,41 +291,6 @@ void numArrayFree(NumArray* obj) {
 */
 ```
 
-### **PHP**
-
-```php
-class NumArray {
-    /**
-     * @param Integer[] $nums
-     */
-    function __construct($nums) {
-        $this->s = [0];
-        foreach ($nums as $x) {
-            $this->s[] = $this->s[count($this->s) - 1] + $x;
-        }
-    }
-
-    /**
-     * @param Integer $left
-     * @param Integer $right
-     * @return Integer
-     */
-    function sumRange($left, $right) {
-        return $this->s[$right + 1] - $this->s[$left];
-    }
-}
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * $obj = NumArray($nums);
- * $ret_1 = $obj->sumRange($left, $right);
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学乘法模拟**
+### 方法一：数学乘法模拟
 
 假设 $num1$ 和 $num2$ 的长度分别为 $m$ 和 $n$，则它们的乘积的长度最多为 $m + n$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为 $num1$ 和 $num2$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
         i = 0 if arr[0] else 1
         return "".join(str(x) for x in arr[i:])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func multiply(num1 string, num2 string) string {
 	if num1 == "0" || num2 == "0" {
@@ -177,8 +163,6 @@ func multiply(num1 string, num2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function multiply(num1: string, num2: string): string {
     if (num1 === '0' || num2 === '0') {
@@ -205,8 +189,6 @@ function multiply(num1: string, num2: string): string {
     return arr.slice(i).join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -239,8 +221,6 @@ impl Solution {
     }
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -281,10 +261,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,19 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 有两个入度时，当一条边被记为 conflict，就相当于删掉了这条边，因为并没有调用并查集 union 进行合并，如果还出现了无向环，则说明是要删另一条入度的边。
 
 每个节点都只有一个入度时，则说明是一个有向环，删最后一条出现的边即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -96,10 +90,6 @@ class Solution:
             return [p[v], v]
         return edges[conflict]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -165,8 +155,6 @@ class UnionFind {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -217,8 +205,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -280,10 +266,6 @@ func findRedundantDirectedConnection(edges [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

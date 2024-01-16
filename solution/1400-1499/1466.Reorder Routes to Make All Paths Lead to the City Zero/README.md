@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 题目给定的路线图中有 $n$ 个节点和 $n-1$ 条边，如果我们忽略边的方向，那么这 $n$ 个节点构成了一棵树。而题目需要我们改变某些边的方向，使得每个节点都能到达节点 $0$。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是题目中节点的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             g[b].append((a, 0))
         return dfs(0, -1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minReorder(n int, connections [][]int) int {
 	g := make([][][2]int, n)
@@ -166,8 +152,6 @@ func minReorder(n int, connections [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minReorder(n: number, connections: number[][]): number {
     const g: [number, number][][] = Array.from({ length: n }, () => []);
@@ -187,8 +171,6 @@ function minReorder(n: number, connections: number[][]): number {
     return dfs(0, -1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -214,10 +196,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

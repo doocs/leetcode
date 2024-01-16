@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 遍历数组，找到所有等于 $target$ 的下标，然后计算 $|i - start|$，取最小值即可。
 
@@ -61,19 +59,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
         return min(abs(i - start) for i, x in enumerate(nums) if x == target)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getMinDistance(nums []int, target int, start int) int {
@@ -129,8 +115,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMinDistance(nums: number[], target: number, start: number): number {
     let ans = Infinity;
@@ -142,8 +126,6 @@ function getMinDistance(nums: number[], target: number, start: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -158,10 +140,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -27,39 +27,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：使用 `replace()` 函数**
+### 方法一：使用 `replace()` 函数
 
 直接利用 `replace` 将所有 ` ` 替换为 `%20`：
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
-**方法二：模拟**
-
-遍历字符串每个字符 $c$，遇到空格则将 `%20` 添加到结果中，否则添加 $c$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
         return S[:length].replace(' ', '%20')
 ```
-
-```python
-class Solution:
-    def replaceSpaces(self, S: str, length: int) -> str:
-        return ''.join(['%20' if c == ' ' else c for c in S[:length]])
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,21 +59,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} S
- * @param {number} length
- * @return {string}
- */
-var replaceSpaces = function (S, length) {
-    return encodeURI(S.substring(0, length));
-};
-```
-
-### **Go**
 
 ```go
 func replaceSpaces(S string, length int) string {
@@ -115,15 +80,11 @@ func replaceSpaces(S string, length int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function replaceSpaces(S: string, length: number): string {
     return S.slice(0, length).replace(/\s/g, '%20');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -131,6 +92,33 @@ impl Solution {
         s[..length as usize].replace(' ', "%20")
     }
 }
+```
+
+```js
+/**
+ * @param {string} S
+ * @param {number} length
+ * @return {string}
+ */
+var replaceSpaces = function (S, length) {
+    return encodeURI(S.substring(0, length));
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二：模拟
+
+遍历字符串每个字符 $c$，遇到空格则将 `%20` 添加到结果中，否则添加 $c$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def replaceSpaces(self, S: str, length: int) -> str:
+        return ''.join(['%20' if c == ' ' else c for c in S[:length]])
 ```
 
 ```rust
@@ -146,10 +134,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -65,9 +65,7 @@ validWordAbbr.isUnique("cake"); // 返回 true，因为 "cake" 已经存在于�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 根据题目描述，我们定义一个函数 $abbr(s)$，它的功能是计算单词 $s$ 的缩写。如果单词 $s$ 的长度小于 $3$，那么它的缩写就是它本身；否则，它的缩写是它的首字母 + (它的长度 - 2) + 它的尾字母。
 
@@ -78,10 +76,6 @@ validWordAbbr.isUnique("cake"); // 返回 true，因为 "cake" 已经存在于�
 时间复杂度方面，初始化哈希表的时间复杂度是 $O(n)$，其中 $n$ 是单词字典的长度；判断单词是否满足题目要求的时间复杂度是 $O(1)$。空间复杂度方面，哈希表的空间复杂度是 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class ValidWordAbbr:
@@ -102,10 +96,6 @@ class ValidWordAbbr:
 # obj = ValidWordAbbr(dictionary)
 # param_1 = obj.isUnique(word)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class ValidWordAbbr {
@@ -134,8 +124,6 @@ class ValidWordAbbr {
  * boolean param_1 = obj.isUnique(word);
  */
 ```
-
-### **C++**
 
 ```cpp
 class ValidWordAbbr {
@@ -166,8 +154,6 @@ private:
  * bool param_1 = obj->isUnique(word);
  */
 ```
-
-### **Go**
 
 ```go
 type ValidWordAbbr struct {
@@ -206,8 +192,6 @@ func abbr(s string) string {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class ValidWordAbbr {
     private d: Map<string, Set<string>> = new Map();
@@ -240,10 +224,6 @@ class ValidWordAbbr {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

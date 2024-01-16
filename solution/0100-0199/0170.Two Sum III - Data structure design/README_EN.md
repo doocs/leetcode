@@ -44,9 +44,9 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class TwoSum:
@@ -70,8 +70,6 @@ class TwoSum:
 # obj.add(number)
 # param_2 = obj.find(value)
 ```
-
-### **Java**
 
 ```java
 class TwoSum {
@@ -105,8 +103,6 @@ class TwoSum {
  * boolean param_2 = obj.find(value);
  */
 ```
-
-### **C++**
 
 ```cpp
 class TwoSum {
@@ -142,8 +138,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type TwoSum struct {
 	cnt map[int]int
@@ -175,10 +169,6 @@ func (this *TwoSum) Find(value int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

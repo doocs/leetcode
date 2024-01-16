@@ -30,9 +30,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 单调栈常见模型：找出每个数左/右边**离它最近的**且**比它大/小的数**。模板：
 
@@ -49,10 +47,6 @@ for i in range(n):
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为柱子个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             stk.append(i)
         return max(x * (r - l - 1) for x, l, r in zip(heights, left, right))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +144,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestRectangleArea(heights []int) (ans int) {
@@ -195,8 +181,6 @@ func largestRectangleArea(heights []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestRectangleArea(heights: number[]): number {
     const n = heights.length;
@@ -230,10 +214,6 @@ function largestRectangleArea(heights: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

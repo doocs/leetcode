@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 优先队列（小根堆）**
+### 方法一：排序 + 优先队列（小根堆）
 
 将 `nums2` 与 `nums1` 按照 `nums2` 降序排序，然后从前往后遍历，维护一个小根堆，堆中存储 `nums1` 中的元素，堆中元素个数不超过 $k$ 个，同时维护一个变量 $s$，表示堆中元素的和，遍历过程中不断更新答案。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums1` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 s -= heappop(q)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxScore(nums1 []int, nums2 []int, k int) int64 {
@@ -179,10 +165,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

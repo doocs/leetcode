@@ -40,7 +40,7 @@ Both arrays have an equal sum of 12. It can be shown that it is the minimum sum 
 
 ## Solutions
 
-**Solution 1: Case Analysis**
+### Solution 1: Case Analysis
 
 We consider the case where we treat all $0$s in the array as $1$s, and calculate the sum of the two arrays separately, denoted as $s_1$ and $s_2$. Without loss of generality, we assume that $s_1 \le s_2$.
 
@@ -50,8 +50,6 @@ We consider the case where we treat all $0$s in the array as $1$s, and calculate
 The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
             return s1
         return -1 if nums1.count(0) == 0 else s2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSum(nums1 []int, nums2 []int) int64 {
@@ -144,8 +136,6 @@ func minSum(nums1 []int, nums2 []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSum(nums1: number[], nums2: number[]): number {
     let [s1, s2] = [0, 0];
@@ -169,10 +159,6 @@ function minSum(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

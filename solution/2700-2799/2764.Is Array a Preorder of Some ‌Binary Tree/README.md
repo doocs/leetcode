@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先根据 $nodes$ 数据构建图 $g$，其中 $g[i]$ 表示节点 $i$ 的所有子节点。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是 $nodes$ 中的节点数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
         k = 0
         return dfs(nodes[0][0]) and k == len(nodes)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPreorder(nodes [][]int) bool {
 	k := 0
@@ -178,8 +164,6 @@ func isPreorder(nodes [][]int) bool {
 	return dfs(nodes[0][0]) && k == len(nodes)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isPreorder(nodes: number[][]): boolean {
@@ -207,10 +191,6 @@ function isPreorder(nodes: number[][]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

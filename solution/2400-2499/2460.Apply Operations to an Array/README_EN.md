@@ -55,7 +55,7 @@ After that, we shift the 0&#39;s to the end, which gives the array [1,4,2,0,0,0]
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can directly simulate according to the problem description.
 
@@ -68,8 +68,6 @@ Finally, we return the answer array $ans$.
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
                 i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func applyOperations(nums []int) []int {
 	n := len(nums)
@@ -160,8 +152,6 @@ func applyOperations(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function applyOperations(nums: number[]): number[] {
     const n = nums.length;
@@ -181,8 +171,6 @@ function applyOperations(nums: number[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -209,10 +197,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

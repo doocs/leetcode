@@ -40,9 +40,9 @@ You need to output 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
             j += 1
         return len(g)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
@@ -123,7 +117,23 @@ func findContentChildren(g []int, s []int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function findContentChildren(g: number[], s: number[]): number {
+    g.sort((a, b) => a - b);
+    s.sort((a, b) => a - b);
+    const m = g.length;
+    const n = s.length;
+    for (let i = 0, j = 0; i < m; ++i) {
+        while (j < n && s[j] < g[i]) {
+            ++j;
+        }
+        if (j++ >= n) {
+            return i;
+        }
+    }
+    return m;
+}
+```
 
 ```js
 /**
@@ -148,30 +158,6 @@ var findContentChildren = function (g, s) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function findContentChildren(g: number[], s: number[]): number {
-    g.sort((a, b) => a - b);
-    s.sort((a, b) => a - b);
-    const m = g.length;
-    const n = s.length;
-    for (let i = 0, j = 0; i < m; ++i) {
-        while (j < n && s[j] < g[i]) {
-            ++j;
-        }
-        if (j++ >= n) {
-            return i;
-        }
-    }
-    return m;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

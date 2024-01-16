@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Quick Thinking**
+### Solution 1: Quick Thinking
 
 We assume that the array can be divided into $m$ strictly increasing subsequences of length at least $k$. If the number of the most frequent number in the array is $cnt$, then these $cnt$ numbers must be in different subsequences, so $m \geq cnt$. Also, since the length of $m$ subsequences is at least $k$, the fewer the number of subsequences, the better, so $m = cnt$. Therefore, $cnt \times k \leq n$ must be satisfied. Hence, we only need to count the number of the most frequent number $cnt$ in the array, and then judge whether $cnt \times k \leq n$. If it is, return `true`, otherwise return `false`.
 
@@ -42,16 +42,12 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def canDivideIntoSubsequences(self, nums: List[int], k: int) -> bool:
         mx = max(len(list(x)) for _, x in groupby(nums))
         return mx * k <= len(nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,25 +61,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean canDivideIntoSubsequences(int[] nums, int k) {
-        int cnt = 0;
-        int a = 0;
-        for (int b : nums) {
-            cnt = a == b ? cnt + 1 : 1;
-            if (cnt * k > nums.length) {
-                return false;
-            }
-            a = b;
-        }
-        return true;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +80,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canDivideIntoSubsequences(nums []int, k int) bool {
 	cnt, a := 0, 0
@@ -122,10 +97,29 @@ func canDivideIntoSubsequences(nums []int, k int) bool {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public boolean canDivideIntoSubsequences(int[] nums, int k) {
+        int cnt = 0;
+        int a = 0;
+        for (int b : nums) {
+            cnt = a == b ? cnt + 1 : 1;
+            if (cnt * k > nums.length) {
+                return false;
+            }
+            a = b;
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

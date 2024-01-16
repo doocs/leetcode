@@ -87,17 +87,11 @@ Passengers 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Rank() 窗口函数**
+### 方法一：Rank() 窗口函数
 
 注意，如果多个人在同一时间预定了同一个航班，只要有空位，就都可以确认预定。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -120,3 +114,5 @@ ORDER BY passenger_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

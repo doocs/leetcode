@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[h][i][j]$ 表示骑士从 $(i, j)$ 位置出发，走了 $h$ 步以后还留在棋盘上的概率。那么最终答案就是 $f[k][row][column]$。
 
@@ -71,10 +69,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
@@ -91,10 +85,6 @@ class Solution:
                             f[h][i][j] += f[h - 1][x][y] / 8
         return f[k][row][column]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -154,7 +142,62 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func knightProbability(n int, k int, row int, column int) float64 {
+	f := make([][][]float64, k+1)
+	for h := range f {
+		f[h] = make([][]float64, n)
+		for i := range f[h] {
+			f[h][i] = make([]float64, n)
+			for j := range f[h][i] {
+				f[0][i][j] = 1
+			}
+		}
+	}
+	dirs := [9]int{-2, -1, 2, 1, -2, 1, 2, -1, -2}
+	for h := 1; h <= k; h++ {
+		for i := 0; i < n; i++ {
+			for j := 0; j < n; j++ {
+				for p := 0; p < 8; p++ {
+					x, y := i+dirs[p], j+dirs[p+1]
+					if x >= 0 && x < n && y >= 0 && y < n {
+						f[h][i][j] += f[h-1][x][y] / 8
+					}
+				}
+			}
+		}
+	}
+	return f[k][row][column]
+}
+```
+
+```ts
+function knightProbability(n: number, k: number, row: number, column: number): number {
+    const f = new Array(k + 1)
+        .fill(0)
+        .map(() => new Array(n).fill(0).map(() => new Array(n).fill(0)));
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            f[0][i][j] = 1;
+        }
+    }
+    const dirs = [-2, -1, 2, 1, -2, 1, 2, -1, -2];
+    for (let h = 1; h <= k; ++h) {
+        for (let i = 0; i < n; ++i) {
+            for (let j = 0; j < n; ++j) {
+                for (let p = 0; p < 8; ++p) {
+                    const x = i + dirs[p];
+                    const y = j + dirs[p + 1];
+                    if (x >= 0 && x < n && y >= 0 && y < n) {
+                        f[h][i][j] += f[h - 1][x][y] / 8;
+                    }
+                }
+            }
+        }
+    }
+    return f[k][row][column];
+}
+```
 
 ```rust
 const DIR: [(i32, i32); 8] = [
@@ -210,71 +253,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func knightProbability(n int, k int, row int, column int) float64 {
-	f := make([][][]float64, k+1)
-	for h := range f {
-		f[h] = make([][]float64, n)
-		for i := range f[h] {
-			f[h][i] = make([]float64, n)
-			for j := range f[h][i] {
-				f[0][i][j] = 1
-			}
-		}
-	}
-	dirs := [9]int{-2, -1, 2, 1, -2, 1, 2, -1, -2}
-	for h := 1; h <= k; h++ {
-		for i := 0; i < n; i++ {
-			for j := 0; j < n; j++ {
-				for p := 0; p < 8; p++ {
-					x, y := i+dirs[p], j+dirs[p+1]
-					if x >= 0 && x < n && y >= 0 && y < n {
-						f[h][i][j] += f[h-1][x][y] / 8
-					}
-				}
-			}
-		}
-	}
-	return f[k][row][column]
-}
-```
-
-### **TypeScript**
-
-```ts
-function knightProbability(n: number, k: number, row: number, column: number): number {
-    const f = new Array(k + 1)
-        .fill(0)
-        .map(() => new Array(n).fill(0).map(() => new Array(n).fill(0)));
-    for (let i = 0; i < n; ++i) {
-        for (let j = 0; j < n; ++j) {
-            f[0][i][j] = 1;
-        }
-    }
-    const dirs = [-2, -1, 2, 1, -2, 1, 2, -1, -2];
-    for (let h = 1; h <= k; ++h) {
-        for (let i = 0; i < n; ++i) {
-            for (let j = 0; j < n; ++j) {
-                for (let p = 0; p < 8; ++p) {
-                    const x = i + dirs[p];
-                    const y = j + dirs[p + 1];
-                    if (x >= 0 && x < n && y >= 0 && y < n) {
-                        f[h][i][j] += f[h - 1][x][y] / 8;
-                    }
-                }
-            }
-        }
-    }
-    return f[k][row][column];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

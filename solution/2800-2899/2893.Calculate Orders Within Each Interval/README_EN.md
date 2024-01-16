@@ -63,9 +63,9 @@ Returning table orderd by interval_no in ascending order.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -84,6 +84,12 @@ FROM T
 WHERE minute % 6 = 0;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 SELECT
     FLOOR((minute + 5) / 6) AS interval_no,
@@ -94,3 +100,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

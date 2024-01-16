@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 我们先将 $edges$ 中的边转换成邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻接节点，用集合表示。
 
@@ -77,10 +75,6 @@
 -   [2204. 无向图中到环的距离](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
                 g[i].clear()
         return sum(len(g[a]) > 0 and len(g[b]) > 0 for a, b in edges) * 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -220,8 +208,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func collectTheCoins(coins []int, edges [][]int) int {
 	n := len(coins)
@@ -276,8 +262,6 @@ func collectTheCoins(coins []int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function collectTheCoins(coins: number[], edges: number[][]): number {
     const n = coins.length;
@@ -326,10 +310,6 @@ function collectTheCoins(coins: number[], edges: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

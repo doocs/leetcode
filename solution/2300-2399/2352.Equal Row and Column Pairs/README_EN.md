@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,19 +50,6 @@ class Solution:
         g = [list(col) for col in zip(*grid)]
         return sum(row == col for row in grid for col in g)
 ```
-
-```python
-class Solution:
-    def equalPairs(self, grid: List[List[int]]) -> int:
-        n = len(grid)
-        ans = 0
-        for i in range(n):
-            for j in range(n):
-                ans += all(grid[i][k] == grid[k][j] for k in range(n))
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,30 +79,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int equalPairs(int[][] grid) {
-        int n = grid.length;
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                int ok = 1;
-                for (int k = 0; k < n; ++k) {
-                    if (grid[i][k] != grid[k][j]) {
-                        ok = 0;
-                        break;
-                    }
-                }
-                ans += ok;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,31 +100,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int equalPairs(vector<vector<int>>& grid) {
-        int n = grid.size();
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                int ok = 1;
-                for (int k = 0; k < n; ++k) {
-                    if (grid[i][k] != grid[k][j]) {
-                        ok = 0;
-                        break;
-                    }
-                }
-                ans += ok;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func equalPairs(grid [][]int) (ans int) {
@@ -189,26 +127,6 @@ func equalPairs(grid [][]int) (ans int) {
 }
 ```
 
-```go
-func equalPairs(grid [][]int) (ans int) {
-	for i := range grid {
-		for j := range grid {
-			ok := 1
-			for k := range grid {
-				if grid[i][k] != grid[k][j] {
-					ok = 0
-					break
-				}
-			}
-			ans += ok
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function equalPairs(grid: number[][]): number {
     const n = grid.length;
@@ -225,6 +143,86 @@ function equalPairs(grid: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def equalPairs(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        ans = 0
+        for i in range(n):
+            for j in range(n):
+                ans += all(grid[i][k] == grid[k][j] for k in range(n))
+        return ans
+```
+
+```java
+class Solution {
+    public int equalPairs(int[][] grid) {
+        int n = grid.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int ok = 1;
+                for (int k = 0; k < n; ++k) {
+                    if (grid[i][k] != grid[k][j]) {
+                        ok = 0;
+                        break;
+                    }
+                }
+                ans += ok;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int equalPairs(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int ok = 1;
+                for (int k = 0; k < n; ++k) {
+                    if (grid[i][k] != grid[k][j]) {
+                        ok = 0;
+                        break;
+                    }
+                }
+                ans += ok;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func equalPairs(grid [][]int) (ans int) {
+	for i := range grid {
+		for j := range grid {
+			ok := 1
+			for k := range grid {
+				if grid[i][k] != grid[k][j] {
+					ok = 0
+					break
+				}
+			}
+			ans += ok
+		}
+	}
+	return
 }
 ```
 
@@ -248,10 +246,6 @@ function equalPairs(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

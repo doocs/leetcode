@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 $d$ 存放最近遍历到的数以及对应的下标。
 
@@ -56,10 +54,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
@@ -70,10 +64,6 @@ class Solution:
             d[x] = i
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func containsNearbyDuplicate(nums []int, k int) bool {
 	d := map[int]int{}
@@ -123,7 +109,18 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 }
 ```
 
-### **C#**
+```ts
+function containsNearbyDuplicate(nums: number[], k: number): boolean {
+    const d: Map<number, number> = new Map();
+    for (let i = 0; i < nums.length; ++i) {
+        if (d.has(nums[i]) && i - d.get(nums[i])! <= k) {
+            return true;
+        }
+        d.set(nums[i], i);
+    }
+    return false;
+}
+```
 
 ```cs
 public class Solution {
@@ -139,23 +136,6 @@ public class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function containsNearbyDuplicate(nums: number[], k: number): boolean {
-    const d: Map<number, number> = new Map();
-    for (let i = 0; i < nums.length; ++i) {
-        if (d.has(nums[i]) && i - d.get(nums[i])! <= k) {
-            return true;
-        }
-        d.set(nums[i], i);
-    }
-    return false;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -178,10 +158,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

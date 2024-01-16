@@ -37,19 +37,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题目描述，我们每次遍历 `supplies`，找到物资之和最小的两辆相邻马车，将它们车辆的物资整合为一辆，重复上述操作直到车队长度符合要求。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为 `supplies` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             supplies = t
         return supplies
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func supplyWagon(supplies []int) []int {
 	for h := (len(supplies) + 1) >> 1; h > 0; h-- {
@@ -172,8 +158,6 @@ func supplyWagon(supplies []int) []int {
 	return supplies
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function supplyWagon(supplies: number[]): number[] {
@@ -203,10 +187,6 @@ function supplyWagon(supplies: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,11 +50,9 @@ The right interval for [2,3] is [3,4] since start<sub>2</sub> = 3 is the smalles
 
 ## Solutions
 
-Binary search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
                 ans[i] = intervals[j][2]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findRightInterval(intervals [][]int) []int {
@@ -167,8 +159,6 @@ func findRightInterval(intervals [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findRightInterval(intervals: number[][]): number[] {
     const n = intervals.length;
@@ -198,10 +188,6 @@ function findRightInterval(intervals: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

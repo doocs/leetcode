@@ -58,19 +58,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 时针每小时移动 30 度，每分钟移动 0.5 度。分针每分钟移动 6 度。如果指针之间的夹角大于 180 度，则取其与 360 度的差值，以确保获得最小的夹角。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
         diff = abs(h - m)
         return min(diff, 360 - diff)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func angleClock(hour int, minutes int) float64 {
 	h := 30*float64(hour) + 0.5*float64(minutes)
@@ -120,8 +106,6 @@ func angleClock(hour int, minutes int) float64 {
 	return math.Min(diff, 360-diff)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function angleClock(hour: number, minutes: number): number {
@@ -132,10 +116,6 @@ function angleClock(hour: number, minutes: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

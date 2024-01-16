@@ -38,15 +38,13 @@
 
 ## Solutions
 
-**Solution 1: BFS**
+### Solution 1: BFS
 
 The approach is the same as in [102. Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md), just reverse the result in the end.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -73,8 +71,6 @@ class Solution:
             ans.append(t)
         return ans[::-1]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -119,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,7 +150,39 @@ public:
 };
 ```
 
-### **Rust**
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func levelOrderBottom(root *TreeNode) [][]int {
+	ans := [][]int{}
+	if root == nil {
+		return ans
+	}
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		var t []int
+		for i := len(q); i > 0; i-- {
+			node := q[0]
+			q = q[1:]
+			t = append(t, node.Val)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		ans = append([][]int{t}, ans...)
+	}
+	return ans
+}
+```
 
 ```rust
 // Definition for a binary tree node.
@@ -215,44 +241,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func levelOrderBottom(root *TreeNode) [][]int {
-	ans := [][]int{}
-	if root == nil {
-		return ans
-	}
-	q := []*TreeNode{root}
-	for len(q) > 0 {
-		var t []int
-		for i := len(q); i > 0; i-- {
-			node := q[0]
-			q = q[1:]
-			t = append(t, node.Val)
-			if node.Left != nil {
-				q = append(q, node.Left)
-			}
-			if node.Right != nil {
-				q = append(q, node.Right)
-			}
-		}
-		ans = append([][]int{t}, ans...)
-	}
-	return ans
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -284,10 +272,6 @@ var levelOrderBottom = function (root) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

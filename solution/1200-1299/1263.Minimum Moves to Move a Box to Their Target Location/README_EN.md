@@ -72,7 +72,7 @@
 
 ## Solutions
 
-**Solution 1: Double-ended Queue + BFS**
+### Solution 1: Double-ended Queue + BFS
 
 We consider the player's position and the box's position as a state, i.e., $(s_i, s_j, b_i, b_j)$, where $(s_i, s_j)$ is the player's position, and $(b_i, b_j)$ is the box's position. In the code implementation, we define a function $f(i, j)$, which maps the two-dimensional coordinates $(i, j)$ to a one-dimensional state number, i.e., $f(i, j) = i \times n + j$, where $n$ is the number of columns in the grid. So the player and the box's state is $(f(s_i, s_j), f(b_i, b_j))$.
 
@@ -100,8 +100,6 @@ Finally, if no valid push scheme is found, then return $-1$.
 The time complexity is $O(m^2 \times n^2)$, and the space complexity is $O(m^2 \times n^2)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -144,8 +142,6 @@ class Solution:
                     q.appendleft((f(sx, sy), f(bi, bj), d))
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -215,8 +211,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -275,8 +269,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minPushBox(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -332,8 +324,6 @@ func minPushBox(grid [][]byte) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minPushBox(grid: string[][]): number {
@@ -556,10 +546,6 @@ class Deque<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

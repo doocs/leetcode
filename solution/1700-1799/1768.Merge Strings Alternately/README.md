@@ -56,9 +56,7 @@ word2：    p   q
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接模拟**
+### 方法一：直接模拟
 
 我们遍历 `word1`, `word2` 两个字符串，依次取出字符，拼接到结果字符串中。Python 代码可以简化为一行。
 
@@ -66,19 +64,11 @@ word2：    p   q
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mergeAlternately(word1 string, word2 string) string {
@@ -133,8 +119,6 @@ func mergeAlternately(word1 string, word2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mergeAlternately(word1: string, word2: string): string {
     const ans: string[] = [];
@@ -150,8 +134,6 @@ function mergeAlternately(word1: string, word2: string): string {
     return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -172,8 +154,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 char* mergeAlternately(char* word1, char* word2) {
@@ -197,10 +177,6 @@ char* mergeAlternately(char* word1, char* word2) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

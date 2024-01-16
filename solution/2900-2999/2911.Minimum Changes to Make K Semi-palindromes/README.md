@@ -57,17 +57,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**优化: 预处理因数列表**
-
-可以预先处理每个长度的因数列表，这样就不用每次都去计算了。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -96,10 +88,6 @@ class Solution:
                     f[i][j] = min(f[i][j], f[h][j - 1] + g[h + 1][i])
         return f[n][k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,6 +132,139 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    int minimumChanges(string s, int k) {
+        int n = s.size();
+        int g[n + 1][n + 1];
+        int f[n + 1][k + 1];
+        memset(g, 0x3f, sizeof(g));
+        memset(f, 0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = i; j <= n; ++j) {
+                int m = j - i + 1;
+                for (int d = 1; d < m; ++d) {
+                    if (m % d == 0) {
+                        int cnt = 0;
+                        for (int l = 0; l < m; ++l) {
+                            int r = (m / d - 1 - l / d) * d + l % d;
+                            if (l >= r) {
+                                break;
+                            }
+                            if (s[i - 1 + l] != s[i - 1 + r]) {
+                                ++cnt;
+                            }
+                        }
+                        g[i][j] = min(g[i][j], cnt);
+                    }
+                }
+            }
+        }
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                for (int h = 0; h < i - 1; ++h) {
+                    f[i][j] = min(f[i][j], f[h][j - 1] + g[h + 1][i]);
+                }
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+```go
+func minimumChanges(s string, k int) int {
+	n := len(s)
+	g := make([][]int, n+1)
+	f := make([][]int, n+1)
+	const inf int = 1 << 30
+	for i := range g {
+		g[i] = make([]int, n+1)
+		f[i] = make([]int, k+1)
+		for j := range g[i] {
+			g[i][j] = inf
+		}
+		for j := range f[i] {
+			f[i][j] = inf
+		}
+	}
+	f[0][0] = 0
+	for i := 1; i <= n; i++ {
+		for j := i; j <= n; j++ {
+			m := j - i + 1
+			for d := 1; d < m; d++ {
+				if m%d == 0 {
+					cnt := 0
+					for l := 0; l < m; l++ {
+						r := (m/d-1-l/d)*d + l%d
+						if l >= r {
+							break
+						}
+						if s[i-1+l] != s[i-1+r] {
+							cnt++
+						}
+					}
+					g[i][j] = min(g[i][j], cnt)
+				}
+			}
+		}
+	}
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= k; j++ {
+			for h := 0; h < i-1; h++ {
+				f[i][j] = min(f[i][j], f[h][j-1]+g[h+1][i])
+			}
+		}
+	}
+	return f[n][k]
+}
+```
+
+```ts
+function minimumChanges(s: string, k: number): number {
+    const n = s.length;
+    const g = Array.from({ length: n + 1 }, () => Array.from({ length: n + 1 }, () => Infinity));
+    const f = Array.from({ length: n + 1 }, () => Array.from({ length: k + 1 }, () => Infinity));
+    f[0][0] = 0;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            const m = j - i + 1;
+            for (let d = 1; d < m; ++d) {
+                if (m % d === 0) {
+                    let cnt = 0;
+                    for (let l = 0; l < m; ++l) {
+                        const r = (((m / d) | 0) - 1 - ((l / d) | 0)) * d + (l % d);
+                        if (l >= r) {
+                            break;
+                        }
+                        if (s[i - 1 + l] !== s[i - 1 + r]) {
+                            ++cnt;
+                        }
+                    }
+                    g[i][j] = Math.min(g[i][j], cnt);
+                }
+            }
+        }
+    }
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= k; ++j) {
+            for (let h = 0; h < i - 1; ++h) {
+                f[i][j] = Math.min(f[i][j], f[h][j - 1] + g[h + 1][i]);
+            }
+        }
+    }
+    return f[n][k];
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -228,143 +349,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minimumChanges(string s, int k) {
-        int n = s.size();
-        int g[n + 1][n + 1];
-        int f[n + 1][k + 1];
-        memset(g, 0x3f, sizeof(g));
-        memset(f, 0x3f, sizeof(f));
-        f[0][0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = i; j <= n; ++j) {
-                int m = j - i + 1;
-                for (int d = 1; d < m; ++d) {
-                    if (m % d == 0) {
-                        int cnt = 0;
-                        for (int l = 0; l < m; ++l) {
-                            int r = (m / d - 1 - l / d) * d + l % d;
-                            if (l >= r) {
-                                break;
-                            }
-                            if (s[i - 1 + l] != s[i - 1 + r]) {
-                                ++cnt;
-                            }
-                        }
-                        g[i][j] = min(g[i][j], cnt);
-                    }
-                }
-            }
-        }
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 1; j <= k; ++j) {
-                for (int h = 0; h < i - 1; ++h) {
-                    f[i][j] = min(f[i][j], f[h][j - 1] + g[h + 1][i]);
-                }
-            }
-        }
-        return f[n][k];
-    }
-};
-```
-
-### **Go**
-
-```go
-func minimumChanges(s string, k int) int {
-	n := len(s)
-	g := make([][]int, n+1)
-	f := make([][]int, n+1)
-	const inf int = 1 << 30
-	for i := range g {
-		g[i] = make([]int, n+1)
-		f[i] = make([]int, k+1)
-		for j := range g[i] {
-			g[i][j] = inf
-		}
-		for j := range f[i] {
-			f[i][j] = inf
-		}
-	}
-	f[0][0] = 0
-	for i := 1; i <= n; i++ {
-		for j := i; j <= n; j++ {
-			m := j - i + 1
-			for d := 1; d < m; d++ {
-				if m%d == 0 {
-					cnt := 0
-					for l := 0; l < m; l++ {
-						r := (m/d-1-l/d)*d + l%d
-						if l >= r {
-							break
-						}
-						if s[i-1+l] != s[i-1+r] {
-							cnt++
-						}
-					}
-					g[i][j] = min(g[i][j], cnt)
-				}
-			}
-		}
-	}
-	for i := 1; i <= n; i++ {
-		for j := 1; j <= k; j++ {
-			for h := 0; h < i-1; h++ {
-				f[i][j] = min(f[i][j], f[h][j-1]+g[h+1][i])
-			}
-		}
-	}
-	return f[n][k]
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumChanges(s: string, k: number): number {
-    const n = s.length;
-    const g = Array.from({ length: n + 1 }, () => Array.from({ length: n + 1 }, () => Infinity));
-    const f = Array.from({ length: n + 1 }, () => Array.from({ length: k + 1 }, () => Infinity));
-    f[0][0] = 0;
-    for (let i = 1; i <= n; ++i) {
-        for (let j = 1; j <= n; ++j) {
-            const m = j - i + 1;
-            for (let d = 1; d < m; ++d) {
-                if (m % d === 0) {
-                    let cnt = 0;
-                    for (let l = 0; l < m; ++l) {
-                        const r = (((m / d) | 0) - 1 - ((l / d) | 0)) * d + (l % d);
-                        if (l >= r) {
-                            break;
-                        }
-                        if (s[i - 1 + l] !== s[i - 1 + r]) {
-                            ++cnt;
-                        }
-                    }
-                    g[i][j] = Math.min(g[i][j], cnt);
-                }
-            }
-        }
-    }
-    for (let i = 1; i <= n; ++i) {
-        for (let j = 1; j <= k; ++j) {
-            for (let h = 0; h < i - 1; ++h) {
-                f[i][j] = Math.min(f[i][j], f[h][j - 1] + g[h + 1][i]);
-            }
-        }
-    }
-    return f[n][k];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,21 +40,13 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 DFS traverses the binary tree, recording the value, depth, and horizontal offset of each node. Then sort all nodes by horizontal offset from small to large, then by depth from small to large, and finally group by horizontal offset.
 
 The time complexity is $O(n\log \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
-**Solution 2: BFS**
-
-A better approach to this problem should be BFS, traversing from top to bottom level by level.
-
-The time complexity is $O(n\log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -80,32 +72,6 @@ class Solution:
             ans.append([x[1] for x in v])
         return ans
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if root is None:
-            return []
-        q = deque([(root, 0)])
-        d = defaultdict(list)
-        while q:
-            for _ in range(len(q)):
-                root, offset = q.popleft()
-                d[offset].append(root.val)
-                if root.left:
-                    q.append((root.left, offset - 1))
-                if root.right:
-                    q.append((root.right, offset + 1))
-        return [v for _, v in sorted(d.items())]
-```
-
-### **Java**
 
 ```java
 /**
@@ -149,6 +115,123 @@ class Solution {
         dfs(root.right, depth + 1, offset + 1);
     }
 }
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+using pii = pair<int, int>;
+
+class Solution {
+public:
+    map<int, vector<pii>> d;
+
+    vector<vector<int>> verticalOrder(TreeNode* root) {
+        dfs(root, 0, 0);
+        vector<vector<int>> ans;
+        for (auto& [_, v] : d) {
+            sort(v.begin(), v.end(), [&](pii& a, pii& b) {
+                return a.first < b.first;
+            });
+            vector<int> t;
+            for (auto& x : v) {
+                t.push_back(x.second);
+            }
+            ans.push_back(t);
+        }
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int depth, int offset) {
+        if (!root) return;
+        d[offset].push_back({depth, root->val});
+        dfs(root->left, depth + 1, offset - 1);
+        dfs(root->right, depth + 1, offset + 1);
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func verticalOrder(root *TreeNode) [][]int {
+	d := map[int][][]int{}
+	var dfs func(*TreeNode, int, int)
+	dfs = func(root *TreeNode, depth, offset int) {
+		if root == nil {
+			return
+		}
+		d[offset] = append(d[offset], []int{depth, root.Val})
+		dfs(root.Left, depth+1, offset-1)
+		dfs(root.Right, depth+1, offset+1)
+	}
+	dfs(root, 0, 0)
+	idx := []int{}
+	for i := range d {
+		idx = append(idx, i)
+	}
+	sort.Ints(idx)
+	ans := [][]int{}
+	for _, i := range idx {
+		v := d[i]
+		sort.SliceStable(v, func(i, j int) bool { return v[i][0] < v[j][0] })
+		t := []int{}
+		for _, x := range v {
+			t = append(t, x[1])
+		}
+		ans = append(ans, t)
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: BFS
+
+A better approach to this problem should be BFS, traversing from top to bottom level by level.
+
+The time complexity is $O(n\log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root is None:
+            return []
+        q = deque([(root, 0)])
+        d = defaultdict(list)
+        while q:
+            for _ in range(len(q)):
+                root, offset = q.popleft()
+                d[offset].append(root.val)
+                if root.left:
+                    q.append((root.left, offset - 1))
+                if root.right:
+                    q.append((root.right, offset + 1))
+        return [v for _, v in sorted(d.items())]
 ```
 
 ```java
@@ -195,96 +278,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-using pii = pair<int, int>;
-
-class Solution {
-public:
-    map<int, vector<pii>> d;
-
-    vector<vector<int>> verticalOrder(TreeNode* root) {
-        dfs(root, 0, 0);
-        vector<vector<int>> ans;
-        for (auto& [_, v] : d) {
-            sort(v.begin(), v.end(), [&](pii& a, pii& b) {
-                return a.first < b.first;
-            });
-            vector<int> t;
-            for (auto& x : v) {
-                t.push_back(x.second);
-            }
-            ans.push_back(t);
-        }
-        return ans;
-    }
-
-    void dfs(TreeNode* root, int depth, int offset) {
-        if (!root) return;
-        d[offset].push_back({depth, root->val});
-        dfs(root->left, depth + 1, offset - 1);
-        dfs(root->right, depth + 1, offset + 1);
-    }
-};
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-using pii = pair<int, int>;
-
-class Solution {
-public:
-    map<int, vector<pii>> d;
-
-    vector<vector<int>> verticalOrder(TreeNode* root) {
-        dfs(root, 0, 0);
-        vector<vector<int>> ans;
-        for (auto& [_, v] : d) {
-            sort(v.begin(), v.end(), [&](pii& a, pii& b) {
-                return a.first < b.first;
-            });
-            vector<int> t;
-            for (auto& x : v) {
-                t.push_back(x.second);
-            }
-            ans.push_back(t);
-        }
-        return ans;
-    }
-
-    void dfs(TreeNode* root, int depth, int offset) {
-        if (!root) return;
-        d[offset].push_back({depth, root->val});
-        dfs(root->left, depth + 1, offset - 1);
-        dfs(root->right, depth + 1, offset + 1);
-    }
-};
-```
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -321,48 +314,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func verticalOrder(root *TreeNode) [][]int {
-	d := map[int][][]int{}
-	var dfs func(*TreeNode, int, int)
-	dfs = func(root *TreeNode, depth, offset int) {
-		if root == nil {
-			return
-		}
-		d[offset] = append(d[offset], []int{depth, root.Val})
-		dfs(root.Left, depth+1, offset-1)
-		dfs(root.Right, depth+1, offset+1)
-	}
-	dfs(root, 0, 0)
-	idx := []int{}
-	for i := range d {
-		idx = append(idx, i)
-	}
-	sort.Ints(idx)
-	ans := [][]int{}
-	for _, i := range idx {
-		v := d[i]
-		sort.SliceStable(v, func(i, j int) bool { return v[i][0] < v[j][0] })
-		t := []int{}
-		for _, x := range v {
-			t = append(t, x[1])
-		}
-		ans = append(ans, t)
-	}
-	return ans
-}
 ```
 
 ```go
@@ -413,10 +364,6 @@ type pair struct {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

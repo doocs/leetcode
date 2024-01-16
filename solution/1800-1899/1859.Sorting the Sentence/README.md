@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串分割**
+### 方法一：字符串分割
 
 我们先将字符串 $s$ 按照空格分割，得到字符串数组 $words$。然后，我们创建一个长度为 $|words|$ 的字符串数组 $ans$，用于存放答案。
 
@@ -61,10 +59,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sortSentence(self, s: str) -> str:
@@ -72,20 +66,6 @@ class Solution:
         ws.sort(key=lambda x: x[1])
         return ' '.join(w for w, _ in ws)
 ```
-
-```python
-class Solution:
-    def sortSentence(self, s: str) -> str:
-        ws = s.split()
-        ans = [None] * len(ws)
-        for w in ws:
-            ans[int(w[-1]) - 1] = w[:-1]
-        return ' '.join(ans)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortSentence(s string) string {
 	ws := strings.Split(s, " ")
@@ -141,7 +117,16 @@ func sortSentence(s string) string {
 }
 ```
 
-### **JavaScript**
+```ts
+function sortSentence(s: string): string {
+    const ws = s.split(' ');
+    const ans = Array(ws.length);
+    for (const w of ws) {
+        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
+    }
+    return ans.join(' ');
+}
+```
 
 ```js
 /**
@@ -158,23 +143,22 @@ var sortSentence = function (s) {
 };
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function sortSentence(s: string): string {
-    const ws = s.split(' ');
-    const ans = Array(ws.length);
-    for (const w of ws) {
-        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
-    }
-    return ans.join(' ');
-}
-```
+### 方法二
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```python
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        ws = s.split()
+        ans = [None] * len(ws)
+        for w in ws:
+            ans[int(w[-1]) - 1] = w[:-1]
+        return ' '.join(ans)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

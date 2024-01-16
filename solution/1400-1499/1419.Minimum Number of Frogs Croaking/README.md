@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 模拟**
+### 方法一：计数 + 模拟
 
 我们注意到，如果字符串 `croakOfFrogs` 是由若干有效的 `"croak"` 字符混合而成，那么它的长度一定是 $5$ 的倍数。因此，如果字符串的长度不是 $5$ 的倍数，可以直接返回 $-1$。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 `croakOfFrogs` 的长度；而 $C$ 是字符集的大小，本题中 $C=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
                     x -= 1
         return -1 if x else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minNumberOfFrogs(croakOfFrogs string) int {
@@ -206,8 +192,6 @@ func minNumberOfFrogs(croakOfFrogs string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minNumberOfFrogs(croakOfFrogs: string): number {
     const n = croakOfFrogs.length;
@@ -236,10 +220,6 @@ function minNumberOfFrogs(croakOfFrogs: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

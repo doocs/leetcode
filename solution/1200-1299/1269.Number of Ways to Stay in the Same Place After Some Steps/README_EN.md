@@ -48,7 +48,7 @@ Stay, Stay
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We observe the data range of the problem and find that $steps$ does not exceed $500$, which means that we can only go to the right for up to $500$ steps.
 
@@ -65,8 +65,6 @@ During the process, we can use memoization search to avoid repeated calculations
 The time complexity is $O(steps \times steps)$, and the space complexity is $O(steps \times steps)$. Where $steps$ is the number of steps given in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,8 +84,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(0, steps)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numWays(steps int, arrLen int) int {
@@ -184,8 +176,6 @@ func numWays(steps int, arrLen int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numWays(steps: number, arrLen: number): number {
     const f = Array.from({ length: steps }, () => Array(steps + 1).fill(-1));
@@ -210,10 +200,6 @@ function numWays(steps: number, arrLen: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

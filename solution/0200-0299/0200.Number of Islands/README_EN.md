@@ -45,15 +45,9 @@
 
 ## Solutions
 
-DFS, BFS or Union find.
-
-> Flood fill, also called seed fill, is a flooding algorithm that determines and alters the area connected to a given node in a multi-dimensional array with some matching attribute. It is used in the "bucket" fill tool of paint programs to fill connected, similarly-colored areas with a different color.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
-
-DFS:
 
 ```python
 class Solution:
@@ -75,64 +69,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-BFS:
-
-```python
-class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
-        def bfs(i, j):
-            grid[i][j] = '0'
-            q = deque([(i, j)])
-            while q:
-                i, j = q.popleft()
-                for a, b in pairwise(dirs):
-                    x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
-                        q.append((x, y))
-                        grid[x][y] = 0
-
-        ans = 0
-        dirs = (-1, 0, 1, 0, -1)
-        m, n = len(grid), len(grid[0])
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == '1':
-                    bfs(i, j)
-                    ans += 1
-        return ans
-```
-
-Union Find:
-
-```python
-class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        dirs = (0, 1, 0)
-        m, n = len(grid), len(grid[0])
-        p = list(range(m * n))
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == '1':
-                    for a, b in pairwise(dirs):
-                        x, y = i + a, j + b
-                        if x < m and y < n and grid[x][y] == '1':
-                            p[find(i * n + j)] = find(x * n + y)
-        return sum(
-            grid[i][j] == '1' and i * n + j == find(i * n + j)
-            for i in range(m)
-            for j in range(n)
-        )
-```
-
-### **Java**
-
-DFS:
 
 ```java
 class Solution {
@@ -170,7 +106,201 @@ class Solution {
 }
 ```
 
-BFS:
+```cpp
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        int ans = 0;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<void(int, int)> dfs = [&](int i, int j) {
+            grid[i][j] = '0';
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1') {
+                    dfs(x, y);
+                }
+            }
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    dfs(i, j);
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numIslands(grid [][]byte) int {
+	m, n := len(grid), len(grid[0])
+	var dfs func(i, j int)
+	dfs = func(i, j int) {
+		grid[i][j] = '0'
+		dirs := []int{-1, 0, 1, 0, -1}
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1' {
+				dfs(x, y)
+			}
+		}
+	}
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == '1' {
+				dfs(i, j)
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function numIslands(grid: string[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let ans = 0;
+    function dfs(i, j) {
+        grid[i][j] = '0';
+        const dirs = [-1, 0, 1, 0, -1];
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                dfs(x, y);
+            }
+        }
+    }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] == '1') {
+                dfs(i, j);
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
+
+impl Solution {
+    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
+        fn dfs(grid: &mut Vec<Vec<char>>, i: usize, j: usize) {
+            grid[i][j] = '0';
+            for k in 0..4 {
+                let x = (i as i32) + DIRS[k];
+                let y = (j as i32) + DIRS[k + 1];
+                if
+                    x >= 0 &&
+                    (x as usize) < grid.len() &&
+                    y >= 0 &&
+                    (y as usize) < grid[0].len() &&
+                    grid[x as usize][y as usize] == '1'
+                {
+                    dfs(grid, x as usize, y as usize);
+                }
+            }
+        }
+
+        let mut grid = grid;
+        let mut ans = 0;
+        for i in 0..grid.len() {
+            for j in 0..grid[0].len() {
+                if grid[i][j] == '1' {
+                    dfs(&mut grid, i, j);
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution {
+    public int NumIslands(char[][] grid)
+    {
+        var queue = new Queue<Tuple<int, int>>();
+        var lenI = grid.Length;
+        var lenJ = lenI == 0 ? 0 : grid[0].Length;
+        var paths = new int[,] { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
+        var result = 0;
+        for (var i = 0; i < lenI; ++i)
+        {
+            for (var j = 0; j < lenJ; ++j)
+            {
+                if (grid[i][j] == '1')
+                {
+                    ++result;
+                    grid[i][j] = '0';
+                    queue.Enqueue(Tuple.Create(i, j));
+                    while (queue.Any())
+                    {
+                        var position = queue.Dequeue();
+                        for (var k = 0; k < 4; ++k)
+                        {
+                            var next = Tuple.Create(position.Item1 + paths[k, 0], position.Item2 + paths[k, 1]);
+                            if (next.Item1 >= 0 && next.Item1 < lenI && next.Item2 >= 0 && next.Item2 < lenJ && grid[next.Item1][next.Item2] == '1')
+                            {
+                                grid[next.Item1][next.Item2] = '0';
+                                queue.Enqueue(next);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def bfs(i, j):
+            grid[i][j] = '0'
+            q = deque([(i, j)])
+            while q:
+                i, j = q.popleft()
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
+                        q.append((x, y))
+                        grid[x][y] = 0
+
+        ans = 0
+        dirs = (-1, 0, 1, 0, -1)
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    bfs(i, j)
+                    ans += 1
+        return ans
+```
 
 ```java
 class Solution {
@@ -214,7 +344,184 @@ class Solution {
 }
 ```
 
-Union Find:
+```cpp
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        int ans = 0;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<void(int, int)> bfs = [&](int i, int j) {
+            grid[i][j] = '0';
+            queue<pair<int, int>> q;
+            q.push({i, j});
+            vector<int> dirs = {-1, 0, 1, 0, -1};
+            while (!q.empty()) {
+                auto [a, b] = q.front();
+                q.pop();
+                for (int k = 0; k < 4; ++k) {
+                    int x = a + dirs[k];
+                    int y = b + dirs[k + 1];
+                    if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1') {
+                        q.push({x, y});
+                        grid[x][y] = '0';
+                    }
+                }
+            }
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    bfs(i, j);
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numIslands(grid [][]byte) int {
+	m, n := len(grid), len(grid[0])
+	bfs := func(i, j int) {
+		grid[i][j] = '0'
+		q := [][]int{[]int{i, j}}
+		dirs := []int{-1, 0, 1, 0, -1}
+		for len(q) > 0 {
+			p := q[0]
+			q = q[1:]
+			for k := 0; k < 4; k++ {
+				x, y := p[0]+dirs[k], p[1]+dirs[k+1]
+				if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1' {
+					q = append(q, []int{x, y})
+					grid[x][y] = '0'
+				}
+			}
+		}
+	}
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == '1' {
+				bfs(i, j)
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function numIslands(grid: string[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let ans = 0;
+    function bfs(i, j) {
+        grid[i][j] = '0';
+        let q = [[i, j]];
+        const dirs = [-1, 0, 1, 0, -1];
+        while (q.length) {
+            [i, j] = q.shift();
+            for (let k = 0; k < 4; ++k) {
+                const x = i + dirs[k];
+                const y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                    q.push([x, y]);
+                    grid[x][y] = '0';
+                }
+            }
+        }
+    }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] == '1') {
+                bfs(i, j);
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+use std::collections::VecDeque;
+
+const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
+
+impl Solution {
+    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
+        fn bfs(grid: &mut Vec<Vec<char>>, i: usize, j: usize) {
+            grid[i][j] = '0';
+            let mut queue = VecDeque::from([(i, j)]);
+            while !queue.is_empty() {
+                let (i, j) = queue.pop_front().unwrap();
+                for k in 0..4 {
+                    let x = (i as i32) + DIRS[k];
+                    let y = (j as i32) + DIRS[k + 1];
+                    if
+                        x >= 0 &&
+                        (x as usize) < grid.len() &&
+                        y >= 0 &&
+                        (y as usize) < grid[0].len() &&
+                        grid[x as usize][y as usize] == '1'
+                    {
+                        grid[x as usize][y as usize] = '0';
+                        queue.push_back((x as usize, y as usize));
+                    }
+                }
+            }
+        }
+
+        let mut grid = grid;
+        let mut ans = 0;
+        for i in 0..grid.len() {
+            for j in 0..grid[0].len() {
+                if grid[i][j] == '1' {
+                    bfs(&mut grid, i, j);
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        dirs = (0, 1, 0)
+        m, n = len(grid), len(grid[0])
+        p = list(range(m * n))
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    for a, b in pairwise(dirs):
+                        x, y = i + a, j + b
+                        if x < m and y < n and grid[x][y] == '1':
+                            p[find(i * n + j)] = find(x * n + y)
+        return sum(
+            grid[i][j] == '1' and i * n + j == find(i * n + j)
+            for i in range(m)
+            for j in range(n)
+        )
+```
 
 ```java
 class Solution {
@@ -261,83 +568,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-DFS:
-
-```cpp
-class Solution {
-public:
-    int numIslands(vector<vector<char>>& grid) {
-        int m = grid.size();
-        int n = grid[0].size();
-        int ans = 0;
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> dfs = [&](int i, int j) {
-            grid[i][j] = '0';
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1') {
-                    dfs(x, y);
-                }
-            }
-        };
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == '1') {
-                    dfs(i, j);
-                    ++ans;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-BFS:
-
-```cpp
-class Solution {
-public:
-    int numIslands(vector<vector<char>>& grid) {
-        int m = grid.size();
-        int n = grid[0].size();
-        int ans = 0;
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> bfs = [&](int i, int j) {
-            grid[i][j] = '0';
-            queue<pair<int, int>> q;
-            q.push({i, j});
-            vector<int> dirs = {-1, 0, 1, 0, -1};
-            while (!q.empty()) {
-                auto [a, b] = q.front();
-                q.pop();
-                for (int k = 0; k < 4; ++k) {
-                    int x = a + dirs[k];
-                    int y = b + dirs[k + 1];
-                    if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == '1') {
-                        q.push({x, y});
-                        grid[x][y] = '0';
-                    }
-                }
-            }
-        };
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == '1') {
-                    bfs(i, j);
-                    ++ans;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-Union find:
-
 ```cpp
 class Solution {
 public:
@@ -376,73 +606,6 @@ public:
     }
 };
 ```
-
-### **Go**
-
-DFS:
-
-```go
-func numIslands(grid [][]byte) int {
-	m, n := len(grid), len(grid[0])
-	var dfs func(i, j int)
-	dfs = func(i, j int) {
-		grid[i][j] = '0'
-		dirs := []int{-1, 0, 1, 0, -1}
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1' {
-				dfs(x, y)
-			}
-		}
-	}
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == '1' {
-				dfs(i, j)
-				ans++
-			}
-		}
-	}
-	return ans
-}
-```
-
-BFS:
-
-```go
-func numIslands(grid [][]byte) int {
-	m, n := len(grid), len(grid[0])
-	bfs := func(i, j int) {
-		grid[i][j] = '0'
-		q := [][]int{[]int{i, j}}
-		dirs := []int{-1, 0, 1, 0, -1}
-		for len(q) > 0 {
-			p := q[0]
-			q = q[1:]
-			for k := 0; k < 4; k++ {
-				x, y := p[0]+dirs[k], p[1]+dirs[k+1]
-				if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1' {
-					q = append(q, []int{x, y})
-					grid[x][y] = '0'
-				}
-			}
-		}
-	}
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == '1' {
-				bfs(i, j)
-				ans++
-			}
-		}
-	}
-	return ans
-}
-```
-
-Union find:
 
 ```go
 func numIslands(grid [][]byte) int {
@@ -483,75 +646,6 @@ func numIslands(grid [][]byte) int {
 }
 ```
 
-### **TypeScript**
-
-DFS:
-
-```ts
-function numIslands(grid: string[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    let ans = 0;
-    function dfs(i, j) {
-        grid[i][j] = '0';
-        const dirs = [-1, 0, 1, 0, -1];
-        for (let k = 0; k < 4; ++k) {
-            const x = i + dirs[k];
-            const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                dfs(x, y);
-            }
-        }
-    }
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1') {
-                dfs(i, j);
-                ++ans;
-            }
-        }
-    }
-    return ans;
-}
-```
-
-BFS:
-
-```ts
-function numIslands(grid: string[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    let ans = 0;
-    function bfs(i, j) {
-        grid[i][j] = '0';
-        let q = [[i, j]];
-        const dirs = [-1, 0, 1, 0, -1];
-        while (q.length) {
-            [i, j] = q.shift();
-            for (let k = 0; k < 4; ++k) {
-                const x = i + dirs[k];
-                const y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                    q.push([x, y]);
-                    grid[x][y] = '0';
-                }
-            }
-        }
-    }
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1') {
-                bfs(i, j);
-                ++ans;
-            }
-        }
-    }
-    return ans;
-}
-```
-
-Union find:
-
 ```ts
 function numIslands(grid: string[][]): number {
     const m = grid.length;
@@ -591,95 +685,6 @@ function numIslands(grid: string[][]): number {
     return ans;
 }
 ```
-
-### **Rust**
-
-DFS:
-
-```rust
-const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
-
-impl Solution {
-    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
-        fn dfs(grid: &mut Vec<Vec<char>>, i: usize, j: usize) {
-            grid[i][j] = '0';
-            for k in 0..4 {
-                let x = (i as i32) + DIRS[k];
-                let y = (j as i32) + DIRS[k + 1];
-                if
-                    x >= 0 &&
-                    (x as usize) < grid.len() &&
-                    y >= 0 &&
-                    (y as usize) < grid[0].len() &&
-                    grid[x as usize][y as usize] == '1'
-                {
-                    dfs(grid, x as usize, y as usize);
-                }
-            }
-        }
-
-        let mut grid = grid;
-        let mut ans = 0;
-        for i in 0..grid.len() {
-            for j in 0..grid[0].len() {
-                if grid[i][j] == '1' {
-                    dfs(&mut grid, i, j);
-                    ans += 1;
-                }
-            }
-        }
-        ans
-    }
-}
-```
-
-BFS:
-
-```rust
-use std::collections::VecDeque;
-
-const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
-
-impl Solution {
-    pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
-        fn bfs(grid: &mut Vec<Vec<char>>, i: usize, j: usize) {
-            grid[i][j] = '0';
-            let mut queue = VecDeque::from([(i, j)]);
-            while !queue.is_empty() {
-                let (i, j) = queue.pop_front().unwrap();
-                for k in 0..4 {
-                    let x = (i as i32) + DIRS[k];
-                    let y = (j as i32) + DIRS[k + 1];
-                    if
-                        x >= 0 &&
-                        (x as usize) < grid.len() &&
-                        y >= 0 &&
-                        (y as usize) < grid[0].len() &&
-                        grid[x as usize][y as usize] == '1'
-                    {
-                        grid[x as usize][y as usize] = '0';
-                        queue.push_back((x as usize, y as usize));
-                    }
-                }
-            }
-        }
-
-        let mut grid = grid;
-        let mut ans = 0;
-        for i in 0..grid.len() {
-            for j in 0..grid[0].len() {
-                if grid[i][j] == '1' {
-                    bfs(&mut grid, i, j);
-                    ans += 1;
-                }
-            }
-        }
-        ans
-    }
-}
-```
-
-Union find:
 
 ```rust
 const DIRS: [usize; 3] = [1, 0, 1];
@@ -726,10 +731,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

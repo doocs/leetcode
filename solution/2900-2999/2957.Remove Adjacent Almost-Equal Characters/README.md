@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们从下标 $1$ 开始遍历字符串 $word$，如果 $word[i]$ 和 $word[i - 1]$ 相邻近似相等，那么我们就贪心地将 $word[i]$ 替换成一个与 $word[i - 1]$ 和 $word[i + 1]$ 都不相等的字符（可以不执行替换操作，记录操作次数即可）。然后，我们跳过 $word[i + 1]$，继续遍历字符串 $word$。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $word$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 i += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeAlmostEqualCharacters(word string) (ans int) {
@@ -141,8 +127,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeAlmostEqualCharacters(word: string): number {
     let ans = 0;
@@ -156,10 +140,6 @@ function removeAlmostEqualCharacters(word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,13 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +62,6 @@ class Solution:
                 nums[i] += nums[i + 1]
         return max(nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxArrayValue(nums []int) int64 {
 	n := len(nums)
@@ -128,8 +116,6 @@ func maxArrayValue(nums []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxArrayValue(nums: number[]): number {
     for (let i = nums.length - 2; i >= 0; --i) {
@@ -141,10 +127,6 @@ function maxArrayValue(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

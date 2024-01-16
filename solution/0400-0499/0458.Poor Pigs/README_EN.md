@@ -56,9 +56,9 @@ At time 30, one of the two pigs must die, and the poisonous bucket is the one it
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
             res += 1
         return res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
 	base := minutesToTest/minutesToDie + 1
@@ -113,10 +107,6 @@ func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

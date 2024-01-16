@@ -40,9 +40,9 @@ There are a total of 5 bad pairs, so we return 5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
             cnt[i - x] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countBadPairs(nums []int) (ans int64) {
 	cnt := map[int]int{}
@@ -103,8 +97,6 @@ func countBadPairs(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countBadPairs(nums: number[]): number {
@@ -119,10 +111,6 @@ function countBadPairs(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

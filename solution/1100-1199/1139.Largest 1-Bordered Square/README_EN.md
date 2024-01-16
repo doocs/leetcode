@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Enumeration**
+### Solution 1: Prefix Sum + Enumeration
 
 We can use the prefix sum method to preprocess the number of consecutive 1s down and to the right of each position, denoted as `down[i][j]` and `right[i][j]`.
 
@@ -41,8 +41,6 @@ Then we enumerate the side length $k$ of the square, starting from the largest s
 The time complexity is $O(m \times n \times \min(m, n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,8 +65,6 @@ class Solution:
                         return k * k
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largest1BorderedSquare(grid [][]int) int {
@@ -170,10 +162,6 @@ func largest1BorderedSquare(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,9 @@ After that, no pieces can move anymore, so it is impossible to obtain the string
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,29 +73,6 @@ class Solution:
                 return False
         return True
 ```
-
-```python
-class Solution:
-    def canChange(self, start: str, target: str) -> bool:
-        n = len(start)
-        i = j = 0
-        while 1:
-            while i < n and start[i] == '_':
-                i += 1
-            while j < n and target[j] == '_':
-                j += 1
-            if i >= n and j >= n:
-                return True
-            if i >= n or j >= n or start[i] != target[j]:
-                return False
-            if start[i] == 'L' and i < j:
-                return False
-            if start[i] == 'R' and i > j:
-                return False
-            i, j = i + 1, j + 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -135,36 +112,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean canChange(String start, String target) {
-        int n = start.length();
-        int i = 0, j = 0;
-        while (true) {
-            while (i < n && start.charAt(i) == '_') {
-                ++i;
-            }
-            while (j < n && target.charAt(j) == '_') {
-                ++j;
-            }
-            if (i == n && j == n) {
-                return true;
-            }
-            if (i == n || j == n || start.charAt(i) != target.charAt(j)) {
-                return false;
-            }
-            if (start.charAt(i) == 'L' && i < j || start.charAt(i) == 'R' && i > j) {
-                return false;
-            }
-            ++i;
-            ++j;
-        }
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -195,28 +142,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool canChange(string start, string target) {
-        int n = start.size();
-        int i = 0, j = 0;
-        while (true) {
-            while (i < n && start[i] == '_') ++i;
-            while (j < n && target[j] == '_') ++j;
-            if (i == n && j == n) return true;
-            if (i == n || j == n || start[i] != target[j]) return false;
-            if (start[i] == 'L' && i < j) return false;
-            if (start[i] == 'R' && i > j) return false;
-            ++i;
-            ++j;
-        }
-    }
-};
-```
-
-### **Go**
 
 ```go
 func canChange(start string, target string) bool {
@@ -252,36 +177,6 @@ func canChange(start string, target string) bool {
 }
 ```
 
-```go
-func canChange(start string, target string) bool {
-	n := len(start)
-	i, j := 0, 0
-	for {
-		for i < n && start[i] == '_' {
-			i++
-		}
-		for j < n && target[j] == '_' {
-			j++
-		}
-		if i == n && j == n {
-			return true
-		}
-		if i == n || j == n || start[i] != target[j] {
-			return false
-		}
-		if start[i] == 'L' && i < j {
-			return false
-		}
-		if start[i] == 'R' && i > j {
-			return false
-		}
-		i, j = i+1, j+1
-	}
-}
-```
-
-### **TypeScript**
-
 ```ts
 function canChange(start: string, target: string): boolean {
     if (
@@ -316,6 +211,109 @@ function canChange(start: string, target: string): boolean {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canChange(self, start: str, target: str) -> bool:
+        n = len(start)
+        i = j = 0
+        while 1:
+            while i < n and start[i] == '_':
+                i += 1
+            while j < n and target[j] == '_':
+                j += 1
+            if i >= n and j >= n:
+                return True
+            if i >= n or j >= n or start[i] != target[j]:
+                return False
+            if start[i] == 'L' and i < j:
+                return False
+            if start[i] == 'R' and i > j:
+                return False
+            i, j = i + 1, j + 1
+```
+
+```java
+class Solution {
+    public boolean canChange(String start, String target) {
+        int n = start.length();
+        int i = 0, j = 0;
+        while (true) {
+            while (i < n && start.charAt(i) == '_') {
+                ++i;
+            }
+            while (j < n && target.charAt(j) == '_') {
+                ++j;
+            }
+            if (i == n && j == n) {
+                return true;
+            }
+            if (i == n || j == n || start.charAt(i) != target.charAt(j)) {
+                return false;
+            }
+            if (start.charAt(i) == 'L' && i < j || start.charAt(i) == 'R' && i > j) {
+                return false;
+            }
+            ++i;
+            ++j;
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool canChange(string start, string target) {
+        int n = start.size();
+        int i = 0, j = 0;
+        while (true) {
+            while (i < n && start[i] == '_') ++i;
+            while (j < n && target[j] == '_') ++j;
+            if (i == n && j == n) return true;
+            if (i == n || j == n || start[i] != target[j]) return false;
+            if (start[i] == 'L' && i < j) return false;
+            if (start[i] == 'R' && i > j) return false;
+            ++i;
+            ++j;
+        }
+    }
+};
+```
+
+```go
+func canChange(start string, target string) bool {
+	n := len(start)
+	i, j := 0, 0
+	for {
+		for i < n && start[i] == '_' {
+			i++
+		}
+		for j < n && target[j] == '_' {
+			j++
+		}
+		if i == n && j == n {
+			return true
+		}
+		if i == n || j == n || start[i] != target[j] {
+			return false
+		}
+		if start[i] == 'L' && i < j {
+			return false
+		}
+		if start[i] == 'R' && i > j {
+			return false
+		}
+		i, j = i+1, j+1
+	}
+}
+```
+
 ```ts
 function canChange(start: string, target: string): boolean {
     const n = start.length;
@@ -342,10 +340,6 @@ function canChange(start: string, target: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

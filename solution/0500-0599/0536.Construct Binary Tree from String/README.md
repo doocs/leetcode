@@ -47,17 +47,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-DFS。
-
-利用 cnt 变量，检测子树的位置，若 cnt == 0，说明已经定位到其中一棵子树，start 表示子树开始的位置（注意要去掉括号）。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -92,10 +84,6 @@ class Solution:
 
         return dfs(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -149,8 +137,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -193,8 +179,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -241,10 +225,6 @@ func str2tree(s string) *TreeNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

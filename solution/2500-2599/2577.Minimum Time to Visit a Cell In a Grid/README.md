@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：最短路 + 优先队列（小根堆）**
+### 方法一：最短路 + 优先队列（小根堆）
 
 我们观察发现，如果在格子 $(0, 0)$ 处无法移动，即 $grid[0][1] \gt 1$ 且 $grid[1][0] \gt 1$，那么我们在格子 $(0, 0)$ 无法再移动，此时返回 $-1$ 即可。而对于其他情况，我们都可以移动。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(m \times n \times \log (m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
                         dist[x][y] = nt
                         heappush(q, (nt, x, y))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,8 +136,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumTime(grid [][]int) int {
@@ -238,10 +224,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：离线查询 + 并查集**
+### 方法一：离线查询 + 并查集
 
 根据题目要求，我们需要对每个查询 $queries[i]$ 进行判断，即判断当前查询的两个点 $a$ 和 $b$ 之间是否存在一条边权小于等于 $limit$ 的路径。
 
@@ -173,10 +171,6 @@ func union(a, b int) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def distanceLimitedPathsExist(
@@ -199,10 +193,6 @@ class Solution:
             ans[i] = find(a) == find(b)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -243,8 +233,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -276,7 +264,40 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	sort.Slice(edgeList, func(i, j int) bool { return edgeList[i][2] < edgeList[j][2] })
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	m := len(queries)
+	qid := make([]int, m)
+	ans := make([]bool, m)
+	for i := range qid {
+		qid[i] = i
+	}
+	sort.Slice(qid, func(i, j int) bool { return queries[qid[i]][2] < queries[qid[j]][2] })
+	j := 0
+	for _, i := range qid {
+		a, b, limit := queries[i][0], queries[i][1], queries[i][2]
+		for j < len(edgeList) && edgeList[j][2] < limit {
+			u, v := edgeList[j][0], edgeList[j][1]
+			p[find(u)] = find(v)
+			j++
+		}
+		ans[i] = find(a) == find(b)
+	}
+	return ans
+}
+```
 
 ```rust
 impl Solution {
@@ -353,47 +374,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
-	p := make([]int, n)
-	for i := range p {
-		p[i] = i
-	}
-	sort.Slice(edgeList, func(i, j int) bool { return edgeList[i][2] < edgeList[j][2] })
-	var find func(int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	m := len(queries)
-	qid := make([]int, m)
-	ans := make([]bool, m)
-	for i := range qid {
-		qid[i] = i
-	}
-	sort.Slice(qid, func(i, j int) bool { return queries[qid[i]][2] < queries[qid[j]][2] })
-	j := 0
-	for _, i := range qid {
-		a, b, limit := queries[i][0], queries[i][1], queries[i][2]
-		for j < len(edgeList) && edgeList[j][2] < limit {
-			u, v := edgeList[j][0], edgeList[j][1]
-			p[find(u)] = find(v)
-			j++
-		}
-		ans[i] = find(a) == find(b)
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -67,9 +67,9 @@ We did not include the friendship of users 2 and 3 because they only have two co
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -98,3 +98,5 @@ HAVING COUNT(1) >= 3;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

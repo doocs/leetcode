@@ -65,19 +65,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举 + 哈希表**
+### 方法一：暴力枚举 + 哈希表
 
 我们可以枚举子字符串的左端点 $i$，对于当前左端点，维护一个哈希表，记录当前子字符串中出现的元音字母，然后枚举右端点 $j$，如果当前右端点对应的字母不是元音字母，则跳出循环，否则将当前右端点对应的字母加入哈希表，如果哈希表中的元素个数为 $5$，则说明当前子字符串是一个元音子字符串，将结果加 $1$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $word$ 的长度；而 $C$ 为字符集大小，本题中 $C=5$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,25 +80,6 @@ class Solution:
         s = set('aeiou')
         return sum(set(word[i:j]) == s for i in range(n) for j in range(i + 1, n + 1))
 ```
-
-```python
-class Solution:
-    def countVowelSubstrings(self, word: str) -> int:
-        s = set('aeiou')
-        ans, n = 0, len(word)
-        for i in range(n):
-            t = set()
-            for c in word[i:]:
-                if c not in s:
-                    break
-                t.add(c)
-                ans += len(t) == 5
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countVowelSubstrings(word string) int {
 	ans, n := 0, len(word)
@@ -180,8 +151,6 @@ func countVowelSubstrings(word string) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countVowelSubstrings(word: string): number {
@@ -204,10 +173,27 @@ function countVowelSubstrings(word: string): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countVowelSubstrings(self, word: str) -> int:
+        s = set('aeiou')
+        ans, n = 0, len(word)
+        for i in range(n):
+            t = set()
+            for c in word[i:]:
+                if c not in s:
+                    break
+                t.add(c)
+                ans += len(t) == 5
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

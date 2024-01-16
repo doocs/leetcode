@@ -61,9 +61,7 @@ detectSquares.count([11, 10]); // 返回 2 。你可以选择：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以用一个哈希表 $cnt$ 维护所有点的信息，其中 $cnt[x][y]$ 表示点 $(x, y)$ 的个数。
 
@@ -74,10 +72,6 @@ detectSquares.count([11, 10]); // 返回 2 。你可以选择：
 时间复杂度方面，调用 $add(x, y)$ 方法的时间复杂度为 $O(1)$，调用 $count(x_1, y_1)$ 方法的时间复杂度为 $O(n)$；空间复杂度为 $O(n)$。其中 $n$ 为数据流中的点的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class DetectSquares:
@@ -106,10 +100,6 @@ class DetectSquares:
 # obj.add(point)
 # param_2 = obj.count(point)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class DetectSquares {
@@ -153,8 +143,6 @@ class DetectSquares {
  */
 ```
 
-### **C++**
-
 ```cpp
 class DetectSquares {
 public:
@@ -195,8 +183,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type DetectSquares struct {
 	cnt map[int]map[int]int
@@ -236,10 +222,6 @@ func (this *DetectSquares) Count(point []int) (ans int) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

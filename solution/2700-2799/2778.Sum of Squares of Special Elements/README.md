@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举数组中的每个元素，判断其是否为特殊元素，如果是则将其平方加入答案中。
 
@@ -52,20 +50,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sumOfSquares(self, nums: List[int]) -> int:
         n = len(nums)
         return sum(x * x for i, x in enumerate(nums, 1) if n % i == 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfSquares(nums []int) (ans int) {
 	n := len(nums)
@@ -113,8 +99,6 @@ func sumOfSquares(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfSquares(nums: number[]): number {
@@ -129,10 +113,6 @@ function sumOfSquares(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

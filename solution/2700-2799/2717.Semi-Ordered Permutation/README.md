@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：寻找 1 和 n 的位置**
+### 方法一：寻找 1 和 n 的位置
 
 我们可以先找到 $1$ 和 $n$ 的下标 $i$ 和 $j$，然后根据 $i$ 和 $j$ 的相对位置，判断需要交换的次数。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
         k = 1 if i < j else 2
         return i + n - j - k
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func semiOrderedPermutation(nums []int) int {
@@ -149,8 +135,6 @@ func semiOrderedPermutation(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function semiOrderedPermutation(nums: number[]): number {
     const n = nums.length;
@@ -160,8 +144,6 @@ function semiOrderedPermutation(nums: number[]): number {
     return i + n - j - k;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -188,6 +170,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -216,10 +204,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

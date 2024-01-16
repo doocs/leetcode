@@ -50,15 +50,13 @@ Thus, the result should be [1,0].
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We start traversing from the last element of the array, add one to the current element, and then take the modulus by $10$. If the result is not $0$, it means that there is no carry for the current element, and we can directly return the array. Otherwise, the current element is $0$ and needs to be carried over. We continue to traverse the previous element and repeat the above operation. If we still haven't returned after traversing the array, it means that all elements in the array are $0$, and we need to insert a $1$ at the beginning of the array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
                 return digits
         return [1] + digits
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,27 +88,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} digits
- * @return {number[]}
- */
-var plusOne = function (digits) {
-    for (let i = digits.length - 1; i >= 0; --i) {
-        ++digits[i];
-        digits[i] %= 10;
-        if (digits[i] != 0) {
-            return digits;
-        }
-    }
-    return [1, ...digits];
-};
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func plusOne(digits []int) []int {
 	n := len(digits)
@@ -144,8 +117,6 @@ func plusOne(digits []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function plusOne(digits: number[]): number[] {
     const n = digits.length;
@@ -158,8 +129,6 @@ function plusOne(digits: number[]): number[] {
     return [1, ...digits];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -178,10 +147,23 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function (digits) {
+    for (let i = digits.length - 1; i >= 0; --i) {
+        ++digits[i];
+        digits[i] %= 10;
+        if (digits[i] != 0) {
+            return digits;
+        }
+    }
+    return [1, ...digits];
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

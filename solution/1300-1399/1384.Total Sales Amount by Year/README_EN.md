@@ -84,9 +84,9 @@ LC Keychain was sold for the period of 2019-12-01 to 2020-01-31, and there are 3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -130,3 +130,5 @@ ORDER BY
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,9 @@ bSTIterator.hasNext(); // return False
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -95,40 +95,6 @@ class BSTIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class BSTIterator:
-    def __init__(self, root: TreeNode):
-        self.stack = []
-        while root:
-            self.stack.append(root)
-            root = root.left
-
-    def next(self) -> int:
-        cur = self.stack.pop()
-        node = cur.right
-        while node:
-            self.stack.append(node)
-            node = node.left
-        return cur.val
-
-    def hasNext(self) -> bool:
-        return len(self.stack) > 0
-
-
-# Your BSTIterator object will be instantiated and called as such:
-# obj = BSTIterator(root)
-# param_1 = obj.next()
-# param_2 = obj.hasNext()
-```
-
-### **Java**
 
 ```java
 /**
@@ -179,54 +145,6 @@ class BSTIterator {
  */
 ```
 
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class BSTIterator {
-    private Deque<TreeNode> stack = new LinkedList<>();
-
-    public BSTIterator(TreeNode root) {
-        for (; root != null; root = root.left) {
-            stack.offerLast(root);
-        }
-    }
-
-    public int next() {
-        TreeNode cur = stack.pollLast();
-        for (TreeNode node = cur.right; node != null; node = node.left) {
-            stack.offerLast(node);
-        }
-        return cur.val;
-    }
-
-    public boolean hasNext() {
-        return !stack.isEmpty();
-    }
-}
-
-/**
- * Your BSTIterator object will be instantiated and called as such:
- * BSTIterator obj = new BSTIterator(root);
- * int param_1 = obj.next();
- * boolean param_2 = obj.hasNext();
- */
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -273,52 +191,6 @@ public:
  */
 ```
 
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class BSTIterator {
-public:
-    stack<TreeNode*> stack;
-    BSTIterator(TreeNode* root) {
-        for (; root != nullptr; root = root->left) {
-            stack.push(root);
-        }
-    }
-
-    int next() {
-        TreeNode* cur = stack.top();
-        stack.pop();
-        TreeNode* node = cur->right;
-        for (; node != nullptr; node = node->left) {
-            stack.push(node);
-        }
-        return cur->val;
-    }
-
-    bool hasNext() {
-        return !stack.empty();
-    }
-};
-
-/**
- * Your BSTIterator object will be instantiated and called as such:
- * BSTIterator* obj = new BSTIterator(root);
- * int param_1 = obj->next();
- * bool param_2 = obj->hasNext();
- */
-```
-
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -362,56 +234,6 @@ func (this *BSTIterator) HasNext() bool {
  * param_2 := obj.HasNext();
  */
 ```
-
-## **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- */
-var BSTIterator = function (root) {
-    this.stack = [];
-    for (; root != null; root = root.left) {
-        this.stack.push(root);
-    }
-};
-
-/**
- * @return {number}
- */
-BSTIterator.prototype.next = function () {
-    let cur = this.stack.pop();
-    let node = cur.right;
-    for (; node != null; node = node.left) {
-        this.stack.push(node);
-    }
-    return cur.val;
-};
-
-/**
- * @return {boolean}
- */
-BSTIterator.prototype.hasNext = function () {
-    return this.stack.length > 0;
-};
-
-/**
- * Your BSTIterator object will be instantiated and called as such:
- * var obj = new BSTIterator(root)
- * var param_1 = obj.next()
- * var param_2 = obj.hasNext()
- */
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -463,63 +285,6 @@ class BSTIterator {
  * var param_2 = obj.hasNext()
  */
 ```
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-class BSTIterator {
-    private stack: TreeNode[];
-
-    constructor(root: TreeNode | null) {
-        this.stack = [];
-        const dfs = (root: TreeNode | null) => {
-            if (root == null) {
-                return;
-            }
-            this.stack.push(root);
-            dfs(root.left);
-        };
-        dfs(root);
-    }
-
-    next(): number {
-        const { val, right } = this.stack.pop();
-        if (right) {
-            let cur = right;
-            while (cur != null) {
-                this.stack.push(cur);
-                cur = cur.left;
-            }
-        }
-        return val;
-    }
-
-    hasNext(): boolean {
-        return this.stack.length !== 0;
-    }
-}
-
-/**
- * Your BSTIterator object will be instantiated and called as such:
- * var obj = new BSTIterator(root)
- * var param_1 = obj.next()
- * var param_2 = obj.hasNext()
- */
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -583,6 +348,235 @@ impl BSTIterator {
  * let obj = BSTIterator::new(root);
  * let ret_1: i32 = obj.next();
  * let ret_2: bool = obj.has_next();
+ */
+```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ */
+var BSTIterator = function (root) {
+    this.stack = [];
+    for (; root != null; root = root.left) {
+        this.stack.push(root);
+    }
+};
+
+/**
+ * @return {number}
+ */
+BSTIterator.prototype.next = function () {
+    let cur = this.stack.pop();
+    let node = cur.right;
+    for (; node != null; node = node.left) {
+        this.stack.push(node);
+    }
+    return cur.val;
+};
+
+/**
+ * @return {boolean}
+ */
+BSTIterator.prototype.hasNext = function () {
+    return this.stack.length > 0;
+};
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * var obj = new BSTIterator(root)
+ * var param_1 = obj.next()
+ * var param_2 = obj.hasNext()
+ */
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class BSTIterator:
+    def __init__(self, root: TreeNode):
+        self.stack = []
+        while root:
+            self.stack.append(root)
+            root = root.left
+
+    def next(self) -> int:
+        cur = self.stack.pop()
+        node = cur.right
+        while node:
+            self.stack.append(node)
+            node = node.left
+        return cur.val
+
+    def hasNext(self) -> bool:
+        return len(self.stack) > 0
+
+
+# Your BSTIterator object will be instantiated and called as such:
+# obj = BSTIterator(root)
+# param_1 = obj.next()
+# param_2 = obj.hasNext()
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class BSTIterator {
+    private Deque<TreeNode> stack = new LinkedList<>();
+
+    public BSTIterator(TreeNode root) {
+        for (; root != null; root = root.left) {
+            stack.offerLast(root);
+        }
+    }
+
+    public int next() {
+        TreeNode cur = stack.pollLast();
+        for (TreeNode node = cur.right; node != null; node = node.left) {
+            stack.offerLast(node);
+        }
+        return cur.val;
+    }
+
+    public boolean hasNext() {
+        return !stack.isEmpty();
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator obj = new BSTIterator(root);
+ * int param_1 = obj.next();
+ * boolean param_2 = obj.hasNext();
+ */
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class BSTIterator {
+public:
+    stack<TreeNode*> stack;
+    BSTIterator(TreeNode* root) {
+        for (; root != nullptr; root = root->left) {
+            stack.push(root);
+        }
+    }
+
+    int next() {
+        TreeNode* cur = stack.top();
+        stack.pop();
+        TreeNode* node = cur->right;
+        for (; node != nullptr; node = node->left) {
+            stack.push(node);
+        }
+        return cur->val;
+    }
+
+    bool hasNext() {
+        return !stack.empty();
+    }
+};
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator* obj = new BSTIterator(root);
+ * int param_1 = obj->next();
+ * bool param_2 = obj->hasNext();
+ */
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class BSTIterator {
+    private stack: TreeNode[];
+
+    constructor(root: TreeNode | null) {
+        this.stack = [];
+        const dfs = (root: TreeNode | null) => {
+            if (root == null) {
+                return;
+            }
+            this.stack.push(root);
+            dfs(root.left);
+        };
+        dfs(root);
+    }
+
+    next(): number {
+        const { val, right } = this.stack.pop();
+        if (right) {
+            let cur = right;
+            while (cur != null) {
+                this.stack.push(cur);
+                cur = cur.left;
+            }
+        }
+        return val;
+    }
+
+    hasNext(): boolean {
+        return this.stack.length !== 0;
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * var obj = new BSTIterator(root)
+ * var param_1 = obj.next()
+ * var param_2 = obj.hasNext()
  */
 ```
 
@@ -653,10 +647,6 @@ impl BSTIterator {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

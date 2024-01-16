@@ -43,9 +43,7 @@ words 中是 s = "abc" 前缀的字符串为：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 我们直接遍历数组 $words$，对于每个字符串 $w$，判断 $s$ 是否以 $w$ 为前缀，如果是则答案加一。
 
@@ -55,19 +53,11 @@ words 中是 s = "abc" 前缀的字符串为：
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
         return sum(s.startswith(w) for w in words)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPrefixes(words []string, s string) (ans int) {
 	for _, w := range words {
@@ -111,18 +97,12 @@ func countPrefixes(words []string, s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPrefixes(words: string[], s: string): number {
     return words.filter(w => s.startsWith(w)).length;
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

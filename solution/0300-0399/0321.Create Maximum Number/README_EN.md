@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -103,8 +103,6 @@ class Solution:
                 ans = arr
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -174,8 +172,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -243,8 +239,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxNumber(nums1 []int, nums2 []int, k int) []int {
@@ -316,8 +310,6 @@ func maxNumber(nums1 []int, nums2 []int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxNumber(nums1: number[], nums2: number[], k: number): number[] {
     const m = nums1.length;
@@ -388,10 +380,6 @@ function merge(nums1: number[], nums2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

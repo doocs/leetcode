@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆向思维 + 动态规划**
+### 方法一：逆向思维 + 动态规划
 
 对于一个长度为 $n$ 的数组 `nums`，每个元素都可以选择放入第一个分区或第二个分区，因此一共有 $2^n$ 种分区方式。每一种分区方式，得到的结果可以是“好分区”或者“坏分区”，题目要我们求“好分区”的个数，我们可以转换为求“坏分区”的个数。那么“好分区”的个数就是 $2^n$ 减去“坏分区”的个数。
 
@@ -77,10 +75,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countPartitions(self, nums: List[int], k: int) -> int:
@@ -99,10 +93,6 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod
         return (ans - sum(f[-1]) * 2 + mod) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPartitions(nums []int, k int) int {
@@ -207,10 +193,6 @@ func countPartitions(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

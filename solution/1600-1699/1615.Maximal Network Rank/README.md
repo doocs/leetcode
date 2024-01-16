@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以用一维数组 $cnt$ 记录每个城市的度，用二维数组 $g$ 记录每对城市之间是否有道路相连，如果城市 $a$ 和城市 $b$ 之间有道路相连，则 $g[a][b] = g[b][a] = 1$，否则 $g[a][b] = g[b][a] = 0$。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是城市的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,22 +83,6 @@ class Solution:
                     ans = t
         return ans
 ```
-
-```python
-class Solution:
-    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
-        g = [[0] * n for _ in range(n)]
-        cnt = [0] * n
-        for a, b in roads:
-            g[a][b] = g[b][a] = 1
-            cnt[a] += 1
-            cnt[b] += 1
-        return max(cnt[a] + cnt[b] - g[a][b] for a in range(n) for b in range(a + 1, n))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximalNetworkRank(n int, roads [][]int) (ans int) {
 	g := make([][]int, n)
@@ -180,8 +154,6 @@ func maximalNetworkRank(n int, roads [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximalNetworkRank(n: number, roads: number[][]): number {
     const g: number[][] = Array.from(new Array(n), () => new Array(n).fill(0));
@@ -202,10 +174,24 @@ function maximalNetworkRank(n: number, roads: number[][]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
+        g = [[0] * n for _ in range(n)]
+        cnt = [0] * n
+        for a, b in roads:
+            g[a][b] = g[b][a] = 1
+            cnt[a] += 1
+            cnt[b] += 1
+        return max(cnt[a] + cnt[b] - g[a][b] for a in range(n) for b in range(a + 1, n))
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

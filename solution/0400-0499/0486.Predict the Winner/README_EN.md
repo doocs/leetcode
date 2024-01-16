@@ -41,9 +41,9 @@ Finally, player 1 has more score (234) than player 2 (12), so you need to return
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,21 +56,6 @@ class Solution:
 
         return dfs(0, len(nums) - 1) >= 0
 ```
-
-```python
-class Solution:
-    def PredictTheWinner(self, nums: List[int]) -> bool:
-        n = len(nums)
-        f = [[0] * n for _ in range(n)]
-        for i, x in enumerate(nums):
-            f[i][i] = x
-        for i in range(n - 2, -1, -1):
-            for j in range(i + 1, n):
-                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1])
-        return f[0][n - 1] >= 0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,26 +81,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean PredictTheWinner(int[] nums) {
-        int n = nums.length;
-        int[][] f = new int[n][n];
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = nums[i];
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                f[i][j] = Math.max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
-            }
-        }
-        return f[0][n - 1] >= 0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,27 +102,43 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool PredictTheWinner(vector<int>& nums) {
-        int n = nums.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = nums[i];
-        }
-        for (int i = n - 2; ~i; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
-            }
-        }
-        return f[0][n - 1] >= 0;
-    }
-};
+```go
+func PredictTheWinner(nums []int) bool {
+	n := len(nums)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j {
+			return 0
+		}
+		if f[i][j] == 0 {
+			f[i][j] = max(nums[i]-dfs(i+1, j), nums[j]-dfs(i, j-1))
+		}
+		return f[i][j]
+	}
+	return dfs(0, n-1) >= 0
+}
 ```
 
-### **Rust**
+```ts
+function PredictTheWinner(nums: number[]): boolean {
+    const n = nums.length;
+    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const dfs = (i: number, j: number): number => {
+        if (i > j) {
+            return 0;
+        }
+        if (f[i][j] === 0) {
+            f[i][j] = Math.max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1));
+        }
+        return f[i][j];
+    };
+    return dfs(0, n - 1) >= 0;
+}
+```
 
 ```rust
 impl Solution {
@@ -188,27 +169,61 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func PredictTheWinner(nums []int) bool {
-	n := len(nums)
-	f := make([][]int, n)
-	for i := range f {
-		f[i] = make([]int, n)
-	}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) int {
-		if i > j {
-			return 0
-		}
-		if f[i][j] == 0 {
-			f[i][j] = max(nums[i]-dfs(i+1, j), nums[j]-dfs(i, j-1))
-		}
-		return f[i][j]
-	}
-	return dfs(0, n-1) >= 0
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def PredictTheWinner(self, nums: List[int]) -> bool:
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        for i, x in enumerate(nums):
+            f[i][i] = x
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1])
+        return f[0][n - 1] >= 0
+```
+
+```java
+class Solution {
+    public boolean PredictTheWinner(int[] nums) {
+        int n = nums.length;
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = nums[i];
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = Math.max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] >= 0;
+    }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool PredictTheWinner(vector<int>& nums) {
+        int n = nums.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = nums[i];
+        }
+        for (int i = n - 2; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] >= 0;
+    }
+};
 ```
 
 ```go
@@ -228,25 +243,6 @@ func PredictTheWinner(nums []int) bool {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function PredictTheWinner(nums: number[]): boolean {
-    const n = nums.length;
-    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
-    const dfs = (i: number, j: number): number => {
-        if (i > j) {
-            return 0;
-        }
-        if (f[i][j] === 0) {
-            f[i][j] = Math.max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1));
-        }
-        return f[i][j];
-    };
-    return dfs(0, n - 1) >= 0;
-}
-```
-
 ```ts
 function PredictTheWinner(nums: number[]): boolean {
     const n = nums.length;
@@ -263,10 +259,6 @@ function PredictTheWinner(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

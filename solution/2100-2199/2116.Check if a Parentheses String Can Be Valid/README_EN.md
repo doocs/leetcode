@@ -59,9 +59,9 @@ Changing s[0] to either &#39;(&#39; or &#39;)&#39; will not make s valid.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -87,8 +87,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +119,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -157,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canBeValid(s string, locked string) bool {
 	n := len(s)
@@ -189,16 +183,6 @@ func canBeValid(s string, locked string) bool {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

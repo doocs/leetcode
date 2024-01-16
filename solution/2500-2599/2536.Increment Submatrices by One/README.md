@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二维差分**
+### 方法一：二维差分
 
 二维差分模板题。
 
@@ -78,10 +76,6 @@ for i in range(1, n + 1):
 时间复杂度 $O(m + n^2)$，其中 $m$ 和 $n$ 分别是 `queries` 的长度和给定的 $n$。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
                     mat[i][j] -= mat[i - 1][j - 1]
         return mat
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,8 +135,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -184,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rangeAddQueries(n int, queries [][]int) [][]int {
 	mat := make([][]int, n)
@@ -222,10 +208,6 @@ func rangeAddQueries(n int, queries [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

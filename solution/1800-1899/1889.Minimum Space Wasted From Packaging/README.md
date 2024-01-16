@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找**
+### 方法一：排序 + 二分查找
 
 我们首先对包裹的尺寸数组 $packages$ 进行排序。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n \times \log n + l \times \log l + l \times \log n)$，空间复杂度 $O(\log n + \log l)$。其中 $n$ 是包裹的数量，而 $l$ 是所有箱子的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
             return -1
         return (ans - sum(packages)) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,8 +148,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -187,8 +175,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minWastedSpace(packages []int, boxes [][]int) int {
@@ -220,8 +206,6 @@ func minWastedSpace(packages []int, boxes [][]int) int {
 	return (ans - s) % mod
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minWastedSpace(packages: number[], boxes: number[][]): number {
@@ -264,10 +248,6 @@ function search(nums: number[], x: number, l: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,21 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-判断是否为矩形左上角，需要满足三个条件：
-
--   元素值为 1；
--   左边是边界或者是 0；
--   上边是边界或者是 0。
-
-然后遍历找到矩形的右边界和下边界。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -96,10 +84,6 @@ class Solution:
                 ans.append([i, j, x, y])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findFarmland(land [][]int) [][]int {
 	m, n := len(land), len(land[0])
@@ -176,10 +156,6 @@ func findFarmland(land [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

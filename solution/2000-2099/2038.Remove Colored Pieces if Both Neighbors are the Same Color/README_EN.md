@@ -72,7 +72,7 @@ Thus, Bob wins, so return false.
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We count the number of times that the string `colors` contains three consecutive `'A'`s or three consecutive `'B'`s, denoted as $a$ and $b$, respectively.
 
@@ -81,8 +81,6 @@ Finally, we check whether $a$ is greater than $b$. If it is, we return `true`. O
 The time complexity is $O(n)$, where $n$ is the length of the string `colors`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -96,8 +94,6 @@ class Solution:
                 b += m
         return a > b
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func winnerOfGame(colors string) bool {
 	n := len(colors)
@@ -170,8 +162,6 @@ func winnerOfGame(colors string) bool {
 	return a > b
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function winnerOfGame(colors: string): boolean {
@@ -194,10 +184,6 @@ function winnerOfGame(colors: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

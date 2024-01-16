@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找**
+### 方法一：排序 + 二分查找
 
 我们先将鸡和谷物按照位置从小到大排序，接下来二分枚举时间 $t$，找到一个最小的 $t$ 使得所有谷物能在 $t$ 秒内被吃完。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n \times \log n + m \times \log m + (m + n) \times \log U)$，空间复杂度 $O(\log m + \log n)$。其中 $n$ 和 $m$ 分别为鸡和谷物的数量，而 $U$ 为所有鸡和谷物的位置的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,10 +98,6 @@ class Solution:
         r = abs(hens[0] - grains[0]) + grains[-1] - grains[0] + 1
         return bisect_left(range(r), True, key=check)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -212,8 +200,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumTime(hens []int, grains []int) int {
@@ -266,8 +252,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumTime(hens: number[], grains: number[]): number {
     hens.sort((a, b) => a - b);
@@ -315,10 +299,6 @@ function minimumTime(hens: number[], grains: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,7 +59,7 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 ## Solutions
 
-**Solution 1: Date Functions**
+### Solution 1: Date Functions
 
 The date functions we use include:
 
@@ -70,8 +70,6 @@ The date functions we use include:
 First, we use the `DATE_FORMAT` function to format the date in the form of `YYYYMM`, then filter out the records of November 2023 that fall on a Friday. Next, we group the records by `purchase_date` and calculate the total consumption amount for each Friday.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -86,3 +84,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

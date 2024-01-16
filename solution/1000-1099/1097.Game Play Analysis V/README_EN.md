@@ -61,9 +61,9 @@ Player 2 installed the game on 2017-06-25 but didn&#39;t log back in on 2017-06-
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -87,3 +87,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

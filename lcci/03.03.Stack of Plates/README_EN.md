@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class StackOfPlates:
@@ -74,8 +74,6 @@ class StackOfPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAt(index)
 ```
-
-### **Java**
 
 ```java
 class StackOfPlates {
@@ -121,8 +119,6 @@ class StackOfPlates {
  */
 ```
 
-### **C++**
-
 ```cpp
 class StackOfPlates {
 public:
@@ -165,8 +161,6 @@ private:
  * int param_3 = obj->popAt(index);
  */
 ```
-
-### **Go**
 
 ```go
 type StackOfPlates struct {
@@ -213,8 +207,6 @@ func (this *StackOfPlates) PopAt(index int) int {
  * param_3 := obj.PopAt(index);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class StackOfPlates {
@@ -269,10 +261,6 @@ class StackOfPlates {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

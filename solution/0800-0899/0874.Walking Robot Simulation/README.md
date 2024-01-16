@@ -93,9 +93,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 模拟**
+### 方法一：哈希表 + 模拟
 
 我们定义一个长度为 $5$ 的方向数组 $dirs=[0, 1, 0, -1, 0]$，数组中的相邻两个元素表示一个方向。即 $(dirs[0], dirs[1])$ 表示向北，而 $(dirs[1], dirs[2])$ 表示向东，以此类推。
 
@@ -114,10 +112,6 @@
 时间复杂度 $O(C \times n + m)$，空间复杂度 $O(m)$。其中 $C$ 表示每次可以移动的最大步数，而 $n$ 和 $m$ 分别表示数组 $commands$ 和数组 $obstacles$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -140,10 +134,6 @@ class Solution:
                     ans = max(ans, x * x + y * y)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -181,8 +171,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -219,8 +207,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func robotSim(commands []int, obstacles [][]int) (ans int) {
 	dirs := [5]int{0, 1, 0, -1, 0}
@@ -246,8 +232,6 @@ func robotSim(commands []int, obstacles [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function robotSim(commands: number[], obstacles: number[][]): number {
@@ -278,10 +262,6 @@ function robotSim(commands: number[], obstacles: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 滑动窗口计数**
+### 方法一：二分查找 + 滑动窗口计数
 
 我们注意到，如果一个长度为 $x$ 且出现至少三次的特殊子字符串存在，那么长度为 $x-1$ 的特殊子字符串也一定存在，这存在着单调性，因此我们可以使用二分查找的方法来找到最长的特殊子字符串。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O((n + |\Sigma|) \times \log n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 是字符串 $s$ 的长度，而 $|\Sigma|$ 表示字符集的大小，本题中字符集为小写英文字母，因此 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
                 r = mid - 1
         return -1 if l == 0 else l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +167,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumLength(s string) int {
@@ -217,8 +203,6 @@ func maximumLength(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumLength(s: string): number {
     const n = s.length;
@@ -251,10 +235,6 @@ function maximumLength(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

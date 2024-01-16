@@ -58,7 +58,7 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We can use a hash table $cnt$ to store the number of occurrences of each string's reversed string in the array $words$.
 
@@ -70,8 +70,6 @@ The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maximumNumberOfStringPairs(self, words: List[str]) -> int:
@@ -82,8 +80,6 @@ class Solution:
             cnt[w[::-1]] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumNumberOfStringPairs(words []string) (ans int) {
 	cnt := map[string]int{}
@@ -134,8 +126,6 @@ func maximumNumberOfStringPairs(words []string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumNumberOfStringPairs(words: string[]): number {
     const cnt: Map<string, number> = new Map();
@@ -149,10 +139,6 @@ function maximumNumberOfStringPairs(words: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,7 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 倍增**
+### 方法一：动态规划 + 倍增
 
 题目要我们寻找节点 $node$ 的第 $k$ 个祖先节点，如果暴力求解，需要从 $node$ 开始向上遍历 $k$ 次，时间复杂度为 $O(k)$，显然会超时。
 
@@ -78,10 +76,6 @@ $$
 -   [2836. 在传球游戏中最大化函数值](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class TreeAncestor:
@@ -108,10 +102,6 @@ class TreeAncestor:
 # obj = TreeAncestor(n, parent)
 # param_1 = obj.getKthAncestor(node,k)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class TreeAncestor {
@@ -155,8 +145,6 @@ class TreeAncestor {
  */
 ```
 
-### **C++**
-
 ```cpp
 class TreeAncestor {
 public:
@@ -197,8 +185,6 @@ private:
  * int param_1 = obj->getKthAncestor(node,k);
  */
 ```
-
-### **Go**
 
 ```go
 type TreeAncestor struct {
@@ -243,8 +229,6 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class TreeAncestor {
     private p: number[][];
@@ -285,10 +269,6 @@ class TreeAncestor {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -21,28 +21,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def smallestK(self, arr: List[int], k: int) -> List[int]:
         return sorted(arr)[:k]
 ```
-
-```python
-class Solution:
-    def smallestK(self, arr: List[int], k: int) -> List[int]:
-        h = []
-        for v in arr:
-            heappush(h, -v)
-            if len(h) > k:
-                heappop(h)
-        return [-v for v in h]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -55,6 +42,48 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> smallestK(vector<int>& arr, int k) {
+        sort(arr.begin(), arr.end());
+        vector<int> ans(k);
+        for (int i = 0; i < k; ++i) {
+            ans[i] = arr[i];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func smallestK(arr []int, k int) []int {
+	sort.Ints(arr)
+	ans := make([]int, k)
+	for i, v := range arr[:k] {
+		ans[i] = v
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def smallestK(self, arr: List[int], k: int) -> List[int]:
+        h = []
+        for v in arr:
+            heappush(h, -v)
+            if len(h) > k:
+                heappop(h)
+        return [-v for v in h]
 ```
 
 ```java
@@ -77,22 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> smallestK(vector<int>& arr, int k) {
-        sort(arr.begin(), arr.end());
-        vector<int> ans(k);
-        for (int i = 0; i < k; ++i) {
-            ans[i] = arr[i];
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -112,19 +125,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func smallestK(arr []int, k int) []int {
-	sort.Ints(arr)
-	ans := make([]int, k)
-	for i, v := range arr[:k] {
-		ans[i] = v
-	}
-	return ans
-}
 ```
 
 ```go
@@ -155,10 +155,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -62,9 +62,9 @@ There are no 1&#39;s to remove so return 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -94,8 +94,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -146,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +181,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeOnes(grid [][]int) int {
@@ -234,16 +228,6 @@ func removeOnes(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

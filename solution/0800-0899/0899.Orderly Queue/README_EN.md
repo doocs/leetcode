@@ -39,11 +39,7 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 
 ## Solutions
 
-**Preface**
-
-For any string, if any adjacent characters can be swapped, we can perform a bubble sort-like operation on the characters in the string, eventually obtaining a string sorted in ascending order.
-
-**Solution 1: Case-by-case Judgment**
+### Solution 1: Case-by-case Judgment
 
 If $k = 1$, we can only move the first character of the string to the end of the string each time, resulting in $|s|$ different states. We return the string with the smallest lexicographic order.
 
@@ -54,8 +50,6 @@ Therefore, as long as $k > 1$, we can swap any two adjacent characters in the st
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +62,6 @@ class Solution:
             return ans
         return "".join(sorted(s))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +101,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func orderlyQueue(s string, k int) string {
@@ -132,8 +120,6 @@ func orderlyQueue(s string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function orderlyQueue(s: string, k: number): string {
     if (k > 1) {
@@ -151,10 +137,6 @@ function orderlyQueue(s: string, k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

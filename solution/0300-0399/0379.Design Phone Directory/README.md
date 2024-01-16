@@ -55,13 +55,9 @@ directory.check(2);
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class PhoneDirectory:
@@ -102,10 +98,6 @@ class PhoneDirectory:
 # param_2 = obj.check(number)
 # obj.release(number)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class PhoneDirectory {
@@ -154,10 +146,6 @@ class PhoneDirectory {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

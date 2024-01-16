@@ -38,9 +38,9 @@ Thus, the closest number to 0 in the array is 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,8 +51,6 @@ class Solution:
                 ans, d = x, y
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -88,8 +84,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findClosestNumber(nums []int) int {
@@ -110,8 +104,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findClosestNumber(nums: number[]): number {
     let [ans, d] = [0, 1 << 30];
@@ -125,10 +117,6 @@ function findClosestNumber(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

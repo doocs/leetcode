@@ -52,9 +52,9 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
                 return i
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,19 +78,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function smallestEqual(nums: number[]): number {
-    for (let i = 0; i < nums.length; i++) {
-        if (i % 10 == nums[i]) return i;
-    }
-    return -1;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestEqual(nums []int) int {
 	for i, v := range nums {
@@ -118,10 +101,15 @@ func smallestEqual(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function smallestEqual(nums: number[]): number {
+    for (let i = 0; i < nums.length; i++) {
+        if (i % 10 == nums[i]) return i;
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

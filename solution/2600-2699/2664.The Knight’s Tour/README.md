@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：回溯**
+### 方法一：回溯
 
 我们创建一个二维数组 $g$，用于记录骑士的移动顺序，初始时 $g[r][c] = -1$，其余位置均为 $-1$。另外，我们还需要一个变量 $ok$，用于记录是否找到了一种方案。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(8^{m \times n})$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 为题目给定的整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
         dfs(r, c)
         return g
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func tourOfKnight(m int, n int, r int, c int) [][]int {
@@ -201,8 +187,6 @@ func tourOfKnight(m int, n int, r int, c int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     const g: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
@@ -230,8 +214,6 @@ function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     return g;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -274,10 +256,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

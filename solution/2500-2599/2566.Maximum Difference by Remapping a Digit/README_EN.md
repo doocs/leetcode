@@ -47,7 +47,7 @@ Thus, we return 99.</pre>
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 First, we convert the number to a string $s$.
 
@@ -61,8 +61,6 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Whe
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minMaxDifference(self, num: int) -> int:
@@ -73,8 +71,6 @@ class Solution:
                 return int(s.replace(c, '9')) - mi
         return num - mi
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMaxDifference(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -151,8 +143,6 @@ func minMaxDifference(num int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minMaxDifference(num: number): number {
     const s = num + '';
@@ -165,8 +155,6 @@ function minMaxDifference(num: number): number {
     return num - min;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -182,41 +170,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn min_max_difference(num: i32) -> i32 {
-        let mut s = num.to_string().into_bytes();
-        let first = s[0];
-        for i in 0..s.len() {
-            if s[i] == first {
-                s[i] = b'0';
-            }
-        }
-        let mi = String::from_utf8_lossy(&s).parse::<i32>().unwrap();
-
-        let mut t = num.to_string().into_bytes();
-        for i in 0..t.len() {
-            if t[i] != b'9' {
-                let second = t[i];
-
-                for j in 0..t.len() {
-                    if t[j] == second {
-                        t[j] = b'9';
-                    }
-                }
-
-                let mx = String::from_utf8_lossy(&t).parse::<i32>().unwrap();
-                return mx - mi;
-            }
-        }
-
-        num - mi
-    }
-}
-```
-
-### **C**
 
 ```c
 int getLen(int num) {
@@ -257,10 +210,45 @@ int minMaxDifference(int num) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn min_max_difference(num: i32) -> i32 {
+        let mut s = num.to_string().into_bytes();
+        let first = s[0];
+        for i in 0..s.len() {
+            if s[i] == first {
+                s[i] = b'0';
+            }
+        }
+        let mi = String::from_utf8_lossy(&s).parse::<i32>().unwrap();
+
+        let mut t = num.to_string().into_bytes();
+        for i in 0..t.len() {
+            if t[i] != b'9' {
+                let second = t[i];
+
+                for j in 0..t.len() {
+                    if t[j] == second {
+                        t[j] = b'9';
+                    }
+                }
+
+                let mx = String::from_utf8_lossy(&t).parse::<i32>().unwrap();
+                return mx - mi;
+            }
+        }
+
+        num - mi
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

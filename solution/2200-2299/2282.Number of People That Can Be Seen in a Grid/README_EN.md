@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,8 +85,6 @@ class Solution:
                 ans[i][j] += add[i]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func seePeople(heights [][]int) (ans [][]int) {
 	f := func(nums []int) []int {
@@ -215,8 +209,6 @@ func seePeople(heights [][]int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function seePeople(heights: number[][]): number[][] {
@@ -258,10 +250,6 @@ function seePeople(heights: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

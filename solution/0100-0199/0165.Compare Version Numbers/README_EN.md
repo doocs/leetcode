@@ -58,9 +58,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -80,8 +80,6 @@ class Solution:
             i, j = i + 1, j + 1
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +123,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func compareVersion(version1 string, version2 string) int {
@@ -154,7 +148,19 @@ func compareVersion(version1 string, version2 string) int {
 }
 ```
 
-### **C#**
+```ts
+function compareVersion(version1: string, version2: string): number {
+    let v1 = version1.split('.'),
+        v2 = version2.split('.');
+    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
+        let c1 = Number(v1[i] || 0),
+            c2 = Number(v2[i] || 0);
+        if (c1 > c2) return 1;
+        if (c1 < c2) return -1;
+    }
+    return 0;
+}
+```
 
 ```cs
 public class Solution {
@@ -177,26 +183,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function compareVersion(version1: string, version2: string): number {
-    let v1 = version1.split('.'),
-        v2 = version2.split('.');
-    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
-        let c1 = Number(v1[i] || 0),
-            c2 = Number(v2[i] || 0);
-        if (c1 > c2) return 1;
-        if (c1 < c2) return -1;
-    }
-    return 0;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

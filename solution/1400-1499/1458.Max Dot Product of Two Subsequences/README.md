@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 定义 $dp[i][j]$ 表示 $nums1$ 前 $i$ 个元素和 $nums2$ 前 $j$ 个元素得到的最大点积。
 
@@ -79,10 +77,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
@@ -94,10 +88,6 @@ class Solution:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1], max(dp[i - 1][j - 1], 0) + v)
         return dp[-1][-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,7 +127,26 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func maxDotProduct(nums1 []int, nums2 []int) int {
+	m, n := len(nums1), len(nums2)
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+		for j := range dp[i] {
+			dp[i][j] = math.MinInt32
+		}
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			v := nums1[i-1] * nums2[j-1]
+			dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+			dp[i][j] = max(dp[i][j], max(0, dp[i-1][j-1])+v)
+		}
+	}
+	return dp[m][n]
+}
+```
 
 ```rust
 impl Solution {
@@ -164,33 +171,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func maxDotProduct(nums1 []int, nums2 []int) int {
-	m, n := len(nums1), len(nums2)
-	dp := make([][]int, m+1)
-	for i := range dp {
-		dp[i] = make([]int, n+1)
-		for j := range dp[i] {
-			dp[i][j] = math.MinInt32
-		}
-	}
-	for i := 1; i <= m; i++ {
-		for j := 1; j <= n; j++ {
-			v := nums1[i-1] * nums2[j-1]
-			dp[i][j] = max(dp[i-1][j], dp[i][j-1])
-			dp[i][j] = max(dp[i][j], max(0, dp[i-1][j-1])+v)
-		}
-	}
-	return dp[m][n]
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

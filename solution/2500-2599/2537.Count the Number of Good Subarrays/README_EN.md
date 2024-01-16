@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Two Pointers**
+### Solution 1: Hash Table + Two Pointers
 
 If a subarray contains $k$ pairs of identical elements, then an array that contains this subarray must contain at least $k$ pairs of identical elements.
 
@@ -54,8 +54,6 @@ Finally, we return the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 ans += i + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countGood(nums []int, k int) int64 {
 	cnt := map[int]int{}
@@ -145,10 +137,6 @@ func countGood(nums []int, k int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

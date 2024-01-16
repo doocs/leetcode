@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: BFS**
+### Solution 1: BFS
 
 The problem is essentially a shortest path problem, which we can consider solving using BFS.
 
@@ -64,8 +64,6 @@ After the search is over, return the answer array.
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -94,8 +92,6 @@ class Solution:
             d += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -139,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -180,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestAlternatingPaths(n int, redEdges [][]int, blueEdges [][]int) []int {
@@ -225,10 +217,6 @@ func shortestAlternatingPaths(n int, redEdges [][]int, blueEdges [][]int) []int 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -37,17 +37,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def findDelayedArrivalTime(self, arrivalTime: int, delayedTime: int) -> int:
         return (arrivalTime + delayedTime) % 24
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -56,8 +54,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -68,23 +64,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findDelayedArrivalTime(arrivalTime int, delayedTime int) int {
 	return (arrivalTime + delayedTime) % 24
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findDelayedArrivalTime(arrivalTime: number, delayedTime: number): number {
     return (arrivalTime + delayedTime) % 24;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -94,10 +84,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->
