@@ -51,30 +51,9 @@ The difference between the maximum and minimum price sum is 2. It can be proved 
 
 ## Solutions
 
-**Soution 1: Tree-shaped DP**
-
-Since the value of each node is a positive integer, the smallest path with node $root$ as the root node is the $root$ node itself. Therefore, the difference between the path with the maximum value sum and the smallest path is equivalent to removing one endpoint of the path.
-
-We design a function $dfs(i, fa)$, which represents the maximum path sum in the subtree with node $i$ as the root node, with and without removing the endpoint. Here, $fa$ represents the parent node of node $i$.
-
-The implementation logic of the function $dfs(i, fa)$ is as follows:
-
-Initialize $a = price[i]$, $b = 0$, indicating that initially there is only one node, the maximum path sum without removing the endpoint is $price[i]$, and the maximum path sum with removing the endpoint is $0$.
-
-For each child node $j$ of node $i$, if $j \ne fa$, then recursively call the function $dfs(j, i)$. Here, it returns the maximum path sum in the subtree with node $j$ as the root node, with and without removing the endpoint, denoted as $c$ and $d$. At this time, there are two cases for the answer:
-
--   The maximum path sum without removing the endpoint plus the maximum path sum of the current node with removing the endpoint, that is, $a + d$;
--   The maximum path sum with removing the endpoint plus the maximum path sum of the current node without removing the endpoint, that is, $b + c$.
-
-We update the maximum value of the answer, that is, $ans = \max(ans, a + d, b + c)$.
-
-Then update $a$ and $b$, that is, $a = \max(a, price[i] + c)$, $b = \max(b, price[i] + d)$, and finally return.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,8 +77,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -136,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxOutput(n int, edges [][]int, price []int) int64 {
 	g := make([][]int, n)
@@ -200,10 +173,6 @@ func maxOutput(n int, edges [][]int, price []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

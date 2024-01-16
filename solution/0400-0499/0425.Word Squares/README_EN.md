@@ -44,9 +44,9 @@ The output consists of two word squares. The order of output does not matter (ju
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -95,8 +95,6 @@ class Solution:
             dfs([w])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -168,8 +166,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -235,10 +231,6 @@ func wordSquares(words []string) [][]string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

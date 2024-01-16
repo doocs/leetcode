@@ -45,11 +45,9 @@
 
 ## Solutions
 
-Binary search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minEatingSpeed(piles []int, h int) int {
 	return sort.Search(1e9, func(i int) bool {
@@ -125,8 +117,6 @@ func minEatingSpeed(piles []int, h int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minEatingSpeed(piles: number[], h: number): number {
@@ -147,8 +137,6 @@ function minEatingSpeed(piles: number[], h: number): number {
     return left;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -176,10 +164,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

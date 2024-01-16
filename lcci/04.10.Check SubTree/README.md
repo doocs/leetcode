@@ -29,13 +29,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -59,10 +55,6 @@ class Solution:
 
         return dfs(t1, t2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -90,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -112,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -137,8 +125,6 @@ func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
 	return checkSubTree(t1.Left, t2) || checkSubTree(t1.Right, t2)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -168,8 +154,6 @@ function checkSubTree(t1: TreeNode | null, t2: TreeNode | null): boolean {
     return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -217,10 +201,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

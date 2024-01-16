@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Fast and Slow Pointers**
+### Solution 1: Fast and Slow Pointers
 
 We define two pointers `fast` and `slow`, both initially pointing to the dummy head node of the linked list.
 
@@ -52,8 +52,6 @@ Next, the `fast` pointer moves forward $n$ steps first, then `fast` and `slow` p
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -72,8 +70,6 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -102,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -135,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -159,25 +151,23 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 }
 ```
 
-### **JavaScript**
-
-```js
+```ts
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
  * }
  */
-/**
- * @param {ListNode} head
- * @param {number} n
- * @return {ListNode}
- */
-var removeNthFromEnd = function (head, n) {
+
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     const dummy = new ListNode(0, head);
-    let fast = dummy,
-        slow = dummy;
+    let fast = dummy;
+    let slow = dummy;
     while (n--) {
         fast = fast.next;
     }
@@ -187,40 +177,8 @@ var removeNthFromEnd = function (head, n) {
     }
     slow.next = slow.next.next;
     return dummy.next;
-};
+}
 ```
-
-### **Ruby**
-
-```rb
-# Definition for singly-linked list.
-# class ListNode
-#     attr_accessor :val, :next
-#     def initialize(val = 0, _next = nil)
-#         @val = val
-#         @next = _next
-#     end
-# end
-# @param {ListNode} head
-# @param {Integer} n
-# @return {ListNode}
-def remove_nth_from_end(head, n)
-    dummy = ListNode.new(0, head)
-    fast = slow = dummy
-    while n > 0
-        fast = fast.next
-        n -= 1
-    end
-    while fast.next
-        slow = slow.next
-        fast = fast.next
-    end
-    slow.next = slow.next.next
-    return dummy.next
-end
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -257,25 +215,23 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
+```js
 /**
  * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
-
-function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function (head, n) {
     const dummy = new ListNode(0, head);
-    let fast = dummy;
-    let slow = dummy;
+    let fast = dummy,
+        slow = dummy;
     while (n--) {
         fast = fast.next;
     }
@@ -285,13 +241,37 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     }
     slow.next = slow.next.next;
     return dummy.next;
-}
+};
 ```
 
-### **...**
-
-```
-
+```rb
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} head
+# @param {Integer} n
+# @return {ListNode}
+def remove_nth_from_end(head, n)
+    dummy = ListNode.new(0, head)
+    fast = slow = dummy
+    while n > 0
+        fast = fast.next
+        n -= 1
+    end
+    while fast.next
+        slow = slow.next
+        fast = fast.next
+    end
+    slow.next = slow.next.next
+    return dummy.next
+end
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

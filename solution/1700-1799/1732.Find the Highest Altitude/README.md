@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和（差分数组）**
+### 方法一：前缀和（差分数组）
 
 我们假设每个点的海拔为 $h_i$，由于 $gain[i]$ 表示第 $i$ 个点和第 $i + 1$ 个点的海拔差，因此 $gain[i] = h_{i + 1} - h_i$。那么：
 
@@ -64,29 +62,11 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
         return max(accumulate(gain, initial=0))
 ```
-
-```python
-class Solution:
-    def largestAltitude(self, gain: List[int]) -> int:
-        ans = h = 0
-        for v in gain:
-            h += v
-            ans = max(ans, h)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestAltitude(gain []int) (ans int) {
@@ -129,7 +105,19 @@ func largestAltitude(gain []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn largest_altitude(gain: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut h = 0;
+        for v in gain.iter() {
+            h += v;
+            ans = ans.max(h);
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -146,40 +134,6 @@ var largestAltitude = function (gain) {
     return ans;
 };
 ```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn largest_altitude(gain: Vec<i32>) -> i32 {
-        let mut ans = 0;
-        let mut h = 0;
-        for v in gain.iter() {
-            h += v;
-            ans = ans.max(h);
-        }
-        ans
-    }
-}
-```
-
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int largestAltitude(int* gain, int gainSize) {
-    int ans = 0;
-    int h = 0;
-    for (int i = 0; i < gainSize; i++) {
-        h += gain[i];
-        ans = max(ans, h);
-    }
-    return ans;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -200,10 +154,36 @@ class Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```
-
+int largestAltitude(int* gain, int gainSize) {
+    int ans = 0;
+    int h = 0;
+    for (int i = 0; i < gainSize; i++) {
+        h += gain[i];
+        ans = max(ans, h);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        ans = h = 0
+        for v in gain:
+            h += v
+            ans = max(ans, h)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

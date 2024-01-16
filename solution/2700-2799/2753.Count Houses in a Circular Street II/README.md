@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 我们注意到，题目中至少有一扇门是开着的，我们可以先找到其中一扇开着的门。
 
@@ -69,10 +67,6 @@
 -   [2728. 计算一个环形街道上的房屋数量](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a street.
@@ -94,10 +88,6 @@ class Solution:
                 street.closeDoor()
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -126,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -159,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a street.
@@ -184,8 +170,6 @@ func houseCount(street Street, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -213,10 +197,6 @@ function houseCount(street: Street | null, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

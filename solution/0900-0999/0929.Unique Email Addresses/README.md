@@ -59,17 +59,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 利用哈希表存放转换后的电子邮件，最后返回哈希表的 size 即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
             s.add(local + '@' + domain)
         return len(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numUniqueEmails(emails []string) int {
 	s := map[string]bool{}
@@ -145,7 +131,41 @@ func numUniqueEmails(emails []string) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function numUniqueEmails(emails: string[]): number {
+    return new Set(
+        emails
+            .map(email => email.split('@'))
+            .map(([start, end]) => start.replace(/\+.*|\./g, '') + '@' + end),
+    ).size;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn num_unique_emails(emails: Vec<String>) -> i32 {
+        let mut set = HashSet::new();
+        for email in emails.iter() {
+            let res: Vec<&str> = email.split('@').collect();
+            let mut s = String::new();
+            for &c in res[0].as_bytes().iter() {
+                if c == b'.' {
+                    continue;
+                }
+                if c == b'+' {
+                    break;
+                }
+                s.push(c as char);
+            }
+            s.push('@');
+            s.push_str(res[1]);
+            set.insert(s);
+        }
+        set.len() as i32
+    }
+}
+```
 
 ```js
 const numUniqueEmails2 = function (emails) {
@@ -190,50 +210,6 @@ const numUniqueEmails = function (emails) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function numUniqueEmails(emails: string[]): number {
-    return new Set(
-        emails
-            .map(email => email.split('@'))
-            .map(([start, end]) => start.replace(/\+.*|\./g, '') + '@' + end),
-    ).size;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn num_unique_emails(emails: Vec<String>) -> i32 {
-        let mut set = HashSet::new();
-        for email in emails.iter() {
-            let res: Vec<&str> = email.split('@').collect();
-            let mut s = String::new();
-            for &c in res[0].as_bytes().iter() {
-                if c == b'.' {
-                    continue;
-                }
-                if c == b'+' {
-                    break;
-                }
-                s.push(c as char);
-            }
-            s.push('@');
-            s.push_str(res[1]);
-            set.insert(s);
-        }
-        set.len() as i32
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

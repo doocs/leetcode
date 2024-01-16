@@ -54,7 +54,7 @@ The maximum XOR possible from these pairs is 500 XOR 520 = 1020 since the only o
 
 ## Solutions
 
-**Solution 1: Sorting + Binary Trie**
+### Solution 1: Sorting + Binary Trie
 
 Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.
 
@@ -63,8 +63,6 @@ Therefore, we sort the array $nums$, and then enumerate $y$ from small to large.
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M = 2^{20}$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -116,8 +114,6 @@ class Solution:
             ans = max(ans, tree.search(y))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -180,8 +176,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -250,8 +244,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -312,8 +304,6 @@ func maximumStrongPairXor(nums []int) (ans int) {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class Trie {
@@ -382,10 +372,6 @@ function maximumStrongPairXor(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

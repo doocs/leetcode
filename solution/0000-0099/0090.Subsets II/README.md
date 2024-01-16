@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + DFS**
+### 方法一：排序 + DFS
 
 我们可以先对数组 $nums$ 进行排序，方便去重。
 
@@ -57,21 +55,7 @@
 
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
-**方法二：排序 + 二进制枚举**
-
-与方法一类似，我们先对数组 $nums$ 进行排序，方便去重。
-
-接下来，我们在 $[0, 2^n)$ 的范围内枚举一个二进制数 $mask$，其中 $mask$ 的二进制表示是一个 $n$ 位的位串，如果 $mask$ 的第 $i$ 位为 $1$，表示选择 $nums[i]$，为 $0$ 表示不选择 $nums[i]$。注意，如果 $mask$ 的 $i - 1$ 位为 $0$，且 $nums[i] = nums[i - 1]$，则说明在当前枚举到的方案中，第 $i$ 个元素和第 $i - 1$ 个元素相同，为了避免重复，我们跳过这种情况。否则，我们将 $mask$ 对应的子集加入答案数组中。
-
-枚举结束后，我们返回答案数组即可。
-
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,30 +77,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-```python
-class Solution:
-    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
-        n = len(nums)
-        ans = []
-        for mask in range(1 << n):
-            ok = True
-            t = []
-            for i in range(n):
-                if mask >> i & 1:
-                    if i and (mask >> (i - 1) & 1) == 0 and nums[i] == nums[i - 1]:
-                        ok = False
-                        break
-                    t.append(nums[i])
-            if ok:
-                ans.append(t)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -147,35 +107,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        List<List<Integer>> ans = new ArrayList<>();
-        for (int mask = 0; mask < 1 << n; ++mask) {
-            List<Integer> t = new ArrayList<>();
-            boolean ok = true;
-            for (int i = 0; i < n; ++i) {
-                if ((mask >> i & 1) == 1) {
-                    if (i > 0 && (mask >> (i - 1) & 1) == 0 && nums[i] == nums[i - 1]) {
-                        ok = false;
-                        break;
-                    }
-                    t.add(nums[i]);
-                }
-            }
-            if (ok) {
-                ans.add(t);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -201,6 +132,144 @@ public:
         return ans;
     }
 };
+```
+
+```go
+func subsetsWithDup(nums []int) (ans [][]int) {
+	sort.Ints(nums)
+	n := len(nums)
+	t := []int{}
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= n {
+			ans = append(ans, slices.Clone(t))
+			return
+		}
+		t = append(t, nums[i])
+		dfs(i + 1)
+		t = t[:len(t)-1]
+		for i+1 < n && nums[i+1] == nums[i] {
+			i++
+		}
+		dfs(i + 1)
+	}
+	dfs(0)
+	return
+}
+```
+
+```ts
+function subsetsWithDup(nums: number[]): number[][] {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const t: number[] = [];
+    const ans: number[][] = [];
+    const dfs = (i: number): void => {
+        if (i >= n) {
+            ans.push([...t]);
+            return;
+        }
+        t.push(nums[i]);
+        dfs(i + 1);
+        t.pop();
+        while (i + 1 < n && nums[i] === nums[i + 1]) {
+            i++;
+        }
+        dfs(i + 1);
+    };
+    dfs(0);
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut nums = nums;
+        nums.sort();
+        let mut ans = Vec::new();
+        let mut t = Vec::new();
+
+        fn dfs(i: usize, nums: &Vec<i32>, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
+            if i >= nums.len() {
+                ans.push(t.clone());
+                return;
+            }
+            t.push(nums[i]);
+            dfs(i + 1, nums, t, ans);
+            t.pop();
+            let mut i = i;
+            while i + 1 < nums.len() && nums[i + 1] == nums[i] {
+                i += 1;
+            }
+            dfs(i + 1, nums, t, ans);
+        }
+
+        dfs(0, &nums, &mut t, &mut ans);
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：排序 + 二进制枚举
+
+与方法一类似，我们先对数组 $nums$ 进行排序，方便去重。
+
+接下来，我们在 $[0, 2^n)$ 的范围内枚举一个二进制数 $mask$，其中 $mask$ 的二进制表示是一个 $n$ 位的位串，如果 $mask$ 的第 $i$ 位为 $1$，表示选择 $nums[i]$，为 $0$ 表示不选择 $nums[i]$。注意，如果 $mask$ 的 $i - 1$ 位为 $0$，且 $nums[i] = nums[i - 1]$，则说明在当前枚举到的方案中，第 $i$ 个元素和第 $i - 1$ 个元素相同，为了避免重复，我们跳过这种情况。否则，我们将 $mask$ 对应的子集加入答案数组中。
+
+枚举结束后，我们返回答案数组即可。
+
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        n = len(nums)
+        ans = []
+        for mask in range(1 << n):
+            ok = True
+            t = []
+            for i in range(n):
+                if mask >> i & 1:
+                    if i and (mask >> (i - 1) & 1) == 0 and nums[i] == nums[i - 1]:
+                        ok = False
+                        break
+                    t.append(nums[i])
+            if ok:
+                ans.append(t)
+        return ans
+```
+
+```java
+class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            List<Integer> t = new ArrayList<>();
+            boolean ok = true;
+            for (int i = 0; i < n; ++i) {
+                if ((mask >> i & 1) == 1) {
+                    if (i > 0 && (mask >> (i - 1) & 1) == 0 && nums[i] == nums[i - 1]) {
+                        ok = false;
+                        break;
+                    }
+                    t.add(nums[i]);
+                }
+            }
+            if (ok) {
+                ans.add(t);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
@@ -231,32 +300,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func subsetsWithDup(nums []int) (ans [][]int) {
-	sort.Ints(nums)
-	n := len(nums)
-	t := []int{}
-	var dfs func(int)
-	dfs = func(i int) {
-		if i >= n {
-			ans = append(ans, slices.Clone(t))
-			return
-		}
-		t = append(t, nums[i])
-		dfs(i + 1)
-		t = t[:len(t)-1]
-		for i+1 < n && nums[i+1] == nums[i] {
-			i++
-		}
-		dfs(i + 1)
-	}
-	dfs(0)
-	return
-}
-```
-
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -278,32 +321,6 @@ func subsetsWithDup(nums []int) (ans [][]int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function subsetsWithDup(nums: number[]): number[][] {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    const t: number[] = [];
-    const ans: number[][] = [];
-    const dfs = (i: number): void => {
-        if (i >= n) {
-            ans.push([...t]);
-            return;
-        }
-        t.push(nums[i]);
-        dfs(i + 1);
-        t.pop();
-        while (i + 1 < n && nums[i] === nums[i + 1]) {
-            i++;
-        }
-        dfs(i + 1);
-    };
-    dfs(0);
-    return ans;
 }
 ```
 
@@ -329,37 +346,6 @@ function subsetsWithDup(nums: number[]): number[][] {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut nums = nums;
-        nums.sort();
-        let mut ans = Vec::new();
-        let mut t = Vec::new();
-
-        fn dfs(i: usize, nums: &Vec<i32>, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
-            if i >= nums.len() {
-                ans.push(t.clone());
-                return;
-            }
-            t.push(nums[i]);
-            dfs(i + 1, nums, t, ans);
-            t.pop();
-            let mut i = i;
-            while i + 1 < nums.len() && nums[i + 1] == nums[i] {
-                i += 1;
-            }
-            dfs(i + 1, nums, t, ans);
-        }
-
-        dfs(0, &nums, &mut t, &mut ans);
-        ans
-    }
 }
 ```
 
@@ -391,10 +377,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

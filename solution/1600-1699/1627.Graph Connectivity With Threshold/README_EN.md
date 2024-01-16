@@ -68,15 +68,13 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 
 ## Solutions
 
-**Solution 1: Union-Find**
+### Solution 1: Union-Find
 
 We can enumerate $z$ and its multiples, and use union-find to connect them. In this way, for each query $[a, b]$, we only need to determine whether $a$ and $b$ are in the same connected component.
 
 The time complexity is $O(n \times \log n \times (\alpha(n) + q))$, and the space complexity is $O(n)$. Here, $n$ and $q$ are the number of nodes and queries, respectively, and $\alpha$ is the inverse function of the Ackermann function.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class UnionFind:
@@ -112,8 +110,6 @@ class Solution:
                 uf.union(a, b)
         return [uf.find(a) == uf.find(b) for a, b in queries]
 ```
-
-### **Java**
 
 ```java
 class UnionFind {
@@ -169,8 +165,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -224,8 +218,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type unionFind struct {
 	p, size []int
@@ -278,8 +270,6 @@ func areConnected(n int, threshold int, queries [][]int) []bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class UnionFind {
     p: number[];
@@ -325,10 +315,6 @@ function areConnected(n: number, threshold: number, queries: number[][]): boolea
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

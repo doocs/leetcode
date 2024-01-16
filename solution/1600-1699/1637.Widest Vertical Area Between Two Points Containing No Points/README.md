@@ -42,15 +42,89 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们可以对数组 $points$ 按照 $x$ 升序排列，获取相邻点之间 $x$ 的差值的最大值。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $points$ 的长度。
 
-**方法二：桶排序**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
+        points.sort()
+        return max(b[0] - a[0] for a, b in pairwise(points))
+```
+
+```java
+class Solution {
+    public int maxWidthOfVerticalArea(int[][] points) {
+        Arrays.sort(points, (a, b) -> a[0] - b[0]);
+        int ans = 0;
+        for (int i = 0; i < points.length - 1; ++i) {
+            ans = Math.max(ans, points[i + 1][0] - points[i][0]);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxWidthOfVerticalArea(vector<vector<int>>& points) {
+        sort(points.begin(), points.end());
+        int ans = 0;
+        for (int i = 0; i < points.size() - 1; ++i) {
+            ans = max(ans, points[i + 1][0] - points[i][0]);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maxWidthOfVerticalArea(points [][]int) (ans int) {
+	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
+	for i, p := range points[1:] {
+		ans = max(ans, p[0]-points[i][0])
+	}
+	return
+}
+```
+
+```ts
+function maxWidthOfVerticalArea(points: number[][]): number {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    for (let i = 1; i < points.length; ++i) {
+        ans = Math.max(ans, points[i][0] - points[i - 1][0]);
+    }
+    return ans;
+}
+```
+
+```js
+/**
+ * @param {number[][]} points
+ * @return {number}
+ */
+var maxWidthOfVerticalArea = function (points) {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    let px = points[0][0];
+    for (const [x, _] of points) {
+        ans = Math.max(ans, x - px);
+        px = x;
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二：桶排序
 
 方法一中排序的时间复杂度为 $O(n \times \log n)$，其实我们可以利用桶排序的思想，将时间复杂度降低到 $O(n)$。
 
@@ -74,17 +148,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
-        points.sort()
-        return max(b[0] - a[0] for a, b in pairwise(points))
-```
-
 ```python
 class Solution:
     def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
@@ -106,23 +169,6 @@ class Solution:
             ans = max(ans, curmin - prev)
             prev = curmax
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int maxWidthOfVerticalArea(int[][] points) {
-        Arrays.sort(points, (a, b) -> a[0] - b[0]);
-        int ans = 0;
-        for (int i = 0; i < points.length - 1; ++i) {
-            ans = Math.max(ans, points[i + 1][0] - points[i][0]);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -165,22 +211,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxWidthOfVerticalArea(vector<vector<int>>& points) {
-        sort(points.begin(), points.end());
-        int ans = 0;
-        for (int i = 0; i < points.size() - 1; ++i) {
-            ans = max(ans, points[i + 1][0] - points[i][0]);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -214,18 +244,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func maxWidthOfVerticalArea(points [][]int) (ans int) {
-	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
-	for i, p := range points[1:] {
-		ans = max(ans, p[0]-points[i][0])
-	}
-	return
-}
 ```
 
 ```go
@@ -264,19 +282,6 @@ func maxWidthOfVerticalArea(points [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxWidthOfVerticalArea(points: number[][]): number {
-    points.sort((a, b) => a[0] - b[0]);
-    let ans = 0;
-    for (let i = 1; i < points.length; ++i) {
-        ans = Math.max(ans, points[i][0] - points[i - 1][0]);
-    }
-    return ans;
-}
-```
-
 ```ts
 function maxWidthOfVerticalArea(points: number[][]): number {
     const nums: number[] = points.map(point => point[0]);
@@ -307,25 +312,6 @@ function maxWidthOfVerticalArea(points: number[][]): number {
     }
     return ans;
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} points
- * @return {number}
- */
-var maxWidthOfVerticalArea = function (points) {
-    points.sort((a, b) => a[0] - b[0]);
-    let ans = 0;
-    let px = points[0][0];
-    for (const [x, _] of points) {
-        ans = Math.max(ans, x - px);
-        px = x;
-    }
-    return ans;
-};
 ```
 
 ```js
@@ -364,10 +350,6 @@ var maxWidthOfVerticalArea = function (points) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

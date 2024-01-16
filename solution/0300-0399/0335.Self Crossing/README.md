@@ -45,32 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-```bash
-                i-2
-    case 1 : i-1┌─┐
-                └─┼─>i
-                 i-3
-
-                   i-2
-    case 2 : i-1 ┌────┐
-                 └─══>┘i-3
-                 i  i-4
-
-    case 3 :    i-4
-               ┌──┐
-               │i<┼─┐
-            i-3│ i-5│i-1
-               └────┘
-                i-2
-```
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +68,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isSelfCrossing(distance []int) bool {
@@ -154,10 +123,23 @@ func isSelfCrossing(distance []int) bool {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool IsSelfCrossing(int[] x) {
+        for (var i = 3; i < x.Length; ++i)
+        {
+            if (x[i] >= x[i - 2] && x[i - 1] <= x[i - 3]) return true;
+            if (i > 3 && x[i] + x[i - 4] >= x[i - 2])
+            {
+                if (x[i - 1] == x[i - 3]) return true;
+                if (i > 4 && x[i - 2] >= x[i - 4] && x[i - 1] <= x[i - 3] && x[i - 1] + x[i - 5] >= x[i - 3]) return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

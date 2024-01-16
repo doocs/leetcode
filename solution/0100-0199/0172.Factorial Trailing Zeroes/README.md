@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 题目实际上是求 $[1,n]$ 中有多少个 $5$ 的因数。
 
@@ -66,10 +64,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def trailingZeroes(self, n: int) -> int:
@@ -79,10 +73,6 @@ class Solution:
             ans += n
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func trailingZeroes(n int) int {
 	ans := 0
@@ -125,8 +111,6 @@ func trailingZeroes(n int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function trailingZeroes(n: number): number {
@@ -139,10 +123,6 @@ function trailingZeroes(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

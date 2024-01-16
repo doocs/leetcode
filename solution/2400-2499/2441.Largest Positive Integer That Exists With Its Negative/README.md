@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以用哈希表 $s$ 记录数组中出现的所有元素，用一个变量 $ans$ 记录满足题目要求的最大正整数，初始时 $ans = -1$。
 
@@ -62,20 +60,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
         s = set(nums)
         return max((x for x in s if -x in s), default=-1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMaxK(nums []int) int {
@@ -131,8 +117,6 @@ func findMaxK(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMaxK(nums: number[]): number {
     let ans = -1;
@@ -145,8 +129,6 @@ function findMaxK(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -163,6 +145,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 use std::collections::HashSet;
@@ -187,10 +175,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

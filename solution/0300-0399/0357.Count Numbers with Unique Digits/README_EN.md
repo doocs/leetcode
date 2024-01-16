@@ -31,9 +31,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -48,6 +48,64 @@ class Solution:
             ans += cur
         return ans
 ```
+
+```java
+class Solution {
+    public int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1) {
+            return 10;
+        }
+        int ans = 10;
+        for (int i = 0, cur = 9; i < n - 1; ++i) {
+            cur *= (9 - i);
+            ans += cur;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) return 1;
+        if (n == 1) return 10;
+        int ans = 10;
+        for (int i = 0, cur = 9; i < n - 1; ++i) {
+            cur *= (9 - i);
+            ans += cur;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countNumbersWithUniqueDigits(n int) int {
+	if n == 0 {
+		return 1
+	}
+	if n == 1 {
+		return 10
+	}
+	ans := 10
+	for i, cur := 0, 9; i < n-1; i++ {
+		cur *= (9 - i)
+		ans += cur
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,27 +125,6 @@ class Solution:
             return ans
 
         return dfs(n, 0, True)
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int countNumbersWithUniqueDigits(int n) {
-        if (n == 0) {
-            return 1;
-        }
-        if (n == 1) {
-            return 10;
-        }
-        int ans = 10;
-        for (int i = 0, cur = 9; i < n - 1; ++i) {
-            cur *= (9 - i);
-            ans += cur;
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -127,24 +164,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countNumbersWithUniqueDigits(int n) {
-        if (n == 0) return 1;
-        if (n == 1) return 10;
-        int ans = 10;
-        for (int i = 0, cur = 9; i < n - 1; ++i) {
-            cur *= (9 - i);
-            ans += cur;
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -177,25 +196,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func countNumbersWithUniqueDigits(n int) int {
-	if n == 0 {
-		return 1
-	}
-	if n == 1 {
-		return 10
-	}
-	ans := 10
-	for i, cur := 0, 9; i < n-1; i++ {
-		cur *= (9 - i)
-		ans += cur
-	}
-	return ans
-}
 ```
 
 ```go
@@ -236,10 +236,6 @@ func countNumbersWithUniqueDigits(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

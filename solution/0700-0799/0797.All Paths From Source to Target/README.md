@@ -48,17 +48,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-因为图中不存在环，所以直接用 DFS 或 BFS 遍历即可
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-BFS：
 
 ```python
 class Solution:
@@ -76,31 +68,6 @@ class Solution:
                 q.append(path + [v])
         return ans
 ```
-
-DFS：
-
-```python
-class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        def dfs(t):
-            if t[-1] == len(graph) - 1:
-                ans.append(t[:])
-                return
-            for v in graph[t[-1]]:
-                t.append(v)
-                dfs(t)
-                t.pop()
-
-        ans = []
-        dfs([0])
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-BFS：
 
 ```java
 class Solution {
@@ -127,7 +94,128 @@ class Solution {
 }
 ```
 
-DFS：
+```cpp
+class Solution {
+public:
+    vector<vector<int>> graph;
+    vector<vector<int>> ans;
+
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        this->graph = graph;
+        vector<int> path;
+        path.push_back(0);
+        dfs(0, path);
+        return ans;
+    }
+
+    void dfs(int i, vector<int> path) {
+        if (i == graph.size() - 1) {
+            ans.push_back(path);
+            return;
+        }
+        for (int j : graph[i]) {
+            path.push_back(j);
+            dfs(j, path);
+            path.pop_back();
+        }
+    }
+};
+```
+
+```go
+func allPathsSourceTarget(graph [][]int) [][]int {
+	var path []int
+	path = append(path, 0)
+	var ans [][]int
+
+	var dfs func(i int)
+	dfs = func(i int) {
+		if i == len(graph)-1 {
+			ans = append(ans, append([]int(nil), path...))
+			return
+		}
+		for _, j := range graph[i] {
+			path = append(path, j)
+			dfs(j)
+			path = path[:len(path)-1]
+		}
+	}
+
+	dfs(0)
+	return ans
+}
+```
+
+```rust
+impl Solution {
+    fn dfs(i: usize, path: &mut Vec<i32>, res: &mut Vec<Vec<i32>>, graph: &Vec<Vec<i32>>) {
+        path.push(i as i32);
+        if i == graph.len() - 1 {
+            res.push(path.clone());
+        }
+        for j in graph[i].iter() {
+            Self::dfs(*j as usize, path, res, graph);
+        }
+        path.pop();
+    }
+
+    pub fn all_paths_source_target(graph: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let mut res = Vec::new();
+        Self::dfs(0, &mut vec![], &mut res, &graph);
+        res
+    }
+}
+```
+
+```js
+/**
+ * @param {number[][]} graph
+ * @return {number[][]}
+ */
+var allPathsSourceTarget = function (graph) {
+    const ans = [];
+    const t = [0];
+
+    const dfs = t => {
+        const cur = t[t.length - 1];
+        if (cur == graph.length - 1) {
+            ans.push([...t]);
+            return;
+        }
+        for (const v of graph[cur]) {
+            t.push(v);
+            dfs(t);
+            t.pop();
+        }
+    };
+
+    dfs(t);
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        def dfs(t):
+            if t[-1] == len(graph) - 1:
+                ans.append(t[:])
+                return
+            for v in graph[t[-1]]:
+                t.append(v)
+                dfs(t)
+                t.pop()
+
+        ans = []
+        dfs([0])
+        return ans
+```
 
 ```java
 class Solution {
@@ -158,122 +246,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-DFS：
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> graph;
-    vector<vector<int>> ans;
-
-    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
-        this->graph = graph;
-        vector<int> path;
-        path.push_back(0);
-        dfs(0, path);
-        return ans;
-    }
-
-    void dfs(int i, vector<int> path) {
-        if (i == graph.size() - 1) {
-            ans.push_back(path);
-            return;
-        }
-        for (int j : graph[i]) {
-            path.push_back(j);
-            dfs(j, path);
-            path.pop_back();
-        }
-    }
-};
-```
-
-DFS：
-
-### **Go**
-
-```go
-func allPathsSourceTarget(graph [][]int) [][]int {
-	var path []int
-	path = append(path, 0)
-	var ans [][]int
-
-	var dfs func(i int)
-	dfs = func(i int) {
-		if i == len(graph)-1 {
-			ans = append(ans, append([]int(nil), path...))
-			return
-		}
-		for _, j := range graph[i] {
-			path = append(path, j)
-			dfs(j)
-			path = path[:len(path)-1]
-		}
-	}
-
-	dfs(0)
-	return ans
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} graph
- * @return {number[][]}
- */
-var allPathsSourceTarget = function (graph) {
-    const ans = [];
-    const t = [0];
-
-    const dfs = t => {
-        const cur = t[t.length - 1];
-        if (cur == graph.length - 1) {
-            ans.push([...t]);
-            return;
-        }
-        for (const v of graph[cur]) {
-            t.push(v);
-            dfs(t);
-            t.pop();
-        }
-    };
-
-    dfs(t);
-    return ans;
-};
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    fn dfs(i: usize, path: &mut Vec<i32>, res: &mut Vec<Vec<i32>>, graph: &Vec<Vec<i32>>) {
-        path.push(i as i32);
-        if i == graph.len() - 1 {
-            res.push(path.clone());
-        }
-        for j in graph[i].iter() {
-            Self::dfs(*j as usize, path, res, graph);
-        }
-        path.pop();
-    }
-
-    pub fn all_paths_source_target(graph: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        let mut res = Vec::new();
-        Self::dfs(0, &mut vec![], &mut res, &graph);
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

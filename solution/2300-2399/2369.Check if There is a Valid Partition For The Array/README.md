@@ -48,38 +48,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 $dfs(i)$ 表示从数组从下标 $i$ 开始到结尾，是否至少存在一个有效的划分。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
-**方法二：动态规划**
-
-设 $dp[i]$ 表示数组前 $i$ 个元素是否至少存在一个有效的划分。初始时 $dp[0]=true$, $dp[1]=false$。
-
-根据题意，当 $i \ge 2$ 时，有
-
-$$
-dp[i] = \text{OR}
-\begin{cases}
-dp[i-2]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2],&i>1\\
-dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3],&i>2\\
-dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2]+1 = \textit{nums}[i-3]+2,&i>2
-\end{cases}
-$$
-
-答案为 $dp[n]$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,30 +79,6 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
-        n = len(nums)
-        dp = [False] * (n + 1)
-        dp[0] = True
-        for i in range(2, n + 1):
-            if nums[i - 1] == nums[i - 2]:
-                dp[i] = dp[i] or dp[i - 2]
-            if i > 2 and nums[i - 1] == nums[i - 2] == nums[i - 3]:
-                dp[i] = dp[i] or dp[i - 3]
-            if (
-                i > 2
-                and nums[i - 1] - nums[i - 2] == 1
-                and nums[i - 2] - nums[i - 3] == 1
-            ):
-                dp[i] = dp[i] or dp[i - 3]
-        return dp[-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,30 +117,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean validPartition(int[] nums) {
-        int n = nums.length;
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
-        for (int i = 2; i <= n; ++i) {
-            if (nums[i - 1] == nums[i - 2]) {
-                dp[i] = dp[i] || dp[i - 2];
-            }
-            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) {
-                dp[i] = dp[i] || dp[i - 3];
-            }
-            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) {
-                dp[i] = dp[i] || dp[i - 3];
-            }
-        }
-        return dp[n];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -216,25 +143,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool validPartition(vector<int>& nums) {
-        int n = nums.size();
-        vector<bool> dp(n + 1);
-        dp[0] = true;
-        for (int i = 2; i <= n; ++i) {
-            if (nums[i - 1] == nums[i - 2]) dp[i] = dp[i] || dp[i - 2];
-            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) dp[i] = dp[i] || dp[i - 3];
-            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) dp[i] = dp[i] || dp[i - 3];
-        }
-        return dp[n];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func validPartition(nums []int) bool {
@@ -271,28 +179,6 @@ func validPartition(nums []int) bool {
 }
 ```
 
-```go
-func validPartition(nums []int) bool {
-	n := len(nums)
-	dp := make([]bool, n+1)
-	dp[0] = true
-	for i := 2; i <= n; i++ {
-		if nums[i-1] == nums[i-2] {
-			dp[i] = dp[i] || dp[i-2]
-		}
-		if i > 2 && nums[i-1] == nums[i-2] && nums[i-2] == nums[i-3] {
-			dp[i] = dp[i] || dp[i-3]
-		}
-		if i > 2 && nums[i-1]-nums[i-2] == 1 && nums[i-2]-nums[i-3] == 1 {
-			dp[i] = dp[i] || dp[i-3]
-		}
-	}
-	return dp[n]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function validPartition(nums: number[]): boolean {
     const n = nums.length;
@@ -324,6 +210,108 @@ function validPartition(nums: number[]): boolean {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+设 $dp[i]$ 表示数组前 $i$ 个元素是否至少存在一个有效的划分。初始时 $dp[0]=true$, $dp[1]=false$。
+
+根据题意，当 $i \ge 2$ 时，有
+
+$$
+dp[i] = \text{OR}
+\begin{cases}
+dp[i-2]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2],&i>1\\
+dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3],&i>2\\
+dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2]+1 = \textit{nums}[i-3]+2,&i>2
+\end{cases}
+$$
+
+答案为 $dp[n]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validPartition(self, nums: List[int]) -> bool:
+        n = len(nums)
+        dp = [False] * (n + 1)
+        dp[0] = True
+        for i in range(2, n + 1):
+            if nums[i - 1] == nums[i - 2]:
+                dp[i] = dp[i] or dp[i - 2]
+            if i > 2 and nums[i - 1] == nums[i - 2] == nums[i - 3]:
+                dp[i] = dp[i] or dp[i - 3]
+            if (
+                i > 2
+                and nums[i - 1] - nums[i - 2] == 1
+                and nums[i - 2] - nums[i - 3] == 1
+            ):
+                dp[i] = dp[i] or dp[i - 3]
+        return dp[-1]
+```
+
+```java
+class Solution {
+    public boolean validPartition(int[] nums) {
+        int n = nums.length;
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for (int i = 2; i <= n; ++i) {
+            if (nums[i - 1] == nums[i - 2]) {
+                dp[i] = dp[i] || dp[i - 2];
+            }
+            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) {
+                dp[i] = dp[i] || dp[i - 3];
+            }
+            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) {
+                dp[i] = dp[i] || dp[i - 3];
+            }
+        }
+        return dp[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool validPartition(vector<int>& nums) {
+        int n = nums.size();
+        vector<bool> dp(n + 1);
+        dp[0] = true;
+        for (int i = 2; i <= n; ++i) {
+            if (nums[i - 1] == nums[i - 2]) dp[i] = dp[i] || dp[i - 2];
+            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) dp[i] = dp[i] || dp[i - 3];
+            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) dp[i] = dp[i] || dp[i - 3];
+        }
+        return dp[n];
+    }
+};
+```
+
+```go
+func validPartition(nums []int) bool {
+	n := len(nums)
+	dp := make([]bool, n+1)
+	dp[0] = true
+	for i := 2; i <= n; i++ {
+		if nums[i-1] == nums[i-2] {
+			dp[i] = dp[i] || dp[i-2]
+		}
+		if i > 2 && nums[i-1] == nums[i-2] && nums[i-2] == nums[i-3] {
+			dp[i] = dp[i] || dp[i-3]
+		}
+		if i > 2 && nums[i-1]-nums[i-2] == 1 && nums[i-2]-nums[i-3] == 1 {
+			dp[i] = dp[i] || dp[i-3]
+		}
+	}
+	return dp[n]
+}
+```
+
 ```ts
 function validPartition(nums: number[]): boolean {
     const n = nums.length;
@@ -344,10 +332,6 @@ function validPartition(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

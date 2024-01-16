@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们注意到数组的有序性，可以使用双指针的方法，从后向前遍历两个数组，每次取两个数组中较大的一个放进合并后的数组的最后面。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             k -= 1
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func merge(nums1 []int, m int, nums2 []int, n int) {
@@ -134,8 +120,6 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  Do not return anything, modify nums1 in-place instead.
@@ -146,37 +130,6 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
     }
 }
 ```
-
-```ts
-/**
- Do not return anything, modify nums1 in-place instead.
- */
-function merge(nums1: number[], m: number, nums2: number[], n: number): void {
-    nums1.length = m;
-    nums2.length = n;
-    nums1.push(...nums2);
-    nums1.sort((a, b) => a - b);
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums1
- * @param {number} m
- * @param {number[]} nums2
- * @param {number} n
- * @return {void} Do not return anything, modify nums1 in-place instead.
- */
-var merge = function (nums1, m, nums2, n) {
-    for (let i = m - 1, j = n - 1, k = m + n - 1; j >= 0; --k) {
-        nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
-    }
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -207,7 +160,20 @@ impl Solution {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function (nums1, m, nums2, n) {
+    for (let i = m - 1, j = n - 1, k = m + n - 1; j >= 0; --k) {
+        nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+    }
+};
+```
 
 ```php
 class Solution {
@@ -230,10 +196,24 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+/**
+ Do not return anything, modify nums1 in-place instead.
+ */
+function merge(nums1: number[], m: number, nums2: number[], n: number): void {
+    nums1.length = m;
+    nums2.length = n;
+    nums1.push(...nums2);
+    nums1.sort((a, b) => a - b);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

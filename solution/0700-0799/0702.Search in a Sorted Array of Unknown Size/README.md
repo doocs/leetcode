@@ -54,15 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二分法。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -90,10 +84,6 @@ class Solution:
         return left if reader.get(left) == target else -1
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /**
  * // This is ArrayReader's API interface.
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the ArrayReader's API interface.
@@ -177,10 +163,6 @@ func search(reader ArrayReader, target int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

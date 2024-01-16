@@ -43,29 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
+### 方法一：暴力枚举
 
 双重循环，枚举所有的下标对，求出 $(nums[i]-1) \times (nums[j]-1)$ 的最大值。其中 $i \neq j$。
 
 时间复杂度 $O(n^2)$。
 
-**方法二：排序**
-
-对 $nums$ 进行排序，取最后两个元素，计算乘积 $(nums[n-1]-1) \times (nums[n-2]-1)$ 即可。
-
-时间复杂度 $O(nlogn)$。
-
-**方法三：一次遍历**
-
-遍历 $nums$，维护最大值 $a$ 和次大值 $b$。遍历结束，返回 $(a-1) \times (b-1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,29 +60,6 @@ class Solution:
                 ans = max(ans, (a - 1) * (b - 1))
         return ans
 ```
-
-```python
-class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
-        nums.sort()
-        return (nums[-1] - 1) * (nums[-2] - 1)
-```
-
-```python
-class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
-        a = b = 0
-        for v in nums:
-            if v > a:
-                a, b = v, a
-            elif v > b:
-                b = v
-        return (a - 1) * (b - 1)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,35 +75,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int maxProduct(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        return (nums[n - 1] - 1) * (nums[n - 2] - 1);
-    }
-}
-```
-
-```java
-class Solution {
-    public int maxProduct(int[] nums) {
-        int a = 0, b = 0;
-        for (int v : nums) {
-            if (v > a) {
-                b = a;
-                a = v;
-            } else if (v > b) {
-                b = v;
-            }
-        }
-        return (a - 1) * (b - 1);
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -160,36 +92,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maxProduct(vector<int>& nums) {
-        sort(nums.rbegin(), nums.rend());
-        return (nums[0] - 1) * (nums[1] - 1);
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int maxProduct(vector<int>& nums) {
-        int a = 0, b = 0;
-        for (int v : nums) {
-            if (v > a) {
-                b = a;
-                a = v;
-            } else if (v > b) {
-                b = v;
-            }
-        }
-        return (a - 1) * (b - 1);
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxProduct(nums []int) int {
 	ans := 0
@@ -204,49 +106,6 @@ func maxProduct(nums []int) int {
 	return ans
 }
 ```
-
-```go
-func maxProduct(nums []int) int {
-	sort.Ints(nums)
-	n := len(nums)
-	return (nums[n-1] - 1) * (nums[n-2] - 1)
-}
-```
-
-```go
-func maxProduct(nums []int) int {
-	a, b := 0, 0
-	for _, v := range nums {
-		if v > a {
-			b, a = a, v
-		} else if v > b {
-			b = v
-		}
-	}
-	return (a - 1) * (b - 1)
-}
-```
-
-### **C**
-
-```c
-int maxProduct(int* nums, int numsSize) {
-    int max = 0;
-    int submax = 0;
-    for (int i = 0; i < numsSize; i++) {
-        int num = nums[i];
-        if (num > max) {
-            submax = max;
-            max = num;
-        } else if (num > submax) {
-            submax = num;
-        }
-    }
-    return (max - 1) * (submax - 1);
-}
-```
-
-### **TypeScript**
 
 ```ts
 function maxProduct(nums: number[]): number {
@@ -263,24 +122,6 @@ function maxProduct(nums: number[]): number {
     return (nums[0] - 1) * (nums[1] - 1);
 }
 ```
-
-```ts
-function maxProduct(nums: number[]): number {
-    let max = 0;
-    let submax = 0;
-    for (const num of nums) {
-        if (num > max) {
-            submax = max;
-            max = num;
-        } else if (num > submax) {
-            submax = num;
-        }
-    }
-    return (max - 1) * (submax - 1);
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -299,8 +140,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -324,10 +163,153 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int maxProduct(int* nums, int numsSize) {
+    int max = 0;
+    int submax = 0;
+    for (int i = 0; i < numsSize; i++) {
+        int num = nums[i];
+        if (num > max) {
+            submax = max;
+            max = num;
+        } else if (num > submax) {
+            submax = num;
+        }
+    }
+    return (max - 1) * (submax - 1);
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：排序
+
+对 $nums$ 进行排序，取最后两个元素，计算乘积 $(nums[n-1]-1) \times (nums[n-2]-1)$ 即可。
+
+时间复杂度 $O(nlogn)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        nums.sort()
+        return (nums[-1] - 1) * (nums[-2] - 1)
+```
+
+```java
+class Solution {
+    public int maxProduct(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        return (nums[n - 1] - 1) * (nums[n - 2] - 1);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        sort(nums.rbegin(), nums.rend());
+        return (nums[0] - 1) * (nums[1] - 1);
+    }
+};
+```
+
+```go
+func maxProduct(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	return (nums[n-1] - 1) * (nums[n-2] - 1)
+}
+```
+
+```ts
+function maxProduct(nums: number[]): number {
+    let max = 0;
+    let submax = 0;
+    for (const num of nums) {
+        if (num > max) {
+            submax = max;
+            max = num;
+        } else if (num > submax) {
+            submax = num;
+        }
+    }
+    return (max - 1) * (submax - 1);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三：一次遍历
+
+遍历 $nums$，维护最大值 $a$ 和次大值 $b$。遍历结束，返回 $(a-1) \times (b-1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        a = b = 0
+        for v in nums:
+            if v > a:
+                a, b = v, a
+            elif v > b:
+                b = v
+        return (a - 1) * (b - 1)
+```
+
+```java
+class Solution {
+    public int maxProduct(int[] nums) {
+        int a = 0, b = 0;
+        for (int v : nums) {
+            if (v > a) {
+                b = a;
+                a = v;
+            } else if (v > b) {
+                b = v;
+            }
+        }
+        return (a - 1) * (b - 1);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int a = 0, b = 0;
+        for (int v : nums) {
+            if (v > a) {
+                b = a;
+                a = v;
+            } else if (v > b) {
+                b = v;
+            }
+        }
+        return (a - 1) * (b - 1);
+    }
+};
+```
+
+```go
+func maxProduct(nums []int) int {
+	a, b := 0, 0
+	for _, v := range nums {
+		if v > a {
+			b, a = a, v
+		} else if v > b {
+			b = v
+		}
+	}
+	return (a - 1) * (b - 1)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

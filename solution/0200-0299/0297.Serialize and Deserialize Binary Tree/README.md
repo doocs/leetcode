@@ -53,13 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -117,10 +113,6 @@ class Codec:
 # deser = Codec()
 # ans = deser.deserialize(ser.serialize(root))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -186,8 +178,6 @@ public class Codec {
 // TreeNode ans = deser.deserialize(ser.serialize(root));
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -241,71 +231,6 @@ public:
 // TreeNode* ans = deser.deserialize(ser.serialize(root));
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-
-/**
- * Encodes a tree to a single string.
- *
- * @param {TreeNode} root
- * @return {string}
- */
-var serialize = function (root) {
-    return rserialize(root, '');
-};
-
-/**
- * Decodes your encoded data to tree.
- *
- * @param {string} data
- * @return {TreeNode}
- */
-var deserialize = function (data) {
-    const dataArray = data.split(',');
-    return rdeserialize(dataArray);
-};
-
-const rserialize = (root, str) => {
-    if (root === null) {
-        str += '#,';
-    } else {
-        str += root.val + '' + ',';
-        str = rserialize(root.left, str);
-        str = rserialize(root.right, str);
-    }
-    return str;
-};
-
-const rdeserialize = dataList => {
-    if (dataList[0] === '#') {
-        dataList.shift();
-        return null;
-    }
-
-    const root = new TreeNode(parseInt(dataList[0]));
-    dataList.shift();
-    root.left = rdeserialize(dataList);
-    root.right = rdeserialize(dataList);
-
-    return root;
-};
-
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
-```
-
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -340,59 +265,6 @@ function deserialize(data: string): TreeNode | null {
  * deserialize(serialize(root));
  */
 ```
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-/*
- * Encodes a tree to a single string.
- */
-function serialize(root: TreeNode | null): string {
-    if (root == null) {
-        return '#';
-    }
-    const { val, left, right } = root;
-    return `${val},${serialize(left)},${serialize(right)}`;
-}
-
-/*
- * Decodes your encoded data to tree.
- */
-function deserialize(data: string): TreeNode | null {
-    const n = data.length;
-    if (n === 1) {
-        return null;
-    }
-    const vals = data.split(',').reverse();
-    const renew = () => {
-        const val = vals.pop();
-        if (val == null || val === '#') {
-            return null;
-        }
-        return new TreeNode(Number(val), renew(), renew());
-    };
-    return renew();
-}
-
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -466,10 +338,124 @@ impl Codec {
  */
 ```
 
-### **...**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
 
-```
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function (root) {
+    return rserialize(root, '');
+};
 
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function (data) {
+    const dataArray = data.split(',');
+    return rdeserialize(dataArray);
+};
+
+const rserialize = (root, str) => {
+    if (root === null) {
+        str += '#,';
+    } else {
+        str += root.val + '' + ',';
+        str = rserialize(root.left, str);
+        str = rserialize(root.right, str);
+    }
+    return str;
+};
+
+const rdeserialize = dataList => {
+    if (dataList[0] === '#') {
+        dataList.shift();
+        return null;
+    }
+
+    const root = new TreeNode(parseInt(dataList[0]));
+    dataList.shift();
+    root.left = rdeserialize(dataList);
+    root.right = rdeserialize(dataList);
+
+    return root;
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+    if (root == null) {
+        return '#';
+    }
+    const { val, left, right } = root;
+    return `${val},${serialize(left)},${serialize(right)}`;
+}
+
+/*
+ * Decodes your encoded data to tree.
+ */
+function deserialize(data: string): TreeNode | null {
+    const n = data.length;
+    if (n === 1) {
+        return null;
+    }
+    const vals = data.split(',').reverse();
+    const renew = () => {
+        const val = vals.pop();
+        if (val == null || val === '#') {
+            return null;
+        }
+        return new TreeNode(Number(val), renew(), renew());
+    };
+    return renew();
+}
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

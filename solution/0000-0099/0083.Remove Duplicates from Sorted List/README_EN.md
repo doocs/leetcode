@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: Single Pass**
+### Solution 1: Single Pass
 
 We use a pointer $cur$ to traverse the linked list. If the element corresponding to the current $cur$ is the same as the element corresponding to $cur.next$, we set the $next$ pointer of $cur$ to point to the next node of $cur.next$. Otherwise, it means that the element corresponding to $cur$ in the linked list is not duplicated, so we can move the $cur$ pointer to the next node.
 
@@ -41,8 +41,6 @@ After the traversal ends, return the head node of the linked list.
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -60,8 +58,6 @@ class Solution:
                 cur = cur.next
         return head
 ```
-
-### **Java**
 
 ```java
 /**
@@ -88,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -140,35 +132,6 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var deleteDuplicates = function (head) {
-    let cur = head;
-    while (cur && cur.next) {
-        if (cur.next.val === cur.val) {
-            cur.next = cur.next.next;
-        } else {
-            cur = cur.next;
-        }
-    }
-    return head;
-};
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -205,7 +168,30 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function (head) {
+    let cur = head;
+    while (cur && cur.next) {
+        if (cur.next.val === cur.val) {
+            cur.next = cur.next.next;
+        } else {
+            cur = cur.next;
+        }
+    }
+    return head;
+};
+```
 
 ```cs
 /**
@@ -234,10 +220,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

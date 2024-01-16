@@ -73,9 +73,9 @@ The second minimum time path is 1 -&gt; 2 -&gt; 1 -&gt; 2 with time = 11 minutes
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -107,8 +107,6 @@ class Solution:
                 ans = (ans + change) // change * change
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -155,10 +153,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

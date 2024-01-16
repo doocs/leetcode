@@ -42,9 +42,9 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class ParkingSystem:
@@ -62,8 +62,6 @@ class ParkingSystem:
 # obj = ParkingSystem(big, medium, small)
 # param_1 = obj.addCar(carType)
 ```
-
-### **Java**
 
 ```java
 class ParkingSystem {
@@ -89,8 +87,6 @@ class ParkingSystem {
  */
 ```
 
-### **C++**
-
 ```cpp
 class ParkingSystem {
 public:
@@ -113,8 +109,6 @@ public:
  * bool param_1 = obj->addCar(carType);
  */
 ```
-
-### **Go**
 
 ```go
 type ParkingSystem struct {
@@ -140,8 +134,6 @@ func (this *ParkingSystem) AddCar(carType int) bool {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class ParkingSystem {
     private count: [number, number, number];
@@ -165,8 +157,6 @@ class ParkingSystem {
  * var param_1 = obj.addCar(carType)
  */
 ```
-
-### **Rust**
 
 ```rust
 struct ParkingSystem {
@@ -199,7 +189,30 @@ impl ParkingSystem {
  */
 ```
 
-### **C**
+```cs
+public class ParkingSystem {
+
+    private List<int> cnt;
+
+    public ParkingSystem(int big, int medium, int small) {
+        cnt = new List<int>() {0 , big, medium, small};
+    }
+
+    public bool AddCar(int carType) {
+        if (cnt[carType] == 0) {
+            return false;
+        }
+        --cnt[carType];
+        return true;
+    }
+}
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * ParkingSystem obj = new ParkingSystem(big, medium, small);
+ * bool param_1 = obj.AddCar(carType);
+ */
+```
 
 ```c
 typedef struct {
@@ -237,37 +250,6 @@ void parkingSystemFree(ParkingSystem* obj) {
 */
 ```
 
-### **C#**
-
-```cs
-public class ParkingSystem {
-
-    private List<int> cnt;
-
-    public ParkingSystem(int big, int medium, int small) {
-        cnt = new List<int>() {0 , big, medium, small};
-    }
-
-    public bool AddCar(int carType) {
-        if (cnt[carType] == 0) {
-            return false;
-        }
-        --cnt[carType];
-        return true;
-    }
-}
-
-/**
- * Your ParkingSystem object will be instantiated and called as such:
- * ParkingSystem obj = new ParkingSystem(big, medium, small);
- * bool param_1 = obj.AddCar(carType);
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

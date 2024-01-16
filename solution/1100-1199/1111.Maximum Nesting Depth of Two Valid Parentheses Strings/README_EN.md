@@ -54,7 +54,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We use a variable $x$ to maintain the current balance of parentheses, which is the number of left parentheses minus the number of right parentheses.
 
@@ -63,8 +63,6 @@ We traverse the string $seq$, updating the value of $x$. If $x$ is odd, we assig
 The time complexity is $O(n)$, where $n$ is the length of the string $seq$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
                 ans[i] = x & 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDepthAfterSplit(seq string) []int {
 	n := len(seq)
@@ -139,8 +131,6 @@ func maxDepthAfterSplit(seq string) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxDepthAfterSplit(seq: string): number[] {
     const n = seq.length;
@@ -156,10 +146,6 @@ function maxDepthAfterSplit(seq: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

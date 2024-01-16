@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举分段数量 + 模拟**
+### 方法一：枚举分段数量 + 模拟
 
 我们设字符串 `message` 的长度为 $n$，分段数量为 $k$。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n\times \log n)$，其中 $n$ 为字符串 `message` 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                 return ans
         return []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func splitMessage(message string, limit int) (ans []string) {
 	n := len(message)
@@ -180,16 +166,6 @@ func splitMessage(message string, limit int) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

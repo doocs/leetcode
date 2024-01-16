@@ -46,15 +46,9 @@ S = &quot;bbbcccdddaaa&quot;
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                 last = w
         return [row, last]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfLines(widths []int, s string) []int {
 	last, row := 0, 1
@@ -134,8 +120,6 @@ func numberOfLines(widths []int, s string) []int {
 	return []int{row, last}
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -155,10 +139,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

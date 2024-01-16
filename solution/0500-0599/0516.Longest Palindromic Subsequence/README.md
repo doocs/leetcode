@@ -39,20 +39,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-动态规划。
-
-设 `dp[i][j]` 表示字符串 `s[i..j]` 中的最长回文子序列的长度。初始化 `dp[i][i] = 1`(`i∈[0, n-1]`)。
-
--   对于 `s[i] == s[j]`，`dp[i][j] = dp[i + 1][j - 1] + 2`；
--   对于 `s[i] != s[j]`，`dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])`。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +58,6 @@ class Solution:
                     dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])
         return dp[0][-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPalindromeSubseq(s string) int {
 	n := len(s)
@@ -144,10 +125,6 @@ func longestPalindromeSubseq(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

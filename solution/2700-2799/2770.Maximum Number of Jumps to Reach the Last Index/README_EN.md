@@ -61,7 +61,7 @@ It can be proven that there is no other jumping sequence that goes from 0 to n -
 
 ## Solutions
 
-**Solution 1: Memoization**
+### Solution 1: Memoization
 
 For each position $i$, we consider to jump to position $j$ which satisfies $|nums[i] - nums[j]| \leq target$. Then we can jump from $i$ to $j$, and continue to jump from $j$ to the end.
 
@@ -77,8 +77,6 @@ To avoid duplicate calculations, we can use memoization.
 Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -97,8 +95,6 @@ class Solution:
         ans = dfs(0)
         return -1 if ans < 0 else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +157,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumJumps(nums []int, target int) int {
@@ -204,8 +196,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumJumps(nums: number[], target: number): number {
     const n = nums.length;
@@ -230,10 +220,6 @@ function maximumJumps(nums: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

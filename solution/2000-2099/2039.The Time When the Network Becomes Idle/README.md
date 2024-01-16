@@ -84,9 +84,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们先根据二维数组 $edges$ 构建无向图 $g$，其中 $g[u]$ 表示节点 $u$ 的所有邻居节点。
 
@@ -95,10 +93,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -122,10 +116,6 @@ class Solution:
                         ans = max(ans, (t - 1) // patience[v] * patience[v] + t + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -161,8 +151,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -200,8 +188,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func networkBecomesIdle(edges [][]int, patience []int) (ans int) {
 	n := len(patience)
@@ -231,8 +217,6 @@ func networkBecomesIdle(edges [][]int, patience []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function networkBecomesIdle(edges: number[][], patience: number[]): number {
@@ -264,10 +248,6 @@ function networkBecomesIdle(edges: number[][], patience: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

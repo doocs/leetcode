@@ -56,17 +56,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 Bob 取走最小的 1/3，剩余的硬币堆由 Alice 和我按硬币数从高到低依次取走每一堆。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
         piles.sort()
         return sum(piles[-2 : len(piles) // 3 - 1 : -2])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxCoins(piles []int) int {
 	sort.Ints(piles)
@@ -119,8 +105,6 @@ func maxCoins(piles []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxCoins(piles: number[]): number {
@@ -133,8 +117,6 @@ function maxCoins(piles: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -149,8 +131,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -167,10 +147,6 @@ int maxCoins(int* piles, int pilesSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

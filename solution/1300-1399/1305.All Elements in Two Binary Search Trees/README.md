@@ -39,15 +39,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二叉树中序遍历 + 有序列表归并。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -88,10 +82,6 @@ class Solution:
         dfs(root2, t2)
         return merge(t1, t2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -148,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -194,8 +182,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -245,7 +231,49 @@ func getAllElements(root1 *TreeNode, root2 *TreeNode) []int {
 }
 ```
 
-### **Rust**
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[] {
+    const res = [];
+    const stacks = [[], []];
+    while (root1 != null || stacks[0].length !== 0 || root2 != null || stacks[1].length !== 0) {
+        if (root1 != null) {
+            stacks[0].push(root1);
+            root1 = root1.left;
+        } else if (root2 != null) {
+            stacks[1].push(root2);
+            root2 = root2.left;
+        } else {
+            if (
+                (stacks[0][stacks[0].length - 1] ?? { val: Infinity }).val <
+                (stacks[1][stacks[1].length - 1] ?? { val: Infinity }).val
+            ) {
+                const { val, right } = stacks[0].pop();
+                res.push(val);
+                root1 = right;
+            } else {
+                const { val, right } = stacks[1].pop();
+                res.push(val);
+                root2 = right;
+            }
+        }
+    }
+    return res;
+}
+```
 
 ```rust
 // Definition for a binary tree node.
@@ -311,56 +339,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[] {
-    const res = [];
-    const stacks = [[], []];
-    while (root1 != null || stacks[0].length !== 0 || root2 != null || stacks[1].length !== 0) {
-        if (root1 != null) {
-            stacks[0].push(root1);
-            root1 = root1.left;
-        } else if (root2 != null) {
-            stacks[1].push(root2);
-            root2 = root2.left;
-        } else {
-            if (
-                (stacks[0][stacks[0].length - 1] ?? { val: Infinity }).val <
-                (stacks[1][stacks[1].length - 1] ?? { val: Infinity }).val
-            ) {
-                const { val, right } = stacks[0].pop();
-                res.push(val);
-                root1 = right;
-            } else {
-                const { val, right } = stacks[1].pop();
-                res.push(val);
-                root2 = right;
-            }
-        }
-    }
-    return res;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

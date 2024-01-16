@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 我们可以先将课程之间的先修关系建立图 $g$，并统计每个课程的入度 $indeg$。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为课程数和先修关系数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                         q.append(j)
         return -1 if n else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -169,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSemesters(n int, relations [][]int) (ans int) {
 	g := make([][]int, n)
@@ -207,8 +193,6 @@ func minimumSemesters(n int, relations [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSemesters(n: number, relations: number[][]): number {
     const g = Array.from({ length: n }, () => []);
@@ -240,10 +224,6 @@ function minimumSemesters(n: number, relations: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

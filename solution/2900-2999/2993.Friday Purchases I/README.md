@@ -61,9 +61,7 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：日期函数**
+### 方法一：日期函数
 
 我们用到的日期函数有：
 
@@ -74,10 +72,6 @@ Output table is ordered by week_of_month in ascending order.</pre>
 我们先用 `DATE_FORMAT` 函数将日期格式化为 `YYYYMM` 的形式，然后筛选出 2023 年 11 月且是星期五的记录，然后将记录按照 `purchase_date` 分组，计算出每个星期五的总消费金额。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -92,3 +86,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

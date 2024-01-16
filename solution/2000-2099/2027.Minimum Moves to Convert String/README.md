@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 遍历字符串 $s$，只要遇到 `'X'`，指针 $i$ 就直接往后移动三格，并且答案加 $1$；否则指针 $i$ 往后移动一格。
 
 时间复杂度 $O(n)$。其中 $n$ 表示字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                 i += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumMoves(s string) (ans int) {
 	for i := 0; i < len(s); i++ {
@@ -128,8 +114,6 @@ func minimumMoves(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumMoves(s: string): number {
@@ -147,8 +131,6 @@ function minimumMoves(s: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -170,8 +152,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int minimumMoves(char* s) {
     int n = strlen(s);
@@ -189,10 +169,6 @@ int minimumMoves(char* s) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

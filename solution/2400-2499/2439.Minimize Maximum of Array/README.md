@@ -53,19 +53,13 @@ nums 中最大值为 5 。无法得到比 5 更小的最大值。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 最小化数组的最大值，容易想到二分查找。我们二分枚举数组的最大值 $mx$，找到一个满足题目要求的、且值最小的 $mx$ 即可。
 
 时间复杂度 $O(n \times \log M)$，其中 $n$ 为数组的长度，而 $M$ 为数组中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -152,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizeArrayValue(nums []int) int {
 	check := func(mx int) bool {
@@ -177,16 +163,6 @@ func minimizeArrayValue(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

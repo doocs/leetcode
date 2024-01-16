@@ -63,19 +63,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 将 words 所有单词翻译成对应的摩尔斯密码，加入到哈希表中，最后返回哈希表的 size。
 
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -112,10 +106,6 @@ class Solution:
         return len(s)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
@@ -135,7 +125,38 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int uniqueMorseRepresentations(vector<string>& words) {
+        vector<string> codes = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
+            "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+        unordered_set<string> s;
+        for (auto& word : words) {
+            string t;
+            for (char& c : word) t += codes[c - 'a'];
+            s.insert(t);
+        }
+        return s.size();
+    }
+};
+```
+
+```go
+func uniqueMorseRepresentations(words []string) int {
+	codes := []string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
+		"---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."}
+	s := make(map[string]bool)
+	for _, word := range words {
+		t := &strings.Builder{}
+		for _, c := range word {
+			t.WriteString(codes[c-'a'])
+		}
+		s[t.String()] = true
+	}
+	return len(s)
+}
+```
 
 ```ts
 const codes = [
@@ -178,8 +199,6 @@ function uniqueMorseRepresentations(words: string[]): number {
     ).size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -227,47 +246,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int uniqueMorseRepresentations(vector<string>& words) {
-        vector<string> codes = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
-            "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
-        unordered_set<string> s;
-        for (auto& word : words) {
-            string t;
-            for (char& c : word) t += codes[c - 'a'];
-            s.insert(t);
-        }
-        return s.size();
-    }
-};
-```
-
-### **Go**
-
-```go
-func uniqueMorseRepresentations(words []string) int {
-	codes := []string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
-		"---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."}
-	s := make(map[string]bool)
-	for _, word := range words {
-		t := &strings.Builder{}
-		for _, c := range word {
-			t.WriteString(codes[c-'a'])
-		}
-		s[t.String()] = true
-	}
-	return len(s)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

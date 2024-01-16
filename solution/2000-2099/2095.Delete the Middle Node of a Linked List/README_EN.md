@@ -54,9 +54,9 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -74,8 +74,6 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -101,36 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function deleteMiddle(head: ListNode | null): ListNode | null {
-    if (!head || !head.next) return null;
-    let fast = head.next,
-        slow = head;
-    while (fast.next && fast.next.next) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    slow.next = slow.next.next;
-    return head;
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -159,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -180,10 +146,32 @@ func deleteMiddle(head *ListNode) *ListNode {
 }
 ```
 
-### **...**
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
 
-```
-
+function deleteMiddle(head: ListNode | null): ListNode | null {
+    if (!head || !head.next) return null;
+    let fast = head.next,
+        slow = head;
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    slow.next = slow.next.next;
+    return head;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

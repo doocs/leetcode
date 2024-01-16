@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -81,8 +81,6 @@ class Solution:
         head.left = prev
         return head
 ```
-
-### **Java**
 
 ```java
 /*
@@ -139,8 +137,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -195,8 +191,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -234,8 +228,6 @@ func treeToDoublyList(root *Node) *Node {
 	return head
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -275,10 +267,6 @@ var treeToDoublyList = function (root) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

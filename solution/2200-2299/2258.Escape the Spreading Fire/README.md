@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + BFS**
+### 方法一：二分查找 + BFS
 
 我们注意到，如果一个停留时间 $t$ 满足条件，那么所有小于 $t$ 的时间也都满足条件。因此我们可以考虑使用二分查找的方法找到最大的满足条件的时间。
 
@@ -84,10 +82,6 @@
 时间复杂度 $O(m \times n \times \log (m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -154,10 +148,6 @@ class Solution:
                 r = mid - 1
         return int(1e9) if l == m * n else l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -248,8 +238,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -328,8 +316,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumMinutes(grid [][]int) int {
@@ -413,8 +399,6 @@ func maximumMinutes(grid [][]int) int {
 	return l
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumMinutes(grid: number[][]): number {
@@ -500,10 +484,6 @@ function maximumMinutes(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

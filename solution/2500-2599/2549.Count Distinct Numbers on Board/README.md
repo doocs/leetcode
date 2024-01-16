@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 由于每一次对桌面上的数字 $n$ 进行操作，会使得数字 $n-1$ 也出现在桌面上，因此最终桌面上的数字为 $[2,...n]$，即 $n-1$ 个数字。
 
@@ -67,19 +65,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def distinctIntegers(self, n: int) -> int:
         return max(1, n - 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distinctIntegers(n int) int {
 	if n == 1 {
@@ -111,15 +97,11 @@ func distinctIntegers(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distinctIntegers(n: number): number {
     return Math.max(1, n - 1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -133,10 +115,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

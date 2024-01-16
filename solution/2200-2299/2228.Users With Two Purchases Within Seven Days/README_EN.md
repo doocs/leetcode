@@ -57,9 +57,9 @@ User 7 had two purchases on the same day so we add their ID.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -83,3 +83,5 @@ ORDER BY user_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

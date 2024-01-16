@@ -39,7 +39,7 @@ It can be shown that 6 is the maximum score we can obtain.
 
 ## Solutions
 
-**Solution 1: Greedy + Sorting**
+### Solution 1: Greedy + Sorting
 
 To maximize the number of positive integers in the prefix sum array, we need to make the elements in the prefix sum array as large as possible, that is, to add as many positive integers as possible. Therefore, we can sort the array $nums$ in descending order, then traverse the array, maintaining the prefix sum $s$. If $s \leq 0$, it means that there can be no more positive integers in the current position and the positions after it, so we can directly return the current position.
 
@@ -48,8 +48,6 @@ Otherwise, after the traversal, we return the length of the array.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
                 return i
         return len(nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScore(nums []int) int {
 	sort.Ints(nums)
@@ -119,7 +111,20 @@ func maxScore(nums []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function maxScore(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let s = 0;
+    for (let i = 0; i < n; ++i) {
+        s += nums[n - i - 1];
+        if (s <= 0) {
+            return i;
+        }
+    }
+    return n;
+}
+```
 
 ```rust
 impl Solution {
@@ -137,27 +142,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxScore(nums: number[]): number {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    let s = 0;
-    for (let i = 0; i < n; ++i) {
-        s += nums[n - i - 1];
-        if (s <= 0) {
-            return i;
-        }
-    }
-    return n;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

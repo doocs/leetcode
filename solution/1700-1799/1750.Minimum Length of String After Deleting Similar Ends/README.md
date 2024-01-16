@@ -60,19 +60,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们定义两个指针 $i$ 和 $j$ 分别指向字符串 $s$ 的头部和尾部，然后向中间移动，直到 $i$ 和 $j$ 指向的字符不相等，此时 $\max(0, j - i + 1)$ 即为答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             i, j = i + 1, j - 1
         return max(0, j - i + 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumLength(s string) int {
 	i, j := 0, len(s)-1
@@ -149,8 +135,6 @@ func minimumLength(s string) int {
 	return max(0, j-i+1)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumLength(s: string): number {
@@ -169,8 +153,6 @@ function minimumLength(s: string): number {
     return Math.max(0, j - i + 1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -194,8 +176,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int minimumLength(char* s) {
     int n = strlen(s);
@@ -218,10 +198,6 @@ int minimumLength(char* s) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

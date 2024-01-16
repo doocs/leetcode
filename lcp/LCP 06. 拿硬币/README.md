@@ -33,9 +33,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们可以发现，每堆力扣币拿完的最少次数，等于该堆力扣币数量除以 $2$ 向上取整的结果之和。
 
@@ -45,19 +43,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minCount(self, coins: List[int]) -> int:
         return sum((x + 1) >> 1 for x in coins)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -70,8 +60,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,8 +74,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCount(coins []int) (ans int) {
 	for _, x := range coins {
@@ -96,8 +82,6 @@ func minCount(coins []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minCount(coins: number[]): number {
@@ -109,8 +93,6 @@ function minCount(coins: number[]): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn min_count(coins: Vec<i32>) -> i32 {
@@ -121,20 +103,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
-
-```c
-int minCount(int* coins, int coinsSize) {
-    int ans = 0;
-    for (int i = 0; i < coinsSize; ++i) {
-        ans += (coins[i] + 1) >> 1;
-    }
-    return ans;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -152,10 +120,16 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int minCount(int* coins, int coinsSize) {
+    int ans = 0;
+    for (int i = 0; i < coinsSize; ++i) {
+        ans += (coins[i] + 1) >> 1;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

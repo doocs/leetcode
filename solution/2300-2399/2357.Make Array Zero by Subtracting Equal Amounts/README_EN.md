@@ -43,17 +43,15 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
         return len({x for x in nums if x})
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -92,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumOperations(nums []int) (ans int) {
 	s := [101]bool{true}
@@ -107,8 +101,6 @@ func minimumOperations(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumOperations(nums: number[]): number {
     const set = new Set(nums);
@@ -116,8 +108,6 @@ function minimumOperations(nums: number[]): number {
     return set.size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -129,8 +119,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int minimumOperations(int* nums, int numsSize) {
@@ -148,10 +136,6 @@ int minimumOperations(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

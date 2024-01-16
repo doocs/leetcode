@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先根据 $manager$ 数组构建邻接表 $g$，其中 $g[i]$ 表示员工 $i$ 的所有直接下属。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为员工数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
             g[x].append(i)
         return dfs(headID)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 	g := make([][]int, n)
@@ -166,8 +152,6 @@ func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numOfMinutes(n: number, headID: number, manager: number[], informTime: number[]): number {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -186,8 +170,6 @@ function numOfMinutes(n: number, headID: number, manager: number[], informTime: 
     return dfs(headID);
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -218,10 +200,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

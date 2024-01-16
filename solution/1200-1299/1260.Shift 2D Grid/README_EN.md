@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Solution 1: Flattening the 2D Array**
+### Solution 1: Flattening the 2D Array
 
 According to the problem description, if we flatten the 2D array into a 1D array, then each shift operation is to move the elements in the array one position to the right, with the last element moving to the first position of the array.
 
@@ -61,8 +61,6 @@ Therefore, we can flatten the 2D array into a 1D array, then calculate the final
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the `grid` array, respectively. We need to traverse the `grid` array once to calculate the final position of each element. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,8 +73,6 @@ class Solution:
                 ans[x][y] = v
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +115,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shiftGrid(grid [][]int, k int) [][]int {
@@ -142,8 +134,6 @@ func shiftGrid(grid [][]int, k int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shiftGrid(grid: number[][], k: number): number[][] {
     const [m, n] = [grid.length, grid[0].length];
@@ -159,10 +149,6 @@ function shiftGrid(grid: number[][], k: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

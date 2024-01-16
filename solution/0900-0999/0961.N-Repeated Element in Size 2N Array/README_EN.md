@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
                 return x
             s.add(x)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -83,8 +79,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func repeatedNTimes(nums []int) int {
 	s := map[int]bool{}
@@ -97,8 +91,6 @@ func repeatedNTimes(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function repeatedNTimes(nums: number[]): number {
     const s: Set<number> = new Set();
@@ -110,8 +102,6 @@ function repeatedNTimes(nums: number[]): number {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -129,10 +119,6 @@ var repeatedNTimes = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

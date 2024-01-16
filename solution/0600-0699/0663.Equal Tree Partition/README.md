@@ -36,15 +36,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-后序遍历，记录每个子树的和。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -69,10 +63,6 @@ class Solution:
         seen.pop()
         return s // 2 in seen
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -189,10 +175,6 @@ func checkEqualTree(root *TreeNode) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

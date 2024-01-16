@@ -47,15 +47,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先将字符串 s 进行 convert 转换，比如 `"{a,b}{z,x,y}"` 转换为 `[['a', 'b'], ['z', 'x', 'y']]`，然后利用 DFS 回溯获取每一个单词，放到 ans 中，最后对 ans 进行排序并返回即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
         ans.sort()
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,10 +133,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

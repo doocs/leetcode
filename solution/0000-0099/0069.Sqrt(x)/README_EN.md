@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = x$, then we search for the square root within the range $[l, r]$.
 
@@ -49,8 +49,6 @@ After the search ends, we return $l$.
 The time complexity is $O(\log x)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
                 l = mid
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,55 +98,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mySqrt(x int) int {
 	return sort.Search(x+1, func(i int) bool { return i*i > x }) - 1
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} x
- * @return {number}
- */
-var mySqrt = function (x) {
-    let [l, r] = [0, x];
-    while (l < r) {
-        const mid = (l + r + 1) >> 1;
-        if (mid > x / mid) {
-            r = mid - 1;
-        } else {
-            l = mid;
-        }
-    }
-    return l;
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MySqrt(int x) {
-        int l = 0, r = x;
-        while (l < r) {
-            int mid = (l + r + 1) >>> 1;
-            if (mid > x / mid) {
-                r = mid - 1;
-            } else {
-                l = mid;
-            }
-        }
-        return l;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -175,10 +125,42 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function (x) {
+    let [l, r] = [0, x];
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (mid > x / mid) {
+            r = mid - 1;
+        } else {
+            l = mid;
+        }
+    }
+    return l;
+};
 ```
 
+```cs
+public class Solution {
+    public int MySqrt(int x) {
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1) >>> 1;
+            if (mid > x / mid) {
+                r = mid - 1;
+            } else {
+                l = mid;
+            }
+        }
+        return l;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

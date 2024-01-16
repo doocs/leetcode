@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们注意到，正整数 $n$ 初始值为 $1$，每次乘以 $10$ 后再加 $1$，即 $n = n \times 10 + 1$，而 $(n \times 10 + 1) \bmod k = ((n \bmod k) \times 10 + 1) \bmod k$，因此我们可以通过计算 $n \bmod k$ 来判断 $n$ 是否能被 $k$ 整除。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(k)$，空间复杂度 $O(1)$。其中 $k$ 为给定的正整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
             n = (n * 10 + 1) % k
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestRepunitDivByK(k int) int {
 	n := 1 % k
@@ -123,8 +109,6 @@ func smallestRepunitDivByK(k int) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function smallestRepunitDivByK(k: number): number {
@@ -139,10 +123,6 @@ function smallestRepunitDivByK(k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

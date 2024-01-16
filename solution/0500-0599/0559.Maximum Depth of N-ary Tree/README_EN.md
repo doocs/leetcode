@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -59,8 +59,6 @@ class Solution:
             return 0
         return 1 + max([self.maxDepth(child) for child in root.children], default=0)
 ```
-
-### **Java**
 
 ```java
 /*
@@ -96,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -130,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -153,10 +147,6 @@ func maxDepth(root *Node) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

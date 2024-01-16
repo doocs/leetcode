@@ -61,9 +61,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
                 vis.add(t)
         return len(vis)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func flipLights(n int, presses int) int {
@@ -165,10 +159,6 @@ func flipLights(n int, presses int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

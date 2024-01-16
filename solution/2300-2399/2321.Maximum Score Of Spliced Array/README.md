@@ -62,13 +62,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +83,6 @@ class Solution:
         s1, s2 = sum(nums1), sum(nums2)
         return max(s2 + f(nums1, nums2), s1 + f(nums2, nums1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumsSplicedArray(nums1 []int, nums2 []int) int {
 	s1, s2 := 0, 0
@@ -178,16 +166,6 @@ func maximumsSplicedArray(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们先根据题目给出的无向树的边，建立一个邻接表 $g$，其中 $g[u]$ 表示顶点 $u$ 的所有相邻顶点。
 
@@ -83,10 +81,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是无向树的顶点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -113,10 +107,6 @@ class Solution:
             t -= 1
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -190,8 +178,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func frogPosition(n int, edges [][]int, t int, target int) float64 {
@@ -234,8 +220,6 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function frogPosition(n: number, edges: number[][], t: number, target: number): number {
     const g: number[][] = Array.from({ length: n + 1 }, () => []);
@@ -264,8 +248,6 @@ function frogPosition(n: number, edges: number[][], t: number, target: number): 
     return 0;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -303,10 +285,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

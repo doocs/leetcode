@@ -51,9 +51,9 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -81,8 +81,6 @@ class NumberContainers:
 # obj.change(index,number)
 # param_2 = obj.find(number)
 ```
-
-### **Java**
 
 ```java
 class NumberContainers {
@@ -117,8 +115,6 @@ class NumberContainers {
  */
 ```
 
-### **C++**
-
 ```cpp
 class NumberContainers {
 public:
@@ -151,8 +147,6 @@ public:
  * int param_2 = obj->find(number);
  */
 ```
-
-### **Go**
 
 ```go
 type NumberContainers struct {
@@ -191,16 +185,6 @@ func (this *NumberContainers) Find(number int) int {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

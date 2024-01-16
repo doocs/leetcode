@@ -48,9 +48,9 @@ Explanation: The two patches can be [2, 4].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
                 x <<= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minPatches(nums []int, n int) (ans int) {
 	x := 1
@@ -125,8 +119,6 @@ func minPatches(nums []int, n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minPatches(nums: number[], n: number): number {
@@ -144,10 +136,6 @@ function minPatches(nums: number[], n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

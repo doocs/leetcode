@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拒绝采样**
+### 方法一：拒绝采样
 
 我们可以使用拒绝采样的方法实现等概率生成任意区间的随机数。拒绝采样的思路是如果生成的随机数落在我们希望的区间内，那么就返回该随机数，否则会不断生成直到生成一个落在区间内的随机数为止。
 
@@ -70,10 +68,6 @@
 期望时间复杂度为 $O(1)$，但是最坏情况下会达到无穷大的时间复杂度。空间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # The rand7() API is already defined for you.
@@ -93,10 +87,6 @@ class Solution:
             if x <= 40:
                 return x % 10 + 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -118,8 +108,6 @@ class Solution extends SolBase {
 }
 ```
 
-### **C++**
-
 ```cpp
 // The rand7() API is already defined for you.
 // int rand7();
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rand10() int {
 	for {
@@ -154,8 +140,6 @@ func rand10() int {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -176,9 +160,8 @@ function rand10(): number {
 }
 ```
 
-### **Rust**
-
 ```rust
+
 /**
  * The rand7() API is already defined for you.
  * @return a random integer in the range 1 to 7
@@ -199,10 +182,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

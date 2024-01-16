@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们注意到，如果一个数字可以表示成 $k \times j^2$ 的形式，那么所有该形式的数字的 $k$ 是相同的。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,25 +107,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long maximumSum(List<Integer> nums) {
-        long ans = 0;
-        int n = nums.size();
-        for (int k = 1; k <= n; ++k) {
-            long t = 0;
-            for (int j = 1; k * j * j <= n; ++j) {
-                t += nums.get(k * j * j - 1);
-            }
-            ans = Math.max(ans, t);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSum(nums []int) (ans int64) {
 	n := len(nums)
@@ -169,8 +138,6 @@ func maximumSum(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumSum(nums: number[]): number {
@@ -187,10 +154,29 @@ function maximumSum(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public long maximumSum(List<Integer> nums) {
+        long ans = 0;
+        int n = nums.size();
+        for (int k = 1; k <= n; ++k) {
+            long t = 0;
+            for (int j = 1; k * j * j <= n; ++j) {
+                t += nums.get(k * j * j - 1);
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

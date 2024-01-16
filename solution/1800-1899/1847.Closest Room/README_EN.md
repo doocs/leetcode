@@ -52,7 +52,7 @@ Query = [2,5]: Room number 3 is the only room with a size of at least 5. The ans
 
 ## Solutions
 
-**Solution 1: Offline Query + Ordered Set + Binary Search**
+### Solution 1: Offline Query + Ordered Set + Binary Search
 
 We notice that the order of queries does not affect the answer, and the problem involves the size relationship of room areas. Therefore, we can sort the queries in ascending order of minimum area, so that we can process each query from small to large. Also, we sort the rooms in ascending order of area.
 
@@ -63,8 +63,6 @@ Then, we process each query from small to large. For each query, we first remove
 The time complexity is $O(n \times \log n + k \times \log k)$, and the space complexity is $O(n + k)$. Where $n$ and $k$ are the number of rooms and queries, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -94,8 +92,6 @@ class Solution:
                 ans[j] = sl[p - 1]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -139,8 +135,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -186,8 +180,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closestRoom(rooms [][]int, queries [][]int) []int {
@@ -240,10 +232,6 @@ func closestRoom(rooms [][]int, queries [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

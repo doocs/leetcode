@@ -41,9 +41,9 @@ string ans = obj.decode(tiny); // returns the original url after decoding it.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Codec:
@@ -69,8 +69,6 @@ class Codec:
 # codec.decode(codec.encode(url))
 ```
 
-### **Java**
-
 ```java
 public class Codec {
     private Map<String, String> m = new HashMap<>();
@@ -95,8 +93,6 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.decode(codec.encode(url));
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +120,6 @@ private:
 // Solution solution;
 // solution.decode(solution.encode(url));
 ```
-
-### **Go**
 
 ```go
 type Codec struct {
@@ -160,10 +154,6 @@ func (this *Codec) decode(shortUrl string) string {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,17 +41,9 @@
 
 ## Solutions
 
-**1. Recusive Traversal**
-
-**2. Non-recursive using Stack**
-
-**3. Morris Traversal**
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
-
-Recursive:
 
 ```python
 # Definition for a binary tree node.
@@ -74,65 +66,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-Non-recursive:
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        ans = []
-        if root is None:
-            return ans
-        stk = [root]
-        while stk:
-            node = stk.pop()
-            ans.append(node.val)
-            if node.left:
-                stk.append(node.left)
-            if node.right:
-                stk.append(node.right)
-        return ans[::-1]
-```
-
-Morris Traversal:
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        ans = []
-        while root:
-            if root.right is None:
-                ans.append(root.val)
-                root = root.left
-            else:
-                next = root.right
-                while next.left and next.left != root:
-                    next = next.left
-                if next.left != root:
-                    ans.append(root.val)
-                    next.left = root
-                    root = root.right
-                else:
-                    next.left = None
-                    root = root.left
-        return ans[::-1]
-```
-
-### **Java**
-
-Recursive:
 
 ```java
 /**
@@ -169,200 +102,6 @@ class Solution {
     }
 }
 ```
-
-Non-recursive:
-
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public List<Integer> postorderTraversal(TreeNode root) {
-        LinkedList<Integer> ans = new LinkedList<>();
-        if (root == null) {
-            return ans;
-        }
-        Deque<TreeNode> stk = new ArrayDeque<>();
-        stk.push(root);
-        while (!stk.isEmpty()) {
-            TreeNode node = stk.pop();
-            ans.addFirst(node.val);
-            if (node.left != null) {
-                stk.push(node.left);
-            }
-            if (node.right != null) {
-                stk.push(node.right);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-Morris Traversal:
-
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public List<Integer> postorderTraversal(TreeNode root) {
-        LinkedList<Integer> ans = new LinkedList<>();
-        while (root != null) {
-            if (root.right == null) {
-                ans.addFirst(root.val);
-                root = root.left;
-            } else {
-                TreeNode next = root.right;
-                while (next.left != null && next.left != root) {
-                    next = next.left;
-                }
-                if (next.left == null) {
-                    ans.addFirst(root.val);
-                    next.left = root;
-                    root = root.right;
-                } else {
-                    next.left = null;
-                    root = root.left;
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function postorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) return [];
-    let stack = [];
-    let ans = [];
-    let prev = null;
-    while (root || stack.length) {
-        while (root) {
-            stack.push(root);
-            root = root.left;
-        }
-        root = stack.pop();
-        if (!root.right || root.right == prev) {
-            ans.push(root.val);
-            prev = root;
-            root = null;
-        } else {
-            stack.push(root);
-            root = root.right;
-        }
-    }
-    return ans;
-}
-```
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function postorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) {
-        return [];
-    }
-    const { val, left, right } = root;
-    return [...postorderTraversal(left), ...postorderTraversal(right), val];
-}
-```
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function postorderTraversal(root: TreeNode | null): number[] {
-    const res = [];
-    while (root != null) {
-        const { val, left, right } = root;
-        if (right == null) {
-            res.push(val);
-            root = left;
-        } else {
-            let next = right;
-            while (next.left != null && next.left != root) {
-                next = next.left;
-            }
-            if (next.left == null) {
-                res.push(val);
-                next.left = root;
-                root = right;
-            } else {
-                next.left = null;
-                root = left;
-            }
-        }
-    }
-    return res.reverse();
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -405,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -441,7 +178,44 @@ func postorderTraversal(root *TreeNode) []int {
 }
 ```
 
-### **Rust**
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function postorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) return [];
+    let stack = [];
+    let ans = [];
+    let prev = null;
+    while (root || stack.length) {
+        while (root) {
+            stack.push(root);
+            root = root.left;
+        }
+        root = stack.pop();
+        if (!root.right || root.right == prev) {
+            ans.push(root.val);
+            prev = root;
+            root = null;
+        } else {
+            stack.push(root);
+            root = root.right;
+        }
+    }
+    return ans;
+}
+```
 
 ```rust
 // Definition for a binary tree node.
@@ -480,6 +254,98 @@ impl Solution {
         Self::dfs(&root, &mut res);
         res
     }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            if node.left:
+                stk.append(node.left)
+            if node.right:
+                stk.append(node.right)
+        return ans[::-1]
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        LinkedList<Integer> ans = new LinkedList<>();
+        if (root == null) {
+            return ans;
+        }
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        stk.push(root);
+        while (!stk.isEmpty()) {
+            TreeNode node = stk.pop();
+            ans.addFirst(node.val);
+            if (node.left != null) {
+                stk.push(node.left);
+            }
+            if (node.right != null) {
+                stk.push(node.right);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function postorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) {
+        return [];
+    }
+    const { val, left, right } = root;
+    return [...postorderTraversal(left), ...postorderTraversal(right), val];
 }
 ```
 
@@ -529,10 +395,124 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans = []
+        while root:
+            if root.right is None:
+                ans.append(root.val)
+                root = root.left
+            else:
+                next = root.right
+                while next.left and next.left != root:
+                    next = next.left
+                if next.left != root:
+                    ans.append(root.val)
+                    next.left = root
+                    root = root.right
+                else:
+                    next.left = None
+                    root = root.left
+        return ans[::-1]
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        LinkedList<Integer> ans = new LinkedList<>();
+        while (root != null) {
+            if (root.right == null) {
+                ans.addFirst(root.val);
+                root = root.left;
+            } else {
+                TreeNode next = root.right;
+                while (next.left != null && next.left != root) {
+                    next = next.left;
+                }
+                if (next.left == null) {
+                    ans.addFirst(root.val);
+                    next.left = root;
+                    root = root.right;
+                } else {
+                    next.left = null;
+                    root = root.left;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function postorderTraversal(root: TreeNode | null): number[] {
+    const res = [];
+    while (root != null) {
+        const { val, left, right } = root;
+        if (right == null) {
+            res.push(val);
+            root = left;
+        } else {
+            let next = right;
+            while (next.left != null && next.left != root) {
+                next = next.left;
+            }
+            if (next.left == null) {
+                res.push(val);
+                next.left = root;
+                root = right;
+            } else {
+                next.left = null;
+                root = left;
+            }
+        }
+    }
+    return res.reverse();
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

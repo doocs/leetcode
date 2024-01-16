@@ -71,9 +71,9 @@ interface FontInfo {
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # """
@@ -114,8 +114,6 @@ class Solution:
         return fonts[left] if check(fonts[left]) else -1
 ```
 
-### **Java**
-
 ```java
 /**
  * // This is the FontInfo's API interface.
@@ -154,8 +152,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * // This is the FontInfo's API interface.
@@ -193,8 +189,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -249,10 +243,6 @@ var maxFont = function (text, w, h, fonts, fontInfo) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

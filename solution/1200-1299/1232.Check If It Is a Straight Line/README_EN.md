@@ -39,13 +39,11 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 The time complexity is $O(n)$, where $n$ is the length of the `coordinates` array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -57,8 +55,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkStraightLine(coordinates [][]int) bool {
 	x1, y1 := coordinates[0][0], coordinates[0][1]
@@ -111,10 +103,6 @@ func checkStraightLine(coordinates [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

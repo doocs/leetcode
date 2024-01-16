@@ -72,7 +72,7 @@ Considering any node as root will give at least 1 correct guess.
 
 ## Solutions
 
-**Solution 1: Tree DP (change root)**
+### Solution 1: Tree DP (change root)
 
 First, we traverse the given edge set $edges$ and convert it to an adjacency list $g$ where $g[i]$ represents the adjacent nodes of node $i$. Use a hash map $gs$ to record the given guess set $guesses$.
 
@@ -87,8 +87,6 @@ Assume that we are currently traversing node $i$ and $cnt$ represents the number
 The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -124,8 +122,6 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -185,8 +181,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -239,8 +233,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	n := len(edges) + 1
@@ -291,10 +283,6 @@ func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

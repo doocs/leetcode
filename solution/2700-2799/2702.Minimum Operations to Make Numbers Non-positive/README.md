@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，如果一个操作次数 $t$ 能够使得所有的数都小于等于 $0$，那么对于任意 $t' > t$，操作次数 $t'$ 也能够使得所有的数都小于等于 $0$。因此我们可以使用二分查找的方法找到最小的操作次数。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组的长度和数组中的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 l = mid + 1
         return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int, x int, y int) int {
 	check := func(t int) bool {
@@ -185,8 +171,6 @@ func minOperations(nums []int, x int, y int) int {
 	return l
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[], x: number, y: number): number {
@@ -213,10 +197,6 @@ function minOperations(nums: number[], x: number, y: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

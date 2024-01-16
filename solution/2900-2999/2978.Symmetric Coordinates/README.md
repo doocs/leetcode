@@ -59,17 +59,11 @@ The output table is sorted by X and Y in ascending order.
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：窗口函数 + 自连接**
+### 方法一：窗口函数 + 自连接
 
 我们可以使用窗口函数 `ROW_NUMBER()` 来为每一行添加一个自增的序号，然后再自连接两张表，连接条件为 `p1.x = p2.y AND p1.y = p2.x AND p1.x <= p1.y AND p1.id != p2.id`，最后再排序去重即可。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -91,3 +85,5 @@ ORDER BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

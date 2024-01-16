@@ -48,15 +48,13 @@ For &quot;prev&quot; at index = 4, last visited integer will be 1 as there are a
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can directly simulate according to the problem statement. In the implementation, we use an array $nums$ to store the traversed integers, and an integer $k$ to record the current number of consecutive $prev$ strings. If the current string is $prev$, we take out the $|nums| - k-th$ integer from $nums$. If it does not exist, we return $-1$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $words$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 nums.append(int(w))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +115,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func lastVisitedIntegers(words []string) (ans []int) {
@@ -147,8 +139,6 @@ func lastVisitedIntegers(words []string) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function lastVisitedIntegers(words: string[]): number[] {
     const nums: number[] = [];
@@ -167,8 +157,6 @@ function lastVisitedIntegers(words: string[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -193,10 +181,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

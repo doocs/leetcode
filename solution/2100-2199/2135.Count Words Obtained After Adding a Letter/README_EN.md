@@ -64,9 +64,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -90,8 +90,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wordCount(startWords []string, targetWords []string) int {
 	s := make(map[int]bool)
@@ -185,16 +179,6 @@ func wordCount(startWords []string, targetWords []string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

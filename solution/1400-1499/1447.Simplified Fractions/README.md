@@ -44,19 +44,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举分子分母**
+### 方法一：枚举分子分母
 
 我们可以枚举分子 $i$ 和分母 $j$，其中 $1 \leq i < j \leq n$，并判断 $i$ 和 $j$ 的最大公约数是否为 $1$，如果是则 $i/j$ 是一个最简分数。
 
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是给定的参数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
             if gcd(i, j) == 1
         ]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +99,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func simplifiedFractions(n int) (ans []string) {
@@ -134,8 +120,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function simplifiedFractions(n: number): string[] {
     const ans: string[] = [];
@@ -153,8 +137,6 @@ function gcd(a: number, b: number): number {
     return b === 0 ? a : gcd(b, a % b);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -179,10 +161,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

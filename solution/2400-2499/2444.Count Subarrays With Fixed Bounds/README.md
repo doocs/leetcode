@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举右端点**
+### 方法一：枚举右端点
 
 由题意，我们可以知道，定界子数组的所有元素都在区间 `[minK, maxK]` 中，且最小值一定为 `minK`，最大值一定为 `maxK`。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             ans += max(0, min(j1, j2) - k)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countSubarrays(nums []int, minK int, maxK int) int64 {
@@ -149,36 +135,6 @@ func countSubarrays(nums []int, minK int, maxK int) int64 {
 	return int64(ans)
 }
 ```
-
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
-long long countSubarrays(int* nums, int numsSize, int minK, int maxK) {
-    long long res = 0;
-    int minIndex = -1;
-    int maxIndex = -1;
-    int k = -1;
-    for (int i = 0; i < numsSize; i++) {
-        int num = nums[i];
-        if (num == minK) {
-            minIndex = i;
-        }
-        if (num == maxK) {
-            maxIndex = i;
-        }
-        if (num < minK || num > maxK) {
-            k = i;
-        }
-        res += max(min(minIndex, maxIndex) - k, 0);
-    }
-    return res;
-}
-```
-
-### **TypeScript**
 
 ```ts
 function countSubarrays(nums: number[], minK: number, maxK: number): number {
@@ -201,8 +157,6 @@ function countSubarrays(nums: number[], minK: number, maxK: number): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -230,10 +184,32 @@ impl Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+#define min(a, b) (((a) < (b)) ? (a) : (b))
 
-```
-
+long long countSubarrays(int* nums, int numsSize, int minK, int maxK) {
+    long long res = 0;
+    int minIndex = -1;
+    int maxIndex = -1;
+    int k = -1;
+    for (int i = 0; i < numsSize; i++) {
+        int num = nums[i];
+        if (num == minK) {
+            minIndex = i;
+        }
+        if (num == maxK) {
+            maxIndex = i;
+        }
+        if (num < minK || num > maxK) {
+            k = i;
+        }
+        res += max(min(minIndex, maxIndex) - k, 0);
+    }
+    return res;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

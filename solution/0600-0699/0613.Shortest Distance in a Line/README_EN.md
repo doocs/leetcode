@@ -49,17 +49,11 @@ Point table:
 
 ## Solutions
 
-**Solution 1: Self-Join**
+### Solution 1: Self-Join
 
 We can use a self-join to join each point in the table with the larger points, and then calculate the distance between the two points. Finally, we can take the minimum distance.
 
-**Solution 2: Window Function**
-
-We can use a window function to sort the points in the table by their $x$ values, and then calculate the distance between adjacent points. Finally, we can take the minimum distance.
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -68,6 +62,14 @@ FROM
     Point AS p1
     JOIN Point AS p2 ON p1.x < p2.x;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2: Window Function
+
+We can use a window function to sort the points in the table by their $x$ values, and then calculate the distance between adjacent points. Finally, we can take the minimum distance.
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -78,3 +80,5 @@ LIMIT 1, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

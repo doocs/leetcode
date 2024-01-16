@@ -61,9 +61,9 @@ World table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -71,6 +71,12 @@ SELECT name, population, area
 FROM World
 WHERE area >= 3000000 OR population >= 25000000;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -84,3 +90,5 @@ WHERE population >= 25000000;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

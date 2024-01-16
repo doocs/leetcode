@@ -27,9 +27,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -42,8 +42,6 @@ class Solution:
             counter[s] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -60,25 +58,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function subarraySum(nums: number[], k: number): number {
-    let ans = 0,
-        s = 0;
-    const counter = new Map();
-    counter.set(0, 1);
-    for (const num of nums) {
-        s += num;
-        ans += counter.get(s - k) || 0;
-        counter.set(s, (counter.get(s) || 0) + 1);
-    }
-    return ans;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +76,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subarraySum(nums []int, k int) int {
 	counter := map[int]int{0: 1}
@@ -112,7 +89,20 @@ func subarraySum(nums []int, k int) int {
 }
 ```
 
-### **Rust**
+```ts
+function subarraySum(nums: number[], k: number): number {
+    let ans = 0,
+        s = 0;
+    const counter = new Map();
+    counter.set(0, 1);
+    for (const num of nums) {
+        s += num;
+        ans += counter.get(s - k) || 0;
+        counter.set(s, (counter.get(s) || 0) + 1);
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -136,6 +126,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```rust
 use std::collections::HashMap;
 
@@ -155,10 +151,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

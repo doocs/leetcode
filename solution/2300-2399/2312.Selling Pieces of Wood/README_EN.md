@@ -53,9 +53,9 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,25 +74,6 @@ class Solution:
             d[h][w] = p
         return dfs(m, n)
 ```
-
-```python
-class Solution:
-    def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
-        d = defaultdict(dict)
-        for h, w, p in prices:
-            d[h][w] = p
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                dp[i][j] = d[i].get(j, 0)
-                for k in range(1, i):
-                    dp[i][j] = max(dp[i][j], dp[k][j] + dp[i - k][j])
-                for k in range(1, j):
-                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[i][j - k])
-        return dp[-1][-1]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,32 +110,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long sellingWood(int m, int n, int[][] prices) {
-        int[][] d = new int[m + 1][n + 1];
-        long[][] dp = new long[m + 1][n + 1];
-        for (int[] p : prices) {
-            d[p[0]][p[1]] = p[2];
-        }
-        for (int i = 1; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                dp[i][j] = d[i][j];
-                for (int k = 1; k < i; ++k) {
-                    dp[i][j] = Math.max(dp[i][j], dp[k][j] + dp[i - k][j]);
-                }
-                for (int k = 1; k < j; ++k) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i][k] + dp[i][j - k]);
-                }
-            }
-        }
-        return dp[m][n];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -177,27 +132,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    long long sellingWood(int m, int n, vector<vector<int>>& prices) {
-        vector<vector<int>> d(m + 1, vector<int>(n + 1));
-        vector<vector<long long>> dp(m + 1, vector<long long>(n + 1));
-        for (auto& p : prices) d[p[0]][p[1]] = p[2];
-        for (int i = 1; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                dp[i][j] = d[i][j];
-                for (int k = 1; k < i; ++k) dp[i][j] = max(dp[i][j], dp[k][j] + dp[i - k][j]);
-                for (int k = 1; k < j; ++k) dp[i][j] = max(dp[i][j], dp[i][k] + dp[i][j - k]);
-            }
-        }
-        return dp[m][n];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
@@ -232,6 +166,72 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
+        d = defaultdict(dict)
+        for h, w, p in prices:
+            d[h][w] = p
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                dp[i][j] = d[i].get(j, 0)
+                for k in range(1, i):
+                    dp[i][j] = max(dp[i][j], dp[k][j] + dp[i - k][j])
+                for k in range(1, j):
+                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[i][j - k])
+        return dp[-1][-1]
+```
+
+```java
+class Solution {
+    public long sellingWood(int m, int n, int[][] prices) {
+        int[][] d = new int[m + 1][n + 1];
+        long[][] dp = new long[m + 1][n + 1];
+        for (int[] p : prices) {
+            d[p[0]][p[1]] = p[2];
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                dp[i][j] = d[i][j];
+                for (int k = 1; k < i; ++k) {
+                    dp[i][j] = Math.max(dp[i][j], dp[k][j] + dp[i - k][j]);
+                }
+                for (int k = 1; k < j; ++k) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i][k] + dp[i][j - k]);
+                }
+            }
+        }
+        return dp[m][n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long sellingWood(int m, int n, vector<vector<int>>& prices) {
+        vector<vector<int>> d(m + 1, vector<int>(n + 1));
+        vector<vector<long long>> dp(m + 1, vector<long long>(n + 1));
+        for (auto& p : prices) d[p[0]][p[1]] = p[2];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                dp[i][j] = d[i][j];
+                for (int k = 1; k < i; ++k) dp[i][j] = max(dp[i][j], dp[k][j] + dp[i - k][j]);
+                for (int k = 1; k < j; ++k) dp[i][j] = max(dp[i][j], dp[i][k] + dp[i][j - k]);
+            }
+        }
+        return dp[m][n];
+    }
+};
+```
+
 ```go
 func sellingWood(m int, n int, prices [][]int) int64 {
 	d := make([][]int, m+1)
@@ -258,16 +258,6 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

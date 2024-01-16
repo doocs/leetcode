@@ -63,30 +63,39 @@ strs 的列已经是按字典序排列了，所以我们不需要删除任何东
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
-
-```
-
-### **...**
-
-```
-
+class Solution {
+    public int minDeletionSize(String[] A) {
+        if (A == null || A.length <= 1) {
+            return 0;
+        }
+        int len = A.length, wordLen = A[0].length(), res = 0;
+        boolean[] cut = new boolean[len];
+    search:
+        for (int j = 0; j < wordLen; j++) {
+            // 判断第 j 列是否应当保留
+            for (int i = 0; i < len - 1; i++) {
+                if (!cut[i] && A[i].charAt(j) > A[i + 1].charAt(j)) {
+                    res += 1;
+                    continue search;
+                }
+            }
+            // 更新 cut 的信息
+            for (int i = 0; i < len - 1; i++) {
+                if (A[i].charAt(j) < A[i + 1].charAt(j)) {
+                    cut[i] = true;
+                }
+            }
+        }
+        return res;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,9 @@ The longest of these was the keypress for &#39;a&#39; with duration 16.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
                 ans = keysPressed[i]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func slowestKey(releaseTimes []int, keysPressed string) byte {
 	ans := keysPressed[0]
@@ -129,10 +123,6 @@ func slowestKey(releaseTimes []int, keysPressed string) byte {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

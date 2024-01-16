@@ -54,13 +54,9 @@ Teams 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -72,3 +68,5 @@ WHERE t1.team_name != t2.team_name;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

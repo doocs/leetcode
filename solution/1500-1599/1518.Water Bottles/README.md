@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以直接模拟整个过程。
 
@@ -65,10 +63,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
@@ -78,10 +72,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numWaterBottles(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -121,8 +107,6 @@ func numWaterBottles(numBottles int, numExchange int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numWaterBottles(numBottles: number, numExchange: number): number {
@@ -134,7 +118,20 @@ function numWaterBottles(numBottles: number, numExchange: number): number {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {number} numBottles
+ * @param {number} numExchange
+ * @return {number}
+ */
+var numWaterBottles = function (numBottles, numExchange) {
+    let ans = numBottles;
+    for (; numBottles >= numExchange; ++ans) {
+        numBottles -= numExchange - 1;
+    }
+    return ans;
+};
+```
 
 ```php
 class Solution {
@@ -154,27 +151,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} numBottles
- * @param {number} numExchange
- * @return {number}
- */
-var numWaterBottles = function (numBottles, numExchange) {
-    let ans = numBottles;
-    for (; numBottles >= numExchange; ++ans) {
-        numBottles -= numExchange - 1;
-    }
-    return ans;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

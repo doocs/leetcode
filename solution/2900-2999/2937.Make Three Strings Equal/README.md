@@ -40,19 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 根据题目描述，我们知道，如果删除字符后的三个字符串相等，那么它们存在一个长度大于 $1$ 的公共前缀。因此，我们可以枚举公共前缀的位置 $i$，如果当前下标 $i$ 对应的三个字符不完全相等，那么公共前缀长度为 $i$，此时，我们判断 $i$ 是否为 $0$，若是，返回 $-1$，否则返回 $s - 3 \times i$，其中 $s$ 为三个字符串的长度和。
 
 时间复杂度 $O(n)$，其中 $n$ 为三个字符串的最小长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,10 +58,6 @@ class Solution:
                 return -1 if i == 0 else s - 3 * i
         return s - 3 * n
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMinimumOperations(s1 string, s2 string, s3 string) int {
 	s := len(s1) + len(s2) + len(s3)
@@ -120,8 +106,6 @@ func findMinimumOperations(s1 string, s2 string, s3 string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMinimumOperations(s1: string, s2: string, s3: string): number {
     const s = s1.length + s2.length + s3.length;
@@ -135,10 +119,6 @@ function findMinimumOperations(s1: string, s2: string, s3: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

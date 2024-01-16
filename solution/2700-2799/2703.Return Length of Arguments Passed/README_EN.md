@@ -39,9 +39,9 @@ Three values were passed to the function so it should return 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function argumentsLength(...args: any[]): number {
@@ -54,3 +54,5 @@ function argumentsLength(...args: any[]): number {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

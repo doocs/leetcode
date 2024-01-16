@@ -67,9 +67,7 @@ lfu.get(4);      // 返回 4
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双哈希表 + 双向链表**
+### 方法一：双哈希表 + 双向链表
 
 我们定义两个哈希表，其中：
 
@@ -93,10 +91,6 @@ lfu.get(4);      // 返回 4
 时间复杂度方面，操作 $get$ 和 $put$ 的时间复杂度都是 $O(1)$。空间复杂度 $O(n)$，其中 $n$ 为缓存的容量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -188,10 +182,6 @@ class LFUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class LFUCache {
@@ -311,8 +301,6 @@ class LFUCache {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Node {
@@ -438,8 +426,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type LFUCache struct {
 	cache    map[int]*node
@@ -562,8 +548,6 @@ func (l *list) empty() bool {
 	return l.head.next == l.tail
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::cell::RefCell;
@@ -752,10 +736,6 @@ impl LFUCache {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

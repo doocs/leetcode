@@ -56,9 +56,9 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class FindSumPairs:
@@ -82,8 +82,6 @@ class FindSumPairs:
 # obj.add(index,val)
 # param_2 = obj.count(tot)
 ```
-
-### **Java**
 
 ```java
 class FindSumPairs {
@@ -122,8 +120,6 @@ class FindSumPairs {
  * int param_2 = obj.count(tot);
  */
 ```
-
-### **C++**
 
 ```cpp
 class FindSumPairs {
@@ -165,8 +161,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type FindSumPairs struct {
 	nums1 []int
@@ -204,10 +198,6 @@ func (this *FindSumPairs) Count(tot int) (ans int) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -21,9 +21,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -46,8 +46,6 @@ class Solution:
             n //= 10
         return dfs(l, 0, True)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +119,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOf2sInRange(n int) int {
@@ -171,10 +165,6 @@ func numberOf2sInRange(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

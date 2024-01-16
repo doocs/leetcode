@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 将方程 $equation$ 按照等号 “=” 切分为左右两个式子，分别算出左右两个式子中 "x" 的系数 $x_i$，以及常数的值 $y_i$。
 
@@ -61,10 +59,6 @@
 相似题目：[592. 分数加减运算](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
             return 'Infinite solutions' if y1 == y2 else 'No solution'
         return f'x={(y2 - y1) // (x1 - x2)}'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +128,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func solveEquation(equation string) string {
@@ -189,8 +177,6 @@ func solveEquation(equation string) string {
 	return fmt.Sprintf("x=%d", (y2-y1)/(x1-x2))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function solveEquation(equation: string): string {
@@ -250,10 +236,6 @@ function solveEquation(equation: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

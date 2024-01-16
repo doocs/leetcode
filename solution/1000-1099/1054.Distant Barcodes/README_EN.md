@@ -26,9 +26,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -41,8 +41,6 @@ class Solution:
         ans[1::2] = barcodes[(n + 1) // 2 :]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
@@ -124,8 +118,6 @@ func rearrangeBarcodes(barcodes []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rearrangeBarcodes(barcodes: number[]): number[] {
     const mx = Math.max(...barcodes);
@@ -145,10 +137,6 @@ function rearrangeBarcodes(barcodes: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

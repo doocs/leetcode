@@ -47,9 +47,9 @@ phoneDirectory.check(2);   // Number 2 is available again, return true.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class PhoneDirectory:
@@ -90,8 +90,6 @@ class PhoneDirectory:
 # param_2 = obj.check(number)
 # obj.release(number)
 ```
-
-### **Java**
 
 ```java
 class PhoneDirectory {
@@ -140,10 +138,6 @@ class PhoneDirectory {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 动态规划**
+### 方法一：前缀和 + 动态规划
 
 我们定义一个长度为 $n+1$ 的前缀和数组 $pre$，其中 $pre[i]$ 表示 $s$ 的前 $i$ 个位置中能够到达的个数。定义一个长度为 $n$ 的布尔数组 $f$，其中 $f[i]$ 表示 $s[i]$ 是否能够到达。初始时 $pre[1] = 1$，而 $f[0] = true$。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             pre[i + 1] = pre[i] + f[i]
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canReach(s string, minJump int, maxJump int) bool {
 	n := len(s)
@@ -154,8 +140,6 @@ func canReach(s string, minJump int, maxJump int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canReach(s: string, minJump: number, maxJump: number): boolean {
     const n = s.length;
@@ -173,8 +157,6 @@ function canReach(s: string, minJump: number, maxJump: number): boolean {
     return f[n - 1];
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -200,10 +182,6 @@ var canReach = function (s, minJump, maxJump) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

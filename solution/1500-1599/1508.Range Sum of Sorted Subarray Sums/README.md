@@ -48,19 +48,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 按照题意生成 `arr` 数组，排序后，对 $[left-1,.. right-1]$ 范围的所有元素求和，得到结果。
 
 时间复杂度 $O(n^2\log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为题目给定的数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(arr[left - 1 : right]) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rangeSum(nums []int, n int, left int, right int) (ans int) {
 	var arr []int
@@ -148,10 +134,6 @@ func rangeSum(nums []int, n int, left int, right int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,15 +57,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二分查找。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func peakIndexInMountainArray(arr []int) int {
 	left, right := 1, len(arr)-2
@@ -137,7 +123,39 @@ func peakIndexInMountainArray(arr []int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function peakIndexInMountainArray(arr: number[]): number {
+    let left = 1,
+        right = arr.length - 2;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (arr[mid] > arr[mid + 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+```rust
+impl Solution {
+    pub fn peak_index_in_mountain_array(arr: Vec<i32>) -> i32 {
+        let mut left = 1;
+        let mut right = arr.len() - 2;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if arr[mid] > arr[mid + 1] {
+                right = mid;
+            } else {
+                left = left + 1;
+            }
+        }
+        left as i32
+    }
+}
+```
 
 ```js
 /**
@@ -159,48 +177,6 @@ var peakIndexInMountainArray = function (arr) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function peakIndexInMountainArray(arr: number[]): number {
-    let left = 1,
-        right = arr.length - 2;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (arr[mid] > arr[mid + 1]) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn peak_index_in_mountain_array(arr: Vec<i32>) -> i32 {
-        let mut left = 1;
-        let mut right = arr.len() - 2;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if arr[mid] > arr[mid + 1] {
-                right = mid;
-            } else {
-                left = left + 1;
-            }
-        }
-        left as i32
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

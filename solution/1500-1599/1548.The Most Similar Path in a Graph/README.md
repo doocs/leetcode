@@ -78,9 +78,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们先根据给定的道路构建一个邻接表 $g$，其中 $g[i]$ 表示与城市 $i$ 直接相连的城市列表。
 
@@ -97,10 +95,6 @@ $$
 时间复杂度 $O(m \times n^2)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $targetPath$ 和 $names$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -134,10 +128,6 @@ class Solution:
             k = pre[i][k]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -189,8 +179,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -237,8 +225,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostSimilar(n int, roads [][]int, names []string, targetPath []string) []int {
@@ -297,8 +283,6 @@ func mostSimilar(n int, roads [][]int, names []string, targetPath []string) []in
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostSimilar(
     n: number,
@@ -345,10 +329,6 @@ function mostSimilar(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

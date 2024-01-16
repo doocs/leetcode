@@ -84,9 +84,9 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type F = (...p: any[]) => any;
@@ -112,10 +112,6 @@ function debounce(fn: F, t: number): F {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 模拟**
+### 方法一：贪心 + 模拟
 
 根据题目描述，我们知道，每一次计划爬上一个新的台阶，都需要满足新的台阶的高度与当前所在位置的高度之差不超过 `dist`，否则，我们需要贪心地在距离当前位置 $dist$ 的地方插入一个新的台阶，爬上一个新的台阶，一共需要插入的台阶数为 $\lfloor \frac{b - a - 1}{dist} \rfloor$，其中 $a$ 和 $b$ 分别为当前位置和新台阶的高度。那么答案即为所有插入的台阶数之和。
 
@@ -76,20 +74,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def addRungs(self, rungs: List[int], dist: int) -> int:
         rungs = [0] + rungs
         return sum((b - a - 1) // dist for a, b in pairwise(rungs))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addRungs(rungs []int, dist int) (ans int) {
 	prev := 0
@@ -132,8 +118,6 @@ func addRungs(rungs []int, dist int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function addRungs(rungs: number[], dist: number): number {
@@ -146,8 +130,6 @@ function addRungs(rungs: number[], dist: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -165,10 +147,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

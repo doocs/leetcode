@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy Algorithm**
+### Solution 1: Greedy Algorithm
 
 We can use a variable $mx$ to record the farthest position that can be reached from the current position, a variable $last$ to record the position of the last jump, and a variable $ans$ to record the number of jumps.
 
@@ -60,8 +60,6 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -73,8 +71,6 @@ class Solution:
                 last = mx
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func jump(nums []int) (ans int) {
 	mx, last := 0, 0
@@ -127,8 +119,6 @@ func jump(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function jump(nums: number[]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -142,45 +132,6 @@ function jump(nums: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int Jump(int[] nums) {
-        int ans = 0, mx = 0, last = 0;
-        for (int i = 0; i < nums.Length - 1; ++i) {
-            mx = Math.Max(mx, i + nums[i]);
-            if (last == i) {
-                ++ans;
-                last = mx;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C**
-
-```c
-#define min(a, b) a < b ? a : b
-int jump(int* nums, int numsSize) {
-    int dp[numsSize];
-    for (int i = 0; i < numsSize; i++) {
-        dp[i] = numsSize;
-    }
-    dp[0] = 0;
-    for (int i = 0; i < numsSize - 1; i++) {
-        for (int j = i + 1; j < (min(i + nums[i] + 1, numsSize)); j++) {
-            dp[j] = min(dp[j], dp[i] + 1);
-        }
-    }
-    return dp[numsSize - 1];
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -201,10 +152,39 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```cs
+public class Solution {
+    public int Jump(int[] nums) {
+        int ans = 0, mx = 0, last = 0;
+        for (int i = 0; i < nums.Length - 1; ++i) {
+            mx = Math.Max(mx, i + nums[i]);
+            if (last == i) {
+                ++ans;
+                last = mx;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
+```c
+#define min(a, b) a < b ? a : b
+int jump(int* nums, int numsSize) {
+    int dp[numsSize];
+    for (int i = 0; i < numsSize; i++) {
+        dp[i] = numsSize;
+    }
+    dp[0] = 0;
+    for (int i = 0; i < numsSize - 1; i++) {
+        for (int j = i + 1; j < (min(i + nums[i] + 1, numsSize)); j++) {
+            dp[j] = min(dp[j], dp[i] + 1);
+        }
+    }
+    return dp[numsSize - 1];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

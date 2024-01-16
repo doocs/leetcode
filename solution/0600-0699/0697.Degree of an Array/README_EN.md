@@ -41,9 +41,9 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
                     ans = t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findShortestSubArray(nums []int) int {
 	cnt := map[int]int{}
@@ -158,6 +152,12 @@ func findShortestSubArray(nums []int) int {
 	return ans
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```go
 func findShortestSubArray(nums []int) (ans int) {
@@ -215,10 +215,6 @@ func getMaxDegreeElem(maxDegree int, numsMap map[int]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

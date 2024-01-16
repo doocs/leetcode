@@ -34,19 +34,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 排序**
+### 方法一：计数 + 排序
 
 我们可以用哈希表或数组 `cnt` 统计每种知识点类型的题目数量，然后对 `cnt` 进行排序，从大到小遍历 `cnt`，直到遍历的题目数量之和大于等于 `n` 即可，此时遍历的次数即为所求。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 `questions` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +54,6 @@ class Solution:
                 break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func halfQuestions(questions []int) (ans int) {
 	cnt := make([]int, 1010)
@@ -123,7 +109,22 @@ func halfQuestions(questions []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function halfQuestions(questions: number[]): number {
+    const cnt = new Array(1010).fill(0);
+    for (const x of questions) {
+        ++cnt[x];
+    }
+    cnt.sort((a, b) => b - a);
+    let ans = 0;
+    let n = questions.length >> 1;
+    for (let i = 0; n > 0; ++i) {
+        ++ans;
+        n -= cnt[i];
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -146,29 +147,6 @@ var halfQuestions = function (questions) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function halfQuestions(questions: number[]): number {
-    const cnt = new Array(1010).fill(0);
-    for (const x of questions) {
-        ++cnt[x];
-    }
-    cnt.sort((a, b) => b - a);
-    let ans = 0;
-    let n = questions.length >> 1;
-    for (let i = 0; n > 0; ++i) {
-        ++ans;
-        n -= cnt[i];
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

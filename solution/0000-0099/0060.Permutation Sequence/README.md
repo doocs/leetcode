@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们知道，集合 $[1,2,..n]$ 一共有 $n!$ 种排列，如果我们确定首位，那剩余位能组成的排列数量为 $(n-1)!$。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
                         break
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getPermutation(n int, k int) string {
 	ans := make([]byte, n)
@@ -177,37 +163,6 @@ func getPermutation(n int, k int) string {
 	return string(ans)
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public string GetPermutation(int n, int k) {
-        var ans = new StringBuilder();
-        int vis = 0;
-        for (int i = 0; i < n; ++i) {
-            int fact = 1;
-            for (int j = 1; j < n - i; ++j) {
-                fact *= j;
-            }
-            for (int j = 1; j <= n; ++j) {
-                if (((vis >> j) & 1) == 0) {
-                    if (k > fact) {
-                        k -= fact;
-                    } else {
-                        ans.Append(j);
-                        vis |= 1 << j;
-                        break;
-                    }
-                }
-            }
-        }
-        return ans.ToString();
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -241,10 +196,33 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public string GetPermutation(int n, int k) {
+        var ans = new StringBuilder();
+        int vis = 0;
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) {
+                fact *= j;
+            }
+            for (int j = 1; j <= n; ++j) {
+                if (((vis >> j) & 1) == 0) {
+                    if (k > fact) {
+                        k -= fact;
+                    } else {
+                        ans.Append(j);
+                        vis |= 1 << j;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans.ToString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

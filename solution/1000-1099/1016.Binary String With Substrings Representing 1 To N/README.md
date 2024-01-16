@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 我们注意到，字符串 $s$ 的长度不超过 $1000$，所以字符串 $s$ 能表示不超过 $1000$ 个 二进制整数，因此，如果 $n \gt 1000$，那么 $s$ 肯定不能表示 $[1,.. n]$ 范围内的所有整数的二进制表示。
 
@@ -50,10 +48,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def queryString(self, s: str, n: int) -> bool:
@@ -61,10 +55,6 @@ class Solution:
             return False
         return all(bin(i)[2:] in s for i in range(n, n // 2, -1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func queryString(s string, n int) bool {
 	if n > 1000 {
@@ -118,8 +104,6 @@ func queryString(s string, n int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function queryString(s: string, n: number): boolean {
@@ -135,10 +119,6 @@ function queryString(s: string, n: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组 + 模拟**
+### 方法一：数组 + 模拟
 
 观察题目的数据范围，小球的编号最大不超过 $10^5$，那么每个编号的各个位数之和的最大值小于 $50$。因此，我们可以直接开一个长度为 $50$ 的数组 $cnt$ 来统计每个编号的各个位数之和的数量。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n \times \log_{10}m)$。其中 $n = highLimit - lowLimit + 1$，而 $m = highLimit$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             cnt[y] += 1
         return max(cnt)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countBalls(lowLimit int, highLimit int) (ans int) {
 	cnt := [50]int{}
@@ -144,8 +130,6 @@ func countBalls(lowLimit int, highLimit int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countBalls(lowLimit: number, highLimit: number): number {
     const cnt: number[] = Array(50).fill(0);
@@ -160,10 +144,6 @@ function countBalls(lowLimit: number, highLimit: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

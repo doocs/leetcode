@@ -61,9 +61,7 @@ So the answer would be [5,16,10].</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 前缀和 + 二分查找**
+### 方法一：排序 + 前缀和 + 二分查找
 
 我们可以将怪物和金币按照怪物的战斗力从小到大排序，然后使用前缀和计算每个英雄打败前 $i$ 个怪物可以获得的金币总数。
 
@@ -72,10 +70,6 @@ So the answer would be [5,16,10].</pre>
 时间复杂度 $O((m + n) \times \log n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是怪物和英雄的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             ans.append(s[i])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -172,8 +160,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	m := len(monsters)
@@ -193,8 +179,6 @@ func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumCoins(heroes: number[], monsters: number[], coins: number[]): number[] {
@@ -222,10 +206,6 @@ function maximumCoins(heroes: number[], monsters: number[], coins: number[]): nu
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

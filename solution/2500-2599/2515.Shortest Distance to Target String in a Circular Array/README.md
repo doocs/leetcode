@@ -59,19 +59,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 遍历数组，找到与 target 相等的单词，计算其与 startIndex 的距离 $t$，则此时的最短距离为 $min(t, n - t)$，我们只需要不断更新最小值即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 ans = min(ans, t, n - t)
         return -1 if ans == n else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closetTarget(words []string, target string, startIndex int) int {
@@ -152,8 +138,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function closetTarget(words: string[], target: string, startIndex: number): number {
     const n = words.length;
@@ -165,8 +149,6 @@ function closetTarget(words: string[], target: string, startIndex: number): numb
     return -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -185,6 +167,23 @@ impl Solution {
     }
 }
 ```
+
+```c
+int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
+    for (int i = 0; i <= wordsSize >> 1; i++) {
+        if (strcmp(words[(startIndex - i + wordsSize) % wordsSize], target) == 0 || strcmp(words[(startIndex + i) % wordsSize], target) == 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 use std::cmp::min;
@@ -209,23 +208,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
-    for (int i = 0; i <= wordsSize >> 1; i++) {
-        if (strcmp(words[(startIndex - i + wordsSize) % wordsSize], target) == 0 || strcmp(words[(startIndex + i) % wordsSize], target) == 0) {
-            return i;
-        }
-    }
-    return -1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

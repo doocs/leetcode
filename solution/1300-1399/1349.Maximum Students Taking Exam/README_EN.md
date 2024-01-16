@@ -59,7 +59,7 @@
 
 ## Solutions
 
-**Solution 1: State Compression + Memoization Search**
+### Solution 1: State Compression + Memoization Search
 
 We notice that each seat has two states: selectable and non-selectable. Therefore, we can use a binary number to represent the seat state of each row, where $1$ represents selectable, and $0$ represents non-selectable. For example, for the first row in Example 1, we can represent it as $010010$. Therefore, we convert the initial seats into a one-dimensional array $ss$, where $ss[i]$ represents the seat state of the $i$th row.
 
@@ -79,8 +79,6 @@ To avoid repeated calculations, we can use memoization search to save the return
 The time complexity is $O(4^n \times n \times m)$, and the space complexity is $O(2^n \times m)$. Where $m$ and $n$ are the number of rows and columns of the seats, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -112,8 +110,6 @@ class Solution:
         ss = [f(s) for s in seats]
         return dfs(ss[0], 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -160,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -202,8 +196,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxStudents(seats [][]byte) int {
@@ -248,8 +240,6 @@ func maxStudents(seats [][]byte) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxStudents(seats: string[][]): number {
     const m: number = seats.length;
@@ -289,10 +279,6 @@ function maxStudents(seats: string[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

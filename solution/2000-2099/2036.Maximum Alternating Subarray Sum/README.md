@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f$ 表示以 $nums[i]$ 结尾的交替子数组的最大和，定义 $g$ 表示以 $-nums[i]$ 结尾的交替子数组的最大和，初始时 $f$ 和 $g$ 均为 $-\infty$。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumAlternatingSubarraySum(nums []int) int64 {
 	const inf = 1 << 60
@@ -133,8 +119,6 @@ func maximumAlternatingSubarraySum(nums []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumAlternatingSubarraySum(nums: number[]): number {
     let [ans, f, g] = [-Infinity, -Infinity, -Infinity];
@@ -146,10 +130,6 @@ function maximumAlternatingSubarraySum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

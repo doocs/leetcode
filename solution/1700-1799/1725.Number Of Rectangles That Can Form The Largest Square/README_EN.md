@@ -41,7 +41,7 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 
 ## Solutions
 
-**Solution 1: Single Pass**
+### Solution 1: Single Pass
 
 We define a variable $ans$ to record the count of squares with the current maximum side length, and another variable $mx$ to record the current maximum side length.
 
@@ -52,8 +52,6 @@ Finally, we return $ans$.
 The time complexity is $O(n)$, where $n$ is the length of the array $rectangles$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countGoodRectangles(rectangles [][]int) (ans int) {
 	mx := 0
@@ -127,8 +119,6 @@ func countGoodRectangles(rectangles [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countGoodRectangles(rectangles: number[][]): number {
@@ -146,10 +136,6 @@ function countGoodRectangles(rectangles: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

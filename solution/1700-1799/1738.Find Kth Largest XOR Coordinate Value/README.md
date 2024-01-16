@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二维前缀异或 + 排序或快速选择**
+### 方法一：二维前缀异或 + 排序或快速选择
 
 我们定义一个二维前缀异或数组 $s$，其中 $s[i][j]$ 表示矩阵前 $i$ 行和前 $j$ 列的元素异或运算的结果，即：
 
@@ -74,10 +72,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def kthLargestValue(self, matrix: List[List[int]], k: int) -> int:
@@ -90,10 +84,6 @@ class Solution:
                 ans.append(s[i + 1][j + 1])
         return nlargest(k, ans)[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthLargestValue(matrix [][]int, k int) int {
 	m, n := len(matrix), len(matrix[0])
@@ -155,8 +141,6 @@ func kthLargestValue(matrix [][]int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kthLargestValue(matrix: number[][], k: number): number {
     const m: number = matrix.length;
@@ -174,10 +158,6 @@ function kthLargestValue(matrix: number[][], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

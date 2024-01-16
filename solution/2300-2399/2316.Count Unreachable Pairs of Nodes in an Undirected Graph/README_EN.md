@@ -41,7 +41,7 @@ Therefore, we return 14.
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 For any two nodes in an undirected graph, if there is a path between them, then they are mutually reachable.
 
@@ -50,8 +50,6 @@ Therefore, we can use depth-first search to find the number of nodes $t$ in each
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
             s += t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPairs(n int, edges [][]int) (ans int64) {
 	g := make([][]int, n)
@@ -183,8 +175,6 @@ func countPairs(n int, edges [][]int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPairs(n: number, edges: number[][]): number {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -213,8 +203,6 @@ function countPairs(n: number, edges: number[][]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -253,10 +241,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

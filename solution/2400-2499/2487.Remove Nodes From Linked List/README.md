@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈模拟**
+### 方法一：单调栈模拟
 
 我们可以先将链表中的节点值存入数组 $nums$，然后遍历数组 $nums$，维护一个从栈底到栈顶单调递减的栈 $stk$，如果当前元素比栈顶元素大，则将栈顶元素出栈，直到当前元素小于等于栈顶元素，将当前元素入栈。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -92,30 +86,6 @@ class Solution:
             head = head.next
         return dummy.next
 ```
-
-```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode(inf, head)
-        cur = head
-        stk = [dummy]
-        while cur:
-            while stk[-1].val < cur.val:
-                stk.pop()
-            stk[-1].next = cur
-            stk.append(cur)
-            cur = cur.next
-        return dummy.next
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -152,36 +122,6 @@ class Solution {
     }
 }
 ```
-
-```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode removeNodes(ListNode head) {
-        ListNode dummy = new ListNode(1 << 30, head);
-        Deque<ListNode> stk = new ArrayDeque<>();
-        stk.offerLast(dummy);
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            while (stk.peekLast().val < cur.val) {
-                stk.pollLast();
-            }
-            stk.peekLast().next = cur;
-            stk.offerLast(cur);
-        }
-        return dummy.next;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -220,37 +160,6 @@ public:
 };
 ```
 
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* removeNodes(ListNode* head) {
-        ListNode* dummy = new ListNode(1e9, head);
-        ListNode* cur = head;
-        vector<ListNode*> stk = {dummy};
-        for (ListNode* cur = head; cur; cur = cur->next) {
-            while (stk.back()->val < cur->val) {
-                stk.pop_back();
-            }
-            stk.back()->next = cur;
-            stk.push_back(cur);
-        }
-        return dummy->next;
-    }
-};
-```
-
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -281,30 +190,6 @@ func removeNodes(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func removeNodes(head *ListNode) *ListNode {
-	dummy := &ListNode{1 << 30, head}
-	stk := []*ListNode{dummy}
-	for cur := head; cur != nil; cur = cur.Next {
-		for stk[len(stk)-1].Val < cur.Val {
-			stk = stk[:len(stk)-1]
-		}
-		stk[len(stk)-1].Next = cur
-		stk = append(stk, cur)
-	}
-	return dummy.Next
-}
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -341,6 +226,111 @@ function removeNodes(head: ListNode | null): ListNode | null {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(inf, head)
+        cur = head
+        stk = [dummy]
+        while cur:
+            while stk[-1].val < cur.val:
+                stk.pop()
+            stk[-1].next = cur
+            stk.append(cur)
+            cur = cur.next
+        return dummy.next
+```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNodes(ListNode head) {
+        ListNode dummy = new ListNode(1 << 30, head);
+        Deque<ListNode> stk = new ArrayDeque<>();
+        stk.offerLast(dummy);
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            while (stk.peekLast().val < cur.val) {
+                stk.pollLast();
+            }
+            stk.peekLast().next = cur;
+            stk.offerLast(cur);
+        }
+        return dummy.next;
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNodes(ListNode* head) {
+        ListNode* dummy = new ListNode(1e9, head);
+        ListNode* cur = head;
+        vector<ListNode*> stk = {dummy};
+        for (ListNode* cur = head; cur; cur = cur->next) {
+            while (stk.back()->val < cur->val) {
+                stk.pop_back();
+            }
+            stk.back()->next = cur;
+            stk.push_back(cur);
+        }
+        return dummy->next;
+    }
+};
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func removeNodes(head *ListNode) *ListNode {
+	dummy := &ListNode{1 << 30, head}
+	stk := []*ListNode{dummy}
+	for cur := head; cur != nil; cur = cur.Next {
+		for stk[len(stk)-1].Val < cur.Val {
+			stk = stk[:len(stk)-1]
+		}
+		stk[len(stk)-1].Next = cur
+		stk = append(stk, cur)
+	}
+	return dummy.Next
+}
+```
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -368,10 +358,6 @@ function removeNodes(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

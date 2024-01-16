@@ -47,19 +47,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆序遍历**
+### 方法一：逆序遍历
 
 我们可以从后往前遍历字符串，找到第一个奇数，然后返回从开头到该奇数的子字符串即可。如果不存在奇数，则返回空字符串。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $num$ 的长度。忽略答案字符串的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                 return num[: i + 1]
         return ''
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestOddNumber(num string) string {
 	for i := len(num) - 1; i >= 0; i-- {
@@ -119,8 +105,6 @@ func largestOddNumber(num string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestOddNumber(num: string): string {
     for (let i = num.length - 1; ~i; --i) {
@@ -131,8 +115,6 @@ function largestOddNumber(num: string): string {
     return '';
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -149,10 +131,6 @@ var largestOddNumber = function (num) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

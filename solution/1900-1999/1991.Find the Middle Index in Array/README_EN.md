@@ -52,9 +52,9 @@ The sum of the numbers after index 2 is: 0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             left += x
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,26 +101,37 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMiddleIndex(nums []int) int {
-	var left, right int
-	for _, x := range nums {
-		right += x
+	s := 0
+	for _, num := range nums {
+		s += num
 	}
-	for i, x := range nums {
-		right -= x
-		if left == right {
+	total := 0
+	for i, num := range nums {
+		total += num
+		if total-num == s-total {
 			return i
 		}
-		left += x
 	}
 	return -1
 }
 ```
 
-### **JavaScript**
+```ts
+function findMiddleIndex(nums: number[]): number {
+    let left = 0,
+        right = nums.reduce((a, b) => a + b);
+    for (let i = 0; i < nums.length; ++i) {
+        right -= nums[i];
+        if (left == right) {
+            return i;
+        }
+        left += nums[i];
+    }
+    return -1;
+}
+```
 
 ```js
 /**
@@ -145,27 +152,6 @@ var findMiddleIndex = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function findMiddleIndex(nums: number[]): number {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
-    for (let i = 0; i < nums.length; ++i) {
-        right -= nums[i];
-        if (left == right) {
-            return i;
-        }
-        left += nums[i];
-    }
-    return -1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

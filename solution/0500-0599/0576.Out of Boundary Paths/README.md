@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 定义 `dfs(i, j, k)` 表示当前位于坐标 $(i, j)$，且剩余移动次数为 $k$ 时，可以出界的路径数。记忆化搜索即可。
 
 时间复杂度 $O(m\times n\times k)$，空间复杂度 $O(m\times n\times k)$。其中 $m$, $n$, $k$ 分别表示网格的行数、列数、最大可移动次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(startRow, startColumn, maxMove)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,39 +112,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findPaths(int m, int n, int N, int i, int j) {
-        final int MOD = (int) (1e9 + 7);
-        final int[] dirs = new int[] {-1, 0, 1, 0, -1};
-        int[][] f = new int[m][n];
-        f[i][j] = 1;
-        int res = 0;
-        for (int step = 0; step < N; ++step) {
-            int[][] temp = new int[m][n];
-            for (int x = 0; x < m; ++x) {
-                for (int y = 0; y < n; ++y) {
-                    for (int k = 0; k < 4; ++k) {
-                        int tx = x + dirs[k], ty = y + dirs[k + 1];
-                        if (tx >= 0 && tx < m && ty >= 0 && ty < n) {
-                            temp[tx][ty] += f[x][y];
-                            temp[tx][ty] %= MOD;
-                        } else {
-                            res += f[x][y];
-                            res %= MOD;
-                        }
-                    }
-                }
-            }
-            f = temp;
-        }
-        return res;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
@@ -227,10 +182,43 @@ func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int findPaths(int m, int n, int N, int i, int j) {
+        final int MOD = (int) (1e9 + 7);
+        final int[] dirs = new int[] {-1, 0, 1, 0, -1};
+        int[][] f = new int[m][n];
+        f[i][j] = 1;
+        int res = 0;
+        for (int step = 0; step < N; ++step) {
+            int[][] temp = new int[m][n];
+            for (int x = 0; x < m; ++x) {
+                for (int y = 0; y < n; ++y) {
+                    for (int k = 0; k < 4; ++k) {
+                        int tx = x + dirs[k], ty = y + dirs[k + 1];
+                        if (tx >= 0 && tx < m && ty >= 0 && ty < n) {
+                            temp[tx][ty] += f[x][y];
+                            temp[tx][ty] %= MOD;
+                        } else {
+                            res += f[x][y];
+                            res %= MOD;
+                        }
+                    }
+                }
+            }
+            f = temp;
+        }
+        return res;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

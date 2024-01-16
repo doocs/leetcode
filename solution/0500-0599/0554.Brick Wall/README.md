@@ -41,15 +41,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-题目可以理解为，让垂线尽可能多地穿过砖块边缘，用哈希表处理不同位置的砖块边缘出现的频次（不包括两个垂直边缘），最终的答案就是总行数减去最大频数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,10 +58,6 @@ class Solution:
             return len(wall)
         return len(wall) - cnt[max(cnt, key=cnt.get)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func leastBricks(wall [][]int) int {
@@ -107,8 +95,6 @@ func leastBricks(wall [][]int) int {
 	return len(wall) - max
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -132,10 +118,6 @@ var leastBricks = function (wall) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

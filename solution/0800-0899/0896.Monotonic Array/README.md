@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 遍历数组，如果出现递增或递减的情况，记录下来。判断是否出现过递增和递减的情况，如果都出现过，说明不是单调数组，返回 `false`。
 
@@ -61,10 +59,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
@@ -72,10 +66,6 @@ class Solution:
         desc = all(a >= b for a, b in pairwise(nums))
         return asc or desc
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isMonotonic(nums []int) bool {
 	asc, desc := false, false
@@ -137,7 +123,42 @@ func isMonotonic(nums []int) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+function isMonotonic(nums: number[]): boolean {
+    let [asc, desc] = [false, false];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            asc = true;
+        } else if (nums[i - 1] > nums[i]) {
+            desc = true;
+        }
+        if (asc && desc) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```rust
+impl Solution {
+    pub fn is_monotonic(nums: Vec<i32>) -> bool {
+        let mut asc = false;
+        let mut desc = false;
+        for i in 1..nums.len() {
+            if nums[i - 1] < nums[i] {
+                asc = true;
+            } else if nums[i - 1] > nums[i] {
+                desc = true;
+            }
+            if asc && desc {
+                return false;
+            }
+        }
+        true
+    }
+}
+```
 
 ```js
 /**
@@ -160,51 +181,6 @@ var isMonotonic = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function isMonotonic(nums: number[]): boolean {
-    let [asc, desc] = [false, false];
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i - 1] < nums[i]) {
-            asc = true;
-        } else if (nums[i - 1] > nums[i]) {
-            desc = true;
-        }
-        if (asc && desc) {
-            return false;
-        }
-    }
-    return true;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn is_monotonic(nums: Vec<i32>) -> bool {
-        let mut asc = false;
-        let mut desc = false;
-        for i in 1..nums.len() {
-            if nums[i - 1] < nums[i] {
-                asc = true;
-            } else if nums[i - 1] > nums[i] {
-                desc = true;
-            }
-            if asc && desc {
-                return false;
-            }
-        }
-        true
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,7 +40,7 @@ We calculate the floor of the division for every pair of indices in the array th
 
 ## Solutions
 
-**Solution 1: Prefix Sum of Value Range + Optimized Enumeration**
+### Solution 1: Prefix Sum of Value Range + Optimized Enumeration
 
 First, we count the occurrences of each element in the array $nums$ and record them in the array $cnt$. Then, we calculate the prefix sum of the array $cnt$ and record it in the array $s$, i.e., $s[i]$ represents the count of elements less than or equal to $i$.
 
@@ -49,8 +49,6 @@ Next, we enumerate the denominator $y$ and the quotient $d$. Using the prefix su
 The time complexity is $O(M \times \log M)$, and the space complexity is $O(M)$. Here, $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
                     d += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfFlooredPairs(nums []int) (ans int) {
 	mx := slices.Max(nums)
@@ -159,8 +151,6 @@ func sumOfFlooredPairs(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfFlooredPairs(nums: number[]): number {
@@ -186,8 +176,6 @@ function sumOfFlooredPairs(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -230,10 +218,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

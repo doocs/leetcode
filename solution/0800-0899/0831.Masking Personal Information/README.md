@@ -109,19 +109,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题目描述，我们可以先判断字符串 $s$ 是电子邮件还是电话号码，然后分别处理。
 
 时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -134,10 +128,6 @@ class Solution:
         suf = '***-***-' + s[-4:]
         return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -162,8 +152,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -192,8 +180,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maskPII(s string) string {
 	i := strings.Index(s, "@")
@@ -217,8 +203,6 @@ func maskPII(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maskPII(s: string): string {
     const i = s.indexOf('@');
@@ -241,10 +225,6 @@ function maskPII(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

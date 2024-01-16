@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
             if abs(dx) <= eps and abs(dy) <= eps:
                 return dist
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -152,8 +148,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMinDistSum(positions [][]int) float64 {
 	n := len(positions)
@@ -189,8 +183,6 @@ func getMinDistSum(positions [][]int) float64 {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getMinDistSum(positions: number[][]): number {
@@ -228,10 +220,6 @@ function getMinDistSum(positions: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

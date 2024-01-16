@@ -78,9 +78,9 @@ frequencyTracker.hasFrequency(1); // Returns true, because 3 occurs once
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class FrequencyTracker:
@@ -111,8 +111,6 @@ class FrequencyTracker:
 # obj.deleteOne(number)
 # param_3 = obj.hasFrequency(frequency)
 ```
-
-### **Java**
 
 ```java
 class FrequencyTracker {
@@ -154,8 +152,6 @@ class FrequencyTracker {
  * boolean param_3 = obj.hasFrequency(frequency);
  */
 ```
-
-### **C++**
 
 ```cpp
 class FrequencyTracker {
@@ -200,8 +196,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type FrequencyTracker struct {
 	cnt  map[int]int
@@ -243,8 +237,6 @@ func (this *FrequencyTracker) HasFrequency(frequency int) bool {
  * param_3 := obj.HasFrequency(frequency);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class FrequencyTracker {
@@ -289,10 +281,6 @@ class FrequencyTracker {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

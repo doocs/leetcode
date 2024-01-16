@@ -59,7 +59,7 @@ It can be shown that 40 is the maximum score obtainable after any number of oper
 
 ## Solutions
 
-**Solution 1: Tree DP**
+### Solution 1: Tree DP
 
 The problem is actually asking us to select some nodes from all nodes of the tree so that the sum of these nodes' values is maximized, and there is one node on each path from the root node to the leaf node that is not selected.
 
@@ -76,8 +76,6 @@ The answer is $dfs(0, -1)[1]$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,8 +101,6 @@ class Solution:
             g[b].append(a)
         return dfs(0)[1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -143,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +173,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
 	g := make([][]int, len(values))
@@ -211,8 +203,6 @@ func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumScoreAfterOperations(edges: number[][], values: number[]): number {
     const g: number[][] = Array.from({ length: values.length }, () => []);
@@ -240,10 +230,6 @@ function maximumScoreAfterOperations(edges: number[][], values: number[]): numbe
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 由于街道两侧房子的摆放互不影响，因此，我们可以只考虑一侧的摆放情况，最后将一侧的方案数平方取模得到最终结果。
 
@@ -62,10 +60,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countHousePlacements(self, n: int) -> int:
@@ -78,10 +72,6 @@ class Solution:
         v = f[-1] + g[-1]
         return v * v % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countHousePlacements(n int) int {
 	const mod = 1e9 + 7
@@ -137,8 +123,6 @@ func countHousePlacements(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countHousePlacements(n: number): number {
     const f = new Array(n);
@@ -153,8 +137,6 @@ function countHousePlacements(n: number): number {
     return Number(v ** 2n % mod);
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -173,10 +155,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

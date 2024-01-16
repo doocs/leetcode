@@ -39,9 +39,9 @@ Hence, the sum of the squares of all special elements of nums is nums[1] * nums[
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -49,8 +49,6 @@ class Solution:
         n = len(nums)
         return sum(x * x for i, x in enumerate(nums, 1) if n % i == 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -85,8 +81,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfSquares(nums []int) (ans int) {
 	n := len(nums)
@@ -98,8 +92,6 @@ func sumOfSquares(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfSquares(nums: number[]): number {
@@ -114,10 +106,6 @@ function sumOfSquares(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,7 @@ trie.countWordsStartingWith("app"); // 返回 0
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组实现前缀树**
+### 方法一：数组实现前缀树
 
 前缀树每个节点包括三部分：
 
@@ -93,10 +91,6 @@ trie.countWordsStartingWith("app"); // 返回 0
 时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -147,10 +141,6 @@ class Trie:
 # param_3 = obj.countWordsStartingWith(prefix)
 # obj.erase(word)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -216,8 +206,6 @@ class Trie {
  * obj.erase(word);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -287,8 +275,6 @@ private:
  * obj->erase(word);
  */
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -360,10 +346,6 @@ func (this *Trie) search(word string) *Trie {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

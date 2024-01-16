@@ -52,20 +52,9 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-```
-f(0) = 0 * nums[0] + 1 * nums[1] + ... + (n - 1) * nums[n - 1]
-f(1) = 1 * nums[0] + 2 * nums[1] + ... + 0 * nums[n - 1]
-...
-f(k) = f(k - 1) + s - n * nums[n - k]
-```
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +67,6 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxRotateFunction(nums []int) int {
 	f, s, n := 0, 0, len(nums)
@@ -144,8 +125,6 @@ func maxRotateFunction(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxRotateFunction(nums: number[]): number {
     const n = nums.length;
@@ -159,8 +138,6 @@ function maxRotateFunction(nums: number[]): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -184,10 +161,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

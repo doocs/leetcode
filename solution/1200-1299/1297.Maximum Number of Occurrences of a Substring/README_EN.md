@@ -41,9 +41,9 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
                 ans = max(ans, cnt[t])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {
@@ -124,10 +118,6 @@ func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

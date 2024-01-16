@@ -39,7 +39,7 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 
 ## Solutions
 
-**Solution 1: Binary search + Greedy**
+### Solution 1: Binary search + Greedy
 
 We find that the maximum difference has the monotonicity, that is, if the maximum difference $x$ satisfies the condition, then $x-1$ must also satisfy the condition. Therefore, we can use the binary search method to find the smallest maximum difference that satisfies the condition.
 
@@ -50,8 +50,6 @@ Determine whether there are $p$ index pairs, where each index pair corresponds t
 The time complexity is $O(n \times (\log n + \log m))$, where $n$ is the length of the array `nums`, and $m$ is the difference between the maximum value and the minimum value in the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
         nums.sort()
         return bisect_left(range(nums[-1] - nums[0] + 1), True, key=check)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizeMax(nums []int, p int) int {
 	sort.Ints(nums)
@@ -154,10 +146,6 @@ func minimizeMax(nums []int, p int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

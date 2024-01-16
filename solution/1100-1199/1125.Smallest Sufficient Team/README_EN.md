@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: State Compression Dynamic Programming**
+### Solution 1: State Compression Dynamic Programming
 
 We notice that the length of `req_skills` does not exceed $16$, so we can use a binary number of length no more than $16$ to represent whether each skill is mastered. Let's denote the length of `req_skills` as $m$ and the length of `people` as $n$.
 
@@ -64,8 +64,6 @@ Finally, we start from the skill set $i=2^m-1$, find the number of the last pers
 The time complexity is $O(2^m \times n)$, and the space complexity is $O(2^m)$. Here, $m$ and $n$ are the lengths of `req_skills` and `people`, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -97,8 +95,6 @@ class Solution:
             i = h[i]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -142,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +180,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestSufficientTeam(req_skills []string, people [][]string) (ans []int) {
 	d := map[string]int{}
@@ -228,8 +220,6 @@ func smallestSufficientTeam(req_skills []string, people [][]string) (ans []int) 
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function smallestSufficientTeam(req_skills: string[], people: string[][]): number[] {
     const d: Map<string, number> = new Map();
@@ -269,10 +259,6 @@ function smallestSufficientTeam(req_skills: string[], people: string[][]): numbe
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

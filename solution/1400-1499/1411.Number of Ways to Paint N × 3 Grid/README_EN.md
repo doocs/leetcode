@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Recursion**
+### Solution 1: Recursion
 
 We classify all possible states for each row. According to the principle of symmetry, when a row only has $3$ elements, all legal states are classified as: $010$ type, $012$ type.
 
@@ -45,7 +45,89 @@ In summary, we can get: $newf0 = 3 \times f0 + 2 \times f1$, $newf1 = 2 \times f
 
 The time complexity is $O(n)$, where $n$ is the number of rows in the grid. The space complexity is $O(1)$.
 
-**Solution 2: State Compression + Dynamic Programming**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numOfWays(self, n: int) -> int:
+        mod = 10**9 + 7
+        f0 = f1 = 6
+        for _ in range(n - 1):
+            g0 = (3 * f0 + 2 * f1) % mod
+            g1 = (2 * f0 + 2 * f1) % mod
+            f0, f1 = g0, g1
+        return (f0 + f1) % mod
+```
+
+```java
+class Solution {
+    public int numOfWays(int n) {
+        int mod = (int) 1e9 + 7;
+        long f0 = 6, f1 = 6;
+        for (int i = 0; i < n - 1; ++i) {
+            long g0 = (3 * f0 + 2 * f1) % mod;
+            long g1 = (2 * f0 + 2 * f1) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+}
+```
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    int numOfWays(int n) {
+        int mod = 1e9 + 7;
+        ll f0 = 6, f1 = 6;
+        while (--n) {
+            ll g0 = (f0 * 3 + f1 * 2) % mod;
+            ll g1 = (f0 * 2 + f1 * 2) % mod;
+            f0 = g0;
+            f1 = g1;
+        }
+        return (int) (f0 + f1) % mod;
+    }
+};
+```
+
+```go
+func numOfWays(n int) int {
+	mod := int(1e9) + 7
+	f0, f1 := 6, 6
+	for n > 1 {
+		n--
+		g0 := (f0*3 + f1*2) % mod
+		g1 := (f0*2 + f1*2) % mod
+		f0, f1 = g0, g1
+	}
+	return (f0 + f1) % mod
+}
+```
+
+```ts
+function numOfWays(n: number): number {
+    const mod: number = 10 ** 9 + 7;
+    let f0: number = 6;
+    let f1: number = 6;
+
+    for (let i = 1; i < n; i++) {
+        const g0: number = (3 * f0 + 2 * f1) % mod;
+        const g1: number = (2 * f0 + 2 * f1) % mod;
+        f0 = g0;
+        f1 = g1;
+    }
+
+    return (f0 + f1) % mod;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: State Compression + Dynamic Programming
 
 We notice that the grid only has $3$ columns, so there are at most $3^3=27$ different coloring schemes in a row.
 
@@ -64,20 +146,6 @@ We notice that $f[i][j]$ is only related to $f[i - 1][k]$, so we can use a rolli
 The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $O(3^m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-class Solution:
-    def numOfWays(self, n: int) -> int:
-        mod = 10**9 + 7
-        f0 = f1 = 6
-        for _ in range(n - 1):
-            g0 = (3 * f0 + 2 * f1) % mod
-            g1 = (2 * f0 + 2 * f1) % mod
-            f0, f1 = g0, g1
-        return (f0 + f1) % mod
-```
 
 ```python
 class Solution:
@@ -115,24 +183,6 @@ class Solution:
                     g[j] = (g[j] + f[i]) % mod
             f = g
         return sum(f) % mod
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int numOfWays(int n) {
-        int mod = (int) 1e9 + 7;
-        long f0 = 6, f1 = 6;
-        for (int i = 0; i < n - 1; ++i) {
-            long g0 = (3 * f0 + 2 * f1) % mod;
-            long g1 = (2 * f0 + 2 * f1) % mod;
-            f0 = g0;
-            f1 = g1;
-        }
-        return (int) (f0 + f1) % mod;
-    }
-}
 ```
 
 ```java
@@ -195,27 +245,6 @@ class Solution {
         return true;
     }
 }
-```
-
-### **C++**
-
-```cpp
-using ll = long long;
-
-class Solution {
-public:
-    int numOfWays(int n) {
-        int mod = 1e9 + 7;
-        ll f0 = 6, f1 = 6;
-        while (--n) {
-            ll g0 = (f0 * 3 + f1 * 2) % mod;
-            ll g1 = (f0 * 2 + f1 * 2) % mod;
-            f0 = g0;
-            f1 = g1;
-        }
-        return (int) (f0 + f1) % mod;
-    }
-};
 ```
 
 ```cpp
@@ -281,22 +310,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func numOfWays(n int) int {
-	mod := int(1e9) + 7
-	f0, f1 := 6, 6
-	for n > 1 {
-		n--
-		g0 := (f0*3 + f1*2) % mod
-		g1 := (f0*2 + f1*2) % mod
-		f0, f1 = g0, g1
-	}
-	return (f0 + f1) % mod
-}
-```
-
 ```go
 func numOfWays(n int) (ans int) {
 	f1 := func(x int) bool {
@@ -351,25 +364,6 @@ func numOfWays(n int) (ans int) {
 		ans = (ans + x) % mod
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function numOfWays(n: number): number {
-    const mod: number = 10 ** 9 + 7;
-    let f0: number = 6;
-    let f1: number = 6;
-
-    for (let i = 1; i < n; i++) {
-        const g0: number = (3 * f0 + 2 * f1) % mod;
-        const g1: number = (2 * f0 + 2 * f1) % mod;
-        f0 = g0;
-        f1 = g1;
-    }
-
-    return (f0 + f1) % mod;
 }
 ```
 
@@ -431,10 +425,6 @@ function numOfWays(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

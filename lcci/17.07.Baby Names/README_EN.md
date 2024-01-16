@@ -22,9 +22,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
                 ans.append(f"{name}({freq})")
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -164,8 +160,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 	g := map[string][]string{}
@@ -212,8 +206,6 @@ func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     const map = new Map<string, string>();
@@ -245,10 +237,6 @@ function trulyMostPopular(names: string[], synonyms: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,9 +60,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
                     h -= 1
         return "".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthSmallestPath(destination []int, k int) string {
 	v, h := destination[0], destination[1]
@@ -194,10 +188,6 @@ func kthSmallestPath(destination []int, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

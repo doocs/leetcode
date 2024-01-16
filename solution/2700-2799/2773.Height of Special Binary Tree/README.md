@@ -64,19 +64,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 题目的关键在于如何判断一个节点是叶子节点，我们设计一个函数 $dfs(root, d)$，其中 $root$ 表示当前节点，而 $d$ 表示当前节点的深度，我们每次搜索时，更新答案 $ans = \max(ans, d)$，然后判断当前节点是否为叶子节点，如果当前节点有左子节点，且左子节点的右子节点不是当前节点，那么我们递归调用 $dfs(root.left, d + 1)$，如果当前节点有右子节点，且右子节点的左子节点不是当前节点，那么我们递归调用 $dfs(root.right, d + 1)$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -99,10 +93,6 @@ class Solution:
         dfs(root, 0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -173,8 +161,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -202,8 +188,6 @@ func heightOfTree(root *TreeNode) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -236,10 +220,6 @@ function heightOfTree(root: TreeNode | null): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

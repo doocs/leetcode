@@ -48,9 +48,9 @@ Note that there may be other ways to remove 2 obstacles to create a path.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                     else:
                         q.append((x, y, k + 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumObstacles(grid [][]int) int {
@@ -185,8 +179,6 @@ func minimumObstacles(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumObstacles(grid: number[][]): number {
     const m = grid.length,
@@ -215,10 +207,6 @@ function minimumObstacles(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

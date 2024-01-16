@@ -25,7 +25,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 First, we define a function `isLeapYear(year)` to determine whether the given year `year` is a leap year. If it is a leap year, return `true`, otherwise return `false`.
 
@@ -38,8 +38,6 @@ Finally, we only need to return the absolute value of `calcDays(date1) - calcDay
 The time complexity is $O(y + m)$, where $y$ represents the number of years from the given date to `1971-01-01`, and $m$ represents the number of months of the given date. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
         return abs(calcDays(date1) - calcDays(date2))
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int daysBetweenDates(String date1, String date2) {
@@ -111,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func daysBetweenDates(date1 string, date2 string) int {
@@ -193,8 +185,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function daysBetweenDates(date1: string, date2: string): number {
     return Math.abs(calcDays(date1) - calcDays(date2));
@@ -223,10 +213,6 @@ function calcDays(date: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,9 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
                 ans.append(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,38 +114,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findEvenNumbers(digits: number[]): number[] {
-    let record = new Array(10).fill(0);
-    for (let digit of digits) {
-        record[digit]++;
-    }
-    let ans = [];
-    for (let i = 100; i < 1000; i += 2) {
-        if (check(record, String(i))) {
-            ans.push(i);
-        }
-    }
-    return ans;
-}
-
-function check(target: Array<number>, digits: string): boolean {
-    let record = new Array(10).fill(0);
-    for (let digit of digits) {
-        record[digit]++;
-    }
-
-    for (let i = 0; i < 10; i++) {
-        if (record[i] > target[i]) return false;
-    }
-    return true;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -180,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findEvenNumbers(digits []int) []int {
@@ -220,10 +184,34 @@ func check(cnt1, cnt2 []int) bool {
 }
 ```
 
-### **...**
+```ts
+function findEvenNumbers(digits: number[]): number[] {
+    let record = new Array(10).fill(0);
+    for (let digit of digits) {
+        record[digit]++;
+    }
+    let ans = [];
+    for (let i = 100; i < 1000; i += 2) {
+        if (check(record, String(i))) {
+            ans.push(i);
+        }
+    }
+    return ans;
+}
 
-```
+function check(target: Array<number>, digits: string): boolean {
+    let record = new Array(10).fill(0);
+    for (let digit of digits) {
+        record[digit]++;
+    }
 
+    for (let i = 0; i < 10; i++) {
+        if (record[i] > target[i]) return false;
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

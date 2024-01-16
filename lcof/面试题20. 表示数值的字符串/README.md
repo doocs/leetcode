@@ -87,9 +87,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 我们先去除字符串 $s$ 首尾的空格，此时 $i$ 和 $j$ 分别指向字符串 $s$ 的第一个非空格字符和最后一个非空格字符。
 
@@ -112,10 +110,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -147,10 +141,6 @@ class Solution:
             i += 1
         return digit
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -196,8 +186,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -240,8 +228,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isNumber(s string) bool {
 	i, j := 0, len(s)-1
@@ -279,8 +265,6 @@ func isNumber(s string) bool {
 	return digit
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -323,10 +307,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

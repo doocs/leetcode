@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串分割**
+### 方法一：字符串分割
 
 我们可以将字符串 $text$ 按照空格分割成字符串数组 $words$，然后遍历 $words$，如果 $words[i]$ 和 $words[i+1]$ 分别等于 $first$ 和 $second$，那么就将 $words[i+2]$ 添加到答案中。
 
@@ -51,10 +49,6 @@
 时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 是 $text$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
                 ans.append(c)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findOcurrences(text string, first string, second string) (ans []string) {
 	words := strings.Split(text, " ")
@@ -126,8 +112,6 @@ func findOcurrences(text string, first string, second string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findOcurrences(text: string, first: string, second: string): string[] {
@@ -143,10 +127,6 @@ function findOcurrences(text: string, first: string, second: string): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

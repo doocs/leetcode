@@ -55,9 +55,9 @@ Note that there may be other valid parentheses string paths.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -80,8 +80,6 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return dfs(0, 0, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -122,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 bool vis[100][100][200];
 int dirs[3] = {1, 0, 1};
@@ -150,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func hasValidPath(grid [][]byte) bool {
@@ -193,16 +187,6 @@ func hasValidPath(grid [][]byte) bool {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

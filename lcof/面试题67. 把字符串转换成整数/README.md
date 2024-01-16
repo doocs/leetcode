@@ -64,17 +64,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-遍历字符串，注意做溢出处理。
-
-同[字符串转换整数 (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,10 +99,6 @@ class Solution:
         return sign * res
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int strToInt(String str) {
@@ -138,37 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} str
- * @return {number}
- */
-var strToInt = function (str) {
-    let res = '';
-    let l = 1;
-    for (let i = 0; i < str.length; i++) {
-        if (l && str[i] === ' ') continue;
-        if (l && (str[i] === '+' || str[i] === '-')) {
-            l = 0;
-            res += str[i];
-            continue;
-        }
-        if (str[i].match(/[0-9]/)) {
-            l = 0;
-            res += str[i];
-        } else break;
-    }
-    res = isNaN(+res) ? 0 : +res;
-    if (res > 2147483647) return 2147483647;
-    if (res < -2147483648) return -2147483648;
-    return res;
-};
-```
-
-### **Go**
 
 ```go
 func strToInt(str string) int {
@@ -217,7 +174,32 @@ func strToInt(str string) int {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {string} str
+ * @return {number}
+ */
+var strToInt = function (str) {
+    let res = '';
+    let l = 1;
+    for (let i = 0; i < str.length; i++) {
+        if (l && str[i] === ' ') continue;
+        if (l && (str[i] === '+' || str[i] === '-')) {
+            l = 0;
+            res += str[i];
+            continue;
+        }
+        if (str[i].match(/[0-9]/)) {
+            l = 0;
+            res += str[i];
+        } else break;
+    }
+    res = isNaN(+res) ? 0 : +res;
+    if (res > 2147483647) return 2147483647;
+    if (res < -2147483648) return -2147483648;
+    return res;
+};
+```
 
 ```cs
 public class Solution {
@@ -278,10 +260,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

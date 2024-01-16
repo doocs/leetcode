@@ -50,7 +50,7 @@ The subarrays of size 1 that have more ones than zeros are: [1]
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Binary Indexed Tree**
+### Solution 1: Prefix Sum + Binary Indexed Tree
 
 The problem requires us to count the number of subarrays where the count of $1$ is greater than the count of $0$. If we treat $0$ in the array as $-1$, then the problem becomes counting the number of subarrays where the sum of elements is greater than $0$.
 
@@ -63,8 +63,6 @@ Finally, return $ans$.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -102,25 +100,6 @@ class Solution:
             tree.update(s + base, 1)
         return ans
 ```
-
-```python
-from sortedcontainers import SortedList
-
-
-class Solution:
-    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
-        sl = SortedList([0])
-        mod = 10**9 + 7
-        ans = s = 0
-        for x in nums:
-            s += x or -1
-            ans += sl.bisect_left(s)
-            ans %= mod
-            sl.add(s)
-        return ans
-```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -165,8 +144,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -214,8 +191,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -260,8 +235,6 @@ func subarraysWithMoreZerosThanOnes(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -305,10 +278,29 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedList
+
+
+class Solution:
+    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
+        sl = SortedList([0])
+        mod = 10**9 + 7
+        ans = s = 0
+        for x in nums:
+            s += x or -1
+            ans += sl.bisect_left(s)
+            ans %= mod
+            sl.add(s)
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

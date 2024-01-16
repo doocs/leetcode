@@ -54,15 +54,13 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 First, we call `BinaryMatrix.dimensions()` to get the number of rows $m$ and columns $n$ of the matrix. Then for each row, we use binary search to find the column number $j$ where the leftmost $1$ is located. The smallest $j$ value that satisfies all rows is the answer. If there is no such column, return $-1$.
 
 The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. We need to traverse each row, and use binary search within each row, which has a time complexity of $O(\log n)$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # """
@@ -83,8 +81,6 @@ class Solution:
             ans = min(ans, j)
         return -1 if ans >= n else ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -117,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -154,8 +148,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the BinaryMatrix's API interface.
@@ -189,8 +181,6 @@ func leftMostColumnWithOne(binaryMatrix BinaryMatrix) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * // This is the BinaryMatrix's API interface.
@@ -221,9 +211,8 @@ function leftMostColumnWithOne(binaryMatrix: BinaryMatrix) {
 }
 ```
 
-### **Rust**
-
 ```rust
+
 /**
  * // This is the BinaryMatrix's API interface.
  * // You should not implement it, or speculate about its implementation
@@ -263,8 +252,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
 ```cs
 /**
  * // This is BinaryMatrix's API interface.
@@ -297,10 +284,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,9 @@ x cannot be greater since there are only 2 numbers in nums.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,20 +62,6 @@ class Solution:
                 return x
         return -1
 ```
-
-```python
-class Solution:
-    def specialArray(self, nums: List[int]) -> int:
-        nums.sort()
-        n = len(nums)
-        for x in range(1, n + 1):
-            cnt = n - bisect_left(nums, x)
-            if cnt == x:
-                return x
-        return -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,6 +80,87 @@ class Solution {
         return -1;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int specialArray(vector<int>& nums) {
+        for (int x = 1; x <= nums.size(); ++x) {
+            int cnt = 0;
+            for (int v : nums) cnt += v >= x;
+            if (cnt == x) return x;
+        }
+        return -1;
+    }
+};
+```
+
+```go
+func specialArray(nums []int) int {
+	for x := 1; x <= len(nums); x++ {
+		cnt := 0
+		for _, v := range nums {
+			if v >= x {
+				cnt++
+			}
+		}
+		if cnt == x {
+			return x
+		}
+	}
+	return -1
+}
+```
+
+```ts
+function specialArray(nums: number[]): number {
+    const n = nums.length;
+    for (let i = 0; i <= n; i++) {
+        if (i === nums.reduce((r, v) => r + (v >= i ? 1 : 0), 0)) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
+
+```rust
+impl Solution {
+    pub fn special_array(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        for i in 0..=n {
+            let mut count = 0;
+            for &num in nums.iter() {
+                if num >= i {
+                    count += 1;
+                }
+            }
+            if count == i {
+                return i;
+            }
+        }
+        -1
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def specialArray(self, nums: List[int]) -> int:
+        nums.sort()
+        n = len(nums)
+        for x in range(1, n + 1):
+            cnt = n - bisect_left(nums, x)
+            if cnt == x:
+                return x
+        return -1
 ```
 
 ```java
@@ -121,22 +188,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int specialArray(vector<int>& nums) {
-        for (int x = 1; x <= nums.size(); ++x) {
-            int cnt = 0;
-            for (int v : nums) cnt += v >= x;
-            if (cnt == x) return x;
-        }
-        return -1;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -150,25 +201,6 @@ public:
         return -1;
     }
 };
-```
-
-### **Go**
-
-```go
-func specialArray(nums []int) int {
-	for x := 1; x <= len(nums); x++ {
-		cnt := 0
-		for _, v := range nums {
-			if v >= x {
-				cnt++
-			}
-		}
-		if cnt == x {
-			return x
-		}
-	}
-	return -1
-}
 ```
 
 ```go
@@ -194,20 +226,6 @@ func specialArray(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function specialArray(nums: number[]): number {
-    const n = nums.length;
-    for (let i = 0; i <= n; i++) {
-        if (i === nums.reduce((r, v) => r + (v >= i ? 1 : 0), 0)) {
-            return i;
-        }
-    }
-    return -1;
-}
-```
-
 ```ts
 function specialArray(nums: number[]): number {
     const n = nums.length;
@@ -228,28 +246,6 @@ function specialArray(nums: number[]): number {
         }
     }
     return -1;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn special_array(nums: Vec<i32>) -> i32 {
-        let n = nums.len() as i32;
-        for i in 0..=n {
-            let mut count = 0;
-            for &num in nums.iter() {
-                if num >= i {
-                    count += 1;
-                }
-            }
-            if count == i {
-                return i;
-            }
-        }
-        -1
-    }
 }
 ```
 
@@ -285,10 +281,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

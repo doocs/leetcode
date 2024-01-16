@@ -54,7 +54,7 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We traverse the string $s$ from the beginning. For the current character $s[i]$, if it is a space, we decrement $k$. When $k$ becomes $0$, it means that we have extracted $k$ words, so we return the substring $s[0..i)$.
 
@@ -64,25 +64,11 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignori
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
         return ' '.join(s.split()[:k])
 ```
-
-```python
-class Solution:
-    def truncateSentence(self, s: str, k: int) -> str:
-        for i, c in enumerate(s):
-            k -= c == ' '
-            if k == 0:
-                return s[:i]
-        return s
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func truncateSentence(s string, k int) string {
 	for i, c := range s {
@@ -129,8 +111,6 @@ func truncateSentence(s string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function truncateSentence(s: string, k: number): string {
     for (let i = 0; i < s.length; ++i) {
@@ -141,8 +121,6 @@ function truncateSentence(s: string, k: number): string {
     return s;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -160,10 +138,22 @@ var truncateSentence = function (s, k) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        for i, c in enumerate(s):
+            k -= c == ' '
+            if k == 0:
+                return s[:i]
+        return s
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

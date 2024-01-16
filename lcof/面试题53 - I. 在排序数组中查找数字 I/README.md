@@ -35,15 +35,13 @@
 
 ## 解法
 
-**方法一：二分查找**
+### 方法一：二分查找
 
 由于数组 `nums` 已排好序，我们可以使用二分查找的方法找到数组中第一个大于等于 `target` 的元素的下标 $l$，以及第一个大于 `target` 的元素的下标 $r$，那么 `target` 的个数就是 $r - l$。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -52,8 +50,6 @@ class Solution:
         r = bisect_right(nums, target)
         return r - l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -91,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func search(nums []int, target int) int {
 	l := sort.Search(len(nums), func(i int) bool { return nums[i] >= target })
@@ -101,7 +93,26 @@ func search(nums []int, target int) int {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
+        let search = |x| {
+            let mut l = 0;
+            let mut r = nums.len();
+            while l < r {
+                let mid = l + (r - l) / 2;
+                if nums[mid] >= x {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            l as i32
+        };
+        search(target + 1) - search(target)
+    }
+}
+```
 
 ```js
 /**
@@ -129,31 +140,6 @@ var search = function (nums, target) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
-        let search = |x| {
-            let mut l = 0;
-            let mut r = nums.len();
-            while l < r {
-                let mid = l + (r - l) / 2;
-                if nums[mid] >= x {
-                    r = mid;
-                } else {
-                    l = mid + 1;
-                }
-            }
-            l as i32
-        };
-        search(target + 1) - search(target)
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int Search(int[] nums, int target) {
@@ -177,10 +163,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 枚举数组 `nums` 中的每个元素，将其转换为字符串，判断字符串长度是否为偶数，是则答案加一。
 
@@ -52,19 +50,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
         return sum(len(str(v)) % 2 == 0 for v in nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findNumbers(nums []int) (ans int) {
 	for _, v := range nums {
@@ -107,8 +93,6 @@ func findNumbers(nums []int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -124,10 +108,6 @@ var findNumbers = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

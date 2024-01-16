@@ -35,23 +35,4 @@ Line 10
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **Bash**
-
-```sh
-# Read from the file file.txt and output the tenth line to stdout.
-tail -n +10 file.txt | head -1
-```
-
-```sh
-# Read from the file file.txt and output the tenth line to stdout.
-awk 'NR == 10' file.txt
-```
-
-```sh
-# Read from the file file.txt and output the tenth line to stdout.
-sed -n 10p file.txt
-```
-
-<!-- tabs:end -->
+<!-- end -->

@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二维前缀和 + 二分查找**
+### 方法一：二维前缀和 + 二分查找
 
 我们可以先预处理得到二维前缀和数组 $s$，其中 $s[i + 1][j + 1]$ 表示矩阵 $mat$ 中从 $(0, 0)$ 到 $(i, j)$ 的元素和，那么对于任意的正方形区域，我们都可以在 $O(1)$ 的时间内得到其元素和。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(m \times n \times \log \min(m, n))$，空间复杂度 $O(m \times n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSideLength(mat [][]int, threshold int) int {
 	m, n := len(mat), len(mat[0])
@@ -204,8 +190,6 @@ func maxSideLength(mat [][]int, threshold int) int {
 	return l
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSideLength(mat: number[][], threshold: number): number {
@@ -244,10 +228,6 @@ function maxSideLength(mat: number[][], threshold: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

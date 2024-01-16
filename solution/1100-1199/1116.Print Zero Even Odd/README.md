@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：多线程 + 信号量**
+### 方法一：多线程 + 信号量
 
 我们用三个信号量 $z$, $e$, $o$ 来控制三个线程的执行顺序，其中 $z$ 的初始值为 $1$，$e$ 和 $o$ 的初始值为 $0$。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from threading import Semaphore
@@ -109,10 +103,6 @@ class ZeroEvenOdd:
             printNumber(i)
             self.z.release()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class ZeroEvenOdd {
@@ -155,8 +145,6 @@ class ZeroEvenOdd {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 #include <semaphore.h>
@@ -205,10 +193,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

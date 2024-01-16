@@ -52,13 +52,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +64,6 @@ class Solution:
             n = min(n, b)
         return m * n
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxCount(m int, n int, ops [][]int) int {
 	for _, op := range ops {
@@ -112,10 +100,6 @@ func maxCount(m int, n int, ops [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

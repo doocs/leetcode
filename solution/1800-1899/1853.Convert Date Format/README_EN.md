@@ -49,9 +49,9 @@ Days table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -59,3 +59,5 @@ SELECT DATE_FORMAT(day, '%W, %M %e, %Y') AS day FROM Days;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

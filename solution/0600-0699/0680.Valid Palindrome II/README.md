@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用两个指针分别指向字符串的左右两端，每次判断两个指针指向的字符是否相同，如果不相同，则判断删除左指针对应的字符后字符串是否是回文字符串，或者判断删除右指针对应的字符后字符串是否是回文字符串。如果两个指针指向的字符相同，则将左右指针都往中间移动一位，直到两个指针相遇为止。
 
@@ -55,10 +53,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,30 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function validPalindrome(s: string): boolean {
-    for (let i: number = 0, j = s.length - 1; i < j; ++i, --j) {
-        if (s.charAt(i) != s.charAt(j)) {
-            return isPalinddrome(s.slice(i, j)) || isPalinddrome(s.slice(i + 1, j + 1));
-        }
-    }
-    return true;
-}
-
-function isPalinddrome(s: string): boolean {
-    for (let i: number = 0, j = s.length - 1; i < j; ++i, --j) {
-        if (s.charAt(i) != s.charAt(j)) {
-            return false;
-        }
-    }
-    return true;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -151,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validPalindrome(s string) bool {
 	check := func(i, j int) bool {
@@ -172,7 +136,25 @@ func validPalindrome(s string) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+function validPalindrome(s: string): boolean {
+    for (let i: number = 0, j = s.length - 1; i < j; ++i, --j) {
+        if (s.charAt(i) != s.charAt(j)) {
+            return isPalinddrome(s.slice(i, j)) || isPalinddrome(s.slice(i + 1, j + 1));
+        }
+    }
+    return true;
+}
+
+function isPalinddrome(s: string): boolean {
+    for (let i: number = 0, j = s.length - 1; i < j; ++i, --j) {
+        if (s.charAt(i) != s.charAt(j)) {
+            return false;
+        }
+    }
+    return true;
+}
+```
 
 ```js
 /**
@@ -196,8 +178,6 @@ var validPalindrome = function (s) {
     return true;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -226,10 +206,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

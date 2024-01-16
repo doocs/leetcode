@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：式子变换 + 哈希表**
+### 方法一：式子变换 + 哈希表
 
 对于下标对 $(i, j)$，如果满足条件，那么有 $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$，即 $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,30 +69,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(v * (v - 1) // 2 for v in cnt.values()) % mod
 ```
-
-```python
-class Solution:
-    def countNicePairs(self, nums: List[int]) -> int:
-        def rev(x):
-            y = 0
-            while x:
-                y = y * 10 + x % 10
-                x //= 10
-            return y
-
-        ans = 0
-        mod = 10**9 + 7
-        cnt = Counter()
-        for x in nums:
-            y = x - rev(x)
-            ans += cnt[y]
-            cnt[y] += 1
-        return ans % mod
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,32 +96,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countNicePairs(int[] nums) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        final int mod = (int) 1e9 + 7;
-        int ans = 0;
-        for (int x : nums) {
-            int y = x - rev(x);
-            ans = (ans + cnt.getOrDefault(y, 0)) % mod;
-            cnt.merge(y, 1, Integer::sum);
-        }
-        return ans;
-    }
-
-    private int rev(int x) {
-        int y = 0;
-        for (; x > 0; x /= 10) {
-            y = y * 10 + x % 10;
-        }
-        return y;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,31 +122,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int countNicePairs(vector<int>& nums) {
-        auto rev = [](int x) {
-            int y = 0;
-            for (; x > 0; x /= 10) {
-                y = y * 10 + x % 10;
-            }
-            return y;
-        };
-        unordered_map<int, int> cnt;
-        int ans = 0;
-        const int mod = 1e9 + 7;
-        for (int& x : nums) {
-            int y = x - rev(x);
-            ans = (ans + cnt[y]++) % mod;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countNicePairs(nums []int) (ans int) {
 	rev := func(x int) (y int) {
@@ -224,26 +143,27 @@ func countNicePairs(nums []int) (ans int) {
 }
 ```
 
-```go
-func countNicePairs(nums []int) (ans int) {
-	rev := func(x int) (y int) {
-		for ; x > 0; x /= 10 {
-			y = y*10 + x%10
-		}
-		return
-	}
-	cnt := map[int]int{}
-	const mod int = 1e9 + 7
-	for _, x := range nums {
-		y := x - rev(x)
-		ans = (ans + cnt[y]) % mod
-		cnt[y]++
-	}
-	return
+```ts
+function countNicePairs(nums: number[]): number {
+    const rev = (x: number): number => {
+        let y = 0;
+        while (x) {
+            y = y * 10 + (x % 10);
+            x = Math.floor(x / 10);
+        }
+        return y;
+    };
+    const mod = 10 ** 9 + 7;
+    const cnt = new Map<number, number>();
+    let ans = 0;
+    for (const x of nums) {
+        const y = x - rev(x);
+        ans = (ans + (cnt.get(y) ?? 0)) % mod;
+        cnt.set(y, (cnt.get(y) ?? 0) + 1);
+    }
+    return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -272,58 +192,6 @@ var countNicePairs = function (nums) {
 };
 ```
 
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var countNicePairs = function (nums) {
-    const rev = x => {
-        let y = 0;
-        for (; x > 0; x = Math.floor(x / 10)) {
-            y = y * 10 + (x % 10);
-        }
-        return y;
-    };
-    let ans = 0;
-    const mod = 1e9 + 7;
-    const cnt = new Map();
-    for (const x of nums) {
-        const y = x - rev(x);
-        const v = cnt.get(y) | 0;
-        ans = (ans + v) % mod;
-        cnt.set(y, v + 1);
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
-
-```ts
-function countNicePairs(nums: number[]): number {
-    const rev = (x: number): number => {
-        let y = 0;
-        while (x) {
-            y = y * 10 + (x % 10);
-            x = Math.floor(x / 10);
-        }
-        return y;
-    };
-    const mod = 10 ** 9 + 7;
-    const cnt = new Map<number, number>();
-    let ans = 0;
-    for (const x of nums) {
-        const y = x - rev(x);
-        ans = (ans + (cnt.get(y) ?? 0)) % mod;
-        cnt.set(y, (cnt.get(y) ?? 0) + 1);
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int CountNicePairs(int[] nums) {
@@ -351,10 +219,124 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countNicePairs(self, nums: List[int]) -> int:
+        def rev(x):
+            y = 0
+            while x:
+                y = y * 10 + x % 10
+                x //= 10
+            return y
+
+        ans = 0
+        mod = 10**9 + 7
+        cnt = Counter()
+        for x in nums:
+            y = x - rev(x)
+            ans += cnt[y]
+            cnt[y] += 1
+        return ans % mod
 ```
 
+```java
+class Solution {
+    public int countNicePairs(int[] nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        final int mod = (int) 1e9 + 7;
+        int ans = 0;
+        for (int x : nums) {
+            int y = x - rev(x);
+            ans = (ans + cnt.getOrDefault(y, 0)) % mod;
+            cnt.merge(y, 1, Integer::sum);
+        }
+        return ans;
+    }
+
+    private int rev(int x) {
+        int y = 0;
+        for (; x > 0; x /= 10) {
+            y = y * 10 + x % 10;
+        }
+        return y;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countNicePairs(vector<int>& nums) {
+        auto rev = [](int x) {
+            int y = 0;
+            for (; x > 0; x /= 10) {
+                y = y * 10 + x % 10;
+            }
+            return y;
+        };
+        unordered_map<int, int> cnt;
+        int ans = 0;
+        const int mod = 1e9 + 7;
+        for (int& x : nums) {
+            int y = x - rev(x);
+            ans = (ans + cnt[y]++) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countNicePairs(nums []int) (ans int) {
+	rev := func(x int) (y int) {
+		for ; x > 0; x /= 10 {
+			y = y*10 + x%10
+		}
+		return
+	}
+	cnt := map[int]int{}
+	const mod int = 1e9 + 7
+	for _, x := range nums {
+		y := x - rev(x)
+		ans = (ans + cnt[y]) % mod
+		cnt[y]++
+	}
+	return
+}
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var countNicePairs = function (nums) {
+    const rev = x => {
+        let y = 0;
+        for (; x > 0; x = Math.floor(x / 10)) {
+            y = y * 10 + (x % 10);
+        }
+        return y;
+    };
+    let ans = 0;
+    const mod = 1e9 + 7;
+    const cnt = new Map();
+    for (const x of nums) {
+        const y = x - rev(x);
+        const v = cnt.get(y) | 0;
+        ans = (ans + v) % mod;
+        cnt.set(y, v + 1);
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,7 +56,7 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can directly simulate the process as described in the problem.
 
@@ -66,26 +66,11 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Her
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
         return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
 ```
-
-```python
-class Solution:
-    def alternateDigitSum(self, n: int) -> int:
-        ans, sign = 0, 1
-        for c in str(n):
-            x = int(c)
-            ans += sign * x
-            sign *= -1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func alternateDigitSum(n int) (ans int) {
 	sign := 1
@@ -131,8 +112,6 @@ func alternateDigitSum(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function alternateDigitSum(n: number): number {
@@ -147,8 +126,6 @@ function alternateDigitSum(n: number): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn alternate_digit_sum(mut n: i32) -> i32 {
@@ -162,6 +139,36 @@ impl Solution {
         ans * -sign
     }
 }
+```
+
+```c
+int alternateDigitSum(int n) {
+    int ans = 0;
+    int sign = 1;
+    while (n) {
+        ans += (n % 10) * sign;
+        sign = -sign;
+        n /= 10;
+    }
+    return ans * -sign;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def alternateDigitSum(self, n: int) -> int:
+        ans, sign = 0, 1
+        for c in str(n):
+            x = int(c)
+            ans += sign * x
+            sign *= -1
+        return ans
 ```
 
 ```rust
@@ -181,25 +188,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int alternateDigitSum(int n) {
-    int ans = 0;
-    int sign = 1;
-    while (n) {
-        ans += (n % 10) * sign;
-        sign = -sign;
-        n /= 10;
-    }
-    return ans * -sign;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

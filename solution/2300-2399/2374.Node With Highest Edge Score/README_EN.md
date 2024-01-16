@@ -49,9 +49,9 @@ Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 ans = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func edgeScore(edges []int) int {
 	n := len(edges)
@@ -127,8 +121,6 @@ func edgeScore(edges []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function edgeScore(edges: number[]): number {
@@ -147,11 +139,6 @@ function edgeScore(edges: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

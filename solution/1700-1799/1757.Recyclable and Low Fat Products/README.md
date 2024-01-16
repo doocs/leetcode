@@ -57,24 +57,11 @@ Products 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：条件筛选**
+### 方法一：条件筛选
 
 我们直接筛选出 `low_fats` 为 `Y` 且 `recyclable` 为 `Y` 的产品编号即可。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-SELECT
-    product_id
-FROM Products
-WHERE low_fats = 'Y' AND recyclable = 'Y';
-```
-
-### **PANDAS**
 
 ```python
 import pandas as pd
@@ -86,4 +73,13 @@ def find_products(products: pd.DataFrame) -> pd.DataFrame:
     return rs
 ```
 
+```sql
+SELECT
+    product_id
+FROM Products
+WHERE low_fats = 'Y' AND recyclable = 'Y';
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

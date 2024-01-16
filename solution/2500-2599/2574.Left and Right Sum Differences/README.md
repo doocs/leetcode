@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和**
+### 方法一：前缀和
 
 我们定义变量 $left$ 表示数组 `nums` 中下标 $i$ 左侧元素之和，变量 $right$ 表示数组 `nums` 中下标 $i$ 右侧元素之和。初始时 $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$。
 
@@ -70,10 +68,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
@@ -85,10 +79,6 @@ class Solution:
             left += x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func leftRigthDifference(nums []int) (ans []int) {
@@ -148,8 +134,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function leftRigthDifference(nums: number[]): number[] {
     let left = 0,
@@ -163,21 +147,6 @@ function leftRigthDifference(nums: number[]): number[] {
     return ans;
 }
 ```
-
-```ts
-function leftRigthDifference(nums: number[]): number[] {
-    let left = 0;
-    let right = nums.reduce((r, v) => r + v);
-    return nums.map(v => {
-        right -= v;
-        const res = Math.abs(left - right);
-        left += v;
-        return res;
-    });
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -193,6 +162,46 @@ impl Solution {
             })
             .collect()
     }
+}
+```
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
+    int left = 0;
+    int right = 0;
+    for (int i = 0; i < numsSize; i++) {
+        right += nums[i];
+    }
+    int* ans = malloc(sizeof(int) * numsSize);
+    for (int i = 0; i < numsSize; i++) {
+        right -= nums[i];
+        ans[i] = abs(left - right);
+        left += nums[i];
+    }
+    *returnSize = numsSize;
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+function leftRigthDifference(nums: number[]): number[] {
+    let left = 0;
+    let right = nums.reduce((r, v) => r + v);
+    return nums.map(v => {
+        right -= v;
+        const res = Math.abs(left - right);
+        left += v;
+        return res;
+    });
 }
 ```
 
@@ -220,6 +229,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
@@ -238,33 +253,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
-    int left = 0;
-    int right = 0;
-    for (int i = 0; i < numsSize; i++) {
-        right += nums[i];
-    }
-    int* ans = malloc(sizeof(int) * numsSize);
-    for (int i = 0; i < numsSize; i++) {
-        right -= nums[i];
-        ans[i] = abs(left - right);
-        left += nums[i];
-    }
-    *returnSize = numsSize;
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

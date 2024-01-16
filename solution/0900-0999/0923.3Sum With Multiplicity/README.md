@@ -48,9 +48,7 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们先用一个长度为 $101$ 的数组 `cnt` 记录数组 `arr` 中每个元素出现的次数。
 
@@ -61,10 +59,6 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 时间复杂度 $O(n^2)$，空间复杂度 $O(C)$。其中 $n$ 为数组 `arr` 的长度，而 $C$ 为数组 `cnt` 的长度。本题中 $C = 101$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                 ans = (ans + cnt[c]) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func threeSumMulti(arr []int, target int) int {
 	const mod int = 1e9 + 7
@@ -166,10 +152,6 @@ func threeSumMulti(arr []int, target int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,13 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,10 +58,6 @@ class Solution:
             i += bits[i] + 1
         return i == n - 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +71,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -92,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isOneBitCharacter(bits []int) bool {
 	i, n := 0, len(bits)
@@ -103,8 +91,6 @@ func isOneBitCharacter(bits []int) bool {
 	return i == n-1
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -121,10 +107,6 @@ var isOneBitCharacter = function (bits) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

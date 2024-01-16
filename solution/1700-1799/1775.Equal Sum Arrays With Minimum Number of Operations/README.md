@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 我们用 $s_1$ 和 $s_2$ 分别表示数组 `nums1` 和 `nums2` 的和。
 
@@ -72,19 +70,7 @@
 
 时间复杂度 $O((m+n) \times \log (m + n))$，空间复杂度 $O(m+n)$。其中 $m$ 和 $n$ 分别为数组 `nums1` 和 `nums2` 的长度。
 
-**方法二：贪心 + 计数排序**
-
-方法一中，我们需要创建数组 `arr` 并进行排序，时空复杂度较高。由于数组 `arr` 中元素的范围为 $[0,..5]$，因此我们创建一个长度为 $6$ 的数组 `cnt`，用于统计数组 `arr` 中每个元素的数量，也即每个最大变化量的元素的数量。
-
-接下来，我们从最大变化量 $i=5$ 开始，贪心地将 $d$ 减去最大变化量，直到 $d \leq 0$，返回此时的操作次数即可。
-
-时间复杂度 $O(m+n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为数组 `nums1` 和 `nums2` 的长度。本题中 $C=6$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,29 +88,6 @@ class Solution:
                 return i
         return -1
 ```
-
-```python
-class Solution:
-    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
-        s1, s2 = sum(nums1), sum(nums2)
-        if s1 == s2:
-            return 0
-        if s1 > s2:
-            return self.minOperations(nums2, nums1)
-        cnt = Counter([6 - v for v in nums1] + [v - 1 for v in nums2])
-        d = s2 - s1
-        ans = 0
-        for i in range(5, 0, -1):
-            while cnt[i] and d > 0:
-                d -= i
-                cnt[i] -= 1
-                ans += 1
-        return ans if d <= 0 else -1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,40 +121,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minOperations(int[] nums1, int[] nums2) {
-        int s1 = Arrays.stream(nums1).sum();
-        int s2 = Arrays.stream(nums2).sum();
-        if (s1 == s2) {
-            return 0;
-        }
-        if (s1 > s2) {
-            return minOperations(nums2, nums1);
-        }
-        int d = s2 - s1;
-        int[] cnt = new int[6];
-        for (int v : nums1) {
-            ++cnt[6 - v];
-        }
-        for (int v : nums2) {
-            ++cnt[v - 1];
-        }
-        int ans = 0;
-        for (int i = 5; i > 0; --i) {
-            while (cnt[i] > 0 && d > 0) {
-                d -= i;
-                --cnt[i];
-                ++ans;
-            }
-        }
-        return d <= 0 ? ans : -1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -214,33 +143,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minOperations(vector<int>& nums1, vector<int>& nums2) {
-        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
-        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
-        if (s1 == s2) return 0;
-        if (s1 > s2) return minOperations(nums2, nums1);
-        int d = s2 - s1;
-        int cnt[6] = {0};
-        for (int& v : nums1) ++cnt[6 - v];
-        for (int& v : nums2) ++cnt[v - 1];
-        int ans = 0;
-        for (int i = 5; i; --i) {
-            while (cnt[i] && d > 0) {
-                d -= i;
-                --cnt[i];
-                ++ans;
-            }
-        }
-        return d <= 0 ? ans : -1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
@@ -275,6 +177,94 @@ func sum(nums []int) (s int) {
 	}
 	return
 }
+```
+
+<!-- tabs:end -->
+
+### 方法二：贪心 + 计数排序
+
+方法一中，我们需要创建数组 `arr` 并进行排序，时空复杂度较高。由于数组 `arr` 中元素的范围为 $[0,..5]$，因此我们创建一个长度为 $6$ 的数组 `cnt`，用于统计数组 `arr` 中每个元素的数量，也即每个最大变化量的元素的数量。
+
+接下来，我们从最大变化量 $i=5$ 开始，贪心地将 $d$ 减去最大变化量，直到 $d \leq 0$，返回此时的操作次数即可。
+
+时间复杂度 $O(m+n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为数组 `nums1` 和 `nums2` 的长度。本题中 $C=6$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        s1, s2 = sum(nums1), sum(nums2)
+        if s1 == s2:
+            return 0
+        if s1 > s2:
+            return self.minOperations(nums2, nums1)
+        cnt = Counter([6 - v for v in nums1] + [v - 1 for v in nums2])
+        d = s2 - s1
+        ans = 0
+        for i in range(5, 0, -1):
+            while cnt[i] and d > 0:
+                d -= i
+                cnt[i] -= 1
+                ans += 1
+        return ans if d <= 0 else -1
+```
+
+```java
+class Solution {
+    public int minOperations(int[] nums1, int[] nums2) {
+        int s1 = Arrays.stream(nums1).sum();
+        int s2 = Arrays.stream(nums2).sum();
+        if (s1 == s2) {
+            return 0;
+        }
+        if (s1 > s2) {
+            return minOperations(nums2, nums1);
+        }
+        int d = s2 - s1;
+        int[] cnt = new int[6];
+        for (int v : nums1) {
+            ++cnt[6 - v];
+        }
+        for (int v : nums2) {
+            ++cnt[v - 1];
+        }
+        int ans = 0;
+        for (int i = 5; i > 0; --i) {
+            while (cnt[i] > 0 && d > 0) {
+                d -= i;
+                --cnt[i];
+                ++ans;
+            }
+        }
+        return d <= 0 ? ans : -1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums1, vector<int>& nums2) {
+        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
+        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
+        if (s1 == s2) return 0;
+        if (s1 > s2) return minOperations(nums2, nums1);
+        int d = s2 - s1;
+        int cnt[6] = {0};
+        for (int& v : nums1) ++cnt[6 - v];
+        for (int& v : nums2) ++cnt[v - 1];
+        int ans = 0;
+        for (int i = 5; i; --i) {
+            while (cnt[i] && d > 0) {
+                d -= i;
+                --cnt[i];
+                ++ans;
+            }
+        }
+        return d <= 0 ? ans : -1;
+    }
+};
 ```
 
 ```go
@@ -315,10 +305,6 @@ func sum(nums []int) (s int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

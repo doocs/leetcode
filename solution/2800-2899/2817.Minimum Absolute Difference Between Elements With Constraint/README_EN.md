@@ -54,7 +54,7 @@ It can be shown that 3 is the optimal answer.
 
 ## Solutions
 
-**Solution 1: Ordered Set**
+### Solution 1: Ordered Set
 
 We create an ordered set to store the elements whose distance to the current index is at least $x$.
 
@@ -63,8 +63,6 @@ Next, we enumerate from index $i = x$, each time we add $nums[i - x]$ into the o
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -83,8 +81,6 @@ class Solution:
                 ans = min(ans, nums[i] - sl[j - 1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minAbsoluteDifference(nums []int, x int) int {
 	rbt := redblacktree.NewWithIntComparator()
@@ -151,8 +143,6 @@ func minAbsoluteDifference(nums []int, x int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minAbsoluteDifference(nums: number[], x: number): number {
@@ -676,10 +666,6 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

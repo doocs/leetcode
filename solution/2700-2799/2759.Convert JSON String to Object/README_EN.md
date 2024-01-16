@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function jsonParse(str: string): any {
@@ -163,3 +163,5 @@ function jsonParse(str: string): any {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：中序遍历**
+### 方法一：中序遍历
 
 二叉搜索树的中序遍历是有序序列，因此可以通过中序遍历得到有序序列，过程中构建双向链表。
 
@@ -47,10 +45,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉搜索树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -86,10 +80,6 @@ class Solution:
         pre.right = head
         return head
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -142,8 +132,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -200,8 +188,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -238,8 +224,6 @@ func treeToDoublyList(root *Node) *Node {
 	return head
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -280,8 +264,6 @@ var treeToDoublyList = function (root) {
     return head;
 };
 ```
-
-### **C#**
 
 ```cs
 /*
@@ -338,10 +320,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

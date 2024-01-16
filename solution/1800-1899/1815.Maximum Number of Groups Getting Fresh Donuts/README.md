@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 状态压缩 + 记忆化搜索**
+### 方法一：贪心 + 状态压缩 + 记忆化搜索
 
 题目实际上要我们找到一种安排顺序，使得前缀和（这里指的是“人数”）与 $batchSize$ 取模后为 $0$ 的组数最多。因此，我们可以将所有顾客按组分成两类：
 
@@ -61,10 +59,6 @@
 时间复杂度不超过 $O(10^7)$，空间复杂度不超过 $O(10^6)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,31 +82,6 @@ class Solution:
         ans += dfs(state, 0)
         return ans
 ```
-
-```python
-class Solution:
-    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
-        @cache
-        def dfs(state, x):
-            if state == mask:
-                return 0
-            vis = [False] * batchSize
-            res = 0
-            for i, v in enumerate(g):
-                if state >> i & 1 == 0 and not vis[v]:
-                    vis[v] = True
-                    y = (x + v) % batchSize
-                    res = max(res, dfs(state | 1 << i, y))
-            return res + (x == 0)
-
-        g = [v % batchSize for v in groups if v % batchSize]
-        mask = (1 << len(g)) - 1
-        return len(groups) - len(g) + dfs(0, 0)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxHappyGroups(batchSize int, groups []int) (ans int) {
@@ -227,10 +192,33 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+        @cache
+        def dfs(state, x):
+            if state == mask:
+                return 0
+            vis = [False] * batchSize
+            res = 0
+            for i, v in enumerate(g):
+                if state >> i & 1 == 0 and not vis[v]:
+                    vis[v] = True
+                    y = (x + v) % batchSize
+                    res = max(res, dfs(state | 1 << i, y))
+            return res + (x == 0)
+
+        g = [v % batchSize for v in groups if v % batchSize]
+        mask = (1 << len(g)) - 1
+        return len(groups) - len(g) + dfs(0, 0)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

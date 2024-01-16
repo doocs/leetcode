@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: String Splitting**
+### Solution 1: String Splitting
 
 First, we split the string $s$ by spaces to get the string array $words$. Then, we create a string array $ans$ of length $|words|$ to store the answer.
 
@@ -56,8 +56,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def sortSentence(self, s: str) -> str:
@@ -65,18 +63,6 @@ class Solution:
         ws.sort(key=lambda x: x[1])
         return ' '.join(w for w, _ in ws)
 ```
-
-```python
-class Solution:
-    def sortSentence(self, s: str) -> str:
-        ws = s.split()
-        ans = [None] * len(ws)
-        for w in ws:
-            ans[int(w[-1]) - 1] = w[:-1]
-        return ' '.join(ans)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortSentence(s string) string {
 	ws := strings.Split(s, " ")
@@ -132,7 +114,16 @@ func sortSentence(s string) string {
 }
 ```
 
-### **JavaScript**
+```ts
+function sortSentence(s: string): string {
+    const ws = s.split(' ');
+    const ans = Array(ws.length);
+    for (const w of ws) {
+        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
+    }
+    return ans.join(' ');
+}
+```
 
 ```js
 /**
@@ -149,23 +140,22 @@ var sortSentence = function (s) {
 };
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function sortSentence(s: string): string {
-    const ws = s.split(' ');
-    const ans = Array(ws.length);
-    for (const w of ws) {
-        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
-    }
-    return ans.join(' ');
-}
-```
+### Solution 2
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```python
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        ws = s.split()
+        ans = [None] * len(ws)
+        for w in ws:
+            ans[int(w[-1]) - 1] = w[:-1]
+        return ' '.join(ans)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

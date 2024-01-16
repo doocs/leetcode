@@ -55,7 +55,7 @@ You did not play the full round from 10:00 to 10:15 because you logged out at 10
 
 ## Solutions
 
-**Solution 1: Convert to Minutes**
+### Solution 1: Convert to Minutes
 
 We can convert the input strings to minutes $a$ and $b$. If $a > b$, it means that it crosses midnight, so we need to add one day's minutes $1440$ to $b$.
 
@@ -64,8 +64,6 @@ Then we round $a$ up to the nearest multiple of $15$, and round $b$ down to the 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
         a, b = (a + 14) // 15, b // 15
         return max(0, b - a)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfRounds(loginTime string, logoutTime string) int {
 	f := func(s string) int {
@@ -137,8 +129,6 @@ func numberOfRounds(loginTime string, logoutTime string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfRounds(startTime: string, finishTime: string): number {
     const f = (s: string): number => {
@@ -153,10 +143,6 @@ function numberOfRounds(startTime: string, finishTime: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

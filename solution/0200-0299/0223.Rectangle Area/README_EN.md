@@ -37,15 +37,13 @@
 
 ## Solutions
 
-**Solution 1: Calculate Overlapping Area**
+### Solution 1: Calculate Overlapping Area
 
 First, we calculate the area of the two rectangles separately, denoted as $a$ and $b$. Then we calculate the overlapping width $width$ and height $height$. The overlapping area is $max(width, 0) \times max(height, 0)$. Finally, we subtract the overlapping area from $a$ and $b$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,8 +65,6 @@ class Solution:
         return a + b - max(height, 0) * max(width, 0)
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int computeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -80,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, by2 int) int {
 	a := (ax2 - ax1) * (ay2 - ay1)
@@ -107,8 +99,6 @@ func computeArea(ax1 int, ay1 int, ax2 int, ay2 int, bx1 int, by1 int, bx2 int, 
 	return a + b - max(height, 0)*max(width, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function computeArea(
@@ -129,8 +119,6 @@ function computeArea(
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int ComputeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
@@ -143,10 +131,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

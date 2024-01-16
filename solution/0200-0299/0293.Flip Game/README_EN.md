@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,8 +51,6 @@ class Solution:
                 s[i] = s[i + 1] = "+"
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +71,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -94,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func generatePossibleNextMoves(currentState string) []string {
 	ans := []string{}
@@ -111,10 +105,6 @@ func generatePossibleNextMoves(currentState string) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

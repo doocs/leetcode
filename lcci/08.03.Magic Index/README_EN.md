@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
 
         return find(nums, 0, len(nums) - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,29 +79,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var findMagicIndex = function (nums) {
-    return helper(nums, 0, nums.length - 1);
-};
-
-function helper(nums, left, right) {
-    if (left > right) return -1;
-    let mid = Math.floor((left + right) / 2);
-    let leftIndex = helper(nums, left, mid - 1);
-    if (leftIndex != -1) return leftIndex;
-    if (nums[mid] == mid) return mid;
-    return helper(nums, mid + 1, right);
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMagicIndex(nums []int) int {
 	return find(nums, 0, len(nums)-1)
@@ -150,8 +123,6 @@ func find(nums []int, left, right int) int {
 	return find(nums, mid+1, right)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMagicIndex(nums: number[]): number {
@@ -175,22 +146,6 @@ function findMagicIndex(nums: number[]): number {
     return find(0, n - 1);
 }
 ```
-
-```ts
-function findMagicIndex(nums: number[]): number {
-    const n = nums.length;
-    let i = 0;
-    while (i < n) {
-        if (nums[i] === i) {
-            return i;
-        }
-        i = Math.max(nums[i], i + 1);
-    }
-    return -1;
-}
-```
-
-## **Rust**
 
 ```rust
 impl Solution {
@@ -217,6 +172,45 @@ impl Solution {
 }
 ```
 
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMagicIndex = function (nums) {
+    return helper(nums, 0, nums.length - 1);
+};
+
+function helper(nums, left, right) {
+    if (left > right) return -1;
+    let mid = Math.floor((left + right) / 2);
+    let leftIndex = helper(nums, left, mid - 1);
+    if (leftIndex != -1) return leftIndex;
+    if (nums[mid] == mid) return mid;
+    return helper(nums, mid + 1, right);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function findMagicIndex(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    while (i < n) {
+        if (nums[i] === i) {
+            return i;
+        }
+        i = Math.max(nums[i], i + 1);
+    }
+    return -1;
+}
+```
+
 ```rust
 impl Solution {
     pub fn find_magic_index(nums: Vec<i32>) -> i32 {
@@ -234,10 +228,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

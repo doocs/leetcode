@@ -63,9 +63,9 @@ For Department 2:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -88,3 +88,5 @@ FROM Students;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

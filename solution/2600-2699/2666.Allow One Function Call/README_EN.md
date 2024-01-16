@@ -47,9 +47,9 @@ onceFn(4, 6, 8); // undefined, fn was not called
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function once<T extends (...args: any[]) => any>(
@@ -73,10 +73,6 @@ function once<T extends (...args: any[]) => any>(
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

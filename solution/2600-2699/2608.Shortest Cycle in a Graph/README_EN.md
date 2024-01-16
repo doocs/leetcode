@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Enumerate edges + BFS**
+### Solution 1: Enumerate edges + BFS
 
 We first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
 
@@ -49,17 +49,7 @@ Then we enumerate the two-directional edge $(u, v)$, if the path from vertex $u$
 
 The time complexity is $O(m^2)$ and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $edges$ and the number of vertices.
 
-**Solution 2: Enumerate points + BFS**
-
-Similar to Solution 1, we first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
-
-Then we enumerate the vertex $u$, if there are two paths from vertex $u$ to vertex $v$, then we currently find a cycle, the length is the sum of the length of the two paths. We take the minimum of all these cycles.
-
-The time complexity is $O(m \times n)$ and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $edges$ and the number of vertices.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,34 +73,6 @@ class Solution:
         ans = min(bfs(u, v) for u, v in edges)
         return ans if ans < inf else -1
 ```
-
-```python
-class Solution:
-    def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
-        def bfs(u: int) -> int:
-            dist = [-1] * n
-            dist[u] = 0
-            q = deque([(u, -1)])
-            ans = inf
-            while q:
-                u, fa = q.popleft()
-                for v in g[u]:
-                    if dist[v] < 0:
-                        dist[v] = dist[u] + 1
-                        q.append((v, u))
-                    elif v != fa:
-                        ans = min(ans, dist[u] + dist[v] + 1)
-            return ans
-
-        g = defaultdict(list)
-        for u, v in edges:
-            g[u].append(v)
-            g[v].append(u)
-        ans = min(bfs(i) for i in range(n))
-        return ans if ans < inf else -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -152,6 +114,156 @@ class Solution {
         return dist[v] + 1;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int findShortestCycle(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        const int inf = 1 << 30;
+        auto bfs = [&](int u, int v) -> int {
+            int dist[n];
+            fill(dist, dist + n, inf);
+            dist[u] = 0;
+            queue<int> q{{u}};
+            while (!q.empty()) {
+                int i = q.front();
+                q.pop();
+                for (int j : g[i]) {
+                    if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
+                        continue;
+                    }
+                    dist[j] = dist[i] + 1;
+                    q.push(j);
+                }
+            }
+            return dist[v] + 1;
+        };
+        int ans = inf;
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            ans = min(ans, bfs(u, v));
+        }
+        return ans < inf ? ans : -1;
+    }
+};
+```
+
+```go
+func findShortestCycle(n int, edges [][]int) int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+	const inf = 1 << 30
+	bfs := func(u, v int) int {
+		dist := make([]int, n)
+		for i := range dist {
+			dist[i] = inf
+		}
+		dist[u] = 0
+		q := []int{u}
+		for len(q) > 0 {
+			i := q[0]
+			q = q[1:]
+			for _, j := range g[i] {
+				if (i == u && j == v) || (i == v && j == u) || dist[j] != inf {
+					continue
+				}
+				dist[j] = dist[i] + 1
+				q = append(q, j)
+			}
+		}
+		return dist[v] + 1
+	}
+	ans := inf
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		ans = min(ans, bfs(u, v))
+	}
+	if ans < inf {
+		return ans
+	}
+	return -1
+}
+```
+
+```ts
+function findShortestCycle(n: number, edges: number[][]): number {
+    const g: number[][] = new Array(n).fill(0).map(() => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const inf = 1 << 30;
+    let ans = inf;
+    const bfs = (u: number, v: number) => {
+        const dist: number[] = new Array(n).fill(inf);
+        dist[u] = 0;
+        const q: number[] = [u];
+        while (q.length) {
+            const i = q.shift()!;
+            for (const j of g[i]) {
+                if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
+                    continue;
+                }
+                dist[j] = dist[i] + 1;
+                q.push(j);
+            }
+        }
+        return 1 + dist[v];
+    };
+    for (const [u, v] of edges) {
+        ans = Math.min(ans, bfs(u, v));
+    }
+    return ans < inf ? ans : -1;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Enumerate points + BFS
+
+Similar to Solution 1, we first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
+
+Then we enumerate the vertex $u$, if there are two paths from vertex $u$ to vertex $v$, then we currently find a cycle, the length is the sum of the length of the two paths. We take the minimum of all these cycles.
+
+The time complexity is $O(m \times n)$ and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $edges$ and the number of vertices.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
+        def bfs(u: int) -> int:
+            dist = [-1] * n
+            dist[u] = 0
+            q = deque([(u, -1)])
+            ans = inf
+            while q:
+                u, fa = q.popleft()
+                for v in g[u]:
+                    if dist[v] < 0:
+                        dist[v] = dist[u] + 1
+                        q.append((v, u))
+                    elif v != fa:
+                        ans = min(ans, dist[u] + dist[v] + 1)
+            return ans
+
+        g = defaultdict(list)
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        ans = min(bfs(i) for i in range(n))
+        return ans if ans < inf else -1
 ```
 
 ```java
@@ -199,47 +311,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findShortestCycle(int n, vector<vector<int>>& edges) {
-        vector<vector<int>> g(n);
-        for (auto& e : edges) {
-            int u = e[0], v = e[1];
-            g[u].push_back(v);
-            g[v].push_back(u);
-        }
-        const int inf = 1 << 30;
-        auto bfs = [&](int u, int v) -> int {
-            int dist[n];
-            fill(dist, dist + n, inf);
-            dist[u] = 0;
-            queue<int> q{{u}};
-            while (!q.empty()) {
-                int i = q.front();
-                q.pop();
-                for (int j : g[i]) {
-                    if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
-                        continue;
-                    }
-                    dist[j] = dist[i] + 1;
-                    q.push(j);
-                }
-            }
-            return dist[v] + 1;
-        };
-        int ans = inf;
-        for (auto& e : edges) {
-            int u = e[0], v = e[1];
-            ans = min(ans, bfs(u, v));
-        }
-        return ans < inf ? ans : -1;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -281,49 +352,6 @@ public:
         return ans < inf ? ans : -1;
     }
 };
-```
-
-### **Go**
-
-```go
-func findShortestCycle(n int, edges [][]int) int {
-	g := make([][]int, n)
-	for _, e := range edges {
-		u, v := e[0], e[1]
-		g[u] = append(g[u], v)
-		g[v] = append(g[v], u)
-	}
-	const inf = 1 << 30
-	bfs := func(u, v int) int {
-		dist := make([]int, n)
-		for i := range dist {
-			dist[i] = inf
-		}
-		dist[u] = 0
-		q := []int{u}
-		for len(q) > 0 {
-			i := q[0]
-			q = q[1:]
-			for _, j := range g[i] {
-				if (i == u && j == v) || (i == v && j == u) || dist[j] != inf {
-					continue
-				}
-				dist[j] = dist[i] + 1
-				q = append(q, j)
-			}
-		}
-		return dist[v] + 1
-	}
-	ans := inf
-	for _, e := range edges {
-		u, v := e[0], e[1]
-		ans = min(ans, bfs(u, v))
-	}
-	if ans < inf {
-		return ans
-	}
-	return -1
-}
 ```
 
 ```go
@@ -370,40 +398,6 @@ func findShortestCycle(n int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findShortestCycle(n: number, edges: number[][]): number {
-    const g: number[][] = new Array(n).fill(0).map(() => []);
-    for (const [u, v] of edges) {
-        g[u].push(v);
-        g[v].push(u);
-    }
-    const inf = 1 << 30;
-    let ans = inf;
-    const bfs = (u: number, v: number) => {
-        const dist: number[] = new Array(n).fill(inf);
-        dist[u] = 0;
-        const q: number[] = [u];
-        while (q.length) {
-            const i = q.shift()!;
-            for (const j of g[i]) {
-                if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
-                    continue;
-                }
-                dist[j] = dist[i] + 1;
-                q.push(j);
-            }
-        }
-        return 1 + dist[v];
-    };
-    for (const [u, v] of edges) {
-        ans = Math.min(ans, bfs(u, v));
-    }
-    return ans < inf ? ans : -1;
-}
-```
-
 ```ts
 function findShortestCycle(n: number, edges: number[][]): number {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -440,10 +434,6 @@ function findShortestCycle(n: number, edges: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

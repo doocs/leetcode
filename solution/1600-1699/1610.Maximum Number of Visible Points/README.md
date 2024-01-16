@@ -59,21 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-根据题目我们得知，需要求出在视角范围 `[d - angle/2, d + angle / 2]` 范围内覆盖的最多点的数量。视角可以转换为相对于 location `(x, y)` 的极角。
-
-可以排除与 location 重合的点，将剩下的所有点 p 的坐标 `(xi, yi)` 转换为相对于 `(x, y)` 的极角。可以利用 `atan2` 函数，`atan2` 返回值范围是 `[−π,π]`，覆盖范围是 2π。
-
-求出极角后，按照大小进行排序。因为可以循环，所以把整个数组所有元素加上 2π 接在数组后面。
-
-接下来利用双指针找出覆盖最多点的区间即可。最后返回时，要把重合的点加上。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +83,6 @@ class Solution:
         mx = max((bisect_right(v, v[i] + t) - i for i in range(n)), default=0)
         return mx + same
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -132,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func visiblePoints(points [][]int, angle int, location []int) int {
 	same := 0
@@ -193,10 +173,6 @@ func visiblePoints(points [][]int, angle int, location []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,9 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
         return nums[k - 1]
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public String kthLargestNumber(String[] nums, int k) {
@@ -80,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +89,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func kthLargestNumber(nums []string, k int) string {
@@ -109,10 +103,6 @@ func kthLargestNumber(nums []string, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

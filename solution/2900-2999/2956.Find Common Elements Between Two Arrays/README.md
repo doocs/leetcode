@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表或数组**
+### 方法一：哈希表或数组
 
 我们可以用两个哈希表或数组 $s1$ 和 $s2$ 分别记录两个数组中出现的元素。
 
@@ -66,20 +64,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findIntersectionValues(self, nums1: List[int], nums2: List[int]) -> List[int]:
         s1, s2 = set(nums1), set(nums2)
         return [sum(x in s2 for x in nums1), sum(x in s1 for x in nums2)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findIntersectionValues(nums1 []int, nums2 []int) []int {
 	s1 := [101]int{}
@@ -152,8 +138,6 @@ func findIntersectionValues(nums1 []int, nums2 []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findIntersectionValues(nums1: number[], nums2: number[]): number[] {
@@ -176,10 +160,6 @@ function findIntersectionValues(nums1: number[], nums2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

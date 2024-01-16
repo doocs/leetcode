@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双端队列 BFS(0-1 BFS)**
+### 方法一：双端队列 BFS(0-1 BFS)
 
 每走到一个格子 $(i, j)$，有 $4$ 个方向可以走，如果方向与当前格子的方向相同，那么不需要施法，否则需要施法一次。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
                     else:
                         q.append((x, y))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +166,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func conveyorBelt(matrix []string, start []int, end []int) int {
@@ -226,8 +212,6 @@ func conveyorBelt(matrix []string, start []int, end []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function conveyorBelt(matrix: string[], start: number[], end: number[]): number {
     const dirs = [-1, 0, 1, 0, -1];
@@ -265,10 +249,6 @@ function conveyorBelt(matrix: string[], start: number[], end: number[]): number 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

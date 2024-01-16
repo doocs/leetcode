@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 用前缀树维护所有字符串的前缀以及每个前缀出现的次数。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n \times m)$。其中 $n$, $m$ 分别为字符串数组 `words` 的长度和其中字符串的最大长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -110,10 +104,6 @@ class Solution:
             trie.insert(w)
         return [trie.search(w) for w in words]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -161,8 +151,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -214,8 +202,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -264,8 +250,6 @@ func sumPrefixScores(words []string) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumPrefixScores(words: string[]): number[] {
     const map = new Map();
@@ -289,6 +273,12 @@ function sumPrefixScores(words: string[]): number[] {
     });
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```ts
 class Trie {
@@ -340,11 +330,6 @@ function sumPrefixScores(words: string[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

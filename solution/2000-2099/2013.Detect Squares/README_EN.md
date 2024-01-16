@@ -57,7 +57,7 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We can use a hash table $cnt$ to maintain all the information of the points, where $cnt[x][y]$ represents the count of point $(x, y)$.
 
@@ -68,8 +68,6 @@ When calling the $count(x_1, y_1)$ method, we need to get three other points to 
 In terms of time complexity, the time complexity of calling the $add(x, y)$ method is $O(1)$, and the time complexity of calling the $count(x_1, y_1)$ method is $O(n)$; the space complexity is $O(n)$. Here, $n$ is the number of points in the data stream.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class DetectSquares:
@@ -98,8 +96,6 @@ class DetectSquares:
 # obj.add(point)
 # param_2 = obj.count(point)
 ```
-
-### **Java**
 
 ```java
 class DetectSquares {
@@ -143,8 +139,6 @@ class DetectSquares {
  */
 ```
 
-### **C++**
-
 ```cpp
 class DetectSquares {
 public:
@@ -185,8 +179,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type DetectSquares struct {
 	cnt map[int]map[int]int
@@ -226,10 +218,6 @@ func (this *DetectSquares) Count(point []int) (ans int) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

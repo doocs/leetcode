@@ -81,9 +81,7 @@ s 的 k 子序列为：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 组合数学**
+### 方法一：贪心 + 组合数学
 
 我们先用哈希表 $f$ 统计字符串 $s$ 中每个字符的出现次数，即 $f[c]$ 表示字符 $c$ 在字符串 $s$ 中出现的次数。
 
@@ -100,10 +98,6 @@ s 的 k 子序列为：
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $\Sigma$ 是字符集。本题中字符集为小写字母，因此 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -124,10 +118,6 @@ class Solution:
         ans = ans * comb(x, k) * pow(val, k, mod) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -191,8 +181,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -251,8 +239,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countKSubsequencesWithMaxBeauty(s string, k int) int {
@@ -315,8 +301,6 @@ func countKSubsequencesWithMaxBeauty(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
     const f: number[] = new Array(26).fill(0);
@@ -364,10 +348,6 @@ function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

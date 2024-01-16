@@ -47,9 +47,9 @@ To go from index 0 to index 2, we can just go directly because gcd(nums[0], nums
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class UnionFind:
@@ -100,8 +100,6 @@ class Solution:
                 uf.union(i, j + n)
         return len(set(uf.find(i) for i in range(n))) == 1
 ```
-
-### **Java**
 
 ```java
 class UnionFind {
@@ -182,8 +180,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 int MX = 100010;
 vector<int> P[100010];
@@ -262,8 +258,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const mx = 100010
 
@@ -341,10 +335,6 @@ func canTraverseAllPairs(nums []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

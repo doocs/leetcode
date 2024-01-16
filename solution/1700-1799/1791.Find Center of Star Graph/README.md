@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接比较前两条边的点**
+### 方法一：直接比较前两条边的点
 
 中心点的特点是，它与其他所有点都相连，因此只要比较前两条边的点，如果有相同的点，那么这个点就是中心点。
 
@@ -52,19 +50,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
         return edges[0][0] if edges[0][0] in edges[1] else edges[0][1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -75,20 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function findCenter(edges: number[][]): number {
-    for (let num of edges[0]) {
-        if (edges[1].includes(num)) {
-            return num;
-        }
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findCenter(edges [][]int) int {
 	a, b := edges[0][0], edges[0][1]
@@ -114,7 +88,15 @@ func findCenter(edges [][]int) int {
 }
 ```
 
-### **Rust**
+```ts
+function findCenter(edges: number[][]): number {
+    for (let num of edges[0]) {
+        if (edges[1].includes(num)) {
+            return num;
+        }
+    }
+}
+```
 
 ```rust
 impl Solution {
@@ -126,8 +108,6 @@ impl Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -141,10 +121,6 @@ var findCenter = function (edges) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

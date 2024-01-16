@@ -51,7 +51,7 @@ It can be shown that this is the maximum value we can get.
 
 ## Solutions
 
-**Solution 1: Bitwise Operation + Greedy**
+### Solution 1: Bitwise Operation + Greedy
 
 According to the problem description, for an operation, we can change $nums[i]$ to $nums[i] \text{ AND } nums[j]$, and change $nums[j]$ to $nums[i] \text{ OR } nums[j]$. Let's consider the bits of the numbers. If two bits are both $1$ or both $0$, the result of the operation will not change the bits. If two bits are different, the result of the operation will change the bits to $0$ and $1$, respectively. Therefore, we can move $1$ bits to $0$ bits, but not vice versa.
 
@@ -60,8 +60,6 @@ We can use an array $cnt$ to count the number of $1$ bits in each position, and 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
             ans = (ans + x * x) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -144,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSum(nums []int, k int) (ans int) {
 	cnt := [31]int{}
@@ -170,8 +162,6 @@ func maxSum(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSum(nums: number[], k: number): number {
@@ -199,10 +189,6 @@ function maxSum(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

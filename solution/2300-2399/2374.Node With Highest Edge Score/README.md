@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 定义 $cnt$，其中每个元素 $cnt[i]$ 表示到节点 $i$ 的所有节点编号之和。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 ans = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func edgeScore(edges []int) int {
 	n := len(edges)
@@ -143,8 +129,6 @@ func edgeScore(edges []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function edgeScore(edges: number[]): number {
@@ -163,11 +147,6 @@ function edgeScore(edges: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

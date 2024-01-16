@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy Algorithm**
+### Solution 1: Greedy Algorithm
 
 To maximize the number of apples, we should try to minimize the weight of the apples. Therefore, we can sort the weights of the apples, and then put them into the basket in ascending order until the weight of the basket exceeds $5000$. We then return the number of apples in the basket at this point.
 
@@ -44,8 +44,6 @@ If all the apples can be put into the basket, then we return the total number of
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of apples.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -58,8 +56,6 @@ class Solution:
                 return i
         return len(weight)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfApples(weight []int) int {
 	sort.Ints(weight)
@@ -111,8 +103,6 @@ func maxNumberOfApples(weight []int) int {
 	return len(weight)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNumberOfApples(weight: number[]): number {
@@ -128,10 +118,6 @@ function maxNumberOfApples(weight: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

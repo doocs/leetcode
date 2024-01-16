@@ -58,7 +58,7 @@
 
 ## Solutions
 
-**Solution 1: Ordered Set + BFS**
+### Solution 1: Ordered Set + BFS
 
 We notice that for any index $i$ in the subarray interval $[l,..r]$, the flipped index $j = l + r - i$.
 
@@ -83,8 +83,6 @@ When the search is over, the answer to all indices can be obtained.
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. Where $n$ is the given array length in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedSet
@@ -119,8 +117,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int[] minReverseOperations(int n, int p, int[] banned, int k) {
@@ -153,8 +149,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -192,8 +186,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minReverseOperations(n int, p int, banned []int, k int) []int {
 	ans := make([]int, n)
@@ -226,8 +218,6 @@ func minReverseOperations(n int, p int, banned []int, k int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
@@ -902,6 +892,12 @@ class TreeMultiSet<T = number> {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
     const ans = new Array(n).fill(-1);
@@ -1553,10 +1549,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

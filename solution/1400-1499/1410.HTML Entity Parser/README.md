@@ -70,19 +70,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 模拟**
+### 方法一：哈希表 + 模拟
 
 我们可以使用哈希表来存储每个字符实体对应的字符，然后遍历字符串，当遇到字符实体时，我们就将其替换为对应的字符。
 
 时间复杂度 $O(n \times l)$，空间复杂度 $O(l)$。其中 $n$ 是字符串的长度，而 $l$ 是字符实体的总长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,10 +103,6 @@ class Solution:
                 i += 1
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func entityParser(text string) string {
@@ -225,8 +211,6 @@ func entityParser(text string) string {
 	return ans.String()
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function entityParser(text: string): string {
@@ -267,6 +251,12 @@ function entityParser(text: string): string {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```ts
 function entityParser(text: string): string {
     const d: { [key: string]: string } = {
@@ -283,10 +273,6 @@ function entityParser(text: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

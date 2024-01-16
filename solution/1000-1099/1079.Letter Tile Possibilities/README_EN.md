@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
         cnt = Counter(tiles)
         return dfs(cnt)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numTilePossibilities(tiles string) int {
 	cnt := [26]int{}
@@ -139,8 +133,6 @@ func numTilePossibilities(tiles string) int {
 	return dfs(cnt)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numTilePossibilities(tiles: string): number {
@@ -164,10 +156,6 @@ function numTilePossibilities(tiles: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

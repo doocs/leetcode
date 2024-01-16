@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 二分查找**
+### 方法一：数学 + 二分查找
 
 根据题目描述，神奇数字是能被 $a$ 或 $b$ 整除的正整数。
 
@@ -72,10 +70,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def nthMagicalNumber(self, n: int, a: int, b: int) -> int:
@@ -84,10 +78,6 @@ class Solution:
         r = (a + b) * n
         return bisect_left(range(r), x=n, key=lambda x: x // a + x // b - x // c) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nthMagicalNumber(n int, a int, b int) int {
 	c := a * b / gcd(a, b)
@@ -155,10 +141,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

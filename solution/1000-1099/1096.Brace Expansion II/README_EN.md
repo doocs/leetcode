@@ -66,9 +66,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -87,8 +87,6 @@ class Solution:
         dfs(expression)
         return sorted(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +142,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 func braceExpansionII(expression string) []string {
 	s := map[string]struct{}{}
@@ -174,8 +168,6 @@ func braceExpansionII(expression string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function braceExpansionII(expression: string): string[] {
     const dfs = (exp: string) => {
@@ -197,10 +189,6 @@ function braceExpansionII(expression: string): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们可以先将数组 $nums$ 进行排序。
 
@@ -54,10 +52,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximizeGreatness(self, nums: List[int]) -> int:
@@ -67,10 +61,6 @@ class Solution:
             i += x > nums[i]
         return i
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeGreatness(nums []int) int {
 	sort.Ints(nums)
@@ -117,8 +103,6 @@ func maximizeGreatness(nums []int) int {
 	return i
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximizeGreatness(nums: number[]): number {
@@ -133,10 +117,6 @@ function maximizeGreatness(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

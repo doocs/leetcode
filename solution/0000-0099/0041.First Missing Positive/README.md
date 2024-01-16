@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：原地交换**
+### 方法一：原地交换
 
 我们假设数组 $nums$ 长度为 $n$，那么最小的正整数一定在 $[1, .., n + 1]$ 之间。我们可以遍历数组，将数组中的每个数 $x$ 交换到它应该在的位置上，即 $x$ 应该在的位置为 $x - 1$。如果 $x$ 不在 $[1, n + 1]$ 之间，那么我们就不用管它。
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
                 return i + 1
         return n + 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstMissingPositive(nums []int) int {
 	n := len(nums)
@@ -145,34 +131,47 @@ func firstMissingPositive(nums []int) int {
 }
 ```
 
-### **C**
-
-```c
-int firstMissingPositive(int* nums, int numsSize) {
-
-    int Max = nums[0], i, *Count;
-
-    for (i = 1; i < numsSize; i++) {
-        Max = (Max < nums[i]) ? nums[i] : Max;
-    }
-
-    Count = (int*) calloc(Max + 1, sizeof(int));
-    for (i = 0; i < numsSize; i++) {
-        if (nums[i] > 0) {
-            Count[nums[i]]++;
+```ts
+function firstMissingPositive(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    while (i < n) {
+        const j = nums[i] - 1;
+        if (j === i || j < 0 || j >= n || nums[i] === nums[j]) {
+            i++;
+        } else {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
         }
     }
 
-    i = 1;
-    while (Count[i] != 0) {
-        i++;
-    }
-
-    return i;
+    const res = nums.findIndex((v, i) => v !== i + 1);
+    return (res === -1 ? n : res) + 1;
 }
 ```
 
-### **C#**
+```rust
+impl Solution {
+    pub fn first_missing_positive(mut nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut i = 0;
+        while i < n {
+            let j = nums[i] - 1;
+            if (i as i32) == j || j < 0 || j >= (n as i32) || nums[i] == nums[j as usize] {
+                i += 1;
+            } else {
+                nums.swap(i, j as usize);
+            }
+        }
+        (
+            nums
+                .iter()
+                .enumerate()
+                .position(|(i, &v)| (v as usize) != i + 1)
+                .unwrap_or(n) as i32
+        ) + 1
+    }
+}
+```
 
 ```cs
 public class Solution {
@@ -212,25 +211,36 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+```c
+int firstMissingPositive(int* nums, int numsSize) {
 
-```ts
-function firstMissingPositive(nums: number[]): number {
-    const n = nums.length;
-    let i = 0;
-    while (i < n) {
-        const j = nums[i] - 1;
-        if (j === i || j < 0 || j >= n || nums[i] === nums[j]) {
-            i++;
-        } else {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
+    int Max = nums[0], i, *Count;
+
+    for (i = 1; i < numsSize; i++) {
+        Max = (Max < nums[i]) ? nums[i] : Max;
+    }
+
+    Count = (int*) calloc(Max + 1, sizeof(int));
+    for (i = 0; i < numsSize; i++) {
+        if (nums[i] > 0) {
+            Count[nums[i]]++;
         }
     }
 
-    const res = nums.findIndex((v, i) => v !== i + 1);
-    return (res === -1 ? n : res) + 1;
+    i = 1;
+    while (Count[i] != 0) {
+        i++;
+    }
+
+    return i;
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```ts
 function firstMissingPositive(nums: number[]): number {
@@ -243,36 +253,6 @@ function firstMissingPositive(nums: number[]): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn first_missing_positive(mut nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut i = 0;
-        while i < n {
-            let j = nums[i] - 1;
-            if (i as i32) == j || j < 0 || j >= (n as i32) || nums[i] == nums[j as usize] {
-                i += 1;
-            } else {
-                nums.swap(i, j as usize);
-            }
-        }
-        (
-            nums
-                .iter()
-                .enumerate()
-                .position(|(i, &v)| (v as usize) != i + 1)
-                .unwrap_or(n) as i32
-        ) + 1
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

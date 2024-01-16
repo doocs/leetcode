@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先用哈希表或者一个长度为 $1001$ 的数组 $s$ 记录所有需要删除的节点。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -93,10 +87,6 @@ class Solution:
             ans.append(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -148,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -196,8 +184,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -236,8 +222,6 @@ func delNodes(root *TreeNode, to_delete []int) (ans []*TreeNode) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -284,10 +268,6 @@ function delNodes(root: TreeNode | null, to_delete: number[]): Array<TreeNode | 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

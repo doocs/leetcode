@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学（裴蜀定理） + 中位数贪心**
+### 方法一：数学（裴蜀定理） + 中位数贪心
 
 题目要求每个长度为 $k$ 的子数组的元素总和相等，那么有以下等式成立：
 
@@ -89,10 +87,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def makeSubKSumEqual(self, arr: List[int], k: int) -> int:
@@ -105,10 +99,6 @@ class Solution:
             ans += sum(abs(x - mid) for x in t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeSubKSumEqual(arr []int, k int) (ans int64) {
@@ -196,8 +182,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makeSubKSumEqual(arr: number[], k: number): number {
     const n = arr.length;
@@ -225,10 +209,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

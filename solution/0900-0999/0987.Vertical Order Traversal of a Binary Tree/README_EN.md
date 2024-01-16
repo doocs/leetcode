@@ -59,9 +59,9 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -91,8 +91,6 @@ class Solution:
             ans[-1].append(v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +128,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -150,6 +146,7 @@ class Solution {
 function verticalTraversal(root: TreeNode | null): number[][] {
     let solution = [];
     dfs(root, 0, 0, solution);
+    // 优先依据i=2排序， 然后依据i=1排序
     solution.sort(compare);
     let ans = [];
     let pre = Number.MIN_SAFE_INTEGER;
@@ -184,10 +181,6 @@ function dfs(root: TreeNode | null, depth: number, idx: number, solution: Array<
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

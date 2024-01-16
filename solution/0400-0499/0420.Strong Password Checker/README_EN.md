@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -109,8 +109,6 @@ class Solution:
         remove -= use3 * 3
         return n - 20 + max(replace, 3 - types)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -194,8 +192,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -272,10 +268,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

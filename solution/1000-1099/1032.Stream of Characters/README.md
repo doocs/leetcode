@@ -58,9 +58,7 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 我们可以根据初始化时的字符串数组 $words$ 构建前缀树，前缀树的每个节点包含两个属性：
 
@@ -74,10 +72,6 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 时间复杂度方面，构造函数的时间复杂度为 $O(L)$，而 `query` 函数的时间复杂度为 $O(M)$。其中 $L$ 为字符串数组 $words$ 中所有字符串的长度之和，而 $M$ 为字符串数组 $words$ 中字符串的最大长度。空间复杂度 $O(L)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -123,10 +117,6 @@ class StreamChecker:
 # obj = StreamChecker(words)
 # param_1 = obj.query(letter)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -183,8 +173,6 @@ class StreamChecker {
  * boolean param_1 = obj.query(letter);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -249,8 +237,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -313,10 +299,6 @@ func (this *StreamChecker) Query(letter byte) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

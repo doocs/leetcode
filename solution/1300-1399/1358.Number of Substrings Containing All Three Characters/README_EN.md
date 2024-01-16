@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Single Pass**
+### Solution 1: Single Pass
 
 We use an array $d$ of length $3$ to record the most recent occurrence of the three characters, initially all set to $-1$.
 
@@ -51,8 +51,6 @@ We traverse the string $s$. For the current position $i$, we first update $d[s[i
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
             ans += min(d["a"], d["b"], d["c"]) + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfSubstrings(s string) (ans int) {
 	d := [3]int{-1, -1, -1}
@@ -112,10 +104,6 @@ func numberOfSubstrings(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

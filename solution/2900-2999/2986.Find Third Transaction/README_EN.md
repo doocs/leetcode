@@ -59,9 +59,9 @@ Output table is ordered by user_id in ascending order.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -93,3 +93,5 @@ WHERE rk = 3 AND st = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

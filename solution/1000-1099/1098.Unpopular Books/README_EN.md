@@ -81,9 +81,9 @@ Orders table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -97,3 +97,5 @@ HAVING SUM(IF(dispatch_date >= '2018-06-23', quantity, 0)) < 10;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们可以进行两次二分查找，分别查找出左边界和右边界。
 
@@ -106,10 +104,6 @@ int search(int left, int right) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
@@ -117,10 +111,6 @@ class Solution:
         r = bisect_left(nums, target + 1)
         return [-1, -1] if l == r else [l, r - 1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func searchRange(nums []int, target int) []int {
 	l := sort.SearchInts(nums, target)
@@ -172,7 +158,25 @@ func searchRange(nums []int, target int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function searchRange(nums: number[], target: number): number[] {
+    const search = (x: number): number => {
+        let [left, right] = [0, nums.length];
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (nums[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    const l = search(target);
+    const r = search(target + 1);
+    return l === r ? [-1, -1] : [l, r - 1];
+}
+```
 
 ```rust
 impl Solution {
@@ -201,30 +205,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function searchRange(nums: number[], target: number): number[] {
-    const search = (x: number): number => {
-        let [left, right] = [0, nums.length];
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (nums[mid] >= x) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
-    };
-    const l = search(target);
-    const r = search(target + 1);
-    return l === r ? [-1, -1] : [l, r - 1];
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -251,10 +231,6 @@ var searchRange = function (nums, target) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

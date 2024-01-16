@@ -63,19 +63,13 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 模拟**
+### 方法一：哈希表 + 模拟
 
 用哈希表 $d$ 存储商品编号和价格，然后遍历商品编号和数量，计算总价，再根据折扣计算折扣后的价格。
 
 初始化的时间复杂度为 $O(n)$，其中 $n$ 为商品的数量。`getBill` 函数的时间复杂度为 $O(m)$，其中 $m$ 为购买商品的数量。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Cashier:
@@ -99,10 +93,6 @@ class Cashier:
 # obj = Cashier(n, discount, products, prices)
 # param_1 = obj.getBill(product,amount)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Cashier {
@@ -138,8 +128,6 @@ class Cashier {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Cashier {
 public:
@@ -174,8 +162,6 @@ private:
  * double param_1 = obj->getBill(product,amount);
  */
 ```
-
-### **Go**
 
 ```go
 type Cashier struct {
@@ -213,10 +199,6 @@ func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                     ans.append([d[rb], i])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -122,6 +120,106 @@ class Solution {
     }
 }
 ```
+
+```go
+func palindromePairs(words []string) [][]int {
+	base := 131
+	mod := int(1e9) + 7
+	mul := make([]int, 310)
+	mul[0] = 1
+	for i := 1; i < len(mul); i++ {
+		mul[i] = (mul[i-1] * base) % mod
+	}
+	n := len(words)
+	prefix := make([]int, n)
+	suffix := make([]int, n)
+	for i, word := range words {
+		m := len(word)
+		for j, c := range word {
+			t := int(c-'a') + 1
+			s := int(word[m-j-1]-'a') + 1
+			prefix[i] = (prefix[i]*base)%mod + t
+			suffix[i] = (suffix[i]*base)%mod + s
+		}
+	}
+	check := func(i, j, n, m int) bool {
+		t := ((prefix[i]*mul[n])%mod + prefix[j]) % mod
+		s := ((suffix[j]*mul[m])%mod + suffix[i]) % mod
+		return t == s
+	}
+	var ans [][]int
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			if check(i, j, len(words[j]), len(words[i])) {
+				ans = append(ans, []int{i, j})
+			}
+			if check(j, i, len(words[i]), len(words[j])) {
+				ans = append(ans, []int{j, i})
+			}
+		}
+	}
+	return ans
+}
+```
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution {
+    public IList<IList<int>> PalindromePairs(string[] words) {
+        var results = new List<IList<int>>();
+        var reverseDict = words.Select((w, i) => new {Word = w, Index = i}).ToDictionary(w => new string(w.Word.Reverse().ToArray()), w => w.Index);
+
+        for (var i = 0; i < words.Length; ++i)
+        {
+            var word = words[i];
+            for (var j = 0; j <= word.Length; ++j)
+            {
+                if (j > 0 && IsPalindrome(word, 0, j - 1))
+                {
+                    var suffix = word.Substring(j);
+                    int pairIndex;
+                    if (reverseDict.TryGetValue(suffix, out pairIndex) && i != pairIndex)
+                    {
+                        results.Add(new [] { pairIndex, i});
+                    }
+                }
+                if (IsPalindrome(word, j, word.Length - 1))
+                {
+                    var prefix = word.Substring(0, j);
+                    int pairIndex;
+                    if (reverseDict.TryGetValue(prefix, out pairIndex) && i != pairIndex)
+                    {
+                        results.Add(new [] { i, pairIndex});
+                    }
+                }
+            }
+        }
+
+        return results;
+    }
+
+    private bool IsPalindrome(string word, int startIndex, int endIndex)
+    {
+        var i = startIndex;
+        var j = endIndex;
+        while (i < j)
+        {
+            if (word[i] != word[j]) return false;
+            ++i;
+            --j;
+        }
+        return true;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```java
 class Trie {
@@ -204,53 +302,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
-```go
-func palindromePairs(words []string) [][]int {
-	base := 131
-	mod := int(1e9) + 7
-	mul := make([]int, 310)
-	mul[0] = 1
-	for i := 1; i < len(mul); i++ {
-		mul[i] = (mul[i-1] * base) % mod
-	}
-	n := len(words)
-	prefix := make([]int, n)
-	suffix := make([]int, n)
-	for i, word := range words {
-		m := len(word)
-		for j, c := range word {
-			t := int(c-'a') + 1
-			s := int(word[m-j-1]-'a') + 1
-			prefix[i] = (prefix[i]*base)%mod + t
-			suffix[i] = (suffix[i]*base)%mod + s
-		}
-	}
-	check := func(i, j, n, m int) bool {
-		t := ((prefix[i]*mul[n])%mod + prefix[j]) % mod
-		s := ((suffix[j]*mul[m])%mod + suffix[i]) % mod
-		return t == s
-	}
-	var ans [][]int
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
-			if check(i, j, len(words[j]), len(words[i])) {
-				ans = append(ans, []int{i, j})
-			}
-			if check(j, i, len(words[i]), len(words[j])) {
-				ans = append(ans, []int{j, i})
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

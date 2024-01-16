@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们使用双指针维护一个和小于 $target$ 的连续子数组。每次右边界 $j$ 向右移动一位，如果和大于等于 $target$，则更新答案的最小值，同时左边界 $i$ 向右移动，直到和小于 $target$。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 i += 1
         return 0 if ans == inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	const inf = 1 << 30
@@ -152,8 +138,6 @@ func minSubArrayLen(target int, nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
     const n = nums.length;
@@ -171,10 +155,6 @@ function minSubArrayLen(target: number, nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

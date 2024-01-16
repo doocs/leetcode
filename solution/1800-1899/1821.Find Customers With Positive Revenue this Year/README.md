@@ -63,17 +63,11 @@ Customers
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：WHERE 子句**
+### 方法一：WHERE 子句
 
 我们可以直接使用 `WHERE` 子句来筛选出 `year` 为 `2021` 且 `revenue` 大于 $0$ 的客户。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -84,3 +78,5 @@ WHERE year = '2021' AND revenue > 0;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

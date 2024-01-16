@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Chicken McNugget Theorem**
+### Solution 1: Chicken McNugget Theorem
 
 According to the Chicken McNugget Theorem, for two coprime positive integers $a$ and $b$, the largest number that cannot be expressed as a combination of $a$ and $b$ is $ab - a - b$.
 
@@ -46,15 +46,11 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def mostExpensiveItem(self, primeOne: int, primeTwo: int) -> int:
         return primeOne * primeTwo - primeOne - primeTwo
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -63,8 +59,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -75,23 +69,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostExpensiveItem(primeOne int, primeTwo int) int {
 	return primeOne*primeTwo - primeOne - primeTwo
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostExpensiveItem(primeOne: number, primeTwo: number): number {
     return primeOne * primeTwo - primeOne - primeTwo;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -101,10 +89,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

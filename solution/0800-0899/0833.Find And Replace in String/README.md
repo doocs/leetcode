@@ -68,9 +68,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们遍历每个替换操作，对于当前第 $k$ 个替换操作 $(i, src)$，如果 $s[i..i+|src|-1]$ 与 $src$ 相等，此时我们记录下标 $i$ 处需要替换的是 $targets$ 的第 $k$ 个字符串，否则不需要替换。
 
@@ -79,10 +77,6 @@
 时间复杂度 $O(L)$，空间复杂度 $O(n)$。其中 $L$ 是所有字符串的长度之和，而 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
                 i += 1
         return "".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findReplaceString(s string, indices []int, sources []string, targets []string) string {
 	n := len(s)
@@ -188,8 +174,6 @@ func findReplaceString(s string, indices []int, sources []string, targets []stri
 	return ans.String()
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findReplaceString(
@@ -219,10 +203,6 @@ function findReplaceString(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

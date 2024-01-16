@@ -37,13 +37,69 @@
 
 ## Solutions
 
-**Solution 1: Brute Force Enumeration**
+### Solution 1: Brute Force Enumeration
 
 Enumerate all substrings and use a hash table to record the count of different substrings.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
 
-**Solution 2: String Hashing**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countDistinct(self, s: str) -> int:
+        n = len(s)
+        return len({s[i:j] for i in range(n) for j in range(i + 1, n + 1)})
+```
+
+```java
+class Solution {
+    public int countDistinct(String s) {
+        Set<String> ss = new HashSet<>();
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j <= n; ++j) {
+                ss.add(s.substring(i, j));
+            }
+        }
+        return ss.size();
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countDistinct(string s) {
+        unordered_set<string_view> ss;
+        int n = s.size();
+        string_view t, v = s;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j <= n; ++j) {
+                t = v.substr(i, j - i);
+                ss.insert(t);
+            }
+        }
+        return ss.size();
+    }
+};
+```
+
+```go
+func countDistinct(s string) int {
+	ss := map[string]struct{}{}
+	for i := range s {
+		for j := i + 1; j <= len(s); j++ {
+			ss[s[i:j]] = struct{}{}
+		}
+	}
+	return len(ss)
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: String Hashing
 
 **String hashing** is a method to map a string of any length to a non-negative integer, and the probability of collision is almost zero. String hashing is used to calculate the hash value of a string, which can quickly determine whether two strings are equal.
 
@@ -56,15 +112,6 @@ Except for extremely specially constructed data, the above hash algorithm is unl
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-class Solution:
-    def countDistinct(self, s: str) -> int:
-        n = len(s)
-        return len({s[i:j] for i in range(n) for j in range(i + 1, n + 1)})
-```
 
 ```python
 class Solution:
@@ -83,23 +130,6 @@ class Solution:
                 t = h[j] - h[i - 1] * p[j - i + 1]
                 ss.add(t)
         return len(ss)
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int countDistinct(String s) {
-        Set<String> ss = new HashSet<>();
-        int n = s.length();
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j <= n; ++j) {
-                ss.add(s.substring(i, j));
-            }
-        }
-        return ss.size();
-    }
-}
 ```
 
 ```java
@@ -124,26 +154,6 @@ class Solution {
         return ss.size();
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countDistinct(string s) {
-        unordered_set<string_view> ss;
-        int n = s.size();
-        string_view t, v = s;
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j <= n; ++j) {
-                t = v.substr(i, j - i);
-                ss.insert(t);
-            }
-        }
-        return ss.size();
-    }
-};
 ```
 
 ```cpp
@@ -171,20 +181,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countDistinct(s string) int {
-	ss := map[string]struct{}{}
-	for i := range s {
-		for j := i + 1; j <= len(s); j++ {
-			ss[s[i:j]] = struct{}{}
-		}
-	}
-	return len(ss)
-}
-```
-
 ```go
 func countDistinct(s string) int {
 	n := len(s)
@@ -206,10 +202,6 @@ func countDistinct(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

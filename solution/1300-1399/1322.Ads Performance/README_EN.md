@@ -70,9 +70,9 @@ Note that we do not care about Ignored Ads.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -84,3 +84,5 @@ ORDER BY 2 DESC, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,23 +66,6 @@ class Solution:
         return dfs(0, 0)
 ```
 
-```python
-class Solution:
-    def numTilings(self, n: int) -> int:
-        f = [1, 0, 0, 0]
-        mod = 10**9 + 7
-        for i in range(1, n + 1):
-            g = [0] * 4
-            g[0] = (f[0] + f[1] + f[2] + f[3]) % mod
-            g[1] = (f[2] + f[3]) % mod
-            g[2] = (f[1] + f[3]) % mod
-            g[3] = f[0]
-            f = g
-        return f[0]
-```
-
-### **Java**
-
 ```java
 class Solution {
     public int numTilings(int n) {
@@ -100,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numTilings(n int) int {
 	f := [4]int{}
@@ -142,10 +121,27 @@ func numTilings(n int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numTilings(self, n: int) -> int:
+        f = [1, 0, 0, 0]
+        mod = 10**9 + 7
+        for i in range(1, n + 1):
+            g = [0] * 4
+            g[0] = (f[0] + f[1] + f[2] + f[3]) % mod
+            g[1] = (f[2] + f[3]) % mod
+            g[2] = (f[1] + f[3]) % mod
+            g[3] = f[0]
+            f = g
+        return f[0]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

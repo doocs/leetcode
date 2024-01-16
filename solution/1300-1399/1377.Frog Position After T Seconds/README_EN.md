@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: BFS**
+### Solution 1: BFS
 
 First, based on the undirected tree edges given in the problem, we construct an adjacency list $g$, where $g[u]$ represents all adjacent vertices of vertex $u$.
 
@@ -61,8 +61,6 @@ In each round of search, we take out the head element $(u, p)$ of the queue, whe
 At the end of a round of search, we decrease $t$ by $1$, and then continue the next round of search until the queue is empty or $t \lt 0$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -89,8 +87,6 @@ class Solution:
             t -= 1
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -128,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func frogPosition(n int, edges [][]int, t int, target int) float64 {
@@ -208,8 +200,6 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function frogPosition(n: number, edges: number[][], t: number, target: number): number {
     const g: number[][] = Array.from({ length: n + 1 }, () => []);
@@ -238,8 +228,6 @@ function frogPosition(n: number, edges: number[][], t: number, target: number): 
     return 0;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -277,10 +265,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

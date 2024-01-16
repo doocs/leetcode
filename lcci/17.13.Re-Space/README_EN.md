@@ -36,9 +36,9 @@ sentence = &quot;jesslookedjustliketimherbrother&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
                     dp[i] = min(dp[i], dp[j])
         return dp[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func respace(dictionary []string, sentence string) int {
 	s := map[string]bool{}
@@ -119,10 +113,6 @@ func respace(dictionary []string, sentence string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,7 +56,7 @@ So it takes only 2 operations.
 
 ## Solutions
 
-**Solution 1: Find Pattern + Simulation**
+### Solution 1: Find Pattern + Simulation
 
 We observe the change pattern of the numbers and find that:
 
@@ -73,8 +73,6 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def reinitializePermutation(self, n: int) -> int:
@@ -88,8 +86,6 @@ class Solution:
             if i == 1:
                 return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reinitializePermutation(n int) (ans int) {
 	for i := 1; ; {
@@ -150,10 +142,6 @@ func reinitializePermutation(n int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

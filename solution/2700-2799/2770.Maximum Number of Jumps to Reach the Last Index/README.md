@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 对于每个位置 $i$，我们考虑向后搜索能跳到的位置 $j$，如果满足 $|nums[i] - nums[j]| \leq target$，那么我们就可以从 $i$ 跳到 $j$，并且从 $j$ 开始继续向后搜索。
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
         ans = dfs(0)
         return -1 if ans < 0 else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumJumps(nums []int, target int) int {
@@ -211,8 +197,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumJumps(nums: number[], target: number): number {
     const n = nums.length;
@@ -237,10 +221,6 @@ function maximumJumps(nums: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

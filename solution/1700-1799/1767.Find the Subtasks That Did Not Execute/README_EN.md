@@ -81,13 +81,11 @@ Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were execut
 
 ## Solutions
 
-**Solution 1: Recursive Table Generation + Left Join**
+### Solution 1: Recursive Table Generation + Left Join
 
 We can generate a table recursively that contains all pairs of (parent task, child task), and then use a left join to find the pairs that have not been executed.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -113,3 +111,5 @@ WHERE Executed.subtask_id IS NULL;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

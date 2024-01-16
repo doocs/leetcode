@@ -46,7 +46,7 @@ So the answer is [[2],[0],[0]].</pre>
 
 ## Solutions
 
-**Solution 1: Prefix and Suffix Decomposition**
+### Solution 1: Prefix and Suffix Decomposition
 
 We can preprocess the suffix product (excluding itself) of each element, and then traverse the matrix to calculate the prefix product (excluding itself) of each element. The product of the two gives us the result for each position.
 
@@ -59,8 +59,6 @@ After the traversal, we return the result matrix $p$.
 The time complexity is $O(n \times m)$, where $n$ and $m$ are the number of rows and columns in the matrix, respectively. Ignoring the space occupied by the result matrix, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
                 pre = pre * grid[i][j] % mod
         return p
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func constructProductMatrix(grid [][]int) [][]int {
 	const mod int = 12345
@@ -164,8 +156,6 @@ func constructProductMatrix(grid [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function constructProductMatrix(grid: number[][]): number[][] {
     const mod = 12345;
@@ -188,8 +178,6 @@ function constructProductMatrix(grid: number[][]): number[][] {
     return p;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -221,10 +209,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

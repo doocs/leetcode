@@ -94,9 +94,9 @@ Luis did not received any transfer, credit = 800
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -118,3 +118,5 @@ GROUP BY t.user_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

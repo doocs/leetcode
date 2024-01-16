@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针 + 模拟**
+### 方法一：双指针 + 模拟
 
 我们可以先将字符串 `word` 做个转化，比如对于 `word="aaaeiouu"`，我们可以将其转化为数据项 `('a', 3)`, `('e', 1)`, `('i', 1)`, `('o', 1)`, `('u', 2)`，存放在数组 `arr` 中。其中每个数据项的第一个元素表示元音字母，第二个元素表示该元音字母连续出现的次数。这部分转化可以通过双指针来实现。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `word` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                 ans = max(ans, a[1] + b[1] + c[1] + d[1] + e[1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Node {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestBeautifulSubstring(word string) (ans int) {
 	arr := []pair{}
@@ -190,10 +176,6 @@ type pair struct {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

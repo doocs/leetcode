@@ -18,48 +18,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 直接排序，取前 k 个数即可。
 
 时间复杂度 $O(n\log n)$。其中 $n$ 为数组长度。
 
-**方法二：优先队列（大根堆）**
-
-维护一个大小为 $k$ 的大根堆，遍历数组，将当前元素入堆，如果堆的大小超过 $k$，弹出堆顶元素。
-
-遍历结束，将堆中元素的 $k$ 个元素取出即可。
-
-时间复杂度 $O(n\log k)$。其中 $n$ 为数组长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def smallestK(self, arr: List[int], k: int) -> List[int]:
         return sorted(arr)[:k]
 ```
-
-```python
-class Solution:
-    def smallestK(self, arr: List[int], k: int) -> List[int]:
-        h = []
-        for v in arr:
-            heappush(h, -v)
-            if len(h) > k:
-                heappop(h)
-        return [-v for v in h]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -72,6 +43,54 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> smallestK(vector<int>& arr, int k) {
+        sort(arr.begin(), arr.end());
+        vector<int> ans(k);
+        for (int i = 0; i < k; ++i) {
+            ans[i] = arr[i];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func smallestK(arr []int, k int) []int {
+	sort.Ints(arr)
+	ans := make([]int, k)
+	for i, v := range arr[:k] {
+		ans[i] = v
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：优先队列（大根堆）
+
+维护一个大小为 $k$ 的大根堆，遍历数组，将当前元素入堆，如果堆的大小超过 $k$，弹出堆顶元素。
+
+遍历结束，将堆中元素的 $k$ 个元素取出即可。
+
+时间复杂度 $O(n\log k)$。其中 $n$ 为数组长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def smallestK(self, arr: List[int], k: int) -> List[int]:
+        h = []
+        for v in arr:
+            heappush(h, -v)
+            if len(h) > k:
+                heappop(h)
+        return [-v for v in h]
 ```
 
 ```java
@@ -94,22 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> smallestK(vector<int>& arr, int k) {
-        sort(arr.begin(), arr.end());
-        vector<int> ans(k);
-        for (int i = 0; i < k; ++i) {
-            ans[i] = arr[i];
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -129,19 +132,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func smallestK(arr []int, k int) []int {
-	sort.Ints(arr)
-	ans := make([]int, k)
-	for i, v := range arr[:k] {
-		ans[i] = v
-	}
-	return ans
-}
 ```
 
 ```go
@@ -172,10 +162,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -69,9 +69,9 @@ Each row contains employees details and their yearly salaries, however, some of 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -87,3 +87,5 @@ ORDER BY emp_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

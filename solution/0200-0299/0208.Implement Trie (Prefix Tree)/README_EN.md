@@ -46,9 +46,9 @@ trie.search(&quot;app&quot;);     // return True
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -89,8 +89,6 @@ class Trie:
 # param_2 = obj.search(word)
 # param_3 = obj.startsWith(prefix)
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -145,71 +143,6 @@ class Trie {
  */
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Initialize your data structure here.
- */
-var Trie = function () {
-    this.children = {};
-};
-
-/**
- * Inserts a word into the trie.
- * @param {string} word
- * @return {void}
- */
-Trie.prototype.insert = function (word) {
-    let node = this.children;
-    for (let char of word) {
-        if (!node[char]) {
-            node[char] = {};
-        }
-        node = node[char];
-    }
-    node.isEnd = true;
-};
-
-/**
- * Returns if the word is in the trie.
- * @param {string} word
- * @return {boolean}
- */
-Trie.prototype.search = function (word) {
-    let node = this.searchPrefix(word);
-    return node != undefined && node.isEnd != undefined;
-};
-
-Trie.prototype.searchPrefix = function (prefix) {
-    let node = this.children;
-    for (let char of prefix) {
-        if (!node[char]) return false;
-        node = node[char];
-    }
-    return node;
-};
-
-/**
- * Returns if there is any word in the trie that starts with the given prefix.
- * @param {string} prefix
- * @return {boolean}
- */
-Trie.prototype.startsWith = function (prefix) {
-    return this.searchPrefix(prefix);
-};
-
-/**
- * Your Trie object will be instantiated and called as such:
- * var obj = new Trie()
- * obj.insert(word)
- * var param_2 = obj.search(word)
- * var param_3 = obj.startsWith(prefix)
- */
-```
-
-### **C++**
-
 ```cpp
 class Trie {
 private:
@@ -261,7 +194,107 @@ public:
  */
 ```
 
-### **Rust**
+```go
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
+}
+
+func Constructor() Trie {
+	return Trie{}
+}
+
+func (this *Trie) Insert(word string) {
+	node := this
+	for _, c := range word {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
+		}
+		node = node.children[idx]
+	}
+	node.isEnd = true
+}
+
+func (this *Trie) Search(word string) bool {
+	node := this.SearchPrefix(word)
+	return node != nil && node.isEnd
+}
+
+func (this *Trie) StartsWith(prefix string) bool {
+	node := this.SearchPrefix(prefix)
+	return node != nil
+}
+
+func (this *Trie) SearchPrefix(s string) *Trie {
+	node := this
+	for _, c := range s {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			return nil
+		}
+		node = node.children[idx]
+	}
+	return node
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Insert(word);
+ * param_2 := obj.Search(word);
+ * param_3 := obj.StartsWith(prefix);
+ */
+```
+
+```ts
+class TrieNode {
+    children;
+    isEnd;
+    constructor() {
+        this.children = new Array(26);
+        this.isEnd = false;
+    }
+}
+
+class Trie {
+    root;
+    constructor() {
+        this.root = new TrieNode();
+    }
+
+    insert(word: string): void {
+        let head = this.root;
+        for (let char of word) {
+            let index = char.charCodeAt(0) - 97;
+            if (!head.children[index]) {
+                head.children[index] = new TrieNode();
+            }
+            head = head.children[index];
+        }
+        head.isEnd = true;
+    }
+
+    search(word: string): boolean {
+        let head = this.searchPrefix(word);
+        return head != null && head.isEnd;
+    }
+
+    startsWith(prefix: string): boolean {
+        return this.searchPrefix(prefix) != null;
+    }
+
+    private searchPrefix(prefix: string) {
+        let head = this.root;
+        for (let char of prefix) {
+            let index = char.charCodeAt(0) - 97;
+            if (!head.children[index]) return null;
+            head = head.children[index];
+        }
+        return head;
+    }
+}
+```
 
 ```rust
 use std::{ rc::Rc, cell::RefCell, collections::HashMap };
@@ -357,62 +390,66 @@ impl Trie {
 }
 ```
 
-### **Go**
+```js
+/**
+ * Initialize your data structure here.
+ */
+var Trie = function () {
+    this.children = {};
+};
 
-```go
-type Trie struct {
-	children [26]*Trie
-	isEnd    bool
-}
+/**
+ * Inserts a word into the trie.
+ * @param {string} word
+ * @return {void}
+ */
+Trie.prototype.insert = function (word) {
+    let node = this.children;
+    for (let char of word) {
+        if (!node[char]) {
+            node[char] = {};
+        }
+        node = node[char];
+    }
+    node.isEnd = true;
+};
 
-func Constructor() Trie {
-	return Trie{}
-}
+/**
+ * Returns if the word is in the trie.
+ * @param {string} word
+ * @return {boolean}
+ */
+Trie.prototype.search = function (word) {
+    let node = this.searchPrefix(word);
+    return node != undefined && node.isEnd != undefined;
+};
 
-func (this *Trie) Insert(word string) {
-	node := this
-	for _, c := range word {
-		idx := c - 'a'
-		if node.children[idx] == nil {
-			node.children[idx] = &Trie{}
-		}
-		node = node.children[idx]
-	}
-	node.isEnd = true
-}
+Trie.prototype.searchPrefix = function (prefix) {
+    let node = this.children;
+    for (let char of prefix) {
+        if (!node[char]) return false;
+        node = node[char];
+    }
+    return node;
+};
 
-func (this *Trie) Search(word string) bool {
-	node := this.SearchPrefix(word)
-	return node != nil && node.isEnd
-}
-
-func (this *Trie) StartsWith(prefix string) bool {
-	node := this.SearchPrefix(prefix)
-	return node != nil
-}
-
-func (this *Trie) SearchPrefix(s string) *Trie {
-	node := this
-	for _, c := range s {
-		idx := c - 'a'
-		if node.children[idx] == nil {
-			return nil
-		}
-		node = node.children[idx]
-	}
-	return node
-}
+/**
+ * Returns if there is any word in the trie that starts with the given prefix.
+ * @param {string} prefix
+ * @return {boolean}
+ */
+Trie.prototype.startsWith = function (prefix) {
+    return this.searchPrefix(prefix);
+};
 
 /**
  * Your Trie object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Insert(word);
- * param_2 := obj.Search(word);
- * param_3 := obj.StartsWith(prefix);
+ * var obj = new Trie()
+ * obj.insert(word)
+ * var param_2 = obj.search(word)
+ * var param_3 = obj.startsWith(prefix)
  */
 ```
-
-### **C#**
 
 ```cs
 public class Trie {
@@ -468,10 +505,6 @@ public class Trie {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

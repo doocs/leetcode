@@ -39,9 +39,9 @@ Note that the two extra dashes are not needed and can be removed.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                     res.append('-')
         return ''.join(res)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func licenseKeyFormatting(s string, k int) string {
 	s = strings.ReplaceAll(s, "-", "")
@@ -145,10 +139,6 @@ func licenseKeyFormatting(s string, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

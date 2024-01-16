@@ -53,9 +53,7 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 定义 $a$, $b$ 分别表示使得下标 $[0..i]$ 的元素序列严格递增，且第 $i$ 个元素不交换、交换的最小交换次数。下标从 $0$ 开始。
 
@@ -73,10 +71,6 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minSwap(self, nums1: List[int], nums2: List[int]) -> int:
@@ -91,10 +85,6 @@ class Solution:
                     a, b = min(a, y), min(b, x + 1)
         return min(a, b)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSwap(nums1 []int, nums2 []int) int {
 	a, b, n := 0, 1, len(nums1)
@@ -163,10 +149,6 @@ func minSwap(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

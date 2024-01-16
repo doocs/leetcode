@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i, j)$，表示从网格图中的第 $i$ 行第 $j$ 列的格子出发，能够到达任意格子的严格递增路径数目。那么答案就是 $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$。搜索过程中，我们可以用一个二维数组 $f$ 记录已经计算过的结果，避免重复计算。
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countPaths(self, grid: List[List[int]]) -> int:
@@ -92,10 +86,6 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return sum(dfs(i, j) for i in range(m) for j in range(n)) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPaths(grid [][]int) (ans int) {
 	const mod = 1e9 + 7
@@ -205,8 +191,6 @@ func countPaths(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPaths(grid: number[][]): number {
     const mod = 1e9 + 7;
@@ -238,10 +222,6 @@ function countPaths(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

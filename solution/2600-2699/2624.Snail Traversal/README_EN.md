@@ -65,9 +65,9 @@ colsCount = 2
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 declare global {
@@ -99,10 +99,6 @@ Array.prototype.snail = function (rowsCount: number, colsCount: number): number[
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

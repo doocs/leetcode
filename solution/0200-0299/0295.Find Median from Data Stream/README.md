@@ -54,9 +54,7 @@ medianFinder.findMedian(); // return 2.0</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（双堆）**
+### 方法一：优先队列（双堆）
 
 创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
 
@@ -69,10 +67,6 @@ medianFinder.findMedian(); // return 2.0</pre>
 每次添加元素的时间复杂度为 $O(\log n)$，取中位数的时间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MedianFinder:
@@ -100,10 +94,6 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MedianFinder {
@@ -137,8 +127,6 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MedianFinder {
@@ -176,8 +164,6 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
-
-### **Go**
 
 ```go
 type MedianFinder struct {
@@ -224,45 +210,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * initialize your data structure here.
- */
-var MedianFinder = function () {
-    this.val = [];
-};
-
-/**
- * @param {number} num
- * @return {void}
- */
-MedianFinder.prototype.addNum = function (num) {
-    let left = 0;
-    let right = this.val.length;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (num > this.val[mid]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
-    }
-    this.val.splice(left, 0, num);
-};
-
-/**
- * @return {number}
- */
-MedianFinder.prototype.findMedian = function () {
-    let mid = ~~(this.val.length / 2);
-    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
-};
-```
-
-### **TypeScript**
-
 ```ts
 class MedianFinder {
     private nums: number[];
@@ -303,8 +250,6 @@ class MedianFinder {
  * var param_2 = obj.findMedian()
  */
 ```
-
-### **Rust**
 
 ```rust
 struct MedianFinder {
@@ -350,7 +295,40 @@ impl MedianFinder {
  */
 ```
 
-### **C#**
+```js
+/**
+ * initialize your data structure here.
+ */
+var MedianFinder = function () {
+    this.val = [];
+};
+
+/**
+ * @param {number} num
+ * @return {void}
+ */
+MedianFinder.prototype.addNum = function (num) {
+    let left = 0;
+    let right = this.val.length;
+    while (left < right) {
+        let mid = left + ~~((right - left) / 2);
+        if (num > this.val[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    this.val.splice(left, 0, num);
+};
+
+/**
+ * @return {number}
+ */
+MedianFinder.prototype.findMedian = function () {
+    let mid = ~~(this.val.length / 2);
+    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
+};
+```
 
 ```cs
 public class MedianFinder {
@@ -411,10 +389,6 @@ public class MedianFinder {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

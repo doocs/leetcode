@@ -33,9 +33,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示只使用前 $i$ 种硬币的情况下，凑成总金额为 $j$ 的方案数。初始时 $f[0][0]=1$，其余元素都为 $0$。答案为 $f[4][n]$。
 
@@ -69,10 +67,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def waysToChange(self, n: int) -> int:
@@ -87,22 +81,6 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i][j - c]) % mod
         return f[-1][n]
 ```
-
-```python
-class Solution:
-    def waysToChange(self, n: int) -> int:
-        mod = 10**9 + 7
-        coins = [25, 10, 5, 1]
-        f = [1] + [0] * n
-        for c in coins:
-            for j in range(c, n + 1):
-                f[j] = (f[j] + f[j - c]) % mod
-        return f[n]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,25 +101,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int waysToChange(int n) {
-        final int mod = (int) 1e9 + 7;
-        int[] coins = {25, 10, 5, 1};
-        int[] f = new int[n + 1];
-        f[0] = 1;
-        for (int c : coins) {
-            for (int j = c; j <= n; ++j) {
-                f[j] = (f[j] + f[j - c]) % mod;
-            }
-        }
-        return f[n];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -165,27 +124,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int waysToChange(int n) {
-        const int mod = 1e9 + 7;
-        vector<int> coins = {25, 10, 5, 1};
-        int f[n + 1];
-        memset(f, 0, sizeof(f));
-        f[0] = 1;
-        for (int c : coins) {
-            for (int j = c; j <= n; ++j) {
-                f[j] = (f[j] + f[j - c]) % mod;
-            }
-        }
-        return f[n];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -207,23 +145,6 @@ func waysToChange(n int) int {
 }
 ```
 
-```go
-func waysToChange(n int) int {
-	const mod int = 1e9 + 7
-	coins := []int{25, 10, 5, 1}
-	f := make([]int, n+1)
-	f[0] = 1
-	for _, c := range coins {
-		for j := c; j <= n; j++ {
-			f[j] = (f[j] + f[j-c]) % mod
-		}
-	}
-	return f[n]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -244,6 +165,75 @@ function waysToChange(n: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def waysToChange(self, n: int) -> int:
+        mod = 10**9 + 7
+        coins = [25, 10, 5, 1]
+        f = [1] + [0] * n
+        for c in coins:
+            for j in range(c, n + 1):
+                f[j] = (f[j] + f[j - c]) % mod
+        return f[n]
+```
+
+```java
+class Solution {
+    public int waysToChange(int n) {
+        final int mod = (int) 1e9 + 7;
+        int[] coins = {25, 10, 5, 1};
+        int[] f = new int[n + 1];
+        f[0] = 1;
+        for (int c : coins) {
+            for (int j = c; j <= n; ++j) {
+                f[j] = (f[j] + f[j - c]) % mod;
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int waysToChange(int n) {
+        const int mod = 1e9 + 7;
+        vector<int> coins = {25, 10, 5, 1};
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (int c : coins) {
+            for (int j = c; j <= n; ++j) {
+                f[j] = (f[j] + f[j - c]) % mod;
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func waysToChange(n int) int {
+	const mod int = 1e9 + 7
+	coins := []int{25, 10, 5, 1}
+	f := make([]int, n+1)
+	f[0] = 1
+	for _, c := range coins {
+		for j := c; j <= n; j++ {
+			f[j] = (f[j] + f[j-c]) % mod
+		}
+	}
+	return f[n]
+}
+```
+
 ```ts
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -259,10 +249,6 @@ function waysToChange(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

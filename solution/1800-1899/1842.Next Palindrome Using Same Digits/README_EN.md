@@ -45,15 +45,13 @@
 
 ## Solutions
 
-**Solution 1: Find the Next Permutation of the First Half**
+### Solution 1: Find the Next Permutation of the First Half
 
 According to the problem description, we only need to find the next permutation of the first half of the string, then traverse the first half and symmetrically assign values to the second half.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
             nums[n - i - 1] = nums[i]
         return "".join(nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nextPalindrome(num string) string {
@@ -181,8 +173,6 @@ func nextPermutation(nums []byte) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function nextPalindrome(num: string): string {
     const nums = num.split('');
@@ -217,10 +207,6 @@ function nextPermutation(nums: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

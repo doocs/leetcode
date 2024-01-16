@@ -47,9 +47,9 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,8 +77,6 @@ class Solution:
         s = list(accumulate(stoneValue, initial=0))
         return dfs(0, len(stoneValue) - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stoneGameV(stoneValue []int) int {
 	n := len(stoneValue)
@@ -222,10 +216,6 @@ func stoneGameV(stoneValue []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

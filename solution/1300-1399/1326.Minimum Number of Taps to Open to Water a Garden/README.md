@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们注意到，对于所有能覆盖某个左端点的水龙头，选择能覆盖最远右端点的那个水龙头是最优的。
 
@@ -84,10 +82,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minTaps(self, n: int, ranges: List[int]) -> int:
@@ -106,10 +100,6 @@ class Solution:
                 pre = mx
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,7 +150,52 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minTaps(n int, ranges []int) (ans int) {
+	last := make([]int, n+1)
+	for i, x := range ranges {
+		l, r := max(0, i-x), i+x
+		last[l] = max(last[l], r)
+	}
+	var pre, mx int
+	for i, j := range last[:n] {
+		mx = max(mx, j)
+		if mx <= i {
+			return -1
+		}
+		if pre == i {
+			ans++
+			pre = mx
+		}
+	}
+	return
+}
+```
+
+```ts
+function minTaps(n: number, ranges: number[]): number {
+    const last = new Array(n + 1).fill(0);
+    for (let i = 0; i < n + 1; ++i) {
+        const l = Math.max(0, i - ranges[i]);
+        const r = i + ranges[i];
+        last[l] = Math.max(last[l], r);
+    }
+    let ans = 0;
+    let mx = 0;
+    let pre = 0;
+    for (let i = 0; i < n; ++i) {
+        mx = Math.max(mx, last[i]);
+        if (mx <= i) {
+            return -1;
+        }
+        if (pre == i) {
+            ++ans;
+            pre = mx;
+        }
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -201,61 +234,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minTaps(n int, ranges []int) (ans int) {
-	last := make([]int, n+1)
-	for i, x := range ranges {
-		l, r := max(0, i-x), i+x
-		last[l] = max(last[l], r)
-	}
-	var pre, mx int
-	for i, j := range last[:n] {
-		mx = max(mx, j)
-		if mx <= i {
-			return -1
-		}
-		if pre == i {
-			ans++
-			pre = mx
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function minTaps(n: number, ranges: number[]): number {
-    const last = new Array(n + 1).fill(0);
-    for (let i = 0; i < n + 1; ++i) {
-        const l = Math.max(0, i - ranges[i]);
-        const r = i + ranges[i];
-        last[l] = Math.max(last[l], r);
-    }
-    let ans = 0;
-    let mx = 0;
-    let pre = 0;
-    for (let i = 0; i < n; ++i) {
-        mx = Math.max(mx, last[i]);
-        if (mx <= i) {
-            return -1;
-        }
-        if (pre == i) {
-            ++ans;
-            pre = mx;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

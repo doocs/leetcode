@@ -49,7 +49,7 @@ Explanation:</strong> The invitations are sent as follows:
 
 ## Solutions
 
-**Solution 1: Hungarian Algorithm**
+### Solution 1: Hungarian Algorithm
 
 This problem belongs to the maximum matching problem of bipartite graphs, which is suitable for solving with the Hungarian algorithm.
 
@@ -58,8 +58,6 @@ The core idea of the Hungarian algorithm is to continuously start from unmatched
 The time complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
             ans += find(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumInvitations(grid [][]int) int {
@@ -189,10 +181,6 @@ func maximumInvitations(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

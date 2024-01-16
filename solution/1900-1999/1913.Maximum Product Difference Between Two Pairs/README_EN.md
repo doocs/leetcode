@@ -43,9 +43,9 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
         nums.sort()
         return nums[-1] * nums[-2] - nums[0] * nums[1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,7 +64,24 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```cpp
+class Solution {
+public:
+    int maxProductDifference(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        return nums[n - 1] * nums[n - 2] - nums[0] * nums[1];
+    }
+};
+```
+
+```go
+func maxProductDifference(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	return nums[n-1]*nums[n-2] - nums[0]*nums[1]
+}
+```
 
 ```js
 /**
@@ -81,33 +96,6 @@ var maxProductDifference = function (nums) {
 };
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxProductDifference(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int n = nums.size();
-        return nums[n - 1] * nums[n - 2] - nums[0] * nums[1];
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxProductDifference(nums []int) int {
-	sort.Ints(nums)
-	n := len(nums)
-	return nums[n-1]*nums[n-2] - nums[0]*nums[1]
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

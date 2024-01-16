@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 贪心**
+### 方法一：计数 + 贪心
 
 我们先用哈希表或数组 $cnt$ 统计 $num$ 中各个数字出现的次数，用变量 $n$ 记录 $num$ 的位数。
 
@@ -64,17 +62,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为 $num$ 的位数；而 $C$ 为 $num$ 中不同数字的个数，本题中 $C \leq 10$。
 
-**方法二：排序 + 贪心**
-
-我们可以将 $num$ 转换成字符串或者字符数组，然后对其进行排序，接下来将排序后的数组中的数字按照从小到大的顺序交替地分配给 $num1$ 和 $num2$，最后返回 $num1$ 和 $num2$ 的和即可。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 $num$ 的位数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,17 +82,6 @@ class Solution:
             ans[i & 1] = ans[i & 1] * 10 + j
         return sum(ans)
 ```
-
-```python
-class Solution:
-    def splitNum(self, num: int) -> int:
-        s = sorted(str(num))
-        return int(''.join(s[::2])) + int(''.join(s[1::2]))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,22 +104,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int splitNum(int num) {
-        char[] s = (num + "").toCharArray();
-        Arrays.sort(s);
-        int[] ans = new int[2];
-        for (int i = 0; i < s.length; ++i) {
-            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
-        }
-        return ans[0] + ans[1];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -167,23 +128,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int splitNum(int num) {
-        string s = to_string(num);
-        sort(s.begin(), s.end());
-        int ans[2]{};
-        for (int i = 0; i < s.size(); ++i) {
-            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
-        }
-        return ans[0] + ans[1];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func splitNum(num int) int {
 	cnt := [10]int{}
@@ -204,20 +148,6 @@ func splitNum(num int) int {
 }
 ```
 
-```go
-func splitNum(num int) int {
-	s := []byte(strconv.Itoa(num))
-	sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
-	ans := [2]int{}
-	for i, c := range s {
-		ans[i&1] = ans[i&1]*10 + int(c-'0')
-	}
-	return ans[0] + ans[1]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function splitNum(num: number): number {
     const cnt: number[] = Array(10).fill(0);
@@ -237,20 +167,6 @@ function splitNum(num: number): number {
     return ans[0] + ans[1];
 }
 ```
-
-```ts
-function splitNum(num: number): number {
-    const s: string[] = String(num).split('');
-    s.sort();
-    const ans: number[] = Array(2).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        ans[i & 1] = ans[i & 1] * 10 + Number(s[i]);
-    }
-    return ans[0] + ans[1];
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -280,6 +196,76 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：排序 + 贪心
+
+我们可以将 $num$ 转换成字符串或者字符数组，然后对其进行排序，接下来将排序后的数组中的数字按照从小到大的顺序交替地分配给 $num1$ 和 $num2$，最后返回 $num1$ 和 $num2$ 的和即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 $num$ 的位数。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def splitNum(self, num: int) -> int:
+        s = sorted(str(num))
+        return int(''.join(s[::2])) + int(''.join(s[1::2]))
+```
+
+```java
+class Solution {
+    public int splitNum(int num) {
+        char[] s = (num + "").toCharArray();
+        Arrays.sort(s);
+        int[] ans = new int[2];
+        for (int i = 0; i < s.length; ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
+        }
+        return ans[0] + ans[1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int splitNum(int num) {
+        string s = to_string(num);
+        sort(s.begin(), s.end());
+        int ans[2]{};
+        for (int i = 0; i < s.size(); ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
+        }
+        return ans[0] + ans[1];
+    }
+};
+```
+
+```go
+func splitNum(num int) int {
+	s := []byte(strconv.Itoa(num))
+	sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
+	ans := [2]int{}
+	for i, c := range s {
+		ans[i&1] = ans[i&1]*10 + int(c-'0')
+	}
+	return ans[0] + ans[1]
+}
+```
+
+```ts
+function splitNum(num: number): number {
+    const s: string[] = String(num).split('');
+    s.sort();
+    const ans: number[] = Array(2).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        ans[i & 1] = ans[i & 1] * 10 + Number(s[i]);
+    }
+    return ans[0] + ans[1];
+}
+```
+
 ```rust
 impl Solution {
     pub fn split_num(num: i32) -> i32 {
@@ -296,10 +282,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -80,9 +80,9 @@ For example, Salary for Morninngcat (3, 15) after taxes = 7777 - 7777 * (24 / 10
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -109,3 +109,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

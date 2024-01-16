@@ -50,9 +50,9 @@ Third: nums = [1]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 nums[i] = min(a, b) if i % 2 == 0 else max(a, b)
         return nums[0]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +96,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minMaxGame(nums []int) int {
@@ -120,8 +114,6 @@ func minMaxGame(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minMaxGame(nums: number[]): number {
     for (let n = nums.length; n > 1; ) {
@@ -135,8 +127,6 @@ function minMaxGame(nums: number[]): number {
     return nums[0];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -156,8 +146,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -175,10 +163,6 @@ int minMaxGame(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

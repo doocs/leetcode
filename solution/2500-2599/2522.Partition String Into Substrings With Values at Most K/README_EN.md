@@ -60,9 +60,9 @@ It can be shown that we cannot partition the string into less than 4 substrings.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
         ans = dfs(0)
         return ans if ans < inf else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +147,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumPartition(s string, k int) int {
@@ -186,10 +180,6 @@ func minimumPartition(s string, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

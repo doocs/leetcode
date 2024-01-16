@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，如果分配给任意商店商品数目的最大值为 $x$，且满足题目要求，那么 $x+1$ 也一定满足题目要求，这存在着单调性。因此我们可以通过二分查找，找到一个最小的 $x$，使得 $x$ 满足题目要求。
 
@@ -78,10 +76,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
@@ -90,10 +84,6 @@ class Solution:
 
         return 1 + bisect_left(range(1, 10**6), True, key=check)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizedMaximum(n int, quantities []int) int {
 	return 1 + sort.Search(1e5, func(x int) bool {
@@ -154,8 +140,6 @@ func minimizedMaximum(n int, quantities []int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimizedMaximum(n: number, quantities: number[]): number {
@@ -177,10 +161,6 @@ function minimizedMaximum(n: number, quantities: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

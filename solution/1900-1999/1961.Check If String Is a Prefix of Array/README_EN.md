@@ -40,7 +40,7 @@ It is impossible to make s using a prefix of arr.</pre>
 
 ## Solutions
 
-**Solution 1: Traversal**
+### Solution 1: Traversal
 
 We traverse the array $words$, using a variable $t$ to record the currently concatenated string. If the length of $t$ is greater than the length of $s$, it means that $s$ is not a prefix string of $words$, so we return $false$; if the length of $t$ is equal to the length of $s$, we return whether $t$ is equal to $s$.
 
@@ -49,8 +49,6 @@ At the end of the traversal, if the length of $t$ is less than the length of $s$
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
                 return "".join(words[: i + 1]) == s
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPrefixString(s string, words []string) bool {
 	t := strings.Builder{}
@@ -121,8 +113,6 @@ func isPrefixString(s string, words []string) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isPrefixString(s: string, words: string[]): boolean {
@@ -143,10 +133,6 @@ function isPrefixString(s: string, words: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

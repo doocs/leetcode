@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: DFS + Bit Manipulation**
+### Solution 1: DFS + Bit Manipulation
 
 A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.
 
@@ -68,8 +68,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -89,8 +87,6 @@ class Solution:
 
         return dfs(root, 0)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -126,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -158,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -187,8 +179,6 @@ func pseudoPalindromicPaths(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -219,8 +209,6 @@ function pseudoPalindromicPaths(root: TreeNode | null): number {
     return dfs(root, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -268,10 +256,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

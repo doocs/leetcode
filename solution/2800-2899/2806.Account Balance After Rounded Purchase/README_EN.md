@@ -43,15 +43,13 @@ Hence, your account balance becomes 100 - 20 = 80.
 
 ## Solutions
 
-**Solution 1: Enumeration + Simulation**
+### Solution 1: Enumeration + Simulation
 
 We enumerate all multiples of 10 within the range $[0, 100]$, and find the one that is closest to `purchaseAmount`, denoted as $x$. The answer is $100 - x$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -63,8 +61,6 @@ class Solution:
                 x = y
         return 100 - x
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func accountBalanceAfterPurchase(purchaseAmount int) int {
@@ -124,8 +116,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function accountBalanceAfterPurchase(purchaseAmount: number): number {
     let [diff, x] = [100, 0];
@@ -140,10 +130,6 @@ function accountBalanceAfterPurchase(purchaseAmount: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

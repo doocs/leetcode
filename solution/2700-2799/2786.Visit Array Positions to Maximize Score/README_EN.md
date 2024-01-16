@@ -48,9 +48,9 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
             f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
         return max(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScore(nums []int, x int) int64 {
 	const inf int = 1 << 40
@@ -109,8 +103,6 @@ func maxScore(nums []int, x int) int64 {
 	return int64(max(f[0], f[1]))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxScore(nums: number[], x: number): number {
@@ -124,10 +116,6 @@ function maxScore(nums: number[], x: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,7 +55,7 @@ It can be proven that there is only 1 good string satisfying all conditions.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the number of strings of length $i$ that meet the condition. The state transition equation is:
 
@@ -72,8 +72,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n=maxL
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def goodBinaryStrings(
@@ -89,8 +87,6 @@ class Solution:
             f[i] %= mod
         return sum(f[minLength:]) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func goodBinaryStrings(minLength int, maxLength int, oneGroup int, zeroGroup int) (ans int) {
 	const mod int = 1e9 + 7
@@ -164,8 +156,6 @@ func goodBinaryStrings(minLength int, maxLength int, oneGroup int, zeroGroup int
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function goodBinaryStrings(
@@ -190,10 +180,6 @@ function goodBinaryStrings(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

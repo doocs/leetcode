@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Hash Table**
+### Solution 1: Prefix Sum + Hash Table
 
 We can use the idea of prefix sum, maintaining a variable $s$, which represents the difference between the number of "tiring days" and "non-tiring days" from index $0$ to the current index. If $s$ is greater than $0$, it means that the segment from index $0$ to the current index is a "well-performing time period". In addition, we use a hash table $pos$ to record the first occurrence index of each $s$.
 
@@ -53,8 +53,6 @@ After the traversal, return the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the `hours` array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
                 pos[s] = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestWPI(hours []int) (ans int) {
@@ -142,10 +134,6 @@ func longestWPI(hours []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

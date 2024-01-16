@@ -131,7 +131,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Sorting + Fenwick Tree**
+### Solution 1: Hash Table + Sorting + Fenwick Tree
 
 First, we use a hash table $pos$ to record the position of each element in array $nums$. Then, we sort array $nums$. The initial answer is the position of the minimum element in array $nums$ plus 1, which is $ans = pos[nums[0]] + 1$.
 
@@ -142,8 +142,6 @@ After the traversal is over, return the number of operations $ans$.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -163,42 +161,6 @@ class Solution:
             sl.add(i)
         return ans
 ```
-
-```python
-class BinaryIndexedTree:
-    def __init__(self, n):
-        self.n = n
-        self.c = [0] * (n + 1)
-
-    def update(self, x, delta):
-        while x <= self.n:
-            self.c[x] += delta
-            x += x & -x
-
-    def query(self, x):
-        s = 0
-        while x:
-            s += self.c[x]
-            x -= x & -x
-        return s
-
-
-class Solution:
-    def countOperationsToEmptyArray(self, nums: List[int]) -> int:
-        pos = {x: i for i, x in enumerate(nums)}
-        nums.sort()
-        ans = pos[nums[0]] + 1
-        n = len(nums)
-        tree = BinaryIndexedTree(n)
-        for k, (a, b) in enumerate(pairwise(nums)):
-            i, j = pos[a], pos[b]
-            d = j - i - tree.query(j + 1) + tree.query(i + 1)
-            ans += d + (n - k) * int(i > j)
-            tree.update(i + 1, 1)
-        return ans
-```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -247,8 +209,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -300,8 +260,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -350,8 +308,6 @@ func countOperationsToEmptyArray(nums []int) int64 {
 	return int64(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -403,10 +359,46 @@ function countOperationsToEmptyArray(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x, delta):
+        while x <= self.n:
+            self.c[x] += delta
+            x += x & -x
+
+    def query(self, x):
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class Solution:
+    def countOperationsToEmptyArray(self, nums: List[int]) -> int:
+        pos = {x: i for i, x in enumerate(nums)}
+        nums.sort()
+        ans = pos[nums[0]] + 1
+        n = len(nums)
+        tree = BinaryIndexedTree(n)
+        for k, (a, b) in enumerate(pairwise(nums)):
+            i, j = pos[a], pos[b]
+            d = j - i - tree.query(j + 1) + tree.query(i + 1)
+            ans += d + (n - k) * int(i > j)
+            tree.update(i + 1, 1)
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

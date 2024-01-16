@@ -38,19 +38,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 遍历两个数组，如果两个指针指向的元素相等，则返回该元素；如果两个指针指向的元素不相等，则将指向较小元素的指针右移一位，直到找到相等的元素或者遍历完数组。
 
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
                 j += 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getCommon(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -130,8 +116,6 @@ func getCommon(nums1 []int, nums2 []int) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getCommon(nums1: number[], nums2: number[]): number {
@@ -152,8 +136,6 @@ function getCommon(nums1: number[], nums2: number[]): number {
     return -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -176,6 +158,30 @@ impl Solution {
     }
 }
 ```
+
+```c
+int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
+    int i = 0;
+    int j = 0;
+    while (i < nums1Size && j < nums2Size) {
+        if (nums1[i] == nums2[j]) {
+            return nums1[i];
+        }
+        if (nums1[i] < nums2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return -1;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -200,30 +206,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
-    int i = 0;
-    int j = 0;
-    while (i < nums1Size && j < nums2Size) {
-        if (nums1[i] == nums2[j]) {
-            return nums1[i];
-        }
-        if (nums1[i] < nums2[j]) {
-            i++;
-        } else {
-            j++;
-        }
-    }
-    return -1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

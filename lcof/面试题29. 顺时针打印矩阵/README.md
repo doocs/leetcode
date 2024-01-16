@@ -31,21 +31,13 @@
 
 ## 解法
 
-**方法一：模拟**
+### 方法一：模拟
 
 我们用 $i$ 和 $j$ 分别表示当前访问到的元素的行和列，用 $k$ 表示当前的方向，用数组或哈希表 $vis$ 记录每个元素是否被访问过。每次我们访问到一个元素后，将其标记为已访问，然后按照当前的方向前进一步，如果前进一步后发现越界或者已经访问过，则改变方向继续前进，直到遍历完整个矩阵。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
-**方法二：逐层模拟**
-
-从外往里一圈一圈遍历并存储矩阵元素即可。
-
-时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,26 +59,6 @@ class Solution:
             i, j = x, y
         return ans
 ```
-
-```python
-class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        if not matrix or not matrix[0]:
-            return []
-        m, n = len(matrix), len(matrix[0])
-        ans = []
-        top, bottom, left, right = 0, m - 1, 0, n - 1
-        while left <= right and top <= bottom:
-            ans.extend([matrix[top][j] for j in range(left, right + 1)])
-            ans.extend([matrix[i][right] for i in range(top + 1, bottom + 1)])
-            if left < right and top < bottom:
-                ans.extend([matrix[bottom][j] for j in range(right - 1, left - 1, -1)])
-                ans.extend([matrix[i][left] for i in range(bottom - 1, top, -1)])
-            top, bottom, left, right = top + 1, bottom - 1, left + 1, right - 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,43 +87,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int[] spiralOrder(int[][] matrix) {
-        if (matrix.length == 0 || matrix[0].length == 0) {
-            return new int[] {};
-        }
-        int m = matrix.length, n = matrix[0].length;
-        int top = 0, bottom = m - 1, left = 0, right = n - 1;
-        int[] ans = new int[m * n];
-        int k = 0;
-        while (left <= right && top <= bottom) {
-            for (int j = left; j <= right; ++j) {
-                ans[k++] = matrix[top][j];
-            }
-            for (int i = top + 1; i <= bottom; ++i) {
-                ans[k++] = matrix[i][right];
-            }
-            if (left < right && top < bottom) {
-                for (int j = right - 1; j >= left; --j) {
-                    ans[k++] = matrix[bottom][j];
-                }
-                for (int i = bottom - 1; i > top; --i) {
-                    ans[k++] = matrix[i][left];
-                }
-            }
-            ++top;
-            --bottom;
-            ++left;
-            --right;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -183,35 +118,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        if (matrix.size() == 0 || matrix[0].size() == 0) {
-            return {};
-        }
-        int m = matrix.size(), n = matrix[0].size();
-        int top = 0, bottom = m - 1, left = 0, right = n - 1;
-        vector<int> ans;
-        while (top <= bottom && left <= right) {
-            for (int j = left; j <= right; ++j) ans.push_back(matrix[top][j]);
-            for (int i = top + 1; i <= bottom; ++i) ans.push_back(matrix[i][right]);
-            if (left < right && top < bottom) {
-                for (int j = right - 1; j >= left; --j) ans.push_back(matrix[bottom][j]);
-                for (int i = bottom - 1; i > top; --i) ans.push_back(matrix[i][left]);
-            }
-            ++top;
-            --bottom;
-            ++left;
-            --right;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func spiralOrder(matrix [][]int) []int {
 	if len(matrix) == 0 || len(matrix[0]) == 0 {
@@ -239,41 +145,79 @@ func spiralOrder(matrix [][]int) []int {
 }
 ```
 
-```go
-func spiralOrder(matrix [][]int) []int {
-	if len(matrix) == 0 || len(matrix[0]) == 0 {
-		return []int{}
-	}
-	m, n := len(matrix), len(matrix[0])
-	ans := make([]int, 0, m*n)
-
-	top, bottom, left, right := 0, m-1, 0, n-1
-	for left <= right && top <= bottom {
-		for i := left; i <= right; i++ {
-			ans = append(ans, matrix[top][i])
-		}
-		for i := top + 1; i <= bottom; i++ {
-			ans = append(ans, matrix[i][right])
-		}
-		if left < right && top < bottom {
-			for i := right - 1; i >= left; i-- {
-				ans = append(ans, matrix[bottom][i])
-			}
-			for i := bottom - 1; i > top; i-- {
-				ans = append(ans, matrix[i][left])
-			}
-		}
-		top++
-		bottom--
-		left++
-		right--
-	}
-
-	return ans
-}
+```ts
+var spiralOrder = (matrix: number[][]): number[] => {
+    let ans: number[] = [];
+    if (matrix.length === 0) return ans;
+    let top = 0,
+        left = 0,
+        bottom = matrix.length - 1,
+        right = matrix[0].length - 1;
+    while (true) {
+        for (let i = left; i <= right; i++) ans.push(matrix[top][i]);
+        top++;
+        if (top > bottom) break;
+        for (let i = top; i <= bottom; i++) ans.push(matrix[i][right]);
+        right--;
+        if (right < left) break;
+        for (let i = right; i >= left; i--) ans.push(matrix[bottom][i]);
+        bottom--;
+        if (bottom < top) break;
+        for (let i = bottom; i >= top; i--) ans.push(matrix[i][left]);
+        left++;
+        if (left > right) break;
+    }
+    return ans;
+};
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn spiral_order(matrix: Vec<Vec<i32>>) -> Vec<i32> {
+        let mut ans = Vec::new();
+        if matrix.len() == 0 {
+            return ans;
+        }
+        let (mut left, mut right, mut top, mut bottom) = (
+            0,
+            matrix[0].len() - 1,
+            0,
+            matrix.len() - 1,
+        );
+        loop {
+            for i in left..right + 1 {
+                ans.push(matrix[top][i]);
+            }
+            top += 1;
+            if (top as i32) > (bottom as i32) {
+                break;
+            }
+            for i in top..bottom + 1 {
+                ans.push(matrix[i][right]);
+            }
+            right -= 1;
+            if (right as i32) < (left as i32) {
+                break;
+            }
+            for i in (left..right + 1).rev() {
+                ans.push(matrix[bottom][i]);
+            }
+            bottom -= 1;
+            if (bottom as i32) < (top as i32) {
+                break;
+            }
+            for i in (top..bottom + 1).rev() {
+                ans.push(matrix[i][left]);
+            }
+            left += 1;
+            if (left as i32) > (right as i32) {
+                break;
+            }
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -308,8 +252,6 @@ var spiralOrder = function (matrix) {
     return ans;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -354,10 +296,130 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：逐层模拟
+
+从外往里一圈一圈遍历并存储矩阵元素即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix or not matrix[0]:
+            return []
+        m, n = len(matrix), len(matrix[0])
+        ans = []
+        top, bottom, left, right = 0, m - 1, 0, n - 1
+        while left <= right and top <= bottom:
+            ans.extend([matrix[top][j] for j in range(left, right + 1)])
+            ans.extend([matrix[i][right] for i in range(top + 1, bottom + 1)])
+            if left < right and top < bottom:
+                ans.extend([matrix[bottom][j] for j in range(right - 1, left - 1, -1)])
+                ans.extend([matrix[i][left] for i in range(bottom - 1, top, -1)])
+            top, bottom, left, right = top + 1, bottom - 1, left + 1, right - 1
+        return ans
 ```
 
+```java
+class Solution {
+    public int[] spiralOrder(int[][] matrix) {
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return new int[] {};
+        }
+        int m = matrix.length, n = matrix[0].length;
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        int[] ans = new int[m * n];
+        int k = 0;
+        while (left <= right && top <= bottom) {
+            for (int j = left; j <= right; ++j) {
+                ans[k++] = matrix[top][j];
+            }
+            for (int i = top + 1; i <= bottom; ++i) {
+                ans[k++] = matrix[i][right];
+            }
+            if (left < right && top < bottom) {
+                for (int j = right - 1; j >= left; --j) {
+                    ans[k++] = matrix[bottom][j];
+                }
+                for (int i = bottom - 1; i > top; --i) {
+                    ans[k++] = matrix[i][left];
+                }
+            }
+            ++top;
+            --bottom;
+            ++left;
+            --right;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        if (matrix.size() == 0 || matrix[0].size() == 0) {
+            return {};
+        }
+        int m = matrix.size(), n = matrix[0].size();
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        vector<int> ans;
+        while (top <= bottom && left <= right) {
+            for (int j = left; j <= right; ++j) ans.push_back(matrix[top][j]);
+            for (int i = top + 1; i <= bottom; ++i) ans.push_back(matrix[i][right]);
+            if (left < right && top < bottom) {
+                for (int j = right - 1; j >= left; --j) ans.push_back(matrix[bottom][j]);
+                for (int i = bottom - 1; i > top; --i) ans.push_back(matrix[i][left]);
+            }
+            ++top;
+            --bottom;
+            ++left;
+            --right;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func spiralOrder(matrix [][]int) []int {
+	if len(matrix) == 0 || len(matrix[0]) == 0 {
+		return []int{}
+	}
+	m, n := len(matrix), len(matrix[0])
+	ans := make([]int, 0, m*n)
+
+	top, bottom, left, right := 0, m-1, 0, n-1
+	for left <= right && top <= bottom {
+		for i := left; i <= right; i++ {
+			ans = append(ans, matrix[top][i])
+		}
+		for i := top + 1; i <= bottom; i++ {
+			ans = append(ans, matrix[i][right])
+		}
+		if left < right && top < bottom {
+			for i := right - 1; i >= left; i-- {
+				ans = append(ans, matrix[bottom][i])
+			}
+			for i := bottom - 1; i > top; i-- {
+				ans = append(ans, matrix[i][left])
+			}
+		}
+		top++
+		bottom--
+		left++
+		right--
+	}
+
+	return ans
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

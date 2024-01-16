@@ -57,9 +57,9 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -94,8 +94,6 @@ class Solution:
             dfs(start, -1, end)
         return min(dfs2(0, -1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -156,8 +154,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -210,8 +206,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	g := make([][]int, n)
@@ -262,8 +256,6 @@ func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	return min(a, b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumTotalPrice(
@@ -317,10 +309,6 @@ function minimumTotalPrice(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

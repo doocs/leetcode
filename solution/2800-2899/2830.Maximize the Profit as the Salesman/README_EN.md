@@ -48,7 +48,7 @@ It can be proven that 10 is the maximum amount of gold we can achieve.
 
 ## Solutions
 
-**Solution 1: Sorting + Binary Search + Dynamic Programming**
+### Solution 1: Sorting + Binary Search + Dynamic Programming
 
 We sort all the purchase offers by $end$ in ascending order, and then use dynamic programming to solve the problem.
 
@@ -59,8 +59,6 @@ For $f[i]$, we can choose not to sell the $i$th purchase offer, in which case $f
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of purchase offers.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
             f[i] = max(f[i - 1], f[j] + v)
         return f[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeTheProfit(n int, offers [][]int) int {
 	sort.Slice(offers, func(i, j int) bool { return offers[i][1] < offers[j][1] })
@@ -152,8 +144,6 @@ func maximizeTheProfit(n int, offers [][]int) int {
 	return f[n]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximizeTheProfit(n: number, offers: number[][]): number {
@@ -182,10 +172,6 @@ function maximizeTheProfit(n: number, offers: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

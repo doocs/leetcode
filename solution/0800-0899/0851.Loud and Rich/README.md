@@ -55,9 +55,7 @@ answer[7] = 7，
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先用邻接表 $g$ 存储 $richer$ 数组中的信息，其中 $g[i]$ 表示所有比 $i$ 更有钱的人的集合。
 
@@ -66,10 +64,6 @@ answer[7] = 7，
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为 $richer$ 数组和 $quiet$ 数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
             dfs(i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func loudAndRich(richer [][]int, quiet []int) []int {
@@ -201,8 +187,6 @@ func loudAndRich(richer [][]int, quiet []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function loudAndRich(richer: number[][], quiet: number[]): number[] {
     const n = quiet.length;
@@ -230,10 +214,6 @@ function loudAndRich(richer: number[][], quiet: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

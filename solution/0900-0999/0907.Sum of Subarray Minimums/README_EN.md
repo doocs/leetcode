@@ -35,53 +35,9 @@ Sum is 17.
 
 ## Solutions
 
-The problem asks for the sum of the minimum values of each subarray, which is actually equivalent to finding the number of subarrays for each element $arr[i]$ where $arr[i]$ is the minimum, multiplying each by $arr[i]$, and then summing these products.
-
-Thus, the focus of the problem is translated to finding the number of subarrays for which $arr[i]$ is the minimum.
-
-For each $arr[i]$, we identify the first position $left[i]$ to its left that is smaller than $arr[i]$ and the first position $right[i]$ to its right that is less than or equal to $arr[i]$.
-
-The number of subarrays where $arr[i]$ is the minimum can then be given by $(i - left[i]) \times (right[i] - i)$.
-
-It's important to note why we are looking for the first position $right[i]$ that is less than or equal to $arr[i]$ and not less than $arr[i]$.
-
-If we were to look for the first position less than $arr[i]$, we would end up double-counting.
-
-For instance, consider the following array:
-
-The element at index $3$ is $2$, and the first element less than $2$ to its left is at index $0$. If we find the first element less than $2$ to its right, we would end up at index $7$. That means the subarray interval is $(0, 7)$. Note that this is an open interval.
-
-```
-0 4 3 2 5 3 2 1
-*     ^       *
-```
-
-If we calculate the subarray interval for the element at index $6$ using the same method, we would find that its interval is also $(0, 7)$.
-
-```
-0 4 3 2 5 3 2 1
-*           ^ *
-```
-
-Therefore, the subarray intervals of the elements at index $3$ and $6$ are overlapping, leading to double-counting.
-
-If we were to find the first element less than or equal to $arr[i]$ to its right, we wouldn't have this problem.
-
-The subarray interval for the element at index $3$ would become $(0, 6)$ and for the element at index $6$ it would be $(0, 7)$, and these two are not overlapping.
-
-To solve this problem, we just need to traverse the array.
-
-For each element $arr[i]$, we use a monotonic stack to find its $left[i]$ and $right[i]$.
-
-Then the number of subarrays where $arr[i]$ is the minimum can be calculated by $(i - left[i]) \times (right[i] - i)$. Multiply this by $arr[i]$ and sum these values for all $i$ to get the final answer.
-
-Remember to take care of data overflow and modulus operation.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -107,8 +63,6 @@ class Solution:
         mod = 10**9 + 7
         return sum((i - left[i]) * (right[i] - i) * v for i, v in enumerate(arr)) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -149,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sumSubarrayMins(arr []int) (ans int) {
@@ -229,8 +179,6 @@ func sumSubarrayMins(arr []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumSubarrayMins(arr: number[]): number {
     const n: number = arr.length;
@@ -267,8 +215,6 @@ function sumSubarrayMins(arr: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -313,6 +259,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 const MOD: i64 = (1e9 as i64) + 7;
@@ -365,10 +317,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

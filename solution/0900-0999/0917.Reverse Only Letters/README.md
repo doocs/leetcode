@@ -59,15 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-双指针遍历字符串，交换两个指针指向的字母。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 i, j = i + 1, j - 1
         return ''.join(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,27 +104,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function reverseOnlyLetters(s: string): string {
-    const n = s.length;
-    let i = 0,
-        j = n - 1;
-    let ans = [...s];
-    while (i < j) {
-        while (!/[a-zA-Z]/.test(ans[i]) && i < j) i++;
-        while (!/[a-zA-Z]/.test(ans[j]) && i < j) j--;
-        [ans[i], ans[j]] = [ans[j], ans[i]];
-        i++;
-        j--;
-    }
-    return ans.join('');
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reverseOnlyLetters(s string) string {
@@ -177,7 +144,22 @@ func reverseOnlyLetters(s string) string {
 }
 ```
 
-### **Rust**
+```ts
+function reverseOnlyLetters(s: string): string {
+    const n = s.length;
+    let i = 0,
+        j = n - 1;
+    let ans = [...s];
+    while (i < j) {
+        while (!/[a-zA-Z]/.test(ans[i]) && i < j) i++;
+        while (!/[a-zA-Z]/.test(ans[j]) && i < j) j--;
+        [ans[i], ans[j]] = [ans[j], ans[i]];
+        i++;
+        j--;
+    }
+    return ans.join('');
+}
+```
 
 ```rust
 impl Solution {
@@ -202,10 +184,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

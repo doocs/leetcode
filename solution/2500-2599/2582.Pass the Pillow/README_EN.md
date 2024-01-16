@@ -40,26 +40,13 @@ Afer two seconds, the pillow is given to the 3<sup>r</sup><sup>d</sup> person.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can simulate the process of passing the pillow, and each time the pillow is passed, if the pillow reaches the front or the end of the queue, the direction of the pillow will change, and the queue will continue to pass the pillow along the opposite direction.
 
 The time complexity is $O(time)$ and the space complexity is $O(1)$, where $time$ is the given time.
 
-**Solution 2: Math**
-
-We notice that there are $n - 1$ passes in each round. Therefore, we can divide $time$ by $n - 1$ to get the number of rounds $k$ that the pillow is passed, and then take the remainder of $time$ modulo $n - 1$ to get the remaining passes $mod$ in the current round.
-
-Then we judge the current round $k$:
-
--   If $k$ is odd, then the current direction of the pillow is from the end of the queue to the front, so the pillow will be passed to the person with the number $n - mod$.
--   If $k$ is even, then the current direction of the pillow is from the front of the queue to the back, so the pillow will be passed to the person with the number $mod + 1$.
-
-The time complexity is $O(1)$ and the space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,15 +58,6 @@ class Solution:
                 k *= -1
         return ans
 ```
-
-```python
-class Solution:
-    def passThePillow(self, n: int, time: int) -> int:
-        k, mod = divmod(time, n - 1)
-        return n - mod if k & 1 else mod + 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,18 +73,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int passThePillow(int n, int time) {
-        int k = time / (n - 1);
-        int mod = time % (n - 1);
-        return (k & 1) == 1 ? n - mod : mod + 1;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,19 +90,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int passThePillow(int n, int time) {
-        int k = time / (n - 1);
-        int mod = time % (n - 1);
-        return k & 1 ? n - mod : mod + 1;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func passThePillow(n int, time int) int {
 	ans, k := 1, 1
@@ -149,18 +102,6 @@ func passThePillow(n int, time int) int {
 	return ans
 }
 ```
-
-```go
-func passThePillow(n int, time int) int {
-	k, mod := time/(n-1), time%(n-1)
-	if k&1 == 1 {
-		return n - mod
-	}
-	return mod + 1
-}
-```
-
-### **TypeScript**
 
 ```ts
 function passThePillow(n: number, time: number): number {
@@ -175,16 +116,6 @@ function passThePillow(n: number, time: number): number {
     return ans;
 }
 ```
-
-```ts
-function passThePillow(n: number, time: number): number {
-    const k = time / (n - 1);
-    const mod = time % (n - 1);
-    return (k & 1) == 1 ? n - mod : mod + 1;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -205,6 +136,67 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Math
+
+We notice that there are $n - 1$ passes in each round. Therefore, we can divide $time$ by $n - 1$ to get the number of rounds $k$ that the pillow is passed, and then take the remainder of $time$ modulo $n - 1$ to get the remaining passes $mod$ in the current round.
+
+Then we judge the current round $k$:
+
+-   If $k$ is odd, then the current direction of the pillow is from the end of the queue to the front, so the pillow will be passed to the person with the number $n - mod$.
+-   If $k$ is even, then the current direction of the pillow is from the front of the queue to the back, so the pillow will be passed to the person with the number $mod + 1$.
+
+The time complexity is $O(1)$ and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def passThePillow(self, n: int, time: int) -> int:
+        k, mod = divmod(time, n - 1)
+        return n - mod if k & 1 else mod + 1
+```
+
+```java
+class Solution {
+    public int passThePillow(int n, int time) {
+        int k = time / (n - 1);
+        int mod = time % (n - 1);
+        return (k & 1) == 1 ? n - mod : mod + 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int passThePillow(int n, int time) {
+        int k = time / (n - 1);
+        int mod = time % (n - 1);
+        return k & 1 ? n - mod : mod + 1;
+    }
+};
+```
+
+```go
+func passThePillow(n int, time int) int {
+	k, mod := time/(n-1), time%(n-1)
+	if k&1 == 1 {
+		return n - mod
+	}
+	return mod + 1
+}
+```
+
+```ts
+function passThePillow(n: number, time: number): number {
+    const k = time / (n - 1);
+    const mod = time % (n - 1);
+    return (k & 1) == 1 ? n - mod : mod + 1;
+}
+```
+
 ```rust
 impl Solution {
     pub fn pass_the_pillow(n: i32, time: i32) -> i32 {
@@ -220,10 +212,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

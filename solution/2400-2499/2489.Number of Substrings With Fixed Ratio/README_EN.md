@@ -54,9 +54,9 @@ It can be shown that there are no more ratio substrings.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
             cnt[x] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using ll = long long;
@@ -118,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fixedRatio(s string, num1 int, num2 int) int64 {
 	n0, n1 := 0, 0
@@ -139,10 +133,6 @@ func fixedRatio(s string, num1 int, num2 int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

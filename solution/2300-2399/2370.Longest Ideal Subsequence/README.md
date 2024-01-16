@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 设 $dp[i]$ 表示以字符 $s[i]$ 结尾的最长理想子序列的长度，利用哈希表 $d$ 记录每个字符最新出现的位置。初始时 $dp[0]=1$, $d[s[0]]=0$。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             d[s[i]] = i
         return max(dp)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestIdealString(s string, k int) int {
@@ -169,8 +155,6 @@ func longestIdealString(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestIdealString(s: string, k: number): number {
     const dp = new Array(26).fill(0);
@@ -189,10 +173,6 @@ function longestIdealString(s: string, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

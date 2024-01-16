@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 将所有起点存入哈希表中，然后遍历所有终点，找出没出现在哈希表中的终点，即为答案。
 
@@ -64,20 +62,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
         s = {a for a, _ in paths}
         return next(b for _, b in paths if b not in s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func destCity(paths [][]string) string {
 	s := map[string]bool{}
@@ -133,7 +119,35 @@ func destCity(paths [][]string) string {
 }
 ```
 
-### **JavaScript**
+```ts
+function destCity(paths: string[][]): string {
+    const set = new Set(paths.map(([a]) => a));
+    for (const [_, b] of paths) {
+        if (!set.has(b)) {
+            return b;
+        }
+    }
+    return '';
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn dest_city(paths: Vec<Vec<String>>) -> String {
+        let set = paths
+            .iter()
+            .map(|v| &v[0])
+            .collect::<HashSet<&String>>();
+        for path in paths.iter() {
+            if !set.contains(&path[1]) {
+                return path[1].clone();
+            }
+        }
+        String::new()
+    }
+}
+```
 
 ```js
 /**
@@ -154,42 +168,6 @@ var destCity = function (paths) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function destCity(paths: string[][]): string {
-    const set = new Set(paths.map(([a]) => a));
-    for (const [_, b] of paths) {
-        if (!set.has(b)) {
-            return b;
-        }
-    }
-    return '';
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn dest_city(paths: Vec<Vec<String>>) -> String {
-        let set = paths
-            .iter()
-            .map(|v| &v[0])
-            .collect::<HashSet<&String>>();
-        for path in paths.iter() {
-            if !set.contains(&path[1]) {
-                return path[1].clone();
-            }
-        }
-        String::new()
-    }
-}
-```
-
-### **C**
-
 ```c
 char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
     for (int i = 0; i < pathsSize; i++) {
@@ -208,10 +186,6 @@ char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 位运算**
+### 方法一：哈希表 + 位运算
 
 对于每个字符串，我们可以将其转换为一个长度为 $26$ 的二进制数，其中第 $i$ 位为 $1$ 表示该字符串中包含第 $i$ 个字母。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(L)$，空间复杂度 $O(n)$。其中 $L$ 是所有字符串的长度之和，而 $n$ 是字符串的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             cnt[v] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func similarPairs(words []string) (ans int) {
 	cnt := map[int]int{}
@@ -144,7 +130,21 @@ func similarPairs(words []string) (ans int) {
 }
 ```
 
-### **Rust**
+```ts
+function similarPairs(words: string[]): number {
+    let ans = 0;
+    const cnt: Map<number, number> = new Map();
+    for (const w of words) {
+        let v = 0;
+        for (let i = 0; i < w.length; ++i) {
+            v |= 1 << (w.charCodeAt(i) - 'a'.charCodeAt(0));
+        }
+        ans += cnt.get(v) || 0;
+        cnt.set(v, (cnt.get(v) || 0) + 1);
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -170,28 +170,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function similarPairs(words: string[]): number {
-    let ans = 0;
-    const cnt: Map<number, number> = new Map();
-    for (const w of words) {
-        let v = 0;
-        for (let i = 0; i < w.length; ++i) {
-            v |= 1 << (w.charCodeAt(i) - 'a'.charCodeAt(0));
-        }
-        ans += cnt.get(v) || 0;
-        cnt.set(v, (cnt.get(v) || 0) + 1);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

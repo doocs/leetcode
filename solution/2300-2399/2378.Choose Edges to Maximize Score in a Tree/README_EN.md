@@ -59,9 +59,9 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +81,6 @@ class Solution:
             g[p].append((i, w))
         return dfs(0)[1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScore(edges [][]int) int64 {
 	n := len(edges)
@@ -171,17 +165,6 @@ func maxScore(edges [][]int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

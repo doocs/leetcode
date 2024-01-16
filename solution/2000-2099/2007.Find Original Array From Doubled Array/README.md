@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 计数 + 遍历**
+### 方法一：排序 + 计数 + 遍历
 
 我们先判断数组 `changed` 的长度 $n$ 是否为奇数，若是，则直接返回空数组。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `changed` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
             cnt[x * 2] -= 1
         return ans if len(ans) == n // 2 else []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findOriginalArray(changed []int) []int {
@@ -186,8 +172,6 @@ func findOriginalArray(changed []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findOriginalArray(changed: number[]): number[] {
     const n = changed.length;
@@ -215,10 +199,6 @@ function findOriginalArray(changed: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

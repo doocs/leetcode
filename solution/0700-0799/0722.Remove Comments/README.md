@@ -89,9 +89,7 @@ a = b + c;
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论**
+### 方法一：分情况讨论
 
 我们用一个变量 $blockComment$ 来表示当前是否处于块注释中，初始时 $blockComment$ 为 `false`；用一个变量 $t$ 来存储当前行的有效字符。
 
@@ -106,10 +104,6 @@ a = b + c;
 时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 是源代码的总长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -138,10 +132,6 @@ class Solution:
                 t.clear()
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -177,8 +167,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -216,8 +204,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeComments(source []string) (ans []string) {
 	t := []byte{}
@@ -249,8 +235,6 @@ func removeComments(source []string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function removeComments(source: string[]): string[] {
@@ -284,8 +268,6 @@ function removeComments(source: string[]): string[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -327,10 +309,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

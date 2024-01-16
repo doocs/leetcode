@@ -35,11 +35,9 @@
 
 ## Solutions
 
-Backtracking
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -63,8 +61,6 @@ class Solution:
         dfs(0, [])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,7 +91,60 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```cpp
+class Solution {
+public:
+    vector<string> permutation(string S) {
+        unordered_set<char> vis;
+        vector<string> ans;
+        string t = "";
+        dfs(0, S, t, ans, vis);
+        return ans;
+    }
+
+    void dfs(int u, string& S, string& t, vector<string>& ans, unordered_set<char>& vis) {
+        if (u == S.size()) {
+            ans.push_back(t);
+            return;
+        }
+        for (char& c : S) {
+            if (vis.count(c)) continue;
+            vis.insert(c);
+            t.push_back(c);
+            dfs(u + 1, S, t, ans, vis);
+            vis.erase(c);
+            t.pop_back();
+        }
+    }
+};
+```
+
+```go
+func permutation(S string) []string {
+	vis := make(map[byte]bool)
+	var ans []string
+	var t []byte
+	var dfs func(u int, t []byte)
+	dfs = func(u int, t []byte) {
+		if u == len(S) {
+			ans = append(ans, string(t))
+			return
+		}
+		for i := range S {
+			if vis[S[i]] {
+				continue
+			}
+			vis[S[i]] = true
+			t = append(t, S[i])
+			dfs(u+1, t)
+			vis[S[i]] = false
+			t = t[:len(t)-1]
+		}
+	}
+	dfs(0, t)
+	return ans
+}
+```
 
 ```js
 /**
@@ -129,69 +178,6 @@ function dfs(arr, depth, prev, record, res) {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<string> permutation(string S) {
-        unordered_set<char> vis;
-        vector<string> ans;
-        string t = "";
-        dfs(0, S, t, ans, vis);
-        return ans;
-    }
-
-    void dfs(int u, string& S, string& t, vector<string>& ans, unordered_set<char>& vis) {
-        if (u == S.size()) {
-            ans.push_back(t);
-            return;
-        }
-        for (char& c : S) {
-            if (vis.count(c)) continue;
-            vis.insert(c);
-            t.push_back(c);
-            dfs(u + 1, S, t, ans, vis);
-            vis.erase(c);
-            t.pop_back();
-        }
-    }
-};
-```
-
-### **Go**
-
-```go
-func permutation(S string) []string {
-	vis := make(map[byte]bool)
-	var ans []string
-	var t []byte
-	var dfs func(u int, t []byte)
-	dfs = func(u int, t []byte) {
-		if u == len(S) {
-			ans = append(ans, string(t))
-			return
-		}
-		for i := range S {
-			if vis[S[i]] {
-				continue
-			}
-			vis[S[i]] = true
-			t = append(t, S[i])
-			dfs(u+1, t)
-			vis[S[i]] = false
-			t = t[:len(t)-1]
-		}
-	}
-	dfs(0, t)
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

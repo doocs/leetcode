@@ -61,7 +61,7 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 
 ## Solutions
 
-**Solution 1: Hash Table + Ordered Set**
+### Solution 1: Hash Table + Ordered Set
 
 We define the following data structures or variables:
 
@@ -79,8 +79,6 @@ Then, we can perform the following operations:
 The space complexity is $O(n)$, where $n$ is the number of `update` operations.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -116,8 +114,6 @@ class StockPrice:
 # param_3 = obj.maximum()
 # param_4 = obj.minimum()
 ```
-
-### **Java**
 
 ```java
 class StockPrice {
@@ -163,8 +159,6 @@ class StockPrice {
  */
 ```
 
-### **C++**
-
 ```cpp
 class StockPrice {
 public:
@@ -207,8 +201,6 @@ private:
  * int param_4 = obj->minimum();
  */
 ```
-
-### **Go**
 
 ```go
 type StockPrice struct {
@@ -268,10 +260,6 @@ func (this *StockPrice) Minimum() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -122,12 +122,4 @@ queryMultiple([&#39;f&#39;]) is called at t=350ms, it is resolved at 450ms
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **TypeScript**
-
-```ts
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

@@ -62,60 +62,9 @@
 
 ## Solutions
 
-Binary search.
-
-Template 1:
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right) >> 1;
-        if (check(mid)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-Template 2:
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-When doing binary search problems, you can follow the following routine:
-
-1. Write out the loop condition $left < right$;
-2. Inside the loop, you might as well write $mid = \lfloor \frac{left + right}{2} \rfloor$ first;
-3. According to the specific problem, implement the $check()$ function (sometimes the logic is very simple, you can not define $check$), think about whether to use $right = mid$ (Template $1$) or $left = mid$ (Template $2$);
-    - If $right = mid$, then write the else statement $left = mid + 1$, and there is no need to change the calculation of $mid$, that is, keep $mid = \lfloor \frac{left + right}{2} \rfloor$;
-    - If $left = mid$, then write the else statement $right = mid - 1$, and add +1 when calculating $mid$, that is, $mid = \lfloor \frac{left + right + 1}{2} \rfloor$;
-4. When the loop ends, $left$ equals $right$.
-
-Note that the advantage of these two templates is that they always keep the answer within the binary search interval, and the value corresponding to the end condition of the binary search is exactly at the position of the answer. For the case that may have no solution, just check whether the $left$ or $right$ after the binary search ends satisfies the problem.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -130,8 +79,6 @@ class Solution:
         ans = bisect_left(range(1, r), True, key=check) + 1
         return -1 if ans == r else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -158,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -188,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSpeedOnTime(dist []int, hour float64) int {
 	n := len(dist)
@@ -209,45 +152,6 @@ func minSpeedOnTime(dist []int, hour float64) int {
 	return x + 1
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} dist
- * @param {number} hour
- * @return {number}
- */
-var minSpeedOnTime = function (dist, hour) {
-    if (dist.length > Math.ceil(hour)) return -1;
-    let left = 1,
-        right = 10 ** 7;
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        if (arriveOnTime(dist, mid, hour)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-};
-
-function arriveOnTime(dist, speed, hour) {
-    let res = 0.0;
-    let n = dist.length;
-    for (let i = 0; i < n; i++) {
-        let cost = parseFloat(dist[i]) / speed;
-        if (i != n - 1) {
-            cost = Math.ceil(cost);
-        }
-        res += cost;
-    }
-    return res <= hour;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -285,10 +189,41 @@ impl Solution {
 }
 ```
 
-### **...**
+```js
+/**
+ * @param {number[]} dist
+ * @param {number} hour
+ * @return {number}
+ */
+var minSpeedOnTime = function (dist, hour) {
+    if (dist.length > Math.ceil(hour)) return -1;
+    let left = 1,
+        right = 10 ** 7;
+    while (left < right) {
+        let mid = (left + right) >> 1;
+        if (arriveOnTime(dist, mid, hour)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
 
-```
-
+function arriveOnTime(dist, speed, hour) {
+    let res = 0.0;
+    let n = dist.length;
+    for (let i = 0; i < n; i++) {
+        let cost = parseFloat(dist[i]) / speed;
+        if (i != n - 1) {
+            cost = Math.ceil(cost);
+        }
+        res += cost;
+    }
+    return res <= hour;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

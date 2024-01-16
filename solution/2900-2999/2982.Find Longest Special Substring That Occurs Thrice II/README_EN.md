@@ -49,7 +49,7 @@ It can be shown that the maximum length achievable is 1.
 
 ## Solutions
 
-**Solution 1: Binary Search + Sliding Window Counting**
+### Solution 1: Binary Search + Sliding Window Counting
 
 We notice that if there exists a special substring of length $x$ that appears at least three times, then a special substring of length $x-1$ must also exist. This exhibits a monotonicity, so we can use binary search to find the longest special substring.
 
@@ -64,8 +64,6 @@ After the traversal, we go through the array $cnt$. If there exists $cnt[i] \geq
 The time complexity is $O((n + |\Sigma|) \times \log n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -91,8 +89,6 @@ class Solution:
                 r = mid - 1
         return -1 if l == 0 else l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +163,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumLength(s string) int {
@@ -207,8 +199,6 @@ func maximumLength(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumLength(s: string): number {
     const n = s.length;
@@ -241,10 +231,6 @@ function maximumLength(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

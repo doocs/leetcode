@@ -37,9 +37,9 @@ A DataFrame was created on top of student_data, with two columns named <code>stu
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -49,10 +49,6 @@ def createDataframe(student_data: List[List[int]]) -> pd.DataFrame:
     return pd.DataFrame(student_data, columns=['student_id', 'age'])
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

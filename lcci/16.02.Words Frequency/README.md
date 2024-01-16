@@ -30,9 +30,7 @@ wordsFrequency.get("pen"); //返回1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 $cnt$ 统计 $book$ 中每个单词出现的次数。
 
@@ -41,10 +39,6 @@ wordsFrequency.get("pen"); //返回1
 时间复杂度方面，初始化哈希表 $cnt$ 的时间复杂度为 $O(n)$，其中 $n$ 为 $book$ 的长度。`get` 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class WordsFrequency:
@@ -59,10 +53,6 @@ class WordsFrequency:
 # obj = WordsFrequency(book)
 # param_1 = obj.get(word)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class WordsFrequency {
@@ -85,8 +75,6 @@ class WordsFrequency {
  * int param_1 = obj.get(word);
  */
 ```
-
-### **C++**
 
 ```cpp
 class WordsFrequency {
@@ -112,8 +100,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type WordsFrequency struct {
 	cnt map[string]int
@@ -138,36 +124,6 @@ func (this *WordsFrequency) Get(word string) int {
  */
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string[]} book
- */
-var WordsFrequency = function (book) {
-    this.cnt = new Map();
-    for (const x of book) {
-        this.cnt.set(x, (this.cnt.get(x) || 0) + 1);
-    }
-};
-
-/**
- * @param {string} word
- * @return {number}
- */
-WordsFrequency.prototype.get = function (word) {
-    return this.cnt.get(word) || 0;
-};
-
-/**
- * Your WordsFrequency object will be instantiated and called as such:
- * var obj = new WordsFrequency(book)
- * var param_1 = obj.get(word)
- */
-```
-
-### **TypeScript**
-
 ```ts
 class WordsFrequency {
     private cnt: Map<string, number>;
@@ -191,8 +147,6 @@ class WordsFrequency {
  * var param_1 = obj.get(word)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -223,10 +177,32 @@ impl WordsFrequency {
  */
 ```
 
-### **...**
+```js
+/**
+ * @param {string[]} book
+ */
+var WordsFrequency = function (book) {
+    this.cnt = new Map();
+    for (const x of book) {
+        this.cnt.set(x, (this.cnt.get(x) || 0) + 1);
+    }
+};
 
-```
+/**
+ * @param {string} word
+ * @return {number}
+ */
+WordsFrequency.prototype.get = function (word) {
+    return this.cnt.get(word) || 0;
+};
 
+/**
+ * Your WordsFrequency object will be instantiated and called as such:
+ * var obj = new WordsFrequency(book)
+ * var param_1 = obj.get(word)
+ */
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

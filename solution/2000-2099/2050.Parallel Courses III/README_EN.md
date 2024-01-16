@@ -61,9 +61,9 @@ Thus, the minimum time needed to complete all the courses is 7 + 5 = 12 months.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -91,8 +91,6 @@ class Solution:
                     q.append(j)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +128,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTime(n int, relations [][]int, time []int) int {
 	g := make([][]int, n)
@@ -208,8 +202,6 @@ func minimumTime(n int, relations [][]int, time []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumTime(n: number, relations: number[][], time: number[]): number {
     const g: number[][] = Array(n)
@@ -244,10 +236,6 @@ function minimumTime(n: number, relations: number[][], time: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,7 +46,7 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 
 ## Solutions
 
-**Solution 1: Stack**
+### Solution 1: Stack
 
 We can traverse the string $s$, maintaining a stack that stores the characters and their occurrence counts. When traversing to character $c$, if the character at the top of the stack is the same as $c$, we increment the count of the top element by one; otherwise, we push the character $c$ and count $1$ into the stack. When the count of the top element equals $k$, we pop the top element from the stack.
 
@@ -55,8 +55,6 @@ After traversing the string $s$, the elements remaining in the stack form the fi
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,23 +77,6 @@ class Solution:
         ans = [c * v for c, v in t]
         return "".join(ans)
 ```
-
-```python
-class Solution:
-    def removeDuplicates(self, s: str, k: int) -> str:
-        stk = []
-        for c in s:
-            if stk and stk[-1][0] == c:
-                stk[-1][1] = (stk[-1][1] + 1) % k
-                if stk[-1][1] == 0:
-                    stk.pop()
-            else:
-                stk.append([c, 1])
-        ans = [c * v for c, v in stk]
-        return "".join(ans)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeDuplicates(s string, k int) string {
@@ -181,10 +158,27 @@ type pair struct {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def removeDuplicates(self, s: str, k: int) -> str:
+        stk = []
+        for c in s:
+            if stk and stk[-1][0] == c:
+                stk[-1][1] = (stk[-1][1] + 1) % k
+                if stk[-1][1] == 0:
+                    stk.pop()
+            else:
+                stk.append([c, 1])
+        ans = [c * v for c, v in stk]
+        return "".join(ans)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

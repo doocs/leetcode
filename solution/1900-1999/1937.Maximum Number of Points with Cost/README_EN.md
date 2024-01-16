@@ -57,9 +57,9 @@ Your final score is 12 - 1 = 11.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
             f = g
         return max(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxPoints(points [][]int) int64 {
 	n := len(points[0])
@@ -161,8 +155,6 @@ func maxPoints(points [][]int) int64 {
 	return slices.Max(f)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxPoints(points: number[][]): number {
@@ -186,10 +178,6 @@ function maxPoints(points: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

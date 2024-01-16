@@ -53,13 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +67,6 @@ class Solution:
         b = min(len(s2 - s1), n // 2)
         return min(a + b + len(s1 & s2), n)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumSetSize(nums1 []int, nums2 []int) int {
@@ -169,8 +157,6 @@ func maximumSetSize(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumSetSize(nums1: number[], nums2: number[]): number {
     const s1: Set<number> = new Set(nums1);
@@ -195,10 +181,6 @@ function maximumSetSize(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -38,9 +38,9 @@ Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -48,8 +48,6 @@ class Solution:
         s = sum(salary) - min(salary) - max(salary)
         return s / (len(salary) - 2)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func average(salary []int) float64 {
 	s := 0
@@ -102,8 +96,6 @@ func average(salary []int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function average(salary: number[]): number {
     let max = -Infinity;
@@ -117,8 +109,6 @@ function average(salary: number[]): number {
     return (sum - max - min) / (salary.length - 2);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -136,27 +126,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
-double average(int* salary, int salarySize) {
-    int ma = INT_MIN;
-    int mi = INT_MAX;
-    int sum = 0;
-    for (int i = 0; i < salarySize; i++) {
-        sum += salary[i];
-        ma = max(ma, salary[i]);
-        mi = min(mi, salary[i]);
-    }
-    return (sum - mi - ma) * 1.0 / (salarySize - 2);
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -177,10 +146,23 @@ class Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+#define min(a, b) (((a) < (b)) ? (a) : (b))
 
-```
-
+double average(int* salary, int salarySize) {
+    int ma = INT_MIN;
+    int mi = INT_MAX;
+    int sum = 0;
+    for (int i = 0; i < salarySize; i++) {
+        sum += salary[i];
+        ma = max(ma, salary[i]);
+        mi = min(mi, salary[i]);
+    }
+    return (sum - mi - ma) * 1.0 / (salarySize - 2);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

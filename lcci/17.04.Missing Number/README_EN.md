@@ -30,9 +30,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -43,23 +43,6 @@ class Solution:
                 return i
         return len(nums)
 ```
-
-```python
-class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        return sum(range(len(nums) + 1)) - sum(nums)
-```
-
-```python
-class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        ans = 0
-        for i, x in enumerate(nums, 1):
-            ans ^= i ^ x
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,33 +58,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int missingNumber(int[] nums) {
-        int n = nums.length;
-        int ans = n;
-        for (int i = 0; i < n; ++i) {
-            ans += i - nums[i];
-        }
-        return ans;
-    }
-}
-```
-
-```java
-class Solution {
-    public int missingNumber(int[] nums) {
-        int ans = 0;
-        for (int i = 1; i <= nums.length; ++i) {
-            ans ^= i ^ nums[i - 1];
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,35 +75,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        int n = nums.size();
-        int ans = n;
-        for (int i = 0; i < n; ++i) {
-            ans += i - nums[i];
-        }
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        int ans = 0;
-        for (int i = 1; i <= nums.size(); ++i) {
-            ans ^= i ^ nums[i - 1];
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func missingNumber(nums []int) int {
 	sort.Ints(nums)
@@ -160,26 +87,20 @@ func missingNumber(nums []int) int {
 }
 ```
 
-```go
-func missingNumber(nums []int) (ans int) {
-	ans = len(nums)
-	for i, x := range nums {
-		ans += i - x
-	}
-	return
+```rust
+impl Solution {
+    pub fn missing_number(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len() as i32;
+        for i in 0..n {
+            if i != nums[i as usize] {
+                return i;
+            }
+        }
+        n
+    }
 }
 ```
-
-```go
-func missingNumber(nums []int) (ans int) {
-	for i, x := range nums {
-		ans ^= (i + 1) ^ x
-	}
-	return
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -198,49 +119,52 @@ var missingNumber = function (nums) {
 };
 ```
 
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var missingNumber = function (nums) {
-    const n = nums.length;
-    let ans = n;
-    for (let i = 0; i < n; ++i) {
-        ans += i - nums[i];
-    }
-    return ans;
-};
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        return sum(range(len(nums) + 1)) - sum(nums)
 ```
 
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var missingNumber = function (nums) {
-    let ans = 0;
-    for (let i = 1; i <= nums.length; ++i) {
-        ans ^= i ^ nums[i - 1];
-    }
-    return ans;
-};
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn missing_number(mut nums: Vec<i32>) -> i32 {
-        nums.sort();
-        let n = nums.len() as i32;
-        for i in 0..n {
-            if i != nums[i as usize] {
-                return i;
-            }
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            ans += i - nums[i];
         }
-        n
+        return ans;
     }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            ans += i - nums[i];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func missingNumber(nums []int) (ans int) {
+	ans = len(nums)
+	for i, x := range nums {
+		ans += i - x
+	}
+	return
 }
 ```
 
@@ -263,6 +187,70 @@ impl Solution {
 }
 ```
 
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans += i - nums[i];
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        ans = 0
+        for i, x in enumerate(nums, 1):
+            ans ^= i ^ x
+        return ans
+```
+
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int ans = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            ans ^= i ^ nums[i - 1];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 1; i <= nums.size(); ++i) {
+            ans ^= i ^ nums[i - 1];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func missingNumber(nums []int) (ans int) {
+	for i, x := range nums {
+		ans ^= (i + 1) ^ x
+	}
+	return
+}
+```
+
 ```rust
 impl Solution {
     pub fn missing_number(nums: Vec<i32>) -> i32 {
@@ -276,10 +264,20 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function (nums) {
+    let ans = 0;
+    for (let i = 1; i <= nums.length; ++i) {
+        ans ^= i ^ nums[i - 1];
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

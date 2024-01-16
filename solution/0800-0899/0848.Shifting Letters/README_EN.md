@@ -47,9 +47,9 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,20 +72,6 @@ class Solution:
         return ''.join(ans)
 ```
 
-```python
-class Solution:
-    def shiftingLetters(self, s: str, shifts: List[int]) -> str:
-        n, t = len(s), 0
-        s = list(s)
-        for i in range(n - 1, -1, -1):
-            t += shifts[i]
-            j = (ord(s[i]) - ord('a') + t) % 26
-            s[i] = ascii_lowercase[j]
-        return ''.join(s)
-```
-
-### **Java**
-
 ```java
 class Solution {
     public String shiftingLetters(String s, int[] shifts) {
@@ -101,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shiftingLetters(s string, shifts []int) string {
 	t := 0
@@ -136,10 +118,24 @@ func shiftingLetters(s string, shifts []int) string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def shiftingLetters(self, s: str, shifts: List[int]) -> str:
+        n, t = len(s), 0
+        s = list(s)
+        for i in range(n - 1, -1, -1):
+            t += shifts[i]
+            j = (ord(s[i]) - ord('a') + t) % 26
+            s[i] = ascii_lowercase[j]
+        return ''.join(s)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

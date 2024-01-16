@@ -39,11 +39,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -89,8 +87,6 @@ class Solution:
                 dfs(tree, i, j)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -154,8 +150,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -222,8 +216,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -281,8 +273,6 @@ func findWords(board [][]byte, words []string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class Trie {
@@ -346,10 +336,6 @@ function findWords(board: string[][], words: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

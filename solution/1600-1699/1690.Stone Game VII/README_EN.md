@@ -44,7 +44,7 @@ The score difference is 18 - 12 = 6.
 
 ## Solutions
 
-**Solution 1: Memorization Search**
+### Solution 1: Memorization Search
 
 First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the total sum of the first $i$ stones.
 
@@ -60,8 +60,6 @@ During the process, we use memorization search, i.e., use an array $f$ to record
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of stones.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -169,10 +161,6 @@ func stoneGameVII(stones []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

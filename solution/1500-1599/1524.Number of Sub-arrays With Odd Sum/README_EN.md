@@ -46,9 +46,9 @@ All sub-arrays have even sum and the answer is 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             cnt[s & 1] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numOfSubarrays(arr []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -115,8 +109,6 @@ func numOfSubarrays(arr []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numOfSubarrays(arr: number[]): number {
@@ -133,10 +125,6 @@ function numOfSubarrays(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

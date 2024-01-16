@@ -56,9 +56,9 @@ We return the array [2,1].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
             d[b] = d[a]
         return nums
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func arrayChange(nums []int, operations [][]int) []int {
 	d := map[int]int{}
@@ -126,8 +120,6 @@ func arrayChange(nums []int, operations [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function arrayChange(nums: number[], operations: number[][]): number[] {
     const d = new Map(nums.map((v, i) => [v, i]));
@@ -139,10 +131,6 @@ function arrayChange(nums: number[], operations: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

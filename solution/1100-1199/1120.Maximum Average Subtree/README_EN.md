@@ -40,7 +40,7 @@ So the answer is 6 which is the maximum.
 
 ## Solutions
 
-**Solution 1: Recursion**
+### Solution 1: Recursion
 
 We can use a recursive method. For each node, we calculate the sum and count of the nodes in the subtree rooted at that node, then calculate the average, compare it with the current maximum, and update the maximum if necessary.
 
@@ -57,8 +57,6 @@ Finally, return the maximum value.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -84,8 +82,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -125,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -160,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -188,10 +180,6 @@ func maximumAverageSubtree(root *TreeNode) (ans float64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

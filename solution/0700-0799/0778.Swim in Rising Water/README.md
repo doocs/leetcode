@@ -52,80 +52,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-并查集。每经过一个时刻 t，找到此时和雨水高度相等的单元格 `(i, j)`，如果与 `(i, j)` 相邻的单元格 `(x, y)` 满足高度不超过 t，则将这两个单元格进行合并。如果在某个时刻合并之后，单元格 `(0, 0)` 与单元格 `(n - 1, n - 1)` 连通，则返回该时刻。
-
-以下是并查集的几个常用模板。
-
-模板 1——朴素并查集：
-
-```python
-# 初始化，p存储每个点的父节点
-p = list(range(n))
-
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-```
-
-模板 2——维护 size 的并查集：
-
-```python
-# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
-p = list(range(n))
-size = [1] * n
-
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-
-# 合并a和b所在的两个集合
-if find(a) != find(b):
-    size[find(b)] += size[find(a)]
-    p[find(a)] = find(b)
-```
-
-模板 3——维护到祖宗节点距离的并查集：
-
-```python
-# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
-p = list(range(n))
-d = [0] * n
-
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        t = find(p[x])
-        d[x] += d[p[x]]
-        p[x] = t
-    return p[x]
-
-
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-d[find(a)] = distance
-```
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -151,10 +80,6 @@ class Solution:
                     return t
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -199,42 +124,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function swimInWater(grid: number[][]): number {
-    const m = grid.length,
-        n = grid[0].length;
-    let visited = Array.from({ length: m }, () => new Array(n).fill(false));
-    let ans = 0;
-    let stack = [[0, 0, grid[0][0]]];
-    const dir = [
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ];
-
-    while (stack.length) {
-        let [i, j] = stack.shift();
-        ans = Math.max(grid[i][j], ans);
-        if (i == m - 1 && j == n - 1) break;
-        for (let [dx, dy] of dir) {
-            let x = i + dx,
-                y = j + dy;
-            if (x < m && x > -1 && y < n && y > -1 && !visited[x][y]) {
-                visited[x][y] = true;
-                stack.push([x, y, grid[x][y]]);
-            }
-        }
-        stack.sort((a, b) => a[2] - b[2]);
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -268,7 +157,74 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func swimInWater(grid [][]int) int {
+	n := len(grid)
+	p := make([]int, n*n)
+	for i := range p {
+		p[i] = i
+	}
+	hi := make([]int, n*n)
+	for i, row := range grid {
+		for j, h := range row {
+			hi[h] = i*n + j
+		}
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	dirs := []int{-1, 0, 1, 0, -1}
+	for t := 0; t < n*n; t++ {
+		i, j := hi[t]/n, hi[t]%n
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t {
+				p[find(x*n+y)] = find(hi[t])
+			}
+			if find(0) == find(n*n-1) {
+				return t
+			}
+		}
+	}
+	return -1
+}
+```
+
+```ts
+function swimInWater(grid: number[][]): number {
+    const m = grid.length,
+        n = grid[0].length;
+    let visited = Array.from({ length: m }, () => new Array(n).fill(false));
+    let ans = 0;
+    let stack = [[0, 0, grid[0][0]]];
+    const dir = [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ];
+
+    while (stack.length) {
+        let [i, j] = stack.shift();
+        ans = Math.max(grid[i][j], ans);
+        if (i == m - 1 && j == n - 1) break;
+        for (let [dx, dy] of dir) {
+            let x = i + dx,
+                y = j + dy;
+            if (x < m && x > -1 && y < n && y > -1 && !visited[x][y]) {
+                visited[x][y] = true;
+                stack.push([x, y, grid[x][y]]);
+            }
+        }
+        stack.sort((a, b) => a[2] - b[2]);
+    }
+    return ans;
+}
+```
 
 ```rust
 const DIR: [(i32, i32); 4] = [
@@ -351,49 +307,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func swimInWater(grid [][]int) int {
-	n := len(grid)
-	p := make([]int, n*n)
-	for i := range p {
-		p[i] = i
-	}
-	hi := make([]int, n*n)
-	for i, row := range grid {
-		for j, h := range row {
-			hi[h] = i*n + j
-		}
-	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for t := 0; t < n*n; t++ {
-		i, j := hi[t]/n, hi[t]%n
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t {
-				p[find(x*n+y)] = find(hi[t])
-			}
-			if find(0) == find(n*n-1) {
-				return t
-			}
-		}
-	}
-	return -1
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

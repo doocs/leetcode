@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 计数**
+### 方法一：贪心 + 计数
 
 我们观察发现，要使得数组的和尽可能大，就应该尽可能地将数组中的最小负数变成正数。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为数组 $nums$ 的长度和 $nums$ 的数据范围大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                     break
         return sum(x * v for x, v in cnt.items())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -168,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestSumAfterKNegations(nums []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -199,8 +185,6 @@ func largestSumAfterKNegations(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestSumAfterKNegations(nums: number[], k: number): number {
@@ -233,10 +217,6 @@ function largestSumAfterKNegations(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以用两个指针 $i$ 和 $j$，初始时分别指向字符串的首尾。
 
@@ -47,10 +45,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集的大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
                 i, j = i + 1, j - 1
         return "".join(cs)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reverseVowels(s string) string {
 	vowels := [128]bool{}
@@ -156,8 +142,6 @@ func reverseVowels(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reverseVowels(s: string): string {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
@@ -174,8 +158,6 @@ function reverseVowels(s: string): string {
     return cs.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -201,10 +183,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

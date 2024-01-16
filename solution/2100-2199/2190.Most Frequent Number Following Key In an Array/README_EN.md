@@ -47,9 +47,9 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
                     ans = b
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostFrequent(nums []int, key int) (ans int) {
 	cnt := [1001]int{}
@@ -125,8 +119,6 @@ func mostFrequent(nums []int, key int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostFrequent(nums: number[], key: number): number {
     const cnt: number[] = new Array(1001).fill(0);
@@ -143,8 +135,6 @@ function mostFrequent(nums: number[], key: number): number {
     return ans;
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -170,10 +160,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

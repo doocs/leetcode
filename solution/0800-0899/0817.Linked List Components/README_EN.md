@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -62,8 +62,6 @@ class Solution:
                 head = head.next
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -124,8 +120,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -155,39 +149,6 @@ func numComponents(head *ListNode, nums []int) int {
 	return ans
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number[]} nums
- * @return {number}
- */
-var numComponents = function (head, nums) {
-    const s = new Set(nums);
-    let ans = 0;
-    while (head) {
-        while (head && !s.has(head.val)) {
-            head = head.next;
-        }
-        ans += head != null;
-        while (head && s.has(head.val)) {
-            head = head.next;
-        }
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -221,8 +182,6 @@ function numComponents(head: ListNode | null, nums: number[]): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -264,10 +223,35 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number[]} nums
+ * @return {number}
+ */
+var numComponents = function (head, nums) {
+    const s = new Set(nums);
+    let ans = 0;
+    while (head) {
+        while (head && !s.has(head.val)) {
+            head = head.next;
+        }
+        ans += head != null;
+        while (head && s.has(head.val)) {
+            head = head.next;
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

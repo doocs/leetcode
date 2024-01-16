@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 双指针**
+### 方法一：排序 + 双指针
 
 根据题目描述，我们应该优先将饼干分配给胃口值小的孩子，这样可以尽可能满足更多的孩子。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(\log m + \log n)$。其中 $m$ 和 $n$ 分别为数组 $g$ 和 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             j += 1
         return len(g)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
@@ -147,7 +133,23 @@ func findContentChildren(g []int, s []int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function findContentChildren(g: number[], s: number[]): number {
+    g.sort((a, b) => a - b);
+    s.sort((a, b) => a - b);
+    const m = g.length;
+    const n = s.length;
+    for (let i = 0, j = 0; i < m; ++i) {
+        while (j < n && s[j] < g[i]) {
+            ++j;
+        }
+        if (j++ >= n) {
+            return i;
+        }
+    }
+    return m;
+}
+```
 
 ```js
 /**
@@ -172,30 +174,6 @@ var findContentChildren = function (g, s) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function findContentChildren(g: number[], s: number[]): number {
-    g.sort((a, b) => a - b);
-    s.sort((a, b) => a - b);
-    const m = g.length;
-    const n = s.length;
-    for (let i = 0, j = 0; i < m; ++i) {
-        while (j < n && s[j] < g[i]) {
-            ++j;
-        }
-        if (j++ >= n) {
-            return i;
-        }
-    }
-    return m;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

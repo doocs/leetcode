@@ -66,7 +66,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Indexed Tree (Fenwick Tree)**
+### Solution 1: Binary Indexed Tree (Fenwick Tree)
 
 We can use a Binary Indexed Tree to maintain an array of the lengths of the longest increasing subsequences.
 
@@ -75,8 +75,6 @@ Then for each obstacle, we query in the Binary Indexed Tree for the length of th
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of obstacles.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -111,8 +109,6 @@ class Solution:
             tree.update(i, ans[-1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -158,8 +154,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -210,8 +204,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -250,8 +242,6 @@ func longestObstacleCourseAtEachPosition(obstacles []int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -307,10 +297,6 @@ function longestObstacleCourseAtEachPosition(obstacles: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

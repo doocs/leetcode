@@ -46,25 +46,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 遍历字符串 $s$，用一个哈希表存储所有长度为 $k$ 的不同子串。只需要判断子串数能否达到 $2^k$ 即可。
 
 时间复杂度 $O(n \times k)$，其中 $n$ 是字符串 $s$ 的长度，$k$ 是子串长度。
 
-**方法二：滑动窗口**
-
-方法一中，我们存储了所有长度为 $k$ 的不同子串，子串的处理需要 $O(k)$ 的时间，我们可以改用滑动窗口，每次添加最新字符时，删除窗口最左边的字符。此过程中用一个整型数字 $num$ 来存放子串。
-
-时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,6 +60,51 @@ class Solution:
         ss = {s[i : i + k] for i in range(len(s) - k + 1)}
         return len(ss) == 1 << k
 ```
+
+```java
+class Solution {
+    public boolean hasAllCodes(String s, int k) {
+        Set<String> ss = new HashSet<>();
+        for (int i = 0; i < s.length() - k + 1; ++i) {
+            ss.add(s.substring(i, i + k));
+        }
+        return ss.size() == 1 << k;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool hasAllCodes(string s, int k) {
+        unordered_set<string> ss;
+        for (int i = 0; i + k <= s.size(); ++i) {
+            ss.insert(move(s.substr(i, k)));
+        }
+        return ss.size() == 1 << k;
+    }
+};
+```
+
+```go
+func hasAllCodes(s string, k int) bool {
+	ss := map[string]bool{}
+	for i := 0; i+k <= len(s); i++ {
+		ss[s[i:i+k]] = true
+	}
+	return len(ss) == 1<<k
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：滑动窗口
+
+方法一中，我们存储了所有长度为 $k$ 的不同子串，子串的处理需要 $O(k)$ 的时间，我们可以改用滑动窗口，每次添加最新字符时，删除窗口最左边的字符。此过程中用一个整型数字 $num$ 来存放子串。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -87,22 +120,6 @@ class Solution:
             num = ((num - a) << 1) + b
             vis[num] = True
         return all(v for v in vis)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public boolean hasAllCodes(String s, int k) {
-        Set<String> ss = new HashSet<>();
-        for (int i = 0; i < s.length() - k + 1; ++i) {
-            ss.add(s.substring(i, i + k));
-        }
-        return ss.size() == 1 << k;
-    }
-}
 ```
 
 ```java
@@ -131,21 +148,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool hasAllCodes(string s, int k) {
-        unordered_set<string> ss;
-        for (int i = 0; i + k <= s.size(); ++i) {
-            ss.insert(move(s.substr(i, k)));
-        }
-        return ss.size() == 1 << k;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -166,18 +168,6 @@ public:
         return true;
     }
 };
-```
-
-### **Go**
-
-```go
-func hasAllCodes(s string, k int) bool {
-	ss := map[string]bool{}
-	for i := 0; i+k <= len(s); i++ {
-		ss[s[i:i+k]] = true
-	}
-	return len(ss) == 1<<k
-}
 ```
 
 ```go
@@ -206,10 +196,6 @@ func hasAllCodes(s string, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

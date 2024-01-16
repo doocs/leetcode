@@ -51,7 +51,7 @@ stockSpanner.next(85);  // return 6
 
 ## Solutions
 
-**Solution 1: Monotonic Stack**
+### Solution 1: Monotonic Stack
 
 Based on the problem description, we know that for the current day's price $price$, we start from this price and look backwards to find the first price that is larger than this price. The difference in indices $cnt$ between these two prices is the span of the current day's price.
 
@@ -66,8 +66,6 @@ Finally, we push $(price, cnt)$ onto the stack and return $cnt$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of times `next(price)` is called.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class StockSpanner:
@@ -86,8 +84,6 @@ class StockSpanner:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
 ```
-
-### **Java**
 
 ```java
 class StockSpanner {
@@ -112,8 +108,6 @@ class StockSpanner {
  * int param_1 = obj.next(price);
  */
 ```
-
-### **C++**
 
 ```cpp
 class StockSpanner {
@@ -141,8 +135,6 @@ private:
  * int param_1 = obj->next(price);
  */
 ```
-
-### **Go**
 
 ```go
 type StockSpanner struct {
@@ -172,8 +164,6 @@ type pair struct{ price, cnt int }
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class StockSpanner {
     private stk: number[][];
@@ -198,8 +188,6 @@ class StockSpanner {
  * var param_1 = obj.next(price)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -233,10 +221,6 @@ impl StockSpanner {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

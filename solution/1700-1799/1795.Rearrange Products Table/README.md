@@ -59,17 +59,11 @@ Products table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：合并**
+### 方法一：合并
 
 我们可以筛选出每个商店的产品和价格，然后使用 `UNION` 合并即可。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -81,3 +75,5 @@ SELECT product_id, 'store3' AS store, store3 AS price FROM Products WHERE store3
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

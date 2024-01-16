@@ -74,9 +74,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树形 DP（换根）**
+### 方法一：树形 DP（换根）
 
 我们先遍历题目给定的边集合 $edges$，将其转换为邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻接节点。用哈希表 $gs$ 记录题目给定的猜测集合 $guesses$。
 
@@ -95,10 +93,6 @@
 -   [834. 树中距离之和](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -134,10 +128,6 @@ class Solution:
         dfs2(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -197,8 +187,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -251,8 +239,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	n := len(edges) + 1
@@ -303,10 +289,6 @@ func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：从任意起点开始遍历**
+### 方法一：从任意起点开始遍历
 
 我们用 $i$, $j$ 分别标记起点和终点，用 $s$ 表示当前剩余汽油，而 $cnt$ 表示当前行驶过的加油站数量。初始时，我们将起点设在最后一个位置，即 $i=n-1$。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，其中 $n$ 表示加油站的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 cnt += 1
         return -1 if s < 0 else i
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canCompleteCircuit(gas []int, cost []int) int {
 	n := len(gas)
@@ -162,8 +148,6 @@ func canCompleteCircuit(gas []int, cost []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canCompleteCircuit(gas: number[], cost: number[]): number {
     const n = gas.length;
@@ -184,8 +168,6 @@ function canCompleteCircuit(gas: number[], cost: number[]): number {
     return s < 0 ? -1 : i;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -208,10 +190,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

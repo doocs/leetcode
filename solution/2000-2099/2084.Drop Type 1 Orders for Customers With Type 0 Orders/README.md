@@ -71,13 +71,9 @@ Orders table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -92,6 +88,12 @@ FROM Orders AS o
 WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o.customer_id);
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 SELECT DISTINCT
     a.order_id,
@@ -104,3 +106,5 @@ WHERE b.order_type IS NULL OR b.order_type = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

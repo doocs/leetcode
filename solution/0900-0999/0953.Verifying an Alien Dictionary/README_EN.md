@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
                 return True
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isAlienSorted(words []string, order string) bool {
@@ -155,8 +149,6 @@ func isAlienSorted(words []string, order string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isAlienSorted(words: string[], order: string): boolean {
     const map = new Map();
@@ -185,8 +177,6 @@ function isAlienSorted(words: string[], order: string): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -223,8 +213,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
@@ -257,10 +245,6 @@ bool isAlienSorted(char** words, int wordsSize, char* order) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

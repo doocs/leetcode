@@ -64,15 +64,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-直接计数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 last = t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfBeams(bank []string) int {
 	ans, last := 0, 0
@@ -149,10 +135,6 @@ func numberOfBeams(bank []string) int {
 	return ans
 }
 ```
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function numberOfBeams(bank: string[]): number {
@@ -173,8 +155,6 @@ function numberOfBeams(bank: string[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -198,8 +178,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int numberOfBeams(char** bank, int bankSize) {
     int last = 0;
@@ -220,10 +198,6 @@ int numberOfBeams(char** bank, int bankSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

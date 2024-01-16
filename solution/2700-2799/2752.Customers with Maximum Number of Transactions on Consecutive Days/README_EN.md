@@ -60,9 +60,9 @@ In total, the highest number of consecutive transactions is 3, achieved by custo
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -91,3 +91,5 @@ ORDER BY customer_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

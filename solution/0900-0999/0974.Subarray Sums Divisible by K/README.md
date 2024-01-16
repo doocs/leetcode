@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 前缀和**
+### 方法一：哈希表 + 前缀和
 
 假设存在 $i \leq j$，使得 $nums[i,..j]$ 的和能被 $k$ 整除，如果我们令 $s_i$ 表示 $nums[0,..i]$ 的和，令 $s_j$ 表示 $nums[0,..j]$ 的和，那么 $s_j - s_i$ 能被 $k$ 整除，即 $(s_j - s_i) \bmod k = 0$，也即 $s_j \bmod k = s_i \bmod k$。因此，我们可以用哈希表统计前缀和模 $k$ 的值的个数，从而快速判断是否存在满足条件的子数组。
 
@@ -59,10 +57,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
@@ -74,10 +68,6 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subarraysDivByK(nums []int, k int) (ans int) {
 	cnt := map[int]int{0: 1}
@@ -126,8 +112,6 @@ func subarraysDivByK(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function subarraysDivByK(nums: number[], k: number): number {
@@ -145,10 +129,6 @@ function subarraysDivByK(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

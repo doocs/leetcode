@@ -44,19 +44,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
--   若 `n < 1`，说明 n 一定不是丑数，返回 false。
--   若 `n % 2 == 0`，说明 2 是 n 的因子，此时应 `n /= 2`，然后继续判断 n 除以 2 后的值的因子。
--   若 `n % 3 == 0`，说明 3 是 n 的因子，此时应 `n /= 3`，然后继续判断 n 除以 3 后的值的因子。
--   若 `n % 5 == 0`，说明 5 是 n 的因子，此时应 `n /= 5`，然后继续判断 n 除以 5 后的值的因子。
--   最后，判断 n 是否等于 1，若是，说明 n 的因子只可能包含 2、3、5，返回 true；否则返回 false。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +58,6 @@ class Solution:
                 n //= x
         return n == 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,7 +96,19 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+func isUgly(n int) bool {
+	if n < 1 {
+		return false
+	}
+	for _, x := range []int{2, 3, 5} {
+		for n%x == 0 {
+			n /= x
+		}
+	}
+	return n == 1
+}
+```
 
 ```js
 /**
@@ -133,24 +129,6 @@ var isUgly = function (n) {
     return n === 1;
 };
 ```
-
-### **Go**
-
-```go
-func isUgly(n int) bool {
-	if n < 1 {
-		return false
-	}
-	for _, x := range []int{2, 3, 5} {
-		for n%x == 0 {
-			n /= x
-		}
-	}
-	return n == 1
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -175,10 +153,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

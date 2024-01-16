@@ -61,9 +61,7 @@ Logs 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组 + 窗口函数**
+### 方法一：分组 + 窗口函数
 
 我们需要想办法将一段连续的日志分到同一组，然后对每一组进行聚合操作，得到每一组的开始日志和结束日志。
 
@@ -73,8 +71,6 @@ Logs 表：
 2. 通过计算当前行的日志减去当前行的行号，得到的结果就是每一行的分组的标识符。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -96,6 +92,12 @@ FROM T
 GROUP BY pid;
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -111,3 +113,5 @@ GROUP BY pid;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -86,9 +86,9 @@ User 7 requested two messages within 24 hours and 1 second of each other, so we 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 SELECT DISTINCT user_id
@@ -101,3 +101,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

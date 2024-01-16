@@ -58,19 +58,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串模拟**
+### 方法一：字符串模拟
 
 统计字符串 `text` 中的空格数，记为 `cnt`。将 `text` 按空格分割成字符串数组 `words`。然后计算相邻字符串之间需要拼接的空格数，进行拼接。最后将剩余的空格拼接在末尾。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 表示字符串 `text` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             return words[0] + ' ' * cnt
         return (' ' * (cnt // m)).join(words) + ' ' * (cnt % m)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 func reorderSpaces(text string) string {
 	cnt := strings.Count(text, " ")
@@ -127,8 +115,6 @@ func reorderSpaces(text string) string {
 	return strings.Join(words, strings.Repeat(" ", cnt/m)) + strings.Repeat(" ", cnt%m)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function reorderSpaces(text: string): string {
@@ -150,8 +136,6 @@ function reorderSpaces(text: string): string {
     return words.join(''.padStart(per)) + ''.padStart(rest);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -184,10 +168,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -70,9 +70,9 @@ Friends 0 and 2 are happy.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -90,8 +90,6 @@ class Solution:
             ans += any(d[u][x] < d[u][p[u]] for u in preferences[x][: d[x][y]])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +123,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 	d := make([][]int, n)
@@ -195,10 +189,6 @@ func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

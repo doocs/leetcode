@@ -48,9 +48,9 @@ The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 s += heappop(pq)
         return len(pq)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func scheduleCourse(courses [][]int) int {
@@ -144,8 +138,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **TypeScript**
-
 ```ts
 function scheduleCourse(courses: number[][]): number {
     courses.sort((a, b) => a[1] - b[1]);
@@ -162,10 +154,6 @@ function scheduleCourse(courses: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

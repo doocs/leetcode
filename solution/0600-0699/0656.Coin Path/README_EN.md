@@ -32,9 +32,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
                 ans.append(i + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func cheapestJump(coins []int, maxJump int) (ans []int) {
 	n := len(coins)
@@ -167,8 +161,6 @@ func cheapestJump(coins []int, maxJump int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function cheapestJump(coins: number[], maxJump: number): number[] {
     const n = coins.length;
@@ -199,10 +191,6 @@ function cheapestJump(coins: number[], maxJump: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

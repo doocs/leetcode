@@ -23,9 +23,7 @@ k = 3
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 如果 $k=0$，则不存在任何一种方案，我们可以直接返回空列表。
 
@@ -36,10 +34,6 @@ k = 3
 时间复杂度 $O(k)$，其中 $k$ 为木板数量。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -53,10 +47,6 @@ class Solution:
             ans.append(longer * i + shorter * (k - i))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -76,8 +66,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -91,8 +79,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func divingBoard(shorter int, longer int, k int) []int {
@@ -110,8 +96,6 @@ func divingBoard(shorter int, longer int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function divingBoard(shorter: number, longer: number, k: number): number[] {
     if (k === 0) {
@@ -128,10 +112,6 @@ function divingBoard(shorter: number, longer: number, k: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

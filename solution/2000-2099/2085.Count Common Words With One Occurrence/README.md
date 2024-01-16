@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表计数**
+### 方法一：哈希表计数
 
 我们可以用两个哈希表 $cnt1$ 和 $cnt2$ 分别统计两个字符串数组中每个字符串出现的次数，然后遍历其中一个哈希表，如果某个字符串在另一个哈希表中出现了一次，且在当前哈希表中也出现了一次，则答案加一。
 
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是两个字符串数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
         cnt2 = Counter(words2)
         return sum(v == 1 and cnt2[w] == 1 for w, v in cnt1.items())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countWords(words1 []string, words2 []string) (ans int) {
 	cnt1 := map[string]int{}
@@ -142,8 +128,6 @@ func countWords(words1 []string, words2 []string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countWords(words1: string[], words2: string[]): number {
@@ -165,10 +149,6 @@ function countWords(words1: string[], words2: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

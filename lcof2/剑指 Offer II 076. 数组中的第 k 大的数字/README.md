@@ -38,15 +38,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-快速排序 partition 实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
         n = len(nums)
         return quick_sort(0, n - 1, n - k)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findKthLargest(nums []int, k int) int {
@@ -175,10 +161,6 @@ func quickSort(nums []int, left, right, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

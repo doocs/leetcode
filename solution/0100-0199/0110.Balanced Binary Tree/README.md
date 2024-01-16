@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自底向上的递归**
+### 方法一：自底向上的递归
 
 定义函数 $height(root)$ 计算二叉树的高度，处理逻辑如下：
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -86,10 +80,6 @@ class Solution:
 
         return height(root) >= 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -126,39 +116,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {boolean}
- */
-var isBalanced = function (root) {
-    const height = root => {
-        if (!root) {
-            return 0;
-        }
-        const l = height(root.left);
-        const r = height(root.right);
-        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
-            return -1;
-        }
-        return 1 + Math.max(l, r);
-    };
-    return height(root) >= 0;
-};
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -189,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -227,8 +182,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -259,8 +212,6 @@ function isBalanced(root: TreeNode | null): boolean {
     return dfs(root) > -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -303,10 +254,35 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isBalanced = function (root) {
+    const height = root => {
+        if (!root) {
+            return 0;
+        }
+        const l = height(root.left);
+        const r = height(root.right);
+        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
+    };
+    return height(root) >= 0;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

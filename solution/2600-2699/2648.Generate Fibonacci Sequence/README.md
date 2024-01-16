@@ -46,11 +46,9 @@ gen.next().value; // 3
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
 
 ```ts
 function* fibGenerator(): Generator<number, any, number> {
@@ -69,10 +67,6 @@ function* fibGenerator(): Generator<number, any, number> {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

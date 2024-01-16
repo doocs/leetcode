@@ -48,9 +48,9 @@ It can be shown that it is the maximum number of moves that can be made.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxMoves(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -168,10 +162,6 @@ func maxMoves(grid [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

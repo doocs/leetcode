@@ -51,9 +51,9 @@ The perimeter is 2 * 4 = 8.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,6 +63,57 @@ class Solution:
             x += 1
         return x * 8
 ```
+
+```java
+class Solution {
+    public long minimumPerimeter(long neededApples) {
+        long x = 1;
+        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+            ++x;
+        }
+        return 8 * x;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long minimumPerimeter(long long neededApples) {
+        long long x = 1;
+        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+            ++x;
+        }
+        return 8 * x;
+    }
+};
+```
+
+```go
+func minimumPerimeter(neededApples int64) int64 {
+	var x int64 = 1
+	for 2*x*(x+1)*(2*x+1) < neededApples {
+		x++
+	}
+	return 8 * x
+}
+```
+
+```ts
+function minimumPerimeter(neededApples: number): number {
+    let x = 1;
+    while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+        ++x;
+    }
+    return 8 * x;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,20 +126,6 @@ class Solution:
             else:
                 l = mid + 1
         return l * 8
-```
-
-### **Java**
-
-```java
-class Solution {
-    public long minimumPerimeter(long neededApples) {
-        long x = 1;
-        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
-            ++x;
-        }
-        return 8 * x;
-    }
-}
 ```
 
 ```java
@@ -106,21 +143,6 @@ class Solution {
         return l * 8;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    long long minimumPerimeter(long long neededApples) {
-        long long x = 1;
-        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
-            ++x;
-        }
-        return 8 * x;
-    }
-};
 ```
 
 ```cpp
@@ -141,18 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minimumPerimeter(neededApples int64) int64 {
-	var x int64 = 1
-	for 2*x*(x+1)*(2*x+1) < neededApples {
-		x++
-	}
-	return 8 * x
-}
-```
-
 ```go
 func minimumPerimeter(neededApples int64) int64 {
 	var l, r int64 = 1, 100000
@@ -165,18 +175,6 @@ func minimumPerimeter(neededApples int64) int64 {
 		}
 	}
 	return l * 8
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumPerimeter(neededApples: number): number {
-    let x = 1;
-    while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
-        ++x;
-    }
-    return 8 * x;
 }
 ```
 
@@ -196,10 +194,6 @@ function minimumPerimeter(neededApples: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 前缀和**
+### 方法一：哈希表 + 前缀和
 
 我们可以用一个哈希表 $d$ 记录数组 $nums$ 中每个前缀和第一次出现的下标，初始时 $d[0] = -1$。另外定义一个变量 $s$ 记录前缀和。
 
@@ -50,10 +48,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
                 d[s] = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSubArrayLen(nums []int, k int) (ans int) {
 	d := map[int]int{0: -1}
@@ -131,8 +117,6 @@ func maxSubArrayLen(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSubArrayLen(nums: number[], k: number): number {
@@ -153,10 +137,6 @@ function maxSubArrayLen(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

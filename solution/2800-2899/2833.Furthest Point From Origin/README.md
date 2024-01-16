@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 遇到字符 `'_'` 时，我们可以选择向左或向右移动，而题目需要我们求出离原点最远的点，因此，我们可以先进行一次遍历，贪心地把所有的 `'_'` 都移到左边，求出此时离原点最远的点，再进行一次遍历，贪心地把所有的 `'_'` 都移到右边，求出此时离原点最远的点，最后取两次遍历中的最大值即可。
 
@@ -66,19 +64,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def furthestDistanceFromOrigin(self, moves: str) -> int:
         return abs(moves.count("L") - moves.count("R")) + moves.count("_")
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +99,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func furthestDistanceFromOrigin(moves string) int {
@@ -128,8 +114,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function furthestDistanceFromOrigin(moves: string): number {
     const count = (c: string) => moves.split('').filter(x => x === c).length;
@@ -137,10 +121,6 @@ function furthestDistanceFromOrigin(moves: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

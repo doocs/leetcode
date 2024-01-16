@@ -91,9 +91,9 @@ We can hire all three juniors with the remaining budget.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -132,3 +132,5 @@ WHERE cur <= 70000;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

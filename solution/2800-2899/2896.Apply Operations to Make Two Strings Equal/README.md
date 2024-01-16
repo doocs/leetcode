@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们注意到，由于每次操作都是反转两个字符，因此，如果不同的字符个数为奇数，那么无法使两个字符串相等，直接返回 $-1$。否则，我们将两个字符串中不同的字符的下标存入数组 $idx$ 中，记数组长度为 $m$。
 
@@ -79,10 +77,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minOperations(self, s1: str, s2: str, x: int) -> int:
@@ -102,10 +96,6 @@ class Solution:
             return -1
         return dfs(0, m - 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,38 +134,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minOperations(String s1, String s2, int x) {
-        int n = s1.length();
-        int inf = 50_000;
-        int one = inf, two = inf, last = inf;
-        int done = 0;
-        for (int i = 0; i < n; i++) {
-            if (s1.charAt(i) == s2.charAt(i)) {
-                one = Math.min(one, last);
-                last = last + 1;
-                two = two + 1;
-                continue;
-            }
-            if (done < n) {
-                one = Math.min(two + 1, done + x);
-                last = Math.min(two + x, done);
-                done = two = inf;
-                continue;
-            }
-            done = Math.min(one + x, last + 1);
-            two = one;
-            one = last = inf;
-            continue;
-        }
-        return done == inf ? -1 : done;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -209,8 +167,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minOperations(s1 string, s2 string, x int) int {
@@ -248,8 +204,6 @@ func minOperations(s1 string, s2 string, x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minOperations(s1: string, s2: string, x: number): number {
     const idx: number[] = [];
@@ -282,10 +236,42 @@ function minOperations(s1: string, s2: string, x: number): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int minOperations(String s1, String s2, int x) {
+        int n = s1.length();
+        int inf = 50_000;
+        int one = inf, two = inf, last = inf;
+        int done = 0;
+        for (int i = 0; i < n; i++) {
+            if (s1.charAt(i) == s2.charAt(i)) {
+                one = Math.min(one, last);
+                last = last + 1;
+                two = two + 1;
+                continue;
+            }
+            if (done < n) {
+                one = Math.min(two + 1, done + x);
+                last = Math.min(two + x, done);
+                done = two = inf;
+                continue;
+            }
+            done = Math.min(one + x, last + 1);
+            two = one;
+            one = last = inf;
+            continue;
+        }
+        return done == inf ? -1 : done;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

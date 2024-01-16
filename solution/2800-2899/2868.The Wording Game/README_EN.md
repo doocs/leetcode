@@ -69,7 +69,7 @@ So Alice wins, and the game ends.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We use $k$ to record whose turn it is, where $k=0$ means it is Alice's turn, and $k=1$ means it is Bob's turn. We use $i$ to record Alice's index, $j$ to record Bob's index, and $w$ to record the current word. Initially, we set $i=1$, $j=0$, and $w=a[0]$.
 
@@ -82,8 +82,6 @@ If $k=0$, we check if $i$ is equal to the length of $a$. If it is, then Bob wins
 The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively. We only need to traverse the arrays once. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -106,8 +104,6 @@ class Solution:
                     k ^= 1
                 i += 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -142,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canAliceWin(a []string, b []string) bool {
 	i, j, k := 1, 0, 1
@@ -204,8 +196,6 @@ func canAliceWin(a []string, b []string) bool {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canAliceWin(a: string[], b: string[]): boolean {
@@ -235,10 +225,6 @@ function canAliceWin(a: string[], b: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

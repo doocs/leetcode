@@ -57,9 +57,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
             s.add(local + '@' + domain)
         return len(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numUniqueEmails(emails []string) int {
 	s := map[string]bool{}
@@ -133,7 +127,41 @@ func numUniqueEmails(emails []string) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function numUniqueEmails(emails: string[]): number {
+    return new Set(
+        emails
+            .map(email => email.split('@'))
+            .map(([start, end]) => start.replace(/\+.*|\./g, '') + '@' + end),
+    ).size;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn num_unique_emails(emails: Vec<String>) -> i32 {
+        let mut set = HashSet::new();
+        for email in emails.iter() {
+            let res: Vec<&str> = email.split('@').collect();
+            let mut s = String::new();
+            for &c in res[0].as_bytes().iter() {
+                if c == b'.' {
+                    continue;
+                }
+                if c == b'+' {
+                    break;
+                }
+                s.push(c as char);
+            }
+            s.push('@');
+            s.push_str(res[1]);
+            set.insert(s);
+        }
+        set.len() as i32
+    }
+}
+```
 
 ```js
 const numUniqueEmails2 = function (emails) {
@@ -178,50 +206,6 @@ const numUniqueEmails = function (emails) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function numUniqueEmails(emails: string[]): number {
-    return new Set(
-        emails
-            .map(email => email.split('@'))
-            .map(([start, end]) => start.replace(/\+.*|\./g, '') + '@' + end),
-    ).size;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn num_unique_emails(emails: Vec<String>) -> i32 {
-        let mut set = HashSet::new();
-        for email in emails.iter() {
-            let res: Vec<&str> = email.split('@').collect();
-            let mut s = String::new();
-            for &c in res[0].as_bytes().iter() {
-                if c == b'.' {
-                    continue;
-                }
-                if c == b'+' {
-                    break;
-                }
-                s.push(c as char);
-            }
-            s.push('@');
-            s.push_str(res[1]);
-            set.insert(s);
-        }
-        set.len() as i32
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

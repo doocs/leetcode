@@ -60,13 +60,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +86,6 @@ class Solution:
                 ans[i][j] = abs(tl - br)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func differenceOfDistinctValues(grid [][]int) [][]int {
@@ -191,8 +179,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function differenceOfDistinctValues(grid: number[][]): number[][] {
     const m = grid.length;
@@ -221,10 +207,6 @@ function differenceOfDistinctValues(grid: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

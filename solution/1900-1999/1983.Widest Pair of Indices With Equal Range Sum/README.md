@@ -60,9 +60,7 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 哈希表**
+### 方法一：前缀和 + 哈希表
 
 我们观察到，对于任意的索引对 $(i, j)$，如果 $nums1[i] + nums1[i+1] + ... + nums1[j] = nums2[i] + nums2[i+1] + ... + nums2[j]$，那么 $nums1[i] - nums2[i] + nums1[i+1] - nums2[i+1] + ... + nums1[j] - nums2[j] = 0$。如果我们将数组 $nums1$ 与数组 $nums2$ 对应位置的元素相减，得到一个新的数组 $nums$，那么问题转换为在数组 $nums$ 中找到一个最长的子数组，使得子数组的和为 $0$。这可以通过前缀和 + 哈希表的方法求解。
 
@@ -75,10 +73,6 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
                 d[s] = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -160,10 +146,6 @@ func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

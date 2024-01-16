@@ -59,9 +59,9 @@ Question 285 has the highest answer rate.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -71,6 +71,12 @@ GROUP BY 1
 ORDER BY SUM(action = 'answer') / SUM(action = 'show') DESC, 1
 LIMIT 1;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 WITH
@@ -89,3 +95,5 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

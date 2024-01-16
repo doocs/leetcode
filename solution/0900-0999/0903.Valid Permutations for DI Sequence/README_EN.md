@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the number of permutations that satisfy the problem's requirements with the first $i$ characters of the string ending with the number $j$. Initially, $f[0][0]=1$, and the rest $f[0][j]=0$. The answer is $\sum_{j=0}^n f[n][j]$.
 
@@ -69,8 +69,6 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$
 We can optimize the time complexity to $O(n^2)$ using prefix sums. Additionally, we can optimize the space complexity to $O(n)$ using a rolling array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -90,49 +88,6 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][k]) % mod
         return sum(f[n][j] for j in range(n + 1)) % mod
 ```
-
-```python
-class Solution:
-    def numPermsDISequence(self, s: str) -> int:
-        mod = 10**9 + 7
-        n = len(s)
-        f = [[0] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 1
-        for i, c in enumerate(s, 1):
-            pre = 0
-            if c == "D":
-                for j in range(i, -1, -1):
-                    pre = (pre + f[i - 1][j]) % mod
-                    f[i][j] = pre
-            else:
-                for j in range(i + 1):
-                    f[i][j] = pre
-                    pre = (pre + f[i - 1][j]) % mod
-        return sum(f[n][j] for j in range(n + 1)) % mod
-```
-
-```python
-class Solution:
-    def numPermsDISequence(self, s: str) -> int:
-        mod = 10**9 + 7
-        n = len(s)
-        f = [1] + [0] * n
-        for i, c in enumerate(s, 1):
-            pre = 0
-            g = [0] * (n + 1)
-            if c == "D":
-                for j in range(i, -1, -1):
-                    pre = (pre + f[j]) % mod
-                    g[j] = pre
-            else:
-                for j in range(i + 1):
-                    g[j] = pre
-                    pre = (pre + f[j]) % mod
-            f = g
-        return sum(f) % mod
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -165,6 +120,127 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int numPermsDISequence(string s) {
+        const int mod = 1e9 + 7;
+        int n = s.size();
+        int f[n + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            if (s[i - 1] == 'D') {
+                for (int j = 0; j <= i; ++j) {
+                    for (int k = j; k < i; ++k) {
+                        f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
+                    }
+                }
+            } else {
+                for (int j = 0; j <= i; ++j) {
+                    for (int k = 0; k < j; ++k) {
+                        f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
+                    }
+                }
+            }
+        }
+        int ans = 0;
+        for (int j = 0; j <= n; ++j) {
+            ans = (ans + f[n][j]) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numPermsDISequence(s string) (ans int) {
+	const mod = 1e9 + 7
+	n := len(s)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		if s[i-1] == 'D' {
+			for j := 0; j <= i; j++ {
+				for k := j; k < i; k++ {
+					f[i][j] = (f[i][j] + f[i-1][k]) % mod
+				}
+			}
+		} else {
+			for j := 0; j <= i; j++ {
+				for k := 0; k < j; k++ {
+					f[i][j] = (f[i][j] + f[i-1][k]) % mod
+				}
+			}
+		}
+	}
+	for j := 0; j <= n; j++ {
+		ans = (ans + f[n][j]) % mod
+	}
+	return
+}
+```
+
+```ts
+function numPermsDISequence(s: string): number {
+    const n = s.length;
+    const f: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    f[0][0] = 1;
+    const mod = 10 ** 9 + 7;
+    for (let i = 1; i <= n; ++i) {
+        if (s[i - 1] === 'D') {
+            for (let j = 0; j <= i; ++j) {
+                for (let k = j; k < i; ++k) {
+                    f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
+                }
+            }
+        } else {
+            for (let j = 0; j <= i; ++j) {
+                for (let k = 0; k < j; ++k) {
+                    f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
+                }
+            }
+        }
+    }
+    let ans = 0;
+    for (let j = 0; j <= n; ++j) {
+        ans = (ans + f[n][j]) % mod;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numPermsDISequence(self, s: str) -> int:
+        mod = 10**9 + 7
+        n = len(s)
+        f = [[0] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        for i, c in enumerate(s, 1):
+            pre = 0
+            if c == "D":
+                for j in range(i, -1, -1):
+                    pre = (pre + f[i - 1][j]) % mod
+                    f[i][j] = pre
+            else:
+                for j in range(i + 1):
+                    f[i][j] = pre
+                    pre = (pre + f[i - 1][j]) % mod
+        return sum(f[n][j] for j in range(n + 1)) % mod
+```
+
 ```java
 class Solution {
     public int numPermsDISequence(String s) {
@@ -193,6 +269,125 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int numPermsDISequence(string s) {
+        const int mod = 1e9 + 7;
+        int n = s.size();
+        int f[n + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            int pre = 0;
+            if (s[i - 1] == 'D') {
+                for (int j = i; j >= 0; --j) {
+                    pre = (pre + f[i - 1][j]) % mod;
+                    f[i][j] = pre;
+                }
+            } else {
+                for (int j = 0; j <= i; ++j) {
+                    f[i][j] = pre;
+                    pre = (pre + f[i - 1][j]) % mod;
+                }
+            }
+        }
+        int ans = 0;
+        for (int j = 0; j <= n; ++j) {
+            ans = (ans + f[n][j]) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numPermsDISequence(s string) (ans int) {
+	const mod = 1e9 + 7
+	n := len(s)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		pre := 0
+		if s[i-1] == 'D' {
+			for j := i; j >= 0; j-- {
+				pre = (pre + f[i-1][j]) % mod
+				f[i][j] = pre
+			}
+		} else {
+			for j := 0; j <= i; j++ {
+				f[i][j] = pre
+				pre = (pre + f[i-1][j]) % mod
+			}
+		}
+	}
+	for j := 0; j <= n; j++ {
+		ans = (ans + f[n][j]) % mod
+	}
+	return
+}
+```
+
+```ts
+function numPermsDISequence(s: string): number {
+    const n = s.length;
+    const f: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    f[0][0] = 1;
+    const mod = 10 ** 9 + 7;
+    for (let i = 1; i <= n; ++i) {
+        let pre = 0;
+        if (s[i - 1] === 'D') {
+            for (let j = i; j >= 0; --j) {
+                pre = (pre + f[i - 1][j]) % mod;
+                f[i][j] = pre;
+            }
+        } else {
+            for (let j = 0; j <= i; ++j) {
+                f[i][j] = pre;
+                pre = (pre + f[i - 1][j]) % mod;
+            }
+        }
+    }
+    let ans = 0;
+    for (let j = 0; j <= n; ++j) {
+        ans = (ans + f[n][j]) % mod;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numPermsDISequence(self, s: str) -> int:
+        mod = 10**9 + 7
+        n = len(s)
+        f = [1] + [0] * n
+        for i, c in enumerate(s, 1):
+            pre = 0
+            g = [0] * (n + 1)
+            if c == "D":
+                for j in range(i, -1, -1):
+                    pre = (pre + f[j]) % mod
+                    g[j] = pre
+            else:
+                for j in range(i + 1):
+                    g[j] = pre
+                    pre = (pre + f[j]) % mod
+            f = g
+        return sum(f) % mod
 ```
 
 ```java
@@ -225,73 +420,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numPermsDISequence(string s) {
-        const int mod = 1e9 + 7;
-        int n = s.size();
-        int f[n + 1][n + 1];
-        memset(f, 0, sizeof(f));
-        f[0][0] = 1;
-        for (int i = 1; i <= n; ++i) {
-            if (s[i - 1] == 'D') {
-                for (int j = 0; j <= i; ++j) {
-                    for (int k = j; k < i; ++k) {
-                        f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
-                    }
-                }
-            } else {
-                for (int j = 0; j <= i; ++j) {
-                    for (int k = 0; k < j; ++k) {
-                        f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
-                    }
-                }
-            }
-        }
-        int ans = 0;
-        for (int j = 0; j <= n; ++j) {
-            ans = (ans + f[n][j]) % mod;
-        }
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int numPermsDISequence(string s) {
-        const int mod = 1e9 + 7;
-        int n = s.size();
-        int f[n + 1][n + 1];
-        memset(f, 0, sizeof(f));
-        f[0][0] = 1;
-        for (int i = 1; i <= n; ++i) {
-            int pre = 0;
-            if (s[i - 1] == 'D') {
-                for (int j = i; j >= 0; --j) {
-                    pre = (pre + f[i - 1][j]) % mod;
-                    f[i][j] = pre;
-                }
-            } else {
-                for (int j = 0; j <= i; ++j) {
-                    f[i][j] = pre;
-                    pre = (pre + f[i - 1][j]) % mod;
-                }
-            }
-        }
-        int ans = 0;
-        for (int j = 0; j <= n; ++j) {
-            ans = (ans + f[n][j]) % mod;
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -327,69 +455,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func numPermsDISequence(s string) (ans int) {
-	const mod = 1e9 + 7
-	n := len(s)
-	f := make([][]int, n+1)
-	for i := range f {
-		f[i] = make([]int, n+1)
-	}
-	f[0][0] = 1
-	for i := 1; i <= n; i++ {
-		if s[i-1] == 'D' {
-			for j := 0; j <= i; j++ {
-				for k := j; k < i; k++ {
-					f[i][j] = (f[i][j] + f[i-1][k]) % mod
-				}
-			}
-		} else {
-			for j := 0; j <= i; j++ {
-				for k := 0; k < j; k++ {
-					f[i][j] = (f[i][j] + f[i-1][k]) % mod
-				}
-			}
-		}
-	}
-	for j := 0; j <= n; j++ {
-		ans = (ans + f[n][j]) % mod
-	}
-	return
-}
-```
-
-```go
-func numPermsDISequence(s string) (ans int) {
-	const mod = 1e9 + 7
-	n := len(s)
-	f := make([][]int, n+1)
-	for i := range f {
-		f[i] = make([]int, n+1)
-	}
-	f[0][0] = 1
-	for i := 1; i <= n; i++ {
-		pre := 0
-		if s[i-1] == 'D' {
-			for j := i; j >= 0; j-- {
-				pre = (pre + f[i-1][j]) % mod
-				f[i][j] = pre
-			}
-		} else {
-			for j := 0; j <= i; j++ {
-				f[i][j] = pre
-				pre = (pre + f[i-1][j]) % mod
-			}
-		}
-	}
-	for j := 0; j <= n; j++ {
-		ans = (ans + f[n][j]) % mod
-	}
-	return
-}
-```
-
 ```go
 func numPermsDISequence(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -416,69 +481,6 @@ func numPermsDISequence(s string) (ans int) {
 		ans = (ans + f[j]) % mod
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function numPermsDISequence(s: string): number {
-    const n = s.length;
-    const f: number[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(n + 1).fill(0));
-    f[0][0] = 1;
-    const mod = 10 ** 9 + 7;
-    for (let i = 1; i <= n; ++i) {
-        if (s[i - 1] === 'D') {
-            for (let j = 0; j <= i; ++j) {
-                for (let k = j; k < i; ++k) {
-                    f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
-                }
-            }
-        } else {
-            for (let j = 0; j <= i; ++j) {
-                for (let k = 0; k < j; ++k) {
-                    f[i][j] = (f[i][j] + f[i - 1][k]) % mod;
-                }
-            }
-        }
-    }
-    let ans = 0;
-    for (let j = 0; j <= n; ++j) {
-        ans = (ans + f[n][j]) % mod;
-    }
-    return ans;
-}
-```
-
-```ts
-function numPermsDISequence(s: string): number {
-    const n = s.length;
-    const f: number[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(n + 1).fill(0));
-    f[0][0] = 1;
-    const mod = 10 ** 9 + 7;
-    for (let i = 1; i <= n; ++i) {
-        let pre = 0;
-        if (s[i - 1] === 'D') {
-            for (let j = i; j >= 0; --j) {
-                pre = (pre + f[i - 1][j]) % mod;
-                f[i][j] = pre;
-            }
-        } else {
-            for (let j = 0; j <= i; ++j) {
-                f[i][j] = pre;
-                pre = (pre + f[i - 1][j]) % mod;
-            }
-        }
-    }
-    let ans = 0;
-    for (let j = 0; j <= n; ++j) {
-        ans = (ans + f[n][j]) % mod;
-    }
-    return ans;
 }
 ```
 
@@ -512,10 +514,6 @@ function numPermsDISequence(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

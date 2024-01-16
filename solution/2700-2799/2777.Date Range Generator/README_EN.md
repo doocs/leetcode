@@ -52,9 +52,9 @@ g.next().value // &#39;2023-04-10&#39;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function* dateRangeGenerator(start: string, end: string, step: number): Generator<string> {
@@ -78,3 +78,5 @@ function* dateRangeGenerator(start: string, end: string, step: number): Generato
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

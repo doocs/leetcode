@@ -58,9 +58,9 @@ After that, there are fewer than two non-empty piles, so the game ends.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,17 +74,6 @@ class Solution:
             s.sort()
         return ans
 ```
-
-```python
-class Solution:
-    def maximumScore(self, a: int, b: int, c: int) -> int:
-        a, b, c = sorted([a, b, c])
-        if a + b < c:
-            return a + b
-        return (a + b + c) >> 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,21 +91,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int maximumScore(int a, int b, int c) {
-        int[] s = new int[] {a, b, c};
-        Arrays.sort(s);
-        if (s[0] + s[1] < s[2]) {
-            return s[0] + s[1];
-        }
-        return (a + b + c) >> 1;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,20 +110,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maximumScore(int a, int b, int c) {
-        vector<int> s = {a, b, c};
-        sort(s.begin(), s.end());
-        if (s[0] + s[1] < s[2]) return s[0] + s[1];
-        return (a + b + c) >> 1;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maximumScore(a int, b int, c int) (ans int) {
 	s := []int{a, b, c}
@@ -164,6 +124,46 @@ func maximumScore(a int, b int, c int) (ans int) {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumScore(self, a: int, b: int, c: int) -> int:
+        a, b, c = sorted([a, b, c])
+        if a + b < c:
+            return a + b
+        return (a + b + c) >> 1
+```
+
+```java
+class Solution {
+    public int maximumScore(int a, int b, int c) {
+        int[] s = new int[] {a, b, c};
+        Arrays.sort(s);
+        if (s[0] + s[1] < s[2]) {
+            return s[0] + s[1];
+        }
+        return (a + b + c) >> 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maximumScore(int a, int b, int c) {
+        vector<int> s = {a, b, c};
+        sort(s.begin(), s.end());
+        if (s[0] + s[1] < s[2]) return s[0] + s[1];
+        return (a + b + c) >> 1;
+    }
+};
+```
+
 ```go
 func maximumScore(a int, b int, c int) int {
 	s := []int{a, b, c}
@@ -175,10 +175,6 @@ func maximumScore(a int, b int, c int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

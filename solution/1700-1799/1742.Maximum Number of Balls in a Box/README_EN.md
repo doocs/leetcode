@@ -52,7 +52,7 @@ Box 10 has the most number of balls with 2 balls.
 
 ## Solutions
 
-**Solution 1: Array + Simulation**
+### Solution 1: Array + Simulation
 
 Observing the data range of the problem, the maximum number of the ball does not exceed $10^5$, so the maximum value of the sum of each digit of the number is less than $50$. Therefore, we can directly create an array $cnt$ with a length of $50$ to count the number of each digit sum of each number.
 
@@ -61,8 +61,6 @@ The answer is the maximum value in the array $cnt$.
 The time complexity is $O(n \times \log_{10}m)$. Here, $n = highLimit - lowLimit + 1$, and $m = highLimit$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
             cnt[y] += 1
         return max(cnt)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countBalls(lowLimit int, highLimit int) (ans int) {
 	cnt := [50]int{}
@@ -134,8 +126,6 @@ func countBalls(lowLimit int, highLimit int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countBalls(lowLimit: number, highLimit: number): number {
     const cnt: number[] = Array(50).fill(0);
@@ -150,10 +140,6 @@ function countBalls(lowLimit: number, highLimit: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

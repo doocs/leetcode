@@ -96,11 +96,9 @@ queue.size();       // 队列中还有 1 个元素。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from threading import Semaphore
@@ -126,8 +124,6 @@ class BoundedBlockingQueue(object):
     def size(self) -> int:
         return len(self.q)
 ```
-
-### **Java**
 
 ```java
 class BoundedBlockingQueue {
@@ -158,8 +154,6 @@ class BoundedBlockingQueue {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 #include <semaphore.h>
@@ -195,6 +189,6 @@ private:
 };
 ```
 
-### \*\*
-
 <!-- tabs:end -->
+
+<!-- end -->

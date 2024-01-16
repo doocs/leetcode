@@ -46,15 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-递归：
 
 ```python
 """
@@ -79,38 +73,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-迭代：
-
-```python
-"""
-# Definition for a Node.
-class Node:
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children
-"""
-
-
-class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
-        ans = []
-        if root is None:
-            return ans
-        stk = [root]
-        while stk:
-            node = stk.pop()
-            ans.append(node.val)
-            for child in node.children:
-                stk.append(child)
-        return ans[::-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-递归：
 
 ```java
 /*
@@ -154,7 +116,127 @@ class Solution {
 }
 ```
 
-迭代：
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> postorder(Node* root) {
+        vector<int> ans;
+        dfs(root, ans);
+        return ans;
+    }
+
+    void dfs(Node* root, vector<int>& ans) {
+        if (!root) return;
+        for (auto& child : root->children) dfs(child, ans);
+        ans.push_back(root->val);
+    }
+};
+```
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func postorder(root *Node) []int {
+	var ans []int
+	var dfs func(root *Node)
+	dfs = func(root *Node) {
+		if root == nil {
+			return
+		}
+		for _, child := range root.Children {
+			dfs(child)
+		}
+		ans = append(ans, root.Val)
+	}
+	dfs(root)
+	return ans
+}
+```
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function postorder(root: Node | null): number[] {
+    const res = [];
+    const dfs = (root: Node | null) => {
+        if (root == null) {
+            return;
+        }
+        for (const node of root.children) {
+            dfs(node);
+        }
+        res.push(root.val);
+    };
+    dfs(root);
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children:
+                stk.append(child)
+        return ans[::-1]
+```
 
 ```java
 /*
@@ -196,49 +278,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-递归：
-
-```cpp
-/*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    vector<Node*> children;
-
-    Node() {}
-
-    Node(int _val) {
-        val = _val;
-    }
-
-    Node(int _val, vector<Node*> _children) {
-        val = _val;
-        children = _children;
-    }
-};
-*/
-
-class Solution {
-public:
-    vector<int> postorder(Node* root) {
-        vector<int> ans;
-        dfs(root, ans);
-        return ans;
-    }
-
-    void dfs(Node* root, vector<int>& ans) {
-        if (!root) return;
-        for (auto& child : root->children) dfs(child, ans);
-        ans.push_back(root->val);
-    }
-};
-```
-
-迭代：
-
 ```cpp
 /*
 // Definition for a Node.
@@ -278,38 +317,6 @@ public:
 };
 ```
 
-### **Go**
-
-递归：
-
-```go
-/**
- * Definition for a Node.
- * type Node struct {
- *     Val int
- *     Children []*Node
- * }
- */
-
-func postorder(root *Node) []int {
-	var ans []int
-	var dfs func(root *Node)
-	dfs = func(root *Node) {
-		if root == nil {
-			return
-		}
-		for _, child := range root.Children {
-			dfs(child)
-		}
-		ans = append(ans, root.Val)
-	}
-	dfs(root)
-	return ans
-}
-```
-
-迭代：
-
 ```go
 /**
  * Definition for a Node.
@@ -336,41 +343,6 @@ func postorder(root *Node) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
-
-递归：
-
-```ts
-/**
- * Definition for node.
- * class Node {
- *     val: number
- *     children: Node[]
- *     constructor(val?: number) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.children = []
- *     }
- * }
- */
-
-function postorder(root: Node | null): number[] {
-    const res = [];
-    const dfs = (root: Node | null) => {
-        if (root == null) {
-            return;
-        }
-        for (const node of root.children) {
-            dfs(node);
-        }
-        res.push(root.val);
-    };
-    dfs(root);
-    return res;
-}
-```
-
-迭代：
 
 ```ts
 /**
@@ -406,10 +378,6 @@ function postorder(root: Node | null): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

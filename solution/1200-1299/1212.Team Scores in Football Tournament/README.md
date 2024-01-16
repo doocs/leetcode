@@ -93,9 +93,7 @@ Teams </code>table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：左连接 + 分组 + CASE 表达式**
+### 方法一：左连接 + 分组 + CASE 表达式
 
 我们可以通过左连接，将 `Teams` 表和 `Matches` 表连接起来，连接的条件为 `team_id = host_team OR team_id = guest_team`，这样就可以得到每个球队的所有比赛信息。
 
@@ -108,8 +106,6 @@ Teams </code>table:
 最后，我们按照积分降序排序，如果积分相同，则按照 `team_id` 升序排序。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -134,3 +130,5 @@ ORDER BY 3 DESC, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

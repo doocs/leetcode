@@ -56,9 +56,9 @@ Files table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -72,3 +72,5 @@ WHERE content LIKE '% bear %';
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

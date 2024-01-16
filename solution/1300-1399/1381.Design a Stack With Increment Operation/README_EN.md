@@ -51,7 +51,7 @@ stk.pop();                            // return -1 --&gt; Stack is empty return 
 
 ## Solutions
 
-**Solution 1: Array Simulation**
+### Solution 1: Array Simulation
 
 We can use an array $stk$ to simulate the stack, and an integer $i$ to represent the position of the next element to be pushed into the stack. In addition, we need another array $add$ to record the cumulative increment value at each position.
 
@@ -64,8 +64,6 @@ When calling $increment(k, val)$, if $i > 0$, we add $val$ to $add[\min(i, k) - 
 The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the maximum capacity of the stack.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class CustomStack:
@@ -101,8 +99,6 @@ class CustomStack:
 # param_2 = obj.pop()
 # obj.increment(k,val)
 ```
-
-### **Java**
 
 ```java
 class CustomStack {
@@ -148,8 +144,6 @@ class CustomStack {
  * obj.increment(k,val);
  */
 ```
-
-### **C++**
 
 ```cpp
 class CustomStack {
@@ -199,8 +193,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type CustomStack struct {
 	stk []int
@@ -246,8 +238,6 @@ func (this *CustomStack) Increment(k int, val int) {
  * obj.Increment(k,val);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class CustomStack {
@@ -295,10 +285,6 @@ class CustomStack {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

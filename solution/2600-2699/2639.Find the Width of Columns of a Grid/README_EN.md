@@ -46,9 +46,9 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,14 +60,6 @@ class Solution:
                 ans[j] = max(ans[j], w)
         return ans
 ```
-
-```python
-class Solution:
-    def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
-        return [max(len(str(x)) for x in col) for col in zip(*grid)]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findColumnWidth(grid [][]int) []int {
 	ans := make([]int, len(grid[0]))
@@ -118,8 +106,6 @@ func findColumnWidth(grid [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findColumnWidth(grid: number[][]): number[] {
@@ -134,8 +120,6 @@ function findColumnWidth(grid: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -154,10 +138,18 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
+        return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

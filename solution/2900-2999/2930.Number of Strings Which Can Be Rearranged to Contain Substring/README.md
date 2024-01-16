@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i, l, e, t)$，表示当前剩余字符串长度为 $i$，且已至少有 $l$ 个字符 `'l'`, $e$ 个字符 `'e'` 和 $t$ 个字符 `'t'`，构成的字符串是一个好字符串的方案数。那么答案为 $dfs(n, 0, 0, 0)$。
 
@@ -69,31 +67,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
-**方法二：逆向思维 + 容斥原理**
-
-我们可以考虑逆向思维，即计算不包含子字符串 `"leet"` 的字符串数目，然后用总数减去该数目即可。
-
-我们分成以下几种情况：
-
--   情况 $a$：表示字符串中不包含字符 `'l'` 的方案数，那么有 $a = 25^n$。
--   情况 $b$：与 $a$ 类似，表示字符串中不包含字符 `'t'` 的方案数，那么有 $b = 25^n$。
--   情况 $c$：表示字符串中不包含字符 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $c = 25^n + n \times 25^{n - 1}$。
--   情况 $ab$：表示字符串中不包含字符 `'l'` 和 `'t'` 的方案数，那么有 $ab = 24^n$。
--   情况 $ac$：表示字符串中不包含字符 `'l'` 和 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $ac = 24^n + n \times 24^{n - 1}$。
--   情况 $bc$：与 $ac$ 类似，表示字符串中不包含字符 `'t'` 和 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $bc = 24^n + n \times 24^{n - 1}$。
--   情况 $abc$：表示字符串中不包含字符 `'l'`、`'t'` 和 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $abc = 23^n + n \times 23^{n - 1}$。
-
-那么根据容斥原理，可以得到 $a + b + c - ab - ac - bc + abc$，就是不包含子字符串 `"leet"` 的字符串数目。
-
-而总数 $tot = 26^n$，所以答案为 $tot - (a + b + c - ab - ac - bc + abc)$，注意要对 $10^9 + 7$ 取模。
-
-时间复杂度 $O(\log n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,23 +85,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(n, 0, 0, 0)
 ```
-
-```python
-class Solution:
-    def stringCount(self, n: int) -> int:
-        mod = 10**9 + 7
-        a = b = pow(25, n, mod)
-        c = pow(25, n, mod) + n * pow(25, n - 1, mod)
-        ab = pow(24, n, mod)
-        ac = bc = (pow(24, n, mod) + n * pow(24, n - 1, mod)) % mod
-        abc = (pow(23, n, mod) + n * pow(23, n - 1, mod)) % mod
-        tot = pow(26, n, mod)
-        return (tot - (a + b + c - ab - ac - bc + abc)) % mod
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -155,37 +112,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private final int mod = (int) 1e9 + 7;
-
-    public int stringCount(int n) {
-        long a = qpow(25, n);
-        long b = a;
-        long c = (qpow(25, n) + n * qpow(25, n - 1) % mod) % mod;
-        long ab = qpow(24, n);
-        long ac = (qpow(24, n) + n * qpow(24, n - 1) % mod) % mod;
-        long bc = ac;
-        long abc = (qpow(23, n) + n * qpow(23, n - 1) % mod) % mod;
-        long tot = qpow(26, n);
-        return (int) ((tot - (a + b + c - ab - ac - bc + abc)) % mod + mod) % mod;
-    }
-
-    private long qpow(long a, int n) {
-        long ans = 1;
-        for (; n > 0; n >>= 1) {
-            if ((n & 1) == 1) {
-                ans = ans * a % mod;
-            }
-            a = a * a % mod;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -211,37 +137,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int stringCount(int n) {
-        const int mod = 1e9 + 7;
-        using ll = long long;
-        auto qpow = [&](ll a, int n) {
-            ll ans = 1;
-            for (; n; n >>= 1) {
-                if (n & 1) {
-                    ans = ans * a % mod;
-                }
-                a = a * a % mod;
-            }
-            return ans;
-        };
-        ll a = qpow(25, n);
-        ll b = a;
-        ll c = (qpow(25, n) + n * qpow(25, n - 1) % mod) % mod;
-        ll ab = qpow(24, n);
-        ll ac = (qpow(24, n) + n * qpow(24, n - 1) % mod) % mod;
-        ll bc = ac;
-        ll abc = (qpow(23, n) + n * qpow(23, n - 1) % mod) % mod;
-        ll tot = qpow(26, n);
-        return ((tot - (a + b + c - ab - ac - bc + abc)) % mod + mod) % mod;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func stringCount(n int) int {
@@ -277,33 +172,6 @@ func stringCount(n int) int {
 }
 ```
 
-```go
-func stringCount(n int) int {
-	const mod int = 1e9 + 7
-	qpow := func(a, n int) int {
-		ans := 1
-		for ; n > 0; n >>= 1 {
-			if n&1 == 1 {
-				ans = ans * a % mod
-			}
-			a = a * a % mod
-		}
-		return ans
-	}
-	a := qpow(25, n)
-	b := a
-	c := qpow(25, n) + n*qpow(25, n-1)
-	ab := qpow(24, n)
-	ac := (qpow(24, n) + n*qpow(24, n-1)) % mod
-	bc := ac
-	abc := (qpow(23, n) + n*qpow(23, n-1)) % mod
-	tot := qpow(26, n)
-	return ((tot-(a+b+c-ab-ac-bc+abc))%mod + mod) % mod
-}
-```
-
-### **TypeScript**
-
 ```ts
 function stringCount(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -326,6 +194,126 @@ function stringCount(n: number): number {
         return (f[i][l][e][t] = (a + b + c + d) % mod);
     };
     return dfs(n, 0, 0, 0);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：逆向思维 + 容斥原理
+
+我们可以考虑逆向思维，即计算不包含子字符串 `"leet"` 的字符串数目，然后用总数减去该数目即可。
+
+我们分成以下几种情况：
+
+-   情况 $a$：表示字符串中不包含字符 `'l'` 的方案数，那么有 $a = 25^n$。
+-   情况 $b$：与 $a$ 类似，表示字符串中不包含字符 `'t'` 的方案数，那么有 $b = 25^n$。
+-   情况 $c$：表示字符串中不包含字符 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $c = 25^n + n \times 25^{n - 1}$。
+-   情况 $ab$：表示字符串中不包含字符 `'l'` 和 `'t'` 的方案数，那么有 $ab = 24^n$。
+-   情况 $ac$：表示字符串中不包含字符 `'l'` 和 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $ac = 24^n + n \times 24^{n - 1}$。
+-   情况 $bc$：与 $ac$ 类似，表示字符串中不包含字符 `'t'` 和 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $bc = 24^n + n \times 24^{n - 1}$。
+-   情况 $abc$：表示字符串中不包含字符 `'l'`、`'t'` 和 `'e'` 或者只包含一个字符 `'e'` 的方案数，那么有 $abc = 23^n + n \times 23^{n - 1}$。
+
+那么根据容斥原理，可以得到 $a + b + c - ab - ac - bc + abc$，就是不包含子字符串 `"leet"` 的字符串数目。
+
+而总数 $tot = 26^n$，所以答案为 $tot - (a + b + c - ab - ac - bc + abc)$，注意要对 $10^9 + 7$ 取模。
+
+时间复杂度 $O(\log n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def stringCount(self, n: int) -> int:
+        mod = 10**9 + 7
+        a = b = pow(25, n, mod)
+        c = pow(25, n, mod) + n * pow(25, n - 1, mod)
+        ab = pow(24, n, mod)
+        ac = bc = (pow(24, n, mod) + n * pow(24, n - 1, mod)) % mod
+        abc = (pow(23, n, mod) + n * pow(23, n - 1, mod)) % mod
+        tot = pow(26, n, mod)
+        return (tot - (a + b + c - ab - ac - bc + abc)) % mod
+```
+
+```java
+class Solution {
+    private final int mod = (int) 1e9 + 7;
+
+    public int stringCount(int n) {
+        long a = qpow(25, n);
+        long b = a;
+        long c = (qpow(25, n) + n * qpow(25, n - 1) % mod) % mod;
+        long ab = qpow(24, n);
+        long ac = (qpow(24, n) + n * qpow(24, n - 1) % mod) % mod;
+        long bc = ac;
+        long abc = (qpow(23, n) + n * qpow(23, n - 1) % mod) % mod;
+        long tot = qpow(26, n);
+        return (int) ((tot - (a + b + c - ab - ac - bc + abc)) % mod + mod) % mod;
+    }
+
+    private long qpow(long a, int n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
+            }
+            a = a * a % mod;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int stringCount(int n) {
+        const int mod = 1e9 + 7;
+        using ll = long long;
+        auto qpow = [&](ll a, int n) {
+            ll ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
+            }
+            return ans;
+        };
+        ll a = qpow(25, n);
+        ll b = a;
+        ll c = (qpow(25, n) + n * qpow(25, n - 1) % mod) % mod;
+        ll ab = qpow(24, n);
+        ll ac = (qpow(24, n) + n * qpow(24, n - 1) % mod) % mod;
+        ll bc = ac;
+        ll abc = (qpow(23, n) + n * qpow(23, n - 1) % mod) % mod;
+        ll tot = qpow(26, n);
+        return ((tot - (a + b + c - ab - ac - bc + abc)) % mod + mod) % mod;
+    }
+};
+```
+
+```go
+func stringCount(n int) int {
+	const mod int = 1e9 + 7
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
+	a := qpow(25, n)
+	b := a
+	c := qpow(25, n) + n*qpow(25, n-1)
+	ab := qpow(24, n)
+	ac := (qpow(24, n) + n*qpow(24, n-1)) % mod
+	bc := ac
+	abc := (qpow(23, n) + n*qpow(23, n-1)) % mod
+	tot := qpow(26, n)
+	return ((tot-(a+b+c-ab-ac-bc+abc))%mod + mod) % mod
 }
 ```
 
@@ -354,10 +342,6 @@ function stringCount(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -71,13 +71,9 @@ Genders 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -101,6 +97,12 @@ FROM t
 ORDER BY rk1, rk2;
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 SELECT
     user_id,
@@ -117,3 +119,5 @@ ORDER BY
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

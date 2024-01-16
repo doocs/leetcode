@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：建图 + BFS**
+### 方法一：建图 + BFS
 
 对于本题，我们可以将公交线路看成图中的节点，对于任意两条公交线路，如果它们有公共的公交站点，那么这两个公交线路之间就有一条边。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n\times m + n^2)$。其中 $n$, $m$ 分别表示公交线路的数量和公交站的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -168,8 +158,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -225,8 +213,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numBusesToDestination(routes [][]int, source int, target int) int {
 	if source == target {
@@ -280,8 +266,6 @@ func numBusesToDestination(routes [][]int, source int, target int) int {
 	return -1
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -340,10 +324,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

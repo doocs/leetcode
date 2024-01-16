@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,34 +64,6 @@ class Solution:
                         cnt.pop(x)
         return True
 ```
-
-```python
-from sortedcontainers import SortedDict
-
-
-class Solution:
-    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
-        if len(nums) % k != 0:
-            return False
-        sd = SortedDict()
-        for h in nums:
-            if h in sd:
-                sd[h] += 1
-            else:
-                sd[h] = 1
-        while sd:
-            v = sd.peekitem(0)[0]
-            for i in range(v, v + k):
-                if i not in sd:
-                    return False
-                if sd[i] == 1:
-                    sd.pop(i)
-                else:
-                    sd[i] -= 1
-        return True
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,6 +89,86 @@ class Solution {
         return true;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool isPossibleDivide(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        for (int& v : nums) ++cnt[v];
+        sort(nums.begin(), nums.end());
+        for (int& v : nums) {
+            if (cnt.count(v)) {
+                for (int x = v; x < v + k; ++x) {
+                    if (!cnt.count(x)) {
+                        return false;
+                    }
+                    if (--cnt[x] == 0) {
+                        cnt.erase(x);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+```go
+func isPossibleDivide(nums []int, k int) bool {
+	cnt := map[int]int{}
+	for _, v := range nums {
+		cnt[v]++
+	}
+	sort.Ints(nums)
+	for _, v := range nums {
+		if _, ok := cnt[v]; ok {
+			for x := v; x < v+k; x++ {
+				if _, ok := cnt[x]; !ok {
+					return false
+				}
+				cnt[x]--
+				if cnt[x] == 0 {
+					delete(cnt, x)
+				}
+			}
+		}
+	}
+	return true
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedDict
+
+
+class Solution:
+    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
+        if len(nums) % k != 0:
+            return False
+        sd = SortedDict()
+        for h in nums:
+            if h in sd:
+                sd[h] += 1
+            else:
+                sd[h] = 1
+        while sd:
+            v = sd.peekitem(0)[0]
+            for i in range(v, v + k):
+                if i not in sd:
+                    return False
+                if sd[i] == 1:
+                    sd.pop(i)
+                else:
+                    sd[i] -= 1
+        return True
 ```
 
 ```java
@@ -147,32 +199,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isPossibleDivide(vector<int>& nums, int k) {
-        unordered_map<int, int> cnt;
-        for (int& v : nums) ++cnt[v];
-        sort(nums.begin(), nums.end());
-        for (int& v : nums) {
-            if (cnt.count(v)) {
-                for (int x = v; x < v + k; ++x) {
-                    if (!cnt.count(x)) {
-                        return false;
-                    }
-                    if (--cnt[x] == 0) {
-                        cnt.erase(x);
-                    }
-                }
-            }
-        }
-        return true;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -193,32 +219,6 @@ public:
         return true;
     }
 };
-```
-
-### **Go**
-
-```go
-func isPossibleDivide(nums []int, k int) bool {
-	cnt := map[int]int{}
-	for _, v := range nums {
-		cnt[v]++
-	}
-	sort.Ints(nums)
-	for _, v := range nums {
-		if _, ok := cnt[v]; ok {
-			for x := v; x < v+k; x++ {
-				if _, ok := cnt[x]; !ok {
-					return false
-				}
-				cnt[x]--
-				if cnt[x] == 0 {
-					delete(cnt, x)
-				}
-			}
-		}
-	}
-	return true
-}
 ```
 
 ```go
@@ -251,10 +251,6 @@ func isPossibleDivide(nums []int, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

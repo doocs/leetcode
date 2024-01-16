@@ -57,9 +57,7 @@ prices[5] - prices[4] = 8 - 7 = 1。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以将式子进行变换，得到：
 
@@ -75,10 +73,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxScore(self, prices: List[int]) -> int:
@@ -87,10 +81,6 @@ class Solution:
             cnt[x - i] += x
         return max(cnt.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxScore(prices []int) (ans int64) {
 	cnt := map[int]int{}
@@ -142,7 +128,16 @@ func maxScore(prices []int) (ans int64) {
 }
 ```
 
-### **Rust**
+```ts
+function maxScore(prices: number[]): number {
+    const cnt: Map<number, number> = new Map();
+    for (let i = 0; i < prices.length; ++i) {
+        const j = prices[i] - i;
+        cnt.set(j, (cnt.get(j) || 0) + prices[i]);
+    }
+    return Math.max(...cnt.values());
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -162,23 +157,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxScore(prices: number[]): number {
-    const cnt: Map<number, number> = new Map();
-    for (let i = 0; i < prices.length; ++i) {
-        const j = prices[i] - i;
-        cnt.set(j, (cnt.get(j) || 0) + prices[i]);
-    }
-    return Math.max(...cnt.values());
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

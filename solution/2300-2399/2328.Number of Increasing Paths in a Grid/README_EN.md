@@ -47,7 +47,7 @@ The total number of paths is 2 + 1 = 3.
 
 ## Solutions
 
-**Solution 1: DFS + Memorization**
+### Solution 1: DFS + Memorization
 
 We design a function $dfs(i, j)$, which represents the number of strictly increasing paths that can be reached from the grid graph starting at the $i$-th row and $j$-th column. Then the answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$. In the search process, we can use a two-dimensional array $f$ to record the calculated results to avoid repeated calculation.
 
@@ -63,8 +63,6 @@ The answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$.
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid graph, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return sum(dfs(i, j) for i in range(m) for j in range(n)) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPaths(grid [][]int) (ans int) {
 	const mod = 1e9 + 7
@@ -193,8 +185,6 @@ func countPaths(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPaths(grid: number[][]): number {
     const mod = 1e9 + 7;
@@ -226,10 +216,6 @@ function countPaths(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

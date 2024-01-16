@@ -66,19 +66,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们遍历 `brackets`，对于每个税级，计算该税级的税额，然后累加即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为 `brackets` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
             prev = upper
         return ans / 100
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func calculateTax(brackets [][]int, income int) float64 {
 	var ans, prev int
@@ -139,7 +125,17 @@ func calculateTax(brackets [][]int, income int) float64 {
 }
 ```
 
-### **Rust**
+```ts
+function calculateTax(brackets: number[][], income: number): number {
+    let ans = 0;
+    let prev = 0;
+    for (const [upper, percent] of brackets) {
+        ans += Math.max(0, Math.min(income, upper) - prev) * percent;
+        prev = upper;
+    }
+    return ans / 100;
+}
+```
 
 ```rust
 impl Solution {
@@ -158,24 +154,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function calculateTax(brackets: number[][], income: number): number {
-    let ans = 0;
-    let prev = 0;
-    for (const [upper, percent] of brackets) {
-        ans += Math.max(0, Math.min(income, upper) - prev) * percent;
-        prev = upper;
-    }
-    return ans / 100;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

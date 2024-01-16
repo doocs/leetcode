@@ -20,13 +20,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -40,28 +36,6 @@ class Solution:
             ans = min(ans, abs(i - j))
         return ans
 ```
-
-```python
-class Solution:
-    def findClosest(self, words: List[str], word1: str, word2: str) -> int:
-        d = defaultdict(list)
-        for i, w in enumerate(words):
-            d[w].append(i)
-        ans = 1e5
-        idx1, idx2 = d[word1], d[word2]
-        i, j, m, n = 0, 0, len(idx1), len(idx2)
-        while i < m and j < n:
-            ans = min(ans, abs(idx1[i] - idx2[j]))
-            if idx1[i] < idx2[j]:
-                i += 1
-            else:
-                j += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,6 +53,111 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int findClosest(vector<string>& words, string word1, string word2) {
+        int i = 1e5, j = -1e5, ans = 1e5;
+        for (int k = 0; k < words.size(); ++k) {
+            string word = words[k];
+            if (word == word1)
+                i = k;
+            else if (word == word2)
+                j = k;
+            ans = min(ans, abs(i - j));
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findClosest(words []string, word1 string, word2 string) int {
+	i, j, ans := 100000, -100000, 100000
+	for k, word := range words {
+		if word == word1 {
+			i = k
+		} else if word == word2 {
+			j = k
+		}
+		ans = min(ans, abs(i-j))
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+```ts
+function findClosest(words: string[], word1: string, word2: string): number {
+    let index1 = 100000;
+    let index2 = -100000;
+    let res = 100000;
+    const n = words.length;
+    for (let i = 0; i < n; i++) {
+        const word = words[i];
+        if (word === word1) {
+            index1 = i;
+        } else if (word === word2) {
+            index2 = i;
+        }
+        res = Math.min(res, Math.abs(index1 - index2));
+    }
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_closest(words: Vec<String>, word1: String, word2: String) -> i32 {
+        let mut res = i32::MAX;
+        let mut index1 = -1;
+        let mut index2 = -1;
+        for (i, word) in words.iter().enumerate() {
+            let i = i as i32;
+            if word.eq(&word1) {
+                index1 = i;
+            } else if word.eq(&word2) {
+                index2 = i;
+            }
+            if index1 != -1 && index2 != -1 {
+                res = res.min((index1 - index2).abs());
+            }
+        }
+        res
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findClosest(self, words: List[str], word1: str, word2: str) -> int:
+        d = defaultdict(list)
+        for i, w in enumerate(words):
+            d[w].append(i)
+        ans = 1e5
+        idx1, idx2 = d[word1], d[word2]
+        i, j, m, n = 0, 0, len(idx1), len(idx2)
+        while i < m and j < n:
+            ans = min(ans, abs(idx1[i] - idx2[j]))
+            if idx1[i] < idx2[j]:
+                i += 1
+            else:
+                j += 1
+        return ans
 ```
 
 ```java
@@ -105,47 +184,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findClosest(words: string[], word1: string, word2: string): number {
-    let index1 = 100000;
-    let index2 = -100000;
-    let res = 100000;
-    const n = words.length;
-    for (let i = 0; i < n; i++) {
-        const word = words[i];
-        if (word === word1) {
-            index1 = i;
-        } else if (word === word2) {
-            index2 = i;
-        }
-        res = Math.min(res, Math.abs(index1 - index2));
-    }
-    return res;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findClosest(vector<string>& words, string word1, string word2) {
-        int i = 1e5, j = -1e5, ans = 1e5;
-        for (int k = 0; k < words.size(); ++k) {
-            string word = words[k];
-            if (word == word1)
-                i = k;
-            else if (word == word2)
-                j = k;
-            ans = min(ans, abs(i - j));
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -166,30 +204,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func findClosest(words []string, word1 string, word2 string) int {
-	i, j, ans := 100000, -100000, 100000
-	for k, word := range words {
-		if word == word1 {
-			i = k
-		} else if word == word2 {
-			j = k
-		}
-		ans = min(ans, abs(i-j))
-	}
-	return ans
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
 ```
 
 ```go
@@ -223,34 +237,6 @@ func abs(x int) int {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_closest(words: Vec<String>, word1: String, word2: String) -> i32 {
-        let mut res = i32::MAX;
-        let mut index1 = -1;
-        let mut index2 = -1;
-        for (i, word) in words.iter().enumerate() {
-            let i = i as i32;
-            if word.eq(&word1) {
-                index1 = i;
-            } else if word.eq(&word2) {
-                index2 = i;
-            }
-            if index1 != -1 && index2 != -1 {
-                res = res.min((index1 - index2).abs());
-            }
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

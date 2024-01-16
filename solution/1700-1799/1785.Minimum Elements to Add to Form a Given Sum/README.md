@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先计算数组元素总和 $s$，然后计算 $s$ 与 $goal$ 的差值 $d$。
 
@@ -56,20 +54,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minElements(self, nums: List[int], limit: int, goal: int) -> int:
         d = abs(sum(nums) - goal)
         return (d + limit - 1) // limit
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +75,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +85,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minElements(nums []int, limit int, goal int) int {
@@ -118,8 +104,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minElements(nums: number[], limit: number, goal: number): number {
     const sum = nums.reduce((r, v) => r + v, 0);
@@ -127,8 +111,6 @@ function minElements(nums: number[], limit: number, goal: number): number {
     return Math.floor((diff + limit - 1) / limit);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -145,8 +127,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int minElements(int* nums, int numsSize, int limit, int goal) {
     long long sum = 0;
@@ -158,10 +138,6 @@ int minElements(int* nums, int numsSize, int limit, int goal) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

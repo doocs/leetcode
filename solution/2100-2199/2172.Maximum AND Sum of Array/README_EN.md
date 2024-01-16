@@ -46,9 +46,9 @@ Note that slots 2, 5, 6, and 8 are empty which is permitted.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                     f[i] = max(f[i], f[i ^ (1 << j)] + (nums[cnt - 1] & (j // 2 + 1)))
         return max(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumANDSum(nums []int, numSlots int) int {
 	n := len(nums)
@@ -139,8 +133,6 @@ func maximumANDSum(nums []int, numSlots int) int {
 	return slices.Max(f)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumANDSum(nums: number[], numSlots: number): number {
@@ -165,10 +157,6 @@ function maximumANDSum(nums: number[], numSlots: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

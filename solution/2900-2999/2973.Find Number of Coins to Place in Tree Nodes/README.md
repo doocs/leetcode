@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 排序**
+### 方法一：DFS + 排序
 
 根据题目描述，每个节点 $a$ 的放置的金币数有两种情况：
 
@@ -101,10 +99,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
@@ -129,10 +123,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -179,8 +169,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -218,8 +206,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func placedCoins(edges [][]int, cost []int) []int64 {
@@ -259,8 +245,6 @@ func placedCoins(edges [][]int, cost []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function placedCoins(edges: number[][], cost: number[]): number[] {
     const n = cost.length;
@@ -294,10 +278,6 @@ function placedCoins(edges: number[][], cost: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

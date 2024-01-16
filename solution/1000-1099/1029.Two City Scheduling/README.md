@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 我们不妨先假设所有人都去 $b$ 市，然后我们要从中选出 $n$ 个人去 $a$ 市，使得总费用最小。如果一个人去 $a$ 市的费用比去 $b$ 市的费用小，我们把这个人从 $b$ 市调到 $a$ 市，这样总费用就会减少。因此，我们可以将所有人按照去 $a$ 市的费用与去 $b$ 市的费用的差值从小到大排序，然后选出前 $n$ 个人去 $a$ 市，剩下的人去 $b$ 市，这样总费用就是最小的。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def twoCitySchedCost(self, costs: List[List[int]]) -> int:
@@ -78,10 +72,6 @@ class Solution:
         n = len(costs) >> 1
         return sum(costs[i][0] + costs[i + n][1] for i in range(n))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func twoCitySchedCost(costs [][]int) (ans int) {
 	sort.Slice(costs, func(i, j int) bool {
@@ -131,8 +117,6 @@ func twoCitySchedCost(costs [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function twoCitySchedCost(costs: number[][]): number {
     costs.sort((a, b) => a[0] - a[1] - (b[0] - b[1]));
@@ -145,10 +129,6 @@ function twoCitySchedCost(costs: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

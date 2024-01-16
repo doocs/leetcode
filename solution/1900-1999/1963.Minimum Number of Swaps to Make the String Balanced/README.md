@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们用一个变量 $x$ 记录当前未匹配的左括号的数量，遍历字符串 $s$，对于每个字符 $c$：
 
@@ -79,10 +77,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
@@ -94,10 +88,6 @@ class Solution:
                 x -= 1
         return (x + 1) >> 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSwaps(s string) int {
 	x := 0
@@ -150,8 +136,6 @@ func minSwaps(s string) int {
 	return (x + 1) / 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minSwaps(s: string): number {
@@ -167,10 +151,6 @@ function minSwaps(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

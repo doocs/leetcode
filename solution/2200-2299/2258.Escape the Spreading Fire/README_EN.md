@@ -64,7 +64,7 @@ Thus, 10<sup>9</sup> is returned.
 
 ## Solutions
 
-**Solution 1: Binary Search + BFS**
+### Solution 1: Binary Search + BFS
 
 We notice that if a stay time $t$ satisfies the condition, then all stay times less than $t$ also satisfy the condition. Therefore, we can consider using binary search to find the maximum stay time that satisfies the condition.
 
@@ -75,8 +75,6 @@ The key problem is how to determine whether a stay time $t$ satisfies the condit
 The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -143,8 +141,6 @@ class Solution:
                 r = mid - 1
         return int(1e9) if l == m * n else l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -235,8 +231,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -315,8 +309,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumMinutes(grid [][]int) int {
@@ -400,8 +392,6 @@ func maximumMinutes(grid [][]int) int {
 	return l
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumMinutes(grid: number[][]): number {
@@ -487,10 +477,6 @@ function maximumMinutes(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

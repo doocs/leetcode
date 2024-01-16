@@ -136,9 +136,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 倍增**
+### 方法一：动态规划 + 倍增
 
 题目要我们寻找从每个玩家 $i$ 开始，传球 $k$ 次内所有接触过球玩家的编号之和的最大值。如果暴力求解，需要从 $i$ 开始向上遍历 $k$ 次，时间复杂度为 $O(k)$，显然会超时。
 
@@ -159,10 +157,6 @@
 -   [1483. 树节点的第 K 个祖先](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -187,10 +181,6 @@ class Solution:
             ans = max(ans, t + p)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -224,8 +214,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -261,8 +249,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 	n, m := len(receiver), bits.Len(uint(k))
@@ -295,10 +281,6 @@ func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

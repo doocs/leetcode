@@ -90,9 +90,9 @@ Passengers table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -118,3 +118,5 @@ ORDER BY bus_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

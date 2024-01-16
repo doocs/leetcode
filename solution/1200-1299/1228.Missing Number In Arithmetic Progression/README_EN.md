@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: Arithmetic Series Sum Formula**
+### Solution 1: Arithmetic Series Sum Formula
 
 The sum formula for an arithmetic series is $\frac{n(a_1 + a_n)}{2}$, where $n$ is the number of terms in the arithmetic series, $a_1$ is the first term of the arithmetic series, and $a_n$ is the last term of the arithmetic series.
 
@@ -49,26 +49,11 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def missingNumber(self, arr: List[int]) -> int:
         return (arr[0] + arr[-1]) * (len(arr) + 1) // 2 - sum(arr)
 ```
-
-```python
-class Solution:
-    def missingNumber(self, arr: List[int]) -> int:
-        n = len(arr)
-        d = (arr[-1] - arr[0]) // n
-        for i in range(1, n):
-            if arr[i] != arr[i - 1] + d:
-                return arr[i - 1] + d
-        return arr[0]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,6 +64,48 @@ class Solution {
         return x - y;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& arr) {
+        int n = arr.size();
+        int x = (arr[0] + arr[n - 1]) * (n + 1) / 2;
+        int y = accumulate(arr.begin(), arr.end(), 0);
+        return x - y;
+    }
+};
+```
+
+```go
+func missingNumber(arr []int) int {
+	n := len(arr)
+	d := (arr[n-1] - arr[0]) / n
+	for i := 1; i < n; i++ {
+		if arr[i] != arr[i-1]+d {
+			return arr[i-1] + d
+		}
+	}
+	return arr[0]
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def missingNumber(self, arr: List[int]) -> int:
+        n = len(arr)
+        d = (arr[-1] - arr[0]) // n
+        for i in range(1, n):
+            if arr[i] != arr[i - 1] + d:
+                return arr[i - 1] + d
+        return arr[0]
 ```
 
 ```java
@@ -96,20 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int missingNumber(vector<int>& arr) {
-        int n = arr.size();
-        int x = (arr[0] + arr[n - 1]) * (n + 1) / 2;
-        int y = accumulate(arr.begin(), arr.end(), 0);
-        return x - y;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -123,37 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func missingNumber(arr []int) int {
-	n := len(arr)
-	x := (arr[0] + arr[n-1]) * (n + 1) / 2
-	y := 0
-	for _, v := range arr {
-		y += v
-	}
-	return x - y
-}
-```
-
-```go
-func missingNumber(arr []int) int {
-	n := len(arr)
-	d := (arr[n-1] - arr[0]) / n
-	for i := 1; i < n; i++ {
-		if arr[i] != arr[i-1]+d {
-			return arr[i-1] + d
-		}
-	}
-	return arr[0]
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

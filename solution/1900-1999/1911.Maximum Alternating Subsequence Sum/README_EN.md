@@ -52,9 +52,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,17 +67,6 @@ class Solution:
             g[i] = max(f[i - 1] + x, g[i - 1])
         return max(f[n], g[n])
 ```
-
-```python
-class Solution:
-    def maxAlternatingSum(self, nums: List[int]) -> int:
-        f = g = 0
-        for x in nums:
-            f, g = max(g - x, f), max(f + x, g)
-        return max(f, g)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,6 +81,63 @@ class Solution {
         return Math.max(f[n], g[n]);
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    long long maxAlternatingSum(vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> f(n + 1), g(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            f[i] = max(g[i - 1] - nums[i - 1], f[i - 1]);
+            g[i] = max(f[i - 1] + nums[i - 1], g[i - 1]);
+        }
+        return max(f[n], g[n]);
+    }
+};
+```
+
+```go
+func maxAlternatingSum(nums []int) int64 {
+	n := len(nums)
+	f := make([]int, n+1)
+	g := make([]int, n+1)
+	for i, x := range nums {
+		i++
+		f[i] = max(g[i-1]-x, f[i-1])
+		g[i] = max(f[i-1]+x, g[i-1])
+	}
+	return int64(max(f[n], g[n]))
+}
+```
+
+```ts
+function maxAlternatingSum(nums: number[]): number {
+    const n = nums.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    const g = f.slice();
+    for (let i = 1; i <= n; ++i) {
+        f[i] = Math.max(g[i - 1] + nums[i - 1], f[i - 1]);
+        g[i] = Math.max(f[i - 1] - nums[i - 1], g[i - 1]);
+    }
+    return Math.max(f[n], g[n]);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxAlternatingSum(self, nums: List[int]) -> int:
+        f = g = 0
+        for x in nums:
+            f, g = max(g - x, f), max(f + x, g)
+        return max(f, g)
 ```
 
 ```java
@@ -109,23 +155,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    long long maxAlternatingSum(vector<int>& nums) {
-        int n = nums.size();
-        vector<long long> f(n + 1), g(n + 1);
-        for (int i = 1; i <= n; ++i) {
-            f[i] = max(g[i - 1] - nums[i - 1], f[i - 1]);
-            g[i] = max(f[i - 1] + nums[i - 1], g[i - 1]);
-        }
-        return max(f[n], g[n]);
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -140,22 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maxAlternatingSum(nums []int) int64 {
-	n := len(nums)
-	f := make([]int, n+1)
-	g := make([]int, n+1)
-	for i, x := range nums {
-		i++
-		f[i] = max(g[i-1]-x, f[i-1])
-		g[i] = max(f[i-1]+x, g[i-1])
-	}
-	return int64(max(f[n], g[n]))
-}
-```
-
 ```go
 func maxAlternatingSum(nums []int) int64 {
 	var f, g int
@@ -163,21 +176,6 @@ func maxAlternatingSum(nums []int) int64 {
 		f, g = max(g-x, f), max(f+x, g)
 	}
 	return int64(max(f, g))
-}
-```
-
-### **TypeScript**
-
-```ts
-function maxAlternatingSum(nums: number[]): number {
-    const n = nums.length;
-    const f: number[] = new Array(n + 1).fill(0);
-    const g = f.slice();
-    for (let i = 1; i <= n; ++i) {
-        f[i] = Math.max(g[i - 1] + nums[i - 1], f[i - 1]);
-        g[i] = Math.max(f[i - 1] - nums[i - 1], g[i - 1]);
-    }
-    return Math.max(f[n], g[n]);
 }
 ```
 
@@ -191,10 +189,6 @@ function maxAlternatingSum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

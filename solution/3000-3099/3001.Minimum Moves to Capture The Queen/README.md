@@ -59,13 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +83,6 @@ class Solution:
         dirs2 = (-1, 1, 1, -1, -1)
         return 1 if check(dirs1, a, b, c, d) or check(dirs2, c, d, a, b) else 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
 	dirs := [2][5]int{{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}}
@@ -175,8 +163,6 @@ func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
 	return 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minMovesToCaptureTheQueen(
@@ -213,10 +199,6 @@ function minMovesToCaptureTheQueen(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

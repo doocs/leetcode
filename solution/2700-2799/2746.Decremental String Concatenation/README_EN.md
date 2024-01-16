@@ -68,7 +68,7 @@ It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We notice that when concatenating strings, the first and last characters of the string will affect the length of the concatenated string. Therefore, we design a function $dfs(i, a, b)$, which represents the minimum length of the concatenated string starting from the $i$-th string, and the first character of the previously concatenated string is $a$, and the last character is $b$.
 
@@ -85,8 +85,6 @@ The time complexity is $O(n \times C^2)$, and the space complexity is $O(n \time
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minimizeConcatenatedLength(self, words: List[str]) -> int:
@@ -101,8 +99,6 @@ class Solution:
 
         return len(words[0]) + dfs(1, words[0][0], words[0][-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +154,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimizeConcatenatedLength(words []string) int {
@@ -191,8 +183,6 @@ func minimizeConcatenatedLength(words []string) int {
 	return len(words[0]) + dfs(1, int(words[0][0]-'a'), int(words[0][len(words[0])-1]-'a'))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimizeConcatenatedLength(words: string[]): number {
@@ -226,10 +216,6 @@ function minimizeConcatenatedLength(words: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

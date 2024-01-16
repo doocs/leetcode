@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示使得 $s_1$ 的前 $i$ 个字符和 $s_2$ 的前 $j$ 个字符相等所需删除字符的 ASCII 值的最小和。那么答案就是 $f[m][n]$。
 
@@ -70,10 +68,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumDeleteSum(self, s1: str, s2: str) -> int:
@@ -93,10 +87,6 @@ class Solution:
                     )
         return f[m][n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumDeleteSum(s1 string, s2 string) int {
 	m, n := len(s1), len(s2)
@@ -180,8 +166,6 @@ func minimumDeleteSum(s1 string, s2 string) int {
 	return f[m][n]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumDeleteSum(s1: string, s2: string): number {
@@ -209,8 +193,6 @@ function minimumDeleteSum(s1: string, s2: string): number {
     return f[m][n];
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -244,10 +226,6 @@ var minimumDeleteSum = function (s1, s2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

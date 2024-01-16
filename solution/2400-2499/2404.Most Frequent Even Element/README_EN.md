@@ -44,15 +44,13 @@ We return the smallest one, which is 2.</pre>
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We use a hash table $cnt$ to count the occurrence of all even elements, and then find the even element with the highest occurrence and the smallest value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
                 ans, mx = x, v
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostFrequentEven(nums []int) int {
 	cnt := map[int]int{}
@@ -132,8 +124,6 @@ func mostFrequentEven(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function mostFrequentEven(nums: number[]): number {
@@ -154,8 +144,6 @@ function mostFrequentEven(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -179,8 +167,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -207,10 +193,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

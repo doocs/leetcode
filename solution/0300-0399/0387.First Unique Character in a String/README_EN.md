@@ -27,9 +27,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -40,8 +40,6 @@ class Solution:
                 return i
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -60,8 +58,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -82,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstUniqChar(s string) int {
 	cnt := [26]int{}
@@ -99,7 +93,20 @@ func firstUniqChar(s string) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function firstUniqChar(s: string): number {
+    const cnt = new Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 97]++;
+    }
+    for (let i = 0; i < s.length; i++) {
+        if (cnt[s.charCodeAt(i) - 97] === 1) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
 
 ```js
 /**
@@ -119,25 +126,6 @@ var firstUniqChar = function (s) {
     return -1;
 };
 ```
-
-### **TypeScript**
-
-```ts
-function firstUniqChar(s: string): number {
-    const cnt = new Array(26).fill(0);
-    for (const c of s) {
-        cnt[c.charCodeAt(0) - 97]++;
-    }
-    for (let i = 0; i < s.length; i++) {
-        if (cnt[s.charCodeAt(i) - 97] === 1) {
-            return i;
-        }
-    }
-    return -1;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -159,10 +147,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

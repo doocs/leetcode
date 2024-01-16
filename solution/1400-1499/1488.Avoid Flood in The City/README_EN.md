@@ -71,7 +71,7 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 
 ## Solutions
 
-**Solution 1: Greedy + Binary Search**
+### Solution 1: Greedy + Binary Search
 
 We store all sunny days in the $sunny$ array or a sorted set, and use the hash table $rainy$ to record the last rainy day for each lake. We initialize the answer array $ans$ with each element set to $-1$.
 
@@ -82,8 +82,6 @@ After the traversal, we return the answer array.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $rains$ array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -109,8 +107,6 @@ class Solution:
                 ans[i] = 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -142,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +168,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func avoidFlood(rains []int) []int {
 	n := len(rains)
@@ -204,8 +196,6 @@ func avoidFlood(rains []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function avoidFlood(rains: number[]): number[] {
@@ -724,10 +714,6 @@ class TreeSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

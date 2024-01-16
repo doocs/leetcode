@@ -62,17 +62,15 @@ derived[1] = original[1] &oplus; original[0] = 1
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def doesValidArrayExist(self, derived: List[int]) -> bool:
         return reduce(xor, derived) == 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func doesValidArrayExist(derived []int) bool {
 	s := 0
@@ -112,8 +106,6 @@ func doesValidArrayExist(derived []int) bool {
 	return s == 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
@@ -125,16 +117,18 @@ function doesValidArrayExist(derived: number[]): boolean {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
     return derived.reduce((acc, x) => acc ^ x, 0) === 0;
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

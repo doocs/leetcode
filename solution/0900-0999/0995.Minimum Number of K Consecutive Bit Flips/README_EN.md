@@ -50,7 +50,7 @@ Flip nums[5],nums[6],nums[7]: nums becomes [1,1,1,1,1,1,1,1]
 
 ## Solutions
 
-**Solution 1: Difference Array**
+### Solution 1: Difference Array
 
 We notice that the result of reversing several consecutive elements is independent of the order of the reversals. Therefore, we can greedily consider the number of reversals needed at each position.
 
@@ -63,8 +63,6 @@ In this way, when we have processed all the elements in the array, we can return
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,8 +81,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minKBitFlips(nums []int, k int) int {
 	n := len(nums)
@@ -159,8 +151,6 @@ func minKBitFlips(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minKBitFlips(nums: number[], k: number): number {
     const n = nums.length;
@@ -181,8 +171,6 @@ function minKBitFlips(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -208,10 +196,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

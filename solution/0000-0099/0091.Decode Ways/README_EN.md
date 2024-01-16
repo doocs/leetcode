@@ -61,7 +61,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ to represent the number of decoding methods for the first $i$ characters of the string. Initially, $f[0]=1$, and the rest $f[i]=0$.
 
@@ -73,8 +73,6 @@ Consider how $f[i]$ transitions.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -88,20 +86,6 @@ class Solution:
                 f[i] += f[i - 2]
         return f[n]
 ```
-
-```python
-class Solution:
-    def numDecodings(self, s: str) -> int:
-        f, g = 0, 1
-        for i, c in enumerate(s, 1):
-            h = g if c != "0" else 0
-            if i > 1 and s[i - 2] != "0" and int(s[i - 2 : i]) <= 26:
-                h += f
-            f, g = g, h
-        return g
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,26 +105,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int numDecodings(String s) {
-        int n = s.length();
-        int f = 0, g = 1;
-        for (int i = 1; i <= n; ++i) {
-            int h = s.charAt(i - 1) != '0' ? g : 0;
-            if (i > 1 && s.charAt(i - 2) != '0' && Integer.valueOf(s.substring(i - 2, i)) <= 26) {
-                h += f;
-            }
-            f = g;
-            g = h;
-        }
-        return g;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -163,27 +127,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int numDecodings(string s) {
-        int n = s.size();
-        int f = 0, g = 1;
-        for (int i = 1; i <= n; ++i) {
-            int h = s[i - 1] != '0' ? g : 0;
-            if (i > 1 && (s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] <= '6'))) {
-                h += f;
-            }
-            f = g;
-            g = h;
-        }
-        return g;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func numDecodings(s string) int {
 	n := len(s)
@@ -201,26 +144,6 @@ func numDecodings(s string) int {
 }
 ```
 
-```go
-func numDecodings(s string) int {
-	n := len(s)
-	f, g := 0, 1
-	for i := 1; i <= n; i++ {
-		h := 0
-		if s[i-1] != '0' {
-			h = g
-		}
-		if i > 1 && (s[i-2] == '1' || (s[i-2] == '2' && s[i-1] <= '6')) {
-			h += f
-		}
-		f, g = g, h
-	}
-	return g
-}
-```
-
-### **TypeScript**
-
 ```ts
 function numDecodings(s: string): number {
     const n = s.length;
@@ -237,23 +160,6 @@ function numDecodings(s: string): number {
     return f[n];
 }
 ```
-
-```ts
-function numDecodings(s: string): number {
-    const n = s.length;
-    let [f, g] = [0, 1];
-    for (let i = 1; i <= n; ++i) {
-        let h = s[i - 1] !== '0' ? g : 0;
-        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
-            h += f;
-        }
-        [f, g] = [g, h];
-    }
-    return g;
-}
-```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -274,6 +180,94 @@ public class Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        f, g = 0, 1
+        for i, c in enumerate(s, 1):
+            h = g if c != "0" else 0
+            if i > 1 and s[i - 2] != "0" and int(s[i - 2 : i]) <= 26:
+                h += f
+            f, g = g, h
+        return g
+```
+
+```java
+class Solution {
+    public int numDecodings(String s) {
+        int n = s.length();
+        int f = 0, g = 1;
+        for (int i = 1; i <= n; ++i) {
+            int h = s.charAt(i - 1) != '0' ? g : 0;
+            if (i > 1 && s.charAt(i - 2) != '0' && Integer.valueOf(s.substring(i - 2, i)) <= 26) {
+                h += f;
+            }
+            f = g;
+            g = h;
+        }
+        return g;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int numDecodings(string s) {
+        int n = s.size();
+        int f = 0, g = 1;
+        for (int i = 1; i <= n; ++i) {
+            int h = s[i - 1] != '0' ? g : 0;
+            if (i > 1 && (s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] <= '6'))) {
+                h += f;
+            }
+            f = g;
+            g = h;
+        }
+        return g;
+    }
+};
+```
+
+```go
+func numDecodings(s string) int {
+	n := len(s)
+	f, g := 0, 1
+	for i := 1; i <= n; i++ {
+		h := 0
+		if s[i-1] != '0' {
+			h = g
+		}
+		if i > 1 && (s[i-2] == '1' || (s[i-2] == '2' && s[i-1] <= '6')) {
+			h += f
+		}
+		f, g = g, h
+	}
+	return g
+}
+```
+
+```ts
+function numDecodings(s: string): number {
+    const n = s.length;
+    let [f, g] = [0, 1];
+    for (let i = 1; i <= n; ++i) {
+        let h = s[i - 1] !== '0' ? g : 0;
+        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
+            h += f;
+        }
+        [f, g] = [g, h];
+    }
+    return g;
+}
+```
+
 ```cs
 public class Solution {
     public int NumDecodings(string s) {
@@ -292,10 +286,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

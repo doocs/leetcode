@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 直接根据题目描述模拟即可。
 
@@ -64,30 +62,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
         return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
 ```
-
-```python
-class Solution:
-    def alternateDigitSum(self, n: int) -> int:
-        ans, sign = 0, 1
-        for c in str(n):
-            x = int(c)
-            ans += sign * x
-            sign *= -1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func alternateDigitSum(n int) (ans int) {
 	sign := 1
@@ -133,8 +108,6 @@ func alternateDigitSum(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function alternateDigitSum(n: number): number {
@@ -149,8 +122,6 @@ function alternateDigitSum(n: number): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn alternate_digit_sum(mut n: i32) -> i32 {
@@ -164,6 +135,36 @@ impl Solution {
         ans * -sign
     }
 }
+```
+
+```c
+int alternateDigitSum(int n) {
+    int ans = 0;
+    int sign = 1;
+    while (n) {
+        ans += (n % 10) * sign;
+        sign = -sign;
+        n /= 10;
+    }
+    return ans * -sign;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def alternateDigitSum(self, n: int) -> int:
+        ans, sign = 0, 1
+        for c in str(n):
+            x = int(c)
+            ans += sign * x
+            sign *= -1
+        return ans
 ```
 
 ```rust
@@ -183,25 +184,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int alternateDigitSum(int n) {
-    int ans = 0;
-    int sign = 1;
-    while (n) {
-        ans += (n % 10) * sign;
-        sign = -sign;
-        n /= 10;
-    }
-    return ans * -sign;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

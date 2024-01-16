@@ -55,7 +55,7 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We can enumerate each position $(i, j)$ in the matrix, and judge whether we can place the word `word` from left to right or from right to left, or from top to bottom or from bottom to top, starting from this position.
 
@@ -77,8 +77,6 @@ Otherwise, we start from the position $(i, j)$ and traverse the word `word` in t
 The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -115,8 +113,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -164,8 +160,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -202,8 +196,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func placeWordInCrossword(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
@@ -236,10 +228,6 @@ func placeWordInCrossword(board [][]byte, word string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

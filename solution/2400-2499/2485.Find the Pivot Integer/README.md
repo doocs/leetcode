@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以直接在 $[1,..n]$ 的范围内枚举 $x$，判断以下等式是否成立。若成立，则 $x$ 为中枢整数，直接返回 $x$ 即可。
 
@@ -61,29 +59,7 @@ $$
 
 时间复杂度 $O(n)$，其中 $n$ 为给定的正整数 $n$。空间复杂度 $O(1)$。
 
-**方法二：数学**
-
-我们可以将上述等式进行变形，得到：
-
-$$
-n \times (n + 1) = 2 \times x^2
-$$
-
-即：
-
-$$
-x = \sqrt{\frac{n \times (n + 1)}{2}}
-$$
-
-如果 $x$ 为整数，则 $x$ 为中枢整数，否则不存在中枢整数。
-
-时间复杂度 $O(1)$，空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,18 +70,6 @@ class Solution:
         return -1
 ```
 
-```python
-class Solution:
-    def pivotInteger(self, n: int) -> int:
-        y = n * (n + 1) // 2
-        x = int(sqrt(y))
-        return x if x * x == y else -1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int pivotInteger(int n) {
@@ -118,18 +82,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int pivotInteger(int n) {
-        int y = n * (n + 1) / 2;
-        int x = (int) Math.sqrt(y);
-        return x * x == y ? x : -1;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -144,19 +96,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int pivotInteger(int n) {
-        int y = n * (n + 1) / 2;
-        int x = sqrt(y);
-        return x * x == y ? x : -1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func pivotInteger(n int) int {
@@ -169,19 +108,6 @@ func pivotInteger(n int) int {
 }
 ```
 
-```go
-func pivotInteger(n int) int {
-	y := n * (n + 1) / 2
-	x := int(math.Sqrt(float64(y)))
-	if x*x == y {
-		return x
-	}
-	return -1
-}
-```
-
-### **TypeScript**
-
 ```ts
 function pivotInteger(n: number): number {
     for (let x = 1; x <= n; ++x) {
@@ -193,15 +119,20 @@ function pivotInteger(n: number): number {
 }
 ```
 
-```ts
-function pivotInteger(n: number): number {
-    const y = Math.floor((n * (n + 1)) / 2);
-    const x = Math.floor(Math.sqrt(y));
-    return x * x === y ? x : -1;
+```rust
+impl Solution {
+    pub fn pivot_integer(n: i32) -> i32 {
+        let y = (n * (n + 1)) / 2;
+        let x = (y as f64).sqrt() as i32;
+
+        if x * x == y {
+            return x;
+        }
+
+        -1
+    }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -223,27 +154,76 @@ class Solution {
 }
 ```
 
-### **Rust**
+<!-- tabs:end -->
 
-```rust
-impl Solution {
-    pub fn pivot_integer(n: i32) -> i32 {
-        let y = (n * (n + 1)) / 2;
-        let x = (y as f64).sqrt() as i32;
+### 方法二：数学
 
-        if x * x == y {
-            return x;
-        }
+我们可以将上述等式进行变形，得到：
 
-        -1
+$$
+n \times (n + 1) = 2 \times x^2
+$$
+
+即：
+
+$$
+x = \sqrt{\frac{n \times (n + 1)}{2}}
+$$
+
+如果 $x$ 为整数，则 $x$ 为中枢整数，否则不存在中枢整数。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def pivotInteger(self, n: int) -> int:
+        y = n * (n + 1) // 2
+        x = int(sqrt(y))
+        return x if x * x == y else -1
+```
+
+```java
+class Solution {
+    public int pivotInteger(int n) {
+        int y = n * (n + 1) / 2;
+        int x = (int) Math.sqrt(y);
+        return x * x == y ? x : -1;
     }
 }
 ```
 
-### **...**
-
+```cpp
+class Solution {
+public:
+    int pivotInteger(int n) {
+        int y = n * (n + 1) / 2;
+        int x = sqrt(y);
+        return x * x == y ? x : -1;
+    }
+};
 ```
 
+```go
+func pivotInteger(n int) int {
+	y := n * (n + 1) / 2
+	x := int(math.Sqrt(float64(y)))
+	if x*x == y {
+		return x
+	}
+	return -1
+}
+```
+
+```ts
+function pivotInteger(n: number): number {
+    const y = Math.floor((n * (n + 1)) / 2);
+    const x = Math.floor(Math.sqrt(y));
+    return x * x === y ? x : -1;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

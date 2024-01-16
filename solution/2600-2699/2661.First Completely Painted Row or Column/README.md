@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 数组计数**
+### 方法一：哈希表 + 数组计数
 
 我们用一个哈希表 $idx$ 记录每个元素在矩阵 $mat$ 中的位置，即 $idx[mat[i][j]] = (i, j)$，定义两个数组 $row$ 和 $col$ 分别记录每行和每列已经涂色的元素个数。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵 $mat$ 的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             if row[i] == n or col[j] == m:
                 return k
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstCompleteIndex(arr []int, mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -161,8 +147,6 @@ func firstCompleteIndex(arr []int, mat [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function firstCompleteIndex(arr: number[], mat: number[][]): number {
     const m = mat.length;
@@ -185,8 +169,6 @@ function firstCompleteIndex(arr: number[], mat: number[][]): number {
     }
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -220,10 +202,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

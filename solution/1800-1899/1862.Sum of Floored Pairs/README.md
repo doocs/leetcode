@@ -42,9 +42,7 @@ floor(9 / 5) = 1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：值域前缀和 + 优化枚举**
+### 方法一：值域前缀和 + 优化枚举
 
 我们先统计数组 $nums$ 中每个元素出现的次数，记录在数组 $cnt$ 中，然后计算数组 $cnt$ 的前缀和，记录在数组 $s$ 中，即 $s[i]$ 表示小于等于 $i$ 的元素的个数。
 
@@ -53,10 +51,6 @@ floor(9 / 5) = 1
 时间复杂度 $O(M \times \log M)$，空间复杂度 $O(M)$，其中 $M$ 表示数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                     d += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfFlooredPairs(nums []int) (ans int) {
 	mx := slices.Max(nums)
@@ -167,8 +153,6 @@ func sumOfFlooredPairs(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfFlooredPairs(nums: number[]): number {
@@ -194,8 +178,6 @@ function sumOfFlooredPairs(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -238,10 +220,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

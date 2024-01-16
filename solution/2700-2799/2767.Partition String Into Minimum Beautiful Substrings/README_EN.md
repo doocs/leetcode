@@ -57,7 +57,7 @@ It can be shown that 3 is the minimum number of beautiful substrings that s can 
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 Since the problem requires us to judge whether a string is the binary representation of a power of $5$, we might as well first preprocess all the powers of $5$ and record them in a hash table $ss$.
 
@@ -76,8 +76,6 @@ In the main function, we first preprocess all the powers of $5$, and then call $
 Time complexity $O(n^2)$, space complexity $O(n)$. Where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -105,8 +103,6 @@ class Solution:
         ans = dfs(0)
         return -1 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -151,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -191,8 +185,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumBeautifulSubstrings(s string) int {
@@ -234,8 +226,6 @@ func minimumBeautifulSubstrings(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumBeautifulSubstrings(s: string): number {
     const ss: Set<number> = new Set();
@@ -269,10 +259,6 @@ function minimumBeautifulSubstrings(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

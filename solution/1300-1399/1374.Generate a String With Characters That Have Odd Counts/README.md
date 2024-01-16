@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：构造**
+### 方法一：构造
 
 如果 $n$ 为奇数，那么直接构造 $n$ 个 `'a'` 即可。
 
@@ -54,19 +52,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def generateTheString(self, n: int) -> str:
         return 'a' * n if n & 1 else 'a' * (n - 1) + 'b'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -75,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +79,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func generateTheString(n int) string {
 	ans := strings.Repeat("a", n-1)
@@ -105,8 +91,6 @@ func generateTheString(n int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function generateTheString(n: number): string {
     const ans = Array(n).fill('a');
@@ -117,10 +101,6 @@ function generateTheString(n: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

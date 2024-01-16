@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix XOR + Hash Table**
+### Solution 1: Prefix XOR + Hash Table
 
 We observe that a subarray can become an array of all $0$s if and only if the number of $1$s on each binary bit of all elements in the subarray is even.
 
@@ -66,8 +66,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def beautifulSubarrays(self, nums: List[int]) -> int:
@@ -79,8 +77,6 @@ class Solution:
             cnt[mask] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautifulSubarrays(nums []int) (ans int64) {
 	cnt := map[int]int{0: 1}
@@ -132,8 +124,6 @@ func beautifulSubarrays(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function beautifulSubarrays(nums: number[]): number {
@@ -150,10 +140,6 @@ function beautifulSubarrays(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 我们遍历字符串 $s$，用变量 $cnt$ 记录当前连续的 1 的个数，用变量 $ans$ 记录答案。当遍历到字符 $s[i]$ 时，如果 $s[i] = 1$，则 $cnt$ 自增 1，否则 $cnt$ 置 0。此时 $ans$ 自增 $cnt$。
 
@@ -71,10 +69,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numSub(self, s: str) -> int:
@@ -87,10 +81,6 @@ class Solution:
             ans += cnt
         return ans % (10**9 + 7)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numSub(s string) (ans int) {
@@ -141,8 +127,6 @@ func numSub(s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numSub(s: string): number {
     const mod = 10 ** 9 + 7;
@@ -156,10 +140,6 @@ function numSub(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

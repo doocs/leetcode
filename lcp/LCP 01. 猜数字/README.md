@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们同时遍历两个数组，如果对应位置的元素相等，那么答案加一。
 
@@ -47,19 +45,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def game(self, guess: List[int], answer: List[int]) -> int:
         return sum(a == b for a, b in zip(guess, answer))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -75,8 +65,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -90,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func game(guess []int, answer []int) (ans int) {
 	for i, a := range guess {
@@ -102,8 +88,6 @@ func game(guess []int, answer []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function game(guess: number[], answer: number[]): number {
@@ -116,14 +100,6 @@ function game(guess: number[], answer: number[]): number {
     return ans;
 }
 ```
-
-```ts
-function game(guess: number[], answer: number[]): number {
-    return guess.reduce((acc, cur, index) => (cur === answer[index] ? acc + 1 : acc), 0);
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -142,8 +118,6 @@ var game = function (guess, answer) {
 };
 ```
 
-### **C**
-
 ```c
 int game(int* guess, int guessSize, int* answer, int answerSize) {
     int res = 0;
@@ -156,10 +130,18 @@ int game(int* guess, int guessSize, int* answer, int answerSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+function game(guess: number[], answer: number[]): number {
+    return guess.reduce((acc, cur, index) => (cur === answer[index] ? acc + 1 : acc), 0);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

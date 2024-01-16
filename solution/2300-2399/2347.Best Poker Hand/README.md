@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以先遍历数组 $suits$，判断相邻两个元素是否均相等，如果是，则返回 `"Flush"`。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $ranks$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
             return 'Pair'
         return 'High Card'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func bestHand(ranks []int, suits []byte) string {
@@ -173,8 +159,6 @@ func bestHand(ranks []int, suits []byte) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function bestHand(ranks: number[], suits: string[]): string {
     if (suits.every(v => v === suits[0])) {
@@ -194,8 +178,6 @@ function bestHand(ranks: number[], suits: string[]): string {
     return 'High Card';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -217,8 +199,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 char* bestHand(int* ranks, int ranksSize, char* suits, int suitsSize) {
@@ -247,10 +227,6 @@ char* bestHand(int* ranks, int ranksSize, char* suits, int suitsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

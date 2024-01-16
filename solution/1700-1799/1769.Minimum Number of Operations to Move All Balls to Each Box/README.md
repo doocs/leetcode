@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 枚举**
+### 方法一：预处理 + 枚举
 
 我们可以预处理出每个位置 $i$ 左边的小球移动到 $i$ 的操作数，记为 $left[i]$；每个位置 $i$ 右边的小球移动到 $i$ 的操作数，记为 $right[i]$。那么答案数组的第 $i$ 个元素就是 $left[i] + right[i]$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n)$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为 `boxes` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,29 +73,6 @@ class Solution:
             right[i] = right[i + 1] + cnt
         return [a + b for a, b in zip(left, right)]
 ```
-
-```python
-class Solution:
-    def minOperations(self, boxes: str) -> List[int]:
-        n = len(boxes)
-        ans = [0] * n
-        cnt = 0
-        for i in range(1, n):
-            if boxes[i - 1] == '1':
-                cnt += 1
-            ans[i] = ans[i - 1] + cnt
-        cnt = s = 0
-        for i in range(n - 2, -1, -1):
-            if boxes[i + 1] == '1':
-                cnt += 1
-            s += cnt
-            ans[i] += s
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,31 +101,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int[] minOperations(String boxes) {
-        int n = boxes.length();
-        int[] ans = new int[n];
-        for (int i = 1, cnt = 0; i < n; ++i) {
-            if (boxes.charAt(i - 1) == '1') {
-                ++cnt;
-            }
-            ans[i] = ans[i - 1] + cnt;
-        }
-        for (int i = n - 2, cnt = 0, s = 0; i >= 0; --i) {
-            if (boxes.charAt(i + 1) == '1') {
-                ++cnt;
-            }
-            s += cnt;
-            ans[i] += s;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,28 +124,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    vector<int> minOperations(string boxes) {
-        int n = boxes.size();
-        vector<int> ans(n);
-        for (int i = 1, cnt = 0; i < n; ++i) {
-            cnt += boxes[i - 1] == '1';
-            ans[i] = ans[i - 1] + cnt;
-        }
-        for (int i = n - 2, cnt = 0, s = 0; ~i; --i) {
-            cnt += boxes[i + 1] == '1';
-            s += cnt;
-            ans[i] += s;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minOperations(boxes string) []int {
@@ -226,29 +150,6 @@ func minOperations(boxes string) []int {
 }
 ```
 
-```go
-func minOperations(boxes string) []int {
-	n := len(boxes)
-	ans := make([]int, n)
-	for i, cnt := 1, 0; i < n; i++ {
-		if boxes[i-1] == '1' {
-			cnt++
-		}
-		ans[i] = ans[i-1] + cnt
-	}
-	for i, cnt, s := n-2, 0, 0; i >= 0; i-- {
-		if boxes[i+1] == '1' {
-			cnt++
-		}
-		s += cnt
-		ans[i] += s
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
 ```ts
 function minOperations(boxes: string): number[] {
     const n = boxes.length;
@@ -269,29 +170,6 @@ function minOperations(boxes: string): number[] {
     return left.map((v, i) => v + right[i]);
 }
 ```
-
-```ts
-function minOperations(boxes: string): number[] {
-    const n = boxes.length;
-    const ans = new Array(n).fill(0);
-    for (let i = 1, count = 0; i < n; i++) {
-        if (boxes[i - 1] === '1') {
-            count++;
-        }
-        ans[i] = ans[i - 1] + count;
-    }
-    for (let i = n - 2, count = 0, sum = 0; i >= 0; i--) {
-        if (boxes[i + 1] === '1') {
-            count++;
-        }
-        sum += count;
-        ans[i] += sum;
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -321,35 +199,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn min_operations(boxes: String) -> Vec<i32> {
-        let s = boxes.as_bytes();
-        let n = s.len();
-        let mut ans = vec![0; n];
-        let mut count = 0;
-        for i in 1..n {
-            if s[i - 1] == b'1' {
-                count += 1;
-            }
-            ans[i] = ans[i - 1] + count;
-        }
-        let mut sum = 0;
-        count = 0;
-        for i in (0..n - 1).rev() {
-            if s[i + 1] == b'1' {
-                count += 1;
-            }
-            sum += count;
-            ans[i] += sum;
-        }
-        ans
-    }
-}
-```
-
-### **C**
 
 ```c
 /**
@@ -384,6 +233,143 @@ int* minOperations(char* boxes, int* returnSize) {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minOperations(self, boxes: str) -> List[int]:
+        n = len(boxes)
+        ans = [0] * n
+        cnt = 0
+        for i in range(1, n):
+            if boxes[i - 1] == '1':
+                cnt += 1
+            ans[i] = ans[i - 1] + cnt
+        cnt = s = 0
+        for i in range(n - 2, -1, -1):
+            if boxes[i + 1] == '1':
+                cnt += 1
+            s += cnt
+            ans[i] += s
+        return ans
+```
+
+```java
+class Solution {
+    public int[] minOperations(String boxes) {
+        int n = boxes.length();
+        int[] ans = new int[n];
+        for (int i = 1, cnt = 0; i < n; ++i) {
+            if (boxes.charAt(i - 1) == '1') {
+                ++cnt;
+            }
+            ans[i] = ans[i - 1] + cnt;
+        }
+        for (int i = n - 2, cnt = 0, s = 0; i >= 0; --i) {
+            if (boxes.charAt(i + 1) == '1') {
+                ++cnt;
+            }
+            s += cnt;
+            ans[i] += s;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+        int n = boxes.size();
+        vector<int> ans(n);
+        for (int i = 1, cnt = 0; i < n; ++i) {
+            cnt += boxes[i - 1] == '1';
+            ans[i] = ans[i - 1] + cnt;
+        }
+        for (int i = n - 2, cnt = 0, s = 0; ~i; --i) {
+            cnt += boxes[i + 1] == '1';
+            s += cnt;
+            ans[i] += s;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func minOperations(boxes string) []int {
+	n := len(boxes)
+	ans := make([]int, n)
+	for i, cnt := 1, 0; i < n; i++ {
+		if boxes[i-1] == '1' {
+			cnt++
+		}
+		ans[i] = ans[i-1] + cnt
+	}
+	for i, cnt, s := n-2, 0, 0; i >= 0; i-- {
+		if boxes[i+1] == '1' {
+			cnt++
+		}
+		s += cnt
+		ans[i] += s
+	}
+	return ans
+}
+```
+
+```ts
+function minOperations(boxes: string): number[] {
+    const n = boxes.length;
+    const ans = new Array(n).fill(0);
+    for (let i = 1, count = 0; i < n; i++) {
+        if (boxes[i - 1] === '1') {
+            count++;
+        }
+        ans[i] = ans[i - 1] + count;
+    }
+    for (let i = n - 2, count = 0, sum = 0; i >= 0; i--) {
+        if (boxes[i + 1] === '1') {
+            count++;
+        }
+        sum += count;
+        ans[i] += sum;
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_operations(boxes: String) -> Vec<i32> {
+        let s = boxes.as_bytes();
+        let n = s.len();
+        let mut ans = vec![0; n];
+        let mut count = 0;
+        for i in 1..n {
+            if s[i - 1] == b'1' {
+                count += 1;
+            }
+            ans[i] = ans[i - 1] + count;
+        }
+        let mut sum = 0;
+        count = 0;
+        for i in (0..n - 1).rev() {
+            if s[i + 1] == b'1' {
+                count += 1;
+            }
+            sum += count;
+            ans[i] += sum;
+        }
+        ans
+    }
+}
+```
+
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -410,10 +396,6 @@ int* minOperations(char* boxes, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

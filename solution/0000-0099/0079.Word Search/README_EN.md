@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: DFS (Backtracking)**
+### Solution 1: DFS (Backtracking)
 
 We can enumerate each position $(i, j)$ in the grid as the starting point of the search, and then start a depth-first search from the starting point. If we can search to the end of the word, it means the word exists, otherwise, it means the word does not exist.
 
@@ -61,8 +61,6 @@ In the main function, we enumerate each position $(i, j)$ in the grid as the sta
 The time complexity is $O(m \times n \times 3^k)$, and the space complexity is $O(\min(m \times n, k))$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively; and $k$ is the length of the string $word$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
         m, n = len(board), len(board[0])
         return any(dfs(i, j, 0) for i in range(m) for j in range(n))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func exist(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
@@ -206,8 +198,6 @@ func exist(board [][]byte, word string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function exist(board: string[][], word: string): boolean {
     const [m, n] = [board.length, board[0].length];
@@ -241,55 +231,6 @@ function exist(board: string[][], word: string): boolean {
     return false;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    private int m;
-    private int n;
-    private char[][] board;
-    private string word;
-
-    public bool Exist(char[][] board, string word) {
-        m = board.Length;
-        n = board[0].Length;
-        this.board = board;
-        this.word = word;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (dfs(i, j, 0)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private bool dfs(int i, int j, int k) {
-        if (k == word.Length - 1) {
-            return board[i][j] == word[k];
-        }
-        if (board[i][j] != word[k]) {
-            return false;
-        }
-        char c = board[i][j];
-        board[i][j] = '0';
-        int[] dirs = { -1, 0, 1, 0, -1 };
-        for (int u = 0; u < 4; ++u) {
-            int x = i + dirs[u];
-            int y = j + dirs[u + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k + 1)) {
-                return true;
-            }
-        }
-        board[i][j] = c;
-        return false;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -346,10 +287,51 @@ impl Solution {
 }
 ```
 
-### **...**
+```cs
+public class Solution {
+    private int m;
+    private int n;
+    private char[][] board;
+    private string word;
 
-```
+    public bool Exist(char[][] board, string word) {
+        m = board.Length;
+        n = board[0].Length;
+        this.board = board;
+        this.word = word;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (dfs(i, j, 0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
+    private bool dfs(int i, int j, int k) {
+        if (k == word.Length - 1) {
+            return board[i][j] == word[k];
+        }
+        if (board[i][j] != word[k]) {
+            return false;
+        }
+        char c = board[i][j];
+        board[i][j] = '0';
+        int[] dirs = { -1, 0, 1, 0, -1 };
+        for (int u = 0; u < 4; ++u) {
+            int x = i + dirs[u];
+            int y = j + dirs[u + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k + 1)) {
+                return true;
+            }
+        }
+        board[i][j] = c;
+        return false;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

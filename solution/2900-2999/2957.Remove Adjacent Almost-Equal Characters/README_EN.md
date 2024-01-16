@@ -49,7 +49,7 @@ It can be shown that the minimum number of operations needed to remove all adjac
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We start traversing the string `word` from index $1$. If `word[i]` and `word[i - 1]` are approximately equal, we greedily replace `word[i]` with a character that is not equal to both `word[i - 1]` and `word[i + 1]` (we can choose not to perform the replacement operation, just record the number of operations). Then, we skip `word[i + 1]` and continue to traverse the string `word`.
 
@@ -58,8 +58,6 @@ Finally, we return the recorded number of operations.
 The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +103,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeAlmostEqualCharacters(word string) (ans int) {
@@ -131,8 +123,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeAlmostEqualCharacters(word: string): number {
     let ans = 0;
@@ -146,10 +136,6 @@ function removeAlmostEqualCharacters(word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

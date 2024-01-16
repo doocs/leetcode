@@ -42,37 +42,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组**
+### 方法一：数组
 
 创建一个长度为 $26$ 的数组，统计每个字母出现的频率，至多有一个字符出现奇数次数即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma|=26$。
 
-**方法二：哈希表**
-
-利用哈希表来维护元素。遍历字符串每个字母 $s[i]$，若 $s[i]$ 在哈希表中，则将 $s[i]$ 从哈希表中删除，否则将 $s[i]$ 加入哈希表。
-
-遍历结束，若哈希表中元素个数不超过 $1$，则返回 $true$，否则返回 $false$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma|=26$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         return sum(v & 1 for v in Counter(s).values()) < 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canPermutePalindrome(s string) bool {
 	cnt := [26]int{}
@@ -125,8 +103,6 @@ func canPermutePalindrome(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canPermutePalindrome(s: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -136,8 +112,6 @@ function canPermutePalindrome(s: string): boolean {
     return cnt.filter(c => c % 2 === 1).length < 2;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -153,10 +127,14 @@ var canPermutePalindrome = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+### 方法二：哈希表
+
+利用哈希表来维护元素。遍历字符串每个字母 $s[i]$，若 $s[i]$ 在哈希表中，则将 $s[i]$ 从哈希表中删除，否则将 $s[i]$ 加入哈希表。
+
+遍历结束，若哈希表中元素个数不超过 $1$，则返回 $true$，否则返回 $false$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma|=26$。
+
+<!-- end -->

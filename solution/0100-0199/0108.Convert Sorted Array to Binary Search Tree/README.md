@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分 + 递归**
+### 方法一：二分 + 递归
 
 我们设计一个递归函数 $dfs(l, r)$，表示当前待构造的二叉搜索树的节点值都在数组 `nums` 的下标范围 $[l, r]$ 内。该函数返回构造出的二叉搜索树的根节点。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -84,10 +78,6 @@ class Solution:
 
         return dfs(0, len(nums) - 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,36 +144,28 @@ public:
 };
 ```
 
-### **JavaScript**
-
-```js
+```go
 /**
  * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
  * }
  */
-/**
- * @param {number[]} nums
- * @return {TreeNode}
- */
-var sortedArrayToBST = function (nums) {
-    const dfs = (l, r) => {
-        if (l > r) {
-            return null;
-        }
-        const mid = (l + r) >> 1;
-        const left = dfs(l, mid - 1);
-        const right = dfs(mid + 1, r);
-        return new TreeNode(nums[mid], left, right);
-    };
-    return dfs(0, nums.length - 1);
-};
+func sortedArrayToBST(nums []int) *TreeNode {
+	var dfs func(int, int) *TreeNode
+	dfs = func(l, r int) *TreeNode {
+		if l > r {
+			return nil
+		}
+		mid := (l + r) >> 1
+		left, right := dfs(l, mid-1), dfs(mid+1, r)
+		return &TreeNode{nums[mid], left, right}
+	}
+	return dfs(0, len(nums)-1)
+}
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -215,33 +195,6 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
     );
 }
 ```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func sortedArrayToBST(nums []int) *TreeNode {
-	var dfs func(int, int) *TreeNode
-	dfs = func(l, r int) *TreeNode {
-		if l > r {
-			return nil
-		}
-		mid := (l + r) >> 1
-		left, right := dfs(l, mid-1), dfs(mid+1, r)
-		return &TreeNode{nums[mid], left, right}
-	}
-	return dfs(0, len(nums)-1)
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -287,10 +240,33 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number[]} nums
+ * @return {TreeNode}
+ */
+var sortedArrayToBST = function (nums) {
+    const dfs = (l, r) => {
+        if (l > r) {
+            return null;
+        }
+        const mid = (l + r) >> 1;
+        const left = dfs(l, mid - 1);
+        const right = dfs(mid + 1, r);
+        return new TreeNode(nums[mid], left, right);
+    };
+    return dfs(0, nums.length - 1);
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

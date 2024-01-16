@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 Let $m$ and $n$ be the number of rows and columns of the matrix, respectively.
 
@@ -70,8 +70,6 @@ The time complexity is $O(n \times \log m)$, where $m$ and $n$ are the number of
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def findPeakGrid(self, mat: List[List[int]]) -> List[int]:
@@ -85,8 +83,6 @@ class Solution:
                 l = mid + 1
         return [l, mat[l].index(max(mat[l]))]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +132,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findPeakGrid(mat [][]int) []int {
@@ -166,8 +158,6 @@ func findPeakGrid(mat [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findPeakGrid(mat: number[][]): number[] {
     let [l, r] = [0, mat.length - 1];
@@ -183,8 +173,6 @@ function findPeakGrid(mat: number[][]): number[] {
     return [l, mat[l].indexOf(Math.max(...mat[l]))];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -212,10 +200,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,9 +47,9 @@ It can be proven that 3 is the maximum possible sum.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             return numOnes
         return numOnes - (k - numOnes - numZeros)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int {
 	if numOnes >= k {
@@ -109,8 +103,6 @@ func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int 
 	return numOnes - (k - numOnes - numZeros)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function kItemsWithMaximumSum(
@@ -128,24 +120,6 @@ function kItemsWithMaximumSum(
     return numOnes - (k - numOnes - numZeros);
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
-        if (numOnes >= k) {
-            return k;
-        }
-        if (numZeros >= k - numOnes) {
-            return numOnes;
-        }
-        return numOnes - (k - numOnes - numZeros);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -168,10 +142,20 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+        if (numOnes >= k) {
+            return k;
+        }
+        if (numZeros >= k - numOnes) {
+            return numOnes;
+        }
+        return numOnes - (k - numOnes - numZeros);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

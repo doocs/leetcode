@@ -41,19 +41,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 递归遍历左右子树，求左右子树的最大深度，然后取最大值加 $1$ 即可。
 
 时间复杂度 $O(n)$，其中 $n$ 是二叉树的节点数。每个节点在递归中只被遍历一次。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -69,10 +63,6 @@ class Solution:
         l, r = self.maxDepth(root.left), self.maxDepth(root.right)
         return 1 + max(l, r)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -145,31 +131,6 @@ func maxDepth(root *TreeNode) int {
 	return 1 + max(l, r)
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number}
- */
-var maxDepth = function (root) {
-    if (!root) return 0;
-    const l = maxDepth(root.left);
-    const r = maxDepth(root.right);
-    return 1 + Math.max(l, r);
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -193,8 +154,6 @@ function maxDepth(root: TreeNode | null): number {
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -232,7 +191,26 @@ impl Solution {
 }
 ```
 
-### **C**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function (root) {
+    if (!root) return 0;
+    const l = maxDepth(root.left);
+    const r = maxDepth(root.right);
+    return 1 + Math.max(l, r);
+};
+```
 
 ```c
 /**
@@ -256,10 +234,6 @@ int maxDepth(struct TreeNode* root) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

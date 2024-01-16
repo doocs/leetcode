@@ -53,7 +53,7 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 
 ## Solutions
 
-**Solution 1: Prefix Product**
+### Solution 1: Prefix Product
 
 We initialize an array $s$, where $s[i]$ represents the product of the first $i$ numbers.
 
@@ -64,8 +64,6 @@ When calling `getProduct(k)`, we now judge whether the length of $s$ is less tha
 The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the number of times `add` is called.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class ProductOfNumbers:
@@ -87,8 +85,6 @@ class ProductOfNumbers:
 # obj.add(num)
 # param_2 = obj.getProduct(k)
 ```
-
-### **Java**
 
 ```java
 class ProductOfNumbers {
@@ -120,8 +116,6 @@ class ProductOfNumbers {
  * int param_2 = obj.getProduct(k);
  */
 ```
-
-### **C++**
 
 ```cpp
 class ProductOfNumbers {
@@ -156,8 +150,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type ProductOfNumbers struct {
 	s []int
@@ -191,10 +183,6 @@ func (this *ProductOfNumbers) GetProduct(k int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

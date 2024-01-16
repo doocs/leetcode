@@ -56,9 +56,9 @@ bs.toString(); // return &quot;01010&quot;, which is the composition of bitset.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Bitset:
@@ -106,8 +106,6 @@ class Bitset:
 # param_6 = obj.count()
 # param_7 = obj.toString()
 ```
-
-### **Java**
 
 ```java
 class Bitset {
@@ -175,8 +173,6 @@ class Bitset {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Bitset {
 public:
@@ -232,8 +228,6 @@ public:
  * string param_7 = obj->toString();
  */
 ```
-
-### **Go**
 
 ```go
 type Bitset struct {
@@ -298,16 +292,6 @@ func (this *Bitset) ToString() string {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

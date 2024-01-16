@@ -40,9 +40,9 @@ Note that we do not consider the subarrays of length &lt; 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
                 r = mid
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaxAverage(nums []int, k int) float64 {
 	eps := 1e-5
@@ -197,8 +191,6 @@ func findMaxAverage(nums []int, k int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMaxAverage(nums: number[], k: number): number {
     const eps = 1e-5;
@@ -233,10 +225,6 @@ function findMaxAverage(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

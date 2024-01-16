@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS 暴力模拟**
+### 方法一：DFS 暴力模拟
 
 DFS 找到每个病毒区域 `areas[i]`，同时记录每个区域边界节点 `boundaries[i]` 以及周长 `c[i]`。
 
@@ -76,10 +74,6 @@ DFS 找到每个病毒区域 `areas[i]`，同时记录每个区域边界节点 `
 剩余的病毒区域向外感染一个区域。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -126,10 +120,6 @@ class Solution:
                                 isInfected[x][y] = 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -224,8 +214,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -314,8 +302,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func containVirus(isInfected [][]int) int {
 	m, n := len(isInfected), len(isInfected[0])
@@ -400,10 +386,6 @@ func containVirus(isInfected [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

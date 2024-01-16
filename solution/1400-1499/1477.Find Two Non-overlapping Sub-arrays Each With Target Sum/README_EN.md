@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             d[s] = i
         return -1 if ans > n else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSumOfLengths(arr []int, target int) int {
 	d := map[int]int{0: 0}
@@ -152,10 +146,6 @@ func minSumOfLengths(arr []int, target int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

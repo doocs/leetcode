@@ -41,15 +41,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-后序遍历获取每个子树元素和，同时用哈希表记录每个子树元素和出现的次数，以及最大的次数 mx。最后判断哈希表中出现次数为 mx 的，获取对应的子树元素，组成结果列表 ans。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -73,10 +67,6 @@ class Solution:
         mx = max(counter.values())
         return [k for k, v in counter.items() if v == mx]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -127,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -166,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -202,8 +188,6 @@ func findFrequentTreeSum(root *TreeNode) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -243,8 +227,6 @@ function findFrequentTreeSum(root: TreeNode | null): number[] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -299,10 +281,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

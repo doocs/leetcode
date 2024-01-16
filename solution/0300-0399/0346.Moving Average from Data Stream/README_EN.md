@@ -42,9 +42,9 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MovingAverage:
@@ -65,28 +65,6 @@ class MovingAverage:
 # obj = MovingAverage(size)
 # param_1 = obj.next(val)
 ```
-
-```python
-class MovingAverage:
-    def __init__(self, size: int):
-        self.n = size
-        self.s = 0
-        self.q = deque()
-
-    def next(self, val: int) -> float:
-        if len(self.q) == self.n:
-            self.s -= self.q.popleft()
-        self.q.append(val)
-        self.s += val
-        return self.s / len(self.q)
-
-
-# Your MovingAverage object will be instantiated and called as such:
-# obj = MovingAverage(size)
-# param_1 = obj.next(val)
-```
-
-### **Java**
 
 ```java
 class MovingAverage {
@@ -114,35 +92,6 @@ class MovingAverage {
  */
 ```
 
-```java
-class MovingAverage {
-    private Deque<Integer> q = new ArrayDeque<>();
-    private int n;
-    private int s;
-
-    public MovingAverage(int size) {
-        n = size;
-    }
-
-    public double next(int val) {
-        if (q.size() == n) {
-            s -= q.pollFirst();
-        }
-        q.offer(val);
-        s += val;
-        return s * 1.0 / q.size();
-    }
-}
-
-/**
- * Your MovingAverage object will be instantiated and called as such:
- * MovingAverage obj = new MovingAverage(size);
- * double param_1 = obj.next(val);
- */
-```
-
-### **C++**
-
 ```cpp
 class MovingAverage {
 public:
@@ -168,6 +117,86 @@ private:
  * Your MovingAverage object will be instantiated and called as such:
  * MovingAverage* obj = new MovingAverage(size);
  * double param_1 = obj->next(val);
+ */
+```
+
+```go
+type MovingAverage struct {
+	arr []int
+	cnt int
+	s   int
+}
+
+func Constructor(size int) MovingAverage {
+	arr := make([]int, size)
+	return MovingAverage{arr, 0, 0}
+}
+
+func (this *MovingAverage) Next(val int) float64 {
+	idx := this.cnt % len(this.arr)
+	this.s += val - this.arr[idx]
+	this.arr[idx] = val
+	this.cnt++
+	return float64(this.s) / float64(min(this.cnt, len(this.arr)))
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * obj := Constructor(size);
+ * param_1 := obj.Next(val);
+ */
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class MovingAverage:
+    def __init__(self, size: int):
+        self.n = size
+        self.s = 0
+        self.q = deque()
+
+    def next(self, val: int) -> float:
+        if len(self.q) == self.n:
+            self.s -= self.q.popleft()
+        self.q.append(val)
+        self.s += val
+        return self.s / len(self.q)
+
+
+# Your MovingAverage object will be instantiated and called as such:
+# obj = MovingAverage(size)
+# param_1 = obj.next(val)
+```
+
+```java
+class MovingAverage {
+    private Deque<Integer> q = new ArrayDeque<>();
+    private int n;
+    private int s;
+
+    public MovingAverage(int size) {
+        n = size;
+    }
+
+    public double next(int val) {
+        if (q.size() == n) {
+            s -= q.pollFirst();
+        }
+        q.offer(val);
+        s += val;
+        return s * 1.0 / q.size();
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
  */
 ```
 
@@ -201,35 +230,6 @@ private:
  */
 ```
 
-### **Go**
-
-```go
-type MovingAverage struct {
-	arr []int
-	cnt int
-	s   int
-}
-
-func Constructor(size int) MovingAverage {
-	arr := make([]int, size)
-	return MovingAverage{arr, 0, 0}
-}
-
-func (this *MovingAverage) Next(val int) float64 {
-	idx := this.cnt % len(this.arr)
-	this.s += val - this.arr[idx]
-	this.arr[idx] = val
-	this.cnt++
-	return float64(this.s) / float64(min(this.cnt, len(this.arr)))
-}
-
-/**
- * Your MovingAverage object will be instantiated and called as such:
- * obj := Constructor(size);
- * param_1 := obj.Next(val);
- */
-```
-
 ```go
 type MovingAverage struct {
 	q []int
@@ -258,10 +258,6 @@ func (this *MovingAverage) Next(val int) float64 {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

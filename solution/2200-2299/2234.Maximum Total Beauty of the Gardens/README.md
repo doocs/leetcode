@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 二分查找**
+### 方法一：枚举 + 二分查找
 
 我们注意到，如果一个花园中种的花的数目已经大于等于 $target$，那么这个花园就已经是完善的花园，不能再改变。而不完善的花园中，可以通过种更多的花来使得这个花园变成完善的花园。
 
@@ -84,10 +82,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $flowers$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -116,10 +110,6 @@ class Solution:
             ans = max(ans, x * full + y * partial)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -206,8 +194,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partial int) int64 {
 	sort.Ints(flowers)
@@ -244,8 +230,6 @@ func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partia
 	return int64(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumBeauty(
@@ -289,10 +273,6 @@ function maximumBeauty(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

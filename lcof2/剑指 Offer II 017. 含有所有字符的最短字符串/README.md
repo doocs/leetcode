@@ -54,17 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-滑动窗口，当窗口包含全部需要的的字符后，进行收缩，以求得最小长度
-
-进阶解法：利用 `count` 变量避免重复对 `need` 和 `window` 进行扫描
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,46 +86,6 @@ class Solution:
                 return False
         return True
 ```
-
-进阶解法
-
-```python
-class Solution:
-    def minWindow(self, s: str, t: str) -> str:
-        m, n = len(s), len(t)
-        if n > m:
-            return ""
-        need, window = defaultdict(int), defaultdict(int)
-        needCount, windowCount = 0, 0
-        for c in t:
-            if need[c] == 0:
-                needCount += 1
-            need[c] += 1
-        start, minLen = 0, inf
-        left, right = 0, 0
-        while right < m:
-            ch = s[right]
-            right += 1
-            if ch in need:
-                window[ch] += 1
-                if window[ch] == need[ch]:
-                    windowCount += 1
-            while windowCount == needCount:
-                if right - left < minLen:
-                    minLen = right - left
-                    start = left
-                ch = s[left]
-                left += 1
-                if ch in need:
-                    if window[ch] == need[ch]:
-                        windowCount -= 1
-                    window[ch] -= 1
-        return "" if minLen == inf else s[start : start + minLen]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -173,7 +125,85 @@ class Solution {
 }
 ```
 
-进阶解法
+```go
+func minWindow(s string, t string) string {
+	m, n := len(s), len(t)
+	if n > m {
+		return ""
+	}
+	need, window := make(map[byte]int), make(map[byte]int)
+	for _, r := range t {
+		need[byte(r)]++
+	}
+	start, minLen := 0, math.MaxInt32
+	left, right := 0, 0
+	for right < m {
+		window[s[right]]++
+		right++
+		for check(need, window) {
+			if right-left < minLen {
+				minLen = right - left
+				start = left
+			}
+			window[s[left]]--
+			left++
+		}
+	}
+	if minLen == math.MaxInt32 {
+		return ""
+	}
+	return s[start : start+minLen]
+}
+
+func check(need, window map[byte]int) bool {
+	for k, v := range need {
+		if window[k] < v {
+			return false
+		}
+	}
+	return true
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        m, n = len(s), len(t)
+        if n > m:
+            return ""
+        need, window = defaultdict(int), defaultdict(int)
+        needCount, windowCount = 0, 0
+        for c in t:
+            if need[c] == 0:
+                needCount += 1
+            need[c] += 1
+        start, minLen = 0, inf
+        left, right = 0, 0
+        while right < m:
+            ch = s[right]
+            right += 1
+            if ch in need:
+                window[ch] += 1
+                if window[ch] == need[ch]:
+                    windowCount += 1
+            while windowCount == needCount:
+                if right - left < minLen:
+                    minLen = right - left
+                    start = left
+                ch = s[left]
+                left += 1
+                if ch in need:
+                    if window[ch] == need[ch]:
+                        windowCount -= 1
+                    window[ch] -= 1
+        return "" if minLen == inf else s[start : start + minLen]
+```
 
 ```java
 class Solution {
@@ -222,50 +252,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minWindow(s string, t string) string {
-	m, n := len(s), len(t)
-	if n > m {
-		return ""
-	}
-	need, window := make(map[byte]int), make(map[byte]int)
-	for _, r := range t {
-		need[byte(r)]++
-	}
-	start, minLen := 0, math.MaxInt32
-	left, right := 0, 0
-	for right < m {
-		window[s[right]]++
-		right++
-		for check(need, window) {
-			if right-left < minLen {
-				minLen = right - left
-				start = left
-			}
-			window[s[left]]--
-			left++
-		}
-	}
-	if minLen == math.MaxInt32 {
-		return ""
-	}
-	return s[start : start+minLen]
-}
-
-func check(need, window map[byte]int) bool {
-	for k, v := range need {
-		if window[k] < v {
-			return false
-		}
-	}
-	return true
-}
-```
-
-进阶解法
-
 ```go
 func minWindow(s string, t string) string {
 	m, n := len(s), len(t)
@@ -313,10 +299,6 @@ func minWindow(s string, t string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

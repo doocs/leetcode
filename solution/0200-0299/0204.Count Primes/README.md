@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：埃氏筛**
+### 方法一：埃氏筛
 
 如果 $x$ 是质数，那么大于 $x$ 的 $x$ 的倍数 $2x$,$3x$,… 一定不是质数，因此我们可以从这里入手。
 
@@ -55,10 +53,6 @@
 时间复杂度 $O(nloglogn)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                     primes[j] = False
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPrimes(n int) int {
@@ -136,8 +122,6 @@ func countPrimes(n int) int {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number} n
@@ -157,8 +141,6 @@ var countPrimes = function (n) {
     return ans;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -181,10 +163,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

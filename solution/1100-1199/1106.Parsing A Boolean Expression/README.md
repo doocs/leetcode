@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 对于这种表达式解析问题，我们可以使用栈来辅助解决。
 
@@ -78,10 +76,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是表达式 `expression` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
                 stk.append(c)
         return stk[0] == 't'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +127,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -168,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func parseBoolExpr(expression string) bool {
 	stk := []rune{}
@@ -198,8 +184,6 @@ func parseBoolExpr(expression string) bool {
 	return stk[0] == 't'
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function parseBoolExpr(expression: string): boolean {
@@ -231,8 +215,6 @@ function parseBoolExpr(expression: string): boolean {
     return dfs()[0];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -283,10 +265,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

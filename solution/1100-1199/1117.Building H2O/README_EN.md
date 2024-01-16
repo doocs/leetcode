@@ -49,9 +49,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from threading import Semaphore
@@ -76,8 +76,6 @@ class H2O:
         self.h.release(2)
 ```
 
-### **Java**
-
 ```java
 class H2O {
     private Semaphore h = new Semaphore(2);
@@ -101,8 +99,6 @@ class H2O {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 #include <semaphore.h>
@@ -140,10 +136,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

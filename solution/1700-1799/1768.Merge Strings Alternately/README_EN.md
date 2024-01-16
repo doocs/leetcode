@@ -52,7 +52,7 @@ merged: a p b q c   d
 
 ## Solutions
 
-**Solution 1: Direct Simulation**
+### Solution 1: Direct Simulation
 
 We traverse the two strings `word1` and `word2`, take out the characters one by one, and append them to the result string. The Python code can be simplified into one line.
 
@@ -60,15 +60,11 @@ The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +98,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mergeAlternately(word1 string, word2 string) string {
@@ -123,8 +115,6 @@ func mergeAlternately(word1 string, word2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mergeAlternately(word1: string, word2: string): string {
     const ans: string[] = [];
@@ -140,8 +130,6 @@ function mergeAlternately(word1: string, word2: string): string {
     return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -162,8 +150,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 char* mergeAlternately(char* word1, char* word2) {
@@ -187,10 +173,6 @@ char* mergeAlternately(char* word1, char* word2) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

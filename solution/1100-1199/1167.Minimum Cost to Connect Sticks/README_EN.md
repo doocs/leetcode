@@ -52,7 +52,7 @@ There is only one stick left, so you are done. The total cost is 4 + 9 + 17 = 30
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue (Min Heap)**
+### Solution 1: Greedy + Priority Queue (Min Heap)
 
 We can use a greedy approach, each time choosing the shortest two sticks to connect, which ensures the minimum cost of connection.
 
@@ -61,8 +61,6 @@ Therefore, we can use a priority queue (min heap) to maintain the current stick 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `sticks`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,8 +73,6 @@ class Solution:
             heappush(sticks, z)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func connectSticks(sticks []int) (ans int) {
 	hp := &hp{sticks}
@@ -146,8 +138,6 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function connectSticks(sticks: number[]): number {
@@ -229,10 +219,6 @@ class Heap<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

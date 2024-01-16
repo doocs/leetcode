@@ -47,15 +47,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-用数组或哈希表存放字母顺序。依次遍历单词列表，检测相邻两单词是否满足字典序。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
                 return True
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +120,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isAlienSorted(words []string, order string) bool {
@@ -165,8 +151,6 @@ func isAlienSorted(words []string, order string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isAlienSorted(words: string[], order: string): boolean {
     const map = new Map();
@@ -195,8 +179,6 @@ function isAlienSorted(words: string[], order: string): boolean {
     return true;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -233,8 +215,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
@@ -267,10 +247,6 @@ bool isAlienSorted(char** words, int wordsSize, char* order) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

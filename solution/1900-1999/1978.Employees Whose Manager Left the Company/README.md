@@ -62,21 +62,11 @@ Joziah 的上级经理是 6 号员工，他已经离职，因为员工表里面�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：左连接**
+### 方法一：左连接
 
 我们可以使用左连接，将员工表自身连接一次，然后筛选出薪水小于 30000 的员工，且有上级经理，但是上级经理已经离职的员工。
 
-**方法二：子查询**
-
-我们也可以使用子查询，先找出所有已经离职的经理，然后再找出薪水小于 30000 的员工，且他们的上级经理不在已经离职的经理列表中。
-
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -88,6 +78,14 @@ WHERE e1.salary < 30000 AND e1.manager_id IS NOT NULL AND e2.employee_id IS NULL
 ORDER BY 1;
 ```
 
+<!-- tabs:end -->
+
+### 方法二：子查询
+
+我们也可以使用子查询，先找出所有已经离职的经理，然后再找出薪水小于 30000 的员工，且他们的上级经理不在已经离职的经理列表中。
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT employee_id
@@ -97,3 +95,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

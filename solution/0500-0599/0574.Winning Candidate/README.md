@@ -79,11 +79,9 @@ Vote table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -101,6 +99,12 @@ FROM
     INNER JOIN Candidate AS c ON t.id = c.id;
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT name
@@ -113,3 +117,5 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

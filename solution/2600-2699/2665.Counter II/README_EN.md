@@ -52,9 +52,9 @@ counter.reset(); // 0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type ReturnObj = {
@@ -86,10 +86,6 @@ function createCounter(init: number): ReturnObj {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

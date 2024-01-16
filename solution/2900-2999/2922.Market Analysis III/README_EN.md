@@ -98,13 +98,11 @@ Since seller_ids 2 and 3 have the same count of one item each, they both will be
 
 ## Solutions
 
-**Solution 1: Equijoin + Grouping + Subquery**
+### Solution 1: Equijoin + Grouping + Subquery
 
 We can use equijoin to connect the `Orders` table and the `Users` table according to `seller_id`, then connect `Items` according to `item_id`, and filter out the records where `item_brand` is not equal to `favorite_brand`. Then, group by `seller_id` and count the number of `item_id` corresponding to each `seller_id`. Finally, use a subquery to find the `seller_id` with the most `item_id`.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -125,3 +123,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

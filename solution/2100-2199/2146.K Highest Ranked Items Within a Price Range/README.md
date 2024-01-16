@@ -99,15 +99,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-BFS。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -133,10 +127,6 @@ class Solution:
         items.sort()
         return [item[2:] for item in items][:k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -189,8 +179,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -227,8 +215,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func highestRankedKItems(grid [][]int, pricing []int, start []int, k int) [][]int {
@@ -278,16 +264,6 @@ func highestRankedKItems(grid [][]int, pricing []int, start []int, k int) [][]in
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

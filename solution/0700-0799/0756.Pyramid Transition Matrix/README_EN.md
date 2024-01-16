@@ -49,9 +49,9 @@ Starting from the bottom (level 4), there are multiple ways to build level 3, bu
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
             d[a, b].append(c)
         return dfs(bottom)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +157,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func pyramidTransition(bottom string, allowed []string) bool {
@@ -206,10 +200,6 @@ func pyramidTransition(bottom string, allowed []string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

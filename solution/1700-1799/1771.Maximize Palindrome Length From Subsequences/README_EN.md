@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 First, we concatenate strings `word1` and `word2` to get string $s$. Then we can transform the problem into finding the length of the longest palindromic subsequence in string $s$. However, when calculating the final answer, we need to ensure that at least one character in the palindrome string comes from `word1` and another character comes from `word2`.
 
@@ -65,8 +65,6 @@ Finally, we return the answer.
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPalindrome(word1 string, word2 string) (ans int) {
 	s := word1 + word2
@@ -173,8 +165,6 @@ func longestPalindrome(word1 string, word2 string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestPalindrome(word1: string, word2: string): number {
     const s = word1 + word2;
@@ -199,8 +189,6 @@ function longestPalindrome(word1: string, word2: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -229,10 +217,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

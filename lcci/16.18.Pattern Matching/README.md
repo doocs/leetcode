@@ -33,9 +33,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们先统计出模式串 $pattern$ 中 `'a'` 和 `'b'` 的个数，分别为 $cnt[0]$ 和 $cnt[1]$。记字符串 $value$ 的长度为 $n$。
 
@@ -48,10 +46,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $value$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -147,8 +137,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -209,8 +197,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func patternMatching(pattern string, value string) bool {
 	cnt := [2]int{}
@@ -259,8 +245,6 @@ func patternMatching(pattern string, value string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
     const cnt: number[] = [0, 0];
@@ -308,10 +292,6 @@ function patternMatching(pattern: string, value: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

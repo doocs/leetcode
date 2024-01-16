@@ -47,19 +47,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先累计所有负收益，记为 $s$。然后枚举每个交易作为最后一个交易，如果 `transactions[i].x > transactions[i].y`，说明当前的交易是亏钱的，而这个交易在此前我们累计负收益的时候，已经被计算，因此取 `s + transactions[i].y` 更新答案；否则，取 `s + transactions[i].x` 更新答案。
 
 时间复杂度 $O(n)$，其中 $n$ 为交易数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                 ans = max(ans, s + a)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumMoney(transactions [][]int) int64 {
 	s, ans := 0, 0
@@ -139,17 +125,6 @@ func minimumMoney(transactions [][]int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

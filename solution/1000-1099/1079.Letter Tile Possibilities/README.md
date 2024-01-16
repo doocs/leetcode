@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 回溯**
+### 方法一：计数 + 回溯
 
 我们先用一个哈希表或数组 $cnt$ 统计每个字母出现的次数。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n \times n!)$，空间复杂度 $O(n)$。其中 $n$ 为字母种类数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
         cnt = Counter(tiles)
         return dfs(cnt)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numTilePossibilities(tiles string) int {
 	cnt := [26]int{}
@@ -158,8 +144,6 @@ func numTilePossibilities(tiles string) int {
 	return dfs(cnt)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numTilePossibilities(tiles: string): number {
@@ -183,10 +167,6 @@ function numTilePossibilities(tiles: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

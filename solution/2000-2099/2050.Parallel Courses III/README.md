@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序 + 动态规划**
+### 方法一：拓扑排序 + 动态规划
 
 我们首先根据给定的先修课程关系，构建出一个有向无环图，对该图进行拓扑排序，然后根据拓扑排序的结果，使用动态规划求出完成所有课程所需要的最少时间。
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 是数组 $relations$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -116,10 +110,6 @@ class Solution:
                     q.append(j)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -157,8 +147,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -198,8 +186,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTime(n int, relations [][]int, time []int) int {
 	g := make([][]int, n)
@@ -235,8 +221,6 @@ func minimumTime(n int, relations [][]int, time []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumTime(n: number, relations: number[][], time: number[]): number {
     const g: number[][] = Array(n)
@@ -271,10 +255,6 @@ function minimumTime(n: number, relations: number[][], time: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

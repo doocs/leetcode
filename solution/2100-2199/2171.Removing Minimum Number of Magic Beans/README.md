@@ -57,15 +57,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序求和**
+### 方法一：排序求和
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
             ans = min(ans, s - v * (n - i))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,24 +90,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minimumRemoval(beans: number[]): number {
-    const n = beans.length;
-    let sum = beans.reduce((a, c) => a + c, 0);
-    beans.sort((a, b) => a - b);
-    let ans = sum;
-    for (let i = 0; i < n; i++) {
-        let num = beans[i];
-        ans = Math.min(sum - num * (n - i), ans);
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +103,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumRemoval(beans []int) int64 {
@@ -150,10 +120,20 @@ func minimumRemoval(beans []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function minimumRemoval(beans: number[]): number {
+    const n = beans.length;
+    let sum = beans.reduce((a, c) => a + c, 0);
+    beans.sort((a, b) => a - b);
+    let ans = sum;
+    for (let i = 0; i < n; i++) {
+        let num = beans[i];
+        ans = Math.min(sum - num * (n - i), ans);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

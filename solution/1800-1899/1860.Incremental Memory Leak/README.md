@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接模拟内存的分配。
 
@@ -63,10 +61,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def memLeak(self, memory1: int, memory2: int) -> List[int]:
@@ -79,10 +73,6 @@ class Solution:
             i += 1
         return [i, memory1, memory2]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,7 +90,50 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```cpp
+class Solution {
+public:
+    vector<int> memLeak(int memory1, int memory2) {
+        int i = 1;
+        for (; i <= max(memory1, memory2); ++i) {
+            if (memory1 >= memory2) {
+                memory1 -= i;
+            } else {
+                memory2 -= i;
+            }
+        }
+        return {i, memory1, memory2};
+    }
+};
+```
+
+```go
+func memLeak(memory1 int, memory2 int) []int {
+	i := 1
+	for ; i <= memory1 || i <= memory2; i++ {
+		if memory1 >= memory2 {
+			memory1 -= i
+		} else {
+			memory2 -= i
+		}
+	}
+	return []int{i, memory1, memory2}
+}
+```
+
+```ts
+function memLeak(memory1: number, memory2: number): number[] {
+    let i = 1;
+    for (; i <= Math.max(memory1, memory2); ++i) {
+        if (memory1 >= memory2) {
+            memory1 -= i;
+        } else {
+            memory2 -= i;
+        }
+    }
+    return [i, memory1, memory2];
+}
+```
 
 ```js
 /**
@@ -121,61 +154,6 @@ var memLeak = function (memory1, memory2) {
 };
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> memLeak(int memory1, int memory2) {
-        int i = 1;
-        for (; i <= max(memory1, memory2); ++i) {
-            if (memory1 >= memory2) {
-                memory1 -= i;
-            } else {
-                memory2 -= i;
-            }
-        }
-        return {i, memory1, memory2};
-    }
-};
-```
-
-### **Go**
-
-```go
-func memLeak(memory1 int, memory2 int) []int {
-	i := 1
-	for ; i <= memory1 || i <= memory2; i++ {
-		if memory1 >= memory2 {
-			memory1 -= i
-		} else {
-			memory2 -= i
-		}
-	}
-	return []int{i, memory1, memory2}
-}
-```
-
-### **TypeScript**
-
-```ts
-function memLeak(memory1: number, memory2: number): number[] {
-    let i = 1;
-    for (; i <= Math.max(memory1, memory2); ++i) {
-        if (memory1 >= memory2) {
-            memory1 -= i;
-        } else {
-            memory2 -= i;
-        }
-    }
-    return [i, memory1, memory2];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

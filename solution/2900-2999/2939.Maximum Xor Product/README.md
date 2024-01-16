@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 位运算**
+### 方法一：贪心 + 位运算
 
 根据题目描述，我们可以给 $a$ 和 $b$ 在二进制下 $[0..n)$ 位上同时分配一个数字，最终使得 $a$ 和 $b$ 的乘积最大。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为题目给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                 ax |= 1 << i
         return ax * bx % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumXorProduct(a int64, b int64, n int) int {
 	const mod int64 = 1e9 + 7
@@ -169,8 +155,6 @@ func maximumXorProduct(a int64, b int64, n int) int {
 	return int(ax * bx % mod)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumXorProduct(a: number, b: number, n: number): number {
@@ -195,10 +179,6 @@ function maximumXorProduct(a: number, b: number, n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,7 +44,7 @@ It can be proven that it is not possible to divide the intervals into fewer than
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue (Min Heap)**
+### Solution 1: Greedy + Priority Queue (Min Heap)
 
 First, we sort the intervals by their left endpoints. We use a min heap to maintain the rightmost endpoint of each group (the top of the heap is the minimum of the rightmost endpoints of all groups).
 
@@ -57,8 +57,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minGroups(self, intervals: List[List[int]]) -> int:
@@ -69,8 +67,6 @@ class Solution:
             heappush(h, b)
         return len(h)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -106,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minGroups(intervals [][]int) int {
@@ -133,17 +125,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

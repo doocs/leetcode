@@ -67,9 +67,9 @@ The total number of plots is 7 + 6 = 13.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -95,8 +95,6 @@ class Solution:
                     ans += f[i][j]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +130,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPyramids(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -208,10 +202,6 @@ func countPyramids(grid [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

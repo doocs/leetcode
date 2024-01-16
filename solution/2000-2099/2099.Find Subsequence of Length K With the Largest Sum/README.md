@@ -50,17 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-两次排序。
-
-先按照数字大小**对下标进行排序**，然后取出倒数 k 个下标（对应的数字是数组中前 k 个数字），对下标进行排序。最后将排序后的下标依次映射成数字，得到结果数组。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +61,6 @@ class Solution:
         idx.sort(key=lambda i: nums[i])
         return [nums[i] for i in sorted(idx[-k:])]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSubsequence(nums []int, k int) []int {
 	idx := make([]int, len(nums))
@@ -135,18 +119,6 @@ func maxSubsequence(nums []int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

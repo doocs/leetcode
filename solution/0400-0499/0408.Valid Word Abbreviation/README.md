@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以直接模拟字符匹配替换。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是字符串 $word$ 和字符串 $abbr$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
             j += 1
         return i + x == m and j == n
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validWordAbbreviation(word string, abbr string) bool {
 	m, n := len(word), len(abbr)
@@ -189,8 +175,6 @@ func validWordAbbreviation(word string, abbr string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function validWordAbbreviation(word: string, abbr: string): boolean {
     const [m, n] = [word.length, abbr.length];
@@ -213,10 +197,6 @@ function validWordAbbreviation(word: string, abbr: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

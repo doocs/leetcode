@@ -40,21 +40,9 @@ For each person, we return the number of flowers in full bloom during their arri
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-**Solution 1: Sort + Binary Search**
-
-We sort the flowers by their start and end time respectively, and then for each person, we can use binary search to find the number of flowers they bloom during the flowering period. That is, find the number of flowers that have bloomed when each person arrives, minus the number of flowers that have withered when each person arrives, to get the answer.
-
-The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $people$ respectively.
-
-**Solution 2: Difference + Sort + Offline Query**
-
-We can use the difference to maintain the number of flowers at each time point. Next, we sort $people$ in ascending order of arrival time, and at each person's arrival, we perform a prefix sum operation on the difference array to get the answer.
-
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $people$ respectively.
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,29 +52,6 @@ class Solution:
         start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
         return [bisect_right(start, p) - bisect_left(end, p) for p in people]
 ```
-
-```python
-class Solution:
-    def fullBloomFlowers(
-        self, flowers: List[List[int]], people: List[int]
-    ) -> List[int]:
-        d = defaultdict(int)
-        for st, ed in flowers:
-            d[st] += 1
-            d[ed + 1] -= 1
-        ts = sorted(d)
-        s = i = 0
-        m = len(people)
-        ans = [0] * m
-        for t, j in sorted(zip(people, range(m))):
-            while i < len(ts) and ts[i] <= t:
-                s += d[ts[i]]
-                i += 1
-            ans[j] = s
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,36 +88,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int[] fullBloomFlowers(int[][] flowers, int[] people) {
-        TreeMap<Integer, Integer> d = new TreeMap<>();
-        for (int[] f : flowers) {
-            d.merge(f[0], 1, Integer::sum);
-            d.merge(f[1] + 1, -1, Integer::sum);
-        }
-        int s = 0;
-        int m = people.length;
-        Integer[] idx = new Integer[m];
-        for (int i = 0; i < m; i++) {
-            idx[i] = i;
-        }
-        Arrays.sort(idx, Comparator.comparingInt(i -> people[i]));
-        int[] ans = new int[m];
-        for (int i : idx) {
-            int t = people[i];
-            while (!d.isEmpty() && d.firstKey() <= t) {
-                s += d.pollFirstEntry().getValue();
-            }
-            ans[i] = s;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -177,37 +112,60 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> fullBloomFlowers(vector<vector<int>>& flowers, vector<int>& people) {
-        map<int, int> d;
-        for (auto& f : flowers) {
-            d[f[0]]++;
-            d[f[1] + 1]--;
-        }
-        int m = people.size();
-        vector<int> idx(m);
-        iota(idx.begin(), idx.end(), 0);
-        sort(idx.begin(), idx.end(), [&](int i, int j) {
-            return people[i] < people[j];
-        });
-        vector<int> ans(m);
-        int s = 0;
-        for (int i : idx) {
-            int t = people[i];
-            while (!d.empty() && d.begin()->first <= t) {
-                s += d.begin()->second;
-                d.erase(d.begin());
-            }
-            ans[i] = s;
-        }
-        return ans;
-    }
-};
+```go
+func fullBloomFlowers(flowers [][]int, people []int) (ans []int) {
+	n := len(flowers)
+	start := make([]int, n)
+	end := make([]int, n)
+	for i, f := range flowers {
+		start[i] = f[0]
+		end[i] = f[1]
+	}
+	sort.Ints(start)
+	sort.Ints(end)
+	for _, p := range people {
+		r := sort.SearchInts(start, p+1)
+		l := sort.SearchInts(end, p)
+		ans = append(ans, r-l)
+	}
+	return
+}
 ```
 
-### **Rust**
+```ts
+function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
+    const n = flowers.length;
+    const start = new Array(n).fill(0);
+    const end = new Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        start[i] = flowers[i][0];
+        end[i] = flowers[i][1];
+    }
+    start.sort((a, b) => a - b);
+    end.sort((a, b) => a - b);
+    const ans: number[] = [];
+    for (const p of people) {
+        const r = search(start, p + 1);
+        const l = search(end, p);
+        ans.push(r - l);
+    }
+    return ans;
+}
+
+function search(nums: number[], x: number): number {
+    let l = 0;
+    let r = nums.length;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] >= x) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
 
 ```rust
 use std::collections::BTreeMap;
@@ -260,26 +218,89 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func fullBloomFlowers(flowers [][]int, people []int) (ans []int) {
-	n := len(flowers)
-	start := make([]int, n)
-	end := make([]int, n)
-	for i, f := range flowers {
-		start[i] = f[0]
-		end[i] = f[1]
-	}
-	sort.Ints(start)
-	sort.Ints(end)
-	for _, p := range people {
-		r := sort.SearchInts(start, p+1)
-		l := sort.SearchInts(end, p)
-		ans = append(ans, r-l)
-	}
-	return
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def fullBloomFlowers(
+        self, flowers: List[List[int]], people: List[int]
+    ) -> List[int]:
+        d = defaultdict(int)
+        for st, ed in flowers:
+            d[st] += 1
+            d[ed + 1] -= 1
+        ts = sorted(d)
+        s = i = 0
+        m = len(people)
+        ans = [0] * m
+        for t, j in sorted(zip(people, range(m))):
+            while i < len(ts) and ts[i] <= t:
+                s += d[ts[i]]
+                i += 1
+            ans[j] = s
+        return ans
+```
+
+```java
+class Solution {
+    public int[] fullBloomFlowers(int[][] flowers, int[] people) {
+        TreeMap<Integer, Integer> d = new TreeMap<>();
+        for (int[] f : flowers) {
+            d.merge(f[0], 1, Integer::sum);
+            d.merge(f[1] + 1, -1, Integer::sum);
+        }
+        int s = 0;
+        int m = people.length;
+        Integer[] idx = new Integer[m];
+        for (int i = 0; i < m; i++) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, Comparator.comparingInt(i -> people[i]));
+        int[] ans = new int[m];
+        for (int i : idx) {
+            int t = people[i];
+            while (!d.isEmpty() && d.firstKey() <= t) {
+                s += d.pollFirstEntry().getValue();
+            }
+            ans[i] = s;
+        }
+        return ans;
+    }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> fullBloomFlowers(vector<vector<int>>& flowers, vector<int>& people) {
+        map<int, int> d;
+        for (auto& f : flowers) {
+            d[f[0]]++;
+            d[f[1] + 1]--;
+        }
+        int m = people.size();
+        vector<int> idx(m);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return people[i] < people[j];
+        });
+        vector<int> ans(m);
+        int s = 0;
+        for (int i : idx) {
+            int t = people[i];
+            while (!d.empty() && d.begin()->first <= t) {
+                s += d.begin()->second;
+                d.erase(d.begin());
+            }
+            ans[i] = s;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
@@ -314,43 +335,6 @@ func fullBloomFlowers(flowers [][]int, people []int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
-    const n = flowers.length;
-    const start = new Array(n).fill(0);
-    const end = new Array(n).fill(0);
-    for (let i = 0; i < n; ++i) {
-        start[i] = flowers[i][0];
-        end[i] = flowers[i][1];
-    }
-    start.sort((a, b) => a - b);
-    end.sort((a, b) => a - b);
-    const ans: number[] = [];
-    for (const p of people) {
-        const r = search(start, p + 1);
-        const l = search(end, p);
-        ans.push(r - l);
-    }
-    return ans;
-}
-
-function search(nums: number[], x: number): number {
-    let l = 0;
-    let r = nums.length;
-    while (l < r) {
-        const mid = (l + r) >> 1;
-        if (nums[mid] >= x) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return l;
-}
-```
-
 ```ts
 function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
     const d: Map<number, number> = new Map();
@@ -376,10 +360,6 @@ function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

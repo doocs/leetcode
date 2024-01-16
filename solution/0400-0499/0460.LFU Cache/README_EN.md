@@ -67,9 +67,9 @@ lfu.get(4);      // return 4
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -161,8 +161,6 @@ class LFUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
-
-### **Java**
 
 ```java
 class LFUCache {
@@ -282,8 +280,6 @@ class LFUCache {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Node {
@@ -409,8 +405,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type LFUCache struct {
 	cache    map[int]*node
@@ -533,8 +527,6 @@ func (l *list) empty() bool {
 	return l.head.next == l.tail
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::cell::RefCell;
@@ -723,10 +715,6 @@ impl LFUCache {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

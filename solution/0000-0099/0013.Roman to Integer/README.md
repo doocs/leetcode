@@ -80,7 +80,7 @@ M             1000</pre>
 
 ## 解法
 
-**方法一：哈希表 + 模拟**
+### 方法一：哈希表 + 模拟
 
 我们先用哈希表 $d$ 记录每个字符对应的数值，然后从左到右遍历字符串 $s$，如果当前字符对应的数值小于右边字符对应的数值，则减去当前字符对应的数值，否则加上当前字符对应的数值。
 
@@ -90,20 +90,12 @@ M             1000</pre>
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         return sum((-1 if d[a] < d[b] else 1) * d[a] for a, b in pairwise(s)) + d[s[-1]]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -150,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func romanToInt(s string) (ans int) {
 	d := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -166,8 +154,6 @@ func romanToInt(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function romanToInt(s: string): number {
@@ -189,8 +175,6 @@ function romanToInt(s: string): number {
 }
 ```
 
-### **JavaScript**
-
 ```js
 const romanToInt = function (s) {
     const d = {
@@ -210,8 +194,6 @@ const romanToInt = function (s) {
     return ans;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -233,8 +215,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -267,10 +247,41 @@ class Solution {
 }
 ```
 
-### **...**
+```rb
+# @param {String} s
+# @return {Integer}
+def roman_to_int(s)
+  hash = Hash[
+      'I' => 1,
+      'V' => 5,
+      'X' => 10,
+      'L' => 50,
+      'C' => 100,
+      'D' => 500,
+      'M' => 1000,
+      'IV' => 4,
+      'IX' => 9,
+      'XL' => 40,
+      'XC' => 90,
+      'CD' => 400,
+      'CM' => 900
+  ]
+  res = 0
+  i = 0
+  while i < s.length
+    if i < s.length - 1 && !hash[s[i..i+1]].nil?
+      res += hash[s[i..i+1]]
+      i += 2
+    else
+      res += hash[s[i]]
+      i += 1
+    end
+  end
 
-```
-
+  res
+end
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

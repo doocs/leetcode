@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
                 n //= x
         return n == 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,7 +94,19 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+func isUgly(n int) bool {
+	if n < 1 {
+		return false
+	}
+	for _, x := range []int{2, 3, 5} {
+		for n%x == 0 {
+			n /= x
+		}
+	}
+	return n == 1
+}
+```
 
 ```js
 /**
@@ -119,24 +127,6 @@ var isUgly = function (n) {
     return n === 1;
 };
 ```
-
-### **Go**
-
-```go
-func isUgly(n int) bool {
-	if n < 1 {
-		return false
-	}
-	for _, x := range []int{2, 3, 5} {
-		for n%x == 0 {
-			n /= x
-		}
-	}
-	return n == 1
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -161,10 +151,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

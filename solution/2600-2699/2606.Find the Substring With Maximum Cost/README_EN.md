@@ -56,7 +56,7 @@ It can be proven that 0 is the maximum cost.
 
 ## Solutions
 
-**Solution 1: Prefix sum + Maintain the minimum prefix sum**
+### Solution 1: Prefix sum + Maintain the minimum prefix sum
 
 According to the description of the problem, we traverse each character $c$ in the string $s$, obtain its corresponding value $v$, and then update the current prefix sum $tot=tot+v$. Then, the cost of the maximum cost substring ending with $c$ is $tot$ minus the minimum prefix sum $mi$, that is, $tot-mi$. We update the answer $ans=max(ans,tot-mi)$ and maintain the minimum prefix sum $mi=min(mi,tot)$.
 
@@ -64,17 +64,7 @@ After the traversal is over, return the answer $ans$.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 
-**Solution 2: Convert to the maximum subarray sum problem**
-
-We can consider the value $v$ of each character $c$ as an integer, so the actual problem is to solve the maximum subarray sum problem.
-
-We use the variable $f$ to maintain the cost of the maximum cost substring ending with the current character $c$. Each time we traverse to a character $c$, we update $f=max(f, 0) + v$. Then we update the answer $ans=max(ans,f)$.
-
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -88,20 +78,6 @@ class Solution:
             mi = min(mi, tot)
         return ans
 ```
-
-```python
-class Solution:
-    def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
-        d = {c: v for c, v in zip(chars, vals)}
-        ans = f = 0
-        for c in s:
-            v = d.get(c, ord(c) - ord('a') + 1)
-            f = max(f, 0) + v
-            ans = max(ans, f)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,6 +103,90 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int maximumCostSubstring(string s, string chars, vector<int>& vals) {
+        vector<int> d(26);
+        iota(d.begin(), d.end(), 1);
+        int m = chars.size();
+        for (int i = 0; i < m; ++i) {
+            d[chars[i] - 'a'] = vals[i];
+        }
+        int ans = 0, tot = 0, mi = 0;
+        for (char& c : s) {
+            int v = d[c - 'a'];
+            tot += v;
+            ans = max(ans, tot - mi);
+            mi = min(mi, tot);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
+	d := [26]int{}
+	for i := range d {
+		d[i] = i + 1
+	}
+	for i, c := range chars {
+		d[c-'a'] = vals[i]
+	}
+	tot, mi := 0, 0
+	for _, c := range s {
+		v := d[c-'a']
+		tot += v
+		ans = max(ans, tot-mi)
+		mi = min(mi, tot)
+	}
+	return
+}
+```
+
+```ts
+function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
+    const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
+    for (let i = 0; i < chars.length; ++i) {
+        d[chars.charCodeAt(i) - 97] = vals[i];
+    }
+    let ans = 0;
+    let tot = 0;
+    let mi = 0;
+    for (const c of s) {
+        tot += d[c.charCodeAt(0) - 97];
+        ans = Math.max(ans, tot - mi);
+        mi = Math.min(mi, tot);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Convert to the maximum subarray sum problem
+
+We can consider the value $v$ of each character $c$ as an integer, so the actual problem is to solve the maximum subarray sum problem.
+
+We use the variable $f$ to maintain the cost of the maximum cost substring ending with the current character $c$. Each time we traverse to a character $c$, we update $f=max(f, 0) + v$. Then we update the answer $ans=max(ans,f)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
+        d = {c: v for c, v in zip(chars, vals)}
+        ans = f = 0
+        for c in s:
+            v = d.get(c, ord(c) - ord('a') + 1)
+            f = max(f, 0) + v
+            ans = max(ans, f)
+        return ans
+```
+
 ```java
 class Solution {
     public int maximumCostSubstring(String s, String chars, int[] vals) {
@@ -150,30 +210,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumCostSubstring(string s, string chars, vector<int>& vals) {
-        vector<int> d(26, -1);
-        int m = chars.size();
-        for (int i = 0; i < m; ++i) {
-            d[chars[i] - 'a'] = i;
-        }
-        int ans = 0, tot = 0, mi = 0;
-        for (char& c : s) {
-            int j = c - 'a';
-            int v = d[j] == -1 ? j + 1 : vals[d[j]];
-            tot += v;
-            ans = max(ans, tot - mi);
-            mi = min(mi, tot);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -184,38 +220,15 @@ public:
         for (int i = 0; i < m; ++i) {
             d[chars[i] - 'a'] = vals[i];
         }
-        int ans = 0, tot = 0, mi = 0;
+        int ans = 0, f = 0;
         for (char& c : s) {
             int v = d[c - 'a'];
-            tot += v;
-            ans = max(ans, tot - mi);
-            mi = min(mi, tot);
+            f = max(f, 0) + v;
+            ans = max(ans, f);
         }
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
-	d := [26]int{}
-	for i := range d {
-		d[i] = i + 1
-	}
-	for i, c := range chars {
-		d[c-'a'] = vals[i]
-	}
-	tot, mi := 0, 0
-	for _, c := range s {
-		v := d[c-'a']
-		tot += v
-		ans = max(ans, tot-mi)
-		mi = min(mi, tot)
-	}
-	return
-}
 ```
 
 ```go
@@ -237,26 +250,6 @@ func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
-    const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
-    for (let i = 0; i < chars.length; ++i) {
-        d[chars.charCodeAt(i) - 97] = vals[i];
-    }
-    let ans = 0;
-    let tot = 0;
-    let mi = 0;
-    for (const c of s) {
-        tot += d[c.charCodeAt(0) - 97];
-        ans = Math.max(ans, tot - mi);
-        mi = Math.min(mi, tot);
-    }
-    return ans;
-}
-```
-
 ```ts
 function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
     const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
@@ -273,10 +266,6 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

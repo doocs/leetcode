@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：维护行最小值和列最大值**
+### 方法一：维护行最小值和列最大值
 
 我们可以使用两个数组 $rows$ 和 $cols$ 记录矩阵中每一行的最小值和每一列的最大值，然后遍历矩阵中的每一个元素，检查该元素是否为所在行的最小值且为所在列的最大值，如果是则该元素为幸运数，我们将其加入答案数组。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
@@ -78,10 +72,6 @@ class Solution:
         cols = {max(col) for col in zip(*matrix)}
         return list(rows & cols)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func luckyNumbers(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -165,8 +151,6 @@ func luckyNumbers(matrix [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function luckyNumbers(matrix: number[][]): number[] {
     const m = matrix.length;
@@ -190,8 +174,6 @@ function luckyNumbers(matrix: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -221,10 +203,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

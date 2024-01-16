@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找 + 动态规划**
+### 方法一：排序 + 二分查找 + 动态规划
 
 我们将所有的购买要约按照 $end$ 从小到大排序，然后使用动态规划求解。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是购买要约的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             f[i] = max(f[i - 1], f[j] + v)
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeTheProfit(n int, offers [][]int) int {
 	sort.Slice(offers, func(i, j int) bool { return offers[i][1] < offers[j][1] })
@@ -161,8 +147,6 @@ func maximizeTheProfit(n int, offers [][]int) int {
 	return f[n]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximizeTheProfit(n: number, offers: number[][]): number {
@@ -191,10 +175,6 @@ function maximizeTheProfit(n: number, offers: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

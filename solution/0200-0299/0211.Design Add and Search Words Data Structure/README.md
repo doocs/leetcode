@@ -51,15 +51,9 @@ wordDictionary.search("b.."); // 返回 True
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-“前缀树”实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -104,10 +98,6 @@ class WordDictionary:
 # obj.addWord(word)
 # param_2 = obj.search(word)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -167,75 +157,6 @@ class WordDictionary {
  * boolean param_2 = obj.search(word);
  */
 ```
-
-### **Go**
-
-```go
-type WordDictionary struct {
-	root *trie
-}
-
-func Constructor() WordDictionary {
-	return WordDictionary{new(trie)}
-}
-
-func (this *WordDictionary) AddWord(word string) {
-	this.root.insert(word)
-}
-
-func (this *WordDictionary) Search(word string) bool {
-	n := len(word)
-
-	var dfs func(int, *trie) bool
-	dfs = func(i int, cur *trie) bool {
-		if i == n {
-			return cur.isEnd
-		}
-		c := word[i]
-		if c != '.' {
-			child := cur.children[c-'a']
-			if child != nil && dfs(i+1, child) {
-				return true
-			}
-		} else {
-			for _, child := range cur.children {
-				if child != nil && dfs(i+1, child) {
-					return true
-				}
-			}
-		}
-		return false
-	}
-
-	return dfs(0, this.root)
-}
-
-type trie struct {
-	children [26]*trie
-	isEnd    bool
-}
-
-func (t *trie) insert(word string) {
-	cur := t
-	for _, c := range word {
-		c -= 'a'
-		if cur.children[c] == nil {
-			cur.children[c] = new(trie)
-		}
-		cur = cur.children[c]
-	}
-	cur.isEnd = true
-}
-
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * obj := Constructor();
- * obj.AddWord(word);
- * param_2 := obj.Search(word);
- */
-```
-
-### **C++**
 
 ```cpp
 class trie {
@@ -307,10 +228,141 @@ private:
  */
 ```
 
-### **...**
+```go
+type WordDictionary struct {
+	root *trie
+}
 
+func Constructor() WordDictionary {
+	return WordDictionary{new(trie)}
+}
+
+func (this *WordDictionary) AddWord(word string) {
+	this.root.insert(word)
+}
+
+func (this *WordDictionary) Search(word string) bool {
+	n := len(word)
+
+	var dfs func(int, *trie) bool
+	dfs = func(i int, cur *trie) bool {
+		if i == n {
+			return cur.isEnd
+		}
+		c := word[i]
+		if c != '.' {
+			child := cur.children[c-'a']
+			if child != nil && dfs(i+1, child) {
+				return true
+			}
+		} else {
+			for _, child := range cur.children {
+				if child != nil && dfs(i+1, child) {
+					return true
+				}
+			}
+		}
+		return false
+	}
+
+	return dfs(0, this.root)
+}
+
+type trie struct {
+	children [26]*trie
+	isEnd    bool
+}
+
+func (t *trie) insert(word string) {
+	cur := t
+	for _, c := range word {
+		c -= 'a'
+		if cur.children[c] == nil {
+			cur.children[c] = new(trie)
+		}
+		cur = cur.children[c]
+	}
+	cur.isEnd = true
+}
+
+/**
+ * Your WordDictionary object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.AddWord(word);
+ * param_2 := obj.Search(word);
+ */
 ```
 
+```cs
+using System.Collections.Generic;
+using System.Linq;
+
+class TrieNode {
+    public bool IsEnd { get; set; }
+    public TrieNode[] Children { get; set; }
+    public TrieNode() {
+        Children = new TrieNode[26];
+    }
+}
+
+public class WordDictionary {
+    private TrieNode root;
+
+    public WordDictionary() {
+        root = new TrieNode();
+    }
+
+    public void AddWord(string word) {
+        var node = root;
+        for (var i = 0; i < word.Length; ++i)
+        {
+            TrieNode nextNode;
+            var index = word[i] - 'a';
+            nextNode = node.Children[index];
+            if (nextNode == null)
+            {
+                nextNode = new TrieNode();
+                node.Children[index] = nextNode;
+            }
+            node = nextNode;
+        }
+        node.IsEnd = true;
+    }
+
+    public bool Search(string word) {
+        var queue = new Queue<TrieNode>();
+        queue.Enqueue(root);
+        for (var i = 0; i < word.Length; ++i)
+        {
+            var count = queue.Count;
+            while (count-- > 0)
+            {
+                var node = queue.Dequeue();
+                if (word[i] == '.')
+                {
+                    foreach (var nextNode in node.Children)
+                    {
+                        if (nextNode != null)
+                        {
+                            queue.Enqueue(nextNode);
+                        }
+                    }
+                }
+                else
+                {
+                    var nextNode = node.Children[word[i] - 'a'];
+                    if (nextNode != null)
+                    {
+                        queue.Enqueue(nextNode);
+                    }
+                }
+            }
+        }
+        return queue.Any(n => n.IsEnd);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

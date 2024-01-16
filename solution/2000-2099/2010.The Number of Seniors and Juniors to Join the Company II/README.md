@@ -95,19 +95,13 @@ Candidates table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：窗口函数**
+### 方法一：窗口函数
 
 相似题目：
 
 -   [2004. 职员招聘人数](/solution/2000-2099/2004.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company/README.md)
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -144,3 +138,5 @@ WHERE cur <= 70000;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

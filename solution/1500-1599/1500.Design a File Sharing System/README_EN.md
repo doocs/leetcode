@@ -77,9 +77,9 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class FileSharing:
@@ -120,8 +120,6 @@ class FileSharing:
 # obj.leave(userID)
 # param_3 = obj.request(userID,chunkID)
 ```
-
-### **Java**
 
 ```java
 class FileSharing {
@@ -180,10 +178,6 @@ class FileSharing {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

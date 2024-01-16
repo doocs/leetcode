@@ -35,15 +35,9 @@
 
 ## Solutions
 
-| key     | value                   |
-| ------- | ----------------------- |
-| `"aet"` | `["eat", "tea", "ate"]` |
-| `"ant"` | `["tan", "nat"] `       |
-| `"abt"` | `["bat"] `              |
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -54,8 +48,6 @@ class Solution:
             chars[k].append(s)
         return list(chars.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func groupAnagrams(strs []string) [][]string {
 	chars := map[string][]string{}
@@ -113,8 +101,6 @@ func groupAnagrams(strs []string) [][]string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
     const map = new Map<string, string[]>();
@@ -125,8 +111,6 @@ function groupAnagrams(strs: string[]): string[][] {
     return [...map.values()];
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -149,10 +133,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

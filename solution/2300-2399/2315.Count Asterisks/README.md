@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们定义一个整型变量 $ok$，表示遇到 `*` 时是否能计数，初始时 $ok=1$，表示可以计数。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                 ok ^= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countAsterisks(s string) (ans int) {
 	ok := 1
@@ -133,8 +119,6 @@ func countAsterisks(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countAsterisks(s: string): number {
@@ -150,8 +134,6 @@ function countAsterisks(s: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -170,25 +152,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int countAsterisks(char* s) {
-    int ans = 0;
-    int ok = 1;
-    for (int i = 0; s[i]; i++) {
-        if (s[i] == '*') {
-            ans += ok;
-        } else if (s[i] == '|') {
-            ok ^= 1;
-        }
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int CountAsterisks(string s) {
@@ -205,10 +168,21 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int countAsterisks(char* s) {
+    int ans = 0;
+    int ok = 1;
+    for (int i = 0; s[i]; i++) {
+        if (s[i] == '*') {
+            ans += ok;
+        } else if (s[i] == '|') {
+            ok ^= 1;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

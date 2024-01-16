@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：离线查询 + 0-1 字典树**
+### 方法一：离线查询 + 0-1 字典树
 
 根据题目描述我们知道，每个查询相互独立，并且查询的结果与 $nums$ 中的元素顺序无关，因此，我们考虑将所有的查询按照 $m_i$ 从小到大排序，并且将 $nums$ 从小到大排序。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(m \times \log m + n \times (\log n + \log M))$，空间复杂度 $O(n \times \log M)$，其中 $m$ 和 $n$ 分别是数组 $nums$ 和 $queries$ 的长度，而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \le 10^9$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -101,10 +95,6 @@ class Solution:
             ans[i] = trie.search(x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -162,8 +152,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -225,8 +213,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -290,8 +276,6 @@ func maximizeXor(nums []int, queries [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     children: (Trie | null)[];
@@ -349,10 +333,6 @@ function maximizeXor(nums: number[], queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,19 +59,13 @@ magicDictionary.search("leetcoded"); // 返回 False
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树 + DFS**
+### 方法一：前缀树 + DFS
 
 我们可以使用前缀树来存储字典中的所有单词，然后对于每个搜索的单词，我们使用深度优先搜索的方法，具体地，我们从前缀树的根节点开始，对于当前遍历到的字母，我们首先判断是否存在与其相同的子节点，如果存在，则继续向下遍历，否则我们需要判断是否还有剩余的修改次数，如果没有，则说明无法匹配，返回 false。如果有剩余的修改次数，我们可以尝试对当前的字母进行修改，然后继续向下遍历，如果当前的字母修改后对应的子节点存在，则说明可以匹配，否则说明无法匹配，返回 false。如果我们遍历到了单词的结尾，且修改次数恰好为 1，那么说明可以匹配，返回 true。
 
 时间复杂度 $O(n \times l + q \times l \times |\Sigma|)$，空间复杂度 $O(n \times l)$，其中 $n$ 和 $l$ 分别是字典中的单词数量和单词的平均长度，而 $q$ 是搜索的单词数量。另外 $|\Sigma|$ 表示字符集的大小，这里字符集为小写英文字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -119,61 +113,6 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
-
-```python
-class Trie:
-    __slots__ = ["children", "is_end"]
-
-    def __init__(self):
-        self.children: [Trie | None] = [None] * 26
-        self.is_end = False
-
-    def insert(self, w: str) -> None:
-        node = self
-        for c in w:
-            idx = ord(c) - ord("a")
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-        node.is_end = True
-
-    def search(self, w: str) -> bool:
-        def dfs(i: int, node: [Trie | None], diff: int) -> bool:
-            if i == len(w):
-                return diff == 1 and node.is_end
-            j = ord(w[i]) - ord("a")
-            if node.children[j] and dfs(i + 1, node.children[j], diff):
-                return True
-            return diff == 0 and any(
-                node.children[k] and dfs(i + 1, node.children[k], 1)
-                for k in range(26)
-                if k != j
-            )
-
-        return dfs(0, self, 0)
-
-
-class MagicDictionary:
-    def __init__(self):
-        self.trie = Trie()
-
-    def buildDict(self, dictionary: List[str]) -> None:
-        for w in dictionary:
-            self.trie.insert(w)
-
-    def search(self, searchWord: str) -> bool:
-        return self.trie.search(searchWord)
-
-
-# Your MagicDictionary object will be instantiated and called as such:
-# obj = MagicDictionary()
-# obj.buildDict(dictionary)
-# param_2 = obj.search(searchWord)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -243,8 +182,6 @@ class MagicDictionary {
  * boolean param_2 = obj.search(searchWord);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -321,8 +258,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -393,8 +328,6 @@ func (md *MagicDictionary) Search(searchWord string) bool {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     private children: Trie[] = Array(26).fill(null);
@@ -461,8 +394,6 @@ class MagicDictionary {
  * var param_2 = obj.search(searchWord)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -551,10 +482,63 @@ impl MagicDictionary {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Trie:
+    __slots__ = ["children", "is_end"]
+
+    def __init__(self):
+        self.children: [Trie | None] = [None] * 26
+        self.is_end = False
+
+    def insert(self, w: str) -> None:
+        node = self
+        for c in w:
+            idx = ord(c) - ord("a")
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.is_end = True
+
+    def search(self, w: str) -> bool:
+        def dfs(i: int, node: [Trie | None], diff: int) -> bool:
+            if i == len(w):
+                return diff == 1 and node.is_end
+            j = ord(w[i]) - ord("a")
+            if node.children[j] and dfs(i + 1, node.children[j], diff):
+                return True
+            return diff == 0 and any(
+                node.children[k] and dfs(i + 1, node.children[k], 1)
+                for k in range(26)
+                if k != j
+            )
+
+        return dfs(0, self, 0)
+
+
+class MagicDictionary:
+    def __init__(self):
+        self.trie = Trie()
+
+    def buildDict(self, dictionary: List[str]) -> None:
+        for w in dictionary:
+            self.trie.insert(w)
+
+    def search(self, searchWord: str) -> bool:
+        return self.trie.search(searchWord)
+
+
+# Your MagicDictionary object will be instantiated and called as such:
+# obj = MagicDictionary()
+# obj.buildDict(dictionary)
+# param_2 = obj.search(searchWord)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快慢指针**
+### 方法一：快慢指针
 
 我们定义两个指针 $a$ 和 $b$，初始时都指向链表的头节点。每次迭代时，$a$ 指针向前移动一步，$b$ 指针向前移动两步，直到 $b$ 指针到达链表的末尾。此时，$a$ 指针指向链表节点数的一半，我们将链表从 $a$ 指针处断开，即可得到两个链表的头节点。
 
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。需要遍历链表一次。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -77,10 +71,6 @@ class Solution:
         a.next = list
         return [list, list2]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -110,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -169,8 +155,6 @@ func splitCircularLinkedList(list *ListNode) []*ListNode {
 	return []*ListNode{list, list2}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -202,10 +186,6 @@ function splitCircularLinkedList(list: ListNode | null): Array<ListNode | null> 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

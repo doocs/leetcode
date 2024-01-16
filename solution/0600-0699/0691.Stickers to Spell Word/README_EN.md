@@ -46,11 +46,9 @@ We cannot form the target &quot;basicbasic&quot; from cutting letters from the g
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -122,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minStickers(stickers []string, target string) int {
@@ -202,8 +194,6 @@ func minStickers(stickers []string, target string) int {
 	return -1
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashSet, VecDeque };
@@ -248,10 +238,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

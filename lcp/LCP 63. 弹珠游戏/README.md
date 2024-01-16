@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们注意到，从不同的位置打入弹珠，弹珠的前进路线不会重叠。因此，我们可以枚举所有可能的打入位置，然后模拟弹珠的前进过程，判断是否能够入洞，是则将该位置加入答案。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为弹珠盘的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
                 ans.append([m - 1, j])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -172,8 +162,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -222,8 +210,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func ballGame(num int, plate []string) (ans [][]int) {
 	dirs := [5]int{0, 1, 0, -1, 0}
@@ -268,10 +254,6 @@ func ballGame(num int, plate []string) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

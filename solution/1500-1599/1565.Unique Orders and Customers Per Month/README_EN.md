@@ -66,9 +66,9 @@ In January 2021 we have two orders from 2 different customers, but only one of t
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -82,3 +82,5 @@ GROUP BY month;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

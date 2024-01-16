@@ -29,17 +29,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
-
-**方法二：BFS**
+### 方法一：DFS
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,31 +54,6 @@ class Solution:
         vis = {start}
         return dfs(start)
 ```
-
-```python
-class Solution:
-    def findWhetherExistsPath(
-        self, n: int, graph: List[List[int]], start: int, target: int
-    ) -> bool:
-        g = defaultdict(list)
-        for u, v in graph:
-            g[u].append(v)
-        q = deque([start])
-        vis = {start}
-        while q:
-            u = q.popleft()
-            if u == target:
-                return True
-            for v in g[u]:
-                if v not in vis:
-                    vis.add(v)
-                    q.append(v)
-        return False
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,36 +84,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
-        Map<Integer, List<Integer>> g = new HashMap<>();
-        for (int[] e : graph) {
-            g.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
-        }
-        Deque<Integer> q = new ArrayDeque<>();
-        q.offer(start);
-        Set<Integer> vis = new HashSet<>();
-        vis.add(start);
-        while (!q.isEmpty()) {
-            int u = q.poll();
-            if (u == target) {
-                return true;
-            }
-            for (int v : g.getOrDefault(u, Collections.emptyList())) {
-                if (!vis.contains(v)) {
-                    vis.add(v);
-                    q.offer(v);
-                }
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,32 +106,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
-        unordered_map<int, vector<int>> g;
-        for (auto& e : graph) g[e[0]].push_back(e[1]);
-        queue<int> q{{start}};
-        unordered_set<int> vis{{start}};
-        while (!q.empty()) {
-            int u = q.front();
-            if (u == target) return true;
-            q.pop();
-            for (int v : g[u]) {
-                if (!vis.count(v)) {
-                    vis.insert(v);
-                    q.push(v);
-                }
-            }
-        }
-        return false;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
@@ -223,6 +134,85 @@ func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：BFS
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findWhetherExistsPath(
+        self, n: int, graph: List[List[int]], start: int, target: int
+    ) -> bool:
+        g = defaultdict(list)
+        for u, v in graph:
+            g[u].append(v)
+        q = deque([start])
+        vis = {start}
+        while q:
+            u = q.popleft()
+            if u == target:
+                return True
+            for v in g[u]:
+                if v not in vis:
+                    vis.add(v)
+                    q.append(v)
+        return False
+```
+
+```java
+class Solution {
+    public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int[] e : graph) {
+            g.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
+        }
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(start);
+        Set<Integer> vis = new HashSet<>();
+        vis.add(start);
+        while (!q.isEmpty()) {
+            int u = q.poll();
+            if (u == target) {
+                return true;
+            }
+            for (int v : g.getOrDefault(u, Collections.emptyList())) {
+                if (!vis.contains(v)) {
+                    vis.add(v);
+                    q.offer(v);
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
+        unordered_map<int, vector<int>> g;
+        for (auto& e : graph) g[e[0]].push_back(e[1]);
+        queue<int> q{{start}};
+        unordered_set<int> vis{{start}};
+        while (!q.empty()) {
+            int u = q.front();
+            if (u == target) return true;
+            q.pop();
+            for (int v : g[u]) {
+                if (!vis.count(v)) {
+                    vis.insert(v);
+                    q.push(v);
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
 ```go
 func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 	g := map[int][]int{}
@@ -249,10 +239,6 @@ func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

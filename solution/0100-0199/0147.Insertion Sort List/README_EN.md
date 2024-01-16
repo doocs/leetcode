@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -71,8 +71,6 @@ class Solution:
             cur = t
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -113,8 +111,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for singly-linked list.
@@ -152,10 +148,6 @@ var insertionSortList = function (head) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

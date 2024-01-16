@@ -72,19 +72,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题意，我们可以模拟裁剪过程，然后对裁剪后的字符串进行排序，最后根据下标找到对应的数字即可。
 
 时间复杂度 $O(m \times \ n \times \log n \times s)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为 `nums` 和 `queries` 的长度，而 $s$ 为 $nums[i]$ 字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
             ans.append(t[k - 1][1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestTrimmedNumbers(nums []string, queries [][]int) []int {
 	type pair struct {
@@ -168,16 +154,6 @@ func smallestTrimmedNumbers(nums []string, queries [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 正向遍历 $arr$，利用并查集动态维护每组 $1$ 的长度。
 
@@ -77,17 +75,7 @@
 
 相似题目：[2334. 元素值大于变化阈值的子数组](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
 
-**方法二：动态维护区间端点的长度**
-
-我们其实并不需要去通过查找并查集来获取每个区间长度，我们只需要在每个区间端点处记录每个区间长度，由于合并的时候**只会访问区间端点**，所以合并区间的时候修改端点区间长度即可。
-
-时间复杂度 $O(n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -124,27 +112,6 @@ class Solution:
             vis[v] = True
         return ans
 ```
-
-```python
-class Solution:
-    def findLatestStep(self, arr: List[int], m: int) -> int:
-        n = len(arr)
-        if m == n:
-            return n
-        cnt = [0] * (n + 2)
-        ans = -1
-        for i, v in enumerate(arr):
-            v -= 1
-            l, r = cnt[v - 1], cnt[v + 1]
-            if l == m or r == m:
-                ans = i
-            cnt[v - l] = cnt[v + r] = l + r + 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -201,31 +168,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findLatestStep(int[] arr, int m) {
-        int n = arr.length;
-        if (m == n) {
-            return n;
-        }
-        int[] cnt = new int[n + 2];
-        int ans = -1;
-        for (int i = 0; i < n; ++i) {
-            int v = arr[i];
-            int l = cnt[v - 1], r = cnt[v + 1];
-            if (l == m || r == m) {
-                ans = i;
-            }
-            cnt[v - l] = l + r + 1;
-            cnt[v + r] = l + r + 1;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -268,27 +210,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int findLatestStep(vector<int>& arr, int m) {
-        int n = arr.size();
-        if (m == n) return n;
-        vector<int> cnt(n + 2);
-        int ans = -1;
-        for (int i = 0; i < n; ++i) {
-            int v = arr[i];
-            int l = cnt[v - 1], r = cnt[v + 1];
-            if (l == m || r == m) ans = i;
-            cnt[v - l] = cnt[v + r] = l + r + 1;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -340,6 +261,75 @@ func findLatestStep(arr []int, m int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态维护区间端点的长度
+
+我们其实并不需要去通过查找并查集来获取每个区间长度，我们只需要在每个区间端点处记录每个区间长度，由于合并的时候**只会访问区间端点**，所以合并区间的时候修改端点区间长度即可。
+
+时间复杂度 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findLatestStep(self, arr: List[int], m: int) -> int:
+        n = len(arr)
+        if m == n:
+            return n
+        cnt = [0] * (n + 2)
+        ans = -1
+        for i, v in enumerate(arr):
+            v -= 1
+            l, r = cnt[v - 1], cnt[v + 1]
+            if l == m or r == m:
+                ans = i
+            cnt[v - l] = cnt[v + r] = l + r + 1
+        return ans
+```
+
+```java
+class Solution {
+    public int findLatestStep(int[] arr, int m) {
+        int n = arr.length;
+        if (m == n) {
+            return n;
+        }
+        int[] cnt = new int[n + 2];
+        int ans = -1;
+        for (int i = 0; i < n; ++i) {
+            int v = arr[i];
+            int l = cnt[v - 1], r = cnt[v + 1];
+            if (l == m || r == m) {
+                ans = i;
+            }
+            cnt[v - l] = l + r + 1;
+            cnt[v + r] = l + r + 1;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findLatestStep(vector<int>& arr, int m) {
+        int n = arr.size();
+        if (m == n) return n;
+        vector<int> cnt(n + 2);
+        int ans = -1;
+        for (int i = 0; i < n; ++i) {
+            int v = arr[i];
+            int l = cnt[v - 1], r = cnt[v + 1];
+            if (l == m || r == m) ans = i;
+            cnt[v - l] = cnt[v + r] = l + r + 1;
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func findLatestStep(arr []int, m int) int {
 	n := len(arr)
@@ -359,10 +349,6 @@ func findLatestStep(arr []int, m int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

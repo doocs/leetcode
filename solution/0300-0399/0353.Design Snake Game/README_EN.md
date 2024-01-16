@@ -60,9 +60,9 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class SnakeGame:
@@ -109,8 +109,6 @@ class SnakeGame:
 # obj = SnakeGame(width, height, food)
 # param_1 = obj.move(direction)
 ```
-
-### **Java**
 
 ```java
 class SnakeGame {
@@ -173,8 +171,6 @@ class SnakeGame {
  * int param_1 = obj.move(direction);
  */
 ```
-
-### **C++**
 
 ```cpp
 class SnakeGame {
@@ -243,8 +239,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type SnakeGame struct {
 	m     int
@@ -302,8 +296,6 @@ func (this *SnakeGame) Move(direction string) int {
  * param_1 := obj.Move(direction);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class SnakeGame {
@@ -371,10 +363,6 @@ class SnakeGame {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

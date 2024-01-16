@@ -45,13 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +62,6 @@ class Solution:
                 ans = max(ans, l * w)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 	mx := 0
@@ -131,8 +119,6 @@ func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function areaOfMaxDiagonal(dimensions: number[][]): number {
     let [ans, mx] = [0, 0];
@@ -149,10 +135,6 @@ function areaOfMaxDiagonal(dimensions: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

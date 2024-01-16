@@ -51,9 +51,9 @@ Installing any would create some section that does not have exactly two seats.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,8 +77,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWays(corridor string) int {
@@ -190,8 +184,6 @@ func numberOfWays(corridor string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWays(corridor: string): number {
     const M: number = 1e9 + 7;
@@ -217,10 +209,6 @@ function numberOfWays(corridor: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

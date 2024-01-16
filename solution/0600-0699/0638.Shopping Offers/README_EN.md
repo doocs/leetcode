@@ -49,9 +49,9 @@ You cannot add more items, though only 9 for 2A ,2B and 1C.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                 ans = min(ans, offer[-1] + self.shoppingOffers(price, special, t))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shoppingOffers(price []int, special [][]int, needs []int) int {
@@ -178,10 +172,6 @@ func shoppingOffers(price []int, special [][]int, needs []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

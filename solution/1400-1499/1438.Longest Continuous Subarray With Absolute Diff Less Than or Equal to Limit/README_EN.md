@@ -52,9 +52,9 @@ Therefore, the size of the longest subarray is 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedList
@@ -72,8 +72,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestSubarray(nums []int, limit int) (ans int) {
@@ -147,8 +141,6 @@ func longestSubarray(nums []int, limit int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestSubarray(nums: number[], limit: number): number {
@@ -784,10 +776,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

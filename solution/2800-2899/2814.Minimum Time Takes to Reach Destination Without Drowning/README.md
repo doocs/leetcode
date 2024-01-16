@@ -74,19 +74,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次 BFS**
+### 方法一：两次 BFS
 
 我们先跑一次 BFS，求出每个点到水域的最短距离，记录在数组 $g$ 中。然后再跑一次 BFS，从单元格 $(s_i, s_j)$ 出发，求出到达目标单元格 $(d_i, d_j)$ 的最短距离。在此过程中，如果当前单元格 $(i, j)$ 的相邻单元格 $(x, y)$ 满足 $g[x][y] \gt t + 1$，那么我们就可以从 $(x, y)$ 走到 $(i, j)$。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是数组 $land$ 的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -143,10 +137,6 @@ class Solution:
             t += 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -214,8 +204,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -285,8 +273,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumSeconds(land [][]string) int {
@@ -360,8 +346,6 @@ func minimumSeconds(land [][]string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSeconds(land: string[][]): number {
     const m = land.length;
@@ -431,10 +415,6 @@ function minimumSeconds(land: string[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

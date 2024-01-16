@@ -53,7 +53,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We can use two pointers $i$ and $j$ to find the left and right endpoints of each interval.
 
@@ -62,8 +62,6 @@ Traverse the array, when $j + 1 < n$ and $nums[j + 1] = nums[j] + 1$, move $j$ t
 Time complexity $O(n)$, where $n$ is the length of the array. Space complexity $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
             i = j + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,7 +121,42 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func summaryRanges(nums []int) (ans []string) {
+	f := func(i, j int) string {
+		if i == j {
+			return strconv.Itoa(nums[i])
+		}
+		return strconv.Itoa(nums[i]) + "->" + strconv.Itoa(nums[j])
+	}
+	for i, j, n := 0, 0, len(nums); i < n; i = j + 1 {
+		j = i
+		for j+1 < n && nums[j+1] == nums[j]+1 {
+			j++
+		}
+		ans = append(ans, f(i, j))
+	}
+	return
+}
+```
+
+```ts
+function summaryRanges(nums: number[]): string[] {
+    const f = (i: number, j: number): string => {
+        return i === j ? `${nums[i]}` : `${nums[i]}->${nums[j]}`;
+    };
+    const n = nums.length;
+    const ans: string[] = [];
+    for (let i = 0, j = 0; i < n; i = j + 1) {
+        j = i;
+        while (j + 1 < n && nums[j + 1] === nums[j] + 1) {
+            ++j;
+        }
+        ans.push(f(i, j));
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -169,49 +198,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func summaryRanges(nums []int) (ans []string) {
-	f := func(i, j int) string {
-		if i == j {
-			return strconv.Itoa(nums[i])
-		}
-		return strconv.Itoa(nums[i]) + "->" + strconv.Itoa(nums[j])
-	}
-	for i, j, n := 0, 0, len(nums); i < n; i = j + 1 {
-		j = i
-		for j+1 < n && nums[j+1] == nums[j]+1 {
-			j++
-		}
-		ans = append(ans, f(i, j))
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function summaryRanges(nums: number[]): string[] {
-    const f = (i: number, j: number): string => {
-        return i === j ? `${nums[i]}` : `${nums[i]}->${nums[j]}`;
-    };
-    const n = nums.length;
-    const ans: string[] = [];
-    for (let i = 0, j = 0; i < n; i = j + 1) {
-        j = i;
-        while (j + 1 < n && nums[j + 1] === nums[j] + 1) {
-            ++j;
-        }
-        ans.push(f(i, j));
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public IList<string> SummaryRanges(int[] nums) {
@@ -232,10 +218,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

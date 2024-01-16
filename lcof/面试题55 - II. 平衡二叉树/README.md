@@ -49,7 +49,7 @@
 
 ## 解法
 
-**方法一：递归**
+### 方法一：递归
 
 我们设计一个递归函数 $dfs(root)$，函数返回值为 $root$ 节点的深度，如果 $root$ 节点不平衡，返回值为 $-1$。
 
@@ -65,8 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -89,32 +87,6 @@ class Solution:
 
         return dfs(root) != -1
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        def dfs(root):
-            if root is None:
-                return (True, 0)
-            l, ld = dfs(root.left)
-            r, rd = dfs(root.right)
-            d = max(ld, rd) + 1
-            if l and r and abs(ld - rd) <= 1:
-                return (True, d)
-            return (False, d)
-
-        return dfs(root)[0]
-```
-
-### **Java**
 
 ```java
 /**
@@ -145,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -175,8 +145,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -209,38 +177,6 @@ func abs(x int) int {
 	return x
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {boolean}
- */
-var isBalanced = function (root) {
-    const dfs = root => {
-        if (!root) {
-            return 0;
-        }
-        const l = dfs(root.left);
-        const r = dfs(root.right);
-        if (l === -1 || r == -1 || Math.abs(l - r) > 1) {
-            return -1;
-        }
-        return 1 + Math.max(l, r);
-    };
-    return dfs(root) !== -1;
-};
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -288,7 +224,33 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isBalanced = function (root) {
+    const dfs = root => {
+        if (!root) {
+            return 0;
+        }
+        const l = dfs(root.left);
+        const r = dfs(root.right);
+        if (l === -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
+    };
+    return dfs(root) !== -1;
+};
+```
 
 ```cs
 /**
@@ -319,10 +281,36 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def dfs(root):
+            if root is None:
+                return (True, 0)
+            l, ld = dfs(root.left)
+            r, rd = dfs(root.right)
+            d = max(ld, rd) + 1
+            if l and r and abs(ld - rd) <= 1:
+                return (True, d)
+            return (False, d)
+
+        return dfs(root)[0]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

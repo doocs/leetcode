@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递推**
+### 方法一：递推
 
 我们创建一个长度为 $rowIndex + 1$ 的数组 $f$，初始时所有元素均为 $1$。
 
@@ -65,10 +63,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
@@ -78,10 +72,6 @@ class Solution:
                 f[j] += f[j - 1]
         return f
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getRow(rowIndex int) []int {
@@ -134,8 +120,6 @@ func getRow(rowIndex int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getRow(rowIndex: number): number[] {
     const f: number[] = Array(rowIndex + 1).fill(1);
@@ -147,8 +131,6 @@ function getRow(rowIndex: number): number[] {
     return f;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -165,10 +147,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

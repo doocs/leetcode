@@ -60,7 +60,7 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the minimum number of sidesteps for the frog to reach the $i$-th point and be on the $j$-th lane (index starts from $0$).
 
@@ -73,8 +73,6 @@ In the code implementation, we can optimize the first dimension of space and onl
 The time complexity is $O(n)$, where $n$ is the length of the array $obstacles$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -91,8 +89,6 @@ class Solution:
                     f[j] = min(f[j], x)
         return min(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSideJumps(obstacles []int) int {
 	f := [3]int{1, 0, 1}
@@ -168,8 +160,6 @@ func minSideJumps(obstacles []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minSideJumps(obstacles: number[]): number {
@@ -193,10 +183,6 @@ function minSideJumps(obstacles: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,7 +58,7 @@ It can be shown that 2 is the minimum number of operations needed.
 
 ## Solutions
 
-**Solution 1: Odd-Even Classification + Sorting**
+### Solution 1: Odd-Even Classification + Sorting
 
 Notice that, because each operation will only increase or decrease the value of an element by $2$, the parity of the element will not change.
 
@@ -72,8 +72,6 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def makeSimilar(self, nums: List[int], target: List[int]) -> int:
@@ -81,8 +79,6 @@ class Solution:
         target.sort(key=lambda x: (x & 1, x))
         return sum(abs(a - b) for a, b in zip(nums, target)) // 4
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +144,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeSimilar(nums []int, target []int) int64 {
@@ -189,8 +181,6 @@ func abs(x int) int {
 	return x
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function makeSimilar(nums: number[], target: number[]): number {
@@ -231,10 +221,6 @@ function makeSimilar(nums: number[], target: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

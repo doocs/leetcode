@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the maximum sum of several numbers selected from the first $i$ numbers, such that the sum modulo $3$ equals $j$. Initially, $f[0][0]=0$, and the rest are $-\infty$.
 
@@ -63,8 +63,6 @@ Note that the value of $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][(j-x
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxSumDivThree(self, nums: List[int]) -> int:
@@ -76,20 +74,6 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[i - 1][(j - x) % 3] + x)
         return f[n][0]
 ```
-
-```python
-class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
-        f = [0, -inf, -inf]
-        for x in nums:
-            g = f[:]
-            for j in range(3):
-                g[j] = max(f[j], f[(j - x) % 3] + x)
-            f = g
-        return f[0]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,25 +92,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int maxSumDivThree(int[] nums) {
-        final int inf = 1 << 30;
-        int[] f = new int[] {0, -inf, -inf};
-        for (int x : nums) {
-            int[] g = f.clone();
-            for (int j = 0; j < 3; ++j) {
-                g[j] = Math.max(f[j], f[(j - x % 3 + 3) % 3] + x);
-            }
-            f = g;
-        }
-        return f[0];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,26 +113,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maxSumDivThree(vector<int>& nums) {
-        const int inf = 1 << 30;
-        vector<int> f = {0, -inf, -inf};
-        for (int& x : nums) {
-            vector<int> g = f;
-            for (int j = 0; j < 3; ++j) {
-                g[j] = max(f[j], f[(j - x % 3 + 3) % 3] + x);
-            }
-            f = move(g);
-        }
-        return f[0];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxSumDivThree(nums []int) int {
 	n := len(nums)
@@ -183,23 +128,6 @@ func maxSumDivThree(nums []int) int {
 	return f[n][0]
 }
 ```
-
-```go
-func maxSumDivThree(nums []int) int {
-	const inf = 1 << 30
-	f := [3]int{0, -inf, -inf}
-	for _, x := range nums {
-		g := [3]int{}
-		for j := range f {
-			g[j] = max(f[j], f[(j-x%3+3)%3]+x)
-		}
-		f = g
-	}
-	return f[0]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function maxSumDivThree(nums: number[]): number {
@@ -219,6 +147,74 @@ function maxSumDivThree(nums: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxSumDivThree(self, nums: List[int]) -> int:
+        f = [0, -inf, -inf]
+        for x in nums:
+            g = f[:]
+            for j in range(3):
+                g[j] = max(f[j], f[(j - x) % 3] + x)
+            f = g
+        return f[0]
+```
+
+```java
+class Solution {
+    public int maxSumDivThree(int[] nums) {
+        final int inf = 1 << 30;
+        int[] f = new int[] {0, -inf, -inf};
+        for (int x : nums) {
+            int[] g = f.clone();
+            for (int j = 0; j < 3; ++j) {
+                g[j] = Math.max(f[j], f[(j - x % 3 + 3) % 3] + x);
+            }
+            f = g;
+        }
+        return f[0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxSumDivThree(vector<int>& nums) {
+        const int inf = 1 << 30;
+        vector<int> f = {0, -inf, -inf};
+        for (int& x : nums) {
+            vector<int> g = f;
+            for (int j = 0; j < 3; ++j) {
+                g[j] = max(f[j], f[(j - x % 3 + 3) % 3] + x);
+            }
+            f = move(g);
+        }
+        return f[0];
+    }
+};
+```
+
+```go
+func maxSumDivThree(nums []int) int {
+	const inf = 1 << 30
+	f := [3]int{0, -inf, -inf}
+	for _, x := range nums {
+		g := [3]int{}
+		for j := range f {
+			g[j] = max(f[j], f[(j-x%3+3)%3]+x)
+		}
+		f = g
+	}
+	return f[0]
+}
+```
+
 ```ts
 function maxSumDivThree(nums: number[]): number {
     const inf = 1 << 30;
@@ -233,10 +229,6 @@ function maxSumDivThree(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

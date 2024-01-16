@@ -34,13 +34,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -66,10 +62,6 @@ class Solution:
         cur.next = None
         return head
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -101,41 +93,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var removeDuplicateNodes = function (head) {
-    if (head == null || head.next == null) return head;
-    const cache = new Set([]);
-    cache.add(head.val);
-    let cur = head,
-        fast = head.next;
-    while (fast !== null) {
-        if (!cache.has(fast.val)) {
-            cur.next = fast;
-            cur = cur.next;
-            cache.add(fast.val);
-        }
-        fast = fast.next;
-    }
-    cur.next = null;
-    return head;
-};
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -166,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeDuplicateNodes(head *ListNode) *ListNode {
 	if head == nil {
@@ -186,8 +141,6 @@ func removeDuplicateNodes(head *ListNode) *ListNode {
 	return head
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -219,40 +172,6 @@ function removeDuplicateNodes(head: ListNode | null): ListNode | null {
     return head;
 }
 ```
-
-暴力（不推荐）
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function removeDuplicateNodes(head: ListNode | null): ListNode | null {
-    let n1 = head;
-    while (n1 != null) {
-        let n2 = n1;
-        while (n2.next != null) {
-            if (n1.val === n2.next.val) {
-                n2.next = n2.next.next;
-            } else {
-                n2 = n2.next;
-            }
-        }
-        n1 = n1.next;
-    }
-    return head;
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -296,10 +215,73 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var removeDuplicateNodes = function (head) {
+    if (head == null || head.next == null) return head;
+    const cache = new Set([]);
+    cache.add(head.val);
+    let cur = head,
+        fast = head.next;
+    while (fast !== null) {
+        if (!cache.has(fast.val)) {
+            cur.next = fast;
+            cur = cur.next;
+            cache.add(fast.val);
+        }
+        fast = fast.next;
+    }
+    cur.next = null;
+    return head;
+};
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function removeDuplicateNodes(head: ListNode | null): ListNode | null {
+    let n1 = head;
+    while (n1 != null) {
+        let n2 = n1;
+        while (n2.next != null) {
+            if (n1.val === n2.next.val) {
+                n2.next = n2.next.next;
+            } else {
+                n2 = n2.next;
+            }
+        }
+        n1 = n1.next;
+    }
+    return head;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

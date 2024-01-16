@@ -56,11 +56,9 @@
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
@@ -200,8 +192,6 @@ func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumJumps(forbidden: number[], a: number, b: number, x: number): number {
     const s: Set<number> = new Set(forbidden);
@@ -231,10 +221,6 @@ function minimumJumps(forbidden: number[], a: number, b: number, x: number): num
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

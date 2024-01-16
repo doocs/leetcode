@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 注意到，如果相同起点的子区间有多个，那么选择右端点最大的那个子区间是最优的。
 
@@ -88,10 +86,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def videoStitching(self, clips: List[List[int]], time: int) -> int:
@@ -109,10 +103,6 @@ class Solution:
                 pre = mx
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -170,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func videoStitching(clips [][]int, time int) int {
 	last := make([]int, time)
@@ -196,10 +182,6 @@ func videoStitching(clips [][]int, time int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

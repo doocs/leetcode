@@ -46,9 +46,9 @@ myCalendarThree.book(25, 55); // return 3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -126,8 +126,6 @@ class MyCalendarThree:
 # obj = MyCalendarThree()
 # param_1 = obj.book(start,end)
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -237,8 +235,6 @@ class MyCalendarThree {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -338,8 +334,6 @@ public:
  * int param_1 = obj->book(start,end);
  */
 ```
-
-### **Go**
 
 ```go
 type node struct {
@@ -444,10 +438,6 @@ func (this *MyCalendarThree) Book(start int, end int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

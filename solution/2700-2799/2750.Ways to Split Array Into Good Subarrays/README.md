@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：乘法原理**
+### 方法一：乘法原理
 
 根据题目描述，我们可以在两个 $1$ 之间画一条分割线，假设两个 $1$ 之间的下标分别为 $j$ 和 $i$，那么可以画的不同分割线的数量为 $i - j$。我们找出所有满足条件的 $j$ 和 $i$，然后将所有的 $i - j$ 相乘即可。如果找不到两个 $1$ 之间的分割线，那么说明数组中不存在 $1$，此时答案为 $0$。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
             j = i
         return 0 if j == -1 else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfGoodSubarraySplits(nums []int) int {
 	const mod int = 1e9 + 7
@@ -140,8 +126,6 @@ func numberOfGoodSubarraySplits(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfGoodSubarraySplits(nums: number[]): number {
     let ans = 1;
@@ -160,8 +144,6 @@ function numberOfGoodSubarraySplits(nums: number[]): number {
     return j === -1 ? 0 : ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -183,10 +165,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

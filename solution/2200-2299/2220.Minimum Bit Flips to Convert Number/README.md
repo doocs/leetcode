@@ -49,13 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +63,6 @@ class Solution:
             t >>= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minBitFlips(start int, goal int) int {
 	t := start ^ goal
@@ -117,8 +105,6 @@ func minBitFlips(start int, goal int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minBitFlips(start: number, goal: number): number {
     let tmp = start ^ goal;
@@ -130,8 +116,6 @@ function minBitFlips(start: number, goal: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -147,8 +131,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int minBitFlips(int start, int goal) {
     int tmp = start ^ goal;
@@ -161,10 +143,6 @@ int minBitFlips(int start, int goal) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

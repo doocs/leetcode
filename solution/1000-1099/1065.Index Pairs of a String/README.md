@@ -39,22 +39,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
-
-**方法二：前缀树**
-
-相似题目：
-
--   [616. 给字符串添加加粗标签](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
--   [758. 字符串中的加粗单词](/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
+### 方法一：暴力枚举
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -65,45 +52,6 @@ class Solution:
             [i, j] for i in range(n) for j in range(i, n) if text[i : j + 1] in words
         ]
 ```
-
-```python
-class Trie:
-    def __init__(self):
-        self.children = [None] * 26
-        self.is_end = False
-
-    def insert(self, word):
-        node = self
-        for c in word:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-        node.is_end = True
-
-
-class Solution:
-    def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
-        trie = Trie()
-        for w in words:
-            trie.insert(w)
-        n = len(text)
-        ans = []
-        for i in range(n):
-            node = trie
-            for j in range(i, n):
-                idx = ord(text[j]) - ord('a')
-                if node.children[idx] is None:
-                    break
-                node = node.children[idx]
-                if node.is_end:
-                    ans.append([i, j])
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -149,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Trie {
 public:
@@ -192,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -241,10 +185,52 @@ func indexPairs(text string, words []string) [][]int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二：前缀树
 
+相似题目：
+
+-   [616. 给字符串添加加粗标签](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
+-   [758. 字符串中的加粗单词](/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
+
+<!-- tabs:start -->
+
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.is_end = False
+
+    def insert(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.is_end = True
+
+
+class Solution:
+    def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        n = len(text)
+        ans = []
+        for i in range(n):
+            node = trie
+            for j in range(i, n):
+                idx = ord(text[j]) - ord('a')
+                if node.children[idx] is None:
+                    break
+                node = node.children[idx]
+                if node.is_end:
+                    ans.append([i, j])
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

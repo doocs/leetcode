@@ -48,17 +48,15 @@ The maximum number is 9969.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def maximum69Number(self, num: int) -> int:
         return int(str(num).replace("6", "9", 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -67,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximum69Number(num int) int {
 	s := strconv.Itoa(num)
@@ -103,15 +97,11 @@ func maximum69Number(num int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximum69Number(num: number): number {
     return Number((num + '').replace('6', '9'));
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -121,7 +111,20 @@ impl Solution {
 }
 ```
 
-### **C**
+```php
+class Solution {
+    /**
+     * @param Integer $num
+     * @return Integer
+     */
+    function maximum69Number($num) {
+        $num = strval($num);
+        $n = strpos($num, '6');
+        $num[$n] = 9;
+        return intval($num);
+    }
+}
+```
 
 ```c
 int maximum69Number(int num) {
@@ -139,27 +142,6 @@ int maximum69Number(int num) {
 }
 ```
 
-### **PHP**
-
-```php
-class Solution {
-    /**
-     * @param Integer $num
-     * @return Integer
-     */
-    function maximum69Number($num) {
-        $num = strval($num);
-        $n = strpos($num, '6');
-        $num[$n] = 9;
-        return intval($num);
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

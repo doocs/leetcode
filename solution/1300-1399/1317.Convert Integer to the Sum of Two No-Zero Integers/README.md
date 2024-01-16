@@ -62,19 +62,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接枚举**
+### 方法一：直接枚举
 
 从 $1$ 开始枚举 $a$，判断 $a$ 和 $n - a$ 是否满足条件，如果满足则返回。
 
 时间复杂度 $O(n\times \log n)$，空间复杂度 $O(1)$。其中 $n$ 为题目给定的整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,6 +78,50 @@ class Solution:
             if "0" not in str(a) + str(b):
                 return [a, b]
 ```
+
+```java
+class Solution {
+    public int[] getNoZeroIntegers(int n) {
+        for (int a = 1;; ++a) {
+            int b = n - a;
+            if (!(a + "" + b).contains("0")) {
+                return new int[] {a, b};
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> getNoZeroIntegers(int n) {
+        for (int a = 1;; ++a) {
+            int b = n - a;
+            if ((to_string(a) + to_string(b)).find('0') == -1) {
+                return {a, b};
+            }
+        }
+    }
+};
+```
+
+```go
+func getNoZeroIntegers(n int) []int {
+	for a := 1; ; a++ {
+		b := n - a
+		if !strings.Contains(strconv.Itoa(a)+strconv.Itoa(b), "0") {
+			return []int{a, b}
+		}
+	}
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -99,23 +137,6 @@ class Solution:
             b = n - a
             if f(a) and f(b):
                 return [a, b]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int[] getNoZeroIntegers(int n) {
-        for (int a = 1;; ++a) {
-            int b = n - a;
-            if (!(a + "" + b).contains("0")) {
-                return new int[] {a, b};
-            }
-        }
-    }
-}
 ```
 
 ```java
@@ -140,22 +161,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> getNoZeroIntegers(int n) {
-        for (int a = 1;; ++a) {
-            int b = n - a;
-            if ((to_string(a) + to_string(b)).find('0') == -1) {
-                return {a, b};
-            }
-        }
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -178,19 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func getNoZeroIntegers(n int) []int {
-	for a := 1; ; a++ {
-		b := n - a
-		if !strings.Contains(strconv.Itoa(a)+strconv.Itoa(b), "0") {
-			return []int{a, b}
-		}
-	}
-}
-```
-
 ```go
 func getNoZeroIntegers(n int) []int {
 	f := func(x int) bool {
@@ -210,10 +202,6 @@ func getNoZeroIntegers(n int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

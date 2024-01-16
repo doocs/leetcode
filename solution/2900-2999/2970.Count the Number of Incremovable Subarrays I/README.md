@@ -54,9 +54,7 @@ nums 中只有这 7 个移除递增子数组。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 根据题目描述，移除一个子数组后，剩余元素严格递增，那么存在以下几种情况：
 
@@ -86,10 +84,6 @@ nums 中只有这 7 个移除递增子数组。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def incremovableSubarrayCount(self, nums: List[int]) -> int:
@@ -109,10 +103,6 @@ class Solution:
             j -= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +128,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -167,8 +155,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func incremovableSubarrayCount(nums []int) int {
 	i, n := 0, len(nums)
@@ -191,8 +177,6 @@ func incremovableSubarrayCount(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function incremovableSubarrayCount(nums: number[]): number {
@@ -218,10 +202,6 @@ function incremovableSubarrayCount(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

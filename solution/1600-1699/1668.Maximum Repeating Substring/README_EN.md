@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             if word * k in sequence:
                 return k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +69,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -81,6 +77,7 @@ public:
         string t = word;
         int x = sequence.size() / word.size();
         for (int k = 1; k <= x; ++k) {
+            // C++ 这里从小到大枚举重复值
             if (sequence.find(t) != string::npos) {
                 ans = k;
             }
@@ -90,8 +87,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxRepeating(sequence string, word string) int {
@@ -104,7 +99,38 @@ func maxRepeating(sequence string, word string) int {
 }
 ```
 
-### **C**
+```ts
+function maxRepeating(sequence: string, word: string): number {
+    let n = sequence.length;
+    let m = word.length;
+    for (let k = Math.floor(n / m); k > 0; k--) {
+        if (sequence.includes(word.repeat(k))) {
+            return k;
+        }
+    }
+    return 0;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_repeating(sequence: String, word: String) -> i32 {
+        let n = sequence.len();
+        let m = word.len();
+        if n < m {
+            return 0;
+        }
+        let mut dp = vec![0; n - m + 1];
+        for i in 0..=n - m {
+            let s = &sequence[i..i + m];
+            if s == word {
+                dp[i] = (if (i as i32) - (m as i32) < 0 { 0 } else { dp[i - m] }) + 1;
+            }
+        }
+        *dp.iter().max().unwrap()
+    }
+}
+```
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -130,47 +156,6 @@ int maxRepeating(char* sequence, char* word) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxRepeating(sequence: string, word: string): number {
-    let n = sequence.length;
-    let m = word.length;
-    for (let k = Math.floor(n / m); k > 0; k--) {
-        if (sequence.includes(word.repeat(k))) {
-            return k;
-        }
-    }
-    return 0;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn max_repeating(sequence: String, word: String) -> i32 {
-        let n = sequence.len();
-        let m = word.len();
-        if n < m {
-            return 0;
-        }
-        let mut dp = vec![0; n - m + 1];
-        for i in 0..=n - m {
-            let s = &sequence[i..i + m];
-            if s == word {
-                dp[i] = (if (i as i32) - (m as i32) < 0 { 0 } else { dp[i - m] }) + 1;
-            }
-        }
-        *dp.iter().max().unwrap()
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

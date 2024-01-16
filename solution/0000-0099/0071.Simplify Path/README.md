@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 我们先将路径按照 `'/'` 分割成若干个子串，然后遍历每个子串，根据子串的内容进行如下操作：
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为路径的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
                 stk.append(s)
         return '/' + '/'.join(stk)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,7 +144,43 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func simplifyPath(path string) string {
+	var stk []string
+	for _, s := range strings.Split(path, "/") {
+		if s == "" || s == "." {
+			continue
+		}
+		if s == ".." {
+			if len(stk) > 0 {
+				stk = stk[0 : len(stk)-1]
+			}
+		} else {
+			stk = append(stk, s)
+		}
+	}
+	return "/" + strings.Join(stk, "/")
+}
+```
+
+```ts
+function simplifyPath(path: string): string {
+    const stk: string[] = [];
+    for (const s of path.split('/')) {
+        if (s === '' || s === '.') {
+            continue;
+        }
+        if (s === '..') {
+            if (stk.length) {
+                stk.pop();
+            }
+        } else {
+            stk.push(s);
+        }
+    }
+    return '/' + stk.join('/');
+}
+```
 
 ```rust
 impl Solution {
@@ -188,56 +212,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func simplifyPath(path string) string {
-	var stk []string
-	for _, s := range strings.Split(path, "/") {
-		if s == "" || s == "." {
-			continue
-		}
-		if s == ".." {
-			if len(stk) > 0 {
-				stk = stk[0 : len(stk)-1]
-			}
-		} else {
-			stk = append(stk, s)
-		}
-	}
-	return "/" + strings.Join(stk, "/")
-}
-```
-
-```go
-func simplifyPath(path string) string {
-	return filepath.Clean(path)
-}
-```
-
-### **TypeScript**
-
-```ts
-function simplifyPath(path: string): string {
-    const stk: string[] = [];
-    for (const s of path.split('/')) {
-        if (s === '' || s === '.') {
-            continue;
-        }
-        if (s === '..') {
-            if (stk.length) {
-                stk.pop();
-            }
-        } else {
-            stk.push(s);
-        }
-    }
-    return '/' + stk.join('/');
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public string SimplifyPath(string path) {
@@ -263,10 +237,18 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```go
+func simplifyPath(path string) string {
+	return filepath.Clean(path)
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

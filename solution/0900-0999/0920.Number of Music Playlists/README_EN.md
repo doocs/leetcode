@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ to be the number of playlists that can be made from $i$ songs with exactly $j$ different songs. We have $f[0][0] = 1$ and the answer is $f[goal][n]$.
 
@@ -69,8 +69,6 @@ Notice that $f[i][j]$ only depends on $f[i - 1][j - 1]$ and $f[i - 1][j]$, so we
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def numMusicPlaylists(self, n: int, goal: int, k: int) -> int:
@@ -85,25 +83,6 @@ class Solution:
                 f[i][j] %= mod
         return f[goal][n]
 ```
-
-```python
-class Solution:
-    def numMusicPlaylists(self, n: int, goal: int, k: int) -> int:
-        mod = 10**9 + 7
-        f = [0] * (goal + 1)
-        f[0] = 1
-        for i in range(1, goal + 1):
-            g = [0] * (goal + 1)
-            for j in range(1, n + 1):
-                g[j] = f[j - 1] * (n - j + 1)
-                if j > k:
-                    g[j] += f[j] * (j - k)
-                g[j] %= mod
-            f = g
-        return f[n]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,30 +103,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int numMusicPlaylists(int n, int goal, int k) {
-        final int mod = (int) 1e9 + 7;
-        long[] f = new long[n + 1];
-        f[0] = 1;
-        for (int i = 1; i <= goal; ++i) {
-            long[] g = new long[n + 1];
-            for (int j = 1; j <= n; ++j) {
-                g[j] = f[j - 1] * (n - j + 1);
-                if (j > k) {
-                    g[j] += f[j] * (j - k);
-                }
-                g[j] %= mod;
-            }
-            f = g;
-        }
-        return (int) f[n];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,30 +126,44 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int numMusicPlaylists(int n, int goal, int k) {
-        const int mod = 1e9 + 7;
-        vector<long long> f(n + 1);
-        f[0] = 1;
-        for (int i = 1; i <= goal; ++i) {
-            vector<long long> g(n + 1);
-            for (int j = 1; j <= n; ++j) {
-                g[j] = f[j - 1] * (n - j + 1);
-                if (j > k) {
-                    g[j] += f[j] * (j - k);
-                }
-                g[j] %= mod;
-            }
-            f = move(g);
-        }
-        return f[n];
-    }
-};
+```go
+func numMusicPlaylists(n int, goal int, k int) int {
+	const mod = 1e9 + 7
+	f := make([][]int, goal+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= goal; i++ {
+		for j := 1; j <= n; j++ {
+			f[i][j] = f[i-1][j-1] * (n - j + 1)
+			if j > k {
+				f[i][j] += f[i-1][j] * (j - k)
+			}
+			f[i][j] %= mod
+		}
+	}
+	return f[goal][n]
+}
 ```
 
-### **Rust**
+```ts
+function numMusicPlaylists(n: number, goal: number, k: number): number {
+    const mod = 1e9 + 7;
+    const f = new Array(goal + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    f[0][0] = 1;
+    for (let i = 1; i <= goal; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            f[i][j] = f[i - 1][j - 1] * (n - j + 1);
+            if (j > k) {
+                f[i][j] += f[i - 1][j] * (j - k);
+            }
+            f[i][j] %= mod;
+        }
+    }
+    return f[goal][n];
+}
+```
 
 ```rust
 impl Solution {
@@ -228,27 +197,72 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func numMusicPlaylists(n int, goal int, k int) int {
-	const mod = 1e9 + 7
-	f := make([][]int, goal+1)
-	for i := range f {
-		f[i] = make([]int, n+1)
-	}
-	f[0][0] = 1
-	for i := 1; i <= goal; i++ {
-		for j := 1; j <= n; j++ {
-			f[i][j] = f[i-1][j-1] * (n - j + 1)
-			if j > k {
-				f[i][j] += f[i-1][j] * (j - k)
-			}
-			f[i][j] %= mod
-		}
-	}
-	return f[goal][n]
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numMusicPlaylists(self, n: int, goal: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [0] * (goal + 1)
+        f[0] = 1
+        for i in range(1, goal + 1):
+            g = [0] * (goal + 1)
+            for j in range(1, n + 1):
+                g[j] = f[j - 1] * (n - j + 1)
+                if j > k:
+                    g[j] += f[j] * (j - k)
+                g[j] %= mod
+            f = g
+        return f[n]
+```
+
+```java
+class Solution {
+    public int numMusicPlaylists(int n, int goal, int k) {
+        final int mod = (int) 1e9 + 7;
+        long[] f = new long[n + 1];
+        f[0] = 1;
+        for (int i = 1; i <= goal; ++i) {
+            long[] g = new long[n + 1];
+            for (int j = 1; j <= n; ++j) {
+                g[j] = f[j - 1] * (n - j + 1);
+                if (j > k) {
+                    g[j] += f[j] * (j - k);
+                }
+                g[j] %= mod;
+            }
+            f = g;
+        }
+        return (int) f[n];
+    }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int numMusicPlaylists(int n, int goal, int k) {
+        const int mod = 1e9 + 7;
+        vector<long long> f(n + 1);
+        f[0] = 1;
+        for (int i = 1; i <= goal; ++i) {
+            vector<long long> g(n + 1);
+            for (int j = 1; j <= n; ++j) {
+                g[j] = f[j - 1] * (n - j + 1);
+                if (j > k) {
+                    g[j] += f[j] * (j - k);
+                }
+                g[j] %= mod;
+            }
+            f = move(g);
+        }
+        return f[n];
+    }
+};
 ```
 
 ```go
@@ -268,26 +282,6 @@ func numMusicPlaylists(n int, goal int, k int) int {
 		f = g
 	}
 	return f[n]
-}
-```
-
-### **TypeScript**
-
-```ts
-function numMusicPlaylists(n: number, goal: number, k: number): number {
-    const mod = 1e9 + 7;
-    const f = new Array(goal + 1).fill(0).map(() => new Array(n + 1).fill(0));
-    f[0][0] = 1;
-    for (let i = 1; i <= goal; ++i) {
-        for (let j = 1; j <= n; ++j) {
-            f[i][j] = f[i - 1][j - 1] * (n - j + 1);
-            if (j > k) {
-                f[i][j] += f[i - 1][j] * (j - k);
-            }
-            f[i][j] %= mod;
-        }
-    }
-    return f[goal][n];
 }
 ```
 
@@ -311,10 +305,6 @@ function numMusicPlaylists(n: number, goal: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

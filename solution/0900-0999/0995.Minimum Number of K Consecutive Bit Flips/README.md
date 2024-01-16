@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 我们注意到，对于若干个连续的元素进行反转，其结果与对这些元素进行反转的次序无关。因此我们可以贪心地考虑每个位置需要进行反转的次数。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。这里 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minKBitFlips(nums []int, k int) int {
 	n := len(nums)
@@ -169,8 +155,6 @@ func minKBitFlips(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minKBitFlips(nums: number[], k: number): number {
     const n = nums.length;
@@ -191,8 +175,6 @@ function minKBitFlips(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -218,10 +200,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,7 +49,7 @@ The final score is 10 + 4 + 3 = 17.
 
 ## Solutions
 
-**Solution 1: Priority Queue (Max Heap)**
+### Solution 1: Priority Queue (Max Heap)
 
 To maximize the sum of scores, we need to select the element with the maximum value at each step. Therefore, we can use a priority queue (max heap) to maintain the element with the maximum value.
 
@@ -58,8 +58,6 @@ At each step, we take out the element with the maximum value $v$ from the priori
 The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(n)$ or $O(1)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,20 +71,6 @@ class Solution:
             heappush(h, -(ceil(v / 3)))
         return ans
 ```
-
-```python
-class Solution:
-    def maxKelements(self, nums: List[int], k: int) -> int:
-        for i, v in enumerate(nums):
-            nums[i] = -v
-        heapify(nums)
-        ans = 0
-        for _ in range(k):
-            ans -= heapreplace(nums, -ceil(-nums[0] / 3))
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,26 +106,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    long long maxKelements(vector<int>& nums, int k) {
-        make_heap(nums.begin(), nums.end());
-        long long ans = 0;
-        while (k--) {
-            int v = nums[0];
-            ans += v;
-            pop_heap(nums.begin(), nums.end());
-            nums.back() = (v + 2) / 3;
-            push_heap(nums.begin(), nums.end());
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func maxKelements(nums []int, k int) (ans int64) {
@@ -171,26 +133,20 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-```go
-func maxKelements(nums []int, k int) (ans int64) {
-	h := hp{nums}
-	heap.Init(&h)
-	for ; k > 0; k-- {
-		ans += int64(h.IntSlice[0])
-		h.IntSlice[0] = (h.IntSlice[0] + 2) / 3
-		heap.Fix(&h, 0)
-	}
-	return
+```ts
+function maxKelements(nums: number[], k: number): number {
+    const pq = new MaxPriorityQueue();
+    nums.forEach(num => pq.enqueue(num));
+    let ans = 0;
+    while (k > 0) {
+        const v = pq.dequeue()!.element;
+        ans += v;
+        pq.enqueue(Math.floor((v + 2) / 3));
+        k--;
+    }
+    return ans;
 }
-
-type hp struct{ sort.IntSlice }
-
-func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
-func (hp) Push(any)             {}
-func (hp) Pop() (_ any)         { return }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BinaryHeap;
@@ -212,27 +168,61 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function maxKelements(nums: number[], k: number): number {
-    const pq = new MaxPriorityQueue();
-    nums.forEach(num => pq.enqueue(num));
-    let ans = 0;
-    while (k > 0) {
-        const v = pq.dequeue()!.element;
-        ans += v;
-        pq.enqueue(Math.floor((v + 2) / 3));
-        k--;
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxKelements(self, nums: List[int], k: int) -> int:
+        for i, v in enumerate(nums):
+            nums[i] = -v
+        heapify(nums)
+        ans = 0
+        for _ in range(k):
+            ans -= heapreplace(nums, -ceil(-nums[0] / 3))
+        return ans
+```
+
+```cpp
+class Solution {
+public:
+    long long maxKelements(vector<int>& nums, int k) {
+        make_heap(nums.begin(), nums.end());
+        long long ans = 0;
+        while (k--) {
+            int v = nums[0];
+            ans += v;
+            pop_heap(nums.begin(), nums.end());
+            nums.back() = (v + 2) / 3;
+            push_heap(nums.begin(), nums.end());
+        }
+        return ans;
     }
-    return ans;
+};
+```
+
+```go
+func maxKelements(nums []int, k int) (ans int64) {
+	h := hp{nums}
+	heap.Init(&h)
+	for ; k > 0; k-- {
+		ans += int64(h.IntSlice[0])
+		h.IntSlice[0] = (h.IntSlice[0] + 2) / 3
+		heap.Fix(&h, 0)
+	}
+	return
 }
-```
 
-### **...**
+type hp struct{ sort.IntSlice }
 
-```
-
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (hp) Push(any)             {}
+func (hp) Pop() (_ any)         { return }
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

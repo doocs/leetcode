@@ -55,22 +55,27 @@ So the result is customer_number 3.
 
 ## Solutions
 
-**Solution 1: Group By + Sorting**
+### Solution 1: Group By + Sorting
 
 We can use `GROUP BY` to group the data by `customer_number`, and then sort the groups in descending order by `count(1)`. Finally, we can take the `customer_number` of the first record as the result.
 
 <!-- tabs:start -->
 
-### **SQL**
-
 ```sql
 # Write your MySQL query statement below
-SELECT customer_number
-FROM Orders
-GROUP BY 1
+SELECT
+    customer_number
+FROM orders
+GROUP BY customer_number
 ORDER BY COUNT(1) DESC
 LIMIT 1;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 /* Write your T-SQL query statement below */
@@ -83,3 +88,5 @@ ORDER BY COUNT(customer_number) DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

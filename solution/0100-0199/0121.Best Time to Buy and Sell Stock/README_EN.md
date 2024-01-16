@@ -38,7 +38,7 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 
 ## Solutions
 
-**Solution 1: Enumerate + Maintain the Minimum Value of the Prefix**
+### Solution 1: Enumerate + Maintain the Minimum Value of the Prefix
 
 We can enumerate each element of the array $nums$ as the selling price. Then we need to find a minimum value in front of it as the purchase price to maximize the profit.
 
@@ -50,8 +50,6 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -61,8 +59,6 @@ class Solution:
             mi = min(mi, v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxProfit(prices []int) (ans int) {
 	mi := prices[0]
@@ -106,7 +98,31 @@ func maxProfit(prices []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function maxProfit(prices: number[]): number {
+    let ans = 0;
+    let mi = prices[0];
+    for (const v of prices) {
+        ans = Math.max(ans, v - mi);
+        mi = Math.min(mi, v);
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut res = 0;
+        let mut min = i32::MAX;
+        for price in prices {
+            res = res.max(price - min);
+            min = min.min(price);
+        }
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -124,8 +140,6 @@ var maxProfit = function (prices) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -138,38 +152,6 @@ public class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function maxProfit(prices: number[]): number {
-    let ans = 0;
-    let mi = prices[0];
-    for (const v of prices) {
-        ans = Math.max(ans, v - mi);
-        mi = Math.min(mi, v);
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn max_profit(prices: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut min = i32::MAX;
-        for price in prices {
-            res = res.max(price - min);
-            min = min.min(price);
-        }
-        res
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -190,10 +172,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

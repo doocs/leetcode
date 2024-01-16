@@ -69,17 +69,13 @@ employee_id 是 3, 8 ，9 的职员不会直接或间接的汇报给公司 CEO�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次连接**
+### 方法一：两次连接
 
 我们可以通过两次连接来找到所有直接或间接向公司 CEO 汇报工作的职工的 `employee_id`。
 
 具体地，我们首先通过一次连接，找到每个 `manager_id` 对应的上级经理的 `manager_id`，然后再通过一次连接，找到更上一级经理的 `manager_id`，最后，如果更上一级的 `manager_id` 为 $1$，且员工的 `employee_id` 不为 $1$，则说明该员工直接或间接向公司 CEO 汇报工作。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -92,3 +88,5 @@ WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

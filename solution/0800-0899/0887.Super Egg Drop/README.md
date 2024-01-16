@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索 + 二分查找**
+### 方法一：记忆化搜索 + 二分查找
 
 我们设计一个函数 $dfs(i, j)$，表示有 $i$ 层楼以及 $j$ 个鸡蛋时，确定 $f$ 值的最小操作次数，那么答案就是 $dfs(n, k)$。
 
@@ -72,23 +70,7 @@
 
 时间复杂度 $O(n \times k \log n)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别是楼层数和鸡蛋数。
 
-**方法二：动态规划 + 二分查找**
-
-我们也可以使用动态规划的方法解决这个问题。
-
-我们定义 $f[i][j]$ 表示有 $i$ 层楼以及 $j$ 个鸡蛋时，确定 $f$ 值的最小操作次数，那么答案就是 $f[n][k]$。
-
-状态转移方程为 $f[i][j] = \min_{1 \le x \le i} \max(f[x - 1][j - 1], f[i - x][j]) + 1$。
-
-与方法一类似，我们可以使用二分查找来优化 $x$ 的枚举过程。
-
-时间复杂度 $O(n \times k \log n)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别是楼层数和鸡蛋数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -112,30 +94,6 @@ class Solution:
 
         return dfs(n, k)
 ```
-
-```python
-class Solution:
-    def superEggDrop(self, k: int, n: int) -> int:
-        f = [[0] * (k + 1) for _ in range(n + 1)]
-        for i in range(1, n + 1):
-            f[i][1] = i
-        for i in range(1, n + 1):
-            for j in range(2, k + 1):
-                l, r = 1, i
-                while l < r:
-                    mid = (l + r + 1) >> 1
-                    a, b = f[mid - 1][j - 1], f[i - mid][j]
-                    if a <= b:
-                        l = mid
-                    else:
-                        r = mid - 1
-                f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1
-        return f[n][k]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -172,36 +130,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int superEggDrop(int k, int n) {
-        int[][] f = new int[n + 1][k + 1];
-        for (int i = 1; i <= n; ++i) {
-            f[i][1] = i;
-        }
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 2; j <= k; ++j) {
-                int l = 1, r = i;
-                while (l < r) {
-                    int mid = (l + r + 1) >> 1;
-                    int a = f[mid - 1][j - 1];
-                    int b = f[i - mid][j];
-                    if (a <= b) {
-                        l = mid;
-                    } else {
-                        r = mid - 1;
-                    }
-                }
-                f[i][j] = Math.max(f[l - 1][j - 1], f[i - l][j]) + 1;
-            }
-        }
-        return f[n][k];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -235,38 +163,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int superEggDrop(int k, int n) {
-        int f[n + 1][k + 1];
-        memset(f, 0, sizeof(f));
-        for (int i = 1; i <= n; ++i) {
-            f[i][1] = i;
-        }
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 2; j <= k; ++j) {
-                int l = 1, r = i;
-                while (l < r) {
-                    int mid = (l + r + 1) >> 1;
-                    int a = f[mid - 1][j - 1];
-                    int b = f[i - mid][j];
-                    if (a <= b) {
-                        l = mid;
-                    } else {
-                        r = mid - 1;
-                    }
-                }
-                f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1;
-            }
-        }
-        return f[n][k];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func superEggDrop(k int, n int) int {
@@ -302,36 +198,6 @@ func superEggDrop(k int, n int) int {
 }
 ```
 
-```go
-func superEggDrop(k int, n int) int {
-	f := make([][]int, n+1)
-	for i := range f {
-		f[i] = make([]int, k+1)
-	}
-	for i := 1; i <= n; i++ {
-		f[i][1] = i
-	}
-	for i := 1; i <= n; i++ {
-		for j := 2; j <= k; j++ {
-			l, r := 1, i
-			for l < r {
-				mid := (l + r + 1) >> 1
-				a, b := f[mid-1][j-1], f[i-mid][j]
-				if a <= b {
-					l = mid
-				} else {
-					r = mid - 1
-				}
-			}
-			f[i][j] = max(f[l-1][j-1], f[i-l][j]) + 1
-		}
-	}
-	return f[n][k]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function superEggDrop(k: number, n: number): number {
     const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
@@ -363,6 +229,128 @@ function superEggDrop(k: number, n: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划 + 二分查找
+
+我们也可以使用动态规划的方法解决这个问题。
+
+我们定义 $f[i][j]$ 表示有 $i$ 层楼以及 $j$ 个鸡蛋时，确定 $f$ 值的最小操作次数，那么答案就是 $f[n][k]$。
+
+状态转移方程为 $f[i][j] = \min_{1 \le x \le i} \max(f[x - 1][j - 1], f[i - x][j]) + 1$。
+
+与方法一类似，我们可以使用二分查找来优化 $x$ 的枚举过程。
+
+时间复杂度 $O(n \times k \log n)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别是楼层数和鸡蛋数。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def superEggDrop(self, k: int, n: int) -> int:
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i in range(1, n + 1):
+            f[i][1] = i
+        for i in range(1, n + 1):
+            for j in range(2, k + 1):
+                l, r = 1, i
+                while l < r:
+                    mid = (l + r + 1) >> 1
+                    a, b = f[mid - 1][j - 1], f[i - mid][j]
+                    if a <= b:
+                        l = mid
+                    else:
+                        r = mid - 1
+                f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1
+        return f[n][k]
+```
+
+```java
+class Solution {
+    public int superEggDrop(int k, int n) {
+        int[][] f = new int[n + 1][k + 1];
+        for (int i = 1; i <= n; ++i) {
+            f[i][1] = i;
+        }
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 2; j <= k; ++j) {
+                int l = 1, r = i;
+                while (l < r) {
+                    int mid = (l + r + 1) >> 1;
+                    int a = f[mid - 1][j - 1];
+                    int b = f[i - mid][j];
+                    if (a <= b) {
+                        l = mid;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                f[i][j] = Math.max(f[l - 1][j - 1], f[i - l][j]) + 1;
+            }
+        }
+        return f[n][k];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int superEggDrop(int k, int n) {
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            f[i][1] = i;
+        }
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 2; j <= k; ++j) {
+                int l = 1, r = i;
+                while (l < r) {
+                    int mid = (l + r + 1) >> 1;
+                    int a = f[mid - 1][j - 1];
+                    int b = f[i - mid][j];
+                    if (a <= b) {
+                        l = mid;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1;
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+```go
+func superEggDrop(k int, n int) int {
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	for i := 1; i <= n; i++ {
+		f[i][1] = i
+	}
+	for i := 1; i <= n; i++ {
+		for j := 2; j <= k; j++ {
+			l, r := 1, i
+			for l < r {
+				mid := (l + r + 1) >> 1
+				a, b := f[mid-1][j-1], f[i-mid][j]
+				if a <= b {
+					l = mid
+				} else {
+					r = mid - 1
+				}
+			}
+			f[i][j] = max(f[l-1][j-1], f[i-l][j]) + 1
+		}
+	}
+	return f[n][k]
+}
+```
+
 ```ts
 function superEggDrop(k: number, n: number): number {
     const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
@@ -390,10 +378,6 @@ function superEggDrop(k: number, n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

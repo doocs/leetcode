@@ -47,15 +47,13 @@ Thus, there are 2 strings that appear exactly once in each of the two arrays.
 
 ## Solutions
 
-**Solution 1: Hash Table + Counting**
+### Solution 1: Hash Table + Counting
 
 We can use two hash tables, $cnt1$ and $cnt2$, to count the occurrences of each string in the two string arrays respectively. Then, we traverse one of the hash tables. If a string appears once in the other hash table and also appears once in the current hash table, we increment the answer by one.
 
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the two string arrays respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
         cnt2 = Counter(words2)
         return sum(v == 1 and cnt2[w] == 1 for w, v in cnt1.items())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countWords(words1 []string, words2 []string) (ans int) {
 	cnt1 := map[string]int{}
@@ -132,8 +124,6 @@ func countWords(words1 []string, words2 []string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countWords(words1: string[], words2: string[]): number {
@@ -155,10 +145,6 @@ function countWords(words1: string[], words2: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

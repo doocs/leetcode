@@ -53,9 +53,7 @@ source 和 target 间的汉明距离是 2 ，二者有 2 处元素不同，在�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集 + 哈希表**
+### 方法一：并查集 + 哈希表
 
 我们可以将每个下标看作一个节点，每个下标对应的元素看作节点的值，那么给定的 `allowedSwaps` 中的每个元素 `[a_i, b_i]` 就表示下标 `a_i` 和 `b_i` 之间存在一条边。因此，我们可以使用并查集来维护这些连通分量。
 
@@ -64,10 +62,6 @@ source 和 target 间的汉明距离是 2 ，二者有 2 处元素不同，在�
 时间复杂度 $O(n \times \log n)$ 或 $O(n \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度，而 $\alpha$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
             ans += cnt[j][x] < 0
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (ans int) {
@@ -204,8 +190,6 @@ func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (a
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumHammingDistance(
@@ -246,10 +230,6 @@ function minimumHammingDistance(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,32 +45,15 @@ The strings are the same, so return true.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
         return ''.join(word1) == ''.join(word2)
 ```
-
-```python
-class Solution:
-    def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
-        i = j = x = y = 0
-        while i < len(word1) and j < len(word2):
-            if word1[i][x] != word2[j][y]:
-                return False
-            x, y = x + 1, y + 1
-            if x == len(word1[i]):
-                x, i = 0, i + 1
-            if y == len(word2[j]):
-                y, j = 0, j + 1
-        return i == len(word1) and j == len(word2)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,31 +62,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        int i = 0, j = 0;
-        int x = 0, y = 0;
-        while (i < word1.length && j < word2.length) {
-            if (word1[i].charAt(x++) != word2[j].charAt(y++)) {
-                return false;
-            }
-            if (x == word1[i].length()) {
-                x = 0;
-                ++i;
-            }
-            if (y == word2[j].length()) {
-                y = 0;
-                ++j;
-            }
-        }
-        return i == word1.length && j == word2.length;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,49 +72,25 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
-        int i = 0, j = 0, x = 0, y = 0;
-        while (i < word1.size() && j < word2.size()) {
-            if (word1[i][x++] != word2[j][y++]) return false;
-            if (x == word1[i].size()) x = 0, i++;
-            if (y == word2[j].size()) y = 0, j++;
-        }
-        return i == word1.size() && j == word2.size();
-    }
-};
-```
-
-### **Go**
-
 ```go
 func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 	return strings.Join(word1, "") == strings.Join(word2, "")
 }
 ```
 
-```go
-func arrayStringsAreEqual(word1 []string, word2 []string) bool {
-	var i, j, x, y int
-	for i < len(word1) && j < len(word2) {
-		if word1[i][x] != word2[j][y] {
-			return false
-		}
-		x, y = x+1, y+1
-		if x == len(word1[i]) {
-			x, i = 0, i+1
-		}
-		if y == len(word2[j]) {
-			y, j = 0, j+1
-		}
-	}
-	return i == len(word1) && j == len(word2)
+```ts
+function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
+    return word1.join('') === word2.join('');
 }
 ```
 
-### **C**
+```rust
+impl Solution {
+    pub fn array_strings_are_equal(word1: Vec<String>, word2: Vec<String>) -> bool {
+        word1.join("") == word2.join("")
+    }
+}
+```
 
 ```c
 bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Size) {
@@ -182,11 +116,81 @@ bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Si
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
-    return word1.join('') === word2.join('');
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
+        i = j = x = y = 0
+        while i < len(word1) and j < len(word2):
+            if word1[i][x] != word2[j][y]:
+                return False
+            x, y = x + 1, y + 1
+            if x == len(word1[i]):
+                x, i = 0, i + 1
+            if y == len(word2[j]):
+                y, j = 0, j + 1
+        return i == len(word1) and j == len(word2)
+```
+
+```java
+class Solution {
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        int i = 0, j = 0;
+        int x = 0, y = 0;
+        while (i < word1.length && j < word2.length) {
+            if (word1[i].charAt(x++) != word2[j].charAt(y++)) {
+                return false;
+            }
+            if (x == word1[i].length()) {
+                x = 0;
+                ++i;
+            }
+            if (y == word2[j].length()) {
+                y = 0;
+                ++j;
+            }
+        }
+        return i == word1.length && j == word2.length;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+        int i = 0, j = 0, x = 0, y = 0;
+        while (i < word1.size() && j < word2.size()) {
+            if (word1[i][x++] != word2[j][y++]) return false;
+            if (x == word1[i].size()) x = 0, i++;
+            if (y == word2[j].size()) y = 0, j++;
+        }
+        return i == word1.size() && j == word2.size();
+    }
+};
+```
+
+```go
+func arrayStringsAreEqual(word1 []string, word2 []string) bool {
+	var i, j, x, y int
+	for i < len(word1) && j < len(word2) {
+		if word1[i][x] != word2[j][y] {
+			return false
+		}
+		x, y = x+1, y+1
+		if x == len(word1[i]) {
+			x, i = 0, i+1
+		}
+		if y == len(word2[j]) {
+			y, j = 0, j+1
+		}
+	}
+	return i == len(word1) && j == len(word2)
 }
 ```
 
@@ -207,16 +211,6 @@ function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
         }
     }
     return i === word1.length && j === word2.length;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn array_strings_are_equal(word1: Vec<String>, word2: Vec<String>) -> bool {
-        word1.join("") == word2.join("")
-    }
 }
 ```
 
@@ -245,10 +239,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -39,11 +39,9 @@ Delete the characters at 0-indexed positions 3 and 6 (&quot;aab<u>a</u>bb<u>a</u
 
 ## Solutions
 
-Dynamic programming.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -59,32 +57,6 @@ class Solution:
                 f[i] = min(f[i - 1] + 1, b)
         return f[n]
 ```
-
-```python
-class Solution:
-    def minimumDeletions(self, s: str) -> int:
-        ans = b = 0
-        for c in s:
-            if c == 'b':
-                b += 1
-            else:
-                ans = min(ans + 1, b)
-        return ans
-```
-
-```python
-class Solution:
-    def minimumDeletions(self, s: str) -> int:
-        lb, ra = 0, s.count('a')
-        ans = len(s)
-        for c in s:
-            ra -= c == 'a'
-            ans = min(ans, lb + ra)
-            lb += c == 'b'
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,6 +77,80 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumDeletions(string s) {
+        int n = s.size();
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        int b = 0;
+        for (int i = 1; i <= n; ++i) {
+            if (s[i - 1] == 'b') {
+                f[i] = f[i - 1];
+                ++b;
+            } else {
+                f[i] = min(f[i - 1] + 1, b);
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func minimumDeletions(s string) int {
+	n := len(s)
+	f := make([]int, n+1)
+	b := 0
+	for i, c := range s {
+		i++
+		if c == 'b' {
+			f[i] = f[i-1]
+			b++
+		} else {
+			f[i] = min(f[i-1]+1, b)
+		}
+	}
+	return f[n]
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    let b = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (s.charAt(i - 1) === 'b') {
+            f[i] = f[i - 1];
+            ++b;
+        } else {
+            f[i] = Math.min(f[i - 1] + 1, b);
+        }
+    }
+    return f[n];
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumDeletions(self, s: str) -> int:
+        ans = b = 0
+        for c in s:
+            if c == 'b':
+                b += 1
+            else:
+                ans = min(ans + 1, b)
+        return ans
+```
+
 ```java
 class Solution {
     public int minimumDeletions(String s) {
@@ -120,6 +166,71 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minimumDeletions(string s) {
+        int ans = 0, b = 0;
+        for (char& c : s) {
+            if (c == 'b') {
+                ++b;
+            } else {
+                ans = min(ans + 1, b);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func minimumDeletions(s string) int {
+	ans, b := 0, 0
+	for _, c := range s {
+		if c == 'b' {
+			b++
+		} else {
+			ans = min(ans+1, b)
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    let ans = 0,
+        b = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s.charAt(i) === 'b') {
+            ++b;
+        } else {
+            ans = Math.min(ans + 1, b);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumDeletions(self, s: str) -> int:
+        lb, ra = 0, s.count('a')
+        ans = len(s)
+        for c in s:
+            ra -= c == 'a'
+            ans = min(ans, lb + ra)
+            lb += c == 'b'
+        return ans
 ```
 
 ```java
@@ -143,46 +254,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minimumDeletions(string s) {
-        int n = s.size();
-        int f[n + 1];
-        memset(f, 0, sizeof(f));
-        int b = 0;
-        for (int i = 1; i <= n; ++i) {
-            if (s[i - 1] == 'b') {
-                f[i] = f[i - 1];
-                ++b;
-            } else {
-                f[i] = min(f[i - 1] + 1, b);
-            }
-        }
-        return f[n];
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minimumDeletions(string s) {
-        int ans = 0, b = 0;
-        for (char& c : s) {
-            if (c == 'b') {
-                ++b;
-            } else {
-                ans = min(ans + 1, b);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -197,40 +268,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func minimumDeletions(s string) int {
-	n := len(s)
-	f := make([]int, n+1)
-	b := 0
-	for i, c := range s {
-		i++
-		if c == 'b' {
-			f[i] = f[i-1]
-			b++
-		} else {
-			f[i] = min(f[i-1]+1, b)
-		}
-	}
-	return f[n]
-}
-```
-
-```go
-func minimumDeletions(s string) int {
-	ans, b := 0, 0
-	for _, c := range s {
-		if c == 'b' {
-			b++
-		} else {
-			ans = min(ans+1, b)
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -249,41 +286,6 @@ func minimumDeletions(s string) int {
 		}
 	}
 	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumDeletions(s: string): number {
-    const n = s.length;
-    const f = new Array(n + 1).fill(0);
-    let b = 0;
-    for (let i = 1; i <= n; ++i) {
-        if (s.charAt(i - 1) === 'b') {
-            f[i] = f[i - 1];
-            ++b;
-        } else {
-            f[i] = Math.min(f[i - 1] + 1, b);
-        }
-    }
-    return f[n];
-}
-```
-
-```ts
-function minimumDeletions(s: string): number {
-    const n = s.length;
-    let ans = 0,
-        b = 0;
-    for (let i = 0; i < n; ++i) {
-        if (s.charAt(i) === 'b') {
-            ++b;
-        } else {
-            ans = Math.min(ans + 1, b);
-        }
-    }
-    return ans;
 }
 ```
 
@@ -307,10 +309,6 @@ function minimumDeletions(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

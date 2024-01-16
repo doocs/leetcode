@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 对每个栈求前缀和 $s$，$s_i$ 视为一个体积为 $i$ 且价值为 $s_i$ 的物品。
 
@@ -61,10 +59,6 @@
 枚举第 $i$ 组所有物品，设当前物品体积为 $w$，价值为 $v$，则有 $f[i][j]=max(f[i][j],f[i-1][j-w]+v)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,23 +73,6 @@ class Solution:
                         dp[i][j] = max(dp[i][j], dp[i - 1][j - idx] + v)
         return dp[-1][-1]
 ```
-
-```python
-class Solution:
-    def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
-        presum = [list(accumulate(p, initial=0)) for p in piles]
-        dp = [0] * (k + 1)
-        for s in presum:
-            for j in range(k, -1, -1):
-                for idx, v in enumerate(s):
-                    if j >= idx:
-                        dp[j] = max(dp[j], dp[j - idx] + v)
-        return dp[-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxValueOfCoins(piles [][]int, k int) int {
@@ -178,16 +151,25 @@ func maxValueOfCoins(piles [][]int, k int) int {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
+### 方法二
 
-```
+<!-- tabs:start -->
 
-### **...**
-
-```
-
+```python
+class Solution:
+    def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
+        presum = [list(accumulate(p, initial=0)) for p in piles]
+        dp = [0] * (k + 1)
+        for s in presum:
+            for j in range(k, -1, -1):
+                for idx, v in enumerate(s):
+                    if j >= idx:
+                        dp[j] = max(dp[j], dp[j - idx] + v)
+        return dp[-1]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

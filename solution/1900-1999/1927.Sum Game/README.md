@@ -69,9 +69,7 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 如果 `'?'` 的个数为奇数，那么 Alice 一定会获胜，因为她可以选择将最后一个 `'?'` 替换为任何一个数字，使得前一半的和与后一半的和不相等。
 
@@ -91,10 +89,6 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sumGame(self, num: str) -> bool:
@@ -105,10 +99,6 @@ class Solution:
         s2 = sum(int(x) for x in num[n // 2 :] if x != "?")
         return (cnt1 + cnt2) % 2 == 1 or s1 - s2 != 9 * (cnt2 - cnt1) // 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumGame(num string) bool {
 	n := len(num)
@@ -186,8 +172,6 @@ func sumGame(num string) bool {
 	return (cnt1+cnt2)%2 == 1 || s1-s2 != (cnt2-cnt1)*9/2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumGame(num: string): boolean {
@@ -211,10 +195,6 @@ function sumGame(num: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,9 +59,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -89,8 +89,6 @@ class Solution:
                 j = g[i][j]
         return "".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +165,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestNumber(cost []int, target int) string {
@@ -213,8 +207,6 @@ func largestNumber(cost []int, target int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestNumber(cost: number[], target: number): string {
     const inf = 1 << 30;
@@ -253,10 +245,6 @@ function largestNumber(cost: number[], target: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

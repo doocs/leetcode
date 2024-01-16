@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Case Discussion**
+### Solution 1: Case Discussion
 
 We denote the interval to be removed as $[x, y)$. We traverse the interval list, and for each interval $[a, b)$, there are three cases:
 
@@ -53,8 +53,6 @@ We denote the interval to be removed as $[x, y)$. We traverse the interval list,
 The time complexity is $O(n)$, where $n$ is the length of the interval list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
                     ans.append([y, b])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeInterval(intervals [][]int, toBeRemoved []int) (ans [][]int) {
 	x, y := toBeRemoved[0], toBeRemoved[1]
@@ -147,10 +139,6 @@ func removeInterval(intervals [][]int, toBeRemoved []int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

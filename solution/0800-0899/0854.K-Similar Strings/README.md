@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 本题实际上是一类经典的问题：求解最小操作次数。从一个初始状态 $s_1$，经过最少 $k$ 次状态转换，变成目标状态 $s_2$。字符串长度不超过 $20$，我们考虑使用 BFS 搜索来求解。
 
@@ -53,26 +51,7 @@
 
 复杂度分析：BFS 剪枝不讨论时空复杂度。
 
-**方法二：A\* 算法（进阶）**
-
-A\* 搜索算法（A\* 读作 A-star），简称 A\* 算法，是一种在图形平面上，对于有多个节点的路径求出最低通过成本的算法。它属于图遍历和最佳优先搜索算法（英文：Best-first search），亦是 BFS 的改进。
-
-A\* 算法主要步骤如下：
-
-1. 将方法一中的 BFS 队列转换为优先队列（小根堆）；
-1. 队列中的每个元素为 `(dist[s] + f(s), s)`，`dist[s]` 表示从初始状态 $s_1$ 到当前状态 $s$ 的距离，`f(s)` 表示从当前状态 $s$ 到目标状态 $s_2$ 的估计距离，这两个距离之和作为堆排序的依据；
-1. 当终点第一次出队时，说明找到了从起点 $s_1$ 到终点 $s_2$ 的最短路径，直接返回对应的距离；
-1. `f(s)` 是估价函数，并且估价函数要满足 `f(s) <= g(s)`，其中 `g(s)` 表示 $s$ 到终点 $s_2$ 的真实距离；
-
-需要注意的是，A\* 算法只能保证终点第一次出队时，即找到了一条从起点到终点的最小路径，不能保证其他点出队时也是从起点到当前点的最短路径。
-
-复杂度分析：启发式搜索不讨论时空复杂度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,40 +80,6 @@ class Solution:
                         q.append(nxt)
             ans += 1
 ```
-
-```python
-class Solution:
-    def kSimilarity(self, s1: str, s2: str) -> int:
-        def f(s):
-            cnt = sum(c != s2[i] for i, c in enumerate(s))
-            return (cnt + 1) >> 1
-
-        def next(s):
-            i = 0
-            while s[i] == s2[i]:
-                i += 1
-            res = []
-            for j in range(i + 1, n):
-                if s[j] == s2[i] and s[j] != s2[j]:
-                    res.append(s2[: i + 1] + s[i + 1 : j] + s[i] + s[j + 1 :])
-            return res
-
-        q = [(f(s1), s1)]
-        dist = {s1: 0}
-        n = len(s1)
-        while 1:
-            _, s = heappop(q)
-            if s == s2:
-                return dist[s]
-            for nxt in next(s):
-                if nxt not in dist or dist[nxt] > dist[s] + 1:
-                    dist[nxt] = dist[s] + 1
-                    heappush(q, (dist[nxt] + f(nxt), nxt))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -184,6 +129,133 @@ class Solution {
         cs[j] = t;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int kSimilarity(string s1, string s2) {
+        queue<string> q{{s1}};
+        unordered_set<string> vis{{s1}};
+        int ans = 0;
+        while (1) {
+            for (int i = q.size(); i; --i) {
+                auto s = q.front();
+                q.pop();
+                if (s == s2) {
+                    return ans;
+                }
+                for (auto& nxt : next(s, s2)) {
+                    if (!vis.count(nxt)) {
+                        vis.insert(nxt);
+                        q.push(nxt);
+                    }
+                }
+            }
+            ++ans;
+        }
+    }
+
+    vector<string> next(string& s, string& s2) {
+        int i = 0, n = s.size();
+        for (; s[i] == s2[i]; ++i) {}
+        vector<string> res;
+        for (int j = i + 1; j < n; ++j) {
+            if (s[j] == s2[i] && s[j] != s2[j]) {
+                swap(s[i], s[j]);
+                res.push_back(s);
+                swap(s[i], s[j]);
+            }
+        }
+        return res;
+    }
+};
+```
+
+```go
+func kSimilarity(s1 string, s2 string) int {
+	next := func(s string) []string {
+		i := 0
+		res := []string{}
+		for ; s[i] == s2[i]; i++ {
+		}
+		for j := i + 1; j < len(s1); j++ {
+			if s[j] == s2[i] && s[j] != s2[j] {
+				res = append(res, s[:i]+string(s[j])+s[i+1:j]+string(s[i])+s[j+1:])
+			}
+		}
+		return res
+	}
+
+	q := []string{s1}
+	vis := map[string]bool{s1: true}
+	ans := 0
+	for {
+		for i := len(q); i > 0; i-- {
+			s := q[0]
+			q = q[1:]
+			if s == s2 {
+				return ans
+			}
+			for _, nxt := range next(s) {
+				if !vis[nxt] {
+					vis[nxt] = true
+					q = append(q, nxt)
+				}
+			}
+		}
+		ans++
+	}
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：A\* 算法（进阶）
+
+A\* 搜索算法（A\* 读作 A-star），简称 A\* 算法，是一种在图形平面上，对于有多个节点的路径求出最低通过成本的算法。它属于图遍历和最佳优先搜索算法（英文：Best-first search），亦是 BFS 的改进。
+
+A\* 算法主要步骤如下：
+
+1. 将方法一中的 BFS 队列转换为优先队列（小根堆）；
+1. 队列中的每个元素为 `(dist[s] + f(s), s)`，`dist[s]` 表示从初始状态 $s_1$ 到当前状态 $s$ 的距离，`f(s)` 表示从当前状态 $s$ 到目标状态 $s_2$ 的估计距离，这两个距离之和作为堆排序的依据；
+1. 当终点第一次出队时，说明找到了从起点 $s_1$ 到终点 $s_2$ 的最短路径，直接返回对应的距离；
+1. `f(s)` 是估价函数，并且估价函数要满足 `f(s) <= g(s)`，其中 `g(s)` 表示 $s$ 到终点 $s_2$ 的真实距离；
+
+需要注意的是，A\* 算法只能保证终点第一次出队时，即找到了一条从起点到终点的最小路径，不能保证其他点出队时也是从起点到当前点的最短路径。
+
+复杂度分析：启发式搜索不讨论时空复杂度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def kSimilarity(self, s1: str, s2: str) -> int:
+        def f(s):
+            cnt = sum(c != s2[i] for i, c in enumerate(s))
+            return (cnt + 1) >> 1
+
+        def next(s):
+            i = 0
+            while s[i] == s2[i]:
+                i += 1
+            res = []
+            for j in range(i + 1, n):
+                if s[j] == s2[i] and s[j] != s2[j]:
+                    res.append(s2[: i + 1] + s[i + 1 : j] + s[i] + s[j + 1 :])
+            return res
+
+        q = [(f(s1), s1)]
+        dist = {s1: 0}
+        n = len(s1)
+        while 1:
+            _, s = heappop(q)
+            if s == s2:
+                return dist[s]
+            for nxt in next(s):
+                if nxt not in dist or dist[nxt] > dist[s] + 1:
+                    dist[nxt] = dist[s] + 1
+                    heappush(q, (dist[nxt] + f(nxt), nxt))
 ```
 
 ```java
@@ -243,49 +315,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int kSimilarity(string s1, string s2) {
-        queue<string> q{{s1}};
-        unordered_set<string> vis{{s1}};
-        int ans = 0;
-        while (1) {
-            for (int i = q.size(); i; --i) {
-                auto s = q.front();
-                q.pop();
-                if (s == s2) {
-                    return ans;
-                }
-                for (auto& nxt : next(s, s2)) {
-                    if (!vis.count(nxt)) {
-                        vis.insert(nxt);
-                        q.push(nxt);
-                    }
-                }
-            }
-            ++ans;
-        }
-    }
-
-    vector<string> next(string& s, string& s2) {
-        int i = 0, n = s.size();
-        for (; s[i] == s2[i]; ++i) {}
-        vector<string> res;
-        for (int j = i + 1; j < n; ++j) {
-            if (s[j] == s2[i] && s[j] != s2[j]) {
-                swap(s[i], s[j]);
-                res.push_back(s);
-                swap(s[i], s[j]);
-            }
-        }
-        return res;
-    }
-};
-```
-
 ```cpp
 using pis = pair<int, string>;
 
@@ -333,45 +362,6 @@ public:
         return res;
     }
 };
-```
-
-### **Go**
-
-```go
-func kSimilarity(s1 string, s2 string) int {
-	next := func(s string) []string {
-		i := 0
-		res := []string{}
-		for ; s[i] == s2[i]; i++ {
-		}
-		for j := i + 1; j < len(s1); j++ {
-			if s[j] == s2[i] && s[j] != s2[j] {
-				res = append(res, s[:i]+string(s[j])+s[i+1:j]+string(s[i])+s[j+1:])
-			}
-		}
-		return res
-	}
-
-	q := []string{s1}
-	vis := map[string]bool{s1: true}
-	ans := 0
-	for {
-		for i := len(q); i > 0; i-- {
-			s := q[0]
-			q = q[1:]
-			if s == s2 {
-				return ans
-			}
-			for _, nxt := range next(s) {
-				if !vis[nxt] {
-					vis[nxt] = true
-					q = append(q, nxt)
-				}
-			}
-		}
-		ans++
-	}
-}
 ```
 
 ```go
@@ -431,10 +421,6 @@ func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

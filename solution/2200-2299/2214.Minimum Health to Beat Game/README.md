@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们可以贪心地选择在伤害值最大的回合中使用一次护甲技能，假设伤害值最大为 $mx$，那么我们可以免受 $min(mx, armor)$ 的伤害，因此我们需要的最小生命值为 $sum(damage) - min(mx, armor) + 1$。
 
@@ -76,19 +74,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumHealth(self, damage: List[int], armor: int) -> int:
         return sum(damage) - min(max(damage), armor) + 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumHealth(damage []int, armor int) int64 {
 	var s int64
@@ -134,8 +120,6 @@ func minimumHealth(damage []int, armor int) int64 {
 	return s - int64(min(mx, armor)) + 1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumHealth(damage: number[], armor: number): number {
@@ -149,10 +133,6 @@ function minimumHealth(damage: number[], armor: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

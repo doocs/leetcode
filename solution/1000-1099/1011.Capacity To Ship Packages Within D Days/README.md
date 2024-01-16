@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，如果运载能力 $x$ 能够在 $days$ 天内运送完所有包裹，那么运载能力 $x + 1$ 也能在 $days$ 天内运送完所有包裹。也即是说，随着运载能力的增加，运送天数只会减少，不会增加。这存在一个单调性，因此我们可以使用二分查找的方法来寻找最小的运载能力。
 
@@ -78,10 +76,6 @@
 时间复杂度 $O(n \times \log \sum\limits_{i=0}^{n-1} weights[i])$，空间复杂度 $O(1)$。其中 $n$ 为包裹数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
         left, right = max(weights), sum(weights) + 1
         return left + bisect_left(range(left, right), True, key=check)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shipWithinDays(weights []int, days int) int {
 	var left, right int
@@ -196,8 +182,6 @@ func shipWithinDays(weights []int, days int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function shipWithinDays(weights: number[], days: number): number {
@@ -231,10 +215,6 @@ function shipWithinDays(weights: number[], days: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

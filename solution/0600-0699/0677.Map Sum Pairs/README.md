@@ -53,9 +53,7 @@ mapSum.sum("ap");           // 返回 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 前缀树**
+### 方法一：哈希表 + 前缀树
 
 我们用哈希表 $d$ 存放键值对，用前缀树 $t$ 存放键值对的前缀和。前缀树的每个节点包含两个信息：
 
@@ -71,10 +69,6 @@ mapSum.sum("ap");           // 返回 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 空间复杂度 $O(n \times m \times C)$，其中 $n$ 和 $m$ 分别是键的数量以及键的最大长度；而 $C$ 是字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -120,10 +114,6 @@ class MapSum:
 # obj.insert(key,val)
 # param_2 = obj.sum(prefix)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -180,8 +170,6 @@ class MapSum {
  * int param_2 = obj.sum(prefix);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -247,8 +235,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type trie struct {
 	children [26]*trie
@@ -303,8 +289,6 @@ func (this *MapSum) Sum(prefix string) int {
  * param_2 := obj.Sum(prefix);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class Trie {
@@ -368,10 +352,6 @@ class MapSum {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

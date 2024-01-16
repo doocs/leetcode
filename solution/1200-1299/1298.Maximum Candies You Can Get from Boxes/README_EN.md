@@ -59,11 +59,9 @@ The total number of candies will be 6.
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -96,8 +94,6 @@ class Solution:
                     q.append(j)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -139,8 +135,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -184,8 +178,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]int, initialBoxes []int) int {
 	ans := 0
@@ -225,10 +217,6 @@ func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]in
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
                     ans = max(ans, dp[j][k])
         return -1 if cnt < n else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +165,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestPathValue(colors string, edges [][]int) int {
@@ -223,10 +217,6 @@ func largestPathValue(colors string, edges [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -67,15 +67,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-快慢指针。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +95,6 @@ class Solution:
                 j = next(j)
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +166,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func circularArrayLoop(nums []int) bool {
 	for i, num := range nums {
@@ -211,10 +197,6 @@ func next(nums []int, i int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class AnimalShelf:
@@ -87,8 +87,6 @@ class AnimalShelf:
 # param_3 = obj.dequeueDog()
 # param_4 = obj.dequeueCat()
 ```
-
-### **Java**
 
 ```java
 class AnimalShelf {
@@ -132,8 +130,6 @@ class AnimalShelf {
  * int[] param_4 = obj.dequeueCat();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class AnimalShelf {
@@ -187,8 +183,6 @@ class AnimalShelf {
  * var param_4 = obj.dequeueCat()
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -252,10 +246,6 @@ impl AnimalShelf {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

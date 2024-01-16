@@ -37,24 +37,15 @@ The above arrows point to positions where the corresponding bits are different.
 
 ## Solutions
 
-Use xor operation to find different bits.
-
--   0 ^ 0 = 0
--   1 ^ 1 = 0
--   0 ^ 1 = 1
--   1 ^ 0 = 1
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
         return (x ^ y).bit_count()
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -63,8 +54,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -75,15 +64,23 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hammingDistance(x int, y int) int {
 	return bits.OnesCount(uint(x ^ y))
 }
 ```
 
-### **JavaScript**
+```ts
+function hammingDistance(x: number, y: number): number {
+    x ^= y;
+    let ans = 0;
+    while (x) {
+        x -= x & -x;
+        ++ans;
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -102,24 +99,6 @@ var hammingDistance = function (x, y) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function hammingDistance(x: number, y: number): number {
-    x ^= y;
-    let ans = 0;
-    while (x) {
-        x -= x & -x;
-        ++ans;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

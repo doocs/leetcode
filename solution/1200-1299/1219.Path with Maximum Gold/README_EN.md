@@ -56,15 +56,13 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We can enumerate each cell as the starting point, and then start a depth-first search from the starting point. During the search process, whenever we encounter a non-zero cell, we turn it into zero and continue the search. When we can no longer continue the search, we calculate the total amount of gold in the current path, then turn the current cell back into a non-zero cell, thus performing backtracking.
 
 The time complexity is $O(m \times n \times 3^k)$, where $k$ is the maximum length of each path. Since each cell can only be visited once at most, the time complexity will not exceed $O(m \times n \times 3^k)$. The space complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getMaximumGold(grid [][]int) (ans int) {
@@ -178,8 +170,6 @@ func getMaximumGold(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMaximumGold(grid: number[][]): number {
     const m = grid.length;
@@ -203,8 +193,6 @@ function getMaximumGold(grid: number[][]): number {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -234,10 +222,6 @@ var getMaximumGold = function (grid) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

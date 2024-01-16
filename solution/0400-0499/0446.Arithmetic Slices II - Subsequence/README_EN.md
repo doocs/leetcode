@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
                 f[i][d] += f[j][d] + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfArithmeticSlices(nums []int) (ans int) {
 	f := make([]map[int]int, len(nums))
@@ -136,8 +130,6 @@ func numberOfArithmeticSlices(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfArithmeticSlices(nums: number[]): number {
     const n = nums.length;
@@ -155,10 +147,6 @@ function numberOfArithmeticSlices(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

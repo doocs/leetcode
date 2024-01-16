@@ -53,37 +53,11 @@ Person 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组统计**
+### 方法一：分组统计
 
 我们可以使用 `GROUP BY` 语句，按照 `email` 字段进行分组，然后使用 `HAVING` 语句，筛选出现次数大于 $1$ 的 `email`。
 
-**方法二：自连接**
-
-我们可以使用自连接的方法，将 `Person` 表自身连接一次，然后筛选出 `id` 不同，但 `email` 相同的记录。
-
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT email
-FROM Person
-GROUP BY 1
-HAVING COUNT(1) > 1;
-```
-
-```sql
-SELECT DISTINCT p1.email
-FROM
-    person AS p1,
-    person AS p2
-WHERE p1.id != p2.id AND p1.email = p2.email;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -97,4 +71,30 @@ def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
     return results.drop_duplicates()
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT email
+FROM Person
+GROUP BY 1
+HAVING COUNT(1) > 1;
+```
+
 <!-- tabs:end -->
+
+### 方法二：自连接
+
+我们可以使用自连接的方法，将 `Person` 表自身连接一次，然后筛选出 `id` 不同，但 `email` 相同的记录。
+
+<!-- tabs:start -->
+
+```sql
+SELECT DISTINCT p1.email
+FROM
+    person AS p1,
+    person AS p2
+WHERE p1.id != p2.id AND p1.email = p2.email;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 哈希表**
+### 方法一：前缀和 + 哈希表
 
 先求出前缀和数组 s。
 
@@ -64,10 +62,6 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func splitArray(nums []int) bool {
@@ -166,10 +152,6 @@ func splitArray(nums []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

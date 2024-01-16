@@ -47,7 +47,7 @@ It can be shown that 12 is the maximum value of (a XOR x) * (b XOR x) for all 0 
 
 ## Solutions
 
-**Solution 1: Greedy + Bitwise Operation**
+### Solution 1: Greedy + Bitwise Operation
 
 According to the problem description, we can assign a number to the $[0..n)$ bits of $a$ and $b$ in binary at the same time, so that the product of $a$ and $b$ is maximized.
 
@@ -62,8 +62,6 @@ Finally, we return $ax \times bx \bmod (10^9 + 7)$ as the answer.
 The time complexity is $O(n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
                 ax |= 1 << i
         return ax * bx % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumXorProduct(a int64, b int64, n int) int {
 	const mod int64 = 1e9 + 7
@@ -159,8 +151,6 @@ func maximumXorProduct(a int64, b int64, n int) int {
 	return int(ax * bx % mod)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumXorProduct(a: number, b: number, n: number): number {
@@ -185,10 +175,6 @@ function maximumXorProduct(a: number, b: number, n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

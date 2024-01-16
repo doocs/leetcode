@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们用双指针 $i$ 和 $j$ 分别指向当前连续子字符串的起始位置和结束位置。遍历字符串 $s$，如果当前字符 $s[j]$ 比 $s[j-1]$ 大，则 $j$ 向右移动一位，否则更新 $i$ 为 $j$，并更新最长连续子字符串的长度。
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
         ans = max(ans, j - i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestContinuousSubstring(s string) int {
 	ans := 0
@@ -128,27 +114,6 @@ func longestContinuousSubstring(s string) int {
 }
 ```
 
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int longestContinuousSubstring(char* s) {
-    int n = strlen(s);
-    int i = 0;
-    int res = 1;
-    for (int j = 1; j < n; j++) {
-        if (s[j] - s[j - 1] != 1) {
-            res = max(res, j - i);
-            i = j;
-        }
-    }
-    return max(res, n - i);
-}
-```
-
-### **TypeScript**
-
 ```ts
 function longestContinuousSubstring(s: string): number {
     const n = s.length;
@@ -163,8 +128,6 @@ function longestContinuousSubstring(s: string): number {
     return Math.max(res, n - i);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -184,10 +147,23 @@ impl Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```
-
+int longestContinuousSubstring(char* s) {
+    int n = strlen(s);
+    int i = 0;
+    int res = 1;
+    for (int j = 1; j < n; j++) {
+        if (s[j] - s[j - 1] != 1) {
+            res = max(res, j - i);
+            i = j;
+        }
+    }
+    return max(res, n - i);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

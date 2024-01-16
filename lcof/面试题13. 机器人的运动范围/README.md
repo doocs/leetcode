@@ -27,7 +27,7 @@
 
 ## 解法
 
-**方法一：DFS + 哈希表**
+### 方法一：DFS + 哈希表
 
 由于部分单元格不可达，因此，我们不能直接枚举所有坐标点 $(i, j)$ 进行判断，而是应该从起点 $(0, 0)$ 出发，搜索所有可达的节点，记录答案。
 
@@ -36,8 +36,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为方格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,28 +62,6 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
-
-```python
-class Solution:
-    def movingCount(self, m: int, n: int, k: int) -> int:
-        def f(x):
-            s = 0
-            while x:
-                s += x % 10
-                x //= 10
-            return s
-
-        def dfs(i, j):
-            if not (0 <= i < m) or not (0 <= j < n) or f(i) + f(j) > k or (i, j) in vis:
-                return 0
-            vis.add((i, j))
-            return 1 + dfs(i + 1, j) + dfs(i, j + 1)
-
-        vis = set()
-        return dfs(0, 0)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,33 +102,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private boolean[][] vis;
-    private int m;
-    private int n;
-    private int k;
-
-    public int movingCount(int m, int n, int k) {
-        this.m = m;
-        this.n = n;
-        this.k = k;
-        vis = new boolean[m][n];
-        return dfs(0, 0);
-    }
-
-    private int dfs(int i, int j) {
-        if (i >= m || j >= n || vis[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) {
-            return 0;
-        }
-        vis[i][j] = true;
-        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -184,6 +133,169 @@ public:
 };
 ```
 
+```go
+func movingCount(m int, n int, k int) int {
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= m || j >= n || vis[i][j] || (i%10+i/10+j%10+j/10) > k {
+			return 0
+		}
+		vis[i][j] = true
+		return 1 + dfs(i+1, j) + dfs(i, j+1)
+	}
+	return dfs(0, 0)
+}
+```
+
+```ts
+function movingCount(m: number, n: number, k: number): number {
+    const set = new Set();
+    const dfs = (i: number, j: number) => {
+        const key = `${i},${j}`;
+        if (
+            i === m ||
+            j === n ||
+            set.has(key) ||
+            `${i}${j}`.split('').reduce((r, v) => r + Number(v), 0) > k
+        ) {
+            return;
+        }
+        set.add(key);
+        dfs(i + 1, j);
+        dfs(i, j + 1);
+    };
+    dfs(0, 0);
+    return set.size;
+}
+```
+
+```rust
+use std::collections::{ HashSet, VecDeque };
+impl Solution {
+    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
+        let mut set = HashSet::new();
+        let mut queue = VecDeque::new();
+        queue.push_back([0, 0]);
+        while let Some([i, j]) = queue.pop_front() {
+            let key = format!("{},{}", i, j);
+            if
+                i == m ||
+                j == n ||
+                set.contains(&key) ||
+                k <
+                    format!("{}{}", i, j)
+                        .chars()
+                        .map(|c| c.to_string().parse::<i32>().unwrap())
+                        .sum::<i32>()
+            {
+                continue;
+            }
+            set.insert(key);
+            queue.push_back([i + 1, j]);
+            queue.push_back([i, j + 1]);
+        }
+        set.len() as i32
+    }
+}
+```
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var movingCount = function (m, n, k) {
+    const vis = new Array(m * n).fill(false);
+    let dfs = function (i, j) {
+        if (
+            i >= m ||
+            j >= n ||
+            vis[i * n + j] ||
+            (i % 10) + Math.floor(i / 10) + (j % 10) + Math.floor(j / 10) > k
+        ) {
+            return 0;
+        }
+        vis[i * n + j] = true;
+        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
+    };
+    return dfs(0, 0);
+};
+```
+
+```cs
+public class Solution {
+    public int MovingCount(int m, int n, int k) {
+        bool[,] arr = new bool[m, n];
+        return dfs(0, 0, m, n, k, arr);
+    }
+
+    public int dfs(int i, int j, int m, int n, int k, bool[,] arr) {
+        if (i >= m || j >= n || arr[i,j] || (i % 10 + j % 10 + i / 10 + j / 10) > k) {
+            return 0;
+        }
+        arr[i,j] = true;
+        return 1 + dfs(i+1, j, m, n, k, arr) + dfs(i, j+1, m, n, k, arr);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def movingCount(self, m: int, n: int, k: int) -> int:
+        def f(x):
+            s = 0
+            while x:
+                s += x % 10
+                x //= 10
+            return s
+
+        def dfs(i, j):
+            if not (0 <= i < m) or not (0 <= j < n) or f(i) + f(j) > k or (i, j) in vis:
+                return 0
+            vis.add((i, j))
+            return 1 + dfs(i + 1, j) + dfs(i, j + 1)
+
+        vis = set()
+        return dfs(0, 0)
+```
+
+```java
+class Solution {
+    private boolean[][] vis;
+    private int m;
+    private int n;
+    private int k;
+
+    public int movingCount(int m, int n, int k) {
+        this.m = m;
+        this.n = n;
+        this.k = k;
+        vis = new boolean[m][n];
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= m || j >= n || vis[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) {
+            return 0;
+        }
+        vis[i][j] = true;
+        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
+    }
+}
+```
+
 ```cpp
 class Solution {
 public:
@@ -207,26 +319,6 @@ public:
         return dfs(0, 0);
     }
 };
-```
-
-### **Go**
-
-```go
-func movingCount(m int, n int, k int) int {
-	vis := make([][]bool, m)
-	for i := range vis {
-		vis[i] = make([]bool, n)
-	}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) int {
-		if i >= m || j >= n || vis[i][j] || (i%10+i/10+j%10+j/10) > k {
-			return 0
-		}
-		vis[i][j] = true
-		return 1 + dfs(i+1, j) + dfs(i, j+1)
-	}
-	return dfs(0, 0)
-}
 ```
 
 ```go
@@ -259,93 +351,6 @@ func movingCount(m int, n int, k int) (ans int) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} m
- * @param {number} n
- * @param {number} k
- * @return {number}
- */
-var movingCount = function (m, n, k) {
-    const vis = new Array(m * n).fill(false);
-    let dfs = function (i, j) {
-        if (
-            i >= m ||
-            j >= n ||
-            vis[i * n + j] ||
-            (i % 10) + Math.floor(i / 10) + (j % 10) + Math.floor(j / 10) > k
-        ) {
-            return 0;
-        }
-        vis[i * n + j] = true;
-        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
-    };
-    return dfs(0, 0);
-};
-```
-
-### **TypeScript**
-
-```ts
-function movingCount(m: number, n: number, k: number): number {
-    const set = new Set();
-    const dfs = (i: number, j: number) => {
-        const key = `${i},${j}`;
-        if (
-            i === m ||
-            j === n ||
-            set.has(key) ||
-            `${i}${j}`.split('').reduce((r, v) => r + Number(v), 0) > k
-        ) {
-            return;
-        }
-        set.add(key);
-        dfs(i + 1, j);
-        dfs(i, j + 1);
-    };
-    dfs(0, 0);
-    return set.size;
-}
-```
-
-### **Rust**
-
-循环：
-
-```rust
-use std::collections::{ HashSet, VecDeque };
-impl Solution {
-    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
-        let mut set = HashSet::new();
-        let mut queue = VecDeque::new();
-        queue.push_back([0, 0]);
-        while let Some([i, j]) = queue.pop_front() {
-            let key = format!("{},{}", i, j);
-            if
-                i == m ||
-                j == n ||
-                set.contains(&key) ||
-                k <
-                    format!("{}{}", i, j)
-                        .chars()
-                        .map(|c| c.to_string().parse::<i32>().unwrap())
-                        .sum::<i32>()
-            {
-                continue;
-            }
-            set.insert(key);
-            queue.push_back([i + 1, j]);
-            queue.push_back([i, j + 1]);
-        }
-        set.len() as i32
-    }
-}
-```
-
-递归：
-
 ```rust
 impl Solution {
     fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, i: usize, j: usize) -> i32 {
@@ -368,29 +373,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
-```cs
-public class Solution {
-    public int MovingCount(int m, int n, int k) {
-        bool[,] arr = new bool[m, n];
-        return dfs(0, 0, m, n, k, arr);
-    }
-
-    public int dfs(int i, int j, int m, int n, int k, bool[,] arr) {
-        if (i >= m || j >= n || arr[i,j] || (i % 10 + j % 10 + i / 10 + j / 10) > k) {
-            return 0;
-        }
-        arr[i,j] = true;
-        return 1 + dfs(i+1, j, m, n, k, arr) + dfs(i, j+1, m, n, k, arr);
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

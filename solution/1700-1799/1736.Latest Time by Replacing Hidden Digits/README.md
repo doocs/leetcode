@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们依次处理字符串的每一位，处理的规则如下：
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             t[4] = '9'
         return ''.join(t)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumTime(time string) string {
@@ -158,8 +144,6 @@ func maximumTime(time string) string {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} time
@@ -183,10 +167,6 @@ var maximumTime = function (time) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

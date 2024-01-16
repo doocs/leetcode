@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Chicken McNugget 定理**
+### 方法一：Chicken McNugget 定理
 
 根据 Chicken McNugget 定理，两个互质的正整数 $a$ 和 $b$，最大不能表示的数为 $ab - a - b$。
 
@@ -52,19 +50,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def mostExpensiveItem(self, primeOne: int, primeTwo: int) -> int:
         return primeOne * primeTwo - primeOne - primeTwo
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -73,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -85,23 +73,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostExpensiveItem(primeOne int, primeTwo int) int {
 	return primeOne*primeTwo - primeOne - primeTwo
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostExpensiveItem(primeOne: number, primeTwo: number): number {
     return primeOne * primeTwo - primeOne - primeTwo;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -111,10 +93,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

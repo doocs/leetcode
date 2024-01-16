@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             stk.append(i)
         return max(dp)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func totalSteps(nums []int) int {
 	stk := []int{}
@@ -117,8 +111,6 @@ func totalSteps(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function totalSteps(nums: number[]): number {
@@ -138,10 +130,6 @@ function totalSteps(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

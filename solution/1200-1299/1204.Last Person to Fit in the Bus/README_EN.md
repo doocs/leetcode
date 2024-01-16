@@ -67,9 +67,9 @@ Queue table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -83,6 +83,12 @@ HAVING SUM(b.weight) <= 1000
 ORDER BY a.turn DESC
 LIMIT 1;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -101,3 +107,5 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

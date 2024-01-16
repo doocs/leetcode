@@ -51,17 +51,15 @@ In all outcomes, your friend wins.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def canWinNim(self, n: int) -> bool:
         return n % 4 != 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,16 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function canWinNim(n: number): boolean {
-    return n % 4 != 0;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,15 +78,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canWinNim(n int) bool {
 	return n%4 != 0
 }
 ```
 
-### **Rust**
+```ts
+function canWinNim(n: number): boolean {
+    return n % 4 != 0;
+}
+```
 
 ```rust
 impl Solution {
@@ -108,10 +98,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

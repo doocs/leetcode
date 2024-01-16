@@ -52,7 +52,7 @@
 
 ## 解法
 
-**方法一：位运算**
+### 方法一：位运算
 
 由于 `n & (n - 1)` 会消除 $n$ 的二进制表示中的最后一个 $1$，因此对 $n$ 重复该操作，直到 $n$ 变成 $0$，此时的操作次数即为 $n$ 的二进制表示中的 $1$ 的个数。
 
@@ -62,35 +62,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
         return n.bit_count()
 ```
-
-```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        ans = 0
-        while n:
-            n &= n - 1
-            ans += 1
-        return ans
-```
-
-```python
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        ans = 0
-        while n:
-            n -= n & (-n)
-            ans += 1
-        return ans
-```
-
-### **Java**
 
 ```java
 public class Solution {
@@ -105,22 +81,6 @@ public class Solution {
     }
 }
 ```
-
-```java
-public class Solution {
-    // you need to treat n as an unsigned value
-    public int hammingWeight(int n) {
-        int ans = 0;
-        while (n != 0) {
-            n -= n & -n;
-            ++ans;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,22 +96,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int hammingWeight(uint32_t n) {
-        int ans = 0;
-        while (n != 0) {
-            n -= n & -n;
-            ++ans;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func hammingWeight(num uint32) (ans int) {
 	for num != 0 {
@@ -161,18 +105,6 @@ func hammingWeight(num uint32) (ans int) {
 	return
 }
 ```
-
-```go
-func hammingWeight(num uint32) (ans int) {
-	for num != 0 {
-		num -= num & -num
-		ans++
-	}
-	return
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -189,8 +121,6 @@ var hammingWeight = function (n) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int HammingWeight(uint n) {
@@ -204,10 +134,76 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        ans = 0
+        while n:
+            n &= n - 1
+            ans += 1
+        return ans
 ```
 
+```java
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int ans = 0;
+        while (n != 0) {
+            n -= n & -n;
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans = 0;
+        while (n != 0) {
+            n -= n & -n;
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func hammingWeight(num uint32) (ans int) {
+	for num != 0 {
+		num -= num & -num
+		ans++
+	}
+	return
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        ans = 0
+        while n:
+            n -= n & (-n)
+            ans += 1
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

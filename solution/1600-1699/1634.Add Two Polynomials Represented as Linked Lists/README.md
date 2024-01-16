@@ -70,9 +70,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历链表**
+### 方法一：遍历链表
 
 我们可以同时遍历两个链表，根据指数大小关系，将节点添加到结果链表中。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为两个链表中节点数的较大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for polynomial singly-linked list.
@@ -116,10 +110,6 @@ class Solution:
         curr.next = poly1 or poly2
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -169,8 +159,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for polynomial singly-linked list->
@@ -218,7 +206,47 @@ public:
 };
 ```
 
-### **C#**
+```js
+/**
+ * Definition for polynomial singly-linked list.
+ * function PolyNode(x=0, y=0, next=null) {
+ *     this.coefficient = x;
+ *     this.power = y;
+ *     this.next = next;
+ * }
+ */
+
+/**
+ * @param {PolyNode} poly1
+ * @param {PolyNode} poly2
+ * @return {PolyNode}
+ */
+var addPoly = function (poly1, poly2) {
+    const dummy = new PolyNode();
+    let curr = dummy;
+    while (poly1 && poly2) {
+        if (poly1.power > poly2.power) {
+            curr.next = poly1;
+            poly1 = poly1.next;
+            curr = curr.next;
+        } else if (poly1.power < poly2.power) {
+            curr.next = poly2;
+            poly2 = poly2.next;
+            curr = curr.next;
+        } else {
+            const c = poly1.coefficient + poly2.coefficient;
+            if (c != 0) {
+                curr.next = new PolyNode(c, poly1.power);
+                curr = curr.next;
+            }
+            poly1 = poly1.next;
+            poly2 = poly2.next;
+        }
+    }
+    curr.next = poly1 || poly2;
+    return dummy.next;
+};
+```
 
 ```cs
 /**
@@ -269,54 +297,6 @@ public class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for polynomial singly-linked list.
- * function PolyNode(x=0, y=0, next=null) {
- *     this.coefficient = x;
- *     this.power = y;
- *     this.next = next;
- * }
- */
-
-/**
- * @param {PolyNode} poly1
- * @param {PolyNode} poly2
- * @return {PolyNode}
- */
-var addPoly = function (poly1, poly2) {
-    const dummy = new PolyNode();
-    let curr = dummy;
-    while (poly1 && poly2) {
-        if (poly1.power > poly2.power) {
-            curr.next = poly1;
-            poly1 = poly1.next;
-            curr = curr.next;
-        } else if (poly1.power < poly2.power) {
-            curr.next = poly2;
-            poly2 = poly2.next;
-            curr = curr.next;
-        } else {
-            const c = poly1.coefficient + poly2.coefficient;
-            if (c != 0) {
-                curr.next = new PolyNode(c, poly1.power);
-                curr = curr.next;
-            }
-            poly1 = poly1.next;
-            poly2 = poly2.next;
-        }
-    }
-    curr.next = poly1 || poly2;
-    return dummy.next;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

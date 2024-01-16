@@ -40,9 +40,9 @@ All the strings are now equal to &quot;abc&quot;, so return <code>true</code>.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
         n = len(words)
         return all(count % n == 0 for count in counter.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,7 +75,42 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    bool makeEqual(vector<string>& words) {
+        vector<int> counter(26, 0);
+        for (string word : words) {
+            for (char c : word) {
+                ++counter[c - 'a'];
+            }
+        }
+        int n = words.size();
+        for (int count : counter) {
+            if (count % n != 0) return false;
+        }
+        return true;
+    }
+};
+```
+
+```go
+func makeEqual(words []string) bool {
+	counter := [26]int{}
+	for _, word := range words {
+		for _, c := range word {
+			counter[c-'a']++
+		}
+	}
+	n := len(words)
+	for _, count := range counter {
+		if count%n != 0 {
+			return false
+		}
+	}
+	return true
+}
+```
 
 ```ts
 function makeEqual(words: string[]): boolean {
@@ -98,51 +131,6 @@ function makeEqual(words: string[]): boolean {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool makeEqual(vector<string>& words) {
-        vector<int> counter(26, 0);
-        for (string word : words) {
-            for (char c : word) {
-                ++counter[c - 'a'];
-            }
-        }
-        int n = words.size();
-        for (int count : counter) {
-            if (count % n != 0) return false;
-        }
-        return true;
-    }
-};
-```
-
-### **Go**
-
-```go
-func makeEqual(words []string) bool {
-	counter := [26]int{}
-	for _, word := range words {
-		for _, c := range word {
-			counter[c-'a']++
-		}
-	}
-	n := len(words)
-	for _, count := range counter {
-		if count%n != 0 {
-			return false
-		}
-	}
-	return true
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

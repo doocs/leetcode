@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串比较**
+### 方法一：字符串比较
 
 如果 $event1$ 的开始时间大于 $event2$ 的结束时间，或者 $event1$ 的结束时间小于 $event2$ 的开始时间，那么两个事件不会有冲突。否则，两个事件存在冲突。
 
@@ -71,19 +69,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
         return not (event1[0] > event2[1] or event1[1] < event2[0])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,23 +92,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func haveConflict(event1 []string, event2 []string) bool {
 	return !(event1[0] > event2[1] || event1[1] < event2[0])
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function haveConflict(event1: string[], event2: string[]): boolean {
     return !(event1[0] > event2[1] || event1[1] < event2[0]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -130,10 +112,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

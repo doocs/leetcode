@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i)$，表示当前石子堆中有 $i$ 个石子时，当前玩家是否能赢得比赛。如果当前玩家能赢得比赛，则返回 $true$，否则返回 $false$。那么答案即为 $dfs(n)$。
 
@@ -80,31 +78,7 @@
 
 时间复杂度 $O(n \times \sqrt{n})$，空间复杂度 $O(n)$。其中 $n$ 为石子堆中石子的数量。
 
-**方法二：动态规划**
-
-我们也可以使用动态规划求解本题。
-
-定义数组 $f$，其中 $f[i]$ 表示当前石子堆中有 $i$ 个石子时，当前玩家是否能赢得比赛。如果当前玩家能赢得比赛，则 $f[i]$ 为 $true$，否则为 $false$。那么答案即为 $f[n]$。
-
-我们在 $[1,..n]$ 的范围内枚举 $i$，并在 $[1,..i]$ 的范围内枚举 $j$，其中 $j$ 为平方数，如果当前玩家拿走 $j$ 个石子后，另一个玩家无法赢得比赛，则当前玩家赢得比赛，即 $f[i] = true$。如果枚举完所有的 $j$，都无法满足上述条件，则当前玩家输掉比赛，即 $f[i] = false$。因此我们可以得到状态转移方程：
-
-$$
-f[i]=
-\begin{cases}
-true, & \text{if } \exists j \in [1,..i], j^2 \leq i \text{ and } f[i-j^2] = false\\
-false, & \text{otherwise}
-\end{cases}
-$$
-
-最后，我们返回 $f[n]$ 即可。
-
-时间复杂度 $O(n \times \sqrt{n})$，空间复杂度 $O(n)$。其中 $n$ 为石子堆中石子的数量。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -122,24 +96,6 @@ class Solution:
 
         return dfs(n)
 ```
-
-```python
-class Solution:
-    def winnerSquareGame(self, n: int) -> bool:
-        f = [False] * (n + 1)
-        for i in range(1, n + 1):
-            j = 1
-            while j <= i // j:
-                if not f[i - j * j]:
-                    f[i] = True
-                    break
-                j += 1
-        return f[n]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,25 +122,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean winnerSquareGame(int n) {
-        boolean[] f = new boolean[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 1; j <= i / j; ++j) {
-                if (!f[i - j * j]) {
-                    f[i] = true;
-                    break;
-                }
-            }
-        }
-        return f[n];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -213,27 +150,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool winnerSquareGame(int n) {
-        bool f[n + 1];
-        memset(f, false, sizeof(f));
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 1; j <= i / j; ++j) {
-                if (!f[i - j * j]) {
-                    f[i] = true;
-                    break;
-                }
-            }
-        }
-        return f[n];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func winnerSquareGame(n int) bool {
 	f := make([]int, n+1)
@@ -258,23 +174,6 @@ func winnerSquareGame(n int) bool {
 }
 ```
 
-```go
-func winnerSquareGame(n int) bool {
-	f := make([]bool, n+1)
-	for i := 1; i <= n; i++ {
-		for j := 1; j <= i/j; j++ {
-			if !f[i-j*j] {
-				f[i] = true
-				break
-			}
-		}
-	}
-	return f[n]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function winnerSquareGame(n: number): boolean {
     const f: number[] = new Array(n + 1).fill(0);
@@ -298,6 +197,95 @@ function winnerSquareGame(n: number): boolean {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们也可以使用动态规划求解本题。
+
+定义数组 $f$，其中 $f[i]$ 表示当前石子堆中有 $i$ 个石子时，当前玩家是否能赢得比赛。如果当前玩家能赢得比赛，则 $f[i]$ 为 $true$，否则为 $false$。那么答案即为 $f[n]$。
+
+我们在 $[1,..n]$ 的范围内枚举 $i$，并在 $[1,..i]$ 的范围内枚举 $j$，其中 $j$ 为平方数，如果当前玩家拿走 $j$ 个石子后，另一个玩家无法赢得比赛，则当前玩家赢得比赛，即 $f[i] = true$。如果枚举完所有的 $j$，都无法满足上述条件，则当前玩家输掉比赛，即 $f[i] = false$。因此我们可以得到状态转移方程：
+
+$$
+f[i]=
+\begin{cases}
+true, & \text{if } \exists j \in [1,..i], j^2 \leq i \text{ and } f[i-j^2] = false\\
+false, & \text{otherwise}
+\end{cases}
+$$
+
+最后，我们返回 $f[n]$ 即可。
+
+时间复杂度 $O(n \times \sqrt{n})$，空间复杂度 $O(n)$。其中 $n$ 为石子堆中石子的数量。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def winnerSquareGame(self, n: int) -> bool:
+        f = [False] * (n + 1)
+        for i in range(1, n + 1):
+            j = 1
+            while j <= i // j:
+                if not f[i - j * j]:
+                    f[i] = True
+                    break
+                j += 1
+        return f[n]
+```
+
+```java
+class Solution {
+    public boolean winnerSquareGame(int n) {
+        boolean[] f = new boolean[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool winnerSquareGame(int n) {
+        bool f[n + 1];
+        memset(f, false, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func winnerSquareGame(n int) bool {
+	f := make([]bool, n+1)
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= i/j; j++ {
+			if !f[i-j*j] {
+				f[i] = true
+				break
+			}
+		}
+	}
+	return f[n]
+}
+```
+
 ```ts
 function winnerSquareGame(n: number): boolean {
     const f: boolean[] = new Array(n + 1).fill(false);
@@ -313,10 +301,6 @@ function winnerSquareGame(n: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

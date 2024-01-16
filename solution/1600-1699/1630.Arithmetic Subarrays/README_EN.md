@@ -55,9 +55,9 @@ In the 2<sup>nd</sup> query, the subarray is <code>[5,9,3,7]. This</code> can be
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
 
         return [check(nums, left, right) for left, right in zip(l, r)]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkArithmeticSubarrays(nums []int, l []int, r []int) (ans []bool) {
@@ -179,8 +173,6 @@ func checkArithmeticSubarrays(nums []int, l []int, r []int) (ans []bool) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkArithmeticSubarrays(nums: number[], l: number[], r: number[]): boolean[] {
     const check = (nums: number[], l: number, r: number): boolean => {
@@ -212,8 +204,6 @@ function checkArithmeticSubarrays(nums: number[], l: number[], r: number[]): boo
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn check_arithmetic_subarrays(nums: Vec<i32>, l: Vec<i32>, r: Vec<i32>) -> Vec<bool> {
@@ -233,8 +223,6 @@ impl Solution {
     }
 }
 ```
-
-### **C#**
 
 ```cs
 class Solution {
@@ -261,13 +249,8 @@ class Solution {
         return ans;
     }
 }
-
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

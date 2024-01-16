@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 滑动窗口**
+### 方法一：哈希表 + 滑动窗口
 
 我们用哈希表 $cnt$ 维护当前窗口内的水果种类以及对应的数量，用双指针 $j$ 和 $i$ 维护窗口的左右边界。
 
@@ -93,19 +91,7 @@ j   i
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `fruits` 的长度。
 
-**方法二：滑动窗口优化**
-
-在方法一中，我们发现，窗口大小会时而变大，时而变小，这就需要我们每一次更新答案。
-
-但本题实际上求的是水果的最大数目，也就是“最大”的窗口，我们没有必要缩小窗口，只需要让窗口单调增大。于是代码就少了每次更新答案的操作，只需要在遍历结束后将此时的窗口大小作为答案返回即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `fruits` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -123,26 +109,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-```python
-class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
-        cnt = Counter()
-        j = 0
-        for x in fruits:
-            cnt[x] += 1
-            if len(cnt) > 2:
-                y = fruits[j]
-                cnt[y] -= 1
-                if cnt[y] == 0:
-                    cnt.pop(y)
-                j += 1
-        return len(fruits) - j
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,28 +132,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int totalFruit(int[] fruits) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        int j = 0, n = fruits.length;
-        for (int x : fruits) {
-            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
-            if (cnt.size() > 2) {
-                int y = fruits[j++];
-                cnt.put(y, cnt.get(y) - 1);
-                if (cnt.get(y) == 0) {
-                    cnt.remove(y);
-                }
-            }
-        }
-        return n - j;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -208,26 +152,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int totalFruit(vector<int>& fruits) {
-        unordered_map<int, int> cnt;
-        int j = 0, n = fruits.size();
-        for (int& x : fruits) {
-            ++cnt[x];
-            if (cnt.size() > 2) {
-                int y = fruits[j++];
-                if (--cnt[y] == 0) cnt.erase(y);
-            }
-        }
-        return n - j;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func totalFruit(fruits []int) int {
 	cnt := map[int]int{}
@@ -246,27 +170,6 @@ func totalFruit(fruits []int) int {
 	return ans
 }
 ```
-
-```go
-func totalFruit(fruits []int) int {
-	cnt := map[int]int{}
-	j := 0
-	for _, x := range fruits {
-		cnt[x]++
-		if len(cnt) > 2 {
-			y := fruits[j]
-			cnt[y]--
-			if cnt[y] == 0 {
-				delete(cnt, y)
-			}
-			j++
-		}
-	}
-	return len(fruits) - j
-}
-```
-
-### **TypeScript**
 
 ```ts
 function totalFruit(fruits: number[]): number {
@@ -290,27 +193,6 @@ function totalFruit(fruits: number[]): number {
     return res;
 }
 ```
-
-```ts
-function totalFruit(fruits: number[]): number {
-    const n = fruits.length;
-    const map = new Map<number, number>();
-    let i = 0;
-    for (const fruit of fruits) {
-        map.set(fruit, (map.get(fruit) ?? 0) + 1);
-        if (map.size > 2) {
-            const k = fruits[i++];
-            map.set(k, map.get(k) - 1);
-            if (map.get(k) == 0) {
-                map.delete(k);
-            }
-        }
-    }
-    return n - i;
-}
-```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -339,6 +221,110 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：滑动窗口优化
+
+在方法一中，我们发现，窗口大小会时而变大，时而变小，这就需要我们每一次更新答案。
+
+但本题实际上求的是水果的最大数目，也就是“最大”的窗口，我们没有必要缩小窗口，只需要让窗口单调增大。于是代码就少了每次更新答案的操作，只需要在遍历结束后将此时的窗口大小作为答案返回即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `fruits` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        cnt = Counter()
+        j = 0
+        for x in fruits:
+            cnt[x] += 1
+            if len(cnt) > 2:
+                y = fruits[j]
+                cnt[y] -= 1
+                if cnt[y] == 0:
+                    cnt.pop(y)
+                j += 1
+        return len(fruits) - j
+```
+
+```java
+class Solution {
+    public int totalFruit(int[] fruits) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int j = 0, n = fruits.length;
+        for (int x : fruits) {
+            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            if (cnt.size() > 2) {
+                int y = fruits[j++];
+                cnt.put(y, cnt.get(y) - 1);
+                if (cnt.get(y) == 0) {
+                    cnt.remove(y);
+                }
+            }
+        }
+        return n - j;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        unordered_map<int, int> cnt;
+        int j = 0, n = fruits.size();
+        for (int& x : fruits) {
+            ++cnt[x];
+            if (cnt.size() > 2) {
+                int y = fruits[j++];
+                if (--cnt[y] == 0) cnt.erase(y);
+            }
+        }
+        return n - j;
+    }
+};
+```
+
+```go
+func totalFruit(fruits []int) int {
+	cnt := map[int]int{}
+	j := 0
+	for _, x := range fruits {
+		cnt[x]++
+		if len(cnt) > 2 {
+			y := fruits[j]
+			cnt[y]--
+			if cnt[y] == 0 {
+				delete(cnt, y)
+			}
+			j++
+		}
+	}
+	return len(fruits) - j
+}
+```
+
+```ts
+function totalFruit(fruits: number[]): number {
+    const n = fruits.length;
+    const map = new Map<number, number>();
+    let i = 0;
+    for (const fruit of fruits) {
+        map.set(fruit, (map.get(fruit) ?? 0) + 1);
+        if (map.size > 2) {
+            const k = fruits[i++];
+            map.set(k, map.get(k) - 1);
+            if (map.get(k) == 0) {
+                map.delete(k);
+            }
+        }
+    }
+    return n - i;
+}
+```
+
 ```rust
 use std::collections::HashMap;
 impl Solution {
@@ -362,10 +348,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

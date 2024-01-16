@@ -42,23 +42,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：从中心向两侧扩展回文串**
+### 方法一：从中心向两侧扩展回文串
 
 时间复杂度 $O(n^2)$，其中 $n$ 是字符串 `s` 的长度。
 
-**方法二：Manacher 算法**
-
-在 Manacher 算法的计算过程中，用 $p[i]-1$ 表示以第 $i$ 位为中心的最大回文长度，以第 $i$ 位为中心的回文串数量为 $\left \lceil \frac{p[i]-1}{2}  \right \rceil$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,6 +59,88 @@ class Solution:
                 i, j = i - 1, j + 1
         return ans
 ```
+
+```java
+class Solution {
+    public int countSubstrings(String s) {
+        int ans = 0;
+        int n = s.length();
+        for (int k = 0; k < n * 2 - 1; ++k) {
+            int i = k / 2, j = (k + 1) / 2;
+            while (i >= 0 && j < n && s.charAt(i) == s.charAt(j)) {
+                ++ans;
+                --i;
+                ++j;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int ans = 0;
+        int n = s.size();
+        for (int k = 0; k < n * 2 - 1; ++k) {
+            int i = k / 2, j = (k + 1) / 2;
+            while (~i && j < n && s[i] == s[j]) {
+                ++ans;
+                --i;
+                ++j;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countSubstrings(s string) int {
+	ans, n := 0, len(s)
+	for k := 0; k < n*2-1; k++ {
+		i, j := k/2, (k+1)/2
+		for i >= 0 && j < n && s[i] == s[j] {
+			ans++
+			i, j = i-1, j+1
+		}
+	}
+	return ans
+}
+```
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countSubstrings = function (s) {
+    let ans = 0;
+    const n = s.length;
+    for (let k = 0; k < n * 2 - 1; ++k) {
+        let i = k >> 1;
+        let j = (k + 1) >> 1;
+        while (~i && j < n && s[i] == s[j]) {
+            ++ans;
+            --i;
+            ++j;
+        }
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二：Manacher 算法
+
+在 Manacher 算法的计算过程中，用 $p[i]-1$ 表示以第 $i$ 位为中心的最大回文长度，以第 $i$ 位为中心的回文串数量为 $\left \lceil \frac{p[i]-1}{2}  \right \rceil$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -89,28 +159,6 @@ class Solution:
                 pos = i
             ans += p[i] // 2
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int countSubstrings(String s) {
-        int ans = 0;
-        int n = s.length();
-        for (int k = 0; k < n * 2 - 1; ++k) {
-            int i = k / 2, j = (k + 1) / 2;
-            while (i >= 0 && j < n && s.charAt(i) == s.charAt(j)) {
-                ++ans;
-                --i;
-                ++j;
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -141,70 +189,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countSubstrings(string s) {
-        int ans = 0;
-        int n = s.size();
-        for (int k = 0; k < n * 2 - 1; ++k) {
-            int i = k / 2, j = (k + 1) / 2;
-            while (~i && j < n && s[i] == s[j]) {
-                ++ans;
-                --i;
-                ++j;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func countSubstrings(s string) int {
-	ans, n := 0, len(s)
-	for k := 0; k < n*2-1; k++ {
-		i, j := k/2, (k+1)/2
-		for i >= 0 && j < n && s[i] == s[j] {
-			ans++
-			i, j = i-1, j+1
-		}
-	}
-	return ans
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @return {number}
- */
-var countSubstrings = function (s) {
-    let ans = 0;
-    const n = s.length;
-    for (let k = 0; k < n * 2 - 1; ++k) {
-        let i = k >> 1;
-        let j = (k + 1) >> 1;
-        while (~i && j < n && s[i] == s[j]) {
-            ++ans;
-            --i;
-            ++j;
-        }
-    }
-    return ans;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

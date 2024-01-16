@@ -50,7 +50,7 @@ It can be shown that we cannot make the array equal with a smaller cost.
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Sorting + Enumeration**
+### Solution 1: Prefix Sum + Sorting + Enumeration
 
 Let's denote the elements of the array `nums` as $a_1, a_2, \cdots, a_n$ and the elements of the array `cost` as $b_1, b_2, \cdots, b_n$. We can assume that $a_1 \leq a_2 \leq \cdots \leq a_n$, i.e., the array `nums` is sorted in ascending order.
 
@@ -71,20 +71,7 @@ Then we enumerate $x$, calculate the above four prefix sums, get the total cost 
 
 The time complexity is $O(n\times \log n)$, where $n$ is the length of the array `nums`. The main time complexity comes from sorting.
 
-**Solution 2: Sorting + Median**
-
-We can also consider $b_i$ as the occurrence times of $a_i$, then the index of the median is $\frac{\sum_{i=1}^{n} b_i}{2}$. Changing all numbers to the median is definitely optimal.
-
-The time complexity is $O(n\times \log n)$, where $n$ is the length of the array `nums`. The main time complexity comes from sorting.
-
-Similar problems:
-
--   [296. Best Meeting Point](/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
--   [462. Minimum Moves to Equal Array Elements II](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md)
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -105,20 +92,6 @@ class Solution:
             ans = min(ans, l + r)
         return ans
 ```
-
-```python
-class Solution:
-    def minCost(self, nums: List[int], cost: List[int]) -> int:
-        arr = sorted(zip(nums, cost))
-        mid = sum(cost) // 2
-        s = 0
-        for x, c in arr:
-            s += c
-            if s > mid:
-                return sum(abs(v - x) * c for v, c in arr)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -148,42 +121,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long minCost(int[] nums, int[] cost) {
-        int n = nums.length;
-        int[][] arr = new int[n][2];
-        for (int i = 0; i < n; ++i) {
-            arr[i] = new int[] {nums[i], cost[i]};
-        }
-        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
-        long mid = sum(cost) / 2;
-        long s = 0, ans = 0;
-        for (var e : arr) {
-            int x = e[0], c = e[1];
-            s += c;
-            if (s > mid) {
-                for (var t : arr) {
-                    ans += (long) Math.abs(t[0] - x) * t[1];
-                }
-                break;
-            }
-        }
-        return ans;
-    }
-
-    private long sum(int[] arr) {
-        long s = 0;
-        for (int v : arr) {
-            s += v;
-        }
-        return s;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -212,33 +149,33 @@ public:
 };
 ```
 
-```cpp
-using ll = long long;
-
-class Solution {
-public:
-    long long minCost(vector<int>& nums, vector<int>& cost) {
-        int n = nums.size();
-        vector<pair<int, int>> arr(n);
-        for (int i = 0; i < n; ++i) arr[i] = {nums[i], cost[i]};
-        sort(arr.begin(), arr.end());
-        ll mid = accumulate(cost.begin(), cost.end(), 0ll) / 2;
-        ll s = 0, ans = 0;
-        for (auto [x, c] : arr) {
-            s += c;
-            if (s > mid) {
-                for (auto [v, d] : arr) {
-                    ans += 1ll * abs(v - x) * d;
-                }
-                break;
-            }
-        }
-        return ans;
-    }
-};
+```go
+func minCost(nums []int, cost []int) int64 {
+	n := len(nums)
+	type pair struct{ a, b int }
+	arr := make([]pair, n)
+	for i, a := range nums {
+		b := cost[i]
+		arr[i] = pair{a, b}
+	}
+	sort.Slice(arr, func(i, j int) bool { return arr[i].a < arr[j].a })
+	f := make([]int, n+1)
+	g := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		a, b := arr[i-1].a, arr[i-1].b
+		f[i] = f[i-1] + a*b
+		g[i] = g[i-1] + b
+	}
+	var ans int64 = 1e18
+	for i := 1; i <= n; i++ {
+		a := arr[i-1].a
+		l := a*g[i-1] - f[i-1]
+		r := f[n] - f[i] - a*(g[n]-g[i])
+		ans = min(ans, int64(l+r))
+	}
+	return ans
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -288,34 +225,91 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func minCost(nums []int, cost []int) int64 {
-	n := len(nums)
-	type pair struct{ a, b int }
-	arr := make([]pair, n)
-	for i, a := range nums {
-		b := cost[i]
-		arr[i] = pair{a, b}
-	}
-	sort.Slice(arr, func(i, j int) bool { return arr[i].a < arr[j].a })
-	f := make([]int, n+1)
-	g := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		a, b := arr[i-1].a, arr[i-1].b
-		f[i] = f[i-1] + a*b
-		g[i] = g[i-1] + b
-	}
-	var ans int64 = 1e18
-	for i := 1; i <= n; i++ {
-		a := arr[i-1].a
-		l := a*g[i-1] - f[i-1]
-		r := f[n] - f[i] - a*(g[n]-g[i])
-		ans = min(ans, int64(l+r))
-	}
-	return ans
+### Solution 2: Sorting + Median
+
+We can also consider $b_i$ as the occurrence times of $a_i$, then the index of the median is $\frac{\sum_{i=1}^{n} b_i}{2}$. Changing all numbers to the median is definitely optimal.
+
+The time complexity is $O(n\times \log n)$, where $n$ is the length of the array `nums`. The main time complexity comes from sorting.
+
+Similar problems:
+
+-   [296. Best Meeting Point](/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
+-   [462. Minimum Moves to Equal Array Elements II](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md)
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minCost(self, nums: List[int], cost: List[int]) -> int:
+        arr = sorted(zip(nums, cost))
+        mid = sum(cost) // 2
+        s = 0
+        for x, c in arr:
+            s += c
+            if s > mid:
+                return sum(abs(v - x) * c for v, c in arr)
+```
+
+```java
+class Solution {
+    public long minCost(int[] nums, int[] cost) {
+        int n = nums.length;
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[] {nums[i], cost[i]};
+        }
+        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
+        long mid = sum(cost) / 2;
+        long s = 0, ans = 0;
+        for (var e : arr) {
+            int x = e[0], c = e[1];
+            s += c;
+            if (s > mid) {
+                for (var t : arr) {
+                    ans += (long) Math.abs(t[0] - x) * t[1];
+                }
+                break;
+            }
+        }
+        return ans;
+    }
+
+    private long sum(int[] arr) {
+        long s = 0;
+        for (int v : arr) {
+            s += v;
+        }
+        return s;
+    }
 }
+```
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    long long minCost(vector<int>& nums, vector<int>& cost) {
+        int n = nums.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; ++i) arr[i] = {nums[i], cost[i]};
+        sort(arr.begin(), arr.end());
+        ll mid = accumulate(cost.begin(), cost.end(), 0ll) / 2;
+        ll s = 0, ans = 0;
+        for (auto [x, c] : arr) {
+            s += c;
+            if (s > mid) {
+                for (auto [v, d] : arr) {
+                    ans += 1ll * abs(v - x) * d;
+                }
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
@@ -354,16 +348,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

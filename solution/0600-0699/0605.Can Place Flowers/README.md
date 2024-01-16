@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们直接遍历数组 $flowerbed$，对于每个位置 $i$，如果 $flowerbed[i]=0$，并且其左右相邻位置都为 $0$，则我们可以在该位置种花，否则不能。最后我们统计可以种下的花的数量，如果其不小于 $n$，则返回 $true$，否则返回 $false$。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $flowerbed$ 的长度。我们只需要遍历数组一次。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
                 n -= 1
         return n <= 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +75,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canPlaceFlowers(flowerbed []int, n int) bool {
@@ -127,8 +113,6 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     const m = flowerbed.length;
@@ -144,7 +128,24 @@ function canPlaceFlowers(flowerbed: number[], n: number): boolean {
 }
 ```
 
-### **PHP**
+```rust
+impl Solution {
+    pub fn can_place_flowers(flowerbed: Vec<i32>, n: i32) -> bool {
+        let (mut flowers, mut cnt) = (vec![0], 0);
+        flowers.append(&mut flowerbed.clone());
+        flowers.push(0);
+
+        for i in 1..flowers.len() - 1 {
+            let (l, r) = (flowers[i - 1], flowers[i + 1]);
+            if l + flowers[i] + r == 0 {
+                flowers[i] = 1;
+                cnt += 1;
+            }
+        }
+        cnt >= n
+    }
+}
+```
 
 ```php
 class Solution {
@@ -169,31 +170,6 @@ class Solution {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn can_place_flowers(flowerbed: Vec<i32>, n: i32) -> bool {
-        let (mut flowers, mut cnt) = (vec![0], 0);
-        flowers.append(&mut flowerbed.clone());
-        flowers.push(0);
-
-        for i in 1..flowers.len() - 1 {
-            let (l, r) = (flowers[i - 1], flowers[i + 1]);
-            if l + flowers[i] + r == 0 {
-                flowers[i] = 1;
-                cnt += 1;
-            }
-        }
-        cnt >= n
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,15 +46,13 @@
 
 ## Solutions
 
-**Solution 1: Brute Force Enumeration**
+### Solution 1: Brute Force Enumeration
 
 We directly enumerate all strings $words[i]$, and check whether it is a substring of other strings. If it is, we add it to the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Where $n$ is the length of the string array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -65,8 +63,6 @@ class Solution:
                 ans.append(s)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stringMatching(words []string) []string {
 	ans := []string{}
@@ -123,8 +115,6 @@ func stringMatching(words []string) []string {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function stringMatching(words: string[]): string[] {
@@ -141,8 +131,6 @@ function stringMatching(words: string[]): string[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -162,10 +150,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

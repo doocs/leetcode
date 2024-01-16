@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 根据题目描述，我们应该尽可能多地取标记为 $1$ 的物品，然后取标记为 $0$ 的物品，最后取标记为 $-1$ 的物品。
 
@@ -66,10 +64,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def kItemsWithMaximumSum(
@@ -81,10 +75,6 @@ class Solution:
             return numOnes
         return numOnes - (k - numOnes - numZeros)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int {
 	if numOnes >= k {
@@ -130,8 +116,6 @@ func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int 
 	return numOnes - (k - numOnes - numZeros)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function kItemsWithMaximumSum(
@@ -149,24 +133,6 @@ function kItemsWithMaximumSum(
     return numOnes - (k - numOnes - numZeros);
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
-        if (numOnes >= k) {
-            return k;
-        }
-        if (numZeros >= k - numOnes) {
-            return numOnes;
-        }
-        return numOnes - (k - numOnes - numZeros);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -189,10 +155,20 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+        if (numOnes >= k) {
+            return k;
+        }
+        if (numZeros >= k - numOnes) {
+            return numOnes;
+        }
+        return numOnes - (k - numOnes - numZeros);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

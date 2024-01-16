@@ -57,19 +57,13 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串比较**
+### 方法一：字符串比较
 
 将日志的 `id` 和 `timestamp` 作为元组存入数组中，然后在 `retrieve()` 方法中，根据 `granularity` 截取 `start` 和 `end` 的相应部分，然后遍历数组，将符合条件的 `id` 加入结果数组中。
 
 时间复杂度方面，`put()` 方法的时间复杂度为 $O(1)$，`retrieve()` 方法的时间复杂度为 $O(n)$，其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class LogSystem:
@@ -97,10 +91,6 @@ class LogSystem:
 # obj.put(id,timestamp)
 # param_2 = obj.retrieve(start,end,granularity)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class LogSystem {
@@ -153,8 +143,6 @@ class Log {
  */
 ```
 
-### **C++**
-
 ```cpp
 class LogSystem {
 public:
@@ -197,8 +185,6 @@ private:
  * vector<int> param_2 = obj->retrieve(start,end,granularity);
  */
 ```
-
-### **Go**
 
 ```go
 type LogSystem struct {
@@ -247,10 +233,6 @@ type pair struct {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

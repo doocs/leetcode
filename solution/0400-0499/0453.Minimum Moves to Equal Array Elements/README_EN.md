@@ -37,17 +37,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def minMoves(self, nums: List[int]) -> int:
         return sum(nums) - min(nums) * len(nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -56,22 +54,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int minMoves(int[] nums) {
-        int s = 0;
-        int mi = 1 << 30;
-        for (int x : nums) {
-            s += x;
-            mi = Math.min(mi, x);
-        }
-        return s - mi * nums.length;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -88,8 +70,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMoves(nums []int) int {
 	mi := 1 << 30
@@ -104,8 +84,6 @@ func minMoves(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minMoves(nums: number[]): number {
     let mi = 1 << 30;
@@ -118,10 +96,26 @@ function minMoves(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int minMoves(int[] nums) {
+        int s = 0;
+        int mi = 1 << 30;
+        for (int x : nums) {
+            s += x;
+            mi = Math.min(mi, x);
+        }
+        return s - mi * nums.length;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

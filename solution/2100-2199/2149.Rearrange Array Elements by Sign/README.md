@@ -54,13 +54,9 @@ nums 中的正整数是 [3,1,2] ，负整数是 [-2,-5,-4] 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +72,6 @@ class Solution:
                 j += 2
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rearrangeArray(nums []int) []int {
 	ans := make([]int, len(nums))
@@ -141,10 +129,6 @@ func rearrangeArray(nums []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function rearrangeArray(nums: number[]): number[] {
@@ -164,10 +148,6 @@ function rearrangeArray(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

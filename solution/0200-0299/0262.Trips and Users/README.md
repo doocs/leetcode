@@ -121,26 +121,9 @@ Users 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT
-    request_at AS Day,
-    ROUND(AVG(status != 'completed'), 2) AS 'Cancellation Rate'
-FROM
-    Trips AS t
-    JOIN Users AS u1 ON (t.client_id = u1.users_id AND u1.banned = 'No')
-    JOIN Users AS u2 ON (t.driver_id = u2.users_id AND u2.banned = 'No')
-WHERE request_at BETWEEN '2013-10-01' AND '2013-10-03'
-GROUP BY request_at;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -188,4 +171,19 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
     return df[["Day", "Cancellation Rate"]]
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT
+    request_at AS Day,
+    ROUND(AVG(status != 'completed'), 2) AS 'Cancellation Rate'
+FROM
+    Trips AS t
+    JOIN Users AS u1 ON (t.client_id = u1.users_id AND u1.banned = 'No')
+    JOIN Users AS u2 ON (t.driver_id = u2.users_id AND u2.banned = 'No')
+WHERE request_at BETWEEN '2013-10-01' AND '2013-10-03'
+GROUP BY request_at;
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

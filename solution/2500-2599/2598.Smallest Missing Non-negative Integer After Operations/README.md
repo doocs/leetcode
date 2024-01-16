@@ -55,9 +55,7 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们用哈希表或数组 $cnt$ 统计数组中每个数对 $value$ 取模后的余数的个数。
 
@@ -66,10 +64,6 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 时间复杂度 $O(n)$，空间复杂度 $O(value)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                 return i
             cnt[i % value] -= 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSmallestInteger(nums []int, value int) int {
 	cnt := make([]int, value)
@@ -138,8 +124,6 @@ func findSmallestInteger(nums []int, value int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSmallestInteger(nums: number[], value: number): number {
     const cnt: number[] = new Array(value).fill(0);
@@ -154,10 +138,6 @@ function findSmallestInteger(nums: number[], value: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

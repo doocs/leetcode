@@ -69,9 +69,9 @@ The comment with id 6 is a comment on a deleted post with id 7 so we ignored it.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -90,3 +90,5 @@ ORDER BY post_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

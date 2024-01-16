@@ -59,19 +59,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 并查集**
+### 方法一：数学 + 并查集
 
 利用“试除法”，对 $nums$ 中的每个数 $v$ 分解因数，然后将每个因数 $i$ 与 $v$ 合并，$v / i$ 与 $v$ 合并。此过程用并查集来维护连通分量。
 
 最后，遍历 $nums$ 中每个数 $v$，找出所在的连通分量，出现次数最多的连通分量就是所求的答案。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -101,10 +95,6 @@ class Solution:
                 i += 1
         return max(Counter(uf.find(v) for v in nums).values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class UnionFind {
@@ -161,8 +151,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -213,8 +201,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestComponentSize(nums []int) int {
 	m := slices.Max(nums)
@@ -254,10 +240,6 @@ func largestComponentSize(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

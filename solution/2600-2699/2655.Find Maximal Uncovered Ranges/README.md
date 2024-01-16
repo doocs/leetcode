@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们将所有的区间按照左端点从小到大排序，然后从左到右遍历所有的区间，维护一个变量 $last$ 表示当前已经被覆盖的最右端点，初始时 $last=-1$。如果当前区间的左端点大于 $last+1$，那么说明 $[last+1, l-1]$ 是一个未被覆盖的区间，我们将其加入答案数组中。然后我们更新 $last$ 为当前区间的右端点，继续遍历下一个区间。当遍历完所有的区间后，如果 $last+1 \lt n$，那么说明 $[last+1, n-1]$ 是一个未被覆盖的区间，我们将其加入答案数组中。
 
@@ -76,10 +74,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $ranges$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
             ans.append([last + 1, n - 1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -149,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 	sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] })
@@ -168,10 +154,6 @@ func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

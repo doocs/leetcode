@@ -61,9 +61,9 @@ Out of the three users, only User 3 is eligible for a discount.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
@@ -77,3 +77,5 @@ END;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

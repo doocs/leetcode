@@ -67,15 +67,13 @@ In total, 1 + 3 + 0 + 0 = 4 moves were used.
 
 ## Solutions
 
-**Solution 1: Sorting**
+### Solution 1: Sorting
 
 Sort both arrays, then traverse the two arrays, calculate the distance between each student's seat and their actual seat, and add all the distances to get the answer.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the arrays `seats` and `students`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
         students.sort()
         return sum(abs(a - b) for a, b in zip(seats, students))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minMovesToSeat(seats []int, students []int) (ans int) {
@@ -139,8 +131,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minMovesToSeat(seats: number[], students: number[]): number {
     seats.sort((a, b) => a - b);
@@ -153,8 +143,6 @@ function minMovesToSeat(seats: number[], students: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -170,8 +158,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -189,10 +175,6 @@ int minMovesToSeat(int* seats, int seatsSize, int* students, int studentsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

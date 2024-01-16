@@ -67,25 +67,13 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We can enumerate all substrings $s[i: j]$, where $i \lt j$, and check if they are beautiful substrings. If so, we update the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
-**Solution 2: Two Pointers**
-
-We can also use two pointers to maintain a sliding window, where pointer $i$ points to the left boundary of the window, and pointer $j$ points to the right boundary of the window. Initially, $i$ and $j$ both point to $0$. In addition, we use a variable $cnt$ to record the number of $1$s in the sliding window.
-
-We first move pointer $j$ to the right, add $s[j]$ to the sliding window, and update $cnt$. If $cnt$ is greater than $k$, or if $i$ is less than $j$ and $s[i]$ is $0$, we move pointer $i$ to the right and update $cnt$.
-
-When $cnt$ equals $k$, we have found a beautiful substring. We compare it with the current answer and update the answer if necessary.
-
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -101,27 +89,6 @@ class Solution:
                     ans = t
         return ans
 ```
-
-```python
-class Solution:
-    def shortestBeautifulSubstring(self, s: str, k: int) -> str:
-        i = j = cnt = 0
-        n = len(s)
-        ans = ""
-        while j < n:
-            cnt += s[j] == "1"
-            while cnt > k or (i < j and s[i] == "0"):
-                cnt -= s[i] == "1"
-                i += 1
-            j += 1
-            if cnt == k and (
-                not ans or j - i < len(ans) or (j - i == len(ans) and s[i:j] < ans)
-            ):
-                ans = s[i:j]
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,6 +112,122 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    string shortestBeautifulSubstring(string s, int k) {
+        int n = s.size();
+        string ans = "";
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + k; j <= n; ++j) {
+                string t = s.substr(i, j - i);
+                int cnt = count(t.begin(), t.end(), '1');
+                if (cnt == k && (ans == "" || j - i < ans.size() || (j - i == ans.size() && t < ans))) {
+                    ans = t;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func shortestBeautifulSubstring(s string, k int) (ans string) {
+	n := len(s)
+	for i := 0; i < n; i++ {
+		for j := i + k; j <= n; j++ {
+			t := s[i:j]
+			cnt := 0
+			for _, c := range t {
+				if c == '1' {
+					cnt++
+				}
+			}
+			if cnt == k && (ans == "" || j-i < len(ans) || (j-i == len(ans) && t < ans)) {
+				ans = t
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+function shortestBeautifulSubstring(s: string, k: number): string {
+    const n = s.length;
+    let ans: string = '';
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + k; j <= n; ++j) {
+            const t = s.slice(i, j);
+            const cnt = t.split('').filter(c => c === '1').length;
+            if (
+                cnt === k &&
+                (ans === '' || j - i < ans.length || (j - i === ans.length && t < ans))
+            ) {
+                ans = t;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn shortest_beautiful_substring(s: String, k: i32) -> String {
+        let n = s.len();
+        let mut ans = String::new();
+
+        for i in 0..n {
+            for j in i + (k as usize)..=n {
+                let t = &s[i..j];
+                if
+                    (t.matches('1').count() as i32) == k &&
+                    (ans.is_empty() || j - i < ans.len() || (j - i == ans.len() && t < &ans))
+                {
+                    ans = t.to_string();
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Two Pointers
+
+We can also use two pointers to maintain a sliding window, where pointer $i$ points to the left boundary of the window, and pointer $j$ points to the right boundary of the window. Initially, $i$ and $j$ both point to $0$. In addition, we use a variable $cnt$ to record the number of $1$s in the sliding window.
+
+We first move pointer $j$ to the right, add $s[j]$ to the sliding window, and update $cnt$. If $cnt$ is greater than $k$, or if $i$ is less than $j$ and $s[i]$ is $0$, we move pointer $i$ to the right and update $cnt$.
+
+When $cnt$ equals $k$, we have found a beautiful substring. We compare it with the current answer and update the answer if necessary.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def shortestBeautifulSubstring(self, s: str, k: int) -> str:
+        i = j = cnt = 0
+        n = len(s)
+        ans = ""
+        while j < n:
+            cnt += s[j] == "1"
+            while cnt > k or (i < j and s[i] == "0"):
+                cnt -= s[i] == "1"
+                i += 1
+            j += 1
+            if cnt == k and (
+                not ans or j - i < len(ans) or (j - i == len(ans) and s[i:j] < ans)
+            ):
+                ans = s[i:j]
+        return ans
 ```
 
 ```java
@@ -172,28 +255,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string shortestBeautifulSubstring(string s, int k) {
-        int n = s.size();
-        string ans = "";
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + k; j <= n; ++j) {
-                string t = s.substr(i, j - i);
-                int cnt = count(t.begin(), t.end(), '1');
-                if (cnt == k && (ans == "" || j - i < ans.size() || (j - i == ans.size() && t < ans))) {
-                    ans = t;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -217,29 +278,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func shortestBeautifulSubstring(s string, k int) (ans string) {
-	n := len(s)
-	for i := 0; i < n; i++ {
-		for j := i + k; j <= n; j++ {
-			t := s[i:j]
-			cnt := 0
-			for _, c := range t {
-				if c == '1' {
-					cnt++
-				}
-			}
-			if cnt == k && (ans == "" || j-i < len(ans) || (j-i == len(ans) && t < ans)) {
-				ans = t
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func shortestBeautifulSubstring(s string, k int) (ans string) {
 	i, j, cnt := 0, 0, 0
@@ -260,28 +298,6 @@ func shortestBeautifulSubstring(s string, k int) (ans string) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function shortestBeautifulSubstring(s: string, k: number): string {
-    const n = s.length;
-    let ans: string = '';
-    for (let i = 0; i < n; ++i) {
-        for (let j = i + k; j <= n; ++j) {
-            const t = s.slice(i, j);
-            const cnt = t.split('').filter(c => c === '1').length;
-            if (
-                cnt === k &&
-                (ans === '' || j - i < ans.length || (j - i === ans.length && t < ans))
-            ) {
-                ans = t;
-            }
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function shortestBeautifulSubstring(s: string, k: number): string {
     let [i, j, cnt] = [0, 0, 0];
@@ -299,30 +315,6 @@ function shortestBeautifulSubstring(s: string, k: number): string {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn shortest_beautiful_substring(s: String, k: i32) -> String {
-        let n = s.len();
-        let mut ans = String::new();
-
-        for i in 0..n {
-            for j in i + (k as usize)..=n {
-                let t = &s[i..j];
-                if
-                    (t.matches('1').count() as i32) == k &&
-                    (ans.is_empty() || j - i < ans.len() || (j - i == ans.len() && t < &ans))
-                {
-                    ans = t.to_string();
-                }
-            }
-        }
-        ans
-    }
 }
 ```
 
@@ -363,10 +355,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

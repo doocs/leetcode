@@ -60,19 +60,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 找出所有窗口为 $k$ 中的元音字母数目，并记录最大值。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxVowels(s string, k int) int {
@@ -169,8 +155,6 @@ func maxVowels(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxVowels(s: string, k: number): number {
     function isVowel(c) {
@@ -195,8 +179,6 @@ function maxVowels(s: string, k: number): number {
     return ans;
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -231,10 +213,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

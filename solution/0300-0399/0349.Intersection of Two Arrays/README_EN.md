@@ -32,17 +32,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         return list(set(nums1) & set(nums2))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -62,8 +60,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func intersection(nums1 []int, nums2 []int) (ans []int) {
 	s := [1001]bool{}
@@ -103,8 +97,6 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -128,18 +120,21 @@ var intersection = function (nums1, nums2) {
 };
 ```
 
-```js
-/**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number[]}
- */
-var intersection = function (nums1, nums2) {
-    return Array.from(new Set(nums1)).filter(num => new Set(nums2).has(num));
-};
+```cs
+public class Solution {
+    public int[] Intersection(int[] nums1, int[] nums2) {
+        List<int> result = new List<int>();
+        HashSet<int> arr1 = new(nums1);
+        HashSet<int> arr2 = new(nums2);
+        foreach (int x in arr1) {
+            if (arr2.Contains(x)) {
+                result.Add(x);
+            }
+        }
+        return result.ToArray();
+    }
+}
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -165,28 +160,23 @@ class Solution {
 }
 ```
 
-### **C#**
+<!-- tabs:end -->
 
-```cs
-public class Solution {
-    public int[] Intersection(int[] nums1, int[] nums2) {
-        List<int> result = new List<int>();
-        HashSet<int> arr1 = new(nums1);
-        HashSet<int> arr2 = new(nums2);
-        foreach (int x in arr1) {
-            if (arr2.Contains(x)) {
-                result.Add(x);
-            }
-        }
-        return result.ToArray();
-    }
-}
-```
+### Solution 2
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function (nums1, nums2) {
+    return Array.from(new Set(nums1)).filter(num => new Set(nums2).has(num));
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

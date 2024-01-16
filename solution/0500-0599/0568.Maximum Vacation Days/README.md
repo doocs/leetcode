@@ -78,9 +78,7 @@ Ans = 7 + 7 + 7 = 21
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[k][j]$ 表示前 $k$ 周，且最后一周在城市 $j$ 休假的最长天数。初始时 $f[0][0]=0$，其它 $f[0][j]=-\infty$。答案为 $\max_{j=0}^{n-1} f[K][j]$。
 
@@ -91,10 +89,6 @@ Ans = 7 + 7 + 7 = 21
 时间复杂度 $O(K \times n^2)$，空间复杂度 $O(K \times n)$。其中 $K$ 和 $n$ 分别为周数和城市数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -112,10 +106,6 @@ class Solution:
                 f[k][j] += days[j][k - 1]
         return max(f[-1][j] for j in range(n))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -148,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +166,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxVacationDays(flights [][]int, days [][]int) (ans int) {
@@ -210,10 +196,6 @@ func maxVacationDays(flights [][]int, days [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

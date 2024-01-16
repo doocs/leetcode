@@ -49,15 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-DFS 实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -116,10 +110,6 @@ class Solution:
         return dfs(nestedList, 1)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -167,8 +157,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -229,10 +217,6 @@ var depthSum = function (nestedList) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

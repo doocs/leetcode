@@ -50,9 +50,9 @@ The number of houses is equal to k, which is 5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a street.
@@ -74,8 +74,6 @@ class Solution:
                 street.closeDoor()
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -104,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a street.
@@ -162,8 +156,6 @@ func houseCount(street Street, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -191,10 +183,6 @@ function houseCount(street: Street | null, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

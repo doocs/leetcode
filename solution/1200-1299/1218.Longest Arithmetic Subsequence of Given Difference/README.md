@@ -46,17 +46,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
             f[x] = f[x - difference] + 1
         return max(f.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSubsequence(arr []int, difference int) (ans int) {
 	f := map[int]int{}
@@ -115,8 +101,6 @@ func longestSubsequence(arr []int, difference int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestSubsequence(arr: number[], difference: number): number {
     const f: Map<number, number> = new Map();
@@ -126,8 +110,6 @@ function longestSubsequence(arr: number[], difference: number): number {
     return Math.max(...f.values());
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -144,10 +126,6 @@ var longestSubsequence = function (arr, difference) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,15 +56,11 @@ Delivery 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：求和**
+### 方法一：求和
 
 我们可以用 `sum` 函数来统计即时订单的数量，然后除以总订单数即可。由于题目求的是百分比，所以需要乘以 100，最后我们用 `round` 函数保留两位小数。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -74,3 +70,5 @@ FROM Delivery;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

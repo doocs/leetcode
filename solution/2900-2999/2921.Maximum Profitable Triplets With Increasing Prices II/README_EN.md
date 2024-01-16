@@ -54,15 +54,13 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 
 ## Solutions
 
-**Solution 1: Binary Indexed Tree**
+### Solution 1: Binary Indexed Tree
 
 We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the left and right of each price, respectively. Then, we enumerate the middle price, query the maximum profit on both sides through the BIT, and finally take the maximum value.
 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $prices$, and $M$ is the maximum value in the array $prices$. In this problem, $M \le 5000$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -105,8 +103,6 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -167,8 +163,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -227,8 +221,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type BinaryIndexedTree struct {
@@ -289,8 +281,6 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -350,8 +340,6 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 struct BinaryIndexedTree {
@@ -420,10 +408,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

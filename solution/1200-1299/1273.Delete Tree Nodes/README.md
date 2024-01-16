@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先将树转换成图 $g$，其中 $g[i]$ 表示节点 $i$ 的所有子节点。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
             g[parent[i]].append(i)
         return dfs(0)[1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +148,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func deleteTreeNodes(nodes int, parent []int, value []int) int {
 	g := make([][]int, nodes)
@@ -186,10 +172,6 @@ func deleteTreeNodes(nodes int, parent []int, value []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

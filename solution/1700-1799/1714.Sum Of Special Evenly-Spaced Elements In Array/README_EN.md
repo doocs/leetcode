@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Block Decomposition**
+### Solution 1: Block Decomposition
 
 This problem is a typical block decomposition problem. For queries with a large step size, we can directly brute force the solution; for queries with a small step size, we can preprocess the suffix sum of each position and then directly query.
 
@@ -57,8 +57,6 @@ We define a two-dimensional array $suf$, where $suf[i][j]$ represents the suffix
 The time complexity is $O((n +  m) \times \sqrt{n})$, and the space complexity is $O(n \times \sqrt{n})$. Here, $n$ is the length of the array, and $m$ is the number of queries.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
                 ans.append(sum(nums[x::y]) % mod)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func solve(nums []int, queries [][]int) (ans []int) {
 	n := len(nums)
@@ -176,8 +168,6 @@ func solve(nums []int, queries [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function solve(nums: number[], queries: number[][]): number[] {
@@ -208,10 +198,6 @@ function solve(nums: number[], queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

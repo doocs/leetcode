@@ -56,9 +56,7 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以使用双指针，其中一个指针 $i$ 从字符串 $a$ 的头部开始，另一个指针 $j$ 从字符串 $b$ 的尾部开始，如果两个指针指向的字符相等，那么两个指针同时往中间移动，直到遇到不同的字符或两指针交叉。
 
@@ -69,10 +67,6 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $a$ 或 $b$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
 
         return check1(a, b) or check1(b, a)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +136,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 func checkPalindromeFormation(a string, b string) bool {
 	return check1(a, b) || check1(b, a)
@@ -173,7 +159,28 @@ func check2(a string, i, j int) bool {
 }
 ```
 
-### **Rust**
+```ts
+function checkPalindromeFormation(a: string, b: string): boolean {
+    const check1 = (a: string, b: string) => {
+        let i = 0;
+        let j = b.length - 1;
+        while (i < j && a.charAt(i) === b.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j || check2(a, i, j) || check2(b, i, j);
+    };
+
+    const check2 = (a: string, i: number, j: number) => {
+        while (i < j && a.charAt(i) === a.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j;
+    };
+    return check1(a, b) || check1(b, a);
+}
+```
 
 ```rust
 impl Solution {
@@ -205,35 +212,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function checkPalindromeFormation(a: string, b: string): boolean {
-    const check1 = (a: string, b: string) => {
-        let i = 0;
-        let j = b.length - 1;
-        while (i < j && a.charAt(i) === b.charAt(j)) {
-            i++;
-            j--;
-        }
-        return i >= j || check2(a, i, j) || check2(b, i, j);
-    };
-
-    const check2 = (a: string, i: number, j: number) => {
-        while (i < j && a.charAt(i) === a.charAt(j)) {
-            i++;
-            j--;
-        }
-        return i >= j;
-    };
-    return check1(a, b) || check1(b, a);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

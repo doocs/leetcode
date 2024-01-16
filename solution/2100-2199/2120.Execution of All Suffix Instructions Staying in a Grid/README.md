@@ -75,15 +75,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-直接模拟。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func executeInstructions(n int, startPos []int, s string) []int {
 	m := len(s)
@@ -201,10 +187,6 @@ func executeInstructions(n int, startPos []int, s string) []int {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
 function executeInstructions(n: number, startPos: number[], s: string): number[] {
     const m = s.length;
@@ -232,8 +214,6 @@ function executeInstructions(n: number, startPos: number[], s: string): number[]
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -272,8 +252,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -306,10 +284,6 @@ int* executeInstructions(int n, int* startPos, int startPosSize, char* s, int* r
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

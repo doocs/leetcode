@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 将数组 `nums` 排序后，遍历数组，找出所有等于 `target` 的元素的下标，将其加入结果数组中。
 
@@ -66,20 +64,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         nums.sort()
         return [i for i, v in enumerate(nums) if v == target]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func targetIndices(nums []int, target int) (ans []int) {
 	sort.Ints(nums)
@@ -127,8 +113,6 @@ func targetIndices(nums []int, target int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function targetIndices(nums: number[], target: number): number[] {
@@ -143,10 +127,6 @@ function targetIndices(nums: number[], target: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

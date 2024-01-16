@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口 + 哈希表**
+### 方法一：滑动窗口 + 哈希表
 
 我们可以遍历数组 $nums$，维护一个大小为 $k$ 的窗口，用哈希表 $cnt$ 统计窗口中每个元素的出现次数，用变量 $s$ 统计窗口中所有元素的和。如果 $cnt$ 中不同元素的个数大于等于 $m$，那么我们就更新答案 $ans = \max(ans, s)$。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 ans = max(ans, s)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +136,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxSum(nums []int, m int, k int) int64 {
@@ -178,8 +164,6 @@ func maxSum(nums []int, m int, k int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSum(nums: number[], m: number, k: number): number {
     const n = nums.length;
@@ -205,10 +189,6 @@ function maxSum(nums: number[], m: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,7 @@ nums3 = [nums1[0], nums1[1]] =&gt; [1,1]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义两个变量 $f$ 和 $g$，分别表示当前位置的最长非递减子数组长度，其中 $f$ 表示以 $nums1$ 元素为结尾的最长非递减子数组长度，而 $g$ 表示以 $nums2$ 元素为结尾的最长非递减子数组长度。初始时 $f = g = 1$，初始答案 $ans = 1$。
 
@@ -78,10 +76,6 @@ nums3 = [nums1[0], nums1[1]] =&gt; [1,1]
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -169,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -195,8 +181,6 @@ func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {
@@ -224,10 +208,6 @@ function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

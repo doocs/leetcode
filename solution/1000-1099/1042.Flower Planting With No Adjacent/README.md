@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们先根据数组 $paths$ 构建图 $g$，其中 $g[x]$ 表示与花园 $x$ 相邻的花园列表。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是花园的数量和路径的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func gardenNoAdj(n int, paths [][]int) []int {
 	g := make([][]int, n)
@@ -184,8 +170,6 @@ func gardenNoAdj(n int, paths [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function gardenNoAdj(n: number, paths: number[][]): number[] {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -210,10 +194,6 @@ function gardenNoAdj(n: number, paths: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

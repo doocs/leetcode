@@ -30,15 +30,13 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We define two pointers $i$ and $j$ to point to the initial position of the string $s$ and $t$ respectively. Each time we compare the two characters pointed to by the two pointers, if they are the same, both pointers move right at the same time; if they are not the same, only $j$ moves right. When the pointer $i$ moves to the end of the string $s$, it means that $s$ is the subsequence of $t$.
 
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the strings $s$ and $t$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -50,8 +48,6 @@ class Solution:
             j += 1
         return i == len(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +65,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -87,8 +81,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isSubsequence(s string, t string) bool {
 	i, j, m, n := 0, 0, len(s), len(t)
@@ -101,8 +93,6 @@ func isSubsequence(s string, t string) bool {
 	return i == m
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isSubsequence(s: string, t: string): boolean {
@@ -117,8 +107,6 @@ function isSubsequence(s: string, t: string): boolean {
     return i === m;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -140,24 +128,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-bool isSubsequence(char* s, char* t) {
-    int m = strlen(s);
-    int n = strlen(t);
-    int i = 0;
-    for (int j = 0; i < m && j < n; ++j) {
-        if (s[i] == t[j]) {
-            ++i;
-        }
-    }
-    return i == m;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public bool IsSubsequence(string s, string t) {
@@ -173,10 +143,20 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+bool isSubsequence(char* s, char* t) {
+    int m = strlen(s);
+    int n = strlen(t);
+    int i = 0;
+    for (int j = 0; i < m && j < n; ++j) {
+        if (s[i] == t[j]) {
+            ++i;
+        }
+    }
+    return i == m;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,15 +47,13 @@
 
 ## Solutions
 
-**Solution 1: Traverse in Reverse Order**
+### Solution 1: Traverse in Reverse Order
 
 We can traverse the array in reverse order. For each element encountered during the traversal that is less than or equal to $k$ and has not been added to the set yet, we add it to the set until the set contains elements from $1$ to $k$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(k)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
             if count == k:
                 return n - i
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int, k int) int {
 	isAdded := make([]bool, k)
@@ -135,8 +127,6 @@ func minOperations(nums []int, k int) int {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[], k: number): number {
@@ -156,10 +146,6 @@ function minOperations(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -29,9 +29,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -44,8 +44,6 @@ class Solution:
                 ans.append(c)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -62,8 +60,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findOcurrences(text string, first string, second string) (ans []string) {
 	words := strings.Split(text, " ")
@@ -101,8 +95,6 @@ func findOcurrences(text string, first string, second string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findOcurrences(text: string, first: string, second: string): string[] {
@@ -118,10 +110,6 @@ function findOcurrences(text: string, first: string, second: string): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

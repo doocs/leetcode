@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We can use an array $cnt$ of length $26$ to count the occurrence of each letter in the string $chars$.
 
@@ -49,8 +49,6 @@ After the traversal, we can get the answer.
 The time complexity is $O(L)$, and the space complexity is $O(C)$. Here, $L$ is the sum of the lengths of all strings in the problem, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -63,8 +61,6 @@ class Solution:
                 ans += len(w)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countCharacters(words []string, chars string) (ans int) {
 	cnt := [26]int{}
@@ -150,8 +142,6 @@ func countCharacters(words []string, chars string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countCharacters(words: string[], chars: string): number {
     const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -176,8 +166,6 @@ function countCharacters(words: string[], chars: string): number {
     return ans;
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -207,10 +195,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

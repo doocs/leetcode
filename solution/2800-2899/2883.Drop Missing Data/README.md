@@ -50,13 +50,9 @@ DataFrame students
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Pandas**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 import pandas as pd
@@ -66,10 +62,6 @@ def dropMissingData(students: pd.DataFrame) -> pd.DataFrame:
     return students[students['name'].notnull()]
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

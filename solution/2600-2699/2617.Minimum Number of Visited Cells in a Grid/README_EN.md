@@ -54,7 +54,7 @@
 
 ## Solutions
 
-**Solution 1: Priority Queue**
+### Solution 1: Priority Queue
 
 Let's denote the number of rows of the grid as $m$ and the number of columns as $n$. Define $dist[i][j]$ to be the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$. Initially, $dist[0][0]=1$ and $dist[i][j]=-1$ for all other $i$ and $j$.
 
@@ -69,8 +69,6 @@ Finally, we can obtain the shortest distance from the coordinate $(0, 0)$ to the
 The time complexity is $O(m \times n \times \log (m \times n))$ and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -95,8 +93,6 @@ class Solution:
                     heappush(col[j], (dist[i][j], i))
         return dist[-1][-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -138,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +168,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumVisitedCells(grid [][]int) int {
@@ -229,10 +221,6 @@ func (a *hp) Push(x any) { *a = append(*a, x.(pair)) }
 func (a *hp) Pop() any   { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

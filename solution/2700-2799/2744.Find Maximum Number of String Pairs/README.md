@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以用哈希表 $cnt$ 来存储数组 $words$ 中每个字符串的反转字符串出现的次数。
 
@@ -77,10 +75,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximumNumberOfStringPairs(self, words: List[str]) -> int:
@@ -91,10 +85,6 @@ class Solution:
             cnt[w[::-1]] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumNumberOfStringPairs(words []string) (ans int) {
 	cnt := map[string]int{}
@@ -145,8 +131,6 @@ func maximumNumberOfStringPairs(words []string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumNumberOfStringPairs(words: string[]): number {
     const cnt: Map<string, number> = new Map();
@@ -160,10 +144,6 @@ function maximumNumberOfStringPairs(words: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

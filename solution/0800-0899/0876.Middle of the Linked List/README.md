@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快慢指针**
+### 方法一：快慢指针
 
 定义快慢指针 `fast` 和 `slow`，初始时均指向链表的头结点。
 
@@ -50,10 +48,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -68,10 +62,6 @@ class Solution:
             slow, fast = slow.next, fast.next.next
         return slow
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -140,8 +126,6 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -166,8 +150,6 @@ function middleNode(head: ListNode | null): ListNode | null {
     return slow;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -198,30 +180,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
-
-```c
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
-
-struct ListNode* middleNode(struct ListNode* head) {
-    struct ListNode* fast = head;
-    struct ListNode* slow = head;
-    while (fast && fast->next) {
-        fast = fast->next->next;
-        slow = slow->next;
-    }
-    return slow;
-}
-```
-
-### **PHP**
 
 ```php
 /**
@@ -257,10 +215,26 @@ class Solution {
 }
 ```
 
-### **...**
+```c
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
 
-```
-
+struct ListNode* middleNode(struct ListNode* head) {
+    struct ListNode* fast = head;
+    struct ListNode* slow = head;
+    while (fast && fast->next) {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

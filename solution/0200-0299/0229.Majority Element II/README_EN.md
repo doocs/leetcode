@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
                 n1, n2 = n1 - 1, n2 - 1
         return [m for m in [m1, m2] if nums.count(m) > len(nums) // 3]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func majorityElement(nums []int) []int {
@@ -177,8 +171,6 @@ func majorityElement(nums []int) []int {
 	return ans
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -219,8 +211,6 @@ public class Solution {
 }
 ```
 
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -241,10 +231,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

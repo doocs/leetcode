@@ -75,9 +75,9 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class ThroneInheritance:
@@ -110,8 +110,6 @@ class ThroneInheritance:
 # obj.death(name)
 # param_3 = obj.getInheritanceOrder()
 ```
-
-### **Java**
 
 ```java
 class ThroneInheritance {
@@ -157,8 +155,6 @@ class ThroneInheritance {
  */
 ```
 
-### **C++**
-
 ```cpp
 class ThroneInheritance {
 public:
@@ -203,8 +199,6 @@ public:
  * vector<string> param_3 = obj->getInheritanceOrder();
  */
 ```
-
-### **Go**
 
 ```go
 type ThroneInheritance struct {
@@ -252,10 +246,6 @@ func (this *ThroneInheritance) GetInheritanceOrder() []string {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

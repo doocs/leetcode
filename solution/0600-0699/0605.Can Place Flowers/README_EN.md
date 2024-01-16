@@ -28,15 +28,13 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We directly traverse the array $flowerbed$. For each position $i$, if $flowerbed[i]=0$ and its adjacent positions on the left and right are also $0$, then we can plant a flower at this position. Otherwise, we cannot. Finally, we count the number of flowers that can be planted. If it is not less than $n$, we return $true$, otherwise we return $false$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $flowerbed$. We only need to traverse the array once. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -48,8 +46,6 @@ class Solution:
                 n -= 1
         return n <= 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -68,8 +64,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -87,8 +81,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canPlaceFlowers(flowerbed []int, n int) bool {
@@ -110,8 +102,6 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     const m = flowerbed.length;
@@ -127,7 +117,24 @@ function canPlaceFlowers(flowerbed: number[], n: number): boolean {
 }
 ```
 
-### **PHP**
+```rust
+impl Solution {
+    pub fn can_place_flowers(flowerbed: Vec<i32>, n: i32) -> bool {
+        let (mut flowers, mut cnt) = (vec![0], 0);
+        flowers.append(&mut flowerbed.clone());
+        flowers.push(0);
+
+        for i in 1..flowers.len() - 1 {
+            let (l, r) = (flowers[i - 1], flowers[i + 1]);
+            if l + flowers[i] + r == 0 {
+                flowers[i] = 1;
+                cnt += 1;
+            }
+        }
+        cnt >= n
+    }
+}
+```
 
 ```php
 class Solution {
@@ -152,31 +159,6 @@ class Solution {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn can_place_flowers(flowerbed: Vec<i32>, n: i32) -> bool {
-        let (mut flowers, mut cnt) = (vec![0], 0);
-        flowers.append(&mut flowerbed.clone());
-        flowers.push(0);
-
-        for i in 1..flowers.len() - 1 {
-            let (l, r) = (flowers[i - 1], flowers[i + 1]);
-            if l + flowers[i] + r == 0 {
-                flowers[i] = 1;
-                cnt += 1;
-            }
-        }
-        cnt >= n
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

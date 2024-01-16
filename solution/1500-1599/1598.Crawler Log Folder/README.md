@@ -61,19 +61,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 直接模拟，记录深度的变化即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `logs` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -126,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(logs []string) int {
 	ans := 0
@@ -144,7 +130,35 @@ func minOperations(logs []string) int {
 }
 ```
 
-### **C**
+```ts
+function minOperations(logs: string[]): number {
+    let depth = 0;
+    for (const log of logs) {
+        if (log === '../') {
+            depth = Math.max(0, depth - 1);
+        } else if (log !== './') {
+            depth++;
+        }
+    }
+    return depth;
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_operations(logs: Vec<String>) -> i32 {
+        let mut depth = 0;
+        for log in logs.iter() {
+            if log == "../" {
+                depth = (0).max(depth - 1);
+            } else if log != "./" {
+                depth += 1;
+            }
+        }
+        depth
+    }
+}
+```
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -163,44 +177,6 @@ int minOperations(char** logs, int logsSize) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minOperations(logs: string[]): number {
-    let depth = 0;
-    for (const log of logs) {
-        if (log === '../') {
-            depth = Math.max(0, depth - 1);
-        } else if (log !== './') {
-            depth++;
-        }
-    }
-    return depth;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn min_operations(logs: Vec<String>) -> i32 {
-        let mut depth = 0;
-        for log in logs.iter() {
-            if log == "../" {
-                depth = (0).max(depth - 1);
-            } else if log != "./" {
-                depth += 1;
-            }
-        }
-        depth
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

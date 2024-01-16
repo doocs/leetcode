@@ -49,7 +49,7 @@ exection -&gt; execution (insert &#39;u&#39;)
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the minimum number of operations to convert $word1$ of length $i$ to $word2$ of length $j$. $f[i][0] = i$, $f[0][j] = j$, $i \in [1, m], j \in [0, n]$.
 
@@ -75,8 +75,6 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
@@ -93,8 +91,6 @@ class Solution:
                     f[i][j] = min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1
         return f[m][n]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minDistance(word1 string, word2 string) int {
 	m, n := len(word1), len(word2)
@@ -171,8 +163,6 @@ func minDistance(word1 string, word2 string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minDistance(word1: string, word2: string): number {
     const m = word1.length;
@@ -196,8 +186,6 @@ function minDistance(word1: string, word2: string): number {
     return f[m][n];
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -228,10 +216,6 @@ var minDistance = function (word1, word2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

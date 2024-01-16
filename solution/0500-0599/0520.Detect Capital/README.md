@@ -43,13 +43,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +56,6 @@ class Solution:
                 cnt += 1
         return cnt == 0 or cnt == len(word) or (cnt == 1 and word[0].isupper())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -93,8 +83,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func detectCapitalUse(word string) bool {
@@ -108,10 +96,6 @@ func detectCapitalUse(word string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

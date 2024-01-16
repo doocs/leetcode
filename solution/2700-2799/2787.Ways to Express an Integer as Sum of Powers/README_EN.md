@@ -42,9 +42,9 @@ It can be shown that it is the only way to express 10 as the sum of the 2<sup>nd
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod
         return f[n][n]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfWays(n int, x int) int {
 	const mod int = 1e9 + 7
@@ -130,8 +124,6 @@ func numberOfWays(n int, x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWays(n: number, x: number): number {
     const mod = 10 ** 9 + 7;
@@ -152,10 +144,6 @@ function numberOfWays(n: number, x: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

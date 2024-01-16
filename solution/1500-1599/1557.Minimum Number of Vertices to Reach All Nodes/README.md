@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：统计入度为 0 的点**
+### 方法一：统计入度为 0 的点
 
 我们注意到，所有入度为 $0$ 的点都一定属于最小点集，因为它们没有任何入边。而由于题目给定的是一张有向无环图，因此所有入度不为 $0$ 的点一定存在一条入边，也即一定能从某个入度为 $0$ 的点出发到达。因此我们只需要找到所有入度为 $0$ 的点即可。
 
@@ -55,20 +53,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findSmallestSetOfVertices(self, n: int, edges: List[List[int]]) -> List[int]:
         cnt = Counter(t for _, t in edges)
         return [i for i in range(n) if cnt[i] == 0]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSmallestSetOfVertices(n int, edges [][]int) (ans []int) {
 	cnt := make([]int, n)
@@ -125,8 +111,6 @@ func findSmallestSetOfVertices(n int, edges [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findSmallestSetOfVertices(n: number, edges: number[][]): number[] {
@@ -144,8 +128,6 @@ function findSmallestSetOfVertices(n: number, edges: number[][]): number[] {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn find_smallest_set_of_vertices(n: i32, edges: Vec<Vec<i32>>) -> Vec<i32> {
@@ -161,10 +143,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

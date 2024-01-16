@@ -56,21 +56,13 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 Traverse the array `nums`, for each $i$, enumerate all $j$, if $i \neq j$ and $nums[i] + nums[j] = target$, then increment the answer by one.
 
 The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively. The space complexity is $O(1)$.
 
-**Solution 2: Hash Table**
-
-We can use a hash table to count the occurrence of each string in the array `nums`, then traverse all prefixes and suffixes of the string `target`. If both the prefix and suffix are in the hash table, then increment the answer by the product of their occurrences.
-
-The time complexity is $O(n + m^2)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,22 +72,6 @@ class Solution:
             i != j and nums[i] + nums[j] == target for i in range(n) for j in range(n)
         )
 ```
-
-```python
-class Solution:
-    def numOfPairs(self, nums: List[str], target: str) -> int:
-        cnt = Counter(nums)
-        ans = 0
-        for i in range(1, len(target)):
-            a, b = target[:i], target[i:]
-            if a != b:
-                ans += cnt[a] * cnt[b]
-            else:
-                ans += cnt[a] * (cnt[a] - 1)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -112,6 +88,59 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int numOfPairs(vector<string>& nums, string target) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i != j && nums[i] + nums[j] == target) ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numOfPairs(nums []string, target string) (ans int) {
+	for i, a := range nums {
+		for j, b := range nums {
+			if i != j && a+b == target {
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Hash Table
+
+We can use a hash table to count the occurrence of each string in the array `nums`, then traverse all prefixes and suffixes of the string `target`. If both the prefix and suffix are in the hash table, then increment the answer by the product of their occurrences.
+
+The time complexity is $O(n + m^2)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numOfPairs(self, nums: List[str], target: str) -> int:
+        cnt = Counter(nums)
+        ans = 0
+        for i in range(1, len(target)):
+            a, b = target[:i], target[i:]
+            if a != b:
+                ans += cnt[a] * cnt[b]
+            else:
+                ans += cnt[a] * (cnt[a] - 1)
+        return ans
 ```
 
 ```java
@@ -138,24 +167,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numOfPairs(vector<string>& nums, string target) {
-        int n = nums.size();
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (i != j && nums[i] + nums[j] == target) ++ans;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -178,21 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func numOfPairs(nums []string, target string) (ans int) {
-	for i, a := range nums {
-		for j, b := range nums {
-			if i != j && a+b == target {
-				ans++
-			}
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func numOfPairs(nums []string, target string) (ans int) {
 	cnt := map[string]int{}
@@ -211,10 +207,6 @@ func numOfPairs(nums []string, target string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,7 +63,7 @@ The final time is 7. It can be shown that it is the minimum time possible.
 
 ## Solutions
 
-**Solution 1: Shortest Path + Priority Queue (Min Heap)**
+### Solution 1: Shortest Path + Priority Queue (Min Heap)
 
 We observe that if we cannot move at the cell $(0, 0)$, i.e., $grid[0][1] > 1$ and $grid[1][0] > 1$, then we cannot move at the cell $(0, 0)$ anymore, and we should return $-1$. For other cases, we can move.
 
@@ -76,8 +76,6 @@ Each time we take out the cell $(t, i, j)$ that can arrive the earliest from the
 The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,8 +101,6 @@ class Solution:
                         dist[x][y] = nt
                         heappush(q, (nt, x, y))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +179,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumTime(grid [][]int) int {
@@ -237,10 +229,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

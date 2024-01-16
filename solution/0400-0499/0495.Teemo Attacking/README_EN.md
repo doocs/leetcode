@@ -43,9 +43,9 @@ Ashe is poisoned for seconds 1, 2, and 3, which is 3 seconds in total.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             ans += min(duration, b - a)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 	ans = duration
@@ -99,7 +93,16 @@ func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 }
 ```
 
-### **C#**
+```ts
+function findPoisonedDuration(timeSeries: number[], duration: number): number {
+    const n = timeSeries.length;
+    let ans = duration;
+    for (let i = 1; i < n; ++i) {
+        ans += Math.min(duration, timeSeries[i] - timeSeries[i - 1]);
+    }
+    return ans;
+}
+```
 
 ```cs
 public class Solution {
@@ -114,23 +117,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findPoisonedDuration(timeSeries: number[], duration: number): number {
-    const n = timeSeries.length;
-    let ans = duration;
-    for (let i = 1; i < n; ++i) {
-        ans += Math.min(duration, timeSeries[i] - timeSeries[i - 1]);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

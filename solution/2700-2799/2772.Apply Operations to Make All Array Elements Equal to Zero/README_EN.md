@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Difference Array + Prefix Sum**
+### Solution 1: Difference Array + Prefix Sum
 
 First, let's consider the first element of $nums$, $nums[0]$:
 
@@ -67,8 +67,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def checkArray(self, nums: List[int], k: int) -> bool:
@@ -86,8 +84,6 @@ class Solution:
             d[i + k] += x
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkArray(nums []int, k int) bool {
 	n := len(nums)
@@ -160,8 +152,6 @@ func checkArray(nums []int, k int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkArray(nums: number[], k: number): boolean {
@@ -184,10 +174,6 @@ function checkArray(nums: number[], k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

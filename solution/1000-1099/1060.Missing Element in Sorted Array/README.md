@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们设计一个函数 $missing(i)$，表示 $nums[i]$ 与 $nums[0]$ 之间缺失的元素个数。那么 $missing(i)$ 就等于 $nums[i] - nums[0] - i$。我们可以通过二分查找找到最小的 $i$，使得 $missing(i) \geq k$，那么 $nums[i - 1] + k - missing(i - 1)$ 就是第 $k$ 个缺失的元素。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 l = mid + 1
         return nums[l - 1] + k - missing(l - 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func missingElement(nums []int, k int) int {
 	missing := func(i int) int {
@@ -166,10 +152,6 @@ func missingElement(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

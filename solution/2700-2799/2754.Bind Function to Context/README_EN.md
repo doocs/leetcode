@@ -77,9 +77,9 @@ boundFunc(); // &quot;My name is Kathy&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type Fn = (...args) => any;
@@ -98,3 +98,5 @@ Function.prototype.bindPolyfill = function (obj) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

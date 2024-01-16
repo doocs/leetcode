@@ -42,15 +42,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二分查找。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # The isBadVersion API is already defined for you.
@@ -75,10 +69,6 @@ class Solution:
         return left
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
@@ -98,8 +88,6 @@ public class Solution extends VersionControl {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 // The API isBadVersion is defined for you.
@@ -122,7 +110,50 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+/**
+ * Forward declaration of isBadVersion API.
+ * @param   version   your guess about first bad version
+ * @return 	 	      true if current version is bad
+ *			          false if current version is good
+ * func isBadVersion(version int) bool;
+ */
+
+func firstBadVersion(n int) int {
+	left, right := 1, n
+	for left < right {
+		mid := (left + right) >> 1
+		if isBadVersion(mid) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+```
+
+```rust
+// The API isBadVersion is defined for you.
+// isBadVersion(version:i32)-> bool;
+// to call it use self.isBadVersion(version)
+
+impl Solution {
+    pub fn first_bad_version(&self, n: i32) -> i32 {
+        let mut left = 1;
+        let mut right = n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if self.isBadVersion(mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        left
+    }
+}
+```
 
 ```js
 /**
@@ -160,59 +191,6 @@ var solution = function (isBadVersion) {
 };
 ```
 
-### **Go**
-
-```go
-/**
- * Forward declaration of isBadVersion API.
- * @param   version   your guess about first bad version
- * @return 	 	      true if current version is bad
- *			          false if current version is good
- * func isBadVersion(version int) bool;
- */
-
-func firstBadVersion(n int) int {
-	left, right := 1, n
-	for left < right {
-		mid := (left + right) >> 1
-		if isBadVersion(mid) {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
-}
-```
-
-### **Rust**
-
-```rust
-// The API isBadVersion is defined for you.
-// isBadVersion(version:i32)-> bool;
-// to call it use self.isBadVersion(version)
-
-impl Solution {
-    pub fn first_bad_version(&self, n: i32) -> i32 {
-        let mut left = 1;
-        let mut right = n;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if self.isBadVersion(mid) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        left
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

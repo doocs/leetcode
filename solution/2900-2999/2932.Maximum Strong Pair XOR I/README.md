@@ -58,15 +58,90 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举数组中的每一个数对 $(x, y)$，如果满足 $|x - y| \leq \min(x, y)$，那么这个数对就是一个强数对，我们可以计算这个数对的异或值，并更新答案。
 
 时间复杂度 $O(n^2)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
-**方法二：排序 + 0-1 字典树**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumStrongPairXor(self, nums: List[int]) -> int:
+        return max(x ^ y for x in nums for y in nums if abs(x - y) <= min(x, y))
+```
+
+```java
+class Solution {
+    public int maximumStrongPairXor(int[] nums) {
+        int ans = 0;
+        for (int x : nums) {
+            for (int y : nums) {
+                if (Math.abs(x - y) <= Math.min(x, y)) {
+                    ans = Math.max(ans, x ^ y);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maximumStrongPairXor(vector<int>& nums) {
+        int ans = 0;
+        for (int x : nums) {
+            for (int y : nums) {
+                if (abs(x - y) <= min(x, y)) {
+                    ans = max(ans, x ^ y);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maximumStrongPairXor(nums []int) (ans int) {
+	for _, x := range nums {
+		for _, y := range nums {
+			if abs(x-y) <= min(x, y) {
+				ans = max(ans, x^y)
+			}
+		}
+	}
+	return
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+```ts
+function maximumStrongPairXor(nums: number[]): number {
+    let ans = 0;
+    for (const x of nums) {
+        for (const y of nums) {
+            if (Math.abs(x - y) <= Math.min(x, y)) {
+                ans = Math.max(ans, x ^ y);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：排序 + 0-1 字典树
 
 观察不等式 $|x - y| \leq \min(x, y)$，其中涉及到绝对值以及最小值，我们不妨假设 $x \leq y$，则有 $y - x \leq x$，即 $y \leq 2x$。我们可以从小到大枚举 $y$，那么 $x$ 必须满足不等式 $y \leq 2x$。
 
@@ -75,16 +150,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def maximumStrongPairXor(self, nums: List[int]) -> int:
-        return max(x ^ y for x in nums for y in nums if abs(x - y) <= min(x, y))
-```
 
 ```python
 class Trie:
@@ -135,26 +200,6 @@ class Solution:
                 i += 1
             ans = max(ans, tree.search(y))
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int maximumStrongPairXor(int[] nums) {
-        int ans = 0;
-        for (int x : nums) {
-            for (int y : nums) {
-                if (Math.abs(x - y) <= Math.min(x, y)) {
-                    ans = Math.max(ans, x ^ y);
-                }
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -217,25 +262,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maximumStrongPairXor(vector<int>& nums) {
-        int ans = 0;
-        for (int x : nums) {
-            for (int y : nums) {
-                if (abs(x - y) <= min(x, y)) {
-                    ans = max(ans, x ^ y);
-                }
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -305,28 +331,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maximumStrongPairXor(nums []int) (ans int) {
-	for _, x := range nums {
-		for _, y := range nums {
-			if abs(x-y) <= min(x, y) {
-				ans = max(ans, x^y)
-			}
-		}
-	}
-	return
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
-```
-
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -385,22 +389,6 @@ func maximumStrongPairXor(nums []int) (ans int) {
 		ans = max(ans, tree.search(y))
 	}
 	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function maximumStrongPairXor(nums: number[]): number {
-    let ans = 0;
-    for (const x of nums) {
-        for (const y of nums) {
-            if (Math.abs(x - y) <= Math.min(x, y)) {
-                ans = Math.max(ans, x ^ y);
-            }
-        }
-    }
-    return ans;
 }
 ```
 
@@ -471,10 +459,6 @@ function maximumStrongPairXor(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,9 @@ Window position                Median
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MedianFinder:
@@ -120,8 +120,6 @@ class Solution:
             ans.append(finder.find_median())
         return ans
 ```
-
-### **Java**
 
 ```java
 class MedianFinder {
@@ -209,8 +207,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class MedianFinder {
@@ -302,8 +298,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type MedianFinder struct {
@@ -406,10 +400,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

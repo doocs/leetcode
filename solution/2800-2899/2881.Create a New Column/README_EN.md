@@ -52,9 +52,9 @@ A new column bonus is created by doubling the value in the column salary.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -65,10 +65,6 @@ def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
     return employees
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -91,9 +91,7 @@ false
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历检查**
+### 方法一：遍历检查
 
 我们观察发现，只要不满足 $words[i][j] = words[j][i]$，就可以直接返回 `false`。
 
@@ -102,10 +100,6 @@ false
 时间复杂度 $O(n^2)$，其中 $n$ 是 $words$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -119,21 +113,6 @@ class Solution:
                 return False
         return True
 ```
-
-```python
-class Solution:
-    def validWordSquare(self, words: List[str]) -> bool:
-        m = len(words)
-        for i, w in enumerate(words):
-            for j, c in enumerate(w):
-                if j >= m or i >= len(words[j]) or c != words[j][i]:
-                    return False
-        return True
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -155,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validWordSquare(words []string) bool {
 	m := len(words)
@@ -190,8 +165,6 @@ func validWordSquare(words []string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function validWordSquare(words: string[]): boolean {
@@ -208,10 +181,23 @@ function validWordSquare(words: string[]): boolean {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validWordSquare(self, words: List[str]) -> bool:
+        m = len(words)
+        for i, w in enumerate(words):
+            for j, c in enumerate(w):
+                if j >= m or i >= len(words[j]) or c != words[j][i]:
+                    return False
+        return True
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

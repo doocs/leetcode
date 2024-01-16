@@ -41,17 +41,15 @@ Therefore, we return false.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def isStrictlyPalindromic(self, n: int) -> bool:
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -60,8 +58,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -72,23 +68,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isStrictlyPalindromic(n int) bool {
 	return false
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isStrictlyPalindromic(n: number): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -98,19 +88,12 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 bool isStrictlyPalindromic(int n) {
     return 0;
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

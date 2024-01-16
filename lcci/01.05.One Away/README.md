@@ -28,9 +28,7 @@ second = &quot;pal&quot;
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论 + 双指针**
+### 方法一：分情况讨论 + 双指针
 
 我们将字符串 $first$ 和 $second$ 的长度记为 $m$ 和 $n$，不妨设 $m \geq n$。
 
@@ -43,10 +41,6 @@ second = &quot;pal&quot;
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
             i += 1
         return cnt < 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func oneEditAway(first string, second string) bool {
 	m, n := len(first), len(second)
@@ -173,8 +159,6 @@ func oneEditAway(first string, second string) bool {
 	return cnt < 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function oneEditAway(first: string, second: string): boolean {
@@ -210,8 +194,6 @@ function oneEditAway(first: string, second: string): boolean {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn one_edit_away(first: String, second: String) -> bool {
@@ -241,10 +223,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,35 +36,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-统计 `["e","g","f","i","h","o","n","s","r","u","t","w","v","x","z"]` 每个字母在哪些数字出现过。
-
-| 字母 | 数字          |
-| ---- | ------------- |
-| e    | 0 1 3 5 7 8 9 |
-| g    | 8             |
-| f    | 4 5           |
-| i    | 5 6 8 9       |
-| h    | 3 8           |
-| o    | 0 1 2 4       |
-| n    | 1 7 9         |
-| s    | 6 7           |
-| r    | 0 3 4         |
-| u    | 4             |
-| t    | 2 3 8         |
-| w    | 2             |
-| v    | 5 7           |
-| x    | 6             |
-| z    | 0             |
-
-由于部分字母只在某个数字出现过，比如字母 `z` 只在 `0` 出现过，因此我们统计英文中 `z` 的数量，就可以推断数字 0 的个数，依次类推。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +61,6 @@ class Solution:
 
         return ''.join(cnt[i] * str(i) for i in range(10))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func originalDigits(s string) string {
 	counter := make([]int, 26)
@@ -185,10 +151,6 @@ func originalDigits(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

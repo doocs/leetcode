@@ -53,11 +53,9 @@ One is [1, 17, 10, 13, 10, 16, 8] with differences (16, -7, 3, -3, 6, -8).
 
 ## Solutions
 
-Dynamic programming.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
                 down = max(down, up + 1)
         return max(up, down)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,27 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function wiggleMaxLength(nums: number[]): number {
-    let up = 1,
-        down = 1;
-    for (let i = 1; i < nums.length; ++i) {
-        let prev = nums[i - 1],
-            cur = nums[i];
-        if (cur > prev) {
-            up = Math.max(up, down + 1);
-        } else if (cur < prev) {
-            down = Math.max(down, up + 1);
-        }
-    }
-    return Math.max(up, down);
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wiggleMaxLength(nums []int) int {
 	up, down := 1, 1
@@ -143,10 +116,23 @@ func wiggleMaxLength(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function wiggleMaxLength(nums: number[]): number {
+    let up = 1,
+        down = 1;
+    for (let i = 1; i < nums.length; ++i) {
+        let prev = nums[i - 1],
+            cur = nums[i];
+        if (cur > prev) {
+            up = Math.max(up, down + 1);
+        } else if (cur < prev) {
+            down = Math.max(down, up + 1);
+        }
+    }
+    return Math.max(up, down);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

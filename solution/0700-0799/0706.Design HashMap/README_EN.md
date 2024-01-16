@@ -47,9 +47,9 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MyHashMap:
@@ -72,8 +72,6 @@ class MyHashMap:
 # param_2 = obj.get(key)
 # obj.remove(key)
 ```
-
-### **Java**
 
 ```java
 class MyHashMap {
@@ -105,39 +103,6 @@ class MyHashMap {
  */
 ```
 
-### **TypeScript**
-
-```ts
-class MyHashMap {
-    data: Array<number>;
-    constructor() {
-        this.data = new Array(10 ** 6 + 1).fill(-1);
-    }
-
-    put(key: number, value: number): void {
-        this.data[key] = value;
-    }
-
-    get(key: number): number {
-        return this.data[key];
-    }
-
-    remove(key: number): void {
-        this.data[key] = -1;
-    }
-}
-
-/**
- * Your MyHashMap object will be instantiated and called as such:
- * var obj = new MyHashMap()
- * obj.put(key,value)
- * var param_2 = obj.get(key)
- * obj.remove(key)
- */
-```
-
-### **C++**
-
 ```cpp
 class MyHashMap {
 public:
@@ -168,8 +133,6 @@ public:
  * obj->remove(key);
  */
 ```
-
-### **Go**
 
 ```go
 type MyHashMap struct {
@@ -205,4 +168,35 @@ func (this *MyHashMap) Remove(key int) {
  */
 ```
 
+```ts
+class MyHashMap {
+    data: Array<number>;
+    constructor() {
+        this.data = new Array(10 ** 6 + 1).fill(-1);
+    }
+
+    put(key: number, value: number): void {
+        this.data[key] = value;
+    }
+
+    get(key: number): number {
+        return this.data[key];
+    }
+
+    remove(key: number): void {
+        this.data[key] = -1;
+    }
+}
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * var obj = new MyHashMap()
+ * obj.put(key,value)
+ * var param_2 = obj.get(key)
+ * obj.remove(key)
+ */
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,9 @@ Second 7: Fill up a hot cup.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,17 +70,6 @@ class Solution:
             amount[1] = max(0, amount[1] - 1)
         return ans
 ```
-
-```python
-class Solution:
-    def fillCups(self, amount: List[int]) -> int:
-        amount.sort()
-        if amount[0] + amount[1] <= amount[2]:
-            return amount[2]
-        return (sum(amount) + 1) // 2
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,20 +85,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int fillCups(int[] amount) {
-        Arrays.sort(amount);
-        if (amount[0] + amount[1] <= amount[2]) {
-            return amount[2];
-        }
-        return (amount[0] + amount[1] + amount[2] + 1) / 2;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,21 +102,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int fillCups(vector<int>& amount) {
-        sort(amount.begin(), amount.end());
-        if (amount[0] + amount[1] <= amount[2]) {
-            return amount[2];
-        }
-        return (amount[0] + amount[1] + amount[2] + 1) / 2;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func fillCups(amount []int) int {
 	ans := 0
@@ -157,18 +117,6 @@ func fillCups(amount []int) int {
 }
 ```
 
-```go
-func fillCups(amount []int) int {
-	sort.Ints(amount)
-	if amount[0]+amount[1] <= amount[2] {
-		return amount[2]
-	}
-	return (amount[0] + amount[1] + amount[2] + 1) / 2
-}
-```
-
-### **TypeScript**
-
 ```ts
 function fillCups(amount: number[]): number {
     amount.sort((a, b) => a - b);
@@ -178,8 +126,6 @@ function fillCups(amount: number[]): number {
     else return Math.floor((diff + 1) / 2) + c;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -192,12 +138,58 @@ impl Solution {
         (dif + 1) / 2 + amount[2]
     }
 }
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def fillCups(self, amount: List[int]) -> int:
+        amount.sort()
+        if amount[0] + amount[1] <= amount[2]:
+            return amount[2]
+        return (sum(amount) + 1) // 2
 ```
+
+```java
+class Solution {
+    public int fillCups(int[] amount) {
+        Arrays.sort(amount);
+        if (amount[0] + amount[1] <= amount[2]) {
+            return amount[2];
+        }
+        return (amount[0] + amount[1] + amount[2] + 1) / 2;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int fillCups(vector<int>& amount) {
+        sort(amount.begin(), amount.end());
+        if (amount[0] + amount[1] <= amount[2]) {
+            return amount[2];
+        }
+        return (amount[0] + amount[1] + amount[2] + 1) / 2;
+    }
+};
+```
+
+```go
+func fillCups(amount []int) int {
+	sort.Ints(amount)
+	if amount[0]+amount[1] <= amount[2] {
+		return amount[2]
+	}
+	return (amount[0] + amount[1] + amount[2] + 1) / 2
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

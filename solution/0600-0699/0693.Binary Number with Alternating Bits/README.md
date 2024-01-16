@@ -42,23 +42,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 n 循环右移直至为 0，依次检测 n 的二进制位是否交替出现。若循环过程中发现 0、1 没有交替出现，直接返回 false。否则循环结束返回 true。
 
-**方法二：位运算**
-
-假设 01 交替出现，那么我们可以通过错位异或将尾部全部转为 1，加 1 可以得到 2 的幂次的一个数 n（n 中只有一个位是 1），接着利用 `n & (n + 1)` 可以消除最后一位的 1。
-
-此时判断是否为 0，若是，说明假设成立，是 01 交替串。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,17 +60,6 @@ class Solution:
             n >>= 1
         return True
 ```
-
-```python
-class Solution:
-    def hasAlternatingBits(self, n: int) -> bool:
-        n ^= n >> 1
-        return (n & (n + 1)) == 0
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,17 +78,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean hasAlternatingBits(int n) {
-        n ^= (n >> 1);
-        return (n & (n + 1)) == 0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,17 +94,20 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool hasAlternatingBits(int n) {
-        n ^= (n >> 1);
-        return (n & ((long) n + 1)) == 0;
-    }
-};
+```go
+func hasAlternatingBits(n int) bool {
+	prev := -1
+	for n != 0 {
+		curr := n & 1
+		if prev == curr {
+			return false
+		}
+		prev = curr
+		n >>= 1
+	}
+	return true
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -158,30 +127,40 @@ impl Solution {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn has_alternating_bits(n: i32) -> bool {
-        let t = n ^ (n >> 1);
-        (t & (t + 1)) == 0
+<!-- tabs:end -->
+
+### 方法二：位运算
+
+假设 01 交替出现，那么我们可以通过错位异或将尾部全部转为 1，加 1 可以得到 2 的幂次的一个数 n（n 中只有一个位是 1），接着利用 `n & (n + 1)` 可以消除最后一位的 1。
+
+此时判断是否为 0，若是，说明假设成立，是 01 交替串。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        n ^= n >> 1
+        return (n & (n + 1)) == 0
+```
+
+```java
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        n ^= (n >> 1);
+        return (n & (n + 1)) == 0;
     }
 }
 ```
 
-### **Go**
-
-```go
-func hasAlternatingBits(n int) bool {
-	prev := -1
-	for n != 0 {
-		curr := n & 1
-		if prev == curr {
-			return false
-		}
-		prev = curr
-		n >>= 1
-	}
-	return true
-}
+```cpp
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        n ^= (n >> 1);
+        return (n & ((long) n + 1)) == 0;
+    }
+};
 ```
 
 ```go
@@ -191,10 +170,15 @@ func hasAlternatingBits(n int) bool {
 }
 ```
 
-### **...**
-
-```
-
+```rust
+impl Solution {
+    pub fn has_alternating_bits(n: i32) -> bool {
+        let t = n ^ (n >> 1);
+        (t & (t + 1)) == 0
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

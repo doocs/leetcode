@@ -48,7 +48,7 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
 
 ## Solutions
 
-**Solution 1: Trie**
+### Solution 1: Trie
 
 We define a trie, each node of the trie has two attributes, one is a `children` array of length $26$, and the other is a `isEnd` flag indicating whether it is the end of a word.
 
@@ -59,8 +59,6 @@ Next, we traverse `words`, for each word `w`, we start traversing from the root 
 The time complexity is $O(\sum_{w \in words} |w|)$, and the space complexity is $O(\sum_{w \in words} |w|)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -100,8 +98,6 @@ class Solution:
                 ans = w
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -153,8 +149,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -210,8 +204,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -261,8 +253,6 @@ func longestWord(words []string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     private children: (Trie | null)[] = Array(26).fill(null);
@@ -307,8 +297,6 @@ function longestWord(words: string[]): string {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 struct Trie {
@@ -365,8 +353,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Trie {
     private Trie[] children = new Trie[26];
@@ -417,10 +403,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

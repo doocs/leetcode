@@ -59,7 +59,7 @@ It can be shown that there is only 1 beautiful integer in the given range.
 
 ## Solutions
 
-**Solution 1: Digit DP**
+### Solution 1: Digit DP
 
 We notice that the problem is asking for the number of beautiful integers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
 
@@ -86,8 +86,6 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def numberOfBeautifulIntegers(self, low: int, high: int, k: int) -> int:
@@ -112,8 +110,6 @@ class Solution:
         b = dfs(0, 0, 10, 1, 1)
         return a - b
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -156,8 +152,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -197,8 +191,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfBeautifulIntegers(low int, high int, k int) int {
@@ -260,8 +252,6 @@ func g(m, n, k int) [][][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfBeautifulIntegers(low: number, high: number, k: number): number {
     let s = String(high);
@@ -308,10 +298,6 @@ function numberOfBeautifulIntegers(low: number, high: number, k: number): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

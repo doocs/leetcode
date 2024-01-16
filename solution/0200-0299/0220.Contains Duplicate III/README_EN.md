@@ -49,7 +49,7 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 
 ## Solutions
 
-**Solution 1: Sliding Window + Ordered Set**
+### Solution 1: Sliding Window + Ordered Set
 
 We maintain a sliding window of size $k$, and the elements in the window are kept in order.
 
@@ -58,8 +58,6 @@ We traverse the array `nums`. For each element $nums[i]$, we look for the first 
 The time complexity is $O(n \times \log k)$, where $n$ is the length of the array `nums`. For each element, we need $O(\log k)$ time to find the element in the ordered set, and there are $n$ elements in total, so the total time complexity is $O(n \times \log k)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedSet
@@ -80,8 +78,6 @@ class Solution:
         return False
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
@@ -101,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
@@ -144,36 +136,6 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	return false
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-        if (k <= 0 || t < 0) return false;
-        var index = new SortedList<int, object>();
-        for (int i = 0; i < nums.Length; ++i) {
-            if (index.ContainsKey(nums[i])) {
-                return true;
-            }
-            index.Add(nums[i], null);
-            var j = index.IndexOfKey(nums[i]);
-            if (j > 0 && (long)nums[i] - index.Keys[j - 1] <= t) {
-                return true;
-            }
-            if (j < index.Count - 1 && (long)index.Keys[j + 1] - nums[i] <= t) {
-                return true;
-            }
-            if (index.Count > k) {
-                index.Remove(nums[i - k]);
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function containsNearbyAlmostDuplicate(
@@ -836,10 +798,32 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if (k <= 0 || t < 0) return false;
+        var index = new SortedList<int, object>();
+        for (int i = 0; i < nums.Length; ++i) {
+            if (index.ContainsKey(nums[i])) {
+                return true;
+            }
+            index.Add(nums[i], null);
+            var j = index.IndexOfKey(nums[i]);
+            if (j > 0 && (long)nums[i] - index.Keys[j - 1] <= t) {
+                return true;
+            }
+            if (j < index.Count - 1 && (long)index.Keys[j + 1] - nums[i] <= t) {
+                return true;
+            }
+            if (index.Count > k) {
+                index.Remove(nums[i - k]);
+            }
+        }
+        return false;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：区间合并**
+### 方法一：区间合并
 
 区间合并，将所有存在交集的区间进行合并。方法是：先对区间**按照左端点升序排列**，然后遍历区间进行合并。
 
@@ -64,10 +62,6 @@ def merge(intervals):
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -83,10 +77,6 @@ class Solution:
         ans.append([st, ed])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func merge(intervals [][]int) [][]int {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -154,8 +140,6 @@ func merge(intervals [][]int) [][]int {
 	return ans
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -183,10 +167,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,9 @@ solution.getRandom(); // return 3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -83,8 +83,6 @@ class Solution:
 # obj = Solution(head)
 # param_1 = obj.getRandom()
 ```
-
-### **Java**
 
 ```java
 /**
@@ -125,8 +123,6 @@ class Solution {
  */
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -164,8 +160,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -201,10 +195,6 @@ func (this *Solution) GetRandom() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

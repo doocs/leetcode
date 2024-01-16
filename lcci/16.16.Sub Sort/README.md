@@ -18,9 +18,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 我们先从左到右遍历数组 $array$，用 $mx$ 记录遍历过的最大值，如果当前值 $x$ 小于 $mx$，则说明 $x$ 需要被排序，我们将 $x$ 的下标 $i$ 记录为 $right$；否则更新 $mx$。
 
@@ -31,10 +29,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -54,10 +48,6 @@ class Solution:
                 mi = array[i]
         return [left, right]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subSort(array []int) []int {
 	n := len(array)
@@ -136,8 +122,6 @@ func subSort(array []int) []int {
 	return []int{left, right}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function subSort(array: number[]): number[] {
@@ -162,10 +146,6 @@ function subSort(array: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

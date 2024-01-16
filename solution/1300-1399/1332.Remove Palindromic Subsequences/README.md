@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 如果字符串 $s$ 本身是个回文串，那么只需要删除 $1$ 次。
 
@@ -65,19 +63,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def removePalindromeSub(self, s: str) -> int:
         return 1 if s[::-1] == s else 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removePalindromeSub(s string) int {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
@@ -121,8 +107,6 @@ func removePalindromeSub(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removePalindromeSub(s: string): number {
     for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
@@ -133,8 +117,6 @@ function removePalindromeSub(s: string): number {
     return 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -154,10 +136,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

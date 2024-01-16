@@ -60,24 +60,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-动态规划。
-
-设 up 表示以前 i 个元素中的某一个元素结尾的最长上升摆动序列的长度，down 表示以前 i 个元素中的某一个元素结尾的最长下降摆动序列的长度。初始 `up = 1`, `down = 1`。
-
-从数组下标 1 开始遍历：
-
--   若 `nums[i] > nums[i - 1]`，则需要更新最长上升摆动序列的长度：`up = max(up, down + 1)`
--   若 `nums[i] < nums[i - 1]`，则需要更新最长下降摆动序列的长度：`down = max(down, up + 1)`
-
-最后返回 `max(up, down)` 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +75,6 @@ class Solution:
                 down = max(down, up + 1)
         return max(up, down)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,27 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function wiggleMaxLength(nums: number[]): number {
-    let up = 1,
-        down = 1;
-    for (let i = 1; i < nums.length; ++i) {
-        let prev = nums[i - 1],
-            cur = nums[i];
-        if (cur > prev) {
-            up = Math.max(up, down + 1);
-        } else if (cur < prev) {
-            down = Math.max(down, up + 1);
-        }
-    }
-    return Math.max(up, down);
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -149,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wiggleMaxLength(nums []int) int {
 	up, down := 1, 1
@@ -165,10 +123,23 @@ func wiggleMaxLength(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function wiggleMaxLength(nums: number[]): number {
+    let up = 1,
+        down = 1;
+    for (let i = 1; i < nums.length; ++i) {
+        let prev = nums[i - 1],
+            cur = nums[i];
+        if (cur > prev) {
+            up = Math.max(up, down + 1);
+        } else if (cur < prev) {
+            down = Math.max(down, up + 1);
+        }
+    }
+    return Math.max(up, down);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

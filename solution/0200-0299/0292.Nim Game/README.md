@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学推理**
+### 方法一：数学推理
 
 第一个得到 $4$ 的倍数（即 $n$ 能被 $4$ 整除）的将会输掉比赛。
 
@@ -73,19 +71,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canWinNim(self, n: int) -> bool:
         return n % 4 != 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,16 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function canWinNim(n: number): boolean {
-    return n % 4 != 0;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,15 +94,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canWinNim(n int) bool {
 	return n%4 != 0
 }
 ```
 
-### **Rust**
+```ts
+function canWinNim(n: number): boolean {
+    return n % 4 != 0;
+}
+```
 
 ```rust
 impl Solution {
@@ -132,10 +114,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

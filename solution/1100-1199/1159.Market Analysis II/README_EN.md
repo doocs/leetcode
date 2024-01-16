@@ -110,9 +110,9 @@ The answer for the user with id 4 is no because the brand of their second sold i
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -140,3 +140,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

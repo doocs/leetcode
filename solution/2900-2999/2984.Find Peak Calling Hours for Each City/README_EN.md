@@ -58,9 +58,9 @@ Output table is ordered by peak_calling_hour and city in descending order.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -89,3 +89,5 @@ ORDER BY 2 DESC, 1 DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

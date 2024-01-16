@@ -48,32 +48,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 我们先用哈希表记录数组中的所有元素，然后枚举数组中的每个元素作为子序列的第一个元素，将该元素不断平方，并判断平方后的结果是否在哈希表中，如果在，则将平方后的结果作为下一个元素，继续判断，直到平方后的结果不在哈希表中，此时判断子序列的长度是否大于 $1$，如果是，则更新答案。
 
 时间复杂度 $O(n \times \log \log M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度，而 $M$ 为数组 `nums` 中的最大元素。
 
-**方法二：记忆化搜索**
-
-与方法一类似，我们先用哈希表记录数组中的所有元素。然后设计一个函数 $dfs(x)$，表示以 $x$ 为第一个元素的方波的长度。那么答案就是 $max(dfs(x))$，其中 $x$ 为数组 `nums` 中的元素。
-
-函数 $dfs(x)$ 的计算过程如下：
-
--   如果 $x$ 不在哈希表中，则返回 $0$。
--   否则，返回 $1 + dfs(x^2)$。
-
-过程中我们可以使用记忆化搜索，即使用哈希表记录函数 $dfs(x)$ 的值，避免重复计算。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,24 +70,6 @@ class Solution:
                 ans = max(ans, t)
         return ans
 ```
-
-```python
-class Solution:
-    def longestSquareStreak(self, nums: List[int]) -> int:
-        @cache
-        def dfs(x):
-            if x not in s:
-                return 0
-            return 1 + dfs(x * x)
-
-        s = set(nums)
-        ans = max(dfs(x) for x in nums)
-        return -1 if ans < 2 else ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,6 +92,78 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int longestSquareStreak(vector<int>& nums) {
+        unordered_set<long long> s(nums.begin(), nums.end());
+        int ans = -1;
+        for (int& v : nums) {
+            int t = 0;
+            long long x = v;
+            while (s.count(x)) {
+                x *= x;
+                ++t;
+            }
+            if (t > 1) ans = max(ans, t);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func longestSquareStreak(nums []int) int {
+	s := map[int]bool{}
+	for _, v := range nums {
+		s[v] = true
+	}
+	ans := -1
+	for _, v := range nums {
+		t := 0
+		for s[v] {
+			v *= v
+			t++
+		}
+		if t > 1 && t > ans {
+			ans = t
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：记忆化搜索
+
+与方法一类似，我们先用哈希表记录数组中的所有元素。然后设计一个函数 $dfs(x)$，表示以 $x$ 为第一个元素的方波的长度。那么答案就是 $max(dfs(x))$，其中 $x$ 为数组 `nums` 中的元素。
+
+函数 $dfs(x)$ 的计算过程如下：
+
+-   如果 $x$ 不在哈希表中，则返回 $0$。
+-   否则，返回 $1 + dfs(x^2)$。
+
+过程中我们可以使用记忆化搜索，即使用哈希表记录函数 $dfs(x)$ 的值，避免重复计算。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def longestSquareStreak(self, nums: List[int]) -> int:
+        @cache
+        def dfs(x):
+            if x not in s:
+                return 0
+            return 1 + dfs(x * x)
+
+        s = set(nums)
+        ans = max(dfs(x) for x in nums)
+        return -1 if ans < 2 else ans
 ```
 
 ```java
@@ -161,28 +196,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int longestSquareStreak(vector<int>& nums) {
-        unordered_set<long long> s(nums.begin(), nums.end());
-        int ans = -1;
-        for (int& v : nums) {
-            int t = 0;
-            long long x = v;
-            while (s.count(x)) {
-                x *= x;
-                ++t;
-            }
-            if (t > 1) ans = max(ans, t);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -202,29 +215,6 @@ public:
         return ans < 2 ? -1 : ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func longestSquareStreak(nums []int) int {
-	s := map[int]bool{}
-	for _, v := range nums {
-		s[v] = true
-	}
-	ans := -1
-	for _, v := range nums {
-		t := 0
-		for s[v] {
-			v *= v
-			t++
-		}
-		if t > 1 && t > ans {
-			ans = t
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -257,10 +247,6 @@ func longestSquareStreak(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

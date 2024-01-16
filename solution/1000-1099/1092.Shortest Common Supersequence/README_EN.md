@@ -37,9 +37,9 @@ The answer provided is the shortest such string that satisfies these properties.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                     ans.append(str1[i])
         return ''.join(ans[::-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestCommonSupersequence(str1 string, str2 string) string {
@@ -198,8 +192,6 @@ func shortestCommonSupersequence(str1 string, str2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestCommonSupersequence(str1: string, str2: string): string {
     const m = str1.length;
@@ -237,10 +229,6 @@ function shortestCommonSupersequence(str1: string, str2: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

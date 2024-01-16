@@ -55,7 +55,7 @@
 
 ## Solutions
 
-**Solution 1: Combination Counting + Recursion**
+### Solution 1: Combination Counting + Recursion
 
 We design a function $dfs(nums)$, which is used to calculate the number of solutions of the binary search tree with $nums$ as nodes. Then the answer is $dfs(nums)-1$, because $dfs(nums)$ calculates the number of solutions of the binary search tree with $nums$ as nodes, while the problem requires the number of solutions of the binary search tree with $nums$ as nodes after reordering, so the answer needs to be subtracted by one.
 
@@ -74,8 +74,6 @@ Note the modulo operation of the answer, because the value of $dfs(nums)$ may be
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
                 c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod
         return (dfs(nums) - 1 + mod) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -144,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,8 +175,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numOfWays(nums []int) int {
@@ -220,8 +212,6 @@ func numOfWays(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numOfWays(nums: number[]): number {
     const n = nums.length;
@@ -257,10 +247,6 @@ function numOfWays(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

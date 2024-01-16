@@ -41,15 +41,13 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Two Pointers**
+### Solution 1: Sorting + Two Pointers
 
 We can sort the free time of the two people separately, then use two pointers to traverse the two arrays, find the intersection of the free time periods of the two people, and if the length of the intersection is greater than or equal to `duration`, then return the start time of the intersection and the start time plus `duration`.
 
 The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\log m + \log n)$. Where $m$ and $n$ are the lengths of the two arrays respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
                 j += 1
         return []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,7 +119,26 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
+	sort.Slice(slots1, func(i, j int) bool { return slots1[i][0] < slots1[j][0] })
+	sort.Slice(slots2, func(i, j int) bool { return slots2[i][0] < slots2[j][0] })
+	i, j, m, n := 0, 0, len(slots1), len(slots2)
+	for i < m && j < n {
+		start := max(slots1[i][0], slots2[j][0])
+		end := min(slots1[i][1], slots2[j][1])
+		if end-start >= duration {
+			return []int{start, start + duration}
+		}
+		if slots1[i][1] < slots2[j][1] {
+			i++
+		} else {
+			j++
+		}
+	}
+	return []int{}
+}
+```
 
 ```rust
 impl Solution {
@@ -175,33 +188,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
-	sort.Slice(slots1, func(i, j int) bool { return slots1[i][0] < slots1[j][0] })
-	sort.Slice(slots2, func(i, j int) bool { return slots2[i][0] < slots2[j][0] })
-	i, j, m, n := 0, 0, len(slots1), len(slots2)
-	for i < m && j < n {
-		start := max(slots1[i][0], slots2[j][0])
-		end := min(slots1[i][1], slots2[j][1])
-		if end-start >= duration {
-			return []int{start, start + duration}
-		}
-		if slots1[i][1] < slots2[j][1] {
-			i++
-		} else {
-			j++
-		}
-	}
-	return []int{}
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

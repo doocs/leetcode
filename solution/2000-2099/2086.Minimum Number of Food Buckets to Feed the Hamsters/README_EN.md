@@ -51,9 +51,9 @@ It can be shown that if we place only one food bucket, one of the hamsters will 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumBuckets(street string) int {
 	ans, n := 0, len(street)
@@ -143,10 +137,6 @@ func minimumBuckets(street string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

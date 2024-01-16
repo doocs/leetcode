@@ -45,19 +45,13 @@ ID = 2 的学生分数为 93、97、77、100 和 76 。前五科的平均分 (10
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们先用一个哈希表或数组 $d$ 记录每个学生的分数列表，然后从小到大遍历学生的编号，对于每个学生，我们将他的分数列表排序，然后取最高的五个分数求平均值即可。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 是学生的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
                 ans.append([i, avg])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func highFive(items [][]int) (ans [][]int) {
 	d := make([][]int, 1001)
@@ -169,8 +155,6 @@ func highFive(items [][]int) (ans [][]int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function highFive(items: number[][]): number[][] {
     const d: number[][] = Array(1001)
@@ -191,10 +175,6 @@ function highFive(items: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

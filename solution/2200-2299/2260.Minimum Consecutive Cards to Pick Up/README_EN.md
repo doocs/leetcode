@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
             last[x] = i
         return -1 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumCardPickup(cards []int) int {
 	last := map[int]int{}
@@ -110,8 +104,6 @@ func minimumCardPickup(cards []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumCardPickup(cards: number[]): number {
     const n = cards.length;
@@ -127,10 +119,6 @@ function minimumCardPickup(cards: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

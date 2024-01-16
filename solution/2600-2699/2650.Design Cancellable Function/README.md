@@ -146,11 +146,9 @@ cancelledAt = null
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
 
 ```ts
 function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => void, Promise<T>] {
@@ -187,10 +185,6 @@ function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => 
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

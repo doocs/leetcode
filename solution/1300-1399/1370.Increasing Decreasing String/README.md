@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 模拟**
+### 方法一：计数 + 模拟
 
 我们先用一个哈希表或者一个长度为 $26$ 的数组 $cnt$ 统计字符串 $s$ 中每个字符出现的次数。
 
@@ -82,10 +80,6 @@
 时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为所有小写字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
                     cnt[c] -= 1
         return "".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortString(s string) string {
 	cnt := [26]int{}
@@ -191,8 +177,6 @@ func sortString(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortString(s: string): string {
     const cnt: number[] = Array(26).fill(0);
@@ -217,8 +201,6 @@ function sortString(s: string): string {
     return ans.join('');
 }
 ```
-
-### **Javascript**
 
 ```js
 /**
@@ -249,10 +231,6 @@ var sortString = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

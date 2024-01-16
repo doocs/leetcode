@@ -47,15 +47,13 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Simulation**
+### Solution 1: Hash Table + Simulation
 
 We can use a hash table to store the corresponding character for each character entity. Then, we traverse the string, and when we encounter a character entity, we replace it with the corresponding character.
 
 The time complexity is $O(n \times l)$, and the space complexity is $O(l)$. Here, $n$ is the length of the string, and $l$ is the total length of the character entities.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
                 i += 1
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func entityParser(text string) string {
@@ -196,8 +188,6 @@ func entityParser(text string) string {
 	return ans.String()
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function entityParser(text: string): string {
@@ -238,6 +228,12 @@ function entityParser(text: string): string {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```ts
 function entityParser(text: string): string {
     const d: { [key: string]: string } = {
@@ -254,10 +250,6 @@ function entityParser(text: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

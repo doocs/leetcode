@@ -46,17 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-DFS + 剪枝。
-
-Python 大整数相加不会有溢出问题。由于 num 字符串长度最大为 35，因此对于其他语言，可以通过控制整数长度防止溢出。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +75,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +145,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isAdditiveNumber(num string) bool {
@@ -202,10 +186,6 @@ func isAdditiveNumber(num string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

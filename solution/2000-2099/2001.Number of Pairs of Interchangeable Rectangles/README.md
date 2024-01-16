@@ -49,19 +49,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 哈希表**
+### 方法一：数学 + 哈希表
 
 为了能够唯一表示矩形，我们需要将矩形的宽高比化简为最简分数。因此，我们可以求出每个矩形的宽高比的最大公约数，然后将宽高比化简为最简分数。接下来，我们使用哈希表统计每个最简分数的矩形数量，然后计算每个最简分数的矩形数量的组合数，即可得到答案。
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别是矩形的数量和矩形的最大边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             cnt[(w, h)] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func interchangeableRectangles(rectangles [][]int) int64 {
@@ -152,8 +138,6 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -182,10 +166,6 @@ function gcd(a, b) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

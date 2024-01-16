@@ -58,17 +58,11 @@ Joziah&#39;s manager is employee 6, who left the company because there is no row
 
 ## Solutions
 
-**Solution 1: Left Join**
+### Solution 1: Left Join
 
 We can use a left join to connect the employee table with itself, and then filter out the employees whose salary is less than $30000$ and have a superior manager who has left the company.
 
-**Solution 2: Subquery**
-
-We can also use a subquery to first find all the managers who have left the company, and then find the employees whose salary is less than $30000$ and whose superior manager is not in the list of managers who have left the company.
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -80,6 +74,14 @@ WHERE e1.salary < 30000 AND e1.manager_id IS NOT NULL AND e2.employee_id IS NULL
 ORDER BY 1;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Subquery
+
+We can also use a subquery to first find all the managers who have left the company, and then find the employees whose salary is less than $30000$ and whose superior manager is not in the list of managers who have left the company.
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT employee_id
@@ -89,3 +91,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

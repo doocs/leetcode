@@ -62,9 +62,9 @@ Activity table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -80,6 +80,12 @@ SELECT IFNULL(ROUND(AVG(sessions), 2), 0) AS average_sessions_per_user
 FROM T;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 SELECT
     IFNULL(
@@ -91,3 +97,5 @@ WHERE DATEDIFF('2019-07-27', activity_date) < 30;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

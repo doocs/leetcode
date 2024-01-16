@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Zeller's Congruence**
+### Solution 1: Zeller's Congruence
 
 We can use Zeller's Congruence to calculate the day of the week. Zeller's Congruence is as follows:
 
@@ -63,35 +63,11 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
         return datetime.date(year, month, day).strftime('%A')
 ```
-
-```python
-class Solution:
-    def dayOfTheWeek(self, d: int, m: int, y: int) -> str:
-        if m < 3:
-            m += 12
-            y -= 1
-        c = y // 100
-        y = y % 100
-        w = (c // 4 - 2 * c + y + y // 4 + 13 * (m + 1) // 5 + d - 1) % 7
-        return [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-        ][w]
-```
-
-### **Java**
 
 ```java
 import java.util.Calendar;
@@ -107,24 +83,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public String dayOfTheWeek(int d, int m, int y) {
-        if (m < 3) {
-            m += 12;
-            y -= 1;
-        }
-        int c = y / 100;
-        y %= 100;
-        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
-        return new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-            "Saturday"}[(w + 7) % 7];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func dayOfTheWeek(d int, m int, y int) string {
 	if m < 3 {
@@ -158,8 +114,6 @@ func dayOfTheWeek(d int, m int, y int) string {
 	return weeks[(w+7)%7]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function dayOfTheWeek(d: number, m: number, y: number): string {
@@ -183,10 +137,48 @@ function dayOfTheWeek(d: number, m: number, y: number): string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def dayOfTheWeek(self, d: int, m: int, y: int) -> str:
+        if m < 3:
+            m += 12
+            y -= 1
+        c = y // 100
+        y = y % 100
+        w = (c // 4 - 2 * c + y + y // 4 + 13 * (m + 1) // 5 + d - 1) % 7
+        return [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+        ][w]
 ```
 
+```java
+class Solution {
+    public String dayOfTheWeek(int d, int m, int y) {
+        if (m < 3) {
+            m += 12;
+            y -= 1;
+        }
+        int c = y / 100;
+        y %= 100;
+        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
+        return new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+            "Saturday"}[(w + 7) % 7];
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

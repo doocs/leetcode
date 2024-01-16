@@ -65,7 +65,7 @@ Now you have 4 ribbons of length 4.
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We observe that if we can obtain $k$ ropes of length $x$, then we can also obtain $k$ ropes of length $x-1$. This implies that there is a monotonicity property, and we can use binary search to find the maximum length $x$ such that we can obtain $k$ ropes of length $x$.
 
@@ -76,8 +76,6 @@ Finally, we return $left$ as the maximum length of the ropes we can obtain.
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of ropes and the maximum length of the ropes, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -92,8 +90,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxLength(ribbons []int, k int) int {
 	left, right := 0, slices.Max(ribbons)
@@ -163,35 +155,6 @@ func maxLength(ribbons []int, k int) int {
 	return left
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} ribbons
- * @param {number} k
- * @return {number}
- */
-var maxLength = function (ribbons, k) {
-    let left = 0;
-    let right = Math.max(...ribbons);
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        let cnt = 0;
-        for (const x of ribbons) {
-            cnt += Math.floor(x / mid);
-        }
-        if (cnt >= k) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-};
-```
-
-### **TypeScript**
 
 ```ts
 function maxLength(ribbons: number[], k: number): number {
@@ -212,8 +175,6 @@ function maxLength(ribbons: number[], k: number): number {
     return left;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -240,10 +201,31 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} ribbons
+ * @param {number} k
+ * @return {number}
+ */
+var maxLength = function (ribbons, k) {
+    let left = 0;
+    let right = Math.max(...ribbons);
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        let cnt = 0;
+        for (const x of ribbons) {
+            cnt += Math.floor(x / mid);
+        }
+        if (cnt >= k) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

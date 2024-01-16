@@ -59,7 +59,7 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 According to the problem description, we define a function $abbr(s)$, which calculates the abbreviation of the word $s$. If the length of the word $s$ is less than $3$, then its abbreviation is itself; otherwise, its abbreviation is its first letter + (its length - 2) + its last letter.
 
@@ -70,8 +70,6 @@ When judging whether the word $word$ meets the requirements of the problem, we c
 In terms of time complexity, the time complexity of initializing the hash table is $O(n)$, where $n$ is the length of the word dictionary; the time complexity of judging whether a word meets the requirements of the problem is $O(1)$. In terms of space complexity, the space complexity of the hash table is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class ValidWordAbbr:
@@ -92,8 +90,6 @@ class ValidWordAbbr:
 # obj = ValidWordAbbr(dictionary)
 # param_1 = obj.isUnique(word)
 ```
-
-### **Java**
 
 ```java
 class ValidWordAbbr {
@@ -122,8 +118,6 @@ class ValidWordAbbr {
  * boolean param_1 = obj.isUnique(word);
  */
 ```
-
-### **C++**
 
 ```cpp
 class ValidWordAbbr {
@@ -154,8 +148,6 @@ private:
  * bool param_1 = obj->isUnique(word);
  */
 ```
-
-### **Go**
 
 ```go
 type ValidWordAbbr struct {
@@ -194,8 +186,6 @@ func abbr(s string) string {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class ValidWordAbbr {
     private d: Map<string, Set<string>> = new Map();
@@ -228,10 +218,6 @@ class ValidWordAbbr {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

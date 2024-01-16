@@ -51,7 +51,7 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 
 ## Solutions
 
-**Solution 1: Counting + Simulation**
+### Solution 1: Counting + Simulation
 
 First, we use a hash table or an array $cnt$ of length $26$ to count the number of occurrences of each character in the string $s$.
 
@@ -60,8 +60,6 @@ Then, we enumerate the letters $[a,...,z]$. For the current enumerated letter $c
 The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $\Sigma$ is the character set. In this problem, the character set is all lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                     cnt[c] -= 1
         return "".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortString(s string) string {
 	cnt := [26]int{}
@@ -165,8 +157,6 @@ func sortString(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortString(s: string): string {
     const cnt: number[] = Array(26).fill(0);
@@ -191,8 +181,6 @@ function sortString(s: string): string {
     return ans.join('');
 }
 ```
-
-### **Javascript**
 
 ```js
 /**
@@ -223,10 +211,6 @@ var sortString = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

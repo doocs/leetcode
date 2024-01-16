@@ -54,45 +54,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以遍历数组 $words$ 中的每个字符串，将其首字母拼接起来，得到一个新的字符串 $t$，然后判断 $t$ 是否等于 $s$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度。
 
-**方法二：模拟（空间优化）**
-
-我们首先判断 $words$ 中的字符串个数是否等于 $s$ 的长度，如果不等于，那么 $s$ 一定不是 $words$ 的首字母缩略词，直接返回 $false$。
-
-然后我们遍历 $s$ 的每个字符，判断其是否等于 $words$ 中对应字符串的首字母，如果不等于，那么 $s$ 一定不是 $words$ 的首字母缩略词，直接返回 $false$。
-
-遍历结束后，如果没有返回 $false$，那么 $s$ 就是 $words$ 的首字母缩略词，返回 $true$。
-
-时间复杂度 $O(n)$，其中 $n$ 是数组 $words$ 的长度。空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return "".join(w[0] for w in words) == s
 ```
-
-```python
-class Solution:
-    def isAcronym(self, words: List[str], s: str) -> bool:
-        return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,6 +78,66 @@ class Solution {
         return t.toString().equals(s);
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool isAcronym(vector<string>& words, string s) {
+        string t;
+        for (auto& w : words) {
+            t += w[0];
+        }
+        return t == s;
+    }
+};
+```
+
+```go
+func isAcronym(words []string, s string) bool {
+	t := []byte{}
+	for _, w := range words {
+		t = append(t, w[0])
+	}
+	return string(t) == s
+}
+```
+
+```ts
+function isAcronym(words: string[], s: string): boolean {
+    return words.map(w => w[0]).join('') === s;
+}
+```
+
+```rust
+impl Solution {
+    pub fn is_acronym(words: Vec<String>, s: String) -> bool {
+        words
+            .iter()
+            .map(|w| w.chars().next().unwrap_or_default())
+            .collect::<String>() == s
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：模拟（空间优化）
+
+我们首先判断 $words$ 中的字符串个数是否等于 $s$ 的长度，如果不等于，那么 $s$ 一定不是 $words$ 的首字母缩略词，直接返回 $false$。
+
+然后我们遍历 $s$ 的每个字符，判断其是否等于 $words$ 中对应字符串的首字母，如果不等于，那么 $s$ 一定不是 $words$ 的首字母缩略词，直接返回 $false$。
+
+遍历结束后，如果没有返回 $false$，那么 $s$ 就是 $words$ 的首字母缩略词，返回 $true$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $words$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isAcronym(self, words: List[str], s: str) -> bool:
+        return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
 ```
 
 ```java
@@ -120,21 +154,6 @@ class Solution {
         return true;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isAcronym(vector<string>& words, string s) {
-        string t;
-        for (auto& w : words) {
-            t += w[0];
-        }
-        return t == s;
-    }
-};
 ```
 
 ```cpp
@@ -154,18 +173,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func isAcronym(words []string, s string) bool {
-	t := []byte{}
-	for _, w := range words {
-		t = append(t, w[0])
-	}
-	return string(t) == s
-}
-```
-
 ```go
 func isAcronym(words []string, s string) bool {
 	if len(words) != len(s) {
@@ -180,14 +187,6 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function isAcronym(words: string[], s: string): boolean {
-    return words.map(w => w[0]).join('') === s;
-}
-```
-
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     if (words.length !== s.length) {
@@ -199,19 +198,6 @@ function isAcronym(words: string[], s: string): boolean {
         }
     }
     return true;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn is_acronym(words: Vec<String>, s: String) -> bool {
-        words
-            .iter()
-            .map(|w| w.chars().next().unwrap_or_default())
-            .collect::<String>() == s
-    }
 }
 ```
 
@@ -231,10 +217,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

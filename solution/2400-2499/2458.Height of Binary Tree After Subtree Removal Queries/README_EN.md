@@ -59,7 +59,7 @@ The height of the tree is 2 (The path 1 -&gt; 3 -&gt; 2).
 
 ## Solutions
 
-**Solution 1: Two DFS Traversals**
+### Solution 1: Two DFS Traversals
 
 First, we perform a DFS traversal to determine the depth of each node, which we store in a hash table $d$, where $d[x]$ represents the depth of node $x$.
 
@@ -84,8 +84,6 @@ Finally, we return the result values corresponding to each query node.
 The time complexity is $O(n+m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of nodes in the tree and the number of queries, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -117,8 +115,6 @@ class Solution:
         dfs(root, -1, 0)
         return [res[v] for v in queries]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -174,8 +170,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -214,8 +208,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -257,16 +249,6 @@ func treeQueries(root *TreeNode, queries []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

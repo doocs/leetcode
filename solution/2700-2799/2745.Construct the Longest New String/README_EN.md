@@ -40,7 +40,7 @@ That string has length 14, and we can show that it is impossible to construct a 
 
 ## Solutions
 
-**Solution 1: Case Discussion**
+### Solution 1: Case Discussion
 
 We observe that the string 'AA' can only be followed by 'BB', and the string 'AB' can be placed at the beginning or end of the string. Therefore:
 
@@ -52,8 +52,6 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def longestString(self, x: int, y: int, z: int) -> int:
@@ -63,8 +61,6 @@ class Solution:
             return (y * 2 + z + 1) * 2
         return (x + y + z) * 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestString(x int, y int, z int) int {
 	if x < y {
@@ -110,8 +102,6 @@ func longestString(x int, y int, z int) int {
 	return (x + y + z) * 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestString(x: number, y: number, z: number): number {
@@ -125,10 +115,6 @@ function longestString(x: number, y: number, z: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

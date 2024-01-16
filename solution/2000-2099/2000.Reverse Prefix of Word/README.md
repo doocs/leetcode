@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们先找到字符 $ch$ 第一次出现的下标 $i$，然后反转从下标 $0$ 开始、直到下标 $i$ 结束（含下标 $i$）的那段字符，最后将反转后的字符串与下标 $i + 1$ 开始的字符串拼接即可。
 
@@ -62,20 +60,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def reversePrefix(self, word: str, ch: str) -> str:
         i = word.find(ch)
         return word if i == -1 else word[i::-1] + word[i + 1 :]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,23 +85,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String reversePrefix(String word, char ch) {
-        int j = word.indexOf(ch);
-        if (j == -1) {
-            return word;
-        }
-        return new StringBuilder(word.substring(0, j + 1))
-            .reverse()
-            .append(word.substring(j + 1))
-            .toString();
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reversePrefix(word string, ch byte) string {
@@ -142,8 +113,6 @@ func reversePrefix(word string, ch byte) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reversePrefix(word: string, ch: string): string {
     const i = word.indexOf(ch) + 1;
@@ -153,8 +122,6 @@ function reversePrefix(word: string, ch: string): string {
     return [...word.slice(0, i)].reverse().join('') + word.slice(i);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -166,8 +133,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -195,10 +160,27 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        int j = word.indexOf(ch);
+        if (j == -1) {
+            return word;
+        }
+        return new StringBuilder(word.substring(0, j + 1))
+            .reverse()
+            .append(word.substring(j + 1))
+            .toString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

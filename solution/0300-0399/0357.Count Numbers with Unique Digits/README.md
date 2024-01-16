@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排列组合**
+### 方法一：排列组合
 
 当 $n=0$ 时，有 $0\le x \lt 1$，只有 $1$ 个数字，即 $0$。
 
@@ -53,7 +51,77 @@
 
 时间复杂度 $O(n)$。
 
-**方法二：状态压缩 + 数位 DP**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countNumbersWithUniqueDigits(self, n: int) -> int:
+        if n == 0:
+            return 1
+        if n == 1:
+            return 10
+        ans, cur = 10, 9
+        for i in range(n - 1):
+            cur *= 9 - i
+            ans += cur
+        return ans
+```
+
+```java
+class Solution {
+    public int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1) {
+            return 10;
+        }
+        int ans = 10;
+        for (int i = 0, cur = 9; i < n - 1; ++i) {
+            cur *= (9 - i);
+            ans += cur;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) return 1;
+        if (n == 1) return 10;
+        int ans = 10;
+        for (int i = 0, cur = 9; i < n - 1; ++i) {
+            cur *= (9 - i);
+            ans += cur;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countNumbersWithUniqueDigits(n int) int {
+	if n == 0 {
+		return 1
+	}
+	if n == 1 {
+		return 10
+	}
+	ans := 10
+	for i, cur := 0, 9; i < n-1; i++ {
+		cur *= (9 - i)
+		ans += cur
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：状态压缩 + 数位 DP
 
 这道题实际上是求在给定区间 $[l,..r]$ 中，满足条件的数的个数。条件与数的大小无关，而只与数的组成有关，因此可以使用数位 DP 的思想求解。数位 DP 中，数的大小对复杂度的影响很小。
 
@@ -90,24 +158,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def countNumbersWithUniqueDigits(self, n: int) -> int:
-        if n == 0:
-            return 1
-        if n == 1:
-            return 10
-        ans, cur = 10, 9
-        for i in range(n - 1):
-            cur *= 9 - i
-            ans += cur
-        return ans
-```
-
 ```python
 class Solution:
     def countNumbersWithUniqueDigits(self, n: int) -> int:
@@ -126,29 +176,6 @@ class Solution:
             return ans
 
         return dfs(n, 0, True)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int countNumbersWithUniqueDigits(int n) {
-        if (n == 0) {
-            return 1;
-        }
-        if (n == 1) {
-            return 10;
-        }
-        int ans = 10;
-        for (int i = 0, cur = 9; i < n - 1; ++i) {
-            cur *= (9 - i);
-            ans += cur;
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -188,24 +215,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countNumbersWithUniqueDigits(int n) {
-        if (n == 0) return 1;
-        if (n == 1) return 10;
-        int ans = 10;
-        for (int i = 0, cur = 9; i < n - 1; ++i) {
-            cur *= (9 - i);
-            ans += cur;
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -238,25 +247,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func countNumbersWithUniqueDigits(n int) int {
-	if n == 0 {
-		return 1
-	}
-	if n == 1 {
-		return 10
-	}
-	ans := 10
-	for i, cur := 0, 9; i < n-1; i++ {
-		cur *= (9 - i)
-		ans += cur
-	}
-	return ans
-}
 ```
 
 ```go
@@ -297,10 +287,6 @@ func countNumbersWithUniqueDigits(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

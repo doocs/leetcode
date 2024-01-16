@@ -29,15 +29,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-双指针 i1, i2 遍历所有可能的“行对”，即子矩阵的上下两条边，这决定了矩阵的高，然后枚举 i1~i2 高度的每一列，看成一维数组的一项，求和最大的子数组即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +64,6 @@ class Solution:
                         ans = [i1, start, i2, j]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaxMatrix(matrix [][]int) []int {
 	m, n := len(matrix), len(matrix[0])
@@ -198,10 +184,6 @@ func getMaxMatrix(matrix [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

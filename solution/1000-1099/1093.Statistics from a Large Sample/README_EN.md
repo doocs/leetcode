@@ -60,9 +60,9 @@ The mode is 1 as it appears the most in the sample.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -91,8 +91,6 @@ class Solution:
         )
         return [mi, mx, s / cnt, median, mode]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +160,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sampleStats(count []int) []float64 {
@@ -200,8 +194,6 @@ func sampleStats(count []int) []float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sampleStats(count: number[]): number[] {
     const find = (i: number): number => {
@@ -232,10 +224,6 @@ function sampleStats(count: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

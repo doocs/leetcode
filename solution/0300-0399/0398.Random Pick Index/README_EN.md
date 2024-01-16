@@ -42,9 +42,9 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
 # obj = Solution(nums)
 # param_1 = obj.pick(target)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +126,6 @@ public:
  * int param_1 = obj->pick(target);
  */
 ```
-
-### **Go**
 
 ```go
 type Solution struct {
@@ -163,10 +157,6 @@ func (this *Solution) Pick(target int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

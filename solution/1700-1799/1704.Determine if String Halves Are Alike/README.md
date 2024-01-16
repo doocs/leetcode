@@ -43,19 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 遍历字符串，若字符串前半段的元音个数等于后半段的元音个数，则返回 `true`，否则返回 `false`。
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(C)$，其中 $C$ 为元音字母的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,18 +61,6 @@ class Solution:
             cnt -= s[i + n] in vowels
         return cnt == 0
 ```
-
-```python
-class Solution:
-    def halvesAreAlike(self, s: str) -> bool:
-        vowels = set('aeiouAEIOU')
-        a, b = s[: len(s) >> 1], s[len(s) >> 1 :]
-        return sum(c in vowels for c in a) == sum(c in vowels for c in b)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func halvesAreAlike(s string) bool {
@@ -134,8 +112,6 @@ func halvesAreAlike(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function halvesAreAlike(s: string): boolean {
     const set = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
@@ -148,8 +124,6 @@ function halvesAreAlike(s: string): boolean {
     return count === 0;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -174,7 +148,21 @@ impl Solution {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var halvesAreAlike = function (s) {
+    const str = 'aeiouAEIOU';
+    let cnt = 0;
+    for (let i = 0; i < s.length / 2; i++) {
+        if (str.indexOf(s[i]) > -1) cnt++;
+        if (str.indexOf(s[s.length - 1 - i]) > -1) cnt--;
+    }
+    return cnt === 0;
+};
+```
 
 ```php
 class Solution {
@@ -197,28 +185,20 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+<!-- tabs:end -->
 
-```js
-/**
- * @param {string} s
- * @return {boolean}
- */
-var halvesAreAlike = function (s) {
-    const str = 'aeiouAEIOU';
-    let cnt = 0;
-    for (let i = 0; i < s.length / 2; i++) {
-        if (str.indexOf(s[i]) > -1) cnt++;
-        if (str.indexOf(s[s.length - 1 - i]) > -1) cnt--;
-    }
-    return cnt === 0;
-};
-```
+### 方法二
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```python
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        vowels = set('aeiouAEIOU')
+        a, b = s[: len(s) >> 1], s[len(s) >> 1 :]
+        return sum(c in vowels for c in a) == sum(c in vowels for c in b)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

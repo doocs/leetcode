@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: Start Traversing from the Bottom Left or Top Right**
+### Solution 1: Start Traversing from the Bottom Left or Top Right
 
 According to the characteristic that **both rows and columns are arranged in non-increasing order**, we can start traversing from the **bottom left corner** towards the **top right direction**.
 
@@ -47,17 +47,7 @@ After the traversal is over, return the answer.
 
 The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
-**Solution 2: Binary Search**
-
-Traverse each row, use binary search to find the first position less than $0$ in each row. All elements to the right of this position are negative, and add the number of negative numbers to the answer.
-
-After the traversal is over, return the answer.
-
-The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,14 +63,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-```python
-class Solution:
-    def countNegatives(self, grid: List[List[int]]) -> int:
-        return sum(bisect_left(row[::-1], 0) for row in grid)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,30 +82,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countNegatives(int[][] grid) {
-        int ans = 0;
-        int n = grid[0].length;
-        for (int[] row : grid) {
-            int left = 0, right = n;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (row[mid] < 0) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            ans += n - left;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,21 +100,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int countNegatives(vector<vector<int>>& grid) {
-        int ans = 0;
-        for (auto& row : grid) {
-            ans += lower_bound(row.rbegin(), row.rend(), 0) - row.rbegin();
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countNegatives(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -173,27 +116,6 @@ func countNegatives(grid [][]int) int {
 }
 ```
 
-```go
-func countNegatives(grid [][]int) int {
-	ans, n := 0, len(grid[0])
-	for _, row := range grid {
-		left, right := 0, n
-		for left < right {
-			mid := (left + right) >> 1
-			if row[mid] < 0 {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		ans += n - left
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
 ```ts
 function countNegatives(grid: number[][]): number {
     const m = grid.length,
@@ -210,77 +132,6 @@ function countNegatives(grid: number[][]): number {
     return ans;
 }
 ```
-
-```ts
-function countNegatives(grid: number[][]): number {
-    const n = grid[0].length;
-    let ans = 0;
-    for (let row of grid) {
-        let left = 0,
-            right = n;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (row[mid] < 0) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        ans += n - left;
-    }
-    return ans;
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} grid
- * @return {number}
- */
-var countNegatives = function (grid) {
-    const m = grid.length,
-        n = grid[0].length;
-    let ans = 0;
-    for (let i = m - 1, j = 0; i >= 0 && j < n; ) {
-        if (grid[i][j] < 0) {
-            ans += n - j;
-            --i;
-        } else {
-            ++j;
-        }
-    }
-    return ans;
-};
-```
-
-```js
-/**
- * @param {number[][]} grid
- * @return {number}
- */
-var countNegatives = function (grid) {
-    const n = grid[0].length;
-    let ans = 0;
-    for (let row of grid) {
-        let left = 0,
-            right = n;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (row[mid] < 0) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        ans += n - left;
-    }
-    return ans;
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -305,6 +156,120 @@ impl Solution {
 }
 ```
 
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var countNegatives = function (grid) {
+    const m = grid.length,
+        n = grid[0].length;
+    let ans = 0;
+    for (let i = m - 1, j = 0; i >= 0 && j < n; ) {
+        if (grid[i][j] < 0) {
+            ans += n - j;
+            --i;
+        } else {
+            ++j;
+        }
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Binary Search
+
+Traverse each row, use binary search to find the first position less than $0$ in each row. All elements to the right of this position are negative, and add the number of negative numbers to the answer.
+
+After the traversal is over, return the answer.
+
+The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countNegatives(self, grid: List[List[int]]) -> int:
+        return sum(bisect_left(row[::-1], 0) for row in grid)
+```
+
+```java
+class Solution {
+    public int countNegatives(int[][] grid) {
+        int ans = 0;
+        int n = grid[0].length;
+        for (int[] row : grid) {
+            int left = 0, right = n;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (row[mid] < 0) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            ans += n - left;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int ans = 0;
+        for (auto& row : grid) {
+            ans += lower_bound(row.rbegin(), row.rend(), 0) - row.rbegin();
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countNegatives(grid [][]int) int {
+	ans, n := 0, len(grid[0])
+	for _, row := range grid {
+		left, right := 0, n
+		for left < right {
+			mid := (left + right) >> 1
+			if row[mid] < 0 {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		ans += n - left
+	}
+	return ans
+}
+```
+
+```ts
+function countNegatives(grid: number[][]): number {
+    const n = grid[0].length;
+    let ans = 0;
+    for (let row of grid) {
+        let left = 0,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (row[mid] < 0) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        ans += n - left;
+    }
+    return ans;
+}
+```
+
 ```rust
 impl Solution {
     pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
@@ -326,10 +291,31 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var countNegatives = function (grid) {
+    const n = grid[0].length;
+    let ans = 0;
+    for (let row of grid) {
+        let left = 0,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (row[mid] < 0) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        ans += n - left;
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

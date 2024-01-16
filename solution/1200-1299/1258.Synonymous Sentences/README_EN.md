@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Union-Find + DFS**
+### Solution 1: Union-Find + DFS
 
 We can notice that the synonyms in the problem are transitive, i.e., if `a` and `b` are synonyms, and `b` and `c` are synonyms, then `a` and `c` are also synonyms. Therefore, we can use a union-find set to find the connected components of synonyms, where all the words in each connected component are synonyms and are sorted in lexicographical order.
 
@@ -53,8 +53,6 @@ Finally, return the answer array.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of words.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class UnionFind:
@@ -111,8 +109,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class UnionFind {
@@ -205,8 +201,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class UnionFind {
@@ -306,8 +300,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type unionFind struct {
 	p, size []int
@@ -394,10 +386,6 @@ func generateSentences(synonyms [][]string, text string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

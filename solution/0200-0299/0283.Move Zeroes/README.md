@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们使用两个指针 $i$ 和 $j$，其中指针 $i$ 指向当前已经处理好的序列的尾部，而指针 $j$ 指向待处理序列的头部。初始时 $i=-1$。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
                 i += 1
                 nums[i], nums[j] = nums[j], nums[i]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -102,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func moveZeroes(nums []int) {
 	i := -1
@@ -115,27 +101,6 @@ func moveZeroes(nums []int) {
 	}
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
- */
-var moveZeroes = function (nums) {
-    let i = -1;
-    for (let j = 0; j < nums.length; ++j) {
-        if (nums[j]) {
-            const t = nums[++i];
-            nums[i] = nums[j];
-            nums[j] = t;
-        }
-    }
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -155,8 +120,6 @@ function moveZeroes(nums: number[]): void {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
@@ -174,7 +137,22 @@ impl Solution {
 }
 ```
 
-### **C**
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function (nums) {
+    let i = -1;
+    for (let j = 0; j < nums.length; ++j) {
+        if (nums[j]) {
+            const t = nums[++i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+    }
+};
+```
 
 ```c
 void moveZeroes(int* nums, int numsSize) {
@@ -191,10 +169,6 @@ void moveZeroes(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

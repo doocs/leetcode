@@ -47,9 +47,9 @@ And it can be shown that there are no special substrings with a length of at lea
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
             ans += i - j + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfSpecialSubstrings(s string) (ans int) {
 	j := 0
@@ -126,8 +120,6 @@ func numberOfSpecialSubstrings(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfSpecialSubstrings(s: string): number {
@@ -147,10 +139,6 @@ function numberOfSpecialSubstrings(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

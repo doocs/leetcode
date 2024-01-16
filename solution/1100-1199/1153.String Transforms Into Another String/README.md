@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以先判断 `str1` 和 `str2` 是否相等，若相等，直接返回 `true`。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 `str1` 的长度，而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canConvert(str1 string, str2 string) bool {
 	if str1 == str2 {
@@ -174,8 +160,6 @@ func canConvert(str1 string, str2 string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canConvert(str1: string, str2: string): boolean {
     if (str1 === str2) {
@@ -196,10 +180,6 @@ function canConvert(str1: string, str2: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

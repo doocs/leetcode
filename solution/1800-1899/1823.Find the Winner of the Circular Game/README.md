@@ -60,15 +60,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-约瑟夫环。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
         ans = (k + self.findTheWinner(n - 1, k)) % n
         return n if ans == 0 else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findTheWinner(n int, k int) int {
@@ -122,8 +108,6 @@ func findTheWinner(n int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class LinkNode {
@@ -163,10 +147,6 @@ function findTheWinner(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

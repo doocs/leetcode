@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 2 的幂**
+### 方法一：枚举 2 的幂
 
 我们从整数 $1$ 开始考虑，如果 $1$ 是可表达的，那么它必须出现在数组 `nums` 中；如果 $2$ 是可表达的，那么它必须出现在数组 `nums` 中；如果 $1$ 和 $2$ 都是可表达的，那么它们的或运算 $3$ 也是可表达的，以此类推。
 
@@ -51,20 +49,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minImpossibleOR(self, nums: List[int]) -> int:
         s = set(nums)
         return next(1 << i for i in range(32) if 1 << i not in s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -82,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +85,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minImpossibleOR(nums []int) int {
@@ -114,8 +100,6 @@ func minImpossibleOR(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minImpossibleOR(nums: number[]): number {
     const s: Set<number> = new Set();
@@ -130,10 +114,6 @@ function minImpossibleOR(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

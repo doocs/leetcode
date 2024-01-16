@@ -45,7 +45,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We can observe that if the number of elements in $[1,..x]$ is greater than $x$, then the duplicate number must be in $[1,..x]$, otherwise the duplicate number must be in $[x+1,..n]$.
 
@@ -55,8 +55,6 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
@@ -65,8 +63,6 @@ class Solution:
 
         return bisect_left(range(len(nums)), True, key=f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,7 +109,41 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func findDuplicate(nums []int) int {
+	return sort.Search(len(nums), func(x int) bool {
+		cnt := 0
+		for _, v := range nums {
+			if v <= x {
+				cnt++
+			}
+		}
+		return cnt > x
+	})
+}
+```
+
+```ts
+function findDuplicate(nums: number[]): number {
+    let l = 0;
+    let r = nums.length - 1;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        let cnt = 0;
+        for (const v of nums) {
+            if (v <= mid) {
+                ++cnt;
+            }
+        }
+        if (cnt > mid) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
 
 ```rust
 impl Solution {
@@ -141,24 +169,6 @@ impl Solution {
     }
 }
 ```
-
-### **Go**
-
-```go
-func findDuplicate(nums []int) int {
-	return sort.Search(len(nums), func(x int) bool {
-		cnt := 0
-		for _, v := range nums {
-			if v <= x {
-				cnt++
-			}
-		}
-		return cnt > x
-	})
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -186,34 +196,6 @@ var findDuplicate = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function findDuplicate(nums: number[]): number {
-    let l = 0;
-    let r = nums.length - 1;
-    while (l < r) {
-        const mid = (l + r) >> 1;
-        let cnt = 0;
-        for (const v of nums) {
-            if (v <= mid) {
-                ++cnt;
-            }
-        }
-        if (cnt > mid) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return l;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

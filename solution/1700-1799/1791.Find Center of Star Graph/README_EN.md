@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Directly Compare the Points of the First Two Edges**
+### Solution 1: Directly Compare the Points of the First Two Edges
 
 The characteristic of the center point is that it is connected to all other points. Therefore, as long as we compare the points of the first two edges, if there are the same points, then this point is the center point.
 
@@ -46,15 +46,11 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
         return edges[0][0] if edges[0][0] in edges[1] else edges[0][1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,20 +61,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function findCenter(edges: number[][]): number {
-    for (let num of edges[0]) {
-        if (edges[1].includes(num)) {
-            return num;
-        }
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +73,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findCenter(edges [][]int) int {
 	a, b := edges[0][0], edges[0][1]
@@ -104,7 +84,15 @@ func findCenter(edges [][]int) int {
 }
 ```
 
-### **Rust**
+```ts
+function findCenter(edges: number[][]): number {
+    for (let num of edges[0]) {
+        if (edges[1].includes(num)) {
+            return num;
+        }
+    }
+}
+```
 
 ```rust
 impl Solution {
@@ -116,8 +104,6 @@ impl Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -131,10 +117,6 @@ var findCenter = function (edges) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

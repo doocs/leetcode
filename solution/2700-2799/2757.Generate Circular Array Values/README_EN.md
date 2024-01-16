@@ -66,9 +66,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function* cycleGenerator(arr: number[], startIndex: number): Generator<number, void, number> {
@@ -88,3 +88,5 @@ function* cycleGenerator(arr: number[], startIndex: number): Generator<number, v
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

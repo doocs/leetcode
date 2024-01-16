@@ -20,17 +20,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-定义 `p`、`q` 指针指向 `head`。
-
-`p` 先向前走 `k` 步，接着 `p`、`q` 同时向前走，当 `p` 指向 `null` 时，`q` 指向的节点即为链表的倒数第 `k` 个节点。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -49,10 +41,6 @@ class Solution:
             slow, fast = slow.next, fast.next
         return slow.val
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -77,37 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number} k
- * @return {number}
- */
-var kthToLast = function (head, k) {
-    let fast = head,
-        slow = head;
-    for (let i = 0; i < k; i++) {
-        fast = fast.next;
-    }
-    while (fast != null) {
-        fast = fast.next;
-        slow = slow.next;
-    }
-    return slow.val;
-};
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -135,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthToLast(head *ListNode, k int) int {
 	slow, fast := head, head
@@ -150,8 +105,6 @@ func kthToLast(head *ListNode, k int) int {
 	return slow.Val
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -186,10 +139,33 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {number}
+ */
+var kthToLast = function (head, k) {
+    let fast = head,
+        slow = head;
+    for (let i = 0; i < k; i++) {
+        fast = fast.next;
+    }
+    while (fast != null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+    return slow.val;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

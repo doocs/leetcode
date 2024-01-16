@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 给与的数组是有序的，由此可以使用二分查找，那条件该如何判断呢。
 
@@ -83,10 +81,6 @@ return nums[l]
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
@@ -100,10 +94,6 @@ class Solution:
                 left = mid + 1
         return nums[left]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,44 +114,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function singleNonDuplicate(nums: number[]): number {
-    let left = 0,
-        right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] != nums[mid ^ 1]) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return nums[left];
-}
-```
-
-### **C**
-
-```c
-int singleNonDuplicate(int* nums, int numsSize) {
-    int left = 0;
-    int right = numsSize - 1;
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] == nums[mid ^ 1]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
-    }
-    return nums[left];
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -196,7 +146,21 @@ func singleNonDuplicate(nums []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function singleNonDuplicate(nums: number[]): number {
+    let left = 0,
+        right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] != nums[mid ^ 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return nums[left];
+}
+```
 
 ```rust
 impl Solution {
@@ -216,10 +180,22 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int singleNonDuplicate(int* nums, int numsSize) {
+    int left = 0;
+    int right = numsSize - 1;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == nums[mid ^ 1]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return nums[left];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

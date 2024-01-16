@@ -28,19 +28,15 @@
 
 ## 解法
 
-递归，结合**逻辑与**短路运算符求解。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def sumNums(self, n: int) -> int:
         return n and (n + self.sumNums(n - 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -52,8 +48,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -63,20 +57,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var sumNums = function (n) {
-    return (n ** 2 + n) >> 1;
-};
-```
-
-### **Go**
 
 ```go
 func sumNums(n int) int {
@@ -91,15 +71,11 @@ func sumNums(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 var sumNums = function (n: number): number {
     return n && n + sumNums(n - 1);
 };
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -116,7 +92,15 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var sumNums = function (n) {
+    return (n ** 2 + n) >> 1;
+};
+```
 
 ```cs
 public class Solution {
@@ -131,13 +115,8 @@ public class Solution {
         return n == 0 || helper(n - 1);
     }
 }
-
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

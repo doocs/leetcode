@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Dynamic Programming**
+### Solution 1: Hash Table + Dynamic Programming
 
 We can use a hash table $ss$ to record all words in the dictionary, which allows us to quickly determine whether a string is in the dictionary.
 
@@ -59,19 +59,7 @@ The final answer is $f[n]$.
 
 The time complexity is $O(n^3 + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of string $s$, and $L$ is the sum of the lengths of all words in the dictionary.
 
-**Solution 2: Trie + Dynamic Programming**
-
-We can use a trie to optimize the time complexity of Solution 1.
-
-Specifically, we first insert each word in the dictionary into the trie $root$ in reverse order, then we define $f[i]$ to represent the minimum number of extra characters in the first $i$ characters of string $s$, initially $f[0] = 0$.
-
-When $i \ge 1$, the $i$th character $s[i - 1]$ can be an extra character, in which case $f[i] = f[i - 1] + 1$. We can also enumerate the index $j$ in reverse order in the range $[0..i-1]$, and determine whether $s[j..i)$ is in the trie $root$. If it exists, then we can take $s[j..i)$ as a word, in which case $f[i] = f[j]$.
-
-The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L \times |\Sigma|)$. Here, $n$ is the length of string $s$, and $L$ is the sum of the lengths of all words in the dictionary. Additionally, $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,6 +74,122 @@ class Solution:
                     f[i] = f[j]
         return f[n]
 ```
+
+```java
+class Solution {
+    public int minExtraChar(String s, String[] dictionary) {
+        Set<String> ss = new HashSet<>();
+        for (String w : dictionary) {
+            ss.add(w);
+        }
+        int n = s.length();
+        int[] f = new int[n + 1];
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i - 1] + 1;
+            for (int j = 0; j < i; ++j) {
+                if (ss.contains(s.substring(j, i))) {
+                    f[i] = Math.min(f[i], f[j]);
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minExtraChar(string s, vector<string>& dictionary) {
+        unordered_set<string> ss(dictionary.begin(), dictionary.end());
+        int n = s.size();
+        int f[n + 1];
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i - 1] + 1;
+            for (int j = 0; j < i; ++j) {
+                if (ss.count(s.substr(j, i - j))) {
+                    f[i] = min(f[i], f[j]);
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func minExtraChar(s string, dictionary []string) int {
+	ss := map[string]bool{}
+	for _, w := range dictionary {
+		ss[w] = true
+	}
+	n := len(s)
+	f := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		f[i] = f[i-1] + 1
+		for j := 0; j < i; j++ {
+			if ss[s[j:i]] && f[j] < f[i] {
+				f[i] = f[j]
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+```ts
+function minExtraChar(s: string, dictionary: string[]): number {
+    const ss = new Set(dictionary);
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        f[i] = f[i - 1] + 1;
+        for (let j = 0; j < i; ++j) {
+            if (ss.has(s.substring(j, i))) {
+                f[i] = Math.min(f[i], f[j]);
+            }
+        }
+    }
+    return f[n];
+}
+```
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
+        let ss: HashSet<String> = dictionary.into_iter().collect();
+        let n = s.len();
+        let mut f = vec![0; n + 1];
+        for i in 1..=n {
+            f[i] = f[i - 1] + 1;
+            for j in 0..i {
+                if ss.contains(&s[j..i]) {
+                    f[i] = f[i].min(f[j]);
+                }
+            }
+        }
+        f[n]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Trie + Dynamic Programming
+
+We can use a trie to optimize the time complexity of Solution 1.
+
+Specifically, we first insert each word in the dictionary into the trie $root$ in reverse order, then we define $f[i]$ to represent the minimum number of extra characters in the first $i$ characters of string $s$, initially $f[0] = 0$.
+
+When $i \ge 1$, the $i$th character $s[i - 1]$ can be an extra character, in which case $f[i] = f[i - 1] + 1$. We can also enumerate the index $j$ in reverse order in the range $[0..i-1]$, and determine whether $s[j..i)$ is in the trie $root$. If it exists, then we can take $s[j..i)$ as a word, in which case $f[i] = f[j]$.
+
+The time complexity is $O(n^2 + L)$, and the space complexity is $O(n + L \times |\Sigma|)$. Here, $n$ is the length of string $s$, and $L$ is the sum of the lengths of all words in the dictionary. Additionally, $|\Sigma|$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -120,31 +224,6 @@ class Solution:
                 if node.is_end and f[j] < f[i]:
                     f[i] = f[j]
         return f[n]
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int minExtraChar(String s, String[] dictionary) {
-        Set<String> ss = new HashSet<>();
-        for (String w : dictionary) {
-            ss.add(w);
-        }
-        int n = s.length();
-        int[] f = new int[n + 1];
-        f[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            f[i] = f[i - 1] + 1;
-            for (int j = 0; j < i; ++j) {
-                if (ss.contains(s.substring(j, i))) {
-                    f[i] = Math.min(f[i], f[j]);
-                }
-            }
-        }
-        return f[n];
-    }
-}
 ```
 
 ```java
@@ -185,29 +264,6 @@ class Solution {
         return f[n];
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minExtraChar(string s, vector<string>& dictionary) {
-        unordered_set<string> ss(dictionary.begin(), dictionary.end());
-        int n = s.size();
-        int f[n + 1];
-        f[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            f[i] = f[i - 1] + 1;
-            for (int j = 0; j < i; ++j) {
-                if (ss.count(s.substr(j, i - j))) {
-                    f[i] = min(f[i], f[j]);
-                }
-            }
-        }
-        return f[n];
-    }
-};
 ```
 
 ```cpp
@@ -257,28 +313,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minExtraChar(s string, dictionary []string) int {
-	ss := map[string]bool{}
-	for _, w := range dictionary {
-		ss[w] = true
-	}
-	n := len(s)
-	f := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		f[i] = f[i-1] + 1
-		for j := 0; j < i; j++ {
-			if ss[s[j:i]] && f[j] < f[i] {
-				f[i] = f[j]
-			}
-		}
-	}
-	return f[n]
-}
-```
-
 ```go
 type Node struct {
 	children [26]*Node
@@ -315,25 +349,6 @@ func minExtraChar(s string, dictionary []string) int {
 		}
 	}
 	return f[n]
-}
-```
-
-### **TypeScript**
-
-```ts
-function minExtraChar(s: string, dictionary: string[]): number {
-    const ss = new Set(dictionary);
-    const n = s.length;
-    const f = new Array(n + 1).fill(0);
-    for (let i = 1; i <= n; ++i) {
-        f[i] = f[i - 1] + 1;
-        for (let j = 0; j < i; ++j) {
-            if (ss.has(s.substring(j, i))) {
-                f[i] = Math.min(f[i], f[j]);
-            }
-        }
-    }
-    return f[n];
 }
 ```
 
@@ -377,33 +392,6 @@ function minExtraChar(s: string, dictionary: string[]): number {
 }
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-
-impl Solution {
-    pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
-        let ss: HashSet<String> = dictionary.into_iter().collect();
-        let n = s.len();
-        let mut f = vec![0; n + 1];
-        for i in 1..=n {
-            f[i] = f[i - 1] + 1;
-            for j in 0..i {
-                if ss.contains(&s[j..i]) {
-                    f[i] = f[i].min(f[j]);
-                }
-            }
-        }
-        f[n]
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

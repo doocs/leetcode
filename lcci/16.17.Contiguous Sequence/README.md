@@ -20,9 +20,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示以 $nums[i]$ 结尾的连续子数组的最大和，那么状态转移方程为：
 
@@ -40,10 +38,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -53,10 +47,6 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -70,8 +60,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +75,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSubArray(nums []int) int {
 	ans, f := math.MinInt32, math.MinInt32
@@ -100,8 +86,6 @@ func maxSubArray(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSubArray(nums: number[]): number {
     let [ans, f] = [-Infinity, -Infinity];
@@ -112,8 +96,6 @@ function maxSubArray(nums: number[]): number {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -130,11 +112,6 @@ var maxSubArray = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function sortBy(arr: any[], fn: Function): any[] {
@@ -55,3 +55,5 @@ function sortBy(arr: any[], fn: Function): any[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

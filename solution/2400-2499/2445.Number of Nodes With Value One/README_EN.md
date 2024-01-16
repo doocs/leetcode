@@ -51,7 +51,7 @@ After processing the queries, there are one red node (node with value 1): 2.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 According to the problem description, we can simulate the process of each query, that is, reverse the values of the query node and its subtree nodes. Finally, count the number of nodes with a value of 1.
 
@@ -60,8 +60,6 @@ There is an optimization point here. If a node and its corresponding subtree hav
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
                 dfs(i)
         return sum(tree)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfNodes(n int, queries []int) int {
@@ -172,16 +164,6 @@ func numberOfNodes(n int, queries []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

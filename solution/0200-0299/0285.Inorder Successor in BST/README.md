@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分搜索**
+### 方法一：二分搜索
 
 二叉搜索树的中序遍历是一个升序序列，因此可以使用二分搜索的方法。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(h)$，其中 $h$ 为二叉搜索树的高度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -85,10 +79,6 @@ class Solution:
                 root = root.right
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -168,8 +154,6 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -200,8 +184,6 @@ function inorderSuccessor(root: TreeNode | null, p: TreeNode | null): TreeNode |
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -229,10 +211,6 @@ var inorderSuccessor = function (root, p) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

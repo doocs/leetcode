@@ -45,33 +45,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def findNonMinOrMax(self, nums: List[int]) -> int:
         return -1 if len(nums) < 3 else sorted(nums)[1]
 ```
-
-```python
-class Solution:
-    def findNonMinOrMax(self, nums: List[int]) -> int:
-        mi, mx = min(nums), max(nums)
-        for x in nums:
-            if x != mi and x != mx:
-                return x
-        return -1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +73,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findNonMinOrMax(nums []int) int {
 	mi, mx := slices.Min(nums), slices.Max(nums)
@@ -122,8 +100,6 @@ func findNonMinOrMax(nums []int) int {
 	return -1
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -151,10 +127,22 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findNonMinOrMax(self, nums: List[int]) -> int:
+        mi, mx = min(nums), max(nums)
+        for x in nums:
+            if x != mi and x != mx:
+                return x
+        return -1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

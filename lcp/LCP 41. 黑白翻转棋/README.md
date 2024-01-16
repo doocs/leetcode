@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们注意到，题目中棋盘的大小最大为 $8 \times 8$，因此，我们可以尝试枚举所有的空余位置作为下一步放置黑棋的位置，然后使用广度优先搜索的方法计算在该位置下可以翻转的白棋的数量，找出最大值即可。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(m^2 \times n^2 \times \max(m, n))$，空间复杂度 $O(m^2 \times n^2)$。其中 $m$ 和 $n$ 分别是棋盘的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
             bfs(i, j) for i in range(m) for j in range(n) if chessboard[i][j] == "."
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -224,8 +212,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func flipChess(chessboard []string) (ans int) {
@@ -286,10 +272,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

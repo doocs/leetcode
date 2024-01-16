@@ -52,9 +52,9 @@ It can be shown that there are only 2 powerful integers in this range.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
         b = dfs(0, True)
         return b - a
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +160,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
@@ -218,8 +212,6 @@ func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfPowerfulInt(start: number, finish: number, limit: number, s: string): number {
     let t: string = (start - 1).toString();
@@ -260,10 +252,6 @@ function numberOfPowerfulInt(start: number, finish: number, limit: number, s: st
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

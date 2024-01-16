@@ -64,9 +64,9 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
             day[task] = ans + space + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func taskSchedulerII(tasks []int, space int) (ans int64) {
 	day := map[int]int64{}
@@ -131,8 +125,6 @@ func taskSchedulerII(tasks []int, space int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function taskSchedulerII(tasks: number[], space: number): number {
     const day = new Map<number, number>();
@@ -146,10 +138,6 @@ function taskSchedulerII(tasks: number[], space: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

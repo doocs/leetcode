@@ -43,9 +43,9 @@ myCalendar.book(20, 30); // return True, The event can be booked, as the first e
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -67,8 +67,6 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 ```
-
-### **Java**
 
 ```java
 import java.util.Map;
@@ -101,39 +99,6 @@ class MyCalendar {
  */
 ```
 
-### **Go**
-
-```go
-type MyCalendar struct {
-	rbt *redblacktree.Tree
-}
-
-func Constructor() MyCalendar {
-	return MyCalendar{
-		rbt: redblacktree.NewWithIntComparator(),
-	}
-}
-
-func (this *MyCalendar) Book(start int, end int) bool {
-	if p, ok := this.rbt.Floor(start); ok && p.Value.(int) > start {
-		return false
-	}
-	if p, ok := this.rbt.Ceiling(start); ok && p.Key.(int) < end {
-		return false
-	}
-	this.rbt.Put(start, end)
-	return true
-}
-
-/**
- * Your MyCalendar object will be instantiated and called as such:
- * obj := Constructor();
- * param_1 := obj.Book(start,end);
- */
-```
-
-### **C++**
-
 ```cpp
 class MyCalendar {
 public:
@@ -165,7 +130,34 @@ public:
  */
 ```
 
-### **TypeScript**
+```go
+type MyCalendar struct {
+	rbt *redblacktree.Tree
+}
+
+func Constructor() MyCalendar {
+	return MyCalendar{
+		rbt: redblacktree.NewWithIntComparator(),
+	}
+}
+
+func (this *MyCalendar) Book(start int, end int) bool {
+	if p, ok := this.rbt.Floor(start); ok && p.Value.(int) > start {
+		return false
+	}
+	if p, ok := this.rbt.Ceiling(start); ok && p.Key.(int) < end {
+		return false
+	}
+	this.rbt.Put(start, end)
+	return true
+}
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Book(start,end);
+ */
+```
 
 ```ts
 class MyCalendar {
@@ -193,8 +185,6 @@ class MyCalendar {
  * var param_1 = obj.book(start,end)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BTreeMap;
@@ -236,10 +226,6 @@ impl MyCalendar {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

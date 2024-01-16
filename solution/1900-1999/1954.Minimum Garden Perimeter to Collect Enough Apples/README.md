@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 枚举**
+### 方法一：数学 + 枚举
 
 假设正方形右上角坐标为 $(n, n)$，那么它的边长为 $2n$，周长为 $8n$，里面的苹果总数为：
 
@@ -83,15 +81,7 @@ $$
 
 时间复杂度 $O(m^{\frac{1}{3}})$，其中 $m$ 为 $neededApples$ 的值。空间复杂度 $O(1)$。
 
-**方法二：二分查找**
-
-我们也可以二分枚举 $n$，时间复杂度 $O(\log m)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,6 +91,59 @@ class Solution:
             x += 1
         return x * 8
 ```
+
+```java
+class Solution {
+    public long minimumPerimeter(long neededApples) {
+        long x = 1;
+        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+            ++x;
+        }
+        return 8 * x;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long minimumPerimeter(long long neededApples) {
+        long long x = 1;
+        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+            ++x;
+        }
+        return 8 * x;
+    }
+};
+```
+
+```go
+func minimumPerimeter(neededApples int64) int64 {
+	var x int64 = 1
+	for 2*x*(x+1)*(2*x+1) < neededApples {
+		x++
+	}
+	return 8 * x
+}
+```
+
+```ts
+function minimumPerimeter(neededApples: number): number {
+    let x = 1;
+    while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+        ++x;
+    }
+    return 8 * x;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：二分查找
+
+我们也可以二分枚举 $n$，时间复杂度 $O(\log m)$。
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -113,22 +156,6 @@ class Solution:
             else:
                 l = mid + 1
         return l * 8
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public long minimumPerimeter(long neededApples) {
-        long x = 1;
-        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
-            ++x;
-        }
-        return 8 * x;
-    }
-}
 ```
 
 ```java
@@ -146,21 +173,6 @@ class Solution {
         return l * 8;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    long long minimumPerimeter(long long neededApples) {
-        long long x = 1;
-        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
-            ++x;
-        }
-        return 8 * x;
-    }
-};
 ```
 
 ```cpp
@@ -181,18 +193,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minimumPerimeter(neededApples int64) int64 {
-	var x int64 = 1
-	for 2*x*(x+1)*(2*x+1) < neededApples {
-		x++
-	}
-	return 8 * x
-}
-```
-
 ```go
 func minimumPerimeter(neededApples int64) int64 {
 	var l, r int64 = 1, 100000
@@ -205,18 +205,6 @@ func minimumPerimeter(neededApples int64) int64 {
 		}
 	}
 	return l * 8
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumPerimeter(neededApples: number): number {
-    let x = 1;
-    while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
-        ++x;
-    }
-    return 8 * x;
 }
 ```
 
@@ -236,10 +224,6 @@ function minimumPerimeter(neededApples: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

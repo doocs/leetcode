@@ -23,9 +23,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 动态规划**
+### 方法一：排序 + 动态规划
 
 我们先将箱子按照宽度升序、深度降序的顺序进行排序，然后使用动态规划求解。
 
@@ -36,10 +34,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是箱子的数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -54,10 +48,6 @@ class Solution:
             f[i] += box[i][2]
         return max(f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pileBox(box [][]int) int {
 	sort.Slice(box, func(i, j int) bool {
@@ -127,8 +113,6 @@ func pileBox(box [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function pileBox(box: number[][]): number {
     box.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
@@ -148,10 +132,6 @@ function pileBox(box: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

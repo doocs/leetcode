@@ -154,11 +154,9 @@ ride_id 是该表的主键(具有唯一值的列)。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -194,3 +192,5 @@ GROUP BY month;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

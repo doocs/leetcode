@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 我们可以遍历数组 $nums$，用变量 $cnt$ 记录当前连续递增序列的长度。初始时 $cnt = 1$。
 
@@ -52,17 +50,7 @@
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
-**方法二：双指针**
-
-我们也可以用双指针 $i$ 和 $j$ 找到每一段连续递增序列，找出最长的连续递增序列的长度作为答案。
-
-时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,24 +64,6 @@ class Solution:
                 cnt = 1
         return ans
 ```
-
-```python
-class Solution:
-    def findLengthOfLCIS(self, nums: List[int]) -> int:
-        ans, n = 1, len(nums)
-        i = 0
-        while i < n:
-            j = i + 1
-            while j < n and nums[j - 1] < nums[j]:
-                j += 1
-            ans = max(ans, j - i)
-            i = j
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,6 +79,115 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int findLengthOfLCIS(vector<int>& nums) {
+        int ans = 1;
+        for (int i = 1, cnt = 1; i < nums.size(); ++i) {
+            if (nums[i - 1] < nums[i]) {
+                ans = max(ans, ++cnt);
+            } else {
+                cnt = 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findLengthOfLCIS(nums []int) int {
+	ans, cnt := 1, 1
+	for i, x := range nums[1:] {
+		if nums[i] < x {
+			cnt++
+			ans = max(ans, cnt)
+		} else {
+			cnt = 1
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function findLengthOfLCIS(nums: number[]): number {
+    let [ans, cnt] = [1, 1];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            ans = Math.max(ans, ++cnt);
+        } else {
+            cnt = 1;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_length_of_lcis(nums: Vec<i32>) -> i32 {
+        let mut ans = 1;
+        let mut cnt = 1;
+        for i in 1..nums.len() {
+            if nums[i - 1] < nums[i] {
+                ans = ans.max(cnt + 1);
+                cnt += 1;
+            } else {
+                cnt = 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function findLengthOfLCIS($nums) {
+        $ans = 1;
+        $cnt = 1;
+        for ($i = 1; $i < count($nums); ++$i) {
+            if ($nums[$i - 1] < $nums[$i]) {
+                $ans = max($ans, ++$cnt);
+            } else {
+                $cnt = 1;
+            }
+        }
+        return $ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：双指针
+
+我们也可以用双指针 $i$ 和 $j$ 找到每一段连续递增序列，找出最长的连续递增序列的长度作为答案。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        ans, n = 1, len(nums)
+        i = 0
+        while i < n:
+            j = i + 1
+            while j < n and nums[j - 1] < nums[j]:
+                j += 1
+            ans = max(ans, j - i)
+            i = j
+        return ans
 ```
 
 ```java
@@ -127,25 +206,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findLengthOfLCIS(vector<int>& nums) {
-        int ans = 1;
-        for (int i = 1, cnt = 1; i < nums.size(); ++i) {
-            if (nums[i - 1] < nums[i]) {
-                ans = max(ans, ++cnt);
-            } else {
-                cnt = 1;
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -167,23 +227,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findLengthOfLCIS(nums []int) int {
-	ans, cnt := 1, 1
-	for i, x := range nums[1:] {
-		if nums[i] < x {
-			cnt++
-			ans = max(ans, cnt)
-		} else {
-			cnt = 1
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func findLengthOfLCIS(nums []int) int {
 	ans := 1
@@ -197,61 +240,6 @@ func findLengthOfLCIS(nums []int) int {
 		i = j
 	}
 	return ans
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_length_of_lcis(nums: Vec<i32>) -> i32 {
-        let mut ans = 1;
-        let mut cnt = 1;
-        for i in 1..nums.len() {
-            if nums[i - 1] < nums[i] {
-                ans = ans.max(cnt + 1);
-                cnt += 1;
-            } else {
-                cnt = 1;
-            }
-        }
-        ans
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn find_length_of_lcis(nums: Vec<i32>) -> i32 {
-        let mut ans = 1;
-        let n = nums.len();
-        let mut i = 0;
-        while i < n {
-            let mut j = i + 1;
-            while j < n && nums[j - 1] < nums[j] {
-                j += 1;
-            }
-            ans = ans.max(j - i);
-            i = j;
-        }
-        ans as i32
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function findLengthOfLCIS(nums: number[]): number {
-    let [ans, cnt] = [1, 1];
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i - 1] < nums[i]) {
-            ans = Math.max(ans, ++cnt);
-        } else {
-            cnt = 1;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -271,25 +259,21 @@ function findLengthOfLCIS(nums: number[]): number {
 }
 ```
 
-### **PHP**
-
-```php
-class Solution {
-    /**
-     * @param Integer[] $nums
-     * @return Integer
-     */
-    function findLengthOfLCIS($nums) {
-        $ans = 1;
-        $cnt = 1;
-        for ($i = 1; $i < count($nums); ++$i) {
-            if ($nums[$i - 1] < $nums[$i]) {
-                $ans = max($ans, ++$cnt);
-            } else {
-                $cnt = 1;
+```rust
+impl Solution {
+    pub fn find_length_of_lcis(nums: Vec<i32>) -> i32 {
+        let mut ans = 1;
+        let n = nums.len();
+        let mut i = 0;
+        while i < n {
+            let mut j = i + 1;
+            while j < n && nums[j - 1] < nums[j] {
+                j += 1;
             }
+            ans = ans.max(j - i);
+            i = j;
         }
-        return $ans;
+        ans as i32
     }
 }
 ```
@@ -317,10 +301,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

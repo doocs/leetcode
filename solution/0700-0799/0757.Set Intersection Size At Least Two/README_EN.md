@@ -53,9 +53,9 @@ It can be shown that there cannot be any containing array of size 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                 s, e = e, b
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func intersectionSizeTwo(intervals [][]int) int {
@@ -162,10 +156,6 @@ func intersectionSizeTwo(intervals [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

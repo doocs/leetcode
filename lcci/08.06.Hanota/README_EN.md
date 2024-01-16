@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: Recursion**
+### Solution 1: Recursion
 
 We design a function $dfs(n, a, b, c)$, which represents moving $n$ disks from $a$ to $c$, with $b$ as the auxiliary rod.
 
@@ -40,7 +40,100 @@ First, we move $n - 1$ disks from $a$ to $b$, then move the $n$-th disk from $a$
 
 The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ is the number of disks.
 
-**Solution 2: Iteration (Stack)**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
+        def dfs(n, a, b, c):
+            if n == 1:
+                c.append(a.pop())
+                return
+            dfs(n - 1, a, c, b)
+            c.append(a.pop())
+            dfs(n - 1, b, a, c)
+
+        dfs(len(A), A, B, C)
+```
+
+```java
+class Solution {
+    public void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
+        dfs(A.size(), A, B, C);
+    }
+
+    private void dfs(int n, List<Integer> a, List<Integer> b, List<Integer> c) {
+        if (n == 1) {
+            c.add(a.remove(a.size() - 1));
+            return;
+        }
+        dfs(n - 1, a, c, b);
+        c.add(a.remove(a.size() - 1));
+        dfs(n - 1, b, a, c);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    void hanota(vector<int>& A, vector<int>& B, vector<int>& C) {
+        function<void(int, vector<int>&, vector<int>&, vector<int>&)> dfs = [&](int n, vector<int>& a, vector<int>& b, vector<int>& c) {
+            if (n == 1) {
+                c.push_back(a.back());
+                a.pop_back();
+                return;
+            }
+            dfs(n - 1, a, c, b);
+            c.push_back(a.back());
+            a.pop_back();
+            dfs(n - 1, b, a, c);
+        };
+        dfs(A.size(), A, B, C);
+    }
+};
+```
+
+```go
+func hanota(A []int, B []int, C []int) []int {
+	var dfs func(n int, a, b, c *[]int)
+	dfs = func(n int, a, b, c *[]int) {
+		if n == 1 {
+			*c = append(*c, (*a)[len(*a)-1])
+			*a = (*a)[:len(*a)-1]
+			return
+		}
+		dfs(n-1, a, c, b)
+		*c = append(*c, (*a)[len(*a)-1])
+		*a = (*a)[:len(*a)-1]
+		dfs(n-1, b, a, c)
+	}
+	dfs(len(A), &A, &B, &C)
+	return C
+}
+```
+
+```ts
+/**
+ Do not return anything, modify C in-place instead.
+ */
+function hanota(A: number[], B: number[], C: number[]): void {
+    const dfs = (n: number, a: number[], b: number[], c: number[]) => {
+        if (n === 1) {
+            c.push(a.pop()!);
+            return;
+        }
+        dfs(n - 1, a, c, b);
+        c.push(a.pop()!);
+        dfs(n - 1, b, a, c);
+    };
+    dfs(A.length, A, B, C);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Iteration (Stack)
 
 We can use a stack to simulate the recursive process.
 
@@ -60,22 +153,6 @@ The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
-### **Python3**
-
-```python
-class Solution:
-    def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
-        def dfs(n, a, b, c):
-            if n == 1:
-                c.append(a.pop())
-                return
-            dfs(n - 1, a, c, b)
-            c.append(a.pop())
-            dfs(n - 1, b, a, c)
-
-        dfs(len(A), A, B, C)
-```
-
 ```python
 class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
@@ -88,26 +165,6 @@ class Solution:
                 stk.append((n - 1, b, a, c))
                 stk.append((1, a, b, c))
                 stk.append((n - 1, a, c, b))
-```
-
-### **Java**
-
-```java
-class Solution {
-    public void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
-        dfs(A.size(), A, B, C);
-    }
-
-    private void dfs(int n, List<Integer> a, List<Integer> b, List<Integer> c) {
-        if (n == 1) {
-            c.add(a.remove(a.size() - 1));
-            return;
-        }
-        dfs(n - 1, a, c, b);
-        c.add(a.remove(a.size() - 1));
-        dfs(n - 1, b, a, c);
-    }
-}
 ```
 
 ```java
@@ -147,28 +204,6 @@ class Task {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    void hanota(vector<int>& A, vector<int>& B, vector<int>& C) {
-        function<void(int, vector<int>&, vector<int>&, vector<int>&)> dfs = [&](int n, vector<int>& a, vector<int>& b, vector<int>& c) {
-            if (n == 1) {
-                c.push_back(a.back());
-                a.pop_back();
-                return;
-            }
-            dfs(n - 1, a, c, b);
-            c.push_back(a.back());
-            a.pop_back();
-            dfs(n - 1, b, a, c);
-        };
-        dfs(A.size(), A, B, C);
-    }
-};
-```
-
 ```cpp
 struct Task {
     int n;
@@ -198,27 +233,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func hanota(A []int, B []int, C []int) []int {
-	var dfs func(n int, a, b, c *[]int)
-	dfs = func(n int, a, b, c *[]int) {
-		if n == 1 {
-			*c = append(*c, (*a)[len(*a)-1])
-			*a = (*a)[:len(*a)-1]
-			return
-		}
-		dfs(n-1, a, c, b)
-		*c = append(*c, (*a)[len(*a)-1])
-		*a = (*a)[:len(*a)-1]
-		dfs(n-1, b, a, c)
-	}
-	dfs(len(A), &A, &B, &C)
-	return C
-}
-```
-
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	stk := []Task{{len(A), &A, &B, &C}}
@@ -243,26 +257,6 @@ type Task struct {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- Do not return anything, modify C in-place instead.
- */
-function hanota(A: number[], B: number[], C: number[]): void {
-    const dfs = (n: number, a: number[], b: number[], c: number[]) => {
-        if (n === 1) {
-            c.push(a.pop()!);
-            return;
-        }
-        dfs(n - 1, a, c, b);
-        c.push(a.pop()!);
-        dfs(n - 1, b, a, c);
-    };
-    dfs(A.length, A, B, C);
-}
-```
-
 ```ts
 /**
  Do not return anything, modify C in-place instead.
@@ -282,10 +276,6 @@ function hanota(A: number[], B: number[], C: number[]): void {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

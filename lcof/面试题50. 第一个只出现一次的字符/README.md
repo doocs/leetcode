@@ -26,15 +26,13 @@
 
 ## 解法
 
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 我们可以使用哈希表或数组来统计每个字符出现的次数，然后再遍历一遍字符串，找到第一个出现次数为 $1$ 的字符。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度；而 $C$ 为字符集大小，本题中 $C=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -45,8 +43,6 @@ class Solution:
                 return c
         return " "
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +62,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -86,8 +80,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstUniqChar(s string) byte {
 	cnt := [26]int{}
@@ -103,7 +95,38 @@ func firstUniqChar(s string) byte {
 }
 ```
 
-### **JavaScript**
+```ts
+function firstUniqChar(s: string): string {
+    const map = new Map();
+    for (const c of s) {
+        map.set(c, !map.has(c));
+    }
+    for (const c of s) {
+        if (map.get(c)) {
+            return c;
+        }
+    }
+    return ' ';
+}
+```
+
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn first_uniq_char(s: String) -> char {
+        let mut map = HashMap::new();
+        for c in s.as_bytes() {
+            map.insert(c, !map.contains_key(c));
+        }
+        for c in s.as_bytes() {
+            if map[c] {
+                return char::from(*c);
+            }
+        }
+        ' '
+    }
+}
+```
 
 ```js
 /**
@@ -124,45 +147,6 @@ var firstUniqChar = function (s) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function firstUniqChar(s: string): string {
-    const map = new Map();
-    for (const c of s) {
-        map.set(c, !map.has(c));
-    }
-    for (const c of s) {
-        if (map.get(c)) {
-            return c;
-        }
-    }
-    return ' ';
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashMap;
-impl Solution {
-    pub fn first_uniq_char(s: String) -> char {
-        let mut map = HashMap::new();
-        for c in s.as_bytes() {
-            map.insert(c, !map.contains_key(c));
-        }
-        for c in s.as_bytes() {
-            if map[c] {
-                return char::from(*c);
-            }
-        }
-        ' '
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public char FirstUniqChar(string s) {
@@ -180,10 +164,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

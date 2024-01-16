@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们设计一个函数 $dfs(i, j)$，返回由 $[i, j]$ 组成的所有可行的二叉搜索树，那么答案就是 $dfs(1, n)$。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(n \times G(n))$，空间复杂度 $O(n \times G(n))$。其中 $G(n)$ 是卡特兰数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -80,10 +74,6 @@ class Solution:
 
         return dfs(1, n)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -164,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -196,8 +182,6 @@ func generateTrees(n int) []*TreeNode {
 	return dfs(1, n)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -234,8 +218,6 @@ function generateTrees(n: number): Array<TreeNode | null> {
     return dfs(1, n);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -293,10 +275,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

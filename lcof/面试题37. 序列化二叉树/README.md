@@ -25,9 +25,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：层序遍历**
+### 方法一：层序遍历
 
 我们可以采用层序遍历的方式对二叉树进行序列化，即从根节点开始，依次将二叉树的节点按照从上到下、从左到右的顺序加入队列中，然后将队列中的节点依次出队。如果节点不为空，则将其值加入序列化字符串中，否则加入特殊字符 `#`。最后将序列化字符串返回即可。
 
@@ -35,25 +33,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
-**方法二：前序遍历**
-
-当二叉树的前中后序列不包含叶子节点时需要前中、前后、中后三种组合方式之一才能确定一颗二叉树，但当前序和后序遍历序列中包含叶子节点时，可以仅通过前序或后序遍历序列构建一颗二叉树。
-
-在前序遍历序列化时，我们以任意特殊字符表示叶子节点，返回序列化后的字符串；反序列化时对序列化字符串根据分隔符进行切分后使用列表的第一个元素作为二叉树的根节点，然后利用列表的其他元素递归生成左右子树即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
-
-**方法三：后序遍历**
-
-在后序遍历序列化时，我们以任意特殊字符表示叶子节点，返回序列化后的字符串；反序列化时对序列化字符串根据分隔符进行切分后使用列表的最后一个元素作为二叉树的根节点，然后利用列表的其他元素递归生成左右子树即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -114,10 +94,6 @@ class Codec:
 # codec = Codec()
 # codec.deserialize(codec.serialize(root))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -183,8 +159,6 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.deserialize(codec.serialize(root));
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -252,116 +226,6 @@ public:
 // Codec codec;
 // codec.deserialize(codec.serialize(root));
 ```
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Codec {
-public:
-    string empty = "#";
-    string sep = ",";
-    // Encodes a tree to a single string.
-    string serialize(TreeNode* root) {
-        if (!root) return empty + sep;
-        string res = to_string(root->val) + sep;
-        res += serialize(root->left);
-        res += serialize(root->right);
-        return res;
-    }
-
-    // Decodes your encoded data to tree.
-    TreeNode* deserialize(string data) {
-        list<string> nodes;
-        size_t pos = 0;
-        string node;
-        while ((pos = data.find(sep)) != string::npos) {
-            node = data.substr(0, pos);
-            nodes.push_back(node);
-            data.erase(0, pos + sep.length());
-        }
-        return deserialize(nodes);
-    }
-
-    TreeNode* deserialize(list<string>& data) {
-        if (data.empty()) return nullptr;
-        string first = data.front();
-        data.pop_front();
-        if (first == empty) return nullptr;
-        TreeNode* root = new TreeNode(stoi(first));
-        root->left = deserialize(data);
-        root->right = deserialize(data);
-        return root;
-    }
-};
-
-// Your Codec object will be instantiated and called as such:
-// Codec codec;
-// codec.deserialize(codec.serialize(root));
-```
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Codec {
-public:
-    string empty = "#";
-    string sep = ",";
-    // Encodes a tree to a single string.
-    string serialize(TreeNode* root) {
-        if (!root) return empty + sep;
-        string res = "";
-        res += serialize(root->left);
-        res += serialize(root->right);
-        res += to_string(root->val) + sep;
-        return res;
-    }
-
-    // Decodes your encoded data to tree.
-    TreeNode* deserialize(string data) {
-        vector<string> nodes;
-        size_t pos = 0;
-        string node;
-        while ((pos = data.find(sep)) != string::npos) {
-            node = data.substr(0, pos);
-            nodes.push_back(node);
-            data.erase(0, pos + sep.length());
-        }
-        return deserialize(nodes);
-    }
-
-    TreeNode* deserialize(vector<string>& nodes) {
-        if (nodes.empty()) return nullptr;
-        string front = nodes.back();
-        nodes.pop_back();
-        if (front == empty) return nullptr;
-        TreeNode* root = new TreeNode(stoi(front));
-        // 先构造右子树，后构造左子树
-        root->right = deserialize(nodes);
-        root->left = deserialize(nodes);
-        return root;
-    }
-};
-
-// Your Codec object will be instantiated and called as such:
-// Codec codec;
-// codec.deserialize(codec.serialize(root));
-```
-
-### **Go**
 
 ```go
 /**
@@ -437,8 +301,6 @@ func (this *Codec) deserialize(data string) *TreeNode {
  */
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -504,59 +366,6 @@ var deserialize = function (data) {
  */
 ```
 
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-
-/**
- * Encodes a tree to a single string.
- *
- * @param {TreeNode} root
- * @return {string}
- */
-var serialize = function (root) {
-    if (root == null) {
-        return '#';
-    }
-    const { val, left, right } = root;
-    return `${val},${serialize(left)},${serialize(right)}`;
-};
-
-/**
- * Decodes your encoded data to tree.
- *
- * @param {string} data
- * @return {TreeNode}
- */
-var deserialize = function (data) {
-    const vals = data.split(',');
-    let index = 0;
-    const dfs = () => {
-        if (vals[index] == '#') {
-            index++;
-            return null;
-        }
-        const res = new TreeNode(vals[index++]);
-        res.left = dfs();
-        res.right = dfs();
-        return res;
-    };
-    return dfs();
-};
-
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
-```
-
-### **C#**
-
 ```cs
 /**
  * Definition for a binary tree node.
@@ -609,10 +418,187 @@ public class Codec {
 // codec.deserialize(codec.serialize(root));
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：前序遍历
+
+当二叉树的前中后序列不包含叶子节点时需要前中、前后、中后三种组合方式之一才能确定一颗二叉树，但当前序和后序遍历序列中包含叶子节点时，可以仅通过前序或后序遍历序列构建一颗二叉树。
+
+在前序遍历序列化时，我们以任意特殊字符表示叶子节点，返回序列化后的字符串；反序列化时对序列化字符串根据分隔符进行切分后使用列表的第一个元素作为二叉树的根节点，然后利用列表的其他元素递归生成左右子树即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
+
+<!-- tabs:start -->
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+    string empty = "#";
+    string sep = ",";
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (!root) return empty + sep;
+        string res = to_string(root->val) + sep;
+        res += serialize(root->left);
+        res += serialize(root->right);
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        list<string> nodes;
+        size_t pos = 0;
+        string node;
+        while ((pos = data.find(sep)) != string::npos) {
+            node = data.substr(0, pos);
+            nodes.push_back(node);
+            data.erase(0, pos + sep.length());
+        }
+        return deserialize(nodes);
+    }
+
+    TreeNode* deserialize(list<string>& data) {
+        if (data.empty()) return nullptr;
+        string first = data.front();
+        data.pop_front();
+        if (first == empty) return nullptr;
+        TreeNode* root = new TreeNode(stoi(first));
+        root->left = deserialize(data);
+        root->right = deserialize(data);
+        return root;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
 ```
 
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function (root) {
+    if (root == null) {
+        return '#';
+    }
+    const { val, left, right } = root;
+    return `${val},${serialize(left)},${serialize(right)}`;
+};
+
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function (data) {
+    const vals = data.split(',');
+    let index = 0;
+    const dfs = () => {
+        if (vals[index] == '#') {
+            index++;
+            return null;
+        }
+        const res = new TreeNode(vals[index++]);
+        res.left = dfs();
+        res.right = dfs();
+        return res;
+    };
+    return dfs();
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
 ```
 
 <!-- tabs:end -->
+
+### 方法三：后序遍历
+
+在后序遍历序列化时，我们以任意特殊字符表示叶子节点，返回序列化后的字符串；反序列化时对序列化字符串根据分隔符进行切分后使用列表的最后一个元素作为二叉树的根节点，然后利用列表的其他元素递归生成左右子树即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
+
+<!-- tabs:start -->
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+    string empty = "#";
+    string sep = ",";
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (!root) return empty + sep;
+        string res = "";
+        res += serialize(root->left);
+        res += serialize(root->right);
+        res += to_string(root->val) + sep;
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        vector<string> nodes;
+        size_t pos = 0;
+        string node;
+        while ((pos = data.find(sep)) != string::npos) {
+            node = data.substr(0, pos);
+            nodes.push_back(node);
+            data.erase(0, pos + sep.length());
+        }
+        return deserialize(nodes);
+    }
+
+    TreeNode* deserialize(vector<string>& nodes) {
+        if (nodes.empty()) return nullptr;
+        string front = nodes.back();
+        nodes.pop_back();
+        if (front == empty) return nullptr;
+        TreeNode* root = new TreeNode(stoi(front));
+        // 先构造右子树，后构造左子树
+        root->right = deserialize(nodes);
+        root->left = deserialize(nodes);
+        return root;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

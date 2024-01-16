@@ -64,9 +64,7 @@ fileSystem.get("/c"); // 返回 -1 因为该路径不存在。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 我们可以使用前缀树来存储路径，每个节点存储一个值，表示该节点对应的路径的值。
 
@@ -83,10 +81,6 @@ fileSystem.get("/c"); // 返回 -1 因为该路径不存在。
 总时间复杂度 $O(\sum_{w \in W}|w|)$，总空间复杂度 $O(\sum_{w \in W}|w|)$，其中 $W$ 为所有插入的路径的集合。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -131,10 +125,6 @@ class FileSystem:
 # param_1 = obj.createPath(path,value)
 # param_2 = obj.get(path)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -198,8 +188,6 @@ class FileSystem {
  * int param_2 = obj.get(path);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -279,8 +267,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type trie struct {
 	children map[string]*trie
@@ -342,8 +328,6 @@ func (this *FileSystem) Get(path string) int {
  * param_2 := obj.Get(path);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class Trie {
@@ -409,10 +393,6 @@ class FileSystem {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

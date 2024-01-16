@@ -55,7 +55,7 @@ For ans[i] == -1, It can be shown that there is no building where Alice and Bob 
 
 ## Solutions
 
-**Solution 1: Binary Indexed Tree**
+### Solution 1: Binary Indexed Tree
 
 Let's denote $queries[i] = [l_i, r_i]$, where $l_i \le r_i$. If $l_i = r_i$ or $heights[l_i] < heights[r_i]$, then the answer is $r_i$. Otherwise, we need to find the smallest $j$ among all $j > r_i$ and $heights[j] > heights[l_i]$.
 
@@ -70,8 +70,6 @@ Similar problems:
 -   [2736. Maximum Sum Queries](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -118,8 +116,6 @@ class Solution:
                 ans[i] = tree.query(k)
         return ans
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -187,8 +183,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -259,8 +253,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const inf int = 1 << 30
 
@@ -330,8 +322,6 @@ func leftmostBuildingQueries(heights []int, queries [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -408,10 +398,6 @@ function leftmostBuildingQueries(heights: number[], queries: number[][]): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

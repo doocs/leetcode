@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 栈**
+### 方法一：贪心 + 栈
 
 题目可以转化为，给定一个字符串序列，在借助一个辅助栈的情况下，将其转化为字典序最小的字符串序列。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(n+C)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,26 +89,6 @@ class Solution:
                 ans.append(stk.pop())
         return ''.join(ans)
 ```
-
-```python
-class Solution:
-    def robotWithString(self, s: str) -> str:
-        n = len(s)
-        right = [chr(ord('z') + 1)] * (n + 1)
-        for i in range(n - 1, -1, -1):
-            right[i] = min(s[i], right[i + 1])
-        ans = []
-        stk = []
-        for i, c in enumerate(s):
-            stk.append(c)
-            while stk and stk[-1] <= right[i + 1]:
-                ans.append(stk.pop())
-        return ''.join(ans)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,31 +115,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String robotWithString(String s) {
-        int n = s.length();
-        int[] right = new int[n];
-        right[n - 1] = n - 1;
-        for (int i = n - 2; i >= 0; --i) {
-            right[i] = s.charAt(i) < s.charAt(right[i + 1]) ? i : right[i + 1];
-        }
-        StringBuilder ans = new StringBuilder();
-        Deque<Character> stk = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            stk.push(s.charAt(i));
-            while (
-                !stk.isEmpty() && (stk.peek() <= (i > n - 2 ? 'z' + 1 : s.charAt(right[i + 1])))) {
-                ans.append(stk.pop());
-            }
-        }
-        return ans.toString();
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,31 +137,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    string robotWithString(string s) {
-        int n = s.size();
-        vector<int> right(n, n - 1);
-        for (int i = n - 2; i >= 0; --i) {
-            right[i] = s[i] < s[right[i + 1]] ? i : right[i + 1];
-        }
-        string ans;
-        string stk;
-        for (int i = 0; i < n; ++i) {
-            stk += s[i];
-            while (!stk.empty() && (stk.back() <= (i > n - 2 ? 'z' + 1 : s[right[i + 1]]))) {
-                ans += stk.back();
-                stk.pop_back();
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func robotWithString(s string) string {
@@ -238,8 +162,6 @@ func robotWithString(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function robotWithString(s: string): string {
     let cnt = new Array(128).fill(0);
@@ -261,10 +183,74 @@ function robotWithString(s: string): string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def robotWithString(self, s: str) -> str:
+        n = len(s)
+        right = [chr(ord('z') + 1)] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            right[i] = min(s[i], right[i + 1])
+        ans = []
+        stk = []
+        for i, c in enumerate(s):
+            stk.append(c)
+            while stk and stk[-1] <= right[i + 1]:
+                ans.append(stk.pop())
+        return ''.join(ans)
 ```
 
+```java
+class Solution {
+    public String robotWithString(String s) {
+        int n = s.length();
+        int[] right = new int[n];
+        right[n - 1] = n - 1;
+        for (int i = n - 2; i >= 0; --i) {
+            right[i] = s.charAt(i) < s.charAt(right[i + 1]) ? i : right[i + 1];
+        }
+        StringBuilder ans = new StringBuilder();
+        Deque<Character> stk = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            stk.push(s.charAt(i));
+            while (
+                !stk.isEmpty() && (stk.peek() <= (i > n - 2 ? 'z' + 1 : s.charAt(right[i + 1])))) {
+                ans.append(stk.pop());
+            }
+        }
+        return ans.toString();
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string robotWithString(string s) {
+        int n = s.size();
+        vector<int> right(n, n - 1);
+        for (int i = n - 2; i >= 0; --i) {
+            right[i] = s[i] < s[right[i + 1]] ? i : right[i + 1];
+        }
+        string ans;
+        string stk;
+        for (int i = 0; i < n; ++i) {
+            stk += s[i];
+            while (!stk.empty() && (stk.back() <= (i > n - 2 ? 'z' + 1 : s[right[i + 1]]))) {
+                ans += stk.back();
+                stk.pop_back();
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

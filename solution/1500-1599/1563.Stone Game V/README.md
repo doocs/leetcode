@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索 + 剪枝**
+### 方法一：记忆化搜索 + 剪枝
 
 我们先预处理出前缀和数组 $s$，其中 $s[i]$ 表示数组 $stoneValue$ 前 $i$ 个元素的和。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $stoneValue$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +95,6 @@ class Solution:
         s = list(accumulate(stoneValue, initial=0))
         return dfs(0, len(stoneValue) - 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -155,8 +145,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -202,8 +190,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stoneGameV(stoneValue []int) int {
 	n := len(stoneValue)
@@ -248,10 +234,6 @@ func stoneGameV(stoneValue []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

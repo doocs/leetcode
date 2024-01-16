@@ -80,19 +80,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题意模拟即可，注意，如果是最后一行，或者这一行只有一个单词，那么要左对齐，否则要均匀分配空格。
 
 时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 为所有单词的长度之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -123,10 +117,6 @@ class Solution:
             ans.append(''.join(row))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -162,8 +152,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -202,8 +190,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fullJustify(words []string, maxWidth int) (ans []string) {
 	for i, n := 0, len(words); i < n; {
@@ -239,8 +225,6 @@ func fullJustify(words []string, maxWidth int) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function fullJustify(words: string[], maxWidth: number): string[] {
     const ans: string[] = [];
@@ -271,8 +255,6 @@ function fullJustify(words: string[], maxWidth: number): string[] {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -310,10 +292,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

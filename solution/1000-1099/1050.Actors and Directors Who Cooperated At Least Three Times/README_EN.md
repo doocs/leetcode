@@ -53,13 +53,11 @@ ActorDirector table:
 
 ## Solutions
 
-**Solution 1: Group By + Having**
+### Solution 1: Group By + Having
 
 We can use the `GROUP BY` statement to group the data by the `actor_id` and `director_id` fields, and then use the `HAVING` statement to filter out the `actor_id` and `director_id` that appear at least three times.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -70,3 +68,5 @@ HAVING COUNT(1) >= 3;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

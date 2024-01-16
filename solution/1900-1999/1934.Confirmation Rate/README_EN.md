@@ -89,13 +89,11 @@ User 2 made 2 requests where one was confirmed and the other timed out. The conf
 
 ## Solutions
 
-**Solution 1: Left Join + Grouping**
+### Solution 1: Left Join + Grouping
 
 We can use a left join to join the `Signups` table and the `Confirmations` table on `user_id`, and then use `GROUP BY` to group by `user_id` for aggregation.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -109,3 +107,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

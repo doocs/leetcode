@@ -48,19 +48,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 哈希表**
+### 方法一：DFS + 哈希表
 
 我们先用 DFS 遍历整棵树，记录每个结点的父结点，然后从目标结点开始，向上、向下分别搜索距离为 $k$ 的结点，添加到答案数组中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的结点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -100,45 +94,6 @@ class Solution:
         dfs(target, k)
         return ans
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        def dfs1(root, fa):
-            if root is None:
-                return
-            p[root] = fa
-            dfs1(root.left, root)
-            dfs1(root.right, root)
-
-        def dfs2(root, fa, k):
-            if root is None:
-                return
-            if k == 0:
-                ans.append(root.val)
-                return
-            for nxt in (root.left, root.right, p[root]):
-                if nxt != fa:
-                    dfs2(nxt, root, k - 1)
-
-        p = {}
-        dfs1(root, None)
-        ans = []
-        dfs2(target, None, k)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -189,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -234,8 +187,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -278,10 +229,47 @@ func distanceK(root *TreeNode, target *TreeNode, k int) []int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
+class Solution:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        def dfs1(root, fa):
+            if root is None:
+                return
+            p[root] = fa
+            dfs1(root.left, root)
+            dfs1(root.right, root)
+
+        def dfs2(root, fa, k):
+            if root is None:
+                return
+            if k == 0:
+                ans.append(root.val)
+                return
+            for nxt in (root.left, root.right, p[root]):
+                if nxt != fa:
+                    dfs2(nxt, root, k - 1)
+
+        p = {}
+        dfs1(root, None)
+        ans = []
+        dfs2(target, None, k)
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

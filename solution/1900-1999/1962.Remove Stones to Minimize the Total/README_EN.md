@@ -51,7 +51,7 @@ The total number of stones in [2,3,3,4] is 12.
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue (Max Heap)**
+### Solution 1: Greedy + Priority Queue (Max Heap)
 
 According to the problem description, in order to minimize the total number of remaining stones, we need to remove as many stones as possible from the stone piles. Therefore, we should always choose the pile with the most stones for removal.
 
@@ -65,8 +65,6 @@ The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minStoneSum(self, piles: List[int], k: int) -> int:
@@ -76,8 +74,6 @@ class Solution:
             heapreplace(pq, pq[0] // 2)
         return -sum(pq)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minStoneSum(piles []int, k int) (ans int) {
@@ -154,8 +146,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **TypeScript**
-
 ```ts
 function minStoneSum(piles: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -174,10 +164,6 @@ function minStoneSum(piles: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

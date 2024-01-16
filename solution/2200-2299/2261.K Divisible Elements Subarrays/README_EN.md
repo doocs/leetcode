@@ -56,9 +56,9 @@ Since all subarrays are distinct, the total number of subarrays satisfying all t
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,25 +74,6 @@ class Solution:
                 s.add(tuple(nums[i : j + 1]))
         return len(s)
 ```
-
-```python
-class Solution:
-    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
-        n = len(nums)
-        s = set()
-        for i in range(n):
-            cnt = 0
-            t = ""
-            for x in nums[i:]:
-                cnt += x % p == 0
-                if cnt > k:
-                    break
-                t += str(x) + ","
-                s.add(t)
-        return len(s)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countDistinct(nums []int, k int, p int) int {
 	s := map[string]struct{}{}
@@ -161,8 +138,6 @@ func countDistinct(nums []int, k int, p int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countDistinct(nums: number[], k: number, p: number): number {
     const n = nums.length;
@@ -182,10 +157,29 @@ function countDistinct(nums: number[], k: number, p: number): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+        n = len(nums)
+        s = set()
+        for i in range(n):
+            cnt = 0
+            t = ""
+            for x in nums[i:]:
+                cnt += x % p == 0
+                if cnt > k:
+                    break
+                t += str(x) + ","
+                s.add(t)
+        return len(s)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

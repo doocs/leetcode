@@ -44,11 +44,9 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 
 ## Solutions
 
-The point with zero out-degree is safe, and if a point can **only** reach the safe point, then it is also safe, so the problem can be converted to topological sorting.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,26 +66,6 @@ class Solution:
                     q.append(j)
         return [i for i, v in enumerate(indeg) if v == 0]
 ```
-
-```python
-class Solution:
-    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
-        def dfs(i):
-            if color[i]:
-                return color[i] == 2
-            color[i] = 1
-            for j in graph[i]:
-                if not dfs(j):
-                    return False
-            color[i] = 2
-            return True
-
-        n = len(graph)
-        color = [0] * n
-        return [i for i in range(n) if dfs(i)]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,41 +103,32 @@ class Solution {
 }
 ```
 
-```java
+```cpp
 class Solution {
-    private int[] color;
-    private int[][] g;
-
-    public List<Integer> eventualSafeNodes(int[][] graph) {
-        int n = graph.length;
-        color = new int[n];
-        g = graph;
-        List<Integer> ans = new ArrayList<>();
+public:
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        int n = graph.size();
+        vector<int> indeg(n);
+        vector<vector<int>> rg(n);
+        queue<int> q;
         for (int i = 0; i < n; ++i) {
-            if (dfs(i)) {
-                ans.add(i);
-            }
+            for (int j : graph[i]) rg[j].push_back(i);
+            indeg[i] = graph[i].size();
+            if (indeg[i] == 0) q.push(i);
         }
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            for (int j : rg[i])
+                if (--indeg[j] == 0) q.push(j);
+        }
+        vector<int> ans;
+        for (int i = 0; i < n; ++i)
+            if (indeg[i] == 0) ans.push_back(i);
         return ans;
     }
-
-    private boolean dfs(int i) {
-        if (color[i] > 0) {
-            return color[i] == 2;
-        }
-        color[i] = 1;
-        for (int j : g[i]) {
-            if (!dfs(j)) {
-                return false;
-            }
-        }
-        color[i] = 2;
-        return true;
-    }
-}
+};
 ```
-
-### **Go**
 
 ```go
 func eventualSafeNodes(graph [][]int) []int {
@@ -195,90 +164,6 @@ func eventualSafeNodes(graph [][]int) []int {
 	return ans
 }
 ```
-
-```go
-func eventualSafeNodes(graph [][]int) []int {
-	n := len(graph)
-	color := make([]int, n)
-	var dfs func(int) bool
-	dfs = func(i int) bool {
-		if color[i] > 0 {
-			return color[i] == 2
-		}
-		color[i] = 1
-		for _, j := range graph[i] {
-			if !dfs(j) {
-				return false
-			}
-		}
-		color[i] = 2
-		return true
-	}
-	ans := []int{}
-	for i := range graph {
-		if dfs(i) {
-			ans = append(ans, i)
-		}
-	}
-	return ans
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
-        int n = graph.size();
-        vector<int> indeg(n);
-        vector<vector<int>> rg(n);
-        queue<int> q;
-        for (int i = 0; i < n; ++i) {
-            for (int j : graph[i]) rg[j].push_back(i);
-            indeg[i] = graph[i].size();
-            if (indeg[i] == 0) q.push(i);
-        }
-        while (!q.empty()) {
-            int i = q.front();
-            q.pop();
-            for (int j : rg[i])
-                if (--indeg[j] == 0) q.push(j);
-        }
-        vector<int> ans;
-        for (int i = 0; i < n; ++i)
-            if (indeg[i] == 0) ans.push_back(i);
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    vector<int> color;
-
-    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
-        int n = graph.size();
-        color.assign(n, 0);
-        vector<int> ans;
-        for (int i = 0; i < n; ++i)
-            if (dfs(i, graph)) ans.push_back(i);
-        return ans;
-    }
-
-    bool dfs(int i, vector<vector<int>>& g) {
-        if (color[i]) return color[i] == 2;
-        color[i] = 1;
-        for (int j : g[i])
-            if (!dfs(j, g)) return false;
-        color[i] = 2;
-        return true;
-    }
-};
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -317,6 +202,117 @@ var eventualSafeNodes = function (graph) {
 };
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
+        def dfs(i):
+            if color[i]:
+                return color[i] == 2
+            color[i] = 1
+            for j in graph[i]:
+                if not dfs(j):
+                    return False
+            color[i] = 2
+            return True
+
+        n = len(graph)
+        color = [0] * n
+        return [i for i in range(n) if dfs(i)]
+```
+
+```java
+class Solution {
+    private int[] color;
+    private int[][] g;
+
+    public List<Integer> eventualSafeNodes(int[][] graph) {
+        int n = graph.length;
+        color = new int[n];
+        g = graph;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (dfs(i)) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
+    private boolean dfs(int i) {
+        if (color[i] > 0) {
+            return color[i] == 2;
+        }
+        color[i] = 1;
+        for (int j : g[i]) {
+            if (!dfs(j)) {
+                return false;
+            }
+        }
+        color[i] = 2;
+        return true;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> color;
+
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        int n = graph.size();
+        color.assign(n, 0);
+        vector<int> ans;
+        for (int i = 0; i < n; ++i)
+            if (dfs(i, graph)) ans.push_back(i);
+        return ans;
+    }
+
+    bool dfs(int i, vector<vector<int>>& g) {
+        if (color[i]) return color[i] == 2;
+        color[i] = 1;
+        for (int j : g[i])
+            if (!dfs(j, g)) return false;
+        color[i] = 2;
+        return true;
+    }
+};
+```
+
+```go
+func eventualSafeNodes(graph [][]int) []int {
+	n := len(graph)
+	color := make([]int, n)
+	var dfs func(int) bool
+	dfs = func(i int) bool {
+		if color[i] > 0 {
+			return color[i] == 2
+		}
+		color[i] = 1
+		for _, j := range graph[i] {
+			if !dfs(j) {
+				return false
+			}
+		}
+		color[i] = 2
+		return true
+	}
+	ans := []int{}
+	for i := range graph {
+		if dfs(i) {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+```
+
 ```js
 /**
  * @param {number[][]} graph
@@ -348,10 +344,6 @@ var eventualSafeNodes = function (graph) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

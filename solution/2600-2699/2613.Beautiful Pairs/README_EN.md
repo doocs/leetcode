@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Divide and Conquer**
+### Solution 1: Sorting + Divide and Conquer
 
 This problem is equivalent to finding two points in the plane, such that the Manhattan distance between them is the smallest. If there are multiple points satisfying the condition, return the one with the smallest index.
 
@@ -63,8 +63,6 @@ Time complexity: $O(n \times \log n)$, where $n$ is the length of the array.
 Space complexity: $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -105,8 +103,6 @@ class Solution:
         _, pi, pj = dfs(0, len(points) - 1)
         return [pi, pj]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -175,8 +171,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -247,8 +241,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautifulPair(nums1 []int, nums2 []int) []int {
 	n := len(nums1)
@@ -316,8 +308,6 @@ func abs(x int) int {
 	return x
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function beautifulPair(nums1: number[], nums2: number[]): number[] {
@@ -388,10 +378,6 @@ function f(x: number, y: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

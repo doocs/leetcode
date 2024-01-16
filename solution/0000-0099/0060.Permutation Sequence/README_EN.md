@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We know that the set $[1,2,..n]$ has a total of $n!$ permutations. If we determine the first digit, the number of permutations that the remaining digits can form is $(n-1)!$.
 
@@ -51,8 +51,6 @@ For each digit $i$, where $0 \leq i < n$, the number of permutations that the re
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
                         break
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getPermutation(n int, k int) string {
 	ans := make([]byte, n)
@@ -156,37 +148,6 @@ func getPermutation(n int, k int) string {
 	return string(ans)
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public string GetPermutation(int n, int k) {
-        var ans = new StringBuilder();
-        int vis = 0;
-        for (int i = 0; i < n; ++i) {
-            int fact = 1;
-            for (int j = 1; j < n - i; ++j) {
-                fact *= j;
-            }
-            for (int j = 1; j <= n; ++j) {
-                if (((vis >> j) & 1) == 0) {
-                    if (k > fact) {
-                        k -= fact;
-                    } else {
-                        ans.Append(j);
-                        vis |= 1 << j;
-                        break;
-                    }
-                }
-            }
-        }
-        return ans.ToString();
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -220,10 +181,33 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public string GetPermutation(int n, int k) {
+        var ans = new StringBuilder();
+        int vis = 0;
+        for (int i = 0; i < n; ++i) {
+            int fact = 1;
+            for (int j = 1; j < n - i; ++j) {
+                fact *= j;
+            }
+            for (int j = 1; j <= n; ++j) {
+                if (((vis >> j) & 1) == 0) {
+                    if (k > fact) {
+                        k -= fact;
+                    } else {
+                        ans.Append(j);
+                        vis |= 1 << j;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans.ToString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

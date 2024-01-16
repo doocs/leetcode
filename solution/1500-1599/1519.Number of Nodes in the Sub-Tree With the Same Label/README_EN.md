@@ -55,9 +55,9 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSubTrees(n int, edges [][]int, labels string) []int {
 	g := make([][]int, n)
@@ -178,8 +172,6 @@ func countSubTrees(n int, edges [][]int, labels string) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSubTrees(n: number, edges: number[][], labels: string): number[] {
     const dfs = (i: number, fa: number) => {
@@ -205,10 +197,6 @@ function countSubTrees(n: number, edges: number[][], labels: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

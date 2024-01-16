@@ -67,13 +67,11 @@ Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. 
 
 ## Solutions
 
-**Solution 1: GROUP BY + SUM(IF())**
+### Solution 1: GROUP BY + SUM(IF())
 
 We use `GROUP BY` to group the buy and sell operations of the same stock, and then use `SUM(IF())` to calculate the capital gains and losses of each stock.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -85,3 +83,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

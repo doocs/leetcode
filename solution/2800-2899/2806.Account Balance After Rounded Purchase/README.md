@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 模拟**
+### 方法一：枚举 + 模拟
 
 我们在 $[0, 100]$ 的范围内枚举所有的 $10$ 的倍数，然后找到与 `purchaseAmount` 最接近的那个数，记为 $x$，那么答案就是 $100 - x$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                 x = y
         return 100 - x
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +96,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func accountBalanceAfterPurchase(purchaseAmount int) int {
@@ -132,8 +118,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function accountBalanceAfterPurchase(purchaseAmount: number): number {
     let [diff, x] = [100, 0];
@@ -148,10 +132,6 @@ function accountBalanceAfterPurchase(purchaseAmount: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

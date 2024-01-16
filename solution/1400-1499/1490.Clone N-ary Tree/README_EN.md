@@ -49,11 +49,9 @@ class Node {
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 """
@@ -72,8 +70,6 @@ class Solution:
         children = [self.cloneTree(child) for child in root.children]
         return Node(root.val, children)
 ```
-
-### **Java**
 
 ```java
 /*
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -151,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -174,10 +166,6 @@ func cloneTree(root *Node) *Node {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

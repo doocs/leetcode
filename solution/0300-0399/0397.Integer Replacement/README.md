@@ -51,15 +51,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-偶数直接除以 2，对于奇数，若二进制形式如 `0bxxx11`，并且不为 3，则进行加 1，否则进行减 1。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func integerReplacement(n int) int {
 	ans := 0
@@ -140,10 +126,6 @@ func integerReplacement(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

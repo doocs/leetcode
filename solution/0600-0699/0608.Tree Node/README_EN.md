@@ -86,7 +86,7 @@ Tree table:
 
 ## Solutions
 
-**Solution 1: Conditional Statements + Subquery**
+### Solution 1: Conditional Statements + Subquery
 
 We can use the `CASE WHEN` conditional statement to determine the type of each node as follows:
 
@@ -95,8 +95,6 @@ We can use the `CASE WHEN` conditional statement to determine the type of each n
 -   Otherwise, it is a leaf node.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -111,3 +109,5 @@ FROM Tree;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 我们可以遍历 `details` 中的每个字符串 $x$，并将 $x$ 的第 $12$ 和第 $13$ 个字符（下标为 $11$, $12$）转换为整数，判断是否大于 $60$，如果是则将答案加一。
 
@@ -61,19 +59,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countSeniors(self, details: List[str]) -> int:
         return sum(int(x[11:13]) > 60 for x in details)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -106,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSeniors(details []string) (ans int) {
 	for _, x := range details {
@@ -120,7 +106,18 @@ func countSeniors(details []string) (ans int) {
 }
 ```
 
-### **Rust**
+```ts
+function countSeniors(details: string[]): number {
+    let ans = 0;
+    for (const x of details) {
+        const age = parseInt(x.slice(11, 13));
+        if (age > 60) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -140,6 +137,18 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+function countSeniors(details: string[]): number {
+    return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
+}
+```
+
 ```rust
 impl Solution {
     pub fn count_seniors(details: Vec<String>) -> i32 {
@@ -152,31 +161,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countSeniors(details: string[]): number {
-    let ans = 0;
-    for (const x of details) {
-        const age = parseInt(x.slice(11, 13));
-        if (age > 60) {
-            ++ans;
-        }
-    }
-    return ans;
-}
-```
-
-```ts
-function countSeniors(details: string[]): number {
-    return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

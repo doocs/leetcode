@@ -52,9 +52,9 @@ For the prefix [1, 1, 2, 4, 8, 16], the conversion array is [2, 2, 4, 8, 16, 32]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             ans[i] = x + mx + (0 if i == 0 else ans[i - 1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPrefixScore(nums []int) []int64 {
 	n := len(nums)
@@ -121,8 +115,6 @@ func findPrefixScore(nums []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findPrefixScore(nums: number[]): number[] {
     const n = nums.length;
@@ -136,10 +128,6 @@ function findPrefixScore(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

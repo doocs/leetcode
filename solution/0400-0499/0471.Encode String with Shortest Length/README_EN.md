@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                             f[i][j] = t
         return f[0][-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func encode(s string) string {
 	n := len(s)
@@ -195,8 +189,6 @@ func encode(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function encode(s: string): string {
     const n = s.length;
@@ -230,10 +222,6 @@ function encode(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

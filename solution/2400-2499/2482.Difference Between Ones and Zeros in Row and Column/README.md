@@ -69,19 +69,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题意模拟即可。
 
 时间复杂度 $O(m \times n)$，忽略答案的空间消耗，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
                 diff[i][j] = r + c - (n - r) - (m - c)
         return diff
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func onesMinusZeros(grid [][]int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -178,8 +164,6 @@ func onesMinusZeros(grid [][]int) [][]int {
 	return diff
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function onesMinusZeros(grid: number[][]): number[][] {
@@ -204,8 +188,6 @@ function onesMinusZeros(grid: number[][]): number[][] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -232,8 +214,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 /**
@@ -267,10 +247,6 @@ int** onesMinusZeros(int** grid, int gridSize, int* gridColSize, int* returnSize
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

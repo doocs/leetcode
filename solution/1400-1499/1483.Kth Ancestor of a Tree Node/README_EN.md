@@ -45,7 +45,7 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 
 ## Solutions
 
-**Solution 1: Dynamic Programming + Binary Lifting**
+### Solution 1: Dynamic Programming + Binary Lifting
 
 The problem asks us to find the $k$-th ancestor node of a node $node$. If we solve it by brute force, we need to traverse upwards from $node$ for $k$ times, which has a time complexity of $O(k)$ and will obviously exceed the time limit.
 
@@ -68,8 +68,6 @@ Similar problems:
 -   [2836. Maximize Value of Function in a Ball Passing Game](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class TreeAncestor:
@@ -96,8 +94,6 @@ class TreeAncestor:
 # obj = TreeAncestor(n, parent)
 # param_1 = obj.getKthAncestor(node,k)
 ```
-
-### **Java**
 
 ```java
 class TreeAncestor {
@@ -141,8 +137,6 @@ class TreeAncestor {
  */
 ```
 
-### **C++**
-
 ```cpp
 class TreeAncestor {
 public:
@@ -183,8 +177,6 @@ private:
  * int param_1 = obj->getKthAncestor(node,k);
  */
 ```
-
-### **Go**
 
 ```go
 type TreeAncestor struct {
@@ -229,8 +221,6 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class TreeAncestor {
     private p: number[][];
@@ -271,10 +261,6 @@ class TreeAncestor {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数模拟**
+### 方法一：计数模拟
 
 我们考虑将所有的 $1$ 移到最右边，用一个变量 $cnt$ 记录当前已经移动到最右边的 $1$ 的个数，用一个变量 $ans$ 记录移动的次数。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 ans += n - i - cnt
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSteps(s string) (ans int64) {
 	n := len(s)
@@ -139,8 +125,6 @@ func minimumSteps(s string) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumSteps(s: string): number {
@@ -156,10 +140,6 @@ function minimumSteps(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

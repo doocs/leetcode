@@ -36,15 +36,13 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 Traverse the two arrays. If the elements pointed to by the two pointers are equal, return that element. If the elements pointed to by the two pointers are not equal, move the pointer pointing to the smaller element to the right by one bit until an equal element is found or the array is traversed.
 
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two arrays respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -60,8 +58,6 @@ class Solution:
                 j += 1
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getCommon(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
@@ -122,8 +114,6 @@ func getCommon(nums1 []int, nums2 []int) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getCommon(nums1: number[], nums2: number[]): number {
@@ -144,8 +134,6 @@ function getCommon(nums1: number[], nums2: number[]): number {
     return -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -168,6 +156,30 @@ impl Solution {
     }
 }
 ```
+
+```c
+int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
+    int i = 0;
+    int j = 0;
+    while (i < nums1Size && j < nums2Size) {
+        if (nums1[i] == nums2[j]) {
+            return nums1[i];
+        }
+        if (nums1[i] < nums2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return -1;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -192,30 +204,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int getCommon(int* nums1, int nums1Size, int* nums2, int nums2Size) {
-    int i = 0;
-    int j = 0;
-    while (i < nums1Size && j < nums2Size) {
-        if (nums1[i] == nums2[j]) {
-            return nums1[i];
-        }
-        if (nums1[i] < nums2[j]) {
-            i++;
-        } else {
-            j++;
-        }
-    }
-    return -1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

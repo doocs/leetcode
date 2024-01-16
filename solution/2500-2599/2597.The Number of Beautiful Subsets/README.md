@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 回溯**
+### 方法一：计数 + 回溯
 
 我们用哈希表或数组 $cnt$ 记录当前已经选择的数字以及它们的个数，用 $ans$ 记录美丽子集的数目，初始时 $ans = -1$，表示排除空集。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautifulSubsets(nums []int, k int) int {
 	ans := -1
@@ -176,8 +162,6 @@ func beautifulSubsets(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function beautifulSubsets(nums: number[], k: number): number {
     let ans: number = -1;
@@ -202,10 +186,6 @@ function beautifulSubsets(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

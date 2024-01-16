@@ -35,9 +35,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 假设三个连续的整数分别为 $x-1$, $x$, $x+1$，则它们的和为 $3x$，因此 $num$ 必须是 $3$ 的倍数。如果 $num$ 不是 $3$ 的倍数，则无法表示成三个连续整数的和，返回空数组。否则，令 $x = \frac{num}{3}$，则 $x-1$, $x$, $x+1$ 就是三个连续整数，它们的和为 $num$。
 
@@ -45,20 +43,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sumOfThree(self, num: int) -> List[int]:
         x, mod = divmod(num, 3)
         return [] if mod else [x - 1, x, x + 1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -71,8 +61,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +75,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfThree(num int64) []int64 {
 	if num%3 != 0 {
@@ -98,8 +84,6 @@ func sumOfThree(num int64) []int64 {
 	return []int64{x - 1, x, x + 1}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfThree(num: number): number[] {
@@ -111,10 +95,6 @@ function sumOfThree(num: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

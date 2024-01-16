@@ -52,19 +52,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以直接模拟算出数组中所有元素的异或结果。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,16 +68,6 @@ class Solution:
             ans ^= start + 2 * i
         return ans
 ```
-
-```python
-class Solution:
-    def xorOperation(self, n: int, start: int) -> int:
-        return reduce(xor, ((start + 2 * i) for i in range(n)))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorOperation(n int, start int) (ans int) {
 	for i := 0; i < n; i++ {
@@ -123,10 +103,18 @@ func xorOperation(n int, start int) (ans int) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def xorOperation(self, n: int, start: int) -> int:
+        return reduce(xor, ((start + 2 * i) for i in range(n)))
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

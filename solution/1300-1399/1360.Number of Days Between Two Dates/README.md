@@ -34,9 +34,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们先定义一个函数 `isLeapYear(year)` 来判断给定的年份 `year` 是否是闰年，如果是闰年则返回 `true`，否则返回 `false`。
 
@@ -49,10 +47,6 @@
 时间复杂度 $O(y + m)$，其中 $y$ 表示给定的日期距离 `1971-01-01` 的年数，而 $m$ 表示给定的日期的月数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
         return abs(calcDays(date1) - calcDays(date2))
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int daysBetweenDates(String date1, String date2) {
@@ -127,13 +117,39 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
+class Solution {
+public:
+    int daysBetweenDates(string date1, string date2) {
+        return abs(calcDays(date1) - calcDays(date2));
+    }
 
+    bool isLeapYear(int year) {
+        return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+    }
+
+    int daysInMonth(int year, int month) {
+        int days[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        days[1] += isLeapYear(year);
+        return days[month - 1];
+    }
+
+    int calcDays(string date) {
+        int year = stoi(date.substr(0, 4));
+        int month = stoi(date.substr(5, 2));
+        int day = stoi(date.substr(8, 2));
+        int days = 0;
+        for (int y = 1971; y < year; ++y) {
+            days += 365 + isLeapYear(y);
+        }
+        for (int m = 1; m < month; ++m) {
+            days += daysInMonth(year, m);
+        }
+        days += day;
+        return days;
+    }
+};
 ```
-
-### **Go**
 
 ```go
 func daysBetweenDates(date1 string, date2 string) int {
@@ -178,8 +194,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function daysBetweenDates(date1: string, date2: string): number {
     return Math.abs(calcDays(date1) - calcDays(date2));
@@ -208,10 +222,6 @@ function calcDays(date: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

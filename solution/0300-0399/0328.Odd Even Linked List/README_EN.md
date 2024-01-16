@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -61,8 +61,6 @@ class Solution:
         a.next = c
         return head
 ```
-
-### **Java**
 
 ```java
 /**
@@ -93,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -127,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -153,8 +147,6 @@ func oddEvenList(head *ListNode) *ListNode {
 	return head
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -185,10 +177,6 @@ function oddEvenList(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

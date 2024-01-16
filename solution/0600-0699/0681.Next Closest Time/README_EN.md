@@ -39,9 +39,9 @@ It may be assumed that the returned time is next day&#39;s time since it is smal
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
             ans = f'{mi}{mi}:{mi}{mi}'
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,10 +128,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

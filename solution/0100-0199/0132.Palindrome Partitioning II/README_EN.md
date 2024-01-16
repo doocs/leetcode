@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                     f[i] = min(f[i], 1 + f[j - 1] if j else 0)
         return f[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +115,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCut(s string) int {
@@ -154,8 +148,6 @@ func minCut(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCut(s: string): number {
     const n = s.length;
@@ -180,8 +172,6 @@ function minCut(s: string): number {
     return f[n - 1];
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -212,10 +202,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

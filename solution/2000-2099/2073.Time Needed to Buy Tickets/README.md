@@ -49,15 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-第 k 个人买完之前，排在 k 后面的人最多能买 `tickets[k] - 1` 次，排在 k 前面的人最多能买 `tickets[k]` 次
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +64,6 @@ class Solution:
                 ans += min(tickets[k] - 1, t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,7 +81,36 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int ans = 0;
+        for (int i = 0; i < tickets.size(); ++i) {
+            if (i <= k) {
+                ans += min(tickets[k], tickets[i]);
+            } else {
+                ans += min(tickets[k] - 1, tickets[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func timeRequiredToBuy(tickets []int, k int) int {
+	ans := 0
+	for i, t := range tickets {
+		if i <= k {
+			ans += min(tickets[k], t)
+		} else {
+			ans += min(tickets[k]-1, t)
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function timeRequiredToBuy(tickets: number[], k: number): number {
@@ -119,45 +138,6 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int timeRequiredToBuy(vector<int>& tickets, int k) {
-        int ans = 0;
-        for (int i = 0; i < tickets.size(); ++i) {
-            if (i <= k) {
-                ans += min(tickets[k], tickets[i]);
-            } else {
-                ans += min(tickets[k] - 1, tickets[i]);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func timeRequiredToBuy(tickets []int, k int) int {
-	ans := 0
-	for i, t := range tickets {
-		if i <= k {
-			ans += min(tickets[k], t)
-		} else {
-			ans += min(tickets[k]-1, t)
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

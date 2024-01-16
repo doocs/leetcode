@@ -59,9 +59,9 @@ The array product is 1 * 6 * 1 * 6 * 1 * 6 * 7 = 1512, which is the minimum poss
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
         mod = 10**9 + 7
         return (2**p - 1) * pow(2**p - 2, 2 ** (p - 1) - 1, mod) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minNonZeroProduct(p int) int {
 	const mod int = 1e9 + 7
@@ -139,8 +133,6 @@ func minNonZeroProduct(p int) int {
 	return a * b % mod
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minNonZeroProduct(p: number): number {
@@ -162,10 +154,6 @@ function minNonZeroProduct(p: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

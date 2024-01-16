@@ -36,7 +36,7 @@ second = &quot;pal&quot;
 
 ## Solutions
 
-**Solution 1: Case Discussion + Two Pointers**
+### Solution 1: Case Discussion + Two Pointers
 
 We denote the lengths of strings $first$ and $second$ as $m$ and $n$, respectively, where $m \geq n$.
 
@@ -49,8 +49,6 @@ Next, we discuss different cases:
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
             i += 1
         return cnt < 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func oneEditAway(first string, second string) bool {
 	m, n := len(first), len(second)
@@ -175,8 +167,6 @@ func oneEditAway(first string, second string) bool {
 	return cnt < 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function oneEditAway(first: string, second: string): boolean {
@@ -212,8 +202,6 @@ function oneEditAway(first: string, second: string): boolean {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn one_edit_away(first: String, second: String) -> bool {
@@ -243,10 +231,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

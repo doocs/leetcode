@@ -59,7 +59,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Simulation**
+### Solution 1: Hash Table + Simulation
 
 We use a hash table $black$ to record the positions of all black squares, and a hash table $dirs$ to record the four directions of the ant. We use variables $x, y$ to record the position of the ant, and variable $p$ to record the direction of the ant. We use variables $x1, y1, x2, y2$ to record the minimum horizontal coordinate, minimum vertical coordinate, maximum horizontal coordinate, and maximum vertical coordinate of all black squares.
 
@@ -70,8 +70,6 @@ After the simulation is over, we construct the answer matrix $g$ based on the va
 The time complexity is $O(K)$, and the space complexity is $O(K)$. Here, $K$ is the number of steps the ant walks.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -102,8 +100,6 @@ class Solution:
         g[x - x1][y - y1] = d[p]
         return ["".join(row) for row in g]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -149,8 +145,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +180,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func printKMoves(K int) []string {
@@ -234,10 +226,6 @@ func printKMoves(K int) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

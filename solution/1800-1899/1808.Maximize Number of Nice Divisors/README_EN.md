@@ -42,7 +42,7 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 ## Solutions
 
-**Solution 1: Problem Transformation + Fast Power**
+### Solution 1: Problem Transformation + Fast Power
 
 We can factorize $n$ into prime factors, i.e., $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$, where $a_i$ is a prime factor and $k_i$ is the exponent of the prime factor $a_i$. Since the number of prime factors of $n$ does not exceed `primeFactors`, we have $k_1 + k_2 + \cdots + k_m \leq primeFactors$.
 
@@ -61,8 +61,6 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxNiceDivisors(self, primeFactors: int) -> int:
@@ -75,8 +73,6 @@ class Solution:
             return 4 * pow(3, primeFactors // 3 - 1, mod) % mod
         return 2 * pow(3, primeFactors // 3, mod) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNiceDivisors(primeFactors int) int {
 	if primeFactors < 4 {
@@ -166,8 +158,6 @@ func maxNiceDivisors(primeFactors int) int {
 	return qpow(3, primeFactors/3) * 2 % mod
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -200,10 +190,6 @@ var maxNiceDivisors = function (primeFactors) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

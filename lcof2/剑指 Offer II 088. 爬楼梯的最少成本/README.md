@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 定义 `dp[i]` 表示到达第 `i` 个台阶的最小花费。可以得到状态转移方程：
 
@@ -63,10 +61,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -76,19 +70,6 @@ class Solution:
             dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
         return dp[-1]
 ```
-
-```python
-class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
-        a = b = 0
-        for i in range(1, len(cost)):
-            a, b = b, min(a + cost[i - 1], b + cost[i])
-        return b
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,46 +84,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minCostClimbingStairs(int[] cost) {
-        int a = 0, b = 0;
-        for (int i = 1; i < cost.length; ++i) {
-            int c = Math.min(a + cost[i - 1], b + cost[i]);
-            a = b;
-            b = c;
-        }
-        return b;
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function minCostClimbingStairs(cost: number[]): number {
-    const n = cost.length;
-    const dp = new Array(n + 1).fill(0);
-    for (let i = 2; i <= n; ++i) {
-        dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
-    }
-    return dp[n];
-}
-```
-
-```ts
-function minCostClimbingStairs(cost: number[]): number {
-    let a = 0,
-        b = 0;
-    for (let i = 1; i < cost.length; ++i) {
-        [a, b] = [b, Math.min(a + cost[i - 1], b + cost[i])];
-    }
-    return b;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,6 +96,57 @@ public:
         return dp[n];
     }
 };
+```
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
+	dp := make([]int, n+1)
+	for i := 2; i <= n; i++ {
+		dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
+	}
+	return dp[n]
+}
+```
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
+    const n = cost.length;
+    const dp = new Array(n + 1).fill(0);
+    for (let i = 2; i <= n; ++i) {
+        dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+    }
+    return dp[n];
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        a = b = 0
+        for i in range(1, len(cost)):
+            a, b = b, min(a + cost[i - 1], b + cost[i])
+        return b
+```
+
+```java
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int a = 0, b = 0;
+        for (int i = 1; i < cost.length; ++i) {
+            int c = Math.min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+}
 ```
 
 ```cpp
@@ -172,19 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minCostClimbingStairs(cost []int) int {
-	n := len(cost)
-	dp := make([]int, n+1)
-	for i := 2; i <= n; i++ {
-		dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
-	}
-	return dp[n]
-}
-```
-
 ```go
 func minCostClimbingStairs(cost []int) int {
 	a, b := 0, 0
@@ -195,10 +174,17 @@ func minCostClimbingStairs(cost []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function minCostClimbingStairs(cost: number[]): number {
+    let a = 0,
+        b = 0;
+    for (let i = 1; i < cost.length; ++i) {
+        [a, b] = [b, Math.min(a + cost[i - 1], b + cost[i])];
+    }
+    return b;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

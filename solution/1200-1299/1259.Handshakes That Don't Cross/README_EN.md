@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We design a function $dfs(i)$, which represents the number of handshake schemes for $i$ people. The answer is $dfs(n)$.
 
@@ -50,8 +50,6 @@ To avoid repeated calculations, we use the method of memoization search.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the size of $numPeople$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(numPeople)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfWays(numPeople int) int {
 	const mod int = 1e9 + 7
@@ -149,8 +141,6 @@ func numberOfWays(numPeople int) int {
 	return dfs(numPeople)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfWays(numPeople: number): number {
@@ -174,10 +164,6 @@ function numberOfWays(numPeople: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

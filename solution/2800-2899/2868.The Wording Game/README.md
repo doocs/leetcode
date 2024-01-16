@@ -84,9 +84,7 @@ Bob 无法出牌，因为他的两个单词的第一个字母都比 Alice 的单
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们记当前轮到 $Alice$ 的回合为 $k=0$，轮到 $Bob$ 的回合为 $k=1$。我们用 $i$ 记录 $Alice$ 的下标，用 $j$ 记录 $Bob$ 的下标，用 $w$ 记录当前轮到的玩家的单词。初始时 $i=1$, $j=0$, $w=a[0]$。
 
@@ -99,10 +97,6 @@ Bob 无法出牌，因为他的两个单词的第一个字母都比 Alice 的单
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是数组 $a$ 和 $b$ 的长度。我们只需要遍历数组一次。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -125,10 +119,6 @@ class Solution:
                     k ^= 1
                 i += 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -196,8 +184,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canAliceWin(a []string, b []string) bool {
 	i, j, k := 1, 0, 1
@@ -225,8 +211,6 @@ func canAliceWin(a []string, b []string) bool {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canAliceWin(a: string[], b: string[]): boolean {
@@ -256,10 +240,6 @@ function canAliceWin(a: string[], b: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

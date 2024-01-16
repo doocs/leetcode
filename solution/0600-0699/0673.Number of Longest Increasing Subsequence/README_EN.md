@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the length of the longest increasing subsequence ending with $nums[i]$, and $cnt[i]$ as the number of longest increasing subsequences ending with $nums[i]$. Initially, $f[i]=1$, $cnt[i]=1$. Also, we define $mx$ as the length of the longest increasing subsequence, and $ans$ as the number of longest increasing subsequences.
 
@@ -45,15 +45,7 @@ Finally, we return $ans$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
-**Solution 2: Binary Indexed Tree**
-
-We can use a binary indexed tree to maintain the length and count of the longest increasing subsequence in the prefix interval. We remove duplicates from the array $nums$ and sort it to get the array $arr$. Then we enumerate each element $x$ in $nums$, find the position $i$ of $x$ in the array $arr$ by binary search, then query the length and count of the longest increasing subsequence in $[1,i-1]$, denoted as $v$ and $cnt$, then update the length and count of the longest increasing subsequence in $[i]$ to $v+1$ and $\max(cnt,1)$. Finally, we query the length and count of the longest increasing subsequence in $[1,m]$, where $m$ is the length of the array $arr$, which is the answer.
-
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,6 +69,165 @@ class Solution:
                 ans += cnt[i]
         return ans
 ```
+
+```java
+class Solution {
+    public int findNumberOfLIS(int[] nums) {
+        int n = nums.length;
+        int[] f = new int[n];
+        int[] cnt = new int[n];
+        int mx = 0, ans = 0;
+        for (int i = 0; i < n; ++i) {
+            f[i] = 1;
+            cnt[i] = 1;
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    if (f[i] < f[j] + 1) {
+                        f[i] = f[j] + 1;
+                        cnt[i] = cnt[j];
+                    } else if (f[i] == f[j] + 1) {
+                        cnt[i] += cnt[j];
+                    }
+                }
+            }
+            if (mx < f[i]) {
+                mx = f[i];
+                ans = cnt[i];
+            } else if (mx == f[i]) {
+                ans += cnt[i];
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findNumberOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        int mx = 0, ans = 0;
+        vector<int> f(n, 1);
+        vector<int> cnt(n, 1);
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    if (f[i] < f[j] + 1) {
+                        f[i] = f[j] + 1;
+                        cnt[i] = cnt[j];
+                    } else if (f[i] == f[j] + 1) {
+                        cnt[i] += cnt[j];
+                    }
+                }
+            }
+            if (mx < f[i]) {
+                mx = f[i];
+                ans = cnt[i];
+            } else if (mx == f[i]) {
+                ans += cnt[i];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findNumberOfLIS(nums []int) (ans int) {
+	n, mx := len(nums), 0
+	f := make([]int, n)
+	cnt := make([]int, n)
+	for i, x := range nums {
+		for j, y := range nums[:i] {
+			if y < x {
+				if f[i] < f[j]+1 {
+					f[i] = f[j] + 1
+					cnt[i] = cnt[j]
+				} else if f[i] == f[j]+1 {
+					cnt[i] += cnt[j]
+				}
+			}
+		}
+		if mx < f[i] {
+			mx = f[i]
+			ans = cnt[i]
+		} else if mx == f[i] {
+			ans += cnt[i]
+		}
+	}
+	return
+}
+```
+
+```ts
+function findNumberOfLIS(nums: number[]): number {
+    const n = nums.length;
+    let [ans, mx] = [0, 0];
+    const f: number[] = Array(n).fill(1);
+    const cnt: number[] = Array(n).fill(1);
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (nums[j] < nums[i]) {
+                if (f[i] < f[j] + 1) {
+                    f[i] = f[j] + 1;
+                    cnt[i] = cnt[j];
+                } else if (f[i] === f[j] + 1) {
+                    cnt[i] += cnt[j];
+                }
+            }
+        }
+        if (mx < f[i]) {
+            mx = f[i];
+            ans = cnt[i];
+        } else if (mx === f[i]) {
+            ans += cnt[i];
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_number_of_lis(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+        let mut mx = 0;
+        let mut f = vec![1; n];
+        let mut cnt = vec![1; n];
+        for i in 0..n {
+            for j in 0..i {
+                if nums[j] < nums[i] {
+                    if f[i] < f[j] + 1 {
+                        f[i] = f[j] + 1;
+                        cnt[i] = cnt[j];
+                    } else if f[i] == f[j] + 1 {
+                        cnt[i] += cnt[j];
+                    }
+                }
+            }
+            if mx < f[i] {
+                mx = f[i];
+                ans = cnt[i];
+            } else if mx == f[i] {
+                ans += cnt[i];
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Binary Indexed Tree
+
+We can use a binary indexed tree to maintain the length and count of the longest increasing subsequence in the prefix interval. We remove duplicates from the array $nums$ and sort it to get the array $arr$. Then we enumerate each element $x$ in $nums$, find the position $i$ of $x$ in the array $arr$ by binary search, then query the length and count of the longest increasing subsequence in $[1,i-1]$, denoted as $v$ and $cnt$, then update the length and count of the longest increasing subsequence in $[i]$ to $v+1$ and $\max(cnt,1)$. Finally, we query the length and count of the longest increasing subsequence in $[1,m]$, where $m$ is the length of the array $arr$, which is the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -118,40 +269,6 @@ class Solution:
             v, cnt = tree.query(i - 1)
             tree.update(i, v + 1, max(cnt, 1))
         return tree.query(m)[1]
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int findNumberOfLIS(int[] nums) {
-        int n = nums.length;
-        int[] f = new int[n];
-        int[] cnt = new int[n];
-        int mx = 0, ans = 0;
-        for (int i = 0; i < n; ++i) {
-            f[i] = 1;
-            cnt[i] = 1;
-            for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i]) {
-                    if (f[i] < f[j] + 1) {
-                        f[i] = f[j] + 1;
-                        cnt[i] = cnt[j];
-                    } else if (f[i] == f[j] + 1) {
-                        cnt[i] += cnt[j];
-                    }
-                }
-            }
-            if (mx < f[i]) {
-                mx = f[i];
-                ans = cnt[i];
-            } else if (mx == f[i]) {
-                ans += cnt[i];
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -210,39 +327,6 @@ public class Solution {
         return tree.query(m)[1];
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findNumberOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        int mx = 0, ans = 0;
-        vector<int> f(n, 1);
-        vector<int> cnt(n, 1);
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i]) {
-                    if (f[i] < f[j] + 1) {
-                        f[i] = f[j] + 1;
-                        cnt[i] = cnt[j];
-                    } else if (f[i] == f[j] + 1) {
-                        cnt[i] += cnt[j];
-                    }
-                }
-            }
-            if (mx < f[i]) {
-                mx = f[i];
-                ans = cnt[i];
-            } else if (mx == f[i]) {
-                ans += cnt[i];
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -304,35 +388,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findNumberOfLIS(nums []int) (ans int) {
-	n, mx := len(nums), 0
-	f := make([]int, n)
-	cnt := make([]int, n)
-	for i, x := range nums {
-		for j, y := range nums[:i] {
-			if y < x {
-				if f[i] < f[j]+1 {
-					f[i] = f[j] + 1
-					cnt[i] = cnt[j]
-				} else if f[i] == f[j]+1 {
-					cnt[i] += cnt[j]
-				}
-			}
-		}
-		if mx < f[i] {
-			mx = f[i]
-			ans = cnt[i]
-		} else if mx == f[i] {
-			ans += cnt[i]
-		}
-	}
-	return
-}
-```
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -387,131 +442,6 @@ func findNumberOfLIS(nums []int) int {
 	}
 	_, ans := tree.query(m)
 	return ans
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_number_of_lis(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut ans = 0;
-        let mut mx = 0;
-        let mut f = vec![1; n];
-        let mut cnt = vec![1; n];
-        for i in 0..n {
-            for j in 0..i {
-                if nums[j] < nums[i] {
-                    if f[i] < f[j] + 1 {
-                        f[i] = f[j] + 1;
-                        cnt[i] = cnt[j];
-                    } else if f[i] == f[j] + 1 {
-                        cnt[i] += cnt[j];
-                    }
-                }
-            }
-            if mx < f[i] {
-                mx = f[i];
-                ans = cnt[i];
-            } else if mx == f[i] {
-                ans += cnt[i];
-            }
-        }
-        ans
-    }
-}
-```
-
-```rust
-struct BinaryIndexedTree {
-    n: usize,
-    c: Vec<i32>,
-    d: Vec<i32>,
-}
-
-impl BinaryIndexedTree {
-    fn new(n: usize) -> BinaryIndexedTree {
-        BinaryIndexedTree {
-            n,
-            c: vec![0; n + 1],
-            d: vec![0; n + 1],
-        }
-    }
-
-    fn update(&mut self, x: usize, v: i32, cnt: i32) {
-        let mut x = x as usize;
-        while x <= self.n {
-            if self.c[x] < v {
-                self.c[x] = v;
-                self.d[x] = cnt;
-            } else if self.c[x] == v {
-                self.d[x] += cnt;
-            }
-            x += x & x.wrapping_neg();
-        }
-    }
-
-    fn query(&self, mut x: usize) -> (i32, i32) {
-        let (mut v, mut cnt) = (0, 0);
-        while x > 0 {
-            if self.c[x] > v {
-                v = self.c[x];
-                cnt = self.d[x];
-            } else if self.c[x] == v {
-                cnt += self.d[x];
-            }
-            x -= x & x.wrapping_neg();
-        }
-        (v, cnt)
-    }
-}
-
-impl Solution {
-    pub fn find_number_of_lis(nums: Vec<i32>) -> i32 {
-        let mut arr: Vec<i32> = nums.iter().cloned().collect();
-        arr.sort();
-        let m = arr.len();
-        let mut tree = BinaryIndexedTree::new(m);
-        for x in nums.iter() {
-            if let Ok(i) = arr.binary_search(x) {
-                let (v, cnt) = tree.query(i);
-                tree.update(i + 1, v + 1, cnt.max(1));
-            }
-        }
-        let (_, ans) = tree.query(m);
-        ans
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function findNumberOfLIS(nums: number[]): number {
-    const n = nums.length;
-    let [ans, mx] = [0, 0];
-    const f: number[] = Array(n).fill(1);
-    const cnt: number[] = Array(n).fill(1);
-    for (let i = 0; i < n; ++i) {
-        for (let j = 0; j < i; ++j) {
-            if (nums[j] < nums[i]) {
-                if (f[i] < f[j] + 1) {
-                    f[i] = f[j] + 1;
-                    cnt[i] = cnt[j];
-                } else if (f[i] === f[j] + 1) {
-                    cnt[i] += cnt[j];
-                }
-            }
-        }
-        if (mx < f[i]) {
-            mx = f[i];
-            ans = cnt[i];
-        } else if (mx === f[i]) {
-            ans += cnt[i];
-        }
-    }
-    return ans;
 }
 ```
 
@@ -581,10 +511,68 @@ function findNumberOfLIS(nums: number[]): number {
 }
 ```
 
-### **...**
+```rust
+struct BinaryIndexedTree {
+    n: usize,
+    c: Vec<i32>,
+    d: Vec<i32>,
+}
 
-```
+impl BinaryIndexedTree {
+    fn new(n: usize) -> BinaryIndexedTree {
+        BinaryIndexedTree {
+            n,
+            c: vec![0; n + 1],
+            d: vec![0; n + 1],
+        }
+    }
 
+    fn update(&mut self, x: usize, v: i32, cnt: i32) {
+        let mut x = x as usize;
+        while x <= self.n {
+            if self.c[x] < v {
+                self.c[x] = v;
+                self.d[x] = cnt;
+            } else if self.c[x] == v {
+                self.d[x] += cnt;
+            }
+            x += x & x.wrapping_neg();
+        }
+    }
+
+    fn query(&self, mut x: usize) -> (i32, i32) {
+        let (mut v, mut cnt) = (0, 0);
+        while x > 0 {
+            if self.c[x] > v {
+                v = self.c[x];
+                cnt = self.d[x];
+            } else if self.c[x] == v {
+                cnt += self.d[x];
+            }
+            x -= x & x.wrapping_neg();
+        }
+        (v, cnt)
+    }
+}
+
+impl Solution {
+    pub fn find_number_of_lis(nums: Vec<i32>) -> i32 {
+        let mut arr: Vec<i32> = nums.iter().cloned().collect();
+        arr.sort();
+        let m = arr.len();
+        let mut tree = BinaryIndexedTree::new(m);
+        for x in nums.iter() {
+            if let Ok(i) = arr.binary_search(x) {
+                let (v, cnt) = tree.query(i);
+                tree.update(i + 1, v + 1, cnt.max(1));
+            }
+        }
+        let (_, ans) = tree.query(m);
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

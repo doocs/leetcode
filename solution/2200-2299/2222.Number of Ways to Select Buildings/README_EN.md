@@ -54,9 +54,9 @@ No other selection is valid. Thus, there are 6 total ways.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
                 c1 += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfWays(s string) int64 {
 	n := len(s)
@@ -153,16 +147,6 @@ func numberOfWays(s string) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

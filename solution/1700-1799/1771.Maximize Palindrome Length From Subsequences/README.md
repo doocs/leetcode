@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们首先将字符串 `word1` 和 `word2` 连接起来，得到字符串 $s$，然后我们可以将问题转化为求字符串 $s$ 的最长回文子序列的长度。只不过这里在算最后的答案时，需要保证回文字符串中，至少有一个字符来自 `word1`，另一个字符来自 `word2`。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$，其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPalindrome(word1 string, word2 string) (ans int) {
 	s := word1 + word2
@@ -180,8 +166,6 @@ func longestPalindrome(word1 string, word2 string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestPalindrome(word1: string, word2: string): number {
     const s = word1 + word2;
@@ -206,8 +190,6 @@ function longestPalindrome(word1: string, word2: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -236,10 +218,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

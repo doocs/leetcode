@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 差分数组 $d[i]$ 记录每天知道秘密的人数变化情况，$cnt[i]$ 记录第 $i$ 天新得知秘密的人数。那么从 $[i+delay,i+forget)$ 的这段时间内，$cnt[i]$ 个人每天都能分享给另外 $cnt[i]$ 个人。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(d[: n + 1]) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 const int mod = 1e9 + 7;
@@ -147,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func peopleAwareOfSecret(n int, delay int, forget int) int {
 	m := (n << 1) + 10
@@ -176,8 +162,6 @@ func peopleAwareOfSecret(n int, delay int, forget int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
     let dp = new Array(n + 1).fill(0n);
@@ -202,10 +186,6 @@ function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

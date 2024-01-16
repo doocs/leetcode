@@ -41,7 +41,7 @@ Attend the third event on day 3.
 
 ## Solutions
 
-**Solution 1: Hash Table + Greedy + Priority Queue**
+### Solution 1: Hash Table + Greedy + Priority Queue
 
 Define a hash table to record the start and end times of each meeting, where the key is the start time of the meeting, and the value is a list of end times.
 
@@ -52,8 +52,6 @@ Then, take out the meeting with the smallest end time from the priority queue, w
 The time complexity is $O(m \times \log n)$, and the space complexity is $O(n)$. Where $m$ and $n$ represent the maximum end time of the meetings and the number of meetings, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                 heappop(h)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxEvents(events [][]int) int {
@@ -183,10 +175,6 @@ func (h *hp) Pop() any {
 func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

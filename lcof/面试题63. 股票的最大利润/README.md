@@ -32,15 +32,13 @@
 
 ## 解法
 
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们可以枚举当前的股票价格作为卖出价格，那么买入价格就是在它之前的最低股票价格，此时的利润就是卖出价格减去买入价格。我们可以用一个变量 `mi` 记录之前的最低股票价格，用一个变量 `ans` 记录最大利润，找出最大利润即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `prices` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -51,8 +49,6 @@ class Solution:
             mi = min(mi, x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +62,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -83,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxProfit(prices []int) (ans int) {
 	mi := 1 << 30
@@ -96,7 +88,31 @@ func maxProfit(prices []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function maxProfit(prices: number[]): number {
+    let res = 0;
+    let min = Infinity;
+    for (const price of prices) {
+        res = Math.max(res, price - min);
+        min = Math.min(min, price);
+    }
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut res = 0;
+        let mut min = i32::MAX;
+        for price in prices {
+            res = res.max(price - min);
+            min = min.min(price);
+        }
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -114,38 +130,6 @@ var maxProfit = function (prices) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function maxProfit(prices: number[]): number {
-    let res = 0;
-    let min = Infinity;
-    for (const price of prices) {
-        res = Math.max(res, price - min);
-        min = Math.min(min, price);
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn max_profit(prices: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut min = i32::MAX;
-        for price in prices {
-            res = res.max(price - min);
-            min = min.min(price);
-        }
-        res
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -160,10 +144,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

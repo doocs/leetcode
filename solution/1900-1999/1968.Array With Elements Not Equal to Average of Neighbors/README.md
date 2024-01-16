@@ -45,17 +45,9 @@ i=3, nums[i] = 2, 两相邻元素平均值为 (6+0) / 2 = 3
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
-
-**方法二：随机打乱**
+### 方法一：排序
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +62,6 @@ class Solution:
                 ans.append(nums[i + m])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rearrangeArray(nums []int) []int {
 	sort.Ints(nums)
@@ -129,6 +113,12 @@ func rearrangeArray(nums []int) []int {
 	return ans
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二：随机打乱
+
+<!-- tabs:start -->
 
 ```go
 func rearrangeArray(nums []int) []int {
@@ -146,10 +136,6 @@ outer:
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

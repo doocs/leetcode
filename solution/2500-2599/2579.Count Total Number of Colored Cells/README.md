@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们观察发现，第 $n$ 分钟后，网格中共有 $2 \times n - 1$ 列，每一列上的数字分别为 $1, 3, 5, \cdots, 2 \times n - 1, 2 \times n - 3, \cdots, 3, 1$。左右两部分均为等差数列，求和可以得到答案 $2 \times n \times (n - 1) + 1$。
 
@@ -53,19 +51,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def coloredCells(self, n: int) -> int:
         return 2 * n * (n - 1) + 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -74,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,23 +74,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func coloredCells(n int) int64 {
 	return int64(2*n*(n-1) + 1)
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function coloredCells(n: number): number {
     return 2 * n * (n - 1) + 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -112,10 +94,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

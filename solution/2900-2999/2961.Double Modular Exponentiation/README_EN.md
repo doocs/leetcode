@@ -50,15 +50,13 @@ Therefore we return [] as the answer.
 
 ## Solutions
 
-**Solution 1: Simulation + Fast Power**
+### Solution 1: Simulation + Fast Power
 
 We can directly simulate according to the problem description. For the power operation modulo, we can use the fast power method to speed up the calculation.
 
 The time complexity is $O(n \times \log M)$, where $n$ is the length of the array $variables$; and $M$ is the maximum value in $b_i$ and $c_i$, in this problem $M \le 10^3$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
             if pow(pow(a, b, 10), c, m) == target
         ]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getGoodIndices(variables [][]int, target int) (ans []int) {
 	qpow := func(a, n, mod int) int {
@@ -151,8 +143,6 @@ func getGoodIndices(variables [][]int, target int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getGoodIndices(variables: number[][], target: number): number[] {
@@ -177,10 +167,6 @@ function getGoodIndices(variables: number[][], target: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

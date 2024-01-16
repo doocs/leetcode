@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们先来看一下前几行的规律：
 
@@ -77,7 +75,58 @@ n = 5: 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
-**方法二：位运算 + 脑筋急转弯**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def kthGrammar(self, n: int, k: int) -> int:
+        if n == 1:
+            return 0
+        if k <= (1 << (n - 2)):
+            return self.kthGrammar(n - 1, k)
+        return self.kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1
+```
+
+```java
+class Solution {
+    public int kthGrammar(int n, int k) {
+        if (n == 1) {
+            return 0;
+        }
+        if (k <= (1 << (n - 2))) {
+            return kthGrammar(n - 1, k);
+        }
+        return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int kthGrammar(int n, int k) {
+        if (n == 1) return 0;
+        if (k <= (1 << (n - 2))) return kthGrammar(n - 1, k);
+        return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
+    }
+};
+```
+
+```go
+func kthGrammar(n int, k int) int {
+	if n == 1 {
+		return 0
+	}
+	if k <= (1 << (n - 2)) {
+		return kthGrammar(n-1, k)
+	}
+	return kthGrammar(n-1, k-(1<<(n-2))) ^ 1
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：位运算 + 脑筋急转弯
 
 题目中索引从 $1$ 开始，我们将 $k$ 改成 $k-1$，将索引转换为从 $0$ 开始。在接下来的讨论中，索引均从 $0$ 开始。
 
@@ -111,42 +160,10 @@ n = 5: 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def kthGrammar(self, n: int, k: int) -> int:
-        if n == 1:
-            return 0
-        if k <= (1 << (n - 2)):
-            return self.kthGrammar(n - 1, k)
-        return self.kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1
-```
-
 ```python
 class Solution:
     def kthGrammar(self, n: int, k: int) -> int:
         return (k - 1).bit_count() & 1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int kthGrammar(int n, int k) {
-        if (n == 1) {
-            return 0;
-        }
-        if (k <= (1 << (n - 2))) {
-            return kthGrammar(n - 1, k);
-        }
-        return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
-    }
-}
 ```
 
 ```java
@@ -155,19 +172,6 @@ class Solution {
         return Integer.bitCount(k - 1) & 1;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int kthGrammar(int n, int k) {
-        if (n == 1) return 0;
-        if (k <= (1 << (n - 2))) return kthGrammar(n - 1, k);
-        return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
-    }
-};
 ```
 
 ```cpp
@@ -179,30 +183,12 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func kthGrammar(n int, k int) int {
-	if n == 1 {
-		return 0
-	}
-	if k <= (1 << (n - 2)) {
-		return kthGrammar(n-1, k)
-	}
-	return kthGrammar(n-1, k-(1<<(n-2))) ^ 1
-}
-```
-
 ```go
 func kthGrammar(n int, k int) int {
 	return bits.OnesCount(uint(k-1)) & 1
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

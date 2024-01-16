@@ -53,7 +53,7 @@ Number of Permutations of (1,2,3,4) = 24.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We notice that $n$ is not greater than $10$, so we consider using DP with state compression to solve this problem.
 
@@ -72,8 +72,6 @@ The final answer is $f[m][2^n - 1]$, and the answer may be very large, so we nee
 Time complexity $O(m \times 2^n \times n)$, space complexity $O(m \times 2^n)$. Here $m$ is the maximum number of hats, which is no more than $40$ in this problem; and $n$ is the number of people, which is no more than $10$ in this problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -95,8 +93,6 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod
         return f[m][-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberWays(hats [][]int) int {
 	n := len(hats)
@@ -204,8 +196,6 @@ func numberWays(hats [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberWays(hats: number[][]): number {
     const n = hats.length;
@@ -235,10 +225,6 @@ function numberWays(hats: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

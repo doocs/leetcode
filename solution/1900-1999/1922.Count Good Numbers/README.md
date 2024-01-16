@@ -50,13 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +70,6 @@ class Solution:
 
         return myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 int MOD = 1000000007;
@@ -127,8 +117,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 const mod int64 = 1e9 + 7
 
@@ -149,10 +137,6 @@ func myPow(x, n int64) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -65,15 +65,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-前缀异或，然后暴力枚举即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                         ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +131,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countTriplets(arr []int) int {
@@ -168,10 +154,6 @@ func countTriplets(arr []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

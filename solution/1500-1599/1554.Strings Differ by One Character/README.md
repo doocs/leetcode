@@ -51,17 +51,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-哈希表。
-
-将字符串列表中每个字符串进行处理，比如 `"abcd"` 处理成 `"*bcd"`、`"a*cd"`、`"ab*d"`、`"abc*"` 模式串，依次存入哈希表中。存入之前先判断哈希表中是否已存在该模式串，若是，说明存在两个字符串在相同索引处只有一个字符不同，直接返回 true。否则遍历结束返回 false。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +67,6 @@ class Solution:
                 s.add(t)
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func differByOne(dict []string) bool {
 	s := make(map[string]bool)
@@ -136,10 +120,6 @@ func differByOne(dict []string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

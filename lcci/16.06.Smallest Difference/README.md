@@ -20,25 +20,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找**
+### 方法一：排序 + 二分查找
 
 我们可以对数组 $b$ 进行排序，并对数组 $a$ 中的每个元素 $x$ 在数组 $b$ 中进行二分查找，找到最接近 $x$ 的元素 $y$，那么 $x$ 和 $y$ 的差的绝对值就是 $x$ 和 $b$ 中最接近 $x$ 的元素的差的绝对值。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $b$ 的长度。
 
-**方法二：排序 + 双指针**
-
-我们可以对数组 $a$ 和 $b$ 分别进行排序，然后使用双指针的方法，维护两个指针 $i$ 和 $j$，初始时分别指向数组 $a$ 和 $b$ 的起始位置。每一次，我们计算 $a[i]$ 和 $b[j]$ 的差的绝对值，并且更新答案。如果 $a[i]$ 和 $b[j]$ 指向的两个元素中的一个元素比另一个元素要小，则将指向较小元素的指针向前移动一步。当至少有一个指针超出数组范围时，遍历结束。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $a$ 和 $b$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -54,26 +42,6 @@ class Solution:
                 ans = min(ans, x - b[j - 1])
         return ans
 ```
-
-```python
-class Solution:
-    def smallestDifference(self, a: List[int], b: List[int]) -> int:
-        a.sort()
-        b.sort()
-        i = j = 0
-        ans = inf
-        while i < len(a) and j < len(b):
-            ans = min(ans, abs(a[i] - b[j]))
-            if a[i] < b[j]:
-                i += 1
-            else:
-                j += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,28 +75,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int smallestDifference(int[] a, int[] b) {
-        Arrays.sort(a);
-        Arrays.sort(b);
-        int i = 0, j = 0;
-        long ans = Long.MAX_VALUE;
-        while (i < a.length && j < b.length) {
-            ans = Math.min(ans, Math.abs((long) a[i] - (long) b[j]));
-            if (a[i] < b[j]) {
-                ++i;
-            } else {
-                ++j;
-            }
-        }
-        return (int) ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,29 +95,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int smallestDifference(vector<int>& a, vector<int>& b) {
-        sort(a.begin(), a.end());
-        sort(b.begin(), b.end());
-        int i = 0, j = 0;
-        long long ans = LONG_LONG_MAX;
-        while (i < a.size() && j < b.size()) {
-            ans = min(ans, abs(1LL * a[i] - 1LL * b[j]));
-            if (a[i] < b[j]) {
-                ++i;
-            } else {
-                ++j;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func smallestDifference(a []int, b []int) int {
 	sort.Ints(b)
@@ -188,33 +111,6 @@ func smallestDifference(a []int, b []int) int {
 	return ans
 }
 ```
-
-```go
-func smallestDifference(a []int, b []int) int {
-	sort.Ints(a)
-	sort.Ints(b)
-	i, j := 0, 0
-	var ans int = 1e18
-	for i < len(a) && j < len(b) {
-		ans = min(ans, abs(a[i]-b[j]))
-		if a[i] < b[j] {
-			i++
-		} else {
-			j++
-		}
-	}
-	return ans
-}
-
-func abs(a int) int {
-	if a < 0 {
-		return -a
-	}
-	return a
-}
-```
-
-### **TypeScript**
 
 ```ts
 function smallestDifference(a: number[], b: number[]): number {
@@ -245,6 +141,98 @@ function smallestDifference(a: number[], b: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：排序 + 双指针
+
+我们可以对数组 $a$ 和 $b$ 分别进行排序，然后使用双指针的方法，维护两个指针 $i$ 和 $j$，初始时分别指向数组 $a$ 和 $b$ 的起始位置。每一次，我们计算 $a[i]$ 和 $b[j]$ 的差的绝对值，并且更新答案。如果 $a[i]$ 和 $b[j]$ 指向的两个元素中的一个元素比另一个元素要小，则将指向较小元素的指针向前移动一步。当至少有一个指针超出数组范围时，遍历结束。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $a$ 和 $b$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def smallestDifference(self, a: List[int], b: List[int]) -> int:
+        a.sort()
+        b.sort()
+        i = j = 0
+        ans = inf
+        while i < len(a) and j < len(b):
+            ans = min(ans, abs(a[i] - b[j]))
+            if a[i] < b[j]:
+                i += 1
+            else:
+                j += 1
+        return ans
+```
+
+```java
+class Solution {
+    public int smallestDifference(int[] a, int[] b) {
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int i = 0, j = 0;
+        long ans = Long.MAX_VALUE;
+        while (i < a.length && j < b.length) {
+            ans = Math.min(ans, Math.abs((long) a[i] - (long) b[j]));
+            if (a[i] < b[j]) {
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return (int) ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int smallestDifference(vector<int>& a, vector<int>& b) {
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        int i = 0, j = 0;
+        long long ans = LONG_LONG_MAX;
+        while (i < a.size() && j < b.size()) {
+            ans = min(ans, abs(1LL * a[i] - 1LL * b[j]));
+            if (a[i] < b[j]) {
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func smallestDifference(a []int, b []int) int {
+	sort.Ints(a)
+	sort.Ints(b)
+	i, j := 0, 0
+	var ans int = 1e18
+	for i < len(a) && j < len(b) {
+		ans = min(ans, abs(a[i]-b[j]))
+		if a[i] < b[j] {
+			i++
+		} else {
+			j++
+		}
+	}
+	return ans
+}
+
+func abs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+```
+
 ```ts
 function smallestDifference(a: number[], b: number[]): number {
     a.sort((a, b) => a - b);
@@ -263,10 +251,6 @@ function smallestDifference(a: number[], b: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

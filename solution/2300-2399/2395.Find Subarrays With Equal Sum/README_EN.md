@@ -46,9 +46,9 @@ Note that even though the subarrays have the same content, the two subarrays are
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             vis.add(x)
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSubarrays(nums []int) bool {
 	vis := map[int]bool{}
@@ -112,8 +106,6 @@ func findSubarrays(nums []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSubarrays(nums: number[]): boolean {
     const vis: Set<number> = new Set<number>();
@@ -127,8 +119,6 @@ function findSubarrays(nums: number[]): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -146,8 +136,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 bool findSubarrays(int* nums, int numsSize) {
     for (int i = 1; i < numsSize - 1; i++) {
@@ -161,11 +149,6 @@ bool findSubarrays(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

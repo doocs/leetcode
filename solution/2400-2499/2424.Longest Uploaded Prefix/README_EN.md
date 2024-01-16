@@ -50,7 +50,7 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We use a variable $r$ to record the current longest prefix of uploaded videos, and an array or hash table $s$ to record the videos that have been uploaded.
 
@@ -59,8 +59,6 @@ Each time a video is uploaded, we set `s[video]` to `true`, then loop to check w
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of videos.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class LUPrefix:
@@ -82,8 +80,6 @@ class LUPrefix:
 # obj.upload(video)
 # param_2 = obj.longest()
 ```
-
-### **Java**
 
 ```java
 class LUPrefix {
@@ -112,8 +108,6 @@ class LUPrefix {
  * int param_2 = obj.longest();
  */
 ```
-
-### **C++**
 
 ```cpp
 class LUPrefix {
@@ -145,8 +139,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type LUPrefix struct {
 	r int
@@ -176,16 +168,6 @@ func (this *LUPrefix) Longest() int {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快慢指针**
+### 方法一：快慢指针
 
 我们定义两个指针 `fast` 和 `slow`，初始时都指向链表的虚拟头结点 `dummy`。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -81,10 +75,6 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -170,25 +156,23 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 }
 ```
 
-### **JavaScript**
-
-```js
+```ts
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
  * }
  */
-/**
- * @param {ListNode} head
- * @param {number} n
- * @return {ListNode}
- */
-var removeNthFromEnd = function (head, n) {
+
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     const dummy = new ListNode(0, head);
-    let fast = dummy,
-        slow = dummy;
+    let fast = dummy;
+    let slow = dummy;
     while (n--) {
         fast = fast.next;
     }
@@ -198,40 +182,8 @@ var removeNthFromEnd = function (head, n) {
     }
     slow.next = slow.next.next;
     return dummy.next;
-};
+}
 ```
-
-### **Ruby**
-
-```rb
-# Definition for singly-linked list.
-# class ListNode
-#     attr_accessor :val, :next
-#     def initialize(val = 0, _next = nil)
-#         @val = val
-#         @next = _next
-#     end
-# end
-# @param {ListNode} head
-# @param {Integer} n
-# @return {ListNode}
-def remove_nth_from_end(head, n)
-    dummy = ListNode.new(0, head)
-    fast = slow = dummy
-    while n > 0
-        fast = fast.next
-        n -= 1
-    end
-    while fast.next
-        slow = slow.next
-        fast = fast.next
-    end
-    slow.next = slow.next.next
-    return dummy.next
-end
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -268,25 +220,23 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
+```js
 /**
  * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
-
-function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function (head, n) {
     const dummy = new ListNode(0, head);
-    let fast = dummy;
-    let slow = dummy;
+    let fast = dummy,
+        slow = dummy;
     while (n--) {
         fast = fast.next;
     }
@@ -296,13 +246,37 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     }
     slow.next = slow.next.next;
     return dummy.next;
-}
+};
 ```
 
-### **...**
-
-```
-
+```rb
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} head
+# @param {Integer} n
+# @return {ListNode}
+def remove_nth_from_end(head, n)
+    dummy = ListNode.new(0, head)
+    fast = slow = dummy
+    while n > 0
+        fast = fast.next
+        n -= 1
+    end
+    while fast.next
+        slow = slow.next
+        fast = fast.next
+    end
+    slow.next = slow.next.next
+    return dummy.next
+end
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

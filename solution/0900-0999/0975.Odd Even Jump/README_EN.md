@@ -71,9 +71,9 @@ number of jumps.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -100,8 +100,6 @@ class Solution:
             sd[arr[i]] = i
         return sum(dfs(i, 1) for i in range(n))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -143,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,8 +177,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func oddEvenJumps(arr []int) (ans int) {
@@ -226,10 +220,6 @@ func oddEvenJumps(arr []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

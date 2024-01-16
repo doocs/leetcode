@@ -79,15 +79,11 @@ Product 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：使用 `JOIN` 内连接**
+### 方法一：使用 `JOIN` 内连接
 
 我们直接使用 `JOIN` 连接 `Sales` 和 `Product` 两张表，连接字段为 `product_id`，然后选择需要的字段即可。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -98,3 +94,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

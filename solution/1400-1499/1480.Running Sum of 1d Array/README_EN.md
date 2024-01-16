@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum**
+### Solution 1: Prefix Sum
 
 We directly traverse the array. For the current element $nums[i]$, we add it with the prefix sum $nums[i-1]$ to get the prefix sum $nums[i]$ of the current element.
 
@@ -48,15 +48,11 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         return list(accumulate(nums))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +65,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -81,8 +75,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func runningSum(nums []int) []int {
 	for i := 1; i < len(nums); i++ {
@@ -92,8 +84,6 @@ func runningSum(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function runningSum(nums: number[]): number[] {
     for (let i = 1; i < nums.length; ++i) {
@@ -102,8 +92,6 @@ function runningSum(nums: number[]): number[] {
     return nums;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -115,8 +103,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -133,10 +119,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 `cnt1` 统计 `nums1` 中每个数出现的次数，用哈希表 `cnt2` 统计 `nums2` 中每个数出现的次数。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `nums2` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
                         ans += x * y * cnt1[c]
         return ans >> 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,8 +134,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 func numTriplets(nums1 []int, nums2 []int) (ans int) {
 	cnt1 := map[int]int{}
@@ -181,10 +169,6 @@ func numTriplets(nums1 []int, nums2 []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

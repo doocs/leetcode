@@ -81,19 +81,13 @@ Passengers table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：左连接 + 分组**
+### 方法一：左连接 + 分组
 
 我们可以使用左连接将 `Flights` 和 `Passengers` 表连接起来，然后按照 `flight_id` 分组，统计每个航班的乘客数量。
 
 对于每个航班，我们可以使用 `count(passenger_id)` 统计乘客数量，取 `capacity` 和 `count(passenger_id)` 的最小值作为已预订的乘客数量，取 `count(passenger_id) - capacity` 和 $0$ 的最大值作为等待名单上的乘客数量。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -109,3 +103,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

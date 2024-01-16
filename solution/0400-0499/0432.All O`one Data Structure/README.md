@@ -55,13 +55,9 @@ allOne.getMinKey(); // 返回 "leet"
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -140,10 +136,6 @@ class AllOne:
 # param_3 = obj.getMaxKey()
 # param_4 = obj.getMinKey()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class AllOne {
@@ -247,10 +239,6 @@ class Node {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

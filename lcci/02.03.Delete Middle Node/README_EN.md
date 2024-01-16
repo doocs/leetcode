@@ -20,9 +20,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -42,8 +42,6 @@ class Solution:
         node.next = node.next.next
 ```
 
-### **Java**
-
 ```java
 /**
  * Definition for singly-linked list.
@@ -60,28 +58,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} node
- * @return {void} Do not return anything, modify node in-place instead.
- */
-var deleteNode = function (node) {
-    node.val = node.next.val;
-    node.next = node.next.next;
-};
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -101,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -117,10 +91,24 @@ func deleteNode(node *ListNode) {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} node
+ * @return {void} Do not return anything, modify node in-place instead.
+ */
+var deleteNode = function (node) {
+    node.val = node.next.val;
+    node.next = node.next.next;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

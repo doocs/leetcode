@@ -33,7 +33,7 @@ k = 3
 
 ## Solutions
 
-**Solution 1: Case Analysis**
+### Solution 1: Case Analysis
 
 If $k=0$, there is no solution, and we can directly return an empty list.
 
@@ -44,8 +44,6 @@ Otherwise, we can use a board with length $shorter \times (k-i) + longer \times 
 The time complexity is $O(k)$, where $k$ is the number of boards. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -59,8 +57,6 @@ class Solution:
             ans.append(longer * i + shorter * (k - i))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +89,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func divingBoard(shorter int, longer int, k int) []int {
@@ -114,8 +106,6 @@ func divingBoard(shorter int, longer int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function divingBoard(shorter: number, longer: number, k: number): number[] {
     if (k === 0) {
@@ -132,10 +122,6 @@ function divingBoard(shorter: number, longer: number, k: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

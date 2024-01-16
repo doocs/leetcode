@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 数学**
+### 方法一：DFS + 数学
 
 我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始到最后一个元素的连分数的值，那么答案就是 $dfs(0)$。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $cont$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fraction(cont []int) []int {
 	var dfs func(i int) []int
@@ -145,8 +131,6 @@ func fraction(cont []int) []int {
 	return dfs(0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function fraction(cont: number[]): number[] {
@@ -165,8 +149,6 @@ function fraction(cont: number[]): number[] {
     return dfs(0);
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -190,10 +172,6 @@ var fraction = function (cont) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -77,13 +77,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +93,6 @@ class Solution:
                 x, y = x + 1, y + 1
         return ''.join(ans).rstrip()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,23 +112,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function decodeCiphertext(encodedText: string, rows: number): string {
-    const cols = Math.ceil(encodedText.length / rows);
-    let ans = [];
-    for (let k = 0; k <= cols; k++) {
-        for (let i = 0, j = k; i < rows && j < cols; i++, j++) {
-            ans.push(encodedText.charAt(i * cols + j));
-        }
-    }
-    return ans.join('').trimEnd();
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -152,10 +127,19 @@ public:
 };
 ```
 
-### **...**
-
-```
-
+```ts
+function decodeCiphertext(encodedText: string, rows: number): string {
+    const cols = Math.ceil(encodedText.length / rows);
+    let ans = [];
+    for (let k = 0; k <= cols; k++) {
+        for (let i = 0, j = k; i < rows && j < cols; i++, j++) {
+            ans.push(encodedText.charAt(i * cols + j));
+        }
+    }
+    return ans.join('').trimEnd();
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

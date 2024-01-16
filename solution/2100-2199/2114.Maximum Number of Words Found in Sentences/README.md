@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：空格计数**
+### 方法一：空格计数
 
 我们遍历数组 `sentences`，对于每个句子，我们计算其中的空格数，那么单词数就是空格数加 $1$。最后返回最大的单词数即可。
 
@@ -57,19 +55,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def mostWordsFound(self, sentences: List[str]) -> int:
         return 1 + max(s.count(' ') for s in sentences)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostWordsFound(sentences []string) (ans int) {
 	for _, s := range sentences {
@@ -118,8 +104,6 @@ func mostWordsFound(sentences []string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function mostWordsFound(sentences: string[]): number {
@@ -133,8 +117,6 @@ function mostWordsFound(sentences: string[]): number {
     );
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -153,8 +135,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -175,10 +155,6 @@ int mostWordsFound(char** sentences, int sentencesSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

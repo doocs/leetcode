@@ -46,7 +46,7 @@ It can be proven that there is no more than 1 square-free subset in the given ar
 
 ## Solutions
 
-**Solution 1: State Compression Dynamic Programming**
+### Solution 1: State Compression Dynamic Programming
 
 Note that in the problem, the range of $nums[i]$ is $[1, 30]$. Therefore, we can preprocess all prime numbers less than or equal to $30$, which are $[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]$.
 
@@ -65,8 +65,6 @@ Similar problems:
 -   [1994. The Number of Good Subsets](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -89,8 +87,6 @@ class Solution:
                     f[state] = (f[state] + cnt[x] * f[state ^ mask]) % mod
         return sum(v for v in f) % mod - 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func squareFreeSubsets(nums []int) (ans int) {
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
@@ -216,10 +208,6 @@ func squareFreeSubsets(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

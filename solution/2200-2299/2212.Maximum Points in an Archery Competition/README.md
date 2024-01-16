@@ -70,17 +70,11 @@ Bob 获得总分 8 + 9 + 10 = 27 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二进制枚举**
+### 方法一：二进制枚举
 
 枚举 bob 射箭的最终状态，寻找满足题意的、且使得 bob 得分最大的状态。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
         ans[0] = numArrows
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -142,8 +132,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 	n := len(aliceArrows)
@@ -207,8 +193,6 @@ func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     const dfs = (arr: number[], i: number, c: number): number[] => {
@@ -232,8 +216,6 @@ function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     return dfs(new Array(12).fill(0), 11, numArrows);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -270,10 +252,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

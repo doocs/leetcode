@@ -56,7 +56,7 @@ It can be proven that 4788 is the highest score one can obtain.
 
 ## Solutions
 
-**Solution 1: Monotonic Stack + Greedy**
+### Solution 1: Monotonic Stack + Greedy
 
 It is not difficult to see that the number of subarrays with the highest prime score of an element $nums[i]$ is $cnt = (i - l) \times (r - i)$, where $l$ is the leftmost index such that $primeScore(nums[l]) \ge primeScore(nums[i])$, and $r$ is the rightmost index such that $primeScore(nums[r]) \ge primeScore(nums[i])$.
 
@@ -67,8 +67,6 @@ Return the answer after the loop. Note that the power is large, so we need to us
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 def primeFactors(n):
@@ -121,8 +119,6 @@ class Solution:
                 break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -206,8 +202,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -287,8 +281,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumScore(nums []int, k int) int {
 	n := len(nums)
@@ -366,8 +358,6 @@ func primeFactors(n int) int {
 	return len(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumScore(nums: number[], k: number): number {
@@ -447,10 +437,6 @@ function qpow(a: bigint, n: number, mod: number): bigint {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

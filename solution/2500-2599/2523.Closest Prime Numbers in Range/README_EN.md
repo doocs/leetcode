@@ -53,9 +53,9 @@ Since 11 is smaller than 17, we return the first pair.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
                 ans = [a, b]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +171,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func closestPrimes(left int, right int) []int {
 	cnt := 0
@@ -219,10 +213,6 @@ func closestPrimes(left int, right int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

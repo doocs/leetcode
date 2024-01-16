@@ -47,7 +47,7 @@ smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
 
 ## Solutions
 
-**Solution 1: Ordered Set + Simulation**
+### Solution 1: Ordered Set + Simulation
 
 We note that the range of elements in the set given by the problem is $[1, 1000]$, and the operations we need to support are:
 
@@ -65,8 +65,6 @@ In the `addBack` operation, we just need to add the element back to the ordered 
 The space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedSet
@@ -90,8 +88,6 @@ class SmallestInfiniteSet:
 # param_1 = obj.popSmallest()
 # obj.addBack(num)
 ```
-
-### **Java**
 
 ```java
 class SmallestInfiniteSet {
@@ -119,8 +115,6 @@ class SmallestInfiniteSet {
  * obj.addBack(num);
  */
 ```
-
-### **C++**
 
 ```cpp
 class SmallestInfiniteSet {
@@ -153,8 +147,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type SmallestInfiniteSet struct {
 	s *treemap.Map
@@ -185,8 +177,6 @@ func (this *SmallestInfiniteSet) AddBack(num int) {
  * obj.AddBack(num);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class SmallestInfiniteSet {
@@ -856,6 +846,45 @@ class TreeMultiSet<T = number> {
  */
 ```
 
+```rust
+use std::collections::BTreeSet;
+
+struct SmallestInfiniteSet {
+    s: BTreeSet<i32>,
+}
+
+impl SmallestInfiniteSet {
+    fn new() -> Self {
+        let mut set = BTreeSet::new();
+        for i in 1..=1000 {
+            set.insert(i);
+        }
+        SmallestInfiniteSet { s: set }
+    }
+
+    fn pop_smallest(&mut self) -> i32 {
+        let x = *self.s.iter().next().unwrap();
+        self.s.remove(&x);
+        x
+    }
+
+    fn add_back(&mut self, num: i32) {
+        self.s.insert(num);
+    }
+}/**
+ * Your SmallestInfiniteSet object will be instantiated and called as such:
+ * let obj = SmallestInfiniteSet::new();
+ * let ret_1: i32 = obj.pop_smallest();
+ * obj.add_back(num);
+ */
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```ts
 class SmallestInfiniteSet {
     private pq: typeof MinPriorityQueue;
@@ -892,45 +921,6 @@ class SmallestInfiniteSet {
  */
 ```
 
-### **Rust**
-
-```rust
-use std::collections::BTreeSet;
-
-struct SmallestInfiniteSet {
-    s: BTreeSet<i32>,
-}
-
-impl SmallestInfiniteSet {
-    fn new() -> Self {
-        let mut set = BTreeSet::new();
-        for i in 1..=1000 {
-            set.insert(i);
-        }
-        SmallestInfiniteSet { s: set }
-    }
-
-    fn pop_smallest(&mut self) -> i32 {
-        let x = *self.s.iter().next().unwrap();
-        self.s.remove(&x);
-        x
-    }
-
-    fn add_back(&mut self, num: i32) {
-        self.s.insert(num);
-    }
-}/**
- * Your SmallestInfiniteSet object will be instantiated and called as such:
- * let obj = SmallestInfiniteSet::new();
- * let ret_1: i32 = obj.pop_smallest();
- * obj.add_back(num);
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

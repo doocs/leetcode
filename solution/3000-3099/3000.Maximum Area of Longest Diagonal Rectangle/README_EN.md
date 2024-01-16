@@ -41,9 +41,9 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
                 ans = max(ans, l * w)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 	mx := 0
@@ -121,8 +115,6 @@ func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function areaOfMaxDiagonal(dimensions: number[][]): number {
     let [ans, mx] = [0, 0];
@@ -139,10 +131,6 @@ function areaOfMaxDiagonal(dimensions: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

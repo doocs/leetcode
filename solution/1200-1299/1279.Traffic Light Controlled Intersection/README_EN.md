@@ -79,9 +79,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from threading import Lock
@@ -111,8 +111,6 @@ class TrafficLight:
         self.lock.release()
 ```
 
-### **Java**
-
 ```java
 class TrafficLight {
     private int road = 1;
@@ -135,10 +133,6 @@ class TrafficLight {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

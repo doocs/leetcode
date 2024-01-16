@@ -28,7 +28,7 @@
 
 ## Solutions
 
-**Solution 1: Recursion + Bit Manipulation**
+### Solution 1: Recursion + Bit Manipulation
 
 First, we check if $B$ is $1$. If it is, we directly return $A$.
 
@@ -37,8 +37,6 @@ Otherwise, we check if $B$ is an odd number. If it is, we can right shift $B$ by
 The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the size of $B$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -49,8 +47,6 @@ class Solution:
             return (self.multiply(A, B >> 1) << 1) + A
         return self.multiply(A, B >> 1) << 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +61,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -83,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func multiply(A int, B int) int {
 	if B == 1 {
@@ -97,8 +89,6 @@ func multiply(A int, B int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function multiply(A: number, B: number): number {
     if (B === 1) {
@@ -110,8 +100,6 @@ function multiply(A: number, B: number): number {
     return multiply(A, B >> 1) << 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -127,10 +115,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

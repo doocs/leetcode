@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们不妨记 $mi$ 和 $mx$ 分别为 $-2^{31}$ 和 $2^{31} - 1$，则 $x$ 的反转结果 $ans$ 需要满足 $mi \le ans \le mx$。
 
@@ -77,10 +75,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def reverse(self, x: int) -> int:
@@ -97,10 +91,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int reverse(int x) {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reverse(x int) (ans int) {
 	for ; x != 0; x /= 10 {
@@ -148,7 +134,17 @@ func reverse(x int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn reverse(mut x: i32) -> i32 {
+        let is_minus = x < 0;
+        match x.abs().to_string().chars().rev().collect::<String>().parse::<i32>() {
+            Ok(x) => x * (if is_minus { -1 } else { 1 }),
+            Err(_) => 0,
+        }
+    }
+}
+```
 
 ```js
 /**
@@ -169,37 +165,6 @@ var reverse = function (x) {
 };
 ```
 
-### **C**
-
-```c
-int reverse(int x) {
-    int ans = 0;
-    for (; x != 0; x /= 10) {
-        if (ans > INT_MAX / 10 || ans < INT_MIN / 10) {
-            return 0;
-        }
-        ans = ans * 10 + x % 10;
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn reverse(mut x: i32) -> i32 {
-        let is_minus = x < 0;
-        match x.abs().to_string().chars().rev().collect::<String>().parse::<i32>() {
-            Ok(x) => x * (if is_minus { -1 } else { 1 }),
-            Err(_) => 0,
-        }
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int Reverse(int x) {
@@ -215,10 +180,19 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int reverse(int x) {
+    int ans = 0;
+    for (; x != 0; x /= 10) {
+        if (ans > INT_MAX / 10 || ans < INT_MIN / 10) {
+            return 0;
+        }
+        ans = ans * 10 + x % 10;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

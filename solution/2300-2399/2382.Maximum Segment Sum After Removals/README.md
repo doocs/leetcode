@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆向思维 + 并查集**
+### 方法一：逆向思维 + 并查集
 
 考虑**从后往前遍历**数组 $removeQueries$ 中的每个元素 $i$，用并查集来维护以 $nums[i]$ 所在的连续子数组的和。
 
@@ -69,10 +67,6 @@
 相似题目：[2334. 元素值大于变化阈值的子数组](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
             ans[j - 1] = mx
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +142,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -193,8 +181,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSegmentSum(nums []int, removeQueries []int) []int64 {
 	n := len(nums)
@@ -233,17 +219,6 @@ func maximumSegmentSum(nums []int, removeQueries []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

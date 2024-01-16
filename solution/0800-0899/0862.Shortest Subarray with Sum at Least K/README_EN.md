@@ -30,9 +30,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -48,8 +48,6 @@ class Solution:
             q.append(i)
         return -1 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +73,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestSubarray(nums []int, k int) int {
@@ -127,10 +121,6 @@ func shortestSubarray(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

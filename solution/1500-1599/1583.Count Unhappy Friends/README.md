@@ -74,9 +74,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组 + 枚举**
+### 方法一：数组 + 枚举
 
 我们用数组 $d$ 记录每个朋友与其它朋友的亲近程度，其中 $d[i][j]$ 表示朋友 $i$ 对 $j$ 的亲近程度（值越小，越亲近），另外，用数组 $p$ 记录每个朋友的配对朋友。
 
@@ -87,10 +85,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为朋友的数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
             ans += any(d[u][x] < d[u][p[u]] for u in preferences[x][: d[x][y]])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,8 +135,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -182,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 	d := make([][]int, n)
@@ -215,10 +201,6 @@ func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

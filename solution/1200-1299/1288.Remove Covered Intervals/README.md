@@ -34,21 +34,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-对起点按升序排列，若起点相同，则对终点按降序排列。
-
-设 cnt 表示没有被覆盖的区间数，初始化为 1，pre 表示前一个未被覆盖的区间，初始化为 `intervals[0]`。
-
-从下标 1 开始遍历区间列表，若 `pre[1] < intervals[i][1]`，说明当前区间不被前一个区间覆盖，`cnt++`，并且更新 pre 为 `intervals[i]`。否则表示当前区间被前一个区间覆盖，不做任何操作。
-
-最后返回 cnt 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -61,10 +49,6 @@ class Solution:
                 pre = e
         return cnt
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +67,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -102,8 +84,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeCoveredIntervals(intervals [][]int) int {
@@ -125,10 +105,6 @@ func removeCoveredIntervals(intervals [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

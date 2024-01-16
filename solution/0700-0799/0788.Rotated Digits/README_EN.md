@@ -50,9 +50,9 @@ Note that 1 and 10 are not good numbers, since they remain unchanged after rotat
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,33 +72,6 @@ class Solution:
         d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
         return sum(check(i) for i in range(1, n + 1))
 ```
-
-```python
-class Solution:
-    def rotatedDigits(self, n: int) -> int:
-        @cache
-        def dfs(pos, ok, limit):
-            if pos <= 0:
-                return ok
-            up = a[pos] if limit else 9
-            ans = 0
-            for i in range(up + 1):
-                if i in (0, 1, 8):
-                    ans += dfs(pos - 1, ok, limit and i == up)
-                if i in (2, 5, 6, 9):
-                    ans += dfs(pos - 1, 1, limit and i == up)
-            return ans
-
-        a = [0] * 6
-        l = 1
-        while n:
-            a[l] = n % 10
-            n //= 10
-            l += 1
-        return dfs(l, 0, True)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,6 +102,93 @@ class Solution {
         return x != y;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    const vector<int> d = {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
+
+    int rotatedDigits(int n) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans += check(i);
+        }
+        return ans;
+    }
+
+    bool check(int x) {
+        int y = 0, t = x;
+        int k = 1;
+        while (t) {
+            int v = t % 10;
+            if (d[v] == -1) {
+                return false;
+            }
+            y = d[v] * k + y;
+            k *= 10;
+            t /= 10;
+        }
+        return x != y;
+    }
+};
+```
+
+```go
+func rotatedDigits(n int) int {
+	d := []int{0, 1, 5, -1, -1, 2, 9, -1, 8, 6}
+	check := func(x int) bool {
+		y, t := 0, x
+		k := 1
+		for ; t > 0; t /= 10 {
+			v := t % 10
+			if d[v] == -1 {
+				return false
+			}
+			y = d[v]*k + y
+			k *= 10
+		}
+		return x != y
+	}
+	ans := 0
+	for i := 1; i <= n; i++ {
+		if check(i) {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def rotatedDigits(self, n: int) -> int:
+        @cache
+        def dfs(pos, ok, limit):
+            if pos <= 0:
+                return ok
+            up = a[pos] if limit else 9
+            ans = 0
+            for i in range(up + 1):
+                if i in (0, 1, 8):
+                    ans += dfs(pos - 1, ok, limit and i == up)
+                if i in (2, 5, 6, 9):
+                    ans += dfs(pos - 1, 1, limit and i == up)
+            return ans
+
+        a = [0] * 6
+        l = 1
+        while n:
+            a[l] = n % 10
+            n //= 10
+            l += 1
+        return dfs(l, 0, True)
 ```
 
 ```java
@@ -173,38 +233,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    const vector<int> d = {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
-
-    int rotatedDigits(int n) {
-        int ans = 0;
-        for (int i = 1; i <= n; ++i) {
-            ans += check(i);
-        }
-        return ans;
-    }
-
-    bool check(int x) {
-        int y = 0, t = x;
-        int k = 1;
-        while (t) {
-            int v = t % 10;
-            if (d[v] == -1) {
-                return false;
-            }
-            y = d[v] * k + y;
-            k *= 10;
-            t /= 10;
-        }
-        return x != y;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -244,34 +272,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func rotatedDigits(n int) int {
-	d := []int{0, 1, 5, -1, -1, 2, 9, -1, 8, 6}
-	check := func(x int) bool {
-		y, t := 0, x
-		k := 1
-		for ; t > 0; t /= 10 {
-			v := t % 10
-			if d[v] == -1 {
-				return false
-			}
-			y = d[v]*k + y
-			k *= 10
-		}
-		return x != y
-	}
-	ans := 0
-	for i := 1; i <= n; i++ {
-		if check(i) {
-			ans++
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -319,10 +319,6 @@ func rotatedDigits(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,9 +61,9 @@ The blue arrows show how we can find originalText from encodedText.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,8 +77,6 @@ class Solution:
                 x, y = x + 1, y + 1
         return ''.join(ans).rstrip()
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,23 +96,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function decodeCiphertext(encodedText: string, rows: number): string {
-    const cols = Math.ceil(encodedText.length / rows);
-    let ans = [];
-    for (let k = 0; k <= cols; k++) {
-        for (let i = 0, j = k; i < rows && j < cols; i++, j++) {
-            ans.push(encodedText.charAt(i * cols + j));
-        }
-    }
-    return ans.join('').trimEnd();
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,10 +111,19 @@ public:
 };
 ```
 
-### **...**
-
-```
-
+```ts
+function decodeCiphertext(encodedText: string, rows: number): string {
+    const cols = Math.ceil(encodedText.length / rows);
+    let ans = [];
+    for (let k = 0; k <= cols; k++) {
+        for (let i = 0, j = k; i < rows && j < cols; i++, j++) {
+            ans.push(encodedText.charAt(i * cols + j));
+        }
+    }
+    return ans.join('').trimEnd();
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

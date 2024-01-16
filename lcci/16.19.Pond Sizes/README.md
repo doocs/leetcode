@@ -24,9 +24,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们可以遍历整数矩阵 $land$ 中的每个点 $(i, j)$，如果该点的值为 $0$，则从该点开始进行深度优先搜索，直到搜索到的点的值不为 $0$，则停止搜索，此时搜索到的点的个数即为池塘的大小，将其加入答案数组中。
 
@@ -37,10 +35,6 @@
 时间复杂度 $O(m \times n \times \log (m \times n))，空间复杂度 O(m \times n)$。其中 $m$ 和 $n$ 分别为矩阵 $land$ 的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -57,10 +51,6 @@ class Solution:
         m, n = len(land), len(land[0])
         return sorted(dfs(i, j) for i in range(m) for j in range(n) if land[i][j] == 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pondSizes(land [][]int) (ans []int) {
 	m, n := len(land), len(land[0])
@@ -160,8 +146,6 @@ func pondSizes(land [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function pondSizes(land: number[][]): number[] {
@@ -192,10 +176,6 @@ function pondSizes(land: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,9 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
                         q.append([x, y])
         return ans
 ```
-
-### **Java**
 
 ```java
 import java.util.Deque;
@@ -104,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func allCellsDistOrder(rows int, cols int, rCenter int, cCenter int) (ans [][]int) {
 	q := [][]int{{rCenter, cCenter}}
@@ -167,10 +161,6 @@ func allCellsDistOrder(rows int, cols int, rCenter int, cCenter int) (ans [][]in
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

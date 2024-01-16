@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 根据题目描述我们知道，从左上角到右下角的路径上 $0$ 的个数和 $1$ 的个数相等，个数总和为 $m + n - 1$，即 $0$ 的个数和 $1$ 的个数都为 $(m + n - 1) / 2$。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(m \times n \times (m + n))$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
         s >>= 1
         return dfs(0, 0, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isThereAPath(grid [][]int) bool {
@@ -187,10 +173,6 @@ func isThereAPath(grid [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

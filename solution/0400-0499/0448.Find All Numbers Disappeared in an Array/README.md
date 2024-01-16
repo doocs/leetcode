@@ -38,27 +38,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 我们可以使用数组或哈希表记录数组中的数字，然后遍历 `[1, n]` 区间内的数字，若数字不存在于数组或哈希表中，则说明数组中缺失该数字，将其添加到结果列表中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
-**方法二：原地修改**
-
-我们可以遍历数组 $nums$，将 $|nums[i]|-1$ 位置的数字标记为负数，表示数组 $nums[i]$ 出现过。最后遍历数组 $nums$，若 $nums[i]$ 为正数，则说明数组中缺失 $i+1$，将其添加到结果列表中。
-
-遍历结束后，返回结果列表即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,20 +52,6 @@ class Solution:
         s = set(nums)
         return [x for x in range(1, len(nums) + 1) if x not in s]
 ```
-
-```python
-class Solution:
-    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
-        for x in nums:
-            i = abs(x) - 1
-            if nums[i] > 0:
-                nums[i] *= -1
-        return [i + 1 for i in range(len(nums)) if nums[i] > 0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,6 +70,82 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        int n = nums.size();
+        bool s[n + 1];
+        memset(s, false, sizeof(s));
+        for (int& x : nums) {
+            s[x] = true;
+        }
+        vector<int> ans;
+        for (int i = 1; i <= n; ++i) {
+            if (!s[i]) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findDisappearedNumbers(nums []int) (ans []int) {
+	n := len(nums)
+	s := make([]bool, n+1)
+	for _, x := range nums {
+		s[x] = true
+	}
+	for i := 1; i <= n; i++ {
+		if !s[i] {
+			ans = append(ans, i)
+		}
+	}
+	return
+}
+```
+
+```ts
+function findDisappearedNumbers(nums: number[]): number[] {
+    const n = nums.length;
+    const s: boolean[] = new Array(n + 1).fill(false);
+    for (const x of nums) {
+        s[x] = true;
+    }
+    const ans: number[] = [];
+    for (let i = 1; i <= n; ++i) {
+        if (!s[i]) {
+            ans.push(i);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：原地修改
+
+我们可以遍历数组 $nums$，将 $|nums[i]|-1$ 位置的数字标记为负数，表示数组 $nums[i]$ 出现过。最后遍历数组 $nums$，若 $nums[i]$ 为正数，则说明数组中缺失 $i+1$，将其添加到结果列表中。
+
+遍历结束后，返回结果列表即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        for x in nums:
+            i = abs(x) - 1
+            if nums[i] > 0:
+                nums[i] *= -1
+        return [i + 1 for i in range(len(nums)) if nums[i] > 0]
 ```
 
 ```java
@@ -121,29 +169,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> findDisappearedNumbers(vector<int>& nums) {
-        int n = nums.size();
-        bool s[n + 1];
-        memset(s, false, sizeof(s));
-        for (int& x : nums) {
-            s[x] = true;
-        }
-        vector<int> ans;
-        for (int i = 1; i <= n; ++i) {
-            if (!s[i]) {
-                ans.push_back(i);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -164,24 +189,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func findDisappearedNumbers(nums []int) (ans []int) {
-	n := len(nums)
-	s := make([]bool, n+1)
-	for _, x := range nums {
-		s[x] = true
-	}
-	for i := 1; i <= n; i++ {
-		if !s[i] {
-			ans = append(ans, i)
-		}
-	}
-	return
-}
 ```
 
 ```go
@@ -209,25 +216,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findDisappearedNumbers(nums: number[]): number[] {
-    const n = nums.length;
-    const s: boolean[] = new Array(n + 1).fill(false);
-    for (const x of nums) {
-        s[x] = true;
-    }
-    const ans: number[] = [];
-    for (let i = 1; i <= n; ++i) {
-        if (!s[i]) {
-            ans.push(i);
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function findDisappearedNumbers(nums: number[]): number[] {
     const n = nums.length;
@@ -247,10 +235,6 @@ function findDisappearedNumbers(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

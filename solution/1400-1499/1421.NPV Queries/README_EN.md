@@ -90,9 +90,9 @@ The npv values of all other queries can be found in the NPV table.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -103,3 +103,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

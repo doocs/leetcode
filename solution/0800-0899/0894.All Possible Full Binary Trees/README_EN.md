@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -61,8 +61,6 @@ class Solution:
 
         return dfs(n)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -109,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,7 +146,80 @@ public:
 };
 ```
 
-### **Rust**
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func allPossibleFBT(n int) []*TreeNode {
+	f := make([][]*TreeNode, n+1)
+	var dfs func(int) []*TreeNode
+	dfs = func(n int) []*TreeNode {
+		if len(f[n]) > 0 {
+			return f[n]
+		}
+		if n == 1 {
+			return []*TreeNode{&TreeNode{Val: 0}}
+		}
+		ans := []*TreeNode{}
+		for i := 0; i < n-1; i++ {
+			j := n - 1 - i
+			for _, left := range dfs(i) {
+				for _, right := range dfs(j) {
+					ans = append(ans, &TreeNode{0, left, right})
+				}
+			}
+		}
+		f[n] = ans
+		return ans
+	}
+	return dfs(n)
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function allPossibleFBT(n: number): Array<TreeNode | null> {
+    const f: Array<Array<TreeNode | null>> = new Array(n + 1).fill(0).map(() => []);
+    const dfs = (n: number): Array<TreeNode | null> => {
+        if (f[n].length) {
+            return f[n];
+        }
+        if (n === 1) {
+            f[n].push(new TreeNode(0));
+            return f[n];
+        }
+        const ans: Array<TreeNode | null> = [];
+        for (let i = 0; i < n - 1; ++i) {
+            const j = n - 1 - i;
+            for (const left of dfs(i)) {
+                for (const right of dfs(j)) {
+                    ans.push(new TreeNode(0, left, right));
+                }
+            }
+        }
+        return (f[n] = ans);
+    };
+    return dfs(n);
+}
+```
 
 ```rust
 // Definition for a binary tree node.
@@ -234,89 +303,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func allPossibleFBT(n int) []*TreeNode {
-	f := make([][]*TreeNode, n+1)
-	var dfs func(int) []*TreeNode
-	dfs = func(n int) []*TreeNode {
-		if len(f[n]) > 0 {
-			return f[n]
-		}
-		if n == 1 {
-			return []*TreeNode{&TreeNode{Val: 0}}
-		}
-		ans := []*TreeNode{}
-		for i := 0; i < n-1; i++ {
-			j := n - 1 - i
-			for _, left := range dfs(i) {
-				for _, right := range dfs(j) {
-					ans = append(ans, &TreeNode{0, left, right})
-				}
-			}
-		}
-		f[n] = ans
-		return ans
-	}
-	return dfs(n)
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function allPossibleFBT(n: number): Array<TreeNode | null> {
-    const f: Array<Array<TreeNode | null>> = new Array(n + 1).fill(0).map(() => []);
-    const dfs = (n: number): Array<TreeNode | null> => {
-        if (f[n].length) {
-            return f[n];
-        }
-        if (n === 1) {
-            f[n].push(new TreeNode(0));
-            return f[n];
-        }
-        const ans: Array<TreeNode | null> = [];
-        for (let i = 0; i < n - 1; ++i) {
-            const j = n - 1 - i;
-            for (const left of dfs(i)) {
-                for (const right of dfs(j)) {
-                    ans.push(new TreeNode(0, left, right));
-                }
-            }
-        }
-        return (f[n] = ans);
-    };
-    return dfs(n);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

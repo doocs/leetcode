@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class SortedStack:
@@ -73,8 +73,6 @@ class SortedStack:
     def isEmpty(self) -> bool:
         return len(self.s) == 0
 ```
-
-### **Java**
 
 ```java
 class SortedStack {
@@ -119,7 +117,45 @@ class SortedStack {
  */
 ```
 
-### **TypeScript**
+```go
+type SortedStack struct {
+	data []int
+}
+
+func Constructor() SortedStack {
+	return SortedStack{make([]int, 0)}
+}
+
+func (s *SortedStack) Push(val int) {
+	temp := make([]int, 0)
+	for !s.IsEmpty() && s.Peek() < val {
+		temp = append(temp, s.Peek())
+		s.Pop()
+	}
+	s.data = append(s.data, val)
+	for len(temp) > 0 {
+		s.data = append(s.data, temp[len(temp)-1])
+		temp = temp[:len(temp)-1]
+	}
+}
+
+func (s *SortedStack) Pop() {
+	if !s.IsEmpty() {
+		s.data = s.data[:len(s.data)-1]
+	}
+}
+
+func (s *SortedStack) Peek() int {
+	if !s.IsEmpty() {
+		return s.data[len(s.data)-1]
+	}
+	return -1
+}
+
+func (s *SortedStack) IsEmpty() bool {
+	return len(s.data) == 0
+}
+```
 
 ```ts
 class SortedStack {
@@ -161,92 +197,6 @@ class SortedStack {
  * var param_4 = obj.isEmpty()
  */
 ```
-
-```ts
-class SortedStack {
-    private stack: number[];
-
-    constructor() {
-        this.stack = [];
-    }
-
-    push(val: number): void {
-        if (this.isEmpty() || this.peek() > val) {
-            this.stack.push(val);
-            return;
-        }
-
-        const tmp = this.stack.pop();
-        this.push(val);
-        this.stack.push(tmp);
-    }
-
-    pop(): void {
-        this.stack.pop();
-    }
-
-    peek(): number {
-        return this.stack[this.stack.length - 1] ?? -1;
-    }
-
-    isEmpty(): boolean {
-        return this.stack.length === 0;
-    }
-}
-
-/**
- * Your SortedStack object will be instantiated and called as such:
- * var obj = new SortedStack()
- * obj.push(val)
- * obj.pop()
- * var param_3 = obj.peek()
- * var param_4 = obj.isEmpty()
- */
-```
-
-### **Go**
-
-```go
-type SortedStack struct {
-	data []int
-}
-
-func Constructor() SortedStack {
-	return SortedStack{make([]int, 0)}
-}
-
-func (s *SortedStack) Push(val int) {
-	temp := make([]int, 0)
-	for !s.IsEmpty() && s.Peek() < val {
-		temp = append(temp, s.Peek())
-		s.Pop()
-	}
-	s.data = append(s.data, val)
-	for len(temp) > 0 {
-		s.data = append(s.data, temp[len(temp)-1])
-		temp = temp[:len(temp)-1]
-	}
-}
-
-func (s *SortedStack) Pop() {
-	if !s.IsEmpty() {
-		s.data = s.data[:len(s.data)-1]
-	}
-}
-
-func (s *SortedStack) Peek() int {
-	if !s.IsEmpty() {
-		return s.data[len(s.data)-1]
-	}
-	return -1
-}
-
-func (s *SortedStack) IsEmpty() bool {
-	return len(s.data) == 0
-}
-```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -294,10 +244,54 @@ impl SortedStack {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+class SortedStack {
+    private stack: number[];
+
+    constructor() {
+        this.stack = [];
+    }
+
+    push(val: number): void {
+        if (this.isEmpty() || this.peek() > val) {
+            this.stack.push(val);
+            return;
+        }
+
+        const tmp = this.stack.pop();
+        this.push(val);
+        this.stack.push(tmp);
+    }
+
+    pop(): void {
+        this.stack.pop();
+    }
+
+    peek(): number {
+        return this.stack[this.stack.length - 1] ?? -1;
+    }
+
+    isEmpty(): boolean {
+        return this.stack.length === 0;
+    }
+}
+
+/**
+ * Your SortedStack object will be instantiated and called as such:
+ * var obj = new SortedStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.peek()
+ * var param_4 = obj.isEmpty()
+ */
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

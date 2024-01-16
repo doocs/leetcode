@@ -56,7 +56,7 @@ p = &quot;mis*is*p*.&quot;
 
 ## 解法
 
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i, j)$，表示从 $s$ 的第 $i$ 个字符开始，和 $p$ 的第 $j$ 个字符开始是否匹配。那么答案就是 $dfs(0, 0)$。
 
@@ -70,22 +70,7 @@ p = &quot;mis*is*p*.&quot;
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $s$ 和 $p$ 的长度。
 
-**方法二：动态规划**
-
-我们可以将方法一中的记忆化搜索转换为动态规划。
-
-定义 $f[i][j]$ 表示字符串 $s$ 的前 $i$ 个字符和字符串 $p$ 的前 $j$ 个字符是否匹配。那么答案就是 $f[m][n]$。初始化 $f[0][0] = true$，表示空字符串和空正则表达式是匹配的。
-
-与方法一类似，我们可以分情况来讨论。
-
--   如果 $p[j - 1]$ 是 `'*'`，那么我们可以选择匹配 $0$ 个 $s[i - 1]$ 字符，那么就是 $f[i][j] = f[i][j - 2]$。如果此时 $s[i - 1]$ 和 $p[j - 2]$ 匹配，那么我们可以选择匹配 $1$ 个 $s[i - 1]$ 字符，那么就是 $f[i][j] = f[i][j] \lor f[i - 1][j]$。
--   如果 $p[j - 1]$ 不是 `'*'`，那么如果 $s[i - 1]$ 和 $p[j - 1]$ 匹配，那么就是 $f[i][j] = f[i - 1][j - 1]$。否则匹配失败。
-
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $s$ 和 $p$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,25 +88,6 @@ class Solution:
         m, n = len(s), len(p)
         return dfs(0, 0)
 ```
-
-```python
-class Solution:
-    def isMatch(self, s: str, p: str) -> bool:
-        m, n = len(s), len(p)
-        f = [[False] * (n + 1) for _ in range(m + 1)]
-        f[0][0] = True
-        for i in range(m + 1):
-            for j in range(1, n + 1):
-                if p[j - 1] == "*":
-                    f[i][j] = f[i][j - 2]
-                    if i > 0 and (p[j - 2] == "." or s[i - 1] == p[j - 2]):
-                        f[i][j] |= f[i - 1][j]
-                elif i > 0 and (p[j - 1] == "." or s[i - 1] == p[j - 1]):
-                    f[i][j] = f[i - 1][j - 1]
-        return f[m][n]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -159,32 +125,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean isMatch(String s, String p) {
-        int m = s.length(), n = p.length();
-        boolean[][] f = new boolean[m + 1][n + 1];
-        f[0][0] = true;
-        for (int i = 0; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                if (p.charAt(j - 1) == '*') {
-                    f[i][j] = f[i][j - 2];
-                    if (i > 0 && (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1))) {
-                        f[i][j] |= f[i - 1][j];
-                    }
-                } else if (i > 0
-                    && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1))) {
-                    f[i][j] = f[i - 1][j - 1];
-                }
-            }
-        }
-        return f[m][n];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -215,33 +155,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool isMatch(string s, string p) {
-        int m = s.size(), n = p.size();
-        bool f[m + 1][n + 1];
-        memset(f, false, sizeof f);
-        f[0][0] = true;
-        for (int i = 0; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                if (p[j - 1] == '*') {
-                    f[i][j] = f[i][j - 2];
-                    if (i && (p[j - 2] == '.' || p[j - 2] == s[i - 1])) {
-                        f[i][j] |= f[i - 1][j];
-                    }
-                } else if (i && (p[j - 1] == '.' || p[j - 1] == s[i - 1])) {
-                    f[i][j] = f[i - 1][j - 1];
-                }
-            }
-        }
-        return f[m][n];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -271,32 +184,6 @@ func isMatch(s string, p string) bool {
 	return dfs(0, 0)
 }
 ```
-
-```go
-func isMatch(s string, p string) bool {
-	m, n := len(s), len(p)
-	f := make([][]bool, m+1)
-	for i := range f {
-		f[i] = make([]bool, n+1)
-	}
-	f[0][0] = true
-	for i := 0; i <= m; i++ {
-		for j := 1; j <= n; j++ {
-			if p[j-1] == '*' {
-				f[i][j] = f[i][j-2]
-				if i > 0 && (p[j-2] == '.' || p[j-2] == s[i-1]) {
-					f[i][j] = f[i][j] || f[i-1][j]
-				}
-			} else if i > 0 && (p[j-1] == '.' || p[j-1] == s[i-1]) {
-				f[i][j] = f[i-1][j-1]
-			}
-		}
-	}
-	return f[m][n]
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -329,35 +216,6 @@ var isMatch = function (s, p) {
     return dfs(0, 0);
 };
 ```
-
-```js
-/**
- * @param {string} s
- * @param {string} p
- * @return {boolean}
- */
-var isMatch = function (s, p) {
-    const m = s.length;
-    const n = p.length;
-    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(false));
-    f[0][0] = true;
-    for (let i = 0; i <= m; ++i) {
-        for (let j = 1; j <= n; ++j) {
-            if (p[j - 1] === '*') {
-                f[i][j] = f[i][j - 2];
-                if (i && (p[j - 2] === '.' || p[j - 2] == s[i - 1])) {
-                    f[i][j] |= f[i - 1][j];
-                }
-            } else if (i && (p[j - 1] === '.' || p[j - 1] == s[i - 1])) {
-                f[i][j] = f[i - 1][j - 1];
-            }
-        }
-    }
-    return f[m][n];
-};
-```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -397,6 +255,140 @@ public class Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们可以将方法一中的记忆化搜索转换为动态规划。
+
+定义 $f[i][j]$ 表示字符串 $s$ 的前 $i$ 个字符和字符串 $p$ 的前 $j$ 个字符是否匹配。那么答案就是 $f[m][n]$。初始化 $f[0][0] = true$，表示空字符串和空正则表达式是匹配的。
+
+与方法一类似，我们可以分情况来讨论。
+
+-   如果 $p[j - 1]$ 是 `'*'`，那么我们可以选择匹配 $0$ 个 $s[i - 1]$ 字符，那么就是 $f[i][j] = f[i][j - 2]$。如果此时 $s[i - 1]$ 和 $p[j - 2]$ 匹配，那么我们可以选择匹配 $1$ 个 $s[i - 1]$ 字符，那么就是 $f[i][j] = f[i][j] \lor f[i - 1][j]$。
+-   如果 $p[j - 1]$ 不是 `'*'`，那么如果 $s[i - 1]$ 和 $p[j - 1]$ 匹配，那么就是 $f[i][j] = f[i - 1][j - 1]$。否则匹配失败。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $s$ 和 $p$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+        f = [[False] * (n + 1) for _ in range(m + 1)]
+        f[0][0] = True
+        for i in range(m + 1):
+            for j in range(1, n + 1):
+                if p[j - 1] == "*":
+                    f[i][j] = f[i][j - 2]
+                    if i > 0 and (p[j - 2] == "." or s[i - 1] == p[j - 2]):
+                        f[i][j] |= f[i - 1][j]
+                elif i > 0 and (p[j - 1] == "." or s[i - 1] == p[j - 1]):
+                    f[i][j] = f[i - 1][j - 1]
+        return f[m][n]
+```
+
+```java
+class Solution {
+    public boolean isMatch(String s, String p) {
+        int m = s.length(), n = p.length();
+        boolean[][] f = new boolean[m + 1][n + 1];
+        f[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p.charAt(j - 1) == '*') {
+                    f[i][j] = f[i][j - 2];
+                    if (i > 0 && (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1))) {
+                        f[i][j] |= f[i - 1][j];
+                    }
+                } else if (i > 0
+                    && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1))) {
+                    f[i][j] = f[i - 1][j - 1];
+                }
+            }
+        }
+        return f[m][n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int m = s.size(), n = p.size();
+        bool f[m + 1][n + 1];
+        memset(f, false, sizeof f);
+        f[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p[j - 1] == '*') {
+                    f[i][j] = f[i][j - 2];
+                    if (i && (p[j - 2] == '.' || p[j - 2] == s[i - 1])) {
+                        f[i][j] |= f[i - 1][j];
+                    }
+                } else if (i && (p[j - 1] == '.' || p[j - 1] == s[i - 1])) {
+                    f[i][j] = f[i - 1][j - 1];
+                }
+            }
+        }
+        return f[m][n];
+    }
+};
+```
+
+```go
+func isMatch(s string, p string) bool {
+	m, n := len(s), len(p)
+	f := make([][]bool, m+1)
+	for i := range f {
+		f[i] = make([]bool, n+1)
+	}
+	f[0][0] = true
+	for i := 0; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if p[j-1] == '*' {
+				f[i][j] = f[i][j-2]
+				if i > 0 && (p[j-2] == '.' || p[j-2] == s[i-1]) {
+					f[i][j] = f[i][j] || f[i-1][j]
+				}
+			} else if i > 0 && (p[j-1] == '.' || p[j-1] == s[i-1]) {
+				f[i][j] = f[i-1][j-1]
+			}
+		}
+	}
+	return f[m][n]
+}
+```
+
+```js
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {boolean}
+ */
+var isMatch = function (s, p) {
+    const m = s.length;
+    const n = p.length;
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(false));
+    f[0][0] = true;
+    for (let i = 0; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (p[j - 1] === '*') {
+                f[i][j] = f[i][j - 2];
+                if (i && (p[j - 2] === '.' || p[j - 2] == s[i - 1])) {
+                    f[i][j] |= f[i - 1][j];
+                }
+            } else if (i && (p[j - 1] === '.' || p[j - 1] == s[i - 1])) {
+                f[i][j] = f[i - 1][j - 1];
+            }
+        }
+    }
+    return f[m][n];
+};
+```
+
 ```cs
 public class Solution {
     public bool IsMatch(string s, string p) {
@@ -420,10 +412,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

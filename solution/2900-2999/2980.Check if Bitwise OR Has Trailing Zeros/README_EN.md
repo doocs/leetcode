@@ -48,7 +48,7 @@ Other possible ways to select elements to have trailing zeroes in the binary rep
 
 ## Solutions
 
-**Solution 1: Counting Even Numbers**
+### Solution 1: Counting Even Numbers
 
 According to the problem statement, if there are two or more elements in the array whose bitwise OR operation results in trailing zeros, then there must be at least two even numbers in the array. Therefore, we can count the number of even numbers in the array. If the count of even numbers is greater than or equal to $2$, then return `true`, otherwise return `false`.
 
@@ -56,15 +56,11 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def hasTrailingZeros(self, nums: List[int]) -> bool:
         return sum(x & 1 ^ 1 for x in nums) >= 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hasTrailingZeros(nums []int) bool {
 	cnt := 0
@@ -104,8 +96,6 @@ func hasTrailingZeros(nums []int) bool {
 	return cnt >= 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function hasTrailingZeros(nums: number[]): boolean {
@@ -117,10 +107,6 @@ function hasTrailingZeros(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

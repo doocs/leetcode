@@ -62,23 +62,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先找出最小值和最大值的下标 mi, mx。如果 mi 下标大于 mx，则将 mx 与 mi 两数进行交换。
-
-最小删除的次数，共有 3 种情况：
-
-1. 从左侧往右依次删除 `nums[mi]` 和 `nums[mx]`
-1. 从右侧往左依次删除 `nums[mx]` 和 `nums[mi]`
-1. 从左侧往右删除 `nums[mi]`，从右侧往左删除 `nums[mx]`
-
-求这 3 种情况的最小值即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +79,6 @@ class Solution:
             mi, mx = mx, mi
         return min(mx + 1, len(nums) - mi, mi + 1 + len(nums) - mx)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,25 +102,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minimumDeletions(nums: number[]): number {
-    const n = nums.length;
-    if (n == 1) return 1;
-    let i = nums.indexOf(Math.min(...nums));
-    let j = nums.indexOf(Math.max(...nums));
-    let left = Math.min(i, j);
-    let right = Math.max(i, j);
-    // 左右 left + 1 + n - right
-    // 两个都是左边 left + 1 + right - left = right + 1
-    // 都是右边 n - right + right - left = n - left
-    return Math.min(left + 1 + n - right, right + 1, n - left);
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumDeletions(nums []int) int {
 	mi, mx, n := 0, 0, len(nums)
@@ -178,10 +139,21 @@ func minimumDeletions(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function minimumDeletions(nums: number[]): number {
+    const n = nums.length;
+    if (n == 1) return 1;
+    let i = nums.indexOf(Math.min(...nums));
+    let j = nums.indexOf(Math.max(...nums));
+    let left = Math.min(i, j);
+    let right = Math.max(i, j);
+    // 左右 left + 1 + n - right
+    // 两个都是左边 left + 1 + right - left = right + 1
+    // 都是右边 n - right + right - left = n - left
+    return Math.min(left + 1 + n - right, right + 1, n - left);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

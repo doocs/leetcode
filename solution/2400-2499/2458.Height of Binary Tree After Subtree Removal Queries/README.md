@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次 DFS**
+### 方法一：两次 DFS
 
 我们先通过一次 DFS 遍历的深度，存放在哈希表 $d$ 中，其中 $d[x]$ 表示节点 $x$ 的深度。
 
@@ -94,10 +92,6 @@
 时间复杂度 $O(n+m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是树的节点数和查询数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -129,10 +123,6 @@ class Solution:
         dfs(root, -1, 0)
         return [res[v] for v in queries]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -188,8 +178,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -228,8 +216,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -271,16 +257,6 @@ func treeQueries(root *TreeNode, queries []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

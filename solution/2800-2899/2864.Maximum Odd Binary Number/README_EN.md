@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 First, we count the number of '1's in the string $s$, denoted as $cnt$. Then, we place $cnt - 1$ '1's at the highest position, followed by the remaining $|s| - cnt$ '0's, and finally add one '1'.
 
@@ -48,16 +48,12 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maximumOddBinaryNumber(self, s: str) -> str:
         cnt = s.count("1")
         return "1" * (cnt - 1) + (len(s) - cnt) * "0" + "1"
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,16 +87,12 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumOddBinaryNumber(s string) string {
 	cnt := strings.Count(s, "1")
 	return strings.Repeat("1", cnt-1) + strings.Repeat("0", len(s)-cnt) + "1"
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumOddBinaryNumber(s: string): string {
@@ -114,10 +104,6 @@ function maximumOddBinaryNumber(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

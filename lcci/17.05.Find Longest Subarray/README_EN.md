@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
                 vis[s] = i
         return array[k : k + mx]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findLongestSubarray(array []string) []string {
@@ -137,8 +131,6 @@ func findLongestSubarray(array []string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findLongestSubarray(array: string[]): string[] {
     const vis = new Map();
@@ -162,10 +154,6 @@ function findLongestSubarray(array: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

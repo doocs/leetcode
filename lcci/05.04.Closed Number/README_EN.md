@@ -29,7 +29,7 @@
 
 ## Solutions
 
-**Solution 1: Bit Manipulation**
+### Solution 1: Bit Manipulation
 
 First, let's consider how to find the first number that is larger than $num$ and has the same number of $1$s in its binary representation.
 
@@ -44,8 +44,6 @@ In implementation, we can use a piece of code to handle the above two situations
 The time complexity is $O(\log n)$, where $n$ is the size of $num$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findClosedNumbers(num int) []int {
 	ans := []int{-1, -1}
@@ -182,8 +174,6 @@ func findClosedNumbers(num int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findClosedNumbers(num: number): number[] {
@@ -218,10 +208,6 @@ function findClosedNumbers(num: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

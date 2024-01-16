@@ -62,7 +62,7 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We traverse the string array $words$. For each string $w$, we use `separator` as the delimiter to split it. If the split string is not empty, we add it to the answer array.
 
@@ -70,15 +70,11 @@ The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, wher
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
         return [s for w in words for s in w.split(separator) if s]
 ```
-
-### **Java**
 
 ```java
 import java.util.regex.Pattern;
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 	for _, w := range words {
@@ -134,18 +126,12 @@ func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function splitWordsBySeparator(words: string[], separator: string): string[] {
     return words.flatMap(w => w.split(separator).filter(s => s.length > 0));
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

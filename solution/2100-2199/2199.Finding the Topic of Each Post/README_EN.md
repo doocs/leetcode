@@ -102,9 +102,9 @@ Note that it is okay to have one word that expresses more than one topic.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -118,3 +118,5 @@ GROUP BY post_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

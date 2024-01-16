@@ -55,9 +55,9 @@ We are also able to place spaces before the first character of the string.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,22 +71,6 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
-
-```python
-class Solution:
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
-        ans = []
-        i, j = len(s) - 1, len(spaces) - 1
-        while i >= 0:
-            ans.append(s[i])
-            if j >= 0 and i == spaces[j]:
-                ans.append(' ')
-                j -= 1
-            i -= 1
-        return ''.join(ans[::-1])
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addSpaces(s string, spaces []int) string {
 	var ans []byte
@@ -138,8 +118,6 @@ func addSpaces(s string, spaces []int) string {
 	return string(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function addSpaces(s: string, spaces: number[]): string {
@@ -155,10 +133,26 @@ function addSpaces(s: string, spaces: number[]): string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        ans = []
+        i, j = len(s) - 1, len(spaces) - 1
+        while i >= 0:
+            ans.append(s[i])
+            if j >= 0 and i == spaces[j]:
+                ans.append(' ')
+                j -= 1
+            i -= 1
+        return ''.join(ans[::-1])
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,15 +54,33 @@ Person table:
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
 
-### **SQL**
+```python
+import pandas as pd
+
+
+# Modify Person in place
+def delete_duplicate_emails(person: pd.DataFrame) -> None:
+    # Sort the rows based on id (Ascending order)
+    person.sort_values(by="id", ascending=True, inplace=True)
+    # Drop the duplicates based on email.
+    person.drop_duplicates(subset="email", keep="first", inplace=True)
+```
 
 ```sql
 # Write your MySQL query statement below
 DELETE FROM Person
 WHERE id NOT IN (SELECT MIN(id) FROM (SELECT * FROM Person) AS p GROUP BY email);
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -84,6 +102,12 @@ WHERE
     );
 ```
 
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
 ```sql
 DELETE p2
 FROM
@@ -93,18 +117,6 @@ WHERE
     p1.id < p2.id;
 ```
 
-### **Pandas**
-
-```python
-import pandas as pd
-
-
-# Modify Person in place
-def delete_duplicate_emails(person: pd.DataFrame) -> None:
-    # Sort the rows based on id (Ascending order)
-    person.sort_values(by="id", ascending=True, inplace=True)
-    # Drop the duplicates based on email.
-    person.drop_duplicates(subset="email", keep="first", inplace=True)
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

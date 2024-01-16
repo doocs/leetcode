@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Counting + Greedy**
+### Solution 1: Counting + Greedy
 
 First, we use a hash table or array $cnt$ to count the occurrences of each digit in $num$, and use a variable $n$ to record the number of digits in $num$.
 
@@ -58,15 +58,7 @@ Next, we enumerate all the digits $i$ in $nums$, and alternately allocate the di
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the number of digits in $num$; and $C$ is the number of different digits in $num$, in this problem, $C \leq 10$.
 
-**Solution 2: Sorting + Greedy**
-
-We can convert $num$ to a string or character array, then sort it, and then alternately allocate the digits in the sorted array to $num1$ and $num2$ in ascending order. Finally, we return the sum of $num1$ and $num2$.
-
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of digits in $num$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,15 +78,6 @@ class Solution:
             ans[i & 1] = ans[i & 1] * 10 + j
         return sum(ans)
 ```
-
-```python
-class Solution:
-    def splitNum(self, num: int) -> int:
-        s = sorted(str(num))
-        return int(''.join(s[::2])) + int(''.join(s[1::2]))
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,22 +100,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int splitNum(int num) {
-        char[] s = (num + "").toCharArray();
-        Arrays.sort(s);
-        int[] ans = new int[2];
-        for (int i = 0; i < s.length; ++i) {
-            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
-        }
-        return ans[0] + ans[1];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -157,23 +124,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int splitNum(int num) {
-        string s = to_string(num);
-        sort(s.begin(), s.end());
-        int ans[2]{};
-        for (int i = 0; i < s.size(); ++i) {
-            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
-        }
-        return ans[0] + ans[1];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func splitNum(num int) int {
 	cnt := [10]int{}
@@ -194,20 +144,6 @@ func splitNum(num int) int {
 }
 ```
 
-```go
-func splitNum(num int) int {
-	s := []byte(strconv.Itoa(num))
-	sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
-	ans := [2]int{}
-	for i, c := range s {
-		ans[i&1] = ans[i&1]*10 + int(c-'0')
-	}
-	return ans[0] + ans[1]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function splitNum(num: number): number {
     const cnt: number[] = Array(10).fill(0);
@@ -227,20 +163,6 @@ function splitNum(num: number): number {
     return ans[0] + ans[1];
 }
 ```
-
-```ts
-function splitNum(num: number): number {
-    const s: string[] = String(num).split('');
-    s.sort();
-    const ans: number[] = Array(2).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        ans[i & 1] = ans[i & 1] * 10 + Number(s[i]);
-    }
-    return ans[0] + ans[1];
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -270,6 +192,76 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Sorting + Greedy
+
+We can convert $num$ to a string or character array, then sort it, and then alternately allocate the digits in the sorted array to $num1$ and $num2$ in ascending order. Finally, we return the sum of $num1$ and $num2$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of digits in $num$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def splitNum(self, num: int) -> int:
+        s = sorted(str(num))
+        return int(''.join(s[::2])) + int(''.join(s[1::2]))
+```
+
+```java
+class Solution {
+    public int splitNum(int num) {
+        char[] s = (num + "").toCharArray();
+        Arrays.sort(s);
+        int[] ans = new int[2];
+        for (int i = 0; i < s.length; ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
+        }
+        return ans[0] + ans[1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int splitNum(int num) {
+        string s = to_string(num);
+        sort(s.begin(), s.end());
+        int ans[2]{};
+        for (int i = 0; i < s.size(); ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
+        }
+        return ans[0] + ans[1];
+    }
+};
+```
+
+```go
+func splitNum(num int) int {
+	s := []byte(strconv.Itoa(num))
+	sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
+	ans := [2]int{}
+	for i, c := range s {
+		ans[i&1] = ans[i&1]*10 + int(c-'0')
+	}
+	return ans[0] + ans[1]
+}
+```
+
+```ts
+function splitNum(num: number): number {
+    const s: string[] = String(num).split('');
+    s.sort();
+    const ans: number[] = Array(2).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        ans[i & 1] = ans[i & 1] * 10 + Number(s[i]);
+    }
+    return ans[0] + ans[1];
+}
+```
+
 ```rust
 impl Solution {
     pub fn split_num(num: i32) -> i32 {
@@ -286,10 +278,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

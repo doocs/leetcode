@@ -44,15 +44,13 @@
 
 ## Solutions
 
-**Solution 1: Traversal + Modulo**
+### Solution 1: Traversal + Modulo
 
 We iterate over the string `word`, using a variable $x$ to record the modulo result of the current prefix with $m$. If $x$ is $0$, then the divisible array value at the current position is $1$, otherwise it is $0$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
             ans.append(1 if x == 0 else 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func divisibilityArray(word string, m int) (ans []int) {
@@ -118,8 +110,6 @@ func divisibilityArray(word string, m int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function divisibilityArray(word: string, m: number): number[] {
     const ans: number[] = [];
@@ -131,8 +121,6 @@ function divisibilityArray(word: string, m: number): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -154,8 +142,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -173,10 +159,6 @@ int* divisibilityArray(char* word, int m, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

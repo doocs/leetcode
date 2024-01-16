@@ -51,9 +51,9 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                     q.append(j)
         return ans if len(ans) == numCourses else []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findOrder(numCourses int, prerequisites [][]int) []int {
@@ -181,8 +175,6 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     const g: number[][] = Array.from({ length: numCourses }, () => []);
@@ -210,45 +202,6 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     return ans.length === numCourses ? ans : [];
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int[] FindOrder(int numCourses, int[][] prerequisites) {
-        var g = new List<int>[numCourses];
-        for (int i = 0; i < numCourses; ++i) {
-            g[i] = new List<int>();
-        }
-        var indeg = new int[numCourses];
-        foreach (var p in prerequisites) {
-            int a = p[0], b = p[1];
-            g[b].Add(a);
-            ++indeg[a];
-        }
-        var q = new Queue<int>();
-        for (int i = 0; i < numCourses; ++i) {
-            if (indeg[i] == 0) {
-                q.Enqueue(i);
-            }
-        }
-        var ans = new int[numCourses];
-        var cnt = 0;
-        while (q.Count > 0) {
-            int i = q.Dequeue();
-            ans[cnt++] = i;
-            foreach (int j in g[i]) {
-                if (--indeg[j] == 0) {
-                    q.Enqueue(j);
-                }
-            }
-        }
-        return cnt == numCourses ? ans : new int[0];
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -291,10 +244,41 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int[] FindOrder(int numCourses, int[][] prerequisites) {
+        var g = new List<int>[numCourses];
+        for (int i = 0; i < numCourses; ++i) {
+            g[i] = new List<int>();
+        }
+        var indeg = new int[numCourses];
+        foreach (var p in prerequisites) {
+            int a = p[0], b = p[1];
+            g[b].Add(a);
+            ++indeg[a];
+        }
+        var q = new Queue<int>();
+        for (int i = 0; i < numCourses; ++i) {
+            if (indeg[i] == 0) {
+                q.Enqueue(i);
+            }
+        }
+        var ans = new int[numCourses];
+        var cnt = 0;
+        while (q.Count > 0) {
+            int i = q.Dequeue();
+            ans[cnt++] = i;
+            foreach (int j in g[i]) {
+                if (--indeg[j] == 0) {
+                    q.Enqueue(j);
+                }
+            }
+        }
+        return cnt == numCourses ? ans : new int[0];
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

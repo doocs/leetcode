@@ -51,9 +51,9 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
             row_max[i] = col_max[j] = ans[i][j]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minScore(grid [][]int) [][]int {
@@ -151,8 +145,6 @@ func minScore(grid [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minScore(grid: number[][]): number[][] {
     const m = grid.length;
@@ -175,10 +167,6 @@ function minScore(grid: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

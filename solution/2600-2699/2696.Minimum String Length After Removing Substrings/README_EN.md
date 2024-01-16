@@ -43,7 +43,7 @@ It can be shown that it is the minimum length that we can obtain.</pre>
 
 ## Solutions
 
-**Solution 1: Stack**
+### Solution 1: Stack
 
 We traverse the string $s$. For the current character $c$ we are traversing, if the stack is not empty and the top element of the stack $top$ can form $AB$ or $CD$ with $c$, then we pop the top element of the stack, otherwise we push $c$ into the stack.
 
@@ -54,8 +54,6 @@ The number of remaining elements in the stack is the length of the final string.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
                 stk.append(c)
         return len(stk) - 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minLength(s string) int {
 	stk := []byte{' '}
@@ -122,8 +114,6 @@ func minLength(s string) int {
 	return len(stk) - 1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minLength(s: string): number {
@@ -140,8 +130,6 @@ function minLength(s: string): number {
     return stk.length - 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -167,10 +155,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

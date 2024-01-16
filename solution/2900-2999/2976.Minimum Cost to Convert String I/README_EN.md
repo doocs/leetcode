@@ -57,7 +57,7 @@ It can be shown that this is the minimum possible cost.
 
 ## Solutions
 
-**Solution 1: Floyd Algorithm**
+### Solution 1: Floyd Algorithm
 
 According to the problem description, we can consider each letter as a node, and the conversion cost between each pair of letters as a directed edge. We first initialize a $26 \times 26$ two-dimensional array $g$, where $g[i][j]$ represents the minimum cost of converting letter $i$ to letter $j$. Initially, $g[i][j] = \infty$, and if $i = j$, then $g[i][j] = 0$.
 
@@ -70,8 +70,6 @@ After the traversal ends, we return the answer.
 The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|\Sigma|^2)$. Where $m$ and $n$ are the lengths of the arrays $original$ and $source$ respectively; and $|\Sigma|$ is the size of the alphabet, that is, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -103,8 +101,6 @@ class Solution:
                 ans += g[x][y]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +141,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -190,8 +184,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumCost(source string, target string, original []byte, changed []byte, cost []int) (ans int64) {
@@ -237,8 +229,6 @@ func minimumCost(source string, target string, original []byte, changed []byte, 
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumCost(
     source: string,
@@ -282,10 +272,6 @@ function minimumCost(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

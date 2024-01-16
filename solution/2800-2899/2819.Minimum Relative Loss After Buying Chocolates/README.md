@@ -70,9 +70,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找 + 前缀和**
+### 方法一：排序 + 二分查找 + 前缀和
 
 根据题目描述，我们可以知道：
 
@@ -89,10 +87,6 @@
 时间复杂度 $O((n + m) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $prices$ 和 $queries$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -121,10 +115,6 @@ class Solution:
             ans.append(loss)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -170,8 +160,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -209,8 +197,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	n := len(prices)
@@ -245,8 +231,6 @@ func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumRelativeLosses(prices: number[], queries: number[][]): number[] {
@@ -295,10 +279,6 @@ function minimumRelativeLosses(prices: number[], queries: number[][]): number[] 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

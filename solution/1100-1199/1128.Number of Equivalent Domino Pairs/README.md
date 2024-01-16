@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以将每个多米诺骨牌的两个数字按照大小顺序拼接成一个两位数，这样就可以将等价的多米诺骨牌拼接成相同的两位数。例如，`[1, 2]` 和 `[2, 1]` 拼接成的两位数都是 `12`，`[3, 4]` 和 `[4, 3]` 拼接成的两位数都是 `34`。
 
@@ -51,10 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是多米诺骨牌的数量，而 $C$ 是多米诺骨牌中拼接成的两位数的最大数量，即 $100$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,22 +63,6 @@ class Solution:
         return ans
 ```
 
-```python
-class Solution:
-    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
-        cnt = Counter()
-        ans = 0
-        for a, b in dominoes:
-            x = a * 10 + b if a < b else b * 10 + a
-            ans += cnt[x]
-            cnt[x] += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int numEquivDominoPairs(int[][] dominoes) {
@@ -98,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numEquivDominoPairs(dominoes [][]int) (ans int) {
 	cnt := [100]int{}
@@ -133,10 +107,24 @@ func numEquivDominoPairs(dominoes [][]int) (ans int) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        cnt = Counter()
+        ans = 0
+        for a, b in dominoes:
+            x = a * 10 + b if a < b else b * 10 + a
+            ans += cnt[x]
+            cnt[x] += 1
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,17 +46,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：正则匹配/双指针 + 哈希表**
+### 方法一：正则匹配/双指针 + 哈希表
 
 正则匹配（或双指针）找出所有单词，用哈希表统计每个单词出现的频率，找到出现未在 banned 中出现且频率最大的单词。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -65,10 +59,6 @@ class Solution:
         p = Counter(re.findall('[a-z]+', paragraph.lower()))
         return next(word for word, _ in p.most_common() if word not in s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.util.regex.Matcher;
@@ -104,49 +94,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function mostCommonWord(paragraph: string, banned: string[]): string {
-    const s = paragraph.toLocaleLowerCase();
-    const map = new Map<string, number>();
-    const set = new Set<string>(banned);
-    for (const word of s.split(/[^A-z]/)) {
-        if (word === '' || set.has(word)) {
-            continue;
-        }
-        map.set(word, (map.get(word) ?? 0) + 1);
-    }
-    return [...map.entries()].reduce((r, v) => (v[1] > r[1] ? v : r), ['', 0])[0];
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::{ HashMap, HashSet };
-impl Solution {
-    pub fn most_common_word(mut paragraph: String, banned: Vec<String>) -> String {
-        paragraph.make_ascii_lowercase();
-        let banned: HashSet<&str> = banned.iter().map(String::as_str).collect();
-        let mut map = HashMap::new();
-        for word in paragraph.split(|c| !matches!(c, 'a'..='z')) {
-            if word.is_empty() || banned.contains(word) {
-                continue;
-            }
-            let val = map.get(&word).unwrap_or(&0) + 1;
-            map.insert(word, val);
-        }
-        map.into_iter()
-            .max_by_key(|&(_, v)| v)
-            .unwrap()
-            .0.to_string()
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostCommonWord(paragraph string, banned []string) string {
@@ -211,10 +156,43 @@ func mostCommonWord(paragraph string, banned []string) string {
 }
 ```
 
-### **...**
-
+```ts
+function mostCommonWord(paragraph: string, banned: string[]): string {
+    const s = paragraph.toLocaleLowerCase();
+    const map = new Map<string, number>();
+    const set = new Set<string>(banned);
+    for (const word of s.split(/[^A-z]/)) {
+        if (word === '' || set.has(word)) {
+            continue;
+        }
+        map.set(word, (map.get(word) ?? 0) + 1);
+    }
+    return [...map.entries()].reduce((r, v) => (v[1] > r[1] ? v : r), ['', 0])[0];
+}
 ```
 
+```rust
+use std::collections::{ HashMap, HashSet };
+impl Solution {
+    pub fn most_common_word(mut paragraph: String, banned: Vec<String>) -> String {
+        paragraph.make_ascii_lowercase();
+        let banned: HashSet<&str> = banned.iter().map(String::as_str).collect();
+        let mut map = HashMap::new();
+        for word in paragraph.split(|c| !matches!(c, 'a'..='z')) {
+            if word.is_empty() || banned.contains(word) {
+                continue;
+            }
+            let val = map.get(&word).unwrap_or(&0) + 1;
+            map.insert(word, val);
+        }
+        map.into_iter()
+            .max_by_key(|&(_, v)| v)
+            .unwrap()
+            .0.to_string()
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

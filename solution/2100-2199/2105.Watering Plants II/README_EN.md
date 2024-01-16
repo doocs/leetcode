@@ -67,9 +67,9 @@ So, the total number of times they have to refill is 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -96,8 +96,6 @@ class Solution:
             j -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumRefill(plants []int, capacityA int, capacityB int) int {
@@ -195,16 +189,6 @@ func minimumRefill(plants []int, capacityA int, capacityB int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

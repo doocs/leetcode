@@ -48,15 +48,13 @@ The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We traverse the array $nums$, calculate the sum of elements $a$ and the sum of digits $b$, and finally return $|a - b|$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
                 x //= 10
         return abs(a - b)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func differenceOfSum(nums []int) int {
@@ -126,8 +118,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function differenceOfSum(nums: number[]): number {
     return nums.reduce((r, v) => {
@@ -140,8 +130,6 @@ function differenceOfSum(nums: number[]): number {
     }, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -159,6 +147,26 @@ impl Solution {
     }
 }
 ```
+
+```c
+int differenceOfSum(int* nums, int numsSize) {
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        ans += nums[i];
+        while (nums[i]) {
+            ans -= nums[i] % 10;
+            nums[i] /= 10;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -179,26 +187,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int differenceOfSum(int* nums, int numsSize) {
-    int ans = 0;
-    for (int i = 0; i < numsSize; i++) {
-        ans += nums[i];
-        while (nums[i]) {
-            ans -= nums[i] % 10;
-            nums[i] /= 10;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

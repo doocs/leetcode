@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -67,8 +67,6 @@ class Solution:
             or self.isSubtree(root.right, subRoot)
         )
 ```
-
-### **Java**
 
 ```java
 /**
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -165,41 +159,6 @@ func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
 	return dfs(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {TreeNode} subRoot
- * @return {boolean}
- */
-var isSubtree = function (root, subRoot) {
-    if (!root) return false;
-    let dfs = function (root1, root2) {
-        if (!root1 && !root2) {
-            return true;
-        }
-        if (!root1 || !root2) {
-            return false;
-        }
-        return (
-            root1.val == root2.val && dfs(root1.left, root2.left) && dfs(root1.right, root2.right)
-        );
-    };
-    return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -233,8 +192,6 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
     return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -293,10 +250,37 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} subRoot
+ * @return {boolean}
+ */
+var isSubtree = function (root, subRoot) {
+    if (!root) return false;
+    let dfs = function (root1, root2) {
+        if (!root1 && !root2) {
+            return true;
+        }
+        if (!root1 || !root2) {
+            return false;
+        }
+        return (
+            root1.val == root2.val && dfs(root1.left, root2.left) && dfs(root1.right, root2.right)
+        );
+    };
+    return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -89,11 +89,9 @@ Total number of oranges = 15 + 25 + 8 + 28 + 15 + 15 + 17 = 123
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-`LEFT JOIN` and `IFNULL`.
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -106,3 +104,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

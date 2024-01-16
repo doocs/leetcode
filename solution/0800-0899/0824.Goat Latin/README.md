@@ -59,13 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +75,6 @@ class Solution:
             ans.append(word)
         return ' '.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +103,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function toGoatLatin(sentence: string): string {
     return sentence
@@ -129,8 +119,6 @@ function toGoatLatin(sentence: string): string {
         .join(' ');
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -158,10 +146,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

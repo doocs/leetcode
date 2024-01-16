@@ -66,9 +66,9 @@ Request 3: Person 3 and person 4 cannot be friends since person 0 and person 1 w
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -100,8 +100,6 @@ class Solution:
                     p[find(u)] = find(v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -148,8 +146,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +181,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 var p []int
@@ -227,10 +221,6 @@ func find(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

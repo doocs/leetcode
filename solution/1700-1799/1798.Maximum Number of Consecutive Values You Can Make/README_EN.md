@@ -54,7 +54,7 @@ You can make 8 consecutive integer values starting from 0.</pre>
 
 ## Solutions
 
-**Solution 1: Sorting + Greedy**
+### Solution 1: Sorting + Greedy
 
 First, we sort the array. Then we define $ans$ as the current number of consecutive integers that can be constructed, initialized to $1$.
 
@@ -66,8 +66,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def getMaximumConsecutive(self, coins: List[int]) -> int:
@@ -78,8 +76,6 @@ class Solution:
             ans += v
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaximumConsecutive(coins []int) int {
 	sort.Ints(coins)
@@ -129,8 +121,6 @@ func getMaximumConsecutive(coins []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getMaximumConsecutive(coins: number[]): number {
@@ -146,10 +136,6 @@ function getMaximumConsecutive(coins: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

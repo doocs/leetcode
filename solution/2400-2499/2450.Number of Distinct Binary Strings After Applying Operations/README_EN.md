@@ -55,7 +55,7 @@ It can be shown that we cannot obtain any other string, so the answer is 2.
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 Assume the length of the string $s$ is $n$. Then there are $n - k + 1$ substrings of length $k$, and each substring can be flipped, so there are $2^{n - k + 1}$ ways to flip.
 
@@ -63,15 +63,11 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def countDistinctStrings(self, s: str, k: int) -> int:
         return pow(2, len(s) - k + 1) % (10**9 + 7)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countDistinctStrings(s string, k int) int {
 	const mod int = 1e9 + 7
@@ -117,16 +109,6 @@ func countDistinctStrings(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

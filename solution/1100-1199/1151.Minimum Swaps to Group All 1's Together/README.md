@@ -58,19 +58,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们先统计数组中 $1$ 的个数，记为 $k$。然后我们使用滑动窗口，窗口大小为 $k$，窗口右边界从左向右移动，统计窗口内 $1$ 的个数，记为 $t$。每次移动窗口时，都更新 $t$ 的值，最后窗口右边界移动到数组末尾时，窗口内 $1$ 的个数最多，记为 $mx$。最后答案为 $k - mx$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             mx = max(mx, t)
         return k - mx
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSwaps(data []int) int {
 	k := 0
@@ -158,8 +144,6 @@ func minSwaps(data []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSwaps(data: number[]): number {
     const k = data.reduce((acc, cur) => acc + cur, 0);
@@ -173,10 +157,6 @@ function minSwaps(data: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

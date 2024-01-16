@@ -84,9 +84,9 @@ arr2 = [
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function join(arr1: any[], arr2: any[]): any[] {
@@ -103,3 +103,5 @@ function join(arr1: any[], arr2: any[]): any[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

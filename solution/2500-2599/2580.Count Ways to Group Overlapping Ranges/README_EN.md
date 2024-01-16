@@ -60,7 +60,7 @@ Thus, there are four possible ways to group them:
 
 ## Solutions
 
-**Solution 1: Sorting + Counting + Fast Power**
+### Solution 1: Sorting + Counting + Fast Power
 
 We can first sort the intervals in the range, merge the overlapping intervals, and count the number of non-overlapping intervals, denoted as $cnt$.
 
@@ -71,8 +71,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 Alternatively, we can also avoid using fast power. Once a new non-overlapping interval is found, we multiply the number of plans by 2 and take modulo $10^9 + 7$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,22 +84,6 @@ class Solution:
         mod = 10**9 + 7
         return pow(2, cnt, mod)
 ```
-
-```python
-class Solution:
-    def countWays(self, ranges: List[List[int]]) -> int:
-        ranges.sort()
-        mx = -1
-        mod = 10**9 + 7
-        ans = 1
-        for start, end in ranges:
-            if start > mx:
-                ans = ans * 2 % mod
-            mx = max(mx, end)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,26 +112,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countWays(int[][] ranges) {
-        Arrays.sort(ranges, (a, b) -> a[0] - b[0]);
-        int mx = -1;
-        int ans = 1;
-        final int mod = (int) 1e9 + 7;
-        for (int[] e : ranges) {
-            if (e[0] > mx) {
-                ans = ans * 2 % mod;
-            }
-            mx = Math.max(mx, e[1]);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,26 +137,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int countWays(vector<vector<int>>& ranges) {
-        sort(ranges.begin(), ranges.end());
-        int ans = 1, mx = -1;
-        const int mod = 1e9 + 7;
-        for (auto& e : ranges) {
-            if (e[0] > mx) {
-                ans = ans * 2 % mod;
-            }
-            mx = max(mx, e[1]);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func countWays(ranges [][]int) int {
@@ -222,6 +164,78 @@ func countWays(ranges [][]int) int {
 }
 ```
 
+```ts
+function countWays(ranges: number[][]): number {
+    ranges.sort((a, b) => a[0] - b[0]);
+    let mx = -1;
+    let ans = 1;
+    const mod = 10 ** 9 + 7;
+    for (const [start, end] of ranges) {
+        if (start > mx) {
+            ans = (ans * 2) % mod;
+        }
+        mx = Math.max(mx, end);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countWays(self, ranges: List[List[int]]) -> int:
+        ranges.sort()
+        mx = -1
+        mod = 10**9 + 7
+        ans = 1
+        for start, end in ranges:
+            if start > mx:
+                ans = ans * 2 % mod
+            mx = max(mx, end)
+        return ans
+```
+
+```java
+class Solution {
+    public int countWays(int[][] ranges) {
+        Arrays.sort(ranges, (a, b) -> a[0] - b[0]);
+        int mx = -1;
+        int ans = 1;
+        final int mod = (int) 1e9 + 7;
+        for (int[] e : ranges) {
+            if (e[0] > mx) {
+                ans = ans * 2 % mod;
+            }
+            mx = Math.max(mx, e[1]);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countWays(vector<vector<int>>& ranges) {
+        sort(ranges.begin(), ranges.end());
+        int ans = 1, mx = -1;
+        const int mod = 1e9 + 7;
+        for (auto& e : ranges) {
+            if (e[0] > mx) {
+                ans = ans * 2 % mod;
+            }
+            mx = max(mx, e[1]);
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func countWays(ranges [][]int) int {
 	sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] })
@@ -239,28 +253,6 @@ func countWays(ranges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countWays(ranges: number[][]): number {
-    ranges.sort((a, b) => a[0] - b[0]);
-    let mx = -1;
-    let ans = 1;
-    const mod = 10 ** 9 + 7;
-    for (const [start, end] of ranges) {
-        if (start > mx) {
-            ans = (ans * 2) % mod;
-        }
-        mx = Math.max(mx, end);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

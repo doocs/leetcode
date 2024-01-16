@@ -49,7 +49,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Construction**
+### Solution 1: Greedy + Construction
 
 Since the constructed string requires the lexicographically smallest order, we can start by filling the string $s$ with the character `'a'`.
 
@@ -67,8 +67,6 @@ If every position in the string meets the above conditions, then we can construc
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,8 +96,6 @@ class Solution:
                     return ""
         return "".join(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -189,8 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findTheString(lcp [][]int) string {
 	i, n := 0, len(lcp)
@@ -230,10 +222,6 @@ func findTheString(lcp [][]int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

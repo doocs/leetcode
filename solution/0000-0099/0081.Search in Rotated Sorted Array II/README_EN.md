@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We define the left boundary $l=0$ and the right boundary $r=n-1$ for the binary search, where $n$ is the length of the array.
 
@@ -50,8 +50,6 @@ After the binary search ends, if $nums[l] = target$, it means that the target va
 The time complexity is approximately $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 r -= 1
         return nums[l] == target
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func search(nums []int, target int) bool {
 	l, r := 0, len(nums)-1
@@ -160,8 +152,6 @@ func search(nums []int, target int) bool {
 	return nums[l] == target
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function search(nums: number[], target: number): boolean {
@@ -188,10 +178,6 @@ function search(nums: number[], target: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

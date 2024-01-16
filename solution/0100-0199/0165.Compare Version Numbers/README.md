@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 同时遍历两个字符串，用两个指针 $i$ 和 $j$ 分别指向两个字符串的当前位置，初始时 $i = j = 0$。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(\max(m, n))$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是两个字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
             i, j = i + 1, j + 1
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func compareVersion(version1 string, version2 string) int {
@@ -169,7 +155,19 @@ func compareVersion(version1 string, version2 string) int {
 }
 ```
 
-### **C#**
+```ts
+function compareVersion(version1: string, version2: string): number {
+    let v1 = version1.split('.'),
+        v2 = version2.split('.');
+    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
+        let c1 = Number(v1[i] || 0),
+            c2 = Number(v2[i] || 0);
+        if (c1 > c2) return 1;
+        if (c1 < c2) return -1;
+    }
+    return 0;
+}
+```
 
 ```cs
 public class Solution {
@@ -192,26 +190,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function compareVersion(version1: string, version2: string): number {
-    let v1 = version1.split('.'),
-        v2 = version2.split('.');
-    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
-        let c1 = Number(v1[i] || 0),
-            c2 = Number(v2[i] || 0);
-        if (c1 > c2) return 1;
-        if (c1 < c2) return -1;
-    }
-    return 0;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

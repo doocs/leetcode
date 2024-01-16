@@ -39,19 +39,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-由于本题数据范围是 `[0, 1000]`，因此我们可以开辟一个长度为 1001 的数组 mp，记录 arr1 的元素以及出现的次数。
-
-接着，遍历 arr2 中每个元素 x，若 `mp[x]` 大于 0，循环将 x 加入到答案数组 arr1 中，并且递减 `mp[x]`。遍历结束后，再从下标 `j = 0` 开始遍历 mp，若遇到 `mp[j]` 大于 0，将 `mp[j]` 个 j 加入到答案数组 arr1 中。
-
-最后返回 arr1 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,29 +50,6 @@ class Solution:
         arr1.sort(key=lambda x: (mp.get(x, 10000), x))
         return arr1
 ```
-
-```python
-class Solution:
-    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
-        mp = [0] * 1001
-        for x in arr1:
-            mp[x] += 1
-        i = 0
-        for x in arr2:
-            while mp[x] > 0:
-                arr1[i] = x
-                mp[x] -= 1
-                i += 1
-        for x, cnt in enumerate(mp):
-            for _ in range(cnt):
-                arr1[i] = x
-                i += 1
-        return arr1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func relativeSortArray(arr1 []int, arr2 []int) []int {
@@ -154,10 +117,31 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        mp = [0] * 1001
+        for x in arr1:
+            mp[x] += 1
+        i = 0
+        for x in arr2:
+            while mp[x] > 0:
+                arr1[i] = x
+                mp[x] -= 1
+                i += 1
+        for x, cnt in enumerate(mp):
+            for _ in range(cnt):
+                arr1[i] = x
+                i += 1
+        return arr1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

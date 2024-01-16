@@ -36,7 +36,7 @@ The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We can use two pointers to find the start and end positions of each consecutive character, calculate the length of the consecutive characters, and then append the character and length to the string $t$.
 
@@ -46,30 +46,12 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def compressString(self, S: str) -> str:
         t = "".join(a + str(len(list(b))) for a, b in groupby(S))
         return min(S, t, key=len)
 ```
-
-```python
-class Solution:
-    def compressString(self, S: str) -> str:
-        t = []
-        i, n = 0, len(S)
-        while i < n:
-            j = i + 1
-            while j < n and S[j] == S[i]:
-                j += 1
-            t.append(S[i] + str(j - i))
-            i = j
-        return min(S, "".join(t), key=len)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func compressString(S string) string {
 	n := len(S)
@@ -133,30 +111,6 @@ func compressString(S string) string {
 	return S
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} S
- * @return {string}
- */
-var compressString = function (S) {
-    const n = S.length;
-    const t = [];
-    for (let i = 0; i < n; ) {
-        let j = i + 1;
-        while (j < n && S.charAt(j) === S.charAt(i)) {
-            ++j;
-        }
-        t.push(S.charAt(i), j - i);
-        i = j;
-    }
-    return t.length < n ? t.join('') : S;
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -185,10 +139,46 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var compressString = function (S) {
+    const n = S.length;
+    const t = [];
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        while (j < n && S.charAt(j) === S.charAt(i)) {
+            ++j;
+        }
+        t.push(S.charAt(i), j - i);
+        i = j;
+    }
+    return t.length < n ? t.join('') : S;
+};
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def compressString(self, S: str) -> str:
+        t = []
+        i, n = 0, len(S)
+        while i < n:
+            j = i + 1
+            while j < n and S[j] == S[i]:
+                j += 1
+            t.append(S[i] + str(j - i))
+            i = j
+        return min(S, "".join(t), key=len)
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

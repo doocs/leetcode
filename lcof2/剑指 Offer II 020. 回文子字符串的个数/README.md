@@ -40,25 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：从中心向两侧扩展回文串**
+### 方法一：从中心向两侧扩展回文串
 
 我们可以枚举回文串的中间点，然后向左右两边扩展，统计回文串的数量。注意，回文串可能包含奇数个字符，也可能不包含。因此这两种情况都要考虑。
 
 时间复杂度 $O(n^2)$，其中 $n$ 是字符串 `s` 的长度。
 
-**方法二：Manacher 算法**
-
-在 Manacher 算法的计算过程中，用 $p[i]-1$ 表示以第 $i$ 位为中心的最大回文长度，以第 $i$ 位为中心的回文串数量为 $\left \lceil \frac{p[i]-1}{2}  \right \rceil$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,29 +63,6 @@ class Solution:
         n = len(s)
         return sum(f(i, i) + f(i, i + 1) for i in range(n))
 ```
-
-```python
-class Solution:
-    def countSubstrings(self, s: str) -> int:
-        t = '^#' + '#'.join(s) + '#$'
-        n = len(t)
-        p = [0 for _ in range(n)]
-        pos, maxRight = 0, 0
-        ans = 0
-        for i in range(1, n - 1):
-            p[i] = min(maxRight - i, p[2 * pos - i]) if maxRight > i else 1
-            while t[i - p[i]] == t[i + p[i]]:
-                p[i] += 1
-            if i + p[i] > maxRight:
-                maxRight = i + p[i]
-                pos = i
-            ans += p[i] // 2
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,6 +86,73 @@ class Solution {
         return cnt;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int ans = 0;
+        int n = s.size();
+        auto f = [&](int i, int j) -> int {
+            int cnt = 0;
+            for (; i >= 0 && j < n && s[i] == s[j]; --i, ++j) {
+                ++cnt;
+            }
+            return cnt;
+        };
+        for (int i = 0; i < n; ++i) {
+            ans += f(i, i) + f(i, i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countSubstrings(s string) (ans int) {
+	n := len(s)
+	f := func(i, j int) (cnt int) {
+		for ; i >= 0 && j < n && s[i] == s[j]; i, j = i-1, j+1 {
+			cnt++
+		}
+		return
+	}
+	for i := range s {
+		ans += f(i, i)
+		ans += f(i, i+1)
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：Manacher 算法
+
+在 Manacher 算法的计算过程中，用 $p[i]-1$ 表示以第 $i$ 位为中心的最大回文长度，以第 $i$ 位为中心的回文串数量为 $\left \lceil \frac{p[i]-1}{2}  \right \rceil$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        t = '^#' + '#'.join(s) + '#$'
+        n = len(t)
+        p = [0 for _ in range(n)]
+        pos, maxRight = 0, 0
+        ans = 0
+        for i in range(1, n - 1):
+            p[i] = min(maxRight - i, p[2 * pos - i]) if maxRight > i else 1
+            while t[i - p[i]] == t[i + p[i]]:
+                p[i] += 1
+            if i + p[i] > maxRight:
+                maxRight = i + p[i]
+                pos = i
+            ans += p[i] // 2
+        return ans
 ```
 
 ```java
@@ -151,52 +183,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countSubstrings(string s) {
-        int ans = 0;
-        int n = s.size();
-        auto f = [&](int i, int j) -> int {
-            int cnt = 0;
-            for (; i >= 0 && j < n && s[i] == s[j]; --i, ++j) {
-                ++cnt;
-            }
-            return cnt;
-        };
-        for (int i = 0; i < n; ++i) {
-            ans += f(i, i) + f(i, i + 1);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func countSubstrings(s string) (ans int) {
-	n := len(s)
-	f := func(i, j int) (cnt int) {
-		for ; i >= 0 && j < n && s[i] == s[j]; i, j = i-1, j+1 {
-			cnt++
-		}
-		return
-	}
-	for i := range s {
-		ans += f(i, i)
-		ans += f(i, i+1)
-	}
-	return
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

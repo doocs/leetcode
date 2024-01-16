@@ -54,13 +54,9 @@ DataFrame 已从宽格式重塑为长格式。每一行表示一个季度内产�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Pandas**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 import pandas as pd
@@ -70,10 +66,6 @@ def meltTable(report: pd.DataFrame) -> pd.DataFrame:
     return pd.melt(report, id_vars=['product'], var_name='quarter', value_name='sales')
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

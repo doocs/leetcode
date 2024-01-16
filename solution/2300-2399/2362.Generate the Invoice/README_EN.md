@@ -81,9 +81,9 @@ The highest price is 1000, and the invoices with the highest prices are 2 and 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -108,3 +108,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

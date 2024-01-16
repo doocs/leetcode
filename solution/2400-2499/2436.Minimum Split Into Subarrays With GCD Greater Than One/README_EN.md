@@ -52,7 +52,7 @@ It can be shown that splitting the array into one subarray will make the GCD = 1
 
 ## Solutions
 
-**Solution 1: Greedy + Mathematics**
+### Solution 1: Greedy + Mathematics
 
 For each element in the array, if its greatest common divisor (gcd) with the previous element is $1$, then it needs to be the first element of a new subarray. Otherwise, it can be placed in the same subarray with the previous elements.
 
@@ -63,8 +63,6 @@ Next, we traverse the array from front to back, maintaining the gcd $g$ of the c
 The time complexity is $O(n \times \log m)$, where $n$ and $m$ are the length of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                 g = x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumSplits(nums []int) int {
@@ -142,8 +134,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSplits(nums: number[]): number {
     let ans = 1;
@@ -163,10 +153,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

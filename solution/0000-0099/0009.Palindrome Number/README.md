@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：反转一半数字**
+### 方法一：反转一半数字
 
 我们先判断特殊情况：
 
@@ -81,10 +79,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isPalindrome(self, x: int) -> bool:
@@ -96,10 +90,6 @@ class Solution:
             x //= 10
         return x in (y, y // 10)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPalindrome(x int) bool {
 	if x < 0 || (x > 0 && x%10 == 0) {
@@ -149,27 +135,6 @@ func isPalindrome(x int) bool {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} x
- * @return {boolean}
- */
-var isPalindrome = function (x) {
-    if (x < 0 || (x > 0 && x % 10 === 0)) {
-        return false;
-    }
-    let y = 0;
-    for (; y < x; x = ~~(x / 10)) {
-        y = y * 10 + (x % 10);
-    }
-    return x === y || x === ~~(y / 10);
-};
-```
-
-### **TypeScript**
-
 ```ts
 function isPalindrome(x: number): boolean {
     if (x < 0 || (x > 0 && x % 10 === 0)) {
@@ -182,8 +147,6 @@ function isPalindrome(x: number): boolean {
     return x === y || x === ~~(y / 10);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -208,6 +171,29 @@ impl Solution {
 }
 ```
 
+```js
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function (x) {
+    if (x < 0 || (x > 0 && x % 10 === 0)) {
+        return false;
+    }
+    let y = 0;
+    for (; y < x; x = ~~(x / 10)) {
+        y = y * 10 + (x % 10);
+    }
+    return x === y || x === ~~(y / 10);
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn is_palindrome(mut x: i32) -> bool {
@@ -225,10 +211,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

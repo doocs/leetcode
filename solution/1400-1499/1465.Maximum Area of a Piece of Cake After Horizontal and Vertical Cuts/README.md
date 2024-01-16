@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们先分别对 `horizontalCuts` 和 `verticalCuts` 排序，然后分别遍历两个数组，计算相邻两个元素的最大差值，分别记为 $x$ 和 $y$，最后返回 $x \times y$ 即可。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(m\log m + n\log n)$，空间复杂度 $(\log m + \log n)$。其中 $m$ 和 $n$ 分别为 `horizontalCuts` 和 `verticalCuts` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
         y = max(b - a for a, b in pairwise(verticalCuts))
         return (x * y) % (10**9 + 7)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	horizontalCuts = append(horizontalCuts, []int{0, h}...)
@@ -159,8 +145,6 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: number[]): number {
     const mod = 1e9 + 7;
@@ -178,8 +162,6 @@ function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: n
     return Number((BigInt(x) * BigInt(y)) % BigInt(mod));
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -216,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

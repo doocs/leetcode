@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：摩尔投票法**
+### 方法一：摩尔投票法
 
 摩尔投票法的基本步骤如下：
 
@@ -57,10 +55,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -72,10 +66,6 @@ class Solution:
                 cnt += 1 if m == x else -1
         return m
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func majorityElement(nums []int) int {
 	var cnt, m int
@@ -134,8 +120,6 @@ func majorityElement(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function majorityElement(nums: number[]): number {
     let cnt: number = 0;
@@ -152,7 +136,23 @@ function majorityElement(nums: number[]): number {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn majority_element(nums: Vec<i32>) -> i32 {
+        let mut m = 0;
+        let mut cnt = 0;
+        for &x in nums.iter() {
+            if cnt == 0 {
+                m = x;
+                cnt = 1;
+            } else {
+                cnt += if m == x { 1 } else { -1 };
+            }
+        }
+        m
+    }
+}
+```
 
 ```js
 /**
@@ -174,8 +174,6 @@ var majorityElement = function (nums) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
@@ -192,28 +190,6 @@ public class Solution {
     }
 }
 ```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn majority_element(nums: Vec<i32>) -> i32 {
-        let mut m = 0;
-        let mut cnt = 0;
-        for &x in nums.iter() {
-            if cnt == 0 {
-                m = x;
-                cnt = 1;
-            } else {
-                cnt += if m == x { 1 } else { -1 };
-            }
-        }
-        m
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -239,10 +215,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

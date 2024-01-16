@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Construction**
+### Solution 1: Construction
 
 If $n$ is odd, then we can directly construct a string with $n$ `'a'` characters.
 
@@ -51,15 +51,11 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def generateTheString(self, n: int) -> str:
         return 'a' * n if n & 1 else 'a' * (n - 1) + 'b'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -68,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -84,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func generateTheString(n int) string {
 	ans := strings.Repeat("a", n-1)
@@ -98,8 +90,6 @@ func generateTheString(n int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function generateTheString(n: number): string {
     const ans = Array(n).fill('a');
@@ -110,10 +100,6 @@ function generateTheString(n: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

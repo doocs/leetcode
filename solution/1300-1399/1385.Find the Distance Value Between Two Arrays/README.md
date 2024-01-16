@@ -64,19 +64,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找**
+### 方法一：排序 + 二分查找
 
 我们可以先对数组 $arr2$ 排序，然后对于数组 $arr1$ 中的每个元素 $a$，使用二分查找，找到数组 $arr2$ 中第一个大于等于 $a-d$ 的元素，如果元素存在，且小于等于 $a+d$，则说明不符合距离要求，否则说明符合距离要求。我们将符合距离要求的元素个数累加，即为答案。
 
 时间复杂度 $O((m + n) \times \log n)$，空间复杂度 $O(\log n)$。其中 $m$ 和 $n$ 分别是数组 $arr1$ 和 $arr2$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
         arr2.sort()
         return sum(check(a) for a in arr1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 	sort.Ints(arr2)
@@ -155,8 +141,6 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number {
@@ -183,8 +167,6 @@ function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -216,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

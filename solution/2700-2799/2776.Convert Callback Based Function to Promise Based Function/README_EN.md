@@ -78,9 +78,9 @@ fn is called with a callback as the first argument and args as the rest. As the 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type CallbackFn = (next: (data: number, error: string) => void, ...args: number[]) => void;
@@ -107,3 +107,5 @@ function promisify(fn: CallbackFn): Promisified {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

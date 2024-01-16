@@ -63,9 +63,7 @@ fn = (x) =&gt; Array.isArray(x)
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们先判断当前对象是否为数组，如果是数组，我们就对数组中的每一个元素进行递归调用，然后过滤掉返回值为 `undefined` 的元素，最后返回过滤后的数组。
 
@@ -76,10 +74,6 @@ fn = (x) =&gt; Array.isArray(x)
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为对象中的元素个数。
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any> | undefined {
@@ -108,3 +102,5 @@ function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any>
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

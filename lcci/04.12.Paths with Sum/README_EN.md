@@ -44,7 +44,7 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 
 ## Solutions
 
-**Solution 1: Hash Table + Prefix Sum + Recursion**
+### Solution 1: Hash Table + Prefix Sum + Recursion
 
 We can use the idea of prefix sum to recursively traverse the binary tree, and use a hash table $cnt$ to count the occurrence of each prefix sum on the path from the root node to the current node.
 
@@ -64,31 +64,31 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> int:
-        def dfs(root, sum, flag):
-            nonlocal ans
-            if not root:
+        def dfs(root: TreeNode, s: int):
+            if root is None:
                 return 0
-            if sum - root.val == 0:
-                ans += 1
-            if flag == 0:
-                dfs(root.left, sum, 0)
-                dfs(root.right, sum, 0)
-            dfs(root.left, sum - root.val, 1)
-            dfs(root.right, sum - root.val, 1)
+            s += root.val
+            ans = cnt[s - sum]
+            cnt[s] += 1
+            ans += dfs(root.left, s)
+            ans += dfs(root.right, s)
+            cnt[s] -= 1
+            return ans
 
-        if not root:
-            return 0
-        ans = 0
-        dfs(root, sum, 0)
-        return ans
+        cnt = Counter({0: 1})
+        return dfs(root, 0)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -125,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -159,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -188,8 +184,6 @@ func pathSum(root *TreeNode, sum int) int {
 	return dfs(root, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -224,8 +218,6 @@ function pathSum(root: TreeNode | null, sum: number): number {
     return dfs(root, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -277,10 +269,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

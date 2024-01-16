@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 先遍历数组 `arr`，得到数组所有元素的和，记为 `s`。如果 `s` 不能被 3 整除，那么数组 `arr` 不能被分成和相等的三个部分，直接返回 `false`。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$，其中 $n$ 为数组 `arr` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             j -= 1
         return i < j - 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canThreePartsEqualSum(arr []int) bool {
@@ -179,10 +165,6 @@ func canThreePartsEqualSum(arr []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

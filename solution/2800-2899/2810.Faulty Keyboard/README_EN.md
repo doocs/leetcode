@@ -53,7 +53,7 @@ Therefore, we return &quot;ponter&quot;.</pre>
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We directly simulate the keyboard input process, using a character array $t$ to record the text on the screen, initially $t$ is empty.
 
@@ -64,8 +64,6 @@ The final answer is the string composed of characters in $t$.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
                 t.append(c)
         return "".join(t)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func finalString(s string) string {
 	t := []rune{}
@@ -134,8 +126,6 @@ func finalString(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function finalString(s: string): string {
     const t: string[] = [];
@@ -149,8 +139,6 @@ function finalString(s: string): string {
     return t.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -168,10 +156,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

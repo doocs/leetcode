@@ -65,9 +65,7 @@ nums = [2,1]：这是自整除的，因为 nums[1] % 1 == 0 和 2 % nums[2] == 0
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 记忆化搜索**
+### 方法一：状态压缩 + 记忆化搜索
 
 我们可以用一个二进制数 $mask$ 来表示当前排列的状态，其中第 $i$ 位为 $1$ 表示数字 $i$ 已经被使用，为 $0$ 表示数字 $i$ 还未被使用。
 
@@ -83,21 +81,7 @@ nums = [2,1]：这是自整除的，因为 nums[1] % 1 == 0 和 2 % nums[2] == 0
 
 时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 为排列的长度。
 
-**方法二：状态压缩 + 动态规划**
-
-我们可以将方法一中的记忆化搜索改写为动态规划的形式，定义 $f[mask]$ 表示当前排列的状态为 $mask$，且满足题目要求的排列的数量。初始时 $f[0]=1$，其余值均为 $0$。
-
-我们在 $[0, 2^n)$ 的范围内枚举 $mask$，对于每个 $mask$，我们用 $i$ 表示当前最后一个加入排列的是第几个数字，然后我们枚举当前排列中最后一个加入的数字 $j$，如果 $i$ 和 $j$ 满足题目要求，那么状态 $f[mask]$ 就可以从状态 $f[mask \oplus 2^(j-1)]$ 转移而来，其中 $\oplus$ 表示按位异或运算。我们将所有转移得到的状态 $f[mask \oplus 2^(j-1)]$ 的值累加到 $f[mask]$ 上，即为 $f[mask]$ 的值。
-
-最终，我们可以得到 $f[2^n - 1]$ 的值，即为答案。
-
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 为排列的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,23 +99,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def selfDivisiblePermutationCount(self, n: int) -> int:
-        f = [0] * (1 << n)
-        f[0] = 1
-        for mask in range(1 << n):
-            i = mask.bit_count()
-            for j in range(1, n + 1):
-                if (mask >> (j - 1) & 1) == 1 and (i % j == 0 or j % i == 0):
-                    f[mask] += f[mask ^ (1 << (j - 1))]
-        return f[-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,26 +130,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int selfDivisiblePermutationCount(int n) {
-        int[] f = new int[1 << n];
-        f[0] = 1;
-        for (int mask = 0; mask < 1 << n; ++mask) {
-            int i = Integer.bitCount(mask);
-            for (int j = 1; j <= n; ++j) {
-                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
-                    f[mask] += f[mask ^ (1 << (j - 1))];
-                }
-            }
-        }
-        return f[(1 << n) - 1];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -210,28 +157,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int selfDivisiblePermutationCount(int n) {
-        int f[1 << n];
-        memset(f, 0, sizeof(f));
-        f[0] = 1;
-        for (int mask = 0; mask < 1 << n; ++mask) {
-            int i = __builtin_popcount(mask);
-            for (int j = 1; j <= n; ++j) {
-                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
-                    f[mask] += f[mask ^ (1 << (j - 1))];
-                }
-            }
-        }
-        return f[(1 << n) - 1];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func selfDivisiblePermutationCount(n int) int {
 	f := make([]int, 1<<(n+1))
@@ -258,24 +183,6 @@ func selfDivisiblePermutationCount(n int) int {
 	return dfs(0)
 }
 ```
-
-```go
-func selfDivisiblePermutationCount(n int) int {
-	f := make([]int, 1<<n)
-	f[0] = 1
-	for mask := 0; mask < 1<<n; mask++ {
-		i := bits.OnesCount(uint(mask))
-		for j := 1; j <= n; j++ {
-			if mask>>(j-1)&1 == 1 && (i%j == 0 || j%i == 0) {
-				f[mask] += f[mask^(1<<(j-1))]
-			}
-		}
-	}
-	return f[(1<<n)-1]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function selfDivisiblePermutationCount(n: number): number {
@@ -309,6 +216,87 @@ function bitCount(i: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：状态压缩 + 动态规划
+
+我们可以将方法一中的记忆化搜索改写为动态规划的形式，定义 $f[mask]$ 表示当前排列的状态为 $mask$，且满足题目要求的排列的数量。初始时 $f[0]=1$，其余值均为 $0$。
+
+我们在 $[0, 2^n)$ 的范围内枚举 $mask$，对于每个 $mask$，我们用 $i$ 表示当前最后一个加入排列的是第几个数字，然后我们枚举当前排列中最后一个加入的数字 $j$，如果 $i$ 和 $j$ 满足题目要求，那么状态 $f[mask]$ 就可以从状态 $f[mask \oplus 2^(j-1)]$ 转移而来，其中 $\oplus$ 表示按位异或运算。我们将所有转移得到的状态 $f[mask \oplus 2^(j-1)]$ 的值累加到 $f[mask]$ 上，即为 $f[mask]$ 的值。
+
+最终，我们可以得到 $f[2^n - 1]$ 的值，即为答案。
+
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 为排列的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def selfDivisiblePermutationCount(self, n: int) -> int:
+        f = [0] * (1 << n)
+        f[0] = 1
+        for mask in range(1 << n):
+            i = mask.bit_count()
+            for j in range(1, n + 1):
+                if (mask >> (j - 1) & 1) == 1 and (i % j == 0 or j % i == 0):
+                    f[mask] += f[mask ^ (1 << (j - 1))]
+        return f[-1]
+```
+
+```java
+class Solution {
+    public int selfDivisiblePermutationCount(int n) {
+        int[] f = new int[1 << n];
+        f[0] = 1;
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            int i = Integer.bitCount(mask);
+            for (int j = 1; j <= n; ++j) {
+                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
+                    f[mask] += f[mask ^ (1 << (j - 1))];
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int selfDivisiblePermutationCount(int n) {
+        int f[1 << n];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            int i = __builtin_popcount(mask);
+            for (int j = 1; j <= n; ++j) {
+                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
+                    f[mask] += f[mask ^ (1 << (j - 1))];
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+};
+```
+
+```go
+func selfDivisiblePermutationCount(n int) int {
+	f := make([]int, 1<<n)
+	f[0] = 1
+	for mask := 0; mask < 1<<n; mask++ {
+		i := bits.OnesCount(uint(mask))
+		for j := 1; j <= n; j++ {
+			if mask>>(j-1)&1 == 1 && (i%j == 0 || j%i == 0) {
+				f[mask] += f[mask^(1<<(j-1))]
+			}
+		}
+	}
+	return f[(1<<n)-1]
+}
+```
+
 ```ts
 function selfDivisiblePermutationCount(n: number): number {
     const f: number[] = Array(1 << n).fill(0);
@@ -334,10 +322,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

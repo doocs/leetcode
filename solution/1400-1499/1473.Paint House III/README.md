@@ -72,9 +72,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j][k]$ 表示将下标 $[0,..i]$ 的房子涂上颜色，最后一个房子的颜色为 $j$，且恰好形成 $k$ 个街区的最小花费。那么答案就是 $f[m-1][j][target]$，其中 $j$ 的取值范围为 $[1,..n]$。初始时，我们判断下标为 $0$ 的房子是否已经涂色，如果未涂色，那么 $f[0][j][1] = cost[0][j - 1]$，其中 $j \in [1,..n]$。如果已经涂色，那么 $f[0][houses[0]][1] = 0$。其他的 $f[i][j][k]$ 的值都初始化为 $\infty$。
 
@@ -97,10 +95,6 @@ $$
 时间复杂度 $O(m \times n^2 \times target)$，空间复杂度 $O(m \times n \times target)$。其中 $m$, $n$, $target$ 分别为房子的数量，颜色的数量，街区的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -138,10 +132,6 @@ class Solution:
         ans = min(f[-1][j][target] for j in range(1, n + 1))
         return -1 if ans >= inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -196,8 +186,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -245,8 +233,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCost(houses []int, cost [][]int, m int, n int, target int) int {
@@ -305,8 +291,6 @@ func minCost(houses []int, cost [][]int, m int, n int, target int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCost(houses: number[], cost: number[][], m: number, n: number, target: number): number {
     const inf = 1 << 30;
@@ -354,10 +338,6 @@ function minCost(houses: number[], cost: number[][], m: number, n: number, targe
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

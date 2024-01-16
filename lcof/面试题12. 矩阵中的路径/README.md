@@ -44,7 +44,7 @@
 
 ## 解法
 
-**方法一：枚举 + DFS**
+### 方法一：枚举 + DFS
 
 我们可以枚举矩阵的每个位置 $(i, j)$，以该位置为起点，采用深度优先搜索的方法寻找字符串 `word` 的路径。如果找到了一条路径，即可返回 `true`，否则在枚举完所有的位置后，返回 `false`。
 
@@ -59,8 +59,6 @@
 时间复杂度 $O(m \times n \times 3^k)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为字符串 `word` 的长度。我们需要枚举矩阵中的每个位置，然后对于每个位置，我们最多需要搜索三个方向。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
         m, n = len(board), len(board[0])
         return any(dfs(i, j, 0) for i in range(m) for j in range(n))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func exist(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
@@ -191,46 +183,6 @@ func exist(board [][]byte, word string) bool {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {character[][]} board
- * @param {string} word
- * @return {boolean}
- */
-var exist = function (board, word) {
-    const m = board.length;
-    const n = board[0].length;
-    const dirs = [-1, 0, 1, 0, -1];
-    const dfs = (i, j, k) => {
-        if (k == word.length) {
-            return true;
-        }
-        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[k]) {
-            return false;
-        }
-        board[i][j] = ' ';
-        let ans = false;
-        for (let l = 0; l < 4; ++l) {
-            ans = ans || dfs(i + dirs[l], j + dirs[l + 1], k + 1);
-        }
-        board[i][j] = word[k];
-        return ans;
-    };
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (dfs(i, j, 0)) {
-                return true;
-            }
-        }
-    }
-    return false;
-};
-```
-
-### **TypeScript**
-
 ```ts
 function exist(board: string[][], word: string): boolean {
     const m = board.length;
@@ -260,8 +212,6 @@ function exist(board: string[][], word: string): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -309,7 +259,41 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {character[][]} board
+ * @param {string} word
+ * @return {boolean}
+ */
+var exist = function (board, word) {
+    const m = board.length;
+    const n = board[0].length;
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i, j, k) => {
+        if (k == word.length) {
+            return true;
+        }
+        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[k]) {
+            return false;
+        }
+        board[i][j] = ' ';
+        let ans = false;
+        for (let l = 0; l < 4; ++l) {
+            ans = ans || dfs(i + dirs[l], j + dirs[l + 1], k + 1);
+        }
+        board[i][j] = word[k];
+        return ans;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (dfs(i, j, 0)) {
+                return true;
+            }
+        }
+    }
+    return false;
+};
+```
 
 ```cs
 public class Solution {
@@ -352,10 +336,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

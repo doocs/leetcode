@@ -69,19 +69,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们可以使用递归来实现链表的逆序打印。在函数中，我们判断当前节点是否为空，如果不为空，则获取下一个节点，然后递归调用函数本身，最后打印当前节点的值。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -99,10 +93,6 @@ class Solution:
             self.printLinkedListInReverse(head.getNext())
             head.printValue()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -147,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /*   Below is the interface for ImmutableListNode, which is already defined for you.
@@ -174,8 +160,6 @@ func printLinkedListInReverse(head ImmutableListNode) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * // This is the ImmutableListNode's API interface.
@@ -194,8 +178,6 @@ function printLinkedListInReverse(head: ImmutableListNode) {
     }
 }
 ```
-
-### **C#**
 
 ```cs
 /**
@@ -217,10 +199,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

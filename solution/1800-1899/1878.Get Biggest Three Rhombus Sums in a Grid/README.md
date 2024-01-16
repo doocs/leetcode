@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举菱形中心点 + 前缀和 + 有序集合**
+### 方法一：枚举菱形中心点 + 前缀和 + 有序集合
 
 我们可以预处理得到两个前缀和数组 $s_1$ 和 $s_2$，其中 $s_1[i][j]$ 表示以 $(i, j)$ 为末尾的左上对角线上的元素之和，而 $s_2[i][j]$ 表示以 $(i, j)$ 为末尾的右上对角线上的元素之和。
 
@@ -82,10 +80,6 @@ $$
 时间复杂度 $O(m \times n \times \min(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -117,10 +111,6 @@ class Solution:
                     ss.remove(ss[0])
         return list(ss)[::-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -160,8 +150,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -196,8 +184,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getBiggestThree(grid [][]int) []int {
@@ -240,8 +226,6 @@ func getBiggestThree(grid [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getBiggestThree(grid: number[][]): number[] {
@@ -916,10 +900,6 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

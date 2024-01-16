@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：维护前缀最值**
+### 方法一：维护前缀最值
 
 求环形子数组的最大和，可以分为两种情况：
 
@@ -81,10 +79,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
@@ -96,24 +90,6 @@ class Solution:
             s2 = min(s2, f2)
         return s1 if s1 <= 0 else max(s1, sum(nums) - s2)
 ```
-
-```python
-class Solution:
-    def maxSubarraySumCircular(self, nums: List[int]) -> int:
-        pmi, pmx = 0, -inf
-        ans, s, smi = -inf, 0, inf
-        for x in nums:
-            s += x
-            ans = max(ans, s - pmi)
-            smi = min(smi, s - pmx)
-            pmi = min(pmi, s)
-            pmx = max(pmx, s)
-        return max(ans, s - smi)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,26 +106,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int maxSubarraySumCircular(int[] nums) {
-        final int inf = 1 << 30;
-        int pmi = 0, pmx = -inf;
-        int ans = -inf, s = 0, smi = inf;
-        for (int x : nums) {
-            s += x;
-            ans = Math.max(ans, s - pmi);
-            smi = Math.min(smi, s - pmx);
-            pmi = Math.min(pmi, s);
-            pmx = Math.max(pmx, s);
-        }
-        return Math.max(ans, s - smi);
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -168,27 +124,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maxSubarraySumCircular(vector<int>& nums) {
-        const int inf = 1 << 30;
-        int pmi = 0, pmx = -inf;
-        int ans = -inf, s = 0, smi = inf;
-        for (int x : nums) {
-            s += x;
-            ans = max(ans, s - pmi);
-            smi = min(smi, s - pmx);
-            pmi = min(pmi, s);
-            pmx = max(pmx, s);
-        }
-        return max(ans, s - smi);
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxSubarraySumCircular(nums []int) int {
 	s1, s2, f1, f2, total := nums[0], nums[0], nums[0], nums[0], nums[0]
@@ -205,24 +140,6 @@ func maxSubarraySumCircular(nums []int) int {
 	return max(s1, total-s2)
 }
 ```
-
-```go
-func maxSubarraySumCircular(nums []int) int {
-	const inf = 1 << 30
-	pmi, pmx := 0, -inf
-	ans, s, smi := -inf, 0, inf
-	for _, x := range nums {
-		s += x
-		ans = max(ans, s-pmi)
-		smi = min(smi, s-pmx)
-		pmi = min(pmi, s)
-		pmx = max(pmx, s)
-	}
-	return max(ans, s-smi)
-}
-```
-
-### **TypeScript**
 
 ```ts
 function maxSubarraySumCircular(nums: number[]): number {
@@ -245,6 +162,79 @@ function maxSubarraySumCircular(nums: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        pmi, pmx = 0, -inf
+        ans, s, smi = -inf, 0, inf
+        for x in nums:
+            s += x
+            ans = max(ans, s - pmi)
+            smi = min(smi, s - pmx)
+            pmi = min(pmi, s)
+            pmx = max(pmx, s)
+        return max(ans, s - smi)
+```
+
+```java
+class Solution {
+    public int maxSubarraySumCircular(int[] nums) {
+        final int inf = 1 << 30;
+        int pmi = 0, pmx = -inf;
+        int ans = -inf, s = 0, smi = inf;
+        for (int x : nums) {
+            s += x;
+            ans = Math.max(ans, s - pmi);
+            smi = Math.min(smi, s - pmx);
+            pmi = Math.min(pmi, s);
+            pmx = Math.max(pmx, s);
+        }
+        return Math.max(ans, s - smi);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxSubarraySumCircular(vector<int>& nums) {
+        const int inf = 1 << 30;
+        int pmi = 0, pmx = -inf;
+        int ans = -inf, s = 0, smi = inf;
+        for (int x : nums) {
+            s += x;
+            ans = max(ans, s - pmi);
+            smi = min(smi, s - pmx);
+            pmi = min(pmi, s);
+            pmx = max(pmx, s);
+        }
+        return max(ans, s - smi);
+    }
+};
+```
+
+```go
+func maxSubarraySumCircular(nums []int) int {
+	const inf = 1 << 30
+	pmi, pmx := 0, -inf
+	ans, s, smi := -inf, 0, inf
+	for _, x := range nums {
+		s += x
+		ans = max(ans, s-pmi)
+		smi = min(smi, s-pmx)
+		pmi = min(pmi, s)
+		pmx = max(pmx, s)
+	}
+	return max(ans, s-smi)
+}
+```
+
 ```ts
 function maxSubarraySumCircular(nums: number[]): number {
     const inf = 1 << 30;
@@ -261,10 +251,6 @@ function maxSubarraySumCircular(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

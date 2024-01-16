@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,8 +51,6 @@ class Solution:
             t.append(a)
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -92,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func repeatedStringMatch(a string, b string) int {
 	m, n := len(a), len(b)
@@ -109,8 +103,6 @@ func repeatedStringMatch(a string, b string) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function repeatedStringMatch(a: string, b: string): number {
@@ -131,10 +123,6 @@ function repeatedStringMatch(a: string, b: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

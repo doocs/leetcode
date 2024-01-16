@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Digit DP**
+### Solution 1: Digit DP
 
 We notice that the problem is asking for the number of stepping numbers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
 
@@ -68,8 +68,6 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def countSteppingNumbers(self, low: str, high: str) -> int:
@@ -94,8 +92,6 @@ class Solution:
         b = dfs(0, -1, True, True)
         return (a - b) % mod
 ```
-
-### **Java**
 
 ```java
 import java.math.BigInteger;
@@ -139,8 +135,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -191,8 +185,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countSteppingNumbers(low string, high string) int {
@@ -261,8 +253,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSteppingNumbers(low: string, high: string): number {
     const mod = 1e9 + 7;
@@ -303,10 +293,6 @@ function countSteppingNumbers(low: string, high: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

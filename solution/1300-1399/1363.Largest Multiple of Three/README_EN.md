@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Dynamic Programming + Backtracking**
+### Solution 1: Greedy + Dynamic Programming + Backtracking
 
 We define $f[i][j]$ as the maximum length of selecting several numbers from the first $i$ numbers, so that the sum of the selected numbers modulo $3$ equals $j$. To make the selected numbers as large as possible, we need to select as many numbers as possible, so we need to make $f[i][j]$ as large as possible. We initialize $f[0][0] = 0$, and the rest of $f[0][j] = -\infty$.
 
@@ -57,8 +57,6 @@ Define $i = n$, $j = 0$, start backtracking from $f[i][j]$, let $k = (j - x_i \b
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
             i += 1
         return "".join(map(str, arr[i:]))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,8 +152,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestMultipleOfThree(digits []int) string {
@@ -198,8 +190,6 @@ func largestMultipleOfThree(digits []int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestMultipleOfThree(digits: number[]): string {
     digits.sort((a, b) => a - b);
@@ -230,10 +220,6 @@ function largestMultipleOfThree(digits: number[]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

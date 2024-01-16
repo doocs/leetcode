@@ -47,7 +47,7 @@ The different GCDs are 6, 10, 3, 2, and 1.
 
 ## Solutions
 
-**Solution 1: Enumeration + Mathematics**
+### Solution 1: Enumeration + Mathematics
 
 For all sub-sequences of the array $nums$, their greatest common divisor (GCD) will not exceed the maximum value $mx$ in the array.
 
@@ -58,8 +58,6 @@ So the problem is transformed into: determining whether $x$ is the GCD of a sub-
 The time complexity is $O(n + M \times \log M)$, and the space complexity is $O(M)$. Here, $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                         break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +132,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countDifferentSubsequenceGCDs(nums []int) (ans int) {
@@ -171,10 +163,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

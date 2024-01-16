@@ -26,15 +26,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-从左下角（或右上角）开始查找即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -52,10 +46,6 @@ class Solution:
                 j += 1
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +88,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
@@ -124,10 +110,6 @@ func searchMatrix(matrix [][]int, target int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

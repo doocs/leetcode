@@ -37,15 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**前言**
-
-一种容易想到的解法是将数组排序后得到相邻元素之间最大的差值，时间复杂度 $O(n \log n)$，不符合题目要求。
-
-只有使用不基于比较的的排序算法才能在线性时间复杂度解决。
-
-**方法一：桶排序**
+### 方法一：桶排序
 
 假设数组 $nums$ 有 $n$ 个元素，所有元素从小到大依次是 $nums_0$ 到 $nums_{n - 1}$，最大间距是 $maxGap$。考虑数组中的最大元素和最小元素之差。
 
@@ -64,10 +56,6 @@ $$
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +80,6 @@ class Solution:
             prev = curmax
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -171,8 +153,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumGap(nums []int) int {
@@ -209,8 +189,6 @@ func maximumGap(nums []int) int {
 	return ans
 }
 ```
-
-### **C#**
 
 ```cs
 using System;
@@ -254,10 +232,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

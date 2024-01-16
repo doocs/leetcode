@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: No '1' After '0'**
+### Solution 1: No '1' After '0'
 
 Notice that the string $s$ does not contain leading zeros, which means $s$ starts with '1'.
 
@@ -46,15 +46,11 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def checkOnesSegment(self, s: str) -> bool:
         return '01' not in s
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -63,8 +59,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -75,15 +69,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkOnesSegment(s string) bool {
 	return !strings.Contains(s, "01")
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkOnesSegment(s: string): boolean {
@@ -98,14 +88,6 @@ function checkOnesSegment(s: string): boolean {
 }
 ```
 
-```ts
-function checkOnesSegment(s: string): boolean {
-    return !s.includes('01');
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn check_ones_segment(s: String) -> bool {
@@ -114,10 +96,18 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function checkOnesSegment(s: string): boolean {
+    return !s.includes('01');
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

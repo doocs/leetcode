@@ -57,13 +57,11 @@ Product 1 is available in store1 with price 70 and store3 with price 80. The pro
 
 ## Solutions
 
-**Solution 1: Union**
+### Solution 1: Union
 
 We can select the products and prices for each store, and then use the `UNION` operator to combine the results.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -75,3 +73,5 @@ SELECT product_id, 'store3' AS store, store3 AS price FROM Products WHERE store3
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

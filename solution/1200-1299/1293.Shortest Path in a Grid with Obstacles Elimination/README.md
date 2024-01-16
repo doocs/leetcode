@@ -49,17 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-BFS 最短路模型。
-
-对于本题，如果 `k >= m + n - 3`，那么最短路径长度一定是 `m + n - 2`，直接返回，无需 BFS 计算。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +79,6 @@ class Solution:
                             vis.add((x, y, k - 1))
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestPath(grid [][]int, k int) int {
@@ -220,10 +204,6 @@ func shortestPath(grid [][]int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

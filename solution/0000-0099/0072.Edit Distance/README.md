@@ -53,9 +53,7 @@ exection -&gt; execution (插入 'u')
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示将 $word1$ 的前 $i$ 个字符转换成 $word2$ 的前 $j$ 个字符所使用的最少操作数。初始时 $f[i][0] = i$, $f[0][j] = j$。其中 $i \in [1, m], j \in [0, n]$。
 
@@ -81,10 +79,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
@@ -101,10 +95,6 @@ class Solution:
                     f[i][j] = min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1
         return f[m][n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minDistance(word1 string, word2 string) int {
 	m, n := len(word1), len(word2)
@@ -181,8 +167,6 @@ func minDistance(word1 string, word2 string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minDistance(word1: string, word2: string): number {
     const m = word1.length;
@@ -206,8 +190,6 @@ function minDistance(word1: string, word2: string): number {
     return f[m][n];
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -238,10 +220,6 @@ var minDistance = function (word1, word2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

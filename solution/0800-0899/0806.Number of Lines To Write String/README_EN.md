@@ -49,9 +49,9 @@ There are a total of 2 lines, and the last line is 4 pixels wide.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
                 last = w
         return [row, last]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfLines(widths []int, s string) []int {
 	last, row := 0, 1
@@ -129,8 +123,6 @@ func numberOfLines(widths []int, s string) []int {
 	return []int{row, last}
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -150,10 +142,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

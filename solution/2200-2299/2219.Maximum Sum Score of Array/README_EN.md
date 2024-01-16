@@ -51,9 +51,9 @@ The maximum sum score of nums is -3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
         s = [0] + list(accumulate(nums))
         return max(max(s[i + 1], s[-1] - s[i]) for i in range(len(nums)))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,25 +79,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maximumSumScore(nums: number[]): number {
-    const n = nums.length;
-    let s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
-    }
-    let ans = -Infinity;
-    for (let i = 0; i < n; ++i) {
-        ans = Math.max(ans, Math.max(s[i + 1], s[n] - s[i]));
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumSumScore(nums []int) int64 {
@@ -131,7 +108,20 @@ func maximumSumScore(nums []int) int64 {
 }
 ```
 
-### **JavaScript**
+```ts
+function maximumSumScore(nums: number[]): number {
+    const n = nums.length;
+    let s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    let ans = -Infinity;
+    for (let i = 0; i < n; ++i) {
+        ans = Math.max(ans, Math.max(s[i + 1], s[n] - s[i]));
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -152,10 +142,6 @@ var maximumSumScore = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

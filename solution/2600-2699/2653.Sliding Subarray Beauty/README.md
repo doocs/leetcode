@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们注意到，数组 $nums$ 中元素的范围为 $[-50,50]$，因此，我们可以用一个数组长度为 $101$ 的数组 $cnt$ 统计 $[-50,50]$ 中每个数出现的次数。由于负数的存在，我们可以将每个数加上 $50$，使得每个数都变成非负数，这样就可以用数组 $cnt$ 统计每个数出现的次数了。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(n \times 50)$，空间复杂度 $O(100)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -94,32 +88,6 @@ class Solution:
             ans.append(sl[x - 1] if sl[x - 1] < 0 else 0)
         return ans
 ```
-
-```python
-class Solution:
-    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
-        def f(x: int) -> int:
-            s = 0
-            for i in range(50):
-                s += cnt[i]
-                if s >= x:
-                    return i - 50
-            return 0
-
-        cnt = [0] * 101
-        for v in nums[:k]:
-            cnt[v + 50] += 1
-        ans = [f(x)]
-        for i in range(k, len(nums)):
-            cnt[nums[i] + 50] += 1
-            cnt[nums[i - k] + 50] -= 1
-            ans.append(f(x))
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getSubarrayBeauty(nums []int, k int, x int) []int {
 	n := len(nums)
@@ -214,8 +178,6 @@ func getSubarrayBeauty(nums []int, k int, x int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
@@ -245,10 +207,34 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+        def f(x: int) -> int:
+            s = 0
+            for i in range(50):
+                s += cnt[i]
+                if s >= x:
+                    return i - 50
+            return 0
+
+        cnt = [0] * 101
+        for v in nums[:k]:
+            cnt[v + 50] += 1
+        ans = [f(x)]
+        for i in range(k, len(nums)):
+            cnt[nums[i] + 50] += 1
+            cnt[nums[i - k] + 50] -= 1
+            ans.append(f(x))
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

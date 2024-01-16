@@ -135,9 +135,9 @@ Both New York University and California University have 1 excellent student.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -153,3 +153,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

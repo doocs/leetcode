@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,16 +54,6 @@ class Solution:
         return ans
 ```
 
-```python
-class Solution:
-    def sumZero(self, n: int) -> List[int]:
-        ans = list(range(1, n))
-        ans.append(-sum(ans))
-        return ans
-```
-
-### **Java**
-
 ```java
 class Solution {
     public int[] sumZero(int n) {
@@ -75,6 +65,57 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        vector<int> ans(n);
+        for (int i = 1, j = 0; i <= n / 2; ++i) {
+            ans[j++] = i;
+            ans[j++] = -i;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func sumZero(n int) []int {
+	ans := make([]int, n)
+	for i, j := 1, 0; i <= n/2; i, j = i+1, j+1 {
+		ans[j] = i
+		j++
+		ans[j] = -i
+	}
+	return ans
+}
+```
+
+```ts
+function sumZero(n: number): number[] {
+    const ans = new Array(n).fill(0);
+    for (let i = 1, j = 0; i <= n / 2; ++i) {
+        ans[j++] = i;
+        ans[j++] = -i;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        ans = list(range(1, n))
+        ans.append(-sum(ans))
+        return ans
 ```
 
 ```java
@@ -90,22 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> sumZero(int n) {
-        vector<int> ans(n);
-        for (int i = 1, j = 0; i <= n / 2; ++i) {
-            ans[j++] = i;
-            ans[j++] = -i;
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -118,20 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func sumZero(n int) []int {
-	ans := make([]int, n)
-	for i, j := 1, 0; i <= n/2; i, j = i+1, j+1 {
-		ans[j] = i
-		j++
-		ans[j] = -i
-	}
-	return ans
-}
-```
-
 ```go
 func sumZero(n int) []int {
 	ans := make([]int, n)
@@ -140,19 +151,6 @@ func sumZero(n int) []int {
 	}
 	ans[0] = -n * (n - 1) / 2
 	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function sumZero(n: number): number[] {
-    const ans = new Array(n).fill(0);
-    for (let i = 1, j = 0; i <= n / 2; ++i) {
-        ans[j++] = i;
-        ans[j++] = -i;
-    }
-    return ans;
 }
 ```
 
@@ -167,10 +165,6 @@ function sumZero(n: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

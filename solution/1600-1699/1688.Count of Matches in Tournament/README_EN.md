@@ -48,7 +48,7 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 
 ## Solutions
 
-**Solution 1: Quick Thinking**
+### Solution 1: Quick Thinking
 
 From the problem description, we know that there are $n$ teams in total. Each pairing will eliminate one team. Therefore, the number of pairings is equal to the number of teams eliminated, which is $n - 1$.
 
@@ -56,15 +56,11 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def numberOfMatches(self, n: int) -> int:
         return n - 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -85,15 +79,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfMatches(n int) int {
 	return n - 1
 }
 ```
 
-### **JavaScript**
+```ts
+function numberOfMatches(n: number): number {
+    return n - 1;
+}
+```
 
 ```js
 /**
@@ -105,18 +101,6 @@ var numberOfMatches = function (n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function numberOfMatches(n: number): number {
-    return n - 1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

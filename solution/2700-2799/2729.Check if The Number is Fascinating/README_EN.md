@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,8 +52,6 @@ class Solution:
         s = str(n) + str(2 * n) + str(3 * n)
         return "".join(sorted(s)) == "123456789"
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -82,8 +78,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isFascinating(n int) bool {
@@ -99,16 +93,12 @@ func isFascinating(n int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isFascinating(n: number): boolean {
     const s = `${n}${n * 2}${n * 3}`;
     return s.split('').sort().join('') === '123456789';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -128,6 +118,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 use std::collections::HashMap;
@@ -168,10 +164,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

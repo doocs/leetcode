@@ -52,19 +52,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 本题属于单调栈的模板题，我们只需要利用单调栈，求出每个元素 $nums[i]$ 左边和右边第一个比它大的元素的位置，分别记为 $left[i]$ 和 $right[i]$，那么 $nums[i]$ 作为最大值的区间长度就是 $right[i] - left[i] - 1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
             stk.append(i)
         return [r - l - 1 for l, r in zip(left, right)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumLengthOfRanges(nums []int) []int {
@@ -208,8 +194,6 @@ func maximumLengthOfRanges(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumLengthOfRanges(nums: number[]): number[] {
     const n = nums.length;
@@ -239,10 +223,6 @@ function maximumLengthOfRanges(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

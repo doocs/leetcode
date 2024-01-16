@@ -59,19 +59,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快慢指针**
+### 方法一：快慢指针
 
 我们可以先用快指针 $fast$ 找到链表的第 $k$ 个节点，用指针 $p$ 指向它。然后我们再用慢指针 $slow$ 从链表的头节点出发，快慢指针同时向后移动，当快指针到达链表的最后一个节点时，慢指针 $slow$ 恰好指向倒数第 $k$ 个节点，用指针 $q$ 指向它。此时，我们只需要交换 $p$ 和 $q$ 的值即可。
 
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -91,10 +85,6 @@ class Solution:
         p.val, q.val = q.val, p.val
         return head
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -128,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -161,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -186,8 +172,6 @@ func swapNodes(head *ListNode, k int) *ListNode {
 	return head
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -217,8 +201,6 @@ function swapNodes(head: ListNode | null, k: number): ListNode | null {
     return head;
 }
 ```
-
-### **C#**
 
 ```cs
 /**
@@ -253,10 +235,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

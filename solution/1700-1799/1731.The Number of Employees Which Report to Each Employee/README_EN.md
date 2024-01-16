@@ -54,13 +54,11 @@ Employees table:
 
 ## Solutions
 
-**Solution 1: Self-Join + Grouping**
+### Solution 1: Self-Join + Grouping
 
 We can use self-join to connect the information of each employee's superior manager to the information of each employee, and then use grouping and aggregation to count the number of subordinates and the average age of each manager.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -77,3 +75,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

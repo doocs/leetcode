@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序 + 滑动窗口**
+### 方法一：贪心 + 排序 + 滑动窗口
 
 直觉上，毯子的左端点一定与某块瓷砖的左端点重合，这样才能使得毯子覆盖的瓷砖最多。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n\log n)$，其中 $n$ 为瓷砖的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
             s -= ri - li + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumWhiteTiles(tiles [][]int, carpetLen int) int {
 	sort.Slice(tiles, func(i, j int) bool { return tiles[i][0] < tiles[j][0] })
@@ -169,16 +155,6 @@ func maximumWhiteTiles(tiles [][]int, carpetLen int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

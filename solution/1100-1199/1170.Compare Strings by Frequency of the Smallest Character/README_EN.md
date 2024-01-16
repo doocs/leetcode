@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting + Binary Search**
+### Solution 1: Sorting + Binary Search
 
 First, according to the problem description, we implement a function $f(s)$, which returns the frequency of the smallest letter in the string $s$ in lexicographical order.
 
@@ -50,8 +50,6 @@ Then, we traverse each string $q$ in $queries$, and binary search in $nums$ for 
 The time complexity is $O((n + q) \times M)$, and the space complexity is $O(n)$. Here, $n$ and $q$ are the lengths of the arrays $words$ and $queries$ respectively, and $M$ is the maximum length of the strings.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
         nums = sorted(f(w) for w in words)
         return [n - bisect_right(nums, f(q)) for q in queries]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSmallerByFrequency(queries []string, words []string) (ans []int) {
 	f := func(s string) int {
@@ -172,8 +164,6 @@ func numSmallerByFrequency(queries []string, words []string) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numSmallerByFrequency(queries: string[], words: string[]): number[] {
@@ -204,10 +194,6 @@ function numSmallerByFrequency(queries: string[], words: string[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

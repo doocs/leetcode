@@ -45,44 +45,17 @@ The final concatenated result is &quot;Goal&quot;.
 
 ## Solutions
 
-**Solution 1: String Replacement**
+### Solution 1: String Replacement
 
 According to the problem, we only need to replace `"()"` with `'o'` and `"(al)"` with `"al"` in the string `command`.
 
-**Solution 2: String Iteration**
-
-We can also iterate over the string `command`. For each character $c$:
-
--   If it is `'G'`, directly add $c$ to the result string;
--   If it is `'('`, check if the next character is `')'`. If it is, add `'o'` to the result string. Otherwise, add `"al"` to the result string.
-
-After the iteration, return the result string.
-
-The time complexity is $O(n)$, and the space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
         return command.replace('()', 'o').replace('(al)', 'al')
 ```
-
-```python
-class Solution:
-    def interpret(self, command: str) -> str:
-        ans = []
-        for i, c in enumerate(command):
-            if c == 'G':
-                ans.append(c)
-            elif c == '(':
-                ans.append('o' if command[i + 1] == ')' else 'al')
-        return ''.join(ans)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,25 +64,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public String interpret(String command) {
-        StringBuilder ans = new StringBuilder();
-        for (int i = 0; i < command.length(); ++i) {
-            char c = command.charAt(i);
-            if (c == 'G') {
-                ans.append(c);
-            } else if (c == '(') {
-                ans.append(command.charAt(i + 1) == ')' ? "o" : "al");
-            }
-        }
-        return ans.toString();
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,25 +76,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    string interpret(string command) {
-        string ans;
-        for (int i = 0; i < command.size(); ++i) {
-            char c = command[i];
-            if (c == 'G')
-                ans += c;
-            else if (c == '(')
-                ans += command[i + 1] == ')' ? "o" : "al";
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func interpret(command string) string {
 	command = strings.ReplaceAll(command, "()", "o")
@@ -149,49 +84,11 @@ func interpret(command string) string {
 }
 ```
 
-```go
-func interpret(command string) string {
-	ans := &strings.Builder{}
-	for i, c := range command {
-		if c == 'G' {
-			ans.WriteRune(c)
-		} else if c == '(' {
-			if command[i+1] == ')' {
-				ans.WriteByte('o')
-			} else {
-				ans.WriteString("al")
-			}
-		}
-	}
-	return ans.String()
-}
-```
-
-### **TypeScript**
-
 ```ts
 function interpret(command: string): string {
     return command.replace(/\(\)/g, 'o').replace(/\(al\)/g, 'al');
 }
 ```
-
-```ts
-function interpret(command: string): string {
-    const n = command.length;
-    const ans: string[] = [];
-    for (let i = 0; i < n; i++) {
-        const c = command[i];
-        if (c === 'G') {
-            ans.push(c);
-        } else if (c === '(') {
-            ans.push(command[i + 1] === ')' ? 'o' : 'al');
-        }
-    }
-    return ans.join('');
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -200,28 +97,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn interpret(command: String) -> String {
-        let mut ans = String::new();
-        let bs = command.as_bytes();
-        for i in 0..bs.len() {
-            if bs[i] == b'G' {
-                ans.push_str("G");
-            }
-            if bs[i] == b'(' {
-                ans.push_str({
-                    if bs[i + 1] == b')' { "o" } else { "al" }
-                });
-            }
-        }
-        ans
-    }
-}
-```
-
-### **C**
 
 ```c
 char* interpret(char* command) {
@@ -246,10 +121,121 @@ char* interpret(char* command) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2: String Iteration
+
+We can also iterate over the string `command`. For each character $c$:
+
+-   If it is `'G'`, directly add $c$ to the result string;
+-   If it is `'('`, check if the next character is `')'`. If it is, add `'o'` to the result string. Otherwise, add `"al"` to the result string.
+
+After the iteration, return the result string.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def interpret(self, command: str) -> str:
+        ans = []
+        for i, c in enumerate(command):
+            if c == 'G':
+                ans.append(c)
+            elif c == '(':
+                ans.append('o' if command[i + 1] == ')' else 'al')
+        return ''.join(ans)
 ```
 
+```java
+class Solution {
+    public String interpret(String command) {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < command.length(); ++i) {
+            char c = command.charAt(i);
+            if (c == 'G') {
+                ans.append(c);
+            } else if (c == '(') {
+                ans.append(command.charAt(i + 1) == ')' ? "o" : "al");
+            }
+        }
+        return ans.toString();
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string interpret(string command) {
+        string ans;
+        for (int i = 0; i < command.size(); ++i) {
+            char c = command[i];
+            if (c == 'G')
+                ans += c;
+            else if (c == '(')
+                ans += command[i + 1] == ')' ? "o" : "al";
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func interpret(command string) string {
+	ans := &strings.Builder{}
+	for i, c := range command {
+		if c == 'G' {
+			ans.WriteRune(c)
+		} else if c == '(' {
+			if command[i+1] == ')' {
+				ans.WriteByte('o')
+			} else {
+				ans.WriteString("al")
+			}
+		}
+	}
+	return ans.String()
+}
+```
+
+```ts
+function interpret(command: string): string {
+    const n = command.length;
+    const ans: string[] = [];
+    for (let i = 0; i < n; i++) {
+        const c = command[i];
+        if (c === 'G') {
+            ans.push(c);
+        } else if (c === '(') {
+            ans.push(command[i + 1] === ')' ? 'o' : 'al');
+        }
+    }
+    return ans.join('');
+}
+```
+
+```rust
+impl Solution {
+    pub fn interpret(command: String) -> String {
+        let mut ans = String::new();
+        let bs = command.as_bytes();
+        for i in 0..bs.len() {
+            if bs[i] == b'G' {
+                ans.push_str("G");
+            }
+            if bs[i] == b'(' {
+                ans.push_str({
+                    if bs[i + 1] == b')' { "o" } else { "al" }
+                });
+            }
+        }
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

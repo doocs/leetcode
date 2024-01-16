@@ -54,15 +54,11 @@ Customer 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：条件过滤**
+### 方法一：条件过滤
 
 我们可以直接筛选出 `referee_id` 不为 `2` 的客户姓名。注意，`referee_id` 为 `NULL` 的客户也应该被筛选出来。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -72,3 +68,5 @@ WHERE IFNULL(referee_id, 0) != 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

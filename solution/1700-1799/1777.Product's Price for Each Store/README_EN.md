@@ -56,9 +56,9 @@ Product 1 price&#39;s are 70 for store1, 80 for store3 and, it&#39;s not sold in
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -72,3 +72,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

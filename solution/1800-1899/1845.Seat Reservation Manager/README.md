@@ -52,9 +52,7 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（小根堆）**
+### 方法一：优先队列（小根堆）
 
 我们可以使用优先队列（小根堆）来维护可预约座位的最小编号。
 
@@ -67,10 +65,6 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为座位的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class SeatManager:
@@ -90,10 +84,6 @@ class SeatManager:
 # param_1 = obj.reserve()
 # obj.unreserve(seatNumber)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class SeatManager {
@@ -121,8 +111,6 @@ class SeatManager {
  * obj.unreserve(seatNumber);
  */
 ```
-
-### **C++**
 
 ```cpp
 class SeatManager {
@@ -154,8 +142,6 @@ private:
  * obj->unreserve(seatNumber);
  */
 ```
-
-### **Go**
 
 ```go
 type SeatManager struct {
@@ -197,8 +183,6 @@ func (h *hp) Pop() any {
  */
 ```
 
-### **C#**
-
 ```cs
 public class SeatManager {
     private SortedSet<int> availableSeats;
@@ -229,10 +213,6 @@ public class SeatManager {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

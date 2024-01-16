@@ -45,25 +45,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can use a double-ended queue or stack to simulate the reversal process.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the string $s$.
 
-**Solution 2: Quick Thinking**
-
-We observe that during the traversal of the string, each time we encounter '(' or ')', we jump to the corresponding ')' or '(', then reverse the traversal direction and continue.
-
-Therefore, we can use an array $d$ to record the position of the other bracket corresponding to each '(' or ')', i.e., $d[i]$ represents the position of the other bracket corresponding to the bracket at position $i$. We can directly use a stack to calculate the array $d$.
-
-Then, we traverse the string from left to right. When we encounter '(' or ')', we jump to the corresponding position according to the array $d$, then reverse the direction and continue to traverse until the entire string is traversed.
-
-The time complexity is $O(n)$, where $n$ is the length of the string $s$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,32 +68,6 @@ class Solution:
                 stk.append(c)
         return ''.join(stk)
 ```
-
-```python
-class Solution:
-    def reverseParentheses(self, s: str) -> str:
-        n = len(s)
-        d = [0] * n
-        stk = []
-        for i, c in enumerate(s):
-            if c == '(':
-                stk.append(i)
-            elif c == ')':
-                j = stk.pop()
-                d[i], d[j] = j, i
-        i, x = 0, 1
-        ans = []
-        while i < n:
-            if s[i] in '()':
-                i = d[i]
-                x = -x
-            else:
-                ans.append(s[i])
-            i += x
-        return ''.join(ans)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -138,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,41 +123,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    string reverseParentheses(string s) {
-        int n = s.size();
-        vector<int> d(n);
-        stack<int> stk;
-        for (int i = 0; i < n; ++i) {
-            if (s[i] == '(') {
-                stk.push(i);
-            } else if (s[i] == ')') {
-                int j = stk.top();
-                stk.pop();
-                d[i] = j;
-                d[j] = i;
-            }
-        }
-        int i = 0, x = 1;
-        string ans;
-        while (i < n) {
-            if (s[i] == '(' || s[i] == ')') {
-                i = d[i];
-                x = -x;
-            } else {
-                ans.push_back(s[i]);
-            }
-            i += x;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func reverseParentheses(s string) string {
 	stk := []byte{}
@@ -217,37 +142,6 @@ func reverseParentheses(s string) string {
 	return string(stk)
 }
 ```
-
-```go
-func reverseParentheses(s string) string {
-	n := len(s)
-	d := make([]int, n)
-	stk := []int{}
-	for i, c := range s {
-		if c == '(' {
-			stk = append(stk, i)
-		} else if c == ')' {
-			j := stk[len(stk)-1]
-			stk = stk[:len(stk)-1]
-			d[i], d[j] = j, i
-		}
-	}
-	ans := []byte{}
-	i, x := 0, 1
-	for i < n {
-		if s[i] == '(' || s[i] == ')' {
-			i = d[i]
-			x = -x
-		} else {
-			ans = append(ans, s[i])
-		}
-		i += x
-	}
-	return string(ans)
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -284,10 +178,106 @@ var reverseParentheses = function (s) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2: Quick Thinking
+
+We observe that during the traversal of the string, each time we encounter '(' or ')', we jump to the corresponding ')' or '(', then reverse the traversal direction and continue.
+
+Therefore, we can use an array $d$ to record the position of the other bracket corresponding to each '(' or ')', i.e., $d[i]$ represents the position of the other bracket corresponding to the bracket at position $i$. We can directly use a stack to calculate the array $d$.
+
+Then, we traverse the string from left to right. When we encounter '(' or ')', we jump to the corresponding position according to the array $d$, then reverse the direction and continue to traverse until the entire string is traversed.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reverseParentheses(self, s: str) -> str:
+        n = len(s)
+        d = [0] * n
+        stk = []
+        for i, c in enumerate(s):
+            if c == '(':
+                stk.append(i)
+            elif c == ')':
+                j = stk.pop()
+                d[i], d[j] = j, i
+        i, x = 0, 1
+        ans = []
+        while i < n:
+            if s[i] in '()':
+                i = d[i]
+                x = -x
+            else:
+                ans.append(s[i])
+            i += x
+        return ''.join(ans)
 ```
 
+```cpp
+class Solution {
+public:
+    string reverseParentheses(string s) {
+        int n = s.size();
+        vector<int> d(n);
+        stack<int> stk;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == '(') {
+                stk.push(i);
+            } else if (s[i] == ')') {
+                int j = stk.top();
+                stk.pop();
+                d[i] = j;
+                d[j] = i;
+            }
+        }
+        int i = 0, x = 1;
+        string ans;
+        while (i < n) {
+            if (s[i] == '(' || s[i] == ')') {
+                i = d[i];
+                x = -x;
+            } else {
+                ans.push_back(s[i]);
+            }
+            i += x;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func reverseParentheses(s string) string {
+	n := len(s)
+	d := make([]int, n)
+	stk := []int{}
+	for i, c := range s {
+		if c == '(' {
+			stk = append(stk, i)
+		} else if c == ')' {
+			j := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			d[i], d[j] = j, i
+		}
+	}
+	ans := []byte{}
+	i, x := 0, 1
+	for i < n {
+		if s[i] == '(' || s[i] == ')' {
+			i = d[i]
+			x = -x
+		} else {
+			ans = append(ans, s[i])
+		}
+		i += x
+	}
+	return string(ans)
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

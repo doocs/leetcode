@@ -30,17 +30,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
         return len(s) == len(goal) and goal in s + s
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -49,8 +47,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -61,23 +57,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rotateString(s string, goal string) bool {
 	return len(s) == len(goal) && strings.Contains(s+s, goal)
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rotateString(s: string, goal: string): boolean {
     return s.length === goal.length && (goal + goal).includes(s);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -86,8 +76,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -102,10 +90,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -23,9 +23,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 $cnt$ 存储每个字符出现的次数。若次数为奇数的字符超过 $1$ 个，则不是回文排列。
 
@@ -33,32 +31,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) < 2
 ```
-
-```python
-class Solution:
-    def canPermutePalindrome(self, s: str) -> bool:
-        vis = set()
-        for c in s:
-            if c in vis:
-                vis.remove(c)
-            else:
-                vis.add(c)
-        return len(vis) < 2
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -75,23 +53,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean canPermutePalindrome(String s) {
-        Set<Character> vis = new HashSet<>();
-        for (int i = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            if (!vis.add(c)) {
-                vis.remove(c);
-            }
-        }
-        return vis.size() < 2;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,25 +71,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool canPermutePalindrome(string s) {
-        unordered_set<char> vis;
-        for (auto& c : s) {
-            if (vis.count(c)) {
-                vis.erase(c);
-            } else {
-                vis.insert(c);
-            }
-        }
-        return vis.size() < 2;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func canPermutePalindrome(s string) bool {
 	vis := map[rune]bool{}
@@ -146,8 +88,6 @@ func canPermutePalindrome(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canPermutePalindrome(s: string): boolean {
     const set = new Set<string>();
@@ -161,8 +101,6 @@ function canPermutePalindrome(s: string): boolean {
     return set.size <= 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -182,10 +120,56 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        vis = set()
+        for c in s:
+            if c in vis:
+                vis.remove(c)
+            else:
+                vis.add(c)
+        return len(vis) < 2
 ```
 
+```java
+class Solution {
+    public boolean canPermutePalindrome(String s) {
+        Set<Character> vis = new HashSet<>();
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (!vis.add(c)) {
+                vis.remove(c);
+            }
+        }
+        return vis.size() < 2;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool canPermutePalindrome(string s) {
+        unordered_set<char> vis;
+        for (auto& c : s) {
+            if (vis.count(c)) {
+                vis.erase(c);
+            } else {
+                vis.insert(c);
+            }
+        }
+        return vis.size() < 2;
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

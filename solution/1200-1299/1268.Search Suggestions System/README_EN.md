@@ -44,7 +44,7 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 
 ## Solutions
 
-**Solution 1: Sorting + Trie**
+### Solution 1: Sorting + Trie
 
 The problem requires that after each letter of the input `searchWord`, recommend up to three products from the `products` array that have the same prefix as `searchWord`. If there are more than three products with the same prefix that can be recommended, return the three with the smallest lexicographic order.
 
@@ -60,8 +60,6 @@ During the search, we start from the root node of the trie, find the index array
 The time complexity is $O(L \times \log n + m)$, and the space complexity is $O(L)$. Where $L$ is the sum of the lengths of all strings in the `products` array, and $n$ and $m$ are the lengths of the `products` array and `searchWord`, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -101,8 +99,6 @@ class Solution:
             trie.insert(w, i)
         return [[products[i] for i in v] for v in trie.search(searchWord)]
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -159,8 +155,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -220,8 +214,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -277,10 +269,6 @@ func suggestedProducts(products []string, searchWord string) (ans [][]string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

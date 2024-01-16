@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 dp[k][i] = min(dp[k][i], down)
         return max(max(v) for v in dp)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func orderOfLargestPlusSign(n int, mines [][]int) (ans int) {
@@ -164,10 +158,6 @@ func orderOfLargestPlusSign(n int, mines [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

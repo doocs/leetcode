@@ -72,9 +72,9 @@ The 5th is called at 300ms, but it is after 260ms, so it should be called immedi
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type F = (...args: any[]) => void;
@@ -105,3 +105,5 @@ const throttle = (fn: F, t: number): F => {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

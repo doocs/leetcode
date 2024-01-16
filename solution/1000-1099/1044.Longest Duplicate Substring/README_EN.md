@@ -26,9 +26,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
                 right = mid - 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef unsigned long long ULL;
 
@@ -149,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestDupSubstring(s string) string {
 	base, n := 131, len(s)
@@ -189,10 +183,6 @@ func longestDupSubstring(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

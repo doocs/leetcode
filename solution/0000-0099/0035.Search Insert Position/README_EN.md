@@ -42,15 +42,13 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 Since the array $nums$ is already sorted, we can use the binary search method to find the insertion position of the target value $target$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,14 +62,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-```python
-class Solution:
-    def searchInsert(self, nums: List[int], target: int) -> int:
-        return bisect_left(nums, target)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,17 +97,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int searchInsert(vector<int>& nums, int target) {
-        return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
-    }
-};
-```
-
-### **Go**
-
 ```go
 func searchInsert(nums []int, target int) int {
 	left, right := 0, len(nums)
@@ -134,37 +111,6 @@ func searchInsert(nums []int, target int) int {
 	return left
 }
 ```
-
-```go
-func searchInsert(nums []int, target int) int {
-	return sort.SearchInts(nums, target)
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var searchInsert = function (nums, target) {
-    let left = 0;
-    let right = nums.length;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-};
-```
-
-### **Rust**
 
 ```rust
 use std::cmp::Ordering;
@@ -191,10 +137,54 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function (nums, target) {
+    let left = 0;
+    let right = nums.length;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        return bisect_left(nums, target)
+```
+
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+    }
+};
+```
+
+```go
+func searchInsert(nums []int, target int) int {
+	return sort.SearchInts(nums, target)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

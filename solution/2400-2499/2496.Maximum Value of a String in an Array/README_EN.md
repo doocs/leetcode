@@ -48,9 +48,9 @@ Each string in the array has value 1. Hence, we return 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,22 +60,6 @@ class Solution:
 
         return max(f(s) for s in strs)
 ```
-
-```python
-class Solution:
-    def maximumValue(self, strs: List[str]) -> int:
-        def f(s: str) -> int:
-            x = 0
-            for c in s:
-                if c.isalpha():
-                    return len(s)
-                x = x * 10 + ord(c) - ord("0")
-            return x
-
-        return max(f(s) for s in strs)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumValue(strs []string) (ans int) {
 	f := func(s string) (x int) {
@@ -148,8 +128,6 @@ func maximumValue(strs []string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumValue(strs: string[]): number {
     const f = (s: string) => (Number.isNaN(Number(s)) ? s.length : Number(s));
@@ -157,7 +135,18 @@ function maximumValue(strs: string[]): number {
 }
 ```
 
-### **C#**
+```rust
+impl Solution {
+    pub fn maximum_value(strs: Vec<String>) -> i32 {
+        let mut ans = 0;
+        for s in strs.iter() {
+            let num = s.parse().unwrap_or(s.len());
+            ans = ans.max(num);
+        }
+        ans as i32
+    }
+}
+```
 
 ```cs
 public class Solution {
@@ -178,19 +167,49 @@ public class Solution {
 }
 ```
 
-### **Rust**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```rust
-impl Solution {
-    pub fn maximum_value(strs: Vec<String>) -> i32 {
-        let mut ans = 0;
-        for s in strs.iter() {
-            let num = s.parse().unwrap_or(s.len());
-            ans = ans.max(num);
+int parseInt(char* s) {
+    int n = strlen(s);
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+        if (!isdigit(s[i])) {
+            return n;
         }
-        ans as i32
+        res = res * 10 + s[i] - '0';
     }
+    return res;
 }
+
+int maximumValue(char** strs, int strsSize) {
+    int ans = 0;
+    for (int i = 0; i < strsSize; i++) {
+        int num = parseInt(strs[i]);
+        ans = max(ans, num);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumValue(self, strs: List[str]) -> int:
+        def f(s: str) -> int:
+            x = 0
+            for c in s:
+                if c.isalpha():
+                    return len(s)
+                x = x * 10 + ord(c) - ord("0")
+            return x
+
+        return max(f(s) for s in strs)
 ```
 
 ```rust
@@ -224,6 +243,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
 ```rust
 use std::cmp::max;
 
@@ -247,37 +272,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int parseInt(char* s) {
-    int n = strlen(s);
-    int res = 0;
-    for (int i = 0; i < n; i++) {
-        if (!isdigit(s[i])) {
-            return n;
-        }
-        res = res * 10 + s[i] - '0';
-    }
-    return res;
-}
-
-int maximumValue(char** strs, int strsSize) {
-    int ans = 0;
-    for (int i = 0; i < strsSize; i++) {
-        int num = parseInt(strs[i]);
-        ans = max(ans, num);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

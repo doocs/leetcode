@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们定义二分查找的左边界 $l = 0$，右边界 $r = x$，然后在 $[l, r]$ 范围内查找平方根。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(\log x)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                 l = mid
         return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,55 +99,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mySqrt(x int) int {
 	return sort.Search(x+1, func(i int) bool { return i*i > x }) - 1
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} x
- * @return {number}
- */
-var mySqrt = function (x) {
-    let [l, r] = [0, x];
-    while (l < r) {
-        const mid = (l + r + 1) >> 1;
-        if (mid > x / mid) {
-            r = mid - 1;
-        } else {
-            l = mid;
-        }
-    }
-    return l;
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MySqrt(int x) {
-        int l = 0, r = x;
-        while (l < r) {
-            int mid = (l + r + 1) >>> 1;
-            if (mid > x / mid) {
-                r = mid - 1;
-            } else {
-                l = mid;
-            }
-        }
-        return l;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -182,10 +126,42 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function (x) {
+    let [l, r] = [0, x];
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (mid > x / mid) {
+            r = mid - 1;
+        } else {
+            l = mid;
+        }
+    }
+    return l;
+};
 ```
 
+```cs
+public class Solution {
+    public int MySqrt(int x) {
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1) >>> 1;
+            if (mid > x / mid) {
+                r = mid - 1;
+            } else {
+                l = mid;
+            }
+        }
+        return l;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

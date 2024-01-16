@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快慢指针**
+### 方法一：快慢指针
 
 我们先利用快慢指针判断链表是否有环，如果有环的话，快慢指针一定会相遇，且相遇的节点一定在环中。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是链表中节点的数目。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -112,10 +106,6 @@ class Solution:
                     slow = slow.next
                 return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -149,8 +139,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -182,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -209,8 +195,6 @@ func detectCycle(head *ListNode) *ListNode {
 	return nil
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -243,8 +227,6 @@ function detectCycle(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for singly-linked list.
@@ -276,10 +258,6 @@ var detectCycle = function (head) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举矩阵的每个位置 $(i, j)$，判断是否能以该位置为起点，从左到右或从右到左放置单词 `word`，或者从上到下或从下到上放置单词 `word`。
 
@@ -89,10 +87,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -129,10 +123,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -180,8 +170,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -218,8 +206,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func placeWordInCrossword(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
@@ -252,10 +238,6 @@ func placeWordInCrossword(board [][]byte, word string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

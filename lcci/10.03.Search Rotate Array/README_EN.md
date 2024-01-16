@@ -28,7 +28,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We define the left boundary of the binary search as $l=0$ and the right boundary as $r=n-1$, where $n$ is the length of the array.
 
@@ -49,8 +49,6 @@ Similar problems:
 -   [81. Search in Rotated Sorted Array II](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 r -= 1
         return l if arr[l] == target else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func search(arr []int, target int) int {
 	l, r := 0, len(arr)-1
@@ -173,8 +165,6 @@ func search(arr []int, target int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function search(arr: number[], target: number): number {
     let [l, r] = [0, arr.length - 1];
@@ -203,10 +193,6 @@ function search(arr: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,7 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 优先队列（大根堆）**
+### 方法一：哈希表 + 优先队列（大根堆）
 
 根据题目描述，我们需要设计一个支持弹出“出现频率最高”的元素的数据结构。如果存在多个元素出现频率相同，那么弹出最接近栈顶的元素。
 
@@ -66,21 +64,7 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 
 执行弹栈操作时，我们直接从优先队列 $q$ 中弹出一个元素即可。由于优先队列 $q$ 中的元素按照频率降序排序，因此弹出的元素一定是出现频率最高的元素。如果存在多个元素出现频率相同，那么弹出最接近栈顶的元素，即弹出时间戳最大的元素。弹出后，我们将弹出元素的频率减一，即 $cnt[val] \gets cnt[val] - 1$。弹栈操作的时间复杂度为 $O(\log n)$。
 
-**方法二：双哈希表**
-
-在方法一中，为了能弹出符合要求的元素，我们维护了一个优先队列，每次都需要对优先队列进行操作，时间复杂度为 $O(\log n)$。如果我们能够在 $O(1)$ 的时间内找到符合要求的元素，那么整个数据结构每次操作的时间复杂度就可以降低到 $O(1)$。
-
-实际上，我们可以用一个变量 $mx$ 记录当前出现频率的最大值，用一个哈希表 $d$ 记录每个出现频率对应的元素列表，与方法一相同，用一个哈希表 $cnt$ 记录每个元素出现的频率。
-
-执行压栈操作时，我们将元素的频率加一，即 $cnt[val] \gets cnt[val] + 1$，然后将元素 $val$ 加入哈希表 $d$ 中对应的频率列表中，即 $d[cnt[val]].push(val)$。如果当前元素的频率大于 $mx$，则更新 $mx$，即 $mx \gets cnt[val]$。压栈操作的时间复杂度为 $O(1)$。
-
-执行弹栈操作时，我们从哈希表 $d$ 中取出频率为 $mx$ 的元素列表，弹出列表中的最后一个元素 $val$，然后将 $val$ 从哈希表 $d$ 中移除，即 $d[mx].pop()$。最后将 $val$ 的频率减一，即 $cnt[val] \gets cnt[val] - 1$。如果 $d[mx]$ 列表为空，说明当前出现频率最大的元素已经全部弹出，我们需要将 $mx$ 减一，即 $mx \gets mx - 1$。弹栈操作的时间复杂度为 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class FreqStack:
@@ -105,36 +89,6 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
-
-```python
-class FreqStack:
-    def __init__(self):
-        self.cnt = defaultdict(int)
-        self.d = defaultdict(list)
-        self.mx = 0
-
-    def push(self, val: int) -> None:
-        self.cnt[val] += 1
-        self.d[self.cnt[val]].append(val)
-        self.mx = max(self.mx, self.cnt[val])
-
-    def pop(self) -> int:
-        val = self.d[self.mx].pop()
-        self.cnt[val] -= 1
-        if not self.d[self.mx]:
-            self.mx -= 1
-        return val
-
-
-# Your FreqStack object will be instantiated and called as such:
-# obj = FreqStack()
-# obj.push(val)
-# param_2 = obj.pop()
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class FreqStack {
@@ -165,42 +119,6 @@ class FreqStack {
  * int param_2 = obj.pop();
  */
 ```
-
-```java
-class FreqStack {
-    private Map<Integer, Integer> cnt = new HashMap<>();
-    private Map<Integer, Deque<Integer>> d = new HashMap<>();
-    private int mx;
-
-    public FreqStack() {
-    }
-
-    public void push(int val) {
-        cnt.put(val, cnt.getOrDefault(val, 0) + 1);
-        int t = cnt.get(val);
-        d.computeIfAbsent(t, k -> new ArrayDeque<>()).push(val);
-        mx = Math.max(mx, t);
-    }
-
-    public int pop() {
-        int val = d.get(mx).pop();
-        cnt.put(val, cnt.get(val) - 1);
-        if (d.get(mx).isEmpty()) {
-            --mx;
-        }
-        return val;
-    }
-}
-
-/**
- * Your FreqStack object will be instantiated and called as such:
- * FreqStack obj = new FreqStack();
- * obj.push(val);
- * int param_2 = obj.pop();
- */
-```
-
-### **C++**
 
 ```cpp
 class FreqStack {
@@ -233,42 +151,6 @@ private:
  * int param_2 = obj->pop();
  */
 ```
-
-```cpp
-class FreqStack {
-public:
-    FreqStack() {
-    }
-
-    void push(int val) {
-        ++cnt[val];
-        d[cnt[val]].push(val);
-        mx = max(mx, cnt[val]);
-    }
-
-    int pop() {
-        int val = d[mx].top();
-        --cnt[val];
-        d[mx].pop();
-        if (d[mx].empty()) --mx;
-        return val;
-    }
-
-private:
-    unordered_map<int, int> cnt;
-    unordered_map<int, stack<int>> d;
-    int mx = 0;
-};
-
-/**
- * Your FreqStack object will be instantiated and called as such:
- * FreqStack* obj = new FreqStack();
- * obj->push(val);
- * int param_2 = obj->pop();
- */
-```
-
-### **Go**
 
 ```go
 type FreqStack struct {
@@ -312,6 +194,114 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
  */
 ```
 
+<!-- tabs:end -->
+
+### 方法二：双哈希表
+
+在方法一中，为了能弹出符合要求的元素，我们维护了一个优先队列，每次都需要对优先队列进行操作，时间复杂度为 $O(\log n)$。如果我们能够在 $O(1)$ 的时间内找到符合要求的元素，那么整个数据结构每次操作的时间复杂度就可以降低到 $O(1)$。
+
+实际上，我们可以用一个变量 $mx$ 记录当前出现频率的最大值，用一个哈希表 $d$ 记录每个出现频率对应的元素列表，与方法一相同，用一个哈希表 $cnt$ 记录每个元素出现的频率。
+
+执行压栈操作时，我们将元素的频率加一，即 $cnt[val] \gets cnt[val] + 1$，然后将元素 $val$ 加入哈希表 $d$ 中对应的频率列表中，即 $d[cnt[val]].push(val)$。如果当前元素的频率大于 $mx$，则更新 $mx$，即 $mx \gets cnt[val]$。压栈操作的时间复杂度为 $O(1)$。
+
+执行弹栈操作时，我们从哈希表 $d$ 中取出频率为 $mx$ 的元素列表，弹出列表中的最后一个元素 $val$，然后将 $val$ 从哈希表 $d$ 中移除，即 $d[mx].pop()$。最后将 $val$ 的频率减一，即 $cnt[val] \gets cnt[val] - 1$。如果 $d[mx]$ 列表为空，说明当前出现频率最大的元素已经全部弹出，我们需要将 $mx$ 减一，即 $mx \gets mx - 1$。弹栈操作的时间复杂度为 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class FreqStack:
+    def __init__(self):
+        self.cnt = defaultdict(int)
+        self.d = defaultdict(list)
+        self.mx = 0
+
+    def push(self, val: int) -> None:
+        self.cnt[val] += 1
+        self.d[self.cnt[val]].append(val)
+        self.mx = max(self.mx, self.cnt[val])
+
+    def pop(self) -> int:
+        val = self.d[self.mx].pop()
+        self.cnt[val] -= 1
+        if not self.d[self.mx]:
+            self.mx -= 1
+        return val
+
+
+# Your FreqStack object will be instantiated and called as such:
+# obj = FreqStack()
+# obj.push(val)
+# param_2 = obj.pop()
+```
+
+```java
+class FreqStack {
+    private Map<Integer, Integer> cnt = new HashMap<>();
+    private Map<Integer, Deque<Integer>> d = new HashMap<>();
+    private int mx;
+
+    public FreqStack() {
+    }
+
+    public void push(int val) {
+        cnt.put(val, cnt.getOrDefault(val, 0) + 1);
+        int t = cnt.get(val);
+        d.computeIfAbsent(t, k -> new ArrayDeque<>()).push(val);
+        mx = Math.max(mx, t);
+    }
+
+    public int pop() {
+        int val = d.get(mx).pop();
+        cnt.put(val, cnt.get(val) - 1);
+        if (d.get(mx).isEmpty()) {
+            --mx;
+        }
+        return val;
+    }
+}
+
+/**
+ * Your FreqStack object will be instantiated and called as such:
+ * FreqStack obj = new FreqStack();
+ * obj.push(val);
+ * int param_2 = obj.pop();
+ */
+```
+
+```cpp
+class FreqStack {
+public:
+    FreqStack() {
+    }
+
+    void push(int val) {
+        ++cnt[val];
+        d[cnt[val]].push(val);
+        mx = max(mx, cnt[val]);
+    }
+
+    int pop() {
+        int val = d[mx].top();
+        --cnt[val];
+        d[mx].pop();
+        if (d[mx].empty()) --mx;
+        return val;
+    }
+
+private:
+    unordered_map<int, int> cnt;
+    unordered_map<int, stack<int>> d;
+    int mx = 0;
+};
+
+/**
+ * Your FreqStack object will be instantiated and called as such:
+ * FreqStack* obj = new FreqStack();
+ * obj->push(val);
+ * int param_2 = obj->pop();
+ */
+```
+
 ```go
 type FreqStack struct {
 	cnt map[int]int
@@ -347,10 +337,6 @@ func (this *FreqStack) Pop() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -87,9 +87,9 @@ The airports with the most traffic are airports 1, 2, 3, and 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -110,3 +110,5 @@ WHERE cnt = (SELECT MAX(cnt) FROM P);
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

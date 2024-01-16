@@ -66,7 +66,7 @@
 
 ## Solutions
 
-**Solution 1: Find Next Permutation + Inversion Pairs**
+### Solution 1: Find Next Permutation + Inversion Pairs
 
 We can call the `next_permutation` function $k$ times to get the $k$th smallest permutation $s$.
 
@@ -93,8 +93,6 @@ Finally, we can directly use a double loop to calculate the number of inversion 
 The time complexity is $O(n \times (k + n))$, and the space complexity is $O(n)$. Where $n$ is the length of $num$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -129,8 +127,6 @@ class Solution:
             idx[j] += 1
         return sum(arr[j] > arr[i] for i in range(n) for j in range(i))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -189,8 +185,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -221,8 +215,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getMinSwaps(num string, k int) (ans int) {
@@ -274,8 +266,6 @@ func nextPermutation(nums []byte) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMinSwaps(num: string, k: number): number {
     const n = num.length;
@@ -324,10 +314,6 @@ function nextPermutation(nums: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

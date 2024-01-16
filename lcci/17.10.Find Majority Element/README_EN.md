@@ -38,11 +38,9 @@
 
 ## Solutions
 
-Boyer–Moore majority vote algorithm
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -55,8 +53,6 @@ class Solution:
                 cnt += 1 if m == v else -1
         return m if nums.count(m) > len(nums) // 2 else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,36 +77,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var majorityElement = function (nums) {
-    let cnt = 0,
-        m = 0;
-    for (const v of nums) {
-        if (cnt == 0) {
-            m = v;
-            cnt = 1;
-        } else {
-            cnt += m == v ? 1 : -1;
-        }
-    }
-    cnt = 0;
-    for (const v of nums) {
-        if (m == v) {
-            ++cnt;
-        }
-    }
-    return cnt > nums.length / 2 ? m : -1;
-};
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func majorityElement(nums []int) int {
@@ -158,7 +122,31 @@ func majorityElement(nums []int) int {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function (nums) {
+    let cnt = 0,
+        m = 0;
+    for (const v of nums) {
+        if (cnt == 0) {
+            m = v;
+            cnt = 1;
+        } else {
+            cnt += m == v ? 1 : -1;
+        }
+    }
+    cnt = 0;
+    for (const v of nums) {
+        if (m == v) {
+            ++cnt;
+        }
+    }
+    return cnt > nums.length / 2 ? m : -1;
+};
+```
 
 ```cs
 public class Solution {
@@ -189,10 +177,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

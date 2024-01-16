@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：离散化**
+### 方法一：离散化
 
 我们先复制一个数组 $t$，然后对其进行排序并去重，得到一个长度为 $m$ 且严格单调递增的数组。
 
@@ -60,20 +58,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def arrayRankTransform(self, arr: List[int]) -> List[int]:
         t = sorted(set(arr))
         return [bisect_right(t, x) for x in arr]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +101,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func arrayRankTransform(arr []int) (ans []int) {
@@ -135,8 +121,6 @@ func arrayRankTransform(arr []int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function arrayRankTransform(arr: number[]): number[] {
@@ -167,10 +151,6 @@ function arrayRankTransform(arr: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

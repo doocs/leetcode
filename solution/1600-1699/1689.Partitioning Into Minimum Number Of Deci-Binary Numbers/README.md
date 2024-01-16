@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 题目等价于找字符串中的最大数。
 
@@ -53,19 +51,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minPartitions(self, n: str) -> int:
         return int(max(n))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +69,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -91,8 +79,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minPartitions(n string) (ans int) {
@@ -105,8 +91,6 @@ func minPartitions(n string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minPartitions(n: string): number {
     let nums = n.split('').map(d => parseInt(d));
@@ -114,8 +98,6 @@ function minPartitions(n: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -128,8 +110,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int minPartitions(char* n) {
@@ -144,10 +124,6 @@ int minPartitions(char* n) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

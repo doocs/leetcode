@@ -34,9 +34,9 @@ date.nextDay(); // &quot;2014-06-21&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 declare global {
@@ -58,3 +58,5 @@ Date.prototype.nextDay = function () {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

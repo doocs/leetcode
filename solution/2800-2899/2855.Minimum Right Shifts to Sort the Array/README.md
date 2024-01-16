@@ -50,19 +50,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接遍历**
+### 方法一：直接遍历
 
 我们先用一个指针 $i$ 从左到右遍历数组 $nums$，找出一段连续的递增序列，直到 $i$ 到达数组末尾或者 $nums[i - 1] \gt nums[i]$。接下来我们用另一个指针 $k$ 从 $i + 1$ 开始遍历数组 $nums$，找出一段连续的递增序列，直到 $k$ 到达数组末尾或者 $nums[k - 1] \gt nums[k]$ 且 $nums[k] \gt nums[0]$。如果 $k$ 到达数组末尾，说明数组已经是递增的，返回 $n - i$；否则返回 $-1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             k += 1
         return -1 if k < n else n - i
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumRightShifts(nums []int) int {
 	n := len(nums)
@@ -138,8 +124,6 @@ func minimumRightShifts(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumRightShifts(nums: number[]): number {
     const n = nums.length;
@@ -155,10 +139,6 @@ function minimumRightShifts(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

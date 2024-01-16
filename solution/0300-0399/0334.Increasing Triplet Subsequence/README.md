@@ -50,15 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-用 min, mid 记录遍历过程中遇到的最小值以及中间值，若出现 num > mid，说明找到了满足题目的三元组，返回 true；否则遍历结束返回 false。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                 mid = num
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,28 +92,39 @@ class Solution {
 }
 ```
 
-空间优化：
-
-```java
+```cpp
 class Solution {
-    public boolean increasingTriplet(int[] nums) {
-        int min = Integer.MAX_VALUE, mid = Integer.MAX_VALUE;
+public:
+    bool increasingTriplet(vector<int>& nums) {
+        int mi = INT_MAX, mid = INT_MAX;
         for (int num : nums) {
-            if (num > mid) {
-                return true;
-            }
-            if (num <= min) {
-                min = num;
-            } else {
+            if (num > mid) return true;
+            if (num <= mi)
+                mi = num;
+            else
                 mid = num;
-            }
         }
         return false;
     }
-}
+};
 ```
 
-### **TypeScript**
+```go
+func increasingTriplet(nums []int) bool {
+	min, mid := math.MaxInt32, math.MaxInt32
+	for _, num := range nums {
+		if num > mid {
+			return true
+		}
+		if num <= min {
+			min = num
+		} else {
+			mid = num
+		}
+	}
+	return false
+}
+```
 
 ```ts
 function increasingTriplet(nums: number[]): boolean {
@@ -143,46 +144,6 @@ function increasingTriplet(nums: number[]): boolean {
     return false;
 }
 ```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool increasingTriplet(vector<int>& nums) {
-        int mi = INT_MAX, mid = INT_MAX;
-        for (int num : nums) {
-            if (num > mid) return true;
-            if (num <= mi)
-                mi = num;
-            else
-                mid = num;
-        }
-        return false;
-    }
-};
-```
-
-### **Go**
-
-```go
-func increasingTriplet(nums []int) bool {
-	min, mid := math.MaxInt32, math.MaxInt32
-	for _, num := range nums {
-		if num > mid {
-			return true
-		}
-		if num <= min {
-			min = num
-		} else {
-			mid = num
-		}
-	}
-	return false
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -207,10 +168,31 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public boolean increasingTriplet(int[] nums) {
+        int min = Integer.MAX_VALUE, mid = Integer.MAX_VALUE;
+        for (int num : nums) {
+            if (num > mid) {
+                return true;
+            }
+            if (num <= min) {
+                min = num;
+            } else {
+                mid = num;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

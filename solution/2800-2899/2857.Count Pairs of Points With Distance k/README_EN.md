@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Enumeration**
+### Solution 1: Hash Table + Enumeration
 
 We can use a hash table $cnt$ to count the occurrence of each point in the array $coordinates$.
 
@@ -49,8 +49,6 @@ Next, we enumerate each point $(x_2, y_2)$ in the array $coordinates$. Since the
 The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $coordinates$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -65,8 +63,6 @@ class Solution:
             cnt[(x2, y2)] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,6 +102,45 @@ public:
     }
 };
 ```
+
+```go
+func countPairs(coordinates [][]int, k int) (ans int) {
+	cnt := map[[2]int]int{}
+	for _, c := range coordinates {
+		x2, y2 := c[0], c[1]
+		for a := 0; a <= k; a++ {
+			b := k - a
+			x1, y1 := a^x2, b^y2
+			ans += cnt[[2]int{x1, y1}]
+		}
+		cnt[[2]int{x2, y2}]++
+	}
+	return
+}
+```
+
+```ts
+function countPairs(coordinates: number[][], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    const f = (x: number, y: number): number => x * 1000000 + y;
+    let ans = 0;
+    for (const [x2, y2] of coordinates) {
+        for (let a = 0; a <= k; ++a) {
+            const b = k - a;
+            const [x1, y1] = [a ^ x2, b ^ y2];
+            ans += cnt.get(f(x1, y1)) ?? 0;
+        }
+        cnt.set(f(x2, y2), (cnt.get(f(x2, y2)) ?? 0) + 1);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```cpp
 class Solution {
@@ -132,47 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countPairs(coordinates [][]int, k int) (ans int) {
-	cnt := map[[2]int]int{}
-	for _, c := range coordinates {
-		x2, y2 := c[0], c[1]
-		for a := 0; a <= k; a++ {
-			b := k - a
-			x1, y1 := a^x2, b^y2
-			ans += cnt[[2]int{x1, y1}]
-		}
-		cnt[[2]int{x2, y2}]++
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function countPairs(coordinates: number[][], k: number): number {
-    const cnt: Map<number, number> = new Map();
-    const f = (x: number, y: number): number => x * 1000000 + y;
-    let ans = 0;
-    for (const [x2, y2] of coordinates) {
-        for (let a = 0; a <= k; ++a) {
-            const b = k - a;
-            const [x1, y1] = [a ^ x2, b ^ y2];
-            ans += cnt.get(f(x1, y1)) ?? 0;
-        }
-        cnt.set(f(x2, y2), (cnt.get(f(x2, y2)) ?? 0) + 1);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

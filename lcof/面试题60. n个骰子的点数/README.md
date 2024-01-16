@@ -31,9 +31,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示投掷 $i$ 个骰子，点数和为 $j$ 的方案数。那么我们可以写出状态转移方程：
 
@@ -51,10 +49,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def dicesProbability(self, n: int) -> List[float]:
@@ -69,25 +63,6 @@ class Solution:
         m = pow(6, n)
         return [f[n][i] / m for i in range(n, 6 * n + 1)]
 ```
-
-```python
-class Solution:
-    def dicesProbability(self, n: int) -> List[float]:
-        f = [0] + [1] * 6
-        for i in range(2, n + 1):
-            g = [0] * (6 * i + 1)
-            for j in range(i, 6 * i + 1):
-                for k in range(1, 7):
-                    if 0 <= j - k < len(f):
-                        g[j] += f[j - k]
-            f = g
-        m = pow(6, n)
-        return [f[j] / m for j in range(n, 6 * n + 1)]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func dicesProbability(n int) (ans []float64) {
 	f := make([][]int, n+1)
@@ -172,28 +143,6 @@ func dicesProbability(n int) (ans []float64) {
 	return
 }
 ```
-
-```go
-func dicesProbability(n int) []float64 {
-	dp := make([]float64, 7)
-	for i := 1; i <= 6; i++ {
-		dp[i] = 1.0 / 6.0
-	}
-	for i := 2; i <= n; i++ {
-		n := len(dp)
-		tmp := make([]float64, 6*i+1)
-		for j := 0; j < n; j++ {
-			for k := 1; k <= 6; k++ {
-				tmp[j+k] += dp[j] / 6.0
-			}
-		}
-		dp = tmp
-	}
-	return dp[n:]
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -223,8 +172,6 @@ var dicesProbability = function (n) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public double[] DicesProbability(int n) {
@@ -247,10 +194,47 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def dicesProbability(self, n: int) -> List[float]:
+        f = [0] + [1] * 6
+        for i in range(2, n + 1):
+            g = [0] * (6 * i + 1)
+            for j in range(i, 6 * i + 1):
+                for k in range(1, 7):
+                    if 0 <= j - k < len(f):
+                        g[j] += f[j - k]
+            f = g
+        m = pow(6, n)
+        return [f[j] / m for j in range(n, 6 * n + 1)]
 ```
 
+```go
+func dicesProbability(n int) []float64 {
+	dp := make([]float64, 7)
+	for i := 1; i <= 6; i++ {
+		dp[i] = 1.0 / 6.0
+	}
+	for i := 2; i <= n; i++ {
+		n := len(dp)
+		tmp := make([]float64, 6*i+1)
+		for j := 0; j < n; j++ {
+			for k := 1; k <= 6; k++ {
+				tmp[j+k] += dp[j] / 6.0
+			}
+		}
+		dp = tmp
+	}
+	return dp[n:]
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,17 +60,6 @@ class Solution:
         return ''
 ```
 
-```python
-class Solution:
-    def gcdOfStrings(self, str1: str, str2: str) -> str:
-        if str1 + str2 != str2 + str1:
-            return ''
-        n = gcd(len(str1), len(str2))
-        return str1[:n]
-```
-
-### **Java**
-
 ```java
 class Solution {
     public String gcdOfStrings(String str1, String str2) {
@@ -87,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +86,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func gcdOfStrings(str1 string, str2 string) string {
@@ -118,8 +103,6 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -140,10 +123,21 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if str1 + str2 != str2 + str1:
+            return ''
+        n = gcd(len(str1), len(str2))
+        return str1[:n]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

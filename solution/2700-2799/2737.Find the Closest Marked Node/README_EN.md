@@ -64,9 +64,9 @@ So the answer is 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -90,8 +90,6 @@ class Solution:
         ans = min(dist[i] for i in marked)
         return -1 if ans >= inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +161,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumDistance(n int, edges [][]int, s int, marked []int) int {
@@ -209,8 +203,6 @@ func minimumDistance(n int, edges [][]int, s int, marked []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumDistance(n: number, edges: number[][], s: number, marked: number[]): number {
     const inf = 1 << 29;
@@ -243,10 +235,6 @@ function minimumDistance(n: number, edges: number[][], s: number, marked: number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

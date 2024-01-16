@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 并查集**
+### 方法一：排序 + 并查集
 
 要保证路径起点（终点）大于等于路径上的所有点，因此我们可以考虑先把所有点按值从小到大排序，然后再进行遍历，添加到连通块中，具体如下：
 
@@ -82,10 +80,6 @@
 时间复杂度 $O(n \times \log n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -118,10 +112,6 @@ class Solution:
                     size[pb][v] += size[pa][v]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -173,8 +163,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -220,8 +208,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfGoodPaths(vals []int, edges [][]int) int {
@@ -273,16 +259,6 @@ func numberOfGoodPaths(vals []int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

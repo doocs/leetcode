@@ -58,7 +58,7 @@ It can be shown that changing all elements to any palindromic number other than 
 
 ## Solutions
 
-**Solution 1: Preprocessing + Sorting + Binary Search**
+### Solution 1: Preprocessing + Sorting + Binary Search
 
 The range of palindrome numbers in the problem is $[1, 10^9]$. Due to the symmetry of palindrome numbers, we can enumerate in the range of $[1, 10^5]$, then reverse and concatenate them to get all palindrome numbers. Note that if it is an odd-length palindrome number, we need to remove the last digit before reversing. The array of palindrome numbers obtained by preprocessing is denoted as $ps$. We sort the array $ps$.
 
@@ -67,8 +67,6 @@ Next, we sort the array $nums$ and take the median $x$ of $nums$. We only need t
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $nums$, and $M$ is the length of the palindrome array $ps$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 ps = []
@@ -90,8 +88,6 @@ class Solution:
         i = bisect_left(ps, nums[len(nums) // 2])
         return min(f(ps[j]) for j in range(i - 1, i + 2) if 0 <= j < len(ps))
 ```
-
-### **Java**
 
 ```java
 public class Solution {
@@ -134,8 +130,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -177,8 +171,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 var ps [2 * 100000]int64
@@ -235,8 +227,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 const ps = Array(2e5).fill(0);
 
@@ -280,10 +270,6 @@ function minimumCost(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -65,9 +65,7 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针 + 维护最大最小值**
+### 方法一：双指针 + 维护最大最小值
 
 我们用两个指针 $i$ 和 $j$ 来维护一个间隔为 $indexDifference$ 的滑动窗口，其中指针 $j$ 和 $i$ 分别指向窗口的左右边界。初始时 $i$ 指向 $indexDifference$，而 $j$ 指向 $0$。
 
@@ -80,10 +78,6 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
                 return [mx, i]
         return [-1, -1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +148,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 	mi, mx := 0, 0
@@ -184,8 +170,6 @@ func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
     let [mi, mx] = [0, 0];
@@ -207,8 +191,6 @@ function findIndices(nums: number[], indexDifference: number, valueDifference: n
     return [-1, -1];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -242,10 +224,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串哈希**
+### 方法一：字符串哈希
 
 **字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 0。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
 
@@ -54,10 +52,6 @@
 除了在极特殊构造的数据上，上述 hash 算法很难产生冲突，一般情况下上述 hash 算法完全可以出现在题目的标准答案中。我们还可以多取一些恰当的 BASE 和 MOD 的值（例如大质数），多进行几组 hash 运算，当结果都相同时才认为原字符串相等，就更加难以构造出使这个 hash 产生错误的数据。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                     vis.add(a)
         return len(vis)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef unsigned long long ull;
 
@@ -161,7 +149,34 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func distinctEchoSubstrings(text string) int {
+	n := len(text)
+	base := 131
+	h := make([]int, n+10)
+	p := make([]int, n+10)
+	p[0] = 1
+	for i, c := range text {
+		t := int(c-'a') + 1
+		p[i+1] = p[i] * base
+		h[i+1] = h[i]*base + t
+	}
+	get := func(l, r int) int {
+		return h[r] - h[l-1]*p[r-l+1]
+	}
+	vis := map[int]bool{}
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j += 2 {
+			k := (i + j) >> 1
+			a, b := get(i+1, k+1), get(k+2, j+1)
+			if a == b {
+				vis[a] = true
+			}
+		}
+	}
+	return len(vis)
+}
+```
 
 ```rust
 use std::collections::HashSet;
@@ -208,41 +223,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func distinctEchoSubstrings(text string) int {
-	n := len(text)
-	base := 131
-	h := make([]int, n+10)
-	p := make([]int, n+10)
-	p[0] = 1
-	for i, c := range text {
-		t := int(c-'a') + 1
-		p[i+1] = p[i] * base
-		h[i+1] = h[i]*base + t
-	}
-	get := func(l, r int) int {
-		return h[r] - h[l-1]*p[r-l+1]
-	}
-	vis := map[int]bool{}
-	for i := 0; i < n-1; i++ {
-		for j := i + 1; j < n; j += 2 {
-			k := (i + j) >> 1
-			a, b := get(i+1, k+1), get(k+2, j+1)
-			if a == b {
-				vis[a] = true
-			}
-		}
-	}
-	return len(vis)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

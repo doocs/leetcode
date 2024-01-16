@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Two Pointers**
+### Solution 1: Greedy + Two Pointers
 
 We define the string $s$ as `"abc"`, and use pointers $i$ and $j$ to point to $s$ and $word$ respectively.
 
@@ -56,8 +56,6 @@ Finally, we check whether the last character of $word$ is `'b'` or `'a'`. If it 
 The time complexity is $O(n)$, where $n$ is the length of the string $word$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,8 +73,6 @@ class Solution:
             ans += 1 if word[-1] == 'b' else 2
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addMinimum(word string) (ans int) {
 	s := "abc"
@@ -142,8 +134,6 @@ func addMinimum(word string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function addMinimum(word: string): number {
@@ -166,10 +156,6 @@ function addMinimum(word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

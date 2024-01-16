@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们用变量 $mx$ 维护当前能够到达的最远下标，初始时 $mx = 0$。
 
@@ -59,10 +57,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -73,10 +67,6 @@ class Solution:
             mx = max(mx, i + x)
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,7 +99,31 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func canJump(nums []int) bool {
+	mx := 0
+	for i, x := range nums {
+		if mx < i {
+			return false
+		}
+		mx = max(mx, i+x)
+	}
+	return true
+}
+```
+
+```ts
+function canJump(nums: number[]): boolean {
+    let mx: number = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (mx < i) {
+            return false;
+        }
+        mx = Math.max(mx, i + nums[i]);
+    }
+    return true;
+}
+```
 
 ```rust
 impl Solution {
@@ -132,38 +144,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func canJump(nums []int) bool {
-	mx := 0
-	for i, x := range nums {
-		if mx < i {
-			return false
-		}
-		mx = max(mx, i+x)
-	}
-	return true
-}
-```
-
-### **TypeScript**
-
-```ts
-function canJump(nums: number[]): boolean {
-    let mx: number = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        if (mx < i) {
-            return false;
-        }
-        mx = Math.max(mx, i + nums[i]);
-    }
-    return true;
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -181,8 +161,6 @@ var canJump = function (nums) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public bool CanJump(int[] nums) {
@@ -198,10 +176,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

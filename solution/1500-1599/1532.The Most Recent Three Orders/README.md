@@ -109,15 +109,11 @@ Marwan 只有 1 笔订单。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等值连接 + 窗口函数**
+### 方法一：等值连接 + 窗口函数
 
 我们可以使用等值连接，将 `Customers` 表和 `Orders` 表按照 `customer_id` 进行连接，然后使用 `row_number()` 窗口函数来为每个消费者的订单按照 `order_date` 降序排列，并为每个消费者的订单添加一个序号，最后筛选出序号小于等于 $3$ 的订单即可。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -140,3 +136,5 @@ ORDER BY 1, 2, 4 DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

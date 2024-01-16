@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们不妨设字符串 $s$ 的长度为 $m$，字符串 $p$ 的长度为 $n$。
 
@@ -56,17 +54,7 @@
 
 时间复杂度 $O(m \times C)$，空间复杂度 $O(C)$。其中 $m$ 是字符串 $s$ 的长度；而 $C$ 是字符集大小，在本题中字符集为所有小写字母，所以 $C = 26$。
 
-**方法二：双指针（滑动窗口优化）**
-
-我们可以对方法一进行优化，与方法一类似，我们用一个固定长度为 $26$ 的数组 $cnt1$ 记录 $p$ 中每个字母的出现次数，用另一个数组 $cnt2$ 记录当前滑动窗口中每个字母的出现次数，用指针 $i$ 和 $j$ 分别指向滑动窗口的左右边界。每一次移动指针 $j$，将 $cnt2[s[j]]$ 的值加 $1$，如果当前 $cnt2[s[j]]$ 的值大于 $cnt1[s[j]]$，则将指针 $i$ 不断右移，直到 $cnt2[s[j]]$ 的值不大于 $cnt1[s[j]]$。此时，如果滑动窗口的长度等于 $p$ 的长度，我们就找到了一个异位词，将起始位置加入答案。继续移动指针 $j$，重复上述操作，直到指针 $j$ 移动到 $s$ 的末尾。
-
-时间复杂度 $(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $p$ 的长度；而 $C$ 是字符集大小，在本题中字符集为所有小写字母，所以 $C = 26$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,30 +72,6 @@ class Solution:
             cnt2[s[i - n + 1]] -= 1
         return ans
 ```
-
-```python
-class Solution:
-    def findAnagrams(self, s: str, p: str) -> List[int]:
-        m, n = len(s), len(p)
-        ans = []
-        if m < n:
-            return ans
-        cnt1 = Counter(p)
-        cnt2 = Counter()
-        j = 0
-        for i, c in enumerate(s):
-            cnt2[c] += 1
-            while cnt2[c] > cnt1[c]:
-                cnt2[s[j]] -= 1
-                j += 1
-            if i - j + 1 == n:
-                ans.append(j)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,36 +100,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public List<Integer> findAnagrams(String s, String p) {
-        int m = s.length(), n = p.length();
-        List<Integer> ans = new ArrayList<>();
-        if (m < n) {
-            return ans;
-        }
-        int[] cnt1 = new int[26];
-        for (int i = 0; i < n; ++i) {
-            ++cnt1[p.charAt(i) - 'a'];
-        }
-        int[] cnt2 = new int[26];
-        for (int i = 0, j = 0; i < m; ++i) {
-            int k = s.charAt(i) - 'a';
-            ++cnt2[k];
-            while (cnt2[k] > cnt1[k]) {
-                --cnt2[s.charAt(j++) - 'a'];
-            }
-            if (i - j + 1 == n) {
-                ans.add(j);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -196,37 +130,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> findAnagrams(string s, string p) {
-        int m = s.size(), n = p.size();
-        vector<int> ans;
-        if (m < n) {
-            return ans;
-        }
-        vector<int> cnt1(26);
-        for (char& c : p) {
-            ++cnt1[c - 'a'];
-        }
-        vector<int> cnt2(26);
-        for (int i = 0, j = 0; i < m; ++i) {
-            int k = s[i] - 'a';
-            ++cnt2[k];
-            while (cnt2[k] > cnt1[k]) {
-                --cnt2[s[j++] - 'a'];
-            }
-            if (i - j + 1 == n) {
-                ans.push_back(j);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -251,34 +154,6 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
-
-```go
-func findAnagrams(s string, p string) (ans []int) {
-	m, n := len(s), len(p)
-	if m < n {
-		return
-	}
-	cnt1 := [26]int{}
-	cnt2 := [26]int{}
-	for _, c := range p {
-		cnt1[c-'a']++
-	}
-	j := 0
-	for i, c := range s {
-		cnt2[c-'a']++
-		for cnt2[c-'a'] > cnt1[c-'a'] {
-			cnt2[s[j]-'a']--
-			j++
-		}
-		if i-j+1 == n {
-			ans = append(ans, j)
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {
@@ -307,36 +182,6 @@ function findAnagrams(s: string, p: string): number[] {
     return ans;
 }
 ```
-
-```ts
-function findAnagrams(s: string, p: string): number[] {
-    const m = s.length;
-    const n = p.length;
-    const ans: number[] = [];
-    if (m < n) {
-        return ans;
-    }
-    const cnt1: number[] = new Array(26).fill(0);
-    const cnt2: number[] = new Array(26).fill(0);
-    const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
-    for (const c of p) {
-        ++cnt1[idx(c)];
-    }
-    for (let i = 0, j = 0; i < m; ++i) {
-        const k = idx(s[i]);
-        ++cnt2[k];
-        while (cnt2[k] > cnt1[k]) {
-            --cnt2[idx(s[j++])];
-        }
-        if (i - j + 1 === n) {
-            ans.push(j);
-        }
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -368,8 +213,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public IList<int> FindAnagrams(string s, string p) {
@@ -398,10 +241,147 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：双指针（滑动窗口优化）
+
+我们可以对方法一进行优化，与方法一类似，我们用一个固定长度为 $26$ 的数组 $cnt1$ 记录 $p$ 中每个字母的出现次数，用另一个数组 $cnt2$ 记录当前滑动窗口中每个字母的出现次数，用指针 $i$ 和 $j$ 分别指向滑动窗口的左右边界。每一次移动指针 $j$，将 $cnt2[s[j]]$ 的值加 $1$，如果当前 $cnt2[s[j]]$ 的值大于 $cnt1[s[j]]$，则将指针 $i$ 不断右移，直到 $cnt2[s[j]]$ 的值不大于 $cnt1[s[j]]$。此时，如果滑动窗口的长度等于 $p$ 的长度，我们就找到了一个异位词，将起始位置加入答案。继续移动指针 $j$，重复上述操作，直到指针 $j$ 移动到 $s$ 的末尾。
+
+时间复杂度 $(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $p$ 的长度；而 $C$ 是字符集大小，在本题中字符集为所有小写字母，所以 $C = 26$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        m, n = len(s), len(p)
+        ans = []
+        if m < n:
+            return ans
+        cnt1 = Counter(p)
+        cnt2 = Counter()
+        j = 0
+        for i, c in enumerate(s):
+            cnt2[c] += 1
+            while cnt2[c] > cnt1[c]:
+                cnt2[s[j]] -= 1
+                j += 1
+            if i - j + 1 == n:
+                ans.append(j)
+        return ans
 ```
 
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int m = s.length(), n = p.length();
+        List<Integer> ans = new ArrayList<>();
+        if (m < n) {
+            return ans;
+        }
+        int[] cnt1 = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[p.charAt(i) - 'a'];
+        }
+        int[] cnt2 = new int[26];
+        for (int i = 0, j = 0; i < m; ++i) {
+            int k = s.charAt(i) - 'a';
+            ++cnt2[k];
+            while (cnt2[k] > cnt1[k]) {
+                --cnt2[s.charAt(j++) - 'a'];
+            }
+            if (i - j + 1 == n) {
+                ans.add(j);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int m = s.size(), n = p.size();
+        vector<int> ans;
+        if (m < n) {
+            return ans;
+        }
+        vector<int> cnt1(26);
+        for (char& c : p) {
+            ++cnt1[c - 'a'];
+        }
+        vector<int> cnt2(26);
+        for (int i = 0, j = 0; i < m; ++i) {
+            int k = s[i] - 'a';
+            ++cnt2[k];
+            while (cnt2[k] > cnt1[k]) {
+                --cnt2[s[j++] - 'a'];
+            }
+            if (i - j + 1 == n) {
+                ans.push_back(j);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findAnagrams(s string, p string) (ans []int) {
+	m, n := len(s), len(p)
+	if m < n {
+		return
+	}
+	cnt1 := [26]int{}
+	cnt2 := [26]int{}
+	for _, c := range p {
+		cnt1[c-'a']++
+	}
+	j := 0
+	for i, c := range s {
+		cnt2[c-'a']++
+		for cnt2[c-'a'] > cnt1[c-'a'] {
+			cnt2[s[j]-'a']--
+			j++
+		}
+		if i-j+1 == n {
+			ans = append(ans, j)
+		}
+	}
+	return
+}
+```
+
+```ts
+function findAnagrams(s: string, p: string): number[] {
+    const m = s.length;
+    const n = p.length;
+    const ans: number[] = [];
+    if (m < n) {
+        return ans;
+    }
+    const cnt1: number[] = new Array(26).fill(0);
+    const cnt2: number[] = new Array(26).fill(0);
+    const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    for (const c of p) {
+        ++cnt1[idx(c)];
+    }
+    for (let i = 0, j = 0; i < m; ++i) {
+        const k = idx(s[i]);
+        ++cnt2[k];
+        while (cnt2[k] > cnt1[k]) {
+            --cnt2[idx(s[j++])];
+        }
+        if (i - j + 1 === n) {
+            ans.push(j);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

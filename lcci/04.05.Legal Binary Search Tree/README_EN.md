@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -77,8 +77,6 @@ class Solution:
             return
         self.isValid(root.right)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -113,53 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
-
--   Non-recursive in-order traversal
-
-```go
-func isValidBST(root *TreeNode) bool {
-	stack := make([]*TreeNode, 0)
-	var prev *TreeNode = nil
-	node := root
-	for len(stack) > 0 || node != nil {
-		for node != nil {
-			stack = append(stack, node)
-			node = node.Left
-		}
-		node = stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		if prev == nil || node.Val > prev.Val {
-			prev = node
-		} else {
-			return false
-		}
-		node = node.Right
-	}
-	return true
-}
-```
-
--   Use upper bound and lower bound to check
-
-```go
-func isValidBST(root *TreeNode) bool {
-	return check(root, math.MinInt64, math.MaxInt64)
-}
-
-func check(node *TreeNode, lower, upper int) bool {
-	if node == nil {
-		return true
-	}
-	if node.Val <= lower || node.Val >= upper {
-		return false
-	}
-	return check(node.Left, lower, node.Val) && check(node.Right, node.Val, upper)
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -196,7 +147,28 @@ public:
 };
 ```
 
-### **TypeScript**
+```go
+func isValidBST(root *TreeNode) bool {
+	stack := make([]*TreeNode, 0)
+	var prev *TreeNode = nil
+	node := root
+	for len(stack) > 0 || node != nil {
+		for node != nil {
+			stack = append(stack, node)
+			node = node.Left
+		}
+		node = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if prev == nil || node.Val > prev.Val {
+			prev = node
+		} else {
+			return false
+		}
+		node = node.Right
+	}
+	return true
+}
+```
 
 ```ts
 /**
@@ -229,42 +201,6 @@ function isValidBST(root: TreeNode | null): boolean {
     return dfs(root);
 }
 ```
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function isValidBST(root: TreeNode | null): boolean {
-    if (root == null) {
-        return true;
-    }
-    const { val, left, right } = root;
-    const dfs = (root: TreeNode | null, min: number, max: number) => {
-        if (root == null) {
-            return true;
-        }
-        const { val, left, right } = root;
-        if (val <= min || val >= max) {
-            return false;
-        }
-        return dfs(left, min, Math.min(val, max)) && dfs(right, Math.max(val, min), max);
-    };
-    return dfs(left, -Infinity, val) && dfs(right, val, Infinity);
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -309,10 +245,62 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```go
+func isValidBST(root *TreeNode) bool {
+	return check(root, math.MinInt64, math.MaxInt64)
+}
+
+func check(node *TreeNode, lower, upper int) bool {
+	if node == nil {
+		return true
+	}
+	if node.Val <= lower || node.Val >= upper {
+		return false
+	}
+	return check(node.Left, lower, node.Val) && check(node.Right, node.Val, upper)
+}
 ```
 
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isValidBST(root: TreeNode | null): boolean {
+    if (root == null) {
+        return true;
+    }
+    const { val, left, right } = root;
+    const dfs = (root: TreeNode | null, min: number, max: number) => {
+        if (root == null) {
+            return true;
+        }
+        const { val, left, right } = root;
+        if (val <= min || val >= max) {
+            return false;
+        }
+        return dfs(left, min, Math.min(val, max)) && dfs(right, Math.max(val, min), max);
+    };
+    return dfs(left, -Infinity, val) && dfs(right, val, Infinity);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

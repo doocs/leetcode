@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class UnionFind:
@@ -78,8 +78,6 @@ class Solution:
                 i += 1
         return max(Counter(uf.find(v) for v in nums).values())
 ```
-
-### **Java**
 
 ```java
 class UnionFind {
@@ -136,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -188,8 +184,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestComponentSize(nums []int) int {
 	m := slices.Max(nums)
@@ -229,10 +223,6 @@ func largestComponentSize(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

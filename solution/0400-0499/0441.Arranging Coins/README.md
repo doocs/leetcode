@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学推导**
+### 方法一：数学推导
 
 `(1 + x) * x / 2 <= n`，求解 x。
 
@@ -48,36 +46,13 @@
 
 由于 2n 可能溢出，故转换为 `x <= sqrt(2) * sqrt(n + 1/8) - 1/2`。
 
-**方法二：二分查找**
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def arrangeCoins(self, n: int) -> int:
         return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
-
-```python
-class Solution:
-    def arrangeCoins(self, n: int) -> int:
-        left, right = 1, n
-        while left < right:
-            mid = (left + right + 1) >> 1
-            if (1 + mid) * mid // 2 <= n:
-                left = mid
-            else:
-                right = mid - 1
-        return left
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,25 +61,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int arrangeCoins(int n) {
-        long left = 1, right = n;
-        while (left < right) {
-            long mid = (left + right + 1) >>> 1;
-            if ((1 + mid) * mid / 2 <= n) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return (int) left;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 using LL = long;
@@ -126,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func arrangeCoins(n int) int {
 	left, right := 1, n
@@ -143,10 +97,42 @@ func arrangeCoins(n int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：二分查找
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        left, right = 1, n
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if (1 + mid) * mid // 2 <= n:
+                left = mid
+            else:
+                right = mid - 1
+        return left
 ```
 
+```java
+class Solution {
+    public int arrangeCoins(int n) {
+        long left = 1, right = n;
+        while (left < right) {
+            long mid = (left + right + 1) >>> 1;
+            if ((1 + mid) * mid / 2 <= n) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return (int) left;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

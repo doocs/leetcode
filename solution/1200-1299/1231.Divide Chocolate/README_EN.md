@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search + Greedy**
+### Solution 1: Binary Search + Greedy
 
 We notice that if we can eat a piece of chocolate with sweetness $x$, then we can also eat all chocolates with sweetness less than or equal to $x$. This shows monotonicity, therefore, we can use binary search to find the maximum $x$ that satisfies the condition.
 
@@ -58,8 +58,6 @@ The key to the problem is how to determine whether we can eat a piece of chocola
 The time complexity is $O(n \times \log \sum_{i=0}^{n-1} sweetness[i])$, and the space complexity is $O(1)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximizeSweetness(sweetness []int, k int) int {
@@ -179,8 +171,6 @@ func maximizeSweetness(sweetness []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSweetness(sweetness: number[], k: number): number {
     let l = 0;
@@ -209,10 +199,6 @@ function maximizeSweetness(sweetness: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

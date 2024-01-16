@@ -38,29 +38,14 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-由于是原地修改，所以不能直接将 0 的后一位直接修改为 0，这会丢失元素数据。
-
-若选择插入，则会导致元素位置调整，时间复杂度偏高。
-
-**方法一：模拟**
+### 方法一：模拟
 
 开辟一个等长数组，将 `arr` 复刻一份，再进行简单模拟即可。
 
 -   时间复杂度：$O(n)$。
 -   空间复杂度：$O(n)$。
 
-**方法二：双指针**
-
--   时间复杂度：$O(n)$。
--   空间复杂度：$O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +70,6 @@ class Solution:
                 arr[j] = arr[i]
             i, j = i - 1, j - 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func duplicateZeros(arr []int) {
@@ -170,37 +147,6 @@ func duplicateZeros(arr []int) {
 	}
 }
 ```
-
-### **C**
-
-```c
-void duplicateZeros(int* arr, int arrSize) {
-    int i = 0;
-    int j = 0;
-    while (j < arrSize) {
-        if (arr[i] == 0) {
-            j++;
-        }
-        i++;
-        j++;
-    }
-    i--;
-    j--;
-    while (i >= 0) {
-        if (arr[i] == 0) {
-            if (j < arrSize) {
-                arr[j] = arr[i];
-            }
-            j--;
-        }
-        arr[j] = arr[i];
-        i--;
-        j--;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -230,10 +176,38 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+void duplicateZeros(int* arr, int arrSize) {
+    int i = 0;
+    int j = 0;
+    while (j < arrSize) {
+        if (arr[i] == 0) {
+            j++;
+        }
+        i++;
+        j++;
+    }
+    i--;
+    j--;
+    while (i >= 0) {
+        if (arr[i] == 0) {
+            if (j < arrSize) {
+                arr[j] = arr[i];
+            }
+            j--;
+        }
+        arr[j] = arr[i];
+        i--;
+        j--;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：双指针
+
+-   时间复杂度：$O(n)$。
+-   空间复杂度：$O(1)$。
+
+<!-- end -->

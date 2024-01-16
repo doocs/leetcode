@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxVowels(s string, k int) int {
@@ -141,8 +135,6 @@ func maxVowels(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxVowels(s: string, k: number): number {
     function isVowel(c) {
@@ -167,8 +159,6 @@ function maxVowels(s: string, k: number): number {
     return ans;
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -203,10 +193,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 动态规划**
+### 方法一：预处理 + 动态规划
 
 我们注意到，连续使用同一个轮胎 $(f, r)$ 跑 $i$ 圈，那么第 $i$ 圈的耗时不应该超过 $changeTime + f$，否则我们可以在第 $i$ 圈的时候换轮胎，这样总耗时会更少。即：
 
@@ -84,10 +82,6 @@ $$
 时间复杂度 $O((n + numLaps) \times \log T_{max})$，空间复杂度 $O(n + \log T_{max})$，其中 $T_{max}$ 是题目中 $f_i$, $r_i$ 和 $changeTime$ 的最大值。本题中 $\log T_{max} \approx 17$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -110,10 +104,6 @@ class Solution:
             f[i] += changeTime
         return f[numLaps]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +163,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
@@ -209,8 +195,6 @@ func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumFinishTime(tires: number[][], changeTime: number, numLaps: number): number {
     const cost: number[] = Array(18).fill(Infinity);
@@ -235,10 +219,6 @@ function minimumFinishTime(tires: number[][], changeTime: number, numLaps: numbe
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

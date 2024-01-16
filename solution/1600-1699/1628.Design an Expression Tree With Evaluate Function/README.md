@@ -56,13 +56,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 import abc
@@ -129,10 +125,6 @@ expTree = obj.buildTree(postfix);
 ans = expTree.evaluate();
 """
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -213,8 +205,6 @@ class TreeBuilder {
  */
 ```
 
-### **C++**
-
 ```cpp
 /**
  * This is the interface for the expression tree Node.
@@ -291,10 +281,6 @@ public:
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

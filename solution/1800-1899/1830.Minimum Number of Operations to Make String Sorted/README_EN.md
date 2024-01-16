@@ -49,7 +49,7 @@ Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then rever
 
 ## Solutions
 
-**Solution 1: Counting + Permutation and Combination + Preprocessing**
+### Solution 1: Counting + Permutation and Combination + Preprocessing
 
 The operation in the problem is actually to find the previous permutation in lexicographical order of the current permutation. Therefore, we only need to find the number of permutations smaller than the current permutation, which is the answer.
 
@@ -66,8 +66,6 @@ After traversing the entire string, we can get the answer. Note the modulo opera
 The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Where $n$ and $k$ are the length of the string and the number of types of letters, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 n = 3010
@@ -95,8 +93,6 @@ class Solution:
                 cnt.pop(c)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -149,8 +145,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 const int N = 3010;
@@ -205,8 +199,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const n = 3010
 const mod = 1e9 + 7
@@ -255,10 +247,6 @@ func makeStringSorted(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

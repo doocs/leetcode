@@ -55,7 +55,7 @@
 
 ## Solutions
 
-**Solution 1: Stack**
+### Solution 1: Stack
 
 We first split the path into a number of substrings split by `'/'`. Then, we traverse each substring and perform the following operations based on the content of the substring:
 
@@ -68,8 +68,6 @@ Finally, we concatenate all the elements in the stack from the bottom to the top
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the path.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
                 stk.append(s)
         return '/' + '/'.join(stk)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,7 +134,43 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func simplifyPath(path string) string {
+	var stk []string
+	for _, s := range strings.Split(path, "/") {
+		if s == "" || s == "." {
+			continue
+		}
+		if s == ".." {
+			if len(stk) > 0 {
+				stk = stk[0 : len(stk)-1]
+			}
+		} else {
+			stk = append(stk, s)
+		}
+	}
+	return "/" + strings.Join(stk, "/")
+}
+```
+
+```ts
+function simplifyPath(path: string): string {
+    const stk: string[] = [];
+    for (const s of path.split('/')) {
+        if (s === '' || s === '.') {
+            continue;
+        }
+        if (s === '..') {
+            if (stk.length) {
+                stk.pop();
+            }
+        } else {
+            stk.push(s);
+        }
+    }
+    return '/' + stk.join('/');
+}
+```
 
 ```rust
 impl Solution {
@@ -172,56 +202,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func simplifyPath(path string) string {
-	var stk []string
-	for _, s := range strings.Split(path, "/") {
-		if s == "" || s == "." {
-			continue
-		}
-		if s == ".." {
-			if len(stk) > 0 {
-				stk = stk[0 : len(stk)-1]
-			}
-		} else {
-			stk = append(stk, s)
-		}
-	}
-	return "/" + strings.Join(stk, "/")
-}
-```
-
-```go
-func simplifyPath(path string) string {
-	return filepath.Clean(path)
-}
-```
-
-### **TypeScript**
-
-```ts
-function simplifyPath(path: string): string {
-    const stk: string[] = [];
-    for (const s of path.split('/')) {
-        if (s === '' || s === '.') {
-            continue;
-        }
-        if (s === '..') {
-            if (stk.length) {
-                stk.pop();
-            }
-        } else {
-            stk.push(s);
-        }
-    }
-    return '/' + stk.join('/');
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public string SimplifyPath(string path) {
@@ -247,10 +227,18 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```go
+func simplifyPath(path string) string {
+	return filepath.Clean(path)
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

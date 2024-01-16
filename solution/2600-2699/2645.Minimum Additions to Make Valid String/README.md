@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 双指针**
+### 方法一：贪心 + 双指针
 
 我们定义字符串 $s$ 为 `"abc"`，用指针 $i$ 和 $j$ 分别指向 $s$ 和 $word$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $word$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             ans += 1 if word[-1] == 'b' else 2
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addMinimum(word string) (ans int) {
 	s := "abc"
@@ -149,8 +135,6 @@ func addMinimum(word string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function addMinimum(word: string): number {
@@ -173,10 +157,6 @@ function addMinimum(word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

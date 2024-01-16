@@ -30,9 +30,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 首先，如果 $low$ 为 $0$，那么我们需要将 $0$ 加入答案中。
 
@@ -41,10 +39,6 @@
 时间复杂度 $O(10 \times 2^{\log M})$，空间复杂度 $O(2^{\log M})$，其中 $M$ 为 $high$ 的位数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
                 q.append(v * 10 + x + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSteppingNumbers(low int, high int) []int {
 	ans := []int{}
@@ -168,8 +154,6 @@ func countSteppingNumbers(low int, high int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countSteppingNumbers(low: number, high: number): number[] {
@@ -201,10 +185,6 @@ function countSteppingNumbers(low: number, high: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

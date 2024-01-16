@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 预处理**
+### 方法一：贪心 + 预处理
 
 我们注意到，为了使得答案最大，我们应该将 $k$ 次乘 $2$ 作用于同一个数。
 
@@ -55,10 +53,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             pre |= x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumOr(nums []int, k int) int64 {
 	n := len(nums)
@@ -136,8 +122,6 @@ func maximumOr(nums []int, k int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumOr(nums: number[], k: number): number {
     const n = nums.length;
@@ -153,8 +137,6 @@ function maximumOr(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -179,10 +161,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

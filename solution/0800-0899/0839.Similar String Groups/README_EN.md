@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
         return sum(i == find(i) for i in range(n))
 ```
 
-### **Java**
-
 ```java
 class Solution {
     private int[] p;
@@ -79,13 +77,24 @@ class Solution {
                 }
             }
         }
-        int ans = 0;
+        int res = 0;
         for (int i = 0; i < n; ++i) {
             if (i == find(i)) {
-                ++ans;
+                ++res;
             }
         }
-        return ans;
+        return res;
+    }
+
+    private boolean check(String a, String b) {
+        int cnt = 0;
+        int n = a.length();
+        for (int i = 0; i < n; ++i) {
+            if (a.charAt(i) != b.charAt(i)) {
+                ++cnt;
+            }
+        }
+        return cnt <= 2;
     }
 
     private int find(int x) {
@@ -94,20 +103,8 @@ class Solution {
         }
         return p[x];
     }
-
-    private boolean check(String a, String b) {
-        int cnt = 0;
-        for (int i = 0; i < a.length(); ++i) {
-            if (a.charAt(i) != b.charAt(i)) {
-                ++cnt;
-            }
-        }
-        return cnt <= 2;
-    }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numSimilarGroups(strs []string) int {
@@ -186,10 +181,6 @@ func numSimilarGroups(strs []string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

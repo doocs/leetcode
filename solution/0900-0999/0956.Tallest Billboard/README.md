@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i, j)$，表示从第 $i$ 根钢筋开始，且当前高度差为 $j$ 时，两边的最大共同高度。那么答案就是 $dfs(0, 0)$。
 
@@ -70,35 +68,7 @@
 
 时间复杂度 $O(n \times S)$，空间复杂度 $O(n \times S)$。其中 $n$ 和 $S$ 分别为 $rods$ 的长度和 $rods$ 中所有元素的和。
 
-**方法二：动态规划**
-
-我们定义 $f[i][j]$ 表示前 $i$ 根钢筋，两边高度差为 $j$ 时的最大共同高度。初始时 $f[0][0]=0$，其余 $f[i][j]=-\infty$。我们求出所有 $rods[i]$ 的和，记为 $s$，那么 $j$ 的取值范围为 $[0,..s]$。
-
-对于第 $i$ 根钢筋，我们可以不选择它，此时 $f[i][j]=f[i-1][j]$；也可以选择它，此时有三种情况：
-
-1. 放置在原本高度较高的一边，即满足 $j \geq rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][j-rods[i-1]])$；
-1. 放置在原本高度较低的一遍，如果满足 $j + rods[i-1] \leq s$，此时 $f[i][j] = max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1])$；如果满足 $j \lt rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j)$。
-
-综上，我们可以得到状态转移方程：
-
-$$
-\begin{aligned}
-f[i][j] &= f[i-1][j] \\
-f[i][j] &= max(f[i][j], f[i-1][j-rods[i-1]]) & \text{if } j \geq rods[i-1] \\
-f[i][j] &= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) & \text{if } j + rods[i-1] \leq s \\
-f[i][j] &= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) & \text{if } j \lt rods[i-1]
-\end{aligned}
-$$
-
-最终答案即为 $f[n][0]$。
-
-时间复杂度 $O(n \times S)$，空间复杂度 $O(n \times S)$。其中 $n$ 和 $S$ 分别为 $rods$ 的长度和 $rods$ 中所有元素的和。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -113,31 +83,6 @@ class Solution:
 
         return dfs(0, 0)
 ```
-
-```python
-class Solution:
-    def tallestBillboard(self, rods: List[int]) -> int:
-        n = len(rods)
-        s = sum(rods)
-        f = [[-inf] * (s + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        t = 0
-        for i, x in enumerate(rods, 1):
-            t += x
-            for j in range(t + 1):
-                f[i][j] = f[i - 1][j]
-                if j >= x:
-                    f[i][j] = max(f[i][j], f[i - 1][j - x])
-                if j + x <= t:
-                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x)
-                if j < x:
-                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j)
-        return f[n][0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -170,42 +115,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int tallestBillboard(int[] rods) {
-        int n = rods.length;
-        int s = 0;
-        for (int x : rods) {
-            s += x;
-        }
-        int[][] f = new int[n + 1][s + 1];
-        for (var e : f) {
-            Arrays.fill(e, -(1 << 30));
-        }
-        f[0][0] = 0;
-        for (int i = 1, t = 0; i <= n; ++i) {
-            int x = rods[i - 1];
-            t += x;
-            for (int j = 0; j <= t; ++j) {
-                f[i][j] = f[i - 1][j];
-                if (j >= x) {
-                    f[i][j] = Math.max(f[i][j], f[i - 1][j - x]);
-                }
-                if (j + x <= t) {
-                    f[i][j] = Math.max(f[i][j], f[i - 1][j + x] + x);
-                }
-                if (j < x) {
-                    f[i][j] = Math.max(f[i][j], f[i - 1][x - j] + x - j);
-                }
-            }
-        }
-        return f[n][0];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -229,38 +138,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int tallestBillboard(vector<int>& rods) {
-        int n = rods.size();
-        int s = accumulate(rods.begin(), rods.end(), 0);
-        int f[n + 1][s + 1];
-        memset(f, -0x3f, sizeof(f));
-        f[0][0] = 0;
-        for (int i = 1, t = 0; i <= n; ++i) {
-            int x = rods[i - 1];
-            t += x;
-            for (int j = 0; j <= t; ++j) {
-                f[i][j] = f[i - 1][j];
-                if (j >= x) {
-                    f[i][j] = max(f[i][j], f[i - 1][j - x]);
-                }
-                if (j + x <= t) {
-                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x);
-                }
-                if (j < x) {
-                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j);
-                }
-            }
-        }
-        return f[n][0];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func tallestBillboard(rods []int) int {
@@ -303,6 +180,139 @@ func abs(x int) int {
 }
 ```
 
+```ts
+function tallestBillboard(rods: number[]): number {
+    const s = rods.reduce((a, b) => a + b, 0);
+    const n = rods.length;
+    const f = new Array(n).fill(0).map(() => new Array(s + 1).fill(-1));
+    const dfs = (i: number, j: number): number => {
+        if (i >= n) {
+            return j === 0 ? 0 : -(1 << 30);
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+        let ans = Math.max(dfs(i + 1, j), dfs(i + 1, j + rods[i]));
+        ans = Math.max(ans, dfs(i + 1, Math.abs(j - rods[i])) + Math.min(j, rods[i]));
+        return (f[i][j] = ans);
+    };
+    return dfs(0, 0);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们定义 $f[i][j]$ 表示前 $i$ 根钢筋，两边高度差为 $j$ 时的最大共同高度。初始时 $f[0][0]=0$，其余 $f[i][j]=-\infty$。我们求出所有 $rods[i]$ 的和，记为 $s$，那么 $j$ 的取值范围为 $[0,..s]$。
+
+对于第 $i$ 根钢筋，我们可以不选择它，此时 $f[i][j]=f[i-1][j]$；也可以选择它，此时有三种情况：
+
+1. 放置在原本高度较高的一边，即满足 $j \geq rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][j-rods[i-1]])$；
+1. 放置在原本高度较低的一遍，如果满足 $j + rods[i-1] \leq s$，此时 $f[i][j] = max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1])$；如果满足 $j \lt rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j)$。
+
+综上，我们可以得到状态转移方程：
+
+$$
+\begin{aligned}
+f[i][j] &= f[i-1][j] \\
+f[i][j] &= max(f[i][j], f[i-1][j-rods[i-1]]) & \text{if } j \geq rods[i-1] \\
+f[i][j] &= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) & \text{if } j + rods[i-1] \leq s \\
+f[i][j] &= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) & \text{if } j \lt rods[i-1]
+\end{aligned}
+$$
+
+最终答案即为 $f[n][0]$。
+
+时间复杂度 $O(n \times S)$，空间复杂度 $O(n \times S)$。其中 $n$ 和 $S$ 分别为 $rods$ 的长度和 $rods$ 中所有元素的和。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def tallestBillboard(self, rods: List[int]) -> int:
+        n = len(rods)
+        s = sum(rods)
+        f = [[-inf] * (s + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        t = 0
+        for i, x in enumerate(rods, 1):
+            t += x
+            for j in range(t + 1):
+                f[i][j] = f[i - 1][j]
+                if j >= x:
+                    f[i][j] = max(f[i][j], f[i - 1][j - x])
+                if j + x <= t:
+                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x)
+                if j < x:
+                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j)
+        return f[n][0]
+```
+
+```java
+class Solution {
+    public int tallestBillboard(int[] rods) {
+        int n = rods.length;
+        int s = 0;
+        for (int x : rods) {
+            s += x;
+        }
+        int[][] f = new int[n + 1][s + 1];
+        for (var e : f) {
+            Arrays.fill(e, -(1 << 30));
+        }
+        f[0][0] = 0;
+        for (int i = 1, t = 0; i <= n; ++i) {
+            int x = rods[i - 1];
+            t += x;
+            for (int j = 0; j <= t; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j - x]);
+                }
+                if (j + x <= t) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j + x] + x);
+                }
+                if (j < x) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][x - j] + x - j);
+                }
+            }
+        }
+        return f[n][0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int tallestBillboard(vector<int>& rods) {
+        int n = rods.size();
+        int s = accumulate(rods.begin(), rods.end(), 0);
+        int f[n + 1][s + 1];
+        memset(f, -0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1, t = 0; i <= n; ++i) {
+            int x = rods[i - 1];
+            t += x;
+            for (int j = 0; j <= t; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = max(f[i][j], f[i - 1][j - x]);
+                }
+                if (j + x <= t) {
+                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x);
+                }
+                if (j < x) {
+                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j);
+                }
+            }
+        }
+        return f[n][0];
+    }
+};
+```
+
 ```go
 func tallestBillboard(rods []int) int {
 	n := len(rods)
@@ -338,32 +348,6 @@ func tallestBillboard(rods []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function tallestBillboard(rods: number[]): number {
-    const s = rods.reduce((a, b) => a + b, 0);
-    const n = rods.length;
-    const f = new Array(n).fill(0).map(() => new Array(s + 1).fill(-1));
-    const dfs = (i: number, j: number): number => {
-        if (i >= n) {
-            return j === 0 ? 0 : -(1 << 30);
-        }
-        if (f[i][j] !== -1) {
-            return f[i][j];
-        }
-        let ans = Math.max(dfs(i + 1, j), dfs(i + 1, j + rods[i]));
-        ans = Math.max(ans, dfs(i + 1, Math.abs(j - rods[i])) + Math.min(j, rods[i]));
-        return (f[i][j] = ans);
-    };
-    return dfs(0, 0);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

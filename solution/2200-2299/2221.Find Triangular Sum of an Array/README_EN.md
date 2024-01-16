@@ -44,9 +44,9 @@ Since there is only one element in nums, the triangular sum is the value of that
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
                 nums[j] = (nums[j] + nums[j + 1]) % 10
         return nums[0]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -89,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func triangularSum(nums []int) int {
 	n := len(nums)
@@ -103,16 +97,6 @@ func triangularSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

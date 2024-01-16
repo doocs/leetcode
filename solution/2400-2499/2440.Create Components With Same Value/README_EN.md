@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Enumeration of Connected Blocks**
+### Solution 1: Enumeration of Connected Blocks
 
 Assume the number of connected blocks is $k$, then the number of edges to be deleted is $k-1$, and the value of each connected block is $\frac{s}{k}$, where $s$ is the sum of the values of all nodes in $nums$.
 
@@ -57,8 +57,6 @@ Here we use the `dfs` function to judge. We recursively traverse from top to bot
 The time complexity is $O(n \times \sqrt{s})$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -89,8 +87,6 @@ class Solution:
                     return k - 1
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -155,8 +151,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -195,8 +189,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func componentValue(nums []int, edges [][]int) int {
@@ -244,16 +236,6 @@ func componentValue(nums []int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

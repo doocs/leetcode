@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Monotonic Stack Simulation**
+### Solution 1: Monotonic Stack Simulation
 
 We can first store the node values of the linked list into an array $nums$. Then, we traverse the array $nums$, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. If the current element is larger than the top element of the stack, we pop the top element of the stack until the current element is less than or equal to the top element, and then we push the current element into the stack.
 
@@ -55,8 +55,6 @@ After the traversal, we return the $next$ pointer of the dummy head node as the 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -82,28 +80,6 @@ class Solution:
             head = head.next
         return dummy.next
 ```
-
-```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode(inf, head)
-        cur = head
-        stk = [dummy]
-        while cur:
-            while stk[-1].val < cur.val:
-                stk.pop()
-            stk[-1].next = cur
-            stk.append(cur)
-            cur = cur.next
-        return dummy.next
-```
-
-### **Java**
 
 ```java
 /**
@@ -140,36 +116,6 @@ class Solution {
     }
 }
 ```
-
-```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode removeNodes(ListNode head) {
-        ListNode dummy = new ListNode(1 << 30, head);
-        Deque<ListNode> stk = new ArrayDeque<>();
-        stk.offerLast(dummy);
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            while (stk.peekLast().val < cur.val) {
-                stk.pollLast();
-            }
-            stk.peekLast().next = cur;
-            stk.offerLast(cur);
-        }
-        return dummy.next;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -208,37 +154,6 @@ public:
 };
 ```
 
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* removeNodes(ListNode* head) {
-        ListNode* dummy = new ListNode(1e9, head);
-        ListNode* cur = head;
-        vector<ListNode*> stk = {dummy};
-        for (ListNode* cur = head; cur; cur = cur->next) {
-            while (stk.back()->val < cur->val) {
-                stk.pop_back();
-            }
-            stk.back()->next = cur;
-            stk.push_back(cur);
-        }
-        return dummy->next;
-    }
-};
-```
-
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -269,30 +184,6 @@ func removeNodes(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func removeNodes(head *ListNode) *ListNode {
-	dummy := &ListNode{1 << 30, head}
-	stk := []*ListNode{dummy}
-	for cur := head; cur != nil; cur = cur.Next {
-		for stk[len(stk)-1].Val < cur.Val {
-			stk = stk[:len(stk)-1]
-		}
-		stk[len(stk)-1].Next = cur
-		stk = append(stk, cur)
-	}
-	return dummy.Next
-}
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -329,6 +220,111 @@ function removeNodes(head: ListNode | null): ListNode | null {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(inf, head)
+        cur = head
+        stk = [dummy]
+        while cur:
+            while stk[-1].val < cur.val:
+                stk.pop()
+            stk[-1].next = cur
+            stk.append(cur)
+            cur = cur.next
+        return dummy.next
+```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNodes(ListNode head) {
+        ListNode dummy = new ListNode(1 << 30, head);
+        Deque<ListNode> stk = new ArrayDeque<>();
+        stk.offerLast(dummy);
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            while (stk.peekLast().val < cur.val) {
+                stk.pollLast();
+            }
+            stk.peekLast().next = cur;
+            stk.offerLast(cur);
+        }
+        return dummy.next;
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNodes(ListNode* head) {
+        ListNode* dummy = new ListNode(1e9, head);
+        ListNode* cur = head;
+        vector<ListNode*> stk = {dummy};
+        for (ListNode* cur = head; cur; cur = cur->next) {
+            while (stk.back()->val < cur->val) {
+                stk.pop_back();
+            }
+            stk.back()->next = cur;
+            stk.push_back(cur);
+        }
+        return dummy->next;
+    }
+};
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func removeNodes(head *ListNode) *ListNode {
+	dummy := &ListNode{1 << 30, head}
+	stk := []*ListNode{dummy}
+	for cur := head; cur != nil; cur = cur.Next {
+		for stk[len(stk)-1].Val < cur.Val {
+			stk = stk[:len(stk)-1]
+		}
+		stk[len(stk)-1].Next = cur
+		stk = append(stk, cur)
+	}
+	return dummy.Next
+}
+```
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -356,10 +352,6 @@ function removeNodes(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

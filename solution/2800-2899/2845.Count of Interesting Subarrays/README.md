@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 前缀和**
+### 方法一：哈希表 + 前缀和
 
 题目要求一个区间内满足 $nums[i] \bmod modulo = k$ 的索引 $i$ 的数量，我们可以将数组 $nums$ 转换为一个 $0-1$ 数组 $arr$，其中 $arr[i] = 1$ 表示 $nums[i] \bmod modulo = k$，否则 $arr[i] = 0$。
 
@@ -84,10 +82,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countInterestingSubarrays(self, nums: List[int], modulo: int, k: int) -> int:
@@ -101,10 +95,6 @@ class Solution:
             cnt[s % modulo] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countInterestingSubarrays(nums []int, modulo int, k int) (ans int64) {
 	arr := make([]int, len(nums))
@@ -175,8 +161,6 @@ func countInterestingSubarrays(nums []int, modulo int, k int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countInterestingSubarrays(nums: number[], modulo: number, k: number): number {
     const arr: number[] = [];
@@ -196,10 +180,6 @@ function countInterestingSubarrays(nums: number[], modulo: number, k: number): n
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

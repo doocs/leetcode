@@ -47,9 +47,9 @@ The total cost to make all characters equal is 9. It can be shown that 9 is the 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                 ans += min(i, n - i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumCost(s string) (ans int64) {
 	n := len(s)
@@ -109,8 +103,6 @@ func minimumCost(s string) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumCost(s: string): number {
@@ -125,10 +117,6 @@ function minimumCost(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

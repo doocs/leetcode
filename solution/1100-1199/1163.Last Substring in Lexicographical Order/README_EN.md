@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: Two pointers**
+### Solution 1: Two pointers
 
 We notice that if a substring starts from position $i$, then the largest substring with the largest dictionary order must be $s[i,..n-1]$, which is the longest suffix starting from position $i$. Therefore, we only need to find the largest suffix substring.
 
@@ -52,8 +52,6 @@ The time complexity is $O(n)$, where $n$ is the length of string $s$. The space 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def lastSubstring(self, s: str) -> str:
@@ -71,8 +69,6 @@ class Solution:
                 k = 0
         return s[i:]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lastSubstring(s string) string {
 	i, n := 0, len(s)
@@ -148,8 +140,6 @@ func lastSubstring(s string) string {
 	return s[i:]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function lastSubstring(s: string): string {
@@ -173,10 +163,6 @@ function lastSubstring(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

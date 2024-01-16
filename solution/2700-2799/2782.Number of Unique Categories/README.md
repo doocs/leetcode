@@ -54,19 +54,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 我们用并查集来维护相同类别的元素，接下来枚举所有的元素对，如果两个元素属于相同的类别，那么就将它们合并到同一个集合中。最后统计并查集中有多少个集合，就是答案。
 
 时间复杂度 $(n^2 \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 是元素的个数，而 $\alpha$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a category handler.
@@ -89,10 +83,6 @@ class Solution:
                     p[find(a)] = find(b)
         return sum(i == x for i, x in enumerate(p))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -135,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a category handler.
@@ -173,8 +161,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a category handler.
@@ -210,8 +196,6 @@ func numberOfCategories(n int, categoryHandler CategoryHandler) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a category handler.
@@ -245,10 +229,6 @@ function numberOfCategories(n: number, categoryHandler: CategoryHandler): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

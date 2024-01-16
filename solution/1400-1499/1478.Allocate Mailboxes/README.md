@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示前 $i+1$ 栋房子，安排了 $j$ 个邮筒时，每栋房子与离它最近的邮筒之间的距离的最小总和。初始时 $f[i][j]=\infty$，答案即为 $f[n-1][k]$。
 
@@ -82,10 +80,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minDistance(self, houses: List[int], k: int) -> int:
@@ -103,10 +97,6 @@ class Solution:
                     f[i][j] = min(f[i][j], f[p][j - 1] + g[p + 1][i])
         return f[-1][k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDistance(houses []int, k int) int {
@@ -200,10 +186,6 @@ func minDistance(houses []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

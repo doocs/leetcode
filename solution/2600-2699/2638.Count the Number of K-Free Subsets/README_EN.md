@@ -48,7 +48,7 @@
 
 ## Solutions
 
-**Solution 1: Grouping + Dynamic Programming**
+### Solution 1: Grouping + Dynamic Programming
 
 First, sort the array $nums$ in ascending order, and then group the elements in the array according to the remainder modulo $k$, that is, the elements $nums[i] \bmod k$ with the same remainder are in the same group. Then for any two elements in different groups, their absolute difference is not equal to $k$. Therefore, we can obtain the number of subsets in each group, and then multiply the number of subsets in each group to obtain the answer.
 
@@ -59,8 +59,6 @@ Finally, we multiply the number of subsets of each group to obtain the answer.
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,8 +81,6 @@ class Solution:
             ans *= f[m]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	sort.Ints(nums)
@@ -172,8 +164,6 @@ func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countTheNumOfKFreeSubsets(nums: number[], k: number): number {
@@ -204,10 +194,6 @@ function countTheNumOfKFreeSubsets(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

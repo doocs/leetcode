@@ -23,9 +23,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -40,8 +40,6 @@ class Solution:
             num //= 7
         return ''.join(ans[::-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -62,7 +60,38 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    string convertToBase7(int num) {
+        if (num == 0) return "0";
+        if (num < 0) return "-" + convertToBase7(-num);
+        string ans = "";
+        while (num) {
+            ans = to_string(num % 7) + ans;
+            num /= 7;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func convertToBase7(num int) string {
+	if num == 0 {
+		return "0"
+	}
+	if num < 0 {
+		return "-" + convertToBase7(-num)
+	}
+	ans := []byte{}
+	for num != 0 {
+		ans = append([]byte{'0' + byte(num%7)}, ans...)
+		num /= 7
+	}
+	return string(ans)
+}
+```
 
 ```ts
 function convertToBase7(num: number): string {
@@ -82,8 +111,6 @@ function convertToBase7(num: number): string {
     return isMinus ? '-' + res : res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -108,47 +135,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string convertToBase7(int num) {
-        if (num == 0) return "0";
-        if (num < 0) return "-" + convertToBase7(-num);
-        string ans = "";
-        while (num) {
-            ans = to_string(num % 7) + ans;
-            num /= 7;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func convertToBase7(num int) string {
-	if num == 0 {
-		return "0"
-	}
-	if num < 0 {
-		return "-" + convertToBase7(-num)
-	}
-	ans := []byte{}
-	for num != 0 {
-		ans = append([]byte{'0' + byte(num%7)}, ans...)
-		num /= 7
-	}
-	return string(ans)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

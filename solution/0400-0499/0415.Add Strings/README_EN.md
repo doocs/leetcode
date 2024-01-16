@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We use two pointers $i$ and $j$ to point to the end of the two strings respectively, and start adding bit by bit from the end. Each time we take out the corresponding digits $a$ and $b$, calculate their sum $a + b + c$, where $c$ represents the carry from the last addition. Finally, we append the units digit of $a + b + c$ to the end of the answer string, and then take the tens digit of $a + b + c$ as the value of the carry $c$, and loop this process until the pointers of both strings have pointed to the beginning of the string and the value of the carry $c$ is $0$.
 
@@ -52,8 +52,6 @@ The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of the
 The following code also implements string subtraction, refer to the `subStrings(num1, num2)` function.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -88,8 +86,6 @@ class Solution:
             ans.append('-')
         return ''.join(ans[::-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +169,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func addStrings(num1 string, num2 string) string {
@@ -231,7 +223,72 @@ func subStrings(num1 string, num2 string) string {
 }
 ```
 
-### **JavaScript**
+```ts
+function addStrings(num1: string, num2: string): string {
+    let i = num1.length - 1;
+    let j = num2.length - 1;
+    const ans: number[] = [];
+    for (let c = 0; i >= 0 || j >= 0 || c; --i, --j) {
+        c += i < 0 ? 0 : +num1[i];
+        c += j < 0 ? 0 : +num2[j];
+        ans.push(c % 10);
+        c = Math.floor(c / 10);
+    }
+    return ans.reverse().join('');
+}
+
+function subStrings(num1: string, num2: string): string {
+    const m = num1.length;
+    const n = num2.length;
+    const neg = m < n || (m == n && num1 < num2);
+    if (neg) {
+        const t = num1;
+        num1 = num2;
+        num2 = t;
+    }
+    let i = num1.length - 1;
+    let j = num2.length - 1;
+    const ans: number[] = [];
+    for (let c = 0; i >= 0; --i, --j) {
+        c = +num1[i] - c;
+        if (j >= 0) {
+            c -= +num2[j];
+        }
+        ans.push((c + 10) % 10);
+        c = c < 0 ? 1 : 0;
+    }
+    while (ans.length > 1 && ans.at(-1) === 0) {
+        ans.pop();
+    }
+    return (neg ? '-' : '') + ans.reverse().join('');
+}
+```
+
+```rust
+impl Solution {
+    pub fn add_strings(num1: String, num2: String) -> String {
+        let mut res = vec![];
+        let s1 = num1.as_bytes();
+        let s2 = num2.as_bytes();
+        let (mut i, mut j) = (s1.len(), s2.len());
+        let mut is_over = false;
+        while i != 0 || j != 0 || is_over {
+            let mut sum = if is_over { 1 } else { 0 };
+            if i != 0 {
+                sum += (s1[i - 1] - b'0') as i32;
+                i -= 1;
+            }
+            if j != 0 {
+                sum += (s2[j - 1] - b'0') as i32;
+                j -= 1;
+            }
+            is_over = sum >= 10;
+            res.push((sum % 10).to_string());
+        }
+        res.into_iter().rev().collect()
+    }
+}
+```
 
 ```js
 /**
@@ -284,81 +341,6 @@ var subStrings = function (num1, num2) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function addStrings(num1: string, num2: string): string {
-    let i = num1.length - 1;
-    let j = num2.length - 1;
-    const ans: number[] = [];
-    for (let c = 0; i >= 0 || j >= 0 || c; --i, --j) {
-        c += i < 0 ? 0 : +num1[i];
-        c += j < 0 ? 0 : +num2[j];
-        ans.push(c % 10);
-        c = Math.floor(c / 10);
-    }
-    return ans.reverse().join('');
-}
-
-function subStrings(num1: string, num2: string): string {
-    const m = num1.length;
-    const n = num2.length;
-    const neg = m < n || (m == n && num1 < num2);
-    if (neg) {
-        const t = num1;
-        num1 = num2;
-        num2 = t;
-    }
-    let i = num1.length - 1;
-    let j = num2.length - 1;
-    const ans: number[] = [];
-    for (let c = 0; i >= 0; --i, --j) {
-        c = +num1[i] - c;
-        if (j >= 0) {
-            c -= +num2[j];
-        }
-        ans.push((c + 10) % 10);
-        c = c < 0 ? 1 : 0;
-    }
-    while (ans.length > 1 && ans.at(-1) === 0) {
-        ans.pop();
-    }
-    return (neg ? '-' : '') + ans.reverse().join('');
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn add_strings(num1: String, num2: String) -> String {
-        let mut res = vec![];
-        let s1 = num1.as_bytes();
-        let s2 = num2.as_bytes();
-        let (mut i, mut j) = (s1.len(), s2.len());
-        let mut is_over = false;
-        while i != 0 || j != 0 || is_over {
-            let mut sum = if is_over { 1 } else { 0 };
-            if i != 0 {
-                sum += (s1[i - 1] - b'0') as i32;
-                i -= 1;
-            }
-            if j != 0 {
-                sum += (s2[j - 1] - b'0') as i32;
-                j -= 1;
-            }
-            is_over = sum >= 10;
-            res.push((sum % 10).to_string());
-        }
-        res.into_iter().rev().collect()
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

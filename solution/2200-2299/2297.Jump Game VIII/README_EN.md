@@ -51,9 +51,9 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
                 f[j] = min(f[j], f[i] + costs[j])
         return f[n - 1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +161,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(nums []int, costs []int) int64 {
 	n := len(nums)
@@ -204,8 +198,6 @@ func minCost(nums []int, costs []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCost(nums: number[], costs: number[]): number {
     const n = nums.length;
@@ -241,10 +233,6 @@ function minCost(nums: number[], costs: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,19 +46,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学（快速幂）**
+### 方法一：数学（快速幂）
 
 快速幂算法的核心思想是将幂指数 $n$ 拆分为若干个二进制位上的 $1$ 的和，然后将 $x$ 的 $n$ 次幂转化为 $x$ 的若干个幂的乘积。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为幂指数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
 
         return qpow(x, n) if n >= 0 else 1 / qpow(x, -n)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,7 +107,40 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func myPow(x float64, n int) float64 {
+	qpow := func(a float64, n int) float64 {
+		ans := 1.0
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans *= a
+			}
+			a *= a
+		}
+		return ans
+	}
+	if n >= 0 {
+		return qpow(x, n)
+	}
+	return 1 / qpow(x, -n)
+}
+```
+
+```ts
+function myPow(x: number, n: number): number {
+    const qpow = (a: number, n: number): number => {
+        let ans = 1;
+        for (; n; n >>>= 1) {
+            if (n & 1) {
+                ans *= a;
+            }
+            a *= a;
+        }
+        return ans;
+    };
+    return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
+}
+```
 
 ```rust
 impl Solution {
@@ -150,29 +171,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func myPow(x float64, n int) float64 {
-	qpow := func(a float64, n int) float64 {
-		ans := 1.0
-		for ; n > 0; n >>= 1 {
-			if n&1 == 1 {
-				ans *= a
-			}
-			a *= a
-		}
-		return ans
-	}
-	if n >= 0 {
-		return qpow(x, n)
-	}
-	return 1 / qpow(x, -n)
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number} x
@@ -194,26 +192,6 @@ var myPow = function (x, n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function myPow(x: number, n: number): number {
-    const qpow = (a: number, n: number): number => {
-        let ans = 1;
-        for (; n; n >>>= 1) {
-            if (n & 1) {
-                ans *= a;
-            }
-            a *= a;
-        }
-        return ans;
-    };
-    return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public double MyPow(double x, int n) {
@@ -233,10 +211,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

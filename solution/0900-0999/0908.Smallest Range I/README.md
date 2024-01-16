@@ -52,13 +52,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +62,6 @@ class Solution:
         mx, mi = max(nums), min(nums)
         return max(0, mx - mi - k * 2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,16 +87,12 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestRangeI(nums []int, k int) int {
 	mi, mx := slices.Min(nums), slices.Max(nums)
 	return max(0, mx-mi-k*2)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function smallestRangeI(nums: number[], k: number): number {
@@ -115,8 +101,6 @@ function smallestRangeI(nums: number[], k: number): number {
     return Math.max(max - min - k * 2, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -128,10 +112,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,13 +56,9 @@ words 中不存在互为字母异位词的两个相邻字符串，所以无需�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +69,6 @@ class Solution:
             if i == 0 or sorted(w) != sorted(words[i - 1])
         ]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function removeAnagrams(words: string[]): string[] {
@@ -124,10 +114,6 @@ function countWord(word: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

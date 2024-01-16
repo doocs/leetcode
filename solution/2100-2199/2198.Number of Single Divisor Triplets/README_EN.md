@@ -51,9 +51,9 @@ Note that (0, 1, 2) is not a single divisor triplet because nums[0] + nums[1] + 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,8 +78,6 @@ class Solution:
                             ans += cnt1 * cnt2 * cnt3
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func singleDivisorTriplet(nums []int) int64 {
@@ -201,16 +195,6 @@ func singleDivisorTriplet(nums []int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

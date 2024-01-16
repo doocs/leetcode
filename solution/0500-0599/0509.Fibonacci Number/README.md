@@ -51,13 +51,9 @@ F(n) = F(n - 1) + F(n - 2)，其中 n &gt; 1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +63,6 @@ class Solution:
             a, b = b, a + b
         return a
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fib(n int) int {
 	a, b := 0, 1
@@ -115,7 +103,31 @@ func fib(n int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function fib(n: number): number {
+    let a = 0;
+    let b = 1;
+    for (let i = 0; i < n; i++) {
+        [a, b] = [b, a + b];
+    }
+    return a;
+}
+```
+
+```rust
+impl Solution {
+    pub fn fib(n: i32) -> i32 {
+        let mut a = 0;
+        let mut b = 1;
+        for _ in 0..n {
+            let t = b;
+            b = a + b;
+            a = t;
+        }
+        a
+    }
+}
+```
 
 ```js
 /**
@@ -133,58 +145,6 @@ var fib = function (n) {
     return a;
 };
 ```
-
-### **TypeScript**
-
-```ts
-function fib(n: number): number {
-    let a = 0;
-    let b = 1;
-    for (let i = 0; i < n; i++) {
-        [a, b] = [b, a + b];
-    }
-    return a;
-}
-```
-
-```ts
-function fib(n: number): number {
-    if (n < 2) {
-        return n;
-    }
-    return fib(n - 1) + fib(n - 2);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn fib(n: i32) -> i32 {
-        let mut a = 0;
-        let mut b = 1;
-        for _ in 0..n {
-            let t = b;
-            b = a + b;
-            a = t;
-        }
-        a
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn fib(n: i32) -> i32 {
-        if n < 2 {
-            return n;
-        }
-        Self::fib(n - 1) + Self::fib(n - 2)
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -205,10 +165,32 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+function fib(n: number): number {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
 ```
 
+```rust
+impl Solution {
+    pub fn fib(n: i32) -> i32 {
+        if n < 2 {
+            return n;
+        }
+        Self::fib(n - 1) + Self::fib(n - 2)
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -29,7 +29,7 @@
 
 ## 解法
 
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示以第 $i$ 个数结尾的「连续子数组的最大和」，那么很显然我们要求的答案就是：
 
@@ -55,8 +55,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -66,8 +64,6 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSubArray(nums []int) int {
 	ans, f := -1000000000, 0
@@ -113,7 +105,29 @@ func maxSubArray(nums []int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function maxSubArray(nums: number[]): number {
+    let res = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        nums[i] = Math.max(nums[i], nums[i - 1] + nums[i]);
+        res = Math.max(res, nums[i]);
+    }
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_sub_array(mut nums: Vec<i32>) -> i32 {
+        let mut res = nums[0];
+        for i in 1..nums.len() {
+            nums[i] = nums[i].max(nums[i - 1] + nums[i]);
+            res = res.max(nums[i]);
+        }
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -131,36 +145,6 @@ var maxSubArray = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function maxSubArray(nums: number[]): number {
-    let res = nums[0];
-    for (let i = 1; i < nums.length; i++) {
-        nums[i] = Math.max(nums[i], nums[i - 1] + nums[i]);
-        res = Math.max(res, nums[i]);
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn max_sub_array(mut nums: Vec<i32>) -> i32 {
-        let mut res = nums[0];
-        for i in 1..nums.len() {
-            nums[i] = nums[i].max(nums[i - 1] + nums[i]);
-            res = res.max(nums[i]);
-        }
-        res
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxSubArray(int[] nums) {
@@ -175,10 +159,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

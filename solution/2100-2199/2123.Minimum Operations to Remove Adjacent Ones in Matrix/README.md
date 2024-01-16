@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：匈牙利算法**
+### 方法一：匈牙利算法
 
 我们注意到，如果矩阵中的两个 $1$ 相邻，那么它们一定属于不同的组。因此，我们可以把矩阵中所有的 $1$ 视为点，相邻的两个 $1$ 之间连一条边，构建二分图。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(m \times n)$，其中 $n$ 和 $m$ 分别是矩阵中 $1$ 的数目以及边的数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +95,6 @@ class Solution:
             ans += find(i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -157,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -207,8 +195,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumOperations(grid [][]int) (ans int) {
@@ -259,8 +245,6 @@ func minimumOperations(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumOperations(grid: number[][]): number {
     const m = grid.length;
@@ -309,10 +293,6 @@ function minimumOperations(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

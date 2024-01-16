@@ -53,7 +53,7 @@
 
 ## Solutions
 
-**Solution 1: Reverse Construction + Priority Queue (Max Heap)**
+### Solution 1: Reverse Construction + Priority Queue (Max Heap)
 
 We find that if we start from the array $arr$ and construct the target array $target$ forward, it is not easy to determine which index $i$ to choose each time, and the problem is relatively complex. However, if we start from the array $target$ and construct it in reverse, each construction must choose the largest element in the current array, which can ensure that each construction is unique, and the problem is relatively simple.
 
@@ -62,8 +62,6 @@ Therefore, we can use a priority queue (max heap) to store the elements in the a
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $target$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
             s = s - mx + x
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isPossible(target []int) bool {
@@ -176,8 +168,6 @@ func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
 
-### **TypeScript**
-
 ```ts
 function isPossible(target: number[]): boolean {
     const pq = new MaxPriorityQueue();
@@ -200,10 +190,6 @@ function isPossible(target: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

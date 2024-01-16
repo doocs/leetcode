@@ -35,17 +35,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def exchangeBits(self, num: int) -> int:
         return ((num & 0x55555555) << 1) | ((num & 0xAAAAAAAA) >> 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -55,7 +53,20 @@ class Solution {
 }
 ```
 
-### **Rust**
+```cpp
+class Solution {
+public:
+    int exchangeBits(int num) {
+        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
+    }
+};
+```
+
+```go
+func exchangeBits(num int) int {
+	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
+}
+```
 
 ```rust
 impl Solution {
@@ -76,29 +87,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int exchangeBits(int num) {
-        return ((num & 0x55555555) << 1) | ((num & 0xaaaaaaaa)) >> 1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func exchangeBits(num int) int {
-	return ((num & 0x55555555) << 1) | (num&0xaaaaaaaa)>>1
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

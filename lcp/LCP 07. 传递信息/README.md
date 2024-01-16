@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示经过 $i$ 轮传递到编号 $j$ 的方案数，那么最终答案即为 $f[k][n-1]$。初始时 $f[0][0]=1$，其余均为 $0$。
 
@@ -61,10 +59,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
@@ -75,22 +69,6 @@ class Solution:
                 f[i][b] += f[i - 1][a]
         return f[-1][-1]
 ```
-
-```python
-class Solution:
-    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
-        f = [1] + [0] * (n - 1)
-        for _ in range(k):
-            g = [0] * n
-            for a, b in relation:
-                g[b] += f[a]
-            f = g
-        return f[-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,6 +84,72 @@ class Solution {
         return f[k][n - 1];
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int numWays(int n, vector<vector<int>>& relation, int k) {
+        int f[k + 1][n];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= k; ++i) {
+            for (auto& r : relation) {
+                int a = r[0], b = r[1];
+                f[i][b] += f[i - 1][a];
+            }
+        }
+        return f[k][n - 1];
+    }
+};
+```
+
+```go
+func numWays(n int, relation [][]int, k int) int {
+	f := make([][]int, k+1)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	f[0][0] = 1
+	for i := 1; i <= k; i++ {
+		for _, r := range relation {
+			a, b := r[0], r[1]
+			f[i][b] += f[i-1][a]
+		}
+	}
+	return f[k][n-1]
+}
+```
+
+```ts
+function numWays(n: number, relation: number[][], k: number): number {
+    const f: number[][] = new Array(k + 1).fill(0).map(() => new Array(n).fill(0));
+    f[0][0] = 1;
+    for (let i = 1; i <= k; ++i) {
+        for (const [a, b] of relation) {
+            f[i][b] += f[i - 1][a];
+        }
+    }
+    return f[k][n - 1];
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
+        f = [1] + [0] * (n - 1)
+        for _ in range(k):
+            g = [0] * n
+            for a, b in relation:
+                g[b] += f[a]
+            f = g
+        return f[-1]
 ```
 
 ```java
@@ -124,26 +168,6 @@ class Solution {
         return f[n - 1];
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numWays(int n, vector<vector<int>>& relation, int k) {
-        int f[k + 1][n];
-        memset(f, 0, sizeof(f));
-        f[0][0] = 1;
-        for (int i = 1; i <= k; ++i) {
-            for (auto& r : relation) {
-                int a = r[0], b = r[1];
-                f[i][b] += f[i - 1][a];
-            }
-        }
-        return f[k][n - 1];
-    }
-};
 ```
 
 ```cpp
@@ -165,25 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func numWays(n int, relation [][]int, k int) int {
-	f := make([][]int, k+1)
-	for i := range f {
-		f[i] = make([]int, n)
-	}
-	f[0][0] = 1
-	for i := 1; i <= k; i++ {
-		for _, r := range relation {
-			a, b := r[0], r[1]
-			f[i][b] += f[i-1][a]
-		}
-	}
-	return f[k][n-1]
-}
-```
-
 ```go
 func numWays(n int, relation [][]int, k int) int {
 	f := make([]int, n)
@@ -197,21 +202,6 @@ func numWays(n int, relation [][]int, k int) int {
 		f = g
 	}
 	return f[n-1]
-}
-```
-
-### **TypeScript**
-
-```ts
-function numWays(n: number, relation: number[][], k: number): number {
-    const f: number[][] = new Array(k + 1).fill(0).map(() => new Array(n).fill(0));
-    f[0][0] = 1;
-    for (let i = 1; i <= k; ++i) {
-        for (const [a, b] of relation) {
-            f[i][b] += f[i - 1][a];
-        }
-    }
-    return f[k][n - 1];
 }
 ```
 
@@ -230,10 +220,6 @@ function numWays(n: number, relation: number[][], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

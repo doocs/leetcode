@@ -65,11 +65,9 @@ p1 = 1 且 p2 = 3 时, 是不可能为矩形的, 面积等于 0
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -85,3 +83,5 @@ ORDER BY area DESC, p1, p2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

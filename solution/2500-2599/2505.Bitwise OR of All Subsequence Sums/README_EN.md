@@ -36,9 +36,9 @@ And we have 0 OR 1 OR 2 OR 3 OR 4 OR 5 OR 6 = 7, so we return 7.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             cnt[i + 1] += cnt[i] // 2
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subsequenceSumOr(nums []int) int64 {
 	cnt := make([]int, 64)
@@ -130,10 +124,6 @@ func subsequenceSumOr(nums []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

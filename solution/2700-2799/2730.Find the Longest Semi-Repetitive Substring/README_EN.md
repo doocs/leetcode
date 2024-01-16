@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSemiRepetitiveSubstring(s string) (ans int) {
 	n := len(s)
@@ -136,8 +130,6 @@ func longestSemiRepetitiveSubstring(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestSemiRepetitiveSubstring(s: string): number {
@@ -159,10 +151,6 @@ function longestSemiRepetitiveSubstring(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

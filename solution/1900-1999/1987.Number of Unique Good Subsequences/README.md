@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f$ 表示以 $1$ 结尾的不同好子序列的数目，定义 $g$ 表示以 $0$ 结尾的且以 $1$ 开头的不同好子序列的数目。初始时 $f = g = 0$。
 
@@ -75,10 +73,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
@@ -94,10 +88,6 @@ class Solution:
         ans = (ans + f + g) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	const mod int = 1e9 + 7
@@ -160,8 +146,6 @@ func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfUniqueGoodSubsequences(binary: string): number {
@@ -181,10 +165,6 @@ function numberOfUniqueGoodSubsequences(binary: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

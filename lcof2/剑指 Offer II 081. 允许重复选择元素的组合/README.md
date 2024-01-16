@@ -63,17 +63,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-DFS。
-
-为了避免重复方案，需要定义一个搜索起点。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -96,10 +88,6 @@ class Solution:
         dfs(0, 0, [])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func combinationSum(candidates []int, target int) [][]int {
 	var ans [][]int
@@ -195,10 +179,64 @@ func combinationSum(candidates []int, target int) [][]int {
 }
 ```
 
-### **...**
+```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-```
+public class Solution
+{
+    public IList<IList<int>> CombinationSum(int[] candidates, int target)
+    {
+        Array.Sort(candidates);
+        candidates = candidates.Distinct().ToArray();
 
+        var paths = new List<int>[target + 1];
+        paths[0] = new List<int>();
+        foreach (var c in candidates)
+        {
+            for (var j = c; j <= target; ++j)
+            {
+                if (paths[j - c] != null)
+                {
+                    if (paths[j] == null)
+                    {
+                        paths[j] = new List<int>();
+                    }
+                    paths[j].Add(c);
+                }
+            }
+        }
+
+        var results = new List<IList<int>>();
+        if (paths[target] != null) GenerateResults(results, new Stack<int>(), paths, target, paths[target].Count - 1);
+        return results;
+    }
+
+    private void GenerateResults(IList<IList<int>> results, Stack<int> result, List<int>[] paths, int remaining,
+        int maxIndex)
+    {
+        if (remaining == 0)
+        {
+            results.Add(new List<int>(result));
+            return;
+        }
+        for (var i = maxIndex; i >= 0; --i)
+        {
+            var value = paths[remaining][i];
+            result.Push(value);
+            var nextMaxIndex = paths[remaining - value].BinarySearch(value);
+            if (nextMaxIndex < 0)
+            {
+                nextMaxIndex = ~nextMaxIndex - 1;
+            }
+            GenerateResults(results, result, paths, remaining - value, nextMaxIndex);
+            result.Pop();
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

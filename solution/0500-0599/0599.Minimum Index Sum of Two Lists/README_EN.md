@@ -55,9 +55,9 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
                     ans.append(v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,34 +128,28 @@ public:
 };
 ```
 
-### **Go**
-
-```cpp
-func findRestaurant(list1[] string, list2[] string)[] string {
-mp:= make(map[string]int)
+```go
+func findRestaurant(list1 []string, list2 []string) []string {
+	mp := make(map[string]int)
 	for i, v := range list2 {
 		mp[v] = i
 	}
 	mi := 2000
 	var ans []string
 	for i, v := range list1 {
-        if _
-            , ok : = mp[v];
-        ok {
-        t:
-            = i + mp[v] if t < mi {
-                ans = [] string { v } mi = t
-            }
-            else if t == mi {
-                ans = append(ans, v)
-            }
-        }
-    }
-    return ans
+		if _, ok := mp[v]; ok {
+			t := i + mp[v]
+			if t < mi {
+				ans = []string{v}
+				mi = t
+			} else if t == mi {
+				ans = append(ans, v)
+			}
+		}
+	}
+	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findRestaurant(list1: string[], list2: string[]): string[] {
@@ -181,8 +171,6 @@ function findRestaurant(list1: string[], list2: string[]): string[] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -213,10 +201,37 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```cpp
+func findRestaurant(list1[] string, list2[] string)[] string {
+mp:= make(map[string]int)
+	for i, v := range list2 {
+		mp[v] = i
+	}
+	mi := 2000
+	var ans []string
+	for i, v := range list1 {
+        if _
+            , ok : = mp[v];
+        ok {
+        t:
+            = i + mp[v] if t < mi {
+                ans = [] string { v } mi = t
+            }
+            else if t == mi {
+                ans = append(ans, v)
+            }
+        }
+    }
+    return ans
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

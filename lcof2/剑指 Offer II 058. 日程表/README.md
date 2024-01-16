@@ -47,13 +47,9 @@ MyCalendar.book(20, 30); // returns true ，第三个日程安排可以添加到
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -76,10 +72,6 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.util.Map;
@@ -112,8 +104,6 @@ class MyCalendar {
  */
 ```
 
-### **Go**
-
 ```go
 type MyCalendar struct {
 	rbt *redblacktree.Tree
@@ -143,10 +133,6 @@ func (this *MyCalendar) Book(start int, end int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

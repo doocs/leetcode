@@ -55,9 +55,9 @@ Then, use the second operation on the third and sixth elements to make s = &quot
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
             ans = min(ans, cnt, n - cnt)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minFlips(s string) int {
 	n := len(s)
@@ -155,8 +149,6 @@ func minFlips(s string) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minFlips(s: string): number {
@@ -182,10 +174,6 @@ function minFlips(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

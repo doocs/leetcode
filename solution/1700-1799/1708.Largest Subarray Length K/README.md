@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 数组中所有整数都不同，我们可以先在 $[0,..n-k]$ 范围内找到最大的元素的下标，然后从该下标开始取 $k$ 个元素即可。
 
@@ -69,20 +67,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def largestSubarray(self, nums: List[int], k: int) -> List[int]:
         i = nums.index(max(nums[: len(nums) - k + 1]))
         return nums[i : i + k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestSubarray(nums []int, k int) []int {
@@ -124,8 +110,6 @@ func largestSubarray(nums []int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestSubarray(nums: number[], k: number): number[] {
     let j = 0;
@@ -137,8 +121,6 @@ function largestSubarray(nums: number[], k: number): number[] {
     return nums.slice(j, j + k);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -154,10 +136,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：维护前缀最大值和最大差值**
+### 方法一：维护前缀最大值和最大差值
 
 我们可以用两个变量 $mx$ 和 $mx\_diff$ 分别维护前缀最大值和最大差值。遍历数组时，更新这两个变量，答案为所有 $mx\_diff \times nums[i]$ 的最大值。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             mx_diff = max(mx_diff, mx - num)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumTripletValue(nums []int) int64 {
 	ans, mx, mx_diff := 0, 0, 0
@@ -128,8 +114,6 @@ func maximumTripletValue(nums []int) int64 {
 	return int64(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumTripletValue(nums: number[]): number {
@@ -143,10 +127,6 @@ function maximumTripletValue(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

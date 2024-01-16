@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们观察题目的数据范围，可以发现 $steps$ 最大不超过 $500$，这意味着我们最远只能往右走 $500$ 步。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(steps \times steps)$，空间复杂度 $O(steps \times steps)$。其中 $steps$ 是题目给定的步数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(0, steps)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numWays(steps int, arrLen int) int {
@@ -198,8 +184,6 @@ func numWays(steps int, arrLen int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numWays(steps: number, arrLen: number): number {
     const f = Array.from({ length: steps }, () => Array(steps + 1).fill(-1));
@@ -224,10 +208,6 @@ function numWays(steps: number, arrLen: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

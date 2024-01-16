@@ -59,15 +59,13 @@ Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We simulate operations $1$ and $2$, while using `carry` to record the carry-over.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -89,8 +87,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numSteps(s string) int {
@@ -179,10 +171,6 @@ func numSteps(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,7 +60,7 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 
 ## Solutions
 
-**Solution 1: Case Discussion + DFS**
+### Solution 1: Case Discussion + DFS
 
 We can use DFS to simulate the movement of the ball. We design a function $dfs(i, j)$, which represents that the ball starts from the $i$th row and the $j$th column, and finally falls in which column. The ball will get stuck in the following situations:
 
@@ -74,8 +74,6 @@ If any of the above situations are met, we can judge that the ball will get stuc
 The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Where $m$ and $n$ are the number of rows and columns of the array $grid$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -96,8 +94,6 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return [dfs(0, j) for j in range(n)]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +164,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findBall(grid [][]int) (ans []int) {
@@ -205,8 +197,6 @@ func findBall(grid [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findBall(grid: number[][]): number[] {
     const m = grid.length;
@@ -234,8 +224,6 @@ function findBall(grid: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -268,10 +256,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,9 @@ It&#39;s impossible to make all three washing machines have the same number of d
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
             ans = max(ans, abs(s), x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMinMoves(machines []int) (ans int) {
@@ -151,8 +145,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMinMoves(machines: number[]): number {
     const n = machines.length;
@@ -172,10 +164,6 @@ function findMinMoves(machines: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

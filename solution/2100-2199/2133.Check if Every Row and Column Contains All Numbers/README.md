@@ -46,13 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +70,6 @@ class Solution:
                 seen[v] = True
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,29 +100,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-function checkValid(matrix: number[][]): boolean {
-    const n = matrix.length;
-    let rows = Array.from({ length: n }, () => new Array(n).fill(false));
-    let cols = Array.from({ length: n }, () => new Array(n).fill(false));
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            let cur = matrix[i][j];
-            if (rows[i][cur] || cols[j][cur]) return false;
-            rows[i][cur] = true;
-            cols[j][cur] = true;
-        }
-    }
-    return true;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkValid(matrix [][]int) bool {
@@ -186,10 +153,23 @@ func checkValid(matrix [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function checkValid(matrix: number[][]): boolean {
+    const n = matrix.length;
+    let rows = Array.from({ length: n }, () => new Array(n).fill(false));
+    let cols = Array.from({ length: n }, () => new Array(n).fill(false));
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            let cur = matrix[i][j];
+            if (rows[i][cur] || cols[j][cur]) return false;
+            rows[i][cur] = true;
+            cols[j][cur] = true;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

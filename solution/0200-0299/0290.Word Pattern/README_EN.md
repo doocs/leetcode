@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 First, we split the string $s$ into a word array $ws$ with spaces. If the length of $pattern$ and $ws$ is not equal, return `false` directly. Otherwise, we use two hash tables $d_1$ and $d_2$ to record the correspondence between each character and word in $pattern$ and $ws$.
 
@@ -55,8 +55,6 @@ After the traversal, return `true`.
 The time complexity is $O(m + n)$ and the space complexity is $O(m + n)$. Here $m$ and $n$ are the length of $pattern$ and string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
             d2[b] = a
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wordPattern(pattern string, s string) bool {
 	ws := strings.Split(s, " ")
@@ -153,8 +145,6 @@ func wordPattern(pattern string, s string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function wordPattern(pattern: string, s: string): boolean {
@@ -179,36 +169,6 @@ function wordPattern(pattern: string, s: string): boolean {
     return true;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool WordPattern(string pattern, string s) {
-        var ws = s.Split(' ');
-        if (pattern.Length != ws.Length) {
-            return false;
-        }
-        var d1 = new Dictionary<char, string>();
-        var d2 = new Dictionary<string, char>();
-        for (int i = 0; i < ws.Length; ++i) {
-            var a = pattern[i];
-            var b = ws[i];
-            if (d1.ContainsKey(a) && d1[a] != b) {
-                return false;
-            }
-            if (d2.ContainsKey(b) && d2[b] != a) {
-                return false;
-            }
-            d1[a] = b;
-            d2[b] = a;
-        }
-        return true;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -241,10 +201,32 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool WordPattern(string pattern, string s) {
+        var ws = s.Split(' ');
+        if (pattern.Length != ws.Length) {
+            return false;
+        }
+        var d1 = new Dictionary<char, string>();
+        var d2 = new Dictionary<string, char>();
+        for (int i = 0; i < ws.Length; ++i) {
+            var a = pattern[i];
+            var b = ws[i];
+            if (d1.ContainsKey(a) && d1[a] != b) {
+                return false;
+            }
+            if (d2.ContainsKey(b) && d2[b] != a) {
+                return false;
+            }
+            d1[a] = b;
+            d2[b] = a;
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

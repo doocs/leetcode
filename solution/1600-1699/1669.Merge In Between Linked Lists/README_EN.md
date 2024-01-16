@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -66,8 +66,6 @@ class Solution:
         q.next = None
         return list1
 ```
-
-### **Java**
 
 ```java
 /**
@@ -99,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -134,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -161,8 +155,6 @@ func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
 	return list1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -201,8 +193,6 @@ function mergeInBetween(
 }
 ```
 
-### **C#**
-
 ```cs
 /**
  * Definition for singly-linked list.
@@ -235,10 +225,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

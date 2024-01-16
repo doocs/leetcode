@@ -89,17 +89,11 @@ Confirmations 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：左连接 + 分组统计**
+### 方法一：左连接 + 分组统计
 
 我们可以使用左连接，将 `Signups` 表和 `Confirmations` 表按照 `user_id` 进行连接，然后使用 `GROUP BY` 对 `user_id` 进行分组统计。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -113,3 +107,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

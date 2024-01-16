@@ -43,9 +43,9 @@ Minimum cost: 2 + 5 + 3 = 10.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             a, b, c = min(b, c) + ca, min(a, c) + cb, min(a, b) + cc
         return min(a, b, c)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(costs [][]int) int {
 	r, g, b := 0, 0, 0
@@ -105,8 +99,6 @@ func minCost(costs [][]int) int {
 	return min(r, min(g, b))
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -122,10 +114,6 @@ var minCost = function (costs) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

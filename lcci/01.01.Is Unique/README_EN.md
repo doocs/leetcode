@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Bit Manipulation**
+### Solution 1: Bit Manipulation
 
 Based on the examples, we can assume that the string only contains lowercase letters (which is confirmed by actual verification).
 
@@ -43,8 +43,6 @@ Therefore, we can use each bit of a $32$-bit integer `mask` to represent whether
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -57,8 +55,6 @@ class Solution:
             mask |= 1 << i
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isUnique(astr string) bool {
 	mask := 0
@@ -111,7 +103,19 @@ func isUnique(astr string) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+function isUnique(astr: string): boolean {
+    let mask = 0;
+    for (let j = 0; j < astr.length; ++j) {
+        const i = astr.charCodeAt(j) - 'a'.charCodeAt(0);
+        if ((mask >> i) & 1) {
+            return false;
+        }
+        mask |= 1 << i;
+    }
+    return true;
+}
+```
 
 ```js
 /**
@@ -131,26 +135,6 @@ var isUnique = function (astr) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function isUnique(astr: string): boolean {
-    let mask = 0;
-    for (let j = 0; j < astr.length; ++j) {
-        const i = astr.charCodeAt(j) - 'a'.charCodeAt(0);
-        if ((mask >> i) & 1) {
-            return false;
-        }
-        mask |= 1 << i;
-    }
-    return true;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

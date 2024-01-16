@@ -23,9 +23,7 @@ death = {1948, 1951, 2000}
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 题目实际上是对一个连续的区间进行加减操作，然后求最大值。这种情况下可以使用差分数组来解决。
 
@@ -36,10 +34,6 @@ death = {1948, 1951, 2000}
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是出生年份和死亡年份的长度，而 $C$ 是年份的范围。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -58,10 +52,6 @@ class Solution:
                 ans = base + i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxAliveYear(birth []int, death []int) (ans int) {
 	base := 1900
@@ -140,8 +126,6 @@ func maxAliveYear(birth []int, death []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxAliveYear(birth: number[], death: number[]): number {
     const base = 1900;
@@ -163,8 +147,6 @@ function maxAliveYear(birth: number[], death: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -191,10 +173,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

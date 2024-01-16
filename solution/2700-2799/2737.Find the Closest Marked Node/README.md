@@ -68,9 +68,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Dijkstra 算法**
+### 方法一：Dijkstra 算法
 
 我们先根据题目中提供的边的信息，建立一个邻接矩阵 $g$，其中 $g[i][j]$ 表示节点 $i$ 到节点 $j$ 的距离，如果不存在这样的边，则 $g[i][j]$ 为正无穷。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
         ans = min(dist[i] for i in marked)
         return -1 if ans >= inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +173,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumDistance(n int, edges [][]int, s int, marked []int) int {
@@ -229,8 +215,6 @@ func minimumDistance(n int, edges [][]int, s int, marked []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumDistance(n: number, edges: number[][], s: number, marked: number[]): number {
     const inf = 1 << 29;
@@ -263,10 +247,6 @@ function minimumDistance(n: number, edges: number[][], s: number, marked: number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

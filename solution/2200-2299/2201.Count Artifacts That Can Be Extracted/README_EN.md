@@ -62,15 +62,13 @@ Thus, we return 1.
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We can use a hash table $s$ to record all the excavated cells, then traverse all the workpieces, and check whether all parts of the workpiece are in the hash table. If so, we can extract the workpiece, and the answer is increased by one.
 
 The time complexity is $O(m + k)$, and the space complexity is $O(k)$. Here, $m$ is the number of workpieces, and $k$ is the number of excavated cells.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,8 +84,6 @@ class Solution:
         s = {(i, j) for i, j in dig}
         return sum(check(a) for a in artifacts)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	s := map[int]bool{}
@@ -175,8 +167,6 @@ func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number {
@@ -202,8 +192,6 @@ function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -237,10 +225,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

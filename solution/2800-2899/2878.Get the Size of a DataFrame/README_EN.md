@@ -52,9 +52,9 @@ This DataFrame contains 10 rows and 5 columns.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -64,10 +64,6 @@ def getDataframeSize(players: pd.DataFrame) -> List[int]:
     return list(players.shape)
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

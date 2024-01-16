@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             ans[i // c][i % c] = mat[i // n][i % n]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matrixReshape(mat [][]int, r int, c int) [][]int {
 	m, n := len(mat), len(mat[0])
@@ -112,8 +106,6 @@ func matrixReshape(mat [][]int, r int, c int) [][]int {
 }
 ```
 
-### **TypeScrpt**
-
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     let m = mat.length,
@@ -130,23 +122,6 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     return ans;
 }
 ```
-
-```ts
-function matrixReshape(mat: number[][], r: number, c: number): number[][] {
-    const m = mat.length;
-    const n = mat[0].length;
-    if (m * n !== r * c) {
-        return mat;
-    }
-    const ans = Array.from({ length: r }, () => new Array(c).fill(0));
-    for (let i = 0; i < r * c; i++) {
-        ans[Math.floor(i / c)][i % c] = mat[Math.floor(i / n)][i % n];
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -181,8 +156,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Return an array of arrays of size *returnSize.
@@ -209,10 +182,27 @@ int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* 
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function matrixReshape(mat: number[][], r: number, c: number): number[][] {
+    const m = mat.length;
+    const n = mat[0].length;
+    if (m * n !== r * c) {
+        return mat;
+    }
+    const ans = Array.from({ length: r }, () => new Array(c).fill(0));
+    for (let i = 0; i < r * c; i++) {
+        ans[Math.floor(i / c)][i % c] = mat[Math.floor(i / n)][i % n];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

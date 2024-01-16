@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符映射**
+### 方法一：字符映射
 
 我们将每个键盘行的字符映射到对应的行数，然后遍历字符串数组，判断每个字符串是否都在同一行即可。
 
 时间复杂度 $O(L)$，空间复杂度 $O(C)$。其中 $L$ 为所有字符串的长度之和；而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,22 +74,6 @@ class Solution:
                 ans.append(w)
         return ans
 ```
-
-```python
-class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
-        ans = []
-        s = "12210111011122000010020202"
-        for w in words:
-            x = s[ord(w[0].lower()) - ord('a')]
-            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
-                ans.append(w)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findWords(words []string) (ans []string) {
 	s := "12210111011122000010020202"
@@ -169,7 +143,27 @@ func findWords(words []string) (ans []string) {
 }
 ```
 
-### **C#**
+```ts
+function findWords(words: string[]): string[] {
+    const s = '12210111011122000010020202';
+    const ans: string[] = [];
+    for (const w of words) {
+        const t = w.toLowerCase();
+        const x = s[t.charCodeAt(0) - 'a'.charCodeAt(0)];
+        let ok = true;
+        for (const c of t) {
+            if (s[c.charCodeAt(0) - 'a'.charCodeAt(0)] !== x) {
+                ok = false;
+                break;
+            }
+        }
+        if (ok) {
+            ans.push(w);
+        }
+    }
+    return ans;
+}
+```
 
 ```cs
 public class Solution {
@@ -194,34 +188,24 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function findWords(words: string[]): string[] {
-    const s = '12210111011122000010020202';
-    const ans: string[] = [];
-    for (const w of words) {
-        const t = w.toLowerCase();
-        const x = s[t.charCodeAt(0) - 'a'.charCodeAt(0)];
-        let ok = true;
-        for (const c of t) {
-            if (s[c.charCodeAt(0) - 'a'.charCodeAt(0)] !== x) {
-                ok = false;
-                break;
-            }
-        }
-        if (ok) {
-            ans.push(w);
-        }
-    }
-    return ans;
-}
-```
+### 方法二
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```python
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        ans = []
+        s = "12210111011122000010020202"
+        for w in words:
+            x = s[ord(w[0].lower()) - ord('a')]
+            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
+                ans.append(w)
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

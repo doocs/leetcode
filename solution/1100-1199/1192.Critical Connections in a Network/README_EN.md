@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Tarjan Algorithm**
+### Solution 1: Tarjan Algorithm
 
 The "critical connections" in this problem can be considered as "bridges".
 
@@ -52,8 +52,6 @@ Correspondingly, there is also the concept of "articulation points".
 There is an algorithm called the Tarjan algorithm for finding "bridges" and "articulation points" in a graph. This algorithm uses a depth-first search (DFS) method that first recursively visits adjacent nodes and then visits the node itself. By recording the "order of visit: DFN" and updating the "earliest backtrackable node: low" when visiting the node itself after recursion ends, it can find the "bridges" and "articulation points" of the graph in $O(n)$ time. Also, this algorithm can be used to find strongly connected components in directed graphs.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
         tarjan(0, -1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	now := 0
@@ -207,8 +199,6 @@ func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function criticalConnections(n: number, connections: number[][]): number[][] {
@@ -245,10 +235,6 @@ function criticalConnections(n: number, connections: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

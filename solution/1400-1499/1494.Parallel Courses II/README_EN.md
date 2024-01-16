@@ -50,9 +50,9 @@ In the fourth semester, you can take course 5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
                         q.append((nxt | cur, t + 1))
                     nxt = (nxt - 1) & x
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -128,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -176,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minNumberOfSemesters(n int, relations [][]int, k int) int {
 	d := make([]int, n+1)
@@ -221,10 +215,6 @@ func minNumberOfSemesters(n int, relations [][]int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

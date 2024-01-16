@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             and check(p1, p2, p4)
         )
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +120,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
@@ -151,10 +145,6 @@ func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划（逆向）**
+### 方法一：动态规划（逆向）
 
 题目需要我们找到从下标 1 到下标 n 的最小花费路径，且字典序最小，我们可以使用动态规划求解。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组的长度和最大跳跃长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 ans.append(i + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func cheapestJump(coins []int, maxJump int) (ans []int) {
 	n := len(coins)
@@ -198,8 +184,6 @@ func cheapestJump(coins []int, maxJump int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function cheapestJump(coins: number[], maxJump: number): number[] {
     const n = coins.length;
@@ -230,10 +214,6 @@ function cheapestJump(coins: number[], maxJump: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

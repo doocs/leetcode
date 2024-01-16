@@ -35,9 +35,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 差分数组模板题。
 
@@ -45,24 +43,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
-**方法二：树状数组 + 差分思想**
-
-时间复杂度 $O(n\times \log n)$。
-
-树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
-
-1. **单点更新** `update(x, delta)`： 把序列 $x$ 位置的数加上一个值 $delta$；
-1. **前缀和查询** `query(x)`：查询序列 $[1,...x]$ 区间的区间和，即位置 $x$ 的前缀和。
-
-这两个操作的时间复杂度均为 $O(\log n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-差分数组：
 
 ```python
 class Solution:
@@ -75,7 +56,93 @@ class Solution:
         return list(accumulate(d))
 ```
 
-树状数组：
+```java
+class Solution {
+    public int[] getModifiedArray(int length, int[][] updates) {
+        int[] d = new int[length];
+        for (var e : updates) {
+            int l = e[0], r = e[1], c = e[2];
+            d[l] += c;
+            if (r + 1 < length) {
+                d[r + 1] -= c;
+            }
+        }
+        for (int i = 1; i < length; ++i) {
+            d[i] += d[i - 1];
+        }
+        return d;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> getModifiedArray(int length, vector<vector<int>>& updates) {
+        vector<int> d(length);
+        for (auto& e : updates) {
+            int l = e[0], r = e[1], c = e[2];
+            d[l] += c;
+            if (r + 1 < length) d[r + 1] -= c;
+        }
+        for (int i = 1; i < length; ++i) d[i] += d[i - 1];
+        return d;
+    }
+};
+```
+
+```go
+func getModifiedArray(length int, updates [][]int) []int {
+	d := make([]int, length)
+	for _, e := range updates {
+		l, r, c := e[0], e[1], e[2]
+		d[l] += c
+		if r+1 < length {
+			d[r+1] -= c
+		}
+	}
+	for i := 1; i < length; i++ {
+		d[i] += d[i-1]
+	}
+	return d
+}
+```
+
+```js
+/**
+ * @param {number} length
+ * @param {number[][]} updates
+ * @return {number[]}
+ */
+var getModifiedArray = function (length, updates) {
+    const d = new Array(length).fill(0);
+    for (const [l, r, c] of updates) {
+        d[l] += c;
+        if (r + 1 < length) {
+            d[r + 1] -= c;
+        }
+    }
+    for (let i = 1; i < length; ++i) {
+        d[i] += d[i - 1];
+    }
+    return d;
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二：树状数组 + 差分思想
+
+时间复杂度 $O(n\times \log n)$。
+
+树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
+
+1. **单点更新** `update(x, delta)`： 把序列 $x$ 位置的数加上一个值 $delta$；
+1. **前缀和查询** `query(x)`：查询序列 $[1,...x]$ 区间的区间和，即位置 $x$ 的前缀和。
+
+这两个操作的时间复杂度均为 $O(\log n)$。
+
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -108,33 +175,6 @@ class Solution:
             tree.update(end + 2, -inc)
         return [tree.query(i + 1) for i in range(length)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-差分数组：
-
-```java
-class Solution {
-    public int[] getModifiedArray(int length, int[][] updates) {
-        int[] d = new int[length];
-        for (var e : updates) {
-            int l = e[0], r = e[1], c = e[2];
-            d[l] += c;
-            if (r + 1 < length) {
-                d[r + 1] -= c;
-            }
-        }
-        for (int i = 1; i < length; ++i) {
-            d[i] += d[i - 1];
-        }
-        return d;
-    }
-}
-```
-
-树状数组：
 
 ```java
 class Solution {
@@ -184,28 +224,6 @@ class BinaryIndexedTree {
 }
 ```
 
-### **C++**
-
-差分数组：
-
-```cpp
-class Solution {
-public:
-    vector<int> getModifiedArray(int length, vector<vector<int>>& updates) {
-        vector<int> d(length);
-        for (auto& e : updates) {
-            int l = e[0], r = e[1], c = e[2];
-            d[l] += c;
-            if (r + 1 < length) d[r + 1] -= c;
-        }
-        for (int i = 1; i < length; ++i) d[i] += d[i - 1];
-        return d;
-    }
-};
-```
-
-树状数组：
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -253,29 +271,6 @@ public:
 };
 ```
 
-### **Go**
-
-差分数组：
-
-```go
-func getModifiedArray(length int, updates [][]int) []int {
-	d := make([]int, length)
-	for _, e := range updates {
-		l, r, c := e[0], e[1], e[2]
-		d[l] += c
-		if r+1 < length {
-			d[r+1] -= c
-		}
-	}
-	for i := 1; i < length; i++ {
-		d[i] += d[i-1]
-	}
-	return d
-}
-```
-
-树状数组：
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -322,33 +317,6 @@ func getModifiedArray(length int, updates [][]int) []int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} length
- * @param {number[][]} updates
- * @return {number[]}
- */
-var getModifiedArray = function (length, updates) {
-    const d = new Array(length).fill(0);
-    for (const [l, r, c] of updates) {
-        d[l] += c;
-        if (r + 1 < length) {
-            d[r + 1] -= c;
-        }
-    }
-    for (let i = 1; i < length; ++i) {
-        d[i] += d[i - 1];
-    }
-    return d;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

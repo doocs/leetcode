@@ -19,45 +19,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串分割**
+### 方法一：字符串分割
 
 将字符串 `s` 按照空格进行分割，然后统计不为空的单词个数。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
-**方法二：模拟**
-
-直接模拟，遍历字符串，检测每个字符，统计个数。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
         return len(s.split())
 ```
-
-```python
-class Solution:
-    def countSegments(self, s: str) -> int:
-        ans = 0
-        for i, c in enumerate(s):
-            if c != ' ' and (i == 0 or s[i - 1] == ' '):
-                ans += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -73,22 +47,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countSegments(String s) {
-        int ans = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            if (s.charAt(i) != ' ' && (i == 0 || s.charAt(i - 1) == ' ')) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,23 +59,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int countSegments(string s) {
-        int ans = 0;
-        for (int i = 0; i < s.size(); ++i) {
-            if (s[i] != ' ' && (i == 0 || s[i - 1] == ' ')) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countSegments(s string) int {
 	ans := 0
@@ -129,20 +70,6 @@ func countSegments(s string) int {
 	return ans
 }
 ```
-
-```go
-func countSegments(s string) int {
-	ans := 0
-	for i, c := range s {
-		if c != ' ' && (i == 0 || s[i-1] == ' ') {
-			ans++
-		}
-	}
-	return ans
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -163,10 +90,67 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：模拟
+
+直接模拟，遍历字符串，检测每个字符，统计个数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countSegments(self, s: str) -> int:
+        ans = 0
+        for i, c in enumerate(s):
+            if c != ' ' and (i == 0 or s[i - 1] == ' '):
+                ans += 1
+        return ans
 ```
 
+```java
+class Solution {
+    public int countSegments(String s) {
+        int ans = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) != ' ' && (i == 0 || s.charAt(i - 1) == ' ')) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countSegments(string s) {
+        int ans = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] != ' ' && (i == 0 || s[i - 1] == ' ')) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countSegments(s string) int {
+	ans := 0
+	for i, c := range s {
+		if c != ' ' && (i == 0 || s[i-1] == ' ') {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

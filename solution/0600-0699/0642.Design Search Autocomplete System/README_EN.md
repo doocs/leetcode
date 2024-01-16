@@ -65,9 +65,9 @@ obj.input(&quot;#&quot;); // return []. The user finished the input, the sentenc
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -132,8 +132,6 @@ class AutocompleteSystem:
 # obj = AutocompleteSystem(sentences, times)
 # param_1 = obj.input(c)
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -222,10 +220,6 @@ class AutocompleteSystem {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

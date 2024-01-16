@@ -70,7 +70,7 @@ If you select substring source[3..7] as the first operation to change &quot;abcd
 
 ## Solutions
 
-**Solution 1: Trie + Floyd Algorithm + Memoization Search**
+### Solution 1: Trie + Floyd Algorithm + Memoization Search
 
 According to the problem description, we can consider each string as a node, and the conversion cost between each pair of strings as a directed edge. We first initialize a $26 \times 26$ two-dimensional array $g$, where $g[i][j]$ represents the minimum cost of converting string $i$ to string $j$. Initially, $g[i][j] = \infty$, and if $i = j$, then $g[i][j] = 0$. Here, we can use a trie to store the strings in `original` and `changed` along with their corresponding integer identifiers.
 
@@ -100,8 +100,6 @@ To avoid repeated calculations, we can use memoization search.
 The time complexity is $O(m^3 + n^2 + m \times n)$, and the space complexity is $O(m^2 + m \times n + n)$. Where $m$ and $n$ are the lengths of the arrays `original` and `source`, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Node:
@@ -173,8 +171,6 @@ class Solution:
         ans = dfs(0)
         return -1 if ans >= inf else ans
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -264,8 +260,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Node {
@@ -366,8 +360,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 type Node struct {
 	children [26]*Node
@@ -460,8 +452,6 @@ func minimumCost(source string, target string, original []string, changed []stri
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Node {
     children: (Node | null)[] = Array(26).fill(null);
@@ -542,10 +532,6 @@ function minimumCost(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -34,15 +34,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-“所有下属” 包括了 “下属的下属”，先用哈希表存储员工 id 和员工之间的映射关系，然后再递归求解即可（也能用 BFS 实现）
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -68,10 +62,6 @@ class Solution:
 
         return dfs(id)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for Employee.
@@ -139,10 +127,6 @@ var GetImportance = function (employees, id) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

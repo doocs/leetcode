@@ -115,15 +115,11 @@ Moustafa 在2020年6月花费了110 (10 * 2 + 45 * 2), 在7月花费了0.</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等值连接 + 分组求和**
+### 方法一：等值连接 + 分组求和
 
 我们可以使用 `JOIN` 语句，连接 `Orders` 和 `Product` 表，再连接 `Customers` 表，筛选出 `order_date` 在 $2020$ 年的记录，然后使用 `GROUP BY` 语句，按照 `customer_id` 分组，使用 `HAVING` 语句，筛选出 $6$ 月和 $7$ 月花费大于等于 $100$ 的客户。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -140,3 +136,5 @@ HAVING
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Priority Queue (Min Heap)**
+### Solution 1: Priority Queue (Min Heap)
 
 We use a priority queue (min heap) to maintain all possible super ugly numbers, initially putting $1$ into the queue.
 
@@ -51,8 +51,6 @@ Since the problem guarantees that the $n$th super ugly number is within the rang
 The time complexity is $O(n \times m \times \log (n \times m))$, and the space complexity is $O(n \times m)$. Where $m$ and $n$ are the length of the array `primes` and the given integer $n$ respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
                     break
         return x
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nthSuperUglyNumber(n int, primes []int) (x int) {
@@ -153,6 +145,12 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```go
 type Ugly struct{ value, prime, index int }
@@ -187,10 +185,6 @@ func nthSuperUglyNumber(n int, primes []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

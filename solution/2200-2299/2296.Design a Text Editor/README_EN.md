@@ -74,9 +74,9 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class TextEditor:
@@ -113,8 +113,6 @@ class TextEditor:
 # param_3 = obj.cursorLeft(k)
 # param_4 = obj.cursorRight(k)
 ```
-
-### **Java**
 
 ```java
 class TextEditor {
@@ -163,8 +161,6 @@ class TextEditor {
  */
 ```
 
-### **C++**
-
 ```cpp
 class TextEditor {
 public:
@@ -212,8 +208,6 @@ private:
  * string param_4 = obj->cursorRight(k);
  */
 ```
-
-### **Go**
 
 ```go
 type TextEditor struct {
@@ -266,16 +260,6 @@ func (this *TextEditor) CursorRight(k int) string {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

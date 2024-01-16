@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 定义 $dfs(i)$ 为输出 $i$ 个字符的最少操作次数。初始化 `dfs(1)=0`。
 
@@ -60,21 +58,7 @@ $$
 
 时间复杂度 $O(n\sqrt{n})$。
 
-**方法二：动态规划**
-
-记忆化搜索也可以改成动态规划。
-
-$$
-dp[i]=\min _{j \mid i} (dp[\frac{i}{j}]+j, i), 2\leq j\lt i
-$$
-
-时间复杂度 $O(n\sqrt{n})$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,24 +76,6 @@ class Solution:
 
         return dfs(n)
 ```
-
-```python
-class Solution:
-    def minSteps(self, n: int) -> int:
-        dp = list(range(n + 1))
-        dp[1] = 0
-        for i in range(2, n + 1):
-            j = 2
-            while j * j <= i:
-                if i % j == 0:
-                    dp[i] = min(dp[i], dp[i // j] + j)
-                j += 1
-        return dp[-1]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,43 +106,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minSteps(int n) {
-        int[] dp = new int[n + 1];
-        for (int i = 0; i < n + 1; ++i) {
-            dp[i] = i;
-        }
-        dp[1] = 0;
-        for (int i = 2; i < n + 1; ++i) {
-            for (int j = 2; j * j <= i; ++j) {
-                if (i % j == 0) {
-                    dp[i] = Math.min(dp[i], dp[i / j] + j);
-                }
-            }
-        }
-        return dp[n];
-    }
-}
-```
-
-```java
-class Solution {
-    public int minSteps(int n) {
-        int res = 0;
-        for (int i = 2; n > 1; ++i) {
-            while (n % i == 0) {
-                res += i;
-                n /= i;
-            }
-        }
-        return res;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -201,27 +130,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minSteps(int n) {
-        vector<int> dp(n + 1);
-        iota(dp.begin(), dp.end(), 0);
-        dp[1] = 0;
-        for (int i = 2; i < n + 1; ++i) {
-            for (int j = 2; j * j <= i; ++j) {
-                if (i % j == 0) {
-                    dp[i] = min(dp[i], dp[i / j] + j);
-                }
-            }
-        }
-        return dp[n];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minSteps(n int) int {
@@ -249,6 +157,73 @@ func minSteps(n int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+记忆化搜索也可以改成动态规划。
+
+$$
+dp[i]=\min _{j \mid i} (dp[\frac{i}{j}]+j, i), 2\leq j\lt i
+$$
+
+时间复杂度 $O(n\sqrt{n})$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minSteps(self, n: int) -> int:
+        dp = list(range(n + 1))
+        dp[1] = 0
+        for i in range(2, n + 1):
+            j = 2
+            while j * j <= i:
+                if i % j == 0:
+                    dp[i] = min(dp[i], dp[i // j] + j)
+                j += 1
+        return dp[-1]
+```
+
+```java
+class Solution {
+    public int minSteps(int n) {
+        int[] dp = new int[n + 1];
+        for (int i = 0; i < n + 1; ++i) {
+            dp[i] = i;
+        }
+        dp[1] = 0;
+        for (int i = 2; i < n + 1; ++i) {
+            for (int j = 2; j * j <= i; ++j) {
+                if (i % j == 0) {
+                    dp[i] = Math.min(dp[i], dp[i / j] + j);
+                }
+            }
+        }
+        return dp[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minSteps(int n) {
+        vector<int> dp(n + 1);
+        iota(dp.begin(), dp.end(), 0);
+        dp[1] = 0;
+        for (int i = 2; i < n + 1; ++i) {
+            for (int j = 2; j * j <= i; ++j) {
+                if (i % j == 0) {
+                    dp[i] = min(dp[i], dp[i / j] + j);
+                }
+            }
+        }
+        return dp[n];
+    }
+};
+```
+
 ```go
 func minSteps(n int) int {
 	dp := make([]int, n+1)
@@ -267,10 +242,27 @@ func minSteps(n int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法三
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int minSteps(int n) {
+        int res = 0;
+        for (int i = 2; n > 1; ++i) {
+            while (n % i == 0) {
+                res += i;
+                n /= i;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

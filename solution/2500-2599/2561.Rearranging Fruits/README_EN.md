@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Construction**
+### Solution 1: Greedy + Construction
 
 First, we can remove the common elements from both arrays. For the remaining numbers, the occurrence of each number must be even, otherwise, it is impossible to construct identical arrays. Let's denote the arrays after removing common elements as $a$ and $b$.
 
@@ -58,8 +58,6 @@ In the code implementation, we can directly merge arrays $a$ and $b$ into an arr
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
         m = len(nums) // 2
         return sum(min(x, mi * 2) for x in nums[:m])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCost(basket1 []int, basket2 []int) (ans int64) {
@@ -183,10 +175,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

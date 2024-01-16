@@ -54,7 +54,7 @@ Therefore, we return [2,1].
 
 ## Solutions
 
-**Solution 1: Reverse Traversal**
+### Solution 1: Reverse Traversal
 
 To find the shortest subarray starting at position $i$ that maximizes the bitwise OR operation, we need to maximize the number of $1$s in the result.
 
@@ -65,8 +65,6 @@ We traverse the array $nums[i]$ in reverse order. For the $j$-th bit of $nums[i]
 The time complexity is $O(n \times \log m)$, where $n$ is the length of the array $nums$, and $m$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
             ans[i] = t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func smallestSubarrays(nums []int) []int {
@@ -160,17 +152,6 @@ func smallestSubarrays(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

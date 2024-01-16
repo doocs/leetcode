@@ -58,9 +58,9 @@ Each row includes the user ID, the purchased item, the date of purchase, and the
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement
@@ -87,3 +87,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

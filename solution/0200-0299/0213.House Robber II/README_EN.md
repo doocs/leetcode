@@ -43,15 +43,13 @@ Total amount you can rob = 1 + 3 = 4.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 The circular arrangement means that at most one of the first and last houses can be chosen for theft, so this circular arrangement problem can be reduced to two single-row house problems.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -66,8 +64,6 @@ class Solution:
             return nums[0]
         return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rob(nums []int) int {
 	n := len(nums)
@@ -136,8 +128,6 @@ func robRange(nums []int, l, r int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rob(nums: number[]): number {
     const n = nums.length;
@@ -154,8 +144,6 @@ function rob(nums: number[]): number {
     return Math.max(robRange(0, n - 2), robRange(1, n - 1));
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -176,10 +164,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

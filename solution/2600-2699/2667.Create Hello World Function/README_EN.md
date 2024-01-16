@@ -40,9 +40,9 @@ Any arguments could be passed to the function but it should still always return 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function createHelloWorld() {
@@ -57,10 +57,6 @@ function createHelloWorld() {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

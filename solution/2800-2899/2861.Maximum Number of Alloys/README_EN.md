@@ -73,7 +73,7 @@ It can be proven that we can create at most 2 alloys.
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We note that all alloys need to be made by the same machine, so we can enumerate which machine to use to make the alloy.
 
@@ -82,8 +82,6 @@ For each machine, we can use binary search to find the maximum integer $x$ such 
 The time complexity is $O(n \times k \times \log M)$, where $M$ is the upper bound of the binary search, and in this problem, $M \leq 2 \times 10^8$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -109,8 +107,6 @@ class Solution:
             ans = max(ans, l)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -156,8 +152,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -190,8 +184,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []int, cost []int) int {
 	isValid := func(target int) bool {
@@ -220,8 +212,6 @@ func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []in
 	return l
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNumberOfAlloys(
@@ -259,10 +249,6 @@ function maxNumberOfAlloys(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

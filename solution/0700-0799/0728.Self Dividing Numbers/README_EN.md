@@ -31,9 +31,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -44,8 +44,6 @@ class Solution:
             if all(i != '0' and num % int(i) == 0 for i in str(num))
         ]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,7 +69,48 @@ class Solution {
 }
 ```
 
-### **Rust**
+```cpp
+class Solution {
+public:
+    vector<int> selfDividingNumbers(int left, int right) {
+        vector<int> ans;
+        for (int i = left; i <= right; ++i)
+            if (check(i))
+                ans.push_back(i);
+        return ans;
+    }
+
+    bool check(int num) {
+        for (int t = num; t; t /= 10) {
+            int x = t % 10;
+            if (x == 0 || num % x) return false;
+        }
+        return true;
+    }
+};
+```
+
+```go
+func selfDividingNumbers(left int, right int) []int {
+	check := func(num int) bool {
+		for t := num; t != 0; t /= 10 {
+			x := t % 10
+			if x == 0 || num%x != 0 {
+				return false
+			}
+		}
+		return true
+	}
+
+	var ans []int
+	for i := left; i <= right; i++ {
+		if check(i) {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+```
 
 ```rust
 impl Solution {
@@ -99,57 +138,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> selfDividingNumbers(int left, int right) {
-        vector<int> ans;
-        for (int i = left; i <= right; ++i)
-            if (check(i))
-                ans.push_back(i);
-        return ans;
-    }
-
-    bool check(int num) {
-        for (int t = num; t; t /= 10) {
-            int x = t % 10;
-            if (x == 0 || num % x) return false;
-        }
-        return true;
-    }
-};
-```
-
-### **Go**
-
-```go
-func selfDividingNumbers(left int, right int) []int {
-	check := func(num int) bool {
-		for t := num; t != 0; t /= 10 {
-			x := t % 10
-			if x == 0 || num%x != 0 {
-				return false
-			}
-		}
-		return true
-	}
-
-	var ans []int
-	for i := left; i <= right; i++ {
-		if check(i) {
-			ans = append(ans, i)
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

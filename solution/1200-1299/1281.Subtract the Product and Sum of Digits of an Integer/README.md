@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们用两个变量 $x$ 和 $y$ 分别记录各位数之积、各位数之和，初始时 $x=1,y=0$。
 
@@ -54,10 +52,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
@@ -68,17 +62,6 @@ class Solution:
             y += v
         return x - y
 ```
-
-```python
-class Solution:
-    def subtractProductAndSum(self, n: int) -> int:
-        nums = list(map(int, str(n)))
-        return prod(nums) - sum(nums)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subtractProductAndSum(n int) int {
 	x, y := 1, 0
@@ -125,8 +104,6 @@ func subtractProductAndSum(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function subtractProductAndSum(n: number): number {
     let [x, y] = [1, 0];
@@ -138,8 +115,6 @@ function subtractProductAndSum(n: number): number {
     return x - y;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -157,23 +132,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int subtractProductAndSum(int n) {
-    int x = 1;
-    int y = 0;
-    for (; n > 0; n /= 10) {
-        int v = n % 10;
-        x *= v;
-        y += v;
-    }
-    return x - y;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int SubtractProductAndSum(int n) {
@@ -189,10 +147,32 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int subtractProductAndSum(int n) {
+    int x = 1;
+    int y = 0;
+    for (; n > 0; n /= 10) {
+        int v = n % 10;
+        x *= v;
+        y += v;
+    }
+    return x - y;
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        nums = list(map(int, str(n)))
+        return prod(nums) - sum(nums)
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

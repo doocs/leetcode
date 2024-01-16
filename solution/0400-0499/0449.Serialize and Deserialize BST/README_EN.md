@@ -29,9 +29,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -84,8 +84,6 @@ class Codec:
 # ans = deser.deserialize(tree)
 # return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -151,8 +149,6 @@ public class Codec {
 // TreeNode ans = deser.deserialize(tree);
 // return ans;
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -223,8 +219,6 @@ public:
 // TreeNode* ans = deser->deserialize(tree);
 // return ans;
 ```
-
-### **Go**
 
 ```go
 /**
@@ -298,10 +292,6 @@ func (this *Codec) deserialize(data string) *TreeNode {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

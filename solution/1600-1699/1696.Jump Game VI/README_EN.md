@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming + Monotonic Queue Optimization**
+### Solution 1: Dynamic Programming + Monotonic Queue Optimization
 
 We define $f[i]$ as the maximum score when reaching index $i$. The value of $f[i]$ can be transferred from $f[j]$, where $j$ satisfies $i - k \leq j \leq i - 1$. Therefore, we can use dynamic programming to solve this problem.
 
@@ -61,8 +61,6 @@ We can use a monotonic queue to optimize the state transition equation. Specific
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
             q.append(i)
         return f[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxResult(nums []int, k int) int {
@@ -146,10 +138,6 @@ func maxResult(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

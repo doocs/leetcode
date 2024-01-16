@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 遍历字符串，对于奇数下标的字符，将其替换为前一个字符后移对应位数的字符。
 
@@ -63,10 +61,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def replaceDigits(self, s: str) -> str:
@@ -75,10 +69,6 @@ class Solution:
             s[i] = chr(ord(s[i - 1]) + int(s[i]))
         return ''.join(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func replaceDigits(s string) string {
 	cs := []byte(s)
@@ -118,8 +104,6 @@ func replaceDigits(s string) string {
 	return string(cs)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function replaceDigits(s: string): string {
@@ -131,8 +115,6 @@ function replaceDigits(s: string): string {
     return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -149,8 +131,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 char* replaceDigits(char* s) {
     int n = strlen(s);
@@ -161,10 +141,6 @@ char* replaceDigits(char* s) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

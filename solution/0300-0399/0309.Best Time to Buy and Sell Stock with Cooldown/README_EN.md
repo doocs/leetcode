@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We design a function $dfs(i, j)$, which represents the maximum profit that can be obtained starting from the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. The answer is $dfs(0, 0)$.
 
@@ -56,21 +56,7 @@ To avoid repeated calculations, we use the method of memoization search, and use
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
 
-**Solution 2: Dynamic Programming**
-
-We can also use dynamic programming to solve this problem.
-
-We define $f[i][j]$ to represent the maximum profit that can be obtained on the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. Initially, $f[0][0] = 0$, $f[0][1] = -prices[0]$.
-
-When $i \geq 1$, if we currently do not hold a stock, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + prices[i]$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + prices[i])$. If we currently hold a stock, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 2][0] - prices[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 2][0] - prices[i])$. The final answer is $f[n - 1][0]$.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
-
-We notice that the transition of state $f[i][]$ is only related to $f[i - 1][]$ and $f[i - 2][0]$, so we can use three variables $f$, $f_0$, $f_1$ to replace the array $f$, optimizing the space complexity to $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -88,29 +74,6 @@ class Solution:
 
         return dfs(0, 0)
 ```
-
-```python
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        n = len(prices)
-        f = [[0] * 2 for _ in range(n)]
-        f[0][1] = -prices[0]
-        for i in range(1, n):
-            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i])
-            f[i][1] = max(f[i - 1][1], f[i - 2][0] - prices[i])
-        return f[n - 1][0]
-```
-
-```python
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        f, f0, f1 = 0, 0, -prices[0]
-        for x in prices[1:]:
-            f, f0, f1 = f0, max(f0, f1 + x), max(f1, f - x)
-        return f0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -141,38 +104,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int maxProfit(int[] prices) {
-        int n = prices.length;
-        int[][] f = new int[n][2];
-        f[0][1] = -prices[0];
-        for (int i = 1; i < n; i++) {
-            f[i][0] = Math.max(f[i - 1][0], f[i - 1][1] + prices[i]);
-            f[i][1] = Math.max(f[i - 1][1], (i > 1 ? f[i - 2][0] : 0) - prices[i]);
-        }
-        return f[n - 1][0];
-    }
-}
-```
-
-```java
-class Solution {
-    public int maxProfit(int[] prices) {
-        int f = 0, f0 = 0, f1 = -prices[0];
-        for (int i = 1; i < prices.length; ++i) {
-            int g0 = Math.max(f0, f1 + prices[i]);
-            f1 = Math.max(f1, f - prices[i]);
-            f = f0;
-            f0 = g0;
-        }
-        return f0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -199,41 +130,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int n = prices.size();
-        int f[n][2];
-        memset(f, 0, sizeof(f));
-        f[0][1] = -prices[0];
-        for (int i = 1; i < n; ++i) {
-            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i]);
-            f[i][1] = max(f[i - 1][1], (i > 1 ? f[i - 2][0] : 0) - prices[i]);
-        }
-        return f[n - 1][0];
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int f = 0, f0 = 0, f1 = -prices[0];
-        for (int i = 1; i < prices.size(); ++i) {
-            int g0 = max(f0, f1 + prices[i]);
-            f1 = max(f1, f - prices[i]);
-            f = f0;
-            f0 = g0;
-        }
-        return f0;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func maxProfit(prices []int) int {
@@ -263,35 +159,6 @@ func maxProfit(prices []int) int {
 }
 ```
 
-```go
-func maxProfit(prices []int) int {
-	n := len(prices)
-	f := make([][2]int, n)
-	f[0][1] = -prices[0]
-	for i := 1; i < n; i++ {
-		f[i][0] = max(f[i-1][0], f[i-1][1]+prices[i])
-		if i > 1 {
-			f[i][1] = max(f[i-1][1], f[i-2][0]-prices[i])
-		} else {
-			f[i][1] = max(f[i-1][1], -prices[i])
-		}
-	}
-	return f[n-1][0]
-}
-```
-
-```go
-func maxProfit(prices []int) int {
-	f, f0, f1 := 0, 0, -prices[0]
-	for _, x := range prices[1:] {
-		f, f0, f1 = f0, max(f0, f1+x), max(f1, f-x)
-	}
-	return f0
-}
-```
-
-### **TypeScript**
-
 ```ts
 function maxProfit(prices: number[]): number {
     const n = prices.length;
@@ -315,6 +182,83 @@ function maxProfit(prices: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Dynamic Programming
+
+We can also use dynamic programming to solve this problem.
+
+We define $f[i][j]$ to represent the maximum profit that can be obtained on the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. Initially, $f[0][0] = 0$, $f[0][1] = -prices[0]$.
+
+When $i \geq 1$, if we currently do not hold a stock, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + prices[i]$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + prices[i])$. If we currently hold a stock, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 2][0] - prices[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 2][0] - prices[i])$. The final answer is $f[n - 1][0]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
+
+We notice that the transition of state $f[i][]$ is only related to $f[i - 1][]$ and $f[i - 2][0]$, so we can use three variables $f$, $f_0$, $f_1$ to replace the array $f$, optimizing the space complexity to $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        f = [[0] * 2 for _ in range(n)]
+        f[0][1] = -prices[0]
+        for i in range(1, n):
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i])
+            f[i][1] = max(f[i - 1][1], f[i - 2][0] - prices[i])
+        return f[n - 1][0]
+```
+
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[][] f = new int[n][2];
+        f[0][1] = -prices[0];
+        for (int i = 1; i < n; i++) {
+            f[i][0] = Math.max(f[i - 1][0], f[i - 1][1] + prices[i]);
+            f[i][1] = Math.max(f[i - 1][1], (i > 1 ? f[i - 2][0] : 0) - prices[i]);
+        }
+        return f[n - 1][0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int f[n][2];
+        memset(f, 0, sizeof(f));
+        f[0][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i]);
+            f[i][1] = max(f[i - 1][1], (i > 1 ? f[i - 2][0] : 0) - prices[i]);
+        }
+        return f[n - 1][0];
+    }
+};
+```
+
+```go
+func maxProfit(prices []int) int {
+	n := len(prices)
+	f := make([][2]int, n)
+	f[0][1] = -prices[0]
+	for i := 1; i < n; i++ {
+		f[i][0] = max(f[i-1][0], f[i-1][1]+prices[i])
+		if i > 1 {
+			f[i][1] = max(f[i-1][1], f[i-2][0]-prices[i])
+		} else {
+			f[i][1] = max(f[i-1][1], -prices[i])
+		}
+	}
+	return f[n-1][0]
+}
+```
+
 ```ts
 function maxProfit(prices: number[]): number {
     const n = prices.length;
@@ -328,6 +272,62 @@ function maxProfit(prices: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        f, f0, f1 = 0, 0, -prices[0]
+        for x in prices[1:]:
+            f, f0, f1 = f0, max(f0, f1 + x), max(f1, f - x)
+        return f0
+```
+
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int f = 0, f0 = 0, f1 = -prices[0];
+        for (int i = 1; i < prices.length; ++i) {
+            int g0 = Math.max(f0, f1 + prices[i]);
+            f1 = Math.max(f1, f - prices[i]);
+            f = f0;
+            f0 = g0;
+        }
+        return f0;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int f = 0, f0 = 0, f1 = -prices[0];
+        for (int i = 1; i < prices.size(); ++i) {
+            int g0 = max(f0, f1 + prices[i]);
+            f1 = max(f1, f - prices[i]);
+            f = f0;
+            f0 = g0;
+        }
+        return f0;
+    }
+};
+```
+
+```go
+func maxProfit(prices []int) int {
+	f, f0, f1 := 0, 0, -prices[0]
+	for _, x := range prices[1:] {
+		f, f0, f1 = f0, max(f0, f1+x), max(f1, f-x)
+	}
+	return f0
+}
+```
+
 ```ts
 function maxProfit(prices: number[]): number {
     let [f, f0, f1] = [0, 0, -prices[0]];
@@ -338,10 +338,6 @@ function maxProfit(prices: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

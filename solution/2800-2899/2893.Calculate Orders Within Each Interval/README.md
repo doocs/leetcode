@@ -65,17 +65,11 @@ Orders table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：窗口函数**
+### 方法一：窗口函数
 
 我们可以用窗口函数 `sum() over()` 来计算每 $6$ 分钟的订单总数，然后每条记录中的 `minute` 能被 $6$ 整除的记录。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -94,6 +88,12 @@ FROM T
 WHERE minute % 6 = 0;
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 SELECT
     FLOOR((minute + 5) / 6) AS interval_no,
@@ -104,3 +104,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

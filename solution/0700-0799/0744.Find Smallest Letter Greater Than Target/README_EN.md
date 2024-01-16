@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 left = mid + 1
         return letters[left % len(letters)]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,27 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function nextGreatestLetter(letters: string[], target: string): string {
-    const n = letters.length;
-    let left = 0;
-    let right = letters.length;
-    while (left < right) {
-        let mid = (left + right) >>> 1;
-        if (letters[mid] > target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return letters[left % n];
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nextGreatestLetter(letters []byte, target byte) byte {
 	left, right := 0, len(letters)
@@ -138,7 +113,22 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 }
 ```
 
-### **Rust**
+```ts
+function nextGreatestLetter(letters: string[], target: string): string {
+    const n = letters.length;
+    let left = 0;
+    let right = letters.length;
+    while (left < right) {
+        let mid = (left + right) >>> 1;
+        if (letters[mid] > target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return letters[left % n];
+}
+```
 
 ```rust
 impl Solution {
@@ -150,27 +140,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        let n = letters.len();
-        let mut left = 0;
-        let mut right = n;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if letters[mid] > target {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        letters[left % n]
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -199,10 +168,31 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        let n = letters.len();
+        let mut left = 0;
+        let mut right = n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if letters[mid] > target {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        letters[left % n]
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

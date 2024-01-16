@@ -61,7 +61,7 @@ The maximum number of employees that can be invited to the meeting is 4.
 
 ## Solutions
 
-**Solution 1: Maximum Cycle in Graph + Longest Chain**
+### Solution 1: Maximum Cycle in Graph + Longest Chain
 
 We observe that the employee's preference relationship in the problem can be regarded as a directed graph, which can be divided into multiple "base cycle inward trees". Each structure contains a cycle, and each node on the cycle is connected to a tree.
 
@@ -78,8 +78,6 @@ Therefore, the problem is actually equivalent to finding the length of the maxim
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `favorite`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -120,8 +118,6 @@ class Solution:
 
         return max(max_cycle(favorite), topological_sort(favorite))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -185,8 +181,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -238,8 +232,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumInvitations(favorite []int) int {
@@ -307,16 +299,64 @@ func topologicalSort(fa []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
+function maximumInvitations(favorite: number[]): number {
+    return Math.max(maxCycle(favorite), topologicalSort(favorite));
+}
 
-```
+function maxCycle(fa: number[]): number {
+    const n = fa.length;
+    const vis: boolean[] = Array(n).fill(false);
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
+            continue;
+        }
+        const cycle: number[] = [];
+        let j = i;
+        for (; !vis[j]; j = fa[j]) {
+            cycle.push(j);
+            vis[j] = true;
+        }
+        for (let k = 0; k < cycle.length; ++k) {
+            if (cycle[k] === j) {
+                ans = Math.max(ans, cycle.length - k);
+            }
+        }
+    }
+    return ans;
+}
 
-### **...**
-
-```
-
+function topologicalSort(fa: number[]): number {
+    const n = fa.length;
+    const indeg: number[] = Array(n).fill(0);
+    const dist: number[] = Array(n).fill(1);
+    for (const v of fa) {
+        ++indeg[v];
+    }
+    const q: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (indeg[i] === 0) {
+            q.push(i);
+        }
+    }
+    let ans = 0;
+    while (q.length) {
+        const i = q.pop()!;
+        dist[fa[i]] = Math.max(dist[fa[i]], dist[i] + 1);
+        if (--indeg[fa[i]] === 0) {
+            q.push(fa[i]);
+        }
+    }
+    for (let i = 0; i < n; ++i) {
+        if (i === fa[fa[i]]) {
+            ans += dist[i];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

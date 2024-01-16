@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们观察发现，要使得数组 $nums$ 变成非递减有序，也即单调递增，那么数组后面的元素应该尽可能大，所以，将数组 $nums$ 的最后一个元素 $nums[n-1]$ 替换成多个更小的数是没有必要的。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             mx = nums[i] // k
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,7 +118,40 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minimumReplacement(nums []int) (ans int64) {
+	n := len(nums)
+	mx := nums[n-1]
+	for i := n - 2; i >= 0; i-- {
+		if nums[i] <= mx {
+			mx = nums[i]
+			continue
+		}
+		k := (nums[i] + mx - 1) / mx
+		ans += int64(k - 1)
+		mx = nums[i] / k
+	}
+	return
+}
+```
+
+```ts
+function minimumReplacement(nums: number[]): number {
+    const n = nums.length;
+    let mx = nums[n - 1];
+    let ans = 0;
+    for (let i = n - 2; i >= 0; --i) {
+        if (nums[i] <= mx) {
+            mx = nums[i];
+            continue;
+        }
+        const k = Math.ceil(nums[i] / mx);
+        ans += k - 1;
+        mx = Math.floor(nums[i] / k);
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -161,49 +182,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minimumReplacement(nums []int) (ans int64) {
-	n := len(nums)
-	mx := nums[n-1]
-	for i := n - 2; i >= 0; i-- {
-		if nums[i] <= mx {
-			mx = nums[i]
-			continue
-		}
-		k := (nums[i] + mx - 1) / mx
-		ans += int64(k - 1)
-		mx = nums[i] / k
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumReplacement(nums: number[]): number {
-    const n = nums.length;
-    let mx = nums[n - 1];
-    let ans = 0;
-    for (let i = n - 2; i >= 0; --i) {
-        if (nums[i] <= mx) {
-            mx = nums[i];
-            continue;
-        }
-        const k = Math.ceil(nums[i] / mx);
-        ans += k - 1;
-        mx = Math.floor(nums[i] / k);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

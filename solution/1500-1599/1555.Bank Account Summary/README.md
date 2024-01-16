@@ -96,11 +96,9 @@ Luis 未收到任何转账信息，额度 = 800</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -122,3 +120,5 @@ GROUP BY t.user_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

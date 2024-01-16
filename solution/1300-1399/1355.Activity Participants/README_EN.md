@@ -82,9 +82,9 @@ Singing is performed by 2 friends (Victor J. and Jade W.)
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -100,3 +100,5 @@ WHERE cnt > (SELECT MIN(cnt) FROM t) AND cnt < (SELECT MAX(cnt) FROM t);
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

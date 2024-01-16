@@ -66,9 +66,9 @@ We can see the cycle 3 --&gt; 4 --&gt; 3 --&gt; ..., and all of its nodes are wh
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -94,8 +94,6 @@ class Solution:
                 j = next(j)
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -135,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func circularArrayLoop(nums []int) bool {
 	for i, num := range nums {
@@ -202,10 +196,6 @@ func next(nums []int, i int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

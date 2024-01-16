@@ -51,9 +51,9 @@ Head of the linked list after removing nodes is returned.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -78,8 +78,6 @@ class Solution:
             pre = pre.next
         return head
 ```
-
-### **Java**
 
 ```java
 /**
@@ -113,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -150,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -183,10 +177,6 @@ func deleteNodes(head *ListNode, m int, n int) *ListNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：组合数学 + 乘法逆元 + 快速幂**
+### 方法一：组合数学 + 乘法逆元 + 快速幂
 
 根据题目描述，感冒的小朋友把还没有感冒的小朋友划分成了若干个连续段。我们可以用一个数组 $nums$ 记录每一段不感冒的小朋友的认识，不感冒人数一共有 $s = \sum_{i=0}^{k} nums[k]$ 人。我们可以发现，感冒序列的数目就是 $s$ 个不同元素的全排列数，即 $s!$。
 
@@ -79,10 +77,6 @@ $$
 时间复杂度 $O(m)$，其中 $m$ 是数组 $sick$ 的长度。忽略预处理数组的空间消耗，空间复杂度 $O(m)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 mod = 10**9 + 7
@@ -106,10 +100,6 @@ class Solution:
                 ans = ans * pow(2, x - 1, mod) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 const int MX = 1e5;
 const int MOD = 1e9 + 7;
@@ -217,8 +205,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 const MX = 1e5
@@ -274,8 +260,6 @@ func numberOfSequence(n int, sick []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 const MX = 1e5;
 const MOD: bigint = BigInt(1e9 + 7);
@@ -325,10 +309,6 @@ function numberOfSequence(n: number, sick: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

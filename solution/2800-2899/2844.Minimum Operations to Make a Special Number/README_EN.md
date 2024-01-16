@@ -50,7 +50,7 @@ It can be shown that 1 is the minimum number of operations required to get a spe
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We notice that an integer $x$ can be divisible by $25$, i.e., $x \bmod 25 = 0$. Therefore, we can design a function $dfs(i, k)$, which represents the minimum number of digits to be deleted to make the number a special number, starting from the $i$th digit of the string $num$, and the current number modulo $25$ is $k$. The answer is $dfs(0, 0)$.
 
@@ -64,8 +64,6 @@ To prevent repeated calculations, we can use memoization to optimize the time co
 The time complexity is $O(n \times 25)$, and the space complexity is $O(n \times 25)$. Here, $n$ is the length of the string $num$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
         n = len(num)
         return dfs(0, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumOperations(num string) int {
@@ -166,8 +158,6 @@ func minimumOperations(num string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumOperations(num: string): number {
     const n = num.length;
@@ -187,10 +177,6 @@ function minimumOperations(num: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

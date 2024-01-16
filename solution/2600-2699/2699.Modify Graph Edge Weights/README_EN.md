@@ -63,7 +63,7 @@
 
 ## Solutions
 
-**Solution 1: Shortest Path (Dijkstra's Algorithm)**
+### Solution 1: Shortest Path (Dijkstra's Algorithm)
 
 First, we ignore the edges with a weight of $-1$ and use Dijkstra's algorithm to find the shortest distance $d$ from $source$ to $destination$.
 
@@ -79,8 +79,6 @@ First, we ignore the edges with a weight of $-1$ and use Dijkstra's algorithm to
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of points in the graph.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -124,8 +122,6 @@ class Solution:
                 e[2] += target - d
         return edges if ok else []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -189,8 +185,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using ll = long long;
@@ -257,8 +251,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func modifiedGraphEdges(n int, edges [][]int, source int, destination int, target int) [][]int {
 	const inf int = 2e9
@@ -322,8 +314,6 @@ func modifiedGraphEdges(n int, edges [][]int, source int, destination int, targe
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function modifiedGraphEdges(
     n: number,
@@ -385,10 +375,6 @@ function modifiedGraphEdges(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

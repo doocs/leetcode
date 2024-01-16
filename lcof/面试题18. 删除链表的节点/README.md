@@ -33,7 +33,7 @@
 
 ## 解法
 
-**方法一：模拟**
+### 方法一：模拟
 
 我们先创建一个虚拟头节点 `dummy`，令 `dummy.next = head`，然后创建一个指针 `cur` 指向 `dummy`。
 
@@ -44,8 +44,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -63,8 +61,6 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -88,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -115,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -136,35 +128,6 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	return dummy.Next
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number} val
- * @return {ListNode}
- */
-var deleteNode = function (head, val) {
-    const dummy = new ListNode(0, head);
-    for (let cur = dummy; cur.next; cur = cur.next) {
-        if (cur.next.val == val) {
-            cur.next = cur.next.next;
-            break;
-        }
-    }
-    return dummy.next;
-};
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -198,7 +161,30 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} val
+ * @return {ListNode}
+ */
+var deleteNode = function (head, val) {
+    const dummy = new ListNode(0, head);
+    for (let cur = dummy; cur.next; cur = cur.next) {
+        if (cur.next.val == val) {
+            cur.next = cur.next.next;
+            break;
+        }
+    }
+    return dummy.next;
+};
+```
 
 ```cs
 /**
@@ -223,10 +209,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

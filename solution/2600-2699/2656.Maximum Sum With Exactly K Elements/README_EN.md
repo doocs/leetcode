@@ -61,7 +61,7 @@ It can be proven, that 11 is the maximum answer that we can achieve.
 
 ## Solutions
 
-**Solution 1: Greedy + Mathematics**
+### Solution 1: Greedy + Mathematics
 
 We notice that to make the final score maximum, we should make each choice as large as possible. Therefore, we select the largest element $x$ in the array for the first time, $x+1$ for the second time, $x+2$ for the third time, and so on, until the $k$th time we select $x+k-1$. This way of selection ensures that the element selected each time is the largest in the current array, so the final score is also the largest. The answer is $k$ $x$ sum plus $0+1+2+\cdots+(k-1)$, that is, $k \times x + (k - 1) \times k / 2$.
 
@@ -69,16 +69,12 @@ Time complexity is $O(n)$, where $n$ is the length of the array. Space complexit
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maximizeSum(self, nums: List[int], k: int) -> int:
         x = max(nums)
         return k * x + k * (k - 1) // 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeSum(nums []int, k int) int {
 	x := slices.Max(nums)
@@ -113,16 +105,12 @@ func maximizeSum(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSum(nums: number[], k: number): number {
     const x = Math.max(...nums);
     return k * x + (k * (k - 1)) / 2;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -140,6 +128,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn maximize_sum(nums: Vec<i32>, k: i32) -> i32 {
@@ -150,10 +144,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

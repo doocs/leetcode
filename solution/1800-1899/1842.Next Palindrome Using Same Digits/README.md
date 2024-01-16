@@ -49,19 +49,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：求前一半的下一个排列**
+### 方法一：求前一半的下一个排列
 
 根据题目描述，我们只需要求出前一半的下一个排列，然后遍历前一半，对称赋值后半部分即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
             nums[n - i - 1] = nums[i]
         return "".join(nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nextPalindrome(num string) string {
@@ -191,8 +177,6 @@ func nextPermutation(nums []byte) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function nextPalindrome(num: string): string {
     const nums = num.split('');
@@ -227,10 +211,6 @@ function nextPermutation(nums: string[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

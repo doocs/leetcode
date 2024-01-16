@@ -63,7 +63,7 @@ The largest element in <code>arr is 3.</code>
 
 ## Solutions
 
-**Solution 1: Sorting + Greedy Algorithm**
+### Solution 1: Sorting + Greedy Algorithm
 
 First, we sort the array and then set the first element of the array to $1$.
 
@@ -75,8 +75,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maximumElementAfterDecrementingAndRearranging(self, arr: List[int]) -> int:
@@ -87,8 +85,6 @@ class Solution:
             arr[i] -= d
         return max(arr)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	sort.Ints(arr)
@@ -140,8 +132,6 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
@@ -157,8 +147,6 @@ function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MaximumElementAfterDecrementingAndRearranging(int[] arr) {
@@ -173,10 +161,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以将句子按空格分割成单词数组，然后遍历单词数组，对于每个单词，如果其表示价格，则将其更新为减免折扣后的价格。最后将更新后的单词数组拼接成以空格分隔的字符串即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `sentence` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
             ans.append(w)
         return ' '.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func discountPrices(sentence string, discount int) string {
 	words := strings.Split(sentence, " ")
@@ -165,8 +151,6 @@ func discountPrices(sentence string, discount int) string {
 	return strings.Join(words, " ")
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function discountPrices(sentence: string, discount: number): string {
@@ -182,10 +166,6 @@ function discountPrices(sentence: string, discount: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

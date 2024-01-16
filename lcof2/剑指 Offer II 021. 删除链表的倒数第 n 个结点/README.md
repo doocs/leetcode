@@ -52,15 +52,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-利用快慢指针和虚拟头节点
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -80,10 +74,6 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -171,8 +157,6 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return dummy.Next
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -203,8 +187,6 @@ var removeNthFromEnd = function (head, n) {
 };
 ```
 
-### **Ruby**
-
 ```rb
 # Definition for singly-linked list.
 # class ListNode
@@ -233,10 +215,6 @@ def remove_nth_from_end(head, n)
 end
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

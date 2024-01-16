@@ -37,11 +37,9 @@
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,38 +68,6 @@ class Solution:
                         q.append(nxt)
             ans += 1
 ```
-
-```python
-class Solution:
-    def kSimilarity(self, s1: str, s2: str) -> int:
-        def f(s):
-            cnt = sum(c != s2[i] for i, c in enumerate(s))
-            return (cnt + 1) >> 1
-
-        def next(s):
-            i = 0
-            while s[i] == s2[i]:
-                i += 1
-            res = []
-            for j in range(i + 1, n):
-                if s[j] == s2[i] and s[j] != s2[j]:
-                    res.append(s2[: i + 1] + s[i + 1 : j] + s[i] + s[j + 1 :])
-            return res
-
-        q = [(f(s1), s1)]
-        dist = {s1: 0}
-        n = len(s1)
-        while 1:
-            _, s = heappop(q)
-            if s == s2:
-                return dist[s]
-            for nxt in next(s):
-                if nxt not in dist or dist[nxt] > dist[s] + 1:
-                    dist[nxt] = dist[s] + 1
-                    heappush(q, (dist[nxt] + f(nxt), nxt))
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -151,6 +117,120 @@ class Solution {
         cs[j] = t;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int kSimilarity(string s1, string s2) {
+        queue<string> q{{s1}};
+        unordered_set<string> vis{{s1}};
+        int ans = 0;
+        while (1) {
+            for (int i = q.size(); i; --i) {
+                auto s = q.front();
+                q.pop();
+                if (s == s2) {
+                    return ans;
+                }
+                for (auto& nxt : next(s, s2)) {
+                    if (!vis.count(nxt)) {
+                        vis.insert(nxt);
+                        q.push(nxt);
+                    }
+                }
+            }
+            ++ans;
+        }
+    }
+
+    vector<string> next(string& s, string& s2) {
+        int i = 0, n = s.size();
+        for (; s[i] == s2[i]; ++i) {}
+        vector<string> res;
+        for (int j = i + 1; j < n; ++j) {
+            if (s[j] == s2[i] && s[j] != s2[j]) {
+                swap(s[i], s[j]);
+                res.push_back(s);
+                swap(s[i], s[j]);
+            }
+        }
+        return res;
+    }
+};
+```
+
+```go
+func kSimilarity(s1 string, s2 string) int {
+	next := func(s string) []string {
+		i := 0
+		res := []string{}
+		for ; s[i] == s2[i]; i++ {
+		}
+		for j := i + 1; j < len(s1); j++ {
+			if s[j] == s2[i] && s[j] != s2[j] {
+				res = append(res, s[:i]+string(s[j])+s[i+1:j]+string(s[i])+s[j+1:])
+			}
+		}
+		return res
+	}
+
+	q := []string{s1}
+	vis := map[string]bool{s1: true}
+	ans := 0
+	for {
+		for i := len(q); i > 0; i-- {
+			s := q[0]
+			q = q[1:]
+			if s == s2 {
+				return ans
+			}
+			for _, nxt := range next(s) {
+				if !vis[nxt] {
+					vis[nxt] = true
+					q = append(q, nxt)
+				}
+			}
+		}
+		ans++
+	}
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def kSimilarity(self, s1: str, s2: str) -> int:
+        def f(s):
+            cnt = sum(c != s2[i] for i, c in enumerate(s))
+            return (cnt + 1) >> 1
+
+        def next(s):
+            i = 0
+            while s[i] == s2[i]:
+                i += 1
+            res = []
+            for j in range(i + 1, n):
+                if s[j] == s2[i] and s[j] != s2[j]:
+                    res.append(s2[: i + 1] + s[i + 1 : j] + s[i] + s[j + 1 :])
+            return res
+
+        q = [(f(s1), s1)]
+        dist = {s1: 0}
+        n = len(s1)
+        while 1:
+            _, s = heappop(q)
+            if s == s2:
+                return dist[s]
+            for nxt in next(s):
+                if nxt not in dist or dist[nxt] > dist[s] + 1:
+                    dist[nxt] = dist[s] + 1
+                    heappush(q, (dist[nxt] + f(nxt), nxt))
 ```
 
 ```java
@@ -210,49 +290,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int kSimilarity(string s1, string s2) {
-        queue<string> q{{s1}};
-        unordered_set<string> vis{{s1}};
-        int ans = 0;
-        while (1) {
-            for (int i = q.size(); i; --i) {
-                auto s = q.front();
-                q.pop();
-                if (s == s2) {
-                    return ans;
-                }
-                for (auto& nxt : next(s, s2)) {
-                    if (!vis.count(nxt)) {
-                        vis.insert(nxt);
-                        q.push(nxt);
-                    }
-                }
-            }
-            ++ans;
-        }
-    }
-
-    vector<string> next(string& s, string& s2) {
-        int i = 0, n = s.size();
-        for (; s[i] == s2[i]; ++i) {}
-        vector<string> res;
-        for (int j = i + 1; j < n; ++j) {
-            if (s[j] == s2[i] && s[j] != s2[j]) {
-                swap(s[i], s[j]);
-                res.push_back(s);
-                swap(s[i], s[j]);
-            }
-        }
-        return res;
-    }
-};
-```
-
 ```cpp
 using pis = pair<int, string>;
 
@@ -300,45 +337,6 @@ public:
         return res;
     }
 };
-```
-
-### **Go**
-
-```go
-func kSimilarity(s1 string, s2 string) int {
-	next := func(s string) []string {
-		i := 0
-		res := []string{}
-		for ; s[i] == s2[i]; i++ {
-		}
-		for j := i + 1; j < len(s1); j++ {
-			if s[j] == s2[i] && s[j] != s2[j] {
-				res = append(res, s[:i]+string(s[j])+s[i+1:j]+string(s[i])+s[j+1:])
-			}
-		}
-		return res
-	}
-
-	q := []string{s1}
-	vis := map[string]bool{s1: true}
-	ans := 0
-	for {
-		for i := len(q); i > 0; i-- {
-			s := q[0]
-			q = q[1:]
-			if s == s2 {
-				return ans
-			}
-			for _, nxt := range next(s) {
-				if !vis[nxt] {
-					vis[nxt] = true
-					q = append(q, nxt)
-				}
-			}
-		}
-		ans++
-	}
-}
 ```
 
 ```go
@@ -398,10 +396,6 @@ func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

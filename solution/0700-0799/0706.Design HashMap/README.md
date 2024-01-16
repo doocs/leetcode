@@ -51,9 +51,7 @@ myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：静态数组实现**
+### 方法一：静态数组实现
 
 直接创建一个大小为 $1000001$ 的数组，初始时数组中的每个元素都为 $-1$，表示哈希表中不存在该键值对。
 
@@ -62,10 +60,6 @@ myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 以上操作，时间复杂度均为 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MyHashMap:
@@ -88,10 +82,6 @@ class MyHashMap:
 # param_2 = obj.get(key)
 # obj.remove(key)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MyHashMap {
@@ -123,39 +113,6 @@ class MyHashMap {
  */
 ```
 
-### **TypeScript**
-
-```ts
-class MyHashMap {
-    data: Array<number>;
-    constructor() {
-        this.data = new Array(10 ** 6 + 1).fill(-1);
-    }
-
-    put(key: number, value: number): void {
-        this.data[key] = value;
-    }
-
-    get(key: number): number {
-        return this.data[key];
-    }
-
-    remove(key: number): void {
-        this.data[key] = -1;
-    }
-}
-
-/**
- * Your MyHashMap object will be instantiated and called as such:
- * var obj = new MyHashMap()
- * obj.put(key,value)
- * var param_2 = obj.get(key)
- * obj.remove(key)
- */
-```
-
-### **C++**
-
 ```cpp
 class MyHashMap {
 public:
@@ -186,8 +143,6 @@ public:
  * obj->remove(key);
  */
 ```
-
-### **Go**
 
 ```go
 type MyHashMap struct {
@@ -223,4 +178,35 @@ func (this *MyHashMap) Remove(key int) {
  */
 ```
 
+```ts
+class MyHashMap {
+    data: Array<number>;
+    constructor() {
+        this.data = new Array(10 ** 6 + 1).fill(-1);
+    }
+
+    put(key: number, value: number): void {
+        this.data[key] = value;
+    }
+
+    get(key: number): number {
+        return this.data[key];
+    }
+
+    remove(key: number): void {
+        this.data[key] = -1;
+    }
+}
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * var obj = new MyHashMap()
+ * obj.put(key,value)
+ * var param_2 = obj.get(key)
+ * obj.remove(key)
+ */
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

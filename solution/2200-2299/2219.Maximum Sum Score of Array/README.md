@@ -55,15 +55,9 @@ nums 可取得的最大总分是 -3 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-前缀和。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
         s = [0] + list(accumulate(nums))
         return max(max(s[i + 1], s[-1] - s[i]) for i in range(len(nums)))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,25 +83,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maximumSumScore(nums: number[]): number {
-    const n = nums.length;
-    let s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
-    }
-    let ans = -Infinity;
-    for (let i = 0; i < n; ++i) {
-        ans = Math.max(ans, Math.max(s[i + 1], s[n] - s[i]));
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +96,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumSumScore(nums []int) int64 {
@@ -143,7 +112,20 @@ func maximumSumScore(nums []int) int64 {
 }
 ```
 
-### **JavaScript**
+```ts
+function maximumSumScore(nums: number[]): number {
+    const n = nums.length;
+    let s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    let ans = -Infinity;
+    for (let i = 0; i < n; ++i) {
+        ans = Math.max(ans, Math.max(s[i + 1], s[n] - s[i]));
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -164,10 +146,6 @@ var maximumSumScore = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示前 $i$ 本书摆放的最小高度，初始时 $f[0] = 0$，答案为 $f[n]$。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $books$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                 f[i] = min(f[i], f[j - 1] + h)
         return f[n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minHeightShelves(books [][]int, shelfWidth int) int {
 	n := len(books)
@@ -166,8 +152,6 @@ func minHeightShelves(books [][]int, shelfWidth int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minHeightShelves(books: number[][], shelfWidth: number): number {
     const n = books.length;
@@ -187,8 +171,6 @@ function minHeightShelves(books: number[][], shelfWidth: number): number {
     return f[n];
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -212,10 +194,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

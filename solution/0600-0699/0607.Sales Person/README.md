@@ -114,15 +114,11 @@ Orders 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：左连接 + 分组统计**
+### 方法一：左连接 + 分组统计
 
 我们可以使用左连接将 `SalesPerson` 表与 `Orders` 表连接起来，再与 `Company` 表连接起来，然后按照 `sales_id` 分组，每组统计有多少个公司的名字为 `RED` 的订单，最后筛选出没有这样的订单的销售人员的姓名。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -136,3 +132,5 @@ HAVING IFNULL(SUM(c.name = 'RED'), 0) = 0;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

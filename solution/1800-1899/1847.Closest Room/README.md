@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：离线查询 + 有序集合 + 二分查找**
+### 方法一：离线查询 + 有序集合 + 二分查找
 
 我们注意到，查询的顺序并不影响答案，而且题目中涉及到房间面积的大小关系，因此，我们可以将查询按照最小面积从小到大排序，这样我们就可以从小到大依次处理每个查询。另外，我们也将房间按照面积从小到大排序。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n \times \log n + k \times \log k)$，空间复杂度 $O(n + k)$。其中 $n$ 和 $k$ 分别是房间数和查询数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -102,10 +96,6 @@ class Solution:
                 ans[j] = sl[p - 1]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -196,8 +184,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closestRoom(rooms [][]int, queries [][]int) []int {
@@ -250,10 +236,6 @@ func closestRoom(rooms [][]int, queries [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

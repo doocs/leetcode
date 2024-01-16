@@ -38,7 +38,7 @@ The index of value 6 is 1, so we return 1.
 
 ## Solutions
 
-**Solution 1: Traversal**
+### Solution 1: Traversal
 
 We can traverse the array $nums$ to find the maximum value $x$ and the second largest value $y$ in the array. If $x \ge 2y$, then return the index of $x$, otherwise return $-1$.
 
@@ -48,16 +48,12 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
         x, y = nlargest(2, nums)
         return nums.index(x) if x >= 2 * y else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func dominantIndex(nums []int) int {
 	k := 0
@@ -121,8 +113,6 @@ func dominantIndex(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function dominantIndex(nums: number[]): number {
     let k = 0;
@@ -139,8 +129,6 @@ function dominantIndex(nums: number[]): number {
     return k;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -163,10 +151,6 @@ var dominantIndex = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

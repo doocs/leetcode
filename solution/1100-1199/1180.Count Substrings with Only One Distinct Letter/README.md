@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以使用双指针，用指针 $i$ 指向当前子串的起始位置，指针 $j$ 向右移动到第一个与 $s[i]$ 不同的位置，那么 $[i,..j-1]$ 就是以 $s[i]$ 为唯一字母的子串，长度为 $j-i$，那么以 $s[i]$ 为唯一字母的子串的个数就是 $\frac{(j-i+1)(j-i)}{2}$，累加到答案中。然后令 $i=j$，继续遍历，直到 $i$ 超出字符串 $s$ 的范围。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,26 +60,6 @@ class Solution:
             i = j
         return ans
 ```
-
-```python
-class Solution:
-    def countLetters(self, s: str) -> int:
-        ans = 0
-        i, n = 0, len(s)
-        while i < n:
-            j = i
-            cnt = 0
-            while j < n and s[j] == s[i]:
-                j += 1
-                cnt += 1
-                ans += cnt
-            i = j
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,6 +76,78 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int countLetters(string s) {
+        int ans = 0;
+        for (int i = 0, n = s.size(); i < n;) {
+            int j = i;
+            while (j < n && s[j] == s[i]) {
+                ++j;
+            }
+            ans += (1 + j - i) * (j - i) / 2;
+            i = j;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countLetters(s string) int {
+	ans := 0
+	for i, n := 0, len(s); i < n; {
+		j := i
+		for j < n && s[j] == s[i] {
+			j++
+		}
+		ans += (1 + j - i) * (j - i) / 2
+		i = j
+	}
+	return ans
+}
+```
+
+```ts
+function countLetters(s: string): number {
+    let ans = 0;
+    const n = s.length;
+    for (let i = 0; i < n; ) {
+        let j = i;
+        let cnt = 0;
+        while (j < n && s[j] === s[i]) {
+            ++j;
+            ans += ++cnt;
+        }
+        i = j;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countLetters(self, s: str) -> int:
+        ans = 0
+        i, n = 0, len(s)
+        while i < n:
+            j = i
+            cnt = 0
+            while j < n and s[j] == s[i]:
+                j += 1
+                cnt += 1
+                ans += cnt
+            i = j
+        return ans
 ```
 
 ```java
@@ -121,26 +167,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countLetters(string s) {
-        int ans = 0;
-        for (int i = 0, n = s.size(); i < n;) {
-            int j = i;
-            while (j < n && s[j] == s[i]) {
-                ++j;
-            }
-            ans += (1 + j - i) * (j - i) / 2;
-            i = j;
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -163,23 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countLetters(s string) int {
-	ans := 0
-	for i, n := 0, len(s); i < n; {
-		j := i
-		for j < n && s[j] == s[i] {
-			j++
-		}
-		ans += (1 + j - i) * (j - i) / 2
-		i = j
-	}
-	return ans
-}
-```
-
 ```go
 func countLetters(s string) (ans int) {
 	i, n := 0, len(s)
@@ -197,29 +206,6 @@ func countLetters(s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countLetters(s: string): number {
-    let ans = 0;
-    const n = s.length;
-    for (let i = 0; i < n; ) {
-        let j = i;
-        let cnt = 0;
-        while (j < n && s[j] === s[i]) {
-            ++j;
-            ans += ++cnt;
-        }
-        i = j;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

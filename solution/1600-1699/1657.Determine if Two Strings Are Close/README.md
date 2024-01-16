@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 排序**
+### 方法一：计数 + 排序
 
 根据题目描述，两个字符串接近，需要同时满足以下两个条件：
 
@@ -92,10 +90,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
@@ -104,10 +98,6 @@ class Solution:
             cnt1.keys()
         ) == set(cnt2.keys())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func closeStrings(word1 string, word2 string) bool {
 	cnt1 := make([]int, 26)
@@ -178,8 +164,6 @@ func closeStrings(word1 string, word2 string) bool {
 	return slices.Equal(cnt1, cnt2)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function closeStrings(word1: string, word2: string): boolean {
@@ -201,8 +185,6 @@ function closeStrings(word1: string, word2: string): boolean {
     return cnt1.join('.') === cnt2.join('.');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -227,10 +209,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

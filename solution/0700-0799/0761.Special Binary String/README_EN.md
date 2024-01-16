@@ -45,9 +45,9 @@ This is the lexicographically largest string possible after some number of swaps
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
         ans.sort(reverse=True)
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeLargestSpecial(s string) string {
@@ -138,10 +132,6 @@ func makeLargestSpecial(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

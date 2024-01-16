@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们先预处理得到右侧的 $0$ 的个数，记为 $right0$，初始化一个变量 $left0$，表示左侧的 $0$ 的个数。如果最终字符串变成全 `'0'` 或者全 `'1'`，那么答案为 $ans= \min(right0, n - right0)$。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             ans = min(ans, i - left0 + right0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minFlipsMonoIncr(s string) int {
@@ -155,8 +141,6 @@ func minFlipsMonoIncr(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minFlipsMonoIncr(s: string): number {
     const n = s.length;
@@ -175,10 +159,6 @@ function minFlipsMonoIncr(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

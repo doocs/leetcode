@@ -35,15 +35,13 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 We divide $n$ by $k$ and take the remainder until it is $0$. The sum of the remainders gives the result.
 
 The time complexity is $O(\log_{k}n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -54,8 +52,6 @@ class Solution:
             n //= k
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,8 +80,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumBase(n int, k int) (ans int) {
 	for n > 0 {
@@ -98,7 +90,29 @@ func sumBase(n int, k int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function sumBase(n: number, k: number): number {
+    let ans = 0;
+    while (n) {
+        ans += n % k;
+        n = Math.floor(n / k);
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn sum_base(mut n: i32, k: i32) -> i32 {
+        let mut ans = 0;
+        while n != 0 {
+            ans += n % k;
+            n /= k;
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -116,36 +130,6 @@ var sumBase = function (n, k) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function sumBase(n: number, k: number): number {
-    let ans = 0;
-    while (n) {
-        ans += n % k;
-        n = Math.floor(n / k);
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn sum_base(mut n: i32, k: i32) -> i32 {
-        let mut ans = 0;
-        while n != 0 {
-            ans += n % k;
-            n /= k;
-        }
-        ans
-    }
-}
-```
-
-### **C**
-
 ```c
 int sumBase(int n, int k) {
     int ans = 0;
@@ -157,10 +141,6 @@ int sumBase(int n, int k) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

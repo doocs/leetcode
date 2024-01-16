@@ -127,9 +127,9 @@ obj2 = { &nbsp;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function objDiff(obj1: any, obj2: any): any {
@@ -154,3 +154,5 @@ function isObject(obj: unknown): obj is Record<string, unknown> {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

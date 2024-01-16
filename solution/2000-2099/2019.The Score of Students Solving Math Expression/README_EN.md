@@ -69,7 +69,7 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming (Interval DP)**
+### Solution 1: Dynamic Programming (Interval DP)
 
 First, we design a function $cal(s)$ to calculate the result of a valid mathematical expression that only contains single-digit numbers. The correct answer is $x = cal(s)$.
 
@@ -95,8 +95,6 @@ Finally, we count the answer. We use an array $cnt$ to count the number of times
 The time complexity is $O(n^3 \times M^2)$, and the space complexity is $O(n^2 \times M^2)$. Here, $M$ is the maximum possible value of the answer, and $n$ is the number of digits in the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -134,8 +132,6 @@ class Solution:
                 ans += v << 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -197,8 +193,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -257,8 +251,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func scoreOfStudents(s string, answers []int) int {
 	n := len(s)
@@ -316,8 +308,6 @@ func cal(s string) int {
 	return res
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function scoreOfStudents(s: string, answers: number[]): number {
@@ -379,10 +369,6 @@ function scoreOfStudents(s: string, answers: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,13 +55,11 @@ Transactions table:
 
 ## Solutions
 
-**Solution 1: Grouping and Aggregation**
+### Solution 1: Grouping and Aggregation
 
 We can first group by month and country, and then use the `COUNT` and `SUM` functions to respectively calculate the number of transactions, the number of approved transactions, the total amount, and the total amount of approved transactions for each group.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -77,3 +75,5 @@ GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

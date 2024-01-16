@@ -52,11 +52,9 @@ fancy.getIndex(2); // return 20
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-Segment Tree.
-
-### **Python3**
 
 ```python
 MOD = int(1e9 + 7)
@@ -172,8 +170,6 @@ class Fancy:
 # obj.multAll(m)
 # param_4 = obj.getIndex(idx)
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -329,8 +325,6 @@ class Fancy {
  */
 ```
 
-### **C++**
-
 ```cpp
 const int MOD = 1e9 + 7;
 
@@ -474,10 +468,6 @@ public:
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

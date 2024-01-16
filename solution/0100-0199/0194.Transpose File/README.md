@@ -31,31 +31,4 @@ age 21 30
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-<!-- tabs:start -->
-
-### **Bash**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```sh
-# Read from the file file.txt and print its transposed content to stdout.
-awk '
-{
-  for (i=1; i<=NF; i++) {
-    if(NR == 1) {
-      res[i] = re$i
-    } else {
-      res[i] = res[i]" "$i
-    }
-  }
-}END {
-  for (i=1;i<=NF;i++) {
-    print res[i]
-  }
-}
-' file.txt
-```
-
-<!-- tabs:end -->
+<!-- end -->

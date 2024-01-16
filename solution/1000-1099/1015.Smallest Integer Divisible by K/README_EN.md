@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
             n = (n * 10 + 1) % k
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -94,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestRepunitDivByK(k int) int {
 	n := 1 % k
@@ -108,8 +102,6 @@ func smallestRepunitDivByK(k int) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function smallestRepunitDivByK(k: number): number {
@@ -124,10 +116,6 @@ function smallestRepunitDivByK(k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

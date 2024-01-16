@@ -67,15 +67,13 @@ The profit was never positive, so return -1.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We directly simulate the rotation process of the Ferris wheel. Each time it rotates, we add up the waiting customers and the newly arrived customers, then at most $4$ people get on the ride, update the number of waiting customers and profit, and record the maximum profit and its corresponding number of rotations.
 
 The time complexity is $O(n)$, where $n$ is the length of the `customers` array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,8 +96,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int minOperationsMaxProfit(int[] customers, int boardingCost, int runningCost) {
@@ -121,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperationsMaxProfit(customers []int, boardingCost int, runningCost int) int {
 	ans := -1
@@ -170,8 +162,6 @@ func minOperationsMaxProfit(customers []int, boardingCost int, runningCost int) 
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperationsMaxProfit(
@@ -197,8 +187,6 @@ function minOperationsMaxProfit(
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -231,10 +219,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

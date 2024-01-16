@@ -60,7 +60,7 @@ The resulting string is &quot;[[][]]&quot;.
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We use a variable $x$ to record the current number of unmatched left brackets. We traverse the string $s$, for each character $c$:
 
@@ -73,8 +73,6 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
@@ -86,8 +84,6 @@ class Solution:
                 x -= 1
         return (x + 1) >> 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSwaps(s string) int {
 	x := 0
@@ -140,8 +132,6 @@ func minSwaps(s string) int {
 	return (x + 1) / 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minSwaps(s: string): number {
@@ -157,10 +147,6 @@ function minSwaps(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,9 +63,9 @@ So only the second letter &#39;o&#39; in baseStr is changed to &#39;d&#39;, the 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -91,8 +91,6 @@ class Solution:
             res.append(chr(find(a) + ord('a')))
         return ''.join(res)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 var p []int
@@ -199,10 +193,6 @@ func find(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

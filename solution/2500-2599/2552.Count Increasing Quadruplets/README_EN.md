@@ -44,7 +44,7 @@ There are no other quadruplets, so we return 2.
 
 ## Solutions
 
-**Solution 1: Enumeration + Preprocessing**
+### Solution 1: Enumeration + Preprocessing
 
 We can enumerate $j$ and $k$ in the quadruplet, then the problem is transformed into, for the current $j$ and $k$:
 
@@ -58,8 +58,6 @@ Therefore, the answer is the sum of all $f[j][k] \times g[j][k]$.
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
             f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)
         )
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 const int N = 4001;
@@ -181,8 +175,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countQuadruplets(nums []int) int64 {
 	n := len(nums)
@@ -228,10 +220,6 @@ func countQuadruplets(nums []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

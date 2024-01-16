@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们定义一个函数 $dfs(i)$，表示从第 $i$ 个水果开始购买所有水果所需要的最少金币数。那么答案就是 $dfs(1)$。
 
@@ -74,31 +72,7 @@
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
 
-**方法二：动态规划**
-
-我们可以将方法一中的记忆化搜索改写成动态规划的形式。
-
-与方法一类似，我们定义 $f[i]$ 表示从第 $i$ 个水果开始购买所有水果所需要的最少金币数。那么答案就是 $f[1]$。
-
-状态转移方程为 $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + prices[i - 1]$。
-
-在实现上，我们从后往前计算，并且可以直接在数组 $prices$ 上进行状态转移，这样可以节省空间。
-
-时间复杂度 $O(n^2)$，其中 $n$ 为数组 $prices$ 的长度。空间复杂度 $O(1)$。
-
-**方法三：动态规划 + 单调队列优化**
-
-我们观察方法二中的状态转移方程，可以发现，对于每个 $i$，我们需要求出 $f[i + 1], f[i + 2], \cdots, f[2i + 1]$ 的最小值，并且随着 $i$ 的减小，这些值的范围也在减小。这实际上是求一个单调收窄的滑动窗口的最小值，我们可以使用单调队列来优化。
-
-我们从后往前计算，维护一个单调递增的队列 $q$，队列中存储的是下标。如果 $q$ 的队首元素大于 $i \times 2 + 1$，说明 $i$ 之后的元素都不会被用到，所以我们将队首元素出队。如果 $i$ 不大于 $(n - 1) / 2$，那么我们可以将 $prices[q[0] - 1]$ 加到 $prices[i - 1]$ 上，然后将 $i$ 加入队尾。如果 $q$ 的队尾元素对应的水果价格大于等于 $prices[i - 1]$，那么我们将队尾元素出队，直到队尾元素对应的水果价格小于 $prices[i - 1]$ 或者队列为空，然后将 $i$ 加入队尾。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,35 +85,6 @@ class Solution:
 
         return dfs(1)
 ```
-
-```python
-class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
-        n = len(prices)
-        for i in range((n - 1) // 2, 0, -1):
-            prices[i - 1] += min(prices[i : i * 2 + 1])
-        return prices[0]
-```
-
-```python
-class Solution:
-    def minimumCoins(self, prices: List[int]) -> int:
-        n = len(prices)
-        q = deque()
-        for i in range(n, 0, -1):
-            while q and q[0] > i * 2 + 1:
-                q.popleft()
-            if i <= (n - 1) // 2:
-                prices[i - 1] += prices[q[0] - 1]
-            while q and prices[q[-1] - 1] >= prices[i - 1]:
-                q.pop()
-            q.append(i)
-        return prices[0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -169,6 +114,95 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumCoins(vector<int>& prices) {
+        int n = prices.size();
+        int f[n + 1];
+        memset(f, 0x3f, sizeof(f));
+        function<int(int)> dfs = [&](int i) {
+            if (i * 2 >= n) {
+                return prices[i - 1];
+            }
+            if (f[i] == 0x3f3f3f3f) {
+                for (int j = i + 1; j <= i * 2 + 1; ++j) {
+                    f[i] = min(f[i], prices[i - 1] + dfs(j));
+                }
+            }
+            return f[i];
+        };
+        return dfs(1);
+    }
+};
+```
+
+```go
+func minimumCoins(prices []int) int {
+	n := len(prices)
+	f := make([]int, n+1)
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i*2 >= n {
+			return prices[i-1]
+		}
+		if f[i] == 0 {
+			f[i] = 1 << 30
+			for j := i + 1; j <= i*2+1; j++ {
+				f[i] = min(f[i], dfs(j)+prices[i-1])
+			}
+		}
+		return f[i]
+	}
+	return dfs(1)
+}
+```
+
+```ts
+function minimumCoins(prices: number[]): number {
+    const n = prices.length;
+    const f: number[] = Array(n + 1).fill(0);
+    const dfs = (i: number): number => {
+        if (i * 2 >= n) {
+            return prices[i - 1];
+        }
+        if (f[i] === 0) {
+            f[i] = 1 << 30;
+            for (let j = i + 1; j <= i * 2 + 1; ++j) {
+                f[i] = Math.min(f[i], prices[i - 1] + dfs(j));
+            }
+        }
+        return f[i];
+    };
+    return dfs(1);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们可以将方法一中的记忆化搜索改写成动态规划的形式。
+
+与方法一类似，我们定义 $f[i]$ 表示从第 $i$ 个水果开始购买所有水果所需要的最少金币数。那么答案就是 $f[1]$。
+
+状态转移方程为 $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + prices[i - 1]$。
+
+在实现上，我们从后往前计算，并且可以直接在数组 $prices$ 上进行状态转移，这样可以节省空间。
+
+时间复杂度 $O(n^2)$，其中 $n$ 为数组 $prices$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumCoins(self, prices: List[int]) -> int:
+        n = len(prices)
+        for i in range((n - 1) // 2, 0, -1):
+            prices[i - 1] += min(prices[i : i * 2 + 1])
+        return prices[0]
+```
+
 ```java
 class Solution {
     public int minimumCoins(int[] prices) {
@@ -183,6 +217,65 @@ class Solution {
         return prices[0];
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minimumCoins(vector<int>& prices) {
+        int n = prices.size();
+        for (int i = (n - 1) / 2; i; --i) {
+            prices[i - 1] += *min_element(prices.begin() + i, prices.begin() + 2 * i + 1);
+        }
+        return prices[0];
+    }
+};
+```
+
+```go
+func minimumCoins(prices []int) int {
+	for i := (len(prices) - 1) / 2; i > 0; i-- {
+		prices[i-1] += slices.Min(prices[i : i*2+1])
+	}
+	return prices[0]
+}
+```
+
+```ts
+function minimumCoins(prices: number[]): number {
+    for (let i = (prices.length - 1) >> 1; i; --i) {
+        prices[i - 1] += Math.min(...prices.slice(i, i * 2 + 1));
+    }
+    return prices[0];
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三：动态规划 + 单调队列优化
+
+我们观察方法二中的状态转移方程，可以发现，对于每个 $i$，我们需要求出 $f[i + 1], f[i + 2], \cdots, f[2i + 1]$ 的最小值，并且随着 $i$ 的减小，这些值的范围也在减小。这实际上是求一个单调收窄的滑动窗口的最小值，我们可以使用单调队列来优化。
+
+我们从后往前计算，维护一个单调递增的队列 $q$，队列中存储的是下标。如果 $q$ 的队首元素大于 $i \times 2 + 1$，说明 $i$ 之后的元素都不会被用到，所以我们将队首元素出队。如果 $i$ 不大于 $(n - 1) / 2$，那么我们可以将 $prices[q[0] - 1]$ 加到 $prices[i - 1]$ 上，然后将 $i$ 加入队尾。如果 $q$ 的队尾元素对应的水果价格大于等于 $prices[i - 1]$，那么我们将队尾元素出队，直到队尾元素对应的水果价格小于 $prices[i - 1]$ 或者队列为空，然后将 $i$ 加入队尾。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumCoins(self, prices: List[int]) -> int:
+        n = len(prices)
+        q = deque()
+        for i in range(n, 0, -1):
+            while q and q[0] > i * 2 + 1:
+                q.popleft()
+            if i <= (n - 1) // 2:
+                prices[i - 1] += prices[q[0] - 1]
+            while q and prices[q[-1] - 1] >= prices[i - 1]:
+                q.pop()
+            q.append(i)
+        return prices[0]
 ```
 
 ```java
@@ -207,44 +300,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minimumCoins(vector<int>& prices) {
-        int n = prices.size();
-        int f[n + 1];
-        memset(f, 0x3f, sizeof(f));
-        function<int(int)> dfs = [&](int i) {
-            if (i * 2 >= n) {
-                return prices[i - 1];
-            }
-            if (f[i] == 0x3f3f3f3f) {
-                for (int j = i + 1; j <= i * 2 + 1; ++j) {
-                    f[i] = min(f[i], prices[i - 1] + dfs(j));
-                }
-            }
-            return f[i];
-        };
-        return dfs(1);
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minimumCoins(vector<int>& prices) {
-        int n = prices.size();
-        for (int i = (n - 1) / 2; i; --i) {
-            prices[i - 1] += *min_element(prices.begin() + i, prices.begin() + 2 * i + 1);
-        }
-        return prices[0];
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -266,38 +321,6 @@ public:
         return prices[0];
     }
 };
-```
-
-### **Go**
-
-```go
-func minimumCoins(prices []int) int {
-	n := len(prices)
-	f := make([]int, n+1)
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if i*2 >= n {
-			return prices[i-1]
-		}
-		if f[i] == 0 {
-			f[i] = 1 << 30
-			for j := i + 1; j <= i*2+1; j++ {
-				f[i] = min(f[i], dfs(j)+prices[i-1])
-			}
-		}
-		return f[i]
-	}
-	return dfs(1)
-}
-```
-
-```go
-func minimumCoins(prices []int) int {
-	for i := (len(prices) - 1) / 2; i > 0; i-- {
-		prices[i-1] += slices.Min(prices[i : i*2+1])
-	}
-	return prices[0]
-}
 ```
 
 ```go
@@ -375,37 +398,6 @@ func (q Deque) Get(i int) int {
 		return q.l[len(q.l)-1-i]
 	}
 	return q.r[i-len(q.l)]
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumCoins(prices: number[]): number {
-    const n = prices.length;
-    const f: number[] = Array(n + 1).fill(0);
-    const dfs = (i: number): number => {
-        if (i * 2 >= n) {
-            return prices[i - 1];
-        }
-        if (f[i] === 0) {
-            f[i] = 1 << 30;
-            for (let j = i + 1; j <= i * 2 + 1; ++j) {
-                f[i] = Math.min(f[i], prices[i - 1] + dfs(j));
-            }
-        }
-        return f[i];
-    };
-    return dfs(1);
-}
-```
-
-```ts
-function minimumCoins(prices: number[]): number {
-    for (let i = (prices.length - 1) >> 1; i; --i) {
-        prices[i - 1] += Math.min(...prices.slice(i, i * 2 + 1));
-    }
-    return prices[0];
 }
 ```
 
@@ -525,10 +517,6 @@ class Deque<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

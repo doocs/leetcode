@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Enumeration**
+### Solution 1: Hash Table + Enumeration
 
 According to the problem description, we know that the function $func(arr, l, r)$ is actually the bitwise AND result of the elements in the array $arr$ from index $l$ to $r$, i.e., $arr[l] \& arr[l + 1] \& \cdots \& arr[r]$.
 
@@ -56,8 +56,6 @@ If we fix the right endpoint $r$ each time, then the range of the left endpoint 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ are the length of the array $arr$ and the maximum value in the array $arr$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
             ans = min(ans, min(abs(y - target) for y in s))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closestToTarget(arr []int, target int) int {
@@ -146,8 +138,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function closestToTarget(arr: number[], target: number): number {
     let ans = Math.abs(arr[0] - target);
@@ -168,10 +158,6 @@ function closestToTarget(arr: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

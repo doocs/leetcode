@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 根据题目描述我们知道，一共有 $n$ 支队伍，每一次的配对，都会淘汰一支队伍，所以配对次数就是淘汰的队伍数，即 $n - 1$。
 
@@ -60,19 +58,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfMatches(self, n: int) -> int:
         return n - 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,15 +81,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfMatches(n int) int {
 	return n - 1
 }
 ```
 
-### **JavaScript**
+```ts
+function numberOfMatches(n: number): number {
+    return n - 1;
+}
+```
 
 ```js
 /**
@@ -113,18 +103,6 @@ var numberOfMatches = function (n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function numberOfMatches(n: number): number {
-    return n - 1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

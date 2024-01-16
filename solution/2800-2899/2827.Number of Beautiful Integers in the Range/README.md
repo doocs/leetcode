@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数位 DP**
+### 方法一：数位 DP
 
 我们注意到，题目求的是区间 $[low, high]$ 内的美丽整数的个数，对于这种区间 $[l,..r]$ 的问题，我们通常可以考虑转化为求 $[1, r]$ 和 $[1, l-1]$ 的答案，然后相减即可。另外，题目中只涉及到不同数位之间的关系，而不涉及具体的数值，因此我们可以考虑使用数位 DP 来解决。
 
@@ -92,10 +90,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfBeautifulIntegers(self, low: int, high: int, k: int) -> int:
@@ -120,10 +114,6 @@ class Solution:
         b = dfs(0, 0, 10, 1, 1)
         return a - b
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -207,8 +195,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfBeautifulIntegers(low int, high int, k int) int {
@@ -270,8 +256,6 @@ func g(m, n, k int) [][][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfBeautifulIntegers(low: number, high: number, k: number): number {
     let s = String(high);
@@ -318,10 +302,6 @@ function numberOfBeautifulIntegers(low: number, high: number, k: number): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

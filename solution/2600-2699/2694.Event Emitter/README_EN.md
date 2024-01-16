@@ -91,9 +91,9 @@ emitter.emit(&quot;firstEvent&quot;, [5]); // [7]</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type Callback = (...args: any[]) => any;
@@ -136,3 +136,5 @@ class EventEmitter {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

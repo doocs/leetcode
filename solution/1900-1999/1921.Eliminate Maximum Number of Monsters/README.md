@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 我们用 $times$ 数组记录每个怪物最晚可被消灭的时间。对于第 $i$ 个怪物，最晚可被消灭的时间满足：
 
@@ -81,10 +79,6 @@ $$times[i] = \lfloor \frac{dist[i]-1}{speed[i]} \rfloor$$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
@@ -94,10 +88,6 @@ class Solution:
                 return i
         return len(times)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func eliminateMaximum(dist []int, speed []int) int {
 	n := len(dist)
@@ -159,8 +145,6 @@ func eliminateMaximum(dist []int, speed []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function eliminateMaximum(dist: number[], speed: number[]): number {
     const n = dist.length;
@@ -177,8 +161,6 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
     return n;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -201,8 +183,6 @@ var eliminateMaximum = function (dist, speed) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int EliminateMaximum(int[] dist, int[] speed) {
@@ -222,10 +202,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

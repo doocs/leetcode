@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们可以将跳蚤的位置和跳跃方向作为状态，使用 BFS 搜索最短路径。本题比较关键的地方在于确定右边界，即跳蚤最远能跳到哪里。
 
@@ -84,10 +82,6 @@
 时间复杂度 $O(M)$，空间复杂度 $O(M)$。其中 $M$ 是右边界，本题中 $M \leq 6000$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -155,8 +145,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -191,8 +179,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
@@ -229,8 +215,6 @@ func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumJumps(forbidden: number[], a: number, b: number, x: number): number {
     const s: Set<number> = new Set(forbidden);
@@ -260,10 +244,6 @@ function minimumJumps(forbidden: number[], a: number, b: number, x: number): num
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

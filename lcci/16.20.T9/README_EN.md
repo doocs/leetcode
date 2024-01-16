@@ -31,7 +31,7 @@
 
 ## Solutions
 
-**Solution 1: Reverse Thinking**
+### Solution 1: Reverse Thinking
 
 We consider a forward solution, which traverses each digit in the string $num$, maps it to the corresponding letter, combines all the letters to obtain all possible words, and then compares them with the given word list. If the word is in the list, it is added to the answer. The time complexity of this solution is $O(4^n)$, where $n$ is the length of the string $num$, which will obviously time out.
 
@@ -40,8 +40,6 @@ Instead, we can consider a reverse solution, which traverses the given word list
 The time complexity is $O(m \times n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the length of the word list and the string $num$, respectively, and $C$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -52,15 +50,6 @@ class Solution:
         d = {c: d for c, d in zip(ascii_lowercase, "22233344455566677778889999")}
         return [w for w in words if check(w)]
 ```
-
-```python
-class Solution:
-    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
-        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
-        return [w for w in words if w.translate(trans) == num]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getValidT9Words(num string, words []string) (ans []string) {
 	s := "22233344455566677778889999"
@@ -142,8 +127,6 @@ func getValidT9Words(num string, words []string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getValidT9Words(num: string, words: string[]): string[] {
@@ -170,10 +153,19 @@ function getValidT9Words(num: string, words: string[]): string[] {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
+        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
+        return [w for w in words if w.translate(trans) == num]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

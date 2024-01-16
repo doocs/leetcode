@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：有序列表 + 双指针**
+### 方法一：有序列表 + 双指针
 
 我们可以用双指针 $i$ 和 $j$ 维护当前子数组的左右端点，用一个有序列表维护当前子数组的所有元素。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -89,10 +83,6 @@ class Solution:
             ans += len(sl)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func continuousSubarrays(nums []int) (ans int64) {
@@ -169,10 +155,6 @@ func continuousSubarrays(nums []int) (ans int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

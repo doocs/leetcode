@@ -66,15 +66,13 @@ The employees with employee_id 3, 8, and 9 do not report their work to the head 
 
 ## Solutions
 
-**Solution 1: Two Joins**
+### Solution 1: Two Joins
 
 We can use two joins to find all employees who report directly or indirectly to the company CEO.
 
 Specifically, we first use a join to find the `manager_id` of the superior manager for each `manager_id`, and then use another join to find the `manager_id` of the higher-level manager. Finally, if the `manager_id` of the higher-level manager is $1$ and the `employee_id` of the employee is not $1$, it means that the employee reports directly or indirectly to the company CEO.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -87,3 +85,5 @@ WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

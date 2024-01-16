@@ -36,15 +36,13 @@
 
 ## 解法
 
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以使用双指针的方法，维护一个区间 $[l,.. r]$，使得区间内的数之和 $s$ 为 target，如果区间内的数之和小于 target，则右指针 $l$ 右移，如果区间内的数之和大于 target，则左指针 $l$ 右移，直到左指针到达 target 的一半为止。
 
 时间复杂度 $O(target)$，忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
                 l += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findContinuousSequence(target int) (ans [][]int) {
 	l, r := 1, 2
@@ -139,8 +131,6 @@ func findContinuousSequence(target int) (ans [][]int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -170,8 +160,6 @@ var findContinuousSequence = function (target) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int[][] FindContinuousSequence(int target) {
@@ -197,10 +185,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

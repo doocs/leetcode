@@ -110,11 +110,9 @@ Visits</code> 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -155,3 +153,5 @@ ORDER BY n;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -18,9 +18,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -46,8 +46,6 @@ class Solution:
         cur2.next = None
         return l1.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -119,8 +115,6 @@ public:
 };
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -151,10 +145,6 @@ function partition(head: ListNode | null, x: number): ListNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

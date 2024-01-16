@@ -56,9 +56,9 @@ Thus &quot;01100&quot; will unlock the safe. &quot;01100&quot;, &quot;10011&quot
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
         ans.append("0" * (n - 1))
         return "".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func crackSafe(n int, k int) string {
 	mod := int(math.Pow(10, float64(n-1)))
@@ -159,10 +153,6 @@ func crackSafe(n int, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

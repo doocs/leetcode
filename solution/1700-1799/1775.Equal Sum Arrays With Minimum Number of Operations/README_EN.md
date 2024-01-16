@@ -51,9 +51,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,27 +71,6 @@ class Solution:
                 return i
         return -1
 ```
-
-```python
-class Solution:
-    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
-        s1, s2 = sum(nums1), sum(nums2)
-        if s1 == s2:
-            return 0
-        if s1 > s2:
-            return self.minOperations(nums2, nums1)
-        cnt = Counter([6 - v for v in nums1] + [v - 1 for v in nums2])
-        d = s2 - s1
-        ans = 0
-        for i in range(5, 0, -1):
-            while cnt[i] and d > 0:
-                d -= i
-                cnt[i] -= 1
-                ans += 1
-        return ans if d <= 0 else -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,40 +104,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minOperations(int[] nums1, int[] nums2) {
-        int s1 = Arrays.stream(nums1).sum();
-        int s2 = Arrays.stream(nums2).sum();
-        if (s1 == s2) {
-            return 0;
-        }
-        if (s1 > s2) {
-            return minOperations(nums2, nums1);
-        }
-        int d = s2 - s1;
-        int[] cnt = new int[6];
-        for (int v : nums1) {
-            ++cnt[6 - v];
-        }
-        for (int v : nums2) {
-            ++cnt[v - 1];
-        }
-        int ans = 0;
-        for (int i = 5; i > 0; --i) {
-            while (cnt[i] > 0 && d > 0) {
-                d -= i;
-                --cnt[i];
-                ++ans;
-            }
-        }
-        return d <= 0 ? ans : -1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,33 +126,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minOperations(vector<int>& nums1, vector<int>& nums2) {
-        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
-        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
-        if (s1 == s2) return 0;
-        if (s1 > s2) return minOperations(nums2, nums1);
-        int d = s2 - s1;
-        int cnt[6] = {0};
-        for (int& v : nums1) ++cnt[6 - v];
-        for (int& v : nums2) ++cnt[v - 1];
-        int ans = 0;
-        for (int i = 5; i; --i) {
-            while (cnt[i] && d > 0) {
-                d -= i;
-                --cnt[i];
-                ++ans;
-            }
-        }
-        return d <= 0 ? ans : -1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
@@ -242,6 +160,88 @@ func sum(nums []int) (s int) {
 	}
 	return
 }
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        s1, s2 = sum(nums1), sum(nums2)
+        if s1 == s2:
+            return 0
+        if s1 > s2:
+            return self.minOperations(nums2, nums1)
+        cnt = Counter([6 - v for v in nums1] + [v - 1 for v in nums2])
+        d = s2 - s1
+        ans = 0
+        for i in range(5, 0, -1):
+            while cnt[i] and d > 0:
+                d -= i
+                cnt[i] -= 1
+                ans += 1
+        return ans if d <= 0 else -1
+```
+
+```java
+class Solution {
+    public int minOperations(int[] nums1, int[] nums2) {
+        int s1 = Arrays.stream(nums1).sum();
+        int s2 = Arrays.stream(nums2).sum();
+        if (s1 == s2) {
+            return 0;
+        }
+        if (s1 > s2) {
+            return minOperations(nums2, nums1);
+        }
+        int d = s2 - s1;
+        int[] cnt = new int[6];
+        for (int v : nums1) {
+            ++cnt[6 - v];
+        }
+        for (int v : nums2) {
+            ++cnt[v - 1];
+        }
+        int ans = 0;
+        for (int i = 5; i > 0; --i) {
+            while (cnt[i] > 0 && d > 0) {
+                d -= i;
+                --cnt[i];
+                ++ans;
+            }
+        }
+        return d <= 0 ? ans : -1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums1, vector<int>& nums2) {
+        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
+        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
+        if (s1 == s2) return 0;
+        if (s1 > s2) return minOperations(nums2, nums1);
+        int d = s2 - s1;
+        int cnt[6] = {0};
+        for (int& v : nums1) ++cnt[6 - v];
+        for (int& v : nums2) ++cnt[v - 1];
+        int ans = 0;
+        for (int i = 5; i; --i) {
+            while (cnt[i] && d > 0) {
+                d -= i;
+                --cnt[i];
+                ++ans;
+            }
+        }
+        return d <= 0 ? ans : -1;
+    }
+};
 ```
 
 ```go
@@ -282,10 +282,6 @@ func sum(nums []int) (s int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

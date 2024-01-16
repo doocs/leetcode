@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We split the two sentences into two word arrays `words1` and `words2` by spaces. Let the lengths of `words1` and `words2` be $m$ and $n$, respectively, and assume that $m \ge nn.
 
@@ -57,8 +57,6 @@ After the loop, if $i + j \ge n$, it means that the two sentences are similar, a
 The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of the two sentences.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,8 +73,6 @@ class Solution:
             j += 1
         return i + j >= n
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areSentencesSimilar(sentence1 string, sentence2 string) bool {
 	words1, words2 := strings.Fields(sentence1), strings.Fields(sentence2)
@@ -154,8 +146,6 @@ func areSentencesSimilar(sentence1 string, sentence2 string) bool {
 	return i+j >= n
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
@@ -176,10 +166,6 @@ function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

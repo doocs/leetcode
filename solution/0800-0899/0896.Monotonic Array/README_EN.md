@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Single Traversal**
+### Solution 1: Single Traversal
 
 We traverse the array, and if an increasing or decreasing situation occurs, we record it. We then check whether both increasing and decreasing situations have occurred. If both have occurred, it means that the array is not monotonic, and we return `false`.
 
@@ -52,8 +52,6 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
@@ -61,8 +59,6 @@ class Solution:
         desc = all(a >= b for a, b in pairwise(nums))
         return asc or desc
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isMonotonic(nums []int) bool {
 	asc, desc := false, false
@@ -124,7 +116,42 @@ func isMonotonic(nums []int) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+function isMonotonic(nums: number[]): boolean {
+    let [asc, desc] = [false, false];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            asc = true;
+        } else if (nums[i - 1] > nums[i]) {
+            desc = true;
+        }
+        if (asc && desc) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```rust
+impl Solution {
+    pub fn is_monotonic(nums: Vec<i32>) -> bool {
+        let mut asc = false;
+        let mut desc = false;
+        for i in 1..nums.len() {
+            if nums[i - 1] < nums[i] {
+                asc = true;
+            } else if nums[i - 1] > nums[i] {
+                desc = true;
+            }
+            if asc && desc {
+                return false;
+            }
+        }
+        true
+    }
+}
+```
 
 ```js
 /**
@@ -147,51 +174,6 @@ var isMonotonic = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function isMonotonic(nums: number[]): boolean {
-    let [asc, desc] = [false, false];
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i - 1] < nums[i]) {
-            asc = true;
-        } else if (nums[i - 1] > nums[i]) {
-            desc = true;
-        }
-        if (asc && desc) {
-            return false;
-        }
-    }
-    return true;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn is_monotonic(nums: Vec<i32>) -> bool {
-        let mut asc = false;
-        let mut desc = false;
-        for i in 1..nums.len() {
-            if nums[i - 1] < nums[i] {
-                asc = true;
-            } else if nums[i - 1] > nums[i] {
-                desc = true;
-            }
-            if asc && desc {
-                return false;
-            }
-        }
-        true
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

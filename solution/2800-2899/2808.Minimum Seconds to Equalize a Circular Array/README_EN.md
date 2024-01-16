@@ -56,7 +56,7 @@ It can be proven that 2 seconds is the minimum amount of seconds needed for equa
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We assume that all elements eventually become $x$, and $x$ must be an element in the array.
 
@@ -67,8 +67,6 @@ Therefore, we enumerate each element as the final $x$, calculate the maximum dis
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
             ans = min(ans, t // 2)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSeconds(nums []int) int {
 	d := map[int][]int{}
@@ -156,8 +148,6 @@ func minimumSeconds(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumSeconds(nums: number[]): number {
@@ -182,10 +172,6 @@ function minimumSeconds(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

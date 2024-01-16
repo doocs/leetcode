@@ -68,9 +68,9 @@ Since nums is the only shortest supersequence, we return true.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -94,8 +94,6 @@ class Solution:
                     q.append(j)
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sequenceReconstruction(nums []int, sequences [][]int) bool {
@@ -201,10 +195,6 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口 + 哈希表**
+### 方法一：滑动窗口 + 哈希表
 
 我们可以维护一个大小为 $k$ 的滑动窗口，窗口外的糖果为自己的，窗口内的 $k$ 个糖果分给妹妹和妈妈。我们可以用哈希表 $cnt$ 记录窗口外的糖果口味以及对应的数量。
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为糖果的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
             ans = max(ans, len(cnt))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shareCandies(candies []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -161,7 +147,24 @@ func shareCandies(candies []int, k int) (ans int) {
 }
 ```
 
-### **Rust**
+```ts
+function shareCandies(candies: number[], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    for (const x of candies.slice(k)) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    let ans = cnt.size;
+    for (let i = k; i < candies.length; ++i) {
+        cnt.set(candies[i - k], (cnt.get(candies[i - k]) || 0) + 1);
+        cnt.set(candies[i], (cnt.get(candies[i]) || 0) - 1);
+        if (cnt.get(candies[i]) === 0) {
+            cnt.delete(candies[i]);
+        }
+        ans = Math.max(ans, cnt.size);
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -194,31 +197,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function shareCandies(candies: number[], k: number): number {
-    const cnt: Map<number, number> = new Map();
-    for (const x of candies.slice(k)) {
-        cnt.set(x, (cnt.get(x) || 0) + 1);
-    }
-    let ans = cnt.size;
-    for (let i = k; i < candies.length; ++i) {
-        cnt.set(candies[i - k], (cnt.get(candies[i - k]) || 0) + 1);
-        cnt.set(candies[i], (cnt.get(candies[i]) || 0) - 1);
-        if (cnt.get(candies[i]) === 0) {
-            cnt.delete(candies[i]);
-        }
-        ans = Math.max(ans, cnt.size);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

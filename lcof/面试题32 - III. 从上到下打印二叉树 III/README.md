@@ -35,15 +35,13 @@
 
 ## 解法
 
-**方法一：BFS**
+### 方法一：BFS
 
 为了实现锯齿形层序遍历，我们每次将当前层的节点添加到结果数组之前，先判断一下当前结果数组的长度，如果是奇数，就将当前层的节点反转一下。之后把当前层的节点添加到结果数组中即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -73,8 +71,6 @@ class Solution:
             ans.append(t[::-1] if len(ans) & 1 else t)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -115,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -159,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -199,45 +191,6 @@ func levelOrder(root *TreeNode) (ans [][]int) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number[][]}
- */
-var levelOrder = function (root) {
-    const ans = [];
-    if (!root) {
-        return ans;
-    }
-    const q = [root];
-    while (q.length) {
-        const t = [];
-        for (let n = q.length; n; --n) {
-            const { val, left, right } = q.shift();
-            t.push(val);
-            left && q.push(left);
-            right && q.push(right);
-        }
-        if (ans.length & 1) {
-            t.reverse();
-        }
-        ans.push(t);
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -275,8 +228,6 @@ function levelOrder(root: TreeNode | null): number[][] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -334,7 +285,40 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function (root) {
+    const ans = [];
+    if (!root) {
+        return ans;
+    }
+    const q = [root];
+    while (q.length) {
+        const t = [];
+        for (let n = q.length; n; --n) {
+            const { val, left, right } = q.shift();
+            t.push(val);
+            left && q.push(left);
+            right && q.push(right);
+        }
+        if (ans.length & 1) {
+            t.reverse();
+        }
+        ans.push(t);
+    }
+    return ans;
+};
+```
 
 ```cs
 /**
@@ -376,10 +360,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

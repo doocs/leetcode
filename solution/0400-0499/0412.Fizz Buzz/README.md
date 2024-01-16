@@ -47,13 +47,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +66,6 @@ class Solution:
                 ans.append(str(i))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func fizzBuzz(n int) []string {
@@ -138,7 +126,18 @@ func fizzBuzz(n int) []string {
 }
 ```
 
-### **PHP**
+```js
+const fizzBuzz = function (n) {
+    let arr = [];
+    for (let i = 1; i <= n; i++) {
+        if (i % 15 === 0) arr.push('FizzBuzz');
+        else if (i % 3 === 0) arr.push('Fizz');
+        else if (i % 5 === 0) arr.push('Buzz');
+        else arr.push(`${i}`);
+    }
+    return arr;
+};
+```
 
 ```php
 class Solution {
@@ -164,10 +163,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

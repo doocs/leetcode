@@ -54,34 +54,9 @@ Employee 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-SELECT Name AS Employee
-FROM Employee AS Curr
-WHERE
-    Salary > (
-        SELECT Salary
-        FROM Employee
-        WHERE Id = Curr.ManagerId
-    );
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT
-    e1.name AS Employee
-FROM
-    Employee AS e1
-    JOIN Employee AS e2 ON e1.managerId = e2.id
-WHERE e1.salary > e2.salary;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -94,4 +69,33 @@ def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({"Employee": emp})
 ```
 
+```sql
+SELECT Name AS Employee
+FROM Employee AS Curr
+WHERE
+    Salary > (
+        SELECT Salary
+        FROM Employee
+        WHERE Id = Curr.ManagerId
+    );
+```
+
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    e1.name AS Employee
+FROM
+    Employee AS e1
+    JOIN Employee AS e2 ON e1.managerId = e2.id
+WHERE e1.salary > e2.salary;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

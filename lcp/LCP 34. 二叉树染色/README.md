@@ -31,9 +31,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划（树形 DP）**
+### 方法一：动态规划（树形 DP）
 
 我们考虑以 $root$ 为根节点的子树，且 $root$ 节点连着 $t$ 个染色节点的最大价值，其中 $t \in [0, k]$。我们用状态 $f[root][t]$ 来表示。
 
@@ -46,10 +44,6 @@
 时间复杂度 $O(n \times k^2)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别是二叉树的节点数和 $k$ 的值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -75,10 +69,6 @@ class Solution:
 
         return max(dfs(root))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -152,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -183,8 +169,6 @@ func maxValue(root *TreeNode, k int) int {
 	return slices.Max(dfs(root))
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -219,10 +203,6 @@ var maxValue = function (root, k) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 枚举**
+### 方法一：计数 + 枚举
 
 我们可以用一个哈希表或数组 `cnt` 统计两个数组中每个数字出现的次数。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(M)$。其中 $n$ 和 $m$ 分别是两个数组的长度；而 $M$ 是两个数组中数字的最大值，本题中 $M = 1000$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             cnt[i] += v
         return sorted(cnt.items())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	cnt := [1001]int{}
@@ -159,8 +145,6 @@ func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
@@ -181,8 +165,6 @@ function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -209,10 +191,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

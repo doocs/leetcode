@@ -70,9 +70,9 @@ The error should be thrown because we cannot divide by zero.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 class Calculator {
@@ -117,3 +117,5 @@ class Calculator {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

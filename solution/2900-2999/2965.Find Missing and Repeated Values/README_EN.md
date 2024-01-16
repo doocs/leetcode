@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We create an array $cnt$ of length $n^2 + 1$ to count the frequency of each number in the matrix.
 
@@ -47,8 +47,6 @@ Next, we traverse $i \in [1, n^2]$. If $cnt[i] = 2$, then $i$ is the duplicated 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the matrix.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -66,8 +64,6 @@ class Solution:
                 ans[1] = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMissingAndRepeatedValues(grid [][]int) []int {
 	n := len(grid)
@@ -142,8 +134,6 @@ func findMissingAndRepeatedValues(grid [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMissingAndRepeatedValues(grid: number[][]): number[] {
     const n = grid.length;
@@ -165,10 +155,6 @@ function findMissingAndRepeatedValues(grid: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

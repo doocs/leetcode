@@ -47,7 +47,7 @@ Notice that book number 2 does not have to be on the first shelf.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the minimum height for placing the first $i$ books, initially $f[0] = 0$, and the answer is $f[n]$.
 
@@ -61,8 +61,6 @@ The final answer is $f[n]$.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $books$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
                 f[i] = min(f[i], f[j - 1] + h)
         return f[n]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minHeightShelves(books [][]int, shelfWidth int) int {
 	n := len(books)
@@ -152,8 +144,6 @@ func minHeightShelves(books [][]int, shelfWidth int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minHeightShelves(books: number[][], shelfWidth: number): number {
     const n = books.length;
@@ -173,8 +163,6 @@ function minHeightShelves(books: number[][], shelfWidth: number): number {
     return f[n];
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -198,10 +186,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

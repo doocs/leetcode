@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们首先考虑 $i$ 与 $j$ 不相等的情况，此时 $(nums[i] | nums[j]) \& nums[k]$ 与 $(nums[j] | nums[i]) \& nums[k]$ 的结果是相同的，两者的异或结果为 $0$。
 
@@ -73,19 +71,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def xorBeauty(self, nums: List[int]) -> int:
         return reduce(xor, nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorBeauty(nums []int) (ans int) {
 	for _, x := range nums {
@@ -125,18 +111,12 @@ func xorBeauty(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function xorBeauty(nums: number[]): number {
     return nums.reduce((acc, cur) => acc ^ cur, 0);
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

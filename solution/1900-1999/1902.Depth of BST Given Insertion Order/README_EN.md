@@ -61,9 +61,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -81,8 +81,6 @@ class Solution:
             sd[v] = depth
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,10 +103,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

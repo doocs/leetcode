@@ -48,7 +48,7 @@ Since there does not exist any pair that satisfies the conditions, we return 0.
 
 ## Solutions
 
-**Solution 1: Binary Indexed Tree**
+### Solution 1: Binary Indexed Tree
 
 We can transform the inequality in the problem to $nums1[i] - nums2[i] \leq nums1[j] - nums2[j] + diff$. Therefore, if we calculate the difference between the corresponding elements of the two arrays and get another array $nums$, the problem is transformed into finding the number of pairs in $nums$ that satisfy $nums[i] \leq nums[j] + diff$.
 
@@ -57,8 +57,6 @@ We can enumerate $j$ from small to large, find out how many numbers before it sa
 The time complexity is $O(n \times \log n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class BinaryIndexedTree:
@@ -93,8 +91,6 @@ class Solution:
             tree.update(v + 40000, 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -140,8 +136,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -189,8 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -234,16 +226,6 @@ func numberOfPairs(nums1 []int, nums2 []int, diff int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

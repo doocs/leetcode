@@ -42,9 +42,9 @@ It can be shown that there is no way to make them anagrams of each other with le
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
             cnt[c] -= 1
         return sum(abs(v) for v in cnt.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,27 +74,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minSteps(s: string, t: string): number {
-    let cnt = new Array(128).fill(0);
-    for (const c of s) {
-        ++cnt[c.charCodeAt(0)];
-    }
-    for (const c of t) {
-        --cnt[c.charCodeAt(0)];
-    }
-    let ans = 0;
-    for (const v of cnt) {
-        ans += Math.abs(v);
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +87,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSteps(s string, t string) int {
@@ -137,7 +112,22 @@ func abs(x int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function minSteps(s: string, t: string): number {
+    let cnt = new Array(128).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0)];
+    }
+    for (const c of t) {
+        --cnt[c.charCodeAt(0)];
+    }
+    let ans = 0;
+    for (const v of cnt) {
+        ans += Math.abs(v);
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -161,10 +151,6 @@ var minSteps = function (s, t) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

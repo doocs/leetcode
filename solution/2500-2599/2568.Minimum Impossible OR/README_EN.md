@@ -37,7 +37,7 @@
 
 ## Solutions
 
-**Solution 1: Enumerate Powers of 2**
+### Solution 1: Enumerate Powers of 2
 
 We start from the integer $1$. If $1$ is expressible, it must appear in the array `nums`. If $2$ is expressible, it must also appear in the array `nums`. If both $1$ and $2$ are expressible, then their bitwise OR operation $3$ is also expressible, and so on.
 
@@ -47,16 +47,12 @@ The time complexity is $O(n + \log M)$, and the space complexity is $O(n)$. Here
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minImpossibleOR(self, nums: List[int]) -> int:
         s = set(nums)
         return next(1 << i for i in range(32) if 1 << i not in s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -89,8 +83,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minImpossibleOR(nums []int) int {
@@ -106,8 +98,6 @@ func minImpossibleOR(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minImpossibleOR(nums: number[]): number {
     const s: Set<number> = new Set();
@@ -122,10 +112,6 @@ function minImpossibleOR(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

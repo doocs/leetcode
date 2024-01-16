@@ -52,9 +52,9 @@ It can be shown that after trying all possibilities, we cannot get an expression
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
             return f'{nums[0]}/{nums[1]}'
         return f'{nums[0]}/({"/".join(map(str, nums[1:]))})'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +101,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func optimalDivision(nums []int) string {
@@ -128,8 +122,6 @@ func optimalDivision(nums []int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function optimalDivision(nums: number[]): string {
     const n = nums.length;
@@ -141,8 +133,6 @@ function optimalDivision(nums: number[]): string {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -167,10 +157,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

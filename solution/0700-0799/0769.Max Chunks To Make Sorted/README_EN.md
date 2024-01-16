@@ -43,9 +43,9 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,23 +57,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def maxChunksToSorted(self, arr: List[int]) -> int:
-        stk = []
-        for v in arr:
-            if not stk or v >= stk[-1]:
-                stk.append(v)
-            else:
-                mx = stk.pop()
-                while stk and stk[-1] > v:
-                    stk.pop()
-                stk.append(mx)
-        return len(stk)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,6 +71,101 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        int ans = 0, mx = 0;
+        for (int i = 0; i < arr.size(); ++i) {
+            mx = max(mx, arr[i]);
+            ans += i == mx;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maxChunksToSorted(arr []int) int {
+	ans, mx := 0, 0
+	for i, v := range arr {
+		mx = max(mx, v)
+		if i == mx {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function maxChunksToSorted(arr: number[]): number {
+    const n = arr.length;
+    let ans = 0;
+    let max = 0;
+    for (let i = 0; i < n; i++) {
+        max = Math.max(arr[i], max);
+        if (max == i) {
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
+        let mut res = 0;
+        let mut max = 0;
+        for i in 0..arr.len() {
+            max = max.max(arr[i]);
+            if max == (i as i32) {
+                res += 1;
+            }
+        }
+        res
+    }
+}
+```
+
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
+int maxChunksToSorted(int* arr, int arrSize) {
+    int res = 0;
+    int mx = -1;
+    for (int i = 0; i < arrSize; i++) {
+        mx = max(mx, arr[i]);
+        if (mx == i) {
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxChunksToSorted(self, arr: List[int]) -> int:
+        stk = []
+        for v in arr:
+            if not stk or v >= stk[-1]:
+                stk.append(v)
+            else:
+                mx = stk.pop()
+                while stk and stk[-1] > v:
+                    stk.pop()
+                stk.append(mx)
+        return len(stk)
 ```
 
 ```java
@@ -108,22 +186,6 @@ class Solution {
         return stk.size();
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxChunksToSorted(vector<int>& arr) {
-        int ans = 0, mx = 0;
-        for (int i = 0; i < arr.size(); ++i) {
-            mx = max(mx, arr[i]);
-            ans += i == mx;
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -148,21 +210,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maxChunksToSorted(arr []int) int {
-	ans, mx := 0, 0
-	for i, v := range arr {
-		mx = max(mx, v)
-		if i == mx {
-			ans++
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func maxChunksToSorted(arr []int) int {
 	stk := []int{}
@@ -182,63 +229,6 @@ func maxChunksToSorted(arr []int) int {
 }
 ```
 
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int maxChunksToSorted(int* arr, int arrSize) {
-    int res = 0;
-    int mx = -1;
-    for (int i = 0; i < arrSize; i++) {
-        mx = max(mx, arr[i]);
-        if (mx == i) {
-            res++;
-        }
-    }
-    return res;
-}
-```
-
-### **TypeScript**
-
-```ts
-function maxChunksToSorted(arr: number[]): number {
-    const n = arr.length;
-    let ans = 0;
-    let max = 0;
-    for (let i = 0; i < n; i++) {
-        max = Math.max(arr[i], max);
-        if (max == i) {
-            ans++;
-        }
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut max = 0;
-        for i in 0..arr.len() {
-            max = max.max(arr[i]);
-            if max == (i as i32) {
-                res += 1;
-            }
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

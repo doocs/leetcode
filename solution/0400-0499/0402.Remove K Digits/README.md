@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心算法**
+### 方法一：贪心算法
 
 前置知识：两个相同位数的数字大小关系取决于第一个不同位的数的大小。
 
@@ -62,10 +60,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
@@ -78,8 +72,6 @@ class Solution:
             stk.append(c)
         return ''.join(stk[:remain]).lstrip('0') or '0'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeKdigits(num string, k int) string {
 	stk, remain := make([]byte, 0), len(num)-k
@@ -153,8 +141,6 @@ func removeKdigits(num string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeKdigits(num: string, k: number): string {
     let nums = [...num];
@@ -170,10 +156,6 @@ function removeKdigits(num: string, k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

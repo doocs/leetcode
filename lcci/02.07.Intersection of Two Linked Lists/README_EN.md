@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -67,8 +67,6 @@ class Solution:
             cur2 = headA if cur2 is None else cur2.next
         return cur1
 ```
-
-### **Java**
 
 ```java
 /**
@@ -94,8 +92,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -118,35 +114,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-
-/**
- * @param {ListNode} headA
- * @param {ListNode} headB
- * @return {ListNode}
- */
-var getIntersectionNode = function (headA, headB) {
-    let cur1 = headA;
-    let cur2 = headB;
-    while (cur1 != cur2) {
-        cur1 = cur1 ? cur1.next : headB;
-        cur2 = cur2 ? cur2.next : headA;
-    }
-    return cur1;
-};
-```
-
-### **Go**
 
 ```go
 /**
@@ -174,10 +141,31 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
-### **...**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
 
-```
-
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function (headA, headB) {
+    let cur1 = headA;
+    let cur2 = headB;
+    while (cur1 != cur2) {
+        cur1 = cur1 ? cur1.next : headB;
+        cur2 = cur2 ? cur2.next : headA;
+    }
+    return cur1;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Simulation + Fast Power**
+### Solution 1: Simulation + Fast Power
 
 Division is essentially subtraction. The problem requires us to calculate the integer result after dividing two numbers, which is actually calculating how many divisors and a number less than the divisor constitute the dividend. However, only one subtraction can be done in one loop, which is too inefficient and will lead to timeout. This can be optimized by using the idea of fast power.
 
@@ -48,8 +48,6 @@ It should be noted that since the problem explicitly requires that only 32-bit s
 Assuming the dividend is $a$ and the divisor is $b$, the time complexity is $O(\log a \times \log b)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
             ans += cnt
         return ans if sign else -ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func divide(a int, b int) int {
@@ -172,8 +164,6 @@ func divide(a int, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function divide(a: number, b: number): number {
     if (b === 1) {
@@ -205,8 +195,6 @@ function divide(a: number, b: number): number {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int Divide(int a, int b) {
@@ -235,10 +223,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

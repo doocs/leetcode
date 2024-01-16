@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,25 +64,6 @@ class Solution:
                     ans = s[i : j + 1]
         return ans
 ```
-
-```python
-class Solution:
-    def longestNiceSubstring(self, s: str) -> str:
-        n = len(s)
-        ans = ''
-        for i in range(n):
-            lower = upper = 0
-            for j in range(i, n):
-                if s[j].islower():
-                    lower |= 1 << (ord(s[j]) - ord('a'))
-                else:
-                    upper |= 1 << (ord(s[j]) - ord('A'))
-                if lower == upper and len(ans) < j - i + 1:
-                    ans = s[i : j + 1]
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,34 +94,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String longestNiceSubstring(String s) {
-        int n = s.length();
-        int k = -1;
-        int mx = 0;
-        for (int i = 0; i < n; ++i) {
-            int lower = 0, upper = 0;
-            for (int j = i; j < n; ++j) {
-                char c = s.charAt(j);
-                if (Character.isLowerCase(c)) {
-                    lower |= 1 << (c - 'a');
-                } else {
-                    upper |= 1 << (c - 'A');
-                }
-                if (lower == upper && mx < j - i + 1) {
-                    mx = j - i + 1;
-                    k = i;
-                }
-            }
-        }
-        return k == -1 ? "" : s.substring(k, k + mx);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,33 +122,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    string longestNiceSubstring(string s) {
-        int n = s.size();
-        int k = -1, mx = 0;
-        for (int i = 0; i < n; ++i) {
-            int lower = 0, upper = 0;
-            for (int j = i; j < n; ++j) {
-                char c = s[j];
-                if (islower(c))
-                    lower |= 1 << (c - 'a');
-                else
-                    upper |= 1 << (c - 'A');
-                if (lower == upper && mx < j - i + 1) {
-                    mx = j - i + 1;
-                    k = i;
-                }
-            }
-        }
-        return k == -1 ? "" : s.substr(k, mx);
-    }
-};
-```
-
-### **Go**
 
 ```go
 func longestNiceSubstring(s string) string {
@@ -226,6 +152,103 @@ func longestNiceSubstring(s string) string {
 }
 ```
 
+```ts
+function longestNiceSubstring(s: string): string {
+    const n = s.length;
+    let ans = '';
+    for (let i = 0; i < n; i++) {
+        let lower = 0,
+            upper = 0;
+        for (let j = i; j < n; j++) {
+            const c = s.charCodeAt(j);
+            if (c > 96) {
+                lower |= 1 << (c - 97);
+            } else {
+                upper |= 1 << (c - 65);
+            }
+            if (lower == upper && j - i + 1 > ans.length) {
+                ans = s.substring(i, j + 1);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def longestNiceSubstring(self, s: str) -> str:
+        n = len(s)
+        ans = ''
+        for i in range(n):
+            lower = upper = 0
+            for j in range(i, n):
+                if s[j].islower():
+                    lower |= 1 << (ord(s[j]) - ord('a'))
+                else:
+                    upper |= 1 << (ord(s[j]) - ord('A'))
+                if lower == upper and len(ans) < j - i + 1:
+                    ans = s[i : j + 1]
+        return ans
+```
+
+```java
+class Solution {
+    public String longestNiceSubstring(String s) {
+        int n = s.length();
+        int k = -1;
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            int lower = 0, upper = 0;
+            for (int j = i; j < n; ++j) {
+                char c = s.charAt(j);
+                if (Character.isLowerCase(c)) {
+                    lower |= 1 << (c - 'a');
+                } else {
+                    upper |= 1 << (c - 'A');
+                }
+                if (lower == upper && mx < j - i + 1) {
+                    mx = j - i + 1;
+                    k = i;
+                }
+            }
+        }
+        return k == -1 ? "" : s.substring(k, k + mx);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string longestNiceSubstring(string s) {
+        int n = s.size();
+        int k = -1, mx = 0;
+        for (int i = 0; i < n; ++i) {
+            int lower = 0, upper = 0;
+            for (int j = i; j < n; ++j) {
+                char c = s[j];
+                if (islower(c))
+                    lower |= 1 << (c - 'a');
+                else
+                    upper |= 1 << (c - 'A');
+                if (lower == upper && mx < j - i + 1) {
+                    mx = j - i + 1;
+                    k = i;
+                }
+            }
+        }
+        return k == -1 ? "" : s.substr(k, mx);
+    }
+};
+```
+
 ```go
 func longestNiceSubstring(s string) string {
 	n := len(s)
@@ -251,35 +274,6 @@ func longestNiceSubstring(s string) string {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function longestNiceSubstring(s: string): string {
-    const n = s.length;
-    let ans = '';
-    for (let i = 0; i < n; i++) {
-        let lower = 0,
-            upper = 0;
-        for (let j = i; j < n; j++) {
-            const c = s.charCodeAt(j);
-            if (c > 96) {
-                lower |= 1 << (c - 97);
-            } else {
-                upper |= 1 << (c - 65);
-            }
-            if (lower == upper && j - i + 1 > ans.length) {
-                ans = s.substring(i, j + 1);
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

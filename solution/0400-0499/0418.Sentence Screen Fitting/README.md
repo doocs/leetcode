@@ -77,9 +77,7 @@ had--
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们将句子的每个单词拼接上一个空格，然后把句子拼接起来，得到字符串 $s$。例如，对于句子 `["hello", "world"]`，得到的字符串为 `"hello world "`。记 $s$ 的长度为 $m$。
 
@@ -92,10 +90,6 @@ had--
 时间复杂度 $O(rows \times M)$，空间复杂度 $O(L)$。其中 $M$ 是单词的最大长度，而 $L$ 是单词的总长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
                 cur -= 1
         return cur // m
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -165,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wordsTyping(sentence []string, rows int, cols int) int {
 	s := strings.Join(sentence, " ") + " "
@@ -185,8 +171,6 @@ func wordsTyping(sentence []string, rows int, cols int) int {
 	return cur / m
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function wordsTyping(sentence: string[], rows: number, cols: number): number {
@@ -207,10 +191,6 @@ function wordsTyping(sentence: string[], rows: number, cols: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

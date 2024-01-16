@@ -49,15 +49,9 @@ circularQueue.Rear(); &nbsp;// 返回 4</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-“循环数组”实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MyCircularQueue:
@@ -107,10 +101,6 @@ class MyCircularQueue:
 # param_5 = obj.isEmpty()
 # param_6 = obj.isFull()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MyCircularQueue {
@@ -179,8 +169,6 @@ class MyCircularQueue {
  */
 ```
 
-### **C++**
-
 ```cpp
 class MyCircularQueue {
 private:
@@ -242,8 +230,6 @@ public:
  * bool param_6 = obj->isFull();
  */
 ```
-
-### **Go**
 
 ```go
 type MyCircularQueue struct {
@@ -312,8 +298,6 @@ func (this *MyCircularQueue) IsFull() bool {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class MyCircularQueue {
     private queue: number[];
@@ -379,8 +363,6 @@ class MyCircularQueue {
  * var param_6 = obj.isFull()
  */
 ```
-
-### **Rust**
 
 ```rust
 struct MyCircularQueue {
@@ -455,10 +437,6 @@ impl MyCircularQueue {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

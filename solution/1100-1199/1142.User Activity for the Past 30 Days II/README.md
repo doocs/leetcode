@@ -64,11 +64,9 @@ Activity 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -84,6 +82,12 @@ SELECT IFNULL(ROUND(AVG(sessions), 2), 0) AS average_sessions_per_user
 FROM T;
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 SELECT
     IFNULL(
@@ -95,3 +99,5 @@ WHERE DATEDIFF('2019-07-27', activity_date) < 30;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

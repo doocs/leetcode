@@ -60,9 +60,9 @@ Note that the rectangle formed by p1 = 1 and p2 = 3 is invalid because the area 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -78,3 +78,5 @@ ORDER BY area DESC, p1, p2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

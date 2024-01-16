@@ -54,9 +54,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
             d[names[i]] = 1
         return names
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getFolderNames(names []string) []string {
 	d := map[string]int{}
@@ -141,8 +135,6 @@ func getFolderNames(names []string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getFolderNames(names: string[]): string[] {
     let d: Map<string, number> = new Map();
@@ -161,10 +153,6 @@ function getFolderNames(names: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

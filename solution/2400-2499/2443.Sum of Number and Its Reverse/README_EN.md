@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Brute Force Enumeration**
+### Solution 1: Brute Force Enumeration
 
 Enumerate $k$ in the range $[0,.., num]$, and check whether $k + reverse(k)$ equals $num$.
 
@@ -48,15 +48,11 @@ The time complexity is $O(n \times \log n)$, where $n$ is the size of $num$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def sumOfNumberAndReverse(self, num: int) -> bool:
         return any(k + int(str(k)[::-1]) == num for k in range(num + 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfNumberAndReverse(num int) bool {
 	for x := 0; x <= num; x++ {
@@ -117,27 +109,6 @@ func sumOfNumberAndReverse(num int) bool {
 }
 ```
 
-### **C**
-
-```c
-bool sumOfNumberAndReverse(int num) {
-    for (int i = 0; i <= num; i++) {
-        int t = i;
-        int j = 0;
-        while (t > 0) {
-            j = j * 10 + t % 10;
-            t /= 10;
-        }
-        if (i + j == num) {
-            return 1;
-        }
-    }
-    return 0;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function sumOfNumberAndReverse(num: number): boolean {
     for (let i = 0; i <= num; i++) {
@@ -148,8 +119,6 @@ function sumOfNumberAndReverse(num: number): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -175,10 +144,23 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+bool sumOfNumberAndReverse(int num) {
+    for (int i = 0; i <= num; i++) {
+        int t = i;
+        int j = 0;
+        while (t > 0) {
+            j = j * 10 + t % 10;
+            t /= 10;
+        }
+        if (i + j == num) {
+            return 1;
+        }
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

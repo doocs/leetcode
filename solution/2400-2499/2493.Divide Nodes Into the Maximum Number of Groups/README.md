@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + BFS**
+### 方法一：DFS + BFS
 
 注意到图可能不连通，因此我们可以通过 DFS 找到每个连通块。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n \times (n + m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为节点数和边数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -122,10 +116,6 @@ class Solution:
                 ans += t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -207,8 +197,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -276,8 +264,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func magnificentSets(n int, edges [][]int) int {
@@ -359,8 +345,6 @@ func abs(x int) int {
 }
 ```
 
-### **JavaScript**
-
 ```js
 var magnificentSets = function (n, edges) {
     const graph = Array.from({ length: n + 1 }, () => new Set());
@@ -405,10 +389,6 @@ var magnificentSets = function (n, edges) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

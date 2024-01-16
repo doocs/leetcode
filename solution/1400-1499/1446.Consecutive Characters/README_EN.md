@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,8 +51,6 @@ class Solution:
                 t = 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -89,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxPower(s string) int {
 	ans, t := 1, 1
@@ -105,8 +99,6 @@ func maxPower(s string) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxPower(s: string): number {
@@ -123,10 +115,6 @@ function maxPower(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

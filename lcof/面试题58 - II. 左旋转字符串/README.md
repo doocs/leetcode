@@ -28,7 +28,7 @@
 
 ## 解法
 
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以将字符串分为两部分，分别对两部分进行翻转，然后再对整个字符串进行翻转，即可得到结果。或者直接截取两个子串，然后拼接起来。
 
@@ -36,15 +36,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
         return s[n:] + s[:n]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -54,8 +50,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -64,6 +58,46 @@ public:
     }
 };
 ```
+
+```go
+func reverseLeftWords(s string, n int) string {
+	return s[n:] + s[:n]
+}
+```
+
+```rust
+impl Solution {
+    pub fn reverse_left_words(s: String, n: i32) -> String {
+        let n = n as usize;
+        String::from(&s[n..]) + &s[..n]
+    }
+}
+```
+
+```js
+/**
+ * @param {string} s
+ * @param {number} n
+ * @return {string}
+ */
+var reverseLeftWords = function (s, n) {
+    return s.substring(n) + s.substring(0, n);
+};
+```
+
+```cs
+public class Solution {
+    public string ReverseLeftWords(string s, int n) {
+        return s.Substring(n) + s.Substring(0, n);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```cpp
 class Solution {
@@ -77,52 +111,6 @@ public:
 };
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @param {number} n
- * @return {string}
- */
-var reverseLeftWords = function (s, n) {
-    return s.substring(n) + s.substring(0, n);
-};
-```
-
-### **Go**
-
-```go
-func reverseLeftWords(s string, n int) string {
-	return s[n:] + s[:n]
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn reverse_left_words(s: String, n: i32) -> String {
-        let n = n as usize;
-        String::from(&s[n..]) + &s[..n]
-    }
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public string ReverseLeftWords(string s, int n) {
-        return s.Substring(n) + s.Substring(0, n);
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

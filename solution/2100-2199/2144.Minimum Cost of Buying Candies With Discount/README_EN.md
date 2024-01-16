@@ -58,9 +58,9 @@ Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
         cost.sort(reverse=True)
         return sum(cost) - sum(cost[2::3])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumCost(cost []int) (ans int) {
 	sort.Ints(cost)
@@ -120,8 +114,6 @@ func minimumCost(cost []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumCost(cost: number[]): number {
@@ -137,10 +129,6 @@ function minimumCost(cost: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

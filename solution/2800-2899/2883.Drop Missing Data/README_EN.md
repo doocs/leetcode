@@ -47,9 +47,9 @@ Student with id 217 havs empty value in the name column, so it will be removed.<
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -59,10 +59,6 @@ def dropMissingData(students: pd.DataFrame) -> pd.DataFrame:
     return students[students['name'].notnull()]
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

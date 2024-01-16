@@ -17,7 +17,22 @@
 
 <!-- tabs:start -->
 
-### **Java**
+```python
+def insertion_sort(array):
+    for i in range(len(array)):
+        cur_index = i
+        while array[cur_index - 1] > array[cur_index] and cur_index - 1 >= 0:
+            array[cur_index], array[cur_index - 1] = (
+                array[cur_index - 1],
+                array[cur_index],
+            )
+            cur_index -= 1
+    return array
+
+
+array = [10, 17, 50, 7, 30, 24, 27, 45, 15, 5, 36, 21]
+print(insertion_sort(array))
+```
 
 ```java
 import java.util.Arrays;
@@ -41,53 +56,6 @@ public class InsertionSort {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-function insertionSort(inputArr) {
-    let len = inputArr.length;
-    for (let i = 1; i <= len - 1; i++) {
-        let temp = inputArr[i];
-        let j = i - 1;
-        while (j >= 0 && inputArr[j] > temp) {
-            inputArr[j + 1] = inputArr[j];
-            j--;
-        }
-        inputArr[j + 1] = temp;
-    }
-    return inputArr;
-}
-
-let arr = [6, 3, 2, 1, 5];
-console.log(insertionSort(arr));
-```
-
-### **Go**
-
-```go
-package main
-
-import "fmt"
-
-func insertionSort(nums []int) {
-	for i, n := 1, len(nums); i < n; i++ {
-		j, num := i-1, nums[i]
-		for ; j >= 0 && nums[j] > num; j-- {
-			nums[j+1] = nums[j]
-		}
-		nums[j+1] = num
-	}
-}
-
-func main() {
-	nums := []int{1, 2, 7, 9, 5, 8}
-	insertionSort(nums)
-	fmt.Println(nums)
-}
-```
-
-### **C++**
 
 ```cpp
 #include <iostream>
@@ -128,7 +96,27 @@ int main() {
 }
 ```
 
-### **Rust**
+```go
+package main
+
+import "fmt"
+
+func insertionSort(nums []int) {
+	for i, n := 1, len(nums); i < n; i++ {
+		j, num := i-1, nums[i]
+		for ; j >= 0 && nums[j] > num; j-- {
+			nums[j+1] = nums[j]
+		}
+		nums[j+1] = num
+	}
+}
+
+func main() {
+	nums := []int{1, 2, 7, 9, 5, 8}
+	insertionSort(nums)
+	fmt.Println(nums)
+}
+```
 
 ```rust
 fn insertion_sort(nums: &mut Vec<i32>) {
@@ -151,7 +139,24 @@ fn main() {
 }
 ```
 
-### **C#**
+```js
+function insertionSort(inputArr) {
+    let len = inputArr.length;
+    for (let i = 1; i <= len - 1; i++) {
+        let temp = inputArr[i];
+        let j = i - 1;
+        while (j >= 0 && inputArr[j] > temp) {
+            inputArr[j + 1] = inputArr[j];
+            j--;
+        }
+        inputArr[j + 1] = temp;
+    }
+    return inputArr;
+}
+
+let arr = [6, 3, 2, 1, 5];
+console.log(insertionSort(arr));
+```
 
 ```cs
 using System.Diagnostics;
@@ -191,35 +196,6 @@ public class Program
 }
 ```
 
-### **Python3**
-
-```python
-def insertion_sort(array):
-    for i in range(len(array)):
-        cur_index = i
-        while array[cur_index - 1] > array[cur_index] and cur_index - 1 >= 0:
-            array[cur_index], array[cur_index - 1] = (
-                array[cur_index - 1],
-                array[cur_index],
-            )
-            cur_index -= 1
-    return array
-
-
-array = [10, 17, 50, 7, 30, 24, 27, 45, 15, 5, 36, 21]
-print(insertion_sort(array))
-```
-
 <!-- tabs:end -->
 
-## 算法分析
-
-空间复杂度 $O(1)$，时间复杂度 $O(n^2)$。
-
-分情况讨论：
-
-1. 给定的数组按照顺序排好序：只需要进行 $n-1$ 次比较，两两交换次数为 0，时间复杂度为 $O(n)$，这是最好的情况。
-1. 给定的数组按照逆序排列：需要进行 $\frac{n\times (n-1)}{2}$ 次比较，时间复杂度为 $O(n^2)$，这是最坏的情况。
-1. 给定的数组杂乱无章：在这种情况下，平均时间复杂度是 $O(n^2)$。
-
-因此，时间复杂度是 $O(n^2)$，这也是一种稳定的排序算法。
+<!-- end -->

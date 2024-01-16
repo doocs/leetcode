@@ -90,11 +90,9 @@ id = 7 的用户 Jonathon 在不同的 6 天内登录了 7 次, , 6 天中有 5 
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -113,3 +111,5 @@ WHERE cnt=5;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

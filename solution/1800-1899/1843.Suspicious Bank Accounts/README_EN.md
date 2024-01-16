@@ -95,9 +95,9 @@ We can see that the income exceeded the max income in May and July, but not in J
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -123,6 +123,12 @@ WHERE s1.marked = 1 AND s2.marked = 1
 ORDER BY s1.tx;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -145,3 +151,5 @@ ORDER BY tx;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

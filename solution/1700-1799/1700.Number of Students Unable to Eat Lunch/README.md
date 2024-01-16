@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们观察发现，学生位置可调整，而三明治位置不可调整。也就是说，若前面的三明治没被拿走，则往后的所有三明治也无法被拿走。
 
@@ -71,10 +69,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
@@ -85,10 +79,6 @@ class Solution:
             cnt[v] -= 1
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countStudents(students []int, sandwiches []int) int {
@@ -143,27 +129,6 @@ func countStudents(students []int, sandwiches []int) int {
 }
 ```
 
-### **C**
-
-```c
-int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
-    int count[2] = {0};
-    for (int i = 0; i < studentsSize; i++) {
-        count[students[i]]++;
-    }
-    for (int i = 0; i < sandwichesSize; i++) {
-        int j = sandwiches[i];
-        if (count[j] == 0) {
-            return count[j ^ 1];
-        }
-        count[j]--;
-    }
-    return 0;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function countStudents(students: number[], sandwiches: number[]): number {
     const count = [0, 0];
@@ -179,8 +144,6 @@ function countStudents(students: number[], sandwiches: number[]): number {
     return 0;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -201,10 +164,23 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
+    int count[2] = {0};
+    for (int i = 0; i < studentsSize; i++) {
+        count[students[i]]++;
+    }
+    for (int i = 0; i < sandwichesSize; i++) {
+        int j = sandwiches[i];
+        if (count[j] == 0) {
+            return count[j ^ 1];
+        }
+        count[j]--;
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

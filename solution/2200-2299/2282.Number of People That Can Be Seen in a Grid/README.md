@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 我们观察发现，对于第 $i$ 个人来说，他能看到的人一定是按从左到右（或者从上到下）高度严格单调递增的。
 
@@ -80,10 +78,6 @@
 -   [1944. 队列中可以看到的人数](/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
                 ans[i][j] += add[i]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -159,8 +149,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -204,8 +192,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func seePeople(heights [][]int) (ans [][]int) {
 	f := func(nums []int) []int {
@@ -243,8 +229,6 @@ func seePeople(heights [][]int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function seePeople(heights: number[][]): number[][] {
@@ -286,10 +270,6 @@ function seePeople(heights: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

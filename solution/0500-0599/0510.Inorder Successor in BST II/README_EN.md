@@ -50,9 +50,9 @@ class Node {
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -77,8 +77,6 @@ class Solution:
             node = node.parent
         return node.parent
 ```
-
-### **Java**
 
 ```java
 /*
@@ -109,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -136,8 +132,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -165,8 +159,6 @@ func inorderSuccessor(node *Node) *Node {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * // Definition for a Node.
@@ -193,10 +185,6 @@ var inorderSuccessor = function (node) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

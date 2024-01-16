@@ -24,7 +24,7 @@
 
 ## 解法
 
-**方法一：二分查找**
+### 方法一：二分查找
 
 二分查找的变种，需要考虑重复元素的情况。
 
@@ -42,8 +42,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minArray(self, numbers: List[int]) -> int:
@@ -58,25 +56,6 @@ class Solution:
                 r -= 1
         return numbers[l]
 ```
-
-```python
-class Solution:
-    def minArray(self, numbers: List[int]) -> int:
-        l, r = 0, len(numbers) - 1
-        while l < r:
-            if numbers[l] < numbers[r]:
-                return numbers[l]
-            mid = (l + r) >> 1
-            if numbers[mid] > numbers[l]:
-                l = mid + 1
-            elif numbers[mid] < numbers[l]:
-                r = mid
-            else:
-                l += 1
-        return numbers[l]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,6 +74,131 @@ class Solution {
         return numbers[l];
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minArray(vector<int>& numbers) {
+        int l = 0, r = numbers.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (numbers[mid] > numbers[r]) {
+                l = mid + 1;
+            } else if (numbers[mid] < numbers[r]) {
+                r = mid;
+            } else {
+                --r;
+            }
+        }
+        return numbers[l];
+    }
+};
+```
+
+```go
+func minArray(numbers []int) int {
+	l, r := 0, len(numbers)-1
+	for l < r {
+		mid := (l + r) >> 1
+		if numbers[mid] > numbers[r] {
+			l = mid + 1
+		} else if numbers[mid] < numbers[r] {
+			r = mid
+		} else {
+			r--
+		}
+	}
+	return numbers[l]
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_array(numbers: Vec<i32>) -> i32 {
+        let mut l = 0;
+        let mut r = numbers.len() - 1;
+        while l < r {
+            let mid = (l + r) >> 1;
+            match numbers[mid].cmp(&numbers[r]) {
+                std::cmp::Ordering::Less => {
+                    r = mid;
+                }
+                std::cmp::Ordering::Equal => {
+                    r -= 1;
+                }
+                std::cmp::Ordering::Greater => {
+                    l = mid + 1;
+                }
+            }
+        }
+        numbers[l]
+    }
+}
+```
+
+```js
+/**
+ * @param {number[]} numbers
+ * @return {number}
+ */
+var minArray = function (numbers) {
+    let l = 0,
+        r = numbers.length - 1;
+    while (l < r) {
+        let m = (l + r) >>> 1;
+        if (numbers[m] > numbers[r]) {
+            l = m + 1;
+        } else if (numbers[m] < numbers[r]) {
+            r = m;
+        } else {
+            --r;
+        }
+    }
+    return numbers[l];
+};
+```
+
+```cs
+public class Solution {
+    public int MinArray(int[] numbers) {
+        int l = 0, r = numbers.Length - 1;
+        while (l < r) {
+            int m = (l + r) >> 1;
+            if (numbers[m] > numbers[r]) {
+                l = m + 1;
+            } else if (numbers[m] < numbers[r]) {
+                r = m;
+            } else {
+                --r;
+            }
+        }
+        return numbers[l];
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minArray(self, numbers: List[int]) -> int:
+        l, r = 0, len(numbers) - 1
+        while l < r:
+            if numbers[l] < numbers[r]:
+                return numbers[l]
+            mid = (l + r) >> 1
+            if numbers[mid] > numbers[l]:
+                l = mid + 1
+            elif numbers[mid] < numbers[l]:
+                r = mid
+            else:
+                l += 1
+        return numbers[l]
 ```
 
 ```java
@@ -117,28 +221,6 @@ class Solution {
         return numbers[l];
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minArray(vector<int>& numbers) {
-        int l = 0, r = numbers.size() - 1;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (numbers[mid] > numbers[r]) {
-                l = mid + 1;
-            } else if (numbers[mid] < numbers[r]) {
-                r = mid;
-            } else {
-                --r;
-            }
-        }
-        return numbers[l];
-    }
-};
 ```
 
 ```cpp
@@ -164,25 +246,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minArray(numbers []int) int {
-	l, r := 0, len(numbers)-1
-	for l < r {
-		mid := (l + r) >> 1
-		if numbers[mid] > numbers[r] {
-			l = mid + 1
-		} else if numbers[mid] < numbers[r] {
-			r = mid
-		} else {
-			r--
-		}
-	}
-	return numbers[l]
-}
-```
-
 ```go
 func minArray(numbers []int) int {
 	l, r := 0, len(numbers)-1
@@ -200,81 +263,6 @@ func minArray(numbers []int) int {
 		}
 	}
 	return numbers[l]
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} numbers
- * @return {number}
- */
-var minArray = function (numbers) {
-    let l = 0,
-        r = numbers.length - 1;
-    while (l < r) {
-        let m = (l + r) >>> 1;
-        if (numbers[m] > numbers[r]) {
-            l = m + 1;
-        } else if (numbers[m] < numbers[r]) {
-            r = m;
-        } else {
-            --r;
-        }
-    }
-    return numbers[l];
-};
-```
-
-```js
-/**
- * @param {number[]} numbers
- * @return {number}
- */
-var minArray = function (numbers) {
-    let l = 0,
-        r = numbers.length - 1;
-    while (l < r) {
-        if (numbers[l] < numbers[r]) {
-            break;
-        }
-        let m = (l + r) >>> 1;
-        if (numbers[m] > numbers[l]) {
-            l = m + 1;
-        } else if (numbers[m] < numbers[l]) {
-            r = m;
-        } else {
-            ++l;
-        }
-    }
-    return numbers[l];
-};
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn min_array(numbers: Vec<i32>) -> i32 {
-        let mut l = 0;
-        let mut r = numbers.len() - 1;
-        while l < r {
-            let mid = (l + r) >> 1;
-            match numbers[mid].cmp(&numbers[r]) {
-                std::cmp::Ordering::Less => {
-                    r = mid;
-                }
-                std::cmp::Ordering::Equal => {
-                    r -= 1;
-                }
-                std::cmp::Ordering::Greater => {
-                    l = mid + 1;
-                }
-            }
-        }
-        numbers[l]
-    }
 }
 ```
 
@@ -305,25 +293,29 @@ impl Solution {
 }
 ```
 
-### **C#**
-
-```cs
-public class Solution {
-    public int MinArray(int[] numbers) {
-        int l = 0, r = numbers.Length - 1;
-        while (l < r) {
-            int m = (l + r) >> 1;
-            if (numbers[m] > numbers[r]) {
-                l = m + 1;
-            } else if (numbers[m] < numbers[r]) {
-                r = m;
-            } else {
-                --r;
-            }
+```js
+/**
+ * @param {number[]} numbers
+ * @return {number}
+ */
+var minArray = function (numbers) {
+    let l = 0,
+        r = numbers.length - 1;
+    while (l < r) {
+        if (numbers[l] < numbers[r]) {
+            break;
         }
-        return numbers[l];
+        let m = (l + r) >>> 1;
+        if (numbers[m] > numbers[l]) {
+            l = m + 1;
+        } else if (numbers[m] < numbers[l]) {
+            r = m;
+        } else {
+            ++l;
+        }
     }
-}
+    return numbers[l];
+};
 ```
 
 ```cs
@@ -348,10 +340,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

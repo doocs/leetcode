@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We first calculate the sum of the two arrays, and then calculate the difference $diff$ between the sums. If $diff$ is odd, it means that the sums of the two arrays cannot be equal, so we directly return an empty array.
 
@@ -43,8 +43,6 @@ If $diff$ is even, we can traverse one of the arrays. Suppose the current elemen
 The time complexity is $O(m + n)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the lengths of the two arrays.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -59,8 +57,6 @@ class Solution:
                 return [a, b]
         return []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findSwapValues(array1 []int, array2 []int) []int {
@@ -142,8 +134,6 @@ func findSwapValues(array1 []int, array2 []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSwapValues(array1: number[], array2: number[]): number[] {
     const s1 = array1.reduce((a, b) => a + b, 0);
@@ -164,10 +154,6 @@ function findSwapValues(array1: number[], array2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

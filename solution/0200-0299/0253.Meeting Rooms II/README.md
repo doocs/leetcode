@@ -35,15 +35,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -54,10 +48,6 @@ class Solution:
             delta[end] -= 1
         return max(accumulate(delta))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -78,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,7 +86,20 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func minMeetingRooms(intervals [][]int) int {
+	n := 1000010
+	delta := make([]int, n)
+	for _, e := range intervals {
+		delta[e[0]]++
+		delta[e[1]]--
+	}
+	for i := 1; i < n; i++ {
+		delta[i] += delta[i-1]
+	}
+	return slices.Max(delta)
+}
+```
 
 ```rust
 use std::{ collections::BinaryHeap, cmp::Reverse };
@@ -138,27 +139,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func minMeetingRooms(intervals [][]int) int {
-	n := 1000010
-	delta := make([]int, n)
-	for _, e := range intervals {
-		delta[e[0]]++
-		delta[e[1]]--
-	}
-	for i := 1; i < n; i++ {
-		delta[i] += delta[i-1]
-	}
-	return slices.Max(delta)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -25,9 +25,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 我们先创建一个长度为 $n$ 的答案数组 $ans$。
 
@@ -40,10 +38,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 $a$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -59,10 +53,6 @@ class Solution:
             right *= a[i]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func constructArr(a []int) []int {
 	n := len(a)
@@ -121,8 +107,6 @@ func constructArr(a []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function constructArr(a: number[]): number[] {
     const n = a.length;
@@ -138,8 +122,6 @@ function constructArr(a: number[]): number[] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -161,8 +143,6 @@ var constructArr = function (a) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int[] ConstructArr(int[] a) {
@@ -182,10 +162,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

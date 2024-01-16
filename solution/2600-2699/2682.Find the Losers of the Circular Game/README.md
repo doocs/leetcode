@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们用一个数组 `vis` 记录每个朋友是否接到过球，初始时所有朋友都没有接到过球。然后我们按照题目描述的规则模拟游戏的过程，直到某个朋友第二次接到球为止。
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是朋友的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
             p += 1
         return [i + 1 for i in range(n) if not vis[i]]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func circularGameLosers(n int, k int) (ans []int) {
 	vis := make([]bool, n)
@@ -155,7 +141,22 @@ func circularGameLosers(n int, k int) (ans []int) {
 }
 ```
 
-### **Rust**
+```ts
+function circularGameLosers(n: number, k: number): number[] {
+    const vis = new Array(n).fill(false);
+    const ans: number[] = [];
+    for (let i = 0, p = 1; !vis[i]; p++) {
+        vis[i] = true;
+        i = (i + p * k) % n;
+    }
+    for (let i = 0; i < vis.length; i++) {
+        if (!vis[i]) {
+            ans.push(i + 1);
+        }
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -182,29 +183,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function circularGameLosers(n: number, k: number): number[] {
-    const vis = new Array(n).fill(false);
-    const ans: number[] = [];
-    for (let i = 0, p = 1; !vis[i]; p++) {
-        vis[i] = true;
-        i = (i + p * k) % n;
-    }
-    for (let i = 0; i < vis.length; i++) {
-        if (!vis[i]) {
-            ans.push(i + 1);
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

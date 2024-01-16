@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力模拟**
+### 方法一：暴力模拟
 
 枚举纵坐标的起始位置，然后分别获取横、纵坐标的所有可能的表示形式，最后将横、纵坐标的所有可能的表示形式组合起来。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n^3)$，其中 $n$ 为字符串 $S$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             f'({x}, {y})' for i in range(2, n - 1) for x in f(1, i) for y in f(i, n - 1)
         ]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +145,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func ambiguousCoordinates(s string) []string {
@@ -191,8 +177,6 @@ func ambiguousCoordinates(s string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function ambiguousCoordinates(s: string): string[] {
     s = s.slice(1, s.length - 1);
@@ -222,10 +206,6 @@ function ambiguousCoordinates(s: string): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

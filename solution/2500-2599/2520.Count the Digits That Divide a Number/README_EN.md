@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We directly enumerate each digit $val$ of the integer $num$, and if $val$ can divide $num$, we add one to the answer.
 
@@ -52,8 +52,6 @@ After the enumeration, we return the answer.
 The time complexity is $O(\log num)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
             ans += num % val == 0
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countDigits(num int) (ans int) {
 	for x := num; x > 0; x /= 10 {
@@ -110,8 +102,6 @@ func countDigits(num int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countDigits(num: number): number {
@@ -124,20 +114,6 @@ function countDigits(num: number): number {
     return ans;
 }
 ```
-
-```ts
-function countDigits(num: number): number {
-    let ans = 0;
-    for (const s of num.toString()) {
-        if (num % Number(s) === 0) {
-            ans++;
-        }
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -155,21 +131,6 @@ impl Solution {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn count_digits(num: i32) -> i32 {
-        num
-            .to_string()
-            .chars()
-            .filter(|&c| c != '0')
-            .filter(|&c| num % (c.to_digit(10).unwrap() as i32) == 0)
-            .count() as i32
-    }
-}
-```
-
-### **C**
-
 ```c
 int countDigits(int num) {
     int ans = 0;
@@ -184,10 +145,37 @@ int countDigits(int num) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function countDigits(num: number): number {
+    let ans = 0;
+    for (const s of num.toString()) {
+        if (num % Number(s) === 0) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
+```rust
+impl Solution {
+    pub fn count_digits(num: i32) -> i32 {
+        num
+            .to_string()
+            .chars()
+            .filter(|&c| c != '0')
+            .filter(|&c| num % (c.to_digit(10).unwrap() as i32) == 0)
+            .count() as i32
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

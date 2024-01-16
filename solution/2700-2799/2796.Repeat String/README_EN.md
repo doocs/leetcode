@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 declare global {
@@ -58,8 +58,6 @@ String.prototype.replicate = function (times: number) {
 };
 ```
 
-### **JavaScript**
-
 ```js
 String.prototype.replicate = function (times) {
     return Array(times).fill(this).join('');
@@ -67,3 +65,5 @@ String.prototype.replicate = function (times) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

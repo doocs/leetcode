@@ -39,27 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 遍历**
+### 方法一：排序 + 遍历
 
 我们可以先将数组 `arr` 排序，然后遍历数组，判断相邻两项的差是否相等即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `arr` 的长度。
 
-**方法二：哈希表 + 数学**
-
-我们先找出数组 $arr$ 中的最小值 $a$ 和最大值 $b$，如果数组 $arr$ 可以重排成等差数列，那么公差 $d = \frac{b - a}{n - 1}$ 必须为整数。
-
-我们可以用哈希表来记录数组 $arr$ 中的所有元素，然后遍历 $i \in [0, n)$，判断 $a + d \times i$ 是否在哈希表中，如果不在，说明数组 $arr$ 不能重排成等差数列，返回 `false`。否则遍历完数组后，返回 `true`。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `arr` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,23 +54,6 @@ class Solution:
         d = arr[1] - arr[0]
         return all(b - a == d for a, b in pairwise(arr))
 ```
-
-```python
-class Solution:
-    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
-        a = min(arr)
-        b = max(arr)
-        n = len(arr)
-        if (b - a) % (n - 1):
-            return False
-        d = (b - a) // (n - 1)
-        s = set(arr)
-        return all(a + d * i in s for i in range(n))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,6 +68,120 @@ class Solution {
         return true;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int d = arr[1] - arr[0];
+        for (int i = 2; i < arr.size(); i++) {
+            if (arr[i] - arr[i - 1] != d) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+```go
+func canMakeArithmeticProgression(arr []int) bool {
+	sort.Ints(arr)
+	d := arr[1] - arr[0]
+	for i := 2; i < len(arr); i++ {
+		if arr[i]-arr[i-1] != d {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```ts
+function canMakeArithmeticProgression(arr: number[]): boolean {
+    arr.sort((a, b) => a - b);
+    const n = arr.length;
+    for (let i = 2; i < n; i++) {
+        if (arr[i - 2] - arr[i - 1] !== arr[i - 1] - arr[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```rust
+impl Solution {
+    pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
+        arr.sort();
+        let n = arr.len();
+        for i in 2..n {
+            if arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i] {
+                return false;
+            }
+        }
+        true
+    }
+}
+```
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function (arr) {
+    arr.sort((a, b) => a - b);
+    for (let i = 1; i < arr.length - 1; i++) {
+        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+};
+```
+
+```c
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
+}
+
+bool canMakeArithmeticProgression(int* arr, int arrSize) {
+    qsort(arr, arrSize, sizeof(int), cmp);
+    for (int i = 2; i < arrSize; i++) {
+        if (arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：哈希表 + 数学
+
+我们先找出数组 $arr$ 中的最小值 $a$ 和最大值 $b$，如果数组 $arr$ 可以重排成等差数列，那么公差 $d = \frac{b - a}{n - 1}$ 必须为整数。
+
+我们可以用哈希表来记录数组 $arr$ 中的所有元素，然后遍历 $i \in [0, n)$，判断 $a + d \times i$ 是否在哈希表中，如果不在，说明数组 $arr$ 不能重排成等差数列，返回 `false`。否则遍历完数组后，返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `arr` 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        a = min(arr)
+        b = max(arr)
+        n = len(arr)
+        if (b - a) % (n - 1):
+            return False
+        d = (b - a) // (n - 1)
+        s = set(arr)
+        return all(a + d * i in s for i in range(n))
 ```
 
 ```java
@@ -126,24 +209,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool canMakeArithmeticProgression(vector<int>& arr) {
-        sort(arr.begin(), arr.end());
-        int d = arr[1] - arr[0];
-        for (int i = 2; i < arr.size(); i++) {
-            if (arr[i] - arr[i - 1] != d) {
-                return false;
-            }
-        }
-        return true;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -165,21 +230,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func canMakeArithmeticProgression(arr []int) bool {
-	sort.Ints(arr)
-	d := arr[1] - arr[0]
-	for i := 2; i < len(arr); i++ {
-		if arr[i]-arr[i-1] != d {
-			return false
-		}
-	}
-	return true
-}
-```
-
 ```go
 func canMakeArithmeticProgression(arr []int) bool {
 	a, b := slices.Min(arr), slices.Max(arr)
@@ -198,39 +248,6 @@ func canMakeArithmeticProgression(arr []int) bool {
 		}
 	}
 	return true
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} arr
- * @return {boolean}
- */
-var canMakeArithmeticProgression = function (arr) {
-    arr.sort((a, b) => a - b);
-    for (let i = 1; i < arr.length - 1; i++) {
-        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) {
-            return false;
-        }
-    }
-    return true;
-};
-```
-
-### **TypeScript**
-
-```ts
-function canMakeArithmeticProgression(arr: number[]): boolean {
-    arr.sort((a, b) => a - b);
-    const n = arr.length;
-    for (let i = 2; i < n; i++) {
-        if (arr[i - 2] - arr[i - 1] !== arr[i - 1] - arr[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 ```
 
@@ -258,23 +275,6 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
         }
     }
     return true;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
-        arr.sort();
-        let n = arr.len();
-        for i in 2..n {
-            if arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i] {
-                return false;
-            }
-        }
-        true
-    }
 }
 ```
 
@@ -310,28 +310,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int cmp(const void* a, const void* b) {
-    return *(int*) a - *(int*) b;
-}
-
-bool canMakeArithmeticProgression(int* arr, int arrSize) {
-    qsort(arr, arrSize, sizeof(int), cmp);
-    for (int i = 2; i < arrSize; i++) {
-        if (arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i]) {
-            return 0;
-        }
-    }
-    return 1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

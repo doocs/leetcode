@@ -41,20 +41,9 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-区间 DP。
-
--   状态表示：`dp[i][j]` 表示戳破区间 `(i, j)` 内所有气球获得的最大硬币数。
--   状态计算：枚举开区间 `(i, j)` 中以气球 k 作为最后戳破的气球。那么 `dp[i][j] = max(dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]), k ∈ [i + 1, j)`。
-
-以区间长度 l 从小到大开始处理每个状态值。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +60,6 @@ class Solution:
                     )
         return dp[0][-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,27 +84,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxCoins(nums: number[]): number {
-    let n = nums.length;
-    let dp = Array.from({ length: n + 1 }, v => new Array(n + 2).fill(0));
-    nums.unshift(1);
-    nums.push(1);
-    for (let i = n - 1; i >= 0; --i) {
-        for (let j = i + 2; j < n + 2; ++j) {
-            for (let k = i + 1; k < j; ++k) {
-                dp[i][j] = Math.max(nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j], dp[i][j]);
-            }
-        }
-    }
-    return dp[0][n + 1];
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxCoins(nums []int) int {
@@ -167,10 +129,23 @@ func maxCoins(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function maxCoins(nums: number[]): number {
+    let n = nums.length;
+    let dp = Array.from({ length: n + 1 }, v => new Array(n + 2).fill(0));
+    nums.unshift(1);
+    nums.push(1);
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = i + 2; j < n + 2; ++j) {
+            for (let k = i + 1; k < j; ++k) {
+                dp[i][j] = Math.max(nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j], dp[i][j]);
+            }
+        }
+    }
+    return dp[0][n + 1];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

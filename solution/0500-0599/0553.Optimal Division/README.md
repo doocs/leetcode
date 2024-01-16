@@ -59,19 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-贪心。
-
-要使得除法的结果最大，分子应该尽可能大，而分母应该尽可能小。
-
-分子最大应该是 `nums[0]`，而分母最大是 `nums[1] / nums[2] / ... / nums[n - 1]`，此时的除法结果最大。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +73,6 @@ class Solution:
             return f'{nums[0]}/{nums[1]}'
         return f'{nums[0]}/({"/".join(map(str, nums[1:]))})'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func optimalDivision(nums []int) string {
@@ -147,8 +129,6 @@ func optimalDivision(nums []int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function optimalDivision(nums: number[]): string {
     const n = nums.length;
@@ -160,8 +140,6 @@ function optimalDivision(nums: number[]): string {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -186,10 +164,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,11 +42,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -81,8 +79,6 @@ class Solution:
 
         return dfs(s)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -136,8 +132,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -180,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -228,10 +220,6 @@ func str2tree(s string) *TreeNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

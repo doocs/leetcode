@@ -62,9 +62,9 @@ On 2019-07-02, user 2 purchased using mobile <strong>only</strong>, user 3 purch
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -96,3 +96,5 @@ GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

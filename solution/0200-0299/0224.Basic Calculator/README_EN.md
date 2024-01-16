@@ -45,7 +45,7 @@
 
 ## Solutions
 
-**Solution 1: Stack**
+### Solution 1: Stack
 
 We use a stack $stk$ to save the current calculation result and operator, a variable $sign$ to save the current sign, and a variable $ans$ to save the final calculation result.
 
@@ -62,8 +62,6 @@ After traversing the string $s$, we return $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -93,8 +91,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,8 +127,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -172,8 +166,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func calculate(s string) (ans int) {
 	stk := []int{}
@@ -208,8 +200,6 @@ func calculate(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function calculate(s: string): number {
@@ -246,8 +236,6 @@ function calculate(s: string): number {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -287,10 +275,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

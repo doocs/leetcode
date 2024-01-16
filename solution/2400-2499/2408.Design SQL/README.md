@@ -65,19 +65,13 @@ sql.selectCell("two", 2, 2); // 返回 "fifth"，查找表 "two" 中 id 为 2 �
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 创建哈希表 `tables` 用于存储表名和表数据行的映射。直接模拟题目中的操作即可。
 
 每个操作的时间复杂度均为 $O(1)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class SQL:
@@ -100,10 +94,6 @@ class SQL:
 # obj.deleteRow(name,rowId)
 # param_3 = obj.selectCell(name,rowId,columnId)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class SQL {
@@ -134,8 +124,6 @@ class SQL {
  */
 ```
 
-### **C++**
-
 ```cpp
 class SQL {
 public:
@@ -163,8 +151,6 @@ public:
  * string param_3 = obj->selectCell(name,rowId,columnId);
  */
 ```
-
-### **Go**
 
 ```go
 type SQL struct {
@@ -196,17 +182,6 @@ func (this *SQL) SelectCell(name string, rowId int, columnId int) string {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Grouped Trie**
+### Solution 1: Grouped Trie
 
 We notice that if two words have the same abbreviation, their first and last letters must be the same, and their lengths must be the same. Therefore, we can group all words by length and last letter, and use a trie to store the information of each group of words.
 
@@ -59,8 +59,6 @@ When querying, we start from the root node. For the current letter, if the `cnt`
 The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is the sum of the lengths of all words.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -107,8 +105,6 @@ class Solution:
             )
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -161,8 +157,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -228,8 +222,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -288,8 +280,6 @@ func wordsAbbreviation(words []string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     private children: Trie[] = Array(26);
@@ -344,10 +334,6 @@ function wordsAbbreviation(words: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

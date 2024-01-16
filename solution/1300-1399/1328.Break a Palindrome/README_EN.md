@@ -38,9 +38,9 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
             s[i] = "a"
         return "".join(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func breakPalindrome(palindrome string) string {
 	n := len(palindrome)
@@ -128,8 +122,6 @@ func breakPalindrome(palindrome string) string {
 	return string(s)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function breakPalindrome(palindrome: string): string {
@@ -151,10 +143,6 @@ function breakPalindrome(palindrome: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

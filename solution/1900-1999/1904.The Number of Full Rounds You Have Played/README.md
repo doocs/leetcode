@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：转换为分钟数**
+### 方法一：转换为分钟数
 
 我们可以将输入的字符串转换为分钟数 $a$ 和 $b$，如果 $a > b$，则说明跨越了午夜，需要将 $b$ 加上一天的分钟数 $1440$。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
         a, b = (a + 14) // 15, b // 15
         return max(0, b - a)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfRounds(loginTime string, logoutTime string) int {
 	f := func(s string) int {
@@ -148,8 +134,6 @@ func numberOfRounds(loginTime string, logoutTime string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfRounds(startTime: string, finishTime: string): number {
     const f = (s: string): number => {
@@ -164,10 +148,6 @@ function numberOfRounds(startTime: string, finishTime: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

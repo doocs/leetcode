@@ -52,9 +52,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
                 d -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDepth(s string) (ans int) {
 	d := 0
@@ -124,7 +118,20 @@ func maxDepth(s string) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function maxDepth(s: string): number {
+    let ans = 0;
+    let d = 0;
+    for (const c of s) {
+        if (c === '(') {
+            ans = Math.max(ans, ++d);
+        } else if (c === ')') {
+            --d;
+        }
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -145,8 +152,6 @@ var maxDepth = function (s) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxDepth(string s) {
@@ -163,27 +168,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxDepth(s: string): number {
-    let ans = 0;
-    let d = 0;
-    for (const c of s) {
-        if (c === '(') {
-            ans = Math.max(ans, ++d);
-        } else if (c === ')') {
-            --d;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

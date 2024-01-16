@@ -71,7 +71,7 @@ Output table is ordered by country in ascending order.
 
 ## Solutions
 
-**Solution 1: Grouping + Window Function + Left Join**
+### Solution 1: Grouping + Window Function + Left Join
 
 We can first group the `Wineries` table by `country` and `winery`, calculate the total score `points` for each group, then use the window function `RANK()` to group the data by `country` again, sort by `points` in descending order and `winery` in ascending order, and use the `CONCAT()` function to concatenate `winery` and `points`, resulting in the following data, denoted as table `T`:
 
@@ -89,8 +89,6 @@ We can first group the `Wineries` table by `country` and `winery`, calculate the
 Next, we just need to filter out the data where `rk = 1`, then join table `T` to itself twice, connecting the data where `rk = 2` and `rk = 3` respectively, to get the final result.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -119,3 +117,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

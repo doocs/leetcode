@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Grouping + Fast Power**
+### Solution 1: Hash Table + Grouping + Fast Power
 
 According to the problem description, we know that the same number must be in the same subarray. Therefore, we use a hash table $last$ to record the index of the last occurrence of each number.
 
@@ -61,8 +61,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def numberOfGoodPartitions(self, nums: List[int]) -> int:
@@ -74,8 +72,6 @@ class Solution:
             k += i == j
         return pow(2, k - 1, mod)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfGoodPartitions(nums []int) int {
 	qpow := func(a, n, mod int) int {
@@ -169,8 +161,6 @@ func numberOfGoodPartitions(nums []int) int {
 	return qpow(2, k-1, mod)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfGoodPartitions(nums: number[]): number {
@@ -201,10 +191,6 @@ function numberOfGoodPartitions(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

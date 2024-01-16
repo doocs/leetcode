@@ -49,9 +49,9 @@ Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit th
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
                     ans = max(ans, f[i][j])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumCost(n int, highways [][]int, k int) int {
@@ -202,8 +196,6 @@ func maximumCost(n int, highways [][]int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumCost(n: number, highways: number[][], k: number): number {
@@ -249,10 +241,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

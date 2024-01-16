@@ -44,9 +44,9 @@ Notice that each value in the generated matrix corresponds to the largest value 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                 )
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestLocal(grid [][]int) [][]int {
 	n := len(grid)
@@ -123,8 +117,6 @@ func largestLocal(grid [][]int) [][]int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestLocal(grid: number[][]): number[][] {
@@ -145,11 +137,6 @@ function largestLocal(grid: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

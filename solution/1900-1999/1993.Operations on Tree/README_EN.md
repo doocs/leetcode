@@ -70,11 +70,9 @@ lockingTree.lock(0, 1); // return false because node 0 is already locked.
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class LockingTree:
@@ -127,8 +125,6 @@ class LockingTree:
 # param_2 = obj.unlock(num,user)
 # param_3 = obj.upgrade(num,user)
 ```
-
-### **Java**
 
 ```java
 class LockingTree {
@@ -201,8 +197,6 @@ class LockingTree {
  */
 ```
 
-### **C++**
-
 ```cpp
 class LockingTree {
 public:
@@ -272,8 +266,6 @@ private:
  * bool param_3 = obj->upgrade(num,user);
  */
 ```
-
-### **Go**
 
 ```go
 type LockingTree struct {
@@ -346,8 +338,6 @@ func (this *LockingTree) Upgrade(num int, user int) bool {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class LockingTree {
     private locked: number[];
@@ -417,10 +407,6 @@ class LockingTree {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

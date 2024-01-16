@@ -49,15 +49,13 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 
 ## Solutions
 
-**Solution 1: Trie + DFS**
+### Solution 1: Trie + DFS
 
 We can use a trie to store all the words in the dictionary. For each word we search, we use depth-first search. Specifically, we start from the root of the trie. For the current letter we are traversing, we first check whether there is a child node that is the same as it. If there is, we continue to traverse downwards. Otherwise, we need to check whether there are remaining modification times. If not, it means that it cannot be matched, so we return false. If there are remaining modification times, we can try to modify the current letter and continue to traverse downwards. If the child node corresponding to the modified letter exists, it means that it can be matched, otherwise it means that it cannot be matched, so we return false. If we traverse to the end of the word and the number of modifications is exactly 1, it means that it can be matched, so we return true.
 
 The time complexity is $O(n \times l + q \times l \times |\Sigma|)$, and the space complexity is $O(n \times l)$, where $n$ and $l$ are the number of words in the dictionary and the average length of the words, respectively, and $q$ is the number of words searched. In addition, $|\Sigma|$ represents the size of the character set. Here, the character set is lowercase English letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -105,59 +103,6 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
-
-```python
-class Trie:
-    __slots__ = ["children", "is_end"]
-
-    def __init__(self):
-        self.children: [Trie | None] = [None] * 26
-        self.is_end = False
-
-    def insert(self, w: str) -> None:
-        node = self
-        for c in w:
-            idx = ord(c) - ord("a")
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-        node.is_end = True
-
-    def search(self, w: str) -> bool:
-        def dfs(i: int, node: [Trie | None], diff: int) -> bool:
-            if i == len(w):
-                return diff == 1 and node.is_end
-            j = ord(w[i]) - ord("a")
-            if node.children[j] and dfs(i + 1, node.children[j], diff):
-                return True
-            return diff == 0 and any(
-                node.children[k] and dfs(i + 1, node.children[k], 1)
-                for k in range(26)
-                if k != j
-            )
-
-        return dfs(0, self, 0)
-
-
-class MagicDictionary:
-    def __init__(self):
-        self.trie = Trie()
-
-    def buildDict(self, dictionary: List[str]) -> None:
-        for w in dictionary:
-            self.trie.insert(w)
-
-    def search(self, searchWord: str) -> bool:
-        return self.trie.search(searchWord)
-
-
-# Your MagicDictionary object will be instantiated and called as such:
-# obj = MagicDictionary()
-# obj.buildDict(dictionary)
-# param_2 = obj.search(searchWord)
-```
-
-### **Java**
 
 ```java
 class Trie {
@@ -227,8 +172,6 @@ class MagicDictionary {
  * boolean param_2 = obj.search(searchWord);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -305,8 +248,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -377,8 +318,6 @@ func (md *MagicDictionary) Search(searchWord string) bool {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     private children: Trie[] = Array(26).fill(null);
@@ -445,8 +384,6 @@ class MagicDictionary {
  * var param_2 = obj.search(searchWord)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -535,10 +472,63 @@ impl MagicDictionary {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Trie:
+    __slots__ = ["children", "is_end"]
+
+    def __init__(self):
+        self.children: [Trie | None] = [None] * 26
+        self.is_end = False
+
+    def insert(self, w: str) -> None:
+        node = self
+        for c in w:
+            idx = ord(c) - ord("a")
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.is_end = True
+
+    def search(self, w: str) -> bool:
+        def dfs(i: int, node: [Trie | None], diff: int) -> bool:
+            if i == len(w):
+                return diff == 1 and node.is_end
+            j = ord(w[i]) - ord("a")
+            if node.children[j] and dfs(i + 1, node.children[j], diff):
+                return True
+            return diff == 0 and any(
+                node.children[k] and dfs(i + 1, node.children[k], 1)
+                for k in range(26)
+                if k != j
+            )
+
+        return dfs(0, self, 0)
+
+
+class MagicDictionary:
+    def __init__(self):
+        self.trie = Trie()
+
+    def buildDict(self, dictionary: List[str]) -> None:
+        for w in dictionary:
+            self.trie.insert(w)
+
+    def search(self, searchWord: str) -> bool:
+        return self.trie.search(searchWord)
+
+
+# Your MagicDictionary object will be instantiated and called as such:
+# obj = MagicDictionary()
+# obj.buildDict(dictionary)
+# param_2 = obj.search(searchWord)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

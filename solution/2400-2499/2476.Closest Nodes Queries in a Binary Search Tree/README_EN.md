@@ -48,15 +48,13 @@
 
 ## Solutions
 
-**Solution 1: In-order Traversal + Binary Search**
+### Solution 1: In-order Traversal + Binary Search
 
 Since the problem provides a binary search tree, we can obtain a sorted array through in-order traversal. Then for each query, we can find the maximum value less than or equal to the query value and the minimum value greater than or equal to the query value through binary search.
 
 The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of nodes in the binary search tree and the number of queries, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -87,8 +85,6 @@ class Solution:
             ans.append([mi, mx])
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -135,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -176,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -214,8 +206,6 @@ func closestNodes(root *TreeNode, queries []int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -267,10 +257,6 @@ function closestNodes(root: TreeNode | null, queries: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

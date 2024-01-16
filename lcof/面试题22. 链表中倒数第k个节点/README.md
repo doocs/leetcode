@@ -17,7 +17,7 @@
 
 ## 解法
 
-**方法一：快慢指针**
+### 方法一：快慢指针
 
 我们可以定义快慢指针 `fast` 和 `slow`，初始时均指向 `head`。
 
@@ -26,8 +26,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表长度。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -46,8 +44,6 @@ class Solution:
             slow, fast = slow.next, fast.next
         return slow
 ```
-
-### **Java**
 
 ```java
 /**
@@ -72,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -100,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -121,37 +113,6 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 	return slow
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number} k
- * @return {ListNode}
- */
-var getKthFromEnd = function (head, k) {
-    let fast = head;
-    while (k--) {
-        fast = fast.next;
-    }
-    let slow = head;
-    while (fast) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    return slow;
-};
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -186,7 +147,32 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+var getKthFromEnd = function (head, k) {
+    let fast = head;
+    while (k--) {
+        fast = fast.next;
+    }
+    let slow = head;
+    while (fast) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    return slow;
+};
+```
 
 ```cs
 /**
@@ -212,10 +198,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

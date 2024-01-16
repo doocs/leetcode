@@ -51,7 +51,7 @@
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.
 
@@ -71,17 +71,7 @@ To avoid repeated calculations, we use the method of memoization search, and use
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
 
-**Solution 2: Quick Thinking**
-
-No matter how you operate, there will always be a `length == 2` subarray left in the end. Since there are no negative numbers in the elements, as the split operation proceeds, the length and sum of the subarray will gradually decrease. The sum of other `length > 2` subarrays must be larger than the sum of this subarray. Therefore, we only need to consider whether there is a `length == 2` subarray with a sum greater than or equal to `m`.
-
-> 📢 Note that when `nums.length <= 2`, no operation is needed.
-
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +90,6 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         return dfs(0, len(nums) - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -139,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +160,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canSplitArray(nums []int, m int) bool {
@@ -211,8 +195,6 @@ func canSplitArray(nums []int, m int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canSplitArray(nums: number[], m: number): boolean {
     const n = nums.length;
@@ -245,23 +227,6 @@ function canSplitArray(nums: number[], m: number): boolean {
 }
 ```
 
-```ts
-function canSplitArray(nums: number[], m: number): boolean {
-    const n = nums.length;
-    if (n <= 2) {
-        return true;
-    }
-    for (let i = 1; i < n; i++) {
-        if (nums[i - 1] + nums[i] >= m) {
-            return true;
-        }
-    }
-    return false;
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn can_split_array(nums: Vec<i32>, m: i32) -> bool {
@@ -279,10 +244,33 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2: Quick Thinking
 
+No matter how you operate, there will always be a `length == 2` subarray left in the end. Since there are no negative numbers in the elements, as the split operation proceeds, the length and sum of the subarray will gradually decrease. The sum of other `length > 2` subarrays must be larger than the sum of this subarray. Therefore, we only need to consider whether there is a `length == 2` subarray with a sum greater than or equal to `m`.
+
+> 📢 Note that when `nums.length <= 2`, no operation is needed.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```ts
+function canSplitArray(nums: number[], m: number): boolean {
+    const n = nums.length;
+    if (n <= 2) {
+        return true;
+    }
+    for (let i = 1; i < n; i++) {
+        if (nums[i - 1] + nums[i] >= m) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

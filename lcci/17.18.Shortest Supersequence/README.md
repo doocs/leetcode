@@ -26,9 +26,7 @@ small = [4]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 双指针**
+### 方法一：哈希表 + 双指针
 
 我们定义两个哈希表，其中哈希表 $need$ 用于存储数组 $small$ 中的元素及其出现次数，哈希表 $window$ 用于存储当前滑动窗口中的元素及其出现次数。另外，我们用变量 $cnt$ 记录当前未满足条件的元素个数，用变量 $mi$ 记录最短子数组的长度，用变量 $k$ 记录最短子数组的左端点。
 
@@ -37,10 +35,6 @@ small = [4]
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是数组 $big$ 和 $small$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,10 +56,6 @@ class Solution:
                 j += 1
         return [] if k < 0 else [k, k + mi - 1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestSeq(big []int, small []int) []int {
 	cnt := len(small)
@@ -170,8 +156,6 @@ func shortestSeq(big []int, small []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestSeq(big: number[], small: number[]): number[] {
     let cnt = small.length;
@@ -203,10 +187,6 @@ function shortestSeq(big: number[], small: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

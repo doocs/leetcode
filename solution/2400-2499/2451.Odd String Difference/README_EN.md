@@ -49,15 +49,13 @@ The odd array out is [1, 1], so we return the corresponding string, &quot;abc&qu
 
 ## Solutions
 
-**Solution 1: Hash Table Simulation**
+### Solution 1: Hash Table Simulation
 
 We use a hash table $d$ to maintain the mapping relationship between the difference array of the string and the string itself, where the difference array is an array composed of the differences of adjacent characters in the string. Since the problem guarantees that except for one string, the difference arrays of other strings are the same, we only need to find the string with a different difference array.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the length of the string and the number of strings, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
             d[t].append(s)
         return next(ss[0] for ss in d.values() if len(ss) == 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,32 +91,28 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     string oddString(vector<string>& words) {
-        unordered_map<string, vector<string>> d;
-        for (auto& s : words) {
-            int m = s.size();
-            string t(m - 1, 0);
-            for (int i = 0; i < m - 1; ++i) {
-                t[i] = s[i + 1] - s[i];
+        unordered_map<string, vector<string>> cnt;
+        for (auto& w : words) {
+            string d;
+            for (int i = 0; i < w.size() - 1; ++i) {
+                d += (char) (w[i + 1] - w[i]);
+                d += ',';
             }
-            d[t].push_back(s);
+            cnt[d].emplace_back(w);
         }
-        for (auto& [_, ss] : d) {
-            if (ss.size() == 1) {
-                return ss[0];
+        for (auto& [_, v] : cnt) {
+            if (v.size() == 1) {
+                return v[0];
             }
         }
         return "";
     }
 };
 ```
-
-### **Go**
 
 ```go
 func oddString(words []string) string {
@@ -142,8 +134,6 @@ func oddString(words []string) string {
 	return ""
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function oddString(words: string[]): string {
@@ -167,8 +157,6 @@ function oddString(words: string[]): string {
     return '';
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -194,6 +182,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 use std::collections::HashMap;
@@ -230,10 +224,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

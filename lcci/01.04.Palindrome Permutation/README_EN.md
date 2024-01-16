@@ -20,7 +20,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We use a hash table $cnt$ to store the occurrence count of each character. If more than $1$ character has an odd count, then it is not a palindrome permutation.
 
@@ -28,28 +28,12 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) < 2
 ```
-
-```python
-class Solution:
-    def canPermutePalindrome(self, s: str) -> bool:
-        vis = set()
-        for c in s:
-            if c in vis:
-                vis.remove(c)
-            else:
-                vis.add(c)
-        return len(vis) < 2
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,23 +50,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean canPermutePalindrome(String s) {
-        Set<Character> vis = new HashSet<>();
-        for (int i = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            if (!vis.add(c)) {
-                vis.remove(c);
-            }
-        }
-        return vis.size() < 2;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,25 +68,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool canPermutePalindrome(string s) {
-        unordered_set<char> vis;
-        for (auto& c : s) {
-            if (vis.count(c)) {
-                vis.erase(c);
-            } else {
-                vis.insert(c);
-            }
-        }
-        return vis.size() < 2;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func canPermutePalindrome(s string) bool {
 	vis := map[rune]bool{}
@@ -137,8 +85,6 @@ func canPermutePalindrome(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canPermutePalindrome(s: string): boolean {
     const set = new Set<string>();
@@ -152,8 +98,6 @@ function canPermutePalindrome(s: string): boolean {
     return set.size <= 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -173,10 +117,56 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        vis = set()
+        for c in s:
+            if c in vis:
+                vis.remove(c)
+            else:
+                vis.add(c)
+        return len(vis) < 2
 ```
 
+```java
+class Solution {
+    public boolean canPermutePalindrome(String s) {
+        Set<Character> vis = new HashSet<>();
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (!vis.add(c)) {
+                vis.remove(c);
+            }
+        }
+        return vis.size() < 2;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool canPermutePalindrome(string s) {
+        unordered_set<char> vis;
+        for (auto& c : s) {
+            if (vis.count(c)) {
+                vis.erase(c);
+            } else {
+                vis.insert(c);
+            }
+        }
+        return vis.size() < 2;
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

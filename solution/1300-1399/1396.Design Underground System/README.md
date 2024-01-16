@@ -98,9 +98,7 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用两个哈希表来存储数据，其中：
 
@@ -116,10 +114,6 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为乘客的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UndergroundSystem:
@@ -146,10 +140,6 @@ class UndergroundSystem:
 # obj.checkOut(id,stationName,t)
 # param_3 = obj.getAverageTime(startStation,endStation)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class UndergroundSystem {
@@ -189,8 +179,6 @@ class UndergroundSystem {
  */
 ```
 
-### **C++**
-
 ```cpp
 class UndergroundSystem {
 public:
@@ -226,8 +214,6 @@ private:
  * double param_3 = obj->getAverageTime(startStation,endStation);
  */
 ```
-
-### **Go**
 
 ```go
 type UndergroundSystem struct {
@@ -281,10 +267,6 @@ type pair struct {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,13 +60,11 @@ student_id 321 has the highest score of 230, while student_id 896 has the lowest
 
 ## Solutions
 
-**Solution 1: Maximum and Minimum**
+### Solution 1: Maximum and Minimum
 
 We can use the `MAX` and `MIN` functions to get the maximum and minimum sums of `assignment1`, `assignment2`, and `assignment3`, respectively. Then, subtract the minimum from the maximum.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -78,3 +76,5 @@ FROM Scores;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

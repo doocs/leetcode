@@ -76,9 +76,9 @@ The longest winning streak was 1 match.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -106,3 +106,5 @@ GROUP BY player_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

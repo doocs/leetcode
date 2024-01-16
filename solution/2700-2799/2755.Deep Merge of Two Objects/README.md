@@ -67,13 +67,9 @@ obj2 = {"a": 1, "b": {"c": [6, [6], [9]], "e": 3}}
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function deepMerge(obj1: any, obj2: any): any {
@@ -98,3 +94,5 @@ function deepMerge(obj1: any, obj2: any): any {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

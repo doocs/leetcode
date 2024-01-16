@@ -82,9 +82,9 @@ The unique ID of Jonathan is 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -95,3 +95,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

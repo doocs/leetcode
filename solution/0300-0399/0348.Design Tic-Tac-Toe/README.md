@@ -67,15 +67,9 @@ toe.move(2, 1, 1); -&gt; 函数返回 1 (此时，玩家 1 赢得了该场比赛
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-思路同[1275. 找出井字棋的获胜者](solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/README)。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class TicTacToe:
@@ -118,10 +112,6 @@ class TicTacToe:
 # obj = TicTacToe(n)
 # param_1 = obj.move(row,col,player)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class TicTacToe {
@@ -168,10 +158,6 @@ class TicTacToe {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

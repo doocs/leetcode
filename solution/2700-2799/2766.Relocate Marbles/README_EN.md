@@ -53,15 +53,13 @@ Since 2 is the only occupied position, we return [2].
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 Let's use a hash table $pos$ to record all stone positions. Initially, $pos$ contains all elements of $nums$. Then we iterate through $moveFrom$ and $moveTo$. Each time, we remove $moveFrom[i]$ from $pos$ and add $moveTo[i]$ to $pos$. Finally, we sort the elements in $pos$ and return.
 
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. Here, $n$ is the length of array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
             pos.add(t)
         return sorted(pos)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
@@ -136,8 +128,6 @@ func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): number[] {
     const pos: Set<number> = new Set(nums);
@@ -151,10 +141,6 @@ function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

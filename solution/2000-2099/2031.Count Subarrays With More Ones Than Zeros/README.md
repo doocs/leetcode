@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 树状数组**
+### 方法一：前缀和 + 树状数组
 
 题目需要我们统计所有子数组中 $1$ 的数量大于 $0$ 的数量的子数组的个数，如果我们将数组中的元素 $0$ 看作 $-1$，那么题目就变成了统计所有子数组中元素和大于 $0$ 的子数组的个数。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -107,27 +101,6 @@ class Solution:
             tree.update(s + base, 1)
         return ans
 ```
-
-```python
-from sortedcontainers import SortedList
-
-
-class Solution:
-    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
-        sl = SortedList([0])
-        mod = 10**9 + 7
-        ans = s = 0
-        for x in nums:
-            s += x or -1
-            ans += sl.bisect_left(s)
-            ans %= mod
-            sl.add(s)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -172,8 +145,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -221,8 +192,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -267,8 +236,6 @@ func subarraysWithMoreZerosThanOnes(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -312,10 +279,29 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedList
+
+
+class Solution:
+    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
+        sl = SortedList([0])
+        mod = 10**9 + 7
+        ans = s = 0
+        for x in nums:
+            s += x or -1
+            ans += sl.bisect_left(s)
+            ans %= mod
+            sl.add(s)
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

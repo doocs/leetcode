@@ -49,34 +49,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 递归遍历整棵树，统计结点个数。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为树的结点个数。
 
-**方法二：二分查找**
-
-对于此题，我们还可以利用完全二叉树的特点，设计一个更快的算法。
-
-完全二叉树的特点：叶子结点只能出现在最下层和次下层，且最下层的叶子结点集中在树的左部。需要注意的是，满二叉树肯定是完全二叉树，而完全二叉树不一定是满二叉树。
-
-若满二叉树的层数为 $h$，则总结点数为 $2^h - 1$。
-
-我们可以先对 $root$ 的左右子树进行高度统计，分别记为 $left$ 和 $right$。
-
-1.  若 $left = right$，说明左子树是一颗满二叉树，那么左子树的结点总数为 $2^{left} - 1$，加上 $root$ 结点，就是 $2^{left}$，然后递归统计右子树即可。
-1.  若 $left \gt right$，说明右子树是一个满二叉树，那么右子树的结点总数为 $2^{right} - 1$，加上 $root$ 结点，就是 $2^{right}$，然后递归统计左子树即可。
-
-时间复杂度 $O(\log^2 n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -91,34 +70,6 @@ class Solution:
             return 0
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def countNodes(self, root: Optional[TreeNode]) -> int:
-        def depth(root):
-            d = 0
-            while root:
-                d += 1
-                root = root.left
-            return d
-
-        if root is None:
-            return 0
-        left, right = depth(root.left), depth(root.right)
-        if left == right:
-            return (1 << left) + self.countNodes(root.right)
-        return (1 << right) + self.countNodes(root.left)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -144,6 +95,160 @@ class Solution {
         return 1 + countNodes(root.left) + countNodes(root.right);
     }
 }
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        return 1 + countNodes(root->left) + countNodes(root->right);
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func countNodes(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	return 1 + countNodes(root.Left) + countNodes(root.Right)
+}
+```
+
+```rust
+use std::cell::RefCell;
+use std::rc::Rc;
+
+impl Solution {
+    pub fn count_nodes(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = root {
+            let node = node.borrow();
+            let left = Self::depth(&node.left);
+            let right = Self::depth(&node.right);
+            if left == right {
+                Self::count_nodes(node.right.clone()) + (1 << left)
+            } else {
+                Self::count_nodes(node.left.clone()) + (1 << right)
+            }
+        } else {
+            0
+        }
+    }
+
+    fn depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = root { Self::depth(&node.borrow().left) + 1 } else { 0 }
+    }
+}
+```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var countNodes = function (root) {
+    if (!root) {
+        return 0;
+    }
+    return 1 + countNodes(root.left) + countNodes(root.right);
+};
+```
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int CountNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + CountNodes(root.left) + CountNodes(root.right);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：二分查找
+
+对于此题，我们还可以利用完全二叉树的特点，设计一个更快的算法。
+
+完全二叉树的特点：叶子结点只能出现在最下层和次下层，且最下层的叶子结点集中在树的左部。需要注意的是，满二叉树肯定是完全二叉树，而完全二叉树不一定是满二叉树。
+
+若满二叉树的层数为 $h$，则总结点数为 $2^h - 1$。
+
+我们可以先对 $root$ 的左右子树进行高度统计，分别记为 $left$ 和 $right$。
+
+1.  若 $left = right$，说明左子树是一颗满二叉树，那么左子树的结点总数为 $2^{left} - 1$，加上 $root$ 结点，就是 $2^{left}$，然后递归统计右子树即可。
+1.  若 $left \gt right$，说明右子树是一个满二叉树，那么右子树的结点总数为 $2^{right} - 1$，加上 $root$ 结点，就是 $2^{right}$，然后递归统计左子树即可。
+
+时间复杂度 $O(\log^2 n)$。
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        def depth(root):
+            d = 0
+            while root:
+                d += 1
+                root = root.left
+            return d
+
+        if root is None:
+            return 0
+        left, right = depth(root.left), depth(root.right)
+        if left == right:
+            return (1 << left) + self.countNodes(root.right)
+        return (1 << right) + self.countNodes(root.left)
 ```
 
 ```java
@@ -185,31 +290,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    int countNodes(TreeNode* root) {
-        if (!root) {
-            return 0;
-        }
-        return 1 + countNodes(root->left) + countNodes(root->right);
-    }
-};
-```
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -246,25 +326,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func countNodes(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	return 1 + countNodes(root.Left) + countNodes(root.Right)
-}
-```
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -291,29 +352,6 @@ func depth(root *TreeNode) (d int) {
 	}
 	return
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number}
- */
-var countNodes = function (root) {
-    if (!root) {
-        return 0;
-    }
-    return 1 + countNodes(root.left) + countNodes(root.right);
-};
 ```
 
 ```js
@@ -347,32 +385,6 @@ var countNodes = function (root) {
     }
     return (1 << right) + countNodes(root.left);
 };
-```
-
-### **C#**
-
-```cs
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     public int val;
- *     public TreeNode left;
- *     public TreeNode right;
- *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-public class Solution {
-    public int CountNodes(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return 1 + CountNodes(root.left) + CountNodes(root.right);
-    }
-}
 ```
 
 ```cs
@@ -412,38 +424,6 @@ public class Solution {
 }
 ```
 
-### **Rust**
-
-```rust
-use std::cell::RefCell;
-use std::rc::Rc;
-
-impl Solution {
-    pub fn count_nodes(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if let Some(node) = root {
-            let node = node.borrow();
-            let left = Self::depth(&node.left);
-            let right = Self::depth(&node.right);
-            if left == right {
-                Self::count_nodes(node.right.clone()) + (1 << left)
-            } else {
-                Self::count_nodes(node.left.clone()) + (1 << right)
-            }
-        } else {
-            0
-        }
-    }
-
-    fn depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if let Some(node) = root { Self::depth(&node.borrow().left) + 1 } else { 0 }
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

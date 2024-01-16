@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们定义一个变量 $mask$，用于记录当前子数组中的元素按位或的结果，初始时 $mask = 0$。另外，使用双指针 $j$ 和 $i$ 分别指向当前子数组的左右端点，初始时 $i = j = 0$。
 
@@ -66,10 +64,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
@@ -82,10 +76,6 @@ class Solution:
             mask |= x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestNiceSubarray(nums []int) (ans int) {
 	mask, j := 0, 0
@@ -140,8 +126,6 @@ func longestNiceSubarray(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestNiceSubarray(nums: number[]): number {
     let mask = 0;
@@ -157,11 +141,6 @@ function longestNiceSubarray(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

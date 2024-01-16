@@ -53,7 +53,7 @@ The alternating subarray sum is 1.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f$ as the maximum sum of the alternating subarray ending with $nums[i]$, and define $g$ as the maximum sum of the alternating subarray ending with $-nums[i]$. Initially, both $f$ and $g$ are $-\infty$.
 
@@ -62,8 +62,6 @@ Next, we traverse the array $nums$. For position $i$, we need to maintain the va
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumAlternatingSubarraySum(nums []int) int64 {
 	const inf = 1 << 60
@@ -127,8 +119,6 @@ func maximumAlternatingSubarraySum(nums []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumAlternatingSubarraySum(nums: number[]): number {
     let [ans, f, g] = [-Infinity, -Infinity, -Infinity];
@@ -140,10 +130,6 @@ function maximumAlternatingSubarraySum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

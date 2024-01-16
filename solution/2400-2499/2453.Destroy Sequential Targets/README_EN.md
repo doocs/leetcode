@@ -50,15 +50,13 @@ Since nums[0] is the minimal integer that can destroy 3 targets, we return 1.
 
 ## Solutions
 
-**Solution 1: Modulo + Enumeration**
+### Solution 1: Modulo + Enumeration
 
 We traverse the array $nums$ and use a hash table $cnt$ to count the frequency of each number modulo $space$. The higher the frequency, the more targets can be destroyed. We find the group with the highest frequency and take the minimum value in the group.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
                 mx = t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func destroyTargets(nums []int, space int) int {
 	cnt := map[int]int{}
@@ -137,16 +129,6 @@ func destroyTargets(nums []int, space int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

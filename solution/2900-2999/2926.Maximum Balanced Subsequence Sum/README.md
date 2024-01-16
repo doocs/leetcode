@@ -65,9 +65,7 @@ nums[3] - nums[0] &gt;= 3 - 0 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 树状数组**
+### 方法一：动态规划 + 树状数组
 
 根据题目描述，我们可以将不等式 $nums[i] - nums[j] \ge i - j$ 转化为 $nums[i] - i \ge nums[j] - j$，因此，我们考虑定义一个新数组 $arr$，其中 $arr[i] = nums[i] - i$，那么平衡子序列满足对于任意 $j \lt i$，都有 $arr[j] \le arr[i]$。即题目转换为求在 $arr$ 中选出一个递增子序列，使得对应的 $nums$ 的和最大。
 
@@ -88,10 +86,6 @@ $$
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -123,10 +117,6 @@ class Solution:
             tree.update(j, v)
         return tree.query(len(s))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -195,8 +185,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -248,8 +236,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 const inf int = 1e18
@@ -307,8 +293,6 @@ func maxBalancedSubsequenceSum(nums []int) int64 {
 	return int64(tree.query(m))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -373,10 +357,6 @@ function maxBalancedSubsequenceSum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

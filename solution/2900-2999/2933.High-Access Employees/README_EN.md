@@ -59,7 +59,7 @@ So the answer is [&quot;ab&quot;,&quot;cd&quot;].</pre>
 
 ## Solutions
 
-**Solution 1: Hash Table + Sorting**
+### Solution 1: Hash Table + Sorting
 
 We use a hash table $d$ to store all access times of each employee, where the key is the employee's name, and the value is an integer array, representing all access times of the employee, which are the number of minutes from the start of the day at 00:00.
 
@@ -70,8 +70,6 @@ Finally, we return the answer array.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of access records.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,8 +84,6 @@ class Solution:
                 ans.append(name)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	d := map[string][]int{}
@@ -167,8 +159,6 @@ func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findHighAccessEmployees(access_times: string[][]): string[] {
@@ -196,10 +186,6 @@ function findHighAccessEmployees(access_times: string[][]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

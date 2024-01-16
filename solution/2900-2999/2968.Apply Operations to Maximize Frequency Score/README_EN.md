@@ -51,7 +51,7 @@ It can be shown that we cannot achieve a better score.
 
 ## Solutions
 
-**Solution 1: Sorting + Prefix Sum + Binary Search**
+### Solution 1: Sorting + Prefix Sum + Binary Search
 
 The problem asks for the maximum frequency of the mode we can get after performing at most $k$ operations. If we sort the array $nums$ in ascending order, it would be best to turn a continuous segment of numbers into the same number, which can reduce the number of operations and increase the frequency of the mode.
 
@@ -83,8 +83,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxFrequencyScore(self, nums: List[int], k: int) -> int:
@@ -109,8 +107,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -148,8 +144,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -191,8 +185,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxFrequencyScore(nums []int, k int64) int {
 	sort.Ints(nums)
@@ -230,8 +222,6 @@ func maxFrequencyScore(nums []int, k int64) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxFrequencyScore(nums: number[], k: number): number {
     nums.sort((a, b) => a - b);
@@ -267,10 +257,6 @@ function maxFrequencyScore(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

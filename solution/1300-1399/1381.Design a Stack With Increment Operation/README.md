@@ -55,9 +55,7 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组模拟**
+### 方法一：数组模拟
 
 我们可以用一个数组 $stk$ 来模拟栈，用一个整数 $i$ 表示下一个入栈的元素位置。另外，我们还需要一个数组 $add$ 来记录每个位置上的增量累加值。
 
@@ -70,10 +68,6 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 是栈的最大容量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class CustomStack:
@@ -109,10 +103,6 @@ class CustomStack:
 # param_2 = obj.pop()
 # obj.increment(k,val)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class CustomStack {
@@ -158,8 +148,6 @@ class CustomStack {
  * obj.increment(k,val);
  */
 ```
-
-### **C++**
 
 ```cpp
 class CustomStack {
@@ -209,8 +197,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type CustomStack struct {
 	stk []int
@@ -256,8 +242,6 @@ func (this *CustomStack) Increment(k int, val int) {
  * obj.Increment(k,val);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class CustomStack {
@@ -305,10 +289,6 @@ class CustomStack {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

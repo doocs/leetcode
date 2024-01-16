@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We process each digit of the string in order, following these rules:
 
@@ -55,8 +55,6 @@ We process each digit of the string in order, following these rules:
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
             t[4] = '9'
         return ''.join(t)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumTime(time string) string {
@@ -148,8 +140,6 @@ func maximumTime(time string) string {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} time
@@ -173,10 +163,6 @@ var maximumTime = function (time) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

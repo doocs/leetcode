@@ -67,9 +67,7 @@ arr 中最大元素为 3 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 我们先对数组进行排序，然后将数组的第一个元素设置为 $1$。
 
@@ -81,10 +79,6 @@ arr 中最大元素为 3 。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximumElementAfterDecrementingAndRearranging(self, arr: List[int]) -> int:
@@ -95,10 +89,6 @@ class Solution:
             arr[i] -= d
         return max(arr)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	sort.Ints(arr)
@@ -150,8 +136,6 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
@@ -167,8 +151,6 @@ function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MaximumElementAfterDecrementingAndRearranging(int[] arr) {
@@ -183,10 +165,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

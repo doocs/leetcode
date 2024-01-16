@@ -49,7 +49,7 @@
 
 ## Solutions
 
-**Solution 1: 0-1 Trie**
+### Solution 1: 0-1 Trie
 
 For this kind of problem that counts the interval $[low, high]$, we can consider converting it into counting $[0, high]$ and $[0, low - 1]$, and then subtracting the latter from the former to get the answer.
 
@@ -75,8 +75,6 @@ We traverse the array `nums`. For each number $x$, we first search in the Trie f
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums`. In this problem, we directly take $\log M = 16$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Trie:
@@ -118,8 +116,6 @@ class Solution:
             tree.insert(x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -168,8 +164,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -226,8 +220,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -276,10 +268,6 @@ func countPairs(nums []int, low int, high int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

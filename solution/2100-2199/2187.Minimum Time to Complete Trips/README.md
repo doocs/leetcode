@@ -48,13 +48,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,10 +60,6 @@ class Solution:
             range(mx), totalTrips, key=lambda x: sum(x // v for v in time)
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTime(time []int, totalTrips int) int64 {
 	left, right := 1, slices.Min(time)*totalTrips
@@ -137,16 +125,6 @@ func minimumTime(time []int, totalTrips int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

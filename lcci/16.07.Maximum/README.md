@@ -14,9 +14,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们可以提取 $a-b$ 的符号位 $k$，如果符号位为 $1$，说明 $a \lt b$；如果符号位为 $0$，说明 $a \ge b$。
 
@@ -26,20 +24,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximum(self, a: int, b: int) -> int:
         k = (int(((a - b) & 0xFFFFFFFFFFFFFFFF) >> 63)) & 1
         return a * (k ^ 1) + b * k
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -49,8 +39,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -62,16 +50,12 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximum(a int, b int) int {
 	k := (a - b) >> 63 & 1
 	return a*(k^1) + b*k
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximum(a: number, b: number): number {
@@ -80,10 +64,6 @@ function maximum(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

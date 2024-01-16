@@ -35,15 +35,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We notice that an even number divisible by $3$ must be a multiple of $6$. Therefore, we only need to traverse the array, count the sum and the number of all multiples of $6$, and then calculate the average.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -55,8 +53,6 @@ class Solution:
                 n += 1
         return 0 if n == 0 else s // n
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func averageValue(nums []int) int {
 	var s, n int
@@ -109,8 +101,6 @@ func averageValue(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function averageValue(nums: number[]): number {
     let s = 0;
@@ -124,23 +114,6 @@ function averageValue(nums: number[]): number {
     return n === 0 ? 0 : ~~(s / n);
 }
 ```
-
-### **C**
-
-```c
-int averageValue(int* nums, int numsSize) {
-    int s = 0, n = 0;
-    for (int i = 0; i < numsSize; ++i) {
-        if (nums[i] % 6 == 0) {
-            s += nums[i];
-            ++n;
-        }
-    }
-    return n == 0 ? 0 : s / n;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -161,6 +134,25 @@ impl Solution {
 }
 ```
 
+```c
+int averageValue(int* nums, int numsSize) {
+    int s = 0, n = 0;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] % 6 == 0) {
+            s += nums[i];
+            ++n;
+        }
+    }
+    return n == 0 ? 0 : s / n;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn average_value(nums: Vec<i32>) -> i32 {
@@ -179,10 +171,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

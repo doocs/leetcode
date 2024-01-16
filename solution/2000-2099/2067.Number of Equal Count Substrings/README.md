@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 滑动窗口**
+### 方法一：枚举 + 滑动窗口
 
 我们可以在 $[1..26]$ 范围内枚举子串的字母种类数 $x$，那么子串长度就是 $count \times x$。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字母的种类数，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                 ans += x == y
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +161,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func equalCountSubstrings(s string, count int) (ans int) {
@@ -212,8 +198,6 @@ func equalCountSubstrings(s string, count int) (ans int) {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -246,10 +230,6 @@ var equalCountSubstrings = function (s, count) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

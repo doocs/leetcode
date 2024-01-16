@@ -67,9 +67,9 @@ The mail of user 7 starts with a period.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -79,3 +79,5 @@ WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$';
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

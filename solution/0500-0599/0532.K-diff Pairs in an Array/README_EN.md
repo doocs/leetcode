@@ -53,9 +53,9 @@ Although we have two 1s in the input, we should only return the number of <stron
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
             vis.add(v)
         return len(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findPairs(nums []int, k int) int {
@@ -127,8 +121,6 @@ func findPairs(nums []int, k int) int {
 	return len(ans)
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -163,10 +155,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

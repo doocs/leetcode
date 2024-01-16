@@ -37,15 +37,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-双队列存储。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class AnimalShelf:
@@ -80,10 +74,6 @@ class AnimalShelf:
 # param_3 = obj.dequeueDog()
 # param_4 = obj.dequeueCat()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class AnimalShelf {
@@ -127,8 +117,6 @@ class AnimalShelf {
  * int[] param_4 = obj.dequeueCat();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class AnimalShelf {
@@ -182,8 +170,6 @@ class AnimalShelf {
  * var param_4 = obj.dequeueCat()
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -247,10 +233,6 @@ impl AnimalShelf {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

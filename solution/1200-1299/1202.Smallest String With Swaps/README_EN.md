@@ -54,7 +54,7 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 
 ## Solutions
 
-**Solution 1: Union-Find**
+### Solution 1: Union-Find
 
 We notice that the index pairs have transitivity, i.e., if $a$ and $b$ can be swapped, and $b$ and $c$ can be swapped, then $a$ and $c$ can also be swapped. Therefore, we can consider using a union-find data structure to maintain the connectivity of these index pairs, and sort the characters belonging to the same connected component in lexicographical order.
 
@@ -63,8 +63,6 @@ Finally, we traverse the string. For the character at the current position, we r
 The time complexity is $O(n \times \log n + m \times \alpha(m))$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the length of the string and the number of index pairs, respectively, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
             d[i].sort(reverse=True)
         return "".join(d[find(i)].pop() for i in range(n))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,7 +157,69 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func smallestStringWithSwaps(s string, pairs [][]int) string {
+	n := len(s)
+	p := make([]int, n)
+	d := make([][]byte, n)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for _, pair := range pairs {
+		a, b := pair[0], pair[1]
+		p[find(a)] = find(b)
+	}
+	cs := []byte(s)
+	for i, c := range cs {
+		j := find(i)
+		d[j] = append(d[j], c)
+	}
+	for i := range d {
+		sort.Slice(d[i], func(a, b int) bool { return d[i][a] > d[i][b] })
+	}
+	for i := range cs {
+		j := find(i)
+		cs[i] = d[j][len(d[j])-1]
+		d[j] = d[j][:len(d[j])-1]
+	}
+	return string(cs)
+}
+```
+
+```ts
+function smallestStringWithSwaps(s: string, pairs: number[][]): string {
+    const n = s.length;
+    const p = new Array(n).fill(0).map((_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    const d: string[][] = new Array(n).fill(0).map(() => []);
+    for (const [a, b] of pairs) {
+        p[find(a)] = find(b);
+    }
+    for (let i = 0; i < n; ++i) {
+        d[find(i)].push(s[i]);
+    }
+    for (const e of d) {
+        e.sort((a, b) => b.charCodeAt(0) - a.charCodeAt(0));
+    }
+    const ans: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        ans.push(d[find(i)].pop()!);
+    }
+    return ans.join('');
+}
+```
 
 ```rust
 impl Solution {
@@ -224,78 +280,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func smallestStringWithSwaps(s string, pairs [][]int) string {
-	n := len(s)
-	p := make([]int, n)
-	d := make([][]byte, n)
-	for i := range p {
-		p[i] = i
-	}
-	var find func(int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	for _, pair := range pairs {
-		a, b := pair[0], pair[1]
-		p[find(a)] = find(b)
-	}
-	cs := []byte(s)
-	for i, c := range cs {
-		j := find(i)
-		d[j] = append(d[j], c)
-	}
-	for i := range d {
-		sort.Slice(d[i], func(a, b int) bool { return d[i][a] > d[i][b] })
-	}
-	for i := range cs {
-		j := find(i)
-		cs[i] = d[j][len(d[j])-1]
-		d[j] = d[j][:len(d[j])-1]
-	}
-	return string(cs)
-}
-```
-
-### **TypeScript**
-
-```ts
-function smallestStringWithSwaps(s: string, pairs: number[][]): string {
-    const n = s.length;
-    const p = new Array(n).fill(0).map((_, i) => i);
-    const find = (x: number): number => {
-        if (p[x] !== x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    };
-    const d: string[][] = new Array(n).fill(0).map(() => []);
-    for (const [a, b] of pairs) {
-        p[find(a)] = find(b);
-    }
-    for (let i = 0; i < n; ++i) {
-        d[find(i)].push(s[i]);
-    }
-    for (const e of d) {
-        e.sort((a, b) => b.charCodeAt(0) - a.charCodeAt(0));
-    }
-    const ans: string[] = [];
-    for (let i = 0; i < n; ++i) {
-        ans.push(d[find(i)].pop()!);
-    }
-    return ans.join('');
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

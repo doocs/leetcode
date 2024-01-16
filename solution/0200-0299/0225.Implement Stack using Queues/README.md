@@ -62,9 +62,7 @@ myStack.empty(); // 返回 False
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两个队列**
+### 方法一：两个队列
 
 我们使用两个队列 $q_1$ 和 $q_2$，其中 $q_1$ 用于存储栈中的元素，而 $q_2$ 用于辅助实现栈的操作。
 
@@ -76,10 +74,6 @@ myStack.empty(); // 返回 False
 空间复杂度 $O(n)$，其中 $n$ 是栈中元素的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MyStack:
@@ -110,10 +104,6 @@ class MyStack:
 # param_3 = obj.top()
 # param_4 = obj.empty()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.util.Deque;
@@ -157,8 +147,6 @@ class MyStack {
  * boolean param_4 = obj.empty();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MyStack {
@@ -204,7 +192,86 @@ private:
  */
 ```
 
-### **Rust**
+```go
+type MyStack struct {
+	q1 []int
+	q2 []int
+}
+
+func Constructor() MyStack {
+	return MyStack{}
+}
+
+func (this *MyStack) Push(x int) {
+	this.q2 = append(this.q2, x)
+	for len(this.q1) > 0 {
+		this.q2 = append(this.q2, this.q1[0])
+		this.q1 = this.q1[1:]
+	}
+	this.q1, this.q2 = this.q2, this.q1
+}
+
+func (this *MyStack) Pop() int {
+	x := this.q1[0]
+	this.q1 = this.q1[1:]
+	return x
+}
+
+func (this *MyStack) Top() int {
+	return this.q1[0]
+}
+
+func (this *MyStack) Empty() bool {
+	return len(this.q1) == 0
+}
+
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Push(x);
+ * param_2 := obj.Pop();
+ * param_3 := obj.Top();
+ * param_4 := obj.Empty();
+ */
+```
+
+```ts
+class MyStack {
+    q1: number[] = [];
+    q2: number[] = [];
+
+    constructor() {}
+
+    push(x: number): void {
+        this.q2.push(x);
+        while (this.q1.length) {
+            this.q2.push(this.q1.shift()!);
+        }
+        [this.q1, this.q2] = [this.q2, this.q1];
+    }
+
+    pop(): number {
+        return this.q1.shift()!;
+    }
+
+    top(): number {
+        return this.q1[0];
+    }
+
+    empty(): boolean {
+        return this.q1.length === 0;
+    }
+}
+
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * var obj = new MyStack()
+ * obj.push(x)
+ * var param_2 = obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.empty()
+ */
+```
 
 ```rust
 use std::collections::VecDeque;
@@ -258,95 +325,6 @@ impl MyStack {
 }
 ```
 
-### **Go**
-
-```go
-type MyStack struct {
-	q1 []int
-	q2 []int
-}
-
-func Constructor() MyStack {
-	return MyStack{}
-}
-
-func (this *MyStack) Push(x int) {
-	this.q2 = append(this.q2, x)
-	for len(this.q1) > 0 {
-		this.q2 = append(this.q2, this.q1[0])
-		this.q1 = this.q1[1:]
-	}
-	this.q1, this.q2 = this.q2, this.q1
-}
-
-func (this *MyStack) Pop() int {
-	x := this.q1[0]
-	this.q1 = this.q1[1:]
-	return x
-}
-
-func (this *MyStack) Top() int {
-	return this.q1[0]
-}
-
-func (this *MyStack) Empty() bool {
-	return len(this.q1) == 0
-}
-
-/**
- * Your MyStack object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Push(x);
- * param_2 := obj.Pop();
- * param_3 := obj.Top();
- * param_4 := obj.Empty();
- */
-```
-
-### **TypeScript**
-
-```ts
-class MyStack {
-    q1: number[] = [];
-    q2: number[] = [];
-
-    constructor() {}
-
-    push(x: number): void {
-        this.q2.push(x);
-        while (this.q1.length) {
-            this.q2.push(this.q1.shift()!);
-        }
-        [this.q1, this.q2] = [this.q2, this.q1];
-    }
-
-    pop(): number {
-        return this.q1.shift()!;
-    }
-
-    top(): number {
-        return this.q1[0];
-    }
-
-    empty(): boolean {
-        return this.q1.length === 0;
-    }
-}
-
-/**
- * Your MyStack object will be instantiated and called as such:
- * var obj = new MyStack()
- * obj.push(x)
- * var param_2 = obj.pop()
- * var param_3 = obj.top()
- * var param_4 = obj.empty()
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

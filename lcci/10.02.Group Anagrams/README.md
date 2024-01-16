@@ -28,23 +28,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-遍历字符串，将每个字符串按照字符字典序排序后得到一个新的字符串，将相同的新字符串放在哈希表的同一个 key 对应 value 列表中。
-
-| key     | value                   |
-| ------- | ----------------------- |
-| `"aet"` | `["eat", "tea", "ate"]` |
-| `"ant"` | `["tan", "nat"] `       |
-| `"abt"` | `["bat"] `              |
-
-最后返回哈希表的 value 列表即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -55,10 +41,6 @@ class Solution:
             chars[k].append(s)
         return list(chars.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -74,8 +56,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +76,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func groupAnagrams(strs []string) [][]string {
 	chars := map[string][]string{}
@@ -116,8 +94,6 @@ func groupAnagrams(strs []string) [][]string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
     const map = new Map<string, string[]>();
@@ -128,8 +104,6 @@ function groupAnagrams(strs: string[]): string[][] {
     return [...map.values()];
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -152,10 +126,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

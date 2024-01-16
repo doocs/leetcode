@@ -47,7 +47,7 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 
 ## Solutions
 
-**Solution 1: Array or Hash Table**
+### Solution 1: Array or Hash Table
 
 We use an array or hash table $cnt$ to count the number of occurrences of each element in the array $nums$.
 
@@ -58,8 +58,6 @@ Finally, return the answer list.
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
                 ans[i].append(x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMatrix(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -145,8 +137,6 @@ func findMatrix(nums []int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMatrix(nums: number[]): number[][] {
@@ -168,10 +158,6 @@ function findMatrix(nums: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

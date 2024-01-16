@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：斜率比较**
+### 方法一：斜率比较
 
 设三点分别为 $(x_1,y_1)$, $(x_2,y_2)$, $(x_3,y_3)$。两点之间斜率计算公式为 $\frac{y_2-y_1}{x_2-x_1}$。
 
@@ -55,20 +53,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isBoomerang(self, points: List[List[int]]) -> bool:
         (x1, y1), (x2, y2), (x3, y3) = points
         return (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isBoomerang(points [][]int) bool {
 	x1, y1 := points[0][0], points[0][1]
@@ -106,8 +92,6 @@ func isBoomerang(points [][]int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isBoomerang(points: number[][]): boolean {
     const [x1, y1] = points[0];
@@ -116,8 +100,6 @@ function isBoomerang(points: number[][]): boolean {
     return (x1 - x2) * (y2 - y3) !== (x2 - x3) * (y1 - y2);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -130,10 +112,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,19 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先遍历链表，统计结点总个数。
-
-接着将链表拆分，`width` 表示每一部分至少含有的结点个数，而 `remainder` 表示前 `remainder` 部分，每一部分多出一个数。
-
-然后遍历链表，依次拆出每一部分，添加到结果数组 `res` 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -87,10 +77,6 @@ class Solution:
             res[i] = head
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -133,10 +119,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

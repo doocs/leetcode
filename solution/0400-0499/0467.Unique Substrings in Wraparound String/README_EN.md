@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
             dp[idx] = max(dp[idx], k)
         return sum(dp)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,7 +89,47 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int findSubstringInWraproundString(string p) {
+        vector<int> dp(26);
+        int k = 0;
+        for (int i = 0; i < p.size(); ++i) {
+            char c = p[i];
+            if (i && (c - p[i - 1] + 26) % 26 == 1)
+                ++k;
+            else
+                k = 1;
+            dp[c - 'a'] = max(dp[c - 'a'], k);
+        }
+        int ans = 0;
+        for (int& v : dp) ans += v;
+        return ans;
+    }
+};
+```
+
+```go
+func findSubstringInWraproundString(p string) int {
+	dp := make([]int, 26)
+	k := 0
+	for i := range p {
+		c := p[i]
+		if i > 0 && (c-p[i-1]+26)%26 == 1 {
+			k++
+		} else {
+			k = 1
+		}
+		dp[c-'a'] = max(dp[c-'a'], k)
+	}
+	ans := 0
+	for _, v := range dp {
+		ans += v
+	}
+	return ans
+}
+```
 
 ```ts
 function findSubstringInWraproundString(p: string): number {
@@ -111,8 +149,6 @@ function findSubstringInWraproundString(p: string): number {
     return dp.reduce((r, v) => r + v);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -136,56 +172,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findSubstringInWraproundString(string p) {
-        vector<int> dp(26);
-        int k = 0;
-        for (int i = 0; i < p.size(); ++i) {
-            char c = p[i];
-            if (i && (c - p[i - 1] + 26) % 26 == 1)
-                ++k;
-            else
-                k = 1;
-            dp[c - 'a'] = max(dp[c - 'a'], k);
-        }
-        int ans = 0;
-        for (int& v : dp) ans += v;
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func findSubstringInWraproundString(p string) int {
-	dp := make([]int, 26)
-	k := 0
-	for i := range p {
-		c := p[i]
-		if i > 0 && (c-p[i-1]+26)%26 == 1 {
-			k++
-		} else {
-			k = 1
-		}
-		dp[c-'a'] = max(dp[c-'a'], k)
-	}
-	ans := 0
-	for _, v := range dp {
-		ans += v
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

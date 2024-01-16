@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Union-Find**
+### Solution 1: Union-Find
 
 We can traverse each node $i$ and its corresponding left and right children $l$, $r$, using an array $vis$ to record whether the node has a parent:
 
@@ -56,8 +56,6 @@ After the traversal, we check whether the number of connected components in the 
 The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Where $n$ is the number of nodes, and $\alpha(n)$ is the inverse Ackermann function, which is less than $5$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
                     n -= 1
         return n == 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
@@ -180,10 +172,6 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->
