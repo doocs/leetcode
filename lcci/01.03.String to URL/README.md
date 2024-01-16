@@ -41,45 +41,6 @@ class Solution:
         return S[:length].replace(' ', '%20')
 ```
 
-```java
-class Solution {
-    public String replaceSpaces(String S, int length) {
-        char[] cs = S.toCharArray();
-        int j = cs.length;
-        for (int i = length - 1; i >= 0; --i) {
-            if (cs[i] == ' ') {
-                cs[--j] = '0';
-                cs[--j] = '2';
-                cs[--j] = '%';
-            } else {
-                cs[--j] = cs[i];
-            }
-        }
-        return new String(cs, j, cs.length - j);
-    }
-}
-```
-
-```go
-func replaceSpaces(S string, length int) string {
-	// return url.PathEscape(S[:length])
-	j := len(S)
-	b := []byte(S)
-	for i := length - 1; i >= 0; i-- {
-		if b[i] == ' ' {
-			b[j-1] = '0'
-			b[j-2] = '2'
-			b[j-3] = '%'
-			j -= 3
-		} else {
-			b[j-1] = b[i]
-			j--
-		}
-	}
-	return string(b[j:])
-}
-```
-
 ```ts
 function replaceSpaces(S: string, length: number): string {
     return S.slice(0, length).replace(/\s/g, '%20');
@@ -119,6 +80,45 @@ var replaceSpaces = function (S, length) {
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
         return ''.join(['%20' if c == ' ' else c for c in S[:length]])
+```
+
+```java
+class Solution {
+    public String replaceSpaces(String S, int length) {
+        char[] cs = S.toCharArray();
+        int j = cs.length;
+        for (int i = length - 1; i >= 0; --i) {
+            if (cs[i] == ' ') {
+                cs[--j] = '0';
+                cs[--j] = '2';
+                cs[--j] = '%';
+            } else {
+                cs[--j] = cs[i];
+            }
+        }
+        return new String(cs, j, cs.length - j);
+    }
+}
+```
+
+```go
+func replaceSpaces(S string, length int) string {
+	// return url.PathEscape(S[:length])
+	j := len(S)
+	b := []byte(S)
+	for i := length - 1; i >= 0; i-- {
+		if b[i] == ' ' {
+			b[j-1] = '0'
+			b[j-2] = '2'
+			b[j-3] = '%'
+			j -= 3
+		} else {
+			b[j-1] = b[i]
+			j--
+		}
+	}
+	return string(b[j:])
+}
 ```
 
 ```rust

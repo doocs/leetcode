@@ -53,6 +53,20 @@ class Solution:
         return min(S, t, key=len)
 ```
 
+```python
+class Solution:
+    def compressString(self, S: str) -> str:
+        t = []
+        i, n = 0, len(S)
+        while i < n:
+            j = i + 1
+            while j < n and S[j] == S[i]:
+                j += 1
+            t.append(S[i] + str(j - i))
+            i = j
+        return min(S, "".join(t), key=len)
+```
+
 ```java
 class Solution {
     public String compressString(String S) {
@@ -157,26 +171,6 @@ var compressString = function (S) {
     }
     return t.length < n ? t.join('') : S;
 };
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def compressString(self, S: str) -> str:
-        t = []
-        i, n = 0, len(S)
-        while i < n:
-            j = i + 1
-            while j < n and S[j] == S[i]:
-                j += 1
-            t.append(S[i] + str(j - i))
-            i = j
-        return min(S, "".join(t), key=len)
 ```
 
 <!-- tabs:end -->

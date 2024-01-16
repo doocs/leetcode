@@ -119,7 +119,13 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Another Implementation of Hash Table
+
+We use a hash table $vis$ to store whether each character has appeared. If it has appeared, we remove the character from the hash table; otherwise, we add the character to the hash table.
+
+Finally, we check whether the number of characters in the hash table is less than $2$. If it is, then it is a palindrome permutation.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
 
