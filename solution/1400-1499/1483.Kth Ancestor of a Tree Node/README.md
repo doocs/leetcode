@@ -247,7 +247,6 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
 
 ```ts
 class TreeAncestor {
-class TreeAncestor {
     private p: number[][];
 
     constructor(n: number, parent: number[]) {
