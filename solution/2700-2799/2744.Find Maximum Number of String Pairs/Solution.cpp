@@ -1,12 +1,12 @@
 class Solution {
 public:
     int maximumNumberOfStringPairs(vector<string>& words) {
-        unordered_map<string, int> cnt;
+        unordered_map<int, int> cnt;
         int ans = 0;
         for (auto& w : words) {
-            ans += cnt[w];
-            reverse(w.begin(), w.end());
-            cnt[w]++;
+            int a = w[0] - 'a', b = w[1] - 'a';
+            ans += cnt[b << 5 | a];
+            cnt[a << 5 | b]++;
         }
         return ans;
     }

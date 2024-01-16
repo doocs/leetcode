@@ -1,10 +1,11 @@
 class Solution {
     public int maximumNumberOfStringPairs(String[] words) {
-        Map<String, Integer> cnt = new HashMap<>(words.length);
+        Map<Integer, Integer> cnt = new HashMap<>();
         int ans = 0;
-        for (String w : words) {
-            ans += cnt.getOrDefault(w, 0);
-            cnt.merge(new StringBuilder(w).reverse().toString(), 1, Integer::sum);
+        for (var w : words) {
+            int a = w.charAt(0) - 'a', b = w.charAt(1) - 'a';
+            ans += cnt.getOrDefault(b << 5 | a, 0);
+            cnt.merge(a << 5 | b, 1, Integer::sum);
         }
         return ans;
     }

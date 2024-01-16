@@ -1,12 +1,9 @@
 func maximumNumberOfStringPairs(words []string) (ans int) {
-	cnt := map[string]int{}
+	cnt := map[int]int{}
 	for _, w := range words {
-		ans += cnt[w]
-		s := []byte(w)
-		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-			s[i], s[j] = s[j], s[i]
-		}
-		cnt[string(s)]++
+		a, b := int(w[0]-'a'), int(w[1]-'a')
+		ans += cnt[b<<5|a]
+		cnt[a<<5|b]++
 	}
 	return
 }
