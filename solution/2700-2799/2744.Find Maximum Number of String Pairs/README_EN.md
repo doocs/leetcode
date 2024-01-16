@@ -60,13 +60,13 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 
 ### Solution 1: Hash Table
 
-We can use a hash table $cnt$ to store the number of occurrences of each string's reversed string in the array $words$.
+We can use a hash table $cnt$ to store the number of occurrences of each reversed string in the array $words$.
 
-Traverse the array $words$, for each string $w$, we directly add the value of $cnt[w]$ to the answer, then increase the occurrence count of $w$'s reversed string by $1$.
+We iterate through the array $words$. For each string $w$, we add the number of occurrences of its reversed string to the answer, then increment the count of $w$ by $1$.
 
-After the traversal ends, we can get the maximum number of matches.
+Finally, we return the answer.
 
-The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of the strings in the array $words$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $words$.
 
 <!-- tabs:start -->
 
@@ -76,19 +76,20 @@ class Solution:
         cnt = Counter()
         ans = 0
         for w in words:
-            ans += cnt[w]
-            cnt[w[::-1]] += 1
+            ans += cnt[w[::-1]]
+            cnt[w] += 1
         return ans
 ```
 
 ```java
 class Solution {
     public int maximumNumberOfStringPairs(String[] words) {
-        Map<String, Integer> cnt = new HashMap<>(words.length);
+        Map<Integer, Integer> cnt = new HashMap<>();
         int ans = 0;
-        for (String w : words) {
-            ans += cnt.getOrDefault(w, 0);
-            cnt.merge(new StringBuilder(w).reverse().toString(), 1, Integer::sum);
+        for (var w : words) {
+            int a = w.charAt(0) - 'a', b = w.charAt(1) - 'a';
+            ans += cnt.getOrDefault(b << 5 | a, 0);
+            cnt.merge(a << 5 | b, 1, Integer::sum);
         }
         return ans;
     }
@@ -99,12 +100,12 @@ class Solution {
 class Solution {
 public:
     int maximumNumberOfStringPairs(vector<string>& words) {
-        unordered_map<string, int> cnt;
+        unordered_map<int, int> cnt;
         int ans = 0;
         for (auto& w : words) {
-            ans += cnt[w];
-            reverse(w.begin(), w.end());
-            cnt[w]++;
+            int a = w[0] - 'a', b = w[1] - 'a';
+            ans += cnt[b << 5 | a];
+            cnt[a << 5 | b]++;
         }
         return ans;
     }
@@ -113,14 +114,11 @@ public:
 
 ```go
 func maximumNumberOfStringPairs(words []string) (ans int) {
-	cnt := map[string]int{}
+	cnt := map[int]int{}
 	for _, w := range words {
-		ans += cnt[w]
-		s := []byte(w)
-		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-			s[i], s[j] = s[j], s[i]
-		}
-		cnt[string(s)]++
+		a, b := int(w[0]-'a'), int(w[1]-'a')
+		ans += cnt[b<<5|a]
+		cnt[a<<5|b]++
 	}
 	return
 }
@@ -128,12 +126,12 @@ func maximumNumberOfStringPairs(words []string) (ans int) {
 
 ```ts
 function maximumNumberOfStringPairs(words: string[]): number {
-    const cnt: Map<string, number> = new Map();
+    const cnt: { [key: number]: number } = {};
     let ans = 0;
     for (const w of words) {
-        ans += cnt.get(w) || 0;
-        const s = w.split('').reverse().join('');
-        cnt.set(s, (cnt.get(s) || 0) + 1);
+        const [a, b] = [w.charCodeAt(0) - 97, w.charCodeAt(w.length - 1) - 97];
+        ans += cnt[(b << 5) | a] || 0;
+        cnt[(a << 5) | b] = (cnt[(a << 5) | b] || 0) + 1;
     }
     return ans;
 }
