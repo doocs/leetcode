@@ -2,6 +2,7 @@ site_name: LeetCode Wiki
 site_url: https://doocs.github.io/leetcode
 site_description: 多种编程语言实现 LeetCode、《剑指 Offer（第 2 版）》、《程序员面试金典（第 6 版）》题解
 site_author: yanglbme
+site_dir: site
 docs_dir: docs
 repo_name: doocs/leetcode
 repo_url: https://github.com/doocs/leetcode
@@ -59,7 +60,7 @@ theme:
 
 plugins:
   - search:
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
 markdown_extensions:
   - pymdownx.superfences
@@ -89,8 +90,6 @@ extra:
     - name: 中文
       link: /
       lang: zh
-
-
 
 
 nav:
