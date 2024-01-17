@@ -1,3 +1,101 @@
 site_name: LeetCode Wiki
+site_url: https://doocs.github.io/leetcode
+site_description: 多种编程语言实现 LeetCode、《剑指 Offer（第 2 版）》、《程序员面试金典（第 6 版）》题解
+site_author: yanglbme
+docs_dir: docs
+repo_name: doocs/leetcode
+repo_url: https://github.com/doocs/leetcode
+copyright: Copyright &copy; 2024 Doocs
+
 theme:
   name: material
+  features:
+    - announce.dismiss
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  icon:
+    repo: fontawesome/brands/github
+  language: zh
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+
+plugins:
+  - git-committers:
+      repository: doocs/leetcode
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;|[\s\u200b\-]'
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_javascript:
+  - javascripts/katex.js 
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yanglbme
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:contact@yanglibin.info
+    - icon: fontawesome/solid/code
+      link: https://leetcode.cn/u/lcbin/
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: 中文
+      link: /
+      lang: zh
+
+nav:
+  - LeetCode:
+    - 1. 两数之和: lc/1.md
+    - 2. 两数相加: lc/2.md
+    - 100. 相同的树: lc/100.md
+  - 剑指 Offer（第 2 版）:
+    - 面试题03. 数组中重复的数字: lcof/3.md

@@ -1,0 +1,3 @@
+mkdocs-git-committers-plugin-2==2.2.3
+mkdocs-material==9.5.4
+jieba==0.42.1
