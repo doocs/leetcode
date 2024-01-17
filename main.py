@@ -66,7 +66,6 @@ with open("mkdocs-en.yml", "r", encoding="utf-8") as f:
 
 
 def get_paths(dirs: str, m: int):
-    dirs = 'main' + os.sep + dirs
     paths = []
     for root, _, files in os.walk(dirs):
         for file in files:
@@ -77,12 +76,12 @@ def get_paths(dirs: str, m: int):
 
 
 dirs_mapping = {
-    "solution": ("lc", 5),
-    "lcof": ("lcof", 4),
-    "lcof2": ("lcof2", 4),
-    "lcci": ("lcci", 4),
-    "lcp": ("lcp", 4),
-    "lcs": ("lcs", 4),
+    "solution": ("lc", 4),
+    "lcof": ("lcof", 3),
+    "lcof2": ("lcof2", 3),
+    "lcci": ("lcci", 3),
+    "lcp": ("lcp", 3),
+    "lcs": ("lcs", 3),
 }
 
 dirs = ["solution", "lcof", "lcof2", "lcci", "lcp", "lcs"]
@@ -102,6 +101,12 @@ for dir in dirs:
     for p in sorted(get_paths(dir, m)):
         with open(p, "r", encoding="utf-8") as f:
             content = f.read()
+
+            # [中文文档](/lcci/01.01.Is%20Unique/README.md)
+            # 正则匹配 [中文文档](xxx) 并且移除
+            content = re.sub(r"\[中文文档]\((.*?)\)", "", content)
+            content = re.sub(r"\[English Version]\((.*?)\)", "", content)
+
             title = content[content.find("[") + 1 : content.find("]")]
             dot = title.find(".") if dir != "lcci" else title.rfind(".")
             num = (

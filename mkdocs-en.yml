@@ -1,9 +1,12 @@
 INHERIT: mkdocs.yml
 site_description: LeetCode solutions in any programming language
+site_dir: site/en
 docs_dir: docs-en
-
-
-
+theme:
+  language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
 
 nav:
   - LeetCode:
