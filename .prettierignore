@@ -1,26 +1,26 @@
 .idea/
-.DS_Store
-.vscode
-.temp
-.cache
-/node_modules
-/solution/result.json
-/solution/contest.json
-/solution/contest_list.json
-/solution/raw.json
-/lcof/lcof.json
-/lcof/lcof_list.json
-/lcci/lcci.json
-/solution/__pycache__
-/solution/.env
-*.iml
-
-site
-/docs/lc
-/docs/lcof
-/docs/lcci
-/docs/lcof2
-/docs/lcp
-/docs/lcs
-/docs-en/lc
-/docs-en/lcci
+.github/
+node_modules/
+/solution/CONTEST_README.md
+/solution/CONTEST_README_EN.md
+/solution/summary.md
+/solution/summary_en.md
+/solution/README.md
+/solution/README_EN.md
+/solution/readme_template.md
+/solution/readme_template_en.md
+/solution/problem_readme_template.md
+/solution/problem_readme_template_en.md
+/solution/bash_problem_readme_template.md
+/solution/bash_problem_readme_template_en.md
+/solution/0100-0199/0177.Nth Highest Salary/Solution.sql
+/solution/0100-0199/0178.Rank Scores/Solution2.sql
+/solution/0500-0599/0586.Customer Placing the Largest Number of Orders/Solution2.sql
+/solution/1400-1499/1454.Active Users/Solution.sql
+/solution/1600-1699/1635.Hopper Company Queries I/Solution.sql
+/solution/2100-2199/2118.Build the Equation/Solution.sql
+/solution/2100-2199/2175.The Change in Global Rankings/Solution.sql
+/solution/2200-2299/2205.The Number of Users That Are Eligible for Discount/Solution.sql
+/solution/2200-2299/2230.The Users That Are Eligible for Discount/Solution.sql
+/solution/2200-2299/2252.Dynamic Pivoting of a Table/Solution.sql
+/solution/2200-2299/2253.Dynamic Unpivoting of a Table/Solution.sql
