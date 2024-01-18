@@ -1,4 +1,5 @@
 public class Solution {
+    
     public void computeLPS(String pattern, int[] lps) {
         int M = pattern.length();
         int len = 0; 
