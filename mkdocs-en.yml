@@ -9,7 +9,11 @@ theme:
     text: Roboto
     code: Roboto Mono
 
+
 nav:
+  - Home:
+    - Home: index.md
+    - Contribution: intro/contribution.md
   - LeetCode:
     - 1. Two Sum: lc/1.md
     - 2. Add Two Numbers: lc/2.md
@@ -3019,7 +3023,7 @@ nav:
     - 3006. Find Beautiful Indices in the Given Array I: lc/3006.md
     - 3007. Maximum Number That Sum of the Prices Is Less Than or Equal to K: lc/3007.md
     - 3008. Find Beautiful Indices in the Given Array II: lc/3008.md
-  - Cracking the Coding Interview, 6th Edition:
+  - Cracking the Coding Interview:
     - 1.1. Is Unique: lcci/1.1.md
     - 1.2. Check Permutation: lcci/1.2.md
     - 1.3. String to URL: lcci/1.3.md

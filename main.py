@@ -176,10 +176,29 @@ if "nav:" in config:
 if "nav:" in en_config:
     en_config = en_config[: en_config.find("nav:")]
 
+"""
+nav:
+  - 首页:
+    - 首页: index.md
+    - 参与贡献: intro/contribution.md
+  - LeetCode 全解:
+
+nav:
+  - Home:
+    - Home: index.md
+    - Contribution: intro/contribution.md
+"""
+
 config += "\nnav:\n"
 en_config += "\nnav:\n"
+config += "  - 首页:\n"
+config += "    - 首页: index.md\n"
+config += "    - 参与贡献: intro/contribution.md\n"
 config += "  - LeetCode 全解:\n"
+
 en_config += "  - LeetCode:\n"
+en_config += "    - Home: index.md\n"
+en_config += "    - Contribution: intro/contribution.md\n"
 config += "\n".join(navdata_cn["solution"])
 en_config += "\n".join(navdata_en["solution"])
 config += "\n"

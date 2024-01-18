@@ -34,7 +34,7 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-    # - toc.integrate
+    - toc.integrate
   icon:
     repo: fontawesome/brands/github
   language: zh
@@ -91,9 +91,11 @@ extra:
       link: /leetcode/
       lang: zh
 
-
 nav:
-  - LeetCode:
+  - 首页:
+    - 首页: index.md
+    - 参与贡献: intro/contribution.md
+  - LeetCode 全解:
     - 1. 两数之和: lc/1.md
     - 2. 两数相加: lc/2.md
     - 3. 无重复字符的最长子串: lc/3.md
@@ -3102,7 +3104,7 @@ nav:
     - 3006. 找出数组中的美丽下标 I: lc/3006.md
     - 3007. 价值和小于等于 K 的最大数字: lc/3007.md
     - 3008. 找出数组中的美丽下标 II: lc/3008.md
-  - 剑指 Offer（第 2 版）:
+  - 剑指 Offer:
     - 3. 数组中重复的数字: lcof/3.md
     - 4. 二维数组中的查找: lcof/4.md
     - 5. 替换空格: lcof/5.md
@@ -3178,7 +3180,7 @@ nav:
     - 67. 把字符串转换成整数: lcof/67.md
     - 68.1. 二叉搜索树的最近公共祖先: lcof/68.1.md
     - 68.2. 二叉树的最近公共祖先: lcof/68.2.md
-  - 剑指 Offer（专项突击版）:
+  - 剑指 Offer（专项突破）:
     - 1. 整数除法: lcof2/1.md
     - 2. 二进制加法: lcof2/2.md
     - 3. 前 n 个数字二进制中 1 的个数: lcof2/3.md
@@ -3298,7 +3300,7 @@ nav:
     - 117. 相似的字符串: lcof2/117.md
     - 118. 多余的边: lcof2/118.md
     - 119. 最长连续序列: lcof2/119.md
-  - 程序员面试金典（第 6 版）:
+  - 程序员面试金典:
     - 1.1. 判定字符是否唯一: lcci/1.1.md
     - 1.2. 判定是否互为字符重排: lcci/1.2.md
     - 1.3. URL 化: lcci/1.3.md
