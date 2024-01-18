@@ -85,10 +85,10 @@ extra:
       link: https://leetcode.cn/u/lcbin/
   alternate:
     - name: English
-      link: ./en/ 
+      link: /leetcode/en/
       lang: en
     - name: 中文
-      link: ./
+      link: /leetcode/
       lang: zh
 
 
