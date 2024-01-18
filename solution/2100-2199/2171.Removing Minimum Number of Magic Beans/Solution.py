@@ -1,8 +1,5 @@
 class Solution:
     def minimumRemoval(self, beans: List[int]) -> int:
         beans.sort()
-        ans = s = sum(beans)
-        n = len(beans)
-        for i, v in enumerate(beans):
-            ans = min(ans, s - v * (n - i))
-        return ans
+        s, n = sum(beans), len(beans)
+        return min(s - x * (n - i) for i, x in enumerate(beans))
