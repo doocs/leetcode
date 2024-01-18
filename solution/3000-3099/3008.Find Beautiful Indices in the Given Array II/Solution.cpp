@@ -1,4 +1,5 @@
 class Solution {
+
 public:
     vector<int> beautifulIndices(string s, string patternA, string patternB, int k) {
         vector<int> beautifulIndicesA = kmpSearch(s, patternA);
