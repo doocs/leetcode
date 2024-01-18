@@ -187,6 +187,7 @@ nav:
   - Home:
     - Home: index.md
     - Contribution: intro/contribution.md
+  - LeetCode:
 """
 
 config += "\nnav:\n"
@@ -195,10 +196,10 @@ config += "  - 首页:\n"
 config += "    - 首页: index.md\n"
 config += "    - 参与贡献: intro/contribution.md\n"
 config += "  - LeetCode 全解:\n"
-
-en_config += "  - LeetCode:\n"
+en_config += "  - Home:\n"
 en_config += "    - Home: index.md\n"
 en_config += "    - Contribution: intro/contribution.md\n"
+en_config += "  - LeetCode:\n"
 config += "\n".join(navdata_cn["solution"])
 en_config += "\n".join(navdata_en["solution"])
 config += "\n"
