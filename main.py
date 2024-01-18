@@ -29,11 +29,11 @@ nav:
     - 1. 两数之和: lc/1.md
     - 2. 两数相加: lc/2.md
     - 100. 相同的树: lc/100.md
-  - 剑指 Offer（第 2 版）:
+  - 剑指 Offer:
     - 面试题3. 数组中重复的数字: lcof/3.md
-  - 剑指 Offer（专项突击版）：
+  - 剑指 Offer（专项突破）：
     - 1. 整数除法: lcof2/1.md
-  - 程序员面试金典（第 6 版）:
+  - 程序员面试金典:
     - 面试题 01.01. 判定字符是否唯一: lcci/1.1.md
 """
 
@@ -178,22 +178,22 @@ if "nav:" in en_config:
 
 config += "\nnav:\n"
 en_config += "\nnav:\n"
-config += "  - LeetCode:\n"
+config += "  - LeetCode 全解:\n"
 en_config += "  - LeetCode:\n"
 config += "\n".join(navdata_cn["solution"])
 en_config += "\n".join(navdata_en["solution"])
 config += "\n"
 en_config += "\n"
-config += "  - 剑指 Offer（第 2 版）:\n"
+config += "  - 剑指 Offer:\n"
 config += "\n".join(navdata_cn["lcof"])
 config += "\n"
-config += "  - 剑指 Offer（专项突击版）:\n"
+config += "  - 剑指 Offer（专项突破）:\n"
 config += "\n".join(navdata_cn["lcof2"])
 config += "\n"
-config += "  - 程序员面试金典（第 6 版）:\n"
+config += "  - 程序员面试金典:\n"
 config += "\n".join(navdata_cn["lcci"])
 config += "\n"
-en_config += "  - Cracking the Coding Interview, 6th Edition:\n"
+en_config += "  - Cracking the Coding Interview:\n"
 en_config += "\n".join(navdata_en["lcci"])
 en_config += "\n"
 
