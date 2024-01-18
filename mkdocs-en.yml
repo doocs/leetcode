@@ -1,4 +1,5 @@
 INHERIT: mkdocs.yml
+site_url: https://doocs.github.io/leetcode/en
 site_description: LeetCode solutions in any programming language
 site_dir: site/en
 docs_dir: docs-en
