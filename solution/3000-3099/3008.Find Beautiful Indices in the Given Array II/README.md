@@ -115,9 +115,9 @@ class Solution:
 public class Solution {
     public void computeLPS(String pattern, int[] lps) {
         int M = pattern.length();
-        int len = 0; 
+        int len = 0;
 
-        lps[0] = 0; 
+        lps[0] = 0;
 
         int i = 1;
         while (i < M) {
@@ -167,7 +167,7 @@ public class Solution {
 
         return result;
     }
-    
+
     private int lowerBound(List<Integer> list, int target) {
         int left = 0, right = list.size() - 1, result = list.size();
 
@@ -184,7 +184,7 @@ public class Solution {
 
         return result;
     }
-    
+
     public List<Integer> beautifulIndices(String s, String a, String b, int k) {
         int n = s.length();
 
@@ -280,26 +280,26 @@ private:
 
 ```go
 func beautifulIndices(s string, a string, b string, k int) []int {
-    
-    
+
+
     s_len := len(s)
     a_len := len(a)
     b_len := len(b)
-    
+
     final := make([]int, 0)
     lps_a := make([]int, a_len)
     lps_b := make([]int, b_len)
     a_index := make([]int, 0)
     b_index := make([]int, 0)
-    
+
     var pat func(lps []int, s_l int, pattern string)
 
     pat = func(lps []int, s_l int, pattern string){
-        
+
         l := 0
         lps[0] = 0
         i := 1
-        
+
         for i < s_l {
             if pattern[i] == pattern[l] {
                 l++
@@ -312,7 +312,7 @@ func beautifulIndices(s string, a string, b string, k int) []int {
                     lps[i] = l
                     i++
                 }
-            }   
+            }
         }
     }
 
@@ -344,7 +344,7 @@ func beautifulIndices(s string, a string, b string, k int) []int {
 
     kmp(a, a_len, lps_a, &a_index)
     kmp(b, b_len, lps_b, &b_index)
-    
+
     // fmt.Println(a_index, b_index)
 
     i := 0
@@ -360,7 +360,7 @@ func beautifulIndices(s string, a string, b string, k int) []int {
             i++
         }
     }
-    
+
     return final
 }
 ```
