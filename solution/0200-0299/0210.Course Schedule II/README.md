@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 我们创建一个邻接表 $g$，用于存储每个节点的后继节点，同时还需要一个数组 $indeg$ 存储每个节点的入度。在构建邻接表的同时，我们也统计每个节点的入度。当入度为 $0$ 的节点代表没有任何前置课程，可以直接学习，我们将其加入队列 $q$ 中。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
                     q.append(j)
         return ans if len(ans) == numCourses else []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +153,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findOrder(numCourses int, prerequisites [][]int) []int {
@@ -202,8 +188,6 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     const g: number[][] = Array.from({ length: numCourses }, () => []);
@@ -231,45 +215,6 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     return ans.length === numCourses ? ans : [];
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int[] FindOrder(int numCourses, int[][] prerequisites) {
-        var g = new List<int>[numCourses];
-        for (int i = 0; i < numCourses; ++i) {
-            g[i] = new List<int>();
-        }
-        var indeg = new int[numCourses];
-        foreach (var p in prerequisites) {
-            int a = p[0], b = p[1];
-            g[b].Add(a);
-            ++indeg[a];
-        }
-        var q = new Queue<int>();
-        for (int i = 0; i < numCourses; ++i) {
-            if (indeg[i] == 0) {
-                q.Enqueue(i);
-            }
-        }
-        var ans = new int[numCourses];
-        var cnt = 0;
-        while (q.Count > 0) {
-            int i = q.Dequeue();
-            ans[cnt++] = i;
-            foreach (int j in g[i]) {
-                if (--indeg[j] == 0) {
-                    q.Enqueue(j);
-                }
-            }
-        }
-        return cnt == numCourses ? ans : new int[0];
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -312,10 +257,41 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int[] FindOrder(int numCourses, int[][] prerequisites) {
+        var g = new List<int>[numCourses];
+        for (int i = 0; i < numCourses; ++i) {
+            g[i] = new List<int>();
+        }
+        var indeg = new int[numCourses];
+        foreach (var p in prerequisites) {
+            int a = p[0], b = p[1];
+            g[b].Add(a);
+            ++indeg[a];
+        }
+        var q = new Queue<int>();
+        for (int i = 0; i < numCourses; ++i) {
+            if (indeg[i] == 0) {
+                q.Enqueue(i);
+            }
+        }
+        var ans = new int[numCourses];
+        var cnt = 0;
+        while (q.Count > 0) {
+            int i = q.Dequeue();
+            ans[cnt++] = i;
+            foreach (int j in g[i]) {
+                if (--indeg[j] == 0) {
+                    q.Enqueue(j);
+                }
+            }
+        }
+        return cnt == numCourses ? ans : new int[0];
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

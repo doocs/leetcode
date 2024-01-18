@@ -15,31 +15,28 @@
 
 
 class Solution(object):
-    def findShortestPath(self, master: 'GridMaster') -> int:
-        def dfs(i, j):
-            nonlocal target
+    def findShortestPath(self, master: "GridMaster") -> int:
+        def dfs(i: int, j: int):
             if master.isTarget():
+                nonlocal target
                 target = (i, j)
-            for dir, ndir, a, b in dirs:
-                x, y = i + a, j + b
-                if master.canMove(dir) and (x, y) not in s:
-                    s.add((x, y))
-                    master.move(dir)
+                return
+            for k, c in enumerate(s):
+                x, y = i + dirs[k], j + dirs[k + 1]
+                if master.canMove(c) and (x, y) not in vis:
+                    vis.add((x, y))
+                    master.move(c)
                     dfs(x, y)
-                    master.move(ndir)
+                    master.move(s[(k + 2) % 4])
 
+        s = "URDL"
+        dirs = (-1, 0, 1, 0, -1)
         target = None
-        s = set()
-        dirs = [
-            ['U', 'D', -1, 0],
-            ['D', 'U', 1, 0],
-            ['L', 'R', 0, -1],
-            ['R', 'L', 0, 1],
-        ]
+        vis = set()
         dfs(0, 0)
         if target is None:
             return -1
-        s.remove((0, 0))
+        vis.discard((0, 0))
         q = deque([(0, 0)])
         ans = -1
         while q:
@@ -48,9 +45,9 @@ class Solution(object):
                 i, j = q.popleft()
                 if (i, j) == target:
                     return ans
-                for _, _, a, b in dirs:
+                for a, b in pairwise(dirs):
                     x, y = i + a, j + b
-                    if (x, y) in s:
-                        s.remove((x, y))
+                    if (x, y) in vis:
+                        vis.remove((x, y))
                         q.append((x, y))
         return -1

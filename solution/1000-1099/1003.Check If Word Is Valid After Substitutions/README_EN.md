@@ -52,7 +52,7 @@ Thus, &quot;abcabcababcc&quot; is valid.
 
 ## Solutions
 
-**Solution 1: Stack**
+### Solution 1: Stack
 
 If the string is valid, it's length must be the multiple of $3$.
 
@@ -63,8 +63,6 @@ When the traversal is over, if the stack $t$ is empty, the string $s$ is valid, 
 The time complexity is $O(n)$ and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
                 t[-3:] = []
         return not t
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isValid(s string) bool {
 	if len(s)%3 > 0 {
@@ -137,8 +129,6 @@ func isValid(s string) bool {
 	return len(t) == 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isValid(s: string): boolean {
@@ -156,10 +146,6 @@ function isValid(s: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

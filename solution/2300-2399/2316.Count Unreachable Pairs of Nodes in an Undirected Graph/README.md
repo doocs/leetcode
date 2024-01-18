@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 对于无向图中的任意两个节点，如果它们之间存在一条路径，那么它们之间就是互相可达的。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             s += t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPairs(n int, edges [][]int) (ans int64) {
 	g := make([][]int, n)
@@ -195,8 +181,6 @@ func countPairs(n int, edges [][]int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPairs(n: number, edges: number[][]): number {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -225,8 +209,6 @@ function countPairs(n: number, edges: number[][]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -265,10 +247,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -15,27 +15,19 @@ public class Node {
 
 public class Solution {
     public Node CopyRandomList(Node head) {
-        if (head == null) {
-            return null;
+        Dictionary<Node, Node> d = new Dictionary<Node, Node>();
+        Node dummy = new Node(0);
+        Node tail = dummy;
+        for (Node cur = head; cur != null; cur = cur.next) {
+            tail.next = new Node(cur.val);
+            tail = tail.next;
+            d[cur] = tail;
         }
-        for (Node cur = head; cur != null; ) {
-            Node node = new Node(cur.val, cur.next);
-            cur.next = node;
-            cur = node.next;
+        tail = dummy.next;
+        for (Node cur = head; cur != null; cur = cur.next) {
+            tail.random = cur.random == null ? null : d[cur.random];
+            tail = tail.next;
         }
-        for (Node cur = head; cur != null; cur = cur.next.next) {
-            if (cur.random != null) {
-                cur.next.random = cur.random.next;
-            }
-        }
-        Node ans = head.next;
-        for (Node cur = head; cur != null; ) {
-            Node nxt = cur.next;
-            if (nxt != null) {
-                cur.next = nxt.next;
-            }
-            cur = nxt;
-        }
-        return ans;
+        return dummy.next;
     }
 }

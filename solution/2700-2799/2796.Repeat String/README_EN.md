@@ -37,15 +37,14 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= str.length &lt;= 1000</code></li>
-	<li><code>1 &lt;= times &lt;= 1000</code></li>
+	<li><code>1 &lt;= str.length,&nbsp;times &lt;=&nbsp;10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 declare global {
@@ -59,8 +58,6 @@ String.prototype.replicate = function (times: number) {
 };
 ```
 
-### **JavaScript**
-
 ```js
 String.prototype.replicate = function (times) {
     return Array(times).fill(this).join('');
@@ -68,3 +65,5 @@ String.prototype.replicate = function (times) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

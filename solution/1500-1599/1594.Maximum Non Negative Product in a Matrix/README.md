@@ -52,17 +52,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 时间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
         ans = dp[-1][-1][1]
         return -1 if ans < 0 else ans % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 const int mod = 1e9 + 7;
@@ -164,8 +152,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxProductPath(grid [][]int) int {
@@ -207,10 +193,6 @@ func maxProductPath(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

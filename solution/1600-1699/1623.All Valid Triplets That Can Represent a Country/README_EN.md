@@ -112,9 +112,9 @@ Let us see all the possible triplets.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -136,3 +136,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

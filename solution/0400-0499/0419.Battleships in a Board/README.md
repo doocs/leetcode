@@ -43,17 +43,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-初始化结果数 ans = 0。
-
-遍历二维甲板，若 X 的左方、上方不为 X，则结果 ans 加 1。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +63,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countBattleships(board [][]byte) int {
@@ -145,10 +129,6 @@ func countBattleships(board [][]byte) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

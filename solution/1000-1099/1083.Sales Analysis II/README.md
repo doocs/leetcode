@@ -83,15 +83,11 @@ id 为 1 的买家购买了一部 S8，但是却没有购买 iPhone，而 id 为
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：JOIN + GROUP BY + HAVING**
+### 方法一：JOIN + GROUP BY + HAVING
 
 我们先将 `Sales` 表和 `Product` 表连接起来，然后根据 `buyer_id` 分组，最后用 `HAVING` 子句筛选出购买了 S8 却没有购买 iPhone 的买家。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -104,3 +100,5 @@ HAVING SUM(product_name = 'S8') > 0 AND SUM(product_name = 'iPhone') = 0;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

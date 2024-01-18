@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Solution 1: Sorting**
+### Solution 1: Sorting
 
 We first sort `horizontalCuts` and `verticalCuts` separately, and then traverse both arrays to calculate the maximum difference between adjacent elements. We denote these maximum differences as $x$ and $y$, respectively. Finally, we return $x \times y$.
 
@@ -61,8 +61,6 @@ Note that we need to consider the boundary cases, i.e., the first and last eleme
 The time complexity is $O(m\log m + n\log n)$, where $m$ and $n$ are the lengths of `horizontalCuts` and `verticalCuts`, respectively. The space complexity is $O(\log m + \log n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
         y = max(b - a for a, b in pairwise(verticalCuts))
         return (x * y) % (10**9 + 7)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	horizontalCuts = append(horizontalCuts, []int{0, h}...)
@@ -146,8 +138,6 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: number[]): number {
     const mod = 1e9 + 7;
@@ -165,8 +155,6 @@ function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: n
     return Number((BigInt(x) * BigInt(y)) % BigInt(mod));
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -203,10 +191,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

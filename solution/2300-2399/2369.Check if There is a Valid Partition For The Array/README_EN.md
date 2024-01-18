@@ -44,9 +44,9 @@ This partition is valid, so we return true.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,28 +71,6 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def validPartition(self, nums: List[int]) -> bool:
-        n = len(nums)
-        dp = [False] * (n + 1)
-        dp[0] = True
-        for i in range(2, n + 1):
-            if nums[i - 1] == nums[i - 2]:
-                dp[i] = dp[i] or dp[i - 2]
-            if i > 2 and nums[i - 1] == nums[i - 2] == nums[i - 3]:
-                dp[i] = dp[i] or dp[i - 3]
-            if (
-                i > 2
-                and nums[i - 1] - nums[i - 2] == 1
-                and nums[i - 2] - nums[i - 3] == 1
-            ):
-                dp[i] = dp[i] or dp[i - 3]
-        return dp[-1]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,30 +109,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean validPartition(int[] nums) {
-        int n = nums.length;
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
-        for (int i = 2; i <= n; ++i) {
-            if (nums[i - 1] == nums[i - 2]) {
-                dp[i] = dp[i] || dp[i - 2];
-            }
-            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) {
-                dp[i] = dp[i] || dp[i - 3];
-            }
-            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) {
-                dp[i] = dp[i] || dp[i - 3];
-            }
-        }
-        return dp[n];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,25 +135,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool validPartition(vector<int>& nums) {
-        int n = nums.size();
-        vector<bool> dp(n + 1);
-        dp[0] = true;
-        for (int i = 2; i <= n; ++i) {
-            if (nums[i - 1] == nums[i - 2]) dp[i] = dp[i] || dp[i - 2];
-            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) dp[i] = dp[i] || dp[i - 3];
-            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) dp[i] = dp[i] || dp[i - 3];
-        }
-        return dp[n];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func validPartition(nums []int) bool {
@@ -236,28 +171,6 @@ func validPartition(nums []int) bool {
 }
 ```
 
-```go
-func validPartition(nums []int) bool {
-	n := len(nums)
-	dp := make([]bool, n+1)
-	dp[0] = true
-	for i := 2; i <= n; i++ {
-		if nums[i-1] == nums[i-2] {
-			dp[i] = dp[i] || dp[i-2]
-		}
-		if i > 2 && nums[i-1] == nums[i-2] && nums[i-2] == nums[i-3] {
-			dp[i] = dp[i] || dp[i-3]
-		}
-		if i > 2 && nums[i-1]-nums[i-2] == 1 && nums[i-2]-nums[i-3] == 1 {
-			dp[i] = dp[i] || dp[i-3]
-		}
-	}
-	return dp[n]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function validPartition(nums: number[]): boolean {
     const n = nums.length;
@@ -289,6 +202,91 @@ function validPartition(nums: number[]): boolean {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validPartition(self, nums: List[int]) -> bool:
+        n = len(nums)
+        dp = [False] * (n + 1)
+        dp[0] = True
+        for i in range(2, n + 1):
+            if nums[i - 1] == nums[i - 2]:
+                dp[i] = dp[i] or dp[i - 2]
+            if i > 2 and nums[i - 1] == nums[i - 2] == nums[i - 3]:
+                dp[i] = dp[i] or dp[i - 3]
+            if (
+                i > 2
+                and nums[i - 1] - nums[i - 2] == 1
+                and nums[i - 2] - nums[i - 3] == 1
+            ):
+                dp[i] = dp[i] or dp[i - 3]
+        return dp[-1]
+```
+
+```java
+class Solution {
+    public boolean validPartition(int[] nums) {
+        int n = nums.length;
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for (int i = 2; i <= n; ++i) {
+            if (nums[i - 1] == nums[i - 2]) {
+                dp[i] = dp[i] || dp[i - 2];
+            }
+            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) {
+                dp[i] = dp[i] || dp[i - 3];
+            }
+            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) {
+                dp[i] = dp[i] || dp[i - 3];
+            }
+        }
+        return dp[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool validPartition(vector<int>& nums) {
+        int n = nums.size();
+        vector<bool> dp(n + 1);
+        dp[0] = true;
+        for (int i = 2; i <= n; ++i) {
+            if (nums[i - 1] == nums[i - 2]) dp[i] = dp[i] || dp[i - 2];
+            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) dp[i] = dp[i] || dp[i - 3];
+            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) dp[i] = dp[i] || dp[i - 3];
+        }
+        return dp[n];
+    }
+};
+```
+
+```go
+func validPartition(nums []int) bool {
+	n := len(nums)
+	dp := make([]bool, n+1)
+	dp[0] = true
+	for i := 2; i <= n; i++ {
+		if nums[i-1] == nums[i-2] {
+			dp[i] = dp[i] || dp[i-2]
+		}
+		if i > 2 && nums[i-1] == nums[i-2] && nums[i-2] == nums[i-3] {
+			dp[i] = dp[i] || dp[i-3]
+		}
+		if i > 2 && nums[i-1]-nums[i-2] == 1 && nums[i-2]-nums[i-3] == 1 {
+			dp[i] = dp[i] || dp[i-3]
+		}
+	}
+	return dp[n]
+}
+```
+
 ```ts
 function validPartition(nums: number[]): boolean {
     const n = nums.length;
@@ -309,10 +307,6 @@ function validPartition(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -74,9 +74,7 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们定义以下几个变量：
 
@@ -93,10 +91,6 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 时间复杂度方面，初始化和 $upgrade$ 函数的时间复杂度均为 $O(n)$，而 $lock$ 和 $unlock$ 函数的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class LockingTree:
@@ -149,10 +143,6 @@ class LockingTree:
 # param_2 = obj.unlock(num,user)
 # param_3 = obj.upgrade(num,user)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class LockingTree {
@@ -225,8 +215,6 @@ class LockingTree {
  */
 ```
 
-### **C++**
-
 ```cpp
 class LockingTree {
 public:
@@ -296,8 +284,6 @@ private:
  * bool param_3 = obj->upgrade(num,user);
  */
 ```
-
-### **Go**
 
 ```go
 type LockingTree struct {
@@ -370,8 +356,6 @@ func (this *LockingTree) Upgrade(num int, user int) bool {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class LockingTree {
     private locked: number[];
@@ -441,10 +425,6 @@ class LockingTree {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

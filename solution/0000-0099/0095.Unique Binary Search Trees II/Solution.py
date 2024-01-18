@@ -5,19 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def generateTrees(self, n: int) -> List[TreeNode]:
-        def gen(left, right):
+    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
+        def dfs(i: int, j: int) -> List[Optional[TreeNode]]:
+            if i > j:
+                return [None]
             ans = []
-            if left > right:
-                ans.append(None)
-            else:
-                for i in range(left, right + 1):
-                    left_trees = gen(left, i - 1)
-                    right_trees = gen(i + 1, right)
-                    for l in left_trees:
-                        for r in right_trees:
-                            node = TreeNode(i, l, r)
-                            ans.append(node)
+            for v in range(i, j + 1):
+                left = dfs(i, v - 1)
+                right = dfs(v + 1, j)
+                for l in left:
+                    for r in right:
+                        ans.append(TreeNode(v, l, r))
             return ans
 
-        return gen(1, n)
+        return dfs(1, n)

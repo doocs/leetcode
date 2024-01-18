@@ -43,13 +43,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 mod = 10**9 + 7
@@ -70,24 +66,6 @@ class Solution:
                 ans %= mod
         return ans
 ```
-
-```python
-class Solution:
-    def countAnagrams(self, s: str) -> int:
-        mod = 10**9 + 7
-        ans = mul = 1
-        for w in s.split():
-            cnt = Counter()
-            for i, c in enumerate(w, 1):
-                cnt[c] += 1
-                mul = mul * cnt[c] % mod
-                ans = ans * i % mod
-        return ans * pow(mul, -1, mod) % mod
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.math.BigInteger;
@@ -118,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const mod int = 1e9 + 7
 
@@ -184,10 +158,26 @@ func pow(x, n int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countAnagrams(self, s: str) -> int:
+        mod = 10**9 + 7
+        ans = mul = 1
+        for w in s.split():
+            cnt = Counter()
+            for i, c in enumerate(w, 1):
+                cnt[c] += 1
+                mul = mul * cnt[c] % mod
+                ans = ans * i % mod
+        return ans * pow(mul, -1, mod) % mod
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

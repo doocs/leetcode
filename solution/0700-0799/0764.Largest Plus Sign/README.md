@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $dp[i][j]$ 表示以 $(i, j)$ 为中心的最大加号标志的阶数，答案即为所有 $dp[i][j]$ 的最大值。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为网格的边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 dp[k][i] = min(dp[k][i], down)
         return max(max(v) for v in dp)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func orderOfLargestPlusSign(n int, mines [][]int) (ans int) {
@@ -186,10 +172,6 @@ func orderOfLargestPlusSign(n int, mines [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

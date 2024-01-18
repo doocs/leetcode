@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ to be the length of the longest valid parentheses that ends with $s[i-1]$, and the answer is $max(f[i])$.
 
@@ -67,24 +67,7 @@ Finally, we only need to return $max(f)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
-**Solution 2: Using Stack**
-
--   Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
--   Iterate through each element of the string:
-    -   If the character is a left parenthesis, push the index of the character onto the stack.
-    -   If the character is a right parenthesis, pop an element from the stack to represent that we have found a valid pair of parentheses.
-        -   If the stack is empty, it means we couldn't find a left parenthesis to match the right parenthesis. In this case, push the index of the character as a new starting point.
-        -   If the stack is not empty, calculate the length of the valid parentheses and update it.
-
-Summary:
-
-The key to this algorithm is to maintain a stack to store the indices of left parentheses and then update the length of the valid substring of parentheses by pushing and popping elements.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -101,25 +84,6 @@ class Solution:
                         f[i] = f[i - 1] + 2 + f[j - 1]
         return max(f)
 ```
-
-```python
-class Solution:
-    def longestValidParentheses(self, s: str) -> int:
-        stack = [-1]
-        ans = 0
-        for i in range(len(s)):
-            if s[i] == '(':
-                stack.append(i)
-            else:
-                stack.pop()
-                if not stack:
-                    stack.append(i)
-                else:
-                    ans = max(ans, i - stack[-1])
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestValidParentheses(s string) int {
 	n := len(s)
@@ -189,56 +149,6 @@ func longestValidParentheses(s string) int {
 	return slices.Max(f)
 }
 ```
-
-```go
-func longestValidParentheses(s string) int {
-	ans := 0
-	stack := []int{-1}
-	for i, v := range s {
-		if v == '(' {
-			stack = append(stack, i)
-		} else {
-			stack = stack[:len(stack)-1]
-			if len(stack) == 0 {
-				stack = append(stack, i)
-			} else {
-				if ans < i-stack[len(stack)-1] {
-					ans = i - stack[len(stack)-1]
-				}
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int LongestValidParentheses(string s) {
-        int n = s.Length;
-        int[] f = new int[n + 1];
-        int ans = 0;
-        for (int i = 2; i <= n; ++i) {
-            if (s[i - 1] == ')') {
-                if (s[i - 2] == '(') {
-                    f[i] = f[i - 2] + 2;
-                } else {
-                    int j = i - f[i - 1] - 1;
-                    if (j > 0 && s[j - 1] == '(') {
-                        f[i] = f[i - 1] + 2 + f[j - 1];
-                    }
-                }
-                ans = Math.Max(ans, f[i]);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function longestValidParentheses(s: string): number {
@@ -259,80 +169,6 @@ function longestValidParentheses(s: string): number {
     return Math.max(...f);
 }
 ```
-
-```ts
-function longestValidParentheses(s: string): number {
-    let max_length: number = 0;
-    const stack: number[] = [-1];
-    for (let i = 0; i < s.length; i++) {
-        if (s.charAt(i) == '(') {
-            stack.push(i);
-        } else {
-            stack.pop();
-
-            if (stack.length === 0) {
-                stack.push(i);
-            } else {
-                max_length = Math.max(max_length, i - stack[stack.length - 1]);
-            }
-        }
-    }
-
-    return max_length;
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @return {number}
- */
-var longestValidParentheses = function (s) {
-    const n = s.length;
-    const f = new Array(n + 1).fill(0);
-    for (let i = 2; i <= n; ++i) {
-        if (s[i - 1] === ')') {
-            if (s[i - 2] === '(') {
-                f[i] = f[i - 2] + 2;
-            } else {
-                const j = i - f[i - 1] - 1;
-                if (j && s[j - 1] === '(') {
-                    f[i] = f[i - 1] + 2 + f[j - 1];
-                }
-            }
-        }
-    }
-    return Math.max(...f);
-};
-```
-
-```js
-/**
- * @param {string} s
- * @return {number}
- */
-var longestValidParentheses = function (s) {
-    let ans = 0;
-    const stack = [-1];
-    for (i = 0; i < s.length; i++) {
-        if (s.charAt(i) === '(') {
-            stack.push(i);
-        } else {
-            stack.pop();
-            if (stack.length === 0) {
-                stack.push(i);
-            } else {
-                ans = Math.max(ans, i - stack[stack.length - 1]);
-            }
-        }
-    }
-    return ans;
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -370,6 +206,134 @@ impl Solution {
 }
 ```
 
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var longestValidParentheses = function (s) {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    for (let i = 2; i <= n; ++i) {
+        if (s[i - 1] === ')') {
+            if (s[i - 2] === '(') {
+                f[i] = f[i - 2] + 2;
+            } else {
+                const j = i - f[i - 1] - 1;
+                if (j && s[j - 1] === '(') {
+                    f[i] = f[i - 1] + 2 + f[j - 1];
+                }
+            }
+        }
+    }
+    return Math.max(...f);
+};
+```
+
+```cs
+public class Solution {
+    public int LongestValidParentheses(string s) {
+        int n = s.Length;
+        int[] f = new int[n + 1];
+        int ans = 0;
+        for (int i = 2; i <= n; ++i) {
+            if (s[i - 1] == ')') {
+                if (s[i - 2] == '(') {
+                    f[i] = f[i - 2] + 2;
+                } else {
+                    int j = i - f[i - 1] - 1;
+                    if (j > 0 && s[j - 1] == '(') {
+                        f[i] = f[i - 1] + 2 + f[j - 1];
+                    }
+                }
+                ans = Math.Max(ans, f[i]);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Using Stack
+
+-   Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
+-   Iterate through each element of the string:
+    -   If the character is a left parenthesis, push the index of the character onto the stack.
+    -   If the character is a right parenthesis, pop an element from the stack to represent that we have found a valid pair of parentheses.
+        -   If the stack is empty, it means we couldn't find a left parenthesis to match the right parenthesis. In this case, push the index of the character as a new starting point.
+        -   If the stack is not empty, calculate the length of the valid parentheses and update it.
+
+Summary:
+
+The key to this algorithm is to maintain a stack to store the indices of left parentheses and then update the length of the valid substring of parentheses by pushing and popping elements.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
+        stack = [-1]
+        ans = 0
+        for i in range(len(s)):
+            if s[i] == '(':
+                stack.append(i)
+            else:
+                stack.pop()
+                if not stack:
+                    stack.append(i)
+                else:
+                    ans = max(ans, i - stack[-1])
+        return ans
+```
+
+```go
+func longestValidParentheses(s string) int {
+	ans := 0
+	stack := []int{-1}
+	for i, v := range s {
+		if v == '(' {
+			stack = append(stack, i)
+		} else {
+			stack = stack[:len(stack)-1]
+			if len(stack) == 0 {
+				stack = append(stack, i)
+			} else {
+				if ans < i-stack[len(stack)-1] {
+					ans = i - stack[len(stack)-1]
+				}
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function longestValidParentheses(s: string): number {
+    let max_length: number = 0;
+    const stack: number[] = [-1];
+    for (let i = 0; i < s.length; i++) {
+        if (s.charAt(i) == '(') {
+            stack.push(i);
+        } else {
+            stack.pop();
+
+            if (stack.length === 0) {
+                stack.push(i);
+            } else {
+                max_length = Math.max(max_length, i - stack[stack.length - 1]);
+            }
+        }
+    }
+
+    return max_length;
+}
+```
+
 ```rust
 impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
@@ -392,10 +356,30 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var longestValidParentheses = function (s) {
+    let ans = 0;
+    const stack = [-1];
+    for (i = 0; i < s.length; i++) {
+        if (s.charAt(i) === '(') {
+            stack.push(i);
+        } else {
+            stack.pop();
+            if (stack.length === 0) {
+                stack.push(i);
+            } else {
+                ans = Math.max(ans, i - stack[stack.length - 1]);
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

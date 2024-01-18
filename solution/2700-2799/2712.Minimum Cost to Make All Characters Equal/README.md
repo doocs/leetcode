@@ -50,13 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +63,6 @@ class Solution:
                 ans += min(i, n - i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumCost(s string) (ans int64) {
 	n := len(s)
@@ -118,8 +106,6 @@ func minimumCost(s string) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumCost(s: string): number {
@@ -134,10 +120,6 @@ function minimumCost(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

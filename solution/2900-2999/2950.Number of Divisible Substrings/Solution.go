@@ -6,13 +6,14 @@ func countDivisibleSubstrings(word string) (ans int) {
 			mp[c-'a'] = i + 1
 		}
 	}
-	for i := 0; i < 10; i++ {
-		cnt := map[int]int{0: 1}
+	n := len(word)
+	for i := 0; i < n; i++ {
 		s := 0
-		for _, c := range word {
-			s += mp[c-'a'] - i
-			ans += cnt[s]
-			cnt[s]++
+		for j := i; j < n; j++ {
+			s += mp[word[j]-'a']
+			if s%(j-i+1) == 0 {
+				ans++
+			}
 		}
 	}
 	return

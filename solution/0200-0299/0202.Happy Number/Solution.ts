@@ -7,12 +7,14 @@ function isHappy(n: number): boolean {
         }
         return res;
     };
-
-    let slow = n;
-    let fast = getNext(n);
-    while (slow !== fast) {
-        slow = getNext(slow);
-        fast = getNext(getNext(fast));
+    const set = new Set();
+    while (n !== 1) {
+        const next = getNext(n);
+        if (set.has(next)) {
+            return false;
+        }
+        set.add(next);
+        n = next;
     }
-    return fast === 1;
+    return true;
 }

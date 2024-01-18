@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 遍历矩阵，对于每个陆地，我们进行深度优先搜索，找到与其相连的所有陆地，然后判断是否存在边界上的陆地，如果存在，则不是封闭岛屿，否则是封闭岛屿，答案加一。
 
@@ -65,23 +63,7 @@
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
-**方法二：并查集**
-
-我们可以用并查集维护每一块连通的陆地。
-
-遍历矩阵，如果当前位置是在边界上，我们将其与虚拟节点 $m \times n$ 连接。如果当前位置是陆地，我们将其与下方和右方的陆地连接。
-
-接着，我们再次遍历矩阵，对于每一块陆地，如果其根节点就是本身，那么答案加一。
-
-最后返回答案即可。
-
-时间复杂度 $O(m \times n \times \alpha(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,6 +81,180 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return sum(grid[i][j] == 0 and dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+```java
+class Solution {
+    private int m;
+    private int n;
+    private int[][] grid;
+
+    public int closedIsland(int[][] grid) {
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    ans += dfs(i, j);
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int dfs(int i, int j) {
+        int res = i > 0 && i < m - 1 && j > 0 && j < n - 1 ? 1 : 0;
+        grid[i][j] = 1;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0) {
+                res &= dfs(x, y);
+            }
+        }
+        return res;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int closedIsland(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int ans = 0;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            int res = i > 0 && i < m - 1 && j > 0 && j < n - 1 ? 1 : 0;
+            grid[i][j] = 1;
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0) {
+                    res &= dfs(x, y);
+                }
+            }
+            return res;
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans += grid[i][j] == 0 && dfs(i, j);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func closedIsland(grid [][]int) (ans int) {
+	m, n := len(grid), len(grid[0])
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		res := 1
+		if i == 0 || i == m-1 || j == 0 || j == n-1 {
+			res = 0
+		}
+		grid[i][j] = 1
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0 {
+				res &= dfs(x, y)
+			}
+		}
+		return res
+	}
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 0 {
+				ans += dfs(i, j)
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+function closedIsland(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i: number, j: number): number => {
+        let res = i > 0 && j > 0 && i < m - 1 && j < n - 1 ? 1 : 0;
+        grid[i][j] = 1;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && y >= 0 && x < m && y < n && grid[x][y] === 0) {
+                res &= dfs(x, y);
+            }
+        }
+        return res;
+    };
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 0) {
+                ans += dfs(i, j);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```cs
+public class Solution {
+    private int m;
+    private int n;
+    private int[][] grid;
+
+    public int ClosedIsland(int[][] grid) {
+        m = grid.Length;
+        n = grid[0].Length;
+        this.grid = grid;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    ans += dfs(i, j);
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int dfs(int i, int j) {
+        int res = i > 0 && i < m - 1 && j > 0 && j < n - 1 ? 1 : 0;
+        grid[i][j] = 1;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0) {
+                res &= dfs(x, y);
+            }
+        }
+        return res;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：并查集
+
+我们可以用并查集维护每一块连通的陆地。
+
+遍历矩阵，如果当前位置是在边界上，我们将其与虚拟节点 $m \times n$ 连接。如果当前位置是陆地，我们将其与下方和右方的陆地连接。
+
+接着，我们再次遍历矩阵，对于每一块陆地，如果其根节点就是本身，那么答案加一。
+
+最后返回答案即可。
+
+时间复杂度 $O(m \times n \times \alpha(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+
+<!-- tabs:start -->
 
 ```python
 class UnionFind:
@@ -140,46 +296,6 @@ class Solution:
             for j in range(n):
                 ans += grid[i][j] == 0 and uf.find(i * n + j) == i * n + j
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    private int m;
-    private int n;
-    private int[][] grid;
-
-    public int closedIsland(int[][] grid) {
-        m = grid.length;
-        n = grid[0].length;
-        this.grid = grid;
-        int ans = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 0) {
-                    ans += dfs(i, j);
-                }
-            }
-        }
-        return ans;
-    }
-
-    private int dfs(int i, int j) {
-        int res = i > 0 && i < m - 1 && j > 0 && j < n - 1 ? 1 : 0;
-        grid[i][j] = 1;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0) {
-                res &= dfs(x, y);
-            }
-        }
-        return res;
-    }
-}
 ```
 
 ```java
@@ -249,36 +365,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int closedIsland(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
-        int ans = 0;
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
-            int res = i > 0 && i < m - 1 && j > 0 && j < n - 1 ? 1 : 0;
-            grid[i][j] = 1;
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0) {
-                    res &= dfs(x, y);
-                }
-            }
-            return res;
-        };
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                ans += grid[i][j] == 0 && dfs(i, j);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class UnionFind {
 public:
@@ -341,38 +427,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func closedIsland(grid [][]int) (ans int) {
-	m, n := len(grid), len(grid[0])
-	dirs := [5]int{-1, 0, 1, 0, -1}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) int {
-		res := 1
-		if i == 0 || i == m-1 || j == 0 || j == n-1 {
-			res = 0
-		}
-		grid[i][j] = 1
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0 {
-				res &= dfs(x, y)
-			}
-		}
-		return res
-	}
-	for i, row := range grid {
-		for j, v := range row {
-			if v == 0 {
-				ans += dfs(i, j)
-			}
-		}
-	}
-	return
-}
 ```
 
 ```go
@@ -439,36 +493,6 @@ func closedIsland(grid [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function closedIsland(grid: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    const dirs = [-1, 0, 1, 0, -1];
-    const dfs = (i: number, j: number): number => {
-        let res = i > 0 && j > 0 && i < m - 1 && j < n - 1 ? 1 : 0;
-        grid[i][j] = 1;
-        for (let k = 0; k < 4; ++k) {
-            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
-            if (x >= 0 && y >= 0 && x < m && y < n && grid[x][y] === 0) {
-                res &= dfs(x, y);
-            }
-        }
-        return res;
-    };
-    let ans = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; j++) {
-            if (grid[i][j] === 0) {
-                ans += dfs(i, j);
-            }
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function closedIsland(grid: number[][]): number {
     const m = grid.length;
@@ -530,44 +554,6 @@ class UnionFind {
             this.p[pa] = pb;
             this.size[pb] += this.size[pa];
         }
-    }
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    private int m;
-    private int n;
-    private int[][] grid;
-
-    public int ClosedIsland(int[][] grid) {
-        m = grid.Length;
-        n = grid[0].Length;
-        this.grid = grid;
-        int ans = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 0) {
-                    ans += dfs(i, j);
-                }
-            }
-        }
-        return ans;
-    }
-
-    private int dfs(int i, int j) {
-        int res = i > 0 && i < m - 1 && j > 0 && j < n - 1 ? 1 : 0;
-        grid[i][j] = 1;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0) {
-                res &= dfs(x, y);
-            }
-        }
-        return res;
     }
 }
 ```
@@ -639,10 +625,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -68,7 +68,7 @@ boundFunc(); // &quot;My name is Kathy&quot;
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>obj is a non-null object</code></li>
+	<li><code>obj</code> is a non-null object</li>
 	<li><code>0 &lt;= inputs.length &lt;= 100</code></li>
 </ul>
 
@@ -77,9 +77,9 @@ boundFunc(); // &quot;My name is Kathy&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type Fn = (...args) => any;
@@ -98,3 +98,5 @@ Function.prototype.bindPolyfill = function (obj) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

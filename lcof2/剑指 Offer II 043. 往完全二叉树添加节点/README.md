@@ -49,13 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -97,10 +93,6 @@ class CBTInserter:
 # param_1 = obj.insert(v)
 # param_2 = obj.get_root()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -163,8 +155,6 @@ class CBTInserter {
  */
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -216,8 +206,6 @@ public:
  * TreeNode* param_2 = obj->get_root();
  */
 ```
-
-### **Go**
 
 ```go
 /**
@@ -273,8 +261,6 @@ func (this *CBTInserter) Get_root() *TreeNode {
  * param_2 := obj.Get_root();
  */
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -335,10 +321,6 @@ CBTInserter.prototype.get_root = function () {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

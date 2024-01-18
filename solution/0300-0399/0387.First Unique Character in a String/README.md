@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 我们可以用数组或哈希表 $cnt$ 记录字符串 $s$ 中每个字符出现的次数。
 
@@ -56,10 +54,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def firstUniqChar(self, s: str) -> int:
@@ -69,10 +63,6 @@ class Solution:
                 return i
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstUniqChar(s string) int {
 	cnt := [26]int{}
@@ -130,7 +116,20 @@ func firstUniqChar(s string) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function firstUniqChar(s: string): number {
+    const cnt = new Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 97]++;
+    }
+    for (let i = 0; i < s.length; i++) {
+        if (cnt[s.charCodeAt(i) - 97] === 1) {
+            return i;
+        }
+    }
+    return -1;
+}
+```
 
 ```js
 /**
@@ -150,25 +149,6 @@ var firstUniqChar = function (s) {
     return -1;
 };
 ```
-
-### **TypeScript**
-
-```ts
-function firstUniqChar(s: string): number {
-    const cnt = new Array(26).fill(0);
-    for (const c of s) {
-        cnt[c.charCodeAt(0) - 97]++;
-    }
-    for (let i = 0; i < s.length; i++) {
-        if (cnt[s.charCodeAt(i) - 97] === 1) {
-            return i;
-        }
-    }
-    return -1;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -190,10 +170,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

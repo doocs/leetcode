@@ -1,30 +1,66 @@
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	return true
+}
+
+func (uf *unionFind) connected(a, b int) bool {
+	return uf.find(a) == uf.find(b)
+}
+
 func minimumEffortPath(heights [][]int) int {
 	m, n := len(heights), len(heights[0])
-	dist := make([][]int, m)
-	for i := range dist {
-		dist[i] = make([]int, n)
-		for j := range dist[i] {
-			dist[i][j] = 1 << 30
-		}
-	}
-	dirs := [5]int{-1, 0, 1, 0, -1}
-	dist[0][0] = 0
-	pq := hp{}
-	heap.Push(&pq, tuple{0, 0, 0})
-	for pq.Len() > 0 {
-		p := heap.Pop(&pq).(tuple)
-		t, i, j := p.t, p.i, p.j
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n {
-				if d := max(t, abs(heights[x][y]-heights[i][j])); d < dist[x][y] {
-					dist[x][y] = d
-					heap.Push(&pq, tuple{d, x, y})
+	edges := make([][3]int, 0, m*n*2)
+	dirs := [3]int{0, 1, 0}
+	for i, row := range heights {
+		for j, h := range row {
+			for k := 0; k < 2; k++ {
+				x, y := i+dirs[k], j+dirs[k+1]
+				if x >= 0 && x < m && y >= 0 && y < n {
+					edges = append(edges, [3]int{abs(h - heights[x][y]), i*n + j, x*n + y})
 				}
 			}
 		}
 	}
-	return dist[m-1][n-1]
+	sort.Slice(edges, func(i, j int) bool { return edges[i][0] < edges[j][0] })
+	uf := newUnionFind(m * n)
+	for _, e := range edges {
+		uf.union(e[1], e[2])
+		if uf.connected(0, m*n-1) {
+			return e[0]
+		}
+	}
+	return 0
 }
 
 func abs(x int) int {
@@ -33,12 +69,3 @@ func abs(x int) int {
 	}
 	return x
 }
-
-type tuple struct{ t, i, j int }
-type hp []tuple
-
-func (h hp) Len() int           { return len(h) }
-func (h hp) Less(i, j int) bool { return h[i].t < h[j].t }
-func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
-func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }

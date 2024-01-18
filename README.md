@@ -14,7 +14,7 @@
 
 ## 介绍
 
-本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、Go、TypeScript、Rust，日常更新。欢迎 Star 🌟 关注[本项目](https://github.com/doocs/leetcode)，获取项目最新动态。
+本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、Go、TypeScript、Rust。我们正在全力更新，欢迎 Star 🌟 关注[本项目](https://github.com/doocs/leetcode)，获取项目最新动态。
 
 [English Version](/README_EN.md)
 
@@ -42,7 +42,6 @@
 
 -   [在排序数组中查找元素的第一个和最后一个位置](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md) - `二分查找`
 -   [准时到达的列车最小时速](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md) - `二分查找`
--   [找到需要补充粉笔的学生编号](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md) - `二分查找`
 -   [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md) - `二分查找`
 -   [排序数组](/solution/0900-0999/0912.Sort%20an%20Array/README.md) - `快速排序`、`归并排序`
 -   [字符串相加](/solution/0400-0499/0415.Add%20Strings/README.md) - `高精度加法`
@@ -197,9 +196,7 @@
   <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
 </p>
 
-[Gitpod.io](https://www.gitpod.io) 是一个免费的在线开发环境，你也可以使用它参与本项目。
-
-<a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location=SoutheastAsia)
 
 ## Stars 趋势
 
@@ -231,6 +228,17 @@
 知名互联网科技博主 [@爱可可-爱生活](https://weibo.com/fly51fly) 微博推荐。
 
 <a href="https://weibo.com/fly51fly" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/recommender-fly51fly.png"></a>
+
+## 版权
+
+本项目著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 @yanglbme 获得授权，非商业转载请注明出处。
+
+## 联系我们
+
+欢迎各位小伙伴们添加 @yanglbme 的个人微信（微信号：YLB0109），备注 「**leetcode**」。后续我们会创建算法、技术相关的交流群，大家一起交流学习，分享经验，共同进步。
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="left"/> |
+| ------------------------------------------------------------------------------------------------------------------------------ |
 
 ## 许可证
 

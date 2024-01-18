@@ -53,13 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +69,6 @@ class Solution:
 
         return dfs(root)[1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -105,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -137,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -164,8 +152,6 @@ func minimalExecTime(root *TreeNode) float64 {
 	return t
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -197,10 +183,6 @@ function minimalExecTime(root: TreeNode | null): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,15 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-大顶堆
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                     heappop(hp)
         return [p for _, p in hp]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,33 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
-
-```go
-type pairHeap [][]int
-
-func (a pairHeap) Len() int           { return len(a) }
-func (a pairHeap) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a pairHeap) Less(i, j int) bool { return a[i][0]+a[i][1] > a[j][0]+a[j][1] }
-func (a *pairHeap) Push(x any)        { *a = append(*a, x.([]int)) }
-func (a *pairHeap) Pop() any          { l := len(*a); tmp := (*a)[l-1]; *a = (*a)[:l-1]; return tmp }
-
-func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
-	var hp pairHeap
-	for _, x := range nums1[:min(k, len(nums1))] {
-		for _, y := range nums2[:min(k, len(nums2))] {
-			heap.Push(&hp, []int{x, y})
-			if len(hp) > k {
-				heap.Pop(&hp)
-			}
-		}
-	}
-	return hp
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -152,10 +115,29 @@ public:
 };
 ```
 
-### **...**
+```go
+type pairHeap [][]int
 
-```
+func (a pairHeap) Len() int           { return len(a) }
+func (a pairHeap) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a pairHeap) Less(i, j int) bool { return a[i][0]+a[i][1] > a[j][0]+a[j][1] }
+func (a *pairHeap) Push(x any)        { *a = append(*a, x.([]int)) }
+func (a *pairHeap) Pop() any          { l := len(*a); tmp := (*a)[l-1]; *a = (*a)[:l-1]; return tmp }
 
+func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
+	var hp pairHeap
+	for _, x := range nums1[:min(k, len(nums1))] {
+		for _, y := range nums2[:min(k, len(nums2))] {
+			heap.Push(&hp, []int{x, y})
+			if len(hp) > k {
+				heap.Pop(&hp)
+			}
+		}
+	}
+	return hp
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

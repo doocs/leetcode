@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力替换**
+### 方法一：暴力替换
 
 我们循环判断 $s$ 中是否存在字符串 $part$，是则进行一次替换，继续循环此操作，直至 $s$ 中不存在字符串 $part$，返回此时的 $s$ 作为答案字符串。
 
 时间复杂度 $O(n^2 + n \times m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是字符串 $s$ 和字符串 $part$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
             s = s.replace(part, '', 1)
         return s
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeOccurrences(s string, part string) string {
 	for strings.Contains(s, part) {
@@ -115,8 +101,6 @@ func removeOccurrences(s string, part string) string {
 	return s
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function removeOccurrences(s: string, part: string): string {
@@ -127,10 +111,6 @@ function removeOccurrences(s: string, part: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

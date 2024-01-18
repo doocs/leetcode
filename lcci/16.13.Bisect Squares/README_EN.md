@@ -29,7 +29,7 @@ square2 = {0, -1, 2}
 
 ## Solutions
 
-**Solution 1: Geometric Mathematics**
+### Solution 1: Geometric Mathematics
 
 We know that if a line can bisect two squares, then the line must pass through the centers of the two squares. Therefore, we can first calculate the centers of the two squares, denoted as $(x_1, y_1)$ and $(x_2, y_2)$, respectively.
 
@@ -43,8 +43,6 @@ Otherwise, we can calculate the slope $k$ and the intercept $b$ of the line pass
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
             y4 = k * x4 + b
         return [x3, y3, x4, y4]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func cutSquares(square1 []int, square2 []int) []float64 {
 	x1, y1 := float64(square1[0])+float64(square1[2])/2, float64(square1[1])+float64(square1[2])/2
@@ -176,8 +168,6 @@ func cutSquares(square1 []int, square2 []int) []float64 {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function cutSquares(square1: number[], square2: number[]): number[] {
@@ -211,10 +201,6 @@ function cutSquares(square1: number[], square2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

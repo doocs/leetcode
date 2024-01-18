@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 排序**
+### 方法一：计数 + 排序
 
 我们可以用哈希表或数组 $cnt$ 统计数组 $arr$ 中每个数字出现的次数，然后将 $cnt$ 中的数字从大到小排序，从大到小遍历 $cnt$，每次遍历将当前数字 $x$ 加入答案，并将 $m$ 加上 $x$，如果 $m \geq \frac{n}{2}$，则返回答案。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
                 break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSetSize(arr []int) (ans int) {
 	mx := slices.Max(arr)
@@ -150,8 +136,6 @@ func minSetSize(arr []int) (ans int) {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minSetSize(arr: number[]): number {
@@ -174,10 +158,6 @@ function minSetSize(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

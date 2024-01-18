@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 枚举**
+### 方法一：计数 + 枚举
 
 我们先用哈希表或者一个长度为 $26$ 的数组 $cnt$ 统计字符串中每个字母出现的次数。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n + C^2)$，空间复杂度 $O(C)$，其中 $n$ 为字符串 $word$ 的长度，而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             cnt[c] += 1
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -149,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func equalFrequency(word string) bool {
 	cnt := [26]int{}
@@ -181,8 +167,6 @@ func equalFrequency(word string) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function equalFrequency(word: string): boolean {
@@ -215,10 +199,6 @@ function equalFrequency(word: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

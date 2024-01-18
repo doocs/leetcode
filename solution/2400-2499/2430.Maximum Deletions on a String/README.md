@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i)$，表示删除 $s[i..]$ 所有字符所需的最大操作数，那么答案就是 $dfs(0)$。
 
@@ -80,19 +78,7 @@
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是字符串 $s$ 的长度。
 
-**方法二：动态规划**
-
-我们可以将方法一的记忆化搜索改为动态规划，定义 $f[i]$ 表示删除 $s[i..]$ 所有字符所需的最大操作数，初始时 $f[i]=1$，答案为 $f[0]$。
-
-我们可以从后往前枚举 $i$，对于每个 $i$，我们枚举字符串的长度 $j$，其中 $1 \leq j \leq (n-1)/2$，如果 $s[i..i+j] = s[i+j..i+j+j]$，那么我们可以删除 $s[i..i+j]$，此时 $f[i]=max(f[i], f[i+j]+1)$。我们需要枚举所有的 $j$，求 $f[i]$ 的最大值即可。
-
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -110,28 +96,6 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def deleteString(self, s: str) -> int:
-        n = len(s)
-        g = [[0] * (n + 1) for _ in range(n + 1)]
-        for i in range(n - 1, -1, -1):
-            for j in range(i + 1, n):
-                if s[i] == s[j]:
-                    g[i][j] = g[i + 1][j + 1] + 1
-
-        f = [1] * n
-        for i in range(n - 1, -1, -1):
-            for j in range(1, (n - i) // 2 + 1):
-                if g[i][i + j] >= j:
-                    f[i] = max(f[i], f[i + j] + 1)
-        return f[0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -171,34 +135,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int deleteString(String s) {
-        int n = s.length();
-        int[][] g = new int[n + 1][n + 1];
-        for (int i = n - 1; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    g[i][j] = g[i + 1][j + 1] + 1;
-                }
-            }
-        }
-        int[] f = new int[n];
-        for (int i = n - 1; i >= 0; --i) {
-            f[i] = 1;
-            for (int j = 1; j <= (n - i) / 2; ++j) {
-                if (g[i][i + j] >= j) {
-                    f[i] = Math.max(f[i], f[i + j] + 1);
-                }
-            }
-        }
-        return f[0];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -235,36 +171,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int deleteString(string s) {
-        int n = s.size();
-        int g[n + 1][n + 1];
-        memset(g, 0, sizeof(g));
-        for (int i = n - 1; ~i; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (s[i] == s[j]) {
-                    g[i][j] = g[i + 1][j + 1] + 1;
-                }
-            }
-        }
-        int f[n];
-        for (int i = n - 1; ~i; --i) {
-            f[i] = 1;
-            for (int j = 1; j <= (n - i) / 2; ++j) {
-                if (g[i][i + j] >= j) {
-                    f[i] = max(f[i], f[i + j] + 1);
-                }
-            }
-        }
-        return f[0];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -300,6 +206,113 @@ func deleteString(s string) int {
 }
 ```
 
+```ts
+function deleteString(s: string): number {
+    const n = s.length;
+    const f: number[] = new Array(n).fill(0);
+    const dfs = (i: number): number => {
+        if (i == n) {
+            return 0;
+        }
+        if (f[i] > 0) {
+            return f[i];
+        }
+        f[i] = 1;
+        for (let j = 1; j <= (n - i) >> 1; ++j) {
+            if (s.slice(i, i + j) == s.slice(i + j, i + j + j)) {
+                f[i] = Math.max(f[i], dfs(i + j) + 1);
+            }
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们可以将方法一的记忆化搜索改为动态规划，定义 $f[i]$ 表示删除 $s[i..]$ 所有字符所需的最大操作数，初始时 $f[i]=1$，答案为 $f[0]$。
+
+我们可以从后往前枚举 $i$，对于每个 $i$，我们枚举字符串的长度 $j$，其中 $1 \leq j \leq (n-1)/2$，如果 $s[i..i+j] = s[i+j..i+j+j]$，那么我们可以删除 $s[i..i+j]$，此时 $f[i]=max(f[i], f[i+j]+1)$。我们需要枚举所有的 $j$，求 $f[i]$ 的最大值即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def deleteString(self, s: str) -> int:
+        n = len(s)
+        g = [[0] * (n + 1) for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1, n):
+                if s[i] == s[j]:
+                    g[i][j] = g[i + 1][j + 1] + 1
+
+        f = [1] * n
+        for i in range(n - 1, -1, -1):
+            for j in range(1, (n - i) // 2 + 1):
+                if g[i][i + j] >= j:
+                    f[i] = max(f[i], f[i + j] + 1)
+        return f[0]
+```
+
+```java
+class Solution {
+    public int deleteString(String s) {
+        int n = s.length();
+        int[][] g = new int[n + 1][n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    g[i][j] = g[i + 1][j + 1] + 1;
+                }
+            }
+        }
+        int[] f = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = 1;
+            for (int j = 1; j <= (n - i) / 2; ++j) {
+                if (g[i][i + j] >= j) {
+                    f[i] = Math.max(f[i], f[i + j] + 1);
+                }
+            }
+        }
+        return f[0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int deleteString(string s) {
+        int n = s.size();
+        int g[n + 1][n + 1];
+        memset(g, 0, sizeof(g));
+        for (int i = n - 1; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s[i] == s[j]) {
+                    g[i][j] = g[i + 1][j + 1] + 1;
+                }
+            }
+        }
+        int f[n];
+        for (int i = n - 1; ~i; --i) {
+            f[i] = 1;
+            for (int j = 1; j <= (n - i) / 2; ++j) {
+                if (g[i][i + j] >= j) {
+                    f[i] = max(f[i], f[i + j] + 1);
+                }
+            }
+        }
+        return f[0];
+    }
+};
+```
+
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -327,31 +340,6 @@ func deleteString(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function deleteString(s: string): number {
-    const n = s.length;
-    const f: number[] = new Array(n).fill(0);
-    const dfs = (i: number): number => {
-        if (i == n) {
-            return 0;
-        }
-        if (f[i] > 0) {
-            return f[i];
-        }
-        f[i] = 1;
-        for (let j = 1; j <= (n - i) >> 1; ++j) {
-            if (s.slice(i, i + j) == s.slice(i + j, i + j + j)) {
-                f[i] = Math.max(f[i], dfs(i + j) + 1);
-            }
-        }
-        return f[i];
-    };
-    return dfs(0);
-}
-```
-
 ```ts
 function deleteString(s: string): number {
     const n = s.length;
@@ -367,10 +355,6 @@ function deleteString(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

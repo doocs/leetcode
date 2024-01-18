@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 位运算**
+### 方法一：数学 + 位运算
 
 题目中 $left$ 和 $right$ 的范围均在 $10^6$ 以内，而 $2^{20} = 1048576$，因此，二进制中 $1$ 的个数最多也就 $20$ 个，而 $20$ 以内的质数有 `[2, 3, 5, 7, 11, 13, 17, 19]`。
 
@@ -67,20 +65,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countPrimeSetBits(self, left: int, right: int) -> int:
         primes = {2, 3, 5, 7, 11, 13, 17, 19}
         return sum(i.bit_count() in primes for i in range(left, right + 1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +99,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPrimeSetBits(left int, right int) (ans int) {
@@ -127,10 +113,6 @@ func countPrimeSetBits(left int, right int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

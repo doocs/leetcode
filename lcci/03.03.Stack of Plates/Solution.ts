@@ -1,12 +1,10 @@
 class StackOfPlates {
     private cap: number;
     private stacks: number[][];
-
     constructor(cap: number) {
         this.cap = cap;
         this.stacks = [];
     }
-
     push(val: number): void {
         if (this.cap === 0) {
             return;
@@ -19,7 +17,6 @@ class StackOfPlates {
             stack.push(val);
         }
     }
-
     pop(): number {
         const n = this.stacks.length;
         if (n === 0) {
@@ -32,7 +29,6 @@ class StackOfPlates {
         }
         return res;
     }
-
     popAt(index: number): number {
         if (index >= this.stacks.length) {
             return -1;
@@ -45,7 +41,6 @@ class StackOfPlates {
         return res;
     }
 }
-
 /**
  * Your StackOfPlates object will be instantiated and called as such:
  * var obj = new StackOfPlates(cap)

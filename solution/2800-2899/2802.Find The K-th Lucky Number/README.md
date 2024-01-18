@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 根据题目描述，一个幸运数只包含数字 $4$ 和 $7$，因此 $n$ 位幸运数的个数为 $2^n$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(\log k)$，空间复杂度 $O(\log k)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
                 k -= 1 << n
         return "".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthLuckyNumber(k int) string {
 	n := 1
@@ -156,8 +142,6 @@ func kthLuckyNumber(k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kthLuckyNumber(k: number): string {
     let n = 1;
@@ -178,10 +162,6 @@ function kthLuckyNumber(k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

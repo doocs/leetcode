@@ -59,157 +59,112 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：求和取余 + 模拟
 
-**方法一：前缀和 + 二分查找**
+由于学生的回答是一轮一轮循环进行的，因此我们可以将所有学生需要消耗的粉笔数加起来，得到一个总数 $s$。然后我们对 $k$ 取 $s$ 的余数，即可知道最后一轮结束后剩余的粉笔数。
 
-以下是二分查找的两个通用模板：
+接下来，我们只需要模拟最后一轮即可。初始时，剩余的粉笔数为 $k$，编号为 $0$ 的学生开始回答问题。当剩余的粉笔数小于当前学生需要的粉笔数时，当前学生需要补充粉笔，我们直接返回当前学生的编号 $i$ 即可。否则，我们将剩余的粉笔数减去当前学生需要的粉笔数，并将当前学生的编号 $i$ 加一，进行下一次模拟。
 
-模板 1：
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right) >> 1;
-        if (check(mid)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-模板 2：
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-做二分题目时，可以按照以下步骤：
-
-1. 写出循环条件：`while (left < right)`，注意是 `left < right`，而非 `left <= right`；
-1. 循环体内，先无脑写出 `mid = (left + right) >> 1`；
-1. 根据具体题目，实现 `check()` 函数（有时很简单的逻辑，可以不定义 `check`），想一下究竟要用 `right = mid`（模板 1） 还是 `left = mid`（模板 2）；
-    - 如果 `right = mid`，那么无脑写出 else 语句 `left = mid + 1`，并且不需要更改 mid 的计算，即保持 `mid = (left + right) >> 1`；
-    - 如果 `left = mid`，那么无脑写出 else 语句 `right = mid - 1`，并且在 mid 计算时补充 +1，即 `mid = (left + right + 1) >> 1`。
-1. 循环结束时，left 与 right 相等。
-
-注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 left 或者 right 是否满足题意即可。
+时间复杂度 $O(n)$，其中 $n$ 是学生的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def chalkReplacer(self, chalk: List[int], k: int) -> int:
-        s = list(accumulate(chalk))
-        k %= s[-1]
-        return bisect_right(s, k)
+        s = sum(chalk)
+        k %= s
+        for i, x in enumerate(chalk):
+            if k < x:
+                return i
+            k -= x
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
     public int chalkReplacer(int[] chalk, int k) {
-        int n = chalk.length;
-        long[] preSum = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + chalk[i];
+        long s = 0;
+        for (int x : chalk) {
+            s += x;
         }
-        k %= preSum[n];
-        int left = 0, right = n - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (preSum[mid + 1] > k) {
-                right = mid;
-            } else {
-                left = mid + 1;
+        k %= s;
+        for (int i = 0;; ++i) {
+            if (k < chalk[i]) {
+                return i;
             }
+            k -= chalk[i];
         }
-        return left;
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
     int chalkReplacer(vector<int>& chalk, int k) {
-        int n = chalk.size();
-        vector<long long> s(n, chalk[0]);
-        for (int i = 1; i < n; ++i) s[i] = s[i - 1] + chalk[i];
-        k %= s[n - 1];
-        return upper_bound(s.begin(), s.end(), k) - s.begin();
+        long long s = accumulate(chalk.begin(), chalk.end(), 0LL);
+        k %= s;
+        for (int i = 0;; ++i) {
+            if (k < chalk[i]) {
+                return i;
+            }
+            k -= chalk[i];
+        }
     }
 };
 ```
 
-### **Go**
-
 ```go
 func chalkReplacer(chalk []int, k int) int {
-	n := len(chalk)
-	s := make([]int, n+1)
-	for i := 0; i < n; i++ {
-		s[i+1] = s[i] + chalk[i]
+	s := 0
+	for _, x := range chalk {
+		s += x
 	}
-	k %= s[n]
-	return sort.Search(n, func(i int) bool { return s[i+1] > k })
+	k %= s
+	for i := 0; ; i++ {
+		if k < chalk[i] {
+			return i
+		}
+		k -= chalk[i]
+	}
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn chalk_replacer(chalk: Vec<i32>, k: i32) -> i32 {
-        let pre_sum: Vec<i64> = chalk
-            .into_iter()
-            .map(|x| x as i64)
-            .scan(0, |state, x| {
-                *state += x;
-                Some(*state)
-            })
-            .collect();
-
-        pre_sum.binary_search(&((k as i64) % pre_sum.last().unwrap())).map_or_else(
-            |e| e,
-            |v| v + 1
-        ) as i32
+```ts
+function chalkReplacer(chalk: number[], k: number): number {
+    let s = 0;
+    for (const x of chalk) {
+        s += x;
+    }
+    k %= s;
+    for (let i = 0; ; ++i) {
+        if (k < chalk[i]) {
+            return i;
+        }
+        k -= chalk[i];
     }
 }
 ```
 
-### **...**
-
-```
-
+```rust
+impl Solution {
+    pub fn chalk_replacer(chalk: Vec<i32>, k: i32) -> i32 {
+        let mut s: i64 = chalk
+            .iter()
+            .map(|&x| x as i64)
+            .sum();
+        let mut k = (k as i64) % s;
+        for (i, &x) in chalk.iter().enumerate() {
+            if k < (x as i64) {
+                return i as i32;
+            }
+            k -= x as i64;
+        }
+        0
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

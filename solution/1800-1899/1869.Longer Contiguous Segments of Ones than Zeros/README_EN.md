@@ -56,15 +56,13 @@ The segment of 1s is not longer, so return false.
 
 ## Solutions
 
-**Solution 1: Two Passes**
+### Solution 1: Two Passes
 
 We design a function $f(x)$, which represents the length of the longest consecutive substring in string $s$ composed of $x$. If $f(1) > f(0)$, then return `true`, otherwise return `false`.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
 
         return f("1") > f("0")
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkZeroOnes(s string) bool {
 	f := func(x rune) int {
@@ -146,8 +138,6 @@ func checkZeroOnes(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkZeroOnes(s: string): boolean {
     const f = (x: string): number => {
@@ -164,8 +154,6 @@ function checkZeroOnes(s: string): boolean {
     return f('1') > f('0');
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -188,10 +176,6 @@ var checkZeroOnes = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

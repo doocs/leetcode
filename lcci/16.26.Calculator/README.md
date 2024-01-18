@@ -27,9 +27,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 我们可以用一个栈来保存数字，每次遇到运算符时，就将数字压入栈中。对于加减法，由于其优先级最低，我们可以直接将数字压入栈中；对于乘除法，由于其优先级较高，我们需要将栈顶元素取出，与当前数字进行乘除运算，再将结果压入栈中。
 
@@ -38,10 +36,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
                 sign = c
         return sum(stk)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func calculate(s string) (ans int) {
 	n := len(s)
@@ -180,8 +166,6 @@ func calculate(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function calculate(s: string): number {
@@ -215,10 +199,6 @@ function calculate(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

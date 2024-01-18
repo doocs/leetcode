@@ -38,19 +38,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 类似田忌赛马。将 $nums1$, $nums2$ 按照升序排列。然后遍历 $nums1$ 中的每个元素 $v$，若在 $nums2[i..j]$ 中找不到比 $v$ 小的，则将 $v$ 与当前 $nums2[i..j]$ 中的最大元素匹配。
 
 时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
                 i += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func advantageCount(nums1 []int, nums2 []int) []int {
@@ -150,8 +136,6 @@ func advantageCount(nums1 []int, nums2 []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function advantageCount(nums1: number[], nums2: number[]): number[] {
     const n = nums1.length;
@@ -174,8 +158,6 @@ function advantageCount(nums1: number[], nums2: number[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -201,10 +183,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,25 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 将 $heights$ 复制并排序得到 $expected$，然后同时遍历 $heights$, $expected$ ，统计对应位置元素不同的个数。
 
 时间复杂度 $O(nlogn)$，其中 $n$ 表示 $heights$ 的长度。
 
-**方法二：计数排序**
-
-由于题目中学生高度不超过 $100$，因此可以使用计数排序。这里我们用一个长度 $101$ 的数组 $cnt$ 统计每个高度 $h_i$ 出现的次数。
-
-时间复杂度 $(n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,26 +71,6 @@ class Solution:
         expected = sorted(heights)
         return sum(a != b for a, b in zip(heights, expected))
 ```
-
-```python
-class Solution:
-    def heightChecker(self, heights: List[int]) -> int:
-        cnt = [0] * 101
-        for h in heights:
-            cnt[h] += 1
-        ans = i = 0
-        for j in range(1, 101):
-            while cnt[j]:
-                cnt[j] -= 1
-                if heights[i] != j:
-                    ans += 1
-                i += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,6 +86,60 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int heightChecker(vector<int>& heights) {
+        vector<int> expected = heights;
+        sort(expected.begin(), expected.end());
+        int ans = 0;
+        for (int i = 0; i < heights.size(); ++i) ans += heights[i] != expected[i];
+        return ans;
+    }
+};
+```
+
+```go
+func heightChecker(heights []int) int {
+	expected := make([]int, len(heights))
+	copy(expected, heights)
+	sort.Ints(expected)
+	ans := 0
+	for i, v := range heights {
+		if v != expected[i] {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：计数排序
+
+由于题目中学生高度不超过 $100$，因此可以使用计数排序。这里我们用一个长度 $101$ 的数组 $cnt$ 统计每个高度 $h_i$ 出现的次数。
+
+时间复杂度 $(n)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        cnt = [0] * 101
+        for h in heights:
+            cnt[h] += 1
+        ans = i = 0
+        for j in range(1, 101):
+            while cnt[j]:
+                cnt[j] -= 1
+                if heights[i] != j:
+                    ans += 1
+                i += 1
+        return ans
 ```
 
 ```java
@@ -141,21 +163,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int heightChecker(vector<int>& heights) {
-        vector<int> expected = heights;
-        sort(expected.begin(), expected.end());
-        int ans = 0;
-        for (int i = 0; i < heights.size(); ++i) ans += heights[i] != expected[i];
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -172,23 +179,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func heightChecker(heights []int) int {
-	expected := make([]int, len(heights))
-	copy(expected, heights)
-	sort.Ints(expected)
-	ans := 0
-	for i, v := range heights {
-		if v != expected[i] {
-			ans++
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -211,10 +201,6 @@ func heightChecker(heights []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

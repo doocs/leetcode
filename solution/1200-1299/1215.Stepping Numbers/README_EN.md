@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Solution 1: BFS**
+### Solution 1: BFS
 
 First, if $low$ is $0$, we need to add $0$ to the answer.
 
@@ -45,8 +45,6 @@ Next, we create a queue $q$ and add $1 \sim 9$ to the queue. Then, we repeatedly
 The time complexity is $O(10 \times 2^{\log M})$, and the space complexity is $O(2^{\log M})$, where $M$ is the number of digits in $high$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
                 q.append(v * 10 + x + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSteppingNumbers(low int, high int) []int {
 	ans := []int{}
@@ -168,8 +160,6 @@ func countSteppingNumbers(low int, high int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countSteppingNumbers(low: number, high: number): number[] {
@@ -201,10 +191,6 @@ function countSteppingNumbers(low: number, high: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

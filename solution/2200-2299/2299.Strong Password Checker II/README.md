@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟 + 位运算**
+### 方法一：模拟 + 位运算
 
 根据题目描述，我们可以模拟检查密码是否满足题目要求的过程。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为密码的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
                 mask |= 8
         return mask == 15
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -151,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func strongPasswordCheckerII(password string) bool {
 	if len(password) < 8 {
@@ -176,8 +162,6 @@ func strongPasswordCheckerII(password string) bool {
 	return mask == 15
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function strongPasswordCheckerII(password: string): boolean {
@@ -203,8 +187,6 @@ function strongPasswordCheckerII(password: string): boolean {
     return mask == 15;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -236,8 +218,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 bool strongPasswordCheckerII(char* password) {
     int n = strlen(password);
@@ -265,10 +245,6 @@ bool strongPasswordCheckerII(char* password) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

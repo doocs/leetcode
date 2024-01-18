@@ -65,9 +65,23 @@ Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Priority Queue (Min Heap)
 
-### **Python3**
+We define two priority queues, representing idle meeting rooms and busy meeting rooms, respectively. Among them: the idle meeting rooms `idle` are sorted according to **index**; while the busy meeting rooms `busy` are sorted according to **end time, index**.
+
+First, sort the meetings by start time, then traverse the meetings. For each meeting:
+
+-   If there is a busy meeting room that is less than or equal to the start time of the current meeting, add it to the idle meeting room queue `idle`.
+-   If there are currently idle meeting rooms, take out the meeting room with the smallest weight from the idle queue `idle` and add it to the busy queue `busy`.
+-   If there are currently no idle meeting rooms, find the meeting room with the earliest end time and smallest index in the busy queue `busy`, and re-add it to the busy queue `busy`.
+
+The time complexity is $O(m \times \log m)$, where $m$ is the number of meetings.
+
+Similar problems:
+
+-   [1882. Process Tasks Using Servers](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -94,8 +108,6 @@ class Solution:
                 ans = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +146,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using ll = long long;
@@ -178,8 +188,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostBooked(n int, meetings [][]int) int {
@@ -238,17 +246,6 @@ func (h *hp2) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

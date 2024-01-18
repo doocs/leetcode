@@ -57,9 +57,9 @@ After performing 3 moves, the difference between the minimum and maximum is 7 - 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
             ans = min(ans, nums[n - 1 - r] - nums[l])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minDifference(nums []int) int {
 	n := len(nums)
@@ -134,10 +128,6 @@ func minDifference(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

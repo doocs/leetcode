@@ -63,9 +63,9 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedList
@@ -99,8 +99,6 @@ class TweetCounts:
 # obj.recordTweet(tweetName,time)
 # param_2 = obj.getTweetCountsPerFrequency(freq,tweetName,startTime,endTime)
 ```
-
-### **Java**
 
 ```java
 class TweetCounts {
@@ -145,8 +143,6 @@ class TweetCounts {
  */
 ```
 
-### **C++**
-
 ```cpp
 class TweetCounts {
 public:
@@ -184,10 +180,6 @@ private:
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

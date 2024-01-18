@@ -46,7 +46,7 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define the following variables:
 
@@ -63,11 +63,10 @@ The time complexity is $O(n)$, where $n$ is the length of the `prices` array. Th
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        # 第一次买入，第一次卖出，第二次买入，第二次卖出
         f1, f2, f3, f4 = -prices[0], 0, -prices[0], 0
         for price in prices[1:]:
             f1 = max(f1, -price)
@@ -77,11 +76,10 @@ class Solution:
         return f4
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
+        // 第一次买入，第一次卖出，第二次买入，第二次卖出
         int f1 = -prices[0], f2 = 0, f3 = -prices[0], f4 = 0;
         for (int i = 1; i < prices.length; ++i) {
             f1 = Math.max(f1, -prices[i]);
@@ -93,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,7 +108,31 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func maxProfit(prices []int) int {
+	f1, f2, f3, f4 := -prices[0], 0, -prices[0], 0
+	for i := 1; i < len(prices); i++ {
+		f1 = max(f1, -prices[i])
+		f2 = max(f2, f1+prices[i])
+		f3 = max(f3, f2-prices[i])
+		f4 = max(f4, f3+prices[i])
+	}
+	return f4
+}
+```
+
+```ts
+function maxProfit(prices: number[]): number {
+    let [f1, f2, f3, f4] = [-prices[0], 0, -prices[0], 0];
+    for (let i = 1; i < prices.length; ++i) {
+        f1 = Math.max(f1, -prices[i]);
+        f2 = Math.max(f2, f1 + prices[i]);
+        f3 = Math.max(f3, f2 - prices[i]);
+        f4 = Math.max(f4, f3 + prices[i]);
+    }
+    return f4;
+}
+```
 
 ```rust
 impl Solution {
@@ -136,23 +156,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func maxProfit(prices []int) int {
-	f1, f2, f3, f4 := -prices[0], 0, -prices[0], 0
-	for i := 1; i < len(prices); i++ {
-		f1 = max(f1, -prices[i])
-		f2 = max(f2, f1+prices[i])
-		f3 = max(f3, f2-prices[i])
-		f4 = max(f4, f3+prices[i])
-	}
-	return f4
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -168,25 +171,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxProfit(prices: number[]): number {
-    let [f1, f2, f3, f4] = [-prices[0], 0, -prices[0], 0];
-    for (let i = 1; i < prices.length; ++i) {
-        f1 = Math.max(f1, -prices[i]);
-        f2 = Math.max(f2, f1 + prices[i]);
-        f3 = Math.max(f3, f2 - prices[i]);
-        f4 = Math.max(f4, f3 + prices[i]);
-    }
-    return f4;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

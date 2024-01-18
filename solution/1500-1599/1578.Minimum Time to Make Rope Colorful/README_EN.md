@@ -33,7 +33,7 @@ There are no longer two consecutive balloons of the same color. Total time = 3.<
 <pre>
 <strong>Input:</strong> colors = &quot;aabaa&quot;, neededTime = [1,2,3,4,1]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> Bob will remove the ballons at indices 0 and 4. Each ballon takes 1 second to remove.
+<strong>Explanation:</strong> Bob will remove the balloons at indices 0 and 4. Each balloons takes 1 second to remove.
 There are no longer two consecutive balloons of the same color. Total time = 1 + 1 = 2.
 </pre>
 
@@ -49,9 +49,9 @@ There are no longer two consecutive balloons of the same color. Total time = 1 +
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(colors string, neededTime []int) (ans int) {
 	n := len(colors)
@@ -144,16 +138,6 @@ func minCost(colors string, neededTime []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

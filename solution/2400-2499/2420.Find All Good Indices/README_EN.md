@@ -46,9 +46,17 @@ Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Recursion
 
-### **Python3**
+We define two arrays `decr` and `incr`, which represent the longest non-increasing and non-decreasing subarray lengths from left to right and from right to left, respectively.
+
+We traverse the array, updating the `decr` and `incr` arrays.
+
+Then we sequentially traverse the index $i$ (where $k\le i \lt n - k$), if $decr[i] \geq k$ and $incr[i] \geq k$, then $i$ is a good index.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +72,6 @@ class Solution:
                 incr[i] = incr[i + 1] + 1
         return [i for i in range(k, n - k) if decr[i] >= k and incr[i] >= k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func goodIndices(nums []int, k int) []int {
@@ -157,16 +159,6 @@ func goodIndices(nums []int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

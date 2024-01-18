@@ -34,7 +34,7 @@
 
 ## 解法
 
-**方法一：哈希表 + 递归**
+### 方法一：哈希表 + 递归
 
 由于我们每一次都需要在中序序列中找到根节点的位置，因此我们可以使用哈希表 $d$ 来存储中序序列的值和索引，这样可以将查找的时间复杂度降低到 $O(1)$。
 
@@ -49,8 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -76,8 +74,6 @@ class Solution:
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(preorder))
 ```
-
-### **Java**
 
 ```java
 /**
@@ -118,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -154,8 +148,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -185,44 +177,6 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return dfs(0, 0, len(inorder))
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {number[]} preorder
- * @param {number[]} inorder
- * @return {TreeNode}
- */
-var buildTree = function (preorder, inorder) {
-    const d = new Map();
-    const n = inorder.length;
-    for (let i = 0; i < n; ++i) {
-        d.set(inorder[i], i);
-    }
-    const dfs = (i, j, n) => {
-        if (n < 1) {
-            return null;
-        }
-        const k = d.get(preorder[i]);
-        const l = k - j;
-        const root = new TreeNode(preorder[i]);
-        root.left = dfs(i + 1, j, l);
-        root.right = dfs(i + 1 + l, k + 1, n - l - 1);
-        return root;
-    };
-    return dfs(0, 0, n);
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -259,37 +213,6 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     return dfs(0, 0, n);
 }
 ```
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
-    if (inorder.length === 0) {
-        return null;
-    }
-    const val = preorder[0];
-    const i = inorder.indexOf(val);
-    return new TreeNode(
-        val,
-        buildTree(preorder.slice(1, i + 1), inorder.slice(0, i)),
-        buildTree(preorder.slice(i + 1), inorder.slice(i + 1)),
-    );
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -339,7 +262,39 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function (preorder, inorder) {
+    const d = new Map();
+    const n = inorder.length;
+    for (let i = 0; i < n; ++i) {
+        d.set(inorder[i], i);
+    }
+    const dfs = (i, j, n) => {
+        if (n < 1) {
+            return null;
+        }
+        const k = d.get(preorder[i]);
+        const l = k - j;
+        const root = new TreeNode(preorder[i]);
+        root.left = dfs(i + 1, j, l);
+        root.right = dfs(i + 1 + l, k + 1, n - l - 1);
+        return root;
+    };
+    return dfs(0, 0, n);
+};
+```
 
 ```cs
 /**
@@ -365,10 +320,41 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
+    if (inorder.length === 0) {
+        return null;
+    }
+    const val = preorder[0];
+    const i = inorder.indexOf(val);
+    return new TreeNode(
+        val,
+        buildTree(preorder.slice(1, i + 1), inorder.slice(0, i)),
+        buildTree(preorder.slice(i + 1), inorder.slice(i + 1)),
+    );
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

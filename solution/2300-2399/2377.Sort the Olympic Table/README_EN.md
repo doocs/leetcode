@@ -66,9 +66,9 @@ Israel comes before Egypt because it has more bronze medals.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -78,3 +78,5 @@ ORDER BY 2 DESC, 3 DESC, 4 DESC, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

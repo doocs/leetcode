@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆序遍历求右侧最大值**
+### 方法一：逆序遍历求右侧最大值
 
 我们逆序遍历数组 $height$ 每个元素 $v$，判断 $v$ 与右侧最大元素 $mx$ 的大小关系，若 $mx \lt v$，说明右侧所有元素都比当前元素小，当前位置能看到海景，加入结果数组 $ans$。然后我们更新 $mx$ 为 $v$。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
                 mx = heights[i]
         return ans[::-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findBuildings(heights []int) (ans []int) {
 	mx := 0
@@ -142,8 +128,6 @@ func findBuildings(heights []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findBuildings(heights: number[]): number[] {
     const ans: number[] = [];
@@ -157,8 +141,6 @@ function findBuildings(heights: number[]): number[] {
     return ans.reverse();
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -178,10 +160,6 @@ var findBuildings = function (heights) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

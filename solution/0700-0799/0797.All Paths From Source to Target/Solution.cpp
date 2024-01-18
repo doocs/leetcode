@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     vector<vector<int>> graph;
     vector<vector<int>> ans;

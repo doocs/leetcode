@@ -49,9 +49,17 @@ The longest subarray with that value is [4], so we return 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Quick Thinking
 
-### **Python3**
+Due to the bitwise AND operation, the number will not get larger, so the maximum value is the maximum value in the array.
+
+The problem can be transformed into finding the maximum number of consecutive occurrences of the maximum value in the array.
+
+First, traverse the array once to find the maximum value, then traverse the array again to find the number of consecutive occurrences of the maximum value, and finally return this count.
+
+The time complexity is $O(n)$, where $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +74,6 @@ class Solution:
                 cnt = 0
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSubarray(nums []int) int {
 	mx := slices.Max(nums)
@@ -129,16 +131,6 @@ func longestSubarray(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

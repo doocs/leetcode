@@ -63,9 +63,9 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedList
@@ -81,30 +81,6 @@ class Solution:
             ans.append(sl[x - 1] if sl[x - 1] < 0 else 0)
         return ans
 ```
-
-```python
-class Solution:
-    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
-        def f(x: int) -> int:
-            s = 0
-            for i in range(50):
-                s += cnt[i]
-                if s >= x:
-                    return i - 50
-            return 0
-
-        cnt = [0] * 101
-        for v in nums[:k]:
-            cnt[v + 50] += 1
-        ans = [f(x)]
-        for i in range(k, len(nums)):
-            cnt[nums[i] + 50] += 1
-            cnt[nums[i - k] + 50] -= 1
-            ans.append(f(x))
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getSubarrayBeauty(nums []int, k int, x int) []int {
 	n := len(nums)
@@ -199,8 +171,6 @@ func getSubarrayBeauty(nums []int, k int, x int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
@@ -230,10 +200,34 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
+        def f(x: int) -> int:
+            s = 0
+            for i in range(50):
+                s += cnt[i]
+                if s >= x:
+                    return i - 50
+            return 0
+
+        cnt = [0] * 101
+        for v in nums[:k]:
+            cnt[v + 50] += 1
+        ans = [f(x)]
+        for i in range(k, len(nums)):
+            cnt[nums[i] + 50] += 1
+            cnt[nums[i - k] + 50] -= 1
+            ans.append(f(x))
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

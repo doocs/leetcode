@@ -55,91 +55,85 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：贪心 + 优先队列（大根堆）
 
-**方法一：优先队列（大根堆）**
+根据题目描述，为了使得剩下的石子总数最小，我们需要尽可能多地移除石子堆中的石子。因此，每次应该选择数量最多的石子堆进行移除。
+
+我们创建一个优先队列（大根堆） $pq$，用于存储石子堆的数量。初始时，将所有石子堆的数量加入优先队列。
+
+接下来，我们进行 $k$ 次操作。在每一次操作中，我们取出优先队列的堆顶元素 $x$，将 $x$ 减半后重新加入优先队列。
+
+在进行了 $k$ 次操作后，优先队列中所有元素的和即为答案。
+
+时间复杂度 $O(n + k \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `piles` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def minStoneSum(self, piles: List[int], k: int) -> int:
-        h = []
-        for p in piles:
-            heappush(h, -p)
+        pq = [-x for x in piles]
+        heapify(pq)
         for _ in range(k):
-            p = -heappop(h)
-            heappush(h, -((p + 1) >> 1))
-        return -sum(h)
+            heapreplace(pq, pq[0] // 2)
+        return -sum(pq)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
     public int minStoneSum(int[] piles, int k) {
-        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> (b - a));
-        for (int p : piles) {
-            q.offer(p);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        for (int x : piles) {
+            pq.offer(x);
         }
         while (k-- > 0) {
-            int p = q.poll();
-            q.offer((p + 1) >> 1);
+            int x = pq.poll();
+            pq.offer(x - x / 2);
         }
         int ans = 0;
-        while (!q.isEmpty()) {
-            ans += q.poll();
+        while (!pq.isEmpty()) {
+            ans += pq.poll();
         }
         return ans;
     }
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     int minStoneSum(vector<int>& piles, int k) {
-        priority_queue<int> q;
-        for (int& p : piles) q.push(p);
+        priority_queue<int> pq;
+        for (int x : piles) {
+            pq.push(x);
+        }
         while (k--) {
-            int p = q.top();
-            q.pop();
-            q.push((p + 1) >> 1);
+            int x = pq.top();
+            pq.pop();
+            pq.push(x - x / 2);
         }
         int ans = 0;
-        while (!q.empty()) {
-            ans += q.top();
-            q.pop();
+        while (!pq.empty()) {
+            ans += pq.top();
+            pq.pop();
         }
         return ans;
     }
 };
 ```
 
-### **Go**
-
 ```go
-func minStoneSum(piles []int, k int) int {
-	q := &hp{piles}
-	heap.Init(q)
-	for k > 0 {
-		p := q.pop()
-		q.push((p + 1) >> 1)
-		k--
+func minStoneSum(piles []int, k int) (ans int) {
+	pq := &hp{piles}
+	heap.Init(pq)
+	for ; k > 0; k-- {
+		x := pq.pop()
+		pq.push(x - x/2)
 	}
-	ans := 0
-	for q.Len() > 0 {
-		ans += q.pop()
+	for pq.Len() > 0 {
+		ans += pq.pop()
 	}
-	return ans
+	return
 }
 
 type hp struct{ sort.IntSlice }
@@ -156,10 +150,24 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **...**
-
-```
-
+```ts
+function minStoneSum(piles: number[], k: number): number {
+    const pq = new MaxPriorityQueue();
+    for (const x of piles) {
+        pq.enqueue(x);
+    }
+    while (k--) {
+        const x = pq.dequeue().element;
+        pq.enqueue(x - ((x / 2) | 0));
+    }
+    let ans = 0;
+    while (pq.size()) {
+        ans += pq.dequeue().element;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

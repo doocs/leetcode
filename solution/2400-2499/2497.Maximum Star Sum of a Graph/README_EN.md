@@ -52,9 +52,9 @@ Hence, we return -5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
             bs.sort(reverse=True)
         return max(v + sum(g[i][:k]) for i, v in enumerate(vals))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +123,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxStarSum(vals []int, edges [][]int, k int) (ans int) {
@@ -157,10 +151,6 @@ func maxStarSum(vals []int, edges [][]int, k int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

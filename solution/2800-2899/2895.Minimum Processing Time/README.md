@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 要使得处理完所有任务的时间最小，那么越早处于空闲状态的处理器应该处理耗时最长的 $4$ 个任务。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为任务的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             i -= 4
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minProcessingTime(processorTime []int, tasks []int) (ans int) {
 	sort.Ints(processorTime)
@@ -131,8 +117,6 @@ func minProcessingTime(processorTime []int, tasks []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minProcessingTime(processorTime: number[], tasks: number[]): number {
@@ -147,10 +131,6 @@ function minProcessingTime(processorTime: number[], tasks: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

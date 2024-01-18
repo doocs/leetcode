@@ -62,19 +62,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们记 $click = (i, j)$，如果 $board[i][j]$ 等于 `'M'`，那么直接将 $board[i][j]$ 的值改为 `'X'` 即可。否则，我们需要统计 $board[i][j]$ 周围的地雷数量 $cnt$，如果 $cnt$ 不为 $0$，那么将 $board[i][j]$ 的值改为 $cnt$ 的字符串形式。否则，将 $board[i][j]$ 的值改为 `'B'`，并且递归地搜索处理 $board[i][j]$ 周围的未挖出的方块。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组 $board$ 的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
             dfs(i, j)
         return board
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -193,8 +181,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func updateBoard(board [][]byte, click []int) [][]byte {
 	m, n := len(board), len(board[0])
@@ -232,8 +218,6 @@ func updateBoard(board [][]byte, click []int) [][]byte {
 	return board
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function updateBoard(board: string[][], click: number[]): string[][] {
@@ -273,10 +257,6 @@ function updateBoard(board: string[][], click: number[]): string[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

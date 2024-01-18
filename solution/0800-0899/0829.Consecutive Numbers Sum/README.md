@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学推导**
+### 方法一：数学推导
 
 连续正整数构成一个等差数列($d=1$)。我们假设等差数列的第一项为 $a$，项数为 $k$，则 $n=(a+a+k-1)*k/2$，即 $n*2=(a*2+k-1)*k$ ①。
 
@@ -57,10 +55,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def consecutiveNumbersSum(self, n: int) -> int:
@@ -72,10 +66,6 @@ class Solution:
             k += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func consecutiveNumbersSum(n int) int {
 	n <<= 1
@@ -126,10 +112,6 @@ func consecutiveNumbersSum(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

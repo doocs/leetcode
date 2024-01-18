@@ -80,9 +80,9 @@ Customer 3: The first year is 2017, and the last year is 2018
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -106,3 +106,5 @@ HAVING COUNT(DISTINCT rk) = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

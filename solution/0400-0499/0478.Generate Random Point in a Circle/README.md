@@ -42,13 +42,9 @@ solution.randPoint ();//返回[0.36572,0.17248]</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,21 +59,8 @@ class Solution:
         x = self.x_center + length * math.cos(degree)
         y = self.y_center + length * math.sin(degree)
         return [x, y]
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

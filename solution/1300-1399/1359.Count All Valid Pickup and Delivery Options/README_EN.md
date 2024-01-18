@@ -45,9 +45,23 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Dynamic Programming
 
-### **Python3**
+We define $f[i]$ as the number of all valid pickup/delivery sequences for $i$ orders. Initially, $f[1] = 1$.
+
+We can choose any of these $i$ orders as the last delivery order $D_i$, then its pickup order $P_i$ can be at any position in the previous $2 \times i - 1$, and the number of pickup/delivery sequences for the remaining $i - 1$ orders is $f[i - 1]$, so $f[i]$ can be expressed as:
+
+$$
+f[i] = i \times (2 \times i - 1) \times f[i - 1]
+$$
+
+The final answer is $f[n]$.
+
+We notice that the value of $f[i]$ is only related to $f[i - 1]$, so we can use a variable instead of an array to reduce the space complexity.
+
+The time complexity is $O(n)$, where $n$ is the number of orders. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +72,6 @@ class Solution:
             f = (f * i * (2 * i - 1)) % mod
         return f
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,7 +100,16 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func countOrders(n int) int {
+	const mod = 1e9 + 7
+	f := 1
+	for i := 2; i <= n; i++ {
+		f = f * i * (2*i - 1) % mod
+	}
+	return f
+}
+```
 
 ```rust
 const MOD: i64 = (1e9 as i64) + 7;
@@ -107,23 +126,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func countOrders(n int) int {
-	const mod = 1e9 + 7
-	f := 1
-	for i := 2; i <= n; i++ {
-		f = f * i * (2*i - 1) % mod
-	}
-	return f
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们直接枚举 $[1,..n]$ 中的每一个数 $x$，如果 $x$ 能被 $3$, $5$, $7$ 整除，那么就将 $x$ 累加到答案中。
 
@@ -54,43 +52,13 @@
 
 时间复杂度 $O(n)$，其中 $n$ 为题目给定的整数。空间复杂度 $O(1)$。
 
-**方法二：数学（容斥原理）**
-
-我们定义函数 $f(x)$ 表示 $[1,..n]$ 中能被 $x$ 整除的数之和，那么一共有 $m = \left\lfloor \frac{n}{x} \right\rfloor$ 个数能被 $x$ 整除，这些数字分别为 $x$, $2x$, $3x$, $\cdots$, $mx$，构成一个等差数列，首项为 $x$，末项为 $mx$，项数为 $m$，因此 $f(x) = \frac{(x + mx) \times m}{2}$。
-
-根据容斥原理，我们可以得到答案为：
-
-$$
-f(3) + f(5) + f(7) - f(3 \times 5) - f(3 \times 7) - f(5 \times 7) + f(3 \times 5 \times 7)
-$$
-
-时间复杂度 $O(1)$，空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def sumOfMultiples(self, n: int) -> int:
         return sum(x for x in range(1, n + 1) if x % 3 == 0 or x % 5 == 0 or x % 7 == 0)
 ```
-
-```python
-class Solution:
-    def sumOfMultiples(self, n: int) -> int:
-        def f(x: int) -> int:
-            m = n // x
-            return (x + m * x) * m // 2
-
-        return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,6 +72,86 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int sumOfMultiples(int n) {
+        int ans = 0;
+        for (int x = 1; x <= n; ++x) {
+            if (x % 3 == 0 || x % 5 == 0 || x % 7 == 0) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func sumOfMultiples(n int) (ans int) {
+	for x := 1; x <= n; x++ {
+		if x%3 == 0 || x%5 == 0 || x%7 == 0 {
+			ans += x
+		}
+	}
+	return
+}
+```
+
+```ts
+function sumOfMultiples(n: number): number {
+    let ans = 0;
+    for (let x = 1; x <= n; ++x) {
+        if (x % 3 === 0 || x % 5 === 0 || x % 7 === 0) {
+            ans += x;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn sum_of_multiples(n: i32) -> i32 {
+        let mut ans = 0;
+
+        for x in 1..=n {
+            if x % 3 == 0 || x % 5 == 0 || x % 7 == 0 {
+                ans += x;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：数学（容斥原理）
+
+我们定义函数 $f(x)$ 表示 $[1,..n]$ 中能被 $x$ 整除的数之和，那么一共有 $m = \left\lfloor \frac{n}{x} \right\rfloor$ 个数能被 $x$ 整除，这些数字分别为 $x$, $2x$, $3x$, $\cdots$, $mx$，构成一个等差数列，首项为 $x$，末项为 $mx$，项数为 $m$，因此 $f(x) = \frac{(x + mx) \times m}{2}$。
+
+根据容斥原理，我们可以得到答案为：
+
+$$
+f(3) + f(5) + f(7) - f(3 \times 5) - f(3 \times 7) - f(5 \times 7) + f(3 \times 5 \times 7)
+$$
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def sumOfMultiples(self, n: int) -> int:
+        def f(x: int) -> int:
+            m = n // x
+            return (x + m * x) * m // 2
+
+        return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7)
 ```
 
 ```java
@@ -122,23 +170,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int sumOfMultiples(int n) {
-        int ans = 0;
-        for (int x = 1; x <= n; ++x) {
-            if (x % 3 == 0 || x % 5 == 0 || x % 7 == 0) {
-                ans += x;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -152,19 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func sumOfMultiples(n int) (ans int) {
-	for x := 1; x <= n; x++ {
-		if x%3 == 0 || x%5 == 0 || x%7 == 0 {
-			ans += x
-		}
-	}
-	return
-}
-```
-
 ```go
 func sumOfMultiples(n int) int {
 	f := func(x int) int {
@@ -172,20 +190,6 @@ func sumOfMultiples(n int) int {
 		return (x + m*x) * m / 2
 	}
 	return f(3) + f(5) + f(7) - f(3*5) - f(3*7) - f(5*7) + f(3*5*7)
-}
-```
-
-### **TypeScript**
-
-```ts
-function sumOfMultiples(n: number): number {
-    let ans = 0;
-    for (let x = 1; x <= n; ++x) {
-        if (x % 3 === 0 || x % 5 === 0 || x % 7 === 0) {
-            ans += x;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -199,24 +203,6 @@ function sumOfMultiples(n: number): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn sum_of_multiples(n: i32) -> i32 {
-        let mut ans = 0;
-
-        for x in 1..=n {
-            if x % 3 == 0 || x % 5 == 0 || x % 7 == 0 {
-                ans += x;
-            }
-        }
-
-        ans
-    }
-}
-```
-
 ```rust
 impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
@@ -224,6 +210,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -238,10 +230,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

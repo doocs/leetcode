@@ -8,7 +8,7 @@
 
 <p>Alice 把 <code>n</code> 个气球排列在一根绳子上。给你一个下标从 <strong>0</strong> 开始的字符串 <code>colors</code> ，其中 <code>colors[i]</code> 是第 <code>i</code> 个气球的颜色。</p>
 
-<p>Alice 想要把绳子装扮成 <strong>彩色</strong> ，且她不希望两个连续的气球涂着相同的颜色，所以她喊来 Bob 帮忙。Bob 可以从绳子上移除一些气球使绳子变成 <strong>彩色</strong> 。给你一个下标从 <strong>0</strong> 开始的整数数组 <code>neededTime</code> ，其中 <code>neededTime[i]</code> 是 Bob 从绳子上移除第 <code>i</code> 个气球需要的时间（以秒为单位）。</p>
+<p>Alice 想要把绳子装扮成 <b>五颜六色的</b>&nbsp;，且她不希望两个连续的气球涂着相同的颜色，所以她喊来 Bob 帮忙。Bob 可以从绳子上移除一些气球使绳子变成 <strong>彩色</strong> 。给你一个 <strong>下标从 0 开始&nbsp;</strong>的整数数组 <code>neededTime</code> ，其中 <code>neededTime[i]</code> 是 Bob 从绳子上移除第 <code>i</code> 个气球需要的时间（以秒为单位）。</p>
 
 <p>返回 Bob 使绳子变成 <strong>彩色</strong> 需要的 <strong>最少时间</strong> 。</p>
 
@@ -53,19 +53,13 @@ Bob 可以移除下标 2 的蓝色气球。这将花费 3 秒。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针 + 贪心**
+### 方法一：双指针 + 贪心
 
 我们可以用双指针指向当前连续相同颜色的气球的首尾，然后计算出当前连续相同颜色的气球的总时间 $s$，以及最大的时间 $mx$。如果当前连续相同颜色的气球个数大于 $1$，那么我们可以贪心地选择保留时间最大的气球，然后移除其它相同颜色的气球，耗时 $s - mx$，累加到答案中。接下来继续遍历，直到遍历完所有气球。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为气球的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(colors string, neededTime []int) (ans int) {
 	n := len(colors)
@@ -160,16 +146,6 @@ func minCost(colors string, neededTime []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

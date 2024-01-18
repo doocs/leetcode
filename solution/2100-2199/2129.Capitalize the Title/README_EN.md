@@ -54,9 +54,9 @@ The remaining words have a length of at least 3, so the first letter of each rem
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
         words = [w.lower() if len(w) < 3 else w.capitalize() for w in title.split()]
         return " ".join(words)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func capitalizeTitle(title string) string {
 	title = strings.ToLower(title)
@@ -117,8 +111,6 @@ func capitalizeTitle(title string) string {
 	return strings.Join(words, " ")
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function capitalizeTitle(title: string): string {
@@ -134,6 +126,12 @@ function capitalizeTitle(title: string): string {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```ts
 function capitalizeTitle(title: string): string {
     return title
@@ -147,10 +145,6 @@ function capitalizeTitle(title: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

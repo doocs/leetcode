@@ -58,7 +58,7 @@ Hence, the answer is 4.</pre>
 
 ## Solutions
 
-**Solution 1: Hash Table + Enumeration**
+### Solution 1: Hash Table + Enumeration
 
 We use a hash table $cnt$ to count the number of occurrences of each number in the array $nums$. Let $k$ be the minimum value of the number of occurrences, and then we can enumerate the size of the groups in the range $[k,..1]$. Since the difference in size between each group is not more than $1$, the group size can be either $k$ or $k+1$.
 
@@ -67,8 +67,6 @@ For the current group size $k$ being enumerated, we traverse each occurrence $v$
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +82,6 @@ class Solution:
             if ans:
                 return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minGroupsForValidAssignment(nums []int) int {
 	cnt := map[int]int{}
@@ -174,8 +166,6 @@ func minGroupsForValidAssignment(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minGroupsForValidAssignment(nums: number[]): number {
     const cnt: Map<number, number> = new Map();
@@ -197,8 +187,6 @@ function minGroupsForValidAssignment(nums: number[]): number {
     }
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -240,10 +228,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

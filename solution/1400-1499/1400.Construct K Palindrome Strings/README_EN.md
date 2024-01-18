@@ -43,9 +43,15 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting
 
-### **Python3**
+First, we check if the length of string $s$ is less than $k$. If it is, we cannot construct $k$ palindrome strings, so we can directly return `false`.
+
+Otherwise, we use a hash table or an array $cnt$ to count the occurrences of each character in string $s$. Finally, we only need to count the number of characters $x$ that appear an odd number of times in $cnt$. If $x$ is greater than $k$, we cannot construct $k$ palindrome strings, so we return `false`; otherwise, we return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of string $s$, and $C$ is the size of the character set, here $C=26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +61,6 @@ class Solution:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) <= k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canConstruct(s string, k int) bool {
 	if len(s) < k {
@@ -118,8 +118,6 @@ func canConstruct(s string, k int) bool {
 	return x <= k
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canConstruct(s: string, k: number): boolean {
@@ -138,10 +136,6 @@ function canConstruct(s: string, k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

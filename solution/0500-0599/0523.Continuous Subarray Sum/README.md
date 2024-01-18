@@ -55,17 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-前缀和 + 哈希表。
-
-要满足区间和是 k 的倍数，也即 `s[i] - s[j] = n * k` (其中 `i - j >= 2`)，变形，得 `s[i] / k - s[j] / k = n`，所以只要满足 `s[i] % k == s[j] % k` 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +73,6 @@ class Solution:
                 mp[r] = i
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkSubarraySum(nums []int, k int) bool {
@@ -147,10 +131,6 @@ func checkSubarraySum(nums []int, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

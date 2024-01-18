@@ -84,9 +84,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们用一个变量 $x$ 维护当前括号的平衡度，也就是左括号的数量减去右括号的数量。
 
@@ -95,10 +93,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $seq$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -114,10 +108,6 @@ class Solution:
                 ans[i] = x & 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +125,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDepthAfterSplit(seq string) []int {
 	n := len(seq)
@@ -175,8 +161,6 @@ func maxDepthAfterSplit(seq string) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxDepthAfterSplit(seq: string): number[] {
     const n = seq.length;
@@ -192,10 +176,6 @@ function maxDepthAfterSplit(seq: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

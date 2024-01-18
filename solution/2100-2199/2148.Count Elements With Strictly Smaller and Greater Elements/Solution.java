@@ -1,4 +1,5 @@
 class Solution {
+
     public int countElements(int[] nums) {
         int mi = 1000000, mx = -1000000;
         for (int num : nums) {

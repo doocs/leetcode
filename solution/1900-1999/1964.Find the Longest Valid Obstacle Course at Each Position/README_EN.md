@@ -66,75 +66,51 @@
 
 ## Solutions
 
-Binary Indexed Tree.
+### Solution 1: Binary Indexed Tree (Fenwick Tree)
+
+We can use a Binary Indexed Tree to maintain an array of the lengths of the longest increasing subsequences.
+
+Then for each obstacle, we query in the Binary Indexed Tree for the length of the longest increasing subsequence that is less than or equal to the current obstacle, suppose it is $l$. Then the length of the longest increasing subsequence of the current obstacle is $l+1$. We add $l+1$ to the answer array, and update $l+1$ in the Binary Indexed Tree.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of obstacles.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class BinaryIndexedTree:
-    def __init__(self, n):
+    __slots__ = ["n", "c"]
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, val):
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] = max(self.c[x], val)
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s = max(s, self.c[x])
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
-        s = sorted(set(obstacles))
-        m = {v: i for i, v in enumerate(s, 1)}
-        tree = BinaryIndexedTree(len(m))
+        nums = sorted(set(obstacles))
+        n = len(nums)
+        tree = BinaryIndexedTree(n)
         ans = []
-        for v in obstacles:
-            x = m[v]
-            ans.append(1 + tree.query(x))
-            tree.update(x, ans[-1])
+        for x in obstacles:
+            i = bisect_left(nums, x) + 1
+            ans.append(tree.query(i) + 1)
+            tree.update(i, ans[-1])
         return ans
 ```
 
-### **Java**
-
 ```java
-class Solution {
-    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
-        TreeSet<Integer> ts = new TreeSet();
-        for (int v : obstacles) {
-            ts.add(v);
-        }
-        int idx = 1;
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int v : ts) {
-            m.put(v, idx++);
-        }
-        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
-        int n = obstacles.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int v = obstacles[i];
-            int x = m.get(v);
-            ans[i] = tree.query(x) + 1;
-            tree.update(x, ans[i]);
-        }
-        return ans;
-    }
-}
-
 class BinaryIndexedTree {
     private int n;
     private int[] c;
@@ -144,10 +120,10 @@ class BinaryIndexedTree {
         c = new int[n + 1];
     }
 
-    public void update(int x, int val) {
+    public void update(int x, int v) {
         while (x <= n) {
-            c[x] = Math.max(c[x], val);
-            x += lowbit(x);
+            c[x] = Math.max(c[x], v);
+            x += x & -x;
         }
     }
 
@@ -155,33 +131,46 @@ class BinaryIndexedTree {
         int s = 0;
         while (x > 0) {
             s = Math.max(s, c[x]);
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
+}
 
-    public static int lowbit(int x) {
-        return x & -x;
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] nums = obstacles.clone();
+        Arrays.sort(nums);
+        int n = nums.length;
+        int[] ans = new int[n];
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        for (int k = 0; k < n; ++k) {
+            int x = obstacles[k];
+            int i = Arrays.binarySearch(nums, x) + 1;
+            ans[k] = tree.query(i) + 1;
+            tree.update(i, ans[k]);
+        }
+        return ans;
     }
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
-public:
+private:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
+public:
+    BinaryIndexedTree(int n) {
+        this->n = n;
+        c = vector<int>(n + 1);
+    }
 
-    void update(int x, int val) {
+    void update(int x, int v) {
         while (x <= n) {
-            c[x] = max(c[x], val);
-            x += lowbit(x);
+            c[x] = max(c[x], v);
+            x += x & -x;
         }
     }
 
@@ -189,38 +178,31 @@ public:
         int s = 0;
         while (x > 0) {
             s = max(s, c[x]);
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
     }
 };
 
 class Solution {
 public:
     vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
-        set<int> s(obstacles.begin(), obstacles.end());
-        int idx = 1;
-        unordered_map<int, int> m;
-        for (int v : s) m[v] = idx++;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
-        int n = obstacles.size();
+        vector<int> nums = obstacles;
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
         vector<int> ans(n);
-        for (int i = 0; i < n; ++i) {
-            int v = obstacles[i];
-            int x = m[v];
-            ans[i] = 1 + tree->query(x);
-            tree->update(x, ans[i]);
+        BinaryIndexedTree tree(n);
+        for (int k = 0; k < n; ++k) {
+            int x = obstacles[k];
+            auto it = lower_bound(nums.begin(), nums.end(), x);
+            int i = distance(nums.begin(), it) + 1;
+            ans[k] = tree.query(i) + 1;
+            tree.update(i, ans[k]);
         }
         return ans;
     }
 };
 ```
-
-### **Go**
 
 ```go
 type BinaryIndexedTree struct {
@@ -228,65 +210,93 @@ type BinaryIndexedTree struct {
 	c []int
 }
 
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+func NewBinaryIndexedTree(n int) *BinaryIndexedTree {
+	return &BinaryIndexedTree{n, make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, val int) {
-	for x <= this.n {
-		if this.c[x] < val {
-			this.c[x] = val
-		}
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, v int) {
+	for x <= bit.n {
+		bit.c[x] = max(bit.c[x], v)
+		x += x & -x
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
+func (bit *BinaryIndexedTree) query(x int) (s int) {
 	for x > 0 {
-		if s < this.c[x] {
-			s = this.c[x]
-		}
-		x -= this.lowbit(x)
+		s = max(s, bit.c[x])
+		x -= x & -x
 	}
-	return s
+	return
 }
 
-func longestObstacleCourseAtEachPosition(obstacles []int) []int {
-	s := make(map[int]bool)
-	for _, v := range obstacles {
-		s[v] = true
+func longestObstacleCourseAtEachPosition(obstacles []int) (ans []int) {
+	nums := slices.Clone(obstacles)
+	sort.Ints(nums)
+	n := len(nums)
+	tree := NewBinaryIndexedTree(n)
+	for k, x := range obstacles {
+		i := sort.SearchInts(nums, x) + 1
+		ans = append(ans, tree.query(i)+1)
+		tree.update(i, ans[k])
 	}
-	var t []int
-	for v, _ := range s {
-		t = append(t, v)
-	}
-	sort.Ints(t)
-	m := make(map[int]int)
-	for i, v := range t {
-		m[v] = i + 1
-	}
-	n := len(obstacles)
-	ans := make([]int, n)
-	tree := newBinaryIndexedTree(len(m))
-	for i, v := range obstacles {
-		x := m[v]
-		ans[i] = 1 + tree.query(x)
-		tree.update(x, ans[i])
-	}
-	return ans
+	return
 }
 ```
 
-### **...**
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
 
-```
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
 
+    update(x: number, v: number): void {
+        while (x <= this.n) {
+            this.c[x] = Math.max(this.c[x], v);
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s = Math.max(s, this.c[x]);
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+function longestObstacleCourseAtEachPosition(obstacles: number[]): number[] {
+    const nums: number[] = [...obstacles];
+    nums.sort((a, b) => a - b);
+    const n: number = nums.length;
+    const ans: number[] = [];
+    const tree: BinaryIndexedTree = new BinaryIndexedTree(n);
+    const search = (x: number): number => {
+        let [l, r] = [0, n];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let k = 0; k < n; ++k) {
+        const i: number = search(obstacles[k]) + 1;
+        ans[k] = tree.query(i) + 1;
+        tree.update(i, ans[k]);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

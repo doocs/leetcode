@@ -4,13 +4,10 @@ public:
 
     int distinctSubseqII(string s) {
         vector<long> dp(26);
-        long ans = 0;
         for (char& c : s) {
             int i = c - 'a';
-            long add = ans - dp[i] + 1;
-            ans = (ans + add + mod) % mod;
-            dp[i] = (dp[i] + add) % mod;
+            dp[i] = accumulate(dp.begin(), dp.end(), 1l) % mod;
         }
-        return ans;
+        return accumulate(dp.begin(), dp.end(), 0l) % mod;
     }
 };

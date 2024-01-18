@@ -2,24 +2,18 @@ class Solution {
 public:
     int countSubstrings(string s, string t) {
         int ans = 0;
-        int m = s.length(), n = t.length();
-        int f[m + 1][n + 1];
-        int g[m + 1][n + 1];
-        memset(f, 0, sizeof(f));
-        memset(g, 0, sizeof(g));
+        int m = s.size(), n = t.size();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (s[i] == t[j]) {
-                    f[i + 1][j + 1] = f[i][j] + 1;
-                }
-            }
-        }
-        for (int i = m - 1; i >= 0; --i) {
-            for (int j = n - 1; j >= 0; --j) {
-                if (s[i] == t[j]) {
-                    g[i][j] = g[i + 1][j + 1] + 1;
-                } else {
-                    ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1);
+                if (s[i] != t[j]) {
+                    int l = 0, r = 0;
+                    while (i - l > 0 && j - l > 0 && s[i - l - 1] == t[j - l - 1]) {
+                        ++l;
+                    }
+                    while (i + r + 1 < m && j + r + 1 < n && s[i + r + 1] == t[j + r + 1]) {
+                        ++r;
+                    }
+                    ans += (l + 1) * (r + 1);
                 }
             }
         }

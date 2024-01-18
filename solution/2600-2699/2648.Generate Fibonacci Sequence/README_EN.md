@@ -42,9 +42,9 @@ gen.next().value; // 3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function* fibGenerator(): Generator<number, any, number> {
@@ -63,10 +63,6 @@ function* fibGenerator(): Generator<number, any, number> {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

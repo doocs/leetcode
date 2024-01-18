@@ -3,15 +3,26 @@ func minInsertions(s string) int {
 	f := make([][]int, n)
 	for i := range f {
 		f[i] = make([]int, n)
-	}
-	for i := n - 2; i >= 0; i-- {
-		for j := i + 1; j < n; j++ {
-			if s[i] == s[j] {
-				f[i][j] = f[i+1][j-1]
-			} else {
-				f[i][j] = min(f[i+1][j], f[i][j-1]) + 1
-			}
+		for j := range f[i] {
+			f[i][j] = -1
 		}
 	}
-	return f[0][n-1]
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= j {
+			return 0
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		ans := 1 << 30
+		if s[i] == s[j] {
+			ans = dfs(i+1, j-1)
+		} else {
+			ans = min(dfs(i+1, j), dfs(i, j-1)) + 1
+		}
+		f[i][j] = ans
+		return ans
+	}
+	return dfs(0, n-1)
 }

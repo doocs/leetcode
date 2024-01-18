@@ -47,9 +47,9 @@ The length of this subsequence is 6, so 6 is returned.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSubsequence(s string, k int) (ans int) {
 	for i, v := len(s)-1, 0; i >= 0; i-- {
@@ -118,8 +112,6 @@ func longestSubsequence(s string, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestSubsequence(s: string, k: number): number {
@@ -135,27 +127,6 @@ function longestSubsequence(s: string, k: number): number {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int LongestSubsequence(string s, int k) {
-        int ans = 0, v = 0;
-        for (int i = s.Length - 1; i >= 0; --i) {
-            if (s[i] == '0') {
-                ++ans;
-            } else if (ans < 30 && (v | 1 << ans) <= k) {
-                v |= 1 << ans;
-                ++ans;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -177,10 +148,23 @@ var longestSubsequence = function (s, k) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int LongestSubsequence(string s, int k) {
+        int ans = 0, v = 0;
+        for (int i = s.Length - 1; i >= 0; --i) {
+            if (s[i] == '0') {
+                ++ans;
+            } else if (ans < 30 && (v | 1 << ans) <= k) {
+                v |= 1 << ans;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

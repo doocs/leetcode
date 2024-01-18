@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int compress(vector<char>& chars) {
         int k = 0, n = chars.size();

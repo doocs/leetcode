@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 题目求一个二叉树好叶子节点的对数，答案可以拆分为三部分之和：左子树好叶子节点的对数、右子树好叶子节点的对数，以及左子树叶子节点与右子树叶子节点组成的好叶子节点的对数。
 
@@ -76,10 +74,6 @@
 时间复杂度 $O(n \times distance^2 \times h)$，其中 $n$ 是二叉树的节点数，而 $h$ 是二叉树的高度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -115,10 +109,6 @@ class Solution:
                     ans += v1 * v2
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -170,8 +160,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -215,8 +203,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -258,10 +244,6 @@ func dfs(root *TreeNode, cnt []int, i int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

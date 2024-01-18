@@ -82,19 +82,13 @@ interface Robot {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们不妨假设机器人的初始位置为 $(0, 0)$，方向为 $d=0$。我们将初始位置进行打扫，并标记为已访问。然后，我们依次选择上、右、下、左四个方向进行探索，每次探索前都先判断是否已经访问过，如果没有访问过，我们就朝着该方向前进一步，然后递归探索。如果已经访问过，我们就顺时针旋转 $90^\circ$，然后继续探索下一个方向。当我们探索完所有的方向后，我们需要回到上一个位置，这时我们只需要顺时针旋转 $180^\circ$，然后前进一步，再顺时针旋转 $180^\circ$ 即可。
 
 时间复杂度 $O(4^{n-m})$，空间复杂度 $O(n-m)$。其中 $n$ 和 $m$ 分别是房间的数量以及障碍物的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -157,10 +151,6 @@ class Solution:
         dfs(0, 0, 0)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /**
  * // This is the robot's control interface.
@@ -210,8 +200,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * // This is the robot's control interface.
@@ -259,8 +247,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the robot's control interface.
@@ -306,8 +292,6 @@ func cleanRoom(robot *Robot) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * class Robot {
@@ -352,10 +336,6 @@ function cleanRoom(robot: Robot) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

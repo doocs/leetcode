@@ -74,13 +74,9 @@ Juan的工资(6100)没有被计算在排名中，因为他不属于任何一个�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -103,3 +99,5 @@ ORDER BY 4, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,14 +1,18 @@
 func maxDistance(colors []int) int {
-	n := len(colors)
-	if colors[0] != colors[n-1] {
-		return n - 1
+	ans, n := 0, len(colors)
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			if colors[i] != colors[j] {
+				ans = max(ans, abs(i-j))
+			}
+		}
 	}
-	i, j := 1, n-2
-	for colors[i] == colors[0] {
-		i++
+	return ans
+}
+
+func abs(x int) int {
+	if x >= 0 {
+		return x
 	}
-	for colors[j] == colors[0] {
-		j--
-	}
-	return max(n-i-1, j)
+	return -x
 }

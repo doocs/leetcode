@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 我们观察题目中的操作，可以发现，每一次都会在字符串的任意位置插入字符串 `"abc"`，所以每次插入操作之后，字符串的长度都会增加 $3$。如果字符串 $s$ 有效，那么它的长度一定是 $3$ 的倍数。因此，我们先对字符串 $s$ 的长度进行判断，如果不是 $3$ 的倍数，那么 $s$ 一定无效，可以直接返回 `false`。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 t[-3:] = []
         return not t
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isValid(s string) bool {
 	if len(s)%3 > 0 {
@@ -145,8 +131,6 @@ func isValid(s string) bool {
 	return len(t) == 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isValid(s: string): boolean {
@@ -164,10 +148,6 @@ function isValid(s: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

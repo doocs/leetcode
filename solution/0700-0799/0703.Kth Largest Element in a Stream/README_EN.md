@@ -46,9 +46,9 @@ kthLargest.add(4);   // return 8
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class KthLargest:
@@ -69,8 +69,6 @@ class KthLargest:
 # obj = KthLargest(k, nums)
 # param_1 = obj.add(val)
 ```
-
-### **Java**
 
 ```java
 class KthLargest {
@@ -101,7 +99,106 @@ class KthLargest {
  */
 ```
 
-### **JavaScript**
+```cpp
+class KthLargest {
+public:
+    priority_queue<int, vector<int>, greater<int>> q;
+    int size;
+
+    KthLargest(int k, vector<int>& nums) {
+        size = k;
+        for (int num : nums) add(num);
+    }
+
+    int add(int val) {
+        q.push(val);
+        if (q.size() > size) q.pop();
+        return q.top();
+    }
+};
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * KthLargest* obj = new KthLargest(k, nums);
+ * int param_1 = obj->add(val);
+ */
+```
+
+```go
+type KthLargest struct {
+	h *IntHeap
+	k int
+}
+
+func Constructor(k int, nums []int) KthLargest {
+	h := &IntHeap{}
+	heap.Init(h)
+	for _, v := range nums {
+		heap.Push(h, v)
+	}
+
+	for h.Len() > k {
+		heap.Pop(h)
+	}
+
+	return KthLargest{
+		h: h,
+		k: k,
+	}
+}
+
+func (this *KthLargest) Add(val int) int {
+	heap.Push(this.h, val)
+	for this.h.Len() > this.k {
+		heap.Pop(this.h)
+	}
+
+	return this.h.Top()
+}
+
+func connectSticks(sticks []int) int {
+	h := IntHeap(sticks)
+	heap.Init(&h)
+	res := 0
+	for h.Len() > 1 {
+		val := heap.Pop(&h).(int)
+		val += heap.Pop(&h).(int)
+		res += val
+		heap.Push(&h, val)
+	}
+	return res
+}
+
+type IntHeap []int
+
+func (h IntHeap) Len() int           { return len(h) }
+func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *IntHeap) Push(x any) {
+	*h = append(*h, x.(int))
+}
+func (h *IntHeap) Pop() any {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
+}
+
+func (h *IntHeap) Top() int {
+	if (*h).Len() == 0 {
+		return 0
+	}
+
+	return (*h)[0]
+}
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * obj := Constructor(k, nums);
+ * param_1 := obj.Add(val);
+ */
+```
 
 ```js
 /**
@@ -220,115 +317,6 @@ class MinHeap {
  */
 ```
 
-### **C++**
-
-```cpp
-class KthLargest {
-public:
-    priority_queue<int, vector<int>, greater<int>> q;
-    int size;
-
-    KthLargest(int k, vector<int>& nums) {
-        size = k;
-        for (int num : nums) add(num);
-    }
-
-    int add(int val) {
-        q.push(val);
-        if (q.size() > size) q.pop();
-        return q.top();
-    }
-};
-
-/**
- * Your KthLargest object will be instantiated and called as such:
- * KthLargest* obj = new KthLargest(k, nums);
- * int param_1 = obj->add(val);
- */
-```
-
-### **Go**
-
-```go
-type KthLargest struct {
-	h *IntHeap
-	k int
-}
-
-func Constructor(k int, nums []int) KthLargest {
-	h := &IntHeap{}
-	heap.Init(h)
-	for _, v := range nums {
-		heap.Push(h, v)
-	}
-
-	for h.Len() > k {
-		heap.Pop(h)
-	}
-
-	return KthLargest{
-		h: h,
-		k: k,
-	}
-}
-
-func (this *KthLargest) Add(val int) int {
-	heap.Push(this.h, val)
-	for this.h.Len() > this.k {
-		heap.Pop(this.h)
-	}
-
-	return this.h.Top()
-}
-
-func connectSticks(sticks []int) int {
-	h := IntHeap(sticks)
-	heap.Init(&h)
-	res := 0
-	for h.Len() > 1 {
-		val := heap.Pop(&h).(int)
-		val += heap.Pop(&h).(int)
-		res += val
-		heap.Push(&h, val)
-	}
-	return res
-}
-
-type IntHeap []int
-
-func (h IntHeap) Len() int           { return len(h) }
-func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
-func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *IntHeap) Push(x any) {
-	*h = append(*h, x.(int))
-}
-func (h *IntHeap) Pop() any {
-	old := *h
-	n := len(old)
-	x := old[n-1]
-	*h = old[0 : n-1]
-	return x
-}
-
-func (h *IntHeap) Top() int {
-	if (*h).Len() == 0 {
-		return 0
-	}
-
-	return (*h)[0]
-}
-
-/**
- * Your KthLargest object will be instantiated and called as such:
- * obj := Constructor(k, nums);
- * param_1 := obj.Add(val);
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

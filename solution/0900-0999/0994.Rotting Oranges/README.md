@@ -58,25 +58,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-首先需要确定的是，网格当中存在多少个新鲜橘子，这关系到什么时候结束。
-
-其次，腐烂橘子的坐标在哪，这些坐标要作为中心点，将腐烂传播给四方的新鲜橘子。
-
-步骤：
-
-1. 扫描网格，统计新鲜橘子的数量，记录腐烂橘子的坐标。
-2. 如果新鲜橘子的数量为 0，返回重复 2 - 5 步骤的轮数（也就是分钟）。
-3. 如果不存在**有效**的腐烂橘子，而现存的新鲜橘子不为 0，则为不可能，返回 -1。
-4. 遍历当前已记录的腐烂橘子，将四方的新鲜橘子污染。如果有新鲜橘子被污染成功，便记录该橘子的坐标，在下一轮使用（不参与本轮行动）。
-5. 回到第 2 步。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +87,6 @@ class Solution:
                         q.append((x, y))
         return ans if cnt == 0 else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,10 +124,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```cpp
 class Solution {
@@ -188,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func orangesRotting(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -227,8 +201,6 @@ func orangesRotting(grid [][]int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function orangesRotting(grid: number[][]): number {
@@ -268,8 +240,6 @@ function orangesRotting(grid: number[][]): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -325,10 +295,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

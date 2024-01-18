@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逐层模拟**
+### 方法一：逐层模拟
 
 我们先计算得到矩阵的层数 $p$，然后从外到内逐层模拟循环轮转的过程。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
             rotate(p, k)
         return grid
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -155,8 +145,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -201,8 +189,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func rotateGrid(grid [][]int, k int) [][]int {
@@ -252,8 +238,6 @@ func rotateGrid(grid [][]int, k int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rotateGrid(grid: number[][], k: number): number[][] {
     const m = grid.length;
@@ -297,10 +281,6 @@ function rotateGrid(grid: number[][], k: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

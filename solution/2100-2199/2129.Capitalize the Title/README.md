@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 直接模拟，按空格切分字符串，得到每个单词，再按题目转大小写。最后用空格连接每个单词。
 
@@ -65,20 +63,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def capitalizeTitle(self, title: str) -> str:
         words = [w.lower() if len(w) < 3 else w.capitalize() for w in title.split()]
         return " ".join(words)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func capitalizeTitle(title string) string {
 	title = strings.ToLower(title)
@@ -130,8 +116,6 @@ func capitalizeTitle(title string) string {
 	return strings.Join(words, " ")
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function capitalizeTitle(title: string): string {
@@ -147,6 +131,12 @@ function capitalizeTitle(title: string): string {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```ts
 function capitalizeTitle(title: string): string {
     return title
@@ -160,10 +150,6 @@ function capitalizeTitle(title: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,9 +43,9 @@ The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 t -= customers[j] * grumpy[j]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 	s, cs := 0, 0
@@ -135,8 +129,6 @@ func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 	return ans
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -172,10 +164,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

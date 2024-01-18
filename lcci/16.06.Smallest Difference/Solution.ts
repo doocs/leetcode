@@ -1,14 +1,25 @@
 function smallestDifference(a: number[], b: number[]): number {
-    a.sort((a, b) => a - b);
     b.sort((a, b) => a - b);
-    let [i, j] = [0, 0];
     let ans = Infinity;
-    while (i < a.length && j < b.length) {
-        ans = Math.min(ans, Math.abs(a[i] - b[j]));
-        if (a[i] < b[j]) {
-            ++i;
-        } else {
-            ++j;
+    const search = (nums: number[], x: number): number => {
+        let [l, r] = [0, nums.length];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (const x of a) {
+        const j = search(b, x);
+        if (j < b.length) {
+            ans = Math.min(ans, b[j] - x);
+        }
+        if (j > 0) {
+            ans = Math.min(ans, x - b[j - 1]);
         }
     }
     return ans;

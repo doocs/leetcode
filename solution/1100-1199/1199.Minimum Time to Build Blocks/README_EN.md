@@ -52,7 +52,7 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue (Min Heap)**
+### Solution 1: Greedy + Priority Queue (Min Heap)
 
 First, consider the case where there is only one block. In this case, there is no need to split the worker, just let him build the block directly. The time cost is $block[0]$.
 
@@ -68,8 +68,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
@@ -79,8 +77,6 @@ class Solution:
             heappush(blocks, heappop(blocks) + split)
         return blocks[0]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minBuildTime(blocks []int, split int) int {
@@ -143,8 +135,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minBuildTime(blocks: number[], split: number): number {
     const pq = new MinPriorityQueue();
@@ -158,8 +148,6 @@ function minBuildTime(blocks: number[], split: number): number {
     return pq.dequeue()!.element;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BinaryHeap;
@@ -184,10 +172,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

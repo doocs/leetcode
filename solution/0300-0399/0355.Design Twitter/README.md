@@ -52,15 +52,9 @@ twitter.getNewsFeed(1);  // 用户 1 获取推文应当返回一个列表，其�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-“哈希表 + 堆”实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Twitter:
@@ -114,10 +108,6 @@ class Twitter:
 # obj.follow(followerId,followeeId)
 # obj.unfollow(followerId,followeeId)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Twitter {
@@ -187,10 +177,6 @@ class Twitter {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

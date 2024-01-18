@@ -63,15 +63,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
         ans[1].sort()
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findWinners(matches [][]int) [][]int {
@@ -167,16 +153,84 @@ func findWinners(matches [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
-
+function findWinners(matches: number[][]): number[][] {
+    const cnt: Map<number, number> = new Map();
+    for (const [a, b] of matches) {
+        cnt.set(a, cnt.has(a) ? cnt.get(a) : 0);
+        cnt.set(b, (cnt.get(b) || 0) + 1);
+    }
+    const ans: number[][] = [[], []];
+    for (let [u, v] of cnt.entries()) {
+        if (v < 2) {
+            ans[v].push(u);
+        }
+    }
+    ans[0].sort((a, b) => a - b);
+    ans[1].sort((a, b) => a - b);
+    return ans;
+}
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[][]} matches
+ * @return {number[][]}
+ */
+var findWinners = function (matches) {
+    const cnt = new Map();
+    for (const [a, b] of matches) {
+        cnt.set(a, cnt.has(a) ? cnt.get(a) : 0);
+        cnt.set(b, (cnt.get(b) || 0) + 1);
+    }
+    const ans = [[], []];
+    for (let [u, v] of cnt.entries()) {
+        if (v < 2) {
+            ans[v].push(u);
+        }
+    }
+    ans[0].sort((a, b) => a - b);
+    ans[1].sort((a, b) => a - b);
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```js
+/**
+ * @param {number[][]} matches
+ * @return {number[][]}
+ */
+var findWinners = function (matches) {
+    const onlyWins = new Set(),
+        oneLose = new Set(),
+        moreLosses = new Set();
+
+    for (const [winner, loser] of matches) {
+        if (!moreLosses.has(loser)) {
+            if (oneLose.has(loser)) {
+                oneLose.delete(loser);
+                moreLosses.add(loser);
+            } else {
+                onlyWins.delete(loser);
+                oneLose.add(loser);
+            }
+        }
+
+        if (!moreLosses.has(winner) && !oneLose.has(winner)) {
+            onlyWins.add(winner);
+        }
+    }
+
+    return [[...onlyWins].sort((a, b) => a - b), [...oneLose].sort((a, b) => a - b)];
+};
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

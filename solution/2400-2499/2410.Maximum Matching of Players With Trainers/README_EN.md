@@ -43,9 +43,13 @@ Each player can only be matched with one trainer, so the maximum answer is 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + Two Pointers
 
-### **Python3**
+Sort the athletes by their abilities in ascending order, and select the trainer with the smallest ability that is greater than or equal to the athlete's ability.
+
+The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + \log m)$. Here, $n$ and $m$ are the number of athletes and trainers, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +65,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matchPlayersAndTrainers(players []int, trainers []int) int {
 	sort.Ints(players)
@@ -128,17 +126,6 @@ func matchPlayersAndTrainers(players []int, trainers []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

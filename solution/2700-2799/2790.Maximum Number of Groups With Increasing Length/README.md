@@ -68,13 +68,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,23 +85,6 @@ class Solution:
                 usageLimits[i + 1] += usageLimits[i]
         return k
 ```
-
-```python
-class Solution:
-    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
-        usageLimits.sort()
-        k = s = 0
-        for x in usageLimits:
-            s += x
-            if s > k:
-                k += 1
-                s -= k
-        return k
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxIncreasingGroups(usageLimits []int) int {
 	sort.Ints(usageLimits)
@@ -162,8 +137,6 @@ func maxIncreasingGroups(usageLimits []int) int {
 	return k
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxIncreasingGroups(usageLimits: number[]): number {
@@ -181,10 +154,25 @@ function maxIncreasingGroups(usageLimits: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
+        usageLimits.sort()
+        k = s = 0
+        for x in usageLimits:
+            s += x
+            if s > k:
+                k += 1
+                s -= k
+        return k
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

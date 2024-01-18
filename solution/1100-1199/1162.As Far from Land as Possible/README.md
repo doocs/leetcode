@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们可以将所有陆地单元格加入队列 $q$ 中，如果队列为空，或者队列中元素个数等于网格中的单元格个数，则说明网格中只有陆地或者海洋，返回 $-1$。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是网格的边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -170,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDistance(grid [][]int) int {
 	n := len(grid)
@@ -205,8 +191,6 @@ func maxDistance(grid [][]int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxDistance(grid: number[][]): number {
@@ -242,10 +226,6 @@ function maxDistance(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

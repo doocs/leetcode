@@ -58,9 +58,17 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table + Enumeration
 
-### **Python3**
+First, we use a hash table $d$ to record the set of characters that each character can be replaced with.
+
+Then we enumerate all substrings of length $sub$ in $s$, and judge whether the string $sub$ can be obtained by replacement. If it can, return `true`, otherwise enumerate the next substring.
+
+At the end of the enumeration, it means that $sub$ cannot be obtained by replacing any substring in $s$, so return `false`.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$. Here, $m$ and $n$ are the lengths of the strings $s$ and $sub$ respectively, and $C$ is the size of the character set.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,22 +81,6 @@ class Solution:
                 return True
         return False
 ```
-
-```python
-class Solution:
-    def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
-        d = [[False] * 128 for _ in range(128)]
-        for a, b in mappings:
-            d[ord(a)][ord(b)] = True
-        for i in range(len(s) - len(sub) + 1):
-            if all(
-                a == b or d[ord(b)][ord(a)] for a, b in zip(s[i : i + len(sub)], sub)
-            ):
-                return True
-        return False
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,33 +107,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean matchReplacement(String s, String sub, char[][] mappings) {
-        boolean[][] d = new boolean[128][128];
-        for (var e : mappings) {
-            d[e[0]][e[1]] = true;
-        }
-        int m = s.length(), n = sub.length();
-        for (int i = 0; i < m - n + 1; ++i) {
-            boolean ok = true;
-            for (int j = 0; j < n && ok; ++j) {
-                char a = s.charAt(i + j), b = sub.charAt(j);
-                if (a != b && !d[b][a]) {
-                    ok = false;
-                }
-            }
-            if (ok) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,6 +131,80 @@ public:
         return false;
     }
 };
+```
+
+```go
+func matchReplacement(s string, sub string, mappings [][]byte) bool {
+	d := map[byte]map[byte]bool{}
+	for _, e := range mappings {
+		if d[e[0]] == nil {
+			d[e[0]] = map[byte]bool{}
+		}
+		d[e[0]][e[1]] = true
+	}
+	for i := 0; i < len(s)-len(sub)+1; i++ {
+		ok := true
+		for j := 0; j < len(sub) && ok; j++ {
+			a, b := s[i+j], sub[j]
+			if a != b && !d[b][a] {
+				ok = false
+			}
+		}
+		if ok {
+			return true
+		}
+	}
+	return false
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Array + Enumeration
+
+Since the character set only contains uppercase and lowercase English letters and numbers, we can directly use a $128 \times 128$ array $d$ to record the set of characters that each character can be replaced with.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def matchReplacement(self, s: str, sub: str, mappings: List[List[str]]) -> bool:
+        d = [[False] * 128 for _ in range(128)]
+        for a, b in mappings:
+            d[ord(a)][ord(b)] = True
+        for i in range(len(s) - len(sub) + 1):
+            if all(
+                a == b or d[ord(b)][ord(a)] for a, b in zip(s[i : i + len(sub)], sub)
+            ):
+                return True
+        return False
+```
+
+```java
+class Solution {
+    public boolean matchReplacement(String s, String sub, char[][] mappings) {
+        boolean[][] d = new boolean[128][128];
+        for (var e : mappings) {
+            d[e[0]][e[1]] = true;
+        }
+        int m = s.length(), n = sub.length();
+        for (int i = 0; i < m - n + 1; ++i) {
+            boolean ok = true;
+            for (int j = 0; j < n && ok; ++j) {
+                char a = s.charAt(i + j), b = sub.charAt(j);
+                if (a != b && !d[b][a]) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ```cpp
@@ -194,33 +233,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func matchReplacement(s string, sub string, mappings [][]byte) bool {
-	d := map[byte]map[byte]bool{}
-	for _, e := range mappings {
-		if d[e[0]] == nil {
-			d[e[0]] = map[byte]bool{}
-		}
-		d[e[0]][e[1]] = true
-	}
-	for i := 0; i < len(s)-len(sub)+1; i++ {
-		ok := true
-		for j := 0; j < len(sub) && ok; j++ {
-			a, b := s[i+j], sub[j]
-			if a != b && !d[b][a] {
-				ok = false
-			}
-		}
-		if ok {
-			return true
-		}
-	}
-	return false
-}
-```
-
 ```go
 func matchReplacement(s string, sub string, mappings [][]byte) bool {
 	d := [128][128]bool{}
@@ -243,16 +255,6 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,9 @@ The sum of powers of all groups is 8 + 1 + 64 + 4 + 32 + 16 + 16 = 141.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
             p = (p * 2 + x * x) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfPower(nums []int) (ans int) {
 	const mod = 1e9 + 7
@@ -120,8 +114,6 @@ func sumOfPower(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfPower(nums: number[]): number {
@@ -139,10 +131,6 @@ function sumOfPower(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

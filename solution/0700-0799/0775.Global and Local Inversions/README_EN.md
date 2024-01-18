@@ -52,9 +52,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,6 +65,54 @@ class Solution:
                 return False
         return True
 ```
+
+```java
+class Solution {
+    public boolean isIdealPermutation(int[] nums) {
+        int mx = 0;
+        for (int i = 2; i < nums.length; ++i) {
+            mx = Math.max(mx, nums[i - 2]);
+            if (mx > nums[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isIdealPermutation(vector<int>& nums) {
+        int mx = 0;
+        for (int i = 2; i < nums.size(); ++i) {
+            mx = max(mx, nums[i - 2]);
+            if (mx > nums[i]) return false;
+        }
+        return true;
+    }
+};
+```
+
+```go
+func isIdealPermutation(nums []int) bool {
+	mx := 0
+	for i := 2; i < len(nums); i++ {
+		mx = max(mx, nums[i-2])
+		if mx > nums[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -97,23 +145,6 @@ class Solution:
                 return False
             tree.update(v + 1, 1)
         return True
-```
-
-### **Java**
-
-```java
-class Solution {
-    public boolean isIdealPermutation(int[] nums) {
-        int mx = 0;
-        for (int i = 2; i < nums.length; ++i) {
-            mx = Math.max(mx, nums[i - 2]);
-            if (mx > nums[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
 ```
 
 ```java
@@ -158,22 +189,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isIdealPermutation(vector<int>& nums) {
-        int mx = 0;
-        for (int i = 2; i < nums.size(); ++i) {
-            mx = max(mx, nums[i - 2]);
-            if (mx > nums[i]) return false;
-        }
-        return true;
-    }
-};
-```
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -216,21 +231,6 @@ public:
         return cnt == 0;
     }
 };
-```
-
-### **Go**
-
-```go
-func isIdealPermutation(nums []int) bool {
-	mx := 0
-	for i := 2; i < len(nums); i++ {
-		mx = max(mx, nums[i-2])
-		if mx > nums[i] {
-			return false
-		}
-	}
-	return true
-}
 ```
 
 ```go
@@ -278,10 +278,6 @@ func (this BinaryIndexedTree) query(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

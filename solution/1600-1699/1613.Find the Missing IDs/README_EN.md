@@ -53,9 +53,9 @@ The maximum customer_id present in the table is 5, so in the range [1,5], IDs 2 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -86,3 +86,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -3,6 +3,6 @@ class Solution:
         cnt = Counter()
         ans = 0
         for w in words:
-            ans += cnt[w]
-            cnt[w[::-1]] += 1
+            ans += cnt[w[::-1]]
+            cnt[w] += 1
         return ans

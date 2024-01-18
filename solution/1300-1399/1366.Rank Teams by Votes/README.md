@@ -78,19 +78,13 @@ C 队获得两票「排位第一」，两票「排位第二」，两票「排位
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 自定义排序**
+### 方法一：计数 + 自定义排序
 
 对于每个候选人，我们可以统计他在每个排位上的票数，然后根据不同的排位依次比较票数，票数相同则比较字母。
 
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为候选人的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
                 cnt[c][i] += 1
         return "".join(sorted(votes[0], key=lambda x: (cnt[x], -ord(x)), reverse=True))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rankTeams(votes []string) string {
 	cnt := [26][26]int{}
@@ -194,10 +180,6 @@ func rankTeams(votes []string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

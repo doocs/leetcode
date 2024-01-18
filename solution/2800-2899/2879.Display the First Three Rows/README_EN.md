@@ -47,9 +47,9 @@ Only the first 3 rows are displayed.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -59,10 +59,6 @@ def selectFirstRows(employees: pd.DataFrame) -> pd.DataFrame:
     return employees.head(3)
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

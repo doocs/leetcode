@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用一个哈希表 $pos$ 记录所有有石块的位置，初始时 $pos$ 中包含 $nums$ 中的所有元素。然后我们遍历 $moveFrom$ 和 $moveTo$，每次将 $moveFrom[i]$ 从 $pos$ 中移除，再将 $moveTo[i]$ 添加到 $pos$ 中。最后我们将 $pos$ 中的元素排序后返回即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             pos.add(t)
         return sorted(pos)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
@@ -146,8 +132,6 @@ func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): number[] {
     const pos: Set<number> = new Set(nums);
@@ -161,10 +145,6 @@ function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

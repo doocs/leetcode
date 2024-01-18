@@ -31,9 +31,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
@@ -49,10 +47,6 @@
 解决方案是直接遍历数组，每个位置先求出 `query(a[i])`，然后再修改树状数组 `update(a[i], 1)` 即可。当数的范围比较大时，需要进行离散化，即先进行去重并排序，然后对每个数字进行编号。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -93,10 +87,6 @@ class StreamRank:
 # obj.track(x)
 # param_2 = obj.getRankOfNumber(x)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -152,8 +142,6 @@ class StreamRank {
  * int param_2 = obj.getRankOfNumber(x);
  */
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -211,8 +199,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -269,10 +255,6 @@ func (this *StreamRank) GetRankOfNumber(x int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@ myCalendarThree.book(25, 55); // 返回 3
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：线段树**
+### 方法一：线段树
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $log(width)$。更新某个元素的值，只需要更新 $log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
 
@@ -70,10 +68,6 @@ myCalendarThree.book(25, 55); // 返回 3
 时间复杂度 $O(nlogn)$，其中 $n$ 表示日程安排的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -151,10 +145,6 @@ class MyCalendarThree:
 # obj = MyCalendarThree()
 # param_1 = obj.book(start,end)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
@@ -264,8 +254,6 @@ class MyCalendarThree {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -365,8 +353,6 @@ public:
  * int param_1 = obj->book(start,end);
  */
 ```
-
-### **Go**
 
 ```go
 type node struct {
@@ -471,10 +457,6 @@ func (this *MyCalendarThree) Book(start int, end int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

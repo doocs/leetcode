@@ -47,21 +47,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Single Pass
 
-### **Python3**
+Traverse the array, find all indices equal to $target$, then calculate $|i - start|$, and take the minimum value.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
-        ans = inf
-        for i, x in enumerate(nums):
-            if x == target:
-                ans = min(ans, abs(i - start))
-        return ans
+        return min(abs(i - start) for i, x in enumerate(nums) if x == target)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getMinDistance(nums []int, target int, start int) int {
@@ -117,10 +111,31 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
+```ts
+function getMinDistance(nums: number[], target: number, start: number): number {
+    let ans = Infinity;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] === target) {
+            ans = Math.min(ans, Math.abs(i - start));
+        }
+    }
+    return ans;
+}
 ```
 
+```rust
+impl Solution {
+    pub fn get_min_distance(nums: Vec<i32>, target: i32, start: i32) -> i32 {
+        nums.iter()
+            .enumerate()
+            .filter(|&(_, &x)| x == target)
+            .map(|(i, _)| ((i as i32) - start).abs())
+            .min()
+            .unwrap_or_default()
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

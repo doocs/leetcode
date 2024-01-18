@@ -62,26 +62,23 @@ Scores table:
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
 
-**Solution 1: Use `DENSE_RANK()`**
+```python
+import pandas as pd
 
-Use `DENSE_RANK()` to solve this problem.
 
-```sql
-DENSE_RANK() OVER (
-    PARTITION BY <expression>[{,<expression>...}]
-    ORDER BY <expression> [ASC|DESC], [{,<expression>...}]
-)
+def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
+    # Use the rank method to assign ranks to the scores in descending order with no gaps
+    scores["rank"] = scores["score"].rank(method="dense", ascending=False)
+
+    # Drop id column & Sort the DataFrame by score in descending order
+    result_df = scores.drop("id", axis=1).sort_values(by="score", ascending=False)
+
+    return result_df
 ```
-
-**Solution 2: Use variables**
-
-MySQL only provides [window function](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html) after version 8. In previous versions, variables can be used to achieve similar functions.
-
-<!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -90,6 +87,12 @@ SELECT
     DENSE_RANK() OVER (ORDER BY score DESC) AS 'rank'
 FROM Scores;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -113,20 +116,6 @@ FROM
     ) s;
 ```
 
-### **Pandas**
-
-```python
-import pandas as pd
-
-
-def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
-    # Use the rank method to assign ranks to the scores in descending order with no gaps
-    scores["rank"] = scores["score"].rank(method="dense", ascending=False)
-
-    # Drop id column & Sort the DataFrame by score in descending order
-    result_df = scores.drop("id", axis=1).sort_values(by="score", ascending=False)
-
-    return result_df
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

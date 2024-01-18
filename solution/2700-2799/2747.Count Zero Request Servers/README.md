@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：离线查询 + 排序 + 双指针**
+### 方法一：离线查询 + 排序 + 双指针
 
 我们可以将所有的查询按照时间从小到大排序，然后按照时间顺序依次处理每个查询。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(l \times \log l + m \times \log m + n)$，空间复杂度 $O(l + m)$。其中 $l$ 和 $n$ 分别是数组 $logs$ 的长度和服务器的数量，而 $m$ 是数组 $queries$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
             ans[i] = n - len(cnt)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -164,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countServers(n int, logs [][]int, x int, queries []int) []int {
 	sort.Slice(logs, func(i, j int) bool { return logs[i][1] < logs[j][1] })
@@ -197,8 +183,6 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countServers(n: number, logs: number[][], x: number, queries: number[]): number[] {
@@ -232,10 +216,6 @@ function countServers(n: number, logs: number[][], x: number, queries: number[])
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

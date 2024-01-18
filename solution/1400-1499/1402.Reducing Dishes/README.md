@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 假如我们只选择一道菜，那么我们应该选择满意度最大的那道菜 $s_0$，并且判断 $s_0$ 是否大于 0，如果 $s_0 \leq 0$，那么我们就不做菜了，否则我们做这道菜，得到的总满意度为 $s_0$。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
@@ -83,10 +77,6 @@ class Solution:
             ans += s
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSatisfaction(satisfaction []int) (ans int) {
 	sort.Slice(satisfaction, func(i, j int) bool { return satisfaction[i] > satisfaction[j] })
@@ -141,8 +127,6 @@ func maxSatisfaction(satisfaction []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSatisfaction(satisfaction: number[]): number {
@@ -159,10 +143,6 @@ function maxSatisfaction(satisfaction: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

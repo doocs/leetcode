@@ -28,9 +28,27 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Binary Search
 
-### **Python3**
+We define the left boundary of the binary search as $l=0$ and the right boundary as $r=n-1$, where $n$ is the length of the array.
+
+In each binary search process, we get the current midpoint $mid=(l+r)/2$.
+
+-   If $nums[mid] > nums[r]$, it means that $[l,mid]$ is ordered. If $nums[l] \leq target \leq nums[mid]$, it means that $target$ is in $[l,mid]$, otherwise $target$ is in $[mid+1,r]$.
+-   If $nums[mid] < nums[r]$, it means that $[mid+1,r]$ is ordered. If $nums[mid] < target \leq nums[r]$, it means that $target$ is in $[mid+1,r]$, otherwise $target$ is in $[l,mid]$.
+-   If $nums[mid] = nums[r]$, it means that the elements $nums[mid]$ and $nums[r]$ are equal. At this time, we cannot determine which interval $target$ is in, we can only decrease $r$ by $1$.
+
+After the binary search ends, if $nums[l] = target$, it means that the target value $target$ exists in the array, otherwise it does not exist.
+
+Note that if initially $nums[l] = nums[r]$, we loop to decrease $r$ by $1$ until $nums[l] \neq nums[r]$.
+
+The time complexity is approximately $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+
+Similar problems:
+
+-   [81. Search in Rotated Sorted Array II](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +72,6 @@ class Solution:
                 r -= 1
         return l if arr[l] == target else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func search(arr []int, target int) int {
 	l, r := 0, len(arr)-1
@@ -153,8 +165,6 @@ func search(arr []int, target int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function search(arr: number[], target: number): number {
     let [l, r] = [0, arr.length - 1];
@@ -183,10 +193,6 @@ function search(arr: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

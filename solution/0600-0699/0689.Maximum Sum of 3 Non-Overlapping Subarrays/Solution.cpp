@@ -1,46 +1,33 @@
 class Solution {
 public:
     vector<int> maxSumOfThreeSubarrays(vector<int>& nums, int k) {
-        int n = nums.size();
-        vector<int> s(n + 1, 0);
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
-
-        vector<vector<int>> pre(n, vector<int>(2, 0));
-        vector<vector<int>> suf(n, vector<int>(2, 0));
-
-        for (int i = 0, t = 0, idx = 0; i < n - k + 1; ++i) {
-            int cur = s[i + k] - s[i];
-            if (cur > t) {
-                pre[i + k - 1] = {cur, i};
-                t = cur;
-                idx = i;
-            } else {
-                pre[i + k - 1] = {t, idx};
+        vector<int> ans(3);
+        int s = 0, s1 = 0, s2 = 0, s3 = 0;
+        int mx1 = 0, mx12 = 0;
+        int idx1 = 0, idx121 = 0, idx122 = 0;
+        for (int i = k * 2; i < nums.size(); ++i) {
+            s1 += nums[i - k * 2];
+            s2 += nums[i - k];
+            s3 += nums[i];
+            if (i >= k * 3 - 1) {
+                if (s1 > mx1) {
+                    mx1 = s1;
+                    idx1 = i - k * 3 + 1;
+                }
+                if (mx1 + s2 > mx12) {
+                    mx12 = mx1 + s2;
+                    idx121 = idx1;
+                    idx122 = i - k * 2 + 1;
+                }
+                if (mx12 + s3 > s) {
+                    s = mx12 + s3;
+                    ans = {idx121, idx122, i - k + 1};
+                }
+                s1 -= nums[i - k * 3 + 1];
+                s2 -= nums[i - k * 2 + 1];
+                s3 -= nums[i - k + 1];
             }
         }
-
-        for (int i = n - k, t = 0, idx = 0; i >= 0; --i) {
-            int cur = s[i + k] - s[i];
-            if (cur >= t) {
-                suf[i] = {cur, i};
-                t = cur;
-                idx = i;
-            } else {
-                suf[i] = {t, idx};
-            }
-        }
-
-        vector<int> ans;
-        for (int i = k, t = 0; i < n - 2 * k + 1; ++i) {
-            int cur = s[i + k] - s[i] + pre[i - 1][0] + suf[i + k][0];
-            if (cur > t) {
-                ans = {pre[i - 1][1], i, suf[i + k][1]};
-                t = cur;
-            }
-        }
-
         return ans;
     }
 };

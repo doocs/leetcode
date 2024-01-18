@@ -42,7 +42,7 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We use a hash table $cnt$ to count the number of occurrences of each word in $book$.
 
@@ -51,8 +51,6 @@ When calling the `get` function, we only need to return the number of occurrence
 In terms of time complexity, the time complexity of initializing the hash table $cnt$ is $O(n)$, where $n$ is the length of $book$. The time complexity of the `get` function is $O(1)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class WordsFrequency:
@@ -67,8 +65,6 @@ class WordsFrequency:
 # obj = WordsFrequency(book)
 # param_1 = obj.get(word)
 ```
-
-### **Java**
 
 ```java
 class WordsFrequency {
@@ -91,8 +87,6 @@ class WordsFrequency {
  * int param_1 = obj.get(word);
  */
 ```
-
-### **C++**
 
 ```cpp
 class WordsFrequency {
@@ -118,8 +112,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type WordsFrequency struct {
 	cnt map[string]int
@@ -144,36 +136,6 @@ func (this *WordsFrequency) Get(word string) int {
  */
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string[]} book
- */
-var WordsFrequency = function (book) {
-    this.cnt = new Map();
-    for (const x of book) {
-        this.cnt.set(x, (this.cnt.get(x) || 0) + 1);
-    }
-};
-
-/**
- * @param {string} word
- * @return {number}
- */
-WordsFrequency.prototype.get = function (word) {
-    return this.cnt.get(word) || 0;
-};
-
-/**
- * Your WordsFrequency object will be instantiated and called as such:
- * var obj = new WordsFrequency(book)
- * var param_1 = obj.get(word)
- */
-```
-
-### **TypeScript**
-
 ```ts
 class WordsFrequency {
     private cnt: Map<string, number>;
@@ -197,8 +159,6 @@ class WordsFrequency {
  * var param_1 = obj.get(word)
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -229,10 +189,32 @@ impl WordsFrequency {
  */
 ```
 
-### **...**
+```js
+/**
+ * @param {string[]} book
+ */
+var WordsFrequency = function (book) {
+    this.cnt = new Map();
+    for (const x of book) {
+        this.cnt.set(x, (this.cnt.get(x) || 0) + 1);
+    }
+};
 
-```
+/**
+ * @param {string} word
+ * @return {number}
+ */
+WordsFrequency.prototype.get = function (word) {
+    return this.cnt.get(word) || 0;
+};
 
+/**
+ * Your WordsFrequency object will be instantiated and called as such:
+ * var obj = new WordsFrequency(book)
+ * var param_1 = obj.get(word)
+ */
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 动态规划**
+### 方法一：排序 + 动态规划
 
 根据题目描述，长方体 $j$ 能够放在长方体 $i$ 上，当且仅当长方体 $j$ 的“长、宽、高”分别小于等于长方体 $i$ 的“长、宽、高”。
 
@@ -87,10 +85,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxHeight(self, cuboids: List[List[int]]) -> int:
@@ -106,10 +100,6 @@ class Solution:
             f[i] += cuboids[i][2]
         return max(f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +144,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxHeight(cuboids [][]int) int {
@@ -181,8 +167,6 @@ func maxHeight(cuboids [][]int) int {
 	return slices.Max(f)
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -211,10 +195,6 @@ var maxHeight = function (cuboids) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

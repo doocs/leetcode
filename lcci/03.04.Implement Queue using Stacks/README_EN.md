@@ -40,9 +40,9 @@ queue.empty(); // return false</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MyQueue:
@@ -90,8 +90,6 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 ```
-
-### **Java**
 
 ```java
 class MyQueue {
@@ -144,8 +142,6 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
-
-### **Go**
 
 ```go
 type MyQueue struct {
@@ -205,8 +201,6 @@ func (this *MyQueue) transfer() {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class MyQueue {
     private inStack: number[];
@@ -256,10 +250,6 @@ class MyQueue {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -63,11 +63,9 @@ Sessions 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 SELECT '[0-5>' AS bin, COUNT(1) AS total FROM Sessions WHERE duration < 300
@@ -80,3 +78,5 @@ SELECT '15 or more' AS bin, COUNT(1) AS total FROM Sessions WHERE 900 <= duratio
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

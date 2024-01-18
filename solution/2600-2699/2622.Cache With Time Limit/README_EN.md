@@ -67,9 +67,9 @@ At t=250, count() returns 0 because the cache is empty.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 class TimeLimitedCache {
@@ -117,10 +117,6 @@ class TimeLimitedCache {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,13 +53,11 @@ Products table:
 
 ## Solutions
 
-**Solution 1: Subquery + Join**
+### Solution 1: Subquery + Join
 
 We can use a subquery to find the price of the last price change for each product before the given date, and record it in the `P` table. Then, we can find all `product_id`s in the `T` table. Finally, we can left join the `T` table with the `P` table on `product_id` to get the final result.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -81,6 +79,12 @@ FROM
     T
     LEFT JOIN P USING (product_id);
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -110,3 +114,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

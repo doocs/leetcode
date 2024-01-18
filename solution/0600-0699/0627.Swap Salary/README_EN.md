@@ -58,9 +58,9 @@ Salary table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 UPDATE salary
@@ -70,6 +70,12 @@ SET sex = CASE sex
 END;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 UPDATE Salary
@@ -77,3 +83,5 @@ SET sex = IF(sex = 'f', 'm', 'f');
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

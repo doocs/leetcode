@@ -11,21 +11,18 @@ class Node:
 
 class Solution:
     def connect(self, root: "Node") -> "Node":
-        def modify(curr):
-            nonlocal prev, next
-            if curr is None:
-                return
-            next = next or curr
-            if prev:
-                prev.next = curr
-            prev = curr
-
-        node = root
-        while node:
-            prev = next = None
-            while node:
-                modify(node.left)
-                modify(node.right)
-                node = node.next
-            node = next
+        if root is None:
+            return root
+        q = deque([root])
+        while q:
+            p = None
+            for _ in range(len(q)):
+                node = q.popleft()
+                if p:
+                    p.next = node
+                p = node
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
         return root

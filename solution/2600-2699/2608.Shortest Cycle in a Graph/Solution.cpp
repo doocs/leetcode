@@ -8,32 +8,28 @@ public:
             g[v].push_back(u);
         }
         const int inf = 1 << 30;
-        auto bfs = [&](int u) -> int {
+        auto bfs = [&](int u, int v) -> int {
             int dist[n];
-            memset(dist, -1, sizeof(dist));
+            fill(dist, dist + n, inf);
             dist[u] = 0;
-            queue<pair<int, int>> q;
-            q.emplace(u, -1);
-            int ans = inf;
+            queue<int> q{{u}};
             while (!q.empty()) {
-                auto p = q.front();
-                u = p.first;
-                int fa = p.second;
+                int i = q.front();
                 q.pop();
-                for (int v : g[u]) {
-                    if (dist[v] < 0) {
-                        dist[v] = dist[u] + 1;
-                        q.emplace(v, u);
-                    } else if (v != fa) {
-                        ans = min(ans, dist[u] + dist[v] + 1);
+                for (int j : g[i]) {
+                    if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
+                        continue;
                     }
+                    dist[j] = dist[i] + 1;
+                    q.push(j);
                 }
             }
-            return ans;
+            return dist[v] + 1;
         };
         int ans = inf;
-        for (int i = 0; i < n; ++i) {
-            ans = min(ans, bfs(i));
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            ans = min(ans, bfs(u, v));
         }
         return ans < inf ? ans : -1;
     }

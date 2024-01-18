@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树形 DP（换根）**
+### 方法一：树形 DP（换根）
 
 我们先跑一遍 DFS，计算出每个节点的子树大小，记录在数组 $size$ 中，并且统计出节点 $0$ 到其他节点的距离之和，记录在 $ans[0]$ 中。
 
@@ -70,10 +68,6 @@
 -   [2581. 统计可能的树根数目](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
         dfs2(0, -1, ans[0])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -153,8 +143,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -195,8 +183,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfDistancesInTree(n int, edges [][]int) []int {
 	g := make([][]int, n)
@@ -233,8 +219,6 @@ func sumOfDistancesInTree(n int, edges [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -268,10 +252,6 @@ function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

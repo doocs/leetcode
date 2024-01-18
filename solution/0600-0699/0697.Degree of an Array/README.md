@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 遍历数组，用哈希表记录数组每个元素出现的次数，以及首次、末次出现的位置。然后遍历哈希表，获取元素出现次数最多（可能有多个）且首末位置差最小的数。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                     ans = t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findShortestSubArray(nums []int) int {
 	cnt := map[int]int{}
@@ -174,6 +160,12 @@ func findShortestSubArray(nums []int) int {
 	return ans
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```go
 func findShortestSubArray(nums []int) (ans int) {
@@ -231,10 +223,6 @@ func getMaxDegreeElem(maxDegree int, numsMap map[int]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

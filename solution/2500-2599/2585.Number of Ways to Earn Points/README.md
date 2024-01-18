@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示前 $i$ 种类型的题目中，恰好得到 $j$ 分的方法数。初始时 $f[0][0] = 1$，其余 $f[i][j] = 0$。答案即为 $f[n][target]$。
 
@@ -84,10 +82,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def waysToReachTarget(self, target: int, types: List[List[int]]) -> int:
@@ -103,10 +97,6 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][j - k * marks]) % mod
         return f[n][target]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +119,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToReachTarget(target int, types [][]int) int {
 	n := len(types)
@@ -181,8 +167,6 @@ func waysToReachTarget(target int, types [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function waysToReachTarget(target: number, types: number[][]): number {
     const n = types.length;
@@ -203,10 +187,6 @@ function waysToReachTarget(target: number, types: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

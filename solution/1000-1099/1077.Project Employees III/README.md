@@ -80,15 +80,11 @@ Employee 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：内连接 + 窗口函数**
+### 方法一：内连接 + 窗口函数
 
 我们先将 `Project` 表和 `Employee` 表进行内连接，然后使用窗口函数 `rank()` 对 `Project` 表进行分组，按照 `experience_years` 降序排列，最后取出每个项目中经验最丰富的雇员。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -110,3 +106,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

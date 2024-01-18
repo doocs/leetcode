@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：三次翻转**
+### 方法一：三次翻转
 
 我们不妨记数组长度为 $n$，然后将 $k$ 对 $n$ 取模，得到实际需要旋转的步数 $k$。
 
@@ -73,10 +71,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
@@ -91,17 +85,6 @@ class Solution:
         reverse(0, k - 1)
         reverse(k, n - 1)
 ```
-
-```python
-class Solution:
-    def rotate(self, nums: List[int], k: int) -> None:
-        k %= len(nums)
-        nums[:] = nums[-k:] + nums[:-k]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func rotate(nums []int, k int) {
@@ -157,8 +136,6 @@ func rotate(nums []int, k int) {
 	reverse(k, n-1)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -180,7 +157,37 @@ function rotate(nums: number[], k: number): void {
 }
 ```
 
-### **C#**
+```rust
+impl Solution {
+    pub fn rotate(nums: &mut Vec<i32>, k: i32) {
+        let n = nums.len();
+        let k = (k as usize) % n;
+        nums.reverse();
+        nums[..k].reverse();
+        nums[k..].reverse();
+    }
+}
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function (nums, k) {
+    const n = nums.length;
+    k %= n;
+    const reverse = (i, j) => {
+        for (; i < j; ++i, --j) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
+    };
+    reverse(0, n - 1);
+    reverse(0, k - 1);
+    reverse(k, n - 1);
+};
+```
 
 ```cs
 public class Solution {
@@ -205,46 +212,19 @@ public class Solution {
 }
 ```
 
-### **JavaScript**
+<!-- tabs:end -->
 
-```js
-/**
- * @param {number[]} nums
- * @param {number} k
- * @return {void} Do not return anything, modify nums in-place instead.
- */
-var rotate = function (nums, k) {
-    const n = nums.length;
-    k %= n;
-    const reverse = (i, j) => {
-        for (; i < j; ++i, --j) {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-        }
-    };
-    reverse(0, n - 1);
-    reverse(0, k - 1);
-    reverse(k, n - 1);
-};
-```
+### 方法二
 
-### **Rust**
+<!-- tabs:start -->
 
-```rust
-impl Solution {
-    pub fn rotate(nums: &mut Vec<i32>, k: i32) {
-        let n = nums.len();
-        let k = (k as usize) % n;
-        nums.reverse();
-        nums[..k].reverse();
-        nums[k..].reverse();
-    }
-}
-```
-
-### **...**
-
-```
-
+```python
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        k %= len(nums)
+        nums[:] = nums[-k:] + nums[:-k]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

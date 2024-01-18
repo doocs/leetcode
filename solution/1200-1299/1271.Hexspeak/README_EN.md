@@ -35,9 +35,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simulation
 
-### **Python3**
+Convert the number to a hexadecimal string, then traverse the string, convert the number $0$ to the letter $O$, and the number $1$ to the letter $I$. Finally, check whether the converted string is valid.
+
+The time complexity is $O(\log n)$, where $n$ is the size of the decimal number represented by $num$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -46,8 +50,6 @@ class Solution:
         t = hex(int(num))[2:].upper().replace('0', 'O').replace('1', 'I')
         return t if all(c in s for c in t) else 'ERROR'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -89,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func toHexspeak(num string) string {
 	x, _ := strconv.Atoi(num)
@@ -106,10 +104,6 @@ func toHexspeak(num string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

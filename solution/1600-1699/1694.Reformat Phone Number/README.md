@@ -85,11 +85,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：简单模拟
 
-**方法一：简单模拟**
-
-先按照题意，去除字符串中的所有空格和破折号。
+我们先按照题意，去除字符串中的所有空格和破折号。
 
 记当前字符串长度为 $n$，然后从前往后遍历字符串，每 $3$ 个字符为一组，将其加入结果字符串中，共取 $n / 3$ 组。
 
@@ -100,10 +98,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -118,10 +112,6 @@ class Solution:
             ans.append(number[-2:])
         return "-".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -142,8 +132,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -177,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reformatNumber(number string) string {
 	number = strings.ReplaceAll(number, " ", "")
@@ -198,8 +184,6 @@ func reformatNumber(number string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reformatNumber(number: string): string {
     const cs = [...number].filter(c => c !== ' ' && c !== '-');
@@ -214,8 +198,6 @@ function reformatNumber(number: string): string {
         .join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -238,10 +220,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

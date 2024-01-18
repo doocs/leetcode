@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符比较**
+### 方法一：字符比较
 
 我们以第一个字符串 $strs[0]$ 为基准，依次比较后面的字符串的第 $i$ 个字符是否与 $strs[0]$ 的第 $i$ 个字符相同，如果相同则继续比较下一个字符，否则返回 $strs[0]$ 的前 $i$ 个字符。
 
@@ -49,10 +47,6 @@
 时间复杂度 $(n \times m)$，其中 $n$ 和 $m$ 分别为字符串数组的长度以及字符串的最小长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
                     return s[:i]
         return strs[0]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestCommonPrefix(strs []string) string {
 	n := len(strs)
@@ -119,7 +105,55 @@ func longestCommonPrefix(strs []string) string {
 }
 ```
 
-### **C#**
+```ts
+function longestCommonPrefix(strs: string[]): string {
+    const len = strs.reduce((r, s) => Math.min(r, s.length), Infinity);
+    for (let i = len; i > 0; i--) {
+        const target = strs[0].slice(0, i);
+        if (strs.every(s => s.slice(0, i) === target)) {
+            return target;
+        }
+    }
+    return '';
+}
+```
+
+```rust
+impl Solution {
+    pub fn longest_common_prefix(strs: Vec<String>) -> String {
+        let mut len = strs
+            .iter()
+            .map(|s| s.len())
+            .min()
+            .unwrap();
+        for i in (1..=len).rev() {
+            let mut is_equal = true;
+            let target = strs[0][0..i].to_string();
+            if strs.iter().all(|s| target == s[0..i]) {
+                return target;
+            }
+        }
+        String::new()
+    }
+}
+```
+
+```js
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function (strs) {
+    for (let j = 0; j < strs[0].length; j++) {
+        for (let i = 0; i < strs.length; i++) {
+            if (strs[0][j] !== strs[i][j]) {
+                return strs[0].substring(0, j);
+            }
+        }
+    }
+    return strs[0];
+};
+```
 
 ```cs
 public class Solution {
@@ -137,7 +171,26 @@ public class Solution {
 }
 ```
 
-### **Ruby**
+```php
+class Solution {
+    /**
+     * @param String[] $strs
+     * @return String
+     */
+    function longestCommonPrefix($strs) {
+        $rs = '';
+        for ($i = 0; $i < strlen($strs[0]); $i++) {
+            for ($j = 1; $j < count($strs); $j++) {
+                if ($strs[0][$i] != $strs[$j][$i]) {
+                    return $rs;
+                }
+            }
+            $rs = $rs . $strs[0][$i];
+        }
+        return $rs;
+    }
+}
+```
 
 ```rb
 # @param {String[]} strs
@@ -167,89 +220,6 @@ def longest_common_prefix(strs)
 end
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string[]} strs
- * @return {string}
- */
-var longestCommonPrefix = function (strs) {
-    for (let j = 0; j < strs[0].length; j++) {
-        for (let i = 0; i < strs.length; i++) {
-            if (strs[0][j] !== strs[i][j]) {
-                return strs[0].substring(0, j);
-            }
-        }
-    }
-    return strs[0];
-};
-```
-
-### **TypeScript**
-
-```ts
-function longestCommonPrefix(strs: string[]): string {
-    const len = strs.reduce((r, s) => Math.min(r, s.length), Infinity);
-    for (let i = len; i > 0; i--) {
-        const target = strs[0].slice(0, i);
-        if (strs.every(s => s.slice(0, i) === target)) {
-            return target;
-        }
-    }
-    return '';
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn longest_common_prefix(strs: Vec<String>) -> String {
-        let mut len = strs
-            .iter()
-            .map(|s| s.len())
-            .min()
-            .unwrap();
-        for i in (1..=len).rev() {
-            let mut is_equal = true;
-            let target = strs[0][0..i].to_string();
-            if strs.iter().all(|s| target == s[0..i]) {
-                return target;
-            }
-        }
-        String::new()
-    }
-}
-```
-
-### **PHP**
-
-```php
-class Solution {
-    /**
-     * @param String[] $strs
-     * @return String
-     */
-    function longestCommonPrefix($strs) {
-        $rs = '';
-        for ($i = 0; $i < strlen($strs[0]); $i++) {
-            for ($j = 1; $j < count($strs); $j++) {
-                if ($strs[0][$i] != $strs[$j][$i]) {
-                    return $rs;
-                }
-            }
-            $rs = $rs . $strs[0][$i];
-        }
-        return $rs;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

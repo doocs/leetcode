@@ -52,9 +52,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Preprocessing + Enumeration
 
-### **Python3**
+We can first preprocess all substrings of length $1$ to $32$ into their corresponding decimal values, find the minimum index and the corresponding right endpoint index for each value, and store them in the hash table $d$.
+
+Then we enumerate each query. For each query $[first, second]$, we only need to check in the hash table $d$ whether there exists a key-value pair with the key as $first \oplus second$. If it exists, add the corresponding minimum index and right endpoint index to the answer array. Otherwise, add $[-1, -1]$.
+
+The time complexity is $O(n \times \log M + m)$, and the space complexity is $O(n \times \log M)$. Where $n$ and $m$ are the lengths of the string $s$ and the query array $queries$ respectively, and $M$ can take the maximum value of an integer $2^{31} - 1$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +79,6 @@ class Solution:
                     break
         return [d.get(first ^ second, [-1, -1]) for first, second in queries]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 	d := map[int][]int{}
@@ -168,10 +168,6 @@ func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

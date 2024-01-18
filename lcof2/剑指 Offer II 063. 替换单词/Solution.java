@@ -1,45 +1,17 @@
-class Trie {
-    Trie[] children = new Trie[26];
-    String v;
-
-    void insert(String word) {
-        Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
-            }
-            node = node.children[c];
-        }
-        node.v = word;
-    }
-
-    String search(String word) {
-        Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                return word;
-            }
-            node = node.children[c];
-            if (node.v != null) {
-                return node.v;
-            }
-        }
-        return word;
-    }
-}
-
 class Solution {
     public String replaceWords(List<String> dictionary, String sentence) {
-        Trie trie = new Trie();
-        for (String v : dictionary) {
-            trie.insert(v);
+        Set<String> s = new HashSet<>(dictionary);
+        String[] words = sentence.split(" ");
+        for (int i = 0; i < words.length; ++i) {
+            String word = words[i];
+            for (int j = 1; j <= word.length(); ++j) {
+                String t = word.substring(0, j);
+                if (s.contains(t)) {
+                    words[i] = t;
+                    break;
+                }
+            }
         }
-        List<String> ans = new ArrayList<>();
-        for (String v : sentence.split("\\s")) {
-            ans.add(trie.search(v));
-        }
-        return String.join(" ", ans);
+        return String.join(" ", words);
     }
 }

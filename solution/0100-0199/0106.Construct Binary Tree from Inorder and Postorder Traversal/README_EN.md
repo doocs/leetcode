@@ -36,15 +36,13 @@
 
 ## Solutions
 
-**Solution 1: Recursion**
+### Solution 1: Recursion
 
 The approach is the same as in [105. Construct Binary Tree from Preorder and Inorder Traversal](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md).
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -64,8 +62,6 @@ class Solution:
         root.right = self.buildTree(inorder[i + 1 :], postorder[i:-1])
         return root
 ```
-
-### **Java**
 
 ```java
 /**
@@ -107,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -142,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -174,8 +166,6 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -205,8 +195,6 @@ function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
     );
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -278,10 +266,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -35,13 +35,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -68,10 +64,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -110,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -144,6 +134,69 @@ public:
 };
 ```
 
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
+	var prev, ans *TreeNode
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		if prev == p {
+			ans = root
+		}
+		prev = root
+		dfs(root.Right)
+	}
+	dfs(root)
+	return ans
+}
+```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @return {TreeNode}
+ */
+var inorderSuccessor = function (root, p) {
+    if (root == null) {
+        return root;
+    }
+    const { val, left, right } = root;
+    const res = inorderSuccessor(left, p);
+    if (res != null) {
+        return res;
+    }
+    if (val > p.val) {
+        return root;
+    }
+    return inorderSuccessor(right, p);
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -174,67 +227,6 @@ public:
         }
         return cur;
     }
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
-	var prev, ans *TreeNode
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left)
-		if prev == p {
-			ans = root
-		}
-		prev = root
-		dfs(root.Right)
-	}
-	dfs(root)
-	return ans
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {TreeNode} p
- * @return {TreeNode}
- */
-var inorderSuccessor = function (root, p) {
-    if (root == null) {
-        return root;
-    }
-    const { val, left, right } = root;
-    const res = inorderSuccessor(left, p);
-    if (res != null) {
-        return res;
-    }
-    if (val > p.val) {
-        return root;
-    }
-    return inorderSuccessor(right, p);
 };
 ```
 
@@ -270,10 +262,6 @@ var inorderSuccessor = function (root, p) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

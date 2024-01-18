@@ -43,9 +43,20 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Block Decomposition
 
-### **Python3**
+This problem is a typical block decomposition problem. For queries with a large step size, we can directly brute force the solution; for queries with a small step size, we can preprocess the suffix sum of each position and then directly query.
+
+In this problem, we limit the step size of the large step size query to $\sqrt{n}$, which can ensure that the time complexity of each query is $O(\sqrt{n})$.
+
+We define a two-dimensional array $suf$, where $suf[i][j]$ represents the suffix sum starting from position $j$ with a step size of $i$. Then for each query $[x, y]$, we can divide it into two cases:
+
+-   If $y \le \sqrt{n}$, then we can directly query $suf[y][x]$;
+-   If $y > \sqrt{n}$, then we can directly brute force the solution.
+
+The time complexity is $O((n +  m) \times \sqrt{n})$, and the space complexity is $O(n \times \sqrt{n})$. Here, $n$ is the length of the array, and $m$ is the number of queries.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +76,6 @@ class Solution:
                 ans.append(sum(nums[x::y]) % mod)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func solve(nums []int, queries [][]int) (ans []int) {
 	n := len(nums)
@@ -163,8 +168,6 @@ func solve(nums []int, queries [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function solve(nums: number[], queries: number[][]): number[] {
@@ -195,10 +198,6 @@ function solve(nums: number[], queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

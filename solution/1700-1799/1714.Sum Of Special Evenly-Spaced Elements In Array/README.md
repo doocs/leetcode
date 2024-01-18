@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分块**
+### 方法一：分块
 
 这道题是一道比较典型的分块题目，对于步长较大的查询，我们可以直接暴力求解；对于步长较小的查询，我们可以预处理出每个位置的后缀和，然后直接查询。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O((n +  m) \times \sqrt{n})$，空间复杂度 $O(n \times \sqrt{n})$。其中 $n$ 是数组的长度，而 $m$ 是查询的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 ans.append(sum(nums[x::y]) % mod)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func solve(nums []int, queries [][]int) (ans []int) {
 	n := len(nums)
@@ -184,8 +170,6 @@ func solve(nums []int, queries [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function solve(nums: number[], queries: number[][]): number[] {
@@ -216,10 +200,6 @@ function solve(nums: number[], queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

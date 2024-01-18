@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,23 +60,6 @@ class Solution:
                 stk.append(c)
         return len(stk)
 ```
-
-```python
-class Solution:
-    def minAddToMakeValid(self, s: str) -> int:
-        ans = cnt = 0
-        for c in s:
-            if c == '(':
-                cnt += 1
-            elif cnt:
-                cnt -= 1
-            else:
-                ans += 1
-        ans += cnt
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,6 +75,57 @@ class Solution {
         return stk.size();
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minAddToMakeValid(string s) {
+        string stk;
+        for (char c : s) {
+            if (c == ')' && stk.size() && stk.back() == '(')
+                stk.pop_back();
+            else
+                stk.push_back(c);
+        }
+        return stk.size();
+    }
+};
+```
+
+```go
+func minAddToMakeValid(s string) int {
+	stk := []rune{}
+	for _, c := range s {
+		if c == ')' && len(stk) > 0 && stk[len(stk)-1] == '(' {
+			stk = stk[:len(stk)-1]
+		} else {
+			stk = append(stk, c)
+		}
+	}
+	return len(stk)
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        ans = cnt = 0
+        for c in s:
+            if c == '(':
+                cnt += 1
+            elif cnt:
+                cnt -= 1
+            else:
+                ans += 1
+        ans += cnt
+        return ans
 ```
 
 ```java
@@ -113,24 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minAddToMakeValid(string s) {
-        string stk;
-        for (char c : s) {
-            if (c == ')' && stk.size() && stk.back() == '(')
-                stk.pop_back();
-            else
-                stk.push_back(c);
-        }
-        return stk.size();
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -150,22 +166,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minAddToMakeValid(s string) int {
-	stk := []rune{}
-	for _, c := range s {
-		if c == ')' && len(stk) > 0 && stk[len(stk)-1] == '(' {
-			stk = stk[:len(stk)-1]
-		} else {
-			stk = append(stk, c)
-		}
-	}
-	return len(stk)
-}
-```
-
 ```go
 func minAddToMakeValid(s string) int {
 	ans, cnt := 0, 0
@@ -183,10 +183,6 @@ func minAddToMakeValid(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

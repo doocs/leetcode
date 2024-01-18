@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
                         ans -= min(v, grid[i][j - 1]) * 2
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func surfaceArea(grid [][]int) int {
@@ -133,10 +127,6 @@ func surfaceArea(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

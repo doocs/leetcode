@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以从大到小枚举每个数字 $i$，其中 $0 \le i \le 9$，然后判断连续的三个 $i$ 构成的字符串 $s$ 是否是 $num$ 的子串，若是，直接返回 $s$ 即可。
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def largestGoodInteger(self, num: str) -> str:
@@ -84,10 +78,6 @@ class Solution:
                 return s
         return ""
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestGoodInteger(num string) string {
 	for c := '9'; c >= '0'; c-- {
@@ -132,8 +118,6 @@ func largestGoodInteger(num string) string {
 	return ""
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestGoodInteger(num: string): string {
@@ -147,10 +131,6 @@ function largestGoodInteger(num: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

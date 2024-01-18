@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 我们可以先将所有奶酪分给第二只老鼠，因此初始得分为 $\sum_{i=0}^{n-1} reward2[i]$。
 
@@ -71,10 +69,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
@@ -82,19 +76,6 @@ class Solution:
         idx = sorted(range(n), key=lambda i: reward1[i] - reward2[i], reverse=True)
         return sum(reward1[i] for i in idx[:k]) + sum(reward2[i] for i in idx[k:])
 ```
-
-```python
-class Solution:
-    def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
-        for i, x in enumerate(reward2):
-            reward1[i] -= x
-        reward1.sort(reverse=True)
-        return sum(reward2) + sum(reward1[:k])
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,26 +98,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int miceAndCheese(int[] reward1, int[] reward2, int k) {
-        int ans = 0;
-        int n = reward1.length;
-        for (int i = 0; i < n; ++i) {
-            ans += reward2[i];
-            reward1[i] -= reward2[i];
-        }
-        Arrays.sort(reward1);
-        for (int i = 0; i < k; ++i) {
-            ans += reward1[n - i - 1];
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,25 +117,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int miceAndCheese(vector<int>& reward1, vector<int>& reward2, int k) {
-        int n = reward1.size();
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans += reward2[i];
-            reward1[i] -= reward2[i];
-        }
-        sort(reward1.rbegin(), reward1.rend());
-        ans += accumulate(reward1.begin(), reward1.begin() + k, 0);
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
@@ -197,23 +139,6 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 }
 ```
 
-```go
-func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
-	for i, x := range reward2 {
-		ans += x
-		reward1[i] -= x
-	}
-	sort.Ints(reward1)
-	n := len(reward1)
-	for i := 0; i < k; i++ {
-		ans += reward1[n-i-1]
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function miceAndCheese(reward1: number[], reward2: number[], k: number): number {
     const n = reward1.length;
@@ -227,6 +152,71 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
         ans += reward2[idx[i]];
     }
     return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
+        for i, x in enumerate(reward2):
+            reward1[i] -= x
+        reward1.sort(reverse=True)
+        return sum(reward2) + sum(reward1[:k])
+```
+
+```java
+class Solution {
+    public int miceAndCheese(int[] reward1, int[] reward2, int k) {
+        int ans = 0;
+        int n = reward1.length;
+        for (int i = 0; i < n; ++i) {
+            ans += reward2[i];
+            reward1[i] -= reward2[i];
+        }
+        Arrays.sort(reward1);
+        for (int i = 0; i < k; ++i) {
+            ans += reward1[n - i - 1];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int miceAndCheese(vector<int>& reward1, vector<int>& reward2, int k) {
+        int n = reward1.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += reward2[i];
+            reward1[i] -= reward2[i];
+        }
+        sort(reward1.rbegin(), reward1.rend());
+        ans += accumulate(reward1.begin(), reward1.begin() + k, 0);
+        return ans;
+    }
+};
+```
+
+```go
+func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
+	for i, x := range reward2 {
+		ans += x
+		reward1[i] -= x
+	}
+	sort.Ints(reward1)
+	n := len(reward1)
+	for i := 0; i < k; i++ {
+		ans += reward1[n-i-1]
+	}
+	return
 }
 ```
 
@@ -246,10 +236,6 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

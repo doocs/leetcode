@@ -62,9 +62,9 @@ User Alice has 1 follower. Alice is not a second-degree follower because she doe
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -82,3 +82,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

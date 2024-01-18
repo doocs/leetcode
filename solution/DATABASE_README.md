@@ -247,7 +247,30 @@
 | 2854 | [滚动平均步数](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
 | 2893 | [计算每个区间内的订单](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)                                                     | `数据库` | 中等 | 🔒   |
 | 2922 | [市场分析 III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)                                                                                   | `数据库` | 中等 | 🔒   |
+| 2978 | [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)                                                                          | `数据库` | 中等 | 🔒   |
+| 2984 | [找到每座城市的高峰通话时间](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)                                           | `数据库` | 中等 | 🔒   |
+| 2985 | [计算订单平均商品数量](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)                                                                     | `数据库` | 简单 | 🔒   |
+| 2986 | [找到第三笔交易](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)                                                                              | `数据库` | 中等 | 🔒   |
+| 2987 | [寻找房价最贵的城市](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)                                                                           | `数据库` | 简单 | 🔒   |
+| 2988 | [最大部门的经理](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)                                                               | `数据库` | 中等 | 🔒   |
+| 2989 | [班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)                                                                                           | `数据库` | 中等 | 🔒   |
+| 2990 | [贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)                                                                                                  | `数据库` | 简单 | 🔒   |
+| 2991 | [最好的三家酒庄](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)                                                                                  | `数据库` | 困难 | 🔒   |
+| 2993 | [发生在周五的交易 I](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)                                                                              | `数据库` | 中等 | 🔒   |
+| 2994 | [发生在周五的交易 II](/solution/2900-2999/2994.Friday%20Purchases%20II/README.md)                                                                            | `数据库` | 困难 | 🔒   |
+| 2995 | [观众变主播](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)                                                                                | `数据库` | 困难 | 🔒   |
 
 ## 版权
 
-著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 [@yanglbme](mailto:contact@yanglibin.info) 获得授权，非商业转载请注明出处。
+本项目著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 @yanglbme 获得授权，非商业转载请注明出处。
+
+## 联系我们
+
+欢迎各位小伙伴们添加 @yanglbme 的个人微信（微信号：YLB0109），备注 「**leetcode**」。后续我们会创建算法、技术相关的交流群，大家一起交流学习，分享经验，共同进步。
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="left"/> |
+| ------------------------------------------------------------------------------------------------------------------------------ |
+
+## 许可证
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>

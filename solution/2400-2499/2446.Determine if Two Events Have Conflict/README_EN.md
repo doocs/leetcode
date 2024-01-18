@@ -55,17 +55,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: String Comparison
 
-### **Python3**
+If the start time of $event1$ is later than the end time of $event2$, or the end time of $event1$ is earlier than the start time of $event2$, then the two events will not conflict. Otherwise, the two events will conflict.
+
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/images/event.png" />
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
         return not (event1[0] > event2[1] or event1[1] < event2[0])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,23 +88,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func haveConflict(event1 []string, event2 []string) bool {
 	return !(event1[0] > event2[1] || event1[1] < event2[0])
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function haveConflict(event1: string[], event2: string[]): boolean {
     return !(event1[0] > event2[1] || event1[1] < event2[0]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -112,10 +108,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

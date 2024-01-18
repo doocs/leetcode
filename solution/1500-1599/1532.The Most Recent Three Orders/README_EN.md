@@ -100,13 +100,11 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 
 ## Solutions
 
-**Solution 1: Equi-Join + Window Function**
+### Solution 1: Equi-Join + Window Function
 
 We can use an equi-join to join the `Customers` table and the `Orders` table based on `customer_id`, and then use the window function `row_number()` to sort the orders for each customer by `order_date` in descending order and assign a row number to each order. Finally, we can filter out the orders with a row number less than or equal to $3$.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -129,3 +127,5 @@ ORDER BY 1, 2, 4 DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

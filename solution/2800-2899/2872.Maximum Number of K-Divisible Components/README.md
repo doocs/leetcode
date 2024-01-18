@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们注意到，题目保证了整棵树的节点值之和可以被 $k$ 整除，因此，如果我们删除一棵元素和能被 $k$ 整除的边，那么剩下的每个连通块的节点值之和也一定可以被 $k$ 整除。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,6 +126,95 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    int maxKDivisibleComponents(int n, vector<vector<int>>& edges, vector<int>& values, int k) {
+        int ans = 0;
+        vector<int> g[n];
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        function<long long(int, int)> dfs = [&](int i, int fa) {
+            long long s = values[i];
+            for (int j : g[i]) {
+                if (j != fa) {
+                    s += dfs(j, i);
+                }
+            }
+            ans += s % k == 0;
+            return s;
+        };
+        dfs(0, -1);
+        return ans;
+    }
+};
+```
+
+```go
+func maxKDivisibleComponents(n int, edges [][]int, values []int, k int) (ans int) {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int, int) int
+	dfs = func(i, fa int) int {
+		s := values[i]
+		for _, j := range g[i] {
+			if j != fa {
+				s += dfs(j, i)
+			}
+		}
+		if s%k == 0 {
+			ans++
+		}
+		return s
+	}
+	dfs(0, -1)
+	return
+}
+```
+
+```ts
+function maxKDivisibleComponents(
+    n: number,
+    edges: number[][],
+    values: number[],
+    k: number,
+): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    let ans = 0;
+    const dfs = (i: number, fa: number): number => {
+        let s = values[i];
+        for (const j of g[i]) {
+            if (j !== fa) {
+                s += dfs(j, i);
+            }
+        }
+        if (s % k === 0) {
+            ++ans;
+        }
+        return s;
+    };
+    dfs(0, -1);
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -174,99 +253,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxKDivisibleComponents(int n, vector<vector<int>>& edges, vector<int>& values, int k) {
-        int ans = 0;
-        vector<int> g[n];
-        for (auto& e : edges) {
-            int a = e[0], b = e[1];
-            g[a].push_back(b);
-            g[b].push_back(a);
-        }
-        function<long long(int, int)> dfs = [&](int i, int fa) {
-            long long s = values[i];
-            for (int j : g[i]) {
-                if (j != fa) {
-                    s += dfs(j, i);
-                }
-            }
-            ans += s % k == 0;
-            return s;
-        };
-        dfs(0, -1);
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func maxKDivisibleComponents(n int, edges [][]int, values []int, k int) (ans int) {
-	g := make([][]int, n)
-	for _, e := range edges {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
-	}
-	var dfs func(int, int) int
-	dfs = func(i, fa int) int {
-		s := values[i]
-		for _, j := range g[i] {
-			if j != fa {
-				s += dfs(j, i)
-			}
-		}
-		if s%k == 0 {
-			ans++
-		}
-		return s
-	}
-	dfs(0, -1)
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function maxKDivisibleComponents(
-    n: number,
-    edges: number[][],
-    values: number[],
-    k: number,
-): number {
-    const g: number[][] = Array.from({ length: n }, () => []);
-    for (const [a, b] of edges) {
-        g[a].push(b);
-        g[b].push(a);
-    }
-    let ans = 0;
-    const dfs = (i: number, fa: number): number => {
-        let s = values[i];
-        for (const j of g[i]) {
-            if (j !== fa) {
-                s += dfs(j, i);
-            }
-        }
-        if (s % k === 0) {
-            ++ans;
-        }
-        return s;
-    };
-    dfs(0, -1);
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,15 +61,9 @@ magicDictionary.search(&quot;leetcoded&quot;); // 返回 False
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-哈希表实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MagicDictionary:
@@ -99,10 +93,6 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MagicDictionary {
@@ -155,8 +145,6 @@ class MagicDictionary {
  */
 ```
 
-### **C++**
-
 ```cpp
 class MagicDictionary {
 public:
@@ -201,8 +189,6 @@ private:
  * bool param_2 = obj->search(searchWord);
  */
 ```
-
-### **Go**
 
 ```go
 type MagicDictionary struct {
@@ -252,10 +238,6 @@ func patterns(word string) []string {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

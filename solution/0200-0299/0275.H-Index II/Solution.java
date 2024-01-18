@@ -3,13 +3,13 @@ class Solution {
         int n = citations.length;
         int left = 0, right = n;
         while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (citations[n - mid] >= mid) {
-                left = mid;
+            int mid = (left + right) >>> 1;
+            if (citations[mid] >= n - mid) {
+                right = mid;
             } else {
-                right = mid - 1;
+                left = mid + 1;
             }
         }
-        return left;
+        return n - left;
     }
 }

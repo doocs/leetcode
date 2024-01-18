@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
                     ans = max(ans, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,8 +73,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestTriangleArea(points [][]int) float64 {
@@ -129,10 +123,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

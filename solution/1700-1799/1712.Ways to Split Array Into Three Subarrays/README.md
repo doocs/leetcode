@@ -53,13 +53,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：前缀和 + 二分查找
 
-**方法一：前缀和 + 二分查找**
+我们先预处理出数组 $nums$ 的前缀和数组 $s$，其中 $s[i]$ 表述数组 $nums$ 前 $i+1$ 个元素之和。
 
-我们先预处理出数组 `nums` 的前缀和数组 $s$，其中 $s[i]$ 表述数组 `nums` 前 $i+1$ 个元素之和。
-
-由于数组 `nums` 的元素都是非负整数，因此前缀和数组 $s$ 是一个单调递增数组。
+由于数组 $nums$ 的元素都是非负整数，因此前缀和数组 $s$ 是一个单调递增数组。
 
 我们在 $[0,..n-2)$ 的范围内枚举 `left` 子数组所能到达的下标 $i$，然后利用前缀和数组单调递增的特性，通过二分查找的方式找到 `mid` 子数组分割的合理范围，记为 $[j, k)$，累加方案数 $k-j$。
 
@@ -67,13 +65,9 @@
 
 最后，将方案数对 $10^9+7$ 取模后返回即可。
 
-时间复杂度 $O(n\times \log n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
             ans += k - j
         return ans % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToSplit(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -167,8 +153,6 @@ func waysToSplit(nums []int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -203,10 +187,6 @@ var waysToSplit = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

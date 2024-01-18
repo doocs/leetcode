@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 我们观察发现，字符串 `'AA'` 之后只能跟 `'BB'`，而字符串 `'AB'` 可以放在字符串开头或结尾。因此：
 
@@ -58,10 +56,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def longestString(self, x: int, y: int, z: int) -> int:
@@ -71,10 +65,6 @@ class Solution:
             return (y * 2 + z + 1) * 2
         return (x + y + z) * 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestString(x int, y int, z int) int {
 	if x < y {
@@ -120,8 +106,6 @@ func longestString(x int, y int, z int) int {
 	return (x + y + z) * 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestString(x: number, y: number, z: number): number {
@@ -135,10 +119,6 @@ function longestString(x: number, y: number, z: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

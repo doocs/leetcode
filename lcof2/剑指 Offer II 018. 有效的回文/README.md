@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们定义两个指针 $i$ 和 $j$，初始时分别指向字符串的首尾位置，每次判断两个指针指向的字符是否为数字或字母，如果两个指针指向的字符都为数字或字母时，判断两个指针指向的字符是否相同（忽略大小写），如果不相同则返回 `false`，否则将两个指针向中间移动一位，直到两个指针相遇时返回 `true`。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isPalindrome(s string) bool {
@@ -153,8 +139,6 @@ func isalnum(b byte) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isPalindrome(s: string): boolean {
     const str = s.replace(/[^a-zA-Z0-9]/g, '');
@@ -170,10 +154,6 @@ function isPalindrome(s: string): boolean {
     return true;
 }
 ```
-
-### **Rust**
-
-使用 `is_alphabetic()` 与 `is_numeric()` 过滤字符
 
 ```rust
 impl Solution {
@@ -203,10 +183,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

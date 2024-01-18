@@ -50,19 +50,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：贪心 + 双指针
 
-**方法一：贪心 + 双指针**
+我们用两个指针 $i$ 和 $j$ 分别指向字符串的首尾，初始时 $i = 0$, $j = n - 1$。
 
-我们用两个指针 $i$ 和 $j$ 分别指向字符串的首尾，初始时 $i = 0$, $j = n - 1$。每一次，我们将 $s[i]$ 和 $s[j]$ 都修改为其中较小的那个字符，使得它们相等。修改之后，原字符串 $s$ 变成了一个回文串。
+接下来，我们每一次都贪心地将 $s[i]$ 和 $s[j]$ 修改为它们中的较小值，使得它们相等。然后将 $i$ 向后移动一位，将 $j$ 向前移动一位，继续进行这一过程，直到 $i \ge j$ 为止。此时，我们就得到了最小的回文串。
 
-时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。我们只需要遍历一遍字符串即可。忽略答案的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +70,6 @@ class Solution:
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
@@ -118,19 +106,15 @@ func makeSmallestPalindrome(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
     for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
-        cs[i] = cs[j] = String.fromCharCode(Math.min(cs[i].charCodeAt(0), cs[j].charCodeAt(0)));
+        cs[i] = cs[j] = s[i] < s[j] ? s[i] : s[j];
     }
     return cs.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -147,10 +131,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

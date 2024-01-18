@@ -56,15 +56,9 @@ peekingIterator.hasNext(); // 返回 False
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-定义一个变量 peekElement 专门用来保存下一个值，布尔变量 hasPeeked 标记是否保存了下一个元素。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Below is the interface for Iterator, which is already defined for you.
@@ -134,10 +128,6 @@ class PeekingIterator:
 #     iter.next()         # Should return the same value as [val].
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 // Java Iterator interface reference:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
@@ -180,8 +170,6 @@ class PeekingIterator implements Iterator<Integer> {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -240,8 +228,6 @@ private:
 };
 ```
 
-### **Go**
-
 ```go
 /*   Below is the interface for Iterator, which is already defined for you.
  *
@@ -289,10 +275,6 @@ func (this *PeekingIterator) peek() int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,46 +58,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们直接枚举 $0 \leq i \leq n$ 中的每个数，对于每个数 $i$，我们用库函数或者 $lowbit$ 运算得到 $i$ 中二进制位 $1$ 的个数。
 
 时间复杂度 $O(n \times \log n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。
 
-**方法二：动态规划**
-
-我们定义一个长度为 $n+1$ 的答案数组 $ans$，初始时 $ans[0]=0$。
-
-对于 $1 \leq i \leq n$，我们有 $ans[i] = ans[i \text{ and } (i-1)] + 1$。其中 $i \text{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \text{ and } (i-1) < i$，且 $ans[i \text{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $ans[i]$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
         return [i.bit_count() for i in range(n + 1)]
 ```
-
-```python
-class Solution:
-    def countBits(self, n: int) -> List[int]:
-        ans = [0] * (n + 1)
-        for i in range(1, n + 1):
-            ans[i] = ans[i & (i - 1)] + 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,20 +83,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int[] countBits(int n) {
-        int[] ans = new int[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            ans[i] = ans[i & (i - 1)] + 1;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,21 +97,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> countBits(int n) {
-        vector<int> ans(n + 1);
-        for (int i = 1; i <= n; ++i) {
-            ans[i] = ans[i & (i - 1)] + 1;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countBits(n int) []int {
 	ans := make([]int, n+1)
@@ -162,18 +106,6 @@ func countBits(n int) []int {
 	return ans
 }
 ```
-
-```go
-func countBits(n int) []int {
-	ans := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		ans[i] = ans[i&(i-1)] + 1
-	}
-	return ans
-}
-```
-
-### **TypeScript**
 
 ```ts
 function countBits(n: number): number[] {
@@ -194,6 +126,62 @@ function bitCount(n: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们定义一个长度为 $n+1$ 的答案数组 $ans$，初始时 $ans[0]=0$。
+
+对于 $1 \leq i \leq n$，我们有 $ans[i] = ans[i \text{ and } (i-1)] + 1$。其中 $i \text{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \text{ and } (i-1) < i$，且 $ans[i \text{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $ans[i]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        ans = [0] * (n + 1)
+        for i in range(1, n + 1):
+            ans[i] = ans[i & (i - 1)] + 1
+        return ans
+```
+
+```java
+class Solution {
+    public int[] countBits(int n) {
+        int[] ans = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            ans[i] = ans[i & (i - 1)] + 1;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> countBits(int n) {
+        vector<int> ans(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            ans[i] = ans[i & (i - 1)] + 1;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countBits(n int) []int {
+	ans := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		ans[i] = ans[i&(i-1)] + 1
+	}
+	return ans
+}
+```
+
 ```ts
 function countBits(n: number): number[] {
     const ans: number[] = Array(n + 1).fill(0);
@@ -204,10 +192,6 @@ function countBits(n: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

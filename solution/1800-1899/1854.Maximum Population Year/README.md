@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 我们注意到，年份的范围是 $[1950,..2050]$，因此我们可以将这些年份映射到一个长度为 $101$ 的数组 $d$ 中，数组的下标表示年份减去 $1950$ 的值。
 
@@ -51,10 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为数组 $logs$ 的长度；而 $C$ 为年份的范围大小，即 $2050 - 1950 + 1 = 101$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                 mx, j = s, i
         return j + offset
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumPopulation(logs [][]int) int {
 	d := [101]int{}
@@ -153,7 +139,25 @@ func maximumPopulation(logs [][]int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function maximumPopulation(logs: number[][]): number {
+    const d: number[] = new Array(101).fill(0);
+    const offset = 1950;
+    for (const [birth, death] of logs) {
+        d[birth - offset]++;
+        d[death - offset]--;
+    }
+    let j = 0;
+    for (let i = 0, s = 0, mx = 0; i < d.length; ++i) {
+        s += d[i];
+        if (mx < s) {
+            mx = s;
+            j = i;
+        }
+    }
+    return j + offset;
+}
+```
 
 ```js
 /**
@@ -181,32 +185,6 @@ var maximumPopulation = function (logs) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function maximumPopulation(logs: number[][]): number {
-    const d: number[] = new Array(101).fill(0);
-    const offset = 1950;
-    for (const [birth, death] of logs) {
-        d[birth - offset]++;
-        d[death - offset]--;
-    }
-    let j = 0;
-    for (let i = 0, s = 0, mx = 0; i < d.length; ++i) {
-        s += d[i];
-        if (mx < s) {
-            mx = s;
-            j = i;
-        }
-    }
-    return j + offset;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

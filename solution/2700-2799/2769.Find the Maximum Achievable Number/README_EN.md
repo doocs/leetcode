@@ -46,7 +46,7 @@ It can be proven that there is no achievable number larger than 7.
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 Notice that every time we can decrease $x$ by $1$ and increase $num$ by $1$, the difference between $x$ and $num$ will decrease by $2$, and we can do this operation at most $t$ times, so the maximum reachable number is $num + t \times 2$.
 
@@ -54,15 +54,11 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def theMaximumAchievableX(self, num: int, t: int) -> int:
         return num + t * 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -83,15 +77,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func theMaximumAchievableX(num int, t int) int {
 	return num + t*2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function theMaximumAchievableX(num: number, t: number): number {
@@ -99,10 +89,6 @@ function theMaximumAchievableX(num: number, t: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -62,9 +62,9 @@ Problems 7, 10, 11, and 13 are low-quality problems because their like percentag
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -75,3 +75,5 @@ ORDER BY problem_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

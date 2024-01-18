@@ -61,19 +61,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯**
+### 方法一：脑筋急转弯
 
 将所有偶数下标的芯片移动到 0 号位置，所有奇数下标的芯片移动到 1 号位置，所有的代价为 0，接下来只需要在 0/1 号位置中选择其中一个较小数量的芯片，移动到另一个位置。所需的最小代价就是那个较小的数量。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为芯片的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
         b = len(position) - a
         return min(a, b)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +101,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCostToMoveChips(position []int) int {
@@ -129,8 +115,6 @@ func minCostToMoveChips(position []int) int {
 	return b
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -147,10 +131,6 @@ var minCostToMoveChips = function (position) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

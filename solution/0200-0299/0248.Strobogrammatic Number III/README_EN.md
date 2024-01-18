@@ -28,9 +28,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -138,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func strobogrammaticInRange(low string, high string) int {
@@ -180,10 +174,6 @@ func strobogrammaticInRange(low string, high string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

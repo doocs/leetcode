@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示总和为 $i$ 的元素组合的个数，初始时 $f[0] = 1$，其余 $f[i] = 0$。最终答案即为 $f[target]$。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
@@ -81,10 +75,6 @@ class Solution:
                     f[i] += f[i - x]
         return f[target]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func combinationSum4(nums []int, target int) int {
 	f := make([]int, target+1)
@@ -141,7 +127,20 @@ func combinationSum4(nums []int, target int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function combinationSum4(nums: number[], target: number): number {
+    const f: number[] = new Array(target + 1).fill(0);
+    f[0] = 1;
+    for (let i = 1; i <= target; ++i) {
+        for (const x of nums) {
+            if (i >= x) {
+                f[i] += f[i - x];
+            }
+        }
+    }
+    return f[target];
+}
+```
 
 ```js
 /**
@@ -163,25 +162,6 @@ var combinationSum4 = function (nums, target) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function combinationSum4(nums: number[], target: number): number {
-    const f: number[] = new Array(target + 1).fill(0);
-    f[0] = 1;
-    for (let i = 1; i <= target; ++i) {
-        for (const x of nums) {
-            if (i >= x) {
-                f[i] += f[i - x];
-            }
-        }
-    }
-    return f[target];
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int CombinationSum4(int[] nums, int target) {
@@ -199,10 +179,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

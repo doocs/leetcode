@@ -49,9 +49,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Prefix Sum + Binary Search
 
-### **Python3**
+First, we preprocess the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i+1$ elements of the array $nums$.
+
+Since all elements of the array $nums$ are non-negative integers, the prefix sum array $s$ is a monotonically increasing array.
+
+We enumerate the index $i$ that the `left` subarray can reach in the range $[0,..n-2)$, and then use the monotonically increasing characteristic of the prefix sum array to find the reasonable range of the `mid` subarray split by binary search, denoted as $[j, k)$, and accumulate the number of schemes $k-j$.
+
+In the binary search details, the subarray split must satisfy $s[j] \geq s[i]$ and $s[n - 1] - s[k] \geq s[k] - s[i]$. That is, $s[j] \geq s[i]$ and $s[k] \leq \frac{s[n - 1] + s[i]}{2}$.
+
+Finally, return the number of schemes modulo $10^9+7$.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +77,6 @@ class Solution:
             ans += k - j
         return ans % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToSplit(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -143,8 +149,6 @@ func waysToSplit(nums []int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -179,10 +183,6 @@ var waysToSplit = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

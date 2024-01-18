@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Tarjan 算法**
+### 方法一：Tarjan 算法
 
 此题中的「关键连接」即为「桥」。
 
@@ -59,10 +57,6 @@
 用于求图中的「桥」与「割点」有一算法：tarjan 算法，这个算法使用先递归的访问相邻节点后访问节点自身的 dfs 方法，通过记录「访问的顺序：DFN」以及在递归结束后访问节点自身时探索其可以回溯到的最早被访问的节点来更新「最早可回溯的节点：low」，可以实现在 $O(n)$ 时间内找到图的「桥」与「割点」。同时，此种算法可以用于查找有向图中的强连通分量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -96,10 +90,6 @@ class Solution:
         tarjan(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -182,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	now := 0
@@ -218,8 +204,6 @@ func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function criticalConnections(n: number, connections: number[][]): number[][] {
@@ -256,10 +240,6 @@ function criticalConnections(n: number, connections: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

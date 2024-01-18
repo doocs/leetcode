@@ -56,9 +56,17 @@ It can be proven that 2 seconds is the minimum amount of seconds needed for equa
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Enumeration
 
-### **Python3**
+We assume that all elements eventually become $x$, and $x$ must be an element in the array.
+
+The number $x$ can expand one bit to the left and right every second. If there are multiple identical $x$, then the time required to expand the entire array depends on the maximum distance between two adjacent $x$.
+
+Therefore, we enumerate each element as the final $x$, calculate the maximum distance $t$ between two adjacent elements in each $x$, then the final answer is $\min\limits_{x \in nums} \left\lfloor \frac{t}{2} \right\rfloor$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +83,6 @@ class Solution:
             ans = min(ans, t // 2)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSeconds(nums []int) int {
 	d := map[int][]int{}
@@ -146,8 +148,6 @@ func minimumSeconds(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumSeconds(nums: number[]): number {
@@ -172,10 +172,6 @@ function minimumSeconds(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

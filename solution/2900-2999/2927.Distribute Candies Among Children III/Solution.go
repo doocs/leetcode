@@ -5,7 +5,7 @@ func distributeCandies(n int, limit int) int64 {
 	if n > 3*limit {
 		return 0
 	}
-	ans := comb2(n+2)
+	ans := comb2(n + 2)
 	if n > limit {
 		ans -= 3 * comb2(n-limit+1)
 	}

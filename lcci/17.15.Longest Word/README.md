@@ -19,15 +19,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树 + DFS**
+### 方法一：前缀树 + DFS
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -75,10 +69,6 @@ class Solution:
             trie.insert(w)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -143,8 +133,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -211,10 +199,6 @@ func longestWord(words []string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

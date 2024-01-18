@@ -60,19 +60,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 我们设计一个函数 $f(x)$，表示字符串 $s$ 中由 $x$ 组成的最长连续子字符串的长度。如果 $f(1) \gt f(0)$，那么返回 `true`，否则返回 `false`。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
 
         return f("1") > f("0")
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkZeroOnes(s string) bool {
 	f := func(x rune) int {
@@ -156,8 +142,6 @@ func checkZeroOnes(s string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkZeroOnes(s: string): boolean {
     const f = (x: string): number => {
@@ -174,8 +158,6 @@ function checkZeroOnes(s: string): boolean {
     return f('1') > f('0');
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -198,10 +180,6 @@ var checkZeroOnes = function (s) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -33,9 +33,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 位数为 $k$ 的最小整数和最大整数分别为 $10^{k-1}$ 和 $10^k-1$，因此 $k$ 位数的总位数为 $k \times 9 \times 10^{k-1}$。
 
@@ -49,10 +47,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
@@ -65,25 +59,6 @@ class Solution:
         idx = (n - 1) % k
         return int(str(num)[idx])
 ```
-
-```python
-class Solution:
-    def findNthDigit(self, n: int) -> int:
-        if n < 10:
-            return n
-        n -= 10
-        k, p = 2, 10
-        while n >= 9 * k * p:
-            n -= 9 * k * p
-            k += 1
-            p *= 10
-        x = p + n // k
-        return int(str(x)[n % k])
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,6 +74,93 @@ class Solution {
         return String.valueOf(num).charAt(idx) - '0';
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int findNthDigit(int n) {
+        int k = 1, cnt = 9;
+        while (1ll * k * cnt < n) {
+            n -= k * cnt;
+            ++k;
+            cnt *= 10;
+        }
+        int num = pow(10, k - 1) + (n - 1) / k;
+        int idx = (n - 1) % k;
+        return to_string(num)[idx] - '0';
+    }
+};
+```
+
+```go
+func findNthDigit(n int) int {
+	k, cnt := 1, 9
+	for k*cnt < n {
+		n -= k * cnt
+		k++
+		cnt *= 10
+	}
+	num := int(math.Pow10(k-1)) + (n-1)/k
+	idx := (n - 1) % k
+	return int(strconv.Itoa(num)[idx] - '0')
+}
+```
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var findNthDigit = function (n) {
+    let k = 1,
+        cnt = 9;
+    while (k * cnt < n) {
+        n -= k * cnt;
+        ++k;
+        cnt *= 10;
+    }
+    const num = Math.pow(10, k - 1) + (n - 1) / k;
+    const idx = (n - 1) % k;
+    return num.toString()[idx];
+};
+```
+
+```cs
+public class Solution {
+    public int FindNthDigit(int n) {
+        int k = 1, cnt = 9;
+        while ((long) k * cnt < n) {
+            n -= k * cnt;
+            ++k;
+            cnt *= 10;
+        }
+        int num = (int) Math.Pow(10, k - 1) + (n - 1) / k;
+        int idx = (n - 1) % k;
+        return num.ToString()[idx] - '0';
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findNthDigit(self, n: int) -> int:
+        if n < 10:
+            return n
+        n -= 10
+        k, p = 2, 10
+        while n >= 9 * k * p:
+            n -= 9 * k * p
+            k += 1
+            p *= 10
+        x = p + n // k
+        return int(str(x)[n % k])
 ```
 
 ```java
@@ -118,25 +180,6 @@ class Solution {
         return String.valueOf(x).charAt(n % k) - '0';
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findNthDigit(int n) {
-        int k = 1, cnt = 9;
-        while (1ll * k * cnt < n) {
-            n -= k * cnt;
-            ++k;
-            cnt *= 10;
-        }
-        int num = pow(10, k - 1) + (n - 1) / k;
-        int idx = (n - 1) % k;
-        return to_string(num)[idx] - '0';
-    }
-};
 ```
 
 ```cpp
@@ -159,22 +202,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findNthDigit(n int) int {
-	k, cnt := 1, 9
-	for k*cnt < n {
-		n -= k * cnt
-		k++
-		cnt *= 10
-	}
-	num := int(math.Pow10(k-1)) + (n-1)/k
-	idx := (n - 1) % k
-	return int(strconv.Itoa(num)[idx] - '0')
-}
-```
-
 ```go
 func findNthDigit(n int) int {
 	if n < 10 {
@@ -192,49 +219,6 @@ func findNthDigit(n int) int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var findNthDigit = function (n) {
-    let k = 1,
-        cnt = 9;
-    while (k * cnt < n) {
-        n -= k * cnt;
-        ++k;
-        cnt *= 10;
-    }
-    const num = Math.pow(10, k - 1) + (n - 1) / k;
-    const idx = (n - 1) % k;
-    return num.toString()[idx];
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int FindNthDigit(int n) {
-        int k = 1, cnt = 9;
-        while ((long) k * cnt < n) {
-            n -= k * cnt;
-            ++k;
-            cnt *= 10;
-        }
-        int num = (int) Math.Pow(10, k - 1) + (n - 1) / k;
-        int idx = (n - 1) % k;
-        return num.ToString()[idx] - '0';
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

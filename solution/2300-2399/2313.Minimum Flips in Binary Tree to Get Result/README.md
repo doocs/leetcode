@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树形 DP + 分情况讨论**
+### 方法一：树形 DP + 分情况讨论
 
 我们定义一个函数 $dfs(root)$，它的返回值是一个长度为 $2$ 的数组，其中第一个表示将 $root$ 节点的值变成 `false` 所需要的最少翻转次数，第二个表示将 $root$ 节点的值变成 `true` 所需要的最少翻转次数。那么答案为 $dfs(root)[result]$。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -117,10 +111,6 @@ class Solution:
 
         return dfs(root)[int(result)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -172,8 +162,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -221,8 +209,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -268,8 +254,6 @@ func minimumFlips(root *TreeNode, result bool) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -311,10 +295,6 @@ function minimumFlips(root: TreeNode | null, result: boolean): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

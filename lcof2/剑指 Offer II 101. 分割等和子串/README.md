@@ -40,17 +40,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-题目可以转换为 `0-1` 背包问题，在 m 个数字中选出一些数字（每个数字只能使用一次），这些数字之和恰好等于 `s / 2`（s 表示所有数字之和）。
-
-也可以用 DFS + 记忆化搜索。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,53 +65,6 @@ class Solution:
                     dp[i][j] = dp[i - 1][j - nums[i]]
         return dp[-1][-1]
 ```
-
-空间优化：
-
-```python
-class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
-        s = sum(nums)
-        if s % 2 != 0:
-            return False
-
-        m, n = len(nums), (s >> 1) + 1
-        dp = [False] * n
-        dp[0] = True
-        if nums[0] < n:
-            dp[nums[0]] = True
-
-        for i in range(1, m):
-            for j in range(n - 1, nums[i] - 1, -1):
-                dp[j] = dp[j] or dp[j - nums[i]]
-        return dp[-1]
-```
-
-DFS + 记忆化搜索：
-
-```python
-class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
-        s = sum(nums)
-        if s % 2 != 0:
-            return False
-        target = s >> 1
-
-        @cache
-        def dfs(i, s):
-            nonlocal target
-            if s > target or i >= len(nums):
-                return False
-            if s == target:
-                return True
-            return dfs(i + 1, s) or dfs(i + 1, s + nums[i])
-
-        return dfs(0, 0)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -147,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func canPartition(nums []int) bool {
@@ -196,10 +137,57 @@ func canPartition(nums []int) bool {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        s = sum(nums)
+        if s % 2 != 0:
+            return False
+
+        m, n = len(nums), (s >> 1) + 1
+        dp = [False] * n
+        dp[0] = True
+        if nums[0] < n:
+            dp[nums[0]] = True
+
+        for i in range(1, m):
+            for j in range(n - 1, nums[i] - 1, -1):
+                dp[j] = dp[j] or dp[j - nums[i]]
+        return dp[-1]
 ```
 
 <!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        s = sum(nums)
+        if s % 2 != 0:
+            return False
+        target = s >> 1
+
+        @cache
+        def dfs(i, s):
+            nonlocal target
+            if s > target or i >= len(nums):
+                return False
+            if s == target:
+                return True
+            return dfs(i + 1, s) or dfs(i + 1, s + nums[i])
+
+        return dfs(0, 0)
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

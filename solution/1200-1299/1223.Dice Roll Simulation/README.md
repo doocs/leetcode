@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们可以设计一个函数 $dfs(i, j, x)$ 表示从第 $i$ 次掷骰子开始，当前掷出的点数为 $j$，且连续掷出 $j$ 的次数为 $x$ 的方案数。其中 $j$ 的取值范围为 $[1, 6]$，而 $x$ 的取值范围为 $[1, rollMax[j - 1]]$。那么答案就是 $dfs(0, 0, 0)$。
 
@@ -62,30 +60,7 @@
 
 时间复杂度 $O(n \times k^2 \times M)$，空间复杂度 $O(n \times k \times M)$。其中 $k$ 为点数的取值范围，而 $M$ 为连续掷出某个点数的最大次数。
 
-**方法二：动态规划**
-
-我们可以将方法一中的记忆化搜索改为动态规划。
-
-定义 $f[i][j][x]$ 表示投掷前 $i$ 次骰子，且第 $i$ 次投掷的点数为 $j$，且连续投掷点数 $j$ 的次数为 $x$ 的方案数。初始时 $f[1][j][1] = 1$，其中 $1 \leq j \leq 6$。答案即是：
-
-$$
-\sum_{j=1}^6 \sum_{x=1}^{rollMax[j-1]} f[n][j][x]
-$$
-
-我们枚举上一次投掷的点数为 $j$，且连续投掷点数 $j$ 的次数为 $x$，那么当前投掷的点数可以为 $1, 2, \cdots, 6$，如果当前投掷的点数为 $k$，那么有如下两种情况：
-
--   如果 $k \neq j$，那么我们可以直接投掷出 $k$，此时连续投掷点数 $j$ 的次数 $x$ 就会被重置为 $1$，因此方案数 $f[i][k][1]$ 就会增加 $f[i-1][j][x]$。
--   如果 $k = j$，那么我们需要判断 $x+1$ 是否小于等于 $rollMax[j-1]$，如果小于等于，那么我们可以继续投掷出 $j$，此时连续投掷点数 $j$ 的次数 $x$ 就会加 $1$，因此方案数 $f[i][j][x+1]$ 就会增加 $f[i-1][j][x]$。
-
-最终的答案即为所有 $f[n][j][x]$ 的和。
-
-时间复杂度 $O(n \times k^2 \times M)$，空间复杂度 $O(n \times k \times M)$。其中 $k$ 为点数的取值范围，而 $M$ 为连续掷出某个点数的最大次数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,32 +79,6 @@ class Solution:
 
         return dfs(0, 0, 0)
 ```
-
-```python
-class Solution:
-    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
-        f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
-        for j in range(1, 7):
-            f[1][j][1] = 1
-        for i in range(2, n + 1):
-            for j in range(1, 7):
-                for x in range(1, rollMax[j - 1] + 1):
-                    for k in range(1, 7):
-                        if k != j:
-                            f[i][k][1] += f[i - 1][j][x]
-                        elif x + 1 <= rollMax[j - 1]:
-                            f[i][j][x + 1] += f[i - 1][j][x]
-        mod = 10**9 + 7
-        ans = 0
-        for j in range(1, 7):
-            for x in range(1, rollMax[j - 1] + 1):
-                ans = (ans + f[n][j][x]) % mod
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,6 +112,108 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int dieSimulator(int n, vector<int>& rollMax) {
+        int f[n][7][16];
+        memset(f, 0, sizeof f);
+        const int mod = 1e9 + 7;
+        function<int(int, int, int)> dfs = [&](int i, int j, int x) -> int {
+            if (i >= n) {
+                return 1;
+            }
+            if (f[i][j][x]) {
+                return f[i][j][x];
+            }
+            long ans = 0;
+            for (int k = 1; k <= 6; ++k) {
+                if (k != j) {
+                    ans += dfs(i + 1, k, 1);
+                } else if (x < rollMax[j - 1]) {
+                    ans += dfs(i + 1, j, x + 1);
+                }
+            }
+            ans %= mod;
+            return f[i][j][x] = ans;
+        };
+        return dfs(0, 0, 0);
+    }
+};
+```
+
+```go
+func dieSimulator(n int, rollMax []int) int {
+	f := make([][7][16]int, n)
+	const mod = 1e9 + 7
+	var dfs func(i, j, x int) int
+	dfs = func(i, j, x int) int {
+		if i >= n {
+			return 1
+		}
+		if f[i][j][x] != 0 {
+			return f[i][j][x]
+		}
+		ans := 0
+		for k := 1; k <= 6; k++ {
+			if k != j {
+				ans += dfs(i+1, k, 1)
+			} else if x < rollMax[j-1] {
+				ans += dfs(i+1, j, x+1)
+			}
+		}
+		f[i][j][x] = ans % mod
+		return f[i][j][x]
+	}
+	return dfs(0, 0, 0)
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们可以将方法一中的记忆化搜索改为动态规划。
+
+定义 $f[i][j][x]$ 表示投掷前 $i$ 次骰子，且第 $i$ 次投掷的点数为 $j$，且连续投掷点数 $j$ 的次数为 $x$ 的方案数。初始时 $f[1][j][1] = 1$，其中 $1 \leq j \leq 6$。答案即是：
+
+$$
+\sum_{j=1}^6 \sum_{x=1}^{rollMax[j-1]} f[n][j][x]
+$$
+
+我们枚举上一次投掷的点数为 $j$，且连续投掷点数 $j$ 的次数为 $x$，那么当前投掷的点数可以为 $1, 2, \cdots, 6$，如果当前投掷的点数为 $k$，那么有如下两种情况：
+
+-   如果 $k \neq j$，那么我们可以直接投掷出 $k$，此时连续投掷点数 $j$ 的次数 $x$ 就会被重置为 $1$，因此方案数 $f[i][k][1]$ 就会增加 $f[i-1][j][x]$。
+-   如果 $k = j$，那么我们需要判断 $x+1$ 是否小于等于 $rollMax[j-1]$，如果小于等于，那么我们可以继续投掷出 $j$，此时连续投掷点数 $j$ 的次数 $x$ 就会加 $1$，因此方案数 $f[i][j][x+1]$ 就会增加 $f[i-1][j][x]$。
+
+最终的答案即为所有 $f[n][j][x]$ 的和。
+
+时间复杂度 $O(n \times k^2 \times M)$，空间复杂度 $O(n \times k \times M)$。其中 $k$ 为点数的取值范围，而 $M$ 为连续掷出某个点数的最大次数。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+        f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
+        for j in range(1, 7):
+            f[1][j][1] = 1
+        for i in range(2, n + 1):
+            for j in range(1, 7):
+                for x in range(1, rollMax[j - 1] + 1):
+                    for k in range(1, 7):
+                        if k != j:
+                            f[i][k][1] += f[i - 1][j][x]
+                        elif x + 1 <= rollMax[j - 1]:
+                            f[i][j][x + 1] += f[i - 1][j][x]
+        mod = 10**9 + 7
+        ans = 0
+        for j in range(1, 7):
+            for x in range(1, rollMax[j - 1] + 1):
+                ans = (ans + f[n][j][x]) % mod
+        return ans
+```
+
 ```java
 class Solution {
     public int dieSimulator(int n, int[] rollMax) {
@@ -193,38 +244,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int dieSimulator(int n, vector<int>& rollMax) {
-        int f[n][7][16];
-        memset(f, 0, sizeof f);
-        const int mod = 1e9 + 7;
-        function<int(int, int, int)> dfs = [&](int i, int j, int x) -> int {
-            if (i >= n) {
-                return 1;
-            }
-            if (f[i][j][x]) {
-                return f[i][j][x];
-            }
-            long ans = 0;
-            for (int k = 1; k <= 6; ++k) {
-                if (k != j) {
-                    ans += dfs(i + 1, k, 1);
-                } else if (x < rollMax[j - 1]) {
-                    ans += dfs(i + 1, j, x + 1);
-                }
-            }
-            ans %= mod;
-            return f[i][j][x] = ans;
-        };
-        return dfs(0, 0, 0);
-    }
-};
 ```
 
 ```cpp
@@ -261,35 +280,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func dieSimulator(n int, rollMax []int) int {
-	f := make([][7][16]int, n)
-	const mod = 1e9 + 7
-	var dfs func(i, j, x int) int
-	dfs = func(i, j, x int) int {
-		if i >= n {
-			return 1
-		}
-		if f[i][j][x] != 0 {
-			return f[i][j][x]
-		}
-		ans := 0
-		for k := 1; k <= 6; k++ {
-			if k != j {
-				ans += dfs(i+1, k, 1)
-			} else if x < rollMax[j-1] {
-				ans += dfs(i+1, j, x+1)
-			}
-		}
-		f[i][j][x] = ans % mod
-		return f[i][j][x]
-	}
-	return dfs(0, 0, 0)
-}
-```
-
 ```go
 func dieSimulator(n int, rollMax []int) (ans int) {
 	f := make([][7][16]int, n+1)
@@ -319,10 +309,6 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

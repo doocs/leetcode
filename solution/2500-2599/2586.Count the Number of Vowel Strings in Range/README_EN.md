@@ -48,7 +48,7 @@ The number of vowel strings in the mentioned range is 3.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We just need to traverse the string in the interval $[left,.. right]$, and check if it starts and ends with a vowel. If so, the answer plus one.
 
@@ -58,8 +58,6 @@ The time complexity is $O(m)$, and the space complexity is $O(1)$. Where $m = ri
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], left: int, right: int) -> int:
@@ -67,8 +65,6 @@ class Solution:
             w[0] in 'aeiou' and w[-1] in 'aeiou' for w in words[left : right + 1]
         )
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func vowelStrings(words []string, left int, right int) (ans int) {
 	check := func(c byte) bool {
@@ -124,8 +116,6 @@ func vowelStrings(words []string, left int, right int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function vowelStrings(words: string[], left: number, right: number): number {
     let ans = 0;
@@ -139,8 +129,6 @@ function vowelStrings(words: string[], left: number, right: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -162,10 +150,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

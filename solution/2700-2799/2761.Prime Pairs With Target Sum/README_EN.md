@@ -43,7 +43,7 @@ These pairs are [3,7] and [5,5], and we return them in the sorted order as descr
 
 ## Solutions
 
-**Solution 1: Preprocessing + Enumeration**
+### Solution 1: Preprocessing + Enumeration
 
 First, we pre-process all the prime numbers within the range of $n$, and record them in the array $primes$, where $primes[i]$ is `true` if $i$ is a prime number.
 
@@ -54,8 +54,6 @@ After the enumeration is complete, we return the answer.
 The time complexity is $O(n \log \log n)$ and the space complexity is $O(n)$, where $n$ is the number given in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
                 ans.append([x, y])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPrimePairs(n int) (ans [][]int) {
 	primes := make([]bool, n)
@@ -151,8 +143,6 @@ func findPrimePairs(n int) (ans [][]int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findPrimePairs(n: number): number[][] {
     const primes: boolean[] = new Array(n).fill(true);
@@ -174,10 +164,6 @@ function findPrimePairs(n: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

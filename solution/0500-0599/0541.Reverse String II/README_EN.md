@@ -27,9 +27,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -39,8 +39,6 @@ class Solution:
             t[i : i + k] = reversed(t[i : i + k])
         return ''.join(t)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -58,8 +56,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -71,8 +67,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reverseStr(s string, k int) string {
@@ -86,10 +80,6 @@ func reverseStr(s string, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

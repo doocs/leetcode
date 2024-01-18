@@ -56,9 +56,9 @@ We cannot obtain a lexicographically smaller array by applying any more operatio
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,8 +77,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lexicographicallySmallestArray(nums []int, limit int) []int {
 	n := len(nums)
@@ -164,8 +158,6 @@ func lexicographicallySmallestArray(nums []int, limit int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function lexicographicallySmallestArray(nums: number[], limit: number): number[] {
     const n: number = nums.length;
@@ -187,10 +179,6 @@ function lexicographicallySmallestArray(nums: number[], limit: number): number[]
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

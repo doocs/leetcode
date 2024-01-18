@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Prefix Sum**
+### Solution 1: Hash Table + Prefix Sum
 
 We use a hash table $d$ to record the first occurrence of each aesthetic value, and a prefix sum array $s$ to record the sum of the aesthetic values before the current position. If an aesthetic value $v$ appears at positions $i$ and $j$ (where $i \lt j$), then we can get a valid garden $[i+1,j]$, whose aesthetic value is $s[i] - s[j + 1] + v \times 2$. We use this value to update the answer. Otherwise, we record the current position $i$ of the aesthetic value in the hash table $d$. Next, we update the prefix sum. If the aesthetic value $v$ is negative, we treat it as $0$.
 
@@ -61,8 +61,6 @@ After traversing all the aesthetic values, we can get the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of flowers.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
             s[i + 1] = s[i] + max(v, 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumBeauty(flowers []int) int {
 	n := len(flowers)
@@ -146,7 +138,24 @@ func maximumBeauty(flowers []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function maximumBeauty(flowers: number[]): number {
+    const n = flowers.length;
+    const s: number[] = Array(n + 1).fill(0);
+    const d: Map<number, number> = new Map();
+    let ans = -Infinity;
+    for (let i = 0; i < n; ++i) {
+        const v = flowers[i];
+        if (d.has(v)) {
+            ans = Math.max(ans, s[i] - s[d.get(v)! + 1] + v * 2);
+        } else {
+            d.set(v, i);
+        }
+        s[i + 1] = s[i] + Math.max(v, 0);
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -171,31 +180,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maximumBeauty(flowers: number[]): number {
-    const n = flowers.length;
-    const s: number[] = Array(n + 1).fill(0);
-    const d: Map<number, number> = new Map();
-    let ans = -Infinity;
-    for (let i = 0; i < n; ++i) {
-        const v = flowers[i];
-        if (d.has(v)) {
-            ans = Math.max(ans, s[i] - s[d.get(v)! + 1] + v * 2);
-        } else {
-            d.set(v, i);
-        }
-        s[i + 1] = s[i] + Math.max(v, 0);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

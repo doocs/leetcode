@@ -27,9 +27,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -52,8 +52,6 @@ class Solution:
             target = target.next
         return dummy if dummy.val else dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -87,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -120,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -152,10 +146,6 @@ func plusOne(head *ListNode) *ListNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

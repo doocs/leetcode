@@ -35,21 +35,17 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：DFS 中序遍历
 
-**方法一：中序遍历**
+我们定义一个虚拟节点 $dummy$，初始时 $dummy$ 的右子节点指向根节点 $root$，定义一个指针 $prev$ 指向 $dummy$。
 
-中序遍历过程中改变指针指向。
+我们对二叉搜索树进行中序遍历，遍历过程中，每遍历到一个节点，就将 $prev$ 的右子节点指向它，然后将当前节点的左子节点置为空，再将当前节点赋值给 $prev$，以便于下一次遍历。
 
-时间复杂度 $O(n)$。
+遍历结束后，原二叉搜索树被修改成只有右子节点的单链表，我们再将虚拟节点 $dummy$ 的右子节点返回即可。
 
-同[面试题 17.12. BiNode](/lcci/17.12.BiNode/README.md)。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉搜索树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -70,15 +66,10 @@ class Solution:
             prev = root
             dfs(root.right)
 
-        dummy = TreeNode(val=0, right=root)
-        prev = dummy
+        dummy = prev = TreeNode(right=root)
         dfs(root)
         return dummy.right
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -118,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -134,27 +123,24 @@ class Solution {
  */
 class Solution {
 public:
-    TreeNode* prev;
-
     TreeNode* increasingBST(TreeNode* root) {
         TreeNode* dummy = new TreeNode(0, nullptr, root);
-        prev = dummy;
+        TreeNode* prev = dummy;
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->left);
+            prev->right = root;
+            root->left = nullptr;
+            prev = root;
+            dfs(root->right);
+        };
         dfs(root);
         return dummy->right;
     }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        prev->right = root;
-        root->left = nullptr;
-        prev = root;
-        dfs(root->right);
-    }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -184,10 +170,39 @@ func increasingBST(root *TreeNode) *TreeNode {
 }
 ```
 
-### **...**
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
 
-```
-
+function increasingBST(root: TreeNode | null): TreeNode | null {
+    const dummy = new TreeNode((right = root));
+    let prev = dummy;
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        prev.right = root;
+        root.left = null;
+        prev = root;
+        dfs(root.right);
+    };
+    dfs(root);
+    return dummy.right;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

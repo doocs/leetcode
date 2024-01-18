@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 两次遍历**
+### 方法一：贪心 + 两次遍历
 
 我们观察发现，奇数长度的字符串一定不是有效的括号字符串，因为无论怎么匹配，都会剩下一个括号。因此，如果字符串 $s$ 的长度是奇数，提前返回 `false`。
 
@@ -84,10 +82,6 @@
 相似题目：[678. 有效的括号字符串](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -113,10 +107,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -185,8 +173,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canBeValid(s string, locked string) bool {
 	n := len(s)
@@ -217,18 +203,6 @@ func canBeValid(s string, locked string) bool {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

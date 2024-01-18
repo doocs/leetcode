@@ -28,18 +28,16 @@ func tilingRectangle(n int, m int) int {
 				c++
 			}
 			mx := min(r, c)
+			for w := 1; w <= mx; w++ {
+				for k := 0; k < w; k++ {
+					filled[i+w-1] |= 1 << (j + k)
+					filled[i+k] |= 1 << (j + w - 1)
+				}
+				dfs(i, j+w, t+1)
+			}
 			for x := i; x < i+mx; x++ {
 				for y := j; y < j+mx; y++ {
-					filled[x] |= 1 << y
-				}
-			}
-			for w := mx; w > 0; w-- {
-				dfs(i, j+w, t+1)
-				for k := 0; k < w; k++ {
-					filled[i+w-1] ^= 1 << (j + k)
-					if k < w-1 {
-						filled[i+k] ^= 1 << (j + w - 1)
-					}
+					filled[x] ^= 1 << y
 				}
 			}
 		}

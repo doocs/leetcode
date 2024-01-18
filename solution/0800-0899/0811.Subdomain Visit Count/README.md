@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 `cnt` 存储每个域名（子域名）对应的访问次数。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 是数组 `cpdomains` 中所有域名的长度之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                     cnt[s[i + 1 :]] += v
         return [f'{v} {s}' for s, v in cnt.items()]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subdomainVisits(cpdomains []string) []string {
 	cnt := map[string]int{}
@@ -153,10 +139,6 @@ func subdomainVisits(cpdomains []string) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

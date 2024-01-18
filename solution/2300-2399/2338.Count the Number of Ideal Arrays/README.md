@@ -57,27 +57,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-我们注意到，$maxValue$ 的最大值不超过 $10^4$，如果数组不含重复元素，那么数组最多只会有不超过 $16$ 个元素。
-
-**方法一：记忆化搜索 + 组合计数**
-
-**方法二：动态规划**
-
-设 $dp[i][j]$ 表示以 $i$ 结尾，且由 $j$ 个不同元素构成的序列的方案数。初始值 $dp[i][1]=1$。
-
-考虑 $n$ 个小球，最终划分为 $j$ 份，那么可以用“隔板法”，即在 $n-1$ 个位置上插入 $j-1$ 个隔板，那么组合数为 $C_{n-1}^{j-1}$ 。
-
-我们可以预处理组合数 $C[i][j]$，根据递推公式 $C[i][j]=C[i-1][j]+C[i-1][j-1]$ 求得，特别地，当 $j=0$ 时，$C[i][j]=1$。
-
-最终的答案为 $\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{\log_2 k + 1}dp[i][j] \times C_{n-1}^{j-1}$ 。其中 $k$ 表示数组的最大值，即 $maxValue$。
+### 方法一：记忆化搜索 + 组合计数
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,34 +84,6 @@ class Solution:
             ans = (ans + dfs(i, 1)) % mod
         return ans
 ```
-
-```python
-class Solution:
-    def idealArrays(self, n: int, maxValue: int) -> int:
-        c = [[0] * 16 for _ in range(n)]
-        mod = 10**9 + 7
-        for i in range(n):
-            for j in range(min(16, i + 1)):
-                c[i][j] = 1 if j == 0 else (c[i - 1][j] + c[i - 1][j - 1]) % mod
-        dp = [[0] * 16 for _ in range(maxValue + 1)]
-        for i in range(1, maxValue + 1):
-            dp[i][1] = 1
-        for j in range(1, 15):
-            for i in range(1, maxValue + 1):
-                k = 2
-                while k * i <= maxValue:
-                    dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % mod
-                    k += 1
-        ans = 0
-        for i in range(1, maxValue + 1):
-            for j in range(1, 16):
-                ans = (ans + dp[i][j] * c[-1][j - 1]) % mod
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -175,42 +129,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
-    public int idealArrays(int n, int maxValue) {
-        int[][] c = new int[n][16];
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j <= i && j < 16; ++j) {
-                c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % MOD;
-            }
-        }
-        long[][] dp = new long[maxValue + 1][16];
-        for (int i = 1; i <= maxValue; ++i) {
-            dp[i][1] = 1;
-        }
-        for (int j = 1; j < 15; ++j) {
-            for (int i = 1; i <= maxValue; ++i) {
-                int k = 2;
-                for (; k * i <= maxValue; ++k) {
-                    dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % MOD;
-                }
-            }
-        }
-        long ans = 0;
-        for (int i = 1; i <= maxValue; ++i) {
-            for (int j = 1; j < 16; ++j) {
-                ans = (ans + dp[i][j] * c[n - 1][j - 1]) % MOD;
-            }
-        }
-        return (int) ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -243,37 +161,6 @@ public:
     }
 };
 ```
-
-```cpp
-using ll = long long;
-
-class Solution {
-public:
-    const int mod = 1e9 + 7;
-
-    int idealArrays(int n, int maxValue) {
-        vector<vector<int>> c(n, vector<int>(16));
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j <= i && j < 16; ++j)
-                c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % mod;
-        vector<vector<ll>> dp(maxValue + 1, vector<ll>(16));
-        for (int i = 1; i <= maxValue; ++i) dp[i][1] = 1;
-        for (int j = 1; j < 15; ++j) {
-            for (int i = 1; i <= maxValue; ++i) {
-                int k = 2;
-                for (; k * i <= maxValue; ++k) dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % mod;
-            }
-        }
-        ll ans = 0;
-        for (int i = 1; i <= maxValue; ++i)
-            for (int j = 1; j < 16; ++j)
-                ans = (ans + dp[i][j] * c[n - 1][j - 1]) % mod;
-        return (int) ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func idealArrays(n int, maxValue int) int {
@@ -321,6 +208,107 @@ func idealArrays(n int, maxValue int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+设 $dp[i][j]$ 表示以 $i$ 结尾，且由 $j$ 个不同元素构成的序列的方案数。初始值 $dp[i][1]=1$。
+
+考虑 $n$ 个小球，最终划分为 $j$ 份，那么可以用“隔板法”，即在 $n-1$ 个位置上插入 $j-1$ 个隔板，那么组合数为 $C_{n-1}^{j-1}$ 。
+
+我们可以预处理组合数 $C[i][j]$，根据递推公式 $C[i][j]=C[i-1][j]+C[i-1][j-1]$ 求得，特别地，当 $j=0$ 时，$C[i][j]=1$。
+
+最终的答案为 $\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{\log_2 k + 1}dp[i][j] \times C_{n-1}^{j-1}$ 。其中 $k$ 表示数组的最大值，即 $maxValue$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def idealArrays(self, n: int, maxValue: int) -> int:
+        c = [[0] * 16 for _ in range(n)]
+        mod = 10**9 + 7
+        for i in range(n):
+            for j in range(min(16, i + 1)):
+                c[i][j] = 1 if j == 0 else (c[i - 1][j] + c[i - 1][j - 1]) % mod
+        dp = [[0] * 16 for _ in range(maxValue + 1)]
+        for i in range(1, maxValue + 1):
+            dp[i][1] = 1
+        for j in range(1, 15):
+            for i in range(1, maxValue + 1):
+                k = 2
+                while k * i <= maxValue:
+                    dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % mod
+                    k += 1
+        ans = 0
+        for i in range(1, maxValue + 1):
+            for j in range(1, 16):
+                ans = (ans + dp[i][j] * c[-1][j - 1]) % mod
+        return ans
+```
+
+```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int idealArrays(int n, int maxValue) {
+        int[][] c = new int[n][16];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j <= i && j < 16; ++j) {
+                c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % MOD;
+            }
+        }
+        long[][] dp = new long[maxValue + 1][16];
+        for (int i = 1; i <= maxValue; ++i) {
+            dp[i][1] = 1;
+        }
+        for (int j = 1; j < 15; ++j) {
+            for (int i = 1; i <= maxValue; ++i) {
+                int k = 2;
+                for (; k * i <= maxValue; ++k) {
+                    dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % MOD;
+                }
+            }
+        }
+        long ans = 0;
+        for (int i = 1; i <= maxValue; ++i) {
+            for (int j = 1; j < 16; ++j) {
+                ans = (ans + dp[i][j] * c[n - 1][j - 1]) % MOD;
+            }
+        }
+        return (int) ans;
+    }
+}
+```
+
+```cpp
+using ll = long long;
+
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int idealArrays(int n, int maxValue) {
+        vector<vector<int>> c(n, vector<int>(16));
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j <= i && j < 16; ++j)
+                c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % mod;
+        vector<vector<ll>> dp(maxValue + 1, vector<ll>(16));
+        for (int i = 1; i <= maxValue; ++i) dp[i][1] = 1;
+        for (int j = 1; j < 15; ++j) {
+            for (int i = 1; i <= maxValue; ++i) {
+                int k = 2;
+                for (; k * i <= maxValue; ++k) dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % mod;
+            }
+        }
+        ll ans = 0;
+        for (int i = 1; i <= maxValue; ++i)
+            for (int j = 1; j < 16; ++j)
+                ans = (ans + dp[i][j] * c[n - 1][j - 1]) % mod;
+        return (int) ans;
+    }
+};
+```
+
 ```go
 func idealArrays(n int, maxValue int) int {
 	mod := int(1e9) + 7
@@ -360,16 +348,6 @@ func idealArrays(n int, maxValue int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,13 +44,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +62,6 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod
         return f[n][n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfWays(n int, x int) int {
 	const mod int = 1e9 + 7
@@ -138,8 +126,6 @@ func numberOfWays(n int, x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWays(n: number, x: number): number {
     const mod = 10 ** 9 + 7;
@@ -160,10 +146,6 @@ function numberOfWays(n: number, x: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

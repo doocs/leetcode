@@ -26,9 +26,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：回溯 + 哈希表**
+### 方法一：回溯 + 哈希表
 
 我们设计一个函数 $dfs(i)$，表示当前排列到了第 $i$ 个位置，我们需要在第 $i$ 个位置上填入一个字符，这个字符可以从 $s[i..n-1]$ 中任意选择。
 
@@ -44,10 +42,6 @@
 时间复杂度 $O(n! \times n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。需要进行 $n!$ 次排列，每次排列需要 $O(n)$ 的时间复制字符串。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func permutation(s string) (ans []string) {
 	cs := []byte(s)
@@ -162,7 +148,55 @@ func permutation(s string) (ans []string) {
 }
 ```
 
-### **JavaScript**
+```ts
+function permutation(s: string): string[] {
+    const n = s.length;
+    const cs = s.split('');
+    const set = new Set<string>();
+    const dfs = (i: number) => {
+        if (i === n) {
+            set.add(cs.join(''));
+            return;
+        }
+        dfs(i + 1);
+        for (let j = i + 1; j < n; j++) {
+            [cs[i], cs[j]] = [cs[j], cs[i]];
+            dfs(i + 1);
+            [cs[i], cs[j]] = [cs[j], cs[i]];
+        }
+    };
+    dfs(0);
+    return [...set];
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    fn dfs(i: usize, cs: &mut Vec<char>, res: &mut Vec<String>) {
+        if i == cs.len() {
+            res.push(cs.iter().collect());
+            return;
+        }
+        let mut set = HashSet::new();
+        for j in i..cs.len() {
+            if set.contains(&cs[j]) {
+                continue;
+            }
+            set.insert(cs[j]);
+            cs.swap(i, j);
+            Self::dfs(i + 1, cs, res);
+            cs.swap(i, j);
+        }
+    }
+
+    pub fn permutation(s: String) -> Vec<String> {
+        let mut res = Vec::new();
+        Self::dfs(0, &mut s.chars().collect(), &mut res);
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -193,62 +227,6 @@ var permutation = function (s) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function permutation(s: string): string[] {
-    const n = s.length;
-    const cs = s.split('');
-    const set = new Set<string>();
-    const dfs = (i: number) => {
-        if (i === n) {
-            set.add(cs.join(''));
-            return;
-        }
-        dfs(i + 1);
-        for (let j = i + 1; j < n; j++) {
-            [cs[i], cs[j]] = [cs[j], cs[i]];
-            dfs(i + 1);
-            [cs[i], cs[j]] = [cs[j], cs[i]];
-        }
-    };
-    dfs(0);
-    return [...set];
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    fn dfs(i: usize, cs: &mut Vec<char>, res: &mut Vec<String>) {
-        if i == cs.len() {
-            res.push(cs.iter().collect());
-            return;
-        }
-        let mut set = HashSet::new();
-        for j in i..cs.len() {
-            if set.contains(&cs[j]) {
-                continue;
-            }
-            set.insert(cs[j]);
-            cs.swap(i, j);
-            Self::dfs(i + 1, cs, res);
-            cs.swap(i, j);
-        }
-    }
-
-    pub fn permutation(s: String) -> Vec<String> {
-        let mut res = Vec::new();
-        Self::dfs(0, &mut s.chars().collect(), &mut res);
-        res
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     private char[] cs;
@@ -278,3 +256,5 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

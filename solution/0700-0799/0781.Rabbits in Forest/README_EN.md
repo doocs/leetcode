@@ -39,9 +39,9 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -49,8 +49,6 @@ class Solution:
         counter = Counter(answers)
         return sum([math.ceil(v / (k + 1)) * (k + 1) for k, v in counter.items()])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,10 +67,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

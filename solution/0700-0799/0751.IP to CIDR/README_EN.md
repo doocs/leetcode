@@ -63,24 +63,4 @@ Note that while the CIDR block &quot;255.0.0.0/28&quot; does cover all the addre
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

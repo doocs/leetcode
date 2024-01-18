@@ -2,22 +2,23 @@ class Solution {
 public:
     int profitableSchemes(int n, int minProfit, vector<int>& group, vector<int>& profit) {
         int m = group.size();
-        int f[m + 1][n + 1][minProfit + 1];
-        memset(f, 0, sizeof(f));
-        for (int j = 0; j <= n; ++j) {
-            f[0][j][0] = 1;
-        }
+        int f[m][n + 1][minProfit + 1];
+        memset(f, -1, sizeof(f));
         const int mod = 1e9 + 7;
-        for (int i = 1; i <= m; ++i) {
-            for (int j = 0; j <= n; ++j) {
-                for (int k = 0; k <= minProfit; ++k) {
-                    f[i][j][k] = f[i - 1][j][k];
-                    if (j >= group[i - 1]) {
-                        f[i][j][k] = (f[i][j][k] + f[i - 1][j - group[i - 1]][max(0, k - profit[i - 1])]) % mod;
-                    }
-                }
+        function<int(int, int, int)> dfs = [&](int i, int j, int k) -> int {
+            if (i >= m) {
+                return k == minProfit ? 1 : 0;
             }
-        }
-        return f[m][n][minProfit];
+            if (f[i][j][k] != -1) {
+                return f[i][j][k];
+            }
+            int ans = dfs(i + 1, j, k);
+            if (j + group[i] <= n) {
+                ans += dfs(i + 1, j + group[i], min(k + profit[i], minProfit));
+            }
+            ans %= mod;
+            return f[i][j][k] = ans;
+        };
+        return dfs(0, 0, 0);
     }
 };

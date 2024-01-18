@@ -34,9 +34,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数位 DP**
+### 方法一：数位 DP
 
 这道题实际上是求在给定区间 $[l,..r]$ 中，数字中出现 $1$ 个数。个数与数的位数以及每一位上的数字有关。我们可以用数位 DP 的思路来解决这道题。数位 DP 中，数的大小对复杂度的影响很小。
 
@@ -76,10 +74,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countDigitOne(self, n: int) -> int:
@@ -101,10 +95,6 @@ class Solution:
             l += 1
         return dfs(l, 0, True)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -180,8 +168,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countDigitOne(n int) int {
@@ -228,8 +214,6 @@ func countDigitOne(n int) int {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int CountDigitOne(int n) {
@@ -250,10 +234,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

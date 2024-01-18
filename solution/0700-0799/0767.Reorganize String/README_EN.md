@@ -26,9 +26,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -49,30 +49,6 @@ class Solution:
                     i = 1
         return ''.join(ans)
 ```
-
-```python
-class Solution:
-    def reorganizeString(self, s: str) -> str:
-        return self.rearrangeString(s, 2)
-
-    def rearrangeString(self, s: str, k: int) -> str:
-        h = [(-v, c) for c, v in Counter(s).items()]
-        heapify(h)
-        q = deque()
-        ans = []
-        while h:
-            v, c = heappop(h)
-            v *= -1
-            ans.append(c)
-            q.append((v - 1, c))
-            if len(q) >= k:
-                w, c = q.popleft()
-                if w:
-                    heappush(h, (-w, c))
-        return "" if len(ans) != len(s) else "".join(ans)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,45 +95,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String reorganizeString(String s) {
-        return rearrangeString(s, 2);
-    }
-
-    public String rearrangeString(String s, int k) {
-        int n = s.length();
-        int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt[c - 'a'];
-        }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
-        for (int i = 0; i < 26; ++i) {
-            if (cnt[i] > 0) {
-                pq.offer(new int[] {cnt[i], i});
-            }
-        }
-        Deque<int[]> q = new ArrayDeque<>();
-        StringBuilder ans = new StringBuilder();
-        while (!pq.isEmpty()) {
-            var p = pq.poll();
-            int v = p[0], c = p[1];
-            ans.append((char) ('a' + c));
-            q.offer(new int[] {v - 1, c});
-            if (q.size() >= k) {
-                p = q.pollFirst();
-                if (p[0] > 0) {
-                    pq.offer(p);
-                }
-            }
-        }
-        return ans.length() == n ? ans.toString() : "";
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,39 +125,43 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    string reorganizeString(string s) {
-        return rearrangeString(s, 2);
-    }
-
-    string rearrangeString(string s, int k) {
-        unordered_map<char, int> cnt;
-        for (char c : s) ++cnt[c];
-        priority_queue<pair<int, char>> pq;
-        for (auto& [c, v] : cnt) pq.push({v, c});
-        queue<pair<int, char>> q;
-        string ans;
-        while (!pq.empty()) {
-            auto [v, c] = pq.top();
-            pq.pop();
-            ans += c;
-            q.push({v - 1, c});
-            if (q.size() >= k) {
-                auto p = q.front();
-                q.pop();
-                if (p.first) {
-                    pq.push(p);
-                }
-            }
-        }
-        return ans.size() == s.size() ? ans : "";
-    }
-};
+```go
+func reorganizeString(s string) string {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		t := c - 'a'
+		cnt[t]++
+	}
+	mx := slices.Max(cnt)
+	n := len(s)
+	if mx > (n+1)/2 {
+		return ""
+	}
+	m := [][]int{}
+	for i, v := range cnt {
+		if v > 0 {
+			m = append(m, []int{v, i})
+		}
+	}
+	sort.Slice(m, func(i, j int) bool {
+		return m[i][0] > m[j][0]
+	})
+	ans := make([]byte, n)
+	k := 0
+	for _, e := range m {
+		v, i := e[0], e[1]
+		for v > 0 {
+			ans[k] = byte('a' + i)
+			k += 2
+			if k >= n {
+				k = 1
+			}
+			v--
+		}
+	}
+	return string(ans)
+}
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashMap, BinaryHeap, VecDeque };
@@ -273,44 +214,101 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func reorganizeString(s string) string {
-	cnt := make([]int, 26)
-	for _, c := range s {
-		t := c - 'a'
-		cnt[t]++
-	}
-	mx := slices.Max(cnt)
-	n := len(s)
-	if mx > (n+1)/2 {
-		return ""
-	}
-	m := [][]int{}
-	for i, v := range cnt {
-		if v > 0 {
-			m = append(m, []int{v, i})
-		}
-	}
-	sort.Slice(m, func(i, j int) bool {
-		return m[i][0] > m[j][0]
-	})
-	ans := make([]byte, n)
-	k := 0
-	for _, e := range m {
-		v, i := e[0], e[1]
-		for v > 0 {
-			ans[k] = byte('a' + i)
-			k += 2
-			if k >= n {
-				k = 1
-			}
-			v--
-		}
-	}
-	return string(ans)
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reorganizeString(self, s: str) -> str:
+        return self.rearrangeString(s, 2)
+
+    def rearrangeString(self, s: str, k: int) -> str:
+        h = [(-v, c) for c, v in Counter(s).items()]
+        heapify(h)
+        q = deque()
+        ans = []
+        while h:
+            v, c = heappop(h)
+            v *= -1
+            ans.append(c)
+            q.append((v - 1, c))
+            if len(q) >= k:
+                w, c = q.popleft()
+                if w:
+                    heappush(h, (-w, c))
+        return "" if len(ans) != len(s) else "".join(ans)
+```
+
+```java
+class Solution {
+    public String reorganizeString(String s) {
+        return rearrangeString(s, 2);
+    }
+
+    public String rearrangeString(String s, int k) {
+        int n = s.length();
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0) {
+                pq.offer(new int[] {cnt[i], i});
+            }
+        }
+        Deque<int[]> q = new ArrayDeque<>();
+        StringBuilder ans = new StringBuilder();
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int v = p[0], c = p[1];
+            ans.append((char) ('a' + c));
+            q.offer(new int[] {v - 1, c});
+            if (q.size() >= k) {
+                p = q.pollFirst();
+                if (p[0] > 0) {
+                    pq.offer(p);
+                }
+            }
+        }
+        return ans.length() == n ? ans.toString() : "";
+    }
 }
+```
+
+```cpp
+class Solution {
+public:
+    string reorganizeString(string s) {
+        return rearrangeString(s, 2);
+    }
+
+    string rearrangeString(string s, int k) {
+        unordered_map<char, int> cnt;
+        for (char c : s) ++cnt[c];
+        priority_queue<pair<int, char>> pq;
+        for (auto& [c, v] : cnt) pq.push({v, c});
+        queue<pair<int, char>> q;
+        string ans;
+        while (!pq.empty()) {
+            auto [v, c] = pq.top();
+            pq.pop();
+            ans += c;
+            q.push({v - 1, c});
+            if (q.size() >= k) {
+                auto p = q.front();
+                q.pop();
+                if (p.first) {
+                    pq.push(p);
+                }
+            }
+        }
+        return ans.size() == s.size() ? ans : "";
+    }
+};
 ```
 
 ```go
@@ -365,10 +363,6 @@ func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

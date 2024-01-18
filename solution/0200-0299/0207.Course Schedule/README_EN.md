@@ -44,7 +44,7 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 
 ## Solutions
 
-**Solution 1: Topological Sorting**
+### Solution 1: Topological Sorting
 
 For this problem, we can consider the courses as nodes in a graph, and prerequisites as edges in the graph. Thus, we can transform this problem into determining whether there is a cycle in the directed graph.
 
@@ -55,8 +55,6 @@ If all nodes have been traversed, it means there is no cycle in the graph, and w
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of courses and prerequisites respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                     q.append(j)
         return cnt == numCourses
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,7 +141,64 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func canFinish(numCourses int, prerequisites [][]int) bool {
+	g := make([][]int, numCourses)
+	indeg := make([]int, numCourses)
+	for _, p := range prerequisites {
+		a, b := p[0], p[1]
+		g[b] = append(g[b], a)
+		indeg[a]++
+	}
+	q := []int{}
+	for i, x := range indeg {
+		if x == 0 {
+			q = append(q, i)
+		}
+	}
+	cnt := 0
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		cnt++
+		for _, j := range g[i] {
+			indeg[j]--
+			if indeg[j] == 0 {
+				q = append(q, j)
+			}
+		}
+	}
+	return cnt == numCourses
+}
+```
+
+```ts
+function canFinish(numCourses: number, prerequisites: number[][]): boolean {
+    const g: number[][] = new Array(numCourses).fill(0).map(() => []);
+    const indeg: number[] = new Array(numCourses).fill(0);
+    for (const [a, b] of prerequisites) {
+        g[b].push(a);
+        indeg[a]++;
+    }
+    const q: number[] = [];
+    for (let i = 0; i < numCourses; ++i) {
+        if (indeg[i] == 0) {
+            q.push(i);
+        }
+    }
+    let cnt = 0;
+    while (q.length) {
+        const i = q.shift()!;
+        cnt++;
+        for (const j of g[i]) {
+            if (--indeg[j] == 0) {
+                q.push(j);
+            }
+        }
+    }
+    return cnt == numCourses;
+}
+```
 
 ```rust
 use std::collections::VecDeque;
@@ -199,71 +250,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func canFinish(numCourses int, prerequisites [][]int) bool {
-	g := make([][]int, numCourses)
-	indeg := make([]int, numCourses)
-	for _, p := range prerequisites {
-		a, b := p[0], p[1]
-		g[b] = append(g[b], a)
-		indeg[a]++
-	}
-	q := []int{}
-	for i, x := range indeg {
-		if x == 0 {
-			q = append(q, i)
-		}
-	}
-	cnt := 0
-	for len(q) > 0 {
-		i := q[0]
-		q = q[1:]
-		cnt++
-		for _, j := range g[i] {
-			indeg[j]--
-			if indeg[j] == 0 {
-				q = append(q, j)
-			}
-		}
-	}
-	return cnt == numCourses
-}
-```
-
-### **TypeScript**
-
-```ts
-function canFinish(numCourses: number, prerequisites: number[][]): boolean {
-    const g: number[][] = new Array(numCourses).fill(0).map(() => []);
-    const indeg: number[] = new Array(numCourses).fill(0);
-    for (const [a, b] of prerequisites) {
-        g[b].push(a);
-        indeg[a]++;
-    }
-    const q: number[] = [];
-    for (let i = 0; i < numCourses; ++i) {
-        if (indeg[i] == 0) {
-            q.push(i);
-        }
-    }
-    let cnt = 0;
-    while (q.length) {
-        const i = q.shift()!;
-        cnt++;
-        for (const j of g[i]) {
-            if (--indeg[j] == 0) {
-                q.push(j);
-            }
-        }
-    }
-    return cnt == numCourses;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public bool CanFinish(int numCourses, int[][] prerequisites) {
@@ -298,10 +284,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

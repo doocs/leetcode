@@ -67,7 +67,7 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
 
 ## Solutions
 
-**Solution 1: Greedy + Priority Queue**
+### Solution 1: Greedy + Priority Queue
 
 According to the problem description, we should prioritize purchasing items with smaller values and leave items with larger values to be purchased later in order to maximize the total cost. Therefore, we use a priority queue (min-heap) to store the smallest value item that has not been purchased in each store. Initially, we add the rightmost item in each store to the priority queue.
 
@@ -76,8 +76,6 @@ Each day, we take out the item with the smallest value from the priority queue, 
 The time complexity is $O(m \times n \times \log m)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of rows and columns of the array $values$, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -94,8 +92,6 @@ class Solution:
                 heappush(pq, (values[i][j - 1], i, j - 1))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxSpending(values [][]int) (ans int64) {
@@ -173,8 +165,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSpending(values: number[][]): number {
     const m = values.length;
@@ -196,10 +186,6 @@ function maxSpending(values: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -14,7 +14,18 @@
 
 ## 版权
 
-著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 [@yanglbme](mailto:contact@yanglibin.info) 获得授权，非商业转载请注明出处。
+本项目著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 @yanglbme 获得授权，非商业转载请注明出处。
+
+## 联系我们
+
+欢迎各位小伙伴们添加 @yanglbme 的个人微信（微信号：YLB0109），备注 「**leetcode**」。后续我们会创建算法、技术相关的交流群，大家一起交流学习，分享经验，共同进步。
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="left"/> |
+| ------------------------------------------------------------------------------------------------------------------------------ |
+
+## 许可证
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
 
 <!-- 这里是category_readme_template结束位置 -->
 
@@ -34,7 +45,18 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 
 ## Copyright
 
-[@Doocs](https://github.com/doocs)
+The copyright of this project belongs to [Doocs](https://github.com/doocs) community. For commercial reprints, please contact [@yanglbme](mailto:contact@yanglibin.info) for authorization. For non-commercial reprints, please indicate the source.
+
+## Contact Us
+
+We welcome everyone to add @yanglbme's personal WeChat (WeChat ID: YLB0109), with the note "leetcode". In the future, we will create algorithm and technology related discussion groups, where we can learn and share experiences together, and make progress together.
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png" width="260px" align="left"/> |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+
+## License
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 <!-- 这里是category_readme_template_en结束位置 -->
 
@@ -56,7 +78,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 
 ## 版权
 
-著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 [@yanglbme](mailto:contact@yanglibin.info) 获得授权，非商业转载请注明出处。
+本项目著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 @yanglbme 获得授权，非商业转载请注明出处。
+
+## 联系我们
+
+欢迎各位小伙伴们添加 @yanglbme 的个人微信（微信号：YLB0109），备注 「**leetcode**」。后续我们会创建算法、技术相关的交流群，大家一起交流学习，分享经验，共同进步。
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="left"/> |
+| ------------------------------------------------------------------------------------------------------------------------------ |
 
 <!-- 这里是readme_template结束位置 -->
 
@@ -76,7 +105,18 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 
 ## Copyright
 
-[@Doocs](https://github.com/doocs)
+The copyright of this project belongs to [Doocs](https://github.com/doocs) community. For commercial reprints, please contact [@yanglbme](mailto:contact@yanglibin.info) for authorization. For non-commercial reprints, please indicate the source.
+
+## Contact Us
+
+We welcome everyone to add @yanglbme's personal WeChat (WeChat ID: YLB0109), with the note "leetcode". In the future, we will create algorithm and technology related discussion groups, where we can learn and share experiences together, and make progress together.
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png" width="260px" align="left"/> |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+
+## License
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 <!-- 这里是readme_template_en结束位置 -->
 
@@ -163,19 +203,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
 
-### **Bash**
+```python
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+```
 
-```bash
+```java
+
+```
+
+```cpp
+
+```
+
+```go
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是bash_problem_readme_template结束位置 -->
 
@@ -193,15 +243,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
 
-### **Bash**
+```python
 
-```bash
+```
+
+```java
+
+```
+
+```cpp
+
+```
+
+```go
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是bash_problem_readme_template_en结束位置 -->
 
@@ -221,45 +285,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 
 ```
-
-### **C++**
 
 ```cpp
 
 ```
 
-### **Go**
-
 ```go
 
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是problem_readme_template结束位置 -->
 
@@ -277,39 +325,29 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 
 ```
 
-### **Java**
-
 ```java
 
 ```
-
-### **C++**
 
 ```cpp
 
 ```
 
-### **Go**
-
 ```go
 
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是problem_readme_template_en结束位置 -->
 
@@ -329,19 +367,17 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是sql_problem_readme_template结束位置 -->
 
@@ -359,15 +395,17 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是sql_problem_readme_template_en结束位置 -->
 
@@ -387,19 +425,17 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是ts_problem_readme_template结束位置 -->
 
@@ -417,14 +453,16 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->
 
 <!-- 这里是ts_problem_readme_template_en结束位置 -->

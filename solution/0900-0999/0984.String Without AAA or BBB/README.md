@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 构造**
+### 方法一：贪心 + 构造
 
 循环构造字符串，当 $a$ 和 $b$ 都大于 `0` 时：
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(a+b)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             ans.append('b' * b)
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func strWithout3a3b(a int, b int) string {
@@ -176,10 +162,6 @@ func strWithout3a3b(a int, b int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

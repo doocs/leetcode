@@ -55,9 +55,7 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 动态列表**
+### 方法一：哈希表 + 动态列表
 
 我们定义一个动态列表 $q$，用于存储集合中的元素，定义一个哈希表 $d$，用于存储每个元素在 $q$ 中的下标。
 
@@ -70,10 +68,6 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为集合中元素的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class RandomizedSet:
@@ -108,10 +102,6 @@ class RandomizedSet:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class RandomizedSet {
@@ -156,8 +146,6 @@ class RandomizedSet {
  * int param_3 = obj.getRandom();
  */
 ```
-
-### **C++**
 
 ```cpp
 class RandomizedSet {
@@ -204,8 +192,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type RandomizedSet struct {
 	d map[int]int
@@ -250,8 +236,6 @@ func (this *RandomizedSet) GetRandom() int {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class RandomizedSet {
     private d: Map<number, number> = new Map();
@@ -294,8 +278,6 @@ class RandomizedSet {
  */
 ```
 
-### **Rust**
-
 ```rust
 use std::collections::HashSet;
 use rand::Rng;
@@ -335,8 +317,6 @@ impl RandomizedSet {
  * let ret_3: i32 = obj.get_random();
  */
 ```
-
-### **C#**
 
 ```cs
 public class RandomizedSet {
@@ -382,10 +362,6 @@ public class RandomizedSet {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

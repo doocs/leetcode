@@ -64,149 +64,169 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：哈希表
+
+我们可以用哈希表 $s$ 记录所有挖掘的单元格，然后遍历所有工件，判断工件的所有部分是否都在哈希表中，若是则可以提取该工件，答案加一。
+
+时间复杂度 $O(m + k)$，空间复杂度 $O(k)$，其中 $m$ 是工件的数量，而 $k$ 是挖掘的单元格的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def digArtifacts(
         self, n: int, artifacts: List[List[int]], dig: List[List[int]]
     ) -> int:
-        def check(artifact):
-            r1, c1, r2, c2 = artifact
-            for x in range(r1, r2 + 1):
-                for y in range(c1, c2 + 1):
-                    if (x, y) not in s:
-                        return False
-            return True
+        def check(a: List[int]) -> bool:
+            x1, y1, x2, y2 = a
+            return all(
+                (x, y) in s for x in range(x1, x2 + 1) for y in range(y1, y2 + 1)
+            )
 
         s = {(i, j) for i, j in dig}
-        return sum(check(v) for v in artifacts)
+        return sum(check(a) for a in artifacts)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
+    private Set<Integer> s = new HashSet<>();
+    private int n;
+
     public int digArtifacts(int n, int[][] artifacts, int[][] dig) {
-        Set<Integer> s = new HashSet<>();
-        for (int[] d : dig) {
-            s.add(d[0] * n + d[1]);
+        this.n = n;
+        for (var p : dig) {
+            s.add(p[0] * n + p[1]);
         }
         int ans = 0;
-        for (int[] a : artifacts) {
-            if (check(a, s, n)) {
-                ++ans;
-            }
+        for (var a : artifacts) {
+            ans += check(a);
         }
         return ans;
     }
 
-    private boolean check(int[] a, Set<Integer> s, int n) {
-        int r1 = a[0], c1 = a[1], r2 = a[2], c2 = a[3];
-        for (int i = r1; i <= r2; ++i) {
-            for (int j = c1; j <= c2; ++j) {
-                if (!s.contains(i * n + j)) {
-                    return false;
+    private int check(int[] a) {
+        int x1 = a[0], y1 = a[1], x2 = a[2], y2 = a[3];
+        for (int x = x1; x <= x2; ++x) {
+            for (int y = y1; y <= y2; ++y) {
+                if (!s.contains(x * n + y)) {
+                    return 0;
                 }
             }
         }
-        return true;
+        return 1;
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number {
-    let visited = Array.from({ length: n }, v => new Array(n).fill(false));
-    for (let [i, j] of dig) {
-        visited[i][j] = true;
-    }
-    let ans = 0;
-    for (let [a, b, c, d] of artifacts) {
-        let flag = true;
-        for (let i = a; i <= c && flag; i++) {
-            for (let j = b; j <= d && flag; j++) {
-                if (!visited[i][j]) {
-                    flag = false;
-                }
-            }
-        }
-        flag && ans++;
-    }
-    return ans;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
     int digArtifacts(int n, vector<vector<int>>& artifacts, vector<vector<int>>& dig) {
         unordered_set<int> s;
-        for (auto& d : dig) s.insert(d[0] * n + d[1]);
-        int ans = 0;
-        for (auto& a : artifacts) ans += check(a, s, n);
-        return ans;
-    }
-
-    bool check(vector<int>& a, unordered_set<int>& s, int n) {
-        int r1 = a[0], c1 = a[1], r2 = a[2], c2 = a[3];
-        for (int i = r1; i <= r2; ++i) {
-            for (int j = c1; j <= c2; ++j) {
-                if (!s.count(i * n + j)) {
-                    return false;
+        for (auto& p : dig) {
+            s.insert(p[0] * n + p[1]);
+        }
+        auto check = [&](vector<int>& a) {
+            int x1 = a[0], y1 = a[1], x2 = a[2], y2 = a[3];
+            for (int x = x1; x <= x2; ++x) {
+                for (int y = y1; y <= y2; ++y) {
+                    if (!s.count(x * n + y)) {
+                        return 0;
+                    }
                 }
             }
+            return 1;
+        };
+        int ans = 0;
+        for (auto& a : artifacts) {
+            ans += check(a);
         }
-        return true;
+        return ans;
     }
 };
 ```
 
-### **Go**
-
 ```go
-func digArtifacts(n int, artifacts [][]int, dig [][]int) int {
+func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	s := map[int]bool{}
-	for _, d := range dig {
-		s[d[0]*n+d[1]] = true
+	for _, p := range dig {
+		s[p[0]*n+p[1]] = true
 	}
-	check := func(a []int) bool {
-		r1, c1, r2, c2 := a[0], a[1], a[2], a[3]
-		for i := r1; i <= r2; i++ {
-			for j := c1; j <= c2; j++ {
-				if !s[i*n+j] {
-					return false
+	check := func(a []int) int {
+		x1, y1, x2, y2 := a[0], a[1], a[2], a[3]
+		for x := x1; x <= x2; x++ {
+			for y := y1; y <= y2; y++ {
+				if !s[x*n+y] {
+					return 0
 				}
 			}
 		}
-		return true
+		return 1
 	}
-	ans := 0
 	for _, a := range artifacts {
-		if check(a) {
-			ans++
-		}
+		ans += check(a)
 	}
-	return ans
+	return
 }
 ```
 
-### **...**
-
+```ts
+function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number {
+    const s: Set<number> = new Set();
+    for (const [x, y] of dig) {
+        s.add(x * n + y);
+    }
+    let ans = 0;
+    const check = (a: number[]): number => {
+        const [x1, y1, x2, y2] = a;
+        for (let x = x1; x <= x2; ++x) {
+            for (let y = y1; y <= y2; ++y) {
+                if (!s.has(x * n + y)) {
+                    return 0;
+                }
+            }
+        }
+        return 1;
+    };
+    for (const a of artifacts) {
+        ans += check(a);
+    }
+    return ans;
+}
 ```
 
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn dig_artifacts(n: i32, artifacts: Vec<Vec<i32>>, dig: Vec<Vec<i32>>) -> i32 {
+        let mut s: HashSet<i32> = HashSet::new();
+        for p in dig {
+            s.insert(p[0] * n + p[1]);
+        }
+        let check = |a: &[i32]| -> i32 {
+            let x1 = a[0];
+            let y1 = a[1];
+            let x2 = a[2];
+            let y2 = a[3];
+            for x in x1..=x2 {
+                for y in y1..=y2 {
+                    if !s.contains(&(x * n + y)) {
+                        return 0;
+                    }
+                }
+            }
+            1
+        };
+        let mut ans = 0;
+        for a in artifacts {
+            ans += check(&a);
+        }
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

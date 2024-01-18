@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We use a hash table $d$ to store the nearest index of the number it has visited.
 
@@ -51,8 +51,6 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$. Here $n$ is th
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
@@ -63,8 +61,6 @@ class Solution:
             d[x] = i
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func containsNearbyDuplicate(nums []int, k int) bool {
 	d := map[int]int{}
@@ -114,7 +106,18 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 }
 ```
 
-### **C#**
+```ts
+function containsNearbyDuplicate(nums: number[], k: number): boolean {
+    const d: Map<number, number> = new Map();
+    for (let i = 0; i < nums.length; ++i) {
+        if (d.has(nums[i]) && i - d.get(nums[i])! <= k) {
+            return true;
+        }
+        d.set(nums[i], i);
+    }
+    return false;
+}
+```
 
 ```cs
 public class Solution {
@@ -130,23 +133,6 @@ public class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function containsNearbyDuplicate(nums: number[], k: number): boolean {
-    const d: Map<number, number> = new Map();
-    for (let i = 0; i < nums.length; ++i) {
-        if (d.has(nums[i]) && i - d.get(nums[i])! <= k) {
-            return true;
-        }
-        d.set(nums[i], i);
-    }
-    return false;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -169,10 +155,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

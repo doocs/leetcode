@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 前序序列的第一个结点 $preorder[0]$ 为根节点，我们在中序序列中找到根节点的位置 $i$，可以将中序序列划分为左子树 $inorder[0..i]$ 、右子树 $inorder[i+1..]$。
 
@@ -57,10 +55,6 @@
 如果题目中给定的节点值存在重复，那么我们只需要记录每个节点值出现的所有位置，然后递归构建即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -83,31 +77,6 @@ class Solution:
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(preorder))
 ```
-
-```python
-class Solution:
-    def getBinaryTrees(self, preOrder: List[int], inOrder: List[int]) -> List[TreeNode]:
-        def dfs(i: int, j: int, n: int) -> List[TreeNode]:
-            if n <= 0:
-                return [None]
-            v = preOrder[i]
-            ans = []
-            for k in d[v]:
-                if j <= k < j + n:
-                    for l in dfs(i + 1, j, k - j):
-                        for r in dfs(i + 1 + k - j, k + 1, n - 1 - (k - j)):
-                            ans.append(TreeNode(v, l, r))
-            return ans
-
-        d = defaultdict(list)
-        for i, x in enumerate(inOrder):
-            d[x].append(i)
-        return dfs(0, 0, len(preOrder))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -153,50 +122,6 @@ class Solution {
 }
 ```
 
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    private int[] preorder;
-    private Map<Integer, Integer> d = new HashMap<>();
-
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        int n = preorder.length;
-        this.preorder = preorder;
-        for (int i = 0; i < n; ++i) {
-            d.put(inorder[i], i);
-        }
-        return dfs(0, 0, n);
-    }
-
-    private TreeNode dfs(int i, int j, int n) {
-        if (n <= 0) {
-            return null;
-        }
-        int v = preorder[i];
-        int k = d.get(v);
-        TreeNode l = dfs(i + 1, j, k - j);
-        TreeNode r = dfs(i + 1 + k - j, k + 1, n - 1 - (k - j));
-        return new TreeNode(v, l, r);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -232,53 +157,6 @@ public:
 };
 ```
 
-```cpp
-/**
- * struct TreeNode {
- *	int val;
- *	struct TreeNode *left;
- *	struct TreeNode *right;
- *	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- * };
- */
-class Solution {
-public:
-    vector<TreeNode*> getBinaryTrees(vector<int>& preOrder, vector<int>& inOrder) {
-        int n = inOrder.size();
-        unordered_map<int, vector<int>> d;
-        for (int i = 0; i < n; ++i) {
-            d[inOrder[i]].push_back(i);
-        }
-        function<vector<TreeNode*>(int, int, int)> dfs = [&](int i,int j, int n) -> vector<TreeNode*> {
-            vector<TreeNode*> ans;
-            if (n <= 0) {
-                ans.push_back(nullptr);
-                return ans;
-            }
-            int v = preOrder[i];
-            for (int k : d[v]) {
-                if (k >= j && k < j + n) {
-                    auto lefts = dfs(i + 1, j, k - j);
-                    auto rights = dfs(i + 1 + k - j, k + 1, n - 1 - (k - j));
-                    for (TreeNode* l : lefts) {
-                        for (TreeNode* r : rights) {
-                            TreeNode* node = new TreeNode(v);
-                            node->left = l;
-                            node->right = r;
-                            ans.push_back(node);
-                        }
-                    }
-                }
-            }
-            return ans;
-        };
-        return dfs(0, 0, n);
-    }
-};
-```
-
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -307,40 +185,6 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return dfs(0, 0, len(preorder))
 }
 ```
-
-```go
-func getBinaryTrees(preOrder []int, inOrder []int) []*TreeNode {
-	n := len(preOrder)
-	d := map[int][]int{}
-	for i, x := range inOrder {
-		d[x] = append(d[x], i)
-	}
-	var dfs func(i, j, n int) []*TreeNode
-	dfs = func(i, j, n int) []*TreeNode {
-		ans := []*TreeNode{}
-		if n <= 0 {
-			ans = append(ans, nil)
-			return ans
-		}
-		v := preOrder[i]
-		for _, k := range d[v] {
-			if k >= j && k < j+n {
-				lefts := dfs(i+1, j, k-j)
-				rights := dfs(i+1+k-j, k+1, n-1-(k-j))
-				for _, left := range lefts {
-					for _, right := range rights {
-						ans = append(ans, &TreeNode{v, left, right})
-					}
-				}
-			}
-		}
-		return ans
-	}
-	return dfs(0, 0, n)
-}
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -376,8 +220,6 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     return dfs(0, 0, n);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -430,8 +272,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -466,10 +306,152 @@ var buildTree = function (preorder, inorder) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def getBinaryTrees(self, preOrder: List[int], inOrder: List[int]) -> List[TreeNode]:
+        def dfs(i: int, j: int, n: int) -> List[TreeNode]:
+            if n <= 0:
+                return [None]
+            v = preOrder[i]
+            ans = []
+            for k in d[v]:
+                if j <= k < j + n:
+                    for l in dfs(i + 1, j, k - j):
+                        for r in dfs(i + 1 + k - j, k + 1, n - 1 - (k - j)):
+                            ans.append(TreeNode(v, l, r))
+            return ans
+
+        d = defaultdict(list)
+        for i, x in enumerate(inOrder):
+            d[x].append(i)
+        return dfs(0, 0, len(preOrder))
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int[] preorder;
+    private Map<Integer, Integer> d = new HashMap<>();
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int n = preorder.length;
+        this.preorder = preorder;
+        for (int i = 0; i < n; ++i) {
+            d.put(inorder[i], i);
+        }
+        return dfs(0, 0, n);
+    }
+
+    private TreeNode dfs(int i, int j, int n) {
+        if (n <= 0) {
+            return null;
+        }
+        int v = preorder[i];
+        int k = d.get(v);
+        TreeNode l = dfs(i + 1, j, k - j);
+        TreeNode r = dfs(i + 1 + k - j, k + 1, n - 1 - (k - j));
+        return new TreeNode(v, l, r);
+    }
+}
+```
+
+```cpp
+/**
+ * struct TreeNode {
+ *	int val;
+ *	struct TreeNode *left;
+ *	struct TreeNode *right;
+ *	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ * };
+ */
+class Solution {
+public:
+    vector<TreeNode*> getBinaryTrees(vector<int>& preOrder, vector<int>& inOrder) {
+        int n = inOrder.size();
+        unordered_map<int, vector<int>> d;
+        for (int i = 0; i < n; ++i) {
+            d[inOrder[i]].push_back(i);
+        }
+        function<vector<TreeNode*>(int, int, int)> dfs = [&](int i, int j, int n) -> vector<TreeNode*> {
+            vector<TreeNode*> ans;
+            if (n <= 0) {
+                ans.push_back(nullptr);
+                return ans;
+            }
+            int v = preOrder[i];
+            for (int k : d[v]) {
+                if (k >= j && k < j + n) {
+                    auto lefts = dfs(i + 1, j, k - j);
+                    auto rights = dfs(i + 1 + k - j, k + 1, n - 1 - (k - j));
+                    for (TreeNode* l : lefts) {
+                        for (TreeNode* r : rights) {
+                            TreeNode* node = new TreeNode(v);
+                            node->left = l;
+                            node->right = r;
+                            ans.push_back(node);
+                        }
+                    }
+                }
+            }
+            return ans;
+        };
+        return dfs(0, 0, n);
+    }
+};
+```
+
+```go
+func getBinaryTrees(preOrder []int, inOrder []int) []*TreeNode {
+	n := len(preOrder)
+	d := map[int][]int{}
+	for i, x := range inOrder {
+		d[x] = append(d[x], i)
+	}
+	var dfs func(i, j, n int) []*TreeNode
+	dfs = func(i, j, n int) []*TreeNode {
+		ans := []*TreeNode{}
+		if n <= 0 {
+			ans = append(ans, nil)
+			return ans
+		}
+		v := preOrder[i]
+		for _, k := range d[v] {
+			if k >= j && k < j+n {
+				lefts := dfs(i+1, j, k-j)
+				rights := dfs(i+1+k-j, k+1, n-1-(k-j))
+				for _, left := range lefts {
+					for _, right := range rights {
+						ans = append(ans, &TreeNode{v, left, right})
+					}
+				}
+			}
+		}
+		return ans
+	}
+	return dfs(0, 0, n)
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

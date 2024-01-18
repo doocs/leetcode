@@ -31,9 +31,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -44,8 +44,6 @@ class Solution:
                 return val
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -61,8 +59,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -75,8 +71,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSpecialInteger(arr []int) int {
 	n := len(arr)
@@ -88,8 +82,6 @@ func findSpecialInteger(arr []int) int {
 	return 0
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -106,8 +98,6 @@ var findSpecialInteger = function (arr) {
     return 0;
 };
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -127,10 +117,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

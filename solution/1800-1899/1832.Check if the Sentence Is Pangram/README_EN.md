@@ -34,26 +34,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Array or Hash Table
 
-### **Python3**
+Traverse the string `sentence`, use an array or hash table to record the letters that have appeared, and finally check whether there are $26$ letters in the array or hash table.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string `sentence`, and $C$ is the size of the character set. In this problem, $C = 26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
         return len(set(sentence)) == 26
 ```
-
-```python
-class Solution:
-    def checkIfPangram(self, sentence: str) -> bool:
-        mask = 0
-        for c in sentence:
-            mask |= 1 << (ord(c) - ord('a'))
-        return mask == (1 << 26) - 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,20 +65,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean checkIfPangram(String sentence) {
-        int mask = 0;
-        for (int i = 0; i < sentence.length(); ++i) {
-            mask |= 1 << (sentence.charAt(i) - 'a');
-        }
-        return mask == (1 << 26) - 1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,19 +77,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool checkIfPangram(string sentence) {
-        int mask = 0;
-        for (char& c : sentence) mask |= 1 << (c - 'a');
-        return mask == (1 << 26) - 1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func checkIfPangram(sentence string) bool {
@@ -127,18 +93,6 @@ func checkIfPangram(sentence string) bool {
 }
 ```
 
-```go
-func checkIfPangram(sentence string) bool {
-	mask := 0
-	for _, c := range sentence {
-		mask |= 1 << int(c-'a')
-	}
-	return mask == 1<<26-1
-}
-```
-
-### **TypeScript**
-
 ```ts
 function checkIfPangram(sentence: string): boolean {
     const vis = new Array(26).fill(false);
@@ -148,18 +102,6 @@ function checkIfPangram(sentence: string): boolean {
     return vis.every(v => v);
 }
 ```
-
-```ts
-function checkIfPangram(sentence: string): boolean {
-    let mark = 0;
-    for (const c of sentence) {
-        mark |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
-    }
-    return mark === (1 << 26) - 1;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -172,20 +114,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn check_if_pangram(sentence: String) -> bool {
-        let mut mark = 0;
-        for c in sentence.as_bytes() {
-            mark |= 1 << (*c - b'a');
-        }
-        mark == (1 << 26) - 1
-    }
-}
-```
-
-### **C**
 
 ```c
 bool checkIfPangram(char* sentence) {
@@ -202,6 +130,82 @@ bool checkIfPangram(char* sentence) {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Bit Manipulation
+
+We can also use an integer $mask$ to record the letters that have appeared, where the $i$-th bit of $mask$ indicates whether the $i$-th letter has appeared.
+
+Finally, check whether there are $26$ $1$s in the binary representation of $mask$, that is, check whether $mask$ is equal to $2^{26} - 1$. If so, return `true`, otherwise return `false`.
+
+The time complexity is $O(n)$, where $n$ is the length of the string `sentence`. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        mask = 0
+        for c in sentence:
+            mask |= 1 << (ord(c) - ord('a'))
+        return mask == (1 << 26) - 1
+```
+
+```java
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        int mask = 0;
+        for (int i = 0; i < sentence.length(); ++i) {
+            mask |= 1 << (sentence.charAt(i) - 'a');
+        }
+        return mask == (1 << 26) - 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        int mask = 0;
+        for (char& c : sentence) mask |= 1 << (c - 'a');
+        return mask == (1 << 26) - 1;
+    }
+};
+```
+
+```go
+func checkIfPangram(sentence string) bool {
+	mask := 0
+	for _, c := range sentence {
+		mask |= 1 << int(c-'a')
+	}
+	return mask == 1<<26-1
+}
+```
+
+```ts
+function checkIfPangram(sentence: string): boolean {
+    let mark = 0;
+    for (const c of sentence) {
+        mark |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+    }
+    return mark === (1 << 26) - 1;
+}
+```
+
+```rust
+impl Solution {
+    pub fn check_if_pangram(sentence: String) -> bool {
+        let mut mark = 0;
+        for c in sentence.as_bytes() {
+            mark |= 1 << (*c - b'a');
+        }
+        mark == (1 << 26) - 1
+    }
+}
+```
+
 ```c
 bool checkIfPangram(char* sentence) {
     int mark = 0;
@@ -212,10 +216,6 @@ bool checkIfPangram(char* sentence) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

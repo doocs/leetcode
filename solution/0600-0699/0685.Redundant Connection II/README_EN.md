@@ -40,11 +40,9 @@
 
 ## Solutions
 
-Union find.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class UnionFind:
@@ -85,8 +83,6 @@ class Solution:
             return [p[v], v]
         return edges[conflict]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -152,8 +148,6 @@ class UnionFind {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -204,8 +198,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -267,10 +259,6 @@ func findRedundantDirectedConnection(edges [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

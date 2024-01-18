@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -60,8 +60,6 @@ class Solution:
             pre, head = pre.next, head.next
         return True
 ```
-
-### **Java**
 
 ```java
 /**
@@ -103,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -143,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -176,7 +170,43 @@ func isPalindrome(head *ListNode) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function isPalindrome(head: ListNode | null): boolean {
+    let slow: ListNode = head,
+        fast: ListNode = head.next;
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    let cur: ListNode = slow.next;
+    slow.next = null;
+    let prev: ListNode = null;
+    while (cur != null) {
+        let t: ListNode = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = t;
+    }
+    while (prev != null) {
+        if (prev.val != head.val) return false;
+        prev = prev.next;
+        head = head.next;
+    }
+    return true;
+}
+```
 
 ```js
 /**
@@ -216,8 +246,6 @@ var isPalindrome = function (head) {
     return true;
 };
 ```
-
-### **C#**
 
 ```cs
 /**
@@ -260,50 +288,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function isPalindrome(head: ListNode | null): boolean {
-    let slow: ListNode = head,
-        fast: ListNode = head.next;
-    while (fast != null && fast.next != null) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    let cur: ListNode = slow.next;
-    slow.next = null;
-    let prev: ListNode = null;
-    while (cur != null) {
-        let t: ListNode = cur.next;
-        cur.next = prev;
-        prev = cur;
-        cur = t;
-    }
-    while (prev != null) {
-        if (prev.val != head.val) return false;
-        prev = prev.next;
-        head = head.next;
-    }
-    return true;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

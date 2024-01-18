@@ -60,13 +60,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +81,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lexicographicallySmallestArray(nums []int, limit int) []int {
 	n := len(nums)
@@ -174,8 +162,6 @@ func lexicographicallySmallestArray(nums []int, limit int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function lexicographicallySmallestArray(nums: number[], limit: number): number[] {
     const n: number = nums.length;
@@ -197,10 +183,6 @@ function lexicographicallySmallestArray(nums: number[], limit: number): number[]
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

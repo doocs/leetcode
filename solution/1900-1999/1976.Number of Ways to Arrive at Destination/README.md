@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：朴素 Dijkstra 算法**
+### 方法一：朴素 Dijkstra 算法
 
 在求最短路的过程中顺便记录到达某个点最短路径的方案数。松弛优化时，如果发现有更优的路径，则方案数也赋值最优路径的前驱的方案数。如果发现与最优的路径长度相同，则累加当前前驱的方案数。
 
@@ -63,10 +61,6 @@
 > 注意：最短路的长度可能会超过 32 位整数的范围。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
                     w[i] += w[t]
         return w[-1] % MOD
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -153,8 +143,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef long long ll;
 
@@ -196,8 +184,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPaths(n int, roads [][]int) int {
@@ -246,10 +232,6 @@ func countPaths(n int, roads [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

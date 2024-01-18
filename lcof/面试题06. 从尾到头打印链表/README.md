@@ -19,21 +19,13 @@
 
 ## 解法
 
-**方法一：顺序遍历 + 反转**
+### 方法一：顺序遍历 + 反转
 
 我们可以顺序遍历链表，将每个节点的值存入数组中，然后将数组反转。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
-**方法二：递归**
-
-我们可以使用递归的方式，先递归得到 `head` 之后的节点反过来的值列表，然后将 `head` 的值加到列表的末尾。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -51,25 +43,6 @@ class Solution:
             head = head.next
         return ans[::-1]
 ```
-
-```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-
-class Solution:
-    def reversePrint(self, head: ListNode) -> List[int]:
-        if head is None:
-            return []
-        ans = self.reversePrint(head.next)
-        ans.append(head.val)
-        return ans
-```
-
-### **Java**
 
 ```java
 /**
@@ -95,34 +68,6 @@ class Solution {
 }
 ```
 
-```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public int[] reversePrint(ListNode head) {
-        int n = 0;
-        ListNode cur = head;
-        for (; cur != null; cur = cur.next) {
-            ++n;
-        }
-        int[] ans = new int[n];
-        cur = head;
-        for (; cur != null; cur = cur.next) {
-            ans[--n] = cur.val;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -143,30 +88,6 @@ public:
 };
 ```
 
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    vector<int> reversePrint(ListNode* head) {
-        vector<int> ans;
-        for (; head; head = head->next) {
-            ans.push_back(head->val);
-        }
-        reverse(ans.begin(), ans.end());
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -185,71 +106,6 @@ func reversePrint(head *ListNode) (ans []int) {
 	return
 }
 ```
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func reversePrint(head *ListNode) (ans []int) {
-	if head == nil {
-		return
-	}
-	ans = reversePrint(head.Next)
-	ans = append(ans, head.Val)
-	return
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {number[]}
- */
-var reversePrint = function (head) {
-    let ans = [];
-    for (; !!head; head = head.next) {
-        ans.unshift(head.val);
-    }
-    return ans;
-};
-```
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {number[]}
- */
-var reversePrint = function (head) {
-    if (!head) {
-        return [];
-    }
-    const ans = reversePrint(head.next);
-    ans.push(head.val);
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -272,8 +128,6 @@ function reversePrint(head: ListNode | null): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -303,6 +157,142 @@ impl Solution {
         arr.reverse();
         arr
     }
+}
+```
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number[]}
+ */
+var reversePrint = function (head) {
+    let ans = [];
+    for (; !!head; head = head.next) {
+        ans.unshift(head.val);
+    }
+    return ans;
+};
+```
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int x) { val = x; }
+ * }
+ */
+ public class Solution {
+     public int[] ReversePrint(ListNode head) {
+         List<int> ans = new List<int>();
+         while (head != null) {
+             ans.Add(head.val);
+             head = head.next;
+         }
+         ans.Reverse();
+         return ans.ToArray();
+     }
+ }
+```
+
+<!-- tabs:end -->
+
+### 方法二：递归
+
+我们可以使用递归的方式，先递归得到 `head` 之后的节点反过来的值列表，然后将 `head` 的值加到列表的末尾。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
+
+<!-- tabs:start -->
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+class Solution:
+    def reversePrint(self, head: ListNode) -> List[int]:
+        if head is None:
+            return []
+        ans = self.reversePrint(head.next)
+        ans.append(head.val)
+        return ans
+```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int[] reversePrint(ListNode head) {
+        int n = 0;
+        ListNode cur = head;
+        for (; cur != null; cur = cur.next) {
+            ++n;
+        }
+        int[] ans = new int[n];
+        cur = head;
+        for (; cur != null; cur = cur.next) {
+            ans[--n] = cur.val;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> reversePrint(ListNode* head) {
+        vector<int> ans;
+        for (; head; head = head->next) {
+            ans.push_back(head->val);
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reversePrint(head *ListNode) (ans []int) {
+	if head == nil {
+		return
+	}
+	ans = reversePrint(head.Next)
+	ans = append(ans, head.Val)
+	return
 }
 ```
 
@@ -344,34 +334,28 @@ impl Solution {
 }
 ```
 
-### **C#**
-
-```cs
+```js
 /**
  * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int x) { val = x; }
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
  * }
  */
- public class Solution {
-     public int[] ReversePrint(ListNode head) {
-         List<int> ans = new List<int>();
-         while (head != null) {
-             ans.Add(head.val);
-             head = head.next;
-         }
-         ans.Reverse();
-         return ans.ToArray();
-     }
- }
-```
-
-### **...**
-
-```
-
+/**
+ * @param {ListNode} head
+ * @return {number[]}
+ */
+var reversePrint = function (head) {
+    if (!head) {
+        return [];
+    }
+    const ans = reversePrint(head.next);
+    ans.push(head.val);
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

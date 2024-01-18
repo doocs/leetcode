@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，如果有至少 $x$ 篇论文的引用次数大于等于 $x$，那么对于任意 $y \lt x$，其引用次数也一定大于等于 $y$。这存在着单调性。
 
@@ -53,10 +51,6 @@
 时间复杂度 $O(\log n)$，其中 $n$ 是数组 $citations$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hIndex(citations []int) int {
 	n := len(citations)
@@ -132,7 +118,22 @@ func hIndex(citations []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function hIndex(citations: number[]): number {
+    const n = citations.length;
+    let left = 0,
+        right = n;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (citations[n - mid] >= mid) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+```
 
 ```rust
 impl Solution {
@@ -152,27 +153,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function hIndex(citations: number[]): number {
-    const n = citations.length;
-    let left = 0,
-        right = n;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (citations[n - mid] >= mid) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int HIndex(int[] citations) {
@@ -191,10 +171,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

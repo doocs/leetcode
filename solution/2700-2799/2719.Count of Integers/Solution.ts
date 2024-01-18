@@ -1,8 +1,6 @@
 function count(num1: string, num2: string, min_sum: number, max_sum: number): number {
     const mod = 1e9 + 7;
-    let f: number[][] = Array(23)
-        .fill(0)
-        .map(() => Array(220).fill(-1));
+    const f: number[][] = Array.from({ length: 23 }, () => Array(220).fill(-1));
     let num = num2;
     const dfs = (pos: number, s: number, limit: boolean): number => {
         if (pos >= num.length) {
@@ -21,11 +19,9 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
         }
         return ans;
     };
-    let ans = dfs(0, 0, true);
+    const a = dfs(0, 0, true);
     num = (BigInt(num1) - 1n).toString();
-    f = Array(23)
-        .fill(0)
-        .map(() => Array(220).fill(-1));
-    ans = (ans - dfs(0, 0, true) + mod) % mod;
-    return ans;
+    f.forEach(v => v.fill(-1));
+    const b = dfs(0, 0, true);
+    return (a - b + mod) % mod;
 }

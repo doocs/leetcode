@@ -59,19 +59,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS + 离散化 + 元素交换**
+### 方法一：BFS + 离散化 + 元素交换
 
 我们先通过 `BFS` 遍历二叉树，找到每一层的节点值，然后对每一层的节点值进行排序，如果排序后的节点值与原节点值不同，则说明需要交换元素，交换元素的次数即为该层需要的操作数。
 
-时间复杂度 $O(n\times \log n)$。其中 $n$ 为二叉树的节点数。
+时间复杂度 $O(n \times \log n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -111,10 +105,6 @@ class Solution:
             ans += f(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -184,8 +174,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -234,8 +222,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -290,8 +276,6 @@ func minimumOperations(root *TreeNode) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -335,8 +319,6 @@ function minimumOperations(root: TreeNode | null): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -397,10 +379,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：格雷码逆变换（格雷码转二进制码）**
+### 方法一：格雷码逆变换（格雷码转二进制码）
 
 本题实际上求的是格雷码为 $n$ 的逆变换，即通过格雷码构造原数。
 
@@ -77,10 +75,6 @@ int rev(int x) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumOneBitOperations(self, n: int) -> int:
@@ -91,18 +85,6 @@ class Solution:
         return ans
 ```
 
-```python
-class Solution:
-    def minimumOneBitOperations(self, n: int) -> int:
-        if n == 0:
-            return 0
-        return n ^ self.minimumOneBitOperations(n >> 1)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int minimumOneBitOperations(int n) {
@@ -114,19 +96,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int minimumOneBitOperations(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        return n ^ minimumOneBitOperations(n >> 1);
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,20 +109,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minimumOneBitOperations(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        return n ^ minimumOneBitOperations(n >> 1);
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minimumOneBitOperations(n int) (ans int) {
@@ -164,17 +119,6 @@ func minimumOneBitOperations(n int) (ans int) {
 }
 ```
 
-```go
-func minimumOneBitOperations(n int) int {
-	if n == 0 {
-		return 0
-	}
-	return n ^ minimumOneBitOperations(n>>1)
-}
-```
-
-### **TypeScript**
-
 ```ts
 function minimumOneBitOperations(n: number): number {
     let ans = 0;
@@ -182,6 +126,52 @@ function minimumOneBitOperations(n: number): number {
         ans ^= n;
     }
     return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumOneBitOperations(self, n: int) -> int:
+        if n == 0:
+            return 0
+        return n ^ self.minimumOneBitOperations(n >> 1)
+```
+
+```java
+class Solution {
+    public int minimumOneBitOperations(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        return n ^ minimumOneBitOperations(n >> 1);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minimumOneBitOperations(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        return n ^ minimumOneBitOperations(n >> 1);
+    }
+};
+```
+
+```go
+func minimumOneBitOperations(n int) int {
+	if n == 0 {
+		return 0
+	}
+	return n ^ minimumOneBitOperations(n>>1)
 }
 ```
 
@@ -194,10 +184,6 @@ function minimumOneBitOperations(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

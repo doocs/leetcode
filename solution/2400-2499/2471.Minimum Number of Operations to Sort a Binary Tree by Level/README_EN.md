@@ -58,9 +58,13 @@ It can be proven that 3 is the minimum number of operations needed.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: BFS + Discretization + Element Swap
 
-### **Python3**
+First, we traverse the binary tree using BFS to find the node values at each level. Then, we sort the node values at each level. If the sorted node values are different from the original node values, it means that we need to swap elements. The number of swaps is the number of operations needed at that level.
+
+The time complexity is $O(n \times \log n)$. Here, $n$ is the number of nodes in the binary tree.
+
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -100,8 +104,6 @@ class Solution:
             ans += f(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -171,8 +173,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -221,8 +221,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -277,8 +275,6 @@ func minimumOperations(root *TreeNode) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -322,8 +318,6 @@ function minimumOperations(root: TreeNode | null): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -384,10 +378,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

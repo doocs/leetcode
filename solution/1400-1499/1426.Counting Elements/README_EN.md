@@ -33,7 +33,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We can use a hash table or array $cnt$ to record the frequency of each number in the array $arr$. Then, we traverse each number $x$ in $cnt$. If $x+1$ also exists in $cnt$, we add $cnt[x]$ to the answer.
 
@@ -41,16 +41,12 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def countElements(self, arr: List[int]) -> int:
         cnt = Counter(arr)
         return sum(v for x, v in cnt.items() if cnt[x + 1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countElements(arr []int) (ans int) {
 	mx := slices.Max(arr)
@@ -108,8 +100,6 @@ func countElements(arr []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countElements(arr: number[]): number {
@@ -128,7 +118,22 @@ function countElements(arr: number[]): number {
 }
 ```
 
-### **JavaScript**
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn count_elements(arr: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        for &num in &arr {
+            *cnt.entry(num).or_insert(0) += 1;
+        }
+        cnt.iter()
+            .filter(|(&x, _)| cnt.contains_key(&(x + 1)))
+            .map(|(_, &v)| v)
+            .sum()
+    }
+}
+```
 
 ```js
 /**
@@ -151,27 +156,6 @@ var countElements = function (arr) {
 };
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashMap;
-
-impl Solution {
-    pub fn count_elements(arr: Vec<i32>) -> i32 {
-        let mut cnt = HashMap::new();
-        for &num in &arr {
-            *cnt.entry(num).or_insert(0) += 1;
-        }
-        cnt.iter()
-            .filter(|(&x, _)| cnt.contains_key(&(x + 1)))
-            .map(|(_, &v)| v)
-            .sum()
-    }
-}
-```
-
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -191,10 +175,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

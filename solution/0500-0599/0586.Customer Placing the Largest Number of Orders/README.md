@@ -59,15 +59,11 @@ customer_number 为 '3' 的顾客有两个订单，比顾客 '1' 或者 '2' 都�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组 + 排序**
+### 方法一：分组 + 排序
 
 我们可以使用 `GROUP BY` 将数据按照 `customer_number` 进行分组，然后按照 `count(1)` 进行降序排序，最后取第一条记录的 `customer_number` 即可。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -78,6 +74,12 @@ GROUP BY customer_number
 ORDER BY COUNT(1) DESC
 LIMIT 1;
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```sql
 /* Write your T-SQL query statement below */
@@ -90,3 +92,5 @@ ORDER BY COUNT(customer_number) DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

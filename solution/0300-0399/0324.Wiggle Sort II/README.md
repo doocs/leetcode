@@ -43,17 +43,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
-
-**方法二：桶排序**
+### 方法一：排序
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,33 +65,6 @@ class Solution:
                 j -= 1
 ```
 
-```python
-class Solution:
-    def wiggleSort(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        bucket = [0] * 5001
-        for v in nums:
-            bucket[v] += 1
-        n = len(nums)
-        j = 5000
-        for i in range(1, n, 2):
-            while bucket[j] == 0:
-                j -= 1
-            nums[i] = j
-            bucket[j] -= 1
-        for i in range(0, n, 2):
-            while bucket[j] == 0:
-                j -= 1
-            nums[i] = j
-            bucket[j] -= 1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public void wiggleSort(int[] nums) {
@@ -117,35 +82,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public void wiggleSort(int[] nums) {
-        int[] bucket = new int[5001];
-        for (int v : nums) {
-            ++bucket[v];
-        }
-        int n = nums.length;
-        int j = 5000;
-        for (int i = 1; i < n; i += 2) {
-            while (bucket[j] == 0) {
-                --j;
-            }
-            nums[i] = j;
-            --bucket[j];
-        }
-        for (int i = 0; i < n; i += 2) {
-            while (bucket[j] == 0) {
-                --j;
-            }
-            nums[i] = j;
-            --bucket[j];
-        }
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -165,30 +101,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    void wiggleSort(vector<int>& nums) {
-        vector<int> bucket(5001);
-        for (int& v : nums) ++bucket[v];
-        int n = nums.size();
-        int j = 5000;
-        for (int i = 1; i < n; i += 2) {
-            while (bucket[j] == 0) --j;
-            nums[i] = j;
-            --bucket[j];
-        }
-        for (int i = 0; i < n; i += 2) {
-            while (bucket[j] == 0) --j;
-            nums[i] = j;
-            --bucket[j];
-        }
-    }
-};
-```
-
-### **Go**
-
 ```go
 func wiggleSort(nums []int) {
 	n := len(nums)
@@ -207,32 +119,6 @@ func wiggleSort(nums []int) {
 	}
 }
 ```
-
-```go
-func wiggleSort(nums []int) {
-	bucket := make([]int, 5001)
-	for _, v := range nums {
-		bucket[v]++
-	}
-	n, j := len(nums), 5000
-	for i := 1; i < n; i += 2 {
-		for bucket[j] == 0 {
-			j--
-		}
-		nums[i] = j
-		bucket[j]--
-	}
-	for i := 0; i < n; i += 2 {
-		for bucket[j] == 0 {
-			j--
-		}
-		nums[i] = j
-		bucket[j]--
-	}
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -263,10 +149,108 @@ var wiggleSort = function (nums) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：桶排序
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def wiggleSort(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        bucket = [0] * 5001
+        for v in nums:
+            bucket[v] += 1
+        n = len(nums)
+        j = 5000
+        for i in range(1, n, 2):
+            while bucket[j] == 0:
+                j -= 1
+            nums[i] = j
+            bucket[j] -= 1
+        for i in range(0, n, 2):
+            while bucket[j] == 0:
+                j -= 1
+            nums[i] = j
+            bucket[j] -= 1
 ```
 
+```java
+class Solution {
+    public void wiggleSort(int[] nums) {
+        int[] bucket = new int[5001];
+        for (int v : nums) {
+            ++bucket[v];
+        }
+        int n = nums.length;
+        int j = 5000;
+        for (int i = 1; i < n; i += 2) {
+            while (bucket[j] == 0) {
+                --j;
+            }
+            nums[i] = j;
+            --bucket[j];
+        }
+        for (int i = 0; i < n; i += 2) {
+            while (bucket[j] == 0) {
+                --j;
+            }
+            nums[i] = j;
+            --bucket[j];
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    void wiggleSort(vector<int>& nums) {
+        vector<int> bucket(5001);
+        for (int& v : nums) ++bucket[v];
+        int n = nums.size();
+        int j = 5000;
+        for (int i = 1; i < n; i += 2) {
+            while (bucket[j] == 0) --j;
+            nums[i] = j;
+            --bucket[j];
+        }
+        for (int i = 0; i < n; i += 2) {
+            while (bucket[j] == 0) --j;
+            nums[i] = j;
+            --bucket[j];
+        }
+    }
+};
+```
+
+```go
+func wiggleSort(nums []int) {
+	bucket := make([]int, 5001)
+	for _, v := range nums {
+		bucket[v]++
+	}
+	n, j := len(nums), 5000
+	for i := 1; i < n; i += 2 {
+		for bucket[j] == 0 {
+			j--
+		}
+		nums[i] = j
+		bucket[j]--
+	}
+	for i := 0; i < n; i += 2 {
+		for bucket[j] == 0 {
+			j--
+		}
+		nums[i] = j
+		bucket[j]--
+	}
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

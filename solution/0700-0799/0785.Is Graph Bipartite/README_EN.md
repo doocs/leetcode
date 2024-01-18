@@ -47,11 +47,9 @@
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-### **Python3**
-
-Graph coloring:
 
 ```python
 class Solution:
@@ -73,29 +71,6 @@ class Solution:
                 return False
         return True
 ```
-
-Union find:
-
-```python
-class Solution:
-    def isBipartite(self, graph: List[List[int]]) -> bool:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        p = list(range(len(graph)))
-        for u, g in enumerate(graph):
-            for v in g:
-                if find(u) == find(v):
-                    return False
-                p[find(v)] = find(g[0])
-        return True
-```
-
-### **Java**
-
-Graph coloring:
 
 ```java
 class Solution {
@@ -130,43 +105,6 @@ class Solution {
 }
 ```
 
-Union find:
-
-```java
-class Solution {
-    private int[] p;
-
-    public boolean isBipartite(int[][] graph) {
-        int n = graph.length;
-        p = new int[n];
-        for (int i = 0; i < n; ++i) {
-            p[i] = i;
-        }
-        for (int u = 0; u < n; ++u) {
-            int[] g = graph[u];
-            for (int v : g) {
-                if (find(u) == find(v)) {
-                    return false;
-                }
-                p[find(v)] = find(g[0]);
-            }
-        }
-        return true;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-}
-```
-
-### **C++**
-
-Graph coloring:
-
 ```cpp
 class Solution {
 public:
@@ -192,37 +130,61 @@ public:
 };
 ```
 
-Union find:
-
-```cpp
-class Solution {
-public:
-    vector<int> p;
-
-    bool isBipartite(vector<vector<int>>& graph) {
-        int n = graph.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        for (int u = 0; u < n; ++u) {
-            auto& g = graph[u];
-            for (int v : g) {
-                if (find(u) == find(v)) return 0;
-                p[find(v)] = find(g[0]);
-            }
-        }
-        return 1;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
-    }
-};
+```go
+func isBipartite(graph [][]int) bool {
+	n := len(graph)
+	color := make([]int, n)
+	var dfs func(u, c int) bool
+	dfs = func(u, c int) bool {
+		color[u] = c
+		for _, v := range graph[u] {
+			if color[v] == 0 {
+				if !dfs(v, 3-c) {
+					return false
+				}
+			} else if color[v] == c {
+				return false
+			}
+		}
+		return true
+	}
+	for i := range graph {
+		if color[i] == 0 && !dfs(i, 1) {
+			return false
+		}
+	}
+	return true
+}
 ```
 
-### **Rust**
+```ts
+function isBipartite(graph: number[][]): boolean {
+    const n = graph.length;
+    let valid = true;
+    // 0 未遍历， 1 红色标记， 2 绿色标记
+    let colors = new Array(n).fill(0);
+    function dfs(idx: number, color: number, graph: number[][]) {
+        colors[idx] = color;
+        const nextColor = 3 - color;
+        for (let j of graph[idx]) {
+            if (!colors[j]) {
+                dfs(j, nextColor, graph);
+                if (!valid) return;
+            } else if (colors[j] != nextColor) {
+                valid = false;
+                return;
+            }
+        }
+    }
 
-Graph coloring:
+    for (let i = 0; i < n && valid; i++) {
+        if (!colors[i]) {
+            dfs(i, 1, graph);
+        }
+    }
+    return valid;
+}
+```
 
 ```rust
 impl Solution {
@@ -263,7 +225,136 @@ impl Solution {
 }
 ```
 
-Union find:
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isBipartite(self, graph: List[List[int]]) -> bool:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        p = list(range(len(graph)))
+        for u, g in enumerate(graph):
+            for v in g:
+                if find(u) == find(v):
+                    return False
+                p[find(v)] = find(g[0])
+        return True
+```
+
+```java
+class Solution {
+    private int[] p;
+
+    public boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int u = 0; u < n; ++u) {
+            int[] g = graph[u];
+            for (int v : g) {
+                if (find(u) == find(v)) {
+                    return false;
+                }
+                p[find(v)] = find(g[0]);
+            }
+        }
+        return true;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool isBipartite(vector<vector<int>>& graph) {
+        int n = graph.size();
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (int u = 0; u < n; ++u) {
+            auto& g = graph[u];
+            for (int v : g) {
+                if (find(u) == find(v)) return 0;
+                p[find(v)] = find(g[0]);
+            }
+        }
+        return 1;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+```go
+func isBipartite(graph [][]int) bool {
+	n := len(graph)
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for u, g := range graph {
+		for _, v := range g {
+			if find(u) == find(v) {
+				return false
+			}
+			p[find(v)] = find(g[0])
+		}
+	}
+	return true
+}
+```
+
+```ts
+function isBipartite(graph: number[][]): boolean {
+    const n = graph.length;
+    let p = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
+    }
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    for (let u = 0; u < n; ++u) {
+        for (let v of graph[u]) {
+            if (find(u) == find(v)) {
+                return false;
+            }
+            p[find(v)] = find(graph[u][0]);
+        }
+    }
+    return true;
+}
+```
 
 ```rust
 impl Solution {
@@ -314,128 +405,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-Graph coloring:
-
-```go
-func isBipartite(graph [][]int) bool {
-	n := len(graph)
-	color := make([]int, n)
-	var dfs func(u, c int) bool
-	dfs = func(u, c int) bool {
-		color[u] = c
-		for _, v := range graph[u] {
-			if color[v] == 0 {
-				if !dfs(v, 3-c) {
-					return false
-				}
-			} else if color[v] == c {
-				return false
-			}
-		}
-		return true
-	}
-	for i := range graph {
-		if color[i] == 0 && !dfs(i, 1) {
-			return false
-		}
-	}
-	return true
-}
-```
-
-Union find:
-
-```go
-func isBipartite(graph [][]int) bool {
-	n := len(graph)
-	p := make([]int, n)
-	for i := range p {
-		p[i] = i
-	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	for u, g := range graph {
-		for _, v := range g {
-			if find(u) == find(v) {
-				return false
-			}
-			p[find(v)] = find(g[0])
-		}
-	}
-	return true
-}
-```
-
-### **TypeScript**
-
-Graph coloring:
-
-```ts
-function isBipartite(graph: number[][]): boolean {
-    const n = graph.length;
-    let valid = true;
-    let colors = new Array(n).fill(0);
-    function dfs(idx: number, color: number, graph: number[][]) {
-        colors[idx] = color;
-        const nextColor = 3 - color;
-        for (let j of graph[idx]) {
-            if (!colors[j]) {
-                dfs(j, nextColor, graph);
-                if (!valid) return;
-            } else if (colors[j] != nextColor) {
-                valid = false;
-                return;
-            }
-        }
-    }
-
-    for (let i = 0; i < n && valid; i++) {
-        if (!colors[i]) {
-            dfs(i, 1, graph);
-        }
-    }
-    return valid;
-}
-```
-
-Union find:
-
-```ts
-function isBipartite(graph: number[][]): boolean {
-    const n = graph.length;
-    let p = new Array(n);
-    for (let i = 0; i < n; ++i) {
-        p[i] = i;
-    }
-    function find(x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-    for (let u = 0; u < n; ++u) {
-        for (let v of graph[u]) {
-            if (find(u) == find(v)) {
-                return false;
-            }
-            p[find(v)] = find(graph[u][0]);
-        }
-    }
-    return true;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

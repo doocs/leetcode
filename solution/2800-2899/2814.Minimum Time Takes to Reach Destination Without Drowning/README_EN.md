@@ -69,9 +69,13 @@ So the answer would be -1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Two BFS Traversals
 
-### **Python3**
+First, we run a BFS (Breadth-First Search) to calculate the shortest distance from each cell to the water, and record it in the array $g$. Then, we run another BFS starting from the cell $(s_i, s_j)$ to find the shortest distance to the target cell $(d_i, d_j)$. During this process, if the adjacent cell $(x, y)$ of the current cell $(i, j)$ satisfies $g[x][y] > t + 1$, then we can move from $(x, y)$ to $(i, j)$.
+
+The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the array $land$, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -128,8 +132,6 @@ class Solution:
             t += 1
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -197,8 +199,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -268,8 +268,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumSeconds(land [][]string) int {
@@ -343,8 +341,6 @@ func minimumSeconds(land [][]string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSeconds(land: string[][]): number {
     const m = land.length;
@@ -414,10 +410,6 @@ function minimumSeconds(land: string[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

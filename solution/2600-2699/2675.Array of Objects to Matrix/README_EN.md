@@ -133,9 +133,9 @@ There are no keys so every row is an empty array.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function jsonToMatrix(arr: any[]): (string | number | boolean | null)[] {
@@ -179,3 +179,5 @@ function jsonToMatrix(arr: any[]): (string | number | boolean | null)[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 判断子序列**
+### 方法一：二分查找 + 判断子序列
 
 二分枚举整数 k，找到满足要求的最大 k 即可。
 
@@ -105,22 +103,18 @@ int search(int left, int right) {
 }
 ```
 
-做二分题目时，可以按照以下步骤：
+做二分题目时，可以按照以下套路：
 
-1. 写出循环条件：`while (left < right)`，注意是 `left < right`，而非 `left <= right`；
-1. 循环体内，先无脑写出 `mid = (left + right) >> 1`；
-1. 根据具体题目，实现 `check()` 函数（有时很简单的逻辑，可以不定义 `check`），想一下究竟要用 `right = mid`（模板 1） 还是 `left = mid`（模板 2）；
-    - 如果 `right = mid`，那么无脑写出 else 语句 `left = mid + 1`，并且不需要更改 mid 的计算，即保持 `mid = (left + right) >> 1`；
-    - 如果 `left = mid`，那么无脑写出 else 语句 `right = mid - 1`，并且在 mid 计算时补充 +1，即 `mid = (left + right + 1) >> 1`。
-1. 循环结束时，left 与 right 相等。
+1. 写出循环条件 $left < right$；
+1. 循环体内，不妨先写 $mid = \lfloor \frac{left + right}{2} \rfloor$；
+1. 根据具体题目，实现 $check()$ 函数（有时很简单的逻辑，可以不定义 $check$），想一下究竟要用 $right = mid$（模板 $1$） 还是 $left = mid$（模板 $2$）；
+       - 如果 $right = mid$，那么写出 else 语句 $left = mid + 1$，并且不需要更改 mid 的计算，即保持 $mid = \lfloor \frac{left + right}{2} \rfloor$；
+       - 如果 $left = mid$，那么写出 else 语句 $right = mid - 1$，并且在 $mid$ 计算时补充 +1，即 $mid = \lfloor \frac{left + right + 1}{2} \rfloor$；
+1. 循环结束时，$left$ 与 $right$ 相等。
 
-注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 left 或者 right 是否满足题意即可。
+注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 $left$ 或者 $right$ 是否满足题意即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -144,10 +138,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -180,40 +170,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function maximumRemovals(s: string, p: string, removable: number[]): number {
-    let left = 0,
-        right = removable.length;
-    while (left < right) {
-        let mid = (left + right + 1) >> 1;
-        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-
-function isSub(str: string, sub: string, idxes: Set<number>): boolean {
-    let m = str.length,
-        n = sub.length;
-    let i = 0,
-        j = 0;
-    while (i < m && j < n) {
-        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
-            ++j;
-        }
-        ++i;
-    }
-    return j == n;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -248,8 +204,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumRemovals(s string, p string, removable []int) int {
 	check := func(k int) bool {
@@ -280,7 +234,35 @@ func maximumRemovals(s string, p string, removable []int) int {
 }
 ```
 
-### **Rust**
+```ts
+function maximumRemovals(s: string, p: string, removable: number[]): number {
+    let left = 0,
+        right = removable.length;
+    while (left < right) {
+        let mid = (left + right + 1) >> 1;
+        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+
+function isSub(str: string, sub: string, idxes: Set<number>): boolean {
+    let m = str.length,
+        n = sub.length;
+    let i = 0,
+        j = 0;
+    while (i < m && j < n) {
+        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
+            ++j;
+        }
+        ++i;
+    }
+    return j == n;
+}
+```
 
 ```rust
 use std::collections::HashSet;
@@ -324,10 +306,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,7 +49,7 @@
 
 ## Solutions
 
-**Solution 1: Basic Tree + Traversal**
+### Solution 1: Basic Tree + Traversal
 
 We can use an array $ans$ to record the answer for each node, and an array $vis$ to record the visit order for each node.
 
@@ -61,8 +61,6 @@ For each node $i$, if it has not been visited yet, we start traversing from node
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array edges.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -88,8 +86,6 @@ class Solution:
                     j = edges[j]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,6 +115,97 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    vector<int> countVisitedNodes(vector<int>& edges) {
+        int n = edges.size();
+        vector<int> ans(n), vis(n);
+        for (int i = 0; i < n; ++i) {
+            if (!ans[i]) {
+                int cnt = 0, j = i;
+                while (vis[j] == 0) {
+                    vis[j] = ++cnt;
+                    j = edges[j];
+                }
+                int cycle = 0, total = cnt + ans[j];
+                if (ans[j] == 0) {
+                    cycle = cnt - vis[j] + 1;
+                }
+                j = i;
+                while (ans[j] == 0) {
+                    ans[j] = max(total--, cycle);
+                    j = edges[j];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countVisitedNodes(edges []int) []int {
+	n := len(edges)
+	ans := make([]int, n)
+	vis := make([]int, n)
+	for i := range ans {
+		if ans[i] == 0 {
+			cnt, j := 0, i
+			for vis[j] == 0 {
+				cnt++
+				vis[j] = cnt
+				j = edges[j]
+			}
+			cycle, total := 0, cnt+ans[j]
+			if ans[j] == 0 {
+				cycle = cnt - vis[j] + 1
+			}
+			j = i
+			for ans[j] == 0 {
+				ans[j] = max(total, cycle)
+				total--
+				j = edges[j]
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function countVisitedNodes(edges: number[]): number[] {
+    const n = edges.length;
+    const ans: number[] = Array(n).fill(0);
+    const vis: number[] = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        if (ans[i] === 0) {
+            let [cnt, j] = [0, i];
+            while (vis[j] === 0) {
+                vis[j] = ++cnt;
+                j = edges[j];
+            }
+            let [cycle, total] = [0, cnt + ans[j]];
+            if (ans[j] === 0) {
+                cycle = cnt - vis[j] + 1;
+            }
+            j = i;
+            while (ans[j] === 0) {
+                ans[j] = Math.max(total--, cycle);
+                j = edges[j];
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -159,101 +246,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> countVisitedNodes(vector<int>& edges) {
-        int n = edges.size();
-        vector<int> ans(n), vis(n);
-        for (int i = 0; i < n; ++i) {
-            if (!ans[i]) {
-                int cnt = 0, j = i;
-                while (vis[j] == 0) {
-                    vis[j] = ++cnt;
-                    j = edges[j];
-                }
-                int cycle = 0, total = cnt + ans[j];
-                if (ans[j] == 0) {
-                    cycle = cnt - vis[j] + 1;
-                }
-                j = i;
-                while (ans[j] == 0) {
-                    ans[j] = max(total--, cycle);
-                    j = edges[j];
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func countVisitedNodes(edges []int) []int {
-	n := len(edges)
-	ans := make([]int, n)
-	vis := make([]int, n)
-	for i := range ans {
-		if ans[i] == 0 {
-			cnt, j := 0, i
-			for vis[j] == 0 {
-				cnt++
-				vis[j] = cnt
-				j = edges[j]
-			}
-			cycle, total := 0, cnt+ans[j]
-			if ans[j] == 0 {
-				cycle = cnt - vis[j] + 1
-			}
-			j = i
-			for ans[j] == 0 {
-				ans[j] = max(total, cycle)
-				total--
-				j = edges[j]
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function countVisitedNodes(edges: number[]): number[] {
-    const n = edges.length;
-    const ans: number[] = Array(n).fill(0);
-    const vis: number[] = Array(n).fill(0);
-    for (let i = 0; i < n; ++i) {
-        if (ans[i] === 0) {
-            let [cnt, j] = [0, i];
-            while (vis[j] === 0) {
-                vis[j] = ++cnt;
-                j = edges[j];
-            }
-            let [cycle, total] = [0, cnt + ans[j]];
-            if (ans[j] === 0) {
-                cycle = cnt - vis[j] + 1;
-            }
-            j = i;
-            while (ans[j] === 0) {
-                ans[j] = Math.max(total--, cycle);
-                j = edges[j];
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

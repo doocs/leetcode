@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示对于第 $i$ 片叶子，处于状态 $j$ 时的最小操作次数，其中 $j$ 表示：
 
@@ -64,10 +62,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumOperations(self, leaves: str) -> int:
@@ -85,10 +79,6 @@ class Solution:
                 f[i][2] = min(f[i - 1][2], f[i - 1][1]) + 1
         return f[n - 1][2]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumOperations(leaves string) int {
@@ -172,8 +158,6 @@ func minimumOperations(leaves string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumOperations(leaves: string): number {
     const n = leaves.length;
@@ -195,10 +179,6 @@ function minimumOperations(leaves: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

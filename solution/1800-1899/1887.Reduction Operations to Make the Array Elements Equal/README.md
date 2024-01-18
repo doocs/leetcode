@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 对 $nums$ 进行排序，用 $cnt$ 表示元素所需的操作次数，初始时 $cnt=0$。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(nlogn)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,20 +81,6 @@ class Solution:
             ans += cnt
         return ans
 ```
-
-```python
-class Solution:
-    def reductionOperations(self, nums: List[int]) -> int:
-        ans = cnt = 0
-        for _, v in sorted(Counter(nums).items()):
-            ans += cnt * v
-            cnt += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,6 +96,82 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int reductionOperations(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0, cnt = 0;
+        for (int i = 1; i < nums.size(); ++i) {
+            cnt += nums[i] != nums[i - 1];
+            ans += cnt;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func reductionOperations(nums []int) int {
+	sort.Ints(nums)
+	ans, cnt := 0, 0
+	for i, v := range nums[1:] {
+		if v != nums[i] {
+			cnt++
+		}
+		ans += cnt
+	}
+	return ans
+}
+```
+
+```ts
+function reductionOperations(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    let cnt = 0;
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] != nums[i - 1]) {
+            ++cnt;
+        }
+        ans += cnt;
+    }
+    return ans;
+}
+```
+
+```cs
+public class Solution {
+    public int ReductionOperations(int[] nums) {
+        Array.Sort(nums);
+        int ans = 0, up = 0;
+        for (int i = 1; i < nums.Length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                up++;
+            }
+            ans += up;
+        }
+        return ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reductionOperations(self, nums: List[int]) -> int:
+        ans = cnt = 0
+        for _, v in sorted(Counter(nums).items()):
+            ans += cnt * v
+            cnt += 1
+        return ans
 ```
 
 ```java
@@ -135,40 +191,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function reductionOperations(nums: number[]): number {
-    nums.sort((a, b) => a - b);
-    let ans = 0;
-    let cnt = 0;
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] != nums[i - 1]) {
-            ++cnt;
-        }
-        ans += cnt;
-    }
-    return ans;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int reductionOperations(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int ans = 0, cnt = 0;
-        for (int i = 1; i < nums.size(); ++i) {
-            cnt += nums[i] != nums[i - 1];
-            ans += cnt;
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -185,44 +207,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func reductionOperations(nums []int) int {
-	sort.Ints(nums)
-	ans, cnt := 0, 0
-	for i, v := range nums[1:] {
-		if v != nums[i] {
-			cnt++
-		}
-		ans += cnt
-	}
-	return ans
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int ReductionOperations(int[] nums) {
-        Array.Sort(nums);
-        int ans = 0, up = 0;
-        for (int i = 1; i < nums.Length; i++) {
-            if (nums[i] != nums[i - 1]) {
-                up++;
-            }
-            ans += up;
-        }
-        return ans;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

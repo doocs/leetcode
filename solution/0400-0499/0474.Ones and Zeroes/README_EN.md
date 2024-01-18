@@ -41,9 +41,9 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,20 +59,6 @@ class Solution:
                         f[i][j][k] = max(f[i][j][k], f[i - 1][j - a][k - b] + 1)
         return f[sz][m][n]
 ```
-
-```python
-class Solution:
-    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
-        f = [[0] * (n + 1) for _ in range(m + 1)]
-        for s in strs:
-            a, b = s.count("0"), s.count("1")
-            for i in range(m, a - 1, -1):
-                for j in range(n, b - 1, -1):
-                    f[i][j] = max(f[i][j], f[i - a][j - b] + 1)
-        return f[m][n]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,33 +89,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findMaxForm(String[] strs, int m, int n) {
-        int[][] f = new int[m + 1][n + 1];
-        for (String s : strs) {
-            int[] cnt = count(s);
-            for (int i = m; i >= cnt[0]; --i) {
-                for (int j = n; j >= cnt[1]; --j) {
-                    f[i][j] = Math.max(f[i][j], f[i - cnt[0]][j - cnt[1]] + 1);
-                }
-            }
-        }
-        return f[m][n];
-    }
-
-    private int[] count(String s) {
-        int[] cnt = new int[2];
-        for (int i = 0; i < s.length(); ++i) {
-            ++cnt[s.charAt(i) - '0'];
-        }
-        return cnt;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,32 +116,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int findMaxForm(vector<string>& strs, int m, int n) {
-        int f[m + 1][n + 1];
-        memset(f, 0, sizeof(f));
-        for (auto& s : strs) {
-            auto [a, b] = count(s);
-            for (int i = m; i >= a; --i) {
-                for (int j = n; j >= b; --j) {
-                    f[i][j] = max(f[i][j], f[i - a][j - b] + 1);
-                }
-            }
-        }
-        return f[m][n];
-    }
-
-    pair<int, int> count(string& s) {
-        int a = count_if(s.begin(), s.end(), [](char c) { return c == '0'; });
-        return {a, s.size() - a};
-    }
-};
-```
-
-### **Go**
 
 ```go
 func findMaxForm(strs []string, m int, n int) int {
@@ -214,31 +147,6 @@ func count(s string) (int, int) {
 }
 ```
 
-```go
-func findMaxForm(strs []string, m int, n int) int {
-	f := make([][]int, m+1)
-	for i := range f {
-		f[i] = make([]int, n+1)
-	}
-	for _, s := range strs {
-		a, b := count(s)
-		for j := m; j >= a; j-- {
-			for k := n; k >= b; k-- {
-				f[j][k] = max(f[j][k], f[j-a][k-b]+1)
-			}
-		}
-	}
-	return f[m][n]
-}
-
-func count(s string) (int, int) {
-	a := strings.Count(s, "0")
-	return a, len(s) - a
-}
-```
-
-### **TypeScript**
-
 ```ts
 function findMaxForm(strs: string[], m: number, n: number): number {
     const sz = strs.length;
@@ -267,6 +175,96 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for s in strs:
+            a, b = s.count("0"), s.count("1")
+            for i in range(m, a - 1, -1):
+                for j in range(n, b - 1, -1):
+                    f[i][j] = max(f[i][j], f[i - a][j - b] + 1)
+        return f[m][n]
+```
+
+```java
+class Solution {
+    public int findMaxForm(String[] strs, int m, int n) {
+        int[][] f = new int[m + 1][n + 1];
+        for (String s : strs) {
+            int[] cnt = count(s);
+            for (int i = m; i >= cnt[0]; --i) {
+                for (int j = n; j >= cnt[1]; --j) {
+                    f[i][j] = Math.max(f[i][j], f[i - cnt[0]][j - cnt[1]] + 1);
+                }
+            }
+        }
+        return f[m][n];
+    }
+
+    private int[] count(String s) {
+        int[] cnt = new int[2];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - '0'];
+        }
+        return cnt;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        int f[m + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        for (auto& s : strs) {
+            auto [a, b] = count(s);
+            for (int i = m; i >= a; --i) {
+                for (int j = n; j >= b; --j) {
+                    f[i][j] = max(f[i][j], f[i - a][j - b] + 1);
+                }
+            }
+        }
+        return f[m][n];
+    }
+
+    pair<int, int> count(string& s) {
+        int a = count_if(s.begin(), s.end(), [](char c) { return c == '0'; });
+        return {a, s.size() - a};
+    }
+};
+```
+
+```go
+func findMaxForm(strs []string, m int, n int) int {
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	for _, s := range strs {
+		a, b := count(s)
+		for j := m; j >= a; j-- {
+			for k := n; k >= b; k-- {
+				f[j][k] = max(f[j][k], f[j-a][k-b]+1)
+			}
+		}
+	}
+	return f[m][n]
+}
+
+func count(s string) (int, int) {
+	a := strings.Count(s, "0")
+	return a, len(s) - a
+}
+```
+
 ```ts
 function findMaxForm(strs: string[], m: number, n: number): number {
     const f = Array.from({ length: m + 1 }, () => Array.from({ length: n + 1 }, () => 0));
@@ -289,10 +287,6 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,7 @@ requests[1] -&gt; nums[0] + nums[1] = 3 + 5  = 8
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组 + 排序 + 贪心**
+### 方法一：差分数组 + 排序 + 贪心
 
 我们观察发现，对于一次查询操作，会返回该查询区间 $[l, r]$ 中的所有元素之和。而题目要求的是所有查询操作的结果之和的最大值，也即是说，我们要累计所有查询操作的结果，使得这些结果之和最大。因此，如果一个下标 $i$ 在查询操作中出现的次数越多，那么我们就应该赋给下标 $i$ 一个较大的值，这样才能使得所有查询操作的结果之和最大。
 
@@ -66,10 +64,6 @@ requests[1] -&gt; nums[0] + nums[1] = 3 + 5  = 8
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(a * b for a, b in zip(nums, d)) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
 	n := len(nums)
@@ -175,8 +161,6 @@ func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
 	}
 	return
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSumRangeQuery(nums: number[], requests: number[][]): number {
@@ -202,10 +186,6 @@ function maxSumRangeQuery(nums: number[], requests: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

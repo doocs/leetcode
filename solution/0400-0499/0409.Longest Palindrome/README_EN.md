@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 A valid palindrome string can have at most one character that appears an odd number of times, and the rest of the characters appear an even number of times.
 
@@ -49,8 +49,6 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> int:
@@ -61,8 +59,6 @@ class Solution:
             ans += (ans & 1 ^ 1) and (v & 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPalindrome(s string) (ans int) {
 	cnt := [128]int{}
@@ -123,8 +115,6 @@ func longestPalindrome(s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestPalindrome(s: string): number {
     let n = s.length;
@@ -140,27 +130,6 @@ function longestPalindrome(s: string): number {
     return ans < s.length ? ans + 1 : ans;
 }
 ```
-
-```ts
-function longestPalindrome(s: string): number {
-    const map = new Map();
-    for (const c of s) {
-        map.set(c, (map.get(c) ?? 0) + 1);
-    }
-    let hasOdd = false;
-    let res = 0;
-    for (const v of map.values()) {
-        res += v;
-        if (v & 1) {
-            hasOdd = true;
-            res--;
-        }
-    }
-    return res + (hasOdd ? 1 : 0);
-}
-```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -185,10 +154,31 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function longestPalindrome(s: string): number {
+    const map = new Map();
+    for (const c of s) {
+        map.set(c, (map.get(c) ?? 0) + 1);
+    }
+    let hasOdd = false;
+    let res = 0;
+    for (const v of map.values()) {
+        res += v;
+        if (v & 1) {
+            hasOdd = true;
+            res--;
+        }
+    }
+    return res + (hasOdd ? 1 : 0);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

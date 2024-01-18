@@ -2,8 +2,8 @@ function minimumCoins(prices: number[]): number {
     const n = prices.length;
     const f: number[] = Array(n + 1).fill(0);
     const dfs = (i: number): number => {
-        if (i > n) {
-            return 0;
+        if (i * 2 >= n) {
+            return prices[i - 1];
         }
         if (f[i] === 0) {
             f[i] = 1 << 30;

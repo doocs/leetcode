@@ -54,33 +54,11 @@ In 2015-01-04, the temperature was higher than the previous day (20 -&gt; 30).
 
 ## Solutions
 
-**Solution 1: Self-Join + DATEDIFF/SUBDATE Function**
+### Solution 1: Self-Join + DATEDIFF/SUBDATE Function
 
 We can use self-join to compare each row in the `Weather` table with its previous row. If the temperature is higher and the date difference is one day, then it is the result we are looking for.
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT w1.id
-FROM
-    Weather AS w1
-    JOIN Weather AS w2
-        ON DATEDIFF(w1.recordDate, w2.recordDate) = 1 AND w1.temperature > w2.temperature;
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT w1.id
-FROM
-    Weather AS w1
-    JOIN Weather AS w2
-        ON SUBDATE(w1.recordDate, 1) = w2.recordDate AND w1.temperature > w2.temperature;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -91,7 +69,32 @@ def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
     return weather[
         (weather.temperature.diff() > 0) & (weather.recordDate.diff().dt.days == 1)
     ][["id"]]
+```
 
+```sql
+# Write your MySQL query statement below
+SELECT w1.id
+FROM
+    Weather AS w1
+    JOIN Weather AS w2
+        ON DATEDIFF(w1.recordDate, w2.recordDate) = 1 AND w1.temperature > w2.temperature;
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+SELECT w1.id
+FROM
+    Weather AS w1
+    JOIN Weather AS w2
+        ON SUBDATE(w1.recordDate, 1) = w2.recordDate AND w1.temperature > w2.temperature;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

@@ -1,25 +1,25 @@
 class Solution {
+    private String word;
+    private int n;
+
     public List<String> generateAbbreviations(String word) {
-        int n = word.length();
+        this.word = word;
+        n = word.length();
+        return dfs(0);
+    }
+
+    private List<String> dfs(int i) {
+        if (i >= n) {
+            return List.of("");
+        }
         List<String> ans = new ArrayList<>();
-        for (int i = 0; i < 1 << n; ++i) {
-            StringBuilder s = new StringBuilder();
-            int cnt = 0;
-            for (int j = 0; j < n; ++j) {
-                if ((i >> j & 1) == 1) {
-                    ++cnt;
-                } else {
-                    if (cnt > 0) {
-                        s.append(cnt);
-                        cnt = 0;
-                    }
-                    s.append(word.charAt(j));
-                }
+        for (String s : dfs(i + 1)) {
+            ans.add(String.valueOf(word.charAt(i)) + s);
+        }
+        for (int j = i + 1; j <= n; ++j) {
+            for (String s : dfs(j + 1)) {
+                ans.add((j - i) + "" + (j < n ? String.valueOf(word.charAt(j)) : "") + s);
             }
-            if (cnt > 0) {
-                s.append(cnt);
-            }
-            ans.add(s.toString());
         }
         return ans;
     }

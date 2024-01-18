@@ -35,19 +35,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/images/table.png)
-
-上图为 a，b，c 之间的关系，这题其实就是在这张“表”里查找 c。
-
-从表的右上角看，不难发现它类似一棵二叉查找树，所以只需从右上角开始，按照二叉查找树的规律进行搜索。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +53,6 @@ class Solution:
                 b -= 1
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,27 +74,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function judgeSquareSum(c: number): boolean {
-    let a = 0,
-        b = Math.floor(Math.sqrt(c));
-    while (a <= b) {
-        let sum = a ** 2 + b ** 2;
-        if (sum == c) return true;
-        if (sum < c) {
-            ++a;
-        } else {
-            --b;
-        }
-    }
-    return false;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func judgeSquareSum(c int) bool {
@@ -147,7 +110,22 @@ func judgeSquareSum(c int) bool {
 }
 ```
 
-### **Rust**
+```ts
+function judgeSquareSum(c: number): boolean {
+    let a = 0,
+        b = Math.floor(Math.sqrt(c));
+    while (a <= b) {
+        let sum = a ** 2 + b ** 2;
+        if (sum == c) return true;
+        if (sum < c) {
+            ++a;
+        } else {
+            --b;
+        }
+    }
+    return false;
+}
+```
 
 ```rust
 use std::cmp::Ordering;
@@ -175,10 +153,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

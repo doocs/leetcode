@@ -45,9 +45,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Mathematics + Hash Table
 
-### **Python3**
+In order to uniquely represent a rectangle, we need to simplify the width-to-height ratio of the rectangle to a simplest fraction. Therefore, we can find the greatest common divisor of the width-to-height ratio of each rectangle, and then simplify the width-to-height ratio to the simplest fraction. Next, we use a hash table to count the number of rectangles for each simplest fraction, and then calculate the combination of the number of rectangles for each simplest fraction to get the answer.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the number of rectangles and the maximum side length of the rectangles, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +65,6 @@ class Solution:
             cnt[(w, h)] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func interchangeableRectangles(rectangles [][]int) int64 {
@@ -136,8 +134,6 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -166,10 +162,6 @@ function gcd(a, b) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,9 @@ It can be proven that 2 is the maximum tastiness that can be achieved.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumTastiness(price []int, k int) int {
 	sort.Ints(price)
@@ -154,8 +148,6 @@ func maximumTastiness(price []int, k int) int {
 	}) - 1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumTastiness(price: number[], k: number): number {
@@ -183,8 +175,6 @@ function maximumTastiness(price: number[], k: number): number {
     return l;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -215,10 +205,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

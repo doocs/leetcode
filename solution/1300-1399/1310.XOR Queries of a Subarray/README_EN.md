@@ -48,9 +48,9 @@ The XOR values for queries are:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
         s = list(accumulate(arr, xor, initial=0))
         return [s[r + 1] ^ s[l] for l, r in queries]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,30 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} arr
- * @param {number[][]} queries
- * @return {number[]}
- */
-var xorQueries = function (arr, queries) {
-    let n = arr.length;
-    let xors = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; i++) {
-        xors[i + 1] = xors[i] ^ arr[i];
-    }
-    let res = [];
-    for (let [l, r] of queries) {
-        res.push(xors[l] ^ xors[r + 1]);
-    }
-    return res;
-};
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorQueries(arr []int, queries [][]int) (ans []int) {
 	n := len(arr)
@@ -141,8 +113,6 @@ func xorQueries(arr []int, queries [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function xorQueries(arr: number[], queries: number[][]): number[] {
     const n = arr.length;
@@ -157,8 +127,6 @@ function xorQueries(arr: number[], queries: number[][]): number[] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -180,10 +148,6 @@ var xorQueries = function (arr, queries) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

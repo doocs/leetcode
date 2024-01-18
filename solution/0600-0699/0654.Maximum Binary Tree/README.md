@@ -54,39 +54,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 先找到数组 $nums$ 的最大元素所在的位置 $i$，将 $nums[i]$ 作为根节点，然后递归左右两侧的子数组，构建左右子树。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
 
-**方法二：线段树**
-
-方法一中，每次查找区间最大值，需要 $O(n)$ 的时间，我们可以借助线段树，将每次查询区间最大值的时间降至 $O(\log n)$。
-
-最多需要查询 $n$ 次，因此，总的时间复杂度为 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
-
-**方法三：单调栈**
-
-题目表达了一个意思：如果 $nums$ 中间有一个数字 $v$，找出它左右两侧最大的数，这两个最大的数应该比 $v$ 小。
-
-了解单调栈的朋友，或许会注意到：
-
-当我们尝试向栈中压入一个数字 $v$ 时，如果栈顶元素比 $v$ 小，则循环弹出栈顶元素，并记录最后一个弹出的元素 $last$。那么循环结束，$last$ 必须位于 $v$ 的左侧，因为 $last$ 是 $v$ 的左侧最大的数。令 $node(val=v).left$ 指向 $last$。
-
-如果此时存在栈顶元素，栈顶元素一定大于 $v$。$v$ 成为栈顶元素的候选右子树节点。令 $stk.top().right$ 指向 $v$。然后 $v$ 入栈。
-
-遍历结束，栈底元素成为树的根节点。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -109,6 +83,236 @@ class Solution:
 
         return dfs(nums)
 ```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int[] nums;
+
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        this.nums = nums;
+        return dfs(0, nums.length - 1);
+    }
+
+    private TreeNode dfs(int l, int r) {
+        if (l > r) {
+            return null;
+        }
+        int i = l;
+        for (int j = l; j <= r; ++j) {
+            if (nums[i] < nums[j]) {
+                i = j;
+            }
+        }
+        TreeNode root = new TreeNode(nums[i]);
+        root.left = dfs(l, i - 1);
+        root.right = dfs(i + 1, r);
+        return root;
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        return dfs(nums, 0, nums.size() - 1);
+    }
+
+    TreeNode* dfs(vector<int>& nums, int l, int r) {
+        if (l > r) return nullptr;
+        int i = l;
+        for (int j = l; j <= r; ++j) {
+            if (nums[i] < nums[j]) {
+                i = j;
+            }
+        }
+        TreeNode* root = new TreeNode(nums[i]);
+        root->left = dfs(nums, l, i - 1);
+        root->right = dfs(nums, i + 1, r);
+        return root;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructMaximumBinaryTree(nums []int) *TreeNode {
+	var dfs func(l, r int) *TreeNode
+	dfs = func(l, r int) *TreeNode {
+		if l > r {
+			return nil
+		}
+		i := l
+		for j := l; j <= r; j++ {
+			if nums[i] < nums[j] {
+				i = j
+			}
+		}
+		root := &TreeNode{Val: nums[i]}
+		root.Left = dfs(l, i-1)
+		root.Right = dfs(i+1, r)
+		return root
+	}
+	return dfs(0, len(nums)-1)
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
+    const n = nums.length;
+    if (n === 0) {
+        return null;
+    }
+    const [val, i] = nums.reduce((r, v, i) => (r[0] < v ? [v, i] : r), [-1, 0]);
+    return new TreeNode(
+        val,
+        constructMaximumBinaryTree(nums.slice(0, i)),
+        constructMaximumBinaryTree(nums.slice(i + 1)),
+    );
+}
+```
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn construct(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
+        if start >= end {
+            return None;
+        }
+        let mut idx = 0;
+        let mut max_val = -1;
+        for i in start..end {
+            if nums[i] > max_val {
+                idx = i;
+                max_val = nums[i];
+            }
+        }
+        Some(
+            Rc::new(
+                RefCell::new(TreeNode {
+                    val: max_val,
+                    left: Self::construct(nums, start, idx),
+                    right: Self::construct(nums, idx + 1, end),
+                })
+            )
+        )
+    }
+
+    pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+        Self::construct(&nums, 0, nums.len())
+    }
+}
+```
+
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+struct TreeNode* construct(int* nums, int start, int end) {
+    if (start >= end) {
+        return NULL;
+    }
+    int idx = 0;
+    int maxVal = -1;
+    for (int i = start; i < end; i++) {
+        if (nums[i] > maxVal) {
+            idx = i;
+            maxVal = nums[i];
+        }
+    }
+    struct TreeNode* res = (struct TreeNode*) malloc(sizeof(struct TreeNode));
+    res->val = maxVal;
+    res->left = construct(nums, start, idx);
+    res->right = construct(nums, idx + 1, end);
+    return res;
+}
+
+struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
+    return construct(nums, 0, numsSize);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：线段树
+
+方法一中，每次查找区间最大值，需要 $O(n)$ 的时间，我们可以借助线段树，将每次查询区间最大值的时间降至 $O(\log n)$。
+
+最多需要查询 $n$ 次，因此，总的时间复杂度为 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
+
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -170,74 +374,6 @@ class SegmentTree:
 
     def pushup(self, u):
         self.tr[u].v = max(self.tr[u << 1].v, self.tr[u << 1 | 1].v)
-```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
-        stk = []
-        for v in nums:
-            node = TreeNode(v)
-            last = None
-            while stk and stk[-1].val < v:
-                last = stk.pop()
-            node.left = last
-            if stk:
-                stk[-1].right = node
-            stk.append(node)
-        return stk[0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    private int[] nums;
-
-    public TreeNode constructMaximumBinaryTree(int[] nums) {
-        this.nums = nums;
-        return dfs(0, nums.length - 1);
-    }
-
-    private TreeNode dfs(int l, int r) {
-        if (l > r) {
-            return null;
-        }
-        int i = l;
-        for (int j = l; j <= r; ++j) {
-            if (nums[i] < nums[j]) {
-                i = j;
-            }
-        }
-        TreeNode root = new TreeNode(nums[i]);
-        root.left = dfs(l, i - 1);
-        root.right = dfs(i + 1, r);
-        return root;
-    }
-}
 ```
 
 ```java
@@ -337,78 +473,6 @@ class SegmentTree {
 }
 ```
 
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public TreeNode constructMaximumBinaryTree(int[] nums) {
-        Deque<TreeNode> stk = new ArrayDeque<>();
-        for (int v : nums) {
-            TreeNode node = new TreeNode(v);
-            TreeNode last = null;
-            while (!stk.isEmpty() && stk.peek().val < v) {
-                last = stk.pop();
-            }
-            node.left = last;
-            if (!stk.isEmpty()) {
-                stk.peek().right = node;
-            }
-            stk.push(node);
-        }
-        return stk.getLast();
-    }
-}
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
-        return dfs(nums, 0, nums.size() - 1);
-    }
-
-    TreeNode* dfs(vector<int>& nums, int l, int r) {
-        if (l > r) return nullptr;
-        int i = l;
-        for (int j = l; j <= r; ++j) {
-            if (nums[i] < nums[j]) {
-                i = j;
-            }
-        }
-        TreeNode* root = new TreeNode(nums[i]);
-        root->left = dfs(nums, l, i - 1);
-        root->right = dfs(nums, i + 1, r);
-        return root;
-    }
-};
-```
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -492,75 +556,6 @@ public:
         return root;
     }
 };
-```
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
-        stack<TreeNode*> stk;
-        for (int v : nums) {
-            TreeNode* node = new TreeNode(v);
-            TreeNode* last = nullptr;
-            while (!stk.empty() && stk.top()->val < v) {
-                last = stk.top();
-                stk.pop();
-            }
-            node->left = last;
-            if (!stk.empty()) {
-                stk.top()->right = node;
-            }
-            stk.push(node);
-        }
-        while (stk.size() > 1) {
-            stk.pop();
-        }
-        return stk.top();
-    }
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func constructMaximumBinaryTree(nums []int) *TreeNode {
-	var dfs func(l, r int) *TreeNode
-	dfs = func(l, r int) *TreeNode {
-		if l > r {
-			return nil
-		}
-		i := l
-		for j := l; j <= r; j++ {
-			if nums[i] < nums[j] {
-				i = j
-			}
-		}
-		root := &TreeNode{Val: nums[i]}
-		root.Left = dfs(l, i-1)
-		root.Right = dfs(i+1, r)
-		return root
-	}
-	return dfs(0, len(nums)-1)
-}
 ```
 
 ```go
@@ -647,6 +642,119 @@ func (t *segmentTree) pushup(u int) {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法三：单调栈
+
+题目表达了一个意思：如果 $nums$ 中间有一个数字 $v$，找出它左右两侧最大的数，这两个最大的数应该比 $v$ 小。
+
+了解单调栈的朋友，或许会注意到：
+
+当我们尝试向栈中压入一个数字 $v$ 时，如果栈顶元素比 $v$ 小，则循环弹出栈顶元素，并记录最后一个弹出的元素 $last$。那么循环结束，$last$ 必须位于 $v$ 的左侧，因为 $last$ 是 $v$ 的左侧最大的数。令 $node(val=v).left$ 指向 $last$。
+
+如果此时存在栈顶元素，栈顶元素一定大于 $v$。$v$ 成为栈顶元素的候选右子树节点。令 $stk.top().right$ 指向 $v$。然后 $v$ 入栈。
+
+遍历结束，栈底元素成为树的根节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
+        stk = []
+        for v in nums:
+            node = TreeNode(v)
+            last = None
+            while stk and stk[-1].val < v:
+                last = stk.pop()
+            node.left = last
+            if stk:
+                stk[-1].right = node
+            stk.append(node)
+        return stk[0]
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        for (int v : nums) {
+            TreeNode node = new TreeNode(v);
+            TreeNode last = null;
+            while (!stk.isEmpty() && stk.peek().val < v) {
+                last = stk.pop();
+            }
+            node.left = last;
+            if (!stk.isEmpty()) {
+                stk.peek().right = node;
+            }
+            stk.push(node);
+        }
+        return stk.getLast();
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        stack<TreeNode*> stk;
+        for (int v : nums) {
+            TreeNode* node = new TreeNode(v);
+            TreeNode* last = nullptr;
+            while (!stk.empty() && stk.top()->val < v) {
+                last = stk.top();
+                stk.pop();
+            }
+            node->left = last;
+            if (!stk.empty()) {
+                stk.top()->right = node;
+            }
+            stk.push(node);
+        }
+        while (stk.size() > 1) {
+            stk.pop();
+        }
+        return stk.top();
+    }
+};
+```
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -675,130 +783,6 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 }
 ```
 
-### **C**
-
-```c
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
-
-struct TreeNode* construct(int* nums, int start, int end) {
-    if (start >= end) {
-        return NULL;
-    }
-    int idx = 0;
-    int maxVal = -1;
-    for (int i = start; i < end; i++) {
-        if (nums[i] > maxVal) {
-            idx = i;
-            maxVal = nums[i];
-        }
-    }
-    struct TreeNode* res = (struct TreeNode*) malloc(sizeof(struct TreeNode));
-    res->val = maxVal;
-    res->left = construct(nums, start, idx);
-    res->right = construct(nums, idx + 1, end);
-    return res;
-}
-
-struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
-    return construct(nums, 0, numsSize);
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
-    const n = nums.length;
-    if (n === 0) {
-        return null;
-    }
-    const [val, i] = nums.reduce((r, v, i) => (r[0] < v ? [v, i] : r), [-1, 0]);
-    return new TreeNode(
-        val,
-        constructMaximumBinaryTree(nums.slice(0, i)),
-        constructMaximumBinaryTree(nums.slice(i + 1)),
-    );
-}
-```
-
-### **Rust**
-
-```rust
-// Definition for a binary tree node.
-// #[derive(Debug, PartialEq, Eq)]
-// pub struct TreeNode {
-//   pub val: i32,
-//   pub left: Option<Rc<RefCell<TreeNode>>>,
-//   pub right: Option<Rc<RefCell<TreeNode>>>,
-// }
-//
-// impl TreeNode {
-//   #[inline]
-//   pub fn new(val: i32) -> Self {
-//     TreeNode {
-//       val,
-//       left: None,
-//       right: None
-//     }
-//   }
-// }
-use std::rc::Rc;
-use std::cell::RefCell;
-impl Solution {
-    fn construct(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
-        if start >= end {
-            return None;
-        }
-        let mut idx = 0;
-        let mut max_val = -1;
-        for i in start..end {
-            if nums[i] > max_val {
-                idx = i;
-                max_val = nums[i];
-            }
-        }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: max_val,
-                    left: Self::construct(nums, start, idx),
-                    right: Self::construct(nums, idx + 1, end),
-                })
-            )
-        )
-    }
-
-    pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        Self::construct(&nums, 0, nums.len())
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

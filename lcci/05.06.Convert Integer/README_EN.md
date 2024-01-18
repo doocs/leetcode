@@ -46,9 +46,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Bit Manipulation
 
-### **Python3**
+We perform a bitwise XOR operation on A and B. The number of $1$s in the result is the number of bits that need to be changed.
+
+The time complexity is $O(\log n)$, where $n$ is the maximum value of A and B. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +62,6 @@ class Solution:
         return (A ^ B).bit_count()
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int convertInteger(int A, int B) {
@@ -67,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -80,15 +80,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func convertInteger(A int, B int) int {
 	return bits.OnesCount32(uint32(A ^ B))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function convertInteger(A: number, B: number): number {
@@ -104,8 +100,6 @@ function convertInteger(A: number, B: number): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn convert_integer(a: i32, b: i32) -> i32 {
@@ -114,11 +108,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

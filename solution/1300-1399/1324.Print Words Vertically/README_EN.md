@@ -49,9 +49,9 @@ Each word would be put on only one column and that in one column there will be o
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
             ans.append(''.join(t))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func printVertically(s string) (ans []string) {
 	words := strings.Split(s, " ")
@@ -150,10 +144,6 @@ func printVertically(s string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

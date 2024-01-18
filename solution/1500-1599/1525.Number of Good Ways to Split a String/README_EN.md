@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             ans += len(vis) == len(cnt)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSplits(s string) (ans int) {
 	cnt := map[rune]int{}
@@ -133,10 +127,6 @@ func numSplits(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

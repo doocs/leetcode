@@ -38,9 +38,9 @@ The arrangement with the smallest value that does not contain any leading zeros 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
                 ans += str(i) * cnt[i]
         return int(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +145,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func smallestNumber(num int64) int64 {
@@ -193,16 +187,6 @@ func smallestNumber(num int64) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,4 +1,4 @@
-# [651. 4 键键盘](https://leetcode.cn/problems/4-keys-keyboard)
+# [651. 四个键的键盘](https://leetcode.cn/problems/4-keys-keyboard)
 
 [English Version](/solution/0600-0699/0651.4%20Keys%20Keyboard/README_EN.md)
 
@@ -49,9 +49,7 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 定义 $dp[i]$ 表示前 $i$ 个按键可以显示的最大个数。
 
@@ -64,10 +62,6 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxA(self, n: int) -> int:
@@ -77,10 +71,6 @@ class Solution:
                 dp[i] = max(dp[i], dp[j - 1] * (i - j))
         return dp[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxA(n int) int {
 	dp := make([]int, n+1)
@@ -134,10 +120,6 @@ func maxA(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：维护前缀最小值**
+### 方法一：维护前缀最小值
 
 我们用变量 $mi$ 表示当前遍历到的元素中的最小值，用变量 $ans$ 表示最大差值，初始时 $mi$ 为 $+\infty$，而 $ans$ 为 $-1$。
 
@@ -59,13 +57,9 @@
 
 遍历结束后，返回 $ans$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 mi = x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumDifference(nums []int) int {
 	mi := 1 << 30
@@ -138,8 +124,6 @@ func maximumDifference(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumDifference(nums: number[]): number {
     const n = nums.length;
@@ -152,8 +136,6 @@ function maximumDifference(nums: number[]): number {
     return res === 0 ? -1 : res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -171,8 +153,6 @@ impl Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -193,10 +173,6 @@ var maximumDifference = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

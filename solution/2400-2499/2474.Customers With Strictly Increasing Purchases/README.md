@@ -81,13 +81,9 @@ Orders 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -111,3 +107,5 @@ HAVING COUNT(DISTINCT rk) = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

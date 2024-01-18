@@ -61,9 +61,9 @@ Note that the rows in the output are the same as in the input.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -75,6 +75,12 @@ SELECT
     END AS drink
 FROM CoffeeShop;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -104,3 +110,5 @@ FROM T;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

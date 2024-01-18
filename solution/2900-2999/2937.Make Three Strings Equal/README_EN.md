@@ -37,15 +37,13 @@ It can be shown that there is no way to make them equal with less than two opera
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 According to the problem description, we know that if the three strings are equal after deleting characters, then they have a common prefix of length greater than $1$. Therefore, we can enumerate the position $i$ of the common prefix. If the three characters at the current index $i$ are not all equal, then the length of the common prefix is $i$. At this point, we check if $i$ is $0$. If it is, return $-1$. Otherwise, return $s - 3 \times i$, where $s$ is the sum of the lengths of the three strings.
 
 The time complexity is $O(n)$, where $n$ is the minimum length of the three strings. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -57,8 +55,6 @@ class Solution:
                 return -1 if i == 0 else s - 3 * i
         return s - 3 * n
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMinimumOperations(s1 string, s2 string, s3 string) int {
 	s := len(s1) + len(s2) + len(s3)
@@ -111,8 +103,6 @@ func findMinimumOperations(s1 string, s2 string, s3 string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMinimumOperations(s1: string, s2: string, s3: string): number {
     const s = s1.length + s2.length + s3.length;
@@ -126,10 +116,6 @@ function findMinimumOperations(s1: string, s2: string, s3: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

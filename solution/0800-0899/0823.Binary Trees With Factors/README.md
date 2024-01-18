@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们可以枚举 $arr$ 中的每一个数 $a$ 作为二叉树的根节点（根节点一定最大），然后枚举枚举左子树的值 $b$，若 $a$ 能被 $b$ 整除，则右子树的值为 $a / b$，若 $a / b$ 也在 $arr$ 中，则可以构成一棵二叉树。此时，以 $a$ 为根节点的二叉树的个数为 $f(a) = f(b) \times f(a / b)$，其中 $f(b)$ 和 $f(a / b)$ 分别为左子树和右子树的二叉树个数。
 
@@ -51,10 +49,6 @@
 时间复杂度为 $O(n^2)$，空间复杂度为 $O(n)$。其中 $n$ 为 $arr$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
                     f[i] = (f[i] + f[j] * f[idx[c]]) % mod
         return sum(f) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numFactoredBinaryTrees(arr []int) int {
 	const mod int = 1e9 + 7
@@ -176,8 +162,6 @@ func numFactoredBinaryTrees(arr []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numFactoredBinaryTrees(arr: number[]): number {
     const mod = 10 ** 9 + 7;
@@ -205,10 +189,6 @@ function numFactoredBinaryTrees(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

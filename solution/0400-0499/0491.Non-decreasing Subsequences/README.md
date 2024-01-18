@@ -1,4 +1,4 @@
-# [491. 递增子序列](https://leetcode.cn/problems/non-decreasing-subsequences)
+# [491. 非递减子序列](https://leetcode.cn/problems/non-decreasing-subsequences)
 
 [English Version](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md)
 
@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 DFS 递归枚举每个数字选中或不选中，这里需要满足两个条件：
 
@@ -47,10 +45,6 @@ DFS 递归枚举每个数字选中或不选中，这里需要满足两个条件�
 1. 子序列需要去重，这里重复的问题在于前后两个数相等并且不选中的情况，我们只在前后两个数不等的情况下，执行不选中的操作即可达到去重的效果。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
         dfs(0, -1000, [])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSubsequences(nums []int) [][]int {
 	var ans [][]int
@@ -143,9 +129,7 @@ func findSubsequences(nums []int) [][]int {
 	dfs = func(u, last int, t []int) {
 		if u == len(nums) {
 			if len(t) > 1 {
-				cp := make([]int, len(t))
-				copy(cp, t)
-				ans = append(ans, cp)
+				ans = append(ans, slices.Clone(t))
 			}
 			return
 		}
@@ -164,10 +148,6 @@ func findSubsequences(nums []int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,8 +1,11 @@
 function groupAnagrams(strs: string[]): string[][] {
-    const map = new Map<string, string[]>();
-    for (const str of strs) {
-        const k = str.split('').sort().join('');
-        map.set(k, (map.get(k) ?? []).concat([str]));
+    const d: Map<string, string[]> = new Map();
+    for (const s of strs) {
+        const k = s.split('').sort().join('');
+        if (!d.has(k)) {
+            d.set(k, []);
+        }
+        d.get(k)!.push(s);
     }
-    return [...map.values()];
+    return Array.from(d.values());
 }

@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们可以将这个问题转化为：在一个长度为 $3n$ 的环形数组中，选择其中 $n$ 个不相邻的数，使得这 $n$ 个数的和最大。
 
@@ -86,10 +84,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxSizeSlices(self, slices: List[int]) -> int:
@@ -107,10 +101,6 @@ class Solution:
         a, b = g(slices[:-1]), g(slices[1:])
         return max(a, b)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSizeSlices(slices []int) int {
 	n := len(slices) / 3
@@ -192,8 +178,6 @@ func maxSizeSlices(slices []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSizeSlices(slices: number[]): number {
     const n = Math.floor(slices.length / 3);
@@ -215,10 +199,6 @@ function maxSizeSlices(slices: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

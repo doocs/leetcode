@@ -47,15 +47,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序**
+### 方法一：哈希表 + 排序
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
         cnt = Counter(words)
         return sorted(cnt, key=lambda x: (-cnt[x], x))[:k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func topKFrequent(words []string, k int) []string {
@@ -133,10 +119,6 @@ func topKFrequent(words []string, k int) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

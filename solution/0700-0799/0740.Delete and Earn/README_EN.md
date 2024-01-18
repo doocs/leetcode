@@ -45,27 +45,9 @@ You earn a total of 9 points.</pre>
 
 ## Solutions
 
-Intuition: **If we take a number, we will take all of the copies of it**.
-
-First calculate the sum of each number as **sums**, and keep updating two dp arrays: **select** and **nonSelect**
-
--   `sums[i]` represents the sum of elements whose value is i;
--   `select[i]` represents the maximum sum of processing from 0 to i if the number i is selected;
--   `nonSelect[i]` represents the maximum sum of processing from 0 to i if the number i is not selected;
-
-Then we have the following conclusions:
-
--   If i is selected, then i-1 must not be selected;
--   If you do not choose i, then i-1 can choose or not, so we choose the larger one;
-
-```java
-select[i] = nonSelect[i - 1] + sums[i];
-nonSelect[i] = Math.max(select[i - 1], nonSelect[i - 1]);
-```
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -84,8 +66,6 @@ class Solution:
             second = cur
         return second
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,7 +93,28 @@ class Solution {
 }
 ```
 
-### **Go**
+```cpp
+class Solution {
+public:
+    int deleteAndEarn(vector<int>& nums) {
+        vector<int> vals(10010);
+        for (int& num : nums) {
+            vals[num] += num;
+        }
+        return rob(vals);
+    }
+
+    int rob(vector<int>& nums) {
+        int a = 0, b = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            int c = max(nums[i] + a, b);
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
+```
 
 ```go
 func deleteAndEarn(nums []int) int {
@@ -144,35 +145,6 @@ func deleteAndEarn(nums []int) int {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int deleteAndEarn(vector<int>& nums) {
-        vector<int> vals(10010);
-        for (int& num : nums) {
-            vals[num] += num;
-        }
-        return rob(vals);
-    }
-
-    int rob(vector<int>& nums) {
-        int a = 0, b = nums[0];
-        for (int i = 1; i < nums.size(); ++i) {
-            int c = max(nums[i] + a, b);
-            a = b;
-            b = c;
-        }
-        return b;
-    }
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

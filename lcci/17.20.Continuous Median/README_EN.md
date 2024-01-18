@@ -39,9 +39,9 @@ findMedian() -&gt; 2
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MedianFinder:
@@ -69,8 +69,6 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
-
-### **Java**
 
 ```java
 class MedianFinder {
@@ -104,8 +102,6 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MedianFinder {
@@ -143,8 +139,6 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
-
-### **Go**
 
 ```go
 type MedianFinder struct {
@@ -191,10 +185,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             f'({x}, {y})' for i in range(2, n - 1) for x in f(1, i) for y in f(i, n - 1)
         ]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +131,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func ambiguousCoordinates(s string) []string {
@@ -169,8 +163,6 @@ func ambiguousCoordinates(s string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function ambiguousCoordinates(s: string): string[] {
     s = s.slice(1, s.length - 1);
@@ -200,10 +192,6 @@ function ambiguousCoordinates(s: string): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

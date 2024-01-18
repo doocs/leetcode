@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：回溯**
+### 方法一：回溯
 
 我们设计一个函数 $dfs(i)$，表示从第 $i$ 行开始搜索，搜索到的结果累加到答案中。
 
@@ -59,14 +57,10 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def totalNQueens(self, n: int) -> int:
-        def dfs(i):
+        def dfs(i: int):
             if i == n:
                 nonlocal ans
                 ans += 1
@@ -86,10 +80,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func totalNQueens(n int) (ans int) {
 	cols := [10]bool{}
@@ -184,10 +170,32 @@ func totalNQueens(n int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function totalNQueens(n: number): number {
+    const cols: boolean[] = Array(10).fill(false);
+    const dg: boolean[] = Array(20).fill(false);
+    const udg: boolean[] = Array(20).fill(false);
+    let ans = 0;
+    const dfs = (i: number) => {
+        if (i === n) {
+            ++ans;
+            return;
+        }
+        for (let j = 0; j < n; ++j) {
+            let [a, b] = [i + j, i - j + n];
+            if (cols[j] || dg[a] || udg[b]) {
+                continue;
+            }
+            cols[j] = dg[a] = udg[b] = true;
+            dfs(i + 1);
+            cols[j] = dg[a] = udg[b] = false;
+        }
+    };
+    dfs(0);
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

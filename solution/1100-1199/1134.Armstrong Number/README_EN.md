@@ -34,15 +34,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can first calculate the number of digits $k$, then calculate the sum $s$ of the $k$th power of each digit, and finally check whether $s$ equals $n$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given number.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -54,8 +52,6 @@ class Solution:
             x //= 10
         return s == n
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,8 +80,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isArmstrong(n int) bool {
 	k := 0
@@ -102,7 +94,16 @@ func isArmstrong(n int) bool {
 }
 ```
 
-### **JavaScript**
+```ts
+function isArmstrong(n: number): boolean {
+    const k = String(n).length;
+    let s = 0;
+    for (let x = n; x; x = Math.floor(x / 10)) {
+        s += Math.pow(x % 10, k);
+    }
+    return s == n;
+}
+```
 
 ```js
 /**
@@ -119,23 +120,6 @@ var isArmstrong = function (n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function isArmstrong(n: number): boolean {
-    const k = String(n).length;
-    let s = 0;
-    for (let x = n; x; x = Math.floor(x / 10)) {
-        s += Math.pow(x % 10, k);
-    }
-    return s == n;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

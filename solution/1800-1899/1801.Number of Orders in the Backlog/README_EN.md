@@ -61,9 +61,17 @@ Finally, the backlog has (1000000000-3) sell orders with price 7, and (999999995
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Priority Queue (Max-Min Heap) + Simulation
 
-### **Python3**
+We can use a priority queue (max-min heap) to maintain the current backlog of orders, where the max heap `buy` maintains the backlog of purchase orders, and the min heap `sell` maintains the backlog of sales orders. Each element in the heap is a tuple $(price, amount)$, indicating that the number of orders at price `price` is `amount`.
+
+Next, we traverse the order array `orders`, and simulate according to the problem's requirements.
+
+After the traversal, we add the order quantities in `buy` and `sell`, which is the final backlog of orders. Note that the answer may be very large, so we need to take the modulus of $10^9 + 7$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of `orders`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -90,15 +98,9 @@ class Solution:
                         a = 0
                 if a:
                     heappush(sell, (p, a))
-        ans, mod = 0, 10**9 + 7
-        for _, v in buy:
-            ans = (ans + v) % mod
-        for _, v in sell:
-            ans = (ans + v) % mod
-        return ans
+        mod = 10**9 + 7
+        return sum(v[1] for v in buy + sell) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -149,8 +151,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -205,8 +205,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getNumberOfBacklogOrders(orders [][]int) (ans int) {
@@ -264,10 +262,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

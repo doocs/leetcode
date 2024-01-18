@@ -54,9 +54,7 @@ class Node {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们可以用递归的方法来实现 N 叉树的深拷贝。
 
@@ -65,10 +63,6 @@ class Node {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 N 叉树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -87,10 +81,6 @@ class Solution:
         children = [self.cloneTree(child) for child in root.children]
         return Node(root.val, children)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -168,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -191,10 +177,6 @@ func cloneTree(root *Node) *Node {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

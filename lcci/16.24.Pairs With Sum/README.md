@@ -20,9 +20,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以使用哈希表来存储数组中的元素，键为数组中的元素，值为该元素出现的次数。
 
@@ -33,10 +31,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -52,10 +46,6 @@ class Solution:
                 cnt[x] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -78,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pairSums(nums []int, target int) (ans [][]int) {
 	cnt := map[int]int{}
@@ -117,8 +103,6 @@ func pairSums(nums []int, target int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function pairSums(nums: number[], target: number): number[][] {
@@ -142,10 +126,6 @@ function pairSums(nums: number[], target: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

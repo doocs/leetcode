@@ -54,35 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先处理数组 `nums`，对于相邻且重复出现的元素，只保留其中一个，如 `[6, 6, 5, 5, 4, 1]`，转换为 `[6, 5, 4, 1]`，再依照题意，进行统计。
-
-优化：
-
-上述处理的数组方式，不论是删除元素还是新开数组，都会造成复杂度的提升。而实际上，只需要忽略相邻重复元素即可，无需改动原数组。
-
-```txt
-COUNT_HILL_VALLEY(A)
-    n = A.length
-    r = 0
-    p = A[0]
-    for i = 1 in n - 1
-        c = A[i]
-        q = A[i + 1]
-        if c == q
-            continue
-        if c > prev && c > q || c < prev && c < q
-            r += 1
-        p = c
-    return r
-```
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -96,25 +70,6 @@ class Solution:
             for i in range(1, len(arr) - 1)
         )
 ```
-
-```python
-class Solution:
-    def countHillValley(self, nums: List[int]) -> int:
-        ans = j = 0
-        for i in range(1, len(nums) - 1):
-            if nums[i] == nums[i + 1]:
-                continue
-            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
-                ans += 1
-            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
-                ans += 1
-            j = i
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countHillValley(nums []int) int {
@@ -176,8 +127,6 @@ func countHillValley(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countHillValley(nums: number[]): number {
     const n = nums.length;
@@ -197,8 +146,6 @@ function countHillValley(nums: number[]): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -222,10 +169,27 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
+        ans = j = 0
+        for i in range(1, len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                continue
+            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
+                ans += 1
+            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
+                ans += 1
+            j = i
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

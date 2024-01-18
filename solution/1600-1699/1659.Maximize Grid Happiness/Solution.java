@@ -1,38 +1,65 @@
 class Solution {
     private int m;
-    private int n;
-    private int p;
-    private final int[][] h = {{0, 0, 0}, {0, -60, -10}, {0, -10, 40}};
+    private int mx;
+    private int[] f;
+    private int[][] g;
+    private int[][] bits;
+    private int[] ix;
+    private int[] ex;
     private Integer[][][][] memo;
+    private final int[][] h = {{0, 0, 0}, {0, -60, -10}, {0, -10, 40}};
 
     public int getMaxGridHappiness(int m, int n, int introvertsCount, int extrovertsCount) {
         this.m = m;
-        this.n = n;
-        p = (int) Math.pow(3, n - 1);
-        memo = new Integer[m * n][p * 3][introvertsCount + 1][extrovertsCount + 1];
+        mx = (int) Math.pow(3, n);
+        f = new int[mx];
+        g = new int[mx][mx];
+        bits = new int[mx][n];
+        ix = new int[mx];
+        ex = new int[mx];
+        memo = new Integer[m][mx][introvertsCount + 1][extrovertsCount + 1];
+        for (int i = 0; i < mx; ++i) {
+            int mask = i;
+            for (int j = 0; j < n; ++j) {
+                int x = mask % 3;
+                mask /= 3;
+                bits[i][j] = x;
+                if (x == 1) {
+                    ix[i]++;
+                    f[i] += 120;
+                } else if (x == 2) {
+                    ex[i]++;
+                    f[i] += 40;
+                }
+                if (j > 0) {
+                    f[i] += h[x][bits[i][j - 1]];
+                }
+            }
+        }
+        for (int i = 0; i < mx; ++i) {
+            for (int j = 0; j < mx; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    g[i][j] += h[bits[i][k]][bits[j][k]];
+                }
+            }
+        }
         return dfs(0, 0, introvertsCount, extrovertsCount);
     }
 
-    private int dfs(int pos, int pre, int ic, int ec) {
-        if (pos == m * n || (ic == 0 && ec == 0)) {
+    private int dfs(int i, int pre, int ic, int ec) {
+        if (i == m || (ic == 0 && ec == 0)) {
             return 0;
         }
-        if (memo[pos][pre][ic][ec] != null) {
-            return memo[pos][pre][ic][ec];
+        if (memo[i][pre][ic][ec] != null) {
+            return memo[i][pre][ic][ec];
         }
         int ans = 0;
-        int up = pre / p;
-        int left = pos % n == 0 ? 0 : pre % 3;
-        for (int i = 0; i < 3; ++i) {
-            if (i == 1 && (ic == 0) || (i == 2 && ec == 0)) {
-                continue;
+        for (int cur = 0; cur < mx; ++cur) {
+            if (ix[cur] <= ic && ex[cur] <= ec) {
+                ans = Math.max(
+                    ans, f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur]));
             }
-            int cur = pre % p * 3 + i;
-            int a = h[up][i] + h[left][i];
-            int b = dfs(pos + 1, cur, ic - (i == 1 ? 1 : 0), ec - (i == 2 ? 1 : 0));
-            int c = i == 1 ? 120 : (i == 2 ? 40 : 0);
-            ans = Math.max(ans, a + b + c);
         }
-        return memo[pos][pre][ic][ec] = ans;
+        return memo[i][pre][ic][ec] = ans;
     }
 }

@@ -53,15 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-记忆化搜索。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestIncreasingPath(matrix [][]int) int {
@@ -200,10 +186,6 @@ func longestIncreasingPath(matrix [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

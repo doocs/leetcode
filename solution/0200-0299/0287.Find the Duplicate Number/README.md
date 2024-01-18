@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们可以发现，如果 $[1,..x]$ 中的数字个数大于 $x$，那么重复的数字一定在 $[1,..x]$ 中，否则重复的数字一定在 $[x+1,..n]$ 中。
 
@@ -62,10 +60,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
@@ -74,10 +68,6 @@ class Solution:
 
         return bisect_left(range(len(nums)), True, key=f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,7 +114,41 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func findDuplicate(nums []int) int {
+	return sort.Search(len(nums), func(x int) bool {
+		cnt := 0
+		for _, v := range nums {
+			if v <= x {
+				cnt++
+			}
+		}
+		return cnt > x
+	})
+}
+```
+
+```ts
+function findDuplicate(nums: number[]): number {
+    let l = 0;
+    let r = nums.length - 1;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        let cnt = 0;
+        for (const v of nums) {
+            if (v <= mid) {
+                ++cnt;
+            }
+        }
+        if (cnt > mid) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
 
 ```rust
 impl Solution {
@@ -152,24 +174,6 @@ impl Solution {
     }
 }
 ```
-
-### **Go**
-
-```go
-func findDuplicate(nums []int) int {
-	return sort.Search(len(nums), func(x int) bool {
-		cnt := 0
-		for _, v := range nums {
-			if v <= x {
-				cnt++
-			}
-		}
-		return cnt > x
-	})
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -197,34 +201,6 @@ var findDuplicate = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function findDuplicate(nums: number[]): number {
-    let l = 0;
-    let r = nums.length - 1;
-    while (l < r) {
-        const mid = (l + r) >> 1;
-        let cnt = 0;
-        for (const v of nums) {
-            if (v <= mid) {
-                ++cnt;
-            }
-        }
-        if (cnt > mid) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return l;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

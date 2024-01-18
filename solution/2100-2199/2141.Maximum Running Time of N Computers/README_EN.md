@@ -49,9 +49,9 @@ We can run the two computers simultaneously for at most 2 minutes, so we return 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxRunTime(n int, batteries []int) int64 {
 	l, r := 0, 0
@@ -142,8 +136,6 @@ func maxRunTime(n int, batteries []int) int64 {
 	return int64(l)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxRunTime(n: number, batteries: number[]): number {
@@ -167,8 +159,6 @@ function maxRunTime(n: number, batteries: number[]): number {
     return Number(l);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -222,10 +212,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

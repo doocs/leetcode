@@ -37,9 +37,9 @@ After sorting, it becomes [0,1,9,16,100].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
             k -= 1
         return res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortedSquares(nums []int) []int {
 	n := len(nums)
@@ -120,31 +114,6 @@ func sortedSquares(nums []int) []int {
 	return res
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var sortedSquares = function (nums) {
-    const n = nums.length;
-    const res = new Array(n);
-    for (let i = 0, j = n - 1, k = n - 1; i <= j; ) {
-        if (nums[i] * nums[i] > nums[j] * nums[j]) {
-            res[k--] = nums[i] * nums[i];
-            ++i;
-        } else {
-            res[k--] = nums[j] * nums[j];
-            --j;
-        }
-    }
-    return res;
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -169,7 +138,26 @@ impl Solution {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function (nums) {
+    const n = nums.length;
+    const res = new Array(n);
+    for (let i = 0, j = n - 1, k = n - 1; i <= j; ) {
+        if (nums[i] * nums[i] > nums[j] * nums[j]) {
+            res[k--] = nums[i] * nums[i];
+            ++i;
+        } else {
+            res[k--] = nums[j] * nums[j];
+            --j;
+        }
+    }
+    return res;
+};
+```
 
 ```php
 class Solution {
@@ -198,10 +186,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

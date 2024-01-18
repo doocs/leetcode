@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划**
+### 方法一：状态压缩动态规划
 
 注意到题目中 $nums[i]$ 的范围为 $[1, 30]$，因此我们可以预处理出所有小于等于 $30$ 的质数，即 $[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]$。
 
@@ -82,10 +80,6 @@
 -   [2572. 无平方子集计数](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
                     f[state] = (f[state] + cnt[x] * f[state ^ mask]) % mod
         return sum(f[i] for i in range(1, 1 << n)) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -152,8 +142,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -196,8 +184,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfGoodSubsets(nums []int) (ans int) {
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
@@ -235,10 +221,6 @@ func numberOfGoodSubsets(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

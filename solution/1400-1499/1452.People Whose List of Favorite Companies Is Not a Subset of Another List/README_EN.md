@@ -49,9 +49,9 @@ Other lists of favorite companies are not a subset of another list, therefore, t
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,8 +78,6 @@ class Solution:
                 ans.append(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -171,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func peopleIndexes(favoriteCompanies [][]string) []int {
 	d := map[string]int{}
@@ -219,10 +213,6 @@ func peopleIndexes(favoriteCompanies [][]string) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

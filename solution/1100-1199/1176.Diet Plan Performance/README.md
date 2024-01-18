@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和**
+### 方法一：前缀和
 
 我们先预处理出长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示前 $i$ 天的卡路里总和。
 
@@ -66,17 +64,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `calories` 的长度。
 
-**方法二：滑动窗口**
-
-我们维护一个长度为 $k$ 的滑动窗口，窗口内元素之和记为 $s$。如果 $s \lt lower$，则分数减 $1$；如果 $ s \gt upper$，则分数加 $1$。
-
-时间复杂度 $O(n)$，其中 $n$ 为数组 `calories` 的长度。空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,30 +81,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def dietPlanPerformance(
-        self, calories: List[int], k: int, lower: int, upper: int
-    ) -> int:
-        def check(s):
-            if s < lower:
-                return -1
-            if s > upper:
-                return 1
-            return 0
-
-        s, n = sum(calories[:k]), len(calories)
-        ans = check(s)
-        for i in range(k, n):
-            s += calories[i] - calories[i - k]
-            ans += check(s)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,6 +102,99 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int dietPlanPerformance(vector<int>& calories, int k, int lower, int upper) {
+        int n = calories.size();
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + calories[i];
+        }
+        int ans = 0;
+        for (int i = 0; i < n - k + 1; ++i) {
+            int t = s[i + k] - s[i];
+            if (t < lower) {
+                --ans;
+            } else if (t > upper) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
+	n := len(calories)
+	s := make([]int, n+1)
+	for i, x := range calories {
+		s[i+1] = s[i] + x
+	}
+	for i := 0; i < n-k+1; i++ {
+		t := s[i+k] - s[i]
+		if t < lower {
+			ans--
+		} else if t > upper {
+			ans++
+		}
+	}
+	return
+}
+```
+
+```ts
+function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
+    const n = calories.length;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + calories[i];
+    }
+    let ans = 0;
+    for (let i = 0; i < n - k + 1; ++i) {
+        const t = s[i + k] - s[i];
+        if (t < lower) {
+            --ans;
+        } else if (t > upper) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：滑动窗口
+
+我们维护一个长度为 $k$ 的滑动窗口，窗口内元素之和记为 $s$。如果 $s \lt lower$，则分数减 $1$；如果 $ s \gt upper$，则分数加 $1$。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 `calories` 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def dietPlanPerformance(
+        self, calories: List[int], k: int, lower: int, upper: int
+    ) -> int:
+        def check(s):
+            if s < lower:
+                return -1
+            if s > upper:
+                return 1
+            return 0
+
+        s, n = sum(calories[:k]), len(calories)
+        ans = check(s)
+        for i in range(k, n):
+            s += calories[i] - calories[i - k]
+            ans += check(s)
+        return ans
 ```
 
 ```java
@@ -166,32 +223,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int dietPlanPerformance(vector<int>& calories, int k, int lower, int upper) {
-        int n = calories.size();
-        int s[n + 1];
-        s[0] = 0;
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + calories[i];
-        }
-        int ans = 0;
-        for (int i = 0; i < n - k + 1; ++i) {
-            int t = s[i + k] - s[i];
-            if (t < lower) {
-                --ans;
-            } else if (t > upper) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -215,27 +246,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
-	n := len(calories)
-	s := make([]int, n+1)
-	for i, x := range calories {
-		s[i+1] = s[i] + x
-	}
-	for i := 0; i < n-k+1; i++ {
-		t := s[i+k] - s[i]
-		if t < lower {
-			ans--
-		} else if t > upper {
-			ans++
-		}
-	}
-	return
-}
 ```
 
 ```go
@@ -262,28 +272,6 @@ func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) 
 }
 ```
 
-### **TypeScript**
-
-```ts
-function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
-    const n = calories.length;
-    const s: number[] = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + calories[i];
-    }
-    let ans = 0;
-    for (let i = 0; i < n - k + 1; ++i) {
-        const t = s[i + k] - s[i];
-        if (t < lower) {
-            --ans;
-        } else if (t > upper) {
-            ++ans;
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
     const n = calories.length;
@@ -306,10 +294,6 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

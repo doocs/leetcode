@@ -48,48 +48,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**暴力**：
-
-1. 遍历数组，并将元素修改为对应的平方值。
-2. 排序，返回。
-
-_分析_：
-
-因为 `nums` 中存在负数，`-10` 与 `5` 转换为平方值之后，`-10` 反而要更大，因此需要额外进行一次排序。
-
-**双指针**：
-
-该过程需要原数组保持不变动，对此声明一个等长数组存储计算结果，作为返回值。
-
-声明头尾指针，并进行比较，哪方指针所指向元素的平方值更大，哪方平方值进入返回数组当中，并移动对应指针。重复比较过程，直到头指针超过尾指针。
-
-由于是头尾指针，平方值获取过程是**从大到小**，对此存入数组的过程是**逆序**的。
-
-```txt
-SORTED-SQUARES(A)
-    n = A.length
-    i = 0
-    j = n - 1
-    k = n - 1
-    let r[0..n]be a new array
-    while i < j
-        if A[i] * A[i] > A[j] * A[j]
-            r[k] = A[i] * A[i]
-            i += 1
-        else
-            r[k] = A[j] * A[j]
-            j -= 1
-        k -= 1
-    return r
-```
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,10 +68,6 @@ class Solution:
             k -= 1
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortedSquares(nums []int) []int {
 	n := len(nums)
@@ -172,31 +125,6 @@ func sortedSquares(nums []int) []int {
 	return res
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var sortedSquares = function (nums) {
-    const n = nums.length;
-    const res = new Array(n);
-    for (let i = 0, j = n - 1, k = n - 1; i <= j; ) {
-        if (nums[i] * nums[i] > nums[j] * nums[j]) {
-            res[k--] = nums[i] * nums[i];
-            ++i;
-        } else {
-            res[k--] = nums[j] * nums[j];
-            --j;
-        }
-    }
-    return res;
-};
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -221,7 +149,26 @@ impl Solution {
 }
 ```
 
-### **PHP**
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function (nums) {
+    const n = nums.length;
+    const res = new Array(n);
+    for (let i = 0, j = n - 1, k = n - 1; i <= j; ) {
+        if (nums[i] * nums[i] > nums[j] * nums[j]) {
+            res[k--] = nums[i] * nums[i];
+            ++i;
+        } else {
+            res[k--] = nums[j] * nums[j];
+            --j;
+        }
+    }
+    return res;
+};
+```
 
 ```php
 class Solution {
@@ -250,10 +197,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

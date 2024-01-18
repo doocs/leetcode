@@ -46,9 +46,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table + Enumeration
 
-### **Python3**
+We enumerate each row as the bottom of the rectangle. For the current row, if both column $i$ and column $j$ are $1$, then we use a hash table to find out how many of the previous rows have both columns $i$ and $j$ as $1$. This is the number of rectangles with $(i, j)$ as the bottom right corner, and we add this number to the answer. Then we add $(i, j)$ to the hash table and continue to enumerate the next pair $(i, j)$.
+
+The time complexity is $O(m \times n^2)$, and the space complexity is $O(n^2)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +69,6 @@ class Solution:
                             cnt[(i, j)] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countCornerRectangles(grid [][]int) (ans int) {
 	n := len(grid[0])
@@ -141,8 +139,6 @@ func countCornerRectangles(grid [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countCornerRectangles(grid: number[][]): number {
@@ -166,10 +162,6 @@ function countCornerRectangles(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

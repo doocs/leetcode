@@ -3,10 +3,9 @@
  * @return {string}
  */
 var largestOddNumber = function (num) {
-    let n = num.length;
-    for (let j = n - 1; j >= 0; j--) {
-        if (num.charAt(j) & (1 == 1)) {
-            return num.slice(0, j + 1);
+    for (let i = num.length - 1; ~i; --i) {
+        if (Number(num[i]) & 1) {
+            return num.slice(0, i + 1);
         }
     }
     return '';

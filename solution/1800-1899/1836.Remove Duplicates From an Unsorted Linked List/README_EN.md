@@ -43,15 +43,13 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We can use a hash table $cnt$ to count the number of occurrences of each element in the linked list, and then traverse the linked list to delete elements that appear more than once.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -76,8 +74,6 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -108,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -142,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -168,8 +160,6 @@ func deleteDuplicatesUnsorted(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -202,10 +192,6 @@ function deleteDuplicatesUnsorted(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

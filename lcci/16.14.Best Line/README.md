@@ -20,29 +20,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
+### 方法一：暴力枚举
 
 我们可以枚举任意两个点 $(x_1, y_1), (x_2, y_2)$，把这两个点连成一条直线，那么此时这条直线上的点的个数就是 2，接下来我们再枚举其他点 $(x_3, y_3)$，判断它们是否在同一条直线上，如果在，那么直线上的点的个数就加 1，如果不在，那么直线上的点的个数不变。找出所有直线上的点的个数的最大值，其对应的最小的两个点的编号即为答案。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `points` 的长度。
 
-**方法二：枚举 + 哈希表**
-
-我们可以枚举一个点 $(x_1, y_1)$，把其他所有点 $(x_2, y_2)$ 与 $(x_1, y_1)$ 连成的直线的斜率存入哈希表中，斜率相同的点在同一条直线上，哈希表的键为斜率，值为直线上的点的个数。找出哈希表中的最大值，即为答案。为了避免精度问题，我们可以将斜率 $\frac{y_2 - y_1}{x_2 - x_1}$ 进行约分，约分的方法是求最大公约数，然后分子分母同时除以最大公约数，将求得的分子分母作为哈希表的键。
-
-时间复杂度 $O(n^2 \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `points` 的长度和数组 `points` 所有横纵坐标差的最大值。
-
-相似题目：
-
--   [149. 直线上最多的点数](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,33 +48,6 @@ class Solution:
                     x, y = i, j
         return [x, y]
 ```
-
-```python
-class Solution:
-    def bestLine(self, points: List[List[int]]) -> List[int]:
-        def gcd(a, b):
-            return a if b == 0 else gcd(b, a % b)
-
-        n = len(points)
-        mx = 0
-        for i in range(n):
-            x1, y1 = points[i]
-            cnt = defaultdict(list)
-            for j in range(i + 1, n):
-                x2, y2 = points[j]
-                dx, dy = x2 - x1, y2 - y1
-                g = gcd(dx, dy)
-                k = (dx // g, dy // g)
-                cnt[k].append((i, j))
-                if mx < len(cnt[k]) or (mx == len(cnt[k]) and (x, y) > cnt[k][0]):
-                    mx = len(cnt[k])
-                    x, y = cnt[k][0]
-        return [x, y]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,6 +78,101 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> bestLine(vector<vector<int>>& points) {
+        int n = points.size();
+        int mx = 0;
+        vector<int> ans(2);
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                int cnt = 2;
+                for (int k = j + 1; k < n; ++k) {
+                    int x3 = points[k][0], y3 = points[k][1];
+                    long a = (long) (y2 - y1) * (x3 - x1);
+                    long b = (long) (y3 - y1) * (x2 - x1);
+                    cnt += a == b;
+                }
+                if (mx < cnt) {
+                    mx = cnt;
+                    ans[0] = i;
+                    ans[1] = j;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func bestLine(points [][]int) []int {
+	n := len(points)
+	ans := make([]int, 2)
+	mx := 0
+	for i := 0; i < n; i++ {
+		x1, y1 := points[i][0], points[i][1]
+		for j := i + 1; j < n; j++ {
+			x2, y2 := points[j][0], points[j][1]
+			cnt := 2
+			for k := j + 1; k < n; k++ {
+				x3, y3 := points[k][0], points[k][1]
+				a := (y2 - y1) * (x3 - x1)
+				b := (y3 - y1) * (x2 - x1)
+				if a == b {
+					cnt++
+				}
+			}
+			if mx < cnt {
+				mx = cnt
+				ans[0], ans[1] = i, j
+			}
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：枚举 + 哈希表
+
+我们可以枚举一个点 $(x_1, y_1)$，把其他所有点 $(x_2, y_2)$ 与 $(x_1, y_1)$ 连成的直线的斜率存入哈希表中，斜率相同的点在同一条直线上，哈希表的键为斜率，值为直线上的点的个数。找出哈希表中的最大值，即为答案。为了避免精度问题，我们可以将斜率 $\frac{y_2 - y_1}{x_2 - x_1}$ 进行约分，约分的方法是求最大公约数，然后分子分母同时除以最大公约数，将求得的分子分母作为哈希表的键。
+
+时间复杂度 $O(n^2 \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `points` 的长度和数组 `points` 所有横纵坐标差的最大值。
+
+相似题目：
+
+-   [149. 直线上最多的点数](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def bestLine(self, points: List[List[int]]) -> List[int]:
+        def gcd(a, b):
+            return a if b == 0 else gcd(b, a % b)
+
+        n = len(points)
+        mx = 0
+        for i in range(n):
+            x1, y1 = points[i]
+            cnt = defaultdict(list)
+            for j in range(i + 1, n):
+                x2, y2 = points[j]
+                dx, dy = x2 - x1, y2 - y1
+                g = gcd(dx, dy)
+                k = (dx // g, dy // g)
+                cnt[k].append((i, j))
+                if mx < len(cnt[k]) or (mx == len(cnt[k]) and (x, y) > cnt[k][0]):
+                    mx = len(cnt[k])
+                    x, y = cnt[k][0]
+        return [x, y]
 ```
 
 ```java
@@ -157,38 +209,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> bestLine(vector<vector<int>>& points) {
-        int n = points.size();
-        int mx = 0;
-        vector<int> ans(2);
-        for (int i = 0; i < n; ++i) {
-            int x1 = points[i][0], y1 = points[i][1];
-            for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                int cnt = 2;
-                for (int k = j + 1; k < n; ++k) {
-                    int x3 = points[k][0], y3 = points[k][1];
-                    long a = (long) (y2 - y1) * (x3 - x1);
-                    long b = (long) (y3 - y1) * (x2 - x1);
-                    cnt += a == b;
-                }
-                if (mx < cnt) {
-                    mx = cnt;
-                    ans[0] = i;
-                    ans[1] = j;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -218,36 +238,6 @@ public:
         return b == 0 ? a : gcd(b, a % b);
     }
 };
-```
-
-### **Go**
-
-```go
-func bestLine(points [][]int) []int {
-	n := len(points)
-	ans := make([]int, 2)
-	mx := 0
-	for i := 0; i < n; i++ {
-		x1, y1 := points[i][0], points[i][1]
-		for j := i + 1; j < n; j++ {
-			x2, y2 := points[j][0], points[j][1]
-			cnt := 2
-			for k := j + 1; k < n; k++ {
-				x3, y3 := points[k][0], points[k][1]
-				a := (y2 - y1) * (x3 - x1)
-				b := (y3 - y1) * (x2 - x1)
-				if a == b {
-					cnt++
-				}
-			}
-			if mx < cnt {
-				mx = cnt
-				ans[0], ans[1] = i, j
-			}
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -282,10 +272,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

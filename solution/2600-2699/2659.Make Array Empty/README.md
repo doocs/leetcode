@@ -139,9 +139,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序 + 树状数组**
+### 方法一：哈希表 + 排序 + 树状数组
 
 我们先用哈希表 $pos$ 记录数组 $nums$ 中每个元素的位置，接下来对数组 $nums$ 进行排序，那么数组最小值的下标为 $pos[nums[0]]$，移动到数组的第一个位置并且删除，需要 $pos[nums[0]] + 1$ 次操作，因此初始答案为 $ans = pos[nums[0]] + 1$。
 
@@ -152,10 +150,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -175,44 +169,6 @@ class Solution:
             sl.add(i)
         return ans
 ```
-
-```python
-class BinaryIndexedTree:
-    def __init__(self, n):
-        self.n = n
-        self.c = [0] * (n + 1)
-
-    def update(self, x, delta):
-        while x <= self.n:
-            self.c[x] += delta
-            x += x & -x
-
-    def query(self, x):
-        s = 0
-        while x:
-            s += self.c[x]
-            x -= x & -x
-        return s
-
-
-class Solution:
-    def countOperationsToEmptyArray(self, nums: List[int]) -> int:
-        pos = {x: i for i, x in enumerate(nums)}
-        nums.sort()
-        ans = pos[nums[0]] + 1
-        n = len(nums)
-        tree = BinaryIndexedTree(n)
-        for k, (a, b) in enumerate(pairwise(nums)):
-            i, j = pos[a], pos[b]
-            d = j - i - tree.query(j + 1) + tree.query(i + 1)
-            ans += d + (n - k) * int(i > j)
-            tree.update(i + 1, 1)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class BinaryIndexedTree {
@@ -261,8 +217,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -314,8 +268,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -364,8 +316,6 @@ func countOperationsToEmptyArray(nums []int) int64 {
 	return int64(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -417,10 +367,46 @@ function countOperationsToEmptyArray(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x, delta):
+        while x <= self.n:
+            self.c[x] += delta
+            x += x & -x
+
+    def query(self, x):
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class Solution:
+    def countOperationsToEmptyArray(self, nums: List[int]) -> int:
+        pos = {x: i for i, x in enumerate(nums)}
+        nums.sort()
+        ans = pos[nums[0]] + 1
+        n = len(nums)
+        tree = BinaryIndexedTree(n)
+        for k, (a, b) in enumerate(pairwise(nums)):
+            i, j = pos[a], pos[b]
+            d = j - i - tree.query(j + 1) + tree.query(i + 1)
+            ans += d + (n - k) * int(i > j)
+            tree.update(i + 1, 1)
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

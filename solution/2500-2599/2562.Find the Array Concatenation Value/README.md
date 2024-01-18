@@ -73,19 +73,13 @@ nums 只有一个元素，所以我们选中 13 并将其加到串联值上，�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 从数组两端开始，每次取出一个元素，将其与另一个元素拼接，然后将拼接后的结果加到答案中。重复这个过程，直到数组为空。
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 和 $M$ 分别是数组的长度和数组中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
             ans += nums[i]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -139,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findTheArrayConcVal(nums []int) (ans int64) {
 	i, j := 0, len(nums)-1
@@ -154,8 +140,6 @@ func findTheArrayConcVal(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findTheArrayConcVal(nums: number[]): number {
@@ -174,8 +158,6 @@ function findTheArrayConcVal(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -196,29 +178,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn find_the_array_conc_val(nums: Vec<i32>) -> i64 {
-        let mut ans = 0;
-        let mut n = nums.len();
-
-        for i in 0..n / 2 {
-            ans += format!("{}{}", nums[i], nums[n - i - 1])
-                .parse::<i64>()
-                .unwrap();
-        }
-
-        if n % 2 != 0 {
-            ans += nums[n / 2] as i64;
-        }
-
-        ans
-    }
-}
-```
-
-### **C**
 
 ```c
 int getLen(int num) {
@@ -246,10 +205,33 @@ long long findTheArrayConcVal(int* nums, int numsSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn find_the_array_conc_val(nums: Vec<i32>) -> i64 {
+        let mut ans = 0;
+        let mut n = nums.len();
+
+        for i in 0..n / 2 {
+            ans += format!("{}{}", nums[i], nums[n - i - 1])
+                .parse::<i64>()
+                .unwrap();
+        }
+
+        if n % 2 != 0 {
+            ans += nums[n / 2] as i64;
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

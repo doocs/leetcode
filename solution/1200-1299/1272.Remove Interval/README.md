@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分类讨论**
+### 方法一：分类讨论
 
 我们记要删除的区间为 $[x, y)$，遍历区间列表，对于每个区间 $[a, b)$，有以下三种情况：
 
@@ -58,13 +56,9 @@
 -   $a \lt x$, $b \gt y$，表示该区间与要删除的区间有交集，将该区间分成两个区间加入答案；
 -   $a \geq x$, $b \leq y$，表示该区间被要删除的区间完全覆盖，不加入答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为区间列表的长度。
+时间复杂度 $O(n)$，其中 $n$ 为区间列表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                     ans.append([y, b])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeInterval(intervals [][]int, toBeRemoved []int) (ans [][]int) {
 	x, y := toBeRemoved[0], toBeRemoved[1]
@@ -159,10 +145,6 @@ func removeInterval(intervals [][]int, toBeRemoved []int) (ans [][]int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

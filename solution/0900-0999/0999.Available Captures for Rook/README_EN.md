@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 First, we traverse the chessboard to find the position of the rook $(x, y)$. Then, starting from $(x, y)$, we traverse in four directions: up, down, left, and right:
 
@@ -60,8 +60,6 @@ After traversing in all four directions, we can get the answer.
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the chessboard, respectively. In this problem, $m = n = 8$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
                                 break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numRookCaptures(board [][]byte) (ans int) {
 	dirs := [5]int{-1, 0, 1, 0, -1}
@@ -171,10 +163,6 @@ func numRookCaptures(board [][]byte) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

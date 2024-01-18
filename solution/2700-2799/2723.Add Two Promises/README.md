@@ -40,13 +40,9 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 async function addTwoPromises(
@@ -62,8 +58,6 @@ async function addTwoPromises(
  */
 ```
 
-### **JavaScript**
-
 ```js
 var addTwoPromises = async function (promise1, promise2) {
     return (await promise1) + (await promise2);
@@ -71,3 +65,5 @@ var addTwoPromises = async function (promise1, promise2) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

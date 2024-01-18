@@ -64,9 +64,15 @@ There are 2 additional good paths: 0 -&gt; 1 and 2 -&gt; 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Union Find
 
-### **Python3**
+To ensure that the starting point (or endpoint) of the path is greater than or equal to all points on the path, we can consider sorting all points from small to large first, then traverse and add them to the connected component, specifically as follows:
+
+When traversing to point $a$, for the adjacent point $b$ that is less than or equal to $vals[a]$, if they are not in the same connected component, they can be merged. And we can use all points in the connected component where point $a$ is located with a value of $vals[a]$ as the starting point, and all points in the connected component where point $b$ is located with a value of $vals[a]$ as the endpoint. The product of the number of the two types of points is the contribution to the answer when adding point $a$.
+
+The time complexity is $O(n \times \log n)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -99,8 +105,6 @@ class Solution:
                     size[pb][v] += size[pa][v]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -152,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -199,8 +201,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfGoodPaths(vals []int, edges [][]int) int {
@@ -252,16 +252,6 @@ func numberOfGoodPaths(vals []int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举三条最短路的交汇点**
+### 方法一：枚举三条最短路的交汇点
 
 最短路问题。
 
@@ -80,10 +78,6 @@ $A$, $B$ 两条路径一定存在着公共点 $p$，因为 $dest$ 一定是其�
 时间复杂度 $O(mlogn)$，其中 m 表示数组 $edges$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,10 +109,6 @@ class Solution:
         ans = min(sum(v) for v in zip(d1, d2, d3))
         return -1 if ans >= inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -182,16 +172,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

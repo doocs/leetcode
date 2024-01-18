@@ -44,9 +44,9 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -84,8 +84,6 @@ class Solution:
                     grid[i][j] = 1
         return cnt
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -147,8 +145,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -206,8 +202,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minDays(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -262,10 +256,6 @@ func minDays(grid [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

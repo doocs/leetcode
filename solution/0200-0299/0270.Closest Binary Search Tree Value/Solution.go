@@ -9,17 +9,19 @@
 func closestValue(root *TreeNode, target float64) int {
 	ans := root.Val
 	mi := math.MaxFloat64
-	for root != nil {
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
 		t := math.Abs(float64(root.Val) - target)
-		if t < mi || (t == mi && root.Val < ans) {
+		if t < mi {
 			mi = t
 			ans = root.Val
 		}
-		if float64(root.Val) > target {
-			root = root.Left
-		} else {
-			root = root.Right
-		}
+		dfs(root.Right)
 	}
+	dfs(root)
 	return ans
 }

@@ -67,9 +67,7 @@ n = 2
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们可以使用递归的方法，将多维数组扁平化。
 
@@ -78,10 +76,6 @@ n = 2
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的元素个数。
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 type MultiDimensionalArray = (number | MultiDimensionalArray)[];
@@ -102,10 +96,6 @@ var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArr
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

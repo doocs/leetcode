@@ -1,10 +1,9 @@
 class Solution:
     def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
         m, n = len(grid), len(grid[0])
-        k %= m * n
-        t = [grid[i][j] for i in range(m) for j in range(n)]
-        t = t[-k:] + t[:-k]
-        for i in range(m):
-            for j in range(n):
-                grid[i][j] = t[i * n + j]
-        return grid
+        ans = [[0] * n for _ in range(m)]
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                x, y = divmod((i * n + j + k) % (m * n), n)
+                ans[x][y] = v
+        return ans

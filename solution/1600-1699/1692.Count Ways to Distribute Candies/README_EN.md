@@ -58,9 +58,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Dynamic Programming
 
-### **Python3**
+We define $f[i][j]$ as the number of different ways to distribute $i$ candies to $j$ bags. Initially, $f[0][0]=1$, and the answer is $f[n][k]$.
+
+We consider how to distribute the $i$-th candy. If the $i$-th candy is distributed to a new bag, then $f[i][j]=f[i-1][j-1]$. If the $i$-th candy is distributed to an existing bag, then $f[i][j]=f[i-1][j]\times j$. Therefore, the state transition equation is:
+
+$$
+f[i][j]=f[i-1][j-1]+f[i-1][j]\times j
+$$
+
+The final answer is $f[n][k]$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ and $k$ are the number of candies and bags, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +85,6 @@ class Solution:
                 f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod
         return f[n][k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToDistribute(n int, k int) int {
 	f := make([][]int, n+1)
@@ -131,10 +137,22 @@ func waysToDistribute(n int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function waysToDistribute(n: number, k: number): number {
+    const mod = 10 ** 9 + 7;
+    const f: number[][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: k + 1 }, () => 0),
+    );
+    f[0][0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod;
+        }
+    }
+    return f[n][k];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

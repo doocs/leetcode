@@ -1,10 +1,14 @@
 char findTheDifference(char* s, char* t) {
     int n = strlen(s);
-    char ans = 0;
+    int cnt[26] = {0};
     for (int i = 0; i < n; i++) {
-        ans ^= s[i];
-        ans ^= t[i];
+        cnt[s[i] - 'a']++;
+        cnt[t[i] - 'a']--;
     }
-    ans ^= t[n];
-    return ans;
+    cnt[t[n] - 'a']--;
+    for (int i = 0;; i++) {
+        if (cnt[i]) {
+            return 'a' + i;
+        }
+    }
 }

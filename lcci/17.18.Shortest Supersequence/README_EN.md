@@ -36,9 +36,9 @@ small = [4]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
                 j += 1
         return [] if k < 0 else [k, k + mi - 1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestSeq(big []int, small []int) []int {
 	cnt := len(small)
@@ -166,8 +160,6 @@ func shortestSeq(big []int, small []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestSeq(big: number[], small: number[]): number[] {
     let cnt = small.length;
@@ -199,10 +191,6 @@ function shortestSeq(big: number[], small: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

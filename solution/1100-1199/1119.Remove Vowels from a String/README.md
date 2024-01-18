@@ -35,9 +35,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接按照题目要求，遍历字符串，将不是元音字母的字符拼接到结果字符串中即可。
 
@@ -45,19 +43,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def removeVowels(self, s: str) -> str:
         return "".join(c for c in s if c not in "aeiou")
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -74,8 +64,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -91,8 +79,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeVowels(s string) string {
 	ans := []rune{}
@@ -105,10 +91,12 @@ func removeVowels(s string) string {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function removeVowels(s: string): string {
+    return s.replace(/[aeiou]/g, '');
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优先队列（小根堆）**
+### 方法一：贪心 + 优先队列（小根堆）
 
 先考虑只有一个街区的情况，此时不需要分裂工人，直接让他去建造街区，时间花费为 $block[0]$。
 
@@ -74,10 +72,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
@@ -87,10 +81,6 @@ class Solution:
             heappush(blocks, heappop(blocks) + split)
         return blocks[0]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minBuildTime(blocks []int, split int) int {
@@ -153,8 +139,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minBuildTime(blocks: number[], split: number): number {
     const pq = new MinPriorityQueue();
@@ -168,8 +152,6 @@ function minBuildTime(blocks: number[], split: number): number {
     return pq.dequeue()!.element;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BinaryHeap;
@@ -194,10 +176,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们定义一个队列 $q$，初始时将坐标点 $(rCenter, cCenter)$ 入队，用一个二维布尔数组 $vis$ 记录已经访问过的点，初始时 $vis[rCenter][cCenter]$ 为 $true$。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                         q.append([x, y])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.util.Deque;
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func allCellsDistOrder(rows int, cols int, rCenter int, cCenter int) (ans [][]int) {
 	q := [][]int{{rCenter, cCenter}}
@@ -185,10 +171,6 @@ func allCellsDistOrder(rows int, cols int, rCenter int, cCenter int) (ans [][]in
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

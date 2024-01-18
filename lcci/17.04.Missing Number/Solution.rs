@@ -1,10 +1,12 @@
 impl Solution {
-    pub fn missing_number(nums: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let n = nums.len();
+    pub fn missing_number(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len() as i32;
         for i in 0..n {
-            res ^= nums[i] ^ ((i + 1) as i32);
+            if i != nums[i as usize] {
+                return i;
+            }
         }
-        res
+        n
     }
 }

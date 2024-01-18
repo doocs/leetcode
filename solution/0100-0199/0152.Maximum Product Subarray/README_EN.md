@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,8 +51,6 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -68,8 +66,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxProduct(nums []int) int {
 	f, g, ans := nums[0], nums[0], nums[0]
@@ -102,8 +96,6 @@ func maxProduct(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxProduct(nums: number[]): number {
     let [f, g, ans] = [nums[0], nums[0], nums[0]];
@@ -116,25 +108,6 @@ function maxProduct(nums: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MaxProduct(int[] nums) {
-        int f = nums[0], g = nums[0], ans = nums[0];
-        for (int i = 1; i < nums.Length; ++i) {
-            int ff = f, gg = g;
-            f = Math.Max(nums[i], Math.Max(ff * nums[i], gg * nums[i]));
-            g = Math.Min(nums[i], Math.Min(ff * nums[i], gg * nums[i]));
-            ans = Math.Max(ans, f);
-        }
-        return ans;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -153,8 +126,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -172,10 +143,21 @@ var maxProduct = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int MaxProduct(int[] nums) {
+        int f = nums[0], g = nums[0], ans = nums[0];
+        for (int i = 1; i < nums.Length; ++i) {
+            int ff = f, gg = g;
+            f = Math.Max(nums[i], Math.Max(ff * nums[i], gg * nums[i]));
+            g = Math.Min(nums[i], Math.Min(ff * nums[i], gg * nums[i]));
+            ans = Math.Max(ans, f);
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

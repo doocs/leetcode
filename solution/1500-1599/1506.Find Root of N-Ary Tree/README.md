@@ -72,9 +72,7 @@ findRoot 函数应该返回根 Node(1) ，驱动程序代码将序列化它并�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 对于一棵 N 叉树的节点，如果该节点是根节点，那么该节点只会出现一次在数组 `tree` 中；而如果该节点不是根节点，那么该节点会出现两次，一次在数组 `tree` 中，一次在该节点的父节点的 `children` 数组中。
 
@@ -85,10 +83,6 @@ findRoot 函数应该返回根 Node(1) ，驱动程序代码将序列化它并�
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `tree` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -109,10 +103,6 @@ class Solution:
                 x ^= child.val
         return next(node for node in tree if node.val == x)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -156,8 +146,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -198,8 +186,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -224,8 +210,6 @@ func findRoot(tree []*Node) *Node {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -252,10 +236,6 @@ function findRoot(tree: Node[]): Node | null {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

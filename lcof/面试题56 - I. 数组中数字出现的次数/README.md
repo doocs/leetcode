@@ -29,7 +29,7 @@
 
 ## 解法
 
-**方法一：位运算**
+### 方法一：位运算
 
 由于数组中除了两个数字之外，其他数字都出现了两次，因此对数组中的所有数字进行异或运算，得到的结果即为两个只出现一次的数字的异或结果。
 
@@ -40,8 +40,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -55,8 +53,6 @@ class Solution:
         b = xs ^ a
         return [a, b]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func singleNumbers(nums []int) []int {
 	xs := 0
@@ -121,7 +113,23 @@ func singleNumbers(nums []int) []int {
 }
 ```
 
-### **JavaScript**
+```ts
+function singleNumbers(nums: number[]): number[] {
+    let xs = 0;
+    for (const x of nums) {
+        xs ^= x;
+    }
+    const lb = xs & -xs;
+    let a = 0;
+    for (const x of nums) {
+        if (x & lb) {
+            a ^= x;
+        }
+    }
+    const b = xs ^ a;
+    return [a, b];
+}
+```
 
 ```js
 /**
@@ -145,8 +153,6 @@ var singleNumbers = function (nums) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int[] SingleNumbers(int[] nums) {
@@ -167,30 +173,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function singleNumbers(nums: number[]): number[] {
-    let xs = 0;
-    for (const x of nums) {
-        xs ^= x;
-    }
-    const lb = xs & -xs;
-    let a = 0;
-    for (const x of nums) {
-        if (x & lb) {
-            a ^= x;
-        }
-    }
-    const b = xs ^ a;
-    return [a, b];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示长度为 $i$ 的排列中，恰有 $j$ 根木棍可以看到的排列数目。初始时 $f[0][0]=1$，其余 $f[i][j]=0$。答案为 $f[n][k]$。
 
@@ -72,10 +70,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def rearrangeSticks(self, n: int, k: int) -> int:
@@ -87,22 +81,6 @@ class Solution:
                 f[i][j] = (f[i - 1][j - 1] + f[i - 1][j] * (i - 1)) % mod
         return f[n][k]
 ```
-
-```python
-class Solution:
-    def rearrangeSticks(self, n: int, k: int) -> int:
-        mod = 10**9 + 7
-        f = [1] + [0] * k
-        for i in range(1, n + 1):
-            for j in range(k, 0, -1):
-                f[j] = (f[j] * (i - 1) + f[j - 1]) % mod
-            f[0] = 0
-        return f[k]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,25 +98,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int rearrangeSticks(int n, int k) {
-        final int mod = (int) 1e9 + 7;
-        int[] f = new int[k + 1];
-        f[0] = 1;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = k; j > 0; --j) {
-                f[j] = (int) ((f[j] * (i - 1L) + f[j - 1]) % mod);
-            }
-            f[0] = 0;
-        }
-        return f[k];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,6 +114,74 @@ public:
         return f[n][k];
     }
 };
+```
+
+```go
+func rearrangeSticks(n int, k int) int {
+	const mod = 1e9 + 7
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= k; j++ {
+			f[i][j] = (f[i-1][j-1] + (i-1)*f[i-1][j]) % mod
+		}
+	}
+	return f[n][k]
+}
+```
+
+```ts
+function rearrangeSticks(n: number, k: number): number {
+    const mod = 10 ** 9 + 7;
+    const f: number[][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: k + 1 }, () => 0),
+    );
+    f[0][0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = (f[i - 1][j - 1] + (i - 1) * f[i - 1][j]) % mod;
+        }
+    }
+    return f[n][k];
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def rearrangeSticks(self, n: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [1] + [0] * k
+        for i in range(1, n + 1):
+            for j in range(k, 0, -1):
+                f[j] = (f[j] * (i - 1) + f[j - 1]) % mod
+            f[0] = 0
+        return f[k]
+```
+
+```java
+class Solution {
+    public int rearrangeSticks(int n, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[k + 1];
+        f[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = k; j > 0; --j) {
+                f[j] = (int) ((f[j] * (i - 1L) + f[j - 1]) % mod);
+            }
+            f[0] = 0;
+        }
+        return f[k];
+    }
+}
 ```
 
 ```cpp
@@ -176,25 +203,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func rearrangeSticks(n int, k int) int {
-	const mod = 1e9 + 7
-	f := make([][]int, n+1)
-	for i := range f {
-		f[i] = make([]int, k+1)
-	}
-	f[0][0] = 1
-	for i := 1; i <= n; i++ {
-		for j := 1; j <= k; j++ {
-			f[i][j] = (f[i-1][j-1] + (i-1)*f[i-1][j]) % mod
-		}
-	}
-	return f[n][k]
-}
-```
-
 ```go
 func rearrangeSticks(n int, k int) int {
 	const mod = 1e9 + 7
@@ -207,24 +215,6 @@ func rearrangeSticks(n int, k int) int {
 		f[0] = 0
 	}
 	return f[k]
-}
-```
-
-### **TypeScript**
-
-```ts
-function rearrangeSticks(n: number, k: number): number {
-    const mod = 10 ** 9 + 7;
-    const f: number[][] = Array.from({ length: n + 1 }, () =>
-        Array.from({ length: k + 1 }, () => 0),
-    );
-    f[0][0] = 1;
-    for (let i = 1; i <= n; ++i) {
-        for (let j = 1; j <= k; ++j) {
-            f[i][j] = (f[i - 1][j - 1] + (i - 1) * f[i - 1][j]) % mod;
-        }
-    }
-    return f[n][k];
 }
 ```
 
@@ -243,10 +233,6 @@ function rearrangeSticks(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

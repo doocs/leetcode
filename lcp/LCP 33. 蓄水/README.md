@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 枚举**
+### 方法一：贪心 + 枚举
 
 题目中涉及两个操作：升级水桶、蓄水。我们应该贪心地把升级水桶的操作放在前面，这样在蓄水时，每次能蓄水的量就会更多，操作次数就会更少。
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(n \times M)$，其中 $n$ 和 $M$ 分别为数组 $vat$ 的长度和数组 $vat$ 中的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
             ans = min(ans, x + y)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func storeWater(bucket []int, vat []int) int {
 	mx := slices.Max(vat)
@@ -140,8 +126,6 @@ func storeWater(bucket []int, vat []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function storeWater(bucket: number[], vat: number[]): number {
@@ -162,10 +146,6 @@ function storeWater(bucket: number[], vat: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,7 +54,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We create two arrays $cnt1$ and $cnt2$ of length $n + 1$, representing the number of people each person trusts and the number of people who trust each person, respectively.
 
@@ -65,8 +65,6 @@ Finally, we enumerate each person $i$ in the range $[1,..n]$. If $cnt1[i] = 0$ a
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $trust$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -81,8 +79,6 @@ class Solution:
                 return i
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +121,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findJudge(n int, trust [][]int) int {
 	cnt1 := make([]int, n+1)
@@ -147,8 +139,6 @@ func findJudge(n int, trust [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findJudge(n: number, trust: number[][]): number {
     const cnt1: number[] = new Array(n + 1).fill(0);
@@ -165,8 +155,6 @@ function findJudge(n: number, trust: number[][]): number {
     return -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -192,10 +180,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -25,15 +25,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 First, we create an answer array $f$, and then set the first row of $f$ to $[1]$. Next, starting from the second row, the first and last elements of each row are $1$, and the other elements are calculated by $f[i][j] = f[i - 1][j - 1] + f[i - 1][j]$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of rows.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -44,8 +42,6 @@ class Solution:
             f.append(g)
         return f
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +61,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -88,7 +82,35 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func generate(numRows int) [][]int {
+	f := [][]int{[]int{1}}
+	for i := 0; i < numRows-1; i++ {
+		g := []int{1}
+		for j := 0; j < len(f[i])-1; j++ {
+			g = append(g, f[i][j]+f[i][j+1])
+		}
+		g = append(g, 1)
+		f = append(f, g)
+	}
+	return f
+}
+```
+
+```ts
+function generate(numRows: number): number[][] {
+    const f: number[][] = [[1]];
+    for (let i = 0; i < numRows - 1; ++i) {
+        const g: number[] = [1];
+        for (let j = 0; j < f[i].length - 1; ++j) {
+            g.push(f[i][j] + f[i][j + 1]);
+        }
+        g.push(1);
+        f.push(g);
+    }
+    return f;
+}
+```
 
 ```rust
 impl Solution {
@@ -111,42 +133,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func generate(numRows int) [][]int {
-	f := [][]int{[]int{1}}
-	for i := 0; i < numRows-1; i++ {
-		g := []int{1}
-		for j := 0; j < len(f[i])-1; j++ {
-			g = append(g, f[i][j]+f[i][j+1])
-		}
-		g = append(g, 1)
-		f = append(f, g)
-	}
-	return f
-}
-```
-
-### **TypeScript**
-
-```ts
-function generate(numRows: number): number[][] {
-    const f: number[][] = [[1]];
-    for (let i = 0; i < numRows - 1; ++i) {
-        const g: number[] = [1];
-        for (let j = 0; j < f[i].length - 1; ++j) {
-            g.push(f[i][j] + f[i][j + 1]);
-        }
-        g.push(1);
-        f.push(g);
-    }
-    return f;
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number} numRows
@@ -166,10 +152,6 @@ var generate = function (numRows) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -25,9 +25,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：逆向思维**
+### 方法一：逆向思维
 
 我们考虑一种正向的解法，遍历字符串 $num$ 中的每个数字，将其映射到对应的字母，然后将所有的字母组合起来，得到所有可能的单词，再与给定的单词列表进行比较，若单词在列表中，则将其加入答案。这种解法的时间复杂度为 $O(4^n)$，其中 $n$ 为字符串 $num$ 的长度，显然会超时。
 
@@ -36,10 +34,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是单词列表的长度和字符串 $num$ 的长度；而 $C$ 为字符集大小，本题中字符集大小为 $26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -50,17 +44,6 @@ class Solution:
         d = {c: d for c, d in zip(ascii_lowercase, "22233344455566677778889999")}
         return [w for w in words if check(w)]
 ```
-
-```python
-class Solution:
-    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
-        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
-        return [w for w in words if w.translate(trans) == num]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getValidT9Words(num string, words []string) (ans []string) {
 	s := "22233344455566677778889999"
@@ -142,8 +121,6 @@ func getValidT9Words(num string, words []string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getValidT9Words(num: string, words: string[]): string[] {
@@ -170,10 +147,19 @@ function getValidT9Words(num: string, words: string[]): string[] {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
+        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
+        return [w for w in words if w.translate(trans) == num]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

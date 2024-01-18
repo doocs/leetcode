@@ -35,13 +35,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -55,10 +51,6 @@ class Solution:
                 left = mid + 1
         return left if nums[left] == target else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -77,8 +69,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +85,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func search(nums []int, target int) int {
@@ -115,33 +103,6 @@ func search(nums []int, target int) int {
 	return -1
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var search = function (nums, target) {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return nums[left] == target ? left : -1;
-};
-```
-
-### **Rust**
-
-循环：
 
 ```rust
 use std::cmp::Ordering;
@@ -169,7 +130,32 @@ impl Solution {
 }
 ```
 
-递归：
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function (nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return nums[left] == target ? left : -1;
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 use std::cmp::Ordering;
@@ -194,10 +180,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

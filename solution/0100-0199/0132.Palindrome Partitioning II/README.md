@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们先预处理得到字符串 $s$ 的每一个子串 $s[i..j]$ 是否为回文串，记录在二维数组 $g[i][j]$ 中，其中 $g[i][j]$ 表示子串 $s[i..j]$ 是否为回文串。
 
@@ -69,10 +67,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minCut(self, s: str) -> int:
@@ -88,10 +82,6 @@ class Solution:
                     f[i] = min(f[i], 1 + f[j - 1] if j else 0)
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCut(s string) int {
@@ -184,8 +170,6 @@ func minCut(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCut(s: string): number {
     const n = s.length;
@@ -210,8 +194,6 @@ function minCut(s: string): number {
     return f[n - 1];
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -242,10 +224,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

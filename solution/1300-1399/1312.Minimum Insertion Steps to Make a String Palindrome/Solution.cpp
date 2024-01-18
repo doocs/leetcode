@@ -3,16 +3,22 @@ public:
     int minInsertions(string s) {
         int n = s.size();
         int f[n][n];
-        memset(f, 0, sizeof(f));
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (s[i] == s[j]) {
-                    f[i][j] = f[i + 1][j - 1];
-                } else {
-                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1;
-                }
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i >= j) {
+                return 0;
             }
-        }
-        return f[0][n - 1];
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int ans = 1 << 30;
+            if (s[i] == s[j]) {
+                ans = dfs(i + 1, j - 1);
+            } else {
+                ans = min(dfs(i + 1, j), dfs(i, j - 1)) + 1;
+            }
+            return f[i][j] = ans;
+        };
+        return dfs(0, n - 1);
     }
 };

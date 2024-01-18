@@ -47,9 +47,9 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             k += 1
             s += k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +93,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reachNumber(target int) int {
@@ -115,8 +109,6 @@ func reachNumber(target int) int {
 	}
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -136,10 +128,6 @@ var reachNumber = function (target) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

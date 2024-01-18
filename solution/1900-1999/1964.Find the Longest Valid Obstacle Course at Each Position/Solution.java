@@ -1,26 +1,3 @@
-class Solution {
-    public int lengthOfLIS(int[] nums) {
-        TreeSet<Integer> ts = new TreeSet();
-        for (int v : nums) {
-            ts.add(v);
-        }
-        int idx = 1;
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int v : ts) {
-            m.put(v, idx++);
-        }
-        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
-        int ans = 1;
-        for (int v : nums) {
-            int x = m.get(v);
-            int t = tree.query(x - 1) + 1;
-            ans = Math.max(ans, t);
-            tree.update(x, t);
-        }
-        return ans;
-    }
-}
-
 class BinaryIndexedTree {
     private int n;
     private int[] c;
@@ -30,10 +7,10 @@ class BinaryIndexedTree {
         c = new int[n + 1];
     }
 
-    public void update(int x, int val) {
+    public void update(int x, int v) {
         while (x <= n) {
-            c[x] = Math.max(c[x], val);
-            x += lowbit(x);
+            c[x] = Math.max(c[x], v);
+            x += x & -x;
         }
     }
 
@@ -41,12 +18,25 @@ class BinaryIndexedTree {
         int s = 0;
         while (x > 0) {
             s = Math.max(s, c[x]);
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
+}
 
-    public static int lowbit(int x) {
-        return x & -x;
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] nums = obstacles.clone();
+        Arrays.sort(nums);
+        int n = nums.length;
+        int[] ans = new int[n];
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        for (int k = 0; k < n; ++k) {
+            int x = obstacles[k];
+            int i = Arrays.binarySearch(nums, x) + 1;
+            ans[k] = tree.query(i) + 1;
+            tree.update(i, ans[k]);
+        }
+        return ans;
     }
 }

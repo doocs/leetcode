@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Solution 1: Traversal**
+### Solution 1: Traversal
 
 We directly traverse each string `words[i]` in the string array `words`. If `x` appears in `words[i]`, we add `i` to the answer array.
 
@@ -57,15 +57,11 @@ The time complexity is $O(L)$, where $L$ is the sum of the lengths of all string
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def findWordsContaining(self, words: List[str], x: str) -> List[int]:
         return [i for i, w in enumerate(words) if x in w]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findWordsContaining(words []string, x byte) (ans []int) {
 	for i, w := range words {
@@ -114,8 +106,6 @@ func findWordsContaining(words []string, x byte) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findWordsContaining(words: string[], x: string): number[] {
     const ans: number[] = [];
@@ -128,10 +118,6 @@ function findWordsContaining(words: string[], x: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

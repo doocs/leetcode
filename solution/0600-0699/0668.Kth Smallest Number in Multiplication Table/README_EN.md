@@ -35,11 +35,9 @@
 
 ## Solutions
 
-Binary search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -56,8 +54,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findKthNumber(m int, n int, k int) int {
@@ -122,10 +114,6 @@ func findKthNumber(m int, n int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 前缀和**
+### 方法一：枚举 + 前缀和
 
 我们先预处理得到数组 `nums` 的偶数下标元素之和 $s_1$ 以及奇数下标元素之和 $s_2$。
 
@@ -82,10 +80,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def waysToMakeFair(self, nums: List[int]) -> int:
@@ -98,10 +92,6 @@ class Solution:
             t2 += v if i % 2 == 1 else 0
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func waysToMakeFair(nums []int) (ans int) {
@@ -181,8 +167,6 @@ func waysToMakeFair(nums []int) (ans int) {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -210,10 +194,6 @@ var waysToMakeFair = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

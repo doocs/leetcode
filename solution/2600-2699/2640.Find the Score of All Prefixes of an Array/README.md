@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和**
+### 方法一：前缀和
 
 我们用变量 $mx$ 记录数组 $nums$ 中前 $i$ 个元素的最大值，用数组 $ans[i]$ 记录数组 $nums$ 中前 $i$ 个元素的分数。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
             ans[i] = x + mx + (0 if i == 0 else ans[i - 1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPrefixScore(nums []int) []int64 {
 	n := len(nums)
@@ -137,8 +123,6 @@ func findPrefixScore(nums []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findPrefixScore(nums: number[]): number[] {
     const n = nums.length;
@@ -152,10 +136,6 @@ function findPrefixScore(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,32 +1,38 @@
 func tallestBillboard(rods []int) int {
-	n := len(rods)
 	s := 0
 	for _, x := range rods {
 		s += x
 	}
-	f := make([][]int, n+1)
+	n := len(rods)
+	f := make([][]int, n)
 	for i := range f {
 		f[i] = make([]int, s+1)
 		for j := range f[i] {
-			f[i][j] = -(1 << 30)
+			f[i][j] = -1
 		}
 	}
-	f[0][0] = 0
-	for i, t := 1, 0; i <= n; i++ {
-		x := rods[i-1]
-		t += x
-		for j := 0; j <= t; j++ {
-			f[i][j] = f[i-1][j]
-			if j >= x {
-				f[i][j] = max(f[i][j], f[i-1][j-x])
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= n {
+			if j == 0 {
+				return 0
 			}
-			if j+x <= t {
-				f[i][j] = max(f[i][j], f[i-1][j+x]+x)
-			}
-			if j < x {
-				f[i][j] = max(f[i][j], f[i-1][x-j]+x-j)
-			}
+			return -(1 << 30)
 		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		ans := max(dfs(i+1, j), dfs(i+1, j+rods[i]))
+		ans = max(ans, dfs(i+1, abs(j-rods[i]))+min(j, rods[i]))
+		f[i][j] = ans
+		return ans
 	}
-	return f[n][0]
+	return dfs(0, 0)
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }

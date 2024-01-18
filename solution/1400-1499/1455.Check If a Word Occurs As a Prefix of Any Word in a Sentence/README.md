@@ -51,19 +51,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串分割**
+### 方法一：字符串分割
 
 将 $sentence$ 按空格分割为 $words$，然后遍历 $words$，检查 $words[i]$ 是否是 $searchWord$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。
 
 时间复杂度 $O(mn)$。其中 $m$ 是 $sentence$ 的长度，而 $n$ 是 $searchWord$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                 return i
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPrefixOfWord(sentence string, searchWord string) int {
 	for i, s := range strings.Split(sentence, " ") {
@@ -122,8 +108,6 @@ func isPrefixOfWord(sentence string, searchWord string) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isPrefixOfWord(sentence: string, searchWord: string): number {
@@ -138,8 +122,6 @@ function isPrefixOfWord(sentence: string, searchWord: string): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn is_prefix_of_word(sentence: String, search_word: String) -> i32 {
@@ -153,8 +135,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -175,10 +155,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

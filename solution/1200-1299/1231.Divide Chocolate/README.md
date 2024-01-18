@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 贪心**
+### 方法一：二分查找 + 贪心
 
 我们注意到，如果我们能吃到一块甜度为 $x$ 的巧克力，那么甜度小于等于 $x$ 的巧克力也都能吃到。这存在着单调性，因此，我们可以使用二分查找，找到最大的满足条件的 $x$。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(n \times \log \sum_{i=0}^{n-1} sweetness[i])$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximizeSweetness(sweetness []int, k int) int {
@@ -186,8 +172,6 @@ func maximizeSweetness(sweetness []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSweetness(sweetness: number[], k: number): number {
     let l = 0;
@@ -216,10 +200,6 @@ function maximizeSweetness(sweetness: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

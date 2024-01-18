@@ -4,9 +4,7 @@ func combinationSum3(k int, n int) (ans [][]int) {
 	dfs = func(i, s int) {
 		if s == 0 {
 			if len(t) == k {
-				cp := make([]int, len(t))
-				copy(cp, t)
-				ans = append(ans, cp)
+				ans = append(ans, slices.Clone(t))
 			}
 			return
 		}

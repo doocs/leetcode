@@ -49,9 +49,23 @@ Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then rever
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting + Permutation and Combination + Preprocessing
 
-### **Python3**
+The operation in the problem is actually to find the previous permutation in lexicographical order of the current permutation. Therefore, we only need to find the number of permutations smaller than the current permutation, which is the answer.
+
+Here we need to consider a problem: given the frequency of each letter, how many different permutations can we construct?
+
+Suppose there are a total of $n$ letters, among which there are $n_1$ letters $a$, $n_2$ letters $b$, and $n_3$ letters $c$. Then we can construct $\frac{n!}{n_1! \times n_2! \times n_3!}$ different permutations. Where $n=n_1+n_2+n_3$.
+
+We can pre-calculate all factorials $f$ and the inverse of the factorials $g$ through preprocessing. The inverse of the factorial can be obtained through Fermat's little theorem.
+
+Next, we traverse the string $s$ from left to right. For each position $i$, we need to find out how many letters are smaller than $s[i]$, denoted as $m$. Then, we can construct $m \times \frac{(n - i - 1)!}{n_1! \times n_2! \cdots \times n_k!}$ different permutations, where $k$ is the number of types of letters, and add them to the answer. Next, we reduce the frequency of $s[i]$ by one and continue to traverse the next position.
+
+After traversing the entire string, we can get the answer. Note the modulo operation of the answer.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Where $n$ and $k$ are the length of the string and the number of types of letters, respectively.
+
+<!-- tabs:start -->
 
 ```python
 n = 3010
@@ -79,8 +93,6 @@ class Solution:
                 cnt.pop(c)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -133,8 +145,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 const int N = 3010;
@@ -189,8 +199,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const n = 3010
 const mod = 1e9 + 7
@@ -239,10 +247,6 @@ func makeStringSorted(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

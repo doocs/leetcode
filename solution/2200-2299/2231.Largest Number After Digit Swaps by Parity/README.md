@@ -41,17 +41,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
-
-**方法二：分组 + 排序**
+### 方法一：计数
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +66,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestInteger(num int) int {
 	cnt := make([]int, 10)
@@ -168,8 +152,6 @@ func largestInteger(num int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestInteger(num: number): number {
     let arrs = String(num).split('').map(Number);
@@ -192,10 +174,8 @@ function largestInteger(num: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+### 方法二：分组 + 排序
+
+<!-- end -->

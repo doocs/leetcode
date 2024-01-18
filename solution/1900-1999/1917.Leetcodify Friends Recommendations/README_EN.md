@@ -100,9 +100,9 @@ Similarly, we can see that users 2 and 3 listened to songs 10, 11, and 12 on the
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -130,3 +130,5 @@ HAVING COUNT(DISTINCT l1.song_id) >= 3;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

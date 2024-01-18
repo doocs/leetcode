@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们注意到，如果一个子串从位置 $i$ 开始，那么字典序最大的子串一定是 $s[i,..n-1]$，即从位置 $i$ 开始的最长后缀。因此，我们只需要找出字典序最大的后缀子串即可。
 
@@ -58,10 +56,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def lastSubstring(self, s: str) -> str:
@@ -79,10 +73,6 @@ class Solution:
                 k = 0
         return s[i:]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lastSubstring(s string) string {
 	i, n := 0, len(s)
@@ -158,8 +144,6 @@ func lastSubstring(s string) string {
 	return s[i:]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function lastSubstring(s: string): string {
@@ -183,10 +167,6 @@ function lastSubstring(s: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

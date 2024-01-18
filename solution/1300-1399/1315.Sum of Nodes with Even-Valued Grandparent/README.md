@@ -36,15 +36,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-深度优先搜索。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -72,10 +66,6 @@ class Solution:
         dfs(root, root.right)
         return self.res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,8 +145,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -196,10 +182,6 @@ func dfs(g, p *TreeNode) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

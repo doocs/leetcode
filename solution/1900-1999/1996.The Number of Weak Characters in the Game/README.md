@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 遍历**
+### 方法一：排序 + 遍历
 
 我们可以将所有角色按照攻击力降序排序，防御力升序排序。
 
@@ -64,10 +62,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
@@ -78,10 +72,6 @@ class Solution:
             mx = max(mx, x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +103,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWeakCharacters(properties [][]int) (ans int) {
@@ -139,8 +125,6 @@ func numberOfWeakCharacters(properties [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWeakCharacters(properties: number[][]): number {
     properties.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
@@ -156,8 +140,6 @@ function numberOfWeakCharacters(properties: number[][]): number {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -179,10 +161,6 @@ var numberOfWeakCharacters = function (properties) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

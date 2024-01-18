@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序**
+### 方法一：哈希表 + 排序
 
 我们用一个哈希表 $d$ 来存储每个员工的所有访问时间，其中键为员工的姓名，值为一个整数数组，表示该员工的所有访问时间，该时间为从当天 00:00 开始的分钟数。
 
@@ -76,10 +74,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为访问记录的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                 ans.append(name)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	d := map[string][]int{}
@@ -177,8 +163,6 @@ func findHighAccessEmployees(access_times [][]string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findHighAccessEmployees(access_times: string[][]): string[] {
@@ -206,10 +190,6 @@ function findHighAccessEmployees(access_times: string[][]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

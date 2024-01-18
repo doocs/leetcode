@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们不妨假设移动的位置区间为 $[l,r]$，开始位置为 $startPos$，来看看如何算出移动的最小步数。根据 $startPos$ 所处的位置，我们可以分为三种情况：
 
@@ -91,10 +89,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxTotalFruits(self, fruits: List[List[int]], startPos: int, k: int) -> int:
@@ -113,10 +107,6 @@ class Solution:
             ans = max(ans, s)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -138,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +145,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxTotalFruits(fruits [][]int, startPos int, k int) (ans int) {
@@ -182,8 +168,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxTotalFruits(fruits: number[][], startPos: number, k: number): number {
     let ans = 0;
@@ -206,10 +190,6 @@ function maxTotalFruits(fruits: number[][], startPos: number, k: number): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

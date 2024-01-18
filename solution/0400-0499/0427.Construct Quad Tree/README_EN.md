@@ -78,9 +78,9 @@ Explanation is shown in the photo below:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -118,8 +118,6 @@ class Solution:
 
         return dfs(0, 0, len(grid) - 1, len(grid[0]) - 1)
 ```
-
-### **Java**
 
 ```java
 /*
@@ -188,8 +186,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -261,8 +257,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a QuadTree node.
@@ -305,10 +299,6 @@ func construct(grid [][]int) *Node {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

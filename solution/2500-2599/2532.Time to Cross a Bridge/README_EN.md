@@ -79,9 +79,9 @@ The whole process ends after 58 minutes. We return 50 because the problem asks f
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -127,8 +127,6 @@ class Solution:
                 n -= 1
                 heappush(work_in_right, (cur + time[i][1], i))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -195,8 +193,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -265,8 +261,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findCrossingTime(n int, k int, time [][]int) int {
@@ -342,10 +336,6 @@ func (h *hp2) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

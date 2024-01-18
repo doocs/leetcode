@@ -34,9 +34,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接替换**
+### 方法一：直接替换
 
 我们直接将字符串中的 `'.'` 替换为 `'[.]'` 即可。
 
@@ -44,19 +42,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def defangIPaddr(self, address: str) -> str:
         return address.replace('.', '[.]')
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -65,16 +55,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function defangIPaddr(address: string): string {
-    return address.split('.').join('[.]');
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,18 +70,18 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func defangIPaddr(address string) string {
 	return strings.Replace(address, ".", "[.]", -1)
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function defangIPaddr(address: string): string {
+    return address.split('.').join('[.]');
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

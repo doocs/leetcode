@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 记忆化搜索**
+### 方法一：预处理 + 记忆化搜索
 
 预处理字符串 $s$，得到 $dp[i][j]$ 表示字符串 $s[i,..j]$ 是否为回文串。
 
@@ -69,10 +67,6 @@ $$
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -96,10 +90,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,8 +136,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +164,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxPalindromes(s string, k int) int {
@@ -217,16 +203,6 @@ func maxPalindromes(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

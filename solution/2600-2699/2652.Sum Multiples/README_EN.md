@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We directly enumerate every number $x$ in $[1,..n]$, and if $x$ is divisible by $3$, $5$, and $7$, we add $x$ to the answer.
 
@@ -50,39 +50,13 @@ After the enumeration, we return the answer.
 
 The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
 
-**Solution 2: Mathematics (Inclusion-Exclusion Principle)**
-
-We define a function $f(x)$ to represent the sum of numbers in $[1,..n]$ that are divisible by $x$. There are $m = \left\lfloor \frac{n}{x} \right\rfloor$ numbers that are divisible by $x$, which are $x$, $2x$, $3x$, $\cdots$, $mx$, forming an arithmetic sequence with the first term $x$, the last term $mx$, and the number of terms $m$. Therefore, $f(x) = \frac{(x + mx) \times m}{2}$.
-
-According to the inclusion-exclusion principle, we can obtain the answer as:
-
-$$
-f(3) + f(5) + f(7) - f(3 \times 5) - f(3 \times 7) - f(5 \times 7) + f(3 \times 5 \times 7)
-$$
-
-The time complexity is $O(1)$, and the space complexity is $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def sumOfMultiples(self, n: int) -> int:
         return sum(x for x in range(1, n + 1) if x % 3 == 0 or x % 5 == 0 or x % 7 == 0)
 ```
-
-```python
-class Solution:
-    def sumOfMultiples(self, n: int) -> int:
-        def f(x: int) -> int:
-            m = n // x
-            return (x + m * x) * m // 2
-
-        return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,6 +70,86 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int sumOfMultiples(int n) {
+        int ans = 0;
+        for (int x = 1; x <= n; ++x) {
+            if (x % 3 == 0 || x % 5 == 0 || x % 7 == 0) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func sumOfMultiples(n int) (ans int) {
+	for x := 1; x <= n; x++ {
+		if x%3 == 0 || x%5 == 0 || x%7 == 0 {
+			ans += x
+		}
+	}
+	return
+}
+```
+
+```ts
+function sumOfMultiples(n: number): number {
+    let ans = 0;
+    for (let x = 1; x <= n; ++x) {
+        if (x % 3 === 0 || x % 5 === 0 || x % 7 === 0) {
+            ans += x;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn sum_of_multiples(n: i32) -> i32 {
+        let mut ans = 0;
+
+        for x in 1..=n {
+            if x % 3 == 0 || x % 5 == 0 || x % 7 == 0 {
+                ans += x;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Mathematics (Inclusion-Exclusion Principle)
+
+We define a function $f(x)$ to represent the sum of numbers in $[1,..n]$ that are divisible by $x$. There are $m = \left\lfloor \frac{n}{x} \right\rfloor$ numbers that are divisible by $x$, which are $x$, $2x$, $3x$, $\cdots$, $mx$, forming an arithmetic sequence with the first term $x$, the last term $mx$, and the number of terms $m$. Therefore, $f(x) = \frac{(x + mx) \times m}{2}$.
+
+According to the inclusion-exclusion principle, we can obtain the answer as:
+
+$$
+f(3) + f(5) + f(7) - f(3 \times 5) - f(3 \times 7) - f(5 \times 7) + f(3 \times 5 \times 7)
+$$
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def sumOfMultiples(self, n: int) -> int:
+        def f(x: int) -> int:
+            m = n // x
+            return (x + m * x) * m // 2
+
+        return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7)
 ```
 
 ```java
@@ -114,23 +168,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int sumOfMultiples(int n) {
-        int ans = 0;
-        for (int x = 1; x <= n; ++x) {
-            if (x % 3 == 0 || x % 5 == 0 || x % 7 == 0) {
-                ans += x;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -144,19 +181,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func sumOfMultiples(n int) (ans int) {
-	for x := 1; x <= n; x++ {
-		if x%3 == 0 || x%5 == 0 || x%7 == 0 {
-			ans += x
-		}
-	}
-	return
-}
-```
-
 ```go
 func sumOfMultiples(n int) int {
 	f := func(x int) int {
@@ -164,20 +188,6 @@ func sumOfMultiples(n int) int {
 		return (x + m*x) * m / 2
 	}
 	return f(3) + f(5) + f(7) - f(3*5) - f(3*7) - f(5*7) + f(3*5*7)
-}
-```
-
-### **TypeScript**
-
-```ts
-function sumOfMultiples(n: number): number {
-    let ans = 0;
-    for (let x = 1; x <= n; ++x) {
-        if (x % 3 === 0 || x % 5 === 0 || x % 7 === 0) {
-            ans += x;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -191,24 +201,6 @@ function sumOfMultiples(n: number): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn sum_of_multiples(n: i32) -> i32 {
-        let mut ans = 0;
-
-        for x in 1..=n {
-            if x % 3 == 0 || x % 5 == 0 || x % 7 == 0 {
-                ans += x;
-            }
-        }
-
-        ans
-    }
-}
-```
-
 ```rust
 impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
@@ -216,6 +208,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -230,10 +228,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

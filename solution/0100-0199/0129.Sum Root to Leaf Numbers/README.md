@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们可以设计一个函数 $dfs(root, s)$，表示从当前节点 $root$ 出发，且当前路径数字为 $s$，返回从当前节点到叶子节点的所有路径数字之和。那么答案就是 $dfs(root, 0)$。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -98,10 +92,6 @@ class Solution:
 
         return dfs(root, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -137,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -165,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -191,36 +177,6 @@ func sumNumbers(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
-
-### **C**
-
-```c
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
-
-int dfs(struct TreeNode* root, int num) {
-    if (!root) {
-        return 0;
-    }
-    num = num * 10 + root->val;
-    if (!root->left && !root->right) {
-        return num;
-    }
-    return dfs(root->left, num) + dfs(root->right, num);
-}
-
-int sumNumbers(struct TreeNode* root) {
-    return dfs(root, 0);
-}
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -247,8 +203,6 @@ function sumNumbers(root: TreeNode | null): number {
     return dfs(root, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -290,8 +244,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -316,10 +268,32 @@ var sumNumbers = function (root) {
 };
 ```
 
-### **...**
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
 
-```
+int dfs(struct TreeNode* root, int num) {
+    if (!root) {
+        return 0;
+    }
+    num = num * 10 + root->val;
+    if (!root->left && !root->right) {
+        return num;
+    }
+    return dfs(root->left, num) + dfs(root->right, num);
+}
 
+int sumNumbers(struct TreeNode* root) {
+    return dfs(root, 0);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

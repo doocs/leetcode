@@ -115,9 +115,9 @@ You can recommend pages for users 2, 3, 4, and 5 using a similar process.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -141,3 +141,5 @@ GROUP BY user1_id, page_id;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -4,15 +4,18 @@ class Solution {
         int k = -1;
         int mx = 0;
         for (int i = 0; i < n; ++i) {
-            int lower = 0, upper = 0;
+            Set<Character> ss = new HashSet<>();
             for (int j = i; j < n; ++j) {
-                char c = s.charAt(j);
-                if (Character.isLowerCase(c)) {
-                    lower |= 1 << (c - 'a');
-                } else {
-                    upper |= 1 << (c - 'A');
+                ss.add(s.charAt(j));
+                boolean ok = true;
+                for (char a : ss) {
+                    char b = (char) (a ^ 32);
+                    if (!(ss.contains(a) && ss.contains(b))) {
+                        ok = false;
+                        break;
+                    }
                 }
-                if (lower == upper && mx < j - i + 1) {
+                if (ok && mx < j - i + 1) {
                     mx = j - i + 1;
                     k = i;
                 }

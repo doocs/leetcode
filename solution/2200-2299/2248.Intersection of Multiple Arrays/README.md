@@ -40,19 +40,13 @@ nums[0] = [<em><strong>3</strong></em>,1,2,<em><strong>4</strong></em>,5]，nums
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 遍历数组 `nums`，对于每个数组 `arr`，统计数组 `arr` 中每个数字出现的次数，然后遍历计数数组，统计出现次数等于数组 `nums` 的长度的数字，即为答案。
 
 时间复杂度 $O(N)$，空间复杂度 $O(1000)$。其中 $N$ 为数组 `nums` 中数字的总数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,24 +57,6 @@ class Solution:
                 cnt[x] += 1
         return [x for x, v in enumerate(cnt) if v == len(nums)]
 ```
-
-```python
-class Solution:
-    def intersection(self, nums: List[List[int]]) -> List[int]:
-        cnt = Counter()
-        ans = []
-        for arr in nums:
-            for x in arr:
-                cnt[x] += 1
-                if cnt[x] == len(nums):
-                    ans.append(x)
-        ans.sort()
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,26 +77,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public List<Integer> intersection(int[][] nums) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        List<Integer> ans = new ArrayList<>();
-        for (var arr : nums) {
-            for (int x : arr) {
-                if (cnt.merge(x, 1, Integer::sum) == nums.length) {
-                    ans.add(x);
-                }
-            }
-        }
-        Collections.sort(ans);
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,27 +99,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> intersection(vector<vector<int>>& nums) {
-        unordered_map<int, int> cnt;
-        vector<int> ans;
-        for (auto& arr : nums) {
-            for (int& x : arr) {
-                if (++cnt[x] == nums.size()) {
-                    ans.push_back(x);
-                }
-            }
-        }
-        sort(ans.begin(), ans.end());
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func intersection(nums [][]int) (ans []int) {
 	cnt := [1001]int{}
@@ -180,24 +115,6 @@ func intersection(nums [][]int) (ans []int) {
 	return
 }
 ```
-
-```go
-func intersection(nums [][]int) (ans []int) {
-	cnt := map[int]int{}
-	for _, arr := range nums {
-		for _, x := range arr {
-			cnt[x]++
-			if cnt[x] == len(nums) {
-				ans = append(ans, x)
-			}
-		}
-	}
-	sort.Ints(ans)
-	return
-}
-```
-
-### **TypeScript**
 
 ```ts
 function intersection(nums: number[][]): number[] {
@@ -216,24 +133,6 @@ function intersection(nums: number[][]): number[] {
     return ans;
 }
 ```
-
-```ts
-function intersection(nums: number[][]): number[] {
-    const cnt = new Array(1001).fill(0);
-    const ans: number[] = [];
-    for (const arr of nums) {
-        for (const x of arr) {
-            if (++cnt[x] == nums.length) {
-                ans.push(x);
-            }
-        }
-    }
-    ans.sort((a, b) => a - b);
-    return ans;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -257,10 +156,95 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def intersection(self, nums: List[List[int]]) -> List[int]:
+        cnt = Counter()
+        ans = []
+        for arr in nums:
+            for x in arr:
+                cnt[x] += 1
+                if cnt[x] == len(nums):
+                    ans.append(x)
+        ans.sort()
+        return ans
 ```
 
+```java
+class Solution {
+    public List<Integer> intersection(int[][] nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        List<Integer> ans = new ArrayList<>();
+        for (var arr : nums) {
+            for (int x : arr) {
+                if (cnt.merge(x, 1, Integer::sum) == nums.length) {
+                    ans.add(x);
+                }
+            }
+        }
+        Collections.sort(ans);
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> intersection(vector<vector<int>>& nums) {
+        unordered_map<int, int> cnt;
+        vector<int> ans;
+        for (auto& arr : nums) {
+            for (int& x : arr) {
+                if (++cnt[x] == nums.size()) {
+                    ans.push_back(x);
+                }
+            }
+        }
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+```go
+func intersection(nums [][]int) (ans []int) {
+	cnt := map[int]int{}
+	for _, arr := range nums {
+		for _, x := range arr {
+			cnt[x]++
+			if cnt[x] == len(nums) {
+				ans = append(ans, x)
+			}
+		}
+	}
+	sort.Ints(ans)
+	return
+}
+```
+
+```ts
+function intersection(nums: number[][]): number[] {
+    const cnt = new Array(1001).fill(0);
+    const ans: number[] = [];
+    for (const arr of nums) {
+        for (const x of arr) {
+            if (++cnt[x] == nums.length) {
+                ans.push(x);
+            }
+        }
+    }
+    ans.sort((a, b) => a - b);
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

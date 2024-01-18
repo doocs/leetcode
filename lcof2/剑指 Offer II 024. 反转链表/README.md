@@ -52,15 +52,9 @@
 
 ## 解法
 
-定义指针 `p`、`q` 分别指向头节点和下一个节点，`pre` 指向头节点的前一个节点。
-
-遍历链表，改变指针 `p` 指向的节点的指向，将其指向 `pre` 指针指向的节点，即 `p.next = pre`。然后 `pre` 指针指向 `p`，`p`、`q` 指针往前走。
-
-当遍历结束后，返回 `pre` 指针即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -80,10 +74,6 @@ class Solution:
             p = q
         return pre
 ```
-
-### **Java**
-
-迭代版本：
 
 ```java
 /**
@@ -107,80 +97,6 @@ class Solution {
     }
 }
 ```
-
-递归版本：
-
-```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode res = reverseList(head.next);
-        head.next.next = head;
-        head.next = null;
-        return res;
-    }
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var reverseList = function (head) {
-    let pre = null;
-    for (let p = head; p; ) {
-        let q = p.next;
-        p.next = pre;
-        pre = p;
-        p = q;
-    }
-    return pre;
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func reverseList(head *ListNode) *ListNode {
-	var pre *ListNode
-	for p := head; p != nil; {
-		q := p.Next
-		p.Next = pre
-		pre = p
-		p = q
-	}
-	return pre
-}
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -209,7 +125,49 @@ public:
 };
 ```
 
-### **C#**
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseList(head *ListNode) *ListNode {
+	var pre *ListNode
+	for p := head; p != nil; {
+		q := p.Next
+		p.Next = pre
+		pre = p
+		p = q
+	}
+	return pre
+}
+```
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function (head) {
+    let pre = null;
+    for (let p = head; p; ) {
+        let q = p.next;
+        p.next = pre;
+        pre = p;
+        p = q;
+    }
+    return pre;
+};
+```
 
 ```cs
 /**
@@ -238,10 +196,34 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode res = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return res;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

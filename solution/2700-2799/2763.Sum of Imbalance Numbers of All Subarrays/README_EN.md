@@ -55,7 +55,7 @@ The imbalance number of all other subarrays is 0. Hence, the sum of imbalance nu
 
 ## Solutions
 
-**Solution 1: Enumeration + Ordered Set**
+### Solution 1: Enumeration + Ordered Set
 
 We can first enumerate the left endpoint $i$ of the subarray. For each $i$, we enumerate the right endpoint $j$ of the subarray from small to large, and maintain all the elements in the current subarray with an ordered list. We also use a variable $cnt$ to maintain the unbalanced number of the current subarray.
 
@@ -70,8 +70,6 @@ Then, we add the unbalanced number of the current subarray to the answer, and co
 The time complexity is $O(n^2 \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -97,8 +95,6 @@ class Solution:
                 ans += cnt
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,16 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

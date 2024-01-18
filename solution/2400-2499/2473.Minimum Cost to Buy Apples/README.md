@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：堆优化版 Dijkstra 算法**
+### 方法一：堆优化版 Dijkstra 算法
 
 我们枚举起点，对于每个起点，使用 Dijkstra 算法求出到其他所有点的最短距离，更新最小值即可。
 
 时间复杂度 $O(n \times m \times \log m)$，其中 $n$ 和 $m$ 分别是城市数量和道路数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
             g[b].append((a, c))
         return [dijkstra(i) for i in range(n)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 using pii = pair<int, int>;
@@ -200,8 +188,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCost(n int, roads [][]int, appleCost []int, k int) []int64 {
@@ -258,16 +244,6 @@ func (a *pairs) Push(x any)       { *a = append(*a, x.(pair)) }
 func (a *pairs) Pop() any         { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

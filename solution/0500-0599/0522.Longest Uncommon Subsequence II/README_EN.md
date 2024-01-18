@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 ans = max(ans, len(strs[i]))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findLUSlength(strs []string) int {
@@ -155,10 +149,6 @@ func findLUSlength(strs []string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

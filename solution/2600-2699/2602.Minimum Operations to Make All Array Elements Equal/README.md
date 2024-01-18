@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 前缀和 + 二分查找**
+### 方法一：排序 + 前缀和 + 二分查找
 
 我们先将数组 $nums$ 进行排序，并计算出长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums$ 中前 $i$ 个元素的和。
 
@@ -75,10 +73,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minOperations(self, nums: List[int], queries: List[int]) -> List[int]:
@@ -93,10 +87,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int, queries []int) (ans []int64) {
 	sort.Ints(nums)
@@ -178,8 +164,6 @@ func minOperations(nums []int, queries []int) (ans []int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[], queries: number[]): number[] {
@@ -214,10 +198,6 @@ function minOperations(nums: number[], queries: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -112,13 +112,9 @@ class Node {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -166,10 +162,6 @@ class Solution:
 
         return dfs(quadTree1, quadTree2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -222,8 +214,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -289,8 +279,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a QuadTree node.
@@ -339,10 +327,6 @@ func intersect(quadTree1 *Node, quadTree2 *Node) *Node {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,9 @@ gen.next().value // 1
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function* factorial(n: number): Generator<number> {
@@ -79,3 +79,5 @@ function* factorial(n: number): Generator<number> {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

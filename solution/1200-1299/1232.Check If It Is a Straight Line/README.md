@@ -41,17 +41,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：数学
 
-**方法一：数学**
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 表示 `coordinates` 数组的长度。
+时间复杂度 $O(n)$，其中 $n$ 表示 `coordinates` 数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkStraightLine(coordinates [][]int) bool {
 	x1, y1 := coordinates[0][0], coordinates[0][1]
@@ -119,10 +105,6 @@ func checkStraightLine(coordinates [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

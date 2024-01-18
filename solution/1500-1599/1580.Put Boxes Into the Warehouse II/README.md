@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 排序 + 贪心**
+### 方法一：预处理 + 排序 + 贪心
 
 我们先对仓库进行预处理，得到每个房间的最大高度，然后对箱子和仓库进行排序，从最小的箱子开始，从最小的房间开始，如果当前房间的高度大于等于当前箱子的高度，则可以将当前箱子放入当前房间，否则继续寻找下一个房间。
 
@@ -84,10 +82,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为仓库的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -113,10 +107,6 @@ class Solution:
             ans, i = ans + 1, i + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -192,8 +180,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxBoxesInWarehouse(boxes []int, warehouse []int) (ans int) {
 	n := len(warehouse)
@@ -228,10 +214,6 @@ func maxBoxesInWarehouse(boxes []int, warehouse []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

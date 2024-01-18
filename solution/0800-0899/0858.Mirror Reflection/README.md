@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 根据题意，光线在每次反射时，都会向上或向下移动 $q$ 的距离，向右移动 $p$ 的距离。而由于光线最后一定会遇到接收器，因此，我们需要找到一个最小的 $k$，使得 $k \times q$ 是 $p$ 的倍数。
 
@@ -52,10 +50,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def mirrorReflection(self, p: int, q: int) -> int:
@@ -66,10 +60,6 @@ class Solution:
             return 1
         return 0 if p == 1 else 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +93,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mirrorReflection(p int, q int) int {
@@ -130,8 +116,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mirrorReflection(p: number, q: number): number {
     const g = gcd(p, q);
@@ -148,10 +132,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

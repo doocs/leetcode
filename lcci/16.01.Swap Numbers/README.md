@@ -17,9 +17,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们可以使用异或运算 $\oplus$ 来实现两个数的交换。
 
@@ -41,10 +39,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def swapNumbers(self, numbers: List[int]) -> List[int]:
@@ -53,10 +47,6 @@ class Solution:
         numbers[0] ^= numbers[1]
         return numbers
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -68,26 +58,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function swapNumbers(numbers: number[]): number[] {
-    numbers[0] ^= numbers[1];
-    numbers[1] ^= numbers[0];
-    numbers[0] ^= numbers[1];
-    return numbers;
-}
-```
-
-```ts
-function swapNumbers(numbers: number[]): number[] {
-    [numbers[0], numbers[1]] = [numbers[1], numbers[0]];
-    return numbers;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +71,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func swapNumbers(numbers []int) []int {
 	numbers[0] ^= numbers[1]
@@ -112,10 +80,28 @@ func swapNumbers(numbers []int) []int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function swapNumbers(numbers: number[]): number[] {
+    numbers[0] ^= numbers[1];
+    numbers[1] ^= numbers[0];
+    numbers[0] ^= numbers[1];
+    return numbers;
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+function swapNumbers(numbers: number[]): number[] {
+    [numbers[0], numbers[1]] = [numbers[1], numbers[0]];
+    return numbers;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

@@ -55,15 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-动态规划。自底向上。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,23 +69,6 @@ class Solution:
                 dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j]
         return dp[0][0]
 ```
-
-空间优化：
-
-```python
-class Solution:
-    def minimumTotal(self, triangle: List[List[int]]) -> int:
-        n = len(triangle)
-        dp = [0] * (n + 1)
-        for i in range(n - 1, -1, -1):
-            for j in range(i + 1):
-                dp[j] = min(dp[j], dp[j + 1]) + triangle[i][j]
-        return dp[0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTotal(triangle [][]int) int {
 	n := len(triangle)
@@ -140,10 +113,23 @@ func minimumTotal(triangle [][]int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        n = len(triangle)
+        dp = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1):
+                dp[j] = min(dp[j], dp[j + 1]) + triangle[i][j]
+        return dp[0]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

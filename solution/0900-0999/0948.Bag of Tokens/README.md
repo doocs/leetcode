@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序 + 双指针**
+### 方法一：贪心 + 排序 + 双指针
 
 令牌的使用方法有两种，一种是消耗能量得到分数，一种是消耗分数得到能量。显然，我们应该消耗尽可能少的能量来得到尽可能多的分数。
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为令牌的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
                 break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func bagOfTokensScore(tokens []int, power int) int {
 	sort.Ints(tokens)
@@ -171,10 +157,6 @@ func bagOfTokensScore(tokens []int, power int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

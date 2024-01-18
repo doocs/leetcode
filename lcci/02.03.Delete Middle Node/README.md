@@ -25,20 +25,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-> 此题与本站 [237. 删除链表中的节点](https://leetcode.cn/problems/delete-node-in-a-linked-list/) 题意相同。
-
-步骤：
-
-1. 将 `node` 下一个节点的值赋给 `node`。
-2. 将 `node` 的 `next` 指向 `next` 的 `next`。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -58,10 +47,6 @@ class Solution:
         node.next = node.next.next
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /**
  * Definition for singly-linked list.
@@ -78,28 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} node
- * @return {void} Do not return anything, modify node in-place instead.
- */
-var deleteNode = function (node) {
-    node.val = node.next.val;
-    node.next = node.next.next;
-};
-```
-
-### **C++**
 
 ```cpp
 /**
@@ -119,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -135,10 +96,24 @@ func deleteNode(node *ListNode) {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} node
+ * @return {void} Do not return anything, modify node in-place instead.
+ */
+var deleteNode = function (node) {
+    node.val = node.next.val;
+    node.next = node.next.next;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

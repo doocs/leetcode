@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
             nums[i] = c
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func colorTheArray(n int, queries [][]int) (ans []int) {
 	nums := make([]int, n)
@@ -161,8 +155,6 @@ func colorTheArray(n int, queries [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function colorTheArray(n: number, queries: number[][]): number[] {
@@ -189,10 +181,6 @@ function colorTheArray(n: number, queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

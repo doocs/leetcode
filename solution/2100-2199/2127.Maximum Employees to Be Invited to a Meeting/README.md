@@ -69,9 +69,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：图的最大环 + 最长链**
+### 方法一：图的最大环 + 最长链
 
 我们观察发现，题目中员工的喜好关系可以看作一个有向图，这个有向图可以分成多个“基环内向树”的结构。在每个结构中，包含一个环，而环上的每个节点都连接着一棵树。
 
@@ -90,10 +88,6 @@
 相似题目：[2360. 图中的最长环](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -134,10 +128,6 @@ class Solution:
 
         return max(max_cycle(favorite), topological_sort(favorite))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -201,8 +191,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -254,8 +242,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumInvitations(favorite []int) int {
@@ -323,8 +309,6 @@ func topologicalSort(fa []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumInvitations(favorite: number[]): number {
     return Math.max(maxCycle(favorite), topologicalSort(favorite));
@@ -383,10 +367,6 @@ function topologicalSort(fa: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

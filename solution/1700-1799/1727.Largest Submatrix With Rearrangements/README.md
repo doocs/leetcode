@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 排序**
+### 方法一：预处理 + 排序
 
 由于题目中矩阵是按列进行重排，因此，我们可以先对矩阵的每一列进行预处理。
 
@@ -76,10 +74,6 @@
 时间复杂度 $O(m\times n\times \log n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
                 ans = max(ans, j * v)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestSubmatrix(matrix [][]int) int {
 	m, n := len(matrix), len(matrix[0])
@@ -172,8 +158,6 @@ func largestSubmatrix(matrix [][]int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestSubmatrix(matrix: number[][]): number {
@@ -214,10 +198,6 @@ function largestSubmatrix(matrix: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

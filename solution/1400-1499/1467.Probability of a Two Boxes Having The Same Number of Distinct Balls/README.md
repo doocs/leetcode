@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索 + 组合数学**
+### 方法一：记忆化搜索 + 组合数学
 
 我们知道 $2n$ 个球，平均分到两个盒子中，总共有 $C_{2n}^n$ 种分法。接下来，我们可以求出每种分法中，两个盒子中球的颜色数相同的情况数。最后，将两者相除即可。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n^2 \times k^2)$，空间复杂度 $O(n \times k^2)$。其中 $n$ 和 $k$ 分别是球的总数和颜色的种数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
         k = len(balls)
         return dfs(0, n, 0) / comb(n << 1, n)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,8 +148,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -199,8 +187,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getProbability(balls []int) float64 {
@@ -265,8 +251,6 @@ func getProbability(balls []int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getProbability(balls: number[]): number {
     const n = balls.reduce((a, b) => a + b, 0) >> 1;
@@ -310,10 +294,6 @@ function getProbability(balls: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

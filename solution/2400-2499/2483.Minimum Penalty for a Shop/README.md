@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 枚举**
+### 方法一：前缀和 + 枚举
 
 我们先算出前 $i$ 小时有多少顾客到达，记录在前缀和数组 $s$ 中。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $customers$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -96,10 +90,6 @@ class Solution:
                 ans, cost = j, t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,7 +134,26 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func bestClosingTime(customers string) (ans int) {
+	n := len(customers)
+	s := make([]int, n+1)
+	for i, c := range customers {
+		s[i+1] = s[i]
+		if c == 'Y' {
+			s[i+1]++
+		}
+	}
+	cost := 1 << 30
+	for j := 0; j <= n; j++ {
+		t := j - s[j] + s[n] - s[j]
+		if cost > t {
+			ans, cost = j, t
+		}
+	}
+	return
+}
+```
 
 ```rust
 impl Solution {
@@ -175,33 +182,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func bestClosingTime(customers string) (ans int) {
-	n := len(customers)
-	s := make([]int, n+1)
-	for i, c := range customers {
-		s[i+1] = s[i]
-		if c == 'Y' {
-			s[i+1]++
-		}
-	}
-	cost := 1 << 30
-	for j := 0; j <= n; j++ {
-		t := j - s[j] + s[n] - s[j]
-		if cost > t {
-			ans, cost = j, t
-		}
-	}
-	return
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

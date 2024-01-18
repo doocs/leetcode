@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 我们可以遍历每个节点 $i$ 以及对应的左右孩子 $l$, $r$，用 $vis$ 数组记录节点是否有父节点：
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(n \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 为节点个数，而 $\alpha(n)$ 为阿克曼函数的反函数，即反阿克曼函数，其值小于 $5$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
                     n -= 1
         return n == 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +158,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
@@ -203,10 +189,6 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

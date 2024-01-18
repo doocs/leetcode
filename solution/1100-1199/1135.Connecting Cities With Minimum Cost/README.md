@@ -1,4 +1,4 @@
-# [1135. 最低成本联通所有城市](https://leetcode.cn/problems/connecting-cities-with-minimum-cost)
+# [1135. 最低成本连通所有城市](https://leetcode.cn/problems/connecting-cities-with-minimum-cost)
 
 [English Version](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md)
 
@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Kruskal 算法**
+### 方法一：Kruskal 算法
 
 Kruskal 算法是一种贪心算法，用于计算最小生成树。
 
@@ -64,10 +62,6 @@ Kruskal 算法的基本思想是，每次从边集中选择一条最小的边，
 时间复杂度 $O(m \times \log m)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为边数和顶点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                 return ans
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumCost(n int, connections [][]int) (ans int) {
@@ -194,8 +180,6 @@ func minimumCost(n int, connections [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumCost(n: number, connections: number[][]): number {
     const p = new Array(n);
@@ -224,10 +208,6 @@ function minimumCost(n: number, connections: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

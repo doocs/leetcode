@@ -28,9 +28,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们先求出两个数组的和，然后计算两个数组和的差值 $diff$。如果 $diff$ 为奇数，则说明两个数组的和不可能相等，直接返回空数组。
 
@@ -39,10 +37,6 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为两个数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -57,10 +51,6 @@ class Solution:
                 return [a, b]
         return []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findSwapValues(array1 []int, array2 []int) []int {
@@ -142,8 +128,6 @@ func findSwapValues(array1 []int, array2 []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSwapValues(array1: number[], array2: number[]): number[] {
     const s1 = array1.reduce((a, b) => a + b, 0);
@@ -164,10 +148,6 @@ function findSwapValues(array1: number[], array2: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

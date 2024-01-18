@@ -63,17 +63,19 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simulation
 
-### **Python3**
+Traverse the array `operations`. For each operation $operations[i]$, if it contains `'+'`, then the answer increases by $1$, otherwise the answer decreases by $1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `operations`. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
         return sum(1 if s[1] == '+' else -1 for s in operations)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +99,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func finalValueAfterOperations(operations []string) (ans int) {
@@ -115,7 +113,27 @@ func finalValueAfterOperations(operations []string) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function finalValueAfterOperations(operations: string[]): number {
+    let ans = 0;
+    for (let operation of operations) {
+        ans += operation.includes('+') ? 1 : -1;
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn final_value_after_operations(operations: Vec<String>) -> i32 {
+        let mut ans = 0;
+        for s in operations.iter() {
+            ans += if s.as_bytes()[1] == b'+' { 1 } else { -1 };
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -131,40 +149,6 @@ var finalValueAfterOperations = function (operations) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function finalValueAfterOperations(operations: string[]): number {
-    let ans = 0;
-    for (let operation of operations) {
-        ans += operation.includes('+') ? 1 : -1;
-    }
-    return ans;
-}
-```
-
-```ts
-function finalValueAfterOperations(operations: string[]): number {
-    return operations.reduce((r, v) => r + (v[1] === '+' ? 1 : -1), 0);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn final_value_after_operations(operations: Vec<String>) -> i32 {
-        let mut ans = 0;
-        for s in operations.iter() {
-            ans += if s.as_bytes()[1] == b'+' { 1 } else { -1 };
-        }
-        ans
-    }
-}
-```
-
-### **C**
-
 ```c
 int finalValueAfterOperations(char** operations, int operationsSize) {
     int ans = 0;
@@ -175,10 +159,18 @@ int finalValueAfterOperations(char** operations, int operationsSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function finalValueAfterOperations(operations: string[]): number {
+    return operations.reduce((r, v) => r + (v[1] === '+' ? 1 : -1), 0);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

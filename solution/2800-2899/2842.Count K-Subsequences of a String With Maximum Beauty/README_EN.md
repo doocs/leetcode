@@ -77,7 +77,7 @@ Hence, the answer is 2.
 
 ## Solutions
 
-**Solution 1: Greedy + Combinatorial Mathematics**
+### Solution 1: Greedy + Combinatorial Mathematics
 
 First, we use a hash table $f$ to count the occurrence of each character in the string $s$, i.e., $f[c]$ represents the number of times character $c$ appears in the string $s$.
 
@@ -94,8 +94,6 @@ Note that we need to use fast power and modulo operations here.
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -116,8 +114,6 @@ class Solution:
         ans = ans * comb(x, k) * pow(val, k, mod) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -181,8 +177,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -241,8 +235,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countKSubsequencesWithMaxBeauty(s string, k int) int {
@@ -305,8 +297,6 @@ func countKSubsequencesWithMaxBeauty(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
     const f: number[] = new Array(26).fill(0);
@@ -354,10 +344,6 @@ function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

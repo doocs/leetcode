@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
                 d[idx] = h
         return len(d)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxEnvelopes(envelopes [][]int) int {
@@ -157,10 +151,6 @@ func maxEnvelopes(envelopes [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

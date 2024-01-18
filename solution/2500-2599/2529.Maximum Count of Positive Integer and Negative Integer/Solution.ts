@@ -1,19 +1,11 @@
 function maximumCount(nums: number[]): number {
-    const search = (target: number) => {
-        let left = 0;
-        let right = n;
-        while (left < right) {
-            const mid = (left + right) >>> 1;
-            if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
+    const count = [0, 0];
+    for (const num of nums) {
+        if (num < 0) {
+            count[0]++;
+        } else if (num > 0) {
+            count[1]++;
         }
-        return left;
-    };
-    const n = nums.length;
-    const i = search(0);
-    const j = search(1);
-    return Math.max(i, n - j);
+    }
+    return Math.max(...count);
 }

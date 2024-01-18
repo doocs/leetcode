@@ -48,9 +48,9 @@ stringIterator.hasNext(); // return True
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class StringIterator:
@@ -86,8 +86,6 @@ class StringIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
-
-### **Java**
 
 ```java
 class StringIterator {
@@ -141,8 +139,6 @@ class Node {
  */
 ```
 
-### **C++**
-
 ```cpp
 class StringIterator {
 public:
@@ -184,8 +180,6 @@ private:
  * bool param_2 = obj->hasNext();
  */
 ```
-
-### **Go**
 
 ```go
 type pair struct {
@@ -239,10 +233,6 @@ func (this *StringIterator) HasNext() bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,17 +1,16 @@
 class Solution {
 public:
     int subarrayBitwiseORs(vector<int>& arr) {
-        unordered_set<int> s;
-        int prev = 0;
-        for (int i = 0; i < arr.size(); ++i) {
-            prev |= arr[i];
-            int curr = 0;
-            for (int j = i; ~j; --j) {
-                curr |= arr[j];
-                s.insert(curr);
-                if (curr == prev) break;
+        unordered_set<int> s{{0}};
+        unordered_set<int> ans;
+        for (int& x : arr) {
+            unordered_set<int> t{{x}};
+            for (int y : s) {
+                t.insert(x | y);
             }
+            s = move(t);
+            ans.insert(s.begin(), s.end());
         }
-        return s.size();
+        return ans.size();
     }
 };

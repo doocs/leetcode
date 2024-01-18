@@ -1,22 +1,16 @@
 class Solution:
     def rotatedDigits(self, n: int) -> int:
-        @cache
-        def dfs(pos, ok, limit):
-            if pos <= 0:
-                return ok
-            up = a[pos] if limit else 9
-            ans = 0
-            for i in range(up + 1):
-                if i in (0, 1, 8):
-                    ans += dfs(pos - 1, ok, limit and i == up)
-                if i in (2, 5, 6, 9):
-                    ans += dfs(pos - 1, 1, limit and i == up)
-            return ans
+        def check(x):
+            y, t = 0, x
+            k = 1
+            while t:
+                v = t % 10
+                if d[v] == -1:
+                    return False
+                y = d[v] * k + y
+                k *= 10
+                t //= 10
+            return x != y
 
-        a = [0] * 6
-        l = 1
-        while n:
-            a[l] = n % 10
-            n //= 10
-            l += 1
-        return dfs(l, 0, True)
+        d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
+        return sum(check(i) for i in range(1, n + 1))

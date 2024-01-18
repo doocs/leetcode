@@ -27,23 +27,23 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting
 
-### **Python3**
+First, we sort the array `nums`.
+
+Then, we traverse the array. If there are two adjacent elements that are the same, it means that there are duplicate elements in the array, and we directly return `true`.
+
+Otherwise, when the traversal ends, we return `false`.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array `nums`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return any(a == b for a, b in pairwise(sorted(nums)))
 ```
-
-```python
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        return len(set(nums)) < len(nums)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -58,22 +58,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean containsDuplicate(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            if (!s.add(num)) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,18 +74,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        return s.size() < nums.size();
-    }
-};
-```
-
-### **Go**
-
 ```go
 func containsDuplicate(nums []int) bool {
 	sort.Ints(nums)
@@ -113,33 +85,6 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 ```
-
-```go
-func containsDuplicate(nums []int) bool {
-	s := map[int]bool{}
-	for _, v := range nums {
-		if s[v] {
-			return true
-		}
-		s[v] = true
-	}
-	return false
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {boolean}
- */
-var containsDuplicate = function (nums) {
-    return new Set(nums).size !== nums.length;
-};
-```
-
-### **TypeScript**
 
 ```ts
 function containsDuplicate(nums: number[]): boolean {
@@ -153,14 +98,6 @@ function containsDuplicate(nums: number[]): boolean {
     return false;
 }
 ```
-
-```ts
-function containsDuplicate(nums: number[]): boolean {
-    return new Set<number>(nums).size !== nums.length;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -177,16 +114,36 @@ impl Solution {
 }
 ```
 
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-        nums.iter().collect::<HashSet<&i32>>().len() != nums.len()
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function (nums) {
+    return new Set(nums).size !== nums.length;
+};
+```
+
+```cs
+public class Solution {
+    public bool ContainsDuplicate(int[] nums) {
+        return nums.Distinct().Count() < nums.Length;
     }
 }
 ```
 
-### **C**
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @return Boolean
+     */
+    function containsDuplicate($nums) {
+        $numsUnique = array_unique($nums);
+        return count($nums) != count($numsUnique);
+    }
+}
+```
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -204,35 +161,74 @@ bool containsDuplicate(int* nums, int numsSize) {
 }
 ```
 
-### **C#**
+<!-- tabs:end -->
 
-```cs
-public class Solution {
-    public bool ContainsDuplicate(int[] nums) {
-        return nums.Distinct().Count() < nums.Length;
-    }
-}
+### Solution 2: Hash Table
+
+We traverse the array and record the elements that have appeared in the hash table $s$. If an element appears for the second time, it means that there are duplicate elements in the array, and we directly return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(set(nums)) < len(nums)
 ```
 
-### **PHP**
-
-```php
+```java
 class Solution {
-    /**
-     * @param Integer[] $nums
-     * @return Boolean
-     */
-    function containsDuplicate($nums) {
-        $numsUnique = array_unique($nums);
-        return count($nums) != count($numsUnique);
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (!s.add(num)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 ```
 
-### **...**
-
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        return s.size() < nums.size();
+    }
+};
 ```
 
+```go
+func containsDuplicate(nums []int) bool {
+	s := map[int]bool{}
+	for _, v := range nums {
+		if s[v] {
+			return true
+		}
+		s[v] = true
+	}
+	return false
+}
+```
+
+```ts
+function containsDuplicate(nums: number[]): boolean {
+    return new Set<number>(nums).size !== nums.length;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+        nums.iter().collect::<HashSet<&i32>>().len() != nums.len()
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

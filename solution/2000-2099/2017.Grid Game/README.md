@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和**
+### 方法一：前缀和
 
 我们注意到，如果确定了第一个机器人拐头向下的位置 $j$，那么第二个机器人的最优路径也就确定了，第二个机器人的最优路径就是第一行从 $j+1$ 到 $n-1$ 的前缀和，或者第二行从 $0$ 到 $j-1$ 的前缀和，取两者的最大值。
 
@@ -77,10 +75,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def gridGame(self, grid: List[List[int]]) -> int:
@@ -92,10 +86,6 @@ class Solution:
             s2 += grid[1][j]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using ll = long long;
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func gridGame(grid [][]int) int64 {
 	ans := math.MaxInt64
@@ -156,8 +142,6 @@ func gridGame(grid [][]int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function gridGame(grid: number[][]): number {
     let ans = Number.MAX_SAFE_INTEGER;
@@ -172,10 +156,6 @@ function gridGame(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

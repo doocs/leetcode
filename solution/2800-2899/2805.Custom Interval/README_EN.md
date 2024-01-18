@@ -67,9 +67,9 @@ setTimeout(() =&gt; {
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 const intervalMap = new Map<number, NodeJS.Timeout>();
@@ -101,3 +101,5 @@ function customClearInterval(id: number) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

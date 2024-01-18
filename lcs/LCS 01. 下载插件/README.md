@@ -43,19 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 如果不能在一分钟内下载完，那么可以先加速，循环直至能在一分钟内下载完。那么“循环次数 + 1”即为最少消耗的分钟数。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为插件数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -82,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func leastMinutes(n int) int {
 	ans := 1
@@ -110,7 +96,15 @@ func leastMinutes(n int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function leastMinutes(n: number): number {
+    let ans = 1;
+    for (let speed = 1; speed < n; speed <<= 1) {
+        ++ans;
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -126,22 +120,6 @@ var leastMinutes = function (n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function leastMinutes(n: number): number {
-    let ans = 1;
-    for (let speed = 1; speed < n; speed <<= 1) {
-        ++ans;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

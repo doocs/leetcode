@@ -64,9 +64,13 @@ Bob wins.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + Sorting
 
-### **Python3**
+The optimal strategy for picking stones is to maximize one's own score while making the opponent lose as much as possible. Therefore, we create an array `arr`, where `arr[i] = aliceValues[i] + bobValues[i]`, and then sort `arr` in descending order. Then, we take stones from `arr`, taking two stones each time, one for Alice and one for Bob, until there are no stones left in `arr`. Finally, we compare the scores of Alice and Bob, and the person with the higher score wins.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the arrays `aliceValues` and `bobValues`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +85,6 @@ class Solution:
             return -1
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +136,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func stoneGameVI(aliceValues []int, bobValues []int) int {
@@ -165,10 +163,6 @@ func stoneGameVI(aliceValues []int, bobValues []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：问题转换 + 快速幂**
+### 方法一：问题转换 + 快速幂
 
 我们可以将 $n$ 进行质因数分解，即 $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$，其中 $a_i$ 为质因子，而 $k_i$ 为质因子 $a_i$ 的指数。由于 $n$ 的质因子个数不超过 $primeFactors$ 个，因此 $k_1 + k_2 + \cdots + k_m \leq primeFactors$。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxNiceDivisors(self, primeFactors: int) -> int:
@@ -83,10 +77,6 @@ class Solution:
             return 4 * pow(3, primeFactors // 3 - 1, mod) % mod
         return 2 * pow(3, primeFactors // 3, mod) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNiceDivisors(primeFactors int) int {
 	if primeFactors < 4 {
@@ -176,8 +162,6 @@ func maxNiceDivisors(primeFactors int) int {
 	return qpow(3, primeFactors/3) * 2 % mod
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -210,10 +194,6 @@ var maxNiceDivisors = function (primeFactors) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

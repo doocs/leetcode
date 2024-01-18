@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们记 $target = [x, y, z]$，初始时 $d = e = f = 0$，表示当前的 $a, b, c$ 的最大值。
 
@@ -84,10 +82,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $triplets$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +95,6 @@ class Solution:
                 f = max(f, c)
         return [d, e, f] == target
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mergeTriplets(triplets [][]int, target []int) bool {
 	x, y, z := target[0], target[1], target[2]
@@ -163,8 +149,6 @@ func mergeTriplets(triplets [][]int, target []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mergeTriplets(triplets: number[][], target: number[]): boolean {
     const [x, y, z] = target;
@@ -180,10 +164,6 @@ function mergeTriplets(triplets: number[][], target: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -77,9 +77,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们注意到，所有合金都需要由同一台机器制造，因此我们可以枚举使用哪一台机器来制造合金。
 
@@ -88,10 +86,6 @@
 时间复杂度 $O(n \times k \times \log M)$，其中 $M$ 是二分查找的上界，本题中 $M \leq 2 \times 10^8$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -117,10 +111,6 @@ class Solution:
             ans = max(ans, l)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -200,8 +188,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []int, cost []int) int {
 	isValid := func(target int) bool {
@@ -230,8 +216,6 @@ func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []in
 	return l
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNumberOfAlloys(
@@ -269,10 +253,6 @@ function maxNumberOfAlloys(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

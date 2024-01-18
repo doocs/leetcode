@@ -1,16 +1,13 @@
 class Solution:
     def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
-        n, m = len(nums), len(multipliers)
-        f = [[-inf] * (m + 1) for _ in range(m + 1)]
-        f[0][0] = 0
-        ans = -inf
-        for i in range(m + 1):
-            for j in range(m - i + 1):
-                k = i + j - 1
-                if i > 0:
-                    f[i][j] = max(f[i][j], f[i - 1][j] + multipliers[k] * nums[i - 1])
-                if j > 0:
-                    f[i][j] = max(f[i][j], f[i][j - 1] + multipliers[k] * nums[n - j])
-                if i + j == m:
-                    ans = max(ans, f[i][j])
-        return ans
+        @cache
+        def f(i, j, k):
+            if k >= m or i >= n or j < 0:
+                return 0
+            a = f(i + 1, j, k + 1) + nums[i] * multipliers[k]
+            b = f(i, j - 1, k + 1) + nums[j] * multipliers[k]
+            return max(a, b)
+
+        n = len(nums)
+        m = len(multipliers)
+        return f(0, n - 1, 0)

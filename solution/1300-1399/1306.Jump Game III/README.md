@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们可以使用 BFS 来判断是否能够到达值为 $0$ 的下标。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                     q.append(j)
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canReach(arr []int, start int) bool {
 	q := []int{start}
@@ -164,8 +150,6 @@ func canReach(arr []int, start int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canReach(arr: number[], start: number): boolean {
     const q: number[] = [start];
@@ -186,10 +170,6 @@ function canReach(arr: number[], start: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

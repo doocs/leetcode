@@ -47,9 +47,9 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
             w -= 1
         return [area // w, w]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -87,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func constructRectangle(area int) []int {
 	w := int(math.Sqrt(float64(area)))
@@ -99,10 +93,6 @@ func constructRectangle(area int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

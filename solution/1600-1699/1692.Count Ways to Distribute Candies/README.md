@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示将 $i$ 个糖果分配给 $j$ 个手袋的不同分配方式的数量。初始时 $f[0][0]=1$，答案为 $f[n][k]$。
 
@@ -80,10 +78,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def waysToDistribute(self, n: int, k: int) -> int:
@@ -95,10 +89,6 @@ class Solution:
                 f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod
         return f[n][k]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToDistribute(n int, k int) int {
 	f := make([][]int, n+1)
@@ -155,10 +141,22 @@ func waysToDistribute(n int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function waysToDistribute(n: number, k: number): number {
+    const mod = 10 ** 9 + 7;
+    const f: number[][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: k + 1 }, () => 0),
+    );
+    f[0][0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod;
+        }
+    }
+    return f[n][k];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

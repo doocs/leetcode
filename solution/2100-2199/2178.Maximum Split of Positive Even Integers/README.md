@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 如果 $finalSum$ 是奇数，那么无法拆分成若干个互不相同的正偶数之和，直接返回空数组。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(\sqrt{finalSum})$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
         ans[-1] += finalSum
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumEvenSplit(finalSum int64) (ans []int64) {
 	if finalSum%2 == 1 {
@@ -140,8 +126,6 @@ func maximumEvenSplit(finalSum int64) (ans []int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumEvenSplit(finalSum: number): number[] {
@@ -157,8 +141,6 @@ function maximumEvenSplit(finalSum: number): number[] {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -177,10 +159,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

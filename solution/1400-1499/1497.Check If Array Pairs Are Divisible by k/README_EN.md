@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
         cnt = Counter(x % k for x in arr)
         return cnt[0] % 2 == 0 and all(cnt[i] == cnt[k - i] for i in range(1, k))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canArrange(arr []int, k int) bool {
 	cnt := make([]int, k)
@@ -115,10 +109,6 @@ func canArrange(arr []int, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

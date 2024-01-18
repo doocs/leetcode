@@ -46,15 +46,13 @@ Now nums is sorted; therefore the answer is 2.
 
 ## Solutions
 
-**Solution 1: Direct Traversal**
+### Solution 1: Direct Traversal
 
 First, we use a pointer $i$ to traverse the array $nums$ from left to right, finding a continuous increasing sequence until $i$ reaches the end of the array or $nums[i - 1] > nums[i]$. Next, we use another pointer $k$ to traverse the array $nums$ from $i + 1$, finding a continuous increasing sequence until $k$ reaches the end of the array or $nums[k - 1] > nums[k]$ and $nums[k] > nums[0]$. If $k$ reaches the end of the array, it means the array is already increasing, so we return $n - i$; otherwise, we return $-1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
             k += 1
         return -1 if k < n else n - i
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumRightShifts(nums []int) int {
 	n := len(nums)
@@ -128,8 +120,6 @@ func minimumRightShifts(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumRightShifts(nums: number[]): number {
     const n = nums.length;
@@ -145,10 +135,6 @@ function minimumRightShifts(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

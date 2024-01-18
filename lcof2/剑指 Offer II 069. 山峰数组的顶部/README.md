@@ -75,15 +75,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二分查找。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func peakIndexInMountainArray(arr []int) int {
 	left, right := 1, len(arr)-2
@@ -154,8 +140,6 @@ func peakIndexInMountainArray(arr []int) int {
 	return left
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -177,10 +161,6 @@ var peakIndexInMountainArray = function (arr) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

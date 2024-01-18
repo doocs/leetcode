@@ -102,9 +102,9 @@ Quarz won a medal in 5 consecutive contests (190, 191, 192, 193, and 194), so we
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -149,3 +149,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

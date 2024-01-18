@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 构造**
+### 方法一：贪心 + 构造
 
 我们不妨假设当前需要构造的金额为 $s$，且我们已经构造出了 $[0,...,s-1]$ 内的所有金额。如果此时有一个新的硬币 $x$，我们把它加入到数组中，可以构造出 $[x, s+x-1]$ 内的所有金额。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumAddedCoins(coins []int, target int) (ans int) {
 	slices.Sort(coins)
@@ -151,8 +137,6 @@ func minimumAddedCoins(coins []int, target int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumAddedCoins(coins: number[], target: number): number {
@@ -170,10 +154,6 @@ function minimumAddedCoins(coins: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

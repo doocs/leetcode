@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 题目实际上可以转化为求字符串中不同字符的个数，因此，我们只需要统计字符串中不同字符的个数即可。
 
@@ -61,19 +59,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimizedStringLength(self, s: str) -> int:
         return len(set(s))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +86,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimizedStringLength(s string) int {
@@ -111,15 +97,11 @@ func minimizedStringLength(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimizedStringLength(s: string): number {
     return new Set(s.split('')).size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -137,6 +119,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 use std::collections::HashSet;
 
@@ -153,10 +141,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

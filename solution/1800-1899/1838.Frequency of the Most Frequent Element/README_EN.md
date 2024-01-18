@@ -48,9 +48,9 @@ Explanation:</strong> Increment the first element three times and the second ele
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,6 +67,105 @@ class Solution:
             ans = max(ans, r - l)
         return ans
 ```
+
+```java
+class Solution {
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int ans = 1, window = 0;
+        for (int l = 0, r = 1; r < n; ++r) {
+            window += (nums[r] - nums[r - 1]) * (r - l);
+            while (window > k) {
+                window -= (nums[r] - nums[l++]);
+            }
+            ans = Math.max(ans, r - l + 1);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxFrequency(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int ans = 1;
+        long long window = 0;
+        for (int l = 0, r = 1; r < n; ++r) {
+            window += 1LL * (nums[r] - nums[r - 1]) * (r - l);
+            while (window > k) {
+                window -= (nums[r] - nums[l++]);
+            }
+            ans = max(ans, r - l + 1);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maxFrequency(nums []int, k int) int {
+	sort.Ints(nums)
+	ans, window := 1, 0
+	for l, r := 0, 1; r < len(nums); r++ {
+		window += (nums[r] - nums[r-1]) * (r - l)
+		for window > k {
+			window -= nums[r] - nums[l]
+			l++
+		}
+		ans = max(ans, r-l+1)
+	}
+	return ans
+}
+```
+
+```ts
+function maxFrequency(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    let ans = 1;
+    let window = 0;
+    const n = nums.length;
+    for (let l = 0, r = 1; r < n; ++r) {
+        window += (nums[r] - nums[r - 1]) * (r - l);
+        while (window > k) {
+            window -= nums[r] - nums[l++];
+        }
+        ans = Math.max(ans, r - l + 1);
+    }
+    return ans;
+}
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var maxFrequency = function (nums, k) {
+    nums.sort((a, b) => a - b);
+    let ans = 1;
+    let window = 0;
+    const n = nums.length;
+    for (let l = 0, r = 1; r < n; ++r) {
+        window += (nums[r] - nums[r - 1]) * (r - l);
+        while (window > k) {
+            window -= nums[r] - nums[l++];
+        }
+        ans = Math.max(ans, r - l + 1);
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -89,26 +188,6 @@ class Solution:
             else:
                 right = mid - 1
         return left
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int maxFrequency(int[] nums, int k) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        int ans = 1, window = 0;
-        for (int l = 0, r = 1; r < n; ++r) {
-            window += (nums[r] - nums[r - 1]) * (r - l);
-            while (window > k) {
-                window -= (nums[r] - nums[l++]);
-            }
-            ans = Math.max(ans, r - l + 1);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -151,28 +230,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxFrequency(vector<int>& nums, int k) {
-        sort(nums.begin(), nums.end());
-        int n = nums.size();
-        int ans = 1;
-        long long window = 0;
-        for (int l = 0, r = 1; r < n; ++r) {
-            window += 1LL * (nums[r] - nums[r - 1]) * (r - l);
-            while (window > k) {
-                window -= (nums[r] - nums[l++]);
-            }
-            ans = max(ans, r - l + 1);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -207,24 +264,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func maxFrequency(nums []int, k int) int {
-	sort.Ints(nums)
-	ans, window := 1, 0
-	for l, r := 0, 1; r < len(nums); r++ {
-		window += (nums[r] - nums[r-1]) * (r - l)
-		for window > k {
-			window -= nums[r] - nums[l]
-			l++
-		}
-		ans = max(ans, r-l+1)
-	}
-	return ans
-}
-```
-
 ```go
 func maxFrequency(nums []int, k int) int {
 	sort.Ints(nums)
@@ -255,28 +294,35 @@ func maxFrequency(nums []int, k int) int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
- */
-var maxFrequency = function (nums, k) {
+```ts
+function maxFrequency(nums: number[], k: number): number {
     nums.sort((a, b) => a - b);
-    let ans = 1;
-    let window = 0;
     const n = nums.length;
-    for (let l = 0, r = 1; r < n; ++r) {
-        window += (nums[r] - nums[r - 1]) * (r - l);
-        while (window > k) {
-            window -= nums[r] - nums[l++];
-        }
-        ans = Math.max(ans, r - l + 1);
+    const s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
     }
-    return ans;
-};
+    const check = (cnt: number) => {
+        for (let i = 0; i < n + 1 - cnt; ++i) {
+            const j = i + cnt - 1;
+            if (nums[j] * cnt - (s[j + 1] - s[i]) <= k) {
+                return true;
+            }
+        }
+        return false;
+    };
+    let left = 1;
+    let right = n;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
 ```
 
 ```js
@@ -315,60 +361,6 @@ var maxFrequency = function (nums, k) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function maxFrequency(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    let ans = 1;
-    let window = 0;
-    const n = nums.length;
-    for (let l = 0, r = 1; r < n; ++r) {
-        window += (nums[r] - nums[r - 1]) * (r - l);
-        while (window > k) {
-            window -= nums[r] - nums[l++];
-        }
-        ans = Math.max(ans, r - l + 1);
-    }
-    return ans;
-}
-```
-
-```ts
-function maxFrequency(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    const s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
-    }
-    const check = (cnt: number) => {
-        for (let i = 0; i < n + 1 - cnt; ++i) {
-            const j = i + cnt - 1;
-            if (nums[j] * cnt - (s[j + 1] - s[i]) <= k) {
-                return true;
-            }
-        }
-        return false;
-    };
-    let left = 1;
-    let right = n;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（小根堆）**
+### 方法一：优先队列（小根堆）
 
 首先，我们找到最大的子序和 $mx$，即所有正数之和。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n \times \log n + k \times \log k)$。其中 $n$ 是数组 `nums` 的长度，而 $k$ 是题目中给定的 $k$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                     heappush(h, (s + nums[i] - nums[i - 1], i + 1))
         return mx - h[0][0]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using pli = pair<long long, int>;
@@ -162,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kSum(nums []int, k int) int64 {
 	mx := 0
@@ -199,17 +185,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

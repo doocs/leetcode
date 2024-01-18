@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 枚举**
+### 方法一：数学 + 枚举
 
 我们不妨令 $x_i = arr1[i]$, $y_i = arr2[i]$，由于 $i$ 和 $j$ 的大小关系不影响表达式的值，我们不妨假设 $i \ge j$，那么表达式可以变为：
 
@@ -57,10 +55,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxAbsValExpr(self, arr1: List[int], arr2: List[int]) -> int:
@@ -74,10 +68,6 @@ class Solution:
                 ans = max(ans, mx - mi)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxAbsValExpr(arr1 []int, arr2 []int) int {
 	dirs := [5]int{1, -1, -1, 1, 1}
@@ -144,8 +130,6 @@ func maxAbsValExpr(arr1 []int, arr2 []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxAbsValExpr(arr1: number[], arr2: number[]): number {
@@ -167,10 +151,6 @@ function maxAbsValExpr(arr1: number[], arr2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

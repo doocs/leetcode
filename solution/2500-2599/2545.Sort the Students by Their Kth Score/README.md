@@ -54,29 +54,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：排序
 
-**方法一：排序**
-
-将 `score` 按照第 $k$ 列的分数从大到小排序，然后返回即可。
+我们将 `score` 按照第 $k$ 列的分数从大到小排序，然后返回即可。
 
 时间复杂度 $O(m \times \log m)$，空间复杂度 $O(1)$。其中 $m$ 为 `score` 的行数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def sortTheStudents(self, score: List[List[int]], k: int) -> List[List[int]]:
         return sorted(score, key=lambda x: -x[k])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortTheStudents(score [][]int, k int) [][]int {
 	sort.Slice(score, func(i, j int) bool { return score[i][k] > score[j][k] })
@@ -108,15 +94,11 @@ func sortTheStudents(score [][]int, k int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortTheStudents(score: number[][], k: number): number[][] {
     return score.sort((a, b) => b[k] - a[k]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -128,10 +110,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

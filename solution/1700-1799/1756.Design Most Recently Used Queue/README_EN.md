@@ -45,9 +45,9 @@ mRUQueue.fetch(8); // The 8<sup>th</sup> element (2) is already at the end of th
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MRUQueue:
@@ -65,51 +65,6 @@ class MRUQueue:
 # obj = MRUQueue(n)
 # param_1 = obj.fetch(k)
 ```
-
-```python
-class BinaryIndexedTree:
-    def __init__(self, n: int):
-        self.n = n
-        self.c = [0] * (n + 1)
-
-    def update(self, x: int, v: int):
-        while x <= self.n:
-            self.c[x] += v
-            x += x & -x
-
-    def query(self, x: int) -> int:
-        s = 0
-        while x:
-            s += self.c[x]
-            x -= x & -x
-        return s
-
-
-class MRUQueue:
-    def __init__(self, n: int):
-        self.q = list(range(n + 1))
-        self.tree = BinaryIndexedTree(n + 2010)
-
-    def fetch(self, k: int) -> int:
-        l, r = 1, len(self.q)
-        while l < r:
-            mid = (l + r) >> 1
-            if mid - self.tree.query(mid) >= k:
-                r = mid
-            else:
-                l = mid + 1
-        x = self.q[l]
-        self.q.append(x)
-        self.tree.update(l, 1)
-        return x
-
-
-# Your MRUQueue object will be instantiated and called as such:
-# obj = MRUQueue(n)
-# param_1 = obj.fetch(k)
-```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -176,8 +131,6 @@ class MRUQueue {
  */
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -242,8 +195,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -306,8 +257,6 @@ func (this *MRUQueue) Fetch(k int) int {
  * param_1 := obj.Fetch(k);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -373,10 +322,55 @@ class MRUQueue {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] += v
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class MRUQueue:
+    def __init__(self, n: int):
+        self.q = list(range(n + 1))
+        self.tree = BinaryIndexedTree(n + 2010)
+
+    def fetch(self, k: int) -> int:
+        l, r = 1, len(self.q)
+        while l < r:
+            mid = (l + r) >> 1
+            if mid - self.tree.query(mid) >= k:
+                r = mid
+            else:
+                l = mid + 1
+        x = self.q[l]
+        self.q.append(x)
+        self.tree.update(l, 1)
+        return x
+
+
+# Your MRUQueue object will be instantiated and called as such:
+# obj = MRUQueue(n)
+# param_1 = obj.fetch(k)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

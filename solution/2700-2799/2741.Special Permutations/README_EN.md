@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                             f[i][j] = (f[i][j] + f[ii][k]) % mod
         return sum(f[-1]) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func specialPerm(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -167,10 +161,6 @@ func specialPerm(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

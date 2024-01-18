@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们先用哈希表或者一个长度为 $3$ 的数组 `cnt` 统计字符串 $s$ 中每个字符的个数，如果有字符的个数小于 $k$ 个，则无法取到，提前返回 $-1$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return len(s) - ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +120,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func takeCharacters(s string, k int) int {
@@ -158,8 +144,6 @@ func takeCharacters(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function takeCharacters(s: string, k: number): number {
     const getIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -183,8 +167,6 @@ function takeCharacters(s: string, k: number): number {
     return n - ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -213,10 +195,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

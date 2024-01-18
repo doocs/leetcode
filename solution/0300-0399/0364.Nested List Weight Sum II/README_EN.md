@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # """
@@ -112,8 +112,6 @@ class Solution:
         return dfs(nestedList, depth)
 ```
 
-### **Java**
-
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -173,8 +171,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -246,10 +242,6 @@ var depthSumInverse = function (nestedList) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

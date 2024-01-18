@@ -1,8 +1,5 @@
 class Solution:
     def sortSentence(self, s: str) -> str:
-        words = s.split()
-        ans = [None] * len(words)
-        for w in words:
-            i = int(w[-1]) - 1
-            ans[i] = w[:-1]
-        return ' '.join(ans)
+        ws = [(w[:-1], int(w[-1])) for w in s.split()]
+        ws.sort(key=lambda x: x[1])
+        return ' '.join(w for w, _ in ws)

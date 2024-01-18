@@ -47,96 +47,108 @@ There are 3 unique values, so the answer is 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table
 
-### **Python3**
+The problem asks for the number of unique bitwise OR operations results of subarrays. If we enumerate the end position $i$ of the subarray, the number of bitwise OR operations results of the subarray ending at $i-1$ does not exceed $32$. This is because the bitwise OR operation is a monotonically increasing operation.
+
+Therefore, we use a hash table $ans$ to record all the results of the bitwise OR operations of subarrays, and a hash table $s$ to record the results of the bitwise OR operations of subarrays ending with the current element. Initially, $s$ only contains one element $0$.
+
+Next, we enumerate the end position $i$ of the subarray. The result of the bitwise OR operation of the subarray ending at $i$ is the set of results of the bitwise OR operation of the subarray ending at $i-1$ and $a[i]$, plus $a[i]$ itself. We use a hash table $t$ to record the results of the bitwise OR operation of the subarray ending at $i$, then we update $s = t$, and add all elements in $t$ to $ans$.
+
+Finally, we return the number of elements in the hash table $ans$.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
-        s = set()
-        prev = 0
-        for i, v in enumerate(arr):
-            prev |= v
-            curr = 0
-            for j in range(i, -1, -1):
-                curr |= arr[j]
-                s.add(curr)
-                if curr == prev:
-                    break
-        return len(s)
+        s = {0}
+        ans = set()
+        for x in arr:
+            s = {x | y for y in s} | {x}
+            ans |= s
+        return len(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
     public int subarrayBitwiseORs(int[] arr) {
         Set<Integer> s = new HashSet<>();
-        int prev = 0;
-        for (int i = 0; i < arr.length; ++i) {
-            prev |= arr[i];
-            int curr = 0;
-            for (int j = i; j >= 0; --j) {
-                curr |= arr[j];
-                s.add(curr);
-                if (curr == prev) {
-                    break;
-                }
+        s.add(0);
+        Set<Integer> ans = new HashSet<>();
+        for (int x : arr) {
+            Set<Integer> t = new HashSet<>();
+            for (int y : s) {
+                t.add(x | y);
             }
+            t.add(x);
+            s = t;
+            ans.addAll(s);
         }
-        return s.size();
+        return ans.size();
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
     int subarrayBitwiseORs(vector<int>& arr) {
-        unordered_set<int> s;
-        int prev = 0;
-        for (int i = 0; i < arr.size(); ++i) {
-            prev |= arr[i];
-            int curr = 0;
-            for (int j = i; ~j; --j) {
-                curr |= arr[j];
-                s.insert(curr);
-                if (curr == prev) break;
+        unordered_set<int> s{{0}};
+        unordered_set<int> ans;
+        for (int& x : arr) {
+            unordered_set<int> t{{x}};
+            for (int y : s) {
+                t.insert(x | y);
             }
+            s = move(t);
+            ans.insert(s.begin(), s.end());
         }
-        return s.size();
+        return ans.size();
     }
 };
 ```
 
-### **Go**
-
 ```go
 func subarrayBitwiseORs(arr []int) int {
-	s := map[int]bool{}
-	prev := 0
-	for i, v := range arr {
-		prev |= v
-		curr := 0
-		for j := i; j >= 0; j-- {
-			curr |= arr[j]
-			s[curr] = true
-			if curr == prev {
-				break
-			}
+	ans := map[int]bool{}
+	s := map[int]bool{0: true}
+	for _, x := range arr {
+		t := map[int]bool{x: true}
+		for y := range s {
+			t[x|y] = true
+		}
+		s = t
+		for y := range s {
+			ans[y] = true
 		}
 	}
-	return len(s)
+	return len(ans)
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function subarrayBitwiseORs(arr: number[]): number {
+    const s: Set<number> = new Set();
+    const ans: Set<number> = new Set();
+    for (const x of arr) {
+        const t: Set<number> = new Set();
+        for (const y of s) {
+            t.add(x | y);
+        }
+        t.add(x);
+        s.clear();
+        for (const y of t) {
+            s.add(y);
+            ans.add(y);
+        }
+    }
+    return ans.size;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

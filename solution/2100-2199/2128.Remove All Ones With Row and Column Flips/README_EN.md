@@ -49,9 +49,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             s.add(t)
         return len(s) == 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +96,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeOnes(grid [][]int) bool {
@@ -120,8 +114,6 @@ func removeOnes(grid [][]int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeOnes(grid: number[][]): boolean {
     const s = new Set<string>();
@@ -138,10 +130,6 @@ function removeOnes(grid: number[][]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,7 +58,7 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can directly simulate character matching and replacement.
 
@@ -77,8 +77,6 @@ Finally, if $i + x$ equals $m$ and $j$ equals $n$, it means that the string $wor
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the string $word$ and the string $abbr$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
             j += 1
         return i + x == m and j == n
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -128,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validWordAbbreviation(word string, abbr string) bool {
 	m, n := len(word), len(abbr)
@@ -181,8 +173,6 @@ func validWordAbbreviation(word string, abbr string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function validWordAbbreviation(word: string, abbr: string): boolean {
     const [m, n] = [word.length, abbr.length];
@@ -205,10 +195,6 @@ function validWordAbbreviation(word: string, abbr: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

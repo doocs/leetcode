@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们使用滑动窗口维护一个乘积不超过 $k$ 的连续子数组。每次右边界 $j$ 向右移动一位，如果乘积超过了 $k$，则左边界 $i$ 向右移动，直到乘积小于 $k$。那么以右边界 $j$ 为结尾的子数组个数为 $j - i + 1$，我们将其累加到答案中。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
             ans += j - i + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	s := 1
@@ -125,8 +111,6 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {
@@ -144,10 +128,6 @@ function numSubarrayProductLessThanK(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

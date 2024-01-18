@@ -58,17 +58,11 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：使用 count(distinct) 函数**
+### 方法一：使用 count(distinct) 函数
 
 注意需要判断的是单次购买金额是否大于等于 `minAmount`，而不是累计购买金额是否大于等于 `minAmount`。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 CREATE FUNCTION getUserIDs(startDate DATE, endDate DATE, minAmount INT) RETURNS INT
@@ -82,3 +76,5 @@ END
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

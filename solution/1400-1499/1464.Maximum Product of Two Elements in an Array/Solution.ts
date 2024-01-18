@@ -1,13 +1,13 @@
 function maxProduct(nums: number[]): number {
-    let max = 0;
-    let submax = 0;
-    for (const num of nums) {
-        if (num > max) {
-            submax = max;
-            max = num;
-        } else if (num > submax) {
-            submax = num;
+    const n = nums.length;
+    for (let i = 0; i < 2; i++) {
+        let maxIdx = i;
+        for (let j = i + 1; j < n; j++) {
+            if (nums[j] > nums[maxIdx]) {
+                maxIdx = j;
+            }
         }
+        [nums[i], nums[maxIdx]] = [nums[maxIdx], nums[i]];
     }
-    return (max - 1) * (submax - 1);
+    return (nums[0] - 1) * (nums[1] - 1);
 }

@@ -50,9 +50,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Single Pass
 
-### **Python3**
+We use a variable $mx$ to record the maximum value of the current strictly increasing array, initially $mx = 0$.
+
+Traverse the array `nums` from left to right. For the current element $v$, if $v \lt mx + 1$, we need to increase it to $mx + 1$ to ensure the array is strictly increasing. Therefore, the number of operations we need to perform this time is $max(0, mx + 1 - v)$, which is added to the answer, and then we update $mx=max(mx + 1, v)$. Continue to traverse the next element until the entire array is traversed.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +69,6 @@ class Solution:
             mx = max(mx + 1, v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int) (ans int) {
 	mx := 0
@@ -107,23 +107,6 @@ func minOperations(nums []int) (ans int) {
 	return
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MinOperations(int[] nums) {
-        int ans = 0, mx = 0;
-        foreach (int v in nums) {
-            ans += Math.Max(0, mx + 1 - v);
-            mx = Math.Max(mx + 1, v);
-        }
-        return ans;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[]): number {
@@ -136,8 +119,6 @@ function minOperations(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -153,7 +134,18 @@ impl Solution {
 }
 ```
 
-### **C**
+```cs
+public class Solution {
+    public int MinOperations(int[] nums) {
+        int ans = 0, mx = 0;
+        foreach (int v in nums) {
+            ans += Math.Max(0, mx + 1 - v);
+            mx = Math.Max(mx + 1, v);
+        }
+        return ans;
+    }
+}
+```
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -169,10 +161,6 @@ int minOperations(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

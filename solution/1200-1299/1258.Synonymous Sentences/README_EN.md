@@ -38,9 +38,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Union-Find + DFS
 
-### **Python3**
+We can notice that the synonyms in the problem are transitive, i.e., if `a` and `b` are synonyms, and `b` and `c` are synonyms, then `a` and `c` are also synonyms. Therefore, we can use a union-find set to find the connected components of synonyms, where all the words in each connected component are synonyms and are sorted in lexicographical order.
+
+Next, we split the string `text` into a word array `sentence` by spaces. For each word `sentence[i]`, if it is a synonym, we replace it with all the words in the connected component, otherwise, we do not replace it. In this way, we can get all the sentences. This can be implemented by DFS search.
+
+We design a function $dfs(i)$, which represents starting from the $i$th word of `sentence`, replacing it with all the words in the connected component, and then recursively processing the following words.
+
+If $i$ is greater than or equal to the length of `sentence`, it means that we have processed all the words, and at this time, we add the current sentence to the answer array. Otherwise, if `sentence[i]` is not a synonym, we do not replace it, directly add it to the current sentence, and then recursively process the following words. Otherwise, we replace `sentence[i]` with all the words in the connected component, and also recursively process the following words.
+
+Finally, return the answer array.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of words.
+
+<!-- tabs:start -->
 
 ```python
 class UnionFind:
@@ -97,8 +109,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class UnionFind {
@@ -191,8 +201,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class UnionFind {
@@ -292,8 +300,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type unionFind struct {
 	p, size []int
@@ -380,10 +386,6 @@ func generateSentences(synonyms [][]string, text string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,31 @@ Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Difference Array
 
-### **Python3**
+Let's denote $a$ as the smaller value between $nums[i]$ and $nums[n-i-1]$, and $b$ as the larger value between $nums[i]$ and $nums[n-i-1]$.
+
+Suppose that after replacement, the sum of the two numbers is $x$. From the problem, we know that the minimum value of $x$ is $2$, which means both numbers are replaced by $1$; the maximum value is $2 \times limit$, which means both numbers are replaced by $limit$. Therefore, the range of $x$ is $[2,... 2 \times limit]$.
+
+How to find the minimum number of replacements for different $x$?
+
+We analyze and find:
+
+-   If $x = a + b$, then the number of replacements we need is $0$, which means the current pair of numbers already meets the complement requirement;
+-   Otherwise, if $1 + a \le x \le limit + b $, then the number of replacements we need is $1$, which means we can replace one of the numbers;
+-   Otherwise, if $2 \le x \le 2 \times limit$, then the number of replacements we need is $2$, which means we need to replace both numbers.
+
+Therefore, we can iterate over each pair of numbers and perform the following operations:
+
+1. First, add $2$ to the number of operations required in the range $[2,... 2 \times limit]$.
+1. Then, subtract $1$ from the number of operations required in the range $[1 + a,... limit + b]$.
+1. Finally, subtract $1$ from the number of operations required in the range $[a + b,... a + b]$.
+
+We can see that this is actually adding and subtracting elements in a continuous interval, so we can use a difference array to implement it.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +103,6 @@ class Solution:
                 ans = s
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +133,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -147,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMoves(nums []int, limit int) int {
 	d := make([]int, limit*2+2)
@@ -175,10 +191,6 @@ func minMoves(nums []int, limit int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

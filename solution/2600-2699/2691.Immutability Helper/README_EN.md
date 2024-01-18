@@ -103,12 +103,4 @@ mutators = [
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **TypeScript**
-
-```ts
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

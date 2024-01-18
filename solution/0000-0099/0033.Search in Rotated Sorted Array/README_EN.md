@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We use binary search to divide the array into two parts, $[left,.. mid]$ and $[mid + 1,.. right]$. At this point, we can find that one part must be sorted.
 
@@ -54,8 +54,6 @@ The termination condition for binary search is $left \geq right$. If at the end 
 The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
                     right = mid
         return left if nums[left] == target else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,10 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func search(nums []int, target int) int {
@@ -163,15 +153,8 @@ func search(nums []int, target int) int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var search = function (nums, target) {
+```ts
+function search(nums: number[], target: number): number {
     const n = nums.length;
     let left = 0,
         right = n - 1;
@@ -192,10 +175,8 @@ var search = function (nums, target) {
         }
     }
     return nums[left] == target ? left : -1;
-};
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -227,10 +208,13 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function search(nums: number[], target: number): number {
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function (nums, target) {
     const n = nums.length;
     let left = 0,
         right = n - 1;
@@ -251,13 +235,9 @@ function search(nums: number[], target: number): number {
         }
     }
     return nums[left] == target ? left : -1;
-}
-```
-
-### **...**
-
-```
-
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

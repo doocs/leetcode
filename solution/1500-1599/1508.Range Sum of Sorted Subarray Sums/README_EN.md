@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(arr[left - 1 : right]) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rangeSum(nums []int, n int, left int, right int) (ans int) {
 	var arr []int
@@ -132,10 +126,6 @@ func rangeSum(nums []int, n int, left int, right int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

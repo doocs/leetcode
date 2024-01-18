@@ -54,9 +54,9 @@ Since now the four &lt;b&gt;&#39;s are consecutive, we merge them: &quot;&lt;b&g
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -119,8 +119,6 @@ class Solution:
 
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -199,8 +197,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Trie {
 public:
@@ -269,8 +265,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -348,10 +342,6 @@ func addBoldTag(s string, words []string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

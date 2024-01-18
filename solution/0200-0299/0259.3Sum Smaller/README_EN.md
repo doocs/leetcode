@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                     j += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func threeSumSmaller(nums []int, target int) int {
 	sort.Ints(nums)
@@ -134,8 +128,6 @@ func threeSumSmaller(nums []int, target int) int {
 	return ans
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -163,10 +155,6 @@ var threeSumSmaller = function (nums, target) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

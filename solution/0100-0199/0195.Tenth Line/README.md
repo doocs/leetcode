@@ -35,27 +35,4 @@ Line 10
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-<!-- tabs:start -->
-
-### **Bash**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```sh
-# Read from the file file.txt and output the tenth line to stdout.
-tail -n +10 file.txt | head -1
-```
-
-```sh
-# Read from the file file.txt and output the tenth line to stdout.
-awk 'NR == 10' file.txt
-```
-
-```sh
-# Read from the file file.txt and output the tenth line to stdout.
-sed -n 10p file.txt
-```
-
-<!-- tabs:end -->
+<!-- end -->

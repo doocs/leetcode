@@ -50,11 +50,9 @@ Note that square 2 only brushes the right side of square 1, which does not count
 
 ## Solutions
 
-Segment Tree.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Node:
@@ -132,8 +130,6 @@ class Solution:
             tree.modify(l, r, h)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -241,8 +237,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -339,8 +333,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type node struct {
@@ -440,10 +432,6 @@ func fallingSquares(positions [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 我们可以先判断数组长度是否小于 $5$，如果小于 $5$，那么直接返回 $0$。
 
@@ -75,10 +73,6 @@
 -   [2567. 修改两个元素的最小分数](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
             ans = min(ans, nums[n - 1 - r] - nums[l])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minDifference(nums []int) int {
 	n := len(nums)
@@ -155,10 +141,6 @@ func minDifference(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

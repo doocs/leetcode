@@ -47,19 +47,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：前缀和 + 数组或哈希表
 
-**方法一：前缀和 + 数组/哈希表**
+题目求子数组中恰好有 $k$ 个奇数的子数组个数，我们可以求出每个前缀数组中奇数的个数 $t$，记录在数组或哈希表 $cnt$ 中。对于每个前缀数组，我们只需要求出前缀数组中奇数个数为 $t-k$ 的前缀数组个数，即为以当前前缀数组结尾的子数组个数。
 
-题目求子数组中恰好有 $k$ 个奇数的子数组个数，我们可以求出每个前缀数组中奇数的个数 $t$，记录在数组或哈希表 `cnt` 中。对于每个前缀数组，我们只需要求出前缀数组中奇数个数为 $t-k$ 的前缀数组个数，即为以当前前缀数组结尾的子数组个数。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
             cnt[t] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfSubarrays(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -136,8 +122,6 @@ func numberOfSubarrays(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfSubarrays(nums: number[], k: number): number {
@@ -157,10 +141,6 @@ function numberOfSubarrays(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

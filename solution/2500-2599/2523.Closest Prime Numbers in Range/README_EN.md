@@ -7,12 +7,12 @@
 <p>Given two positive integers <code>left</code> and <code>right</code>, find the two integers <code>num1</code> and <code>num2</code> such that:</p>
 
 <ul>
-	<li><code>left &lt;= nums1 &lt; nums2 &lt;= right </code>.</li>
-	<li><code>nums1</code> and <code>nums2</code> are both <strong>prime</strong> numbers.</li>
-	<li><code>nums2 - nums1</code> is the <strong>minimum</strong> amongst all other pairs satisfying the above conditions.</li>
+	<li><code>left &lt;= num1 &lt; num2 &lt;= right </code>.</li>
+	<li><code>num1</code> and <code>num2</code> are both <strong>prime</strong> numbers.</li>
+	<li><code>num2 - num1</code> is the <strong>minimum</strong> amongst all other pairs satisfying the above conditions.</li>
 </ul>
 
-<p>Return <em>the positive integer array</em> <code>ans = [nums1, nums2]</code>. <em>If there are multiple pairs satisfying these conditions, return the one with the minimum</em> <code>nums1</code> <em>value or</em> <code>[-1, -1]</code> <em>if such numbers do not exist.</em></p>
+<p>Return <em>the positive integer array</em> <code>ans = [num1, num2]</code>. <em>If there are multiple pairs satisfying these conditions, return the one with the minimum</em> <code>num1</code> <em>value or</em> <code>[-1, -1]</code> <em>if such numbers do not exist.</em></p>
 
 <p>A number greater than <code>1</code> is called <b>prime</b> if it is only divisible by <code>1</code> and itself.</p>
 
@@ -53,9 +53,9 @@ Since 11 is smaller than 17, we return the first pair.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
                 ans = [a, b]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +171,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func closestPrimes(left int, right int) []int {
 	cnt := 0
@@ -219,10 +213,6 @@ func closestPrimes(left int, right int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

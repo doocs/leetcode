@@ -7,13 +7,14 @@ function combinationSum(candidates: number[], target: number): number[][] {
             ans.push(t.slice());
             return;
         }
-        if (i >= candidates.length || s < candidates[i]) {
+        if (s < candidates[i]) {
             return;
         }
-        dfs(i + 1, s);
-        t.push(candidates[i]);
-        dfs(i, s - candidates[i]);
-        t.pop();
+        for (let j = i; j < candidates.length; ++j) {
+            t.push(candidates[j]);
+            dfs(j, s - candidates[j]);
+            t.pop();
+        }
     };
     dfs(0, target);
     return ans;

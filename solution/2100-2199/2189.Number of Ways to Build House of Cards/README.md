@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们注意到，每一层的卡片数量为 $3 \times k + 2$，并且每一层的卡片数量都不相同。因此，问题可以转化为：整数 $n$ 可以由多少种 $3 \times k + 2$ 的数相加得到。这是一个经典的背包问题，可以使用记忆化搜索解决。
 
@@ -76,10 +74,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def houseOfCards(self, n: int) -> int:
@@ -94,10 +88,6 @@ class Solution:
 
         return dfs(n, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func houseOfCards(n int) int {
@@ -179,8 +165,6 @@ func houseOfCards(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function houseOfCards(n: number): number {
     const f: number[][] = Array(n + 1)
@@ -203,10 +187,6 @@ function houseOfCards(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class TripleInOne:
@@ -77,8 +77,6 @@ class TripleInOne:
 # param_3 = obj.peek(stackNum)
 # param_4 = obj.isEmpty(stackNum)
 ```
-
-### **Java**
 
 ```java
 class TripleInOne {
@@ -123,8 +121,6 @@ class TripleInOne {
  * boolean param_4 = obj.isEmpty(stackNum);
  */
 ```
-
-### **Go**
 
 ```go
 type TripleInOne struct {
@@ -186,10 +182,6 @@ func (this *TripleInOne) IsEmpty(stackNum int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

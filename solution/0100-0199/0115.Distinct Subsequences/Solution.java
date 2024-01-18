@@ -1,16 +1,18 @@
 class Solution {
     public int numDistinct(String s, String t) {
-        int n = t.length();
-        int[] f = new int[n + 1];
-        f[0] = 1;
-        for (char a : s.toCharArray()) {
-            for (int j = n; j > 0; --j) {
-                char b = t.charAt(j - 1);
-                if (a == b) {
-                    f[j] += f[j - 1];
+        int m = s.length(), n = t.length();
+        int[][] f = new int[m + 1][n + 1];
+        for (int i = 0; i < m + 1; ++i) {
+            f[i][0] = 1;
+        }
+        for (int i = 1; i < m + 1; ++i) {
+            for (int j = 1; j < n + 1; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    f[i][j] += f[i - 1][j - 1];
                 }
             }
         }
-        return f[n];
+        return f[m][n];
     }
 }

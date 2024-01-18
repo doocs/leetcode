@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 用数组或哈希表记录字符串 $s$ 每个字符第一次出现的位置。由于本题中字符串 $s$ 只含小写英文字母，因此可以用一个长度为 $26$ 的数组 $d$ 来记录，初始时数组元素值均为 $-1$。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度，而 $C$ 为字符串 $s$ 的字符集大小，本题 $C=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                 d[c] = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxLengthBetweenEqualCharacters(s string) int {
@@ -144,31 +130,6 @@ func maxLengthBetweenEqualCharacters(s string) int {
 }
 ```
 
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int maxLengthBetweenEqualCharacters(char* s) {
-    int pos[26];
-    memset(pos, -1, sizeof(pos));
-    int n = strlen(s);
-    int res = -1;
-    for (int i = 0; i < n; i++) {
-        char c = s[i];
-        int j = c - 'a';
-        if (pos[j] == -1) {
-            pos[j] = i;
-        } else {
-            res = max(res, i - pos[j] - 1);
-        }
-    }
-    return res;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function maxLengthBetweenEqualCharacters(s: string): number {
     const n = s.length;
@@ -185,8 +146,6 @@ function maxLengthBetweenEqualCharacters(s: string): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -209,10 +168,27 @@ impl Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```
-
+int maxLengthBetweenEqualCharacters(char* s) {
+    int pos[26];
+    memset(pos, -1, sizeof(pos));
+    int n = strlen(s);
+    int res = -1;
+    for (int i = 0; i < n; i++) {
+        char c = s[i];
+        int j = c - 'a';
+        if (pos[j] == -1) {
+            pos[j] = i;
+        } else {
+            res = max(res, i - pos[j] - 1);
+        }
+    }
+    return res;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -70,9 +70,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们可以将所有项目按照利润从大到小排序，先选取前 $k$ 个项目，计算其总利润 $tot$，用一个哈希表 $vis$ 记录这 $k$ 个项目的类别，用一个栈 $dup$ 按顺序记录这 $k$ 个项目中重复类别的利润，用一个变量 $ans$ 记录当前的最大优雅度。
 
@@ -83,10 +81,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为项目数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -110,10 +104,6 @@ class Solution:
             ans = max(ans, tot + len(vis) ** 2)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,8 +134,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -183,8 +171,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaximumElegance(items [][]int, k int) int64 {
 	sort.Slice(items, func(i, j int) bool { return items[i][0] > items[j][0] })
@@ -215,8 +201,6 @@ func findMaximumElegance(items [][]int, k int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMaximumElegance(items: number[][], k: number): number {
     items.sort((a, b) => b[0] - a[0]);
@@ -244,10 +228,6 @@ function findMaximumElegance(items: number[][], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

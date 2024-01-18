@@ -59,7 +59,7 @@ So the answer would be [5,16,10].</pre>
 
 ## Solutions
 
-**Solution 1: Sorting + Prefix Sum + Binary Search**
+### Solution 1: Sorting + Prefix Sum + Binary Search
 
 We can sort the monsters and coins in ascending order of the monsters' combat power, and then use prefix sum to calculate the total number of coins each hero can get by defeating the first $i$ monsters.
 
@@ -68,8 +68,6 @@ Next, for each hero, we can use binary search to find the strongest monster he c
 The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of monsters and heroes, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
             ans.append(s[i])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,8 +122,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -164,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	m := len(monsters)
@@ -185,8 +177,6 @@ func maximumCoins(heroes []int, monsters []int, coins []int) (ans []int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumCoins(heroes: number[], monsters: number[], coins: number[]): number[] {
@@ -214,10 +204,6 @@ function maximumCoins(heroes: number[], monsters: number[], coins: number[]): nu
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

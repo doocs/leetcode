@@ -69,9 +69,7 @@ i = 3:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 我们可以先利用单调栈，求出每个位置的左边第一个比它小的位置 $left[i]$ 和右边第一个比它小的位置 $right[i]$，那么以 $nums[i]$ 为最小值的子数组的长度为 $m = right[i] - left[i] - 1$。
 
@@ -84,10 +82,6 @@ i = 3:
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -117,10 +111,6 @@ class Solution:
             ans[i] = max(ans[i], ans[i + 1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -204,8 +192,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMaximums(nums []int) []int {
@@ -248,10 +234,6 @@ func findMaximums(nums []int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

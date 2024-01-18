@@ -47,9 +47,13 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + Bit Manipulation
 
-### **Python3**
+According to the problem description, we first calculate the number of set bits $cnt$ in $num2$, then enumerate each bit of $num1$ from high to low. If the bit is $1$, we set the corresponding bit in $x$ to $1$ and decrement $cnt$ by $1$, until $cnt$ is $0$. If $cnt$ is still not $0$ at this point, we start from the low bit and set each bit of $num1$ that is $0$ to $1$, and decrement $cnt$ by $1$, until $cnt$ is $0$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the maximum value of $num1$ and $num2$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,22 +70,6 @@ class Solution:
                 cnt -= 1
         return x
 ```
-
-```python
-class Solution:
-    def minimizeXor(self, num1: int, num2: int) -> int:
-        cnt1 = num1.bit_count()
-        cnt2 = num2.bit_count()
-        while cnt1 > cnt2:
-            num1 &= num1 - 1
-            cnt1 -= 1
-        while cnt1 < cnt2:
-            num1 |= num1 + 1
-            cnt1 += 1
-        return num1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,24 +92,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int minimizeXor(int num1, int num2) {
-        int cnt1 = Integer.bitCount(num1);
-        int cnt2 = Integer.bitCount(num2);
-        for (; cnt1 > cnt2; --cnt1) {
-            num1 &= (num1 - 1);
-        }
-        for (; cnt1 < cnt2; ++cnt1) {
-            num1 |= (num1 + 1);
-        }
-        return num1;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,25 +116,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int minimizeXor(int num1, int num2) {
-        int cnt1 = __builtin_popcount(num1);
-        int cnt2 = __builtin_popcount(num2);
-        for (; cnt1 > cnt2; --cnt1) {
-            num1 &= (num1 - 1);
-        }
-        for (; cnt1 < cnt2; ++cnt1) {
-            num1 |= (num1 + 1);
-        }
-        return num1;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func minimizeXor(num1 int, num2 int) int {
 	cnt := bits.OnesCount(uint(num2))
@@ -184,22 +135,6 @@ func minimizeXor(num1 int, num2 int) int {
 	return x
 }
 ```
-
-```go
-func minimizeXor(num1 int, num2 int) int {
-	cnt1 := bits.OnesCount(uint(num1))
-	cnt2 := bits.OnesCount(uint(num2))
-	for ; cnt1 > cnt2; cnt1-- {
-		num1 &= (num1 - 1)
-	}
-	for ; cnt1 < cnt2; cnt1++ {
-		num1 |= (num1 + 1)
-	}
-	return num1
-}
-```
-
-### **TypeScript**
 
 ```ts
 function minimizeXor(num1: number, num2: number): number {
@@ -222,6 +157,73 @@ function minimizeXor(num1: number, num2: number): number {
         }
     }
     return x;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimizeXor(self, num1: int, num2: int) -> int:
+        cnt1 = num1.bit_count()
+        cnt2 = num2.bit_count()
+        while cnt1 > cnt2:
+            num1 &= num1 - 1
+            cnt1 -= 1
+        while cnt1 < cnt2:
+            num1 |= num1 + 1
+            cnt1 += 1
+        return num1
+```
+
+```java
+class Solution {
+    public int minimizeXor(int num1, int num2) {
+        int cnt1 = Integer.bitCount(num1);
+        int cnt2 = Integer.bitCount(num2);
+        for (; cnt1 > cnt2; --cnt1) {
+            num1 &= (num1 - 1);
+        }
+        for (; cnt1 < cnt2; ++cnt1) {
+            num1 |= (num1 + 1);
+        }
+        return num1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minimizeXor(int num1, int num2) {
+        int cnt1 = __builtin_popcount(num1);
+        int cnt2 = __builtin_popcount(num2);
+        for (; cnt1 > cnt2; --cnt1) {
+            num1 &= (num1 - 1);
+        }
+        for (; cnt1 < cnt2; ++cnt1) {
+            num1 |= (num1 + 1);
+        }
+        return num1;
+    }
+};
+```
+
+```go
+func minimizeXor(num1 int, num2 int) int {
+	cnt1 := bits.OnesCount(uint(num1))
+	cnt2 := bits.OnesCount(uint(num2))
+	for ; cnt1 > cnt2; cnt1-- {
+		num1 &= (num1 - 1)
+	}
+	for ; cnt1 < cnt2; cnt1++ {
+		num1 |= (num1 + 1)
+	}
+	return num1
 }
 ```
 
@@ -248,10 +250,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -74,13 +74,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +90,6 @@ class Solution:
             suf[i] = suf[i + 1] if s[i] == '0' else min(suf[i + 1] + 2, n - i)
         return min(a + b for a, b in zip(pre[1:], suf[1:]))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumTime(s string) int {
@@ -165,16 +153,6 @@ func minimumTime(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

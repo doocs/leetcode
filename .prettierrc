@@ -13,47 +13,8 @@
     "sqlKeywordCase": "upper",
     "overrides": [
         {
-            "files": [
-                "solution/0100-0199/0180.Consecutive Numbers/Solution.sql",
-                "solution/0500-0599/0550.Game Play Analysis IV/Solution.sql",
-                "solution/0500-0599/0578.Get Highest Answer Rate Question/Solution.sql",
-                "solution/0600-0699/0610.Triangle Judgement/Solution.sql",
-                "solution/0600-0699/0618.Students Report By Geography/Solution.sql",
-                "solution/0600-0699/0626.Exchange Seats/Solution.sql",
-                "solution/0600-0699/0627.Swap Salary/Solution.sql",
-                "solution/1000-1099/1097.Game Play Analysis V/Solution.sql",
-                "solution/1000-1099/1098.Unpopular Books/Solution.sql",
-                "solution/1100-1199/1113.Reported Posts/Solution.sql",
-                "solution/1100-1199/1127.User Purchase Platform/Solution.sql",
-                "solution/1100-1199/1174.Immediate Food Delivery II/Solution.sql",
-                "solution/1100-1199/1193.Monthly Transactions I/Solution.sql",
-                "solution/1200-1299/1205.Monthly Transactions II/Solution.sql",
-                "solution/1200-1299/1285.Find the Start and End Number of Continuous Ranges/Solution.sql",
-                "solution/1300-1399/1384.Total Sales Amount by Year/Solution.sql",
-                "solution/1300-1399/1322.Ads Performance/Solution.sql",
-                "solution/1300-1399/1393.Capital GainLoss/Solution.sql",
-                "solution/1300-1399/1398.Customers Who Bought Products A and B but Not C/Solution.sql",
-                "solution/1400-1499/1445.Apples & Oranges/Solution.sql",
-                "solution/1400-1499/1479.Sales by Day of the Week/Solution.sql",
-                "solution/1500-1599/1501.Countries You Can Safely Invest In/Solution.sql",
-                "solution/1500-1599/1511.Customer Order Frequency/Solution.sql",
-                "solution/1500-1599/1555.Bank Account Summary/Solution.sql",
-                "solution/1600-1699/1661.Average Time of Process per Machine/Solution.sql",
-                "solution/1600-1699/1667.Fix Names in a Table/Solution.sql",
-                "solution/1600-1699/1699.Number of Calls Between Two Persons/Solution.sql",
-                "solution/1700-1799/1777.Product's Price for Each Store/Solution.sql",
-                "solution/1900-1999/1934.Confirmation Rate/Solution.sql",
-                "solution/1900-1999/1972.First and Last Call On the Same Day/Solution.sql",
-                "solution/2000-2099/2066.Account Balance/Solution.sql",
-                "solution/2200-2299/2230.The Users That Are Eligible for Discount/Solution.sql",
-                "solution/2600-2699/2686.Immediate Food Delivery III/Solution.sql",
-                "solution/2400-2499/2494.Merge Overlapping Events in the Same Hall/Solution.sql",
-                "solution/2700-2799/2752.Customers with Maximum Number of Transactions on Consecutive Days/Solution.sql",
-                "solution/2700-2799/2793.Status of Flight Tickets/Solution.sql"
-            ],
-            "options": {
-                "parser": "bigquery"
-            }
+            "files": ["*.sql"],
+            "options": { "parser": "mysql" }
         }
     ]
 }

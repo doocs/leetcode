@@ -66,23 +66,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：模拟
+
+我们遍历字符串数组 $words$，对于每个字符串 $w$，我们使用 `separator` 作为分隔符进行拆分，如果拆分后的字符串不为空，则将其加入答案数组。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(m)$，其中 $n$ 是字符串数组 $words$ 的长度，而 $m$ 是字符串数组 $words$ 中字符串的最大长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
         return [s for w in words for s in w.split(separator) if s]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 import java.util.regex.Pattern;
@@ -102,36 +98,24 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     vector<string> splitWordsBySeparator(vector<string>& words, char separator) {
         vector<string> ans;
-        for (auto& w : words) {
-            for (auto& s : split(w, separator)) {
+        for (const auto& w : words) {
+            istringstream ss(w);
+            string s;
+            while (getline(ss, s, separator)) {
                 if (!s.empty()) {
-                    ans.emplace_back(s);
+                    ans.push_back(s);
                 }
             }
         }
         return ans;
     }
-
-    vector<string> split(string& s, char c) {
-        vector<string> res;
-        stringstream ss(s);
-        string t;
-        while (getline(ss, t, c)) {
-            res.push_back(t);
-        }
-        return res;
-    }
 };
 ```
-
-### **Go**
 
 ```go
 func splitWordsBySeparator(words []string, separator byte) (ans []string) {
@@ -146,26 +130,12 @@ func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function splitWordsBySeparator(words: string[], separator: string): string[] {
-    const ans: string[] = [];
-    for (const w of words) {
-        for (const s of w.split(separator)) {
-            if (s.length > 0) {
-                ans.push(s);
-            }
-        }
-    }
-    return ans;
+    return words.flatMap(w => w.split(separator).filter(s => s.length > 0));
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

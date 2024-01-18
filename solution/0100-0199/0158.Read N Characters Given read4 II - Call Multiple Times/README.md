@@ -104,15 +104,9 @@ sol.read (buf, 1); // 我们已经到达文件的末尾，不能读取更多的�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # The read4 API is already defined for you.
@@ -138,10 +132,6 @@ class Solution:
                 j += 1
         return j
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -178,8 +168,6 @@ public class Solution extends Reader4 {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -212,8 +200,6 @@ private:
     int size = 0;
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -253,16 +239,6 @@ var solution = func(read4 func([]byte) int) func([]byte, int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

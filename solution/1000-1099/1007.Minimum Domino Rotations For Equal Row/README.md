@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 根据题目描述，我们知道，要使得 $tops$ 中所有值或者 $bottoms$ 中所有值都相同，那么这个值必须是 $tops[0]$ 或者 $bottoms[0]$ 中的一个。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
         ans = min(f(tops[0]), f(bottoms[0]))
         return -1 if ans == inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDominoRotations(tops []int, bottoms []int) int {
@@ -167,8 +153,6 @@ func minDominoRotations(tops []int, bottoms []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minDominoRotations(tops: number[], bottoms: number[]): number {
     const n = tops.length;
@@ -188,10 +172,6 @@ function minDominoRotations(tops: number[], bottoms: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

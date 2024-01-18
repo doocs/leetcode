@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先计算数组元素总和 $s$，然后计算 $s$ 与 $goal$ 的差值 $d$。
 
@@ -52,13 +50,9 @@
 
 注意，本题中数组元素的数据范围为 $[-10^6, 10^6]$，元素个数最大为 $10^5$，总和 $s$ 以及差值 $d$ 可能会超过 $32$ 位整数的表示范围，因此需要使用 $64$ 位整数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
         d = abs(sum(nums) - goal)
         return (d + limit - 1) // limit
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -85,8 +75,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +85,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minElements(nums []int, limit int, goal int) int {
@@ -118,8 +104,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minElements(nums: number[], limit: number, goal: number): number {
     const sum = nums.reduce((r, v) => r + v, 0);
@@ -127,8 +111,6 @@ function minElements(nums: number[], limit: number, goal: number): number {
     return Math.floor((diff + limit - 1) / limit);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -145,8 +127,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int minElements(int* nums, int numsSize, int limit, int goal) {
     long long sum = 0;
@@ -158,10 +138,6 @@ int minElements(int* nums, int numsSize, int limit, int goal) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

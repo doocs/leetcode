@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优先队列**
+### 方法一：贪心 + 优先队列
 
 我们可以贪心地在未腐烂的苹果中优先选择最容易腐烂的苹果，这样可以使得吃到的苹果尽可能多。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n\times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `apples` 或 `days` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -144,8 +132,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func eatenApples(apples []int, days []int) int {
@@ -183,10 +169,6 @@ func (a *hp) Push(x any)        { *a = append(*a, x.(pair)) }
 func (a *hp) Pop() any          { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

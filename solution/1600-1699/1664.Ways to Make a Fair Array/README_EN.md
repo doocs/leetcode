@@ -58,9 +58,9 @@ There is 1 index that you can remove to make nums fair.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
             t2 += v if i % 2 == 1 else 0
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func waysToMakeFair(nums []int) (ans int) {
@@ -155,8 +149,6 @@ func waysToMakeFair(nums []int) (ans int) {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -184,10 +176,6 @@ var waysToMakeFair = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

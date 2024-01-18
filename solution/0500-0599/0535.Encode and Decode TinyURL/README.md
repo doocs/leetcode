@@ -47,15 +47,9 @@ string ans = obj.decode(tiny); // 返回解密后得到的原本的 URL 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Codec:
@@ -81,10 +75,6 @@ class Codec:
 # codec.decode(codec.encode(url))
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 public class Codec {
     private Map<String, String> m = new HashMap<>();
@@ -109,8 +99,6 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.decode(codec.encode(url));
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ private:
 // Solution solution;
 // solution.decode(solution.encode(url));
 ```
-
-### **Go**
 
 ```go
 type Codec struct {
@@ -174,10 +160,6 @@ func (this *Codec) decode(shortUrl string) string {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

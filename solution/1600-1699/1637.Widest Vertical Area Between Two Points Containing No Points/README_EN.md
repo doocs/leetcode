@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -48,6 +48,77 @@ class Solution:
         points.sort()
         return max(b[0] - a[0] for a, b in pairwise(points))
 ```
+
+```java
+class Solution {
+    public int maxWidthOfVerticalArea(int[][] points) {
+        Arrays.sort(points, (a, b) -> a[0] - b[0]);
+        int ans = 0;
+        for (int i = 0; i < points.length - 1; ++i) {
+            ans = Math.max(ans, points[i + 1][0] - points[i][0]);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxWidthOfVerticalArea(vector<vector<int>>& points) {
+        sort(points.begin(), points.end());
+        int ans = 0;
+        for (int i = 0; i < points.size() - 1; ++i) {
+            ans = max(ans, points[i + 1][0] - points[i][0]);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maxWidthOfVerticalArea(points [][]int) (ans int) {
+	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
+	for i, p := range points[1:] {
+		ans = max(ans, p[0]-points[i][0])
+	}
+	return
+}
+```
+
+```ts
+function maxWidthOfVerticalArea(points: number[][]): number {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    for (let i = 1; i < points.length; ++i) {
+        ans = Math.max(ans, points[i][0] - points[i - 1][0]);
+    }
+    return ans;
+}
+```
+
+```js
+/**
+ * @param {number[][]} points
+ * @return {number}
+ */
+var maxWidthOfVerticalArea = function (points) {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    let px = points[0][0];
+    for (const [x, _] of points) {
+        ans = Math.max(ans, x - px);
+        px = x;
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,21 +141,6 @@ class Solution:
             ans = max(ans, curmin - prev)
             prev = curmax
         return ans
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int maxWidthOfVerticalArea(int[][] points) {
-        Arrays.sort(points, (a, b) -> a[0] - b[0]);
-        int ans = 0;
-        for (int i = 0; i < points.length - 1; ++i) {
-            ans = Math.max(ans, points[i + 1][0] - points[i][0]);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -127,22 +183,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxWidthOfVerticalArea(vector<vector<int>>& points) {
-        sort(points.begin(), points.end());
-        int ans = 0;
-        for (int i = 0; i < points.size() - 1; ++i) {
-            ans = max(ans, points[i + 1][0] - points[i][0]);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -176,18 +216,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func maxWidthOfVerticalArea(points [][]int) (ans int) {
-	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
-	for i, p := range points[1:] {
-		ans = max(ans, p[0]-points[i][0])
-	}
-	return
-}
 ```
 
 ```go
@@ -226,19 +254,6 @@ func maxWidthOfVerticalArea(points [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxWidthOfVerticalArea(points: number[][]): number {
-    points.sort((a, b) => a[0] - b[0]);
-    let ans = 0;
-    for (let i = 1; i < points.length; ++i) {
-        ans = Math.max(ans, points[i][0] - points[i - 1][0]);
-    }
-    return ans;
-}
-```
-
 ```ts
 function maxWidthOfVerticalArea(points: number[][]): number {
     const nums: number[] = points.map(point => point[0]);
@@ -269,25 +284,6 @@ function maxWidthOfVerticalArea(points: number[][]): number {
     }
     return ans;
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} points
- * @return {number}
- */
-var maxWidthOfVerticalArea = function (points) {
-    points.sort((a, b) => a[0] - b[0]);
-    let ans = 0;
-    let px = points[0][0];
-    for (const [x, _] of points) {
-        ans = Math.max(ans, x - px);
-        px = x;
-    }
-    return ans;
-};
 ```
 
 ```js
@@ -326,10 +322,6 @@ var maxWidthOfVerticalArea = function (points) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,9 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for Node.
@@ -85,8 +85,6 @@ class Solution:
         mp = {}
         return dfs(root)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -132,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a Node.
@@ -168,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -202,10 +196,6 @@ func copyRandomBinaryTree(root *Node) *NodeCopy {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

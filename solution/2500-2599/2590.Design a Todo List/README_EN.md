@@ -57,7 +57,7 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 
 ## Solutions
 
-**Solution 1: Hash Table + Sorted Set**
+### Solution 1: Hash Table + Sorted Set
 
 We use a hash table $tasks$ to record the set of tasks for each user, where the key is the user ID and the value is a sorted set sorted by the deadline of the task. In addition, we use a variable $i$ to record the current task ID.
 
@@ -72,8 +72,6 @@ When calling the `completeTask` method, we traverse the task set of the correspo
 The space complexity is $O(n)$. Where $n$ is the number of all tasks.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from sortedcontainers import SortedList
@@ -112,8 +110,6 @@ class TodoList:
 # param_3 = obj.getTasksForTag(userId,tag)
 # obj.completeTask(userId,taskId)
 ```
-
-### **Java**
 
 ```java
 class Task {
@@ -190,8 +186,6 @@ class TodoList {
  * obj.completeTask(userId,taskId);
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -307,22 +301,6 @@ impl TodoList {
 }
 ```
 
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

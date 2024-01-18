@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,15 +54,6 @@ class Solution:
             n >>= 1
         return True
 ```
-
-```python
-class Solution:
-    def hasAlternatingBits(self, n: int) -> bool:
-        n ^= n >> 1
-        return (n & (n + 1)) == 0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,17 +72,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean hasAlternatingBits(int n) {
-        n ^= (n >> 1);
-        return (n & (n + 1)) == 0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,17 +88,20 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool hasAlternatingBits(int n) {
-        n ^= (n >> 1);
-        return (n & ((long) n + 1)) == 0;
-    }
-};
+```go
+func hasAlternatingBits(n int) bool {
+	prev := -1
+	for n != 0 {
+		curr := n & 1
+		if prev == curr {
+			return false
+		}
+		prev = curr
+		n >>= 1
+	}
+	return true
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -138,30 +121,36 @@ impl Solution {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn has_alternating_bits(n: i32) -> bool {
-        let t = n ^ (n >> 1);
-        (t & (t + 1)) == 0
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        n ^= n >> 1
+        return (n & (n + 1)) == 0
+```
+
+```java
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        n ^= (n >> 1);
+        return (n & (n + 1)) == 0;
     }
 }
 ```
 
-### **Go**
-
-```go
-func hasAlternatingBits(n int) bool {
-	prev := -1
-	for n != 0 {
-		curr := n & 1
-		if prev == curr {
-			return false
-		}
-		prev = curr
-		n >>= 1
-	}
-	return true
-}
+```cpp
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        n ^= (n >> 1);
+        return (n & ((long) n + 1)) == 0;
+    }
+};
 ```
 
 ```go
@@ -171,10 +160,15 @@ func hasAlternatingBits(n int) bool {
 }
 ```
 
-### **...**
-
-```
-
+```rust
+impl Solution {
+    pub fn has_alternating_bits(n: i32) -> bool {
+        let t = n ^ (n >> 1);
+        (t & (t + 1)) == 0
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

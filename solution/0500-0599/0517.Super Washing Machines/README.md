@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 如果洗衣机内的衣服总数不能被洗衣机的数量整除，那么不可能使得每台洗衣机内的衣服数量相等，直接返回 $-1$。
 
@@ -79,10 +77,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findMinMoves(self, machines: List[int]) -> int:
@@ -97,10 +91,6 @@ class Solution:
             ans = max(ans, abs(s), x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMinMoves(machines []int) (ans int) {
@@ -180,8 +166,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMinMoves(machines: number[]): number {
     const n = machines.length;
@@ -201,10 +185,6 @@ function findMinMoves(machines: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

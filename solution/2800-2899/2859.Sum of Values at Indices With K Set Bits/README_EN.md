@@ -54,7 +54,7 @@ Hence, the answer is nums[3] = 1.
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We directly traverse each index $i$, and check whether the number of $1$s in its binary representation is equal to $k$. If it is, we add the corresponding element to the answer $ans$.
 
@@ -64,15 +64,11 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
         return sum(x for i, x in enumerate(nums) if i.bit_count() == k)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	for i, x := range nums {
@@ -117,8 +109,6 @@ func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumIndicesWithKSetBits(nums: number[], k: number): number {
@@ -141,10 +131,6 @@ function bitCount(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

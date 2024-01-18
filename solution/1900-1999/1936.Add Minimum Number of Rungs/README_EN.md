@@ -54,7 +54,7 @@ The ladder will now have rungs at [<u>1</u>,3,4,6,7].
 
 ## Solutions
 
-**Solution 1: Greedy + Simulation**
+### Solution 1: Greedy + Simulation
 
 According to the problem description, we know that every time we plan to climb a new rung, we need to ensure that the height difference between the new rung and the current position does not exceed `dist`. Otherwise, we need to greedily insert a new rung at a distance of $dist$ from the current position, climb a new rung, and the total number of rungs to be inserted is $\lfloor \frac{b - a - 1}{dist} \rfloor$, where $a$ and $b$ are the current position and the height of the new rung, respectively. The answer is the sum of all inserted rungs.
 
@@ -62,16 +62,12 @@ The time complexity is $O(n)$, where $n$ is the length of `rungs`. The space com
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def addRungs(self, rungs: List[int], dist: int) -> int:
         rungs = [0] + rungs
         return sum((b - a - 1) // dist for a, b in pairwise(rungs))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addRungs(rungs []int, dist int) (ans int) {
 	prev := 0
@@ -114,8 +106,6 @@ func addRungs(rungs []int, dist int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function addRungs(rungs: number[], dist: number): number {
@@ -128,8 +118,6 @@ function addRungs(rungs: number[], dist: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -147,10 +135,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

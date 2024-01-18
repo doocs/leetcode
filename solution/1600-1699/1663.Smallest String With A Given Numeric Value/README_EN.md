@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
         ans[i] = chr(ord(ans[i]) + d)
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -88,8 +84,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getSmallestString(n int, k int) string {
@@ -106,10 +100,6 @@ func getSmallestString(n int, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

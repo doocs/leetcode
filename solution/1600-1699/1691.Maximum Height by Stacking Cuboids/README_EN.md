@@ -57,9 +57,29 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Dynamic Programming
 
-### **Python3**
+According to the problem description, box $j$ can be placed on box $i$ if and only if the "length, width, and height" of box $j$ are less than or equal to the "length, width, and height" of box $i$.
+
+This problem allows us to rotate the boxes, which means we can choose any side of the box as the "height". For any legal stacking, if we rotate each box in it to "length <= width <= height", the stacking is still legal and can ensure the maximum height of the stacking.
+
+Therefore, we can sort all the sides of the boxes so that each box satisfies "length <= width <= height". Then we sort each box in ascending order.
+
+Next, we can use dynamic programming to solve this problem.
+
+We define $f[i]$ as the maximum height when box $i$ is at the bottom. We can enumerate each box $j$ above box $i$, where $0 \leq j < i$. If $j$ can be placed on top of $i$, then we can get the state transition equation:
+
+$$
+f[i] = \max_{0 \leq j < i} \{f[j] + h[i]\}
+$$
+
+where $h[i]$ represents the height of box $i$.
+
+The final answer is the maximum value of $f[i]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +96,6 @@ class Solution:
             f[i] += cuboids[i][2]
         return max(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxHeight(cuboids [][]int) int {
@@ -149,8 +163,6 @@ func maxHeight(cuboids [][]int) int {
 	return slices.Max(f)
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -179,10 +191,6 @@ var maxHeight = function (cuboids) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

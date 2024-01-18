@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划（背包问题）**
+### 方法一：动态规划（背包问题）
 
 我们定义 $f[i][j]$ 表示使用前 $i$ 个数位，花费恰好为 $j$ 的情况下，能够得到的最大位数。初始时，$f[0][0]=0$，其余为 $-\infty$。
 
@@ -92,10 +90,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为数组 $cost$ 和 $target$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -123,10 +117,6 @@ class Solution:
                 j = g[i][j]
         return "".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -167,8 +157,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -205,8 +193,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestNumber(cost []int, target int) string {
@@ -249,8 +235,6 @@ func largestNumber(cost []int, target int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestNumber(cost: number[], target: number): string {
     const inf = 1 << 30;
@@ -289,10 +273,6 @@ function largestNumber(cost: number[], target: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

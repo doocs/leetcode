@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：离线查询 + BFS + 优先队列（小根堆）**
+### 方法一：离线查询 + BFS + 优先队列（小根堆）
 
 根据题目描述我们知道，每个查询相互独立，查询的顺序不影响结果，并且题目要我们每次从左上角开始，统计所有可以访问的、且值小于当前查询值的单元格的个数。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(k \times \log k + m \times n \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数，而 $k$ 为查询的个数。我们需要对 `queries` 数组进行排序，时间复杂度为 $O(k \times \log k)$。矩阵中的每个单元格最多只会被访问一次，每一次入队和出队的时间复杂度为 $O(\log(m \times n))$。因此，总时间复杂度为 $O(k \times \log k + m \times n \log(m \times n))$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,45 +88,6 @@ class Solution:
             ans[k] = cnt
         return ans
 ```
-
-```python
-class Solution:
-    def maxPoints(self, grid: List[List[int]], queries: List[int]) -> List[int]:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        def union(a, b):
-            pa, pb = find(a), find(b)
-            if pa == pb:
-                return
-            p[pa] = pb
-            size[pb] += size[pa]
-
-        m, n = len(grid), len(grid[0])
-        arr = sorted((grid[i][j], i, j) for i in range(m) for j in range(n))
-        k = len(queries)
-        ans = [0] * k
-        p = list(range(m * n))
-        size = [1] * len(p)
-        j = 0
-        for i, v in sorted(enumerate(queries), key=lambda x: x[1]):
-            while j < len(arr) and arr[j][0] < v:
-                _, a, b = arr[j]
-                for x, y in pairwise((-1, 0, 1, 0, -1)):
-                    c, d = a + x, b + y
-                    if 0 <= c < m and 0 <= d < n and grid[c][d] < v:
-                        union(a * n + b, c * n + d)
-                j += 1
-            if grid[0][0] < v:
-                ans[i] = size[find(0)]
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -171,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -213,8 +166,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxPoints(grid [][]int, queries []int) []int {
@@ -263,10 +214,47 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxPoints(self, grid: List[List[int]], queries: List[int]) -> List[int]:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        def union(a, b):
+            pa, pb = find(a), find(b)
+            if pa == pb:
+                return
+            p[pa] = pb
+            size[pb] += size[pa]
+
+        m, n = len(grid), len(grid[0])
+        arr = sorted((grid[i][j], i, j) for i in range(m) for j in range(n))
+        k = len(queries)
+        ans = [0] * k
+        p = list(range(m * n))
+        size = [1] * len(p)
+        j = 0
+        for i, v in sorted(enumerate(queries), key=lambda x: x[1]):
+            while j < len(arr) and arr[j][0] < v:
+                _, a, b = arr[j]
+                for x, y in pairwise((-1, 0, 1, 0, -1)):
+                    c, d = a + x, b + y
+                    if 0 <= c < m and 0 <= d < n and grid[c][d] < v:
+                        union(a * n + b, c * n + d)
+                j += 1
+            if grid[0][0] < v:
+                ans[i] = size[find(0)]
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

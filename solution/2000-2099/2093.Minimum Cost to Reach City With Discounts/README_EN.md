@@ -62,9 +62,9 @@ It is impossible to go from 0 to 3 so return -1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -88,8 +88,6 @@ class Solution:
                     heappush(q, (cost + v // 2, j, k + 1))
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,16 +157,6 @@ public:
 };
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

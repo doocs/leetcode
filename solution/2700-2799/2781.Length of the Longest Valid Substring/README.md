@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 双指针**
+### 方法一：哈希表 + 双指针
 
 我们用哈希表 $s$ 记录所有禁止的字符串，然后用双指针 $i$ 和 $j$ 遍历字符串 $word$，其中 $i$ 和 $j$ 分别表示当前合法子字符串的左右边界。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n \times \max(|forbidden[i]|^2) + m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别表示字符串 $word$ 和 $forbidden$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             ans = max(ans, j - i + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestValidSubstring(word string, forbidden []string) (ans int) {
 	s := map[string]bool{}
@@ -144,8 +130,6 @@ func longestValidSubstring(word string, forbidden []string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestValidSubstring(word: string, forbidden: string[]): number {
     const s: Set<string> = new Set(forbidden);
@@ -164,10 +148,6 @@ function longestValidSubstring(word: string, forbidden: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

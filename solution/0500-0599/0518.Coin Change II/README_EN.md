@@ -52,13 +52,9 @@
 
 ## Solutions
 
-Dynamic programming.
-
-Complete knapsack problem.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +66,6 @@ class Solution:
                 dp[j] += dp[j - coin]
         return dp[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,6 +84,54 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        vector<int> dp(amount + 1);
+        dp[0] = 1;
+        for (auto coin : coins) {
+            for (int j = coin; j <= amount; ++j) {
+                dp[j] += dp[j - coin];
+            }
+        }
+        return dp[amount];
+    }
+};
+```
+
+```go
+func change(amount int, coins []int) int {
+	dp := make([]int, amount+1)
+	dp[0] = 1
+	for _, coin := range coins {
+		for j := coin; j <= amount; j++ {
+			dp[j] += dp[j-coin]
+		}
+	}
+	return dp[amount]
+}
+```
+
+```ts
+function change(amount: number, coins: number[]): number {
+    let dp = new Array(amount + 1).fill(0);
+    dp[0] = 1;
+    for (let coin of coins) {
+        for (let i = coin; i <= amount; ++i) {
+            dp[i] += dp[i - coin];
+        }
+    }
+    return dp.pop();
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -111,12 +153,19 @@ class Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
 ```java
 class Solution {
     public int change(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
         for (int coin : coins) {
+            // 顺序遍历，0-1背包问题是倒序遍历
             for (int j = coin; j <= amount; j++) {
                 dp[j] += dp[j - coin];
             }
@@ -126,58 +175,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function change(amount: number, coins: number[]): number {
-    let dp = new Array(amount + 1).fill(0);
-    dp[0] = 1;
-    for (let coin of coins) {
-        for (let i = coin; i <= amount; ++i) {
-            dp[i] += dp[i - coin];
-        }
-    }
-    return dp.pop();
-}
-```
-
-### **Go**
-
-```go
-func change(amount int, coins []int) int {
-	dp := make([]int, amount+1)
-	dp[0] = 1
-	for _, coin := range coins {
-		for j := coin; j <= amount; j++ {
-			dp[j] += dp[j-coin]
-		}
-	}
-	return dp[amount]
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int change(int amount, vector<int>& coins) {
-        vector<int> dp(amount + 1);
-        dp[0] = 1;
-        for (auto coin : coins) {
-            for (int j = coin; j <= amount; ++j) {
-                dp[j] += dp[j - coin];
-            }
-        }
-        return dp[amount];
-    }
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

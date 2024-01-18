@@ -39,89 +39,92 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：二分查找
 
-二分查找。
+我们定义二分查找的左边界 $l = 0$，右边界 $r = x$，然后在 $[l, r]$ 范围内查找平方根。
+
+在每一步查找中，我们找出中间值 $mid = (l + r + 1) / 2$，如果 $mid > x / mid$，说明平方根在 $[l, mid - 1]$ 范围内，我们令 $r = mid - 1$；否则说明平方根在 $[mid, r]$ 范围内，我们令 $l = mid$。
+
+查找结束后，返回 $l$ 即可。
+
+时间复杂度 $O(\log x)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
-        left, right = 0, x
-        while left < right:
-            mid = (left + right + 1) >> 1
-            # mid*mid <= x
-            if mid <= x // mid:
-                left = mid
+        l, r = 0, x
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if mid > x // mid:
+                r = mid - 1
             else:
-                right = mid - 1
-        return left
+                l = mid
+        return l
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
     public int mySqrt(int x) {
-        int left = 0, right = x;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (mid <= x / mid) {
-                // mid*mid <= x
-                left = mid;
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1) >>> 1;
+            if (mid > x / mid) {
+                r = mid - 1;
             } else {
-                right = mid - 1;
+                l = mid;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
     int mySqrt(int x) {
-        long long left = 0, right = x;
-        while (left < right) {
-            long long mid = left + ((right - left + 1) >> 1);
-            if (mid <= x / mid)
-                left = mid;
-            else
-                right = mid - 1;
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1ll) >> 1;
+            if (mid > x / mid) {
+                r = mid - 1;
+            } else {
+                l = mid;
+            }
         }
-        return (int) left;
+        return l;
     }
 };
 ```
 
-### **Go**
-
 ```go
 func mySqrt(x int) int {
-	left, right := 0, x
-	for left < right {
-		mid := left + (right-left+1)>>1
-		if mid <= x/mid {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
+	return sort.Search(x+1, func(i int) bool { return i*i > x }) - 1
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn my_sqrt(x: i32) -> i32 {
+        let mut l = 0;
+        let mut r = x;
+
+        while l < r {
+            let mid = (l + r + 1) / 2;
+
+            if mid > x / mid {
+                r = mid - 1;
+            } else {
+                l = mid;
+            }
+        }
+
+        l
+    }
+}
+```
 
 ```js
 /**
@@ -129,70 +132,36 @@ func mySqrt(x int) int {
  * @return {number}
  */
 var mySqrt = function (x) {
-    let left = 0;
-    let right = x;
-    while (left < right) {
-        const mid = (left + right + 1) >>> 1;
-        if (mid <= x / mid) {
-            left = mid;
+    let [l, r] = [0, x];
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (mid > x / mid) {
+            r = mid - 1;
         } else {
-            right = mid - 1;
+            l = mid;
         }
     }
-    return left;
+    return l;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
     public int MySqrt(int x) {
-        int left = 0, right = x;
-        while (left < right)
-        {
-            int mid = left + right + 1 >> 1;
-            if (mid <= x / mid)
-            {
-                left = mid;
-            }
-            else
-            {
-                right = mid - 1;
-            }
-        }
-        return left;
-    }
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn my_sqrt(x: i32) -> i32 {
-        if x < 2 {
-            return x;
-        }
-        let mut l = 1;
-        let mut r = x / 2;
-        while l < r {
-            let mid = (l + r + 1) >> 1;
-            if x / mid < mid {
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1) >>> 1;
+            if (mid > x / mid) {
                 r = mid - 1;
             } else {
                 l = mid;
             }
         }
-        l
+        return l;
     }
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

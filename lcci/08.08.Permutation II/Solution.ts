@@ -1,14 +1,10 @@
-/**
- * @param {string} S
- * @return {string[]}
- */
-var permutation = function (S) {
-    const cs = S.split('').sort();
-    const ans = [];
+function permutation(S: string): string[] {
+    const cs: string[] = S.split('').sort();
+    const ans: string[] = [];
     const n = cs.length;
-    const vis = Array(n).fill(false);
-    const t = [];
-    const dfs = i => {
+    const vis: boolean[] = Array(n).fill(false);
+    const t: string[] = [];
+    const dfs = (i: number) => {
         if (i === n) {
             ans.push(t.join(''));
             return;
@@ -26,4 +22,4 @@ var permutation = function (S) {
     };
     dfs(0);
     return ans;
-};
+}

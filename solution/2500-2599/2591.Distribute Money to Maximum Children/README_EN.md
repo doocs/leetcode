@@ -48,7 +48,7 @@ It can be proven that no distribution exists such that number of children gettin
 
 ## Solutions
 
-**Solution 1: Case analysis**
+### Solution 1: Case analysis
 
 If $money \lt children$, then there must be a child who did not receive money, return $-1$.
 
@@ -62,8 +62,6 @@ Time complexity $O(1)$, space complexity $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def distMoney(self, money: int, children: int) -> int:
@@ -76,8 +74,6 @@ class Solution:
         # money-8x >= children-x, x <= (money-children)/7
         return (money - children) // 7
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distMoney(money int, children int) int {
 	if money < children {
@@ -136,8 +128,6 @@ func distMoney(money int, children int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distMoney(money: number, children: number): number {
     if (money < children) {
@@ -152,8 +142,6 @@ function distMoney(money: number, children: number): number {
     return Math.floor((money - children) / 7);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -175,10 +163,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

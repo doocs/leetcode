@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们假设最终所有元素都变成了 $x$，那么 $x$ 一定是数组中的某个元素。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
             ans = min(ans, t // 2)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSeconds(nums []int) int {
 	d := map[int][]int{}
@@ -163,8 +149,6 @@ func minimumSeconds(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumSeconds(nums: number[]): number {
@@ -189,10 +173,6 @@ function minimumSeconds(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

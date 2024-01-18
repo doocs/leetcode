@@ -47,21 +47,17 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈**
+### 方法一：栈
 
 我们遍历字符串 $s$，对于当前遍历到的字符 $c$，如果栈不为空且栈顶元素 $top$ 与 $c$ 可以组成 $AB$ 或 $CD$，则弹出栈顶元素，否则将 $c$ 入栈。
 
 最后栈中剩余的元素个数就是最终字符串的长度。
 
+> 在实现上，我们可以在栈中预先放入一个空字符，这样就不需要在遍历字符串时判断栈是否为空了，最后返回栈的大小减一即可。
+
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +70,6 @@ class Solution:
                 stk.append(c)
         return len(stk) - 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minLength(s string) int {
 	stk := []byte{' '}
@@ -131,15 +119,13 @@ func minLength(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minLength(s: string): number {
     const stk: string[] = [''];
     for (const c of s) {
-        if (c === 'B' && stk[stk.length - 1] === 'A') {
+        if (c === 'B' && stk.at(-1)! === 'A') {
             stk.pop();
-        } else if (c === 'D' && stk[stk.length - 1] === 'C') {
+        } else if (c === 'D' && stk.at(-1)! === 'C') {
             stk.pop();
         } else {
             stk.push(c);
@@ -148,8 +134,6 @@ function minLength(s: string): number {
     return stk.length - 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -175,10 +159,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,9 @@ The answers for each of the queries are as follows:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +81,6 @@ class Solution:
                     ans[i] -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPairs(n int, edges [][]int, queries []int) []int {
 	cnt := make([]int, n)
@@ -203,8 +197,6 @@ func countPairs(n int, edges [][]int, queries []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countPairs(n: number, edges: number[][], queries: number[]): number[] {
@@ -249,10 +241,6 @@ function countPairs(n: number, edges: number[][], queries: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

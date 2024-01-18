@@ -47,9 +47,9 @@ Note that the carpets are able to overlap one another.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
@@ -181,16 +175,6 @@ func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

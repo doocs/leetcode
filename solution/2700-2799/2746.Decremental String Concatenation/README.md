@@ -70,9 +70,7 @@ join(str<sub>0</sub>, "b") = "ab" 或者 join("b", str<sub>0</sub>) = "bab" 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们注意到，字符串连接时，字符串的第一个字符和最后一个字符会影响到连接后字符串的长度。因此，我们设计一个函数 $dfs(i, a, b)$，表示从第 $i$ 个字符串开始连接，且此前已经连接的字符串的第一个字符为 $a$，最后一个字符为 $b$ 时，连接后字符串的最小长度。
 
@@ -89,10 +87,6 @@ join(str<sub>0</sub>, "b") = "ab" 或者 join("b", str<sub>0</sub>) = "bab" 。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimizeConcatenatedLength(self, words: List[str]) -> int:
@@ -107,10 +101,6 @@ class Solution:
 
         return len(words[0]) + dfs(1, words[0][0], words[0][-1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -142,8 +132,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimizeConcatenatedLength(words []string) int {
@@ -199,8 +185,6 @@ func minimizeConcatenatedLength(words []string) int {
 	return len(words[0]) + dfs(1, int(words[0][0]-'a'), int(words[0][len(words[0])-1]-'a'))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimizeConcatenatedLength(words: string[]): number {
@@ -234,10 +218,6 @@ function minimizeConcatenatedLength(words: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

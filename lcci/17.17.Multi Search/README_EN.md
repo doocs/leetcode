@@ -32,9 +32,9 @@ smalls = [&quot;is&quot;,&quot;ppi&quot;,&quot;hi&quot;,&quot;sis&quot;,&quot;i&
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -77,8 +77,6 @@ class Solution:
                 ans[idx].append(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -146,8 +144,6 @@ class Trie {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Trie {
 private:
@@ -198,8 +194,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -257,10 +251,6 @@ func multiSearch(big string, smalls []string) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

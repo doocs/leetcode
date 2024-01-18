@@ -2,23 +2,15 @@ class Solution {
     private static final int MOD = (int) 1e9 + 7;
 
     public int countPairs(int[] deliciousness) {
+        int mx = Arrays.stream(deliciousness).max().getAsInt() << 1;
+        int ans = 0;
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int d : deliciousness) {
-            cnt.put(d, cnt.getOrDefault(d, 0) + 1);
-        }
-        long ans = 0;
-        for (int i = 0; i < 22; ++i) {
-            int s = 1 << i;
-            for (var x : cnt.entrySet()) {
-                int a = x.getKey(), m = x.getValue();
-                int b = s - a;
-                if (!cnt.containsKey(b)) {
-                    continue;
-                }
-                ans += 1L * m * (a == b ? m - 1 : cnt.get(b));
+            for (int s = 1; s <= mx; s <<= 1) {
+                ans = (ans + cnt.getOrDefault(s - d, 0)) % MOD;
             }
+            cnt.merge(d, 1, Integer::sum);
         }
-        ans >>= 1;
-        return (int) (ans % MOD);
+        return ans;
     }
 }

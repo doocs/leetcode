@@ -53,9 +53,9 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                         )
         return min(f[n])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func assignBikes(workers [][]int, bikes [][]int) int {
@@ -162,8 +156,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function assignBikes(workers: number[][], bikes: number[][]): number {
     const n = workers.length;
@@ -187,10 +179,6 @@ function assignBikes(workers: number[][], bikes: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

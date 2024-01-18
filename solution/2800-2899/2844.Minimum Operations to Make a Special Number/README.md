@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们注意到，整数 $x$ 要能被 $25$ 整除，即 $x \bmod 25 = 0$。因此，我们可以设计一个函数 $dfs(i, k)$，表示从字符串 $num$ 的第 $i$ 位开始，且当前数字模 $25$ 的结果为 $k$ 的情况下，要使得数字变成特殊数字，最少需要删除多少位数字。那么答案为 $dfs(0, 0)$。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n \times 25)$，空间复杂度 $O(n \times 25)$。其中 $n$ 是字符串 $num$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
         n = len(num)
         return dfs(0, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumOperations(num string) int {
@@ -177,8 +163,6 @@ func minimumOperations(num string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumOperations(num: string): number {
     const n = num.length;
@@ -198,10 +182,6 @@ function minimumOperations(num: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

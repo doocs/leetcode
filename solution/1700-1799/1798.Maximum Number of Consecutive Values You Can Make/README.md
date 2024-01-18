@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 我们先对数组进行排序。然后定义 $ans$ 表示当前能够构造的连续整数的个数，初始化为 $1$。
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def getMaximumConsecutive(self, coins: List[int]) -> int:
@@ -86,10 +80,6 @@ class Solution:
             ans += v
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaximumConsecutive(coins []int) int {
 	sort.Ints(coins)
@@ -140,10 +126,20 @@ func getMaximumConsecutive(coins []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function getMaximumConsecutive(coins: number[]): number {
+    coins.sort((a, b) => a - b);
+    let ans = 1;
+    for (const v of coins) {
+        if (v > ans) {
+            break;
+        }
+        ans += v;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

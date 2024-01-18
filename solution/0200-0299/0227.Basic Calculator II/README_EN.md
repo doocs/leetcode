@@ -36,9 +36,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Stack
 
-### **Python3**
+We traverse the string $s$, and use a variable `sign` to record the operator before each number. For the first number, its previous operator is considered as a plus sign. Each time we traverse to the end of a number, we decide the calculation method based on `sign`:
+
+-   Plus sign: push the number into the stack;
+-   Minus sign: push the opposite number into the stack;
+-   Multiplication and division signs: calculate the number with the top element of the stack, and replace the top element of the stack with the calculation result.
+
+After the traversal ends, the sum of the elements in the stack is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +73,6 @@ class Solution:
                 v = 0
         return sum(stk)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func calculate(s string) int {
 	sign := '+'
@@ -175,10 +179,93 @@ func calculate(s string) int {
 }
 ```
 
-### **...**
+```cs
+using System.Collections.Generic;
+using System.Linq;
 
-```
+struct Element
+{
+    public char Op;
+    public int Number;
+    public Element(char op, int number)
+    {
+        Op = op;
+        Number = number;
+    }
+}
 
+public class Solution {
+    public int Calculate(string s) {
+        var stack = new Stack<Element>();
+        var readingNumber = false;
+        var number = 0;
+        var op = '+';
+        foreach (var ch in ((IEnumerable<char>)s).Concat(Enumerable.Repeat('+', 1)))
+        {
+            if (ch >= '0' && ch <= '9')
+            {
+                if (!readingNumber)
+                {
+                    readingNumber = true;
+                    number = 0;
+                }
+                number = (number * 10) + (ch - '0');
+            }
+            else if (ch != ' ')
+            {
+                readingNumber = false;
+                if (op == '+' || op == '-')
+                {
+                    if (stack.Count == 2)
+                    {
+                        var prev = stack.Pop();
+                        var first = stack.Pop();
+                        if (prev.Op == '+')
+                        {
+                            stack.Push(new Element(first.Op, first.Number + prev.Number));
+                        }
+                        else // '-'
+                        {
+                            stack.Push(new Element(first.Op, first.Number - prev.Number));
+                        }
+                    }
+                    stack.Push(new Element(op, number));
+                }
+                else
+                {
+                    var prev = stack.Pop();
+                    if (op == '*')
+                    {
+                        stack.Push(new Element(prev.Op, prev.Number * number));
+                    }
+                    else // '/'
+                    {
+                        stack.Push(new Element(prev.Op, prev.Number / number));
+                    }
+                }
+                op = ch;
+            }
+        }
+
+        if (stack.Count == 2)
+        {
+            var second = stack.Pop();
+            var first = stack.Pop();
+            if (second.Op == '+')
+            {
+                stack.Push(new Element(first.Op, first.Number + second.Number));
+            }
+            else // '-'
+            {
+                stack.Push(new Element(first.Op, first.Number - second.Number));
+            }
+        }
+
+        return stack.Peek().Number;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

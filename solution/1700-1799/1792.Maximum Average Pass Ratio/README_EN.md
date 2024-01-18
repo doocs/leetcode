@@ -40,9 +40,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Priority Queue (Max-Heap of Increment)
 
-### **Python3**
+Suppose a class currently has a pass rate of $\frac{a}{b}$. If we arrange a smart student into this class, then the pass rate of the class will become $\frac{a+1}{b+1}$. We can find that the increment of the pass rate is $\frac{a+1}{b+1} - \frac{a}{b}$.
+
+We maintain a max-heap, which stores the increment of the pass rate for each class.
+
+Perform `extraStudents` operations, each time taking a class from the top of the heap, adding $1$ to both the number of students and the number of passes in this class, then recalculating the increment of the pass rate of this class and putting it back into the heap. Repeat this process until all students are allocated.
+
+Finally, we sum up the pass rates of all classes, and then divide by the number of classes to get the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of classes.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +65,6 @@ class Solution:
             heappush(h, (a / b - (a + 1) / (b + 1), a, b))
         return sum(v[1] / v[2] for v in h) / len(classes)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +120,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxAverageRatio(classes [][]int, extraStudents int) float64 {
@@ -157,10 +161,6 @@ func (h *hp) Push(v any)   { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

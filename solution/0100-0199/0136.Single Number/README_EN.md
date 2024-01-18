@@ -30,7 +30,7 @@
 
 ## Solutions
 
-**Solution 1: Bitwise Operation**
+### Solution 1: Bitwise Operation
 
 The XOR operation has the following properties:
 
@@ -43,15 +43,11 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         return reduce(xor, nums)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -64,16 +60,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int singleNumber(int[] nums) {
-        return Arrays.stream(nums).reduce(0, (a, b) -> a ^ b);
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -88,8 +74,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func singleNumber(nums []int) (ans int) {
 	for _, v := range nums {
@@ -99,27 +83,11 @@ func singleNumber(nums []int) (ans int) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var singleNumber = function (nums) {
-    return nums.reduce((a, b) => a ^ b);
-};
-```
-
-### **TypeScript**
-
 ```ts
 function singleNumber(nums: number[]): number {
     return nums.reduce((r, v) => r ^ v);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -131,7 +99,23 @@ impl Solution {
 }
 ```
 
-### **C**
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function (nums) {
+    return nums.reduce((a, b) => a ^ b);
+};
+```
+
+```cs
+public class Solution {
+    public int SingleNumber(int[] nums) {
+        return nums.Aggregate(0, (a, b) => a ^ b);
+    }
+}
+```
 
 ```c
 int singleNumber(int* nums, int numsSize) {
@@ -143,8 +127,6 @@ int singleNumber(int* nums, int numsSize) {
 }
 ```
 
-### **Swift**
-
 ```swift
 class Solution {
     func singleNumber(_ nums: [Int]) -> Int {
@@ -153,20 +135,20 @@ class Solution {
 }
 ```
 
-### **C#**
+<!-- tabs:end -->
 
-```cs
-public class Solution {
-    public int SingleNumber(int[] nums) {
-        return nums.Aggregate(0, (a, b) => a ^ b);
+### Solution 2
+
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int singleNumber(int[] nums) {
+        return Arrays.stream(nums).reduce(0, (a, b) -> a ^ b);
     }
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

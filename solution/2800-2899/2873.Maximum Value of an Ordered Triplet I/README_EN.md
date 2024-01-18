@@ -47,15 +47,13 @@ It can be shown that there are no ordered triplets of indices with a value great
 
 ## Solutions
 
-**Solution 1: Maintain Maximum Prefix Value and Maximum Difference**
+### Solution 1: Maintain Maximum Prefix Value and Maximum Difference
 
 We can use two variables $mx$ and $mx\_diff$ to maintain the maximum prefix value and maximum difference, respectively. When traversing the array, we update these two variables, and the answer is the maximum value of all $mx\_diff \times nums[i]$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,8 +65,6 @@ class Solution:
             mx_diff = max(mx_diff, mx - num)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,10 +81,7 @@ class Solution {
         return ans;
     }
 }
-
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumTripletValue(nums []int) int64 {
 	ans, mx, mx_diff := 0, 0, 0
@@ -119,8 +110,6 @@ func maximumTripletValue(nums []int) int64 {
 	return int64(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumTripletValue(nums: number[]): number {
@@ -134,10 +123,6 @@ function maximumTripletValue(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

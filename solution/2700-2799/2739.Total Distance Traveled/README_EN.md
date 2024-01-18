@@ -44,9 +44,9 @@ Total distance traveled is 10km.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
                 mainTank += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	cur := 0
@@ -120,8 +114,6 @@ func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	return
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -145,10 +137,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

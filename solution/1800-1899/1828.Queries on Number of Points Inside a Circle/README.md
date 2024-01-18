@@ -49,19 +49,13 @@ queries[0] 是绿色的圆，queries[1] 是红色的圆，queries[2] 是蓝色�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 枚举所有的圆点 $(x, y, r)$，对于每个圆点，计算在圆内的点的个数，即可得到答案。
 
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为数组 `queries` 的长度和 `points` 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
             ans.append(cnt)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPoints(points [][]int, queries [][]int) (ans []int) {
 	for _, q := range queries {
@@ -144,8 +130,6 @@ func countPoints(points [][]int, queries [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPoints(points: number[][], queries: number[][]): number[] {
     return queries.map(([cx, cy, r]) => {
@@ -159,8 +143,6 @@ function countPoints(points: number[][], queries: number[][]): number[] {
     });
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -183,8 +165,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 /**
@@ -210,10 +190,6 @@ int* countPoints(int** points, int pointsSize, int* pointsColSize, int** queries
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

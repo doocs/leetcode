@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 双指针**
+### 方法一：哈希表 + 双指针
 
 我们用双指针维护一个单调变长的窗口，用哈希表维护窗口中每个元素出现的次数。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 l += 1
         return mx
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestEqualSubarray(nums []int, k int) int {
 	cnt := map[int]int{}
@@ -142,8 +128,6 @@ func longestEqualSubarray(nums []int, k int) int {
 	return mx
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestEqualSubarray(nums: number[], k: number): number {
@@ -162,10 +146,6 @@ function longestEqualSubarray(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

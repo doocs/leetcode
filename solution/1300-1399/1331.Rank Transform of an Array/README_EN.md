@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
         t = sorted(set(arr))
         return [bisect_right(t, x) for x in arr]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +79,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func arrayRankTransform(arr []int) (ans []int) {
@@ -120,8 +114,6 @@ func arrayRankTransform(arr []int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function arrayRankTransform(arr: number[]): number[] {
@@ -152,10 +144,6 @@ function arrayRankTransform(arr: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

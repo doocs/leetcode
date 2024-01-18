@@ -61,9 +61,7 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 有序列表**
+### 方法一：哈希表 + 有序列表
 
 我们用哈希表 $d$ 记录每个参赛者的分数，用有序列表 $rank$ 记录所有参赛者的分数。
 
@@ -76,10 +74,6 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 空间复杂度 $O(n)$。其中 $n$ 为参赛者的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -112,10 +106,6 @@ class Leaderboard:
 # param_2 = obj.top(K)
 # obj.reset(playerId)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Leaderboard {
@@ -165,8 +155,6 @@ class Leaderboard {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Leaderboard {
 public:
@@ -212,8 +200,6 @@ private:
  * obj->reset(playerId);
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BTreeMap;
@@ -273,10 +259,6 @@ impl Leaderboard {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

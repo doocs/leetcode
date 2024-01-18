@@ -16,7 +16,7 @@
 
 <p>请你返回正整数数组&nbsp;<code>ans = [nums1, nums2]</code>&nbsp;。如果有多个整数对满足上述条件，请你返回&nbsp;<code>nums1</code>&nbsp;最小的质数对。如果不存在符合题意的质数对，请你返回&nbsp;<code>[-1, -1]</code>&nbsp;。</p>
 
-<p>如果一个整数大于&nbsp;<code>1</code>&nbsp;，且只能被&nbsp;<code>1</code> 和它自己整除，那么它是一个质数。</p>
+<p>如果一个整数大于&nbsp;<code>1</code>&nbsp;，且只能被&nbsp;<code>1</code> 和它自己整除，那么它是一个 <strong>质数</strong>。</p>
 
 <p>&nbsp;</p>
 
@@ -48,19 +48,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：线性筛**
+### 方法一：线性筛
 
 对于给定的范围 $[left, right]$，我们可以使用线性筛求出所有质数，然后从小到大遍历质数，找到相邻的两个质数，其差值最小的质数对即为答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = right$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                 ans = [a, b]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -182,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func closestPrimes(left int, right int) []int {
 	cnt := 0
@@ -226,10 +212,6 @@ func closestPrimes(left int, right int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

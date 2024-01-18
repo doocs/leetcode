@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSteps(s string, t string) (ans int) {
@@ -117,8 +111,6 @@ func minSteps(s string, t string) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -141,10 +133,6 @@ var minSteps = function (s, t) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

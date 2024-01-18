@@ -65,24 +65,4 @@ Return true because Alice wins.
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

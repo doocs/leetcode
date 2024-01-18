@@ -1,16 +1,19 @@
-use std::collections::HashMap;
-
 impl Solution {
-    pub fn subarray_sum(nums: Vec<i32>, k: i32) -> i32 {
-        let mut res = 0;
-        let mut sum = 0;
-        let mut map = HashMap::new();
-        map.insert(0, 1);
-        nums.iter().for_each(|num| {
-            sum += num;
-            res += map.get(&(sum - k)).unwrap_or(&0);
-            map.insert(sum, map.get(&sum).unwrap_or(&0) + 1);
-        });
-        res
+    pub fn subarray_sum(mut nums: Vec<i32>, k: i32) -> i32 {
+        let n = nums.len();
+        let mut count = 0;
+        for i in 0..n {
+            let num = nums[i];
+            if num == k {
+                count += 1;
+            }
+            for j in 0..i {
+                nums[j] += num;
+                if nums[j] == k {
+                    count += 1;
+                }
+            }
+        }
+        count
     }
 }

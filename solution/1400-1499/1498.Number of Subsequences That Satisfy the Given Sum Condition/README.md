@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 枚举贡献 + 二分查找**
+### 方法一：排序 + 枚举贡献 + 二分查找
 
 由于题目中描述的是子序列，并且涉及到最小元素与最大元素的和，因此我们可以先对数组 `nums` 进行排序。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
             ans = (ans + f[j - i]) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSubseq(nums []int, target int) (ans int) {
 	sort.Ints(nums)
@@ -180,10 +166,6 @@ func numSubseq(nums []int, target int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,25 +55,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们观察发现，学生位置可调整，而三明治位置不可调整。也就是说，若前面的三明治没被拿走，则往后的所有三明治也无法被拿走。
 
-因此，我们先用计数器 `cnt` 统计学生喜欢的三明治种类和对应的数量。
+因此，我们先用计数器 $cnt$ 统计学生喜欢的三明治种类和对应的数量。
 
-然后遍历三明治，若在 `cnt` 中找不到喜欢此三明治的学生，说明后面的三明治也无法被拿走，返回当前剩余的学生数量。
+然后遍历三明治，若在 $cnt$ 中找不到喜欢此三明治的学生，说明后面的三明治也无法被拿走，返回当前剩余的学生数量。
 
-遍历
+遍历结束。，说明所有学生都有三明治吃，返回 $0$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为三明治数量。
+时间复杂度 $O(n)$，其中 $n$ 为三明治数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             cnt[v] -= 1
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countStudents(students []int, sandwiches []int) int {
@@ -143,27 +129,6 @@ func countStudents(students []int, sandwiches []int) int {
 }
 ```
 
-### **C**
-
-```c
-int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
-    int count[2] = {0};
-    for (int i = 0; i < studentsSize; i++) {
-        count[students[i]]++;
-    }
-    for (int i = 0; i < sandwichesSize; i++) {
-        int j = sandwiches[i];
-        if (count[j] == 0) {
-            return count[j ^ 1];
-        }
-        count[j]--;
-    }
-    return 0;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function countStudents(students: number[], sandwiches: number[]): number {
     const count = [0, 0];
@@ -179,8 +144,6 @@ function countStudents(students: number[], sandwiches: number[]): number {
     return 0;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -201,10 +164,23 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
+    int count[2] = {0};
+    for (int i = 0; i < studentsSize; i++) {
+        count[students[i]]++;
+    }
+    for (int i = 0; i < sandwichesSize; i++) {
+        int j = sandwiches[i];
+        if (count[j] == 0) {
+            return count[j ^ 1];
+        }
+        count[j]--;
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

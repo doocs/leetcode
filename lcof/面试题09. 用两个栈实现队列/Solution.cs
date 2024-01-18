@@ -5,11 +5,11 @@ public class CQueue {
     public CQueue() {
 
     }
-    
+
     public void AppendTail(int value) {
         stk1.Push(value);
     }
-    
+
     public int DeleteHead() {
         if (stk2.Count == 0) {
             while (stk1.Count != 0) {

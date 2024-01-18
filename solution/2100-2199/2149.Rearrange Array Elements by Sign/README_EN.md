@@ -50,9 +50,9 @@ So nums is rearranged to [1,-1].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
                 j += 2
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rearrangeArray(nums []int) []int {
 	ans := make([]int, len(nums))
@@ -131,8 +125,6 @@ func rearrangeArray(nums []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function rearrangeArray(nums: number[]): number[] {
@@ -152,10 +144,6 @@ function rearrangeArray(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

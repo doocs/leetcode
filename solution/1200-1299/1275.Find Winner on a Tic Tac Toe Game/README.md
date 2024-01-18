@@ -81,9 +81,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：判断最后一个落棋的人能否获胜**
+### 方法一：判断最后一个落棋的人能否获胜
 
 由于 `moves` 都有效，也即是说，不存在某个人获胜后，其他人仍然落棋的情况。因此，只需判断最后一个落棋的人能否获胜即可。
 
@@ -94,10 +92,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `moves` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -116,10 +110,6 @@ class Solution:
                 return "B" if k & 1 else "A"
         return "Draw" if n == 9 else "Pending"
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func tictactoe(moves [][]int) string {
@@ -202,8 +188,6 @@ func tictactoe(moves [][]int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function tictactoe(moves: number[][]): string {
     const n = moves.length;
@@ -226,10 +210,6 @@ function tictactoe(moves: number[][]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

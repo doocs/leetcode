@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（大根堆）**
+### 方法一：优先队列（大根堆）
 
 我们将数组 $gifts$ 转存到大根堆中，然后循环 $k$ 次，每次取出堆顶元素，将堆顶元素开根号的结果再放入堆中。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n + k \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $gifts$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             heapreplace(h, -int(sqrt(-h[0])))
         return -sum(h)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func pickGifts(gifts []int, k int) (ans int64) {
@@ -144,8 +130,6 @@ func (hp) Pop() (_ any)         { return }
 func (hp) Push(any)             {}
 ```
 
-### **TypeScript**
-
 ```ts
 function pickGifts(gifts: number[], k: number): number {
     const pq = new MaxPriorityQueue();
@@ -162,8 +146,6 @@ function pickGifts(gifts: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -187,10 +169,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

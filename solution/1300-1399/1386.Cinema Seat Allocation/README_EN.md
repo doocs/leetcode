@@ -51,9 +51,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table + Bit Manipulation
 
-### **Python3**
+We use a hash table $d$ to store all the reserved seats, where the key is the row number, and the value is the state of the reserved seats in that row, i.e., a binary number. The $j$-th bit being $1$ means the $j$-th seat is reserved, and $0$ means the $j$-th seat is not reserved.
+
+We traverse $reservedSeats$, for each seat $(i, j)$, we add the state of the $j$-th seat (corresponding to the $10-j$ bit in the lower bits) to $d[i]$.
+
+For rows that do not appear in the hash table $d$, we can arrange $2$ families arbitrarily, so the initial answer is $(n - len(d)) \times 2$.
+
+Next, we traverse the state of each row in the hash table. For each row, we try to arrange the situations $1234, 5678, 3456$ in turn. If a situation can be arranged, we add $1$ to the answer.
+
+After the traversal, we get the final answer.
+
+The time complexity is $O(m)$, and the space complexity is $O(m)$. Where $m$ is the length of $reservedSeats$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +82,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 	d := map[int]int{}
@@ -145,8 +151,6 @@ func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
     const d: Map<number, number> = new Map();
@@ -167,10 +171,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,19 +49,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序 + 动态规划**
+### 方法一：拓扑排序 + 动态规划
 
 求出每个点的入度，进行拓扑排序。每个点维护一个长度为 $26$ 的数组，记录每个字母从任意起点到当前点的出现次数。
 
 时间复杂度 $O(n+m)$，空间复杂度 $O(n+m)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                     ans = max(ans, dp[j][k])
         return -1 if cnt < n else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -183,8 +171,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestPathValue(colors string, edges [][]int) int {
@@ -237,10 +223,6 @@ func largestPathValue(colors string, edges [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

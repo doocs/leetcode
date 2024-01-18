@@ -37,9 +37,9 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,8 +52,6 @@ class Solution:
                 stk.append(c)
         return ''.join(stk)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,8 +86,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeDuplicates(s string) string {
 	stk := []rune{}
@@ -106,7 +100,21 @@ func removeDuplicates(s string) string {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn remove_duplicates(s: String) -> String {
+        let mut stack = Vec::new();
+        for c in s.chars() {
+            if !stack.is_empty() && *stack.last().unwrap() == c {
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+        stack.into_iter().collect()
+    }
+}
+```
 
 ```js
 /**
@@ -126,26 +134,6 @@ var removeDuplicates = function (s) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn remove_duplicates(s: String) -> String {
-        let mut stack = Vec::new();
-        for c in s.chars() {
-            if !stack.is_empty() && *stack.last().unwrap() == c {
-                stack.pop();
-            } else {
-                stack.push(c);
-            }
-        }
-        stack.into_iter().collect()
-    }
-}
-```
-
-### **C**
-
 ```c
 char* removeDuplicates(char* s) {
     int n = strlen(s);
@@ -164,10 +152,6 @@ char* removeDuplicates(char* s) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

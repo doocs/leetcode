@@ -27,15 +27,9 @@ smalls = [&quot;is&quot;,&quot;ppi&quot;,&quot;hi&quot;,&quot;sis&quot;,&quot;i&
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -78,10 +72,6 @@ class Solution:
                 ans[idx].append(i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Trie {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Trie {
 private:
@@ -201,8 +189,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -260,10 +246,6 @@ func multiSearch(big string, smalls []string) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

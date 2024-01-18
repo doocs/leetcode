@@ -53,7 +53,7 @@ Since student 2 has more points, [2,1] is returned.
 
 ## Solutions
 
-**Solution 1: Hash Table + Sorting**
+### Solution 1: Hash Table + Sorting
 
 We can store the positive words in a hash table $ps$ and the negative words in a hash table $ns$.
 
@@ -64,8 +64,6 @@ Finally, we sort the array $arr$ in descending order by score, and if the scores
 The time complexity is $O(n \times \log n + (|ps| + |ns| + n) \times |s|)$, and the space complexity is $O((|ps|+|ns|) \times |s| + n)$. Here, $n$ is the number of students, $|ps|$ and $|ns|$ are the number of positive and negative words, respectively, and $|s|$ is the average length of a word.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -91,8 +89,6 @@ class Solution:
         arr.sort(key=lambda x: (-x[0], x[1]))
         return [v[1] for v in arr[:k]]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +125,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -173,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func topStudents(positive_feedback []string, negative_feedback []string, report []string, student_id []int, k int) (ans []int) {
 	ps := map[string]bool{}
@@ -204,8 +196,6 @@ func topStudents(positive_feedback []string, negative_feedback []string, report 
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function topStudents(
@@ -244,8 +234,6 @@ function topStudents(
         .slice(0, k);
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -289,10 +277,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

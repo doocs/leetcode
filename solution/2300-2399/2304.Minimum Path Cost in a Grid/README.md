@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示从第一行出发，到达第 $i$ 行第 $j$ 列的最小路径代价。由于每次只能从上一行的某一列移动到当前行的某一列，因此 $f[i][j]$ 的值可以从 $f[i - 1][k]$ 转移而来，其中 $k$ 的取值范围为 $[0, n - 1]$。因此状态转移方程为：
 
@@ -75,10 +73,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minPathCost(self, grid: List[List[int]], moveCost: List[List[int]]) -> int:
@@ -92,10 +86,6 @@ class Solution:
             f = g
         return min(f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minPathCost(grid [][]int, moveCost [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -167,7 +153,23 @@ func minPathCost(grid [][]int, moveCost [][]int) int {
 }
 ```
 
-### **Rust**
+```ts
+function minPathCost(grid: number[][], moveCost: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const f = grid[0];
+    for (let i = 1; i < m; ++i) {
+        const g: number[] = Array(n).fill(Infinity);
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < n; ++k) {
+                g[j] = Math.min(g[j], f[k] + moveCost[grid[i - 1][k]][j] + grid[i][j]);
+            }
+        }
+        f.splice(0, n, ...g);
+    }
+    return Math.min(...f);
+}
+```
 
 ```rust
 impl Solution {
@@ -191,30 +193,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minPathCost(grid: number[][], moveCost: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    const f = grid[0];
-    for (let i = 1; i < m; ++i) {
-        const g: number[] = Array(n).fill(Infinity);
-        for (let j = 0; j < n; ++j) {
-            for (let k = 0; k < n; ++k) {
-                g[j] = Math.min(g[j], f[k] + moveCost[grid[i - 1][k]][j] + grid[i][j]);
-            }
-        }
-        f.splice(0, n, ...g);
-    }
-    return Math.min(...f);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

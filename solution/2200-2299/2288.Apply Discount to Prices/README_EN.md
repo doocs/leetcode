@@ -54,9 +54,9 @@ Each of them is replaced by &quot;0.00&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
             ans.append(w)
         return ' '.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func discountPrices(sentence string, discount int) string {
 	words := strings.Split(sentence, " ")
@@ -150,8 +144,6 @@ func discountPrices(sentence string, discount int) string {
 	return strings.Join(words, " ")
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function discountPrices(sentence: string, discount: number): string {
@@ -167,10 +159,6 @@ function discountPrices(sentence: string, discount: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

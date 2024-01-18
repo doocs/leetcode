@@ -52,9 +52,9 @@ The linked list is already sorted in non-decreasing order.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -76,8 +76,6 @@ class Solution:
                 prev, curr = curr, curr.next
         return head
 ```
-
-### **Java**
 
 ```java
 /**
@@ -109,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -145,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -172,10 +166,6 @@ func sortLinkedList(head *ListNode) *ListNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

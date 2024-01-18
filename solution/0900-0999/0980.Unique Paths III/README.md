@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：回溯**
+### 方法一：回溯
 
 我们可以先遍历整个网格，找出起点 $(x, y)$，并且统计空白格的数量 $cnt$。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(3^{m \times n})$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
         vis = {start}
         return dfs(*start, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -198,8 +186,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func uniquePathsIII(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -241,8 +227,6 @@ func uniquePathsIII(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function uniquePathsIII(grid: number[][]): number {
     const m = grid.length;
@@ -282,10 +266,6 @@ function uniquePathsIII(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

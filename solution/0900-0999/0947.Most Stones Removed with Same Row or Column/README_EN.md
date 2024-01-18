@@ -56,9 +56,9 @@ Stones [0,0] and [1,1] cannot be removed since they do not share a row/column wi
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
         s = {find(x) for x, _ in stones}
         return len(stones) - len(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeStones(stones [][]int) int {
@@ -159,10 +153,6 @@ func removeStones(stones [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

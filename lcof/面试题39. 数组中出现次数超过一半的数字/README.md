@@ -29,9 +29,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：摩尔投票法**
+### 方法一：摩尔投票法
 
 摩尔投票法的基本步骤如下：
 
@@ -47,10 +45,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -62,10 +56,6 @@ class Solution:
                 cnt += 1 if m == v else -1
         return m
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,7 +74,58 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int cnt = 0, m = 0;
+        for (int& v : nums) {
+            if (cnt == 0) {
+                m = v;
+                cnt = 1;
+            } else
+                cnt += (m == v ? 1 : -1);
+        }
+        return m;
+    }
+};
+```
+
+```go
+func majorityElement(nums []int) int {
+	cnt, m := 0, 0
+	for _, v := range nums {
+		if cnt == 0 {
+			m, cnt = v, 1
+		} else {
+			if m == v {
+				cnt++
+			} else {
+				cnt--
+			}
+		}
+	}
+	return m
+}
+```
+
+```rust
+impl Solution {
+    pub fn majority_element(nums: Vec<i32>) -> i32 {
+        let mut m = 0;
+        let mut cnt = 0;
+        for &v in nums.iter() {
+            if cnt == 0 {
+                m = v;
+                cnt = 1;
+            } else {
+                cnt += if m == v { 1 } else { -1 };
+            }
+        }
+        m
+    }
+}
+```
 
 ```js
 /**
@@ -105,27 +146,6 @@ var majorityElement = function (nums) {
     return m;
 };
 ```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        int cnt = 0, m = 0;
-        for (int& v : nums) {
-            if (cnt == 0) {
-                m = v;
-                cnt = 1;
-            } else
-                cnt += (m == v ? 1 : -1);
-        }
-        return m;
-    }
-};
-```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -148,50 +168,6 @@ public class Solution {
 }
 ```
 
-### **Go**
-
-```go
-func majorityElement(nums []int) int {
-	cnt, m := 0, 0
-	for _, v := range nums {
-		if cnt == 0 {
-			m, cnt = v, 1
-		} else {
-			if m == v {
-				cnt++
-			} else {
-				cnt--
-			}
-		}
-	}
-	return m
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn majority_element(nums: Vec<i32>) -> i32 {
-        let mut m = 0;
-        let mut cnt = 0;
-        for &v in nums.iter() {
-            if cnt == 0 {
-                m = v;
-                cnt = 1;
-            } else {
-                cnt += if m == v { 1 } else { -1 };
-            }
-        }
-        m
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

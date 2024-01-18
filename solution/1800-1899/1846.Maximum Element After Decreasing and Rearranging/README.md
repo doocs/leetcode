@@ -67,15 +67,17 @@ arr 中最大元素为 3 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：排序 + 贪心
 
-**方法一：排序 + 贪心**
+我们先对数组进行排序，然后将数组的第一个元素设置为 $1$。
+
+接下来，我们从第二个元素开始遍历数组，如果当前元素与前一个元素的差值大于 $1$，我们就贪心地将当前元素减小为前一个元素加 $1$。
+
+最后，我们返回数组中的最大元素。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +89,6 @@ class Solution:
             arr[i] -= d
         return max(arr)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	sort.Ints(arr)
@@ -142,8 +136,6 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
@@ -159,8 +151,6 @@ function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int MaximumElementAfterDecrementingAndRearranging(int[] arr) {
@@ -175,10 +165,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

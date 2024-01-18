@@ -37,9 +37,23 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Prime Factorization + Combinatorial Mathematics
 
-### **Python3**
+We can perform prime factorization on $k$, i.e., $k = p_1^{x_1} \times p_2^{x_2} \times \cdots \times p_m^{x_m}$, where $p_i$ is a prime number, and $x_i$ is the exponent of $p_i$. The problem is equivalent to: placing $x_1$ $p_1$s, $x_2$ $p_2$s, $\cdots$, $x_m$ $p_m$s into $n$ positions respectively, where a single position can be empty. The question is how many schemes are there.
+
+According to combinatorial mathematics, there are two cases when we put $x$ balls into $n$ boxes:
+
+If the box cannot be empty, the number of schemes is $C_{x-1}^{n-1}$. This is using the partition method, i.e., there are a total of $x$ balls, and we insert $n-1$ partitions at $x-1$ positions, thereby dividing the $x$ balls into $n$ groups.
+
+If the box can be empty, we can add $n$ virtual balls, and then use the partition method, i.e., there are a total of $x+n$ balls, and we insert $n-1$ partitions at $x+n-1$ positions, thereby dividing the actual $x$ balls into $n$ groups and allowing the box to be empty. Therefore, the number of schemes is $C_{x+n-1}^{n-1}$.
+
+Therefore, for each query $queries[i]$, we can first perform prime factorization on $k$ to get the exponents $x_1, x_2, \cdots, x_m$, then calculate $C_{x_1+n-1}^{n-1}, C_{x_2+n-1}^{n-1}, \cdots, C_{x_m+n-1}^{n-1}$, and finally multiply all the scheme numbers.
+
+So, the problem is transformed into how to quickly calculate $C_m^n$. According to the formula $C_m^n = \frac{m!}{n!(m-n)!}$, we can pre-process $m!$, and then use the inverse element to quickly calculate $C_m^n$.
+
+The time complexity is $O(K \times \log \log K + N + m \times \log K)$, and the space complexity is $O(N)$.
+
+<!-- tabs:start -->
 
 ```python
 N = 10020
@@ -78,8 +92,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +157,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 int N = 10020;
 int MOD = 1e9 + 7;
@@ -211,8 +221,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const n = 1e4 + 20
 const mod = 1e9 + 7
@@ -272,10 +280,6 @@ func waysToFillArray(queries [][]int) (ans []int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

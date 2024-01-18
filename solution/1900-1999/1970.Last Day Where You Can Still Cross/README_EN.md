@@ -54,9 +54,9 @@ The last day where it is possible to cross from top to bottom is on day 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -88,10 +88,6 @@ class Solution:
                 return k
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -187,8 +181,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 var p []int
@@ -238,10 +230,6 @@ func find(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

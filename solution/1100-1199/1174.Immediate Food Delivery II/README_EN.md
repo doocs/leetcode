@@ -62,22 +62,16 @@ Hence, half the customers have immediate first orders.
 
 ## Solutions
 
-**Solution 1: Subquery**
+### Solution 1: Subquery
 
 We can use a subquery to first find the first order of each user, and then calculate the proportion of instant orders.
 
-**Solution 2: Window Function**
-
-We can use the `RANK()` window function to rank the orders of each user in ascending order by order date, and then filter out the orders with a rank of $1$, which are the first orders of each user. After that, we can calculate the proportion of instant orders.
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
 SELECT
-    ROUND(SUM(order_date = customer_pref_delivery_date) / COUNT(1) * 100, 2) AS immediate_percentage
+    ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
 FROM Delivery
 WHERE
     (customer_id, order_date) IN (
@@ -86,6 +80,14 @@ WHERE
         GROUP BY 1
     );
 ```
+
+<!-- tabs:end -->
+
+### Solution 2: Window Function
+
+We can use the `RANK()` window function to rank the orders of each user in ascending order by order date, and then filter out the orders with a rank of $1$, which are the first orders of each user. After that, we can calculate the proportion of instant orders.
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -100,9 +102,11 @@ WITH
         FROM Delivery
     )
 SELECT
-    ROUND(SUM(order_date = customer_pref_delivery_date) / COUNT(1) * 100, 2) AS immediate_percentage
+    ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
 FROM T
 WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

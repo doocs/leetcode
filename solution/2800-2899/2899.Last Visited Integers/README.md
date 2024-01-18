@@ -52,19 +52,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接根据题意模拟即可。在实现上，我们使用一个数组 $nums$ 来存储遍历过的整数，使用一个整数 $k$ 来记录当前连续的 $prev$ 字符串数目。如果当前字符串是 $prev$，那么我们就从 $nums$ 中取出第 $|nums| - k$ 个整数，如果不存在，那么就返回 $-1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 nums.append(int(w))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +119,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func lastVisitedIntegers(words []string) (ans []int) {
@@ -157,8 +143,6 @@ func lastVisitedIntegers(words []string) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function lastVisitedIntegers(words: string[]): number[] {
     const nums: number[] = [];
@@ -177,8 +161,6 @@ function lastVisitedIntegers(words: string[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -203,10 +185,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

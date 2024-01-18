@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划**
+### 方法一：状态压缩动态规划
 
 我们注意到，题目要求正好经过 $k$ 条公路，而每个城市最多只能访问一次，城市的数量为 $n$，因此，我们最多只能经过 $n - 1$ 条公路。所以，如果 $k \ge n$，那么我们无法满足题目要求，直接返回 $-1$ 即可。
 
@@ -76,10 +74,6 @@ $$
 时间复杂度 $O(2^n \times n^2)$，空间复杂度 $O(2^n \times n)$。其中 $n$ 表示城市数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,10 +98,6 @@ class Solution:
                     ans = max(ans, f[i][j])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -189,8 +177,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumCost(n int, highways [][]int, k int) int {
@@ -232,8 +218,6 @@ func maximumCost(n int, highways [][]int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumCost(n: number, highways: number[][], k: number): number {
@@ -279,10 +263,6 @@ function bitCount(i: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -34,9 +34,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示 $[1, i]$ 能产生的二叉搜索树的个数，初始时 $f[0] = 1$，答案为 $f[n]$。
 
@@ -48,10 +46,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numTrees(self, n: int) -> int:
@@ -61,10 +55,6 @@ class Solution:
                 f[i] += f[j] * f[i - j - 1]
         return f[n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -99,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numTrees(n int) int {
 	f := make([]int, n+1)
@@ -114,7 +100,18 @@ func numTrees(n int) int {
 }
 ```
 
-### **Rust**
+```ts
+function numTrees(n: number): number {
+    const f: number[] = Array(n + 1).fill(0);
+    f[0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            f[i] += f[j] * f[i - j - 1];
+        }
+    }
+    return f[n];
+}
+```
 
 ```rust
 impl Solution {
@@ -132,23 +129,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function numTrees(n: number): number {
-    const f: number[] = Array(n + 1).fill(0);
-    f[0] = 1;
-    for (let i = 1; i <= n; ++i) {
-        for (let j = 0; j < i; ++j) {
-            f[i] += f[j] * f[i - j - 1];
-        }
-    }
-    return f[n];
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int NumTrees(int n) {
@@ -164,10 +144,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

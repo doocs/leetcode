@@ -51,22 +51,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-最小生成树问题。
-
--   关键边：若删去某条边，导致整个图不连通，或者最小生成树的权值变大，那么这条边就是关键边。
--   伪关键边：对于非关键边，我们尝试将该边加入最小生成树集合中，若最小生成树的权值不变，那么这条边就是非关键边。
-
-**方法一：Kruskal 算法**
+### 方法一：Kruskal 算法
 
 先利用 Kruskal 算法，得出最小生成树的权值 v。然后依次枚举每条边，按上面的方法，判断是否是关键边；如果不是关键边，再判断是否是伪关键边。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -111,10 +100,6 @@ class Solution:
                 ans[1].append(i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -204,8 +189,6 @@ class UnionFind {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -269,8 +252,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -349,10 +330,6 @@ func findCriticalAndPseudoCriticalEdges(n int, edges [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

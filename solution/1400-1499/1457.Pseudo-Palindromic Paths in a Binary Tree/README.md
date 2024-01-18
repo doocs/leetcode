@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 位运算**
+### 方法一：DFS + 位运算
 
 一条路径是伪回文路径，当且仅当该路径经过的节点值的出现次数为奇数的数字为 $0$ 个或 $1$ 个。
 
@@ -76,10 +74,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -99,10 +93,6 @@ class Solution:
 
         return dfs(root, 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -138,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -170,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -199,8 +185,6 @@ func pseudoPalindromicPaths(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -231,8 +215,6 @@ function pseudoPalindromicPaths(root: TreeNode | null): number {
     return dfs(root, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -280,10 +262,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

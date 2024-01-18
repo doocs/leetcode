@@ -37,9 +37,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Brute Force Enumeration
 
-### **Python3**
+Enumerate all substrings and use a hash table to record the count of different substrings.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -47,6 +51,67 @@ class Solution:
         n = len(s)
         return len({s[i:j] for i in range(n) for j in range(i + 1, n + 1)})
 ```
+
+```java
+class Solution {
+    public int countDistinct(String s) {
+        Set<String> ss = new HashSet<>();
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j <= n; ++j) {
+                ss.add(s.substring(i, j));
+            }
+        }
+        return ss.size();
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countDistinct(string s) {
+        unordered_set<string_view> ss;
+        int n = s.size();
+        string_view t, v = s;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j <= n; ++j) {
+                t = v.substr(i, j - i);
+                ss.insert(t);
+            }
+        }
+        return ss.size();
+    }
+};
+```
+
+```go
+func countDistinct(s string) int {
+	ss := map[string]struct{}{}
+	for i := range s {
+		for j := i + 1; j <= len(s); j++ {
+			ss[s[i:j]] = struct{}{}
+		}
+	}
+	return len(ss)
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: String Hashing
+
+**String hashing** is a method to map a string of any length to a non-negative integer, and the probability of collision is almost zero. String hashing is used to calculate the hash value of a string, which can quickly determine whether two strings are equal.
+
+We take a fixed value BASE, treat the string as a number in BASE radix, and assign a value greater than 0 to represent each character. Generally, the values we assign are much smaller than BASE. For example, for a string composed of lowercase letters, we can set a=1, b=2, ..., z=26. We take a fixed value MOD, calculate the remainder of the BASE radix number to MOD, and use it as the hash value of the string.
+
+Generally, we take BASE=131 or BASE=13331, at which point the probability of collision of the hash value is extremely low. As long as the hash values of two strings are the same, we consider the two strings to be equal. Usually, MOD is taken as 2^64. In C++, we can directly use the unsigned long long type to store this hash value. When calculating, we do not handle arithmetic overflow. When overflow occurs, it is equivalent to automatically taking the modulus of 2^64, which can avoid inefficient modulus operations.
+
+Except for extremely specially constructed data, the above hash algorithm is unlikely to cause collisions. In general, the above hash algorithm can appear in the standard answer of the problem. We can also take some appropriate BASE and MOD values (such as large prime numbers), perform several groups of hash operations, and only consider the original strings equal when the results are all the same, making it even more difficult to construct data that causes this hash to produce errors.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,23 +130,6 @@ class Solution:
                 t = h[j] - h[i - 1] * p[j - i + 1]
                 ss.add(t)
         return len(ss)
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int countDistinct(String s) {
-        Set<String> ss = new HashSet<>();
-        int n = s.length();
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j <= n; ++j) {
-                ss.add(s.substring(i, j));
-            }
-        }
-        return ss.size();
-    }
-}
 ```
 
 ```java
@@ -106,26 +154,6 @@ class Solution {
         return ss.size();
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countDistinct(string s) {
-        unordered_set<string_view> ss;
-        int n = s.size();
-        string_view t, v = s;
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j <= n; ++j) {
-                t = v.substr(i, j - i);
-                ss.insert(t);
-            }
-        }
-        return ss.size();
-    }
-};
 ```
 
 ```cpp
@@ -153,20 +181,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countDistinct(s string) int {
-	ss := map[string]struct{}{}
-	for i := range s {
-		for j := i + 1; j <= len(s); j++ {
-			ss[s[i:j]] = struct{}{}
-		}
-	}
-	return len(ss)
-}
-```
-
 ```go
 func countDistinct(s string) int {
 	n := len(s)
@@ -188,10 +202,6 @@ func countDistinct(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

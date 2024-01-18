@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（大小根堆） + 模拟**
+### 方法一：优先队列（大小根堆） + 模拟
 
 我们可以使用优先队列（大小根堆）维护当前的积压订单，其中大根堆 `buy` 维护积压的采购订单，小根堆 `sell` 维护积压的销售订单。堆中每个元素是一个二元组 $(price, amount)$，表示价格为 `price` 的订单数量为 `amount`。
 
@@ -79,10 +77,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是 `orders` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -112,10 +106,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(v[1] for v in buy + sell) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,8 +156,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -222,8 +210,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getNumberOfBacklogOrders(orders [][]int) (ans int) {
@@ -281,10 +267,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

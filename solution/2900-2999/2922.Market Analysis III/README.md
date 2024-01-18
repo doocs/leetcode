@@ -102,17 +102,11 @@ Items table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等值连接 + 分组 + 子查询**
+### 方法一：等值连接 + 分组 + 子查询
 
 我们可以使用等值连接，将 `Orders` 表和 `Users` 表按照 `seller_id` 进行连接，接着再按照 `item_id` 连接 `Items`，筛选出 `item_brand` 不等于 `favorite_brand` 的记录，然后按照 `seller_id` 进行分组，统计每个 `seller_id` 对应的 `item_id` 的个数，最后再使用子查询，找出 `item_id` 个数最多的 `seller_id`。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -133,3 +127,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

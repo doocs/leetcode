@@ -30,17 +30,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def countOdds(self, low: int, high: int) -> int:
         return ((high + 1) >> 1) - (low >> 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -49,8 +47,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -61,23 +57,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countOdds(low int, high int) int {
 	return ((high + 1) >> 1) - (low >> 1)
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countOdds(low: number, high: number): number {
     return ((high + 1) >> 1) - (low >> 1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -86,16 +76,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
-
-```c
-int countOdds(int low, int high) {
-    return ((high + 1) >> 1) - (low >> 1);
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -110,10 +90,12 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int countOdds(int low, int high) {
+    return ((high + 1) >> 1) - (low >> 1);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

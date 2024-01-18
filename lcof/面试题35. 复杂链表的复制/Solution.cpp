@@ -16,28 +16,19 @@ public:
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
-        if (!head) {
-            return nullptr;
+        unordered_map<Node*, Node*> d;
+        Node* dummy = new Node(0);
+        Node* tail = dummy;
+        for (auto cur = head; cur; cur = cur->next) {
+            tail->next = new Node(cur->val);
+            tail = tail->next;
+            d[cur] = tail;
         }
-        for (Node* cur = head; cur;) {
-            Node* node = new Node(cur->val);
-            node->next = cur->next;
-            cur->next = node;
-            cur = node->next;
+        tail = dummy->next;
+        for (auto cur = head; cur; cur = cur->next) {
+            tail->random = d[cur->random];
+            tail = tail->next;
         }
-        for (Node* cur = head; cur; cur = cur->next->next) {
-            if (cur->random) {
-                cur->next->random = cur->random->next;
-            }
-        }
-        Node* ans = head->next;
-        for (Node* cur = head; cur;) {
-            Node* nxt = cur->next;
-            if (nxt) {
-                cur->next = nxt->next;
-            }
-            cur = nxt;
-        }
-        return ans;
+        return dummy->next;
     }
 };

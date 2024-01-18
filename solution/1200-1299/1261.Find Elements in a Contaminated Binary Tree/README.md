@@ -85,19 +85,13 @@ findElements.find(5); // return True
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 哈希表**
+### 方法一：DFS + 哈希表
 
 我们先通过 DFS 遍历二叉树，将节点值恢复为原来的值，然后再通过哈希表存储所有节点值，这样在查找时就可以直接判断目标值是否存在于哈希表中。
 
 时间复杂度方面，初始化时需要遍历二叉树，时间复杂度为 $O(n)$，查找时只需要判断哈希表中是否存在目标值，时间复杂度为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -129,10 +123,6 @@ class FindElements:
 # obj = FindElements(root)
 # param_1 = obj.find(target)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -182,8 +172,6 @@ class FindElements {
  */
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -229,8 +217,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -274,10 +260,6 @@ func (this *FindElements) Find(target int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

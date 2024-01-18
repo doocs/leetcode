@@ -1,18 +1,18 @@
 class Solution {
 public:
     bool canFormArray(vector<int>& arr, vector<vector<int>>& pieces) {
-        unordered_map<int, vector<int>> d;
-        for (auto& p : pieces) {
-            d[p[0]] = p;
-        }
         for (int i = 0; i < arr.size();) {
-            if (!d.count(arr[i])) {
+            int k = 0;
+            while (k < pieces.size() && pieces[k][0] != arr[i]) {
+                ++k;
+            }
+            if (k == pieces.size()) {
                 return false;
             }
-            for (int& v : d[arr[i]]) {
-                if (arr[i++] != v) {
-                    return false;
-                }
+            int j = 0;
+            while (j < pieces[k].size() && arr[i] == pieces[k][j]) {
+                ++i;
+                ++j;
             }
         }
         return true;

@@ -58,11 +58,9 @@
 
 ## Solutions
 
-Union find.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -114,8 +112,6 @@ class Solution:
                     up(i, j)
         return find(0) == find(m * n - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -192,8 +188,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -258,8 +252,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hasValidPath(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -321,10 +313,6 @@ func hasValidPath(grid [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

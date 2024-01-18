@@ -43,9 +43,13 @@ Thus, starting with money = 3, the transactions can be performed in any order.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy
 
-### **Python3**
+First, we accumulate all the negative profits, denoted as $s$. Then we enumerate each transaction as the last transaction. If `transactions[i].x > transactions[i].y`, it means the current transaction is losing money, and this transaction has been calculated when we previously accumulated negative profits, so we update the answer with `s + transactions[i].y`; otherwise, we update the answer with `s + transactions[i].x`.
+
+The time complexity is $O(n)$, where $n$ is the number of transactions. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +63,6 @@ class Solution:
                 ans = max(ans, s + a)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumMoney(transactions [][]int) int64 {
 	s, ans := 0, 0
@@ -123,17 +121,6 @@ func minimumMoney(transactions [][]int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

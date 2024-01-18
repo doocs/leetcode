@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,10 +61,9 @@ class Solution:
         return original
 ```
 
-### **Java**
-
 ```java
 class Solution {
+
     public int findFinalValue(int[] nums, int original) {
         Set<Integer> s = new HashSet<>();
         for (int num : nums) {
@@ -78,20 +77,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findFinalValue(nums: number[], original: number): number {
-    let set: Set<number> = new Set(nums);
-    while (set.has(original)) {
-        original *= 2;
-    }
-    return original;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +88,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findFinalValue(nums []int, original int) int {
@@ -119,10 +102,16 @@ func findFinalValue(nums []int, original int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function findFinalValue(nums: number[], original: number): number {
+    let set: Set<number> = new Set(nums);
+    while (set.has(original)) {
+        original *= 2;
+    }
+    return original;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

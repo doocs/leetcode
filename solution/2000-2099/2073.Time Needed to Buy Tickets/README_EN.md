@@ -47,9 +47,9 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 ans += min(tickets[k] - 1, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,7 +79,36 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int ans = 0;
+        for (int i = 0; i < tickets.size(); ++i) {
+            if (i <= k) {
+                ans += min(tickets[k], tickets[i]);
+            } else {
+                ans += min(tickets[k] - 1, tickets[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func timeRequiredToBuy(tickets []int, k int) int {
+	ans := 0
+	for i, t := range tickets {
+		if i <= k {
+			ans += min(tickets[k], t)
+		} else {
+			ans += min(tickets[k]-1, t)
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function timeRequiredToBuy(tickets: number[], k: number): number {
@@ -109,45 +136,6 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int timeRequiredToBuy(vector<int>& tickets, int k) {
-        int ans = 0;
-        for (int i = 0; i < tickets.size(); ++i) {
-            if (i <= k) {
-                ans += min(tickets[k], tickets[i]);
-            } else {
-                ans += min(tickets[k] - 1, tickets[i]);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func timeRequiredToBuy(tickets []int, k int) int {
-	ans := 0
-	for i, t := range tickets {
-		if i <= k {
-			ans += min(tickets[k], t)
-		} else {
-			ans += min(tickets[k]-1, t)
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

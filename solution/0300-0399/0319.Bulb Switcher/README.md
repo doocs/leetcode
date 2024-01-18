@@ -54,33 +54,24 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def bulbSwitch(self, n: int) -> int:
         return int(n ** (1 / 2))
-
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
-```
-
-### **...**
-
-```
-
+class Solution {
+    public int bulbSwitch(int n) {
+        return (int) Math.sqrt(n);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

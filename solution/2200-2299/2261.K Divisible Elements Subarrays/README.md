@@ -61,19 +61,13 @@ nums 中的所有元素都可以被 p = 1 整除。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 我们可以枚举子数组的左右端点 $i$ 和 $j$，其中 $0 \leq i \leq j < n$。对于每个子数组 $nums[i,..j]$，我们可以统计其中可以被 $p$ 整除的元素的个数 $cnt$，如果 $cnt \leq k$，则该子数组满足条件。我们将所有满足条件的子数组的元素序列作为字符串存入哈希表中，最后哈希表中的元素个数即为答案。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,27 +83,6 @@ class Solution:
                 s.add(tuple(nums[i : j + 1]))
         return len(s)
 ```
-
-```python
-class Solution:
-    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
-        n = len(nums)
-        s = set()
-        for i in range(n):
-            cnt = 0
-            t = ""
-            for x in nums[i:]:
-                cnt += x % p == 0
-                if cnt > k:
-                    break
-                t += str(x) + ","
-                s.add(t)
-        return len(s)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countDistinct(nums []int, k int, p int) int {
 	s := map[string]struct{}{}
@@ -178,8 +147,6 @@ func countDistinct(nums []int, k int, p int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countDistinct(nums: number[], k: number, p: number): number {
     const n = nums.length;
@@ -199,10 +166,29 @@ function countDistinct(nums: number[], k: number, p: number): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+        n = len(nums)
+        s = set()
+        for i in range(n):
+            cnt = 0
+            t = ""
+            for x in nums[i:]:
+                cnt += x % p == 0
+                if cnt > k:
+                    break
+                t += str(x) + ","
+                s.add(t)
+        return len(s)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

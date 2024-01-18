@@ -50,9 +50,9 @@ solution.pick(); // return 4
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,8 +77,6 @@ class Solution:
 # obj = Solution(n, blacklist)
 # param_1 = obj.pick()
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +144,6 @@ public:
  * int param_1 = obj->pick();
  */
 ```
-
-### **Go**
 
 ```go
 type Solution struct {
@@ -192,10 +186,6 @@ func (this *Solution) Pick() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

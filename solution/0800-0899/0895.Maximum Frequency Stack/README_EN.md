@@ -53,9 +53,9 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class FreqStack:
@@ -80,34 +80,6 @@ class FreqStack:
 # obj.push(val)
 # param_2 = obj.pop()
 ```
-
-```python
-class FreqStack:
-    def __init__(self):
-        self.cnt = defaultdict(int)
-        self.d = defaultdict(list)
-        self.mx = 0
-
-    def push(self, val: int) -> None:
-        self.cnt[val] += 1
-        self.d[self.cnt[val]].append(val)
-        self.mx = max(self.mx, self.cnt[val])
-
-    def pop(self) -> int:
-        val = self.d[self.mx].pop()
-        self.cnt[val] -= 1
-        if not self.d[self.mx]:
-            self.mx -= 1
-        return val
-
-
-# Your FreqStack object will be instantiated and called as such:
-# obj = FreqStack()
-# obj.push(val)
-# param_2 = obj.pop()
-```
-
-### **Java**
 
 ```java
 class FreqStack {
@@ -138,42 +110,6 @@ class FreqStack {
  * int param_2 = obj.pop();
  */
 ```
-
-```java
-class FreqStack {
-    private Map<Integer, Integer> cnt = new HashMap<>();
-    private Map<Integer, Deque<Integer>> d = new HashMap<>();
-    private int mx;
-
-    public FreqStack() {
-    }
-
-    public void push(int val) {
-        cnt.put(val, cnt.getOrDefault(val, 0) + 1);
-        int t = cnt.get(val);
-        d.computeIfAbsent(t, k -> new ArrayDeque<>()).push(val);
-        mx = Math.max(mx, t);
-    }
-
-    public int pop() {
-        int val = d.get(mx).pop();
-        cnt.put(val, cnt.get(val) - 1);
-        if (d.get(mx).isEmpty()) {
-            --mx;
-        }
-        return val;
-    }
-}
-
-/**
- * Your FreqStack object will be instantiated and called as such:
- * FreqStack obj = new FreqStack();
- * obj.push(val);
- * int param_2 = obj.pop();
- */
-```
-
-### **C++**
 
 ```cpp
 class FreqStack {
@@ -206,42 +142,6 @@ private:
  * int param_2 = obj->pop();
  */
 ```
-
-```cpp
-class FreqStack {
-public:
-    FreqStack() {
-    }
-
-    void push(int val) {
-        ++cnt[val];
-        d[cnt[val]].push(val);
-        mx = max(mx, cnt[val]);
-    }
-
-    int pop() {
-        int val = d[mx].top();
-        --cnt[val];
-        d[mx].pop();
-        if (d[mx].empty()) --mx;
-        return val;
-    }
-
-private:
-    unordered_map<int, int> cnt;
-    unordered_map<int, stack<int>> d;
-    int mx = 0;
-};
-
-/**
- * Your FreqStack object will be instantiated and called as such:
- * FreqStack* obj = new FreqStack();
- * obj->push(val);
- * int param_2 = obj->pop();
- */
-```
-
-### **Go**
 
 ```go
 type FreqStack struct {
@@ -285,6 +185,106 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
  */
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class FreqStack:
+    def __init__(self):
+        self.cnt = defaultdict(int)
+        self.d = defaultdict(list)
+        self.mx = 0
+
+    def push(self, val: int) -> None:
+        self.cnt[val] += 1
+        self.d[self.cnt[val]].append(val)
+        self.mx = max(self.mx, self.cnt[val])
+
+    def pop(self) -> int:
+        val = self.d[self.mx].pop()
+        self.cnt[val] -= 1
+        if not self.d[self.mx]:
+            self.mx -= 1
+        return val
+
+
+# Your FreqStack object will be instantiated and called as such:
+# obj = FreqStack()
+# obj.push(val)
+# param_2 = obj.pop()
+```
+
+```java
+class FreqStack {
+    private Map<Integer, Integer> cnt = new HashMap<>();
+    private Map<Integer, Deque<Integer>> d = new HashMap<>();
+    private int mx;
+
+    public FreqStack() {
+    }
+
+    public void push(int val) {
+        cnt.put(val, cnt.getOrDefault(val, 0) + 1);
+        int t = cnt.get(val);
+        d.computeIfAbsent(t, k -> new ArrayDeque<>()).push(val);
+        mx = Math.max(mx, t);
+    }
+
+    public int pop() {
+        int val = d.get(mx).pop();
+        cnt.put(val, cnt.get(val) - 1);
+        if (d.get(mx).isEmpty()) {
+            --mx;
+        }
+        return val;
+    }
+}
+
+/**
+ * Your FreqStack object will be instantiated and called as such:
+ * FreqStack obj = new FreqStack();
+ * obj.push(val);
+ * int param_2 = obj.pop();
+ */
+```
+
+```cpp
+class FreqStack {
+public:
+    FreqStack() {
+    }
+
+    void push(int val) {
+        ++cnt[val];
+        d[cnt[val]].push(val);
+        mx = max(mx, cnt[val]);
+    }
+
+    int pop() {
+        int val = d[mx].top();
+        --cnt[val];
+        d[mx].pop();
+        if (d[mx].empty()) --mx;
+        return val;
+    }
+
+private:
+    unordered_map<int, int> cnt;
+    unordered_map<int, stack<int>> d;
+    int mx = 0;
+};
+
+/**
+ * Your FreqStack object will be instantiated and called as such:
+ * FreqStack* obj = new FreqStack();
+ * obj->push(val);
+ * int param_2 = obj->pop();
+ */
+```
+
 ```go
 type FreqStack struct {
 	cnt map[int]int
@@ -320,10 +320,6 @@ func (this *FreqStack) Pop() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

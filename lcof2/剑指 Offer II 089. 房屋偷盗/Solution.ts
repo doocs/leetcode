@@ -1,7 +1,9 @@
 function rob(nums: number[]): number {
-    let [f, g] = [0, 0];
-    for (const x of nums) {
-        [f, g] = [Math.max(f, g), f + x];
+    const n = nums.length;
+    const f: number[] = Array(n + 1).fill(0);
+    f[1] = nums[0];
+    for (let i = 2; i <= n; ++i) {
+        f[i] = Math.max(f[i - 1], f[i - 2] + nums[i - 1]);
     }
-    return Math.max(f, g);
+    return f[n];
 }

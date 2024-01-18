@@ -7,29 +7,16 @@
  * };
  */
 
-struct TreeNode* bstToGst(struct TreeNode* root) {
-    struct TreeNode* cur = root;
-    int sum = 0;
-    while (cur) {
-        if (!cur->right) {
-            sum += cur->val;
-            cur->val = sum;
-            cur = cur->left;
-        } else {
-            struct TreeNode* next = cur->right;
-            while (next->left && next->left != cur) {
-                next = next->left;
-            }
-            if (!next->left) {
-                next->left = cur;
-                cur = cur->right;
-            } else {
-                next->left = NULL;
-                sum += cur->val;
-                cur->val = sum;
-                cur = cur->left;
-            }
-        }
+int dfs(struct TreeNode* root, int sum) {
+    if (root) {
+        sum = dfs(root->right, sum) + root->val;
+        root->val = sum;
+        sum = dfs(root->left, sum);
     }
+    return sum;
+}
+
+struct TreeNode* bstToGst(struct TreeNode* root) {
+    dfs(root, 0);
     return root;
 }

@@ -47,9 +47,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Binary Search + Greedy
 
-### **Python3**
+We notice that if we can eat a piece of chocolate with sweetness $x$, then we can also eat all chocolates with sweetness less than or equal to $x$. This shows monotonicity, therefore, we can use binary search to find the maximum $x$ that satisfies the condition.
+
+We define the left boundary of the binary search as $l=0$, and the right boundary as $r=\sum_{i=0}^{n-1} sweetness[i]$. Each time, we take the middle value $mid$ of $l$ and $r$, and then determine whether we can eat a piece of chocolate with sweetness $mid$. If we can, then we try to eat a piece of chocolate with greater sweetness, i.e., let $l=mid$; otherwise, we try to eat a piece of chocolate with smaller sweetness, i.e., let $r=mid-1$. After the binary search ends, we return $l$.
+
+The key to the problem is how to determine whether we can eat a piece of chocolate with sweetness $x$. We can use a greedy approach, traverse the array from left to right, accumulate the current sweetness each time, when the accumulated sweetness is greater than or equal to $x$, the chocolate count $cnt$ is increased by $1$, and the accumulated sweetness is reset to zero. Finally, check whether $cnt$ is greater than $k$.
+
+The time complexity is $O(n \times \log \sum_{i=0}^{n-1} sweetness[i])$, and the space complexity is $O(1)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +80,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximizeSweetness(sweetness []int, k int) int {
@@ -169,8 +171,6 @@ func maximizeSweetness(sweetness []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSweetness(sweetness: number[], k: number): number {
     let l = 0;
@@ -199,10 +199,6 @@ function maximizeSweetness(sweetness: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

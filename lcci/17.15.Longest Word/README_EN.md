@@ -27,9 +27,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -77,8 +77,6 @@ class Solution:
             trie.insert(w)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -143,8 +141,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -211,10 +207,6 @@ func longestWord(words []string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

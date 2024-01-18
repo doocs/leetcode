@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Solution 1: Array or Hash Table**
+### Solution 1: Array or Hash Table
 
 We use $cnt$ to record the number of times each element $v$ appears in $nums$, and $ccnt$ to record the number of times each count appears. The maximum number of times an element appears is represented by $mx$.
 
@@ -47,8 +47,6 @@ While traversing $nums$:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $nums$ array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
                 ans = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxEqualFreq(nums []int) int {
 	cnt := map[int]int{}
@@ -157,8 +149,6 @@ func maxEqualFreq(nums []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxEqualFreq(nums: number[]): number {
@@ -198,10 +188,6 @@ function maxEqualFreq(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

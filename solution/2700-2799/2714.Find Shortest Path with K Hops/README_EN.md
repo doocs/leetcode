@@ -57,7 +57,7 @@
 
 ## Solutions
 
-**Solution 1: Dijkstra Algorithm**
+### Solution 1: Dijkstra Algorithm
 
 First, we construct a graph $g$ based on the given edges, where $g[u]$ represents all neighboring nodes of node $u$ and their corresponding edge weights.
 
@@ -72,11 +72,11 @@ The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
-    def shortestPathWithHops(self, n: int, edges: List[List[int]], s: int, d: int, k: int) -> int:
+    def shortestPathWithHops(
+        self, n: int, edges: List[List[int]], s: int, d: int, k: int
+    ) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:
             g[u].append((v, w))
@@ -95,8 +95,6 @@ class Solution:
                     heappush(pq, (dis + w, v, t))
         return int(min(dist[d]))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -140,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +171,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestPathWithHops(n int, edges [][]int, s int, d int, k int) int {
@@ -223,10 +217,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

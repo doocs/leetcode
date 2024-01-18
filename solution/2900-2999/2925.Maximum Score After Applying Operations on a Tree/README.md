@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树形 DP**
+### 方法一：树形 DP
 
 题目实际上是让我们从树的所有节点中选出一些节点，使得这些节点的值之和最大，并且每条从根节点到叶子节点的路径上都有一个点没有被选中。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,10 +109,6 @@ class Solution:
             g[b].append(a)
         return dfs(0)[1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -157,8 +147,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -193,8 +181,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
 	g := make([][]int, len(values))
@@ -225,8 +211,6 @@ func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumScoreAfterOperations(edges: number[][], values: number[]): number {
     const g: number[][] = Array.from({ length: values.length }, () => []);
@@ -254,10 +238,6 @@ function maximumScoreAfterOperations(edges: number[][], values: number[]): numbe
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

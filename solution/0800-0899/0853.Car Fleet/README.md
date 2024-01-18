@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们将车辆按照位置降序排序，这样我们只需要比较相邻两辆车的到达时间即可。
 
@@ -75,10 +73,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是车辆的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
                 pre = t
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func carFleet(target int, position []int, speed []int) (ans int) {
 	n := len(position)
@@ -167,8 +153,6 @@ func carFleet(target int, position []int, speed []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function carFleet(target: number, position: number[], speed: number[]): number {
@@ -190,10 +174,6 @@ function carFleet(target: number, position: number[], speed: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

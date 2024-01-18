@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             prev = curmax
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using pii = pair<int, int>;
 
@@ -139,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumGap(nums []int) int {
@@ -177,8 +171,6 @@ func maximumGap(nums []int) int {
 	return ans
 }
 ```
-
-### **C#**
 
 ```cs
 using System;
@@ -222,10 +214,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

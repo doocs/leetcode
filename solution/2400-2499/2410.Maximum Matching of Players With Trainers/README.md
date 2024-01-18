@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 双指针**
+### 方法一：贪心 + 双指针
 
 按运动员的能力值从小到大排序，选择大于等于运动员能力值的，且自身能力值最小的训练师。
 
-时间复杂度 $O(n\log n + m\log m)$。其中 $n$, $m$ 分别为运动员和训练师的数量。
+时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(\log n + \log m)$。其中 $n$ 和 $m$ 分别为运动员和训练师的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matchPlayersAndTrainers(players []int, trainers []int) int {
 	sort.Ints(players)
@@ -142,17 +128,6 @@ func matchPlayersAndTrainers(players []int, trainers []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

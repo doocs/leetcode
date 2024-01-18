@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 模拟**
+### 方法一：贪心 + 模拟
 
 我们从正整数 $i=1$ 开始，依次判断 $i$ 是否可以加入数组中，如果可以加入，则将 $i$ 加入数组中，累加到答案中，然后将 $k-i$ 置为已访问，表示 $k-i$ 不能加入数组中。循环直到数组长度为 $n$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             s += i
         return s
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSum(n int, k int) int {
 	s, i := 0, 1
@@ -137,8 +123,6 @@ func minimumSum(n int, k int) int {
 	return s
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumSum(n: number, k: number): number {
@@ -159,10 +143,6 @@ function minimumSum(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

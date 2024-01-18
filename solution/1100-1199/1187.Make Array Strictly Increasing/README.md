@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示将 $arr1[0,..,i]$ 转换为严格递增数组，且 $arr1[i]$ 不替换的最小操作数。因此，我们在 $arr1$ 设置首尾两个哨兵 $-\infty$ 和 $\infty$。最后一个数一定是不替换，因此 $f[n-1]$ 即为答案。我们初始化 $f[0]=0$，其余 $f[i]=\infty$。
 
@@ -65,10 +63,6 @@
 时间复杂度 $(n \times (\log m + \min(m, n)))$，空间复杂度 $O(n)$。其中 $n$ 为 $arr1$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
                     f[i] = min(f[i], f[i - k - 1] + k)
         return -1 if f[n - 1] >= inf else f[n - 1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -145,8 +135,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +162,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeArrayIncreasing(arr1 []int, arr2 []int) int {
@@ -214,8 +200,6 @@ func makeArrayIncreasing(arr1 []int, arr2 []int) int {
 	return f[n-1]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
@@ -259,8 +243,6 @@ function makeArrayIncreasing(arr1: number[], arr2: number[]): number {
     return f[n - 1] >= inf ? -1 : f[n - 1];
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -311,10 +293,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

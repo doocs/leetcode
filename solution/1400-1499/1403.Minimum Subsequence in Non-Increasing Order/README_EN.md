@@ -37,9 +37,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting
 
-### **Python3**
+We can first sort the array $nums$ in descending order, then add the elements to the array from largest to smallest. After each addition, we check whether the sum of the current elements is greater than the sum of the remaining elements. If it is, we return the current array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +57,6 @@ class Solution:
                 break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSubsequence(nums []int) (ans []int) {
 	sort.Ints(nums)
@@ -116,8 +114,6 @@ func minSubsequence(nums []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSubsequence(nums: number[]): number[] {
     nums.sort((a, b) => b - a);
@@ -131,8 +127,6 @@ function minSubsequence(nums: number[]): number[] {
     }
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -153,10 +147,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

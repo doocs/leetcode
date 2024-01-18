@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先创建一个答案数组 $ans$，其中 $ans[0]$ 和 $ans[1]$ 分别表示矩阵的第一行和第二行。
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 $colsum$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
                 return []
         return ans if lower == upper == 0 else []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
@@ -203,8 +189,6 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reconstructMatrix(upper: number, lower: number, colsum: number[]): number[][] {
     const n = colsum.length;
@@ -233,10 +217,6 @@ function reconstructMatrix(upper: number, lower: number, colsum: number[]): numb
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

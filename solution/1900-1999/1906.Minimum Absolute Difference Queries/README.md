@@ -64,17 +64,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-数组元素范围在 `[1,100]` 之间，对于每个区间 `[left, right]`，可以遍历整数 `1~100`，判断每个整数是否出现，求得差绝对值的最小值。
-
-用前缀和 `preSum[i][j]` 表示数组前 i 个元素中包含整数 j 的个数，那么对于区间 `[left, right]`，如果 `preSum[right + 1][j] - preSum[left][j] > 0`，那么表示此区间存在整数 j。j 从 `1~100` 进行遍历，可以判断每个递增整数是否在区间中存在。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +93,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,42 +129,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minDifference(nums: number[], queries: number[][]): number[] {
-    let m = nums.length,
-        n = queries.length;
-    let max = 100;
-    // let max = Math.max(...nums);
-    let pre: number[][] = [];
-    pre.push(new Array(max + 1).fill(0));
-    for (let i = 0; i < m; ++i) {
-        let num = nums[i];
-        pre.push(pre[i].slice());
-        pre[i + 1][num] += 1;
-    }
-
-    let ans = [];
-    for (let [left, right] of queries) {
-        let last = -1;
-        let min = Infinity;
-        for (let j = 1; j < max + 1; ++j) {
-            if (pre[left][j] < pre[right + 1][j]) {
-                if (last != -1) {
-                    min = Math.min(min, j - last);
-                }
-                last = j;
-            }
-        }
-        ans.push(min == Infinity ? -1 : min);
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -212,8 +164,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDifference(nums []int, queries [][]int) []int {
@@ -252,10 +202,38 @@ func minDifference(nums []int, queries [][]int) []int {
 }
 ```
 
-### **...**
+```ts
+function minDifference(nums: number[], queries: number[][]): number[] {
+    let m = nums.length,
+        n = queries.length;
+    let max = 100;
+    // let max = Math.max(...nums);
+    let pre: number[][] = [];
+    pre.push(new Array(max + 1).fill(0));
+    for (let i = 0; i < m; ++i) {
+        let num = nums[i];
+        pre.push(pre[i].slice());
+        pre[i + 1][num] += 1;
+    }
 
-```
-
+    let ans = [];
+    for (let [left, right] of queries) {
+        let last = -1;
+        let min = Infinity;
+        for (let j = 1; j < max + 1; ++j) {
+            if (pre[left][j] < pre[right + 1][j]) {
+                if (last != -1) {
+                    min = Math.min(min, j - last);
+                }
+                last = j;
+            }
+        }
+        ans.push(min == Infinity ? -1 : min);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

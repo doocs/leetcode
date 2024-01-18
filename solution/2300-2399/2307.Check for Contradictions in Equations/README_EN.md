@@ -53,7 +53,7 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 
 ## Solutions
 
-**Solution 1: Weighted Union-Find**
+### Solution 1: Weighted Union-Find
 
 First, we convert the strings into integers starting from $0$. Then, we traverse all the equations, map the two strings in each equation to the corresponding integers $a$ and $b$. If these two integers are not in the same set, we merge them into the same set and record the weights of the two integers, which is the ratio of $a$ to $b$. If these two integers are in the same set, we check whether their weights satisfy the equation. If not, we return `true`.
 
@@ -64,8 +64,6 @@ Similar problems:
 -   [399. Evaluate Division](/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -149,8 +145,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -190,8 +184,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkContradictions(equations [][]string, values []float64) bool {
@@ -243,8 +235,6 @@ func checkContradictions(equations [][]string, values []float64) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkContradictions(equations: string[][], values: number[]): boolean {
     const d: { [key: string]: number } = {};
@@ -291,10 +281,6 @@ function checkContradictions(equations: string[][], values: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

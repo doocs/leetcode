@@ -37,15 +37,13 @@
 
 ## 解法
 
-**方法一：递归**
+### 方法一：递归
 
 我们先判断根节点是否为空，如果为空，直接返回空。如果不为空，我们交换根节点的左右子树，然后递归地交换左子树和右子树。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。最坏情况下，二叉树退化为链表，递归深度为 $n$，因此系统使用 $O(n)$ 大小的栈空间。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -65,28 +63,6 @@ class Solution:
         self.mirrorTree(root.right)
         return root
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def mirrorTree(self, root: TreeNode) -> TreeNode:
-        if root is None:
-            return root
-        left = self.mirrorTree(root.left)
-        right = self.mirrorTree(root.right)
-        root.left = right
-        root.right = left
-        return root
-```
-
-### **Java**
 
 ```java
 /**
@@ -113,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -139,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -160,35 +132,6 @@ func mirrorTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {TreeNode}
- */
-var mirrorTree = function (root) {
-    if (!root) {
-        return null;
-    }
-    const { left, right } = root;
-    root.left = right;
-    root.right = left;
-    mirrorTree(left);
-    mirrorTree(right);
-    return root;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -217,8 +160,6 @@ function mirrorTree(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -260,7 +201,30 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var mirrorTree = function (root) {
+    if (!root) {
+        return null;
+    }
+    const { left, right } = root;
+    root.left = right;
+    root.right = left;
+    mirrorTree(left);
+    mirrorTree(right);
+    return root;
+};
+```
 
 ```cs
 /**
@@ -287,10 +251,32 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
+class Solution:
+    def mirrorTree(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return root
+        left = self.mirrorTree(root.left)
+        right = self.mirrorTree(root.right)
+        root.left = right
+        root.right = left
+        return root
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

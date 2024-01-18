@@ -43,9 +43,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + Two Pointers
 
-### **Python3**
+We define the string $s$ as `"abc"`, and use pointers $i$ and $j$ to point to $s$ and $word$ respectively.
+
+If $word[j] \neq s[i]$, we need to insert $s[i]$, and we add $1$ to the answer; otherwise, it means that $word[j]$ can match with $s[i]$, and we move $j$ one step to the right.
+
+Then, we move $i$ one step to the right, i.e., $i = (i + 1) \bmod 3$. We continue the above operations until $j$ reaches the end of the string $word$.
+
+Finally, we check whether the last character of $word$ is `'b'` or `'a'`. If it is, we need to insert `'c'` or `'bc'`, and we add $1$ or $2$ to the answer and return it.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $word$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +73,6 @@ class Solution:
             ans += 1 if word[-1] == 'b' else 2
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addMinimum(word string) (ans int) {
 	s := "abc"
@@ -130,8 +134,6 @@ func addMinimum(word string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function addMinimum(word: string): number {
@@ -154,10 +156,6 @@ function addMinimum(word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

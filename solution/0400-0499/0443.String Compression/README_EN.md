@@ -53,9 +53,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
             i = j
         return k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func compress(chars []byte) int {
@@ -147,8 +141,6 @@ func compress(chars []byte) int {
 	return k
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -176,10 +168,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,20 @@ There are no other quadruplets, so we return 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Enumeration + Preprocessing
 
-### **Python3**
+We can enumerate $j$ and $k$ in the quadruplet, then the problem is transformed into, for the current $j$ and $k$:
+
+-   Count how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$;
+-   Count how many $i$ satisfy $i < j$ and $nums[i] < nums[k]$.
+
+We can use two two-dimensional arrays $f$ and $g$ to record these two pieces of information. Where $f[j][k]$ represents how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$, and $g[j][k]$ represents how many $i$ satisfy $i < j$ and $nums[i] < nums[k]$.
+
+Therefore, the answer is the sum of all $f[j][k] \times g[j][k]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +83,6 @@ class Solution:
             f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)
         )
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 const int N = 4001;
@@ -168,8 +175,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countQuadruplets(nums []int) int64 {
 	n := len(nums)
@@ -215,10 +220,6 @@ func countQuadruplets(nums []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

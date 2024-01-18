@@ -66,19 +66,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们可以将题目可以转换为：对某个开销值，看它能不能在 maxOperations 次操作内得到。因此，二分枚举开销值，找到最小的且满足条件的开销值即可。
 
 时间复杂度 $O(n \times \log M)$。其中 $n$ 和 $M$ 分别为数组 `nums` 的长度和最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
 
         return bisect_left(range(1, max(nums)), True, key=check) + 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSize(nums []int, maxOperations int) int {
 	r := slices.Max(nums)
@@ -157,7 +143,25 @@ func minimumSize(nums []int, maxOperations int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function minimumSize(nums: number[], maxOperations: number): number {
+    let left = 1;
+    let right = Math.max(...nums);
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let cnt = 0;
+        for (const x of nums) {
+            cnt += ~~((x - 1) / mid);
+        }
+        if (cnt <= maxOperations) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
 
 ```js
 /**
@@ -184,32 +188,6 @@ var minimumSize = function (nums, maxOperations) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function minimumSize(nums: number[], maxOperations: number): number {
-    let left = 1;
-    let right = Math.max(...nums);
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let cnt = 0;
-        for (const x of nums) {
-            cnt += ~~((x - 1) / mid);
-        }
-        if (cnt <= maxOperations) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

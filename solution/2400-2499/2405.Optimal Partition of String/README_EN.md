@@ -40,9 +40,15 @@ It can be shown that 4 is the minimum number of substrings needed.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy
 
-### **Python3**
+According to the problem, each substring should be as long as possible and contain unique characters. We just need to partition greedily.
+
+During the process, we can use a hash table to record all characters in the current substring, with a space complexity of $O(n)$; or we can use a number to record characters using bitwise operations, with a space complexity of $O(1)$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,21 +62,6 @@ class Solution:
             ss.add(c)
         return ans
 ```
-
-```python
-class Solution:
-    def partitionString(self, s: str) -> int:
-        ans, v = 1, 0
-        for c in s:
-            i = ord(c) - ord('a')
-            if (v >> i) & 1:
-                v = 0
-                ans += 1
-            v |= 1 << i
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,26 +80,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int partitionString(String s) {
-        int v = 0;
-        int ans = 1;
-        for (char c : s.toCharArray()) {
-            int i = c - 'a';
-            if (((v >> i) & 1) == 1) {
-                v = 0;
-                ++ans;
-            }
-            v |= 1 << i;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,6 +96,91 @@ public:
         return ans;
     }
 };
+```
+
+```go
+func partitionString(s string) int {
+	ss := map[rune]bool{}
+	ans := 1
+	for _, c := range s {
+		if ss[c] {
+			ans++
+			ss = map[rune]bool{}
+		}
+		ss[c] = true
+	}
+	return ans
+}
+```
+
+```ts
+function partitionString(s: string): number {
+    const set = new Set();
+    let res = 1;
+    for (const c of s) {
+        if (set.has(c)) {
+            res++;
+            set.clear();
+        }
+        set.add(c);
+    }
+    return res;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn partition_string(s: String) -> i32 {
+        let mut set = HashSet::new();
+        let mut res = 1;
+        for c in s.as_bytes().iter() {
+            if set.contains(c) {
+                res += 1;
+                set.clear();
+            }
+            set.insert(c);
+        }
+        res
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def partitionString(self, s: str) -> int:
+        ans, v = 1, 0
+        for c in s:
+            i = ord(c) - ord('a')
+            if (v >> i) & 1:
+                v = 0
+                ans += 1
+            v |= 1 << i
+        return ans
+```
+
+```java
+class Solution {
+    public int partitionString(String s) {
+        int v = 0;
+        int ans = 1;
+        for (char c : s.toCharArray()) {
+            int i = c - 'a';
+            if (((v >> i) & 1) == 1) {
+                v = 0;
+                ++ans;
+            }
+            v |= 1 << i;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
@@ -146,23 +202,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func partitionString(s string) int {
-	ss := map[rune]bool{}
-	ans := 1
-	for _, c := range s {
-		if ss[c] {
-			ans++
-			ss = map[rune]bool{}
-		}
-		ss[c] = true
-	}
-	return ans
-}
-```
-
 ```go
 func partitionString(s string) int {
 	ans, v := 1, 0
@@ -178,48 +217,6 @@ func partitionString(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function partitionString(s: string): number {
-    const set = new Set();
-    let res = 1;
-    for (const c of s) {
-        if (set.has(c)) {
-            res++;
-            set.clear();
-        }
-        set.add(c);
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn partition_string(s: String) -> i32 {
-        let mut set = HashSet::new();
-        let mut res = 1;
-        for c in s.as_bytes().iter() {
-            if set.contains(c) {
-                res += 1;
-                set.clear();
-            }
-            set.insert(c);
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

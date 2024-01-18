@@ -49,13 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +65,6 @@ class Solution:
         a, b, c = color[1:3], color[3:5], color[5:7]
         return f'#{f(a)}{f(b)}{f(c)}'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func similarRGB(color string) string {
@@ -108,10 +98,6 @@ func similarRGB(color string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

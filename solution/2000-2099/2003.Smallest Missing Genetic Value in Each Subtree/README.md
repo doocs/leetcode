@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们注意到，每个节点的基因值互不相同，因此，我们只需要找到基因值为 $1$ 的节点 $idx$，那么除了从节点 $idx$ 到根节点 $0$ 的每个节点，其它节点的答案都是 $1$。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -127,10 +121,6 @@ class Solution:
             idx = parents[idx]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -185,8 +175,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -234,8 +222,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestMissingValueSubtree(parents []int, nums []int) []int {
 	n := len(nums)
@@ -280,7 +266,47 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const vis: boolean[] = Array(n).fill(false);
+    const has: boolean[] = Array(n + 2).fill(false);
+    const ans: number[] = Array(n).fill(1);
+    let idx = -1;
+    for (let i = 0; i < n; ++i) {
+        if (i) {
+            g[parents[i]].push(i);
+        }
+        if (nums[i] === 1) {
+            idx = i;
+        }
+    }
+    if (idx === -1) {
+        return ans;
+    }
+    const dfs = (i: number): void => {
+        if (vis[i]) {
+            return;
+        }
+        vis[i] = true;
+        if (nums[i] < has.length) {
+            has[nums[i]] = true;
+        }
+        for (const j of g[i]) {
+            dfs(j);
+        }
+    };
+    for (let i = 2; ~idx; idx = parents[idx]) {
+        dfs(idx);
+        while (has[i]) {
+            ++i;
+        }
+        ans[idx] = i;
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -336,54 +362,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
-    const n = nums.length;
-    const g: number[][] = Array.from({ length: n }, () => []);
-    const vis: boolean[] = Array(n).fill(false);
-    const has: boolean[] = Array(n + 2).fill(false);
-    const ans: number[] = Array(n).fill(1);
-    let idx = -1;
-    for (let i = 0; i < n; ++i) {
-        if (i) {
-            g[parents[i]].push(i);
-        }
-        if (nums[i] === 1) {
-            idx = i;
-        }
-    }
-    if (idx === -1) {
-        return ans;
-    }
-    const dfs = (i: number): void => {
-        if (vis[i]) {
-            return;
-        }
-        vis[i] = true;
-        if (nums[i] < has.length) {
-            has[nums[i]] = true;
-        }
-        for (const j of g[i]) {
-            dfs(j);
-        }
-    };
-    for (let i = 2; ~idx; idx = parents[idx]) {
-        dfs(idx);
-        while (has[i]) {
-            ++i;
-        }
-        ans[idx] = i;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

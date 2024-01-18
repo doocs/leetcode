@@ -1,37 +1,47 @@
 func validSubarraySize(nums []int, threshold int) int {
 	n := len(nums)
-	left := make([]int, n)
-	right := make([]int, n)
-	for i := range left {
-		left[i] = -1
-		right[i] = n
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
 	}
-	var stk []int
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	merge := func(a, b int) {
+		pa, pb := find(a), find(b)
+		if pa == pb {
+			return
+		}
+		p[pa] = pb
+		size[pb] += size[pa]
+	}
+
+	arr := make([][]int, n)
 	for i, v := range nums {
-		for len(stk) > 0 && nums[stk[len(stk)-1]] >= v {
-			stk = stk[:len(stk)-1]
-		}
-		if len(stk) > 0 {
-			left[i] = stk[len(stk)-1]
-		}
-		stk = append(stk, i)
+		arr[i] = []int{v, i}
 	}
-	stk = []int{}
-	for i := n - 1; i >= 0; i-- {
-		v := nums[i]
-		for len(stk) > 0 && nums[stk[len(stk)-1]] >= v {
-			stk = stk[:len(stk)-1]
+	sort.Slice(arr, func(i, j int) bool {
+		return arr[i][0] > arr[j][0]
+	})
+	vis := make([]bool, n)
+	for _, e := range arr {
+		v, i := e[0], e[1]
+		if i > 0 && vis[i-1] {
+			merge(i, i-1)
 		}
-		if len(stk) > 0 {
-			right[i] = stk[len(stk)-1]
+		if i < n-1 && vis[i+1] {
+			merge(i, i+1)
 		}
-		stk = append(stk, i)
-	}
-	for i, v := range nums {
-		k := right[i] - left[i] - 1
-		if v > threshold/k {
-			return k
+		if v > threshold/size[find(i)] {
+			return size[find(i)]
 		}
+		vis[i] = true
 	}
 	return -1
 }

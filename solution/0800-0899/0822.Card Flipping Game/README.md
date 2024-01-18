@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们注意到，对于位置 $i$，若 $fronts[i]$ 与 $backs[i]$ 元素相同，则一定不满足条件。
 
@@ -65,20 +63,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def flipgame(self, fronts: List[int], backs: List[int]) -> int:
         s = {a for a, b in zip(fronts, backs) if a == b}
         return min((x for x in chain(fronts, backs) if x not in s), default=0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func flipgame(fronts []int, backs []int) int {
 	s := map[int]struct{}{}
@@ -159,8 +145,6 @@ func flipgame(fronts []int, backs []int) int {
 	return ans % 9999
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function flipgame(fronts: number[], backs: number[]): number {
@@ -186,8 +170,6 @@ function flipgame(fronts: number[], backs: number[]): number {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int Flipgame(int[] fronts, int[] backs) {
@@ -212,10 +194,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

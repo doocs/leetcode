@@ -59,7 +59,7 @@ It can be shown that there is no shorter sequence of operations that results in 
 
 ## Solutions
 
-**Solution 1: Greedy + Bit Manipulation**
+### Solution 1: Greedy + Bit Manipulation
 
 Observing the operation in the problem, we find that each operation actually splits a number greater than $1$ into two equal numbers, which means that the sum of the elements in the array will not change after the operation. Therefore, if the sum of the elements in the array $s$ is less than $target$, it is impossible to obtain a subsequence with a sum of $target$ through the operation described in the problem, and we can directly return $-1$. Otherwise, we can definitely make the sum of some subsequences in the array equal to $target$ through the split operation.
 
@@ -72,8 +72,6 @@ Note that if $j < i$, actually two lower bits of $1$ can be combined into a high
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -106,8 +104,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -151,8 +147,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -198,8 +192,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int, target int) (ans int) {
 	s := 0
@@ -239,8 +231,6 @@ func minOperations(nums []int, target int) (ans int) {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[], target: number): number {
@@ -282,10 +272,6 @@ function minOperations(nums: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -75,9 +75,7 @@ D.pop()            // 返回 -1。仍然没有栈。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈数组 + 有序集合**
+### 方法一：栈数组 + 有序集合
 
 我们定义以下数据结构或变量：
 
@@ -103,10 +101,6 @@ D.pop()            // 返回 -1。仍然没有栈。
 时间复杂度 $(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为操作次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -151,10 +145,6 @@ class DinnerPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAtStack(index)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class DinnerPlates {
@@ -211,8 +201,6 @@ class DinnerPlates {
  * int param_3 = obj.popAtStack(index);
  */
 ```
-
-### **C++**
 
 ```cpp
 class DinnerPlates {
@@ -273,8 +261,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type DinnerPlates struct {
 	capacity int
@@ -330,8 +316,6 @@ func (this *DinnerPlates) PopAtStack(index int) int {
  * param_3 := obj.PopAtStack(index);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class DinnerPlates {
@@ -880,10 +864,6 @@ class TreeSet<T = number> {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

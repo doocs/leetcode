@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 模拟**
+### 方法一：排序 + 模拟
 
 我们先将输入的边集合转换成邻接表，其中 $g[i]$ 表示节点 $i$ 的邻居节点的值列表，且按照值的降序排列。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 为节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
             bs.sort(reverse=True)
         return max(v + sum(g[i][:k]) for i, v in enumerate(vals))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxStarSum(vals []int, edges [][]int, k int) (ans int) {
@@ -179,10 +165,6 @@ func maxStarSum(vals []int, edges [][]int, k int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

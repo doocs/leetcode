@@ -54,9 +54,7 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
@@ -75,20 +73,7 @@ numArray.sumRange(0, 2); // 返回 1 + 2 + 5 = 8
 
 空间复杂度为 $O(n)$。
 
-**方法二：线段树**
-
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(width)$。更新某个元素的值，只需要更新 $\log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。
-
--   线段树的每个节点代表一个区间；
--   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1, N]$；
--   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x, x]$；
--   对于每个内部节点 $[l, r]$，它的左儿子是 $[l, mid]$，右儿子是 $[mid + 1, r]$, 其中 $mid = \lfloor \frac{l + r}{2} \rfloor$（即向下取整）。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -132,6 +117,297 @@ class NumArray:
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
 ```
+
+```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class NumArray {
+    private BinaryIndexedTree tree;
+
+    public NumArray(int[] nums) {
+        int n = nums.length;
+        tree = new BinaryIndexedTree(n);
+        for (int i = 0; i < n; ++i) {
+            tree.update(i + 1, nums[i]);
+        }
+    }
+
+    public void update(int index, int val) {
+        int prev = sumRange(index, index);
+        tree.update(index + 1, val - prev);
+    }
+
+    public int sumRange(int left, int right) {
+        return tree.query(right + 1) - tree.query(left);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * obj.update(index,val);
+ * int param_2 = obj.sumRange(left,right);
+ */
+```
+
+```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+};
+
+class NumArray {
+public:
+    BinaryIndexedTree* tree;
+
+    NumArray(vector<int>& nums) {
+        int n = nums.size();
+        tree = new BinaryIndexedTree(n);
+        for (int i = 0; i < n; ++i) tree->update(i + 1, nums[i]);
+    }
+
+    void update(int index, int val) {
+        int prev = sumRange(index, index);
+        tree->update(index + 1, val - prev);
+    }
+
+    int sumRange(int left, int right) {
+        return tree->query(right + 1) - tree->query(left);
+    }
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray* obj = new NumArray(nums);
+ * obj->update(index,val);
+ * int param_2 = obj->sumRange(left,right);
+ */
+```
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (t *BinaryIndexedTree) update(x, delta int) {
+	for ; x <= t.n; x += x & -x {
+		t.c[x] += delta
+	}
+}
+
+func (t *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
+		s += t.c[x]
+	}
+	return s
+}
+
+type NumArray struct {
+	tree *BinaryIndexedTree
+}
+
+func Constructor(nums []int) NumArray {
+	tree := newBinaryIndexedTree(len(nums))
+	for i, v := range nums {
+		tree.update(i+1, v)
+	}
+	return NumArray{tree}
+}
+
+func (t *NumArray) Update(index int, val int) {
+	prev := t.SumRange(index, index)
+	t.tree.update(index+1, val-prev)
+}
+
+func (t *NumArray) SumRange(left int, right int) int {
+	return t.tree.query(right+1) - t.tree.query(left)
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * obj := Constructor(nums);
+ * obj.Update(index,val);
+ * param_2 := obj.SumRange(left,right);
+ */
+```
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, delta: number): void {
+        while (x <= this.n) {
+            this.c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class NumArray {
+    private tree: BinaryIndexedTree;
+
+    constructor(nums: number[]) {
+        const n = nums.length;
+        this.tree = new BinaryIndexedTree(n);
+        for (let i = 0; i < n; ++i) {
+            this.tree.update(i + 1, nums[i]);
+        }
+    }
+
+    update(index: number, val: number): void {
+        const prev = this.sumRange(index, index);
+        this.tree.update(index + 1, val - prev);
+    }
+
+    sumRange(left: number, right: number): number {
+        return this.tree.query(right + 1) - this.tree.query(left);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * obj.update(index,val)
+ * var param_2 = obj.sumRange(left,right)
+ */
+```
+
+```cs
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void Update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    public int Query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+public class NumArray {
+    private BinaryIndexedTree tree;
+
+    public NumArray(int[] nums) {
+        int n = nums.Length;
+        tree = new BinaryIndexedTree(n);
+        for (int i = 0; i < n; ++i) {
+            tree.Update(i + 1, nums[i]);
+        }
+    }
+
+    public void Update(int index, int val) {
+        int prev = SumRange(index, index);
+        tree.Update(index + 1, val - prev);
+    }
+
+    public int SumRange(int left, int right) {
+        return tree.Query(right + 1) - tree.Query(left);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * obj.Update(index,val);
+ * int param_2 = obj.SumRange(left,right);
+ */
+```
+
+<!-- tabs:end -->
+
+### 方法二：线段树
+
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(width)$。更新某个元素的值，只需要更新 $\log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。
+
+-   线段树的每个节点代表一个区间；
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1, N]$；
+-   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x, x]$；
+-   对于每个内部节点 $[l, r]$，它的左儿子是 $[l, mid]$，右儿子是 $[mid + 1, r]$, 其中 $mid = \lfloor \frac{l + r}{2} \rfloor$（即向下取整）。
+
+对于本题，构造函数的时间复杂度为 $O(n \log n)$，其他操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$。
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -203,66 +479,6 @@ class NumArray:
 # obj = NumArray(nums)
 # obj.update(index,val)
 # param_2 = obj.sumRange(left,right)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        c = new int[n + 1];
-    }
-
-    public void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += x & -x;
-        }
-    }
-
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= x & -x;
-        }
-        return s;
-    }
-}
-
-class NumArray {
-    private BinaryIndexedTree tree;
-
-    public NumArray(int[] nums) {
-        int n = nums.length;
-        tree = new BinaryIndexedTree(n);
-        for (int i = 0; i < n; ++i) {
-            tree.update(i + 1, nums[i]);
-        }
-    }
-
-    public void update(int index, int val) {
-        int prev = sumRange(index, index);
-        tree.update(index + 1, val - prev);
-    }
-
-    public int sumRange(int left, int right) {
-        return tree.query(right + 1) - tree.query(left);
-    }
-}
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * NumArray obj = new NumArray(nums);
- * obj.update(index,val);
- * int param_2 = obj.sumRange(left,right);
- */
 ```
 
 ```java
@@ -357,63 +573,6 @@ class NumArray {
  */
 ```
 
-### **C++**
-
-```cpp
-class BinaryIndexedTree {
-public:
-    int n;
-    vector<int> c;
-
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
-
-    void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += x & -x;
-        }
-    }
-
-    int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= x & -x;
-        }
-        return s;
-    }
-};
-
-class NumArray {
-public:
-    BinaryIndexedTree* tree;
-
-    NumArray(vector<int>& nums) {
-        int n = nums.size();
-        tree = new BinaryIndexedTree(n);
-        for (int i = 0; i < n; ++i) tree->update(i + 1, nums[i]);
-    }
-
-    void update(int index, int val) {
-        int prev = sumRange(index, index);
-        tree->update(index + 1, val - prev);
-    }
-
-    int sumRange(int left, int right) {
-        return tree->query(right + 1) - tree->query(left);
-    }
-};
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * NumArray* obj = new NumArray(nums);
- * obj->update(index,val);
- * int param_2 = obj->sumRange(left,right);
- */
-```
-
 ```cpp
 class Node {
 public:
@@ -500,211 +659,97 @@ public:
  */
 ```
 
-### **Go**
-
-```go
-type BinaryIndexedTree struct {
-	n int
-	c []int
-}
-
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
-}
-
-func (t *BinaryIndexedTree) update(x, delta int) {
-	for ; x <= t.n; x += x & -x {
-		t.c[x] += delta
-	}
-}
-
-func (t *BinaryIndexedTree) query(x int) (s int) {
-	for ; x > 0; x -= x & -x {
-		s += t.c[x]
-	}
-	return s
-}
-
-type NumArray struct {
-	tree *BinaryIndexedTree
-}
-
-func Constructor(nums []int) NumArray {
-	tree := newBinaryIndexedTree(len(nums))
-	for i, v := range nums {
-		tree.update(i+1, v)
-	}
-	return NumArray{tree}
-}
-
-func (t *NumArray) Update(index int, val int) {
-	prev := t.SumRange(index, index)
-	t.tree.update(index+1, val-prev)
-}
-
-func (t *NumArray) SumRange(left int, right int) int {
-	return t.tree.query(right+1) - t.tree.query(left)
-}
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * obj := Constructor(nums);
- * obj.Update(index,val);
- * param_2 := obj.SumRange(left,right);
- */
-```
-
 ```go
 type Node struct {
-    l, r, v int
+	l, r, v int
 }
 
 type SegmentTree struct {
-    tr   []Node
-    nums []int
+	tr   []Node
+	nums []int
 }
 
 func newSegmentTree(nums []int) *SegmentTree {
-    n := len(nums)
-    tr := make([]Node, n<<2)
-    for i := range tr {
-        tr[i] = Node{}
-    }
-    tree := &SegmentTree{
-        tr:   tr,
-        nums: nums,
-    }
-    tree.build(1, 1, n)
-    return tree
+	n := len(nums)
+	tr := make([]Node, n<<2)
+	for i := range tr {
+		tr[i] = Node{}
+	}
+	tree := &SegmentTree{
+		tr:   tr,
+		nums: nums,
+	}
+	tree.build(1, 1, n)
+	return tree
 }
 
 func (tree *SegmentTree) build(u, l, r int) {
-    tree.tr[u].l, tree.tr[u].r = l, r
-    if l == r {
-        tree.tr[u].v = tree.nums[l-1]
-        return
-    }
-    mid := (l + r) >> 1
-    tree.build(u<<1, l, mid)
-    tree.build(u<<1|1, mid+1, r)
-    tree.pushup(u)
+	tree.tr[u].l, tree.tr[u].r = l, r
+	if l == r {
+		tree.tr[u].v = tree.nums[l-1]
+		return
+	}
+	mid := (l + r) >> 1
+	tree.build(u<<1, l, mid)
+	tree.build(u<<1|1, mid+1, r)
+	tree.pushup(u)
 }
 
 func (tree *SegmentTree) modify(u, x, v int) {
-    if tree.tr[u].l == x && tree.tr[u].r == x {
-        tree.tr[u].v = v
-        return
-    }
-    mid := (tree.tr[u].l + tree.tr[u].r) >> 1
-    if x <= mid {
-        tree.modify(u<<1, x, v)
-    } else {
-        tree.modify(u<<1|1, x, v)
-    }
-    tree.pushup(u)
+	if tree.tr[u].l == x && tree.tr[u].r == x {
+		tree.tr[u].v = v
+		return
+	}
+	mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+	if x <= mid {
+		tree.modify(u<<1, x, v)
+	} else {
+		tree.modify(u<<1|1, x, v)
+	}
+	tree.pushup(u)
 }
 
 func (tree *SegmentTree) query(u, l, r int) (v int) {
-    if tree.tr[u].l >= l && tree.tr[u].r <= r {
-        return tree.tr[u].v
-    }
-    mid := (tree.tr[u].l + tree.tr[u].r) >> 1
-    if l <= mid {
-        v += tree.query(u<<1, l, r)
-    }
-    if r > mid {
-        v += tree.query(u<<1|1, l, r)
-    }
-    return v
+	if tree.tr[u].l >= l && tree.tr[u].r <= r {
+		return tree.tr[u].v
+	}
+	mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+	if l <= mid {
+		v += tree.query(u<<1, l, r)
+	}
+	if r > mid {
+		v += tree.query(u<<1|1, l, r)
+	}
+	return v
 }
 
 func (tree *SegmentTree) pushup(u int) {
-    tree.tr[u].v = tree.tr[u<<1].v + tree.tr[u<<1|1].v
+	tree.tr[u].v = tree.tr[u<<1].v + tree.tr[u<<1|1].v
 }
 
 type NumArray struct {
-    tree *SegmentTree
+	tree *SegmentTree
 }
 
 func Constructor(nums []int) NumArray {
-    return NumArray{
-        tree: newSegmentTree(nums),
-    }
+	return NumArray{
+		tree: newSegmentTree(nums),
+	}
 }
 
 func (this *NumArray) Update(index int, val int) {
-    this.tree.modify(1, index+1, val)
+	this.tree.modify(1, index+1, val)
 }
 
 func (this *NumArray) SumRange(left int, right int) int {
-    return this.tree.query(1, left+1, right+1)
+	return this.tree.query(1, left+1, right+1)
 }
-
 
 /**
  * Your NumArray object will be instantiated and called as such:
  * obj := Constructor(nums);
  * obj.Update(index,val);
  * param_2 := obj.SumRange(left,right);
- */
-```
-
-### **TypeScript**
-
-```ts
-class BinaryIndexedTree {
-    private n: number;
-    private c: number[];
-
-    constructor(n: number) {
-        this.n = n;
-        this.c = Array(n + 1).fill(0);
-    }
-
-    update(x: number, delta: number): void {
-        while (x <= this.n) {
-            this.c[x] += delta;
-            x += x & -x;
-        }
-    }
-
-    query(x: number): number {
-        let s = 0;
-        while (x > 0) {
-            s += this.c[x];
-            x -= x & -x;
-        }
-        return s;
-    }
-}
-
-class NumArray {
-    private tree: BinaryIndexedTree;
-
-    constructor(nums: number[]) {
-        const n = nums.length;
-        this.tree = new BinaryIndexedTree(n);
-        for (let i = 0; i < n; ++i) {
-            this.tree.update(i + 1, nums[i]);
-        }
-    }
-
-    update(index: number, val: number): void {
-        const prev = this.sumRange(index, index);
-        this.tree.update(index + 1, val - prev);
-    }
-
-    sumRange(left: number, right: number): number {
-        return this.tree.query(right + 1) - this.tree.query(left);
-    }
-}
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * var obj = new NumArray(nums)
- * obj.update(index,val)
- * var param_2 = obj.sumRange(left,right)
  */
 ```
 
@@ -800,64 +845,6 @@ class NumArray {
  */
 ```
 
-### **C#**
-
-```cs
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        c = new int[n + 1];
-    }
-
-    public void Update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += x & -x;
-        }
-    }
-
-    public int Query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= x & -x;
-        }
-        return s;
-    }
-}
-
-public class NumArray {
-    private BinaryIndexedTree tree;
-
-    public NumArray(int[] nums) {
-        int n = nums.Length;
-        tree = new BinaryIndexedTree(n);
-        for (int i = 0; i < n; ++i) {
-            tree.Update(i + 1, nums[i]);
-        }
-    }
-
-    public void Update(int index, int val) {
-        int prev = SumRange(index, index);
-        tree.Update(index + 1, val - prev);
-    }
-
-    public int SumRange(int left, int right) {
-        return tree.Query(right + 1) - tree.Query(left);
-    }
-}
-
-/**
- * Your NumArray object will be instantiated and called as such:
- * NumArray obj = new NumArray(nums);
- * obj.Update(index,val);
- * int param_2 = obj.SumRange(left,right);
- */
-```
-
 ```cs
 public class Node {
     public int l;
@@ -950,10 +937,6 @@ public class NumArray {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

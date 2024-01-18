@@ -58,19 +58,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 我们枚举每一行作为矩形的下边，对于当前行，如果列 $i$ 和列 $j$ 都是 $1$，那么我们用哈希表找出此前的所有行中，有多少行的 $i$ 和 $j$ 列都是 $1$，那么就有多少个以 $(i, j)$ 为右下角的矩形，我们将其数量加入答案。然后将 $(i, j)$ 加入哈希表，继续枚举下一对 $(i, j)$。
 
 时间复杂度 $O(m \times n^2)$，空间复杂度 $O(n^2)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                             cnt[(i, j)] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countCornerRectangles(grid [][]int) (ans int) {
 	n := len(grid[0])
@@ -165,8 +151,6 @@ func countCornerRectangles(grid [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countCornerRectangles(grid: number[][]): number {
@@ -190,10 +174,6 @@ function countCornerRectangles(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

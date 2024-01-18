@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们枚举三个字符串的所有排列，然后对于每个排列，对三个字符串进行合并，找到最短的且字典序最小的字符串。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是三个字符串的长度的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                 ans = s
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumString(a string, b string, c string) string {
 	f := func(s, t string) string {
@@ -188,8 +174,6 @@ func minimumString(a string, b string, c string) string {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumString(a: string, b: string, c: string): string {
@@ -228,8 +212,6 @@ function minimumString(a: string, b: string, c: string): string {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -272,10 +254,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

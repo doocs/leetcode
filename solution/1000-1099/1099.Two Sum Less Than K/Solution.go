@@ -1,12 +1,10 @@
 func twoSumLessThanK(nums []int, k int) int {
 	sort.Ints(nums)
 	ans := -1
-	for i, j := 0, len(nums)-1; i < j; {
-		if s := nums[i] + nums[j]; s < k {
-			ans = max(ans, s)
-			i++
-		} else {
-			j--
+	for i, x := range nums {
+		j := sort.SearchInts(nums[i+1:], k-x) + i
+		if v := nums[i] + nums[j]; i < j && ans < v {
+			ans = v
 		}
 	}
 	return ans

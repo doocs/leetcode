@@ -55,9 +55,9 @@ The resultant array formed is [2,1], which is the same as the initial array.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
         nums[1::2] = b
         return nums
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sortEvenOdd(nums []int) []int {
@@ -152,16 +146,6 @@ func sortEvenOdd(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

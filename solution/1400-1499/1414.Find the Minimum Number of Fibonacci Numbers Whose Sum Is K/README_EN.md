@@ -48,9 +48,9 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
 
         return dfs(k)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,7 +83,33 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int findMinFibonacciNumbers(int k) {
+        if (k < 2) return k;
+        int a = 1, b = 1;
+        while (b <= k) {
+            b = a + b;
+            a = b - a;
+        }
+        return 1 + findMinFibonacciNumbers(k - a);
+    }
+};
+```
+
+```go
+func findMinFibonacciNumbers(k int) int {
+	if k < 2 {
+		return k
+	}
+	a, b := 1, 1
+	for b <= k {
+		a, b = b, a+b
+	}
+	return 1 + findMinFibonacciNumbers(k-a)
+}
+```
 
 ```ts
 const arr = [
@@ -109,8 +133,6 @@ function findMinFibonacciNumbers(k: number): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 const FIB: [i32; 45] = [
@@ -137,42 +159,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findMinFibonacciNumbers(int k) {
-        if (k < 2) return k;
-        int a = 1, b = 1;
-        while (b <= k) {
-            b = a + b;
-            a = b - a;
-        }
-        return 1 + findMinFibonacciNumbers(k - a);
-    }
-};
-```
-
-### **Go**
-
-```go
-func findMinFibonacciNumbers(k int) int {
-	if k < 2 {
-		return k
-	}
-	a, b := 1, 1
-	for b <= k {
-		a, b = b, a+b
-	}
-	return 1 + findMinFibonacciNumbers(k-a)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 我们用一个哈希表或数组 $cnt$ 记录每个 $target$ 出现的次数，用一个变量 $mx$ 维护 $target$ 出现的最大次数，初始时 $mx = 0$。
 
@@ -62,10 +60,6 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为数组 $nums$ 的长度和数组 $nums$ 中元素的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                     ans = b
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostFrequent(nums []int, key int) (ans int) {
 	cnt := [1001]int{}
@@ -143,8 +129,6 @@ func mostFrequent(nums []int, key int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostFrequent(nums: number[], key: number): number {
     const cnt: number[] = new Array(1001).fill(0);
@@ -161,8 +145,6 @@ function mostFrequent(nums: number[], key: number): number {
     return ans;
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -188,10 +170,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,22 +1,20 @@
 class RLEIterator {
     private int[] encoding;
-    private int curr;
     private int i;
+    private int j;
 
     public RLEIterator(int[] encoding) {
         this.encoding = encoding;
-        curr = 0;
-        i = 0;
     }
 
     public int next(int n) {
         while (i < encoding.length) {
-            if (curr + n > encoding[i]) {
-                n -= encoding[i] - curr;
+            if (encoding[i] - j < n) {
+                n -= (encoding[i] - j);
                 i += 2;
-                curr = 0;
+                j = 0;
             } else {
-                curr += n;
+                j += n;
                 return encoding[i + 1];
             }
         }

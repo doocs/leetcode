@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示得到 $target[0,..i]$ 的最少操作次数，初始时 $f[0] = target[0]$。
 
@@ -77,19 +75,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minNumberOperations(self, target: List[int]) -> int:
         return target[0] + sum(max(0, b - a) for a, b in pairwise(target))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minNumberOperations(target []int) int {
 	f := target[0]
@@ -135,8 +121,6 @@ func minNumberOperations(target []int) int {
 	return f
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minNumberOperations(target: number[]): number {
@@ -150,10 +134,6 @@ function minNumberOperations(target: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

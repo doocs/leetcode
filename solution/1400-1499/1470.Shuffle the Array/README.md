@@ -43,13 +43,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,17 +56,6 @@ class Solution:
             ans.append(nums[i + n])
         return ans
 ```
-
-```python
-class Solution:
-    def shuffle(self, nums: List[int], n: int) -> List[int]:
-        nums[::2], nums[1::2] = nums[:n], nums[n:]
-        return nums
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,20 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function shuffle(nums: number[], n: number): number[] {
-    let ans = [];
-    for (let i = 0; i < n; i++) {
-        ans.push(nums[i], nums[n + i]);
-    }
-    return ans;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shuffle(nums []int, n int) []int {
 	var ans []int
@@ -126,7 +95,29 @@ func shuffle(nums []int, n int) []int {
 }
 ```
 
-### **C**
+```ts
+function shuffle(nums: number[], n: number): number[] {
+    let ans = [];
+    for (let i = 0; i < n; i++) {
+        ans.push(nums[i], nums[n + i]);
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn shuffle(nums: Vec<i32>, n: i32) -> Vec<i32> {
+        let n = n as usize;
+        let mut res = Vec::new();
+        for i in 0..n {
+            res.push(nums[i]);
+            res.push(nums[n + i]);
+        }
+        res
+    }
+}
+```
 
 ```c
 /**
@@ -143,20 +134,17 @@ int* shuffle(int* nums, int numsSize, int n, int* returnSize) {
 }
 ```
 
-### **Rust**
+<!-- tabs:end -->
 
-```rust
-impl Solution {
-    pub fn shuffle(nums: Vec<i32>, n: i32) -> Vec<i32> {
-        let n = n as usize;
-        let mut res = Vec::new();
-        for i in 0..n {
-            res.push(nums[i]);
-            res.push(nums[n + i]);
-        }
-        res
-    }
-}
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        nums[::2], nums[1::2] = nums[:n], nums[n:]
+        return nums
 ```
 
 ```rust
@@ -179,10 +167,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

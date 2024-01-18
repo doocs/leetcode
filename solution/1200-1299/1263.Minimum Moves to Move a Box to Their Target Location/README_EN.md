@@ -72,9 +72,34 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Double-ended Queue + BFS
 
-### **Python3**
+We consider the player's position and the box's position as a state, i.e., $(s_i, s_j, b_i, b_j)$, where $(s_i, s_j)$ is the player's position, and $(b_i, b_j)$ is the box's position. In the code implementation, we define a function $f(i, j)$, which maps the two-dimensional coordinates $(i, j)$ to a one-dimensional state number, i.e., $f(i, j) = i \times n + j$, where $n$ is the number of columns in the grid. So the player and the box's state is $(f(s_i, s_j), f(b_i, b_j))$.
+
+First, we traverse the grid to find the initial positions of the player and the box, denoted as $(s_i, s_j)$ and $(b_i, b_j)$.
+
+Then, we define a double-ended queue $q$, where each element is a triplet $(f(s_i, s_j), f(b_i, b_j), d)$, indicating that the player is at $(s_i, s_j)$, the box is at $(b_i, b_j)$, and $d$ pushes have been made. Initially, we add $(f(s_i, s_j), f(b_i, b_j), 0)$ to the queue $q$.
+
+Additionally, we use a two-dimensional array $vis$ to record whether each state has been visited. Initially, $vis[f(s_i, s_j), f(b_i, b_j)]$ is marked as visited.
+
+Next, we start the breadth-first search.
+
+In each step of the search, we take out the queue head element $(f(s_i, s_j), f(b_i, b_j), d)$, and check whether $grid[b_i][b_j] = 'T'$ is satisfied. If it is, it means the box has been pushed to the target position, and now $d$ can be returned as the answer.
+
+Otherwise, we enumerate the player's next move direction. The player's new position is denoted as $(s_x, s_y)$. If $(s_x, s_y)$ is a valid position, we judge whether $(s_x, s_y)$ is the same as the box's position $(b_i, b_j)$:
+
+-   If they are the same, it means the player has reached the box's position and pushed the box forward by one step. The box's new position is $(b_x, b_y)$. If $(b_x, b_y)$ is a valid position, and the state $(f(s_x, s_y), f(b_x, b_y))$ has not been visited, then we add $(f(s_x, s_y), f(b_x, b_y), d + 1)$ to the end of the queue $q$, and mark $vis[f(s_x, s_y), f(b_x, b_y)]$ as visited.
+-   If they are different, it means the player has not pushed the box. Then we only need to judge whether the state $(f(s_x, s_y), f(b_i, b_j))$ has been visited. If it has not been visited, then we add $(f(s_x, s_y), f(b_i, b_j), d)$ to the head of the queue $q$, and mark $vis[f(s_x, s_y), f(b_i, b_j)]$ as visited.
+
+We continue the breadth-first search until the queue is empty.
+
+> Note, if the box is pushed, the push count $d$ needs to be incremented by $1$, and the new state is added to the end of the queue $q$. If the box is not pushed, the push count $d$ remains unchanged, and the new state is added to the head of the queue $q$.
+
+Finally, if no valid push scheme is found, then return $-1$.
+
+The time complexity is $O(m^2 \times n^2)$, and the space complexity is $O(m^2 \times n^2)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -117,8 +142,6 @@ class Solution:
                     q.appendleft((f(sx, sy), f(bi, bj), d))
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -188,8 +211,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -248,8 +269,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minPushBox(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -305,8 +324,6 @@ func minPushBox(grid [][]byte) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minPushBox(grid: string[][]): number {
@@ -529,10 +546,6 @@ class Deque<T> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

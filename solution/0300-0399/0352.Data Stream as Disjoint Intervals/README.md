@@ -60,13 +60,9 @@ summaryRanges.getIntervals(); // 返回 [[1, 3], [6, 7]]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -106,10 +102,6 @@ class SummaryRanges:
 # # obj.addNum(val)
 # # param_2 = obj.getIntervals()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class SummaryRanges {
@@ -152,8 +144,6 @@ class SummaryRanges {
  */
 ```
 
-### **C++**
-
 ```cpp
 class SummaryRanges {
 private:
@@ -192,10 +182,6 @@ public:
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

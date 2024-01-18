@@ -40,7 +40,7 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We notice that the larger the maximum sum of the subarrays, the fewer the number of subarrays. When there is a maximum sum of the subarrays that meets the condition, then a larger maximum sum of the subarrays will definitely meet the condition. This means that we can perform a binary search for the maximum sum of the subarrays to find the smallest value that meets the condition.
 
@@ -51,8 +51,6 @@ How do we determine whether there is a way to split the array so that the maximu
 The time complexity is $O(n \times \log m)$, and the space complexity is $O(1)$. Here, $n$ and $m$ are the length of the array and the sum of all elements in the array, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +67,6 @@ class Solution:
         left, right = max(nums), sum(nums)
         return left + bisect_left(range(left, right + 1), True, key=check)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func splitArray(nums []int, k int) int {
 	left, right := 0, 0
@@ -163,8 +155,6 @@ func splitArray(nums []int, k int) int {
 	})
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function splitArray(nums: number[], k: number): number {
@@ -198,10 +188,6 @@ function splitArray(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,15 @@ It can be shown 6 total movements result in a collision.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Mathematics (Fast Power)
 
-### **Python3**
+According to the problem description, each monkey has two ways of moving, either clockwise or counterclockwise. Therefore, there are a total of $2^n$ ways to move. The non-collision ways of moving are only two, that is, all monkeys move clockwise or all monkeys move counterclockwise. Therefore, the number of collision ways of moving is $2^n - 2$.
+
+We can use fast power to calculate the value of $2^n$, then use $2^n - 2$ to calculate the number of collision ways of moving, and finally take the remainder of $10^9 + 7$.
+
+The time complexity is $O(\log n)$, where $n$ is the number of monkeys. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +65,6 @@ class Solution:
         mod = 10**9 + 7
         return (pow(2, n, mod) - 2) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func monkeyMove(n int) int {
 	const mod = 1e9 + 7
@@ -123,8 +123,6 @@ func monkeyMove(n int) int {
 	return (qpow(2, n) - 2 + mod) % mod
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function monkeyMove(n: number): number {
@@ -143,10 +141,6 @@ function monkeyMove(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

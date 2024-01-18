@@ -7,24 +7,26 @@
  * }
  */
 func balanceBST(root *TreeNode) *TreeNode {
-	var vals []int
-	var dfs func(root *TreeNode)
+	ans := []int{}
+	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
 		if root == nil {
 			return
 		}
 		dfs(root.Left)
-		vals = append(vals, root.Val)
+		ans = append(ans, root.Val)
 		dfs(root.Right)
 	}
-	dfs(root)
 	var build func(i, j int) *TreeNode
 	build = func(i, j int) *TreeNode {
 		if i > j {
 			return nil
 		}
 		mid := (i + j) >> 1
-		return &TreeNode{vals[mid], build(i, mid-1), build(mid+1, j)}
+		left := build(i, mid-1)
+		right := build(mid+1, j)
+		return &TreeNode{Val: ans[mid], Left: left, Right: right}
 	}
-	return build(0, len(vals)-1)
+	dfs(root)
+	return build(0, len(ans)-1)
 }

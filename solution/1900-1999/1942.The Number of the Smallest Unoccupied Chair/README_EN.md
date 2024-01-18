@@ -60,9 +60,9 @@ Since friend 0 sat on chair 2, we return 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
             heappush(busy, (b, c))
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using pii = pair<int, int>;
@@ -146,10 +142,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

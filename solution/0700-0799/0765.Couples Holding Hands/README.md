@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 我们可以给每一对情侣编号，编号 $0$ 和 $1$ 的人对应情侣 $0$，编号 $2$ 和 $3$ 的人对应情侣 $1$...即编号为 $row[i]$ 对应的情侣编号为 $\lfloor \frac{row[i]}{2} \rfloor$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n \times \alpha(n))$，空间复杂度 $O(n)$。其中 $\alpha(n)$ 为阿克曼函数的反函数，可以认为是一个很小的常数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             p[find(a)] = find(b)
         return n - sum(i == find(i) for i in range(n))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +131,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSwapsCouples(row []int) int {
@@ -174,8 +160,6 @@ func minSwapsCouples(row []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSwapsCouples(row: number[]): number {
     const n = row.length >> 1;
@@ -202,8 +186,6 @@ function minSwapsCouples(row: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -238,10 +220,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

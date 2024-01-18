@@ -67,11 +67,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：优先队列（小根堆）
 
-**方法一：优先队列（小根堆）**
-
-定义两个优先队列，分别表示空闲会议室、使用中的会议室。其中：空闲会议室 `idle` 依据**下标**排序；而使用中的会议室 `busy` 依据**结束时间、下标**排序。
+我们定义两个优先队列，分别表示空闲会议室、使用中的会议室。其中：空闲会议室 `idle` 依据**下标**排序；而使用中的会议室 `busy` 依据**结束时间、下标**排序。
 
 先对会议按照开始时间排序，然后遍历会议，对于每个会议：
 
@@ -79,15 +77,13 @@
 -   若当前有空闲会议室，那么在空闲队列 `idle` 中取出权重最小的会议室，将其加入使用中的队列 `busy` 中；
 -   若当前没有空闲会议室，那么在使用队列 `busy` 中找出最早结束时间且下标最小的会议室，重新加入使用中的队列 `busy` 中。
 
-时间复杂度 $O(m\log m)$，其中 $m$ 为会议数量。
+时间复杂度 $O(m \times \log m)$，其中 $m$ 为会议数量。
 
-相似题目：[1882. 使用服务器处理任务](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
+相似题目：
+
+-   [1882. 使用服务器处理任务](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -114,10 +110,6 @@ class Solution:
                 ans = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -156,8 +148,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using ll = long long;
@@ -200,8 +190,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostBooked(n int, meetings [][]int) int {
@@ -260,17 +248,6 @@ func (h *hp2) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

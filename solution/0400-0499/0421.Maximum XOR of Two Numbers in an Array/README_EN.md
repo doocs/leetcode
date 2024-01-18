@@ -32,9 +32,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -72,14 +72,11 @@ class Solution:
         return max(trie.search(x) for x in nums)
 ```
 
-### **Java**
-
 ```java
 class Trie {
     private Trie[] children = new Trie[2];
 
     public Trie() {
-
     }
 
     public void insert(int x) {
@@ -121,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -173,8 +168,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -219,8 +212,6 @@ func findMaximumXOR(nums []int) (ans int) {
 	return ans
 }
 ```
-
-### **Rust**
 
 ```rust
 struct Trie {
@@ -274,10 +265,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

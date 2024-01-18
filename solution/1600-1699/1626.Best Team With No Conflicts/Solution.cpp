@@ -1,30 +1,3 @@
-class BinaryIndexedTree {
-public:
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
-
-    void update(int x, int val) {
-        while (x <= n) {
-            c[x] = max(c[x], val);
-            x += x & -x;
-        }
-    }
-
-    int query(int x) {
-        int s = 0;
-        while (x) {
-            s = max(s, c[x]);
-            x -= x & -x;
-        }
-        return s;
-    }
-
-private:
-    int n;
-    vector<int> c;
-};
-
 class Solution {
 public:
     int bestTeamScore(vector<int>& scores, vector<int>& ages) {
@@ -34,11 +7,15 @@ public:
             arr[i] = {scores[i], ages[i]};
         }
         sort(arr.begin(), arr.end());
-        int m = *max_element(ages.begin(), ages.end());
-        BinaryIndexedTree tree(m);
-        for (auto& [score, age] : arr) {
-            tree.update(age, score + tree.query(age));
+        vector<int> f(n);
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (arr[i].second >= arr[j].second) {
+                    f[i] = max(f[i], f[j]);
+                }
+            }
+            f[i] += arr[i].first;
         }
-        return tree.query(m);
+        return *max_element(f.begin(), f.end());
     }
 };

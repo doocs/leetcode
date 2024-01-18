@@ -58,7 +58,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define the following states:
 
@@ -86,11 +86,11 @@ The time complexity is $O(k)$, where $k$ is the number of moves. The space compl
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
-    def numberOfWays(self, n: int, m: int, k: int, source: List[int], dest: List[int]) -> int:
+    def numberOfWays(
+        self, n: int, m: int, k: int, source: List[int], dest: List[int]
+    ) -> int:
         mod = 10**9 + 7
         a, b, c, d = 1, 0, 0, 0
         for _ in range(k):
@@ -103,25 +103,6 @@ class Solution:
             return a if source[1] == dest[1] else c
         return b if source[1] == dest[1] else d
 ```
-
-```python
-class Solution:
-    def numberOfWays(self, n: int, m: int, k: int, source: List[int], dest: List[int]) -> int:
-        mod = 10**9 + 7
-        f = [1, 0, 0, 0]
-        for _ in range(k):
-            g = [0] * 4
-            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod
-            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod
-            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod
-            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod
-            f = g
-        if source[0] == dest[0]:
-            return f[0] if source[1] == dest[1] else f[2]
-        return f[1] if source[1] == dest[1] else f[3]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWays(n int, m int, k int, source []int, dest []int) int {
@@ -199,10 +176,31 @@ func numberOfWays(n int, m int, k int, source []int, dest []int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numberOfWays(
+        self, n: int, m: int, k: int, source: List[int], dest: List[int]
+    ) -> int:
+        mod = 10**9 + 7
+        f = [1, 0, 0, 0]
+        for _ in range(k):
+            g = [0] * 4
+            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod
+            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod
+            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod
+            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod
+            f = g
+        if source[0] == dest[0]:
+            return f[0] if source[1] == dest[1] else f[2]
+        return f[1] if source[1] == dest[1] else f[3]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

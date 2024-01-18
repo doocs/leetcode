@@ -1,5 +1,6 @@
 class Solution:
     def pivotInteger(self, n: int) -> int:
-        y = n * (n + 1) // 2
-        x = int(sqrt(y))
-        return x if x * x == y else -1
+        for x in range(1, n + 1):
+            if (1 + x) * x == (x + n) * (n - x + 1):
+                return x
+        return -1

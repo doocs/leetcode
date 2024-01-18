@@ -37,9 +37,9 @@ The returned string should always match the method name.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function createInfiniteObject(): Record<string, () => string> {
@@ -58,3 +58,5 @@ function createInfiniteObject(): Record<string, () => string> {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

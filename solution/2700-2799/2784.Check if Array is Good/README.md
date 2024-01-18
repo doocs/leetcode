@@ -53,13 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +67,6 @@ class Solution:
             cnt[i] -= 1
         return all(v == 0 for v in cnt.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isGood(nums []int) bool {
 	n := len(nums) - 1
@@ -145,8 +133,6 @@ func isGood(nums []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
@@ -162,10 +148,6 @@ function isGood(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

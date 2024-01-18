@@ -53,47 +53,143 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Reverse Construction + Priority Queue (Max Heap)
 
-### **Python3**
+We find that if we start from the array $arr$ and construct the target array $target$ forward, it is not easy to determine which index $i$ to choose each time, and the problem is relatively complex. However, if we start from the array $target$ and construct it in reverse, each construction must choose the largest element in the current array, which can ensure that each construction is unique, and the problem is relatively simple.
+
+Therefore, we can use a priority queue (max heap) to store the elements in the array $target$, and use a variable $s$ to record the sum of all elements in the array $target$. Each time we take out the largest element $mx$ from the priority queue, calculate the sum $t$ of all elements in the current array except $mx$. If $t < 1$ or $mx - t < 1$, it means that the target array $target$ cannot be constructed, and we return `false`. Otherwise, we calculate $mx \bmod t$. If $mx \bmod t = 0$, let $x = t$, otherwise let $x = mx \bmod t$, add $x$ to the priority queue, and update the value of $s$, repeat the above operations until all elements in the priority queue become $1$, then return `true`.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $target$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def isPossible(self, target: List[int]) -> bool:
-        if len(target) == 1:
-            return target[0] == 1
-
-        summ = sum(target)
-        maxHeap = [-num for num in target]
-        heapq.heapify(maxHeap)
-
-        while -maxHeap[0] > 1:
-            maxi = -heapq.heappop(maxHeap)
-            restSum = summ - maxi
-            # Only occurs if n == 2.
-            if restSum == 1:
-                return True
-            updated = maxi % restSum
-            # Updated == 0 (invalid) or didn't change.
-            if updated == 0 or updated == maxi:
+        s = sum(target)
+        pq = [-x for x in target]
+        heapify(pq)
+        while -pq[0] > 1:
+            mx = -heappop(pq)
+            t = s - mx
+            if t == 0 or mx - t < 1:
                 return False
-            heapq.heappush(maxHeap, -updated)
-            summ = summ - maxi + updated
-
+            x = (mx % t) or t
+            heappush(pq, -x)
+            s = s - mx + x
         return True
-
 ```
-
-### **Java**
 
 ```java
-
+class Solution {
+    public boolean isPossible(int[] target) {
+        PriorityQueue<Long> pq = new PriorityQueue<>(Collections.reverseOrder());
+        long s = 0;
+        for (int x : target) {
+            s += x;
+            pq.offer((long) x);
+        }
+        while (pq.peek() > 1) {
+            long mx = pq.poll();
+            long t = s - mx;
+            if (t == 0 || mx - t < 1) {
+                return false;
+            }
+            long x = mx % t;
+            if (x == 0) {
+                x = t;
+            }
+            pq.offer(x);
+            s = s - mx + x;
+        }
+        return true;
+    }
+}
 ```
 
-### **...**
-
+```cpp
+class Solution {
+public:
+    bool isPossible(vector<int>& target) {
+        priority_queue<int> pq;
+        long long s = 0;
+        for (int i = 0; i < target.size(); i++) {
+            s += target[i];
+            pq.push(target[i]);
+        }
+        while (pq.top() != 1) {
+            int mx = pq.top();
+            pq.pop();
+            long long t = s - mx;
+            if (t < 1 || mx - t < 1) {
+                return false;
+            }
+            int x = mx % t;
+            if (x == 0) {
+                x = t;
+            }
+            pq.push(x);
+            s = s - mx + x;
+        }
+        return true;
+    }
+};
 ```
 
+```go
+func isPossible(target []int) bool {
+	pq := &hp{target}
+	s := 0
+	for _, x := range target {
+		s += x
+	}
+	heap.Init(pq)
+	for target[0] > 1 {
+		mx := target[0]
+		t := s - mx
+		if t < 1 || mx-t < 1 {
+			return false
+		}
+		x := mx % t
+		if x == 0 {
+			x = t
+		}
+		target[0] = x
+		heap.Fix(pq, 0)
+		s = s - mx + x
+	}
+	return true
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (hp) Pop() (_ any)         { return }
+func (hp) Push(any)             {}
+```
+
+```ts
+function isPossible(target: number[]): boolean {
+    const pq = new MaxPriorityQueue();
+    let s = 0;
+    for (const x of target) {
+        s += x;
+        pq.enqueue(x);
+    }
+    while (pq.front().element > 1) {
+        const mx = pq.dequeue().element;
+        const t = s - mx;
+        if (t < 1 || mx - t < 1) {
+            return false;
+        }
+        const x = mx % t || t;
+        pq.enqueue(x);
+        s = s - mx + x;
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

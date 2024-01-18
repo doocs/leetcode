@@ -11,6 +11,7 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
+        // 快慢指针找到链表中点
         ListNode* fast = head;
         ListNode* slow = head;
         while (fast->next && fast->next->next) {
@@ -18,9 +19,11 @@ public:
             fast = fast->next->next;
         }
 
+        // cur 指向右半部分链表
         ListNode* cur = slow->next;
         slow->next = nullptr;
 
+        // 反转右半部分链表
         ListNode* pre = nullptr;
         while (cur) {
             ListNode* t = cur->next;
@@ -30,6 +33,8 @@ public:
         }
         cur = head;
 
+        // 此时 cur, pre 分别指向链表左右两半的第一个节点
+        // 合并
         while (pre) {
             ListNode* t = pre->next;
             pre->next = cur->next;

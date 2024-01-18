@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
                     cnt1[j], cnt2[i] = cnt1[j] - 1, cnt2[i] - 1
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -159,8 +155,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isItPossible(word1 string, word2 string) bool {
 	cnt1 := [26]int{}
@@ -197,10 +191,6 @@ func isItPossible(word1 string, word2 string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

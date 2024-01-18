@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 对于本题，我们可以把每个格子当做图的一个节点，把相邻两个格子的高度差绝对值当做边的权重，因此本题是求解从最左上角的节点到最右下角的节点的连通性问题。
 
@@ -66,29 +64,7 @@
 
 时间复杂度 $O(m \times n \times \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数。
 
-**方法二：二分查找 + BFS**
-
-我们注意到，如果一个路径的最大体力消耗值为 $x$，那么对于任意 $y > x$，该路径也是满足条件的，这存在着单调性，因此我们可以使用二分查找的方法，找到最小的满足条件的体力消耗值。
-
-我们定义二分查找的左边界 $l=0$，右边界 $r=10^6$，每次取 $mid=(l+r)/2$，然后使用 BFS 判断是否存在一条从左上角到右下角的路径，使得路径上相邻节点的高度差绝对值都不大于 $mid$，如果存在，那么说明 $mid$ 还有可能是最小的满足条件的体力消耗值，因此令 $r=mid$，否则令 $l=mid+1$。
-
-时间复杂度 $O(m \times n \times \log M)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数，而 $M$ 是二维数组中的最大值，本题中 $M=10^6$。
-
-**方法三：堆优化的 Dijkstra 算法**
-
-我们可以把每个格子当做图的一个节点，把相邻两个格子的高度差绝对值当做边的权重，因此本题是求解从最左上角的节点到最右下角的节点的最短路径问题。
-
-我们可以使用 Dijkstra 算法求解最短路径，使用优先队列（堆）来优化时间复杂度。具体地，我们维护一个大小为 $m \times n$ 的二维数组 $dist$，其中 $dist[i][j]$ 表示从左上角到节点 $(i,j)$ 的最短路径的最大权重，初始时 $dist[0][0]=0$，其余元素均为正无穷大。
-
-我们用优先队列（堆）来存储节点，每次从优先队列（堆）中取出权重最小的节点，然后更新其相邻节点的权重，如果相邻节点的权重发生了改变，那么就把该节点加入优先队列（堆）中。当优先队列（堆）为空时，说明我们已经找到了最短路径。
-
-时间复杂度 $O(m \times n \times \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -138,60 +114,6 @@ class Solution:
                 return h
         return 0
 ```
-
-```python
-class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        def check(h: int) -> bool:
-            q = deque([(0, 0)])
-            vis = {(0, 0)}
-            dirs = (-1, 0, 1, 0, -1)
-            while q:
-                for _ in range(len(q)):
-                    i, j = q.popleft()
-                    if i == m - 1 and j == n - 1:
-                        return True
-                    for a, b in pairwise(dirs):
-                        x, y = i + a, j + b
-                        if (
-                            0 <= x < m
-                            and 0 <= y < n
-                            and (x, y) not in vis
-                            and abs(heights[i][j] - heights[x][y]) <= h
-                        ):
-                            q.append((x, y))
-                            vis.add((x, y))
-            return False
-
-        m, n = len(heights), len(heights[0])
-        return bisect_left(range(10**6), True, key=check)
-```
-
-```python
-class Solution:
-    def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        m, n = len(heights), len(heights[0])
-        dist = [[inf] * n for _ in range(m)]
-        dist[0][0] = 0
-        dirs = (-1, 0, 1, 0, -1)
-        q = [(0, 0, 0)]
-        while q:
-            t, i, j = heappop(q)
-            for a, b in pairwise(dirs):
-                x, y = i + a, j + b
-                if (
-                    0 <= x < m
-                    and 0 <= y < n
-                    and (d := max(t, abs(heights[i][j] - heights[x][y]))) < dist[x][y]
-                ):
-                    dist[x][y] = d
-                    heappush(q, (d, x, y))
-        return int(dist[-1][-1])
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class UnionFind {
@@ -263,80 +185,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minimumEffortPath(int[][] heights) {
-        int l = 0, r = 1000000;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (check(heights, mid)) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
-    }
-
-    private boolean check(int[][] heights, int h) {
-        int m = heights.length, n = heights[0].length;
-        boolean[][] vis = new boolean[m][n];
-        Deque<int[]> q = new ArrayDeque<>();
-        q.add(new int[] {0, 0});
-        vis[0][0] = true;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        while (!q.isEmpty()) {
-            var p = q.poll();
-            int i = p[0], j = p[1];
-            if (i == m - 1 && j == n - 1) {
-                return true;
-            }
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && Math.abs(heights[x][y] - heights[i][j]) <= h) {
-                    q.add(new int[] {x, y});
-                    vis[x][y] = true;
-                }
-            }
-        }
-        return false;
-    }
-}
-```
-
-```java
-class Solution {
-    public int minimumEffortPath(int[][] heights) {
-        int m = heights.length, n = heights[0].length;
-        int[][] dist = new int[m][n];
-        for (var row : dist) {
-            Arrays.fill(row, 1 << 30);
-        }
-        dist[0][0] = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        pq.offer(new int[] {0, 0, 0});
-        while (!pq.isEmpty()) {
-            var p = pq.poll();
-            int t = p[0], i = p[1], j = p[2];
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n) {
-                    int d = Math.max(t, Math.abs(heights[x][y] - heights[i][j]));
-                    if (d < dist[x][y]) {
-                        dist[x][y] = d;
-                        pq.offer(new int[] {d, x, y});
-                    }
-                }
-            }
-        }
-        return dist[m - 1][n - 1];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -404,81 +252,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minimumEffortPath(vector<vector<int>>& heights) {
-        auto check = [&](int h) {
-            int m = heights.size(), n = heights[0].size();
-            bool vis[m][n];
-            memset(vis, false, sizeof(vis));
-            queue<pair<int, int>> q{{{0, 0}}};
-            vis[0][0] = true;
-            int dirs[5] = {-1, 0, 1, 0, -1};
-            while (!q.empty()) {
-                auto [i, j] = q.front();
-                q.pop();
-                if (i == m - 1 && j == n - 1) {
-                    return true;
-                }
-                for (int k = 0; k < 4; ++k) {
-                    int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && abs(heights[x][y] - heights[i][j]) <= h) {
-                        q.push({x, y});
-                        vis[x][y] = true;
-                    }
-                }
-            }
-            return false;
-        };
-        int l = 0, r = 1e6;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (check(mid)) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minimumEffortPath(vector<vector<int>>& heights) {
-        int m = heights.size(), n = heights[0].size();
-        int dist[m][n];
-        memset(dist, 0x3f, sizeof(dist));
-        dist[0][0] = 0;
-        int dirs[5] = {0, 1, 0, -1, 0};
-        using T = tuple<int, int, int>;
-        priority_queue<T, vector<T>, greater<T>> pq;
-        pq.emplace(0, 0, 0);
-        while (!pq.empty()) {
-            auto [t, i, j] = pq.top();
-            pq.pop();
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x < 0 || x >= m || y < 0 || y >= n) {
-                    continue;
-                }
-                int d = max(t, abs(heights[x][y] - heights[i][j]));
-                if (d < dist[x][y]) {
-                    dist[x][y] = d;
-                    pq.emplace(d, x, y);
-                }
-            }
-        }
-        return dist[m - 1][n - 1];
-    }
-};
-```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -554,94 +327,6 @@ func abs(x int) int {
 }
 ```
 
-```go
-func minimumEffortPath(heights [][]int) int {
-	return sort.Search(1e6, func(h int) bool {
-		m, n := len(heights), len(heights[0])
-		vis := make([][]bool, m)
-		for i := range vis {
-			vis[i] = make([]bool, n)
-		}
-		vis[0][0] = true
-		q := [][2]int{}
-		q = append(q, [2]int{0, 0})
-		dirs := [5]int{-1, 0, 1, 0, -1}
-		for len(q) > 0 {
-			p := q[0]
-			q = q[1:]
-			i, j := p[0], p[1]
-			if i == m-1 && j == n-1 {
-				return true
-			}
-			for k := 0; k < 4; k++ {
-				x, y := i+dirs[k], j+dirs[k+1]
-				if x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && abs(heights[x][y]-heights[i][j]) <= h {
-					vis[x][y] = true
-					q = append(q, [2]int{x, y})
-				}
-			}
-		}
-		return false
-	})
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
-```
-
-```go
-func minimumEffortPath(heights [][]int) int {
-	m, n := len(heights), len(heights[0])
-	dist := make([][]int, m)
-	for i := range dist {
-		dist[i] = make([]int, n)
-		for j := range dist[i] {
-			dist[i][j] = 1 << 30
-		}
-	}
-	dirs := [5]int{-1, 0, 1, 0, -1}
-	dist[0][0] = 0
-	pq := hp{}
-	heap.Push(&pq, tuple{0, 0, 0})
-	for pq.Len() > 0 {
-		p := heap.Pop(&pq).(tuple)
-		t, i, j := p.t, p.i, p.j
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n {
-				if d := max(t, abs(heights[x][y]-heights[i][j])); d < dist[x][y] {
-					dist[x][y] = d
-					heap.Push(&pq, tuple{d, x, y})
-				}
-			}
-		}
-	}
-	return dist[m-1][n-1]
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
-
-type tuple struct{ t, i, j int }
-type hp []tuple
-
-func (h hp) Len() int           { return len(h) }
-func (h hp) Less(i, j int) bool { return h[i].t < h[j].t }
-func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
-func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
-```
-
-### **TypeScript**
-
 ```ts
 class UnionFind {
     private p: number[];
@@ -713,6 +398,168 @@ function minimumEffortPath(heights: number[][]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：二分查找 + BFS
+
+我们注意到，如果一个路径的最大体力消耗值为 $x$，那么对于任意 $y > x$，该路径也是满足条件的，这存在着单调性，因此我们可以使用二分查找的方法，找到最小的满足条件的体力消耗值。
+
+我们定义二分查找的左边界 $l=0$，右边界 $r=10^6$，每次取 $mid=(l+r)/2$，然后使用 BFS 判断是否存在一条从左上角到右下角的路径，使得路径上相邻节点的高度差绝对值都不大于 $mid$，如果存在，那么说明 $mid$ 还有可能是最小的满足条件的体力消耗值，因此令 $r=mid$，否则令 $l=mid+1$。
+
+时间复杂度 $O(m \times n \times \log M)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数，而 $M$ 是二维数组中的最大值，本题中 $M=10^6$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        def check(h: int) -> bool:
+            q = deque([(0, 0)])
+            vis = {(0, 0)}
+            dirs = (-1, 0, 1, 0, -1)
+            while q:
+                for _ in range(len(q)):
+                    i, j = q.popleft()
+                    if i == m - 1 and j == n - 1:
+                        return True
+                    for a, b in pairwise(dirs):
+                        x, y = i + a, j + b
+                        if (
+                            0 <= x < m
+                            and 0 <= y < n
+                            and (x, y) not in vis
+                            and abs(heights[i][j] - heights[x][y]) <= h
+                        ):
+                            q.append((x, y))
+                            vis.add((x, y))
+            return False
+
+        m, n = len(heights), len(heights[0])
+        return bisect_left(range(10**6), True, key=check)
+```
+
+```java
+class Solution {
+    public int minimumEffortPath(int[][] heights) {
+        int l = 0, r = 1000000;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(heights, mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+
+    private boolean check(int[][] heights, int h) {
+        int m = heights.length, n = heights[0].length;
+        boolean[][] vis = new boolean[m][n];
+        Deque<int[]> q = new ArrayDeque<>();
+        q.add(new int[] {0, 0});
+        vis[0][0] = true;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            var p = q.poll();
+            int i = p[0], j = p[1];
+            if (i == m - 1 && j == n - 1) {
+                return true;
+            }
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y]
+                    && Math.abs(heights[x][y] - heights[i][j]) <= h) {
+                    q.add(new int[] {x, y});
+                    vis[x][y] = true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minimumEffortPath(vector<vector<int>>& heights) {
+        auto check = [&](int h) {
+            int m = heights.size(), n = heights[0].size();
+            bool vis[m][n];
+            memset(vis, false, sizeof(vis));
+            queue<pair<int, int>> q{{{0, 0}}};
+            vis[0][0] = true;
+            int dirs[5] = {-1, 0, 1, 0, -1};
+            while (!q.empty()) {
+                auto [i, j] = q.front();
+                q.pop();
+                if (i == m - 1 && j == n - 1) {
+                    return true;
+                }
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dirs[k], y = j + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && abs(heights[x][y] - heights[i][j]) <= h) {
+                        q.push({x, y});
+                        vis[x][y] = true;
+                    }
+                }
+            }
+            return false;
+        };
+        int l = 0, r = 1e6;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+```go
+func minimumEffortPath(heights [][]int) int {
+	return sort.Search(1e6, func(h int) bool {
+		m, n := len(heights), len(heights[0])
+		vis := make([][]bool, m)
+		for i := range vis {
+			vis[i] = make([]bool, n)
+		}
+		vis[0][0] = true
+		q := [][2]int{}
+		q = append(q, [2]int{0, 0})
+		dirs := [5]int{-1, 0, 1, 0, -1}
+		for len(q) > 0 {
+			p := q[0]
+			q = q[1:]
+			i, j := p[0], p[1]
+			if i == m-1 && j == n-1 {
+				return true
+			}
+			for k := 0; k < 4; k++ {
+				x, y := i+dirs[k], j+dirs[k+1]
+				if x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && abs(heights[x][y]-heights[i][j]) <= h {
+					vis[x][y] = true
+					q = append(q, [2]int{x, y})
+				}
+			}
+		}
+		return false
+	})
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
 ```ts
 function minimumEffortPath(heights: number[][]): number {
     const check = (h: number): boolean => {
@@ -761,6 +608,152 @@ function minimumEffortPath(heights: number[][]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法三：堆优化的 Dijkstra 算法
+
+我们可以把每个格子当做图的一个节点，把相邻两个格子的高度差绝对值当做边的权重，因此本题是求解从最左上角的节点到最右下角的节点的最短路径问题。
+
+我们可以使用 Dijkstra 算法求解最短路径，使用优先队列（堆）来优化时间复杂度。具体地，我们维护一个大小为 $m \times n$ 的二维数组 $dist$，其中 $dist[i][j]$ 表示从左上角到节点 $(i,j)$ 的最短路径的最大权重，初始时 $dist[0][0]=0$，其余元素均为正无穷大。
+
+我们用优先队列（堆）来存储节点，每次从优先队列（堆）中取出权重最小的节点，然后更新其相邻节点的权重，如果相邻节点的权重发生了改变，那么就把该节点加入优先队列（堆）中。当优先队列（堆）为空时，说明我们已经找到了最短路径。
+
+时间复杂度 $O(m \times n \times \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组的行数和列数。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        m, n = len(heights), len(heights[0])
+        dist = [[inf] * n for _ in range(m)]
+        dist[0][0] = 0
+        dirs = (-1, 0, 1, 0, -1)
+        q = [(0, 0, 0)]
+        while q:
+            t, i, j = heappop(q)
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if (
+                    0 <= x < m
+                    and 0 <= y < n
+                    and (d := max(t, abs(heights[i][j] - heights[x][y]))) < dist[x][y]
+                ):
+                    dist[x][y] = d
+                    heappush(q, (d, x, y))
+        return int(dist[-1][-1])
+```
+
+```java
+class Solution {
+    public int minimumEffortPath(int[][] heights) {
+        int m = heights.length, n = heights[0].length;
+        int[][] dist = new int[m][n];
+        for (var row : dist) {
+            Arrays.fill(row, 1 << 30);
+        }
+        dist[0][0] = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        pq.offer(new int[] {0, 0, 0});
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int t = p[0], i = p[1], j = p[2];
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n) {
+                    int d = Math.max(t, Math.abs(heights[x][y] - heights[i][j]));
+                    if (d < dist[x][y]) {
+                        dist[x][y] = d;
+                        pq.offer(new int[] {d, x, y});
+                    }
+                }
+            }
+        }
+        return dist[m - 1][n - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minimumEffortPath(vector<vector<int>>& heights) {
+        int m = heights.size(), n = heights[0].size();
+        int dist[m][n];
+        memset(dist, 0x3f, sizeof(dist));
+        dist[0][0] = 0;
+        int dirs[5] = {0, 1, 0, -1, 0};
+        using T = tuple<int, int, int>;
+        priority_queue<T, vector<T>, greater<T>> pq;
+        pq.emplace(0, 0, 0);
+        while (!pq.empty()) {
+            auto [t, i, j] = pq.top();
+            pq.pop();
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x < 0 || x >= m || y < 0 || y >= n) {
+                    continue;
+                }
+                int d = max(t, abs(heights[x][y] - heights[i][j]));
+                if (d < dist[x][y]) {
+                    dist[x][y] = d;
+                    pq.emplace(d, x, y);
+                }
+            }
+        }
+        return dist[m - 1][n - 1];
+    }
+};
+```
+
+```go
+func minimumEffortPath(heights [][]int) int {
+	m, n := len(heights), len(heights[0])
+	dist := make([][]int, m)
+	for i := range dist {
+		dist[i] = make([]int, n)
+		for j := range dist[i] {
+			dist[i][j] = 1 << 30
+		}
+	}
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	dist[0][0] = 0
+	pq := hp{}
+	heap.Push(&pq, tuple{0, 0, 0})
+	for pq.Len() > 0 {
+		p := heap.Pop(&pq).(tuple)
+		t, i, j := p.t, p.i, p.j
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n {
+				if d := max(t, abs(heights[x][y]-heights[i][j])); d < dist[x][y] {
+					dist[x][y] = d
+					heap.Push(&pq, tuple{d, x, y})
+				}
+			}
+		}
+	}
+	return dist[m-1][n-1]
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+type tuple struct{ t, i, j int }
+type hp []tuple
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].t < h[j].t }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
+func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
 ```ts
 function minimumEffortPath(heights: number[][]): number {
     const m = heights.length;
@@ -787,10 +780,6 @@ function minimumEffortPath(heights: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

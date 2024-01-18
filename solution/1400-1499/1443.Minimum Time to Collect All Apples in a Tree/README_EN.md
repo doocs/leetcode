@@ -45,11 +45,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
         vis = [False] * n
         return dfs(0, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minTime(n int, edges [][]int, hasApple []bool) int {
@@ -163,10 +155,6 @@ func minTime(n int, edges [][]int, hasApple []bool) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,7 @@ minStack.getMin();   --&gt; 返回 -2.
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双栈**
+### 方法一：双栈
 
 我们用两个栈来实现，其中 `stk1` 用来存储数据，`stk2` 用来存储当前栈中的最小值。初始时，`stk2` 中存储一个极大值。
 
@@ -67,10 +65,6 @@ minStack.getMin();   --&gt; 返回 -2.
 每个操作的时间复杂度为 $O(1)$。整体的空间复杂度为 $O(n)$，其中 $n$ 为栈中元素的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MinStack:
@@ -100,10 +94,6 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MinStack {
@@ -142,8 +132,6 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MinStack {
@@ -185,8 +173,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type MinStack struct {
 	stk1 []int
@@ -224,8 +210,6 @@ func (this *MinStack) GetMin() int {
  * param_4 := obj.GetMin();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class MinStack {
@@ -265,57 +249,6 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 ```
-
-### **JavaScript**
-
-```js
-var MinStack = function () {
-    this.stk1 = [];
-    this.stk2 = [Infinity];
-};
-
-/**
- * @param {number} val
- * @return {void}
- */
-MinStack.prototype.push = function (val) {
-    this.stk1.push(val);
-    this.stk2.push(Math.min(this.stk2[this.stk2.length - 1], val));
-};
-
-/**
- * @return {void}
- */
-MinStack.prototype.pop = function () {
-    this.stk1.pop();
-    this.stk2.pop();
-};
-
-/**
- * @return {number}
- */
-MinStack.prototype.top = function () {
-    return this.stk1[this.stk1.length - 1];
-};
-
-/**
- * @return {number}
- */
-MinStack.prototype.getMin = function () {
-    return this.stk2[this.stk2.length - 1];
-};
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * var obj = new MinStack()
- * obj.push(val)
- * obj.pop()
- * var param_3 = obj.top()
- * var param_4 = obj.getMin()
- */
-```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -364,7 +297,52 @@ impl MinStack {
  */
 ```
 
-### **C#**
+```js
+var MinStack = function () {
+    this.stk1 = [];
+    this.stk2 = [Infinity];
+};
+
+/**
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function (val) {
+    this.stk1.push(val);
+    this.stk2.push(Math.min(this.stk2[this.stk2.length - 1], val));
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function () {
+    this.stk1.pop();
+    this.stk2.pop();
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function () {
+    return this.stk1[this.stk1.length - 1];
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function () {
+    return this.stk2[this.stk2.length - 1];
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+```
 
 ```cs
 public class MinStack {
@@ -404,10 +382,6 @@ public class MinStack {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

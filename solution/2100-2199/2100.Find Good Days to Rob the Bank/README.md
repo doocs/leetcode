@@ -63,15 +63,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-left, right 分别记录左右符合要求的天数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return [i for i in range(n) if time <= min(left[i], right[i])]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func goodDaysToRobBank(security []int, time int) []int {
@@ -178,8 +164,6 @@ func goodDaysToRobBank(security []int, time int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function goodDaysToRobBank(security: number[], time: number): number[] {
     const n = security.length;
@@ -205,8 +189,6 @@ function goodDaysToRobBank(security: number[], time: number): number[] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::cmp::Ordering;
@@ -242,10 +224,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

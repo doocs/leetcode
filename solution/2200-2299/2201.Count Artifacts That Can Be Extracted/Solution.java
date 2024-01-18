@@ -1,27 +1,28 @@
 class Solution {
+    private Set<Integer> s = new HashSet<>();
+    private int n;
+
     public int digArtifacts(int n, int[][] artifacts, int[][] dig) {
-        Set<Integer> s = new HashSet<>();
-        for (int[] d : dig) {
-            s.add(d[0] * n + d[1]);
+        this.n = n;
+        for (var p : dig) {
+            s.add(p[0] * n + p[1]);
         }
         int ans = 0;
-        for (int[] a : artifacts) {
-            if (check(a, s, n)) {
-                ++ans;
-            }
+        for (var a : artifacts) {
+            ans += check(a);
         }
         return ans;
     }
 
-    private boolean check(int[] a, Set<Integer> s, int n) {
-        int r1 = a[0], c1 = a[1], r2 = a[2], c2 = a[3];
-        for (int i = r1; i <= r2; ++i) {
-            for (int j = c1; j <= c2; ++j) {
-                if (!s.contains(i * n + j)) {
-                    return false;
+    private int check(int[] a) {
+        int x1 = a[0], y1 = a[1], x2 = a[2], y2 = a[3];
+        for (int x = x1; x <= x2; ++x) {
+            for (int y = y1; y <= y2; ++y) {
+                if (!s.contains(x * n + y)) {
+                    return 0;
                 }
             }
         }
-        return true;
+        return 1;
     }
 }

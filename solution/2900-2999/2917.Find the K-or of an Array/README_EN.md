@@ -56,7 +56,7 @@ Only bits 0 and 3 are set in at least k elements of the array, and bits i &gt;= 
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of numbers in the array $nums$ whose $i$-th bit is $1$, denoted as $cnt$. If $cnt \ge k$, we add $2^i$ to the answer.
 
@@ -65,8 +65,6 @@ After the enumeration, we return the answer.
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in $nums$, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -78,8 +76,6 @@ class Solution:
                 ans |= 1 << i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findKOr(nums []int, k int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -136,8 +128,6 @@ func findKOr(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findKOr(nums: number[], k: number): number {
@@ -155,10 +145,6 @@ function findKOr(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

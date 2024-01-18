@@ -85,9 +85,9 @@ After flattening the multilevel linked list it becomes:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -121,8 +121,6 @@ class Solution:
         dummy.next.prev = None
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /*
@@ -161,8 +159,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -214,10 +210,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

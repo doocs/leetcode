@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 枚举元素计算贡献**
+### 方法一：排序 + 枚举元素计算贡献
 
 题目求解的是数组 `nums` 中所有子序列中最大值与最小值差值之和，注意到“子序列”，并且涉及到“最大值”与“最小值”，我们考虑先对数组 `nums` 进行排序。
 
@@ -96,10 +94,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sumSubseqWidths(self, nums: List[int]) -> int:
@@ -111,10 +105,6 @@ class Solution:
             p = (p << 1) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -132,8 +122,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumSubseqWidths(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -168,10 +154,6 @@ func sumSubseqWidths(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

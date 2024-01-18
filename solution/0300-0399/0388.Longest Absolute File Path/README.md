@@ -77,15 +77,9 @@ dir
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-遍历文件系统的时候需要在各个目录间切换，在实际的 Linux 中，有 `pushd` 和 `popd` 命令，本题可以使用栈模拟这一过程
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -123,10 +117,6 @@ class Solution:
 
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -173,51 +163,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
-```go
-func lengthLongestPath(input string) int {
-	i, n := 0, len(input)
-	ans := 0
-	var stk []int
-	for i < n {
-		ident := 0
-		for ; input[i] == '\t'; i++ {
-			ident++
-		}
-
-		cur, isFile := 0, false
-		for ; i < n && input[i] != '\n'; i++ {
-			cur++
-			if input[i] == '.' {
-				isFile = true
-			}
-		}
-		i++
-
-		// popd
-		for len(stk) > 0 && len(stk) > ident {
-			stk = stk[:len(stk)-1]
-		}
-
-		if len(stk) > 0 {
-			cur += stk[len(stk)-1] + 1
-		}
-
-		// pushd
-		if !isFile {
-			stk = append(stk, cur)
-			continue
-		}
-
-		ans = max(ans, cur)
-	}
-	return ans
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -263,10 +208,47 @@ public:
 };
 ```
 
-### **...**
+```go
+func lengthLongestPath(input string) int {
+	i, n := 0, len(input)
+	ans := 0
+	var stk []int
+	for i < n {
+		ident := 0
+		for ; input[i] == '\t'; i++ {
+			ident++
+		}
 
-```
+		cur, isFile := 0, false
+		for ; i < n && input[i] != '\n'; i++ {
+			cur++
+			if input[i] == '.' {
+				isFile = true
+			}
+		}
+		i++
 
+		// popd
+		for len(stk) > 0 && len(stk) > ident {
+			stk = stk[:len(stk)-1]
+		}
+
+		if len(stk) > 0 {
+			cur += stk[len(stk)-1] + 1
+		}
+
+		// pushd
+		if !isFile {
+			stk = append(stk, cur)
+			continue
+		}
+
+		ans = max(ans, cur)
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

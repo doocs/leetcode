@@ -1,22 +1,13 @@
 func findUnsortedSubarray(nums []int) int {
-	const inf = 1 << 30
-	n := len(nums)
-	l, r := -1, -1
-	mi, mx := inf, -inf
-	for i, x := range nums {
-		if mx > x {
-			r = i
-		} else {
-			mx = x
-		}
-		if mi < nums[n-i-1] {
-			l = n - i - 1
-		} else {
-			mi = nums[n-i-1]
-		}
+	arr := make([]int, len(nums))
+	copy(arr, nums)
+	sort.Ints(arr)
+	l, r := 0, len(arr)-1
+	for l <= r && nums[l] == arr[l] {
+		l++
 	}
-	if r == -1 {
-		return 0
+	for l <= r && nums[r] == arr[r] {
+		r--
 	}
 	return r - l + 1
 }

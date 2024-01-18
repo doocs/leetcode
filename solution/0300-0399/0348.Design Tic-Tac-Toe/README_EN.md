@@ -90,9 +90,9 @@ ticTacToe.move(2, 1, 1); // return 1&nbsp;(player 1 wins)
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class TicTacToe:
@@ -135,8 +135,6 @@ class TicTacToe:
 # obj = TicTacToe(n)
 # param_1 = obj.move(row,col,player)
 ```
-
-### **Java**
 
 ```java
 class TicTacToe {
@@ -183,10 +181,6 @@ class TicTacToe {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

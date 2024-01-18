@@ -70,9 +70,15 @@ Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table + Simulation
 
-### **Python3**
+First, we use a hash table $d$ to record the key-value pairs in `knowledge`.
+
+Then we traverse the string $s$. If the current character is an open parenthesis `'('`, we start traversing from the current position until we encounter a close parenthesis `')'`. At this point, the string within the parentheses is the key. We look for the corresponding value of this key in the hash table $d$. If found, we replace the value within the parentheses with it, otherwise, we replace it with `'?'`.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(L)$. Here, $n$ and $m$ are the lengths of the string $s$ and the list `knowledge` respectively, and $L$ is the sum of the lengths of all strings in `knowledge`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -90,8 +96,6 @@ class Solution:
             i += 1
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func evaluate(s string, knowledge [][]string) string {
@@ -170,8 +170,6 @@ func evaluate(s string, knowledge [][]string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function evaluate(s: string, knowledge: string[][]): string {
     const n = s.length;
@@ -194,8 +192,6 @@ function evaluate(s: string, knowledge: string[][]): string {
     return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -230,10 +226,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

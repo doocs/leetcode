@@ -68,9 +68,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以用哈希表 $d$ 记录每个文件夹的最小可用编号，其中 $d[name] = k$ 表示文件夹 $name$ 的最小可用编号为 $k$。初始时，$d$ 中没有任何文件夹，因此 $d$ 为空。
 
@@ -88,10 +86,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def getFolderNames(self, names: List[str]) -> List[str]:
@@ -106,10 +100,6 @@ class Solution:
             d[names[i]] = 1
         return names
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -154,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getFolderNames(names []string) []string {
 	d := map[string]int{}
@@ -177,8 +163,6 @@ func getFolderNames(names []string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getFolderNames(names: string[]): string[] {
     let d: Map<string, number> = new Map();
@@ -197,10 +181,6 @@ function getFolderNames(names: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

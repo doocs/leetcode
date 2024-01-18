@@ -9,21 +9,21 @@ class Solution {
             return minOperations(nums2, nums1);
         }
         int d = s2 - s1;
-        int[] cnt = new int[6];
+        int[] arr = new int[nums1.length + nums2.length];
+        int k = 0;
         for (int v : nums1) {
-            ++cnt[6 - v];
+            arr[k++] = 6 - v;
         }
         for (int v : nums2) {
-            ++cnt[v - 1];
+            arr[k++] = v - 1;
         }
-        int ans = 0;
-        for (int i = 5; i > 0; --i) {
-            while (cnt[i] > 0 && d > 0) {
-                d -= i;
-                --cnt[i];
-                ++ans;
+        Arrays.sort(arr);
+        for (int i = 1, j = arr.length - 1; j >= 0; ++i, --j) {
+            d -= arr[j];
+            if (d <= 0) {
+                return i;
             }
         }
-        return d <= 0 ? ans : -1;
+        return -1;
     }
 }

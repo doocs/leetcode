@@ -37,13 +37,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +62,6 @@ class Solution:
                 i += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -132,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxStrength(nums []int) int64 {
 	sort.Ints(nums)
@@ -156,8 +144,6 @@ func maxStrength(nums []int) int64 {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxStrength(nums: number[]): number {
@@ -182,10 +168,6 @@ function maxStrength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

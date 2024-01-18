@@ -63,9 +63,7 @@ public class Foo {
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：多线程 + 锁或信号量**
+### 方法一：多线程 + 锁或信号量
 
 我们可以用三个信号量 $a$, $b$, $c$ 来控制三个线程的执行顺序，初始时 $a$ 信号量的计数为 $1$，$b$ 和 $c$ 的计数为 $0$。
 
@@ -78,10 +76,6 @@ public class Foo {
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Foo:
@@ -104,39 +98,6 @@ class Foo:
         self.l3.acquire()
         printThird()
 ```
-
-```python
-from threading import Semaphore
-
-
-class Foo:
-    def __init__(self):
-        self.a = Semaphore(1)
-        self.b = Semaphore(0)
-        self.c = Semaphore(0)
-
-    def first(self, printFirst: 'Callable[[], None]') -> None:
-        self.a.acquire()
-        # printFirst() outputs "first". Do not change or remove this line.
-        printFirst()
-        self.b.release()
-
-    def second(self, printSecond: 'Callable[[], None]') -> None:
-        self.b.acquire()
-        # printSecond() outputs "second". Do not change or remove this line.
-        printSecond()
-        self.c.release()
-
-    def third(self, printThird: 'Callable[[], None]') -> None:
-        self.c.acquire()
-        # printThird() outputs "third". Do not change or remove this line.
-        printThird()
-        self.a.release()
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Foo {
@@ -170,8 +131,6 @@ class Foo {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Foo {
 private:
@@ -199,6 +158,41 @@ public:
         printThird();
     }
 };
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+from threading import Semaphore
+
+
+class Foo:
+    def __init__(self):
+        self.a = Semaphore(1)
+        self.b = Semaphore(0)
+        self.c = Semaphore(0)
+
+    def first(self, printFirst: 'Callable[[], None]') -> None:
+        self.a.acquire()
+        # printFirst() outputs "first". Do not change or remove this line.
+        printFirst()
+        self.b.release()
+
+    def second(self, printSecond: 'Callable[[], None]') -> None:
+        self.b.acquire()
+        # printSecond() outputs "second". Do not change or remove this line.
+        printSecond()
+        self.c.release()
+
+    def third(self, printThird: 'Callable[[], None]') -> None:
+        self.c.acquire()
+        # printThird() outputs "third". Do not change or remove this line.
+        printThird()
+        self.a.release()
 ```
 
 ```cpp
@@ -238,10 +232,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

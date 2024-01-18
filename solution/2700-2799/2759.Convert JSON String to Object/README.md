@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个字符串 <code>str</code> ，返回 JSON 解析后的 <code>parsedStr</code> 。你可以假设 <code>str</code> 是一个有效的 JSON 字符串，因此它只包含字符串、数字、数组、对象、布尔值和 null。<code>str</code> 不会包含不可见字符和转义字符。JSON 中的字符串值只包含字母数字字符。</p>
+<p>给定一个字符串 <code>str</code> ，返回 JSON 解析后的 <code>parsedStr</code> 。你可以假设 <code>str</code> 是一个有效的 JSON 字符串，因此它只包含字符串、数字、数组、对象、布尔值和 null。<code>str</code> 不会包含不可见字符和转义字符。</p>
 
 <p>请在不使用内置的 <code>JSON.parse</code> 方法的情况下解决此问题。</p>
 
@@ -44,13 +44,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function jsonParse(str: string): any {
@@ -171,3 +167,5 @@ function jsonParse(str: string): any {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

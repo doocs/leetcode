@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
         mx, mi = max(nums), min(nums)
         return max(0, mx - mi - k * 2)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -75,20 +73,15 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     int smallestRangeI(vector<int>& nums, int k) {
-        int mx = *max_element(nums.begin(), nums.end());
-        int mi = *min_element(nums.begin(), nums.end());
-        return max(0, mx - mi - k * 2);
+        auto [mi, mx] = minmax_element(nums.begin(), nums.end());
+        return max(0, *mx - *mi - k * 2);
     }
 };
 ```
-
-### **Go**
 
 ```go
 func smallestRangeI(nums []int, k int) int {
@@ -97,8 +90,6 @@ func smallestRangeI(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function smallestRangeI(nums: number[], k: number): number {
     const max = nums.reduce((r, v) => Math.max(r, v));
@@ -106,8 +97,6 @@ function smallestRangeI(nums: number[], k: number): number {
     return Math.max(max - min - k * 2, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -119,10 +108,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

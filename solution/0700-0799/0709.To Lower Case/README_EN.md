@@ -38,17 +38,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def toLowerCase(self, s: str) -> str:
         return "".join([chr(ord(c) | 32) if c.isupper() else c for c in s])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -64,8 +62,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -80,8 +76,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func toLowerCase(s string) string {
 	cs := []byte(s)
@@ -94,27 +88,41 @@ func toLowerCase(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function toLowerCase(s: string): string {
     return s.toLowerCase();
 }
 ```
 
-```ts
-function toLowerCase(s: string): string {
-    return [...s].map(c => String.fromCharCode(c.charCodeAt(0) | 32)).join('');
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn to_lower_case(s: String) -> String {
         s.to_ascii_lowercase()
     }
+}
+```
+
+```c
+char* toLowerCase(char* s) {
+    int n = strlen(s);
+    for (int i = 0; i < n; i++) {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
+            s[i] |= 32;
+        }
+    }
+    return s;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function toLowerCase(s: string): string {
+    return [...s].map(c => String.fromCharCode(c.charCodeAt(0) | 32)).join('');
 }
 ```
 
@@ -129,24 +137,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-char* toLowerCase(char* s) {
-    int n = strlen(s);
-    for (int i = 0; i < n; i++) {
-        if (s[i] >= 'A' && s[i] <= 'Z') {
-            s[i] |= 32;
-        }
-    }
-    return s;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

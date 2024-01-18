@@ -60,122 +60,94 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：转换为分钟数
 
-转换为“分钟”进行计算。
+我们可以将输入的字符串转换为分钟数 $a$ 和 $b$，如果 $a > b$，则说明跨越了午夜，需要将 $b$ 加上一天的分钟数 $1440$。
+
+然后我们将 $a$ 向上取整到 $15$ 的倍数，将 $b$ 向下取整到 $15$ 的倍数，最后返回 $b$ 与 $a$ 的差值即可，注意要取 $0$ 和 $b - a$ 中的较大值。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
-    def numberOfRounds(self, startTime: str, finishTime: str) -> int:
-        def get(s: str) -> int:
+    def numberOfRounds(self, loginTime: str, logoutTime: str) -> int:
+        def f(s: str) -> int:
             return int(s[:2]) * 60 + int(s[3:])
 
-        start, finish = get(startTime), get(finishTime)
-        if start > finish:
-            finish += 24 * 60
-        start, finish = (start + 14) // 15, finish // 15
-        return max(0, finish - start)
+        a, b = f(loginTime), f(logoutTime)
+        if a > b:
+            b += 1440
+        a, b = (a + 14) // 15, b // 15
+        return max(0, b - a)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
-    public int numberOfRounds(String startTime, String finishTime) {
-        int start = get(startTime), finish = get(finishTime);
-        if (start > finish) {
-            finish += 24 * 60;
+    public int numberOfRounds(String loginTime, String logoutTime) {
+        int a = f(loginTime), b = f(logoutTime);
+        if (a > b) {
+            b += 1440;
         }
-        start = (start + 14) / 15;
-        finish /= 15;
-        return Math.max(0, finish - start);
+        return Math.max(0, b / 15 - (a + 14) / 15);
     }
 
-    private int get(String s) {
-        return Integer.parseInt(s.substring(0, 2)) * 60 + Integer.parseInt(s.substring(3));
+    private int f(String s) {
+        int h = Integer.parseInt(s.substring(0, 2));
+        int m = Integer.parseInt(s.substring(3, 5));
+        return h * 60 + m;
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function numberOfRounds(startTime: string, finishTime: string): number {
-    let m1 = toMinutes(startTime),
-        m2 = toMinutes(finishTime);
-    if (m1 > m2) {
-        m2 += 24 * 60;
-    }
-    let ans = Math.floor(m2 / 15) - Math.ceil(m1 / 15);
-    return ans > 0 ? ans : 0;
-}
-
-function toMinutes(time: string): number {
-    let [h, m] = time.split(':').map(Number);
-    return h * 60 + m;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
-    int numberOfRounds(string startTime, string finishTime) {
-        int start = get(startTime), finish = get(finishTime);
-        if (start > finish) {
-            finish += 24 * 60;
+    int numberOfRounds(string loginTime, string logoutTime) {
+        auto f = [](string& s) {
+            int h, m;
+            sscanf(s.c_str(), "%d:%d", &h, &m);
+            return h * 60 + m;
+        };
+        int a = f(loginTime), b = f(logoutTime);
+        if (a > b) {
+            b += 1440;
         }
-        start = (start + 14) / 15;
-        finish /= 15;
-        return max(0, finish - start);
-    }
-
-private:
-    int get(string s) {
-        int a, b;
-        sscanf(s.c_str(), "%d:%d", &a, &b);
-        return a * 60 + b;
+        return max(0, b / 15 - (a + 14) / 15);
     }
 };
 ```
 
-### **Go**
-
 ```go
-func numberOfRounds(startTime string, finishTime string) int {
-	start, finish := get(startTime), get(finishTime)
-	if start > finish {
-		finish += 24 * 60
+func numberOfRounds(loginTime string, logoutTime string) int {
+	f := func(s string) int {
+		var h, m int
+		fmt.Sscanf(s, "%d:%d", &h, &m)
+		return h*60 + m
 	}
-	start = (start + 14) / 15
-	finish /= 15
-	if start > finish {
-		return 0
+	a, b := f(loginTime), f(logoutTime)
+	if a > b {
+		b += 1440
 	}
-	return finish - start
-
-}
-
-func get(s string) int {
-	var a, b int
-	fmt.Sscanf(s, "%d:%d", &a, &b)
-	return a*60 + b
+	return max(0, b/15-(a+14)/15)
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function numberOfRounds(startTime: string, finishTime: string): number {
+    const f = (s: string): number => {
+        const [h, m] = s.split(':').map(Number);
+        return h * 60 + m;
+    };
+    let [a, b] = [f(startTime), f(finishTime)];
+    if (a > b) {
+        b += 1440;
+    }
+    return Math.max(0, Math.floor(b / 15) - Math.ceil(a / 15));
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

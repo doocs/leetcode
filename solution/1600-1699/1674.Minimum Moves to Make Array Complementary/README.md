@@ -56,9 +56,7 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 我们不妨设 $a$ 为 $nums[i]$ 和 $nums[n-i-1]$ 的较小值，设 $b$ 为 $nums[i]$ 和 $nums[n-i-1]$ 的较大值。
 
@@ -80,13 +78,9 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 可以发现，这实际上是在对一个连续区间内的元素进行加减操作，因此我们可以使用差分数组来实现。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -113,10 +107,6 @@ class Solution:
                 ans = s
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -147,8 +137,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -181,8 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMoves(nums []int, limit int) int {
 	d := make([]int, limit*2+2)
@@ -209,10 +195,6 @@ func minMoves(nums []int, limit int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

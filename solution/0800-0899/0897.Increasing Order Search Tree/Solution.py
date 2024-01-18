@@ -16,7 +16,6 @@ class Solution:
             prev = root
             dfs(root.right)
 
-        dummy = TreeNode(val=0, right=root)
-        prev = dummy
+        dummy = prev = TreeNode(right=root)
         dfs(root)
         return dummy.right

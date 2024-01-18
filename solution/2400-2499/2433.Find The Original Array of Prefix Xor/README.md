@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 根据题意，我们有式子一：
 
@@ -72,23 +70,15 @@ $$
 
 即答案数组的每一项都是前缀异或数组的相邻两项进行异或运算得到的。
 
-时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为前缀异或数组的长度。
+时间复杂度 $O(n)$，其中 $n$ 为前缀异或数组的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def findArray(self, pref: List[int]) -> List[int]:
         return [a ^ b for a, b in pairwise([0] + pref)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findArray(pref []int) []int {
 	n := len(pref)
@@ -133,7 +119,29 @@ func findArray(pref []int) []int {
 }
 ```
 
-### **C**
+```ts
+function findArray(pref: number[]): number[] {
+    let ans = pref.slice();
+    for (let i = 1; i < pref.length; i++) {
+        ans[i] = pref[i - 1] ^ pref[i];
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_array(pref: Vec<i32>) -> Vec<i32> {
+        let n = pref.len();
+        let mut res = vec![0; n];
+        res[0] = pref[0];
+        for i in 1..n {
+            res[i] = pref[i] ^ pref[i - 1];
+        }
+        res
+    }
+}
+```
 
 ```c
 /**
@@ -150,38 +158,6 @@ int* findArray(int* pref, int prefSize, int* returnSize) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findArray(pref: number[]): number[] {
-    let ans = pref.slice();
-    for (let i = 1; i < pref.length; i++) {
-        ans[i] = pref[i - 1] ^ pref[i];
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_array(pref: Vec<i32>) -> Vec<i32> {
-        let n = pref.len();
-        let mut res = vec![0; n];
-        res[0] = pref[0];
-        for i in 1..n {
-            res[i] = pref[i] ^ pref[i - 1];
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

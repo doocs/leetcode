@@ -36,15 +36,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
         ans = int(''.join(cs))
         return -1 if ans > 2**31 - 1 else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nextGreaterElement(n int) int {
@@ -149,10 +135,6 @@ func nextGreaterElement(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,9 +50,9 @@ Number of valid subsequences (63 - 2 = 61).
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             ans = (ans + f[j - i]) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSubseq(nums []int, target int) (ans int) {
 	sort.Ints(nums)
@@ -161,10 +155,6 @@ func numSubseq(nums []int, target int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们用一个变量 $s$ 记录数组 $nums$ 中所有偶数的和。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为数组 $nums$ 和 $queries$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             ans.append(s)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 	s := 0
@@ -165,7 +151,28 @@ func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
+    let s = 0;
+    for (const x of nums) {
+        if (x % 2 === 0) {
+            s += x;
+        }
+    }
+    const ans: number[] = [];
+    for (const [v, i] of queries) {
+        if (nums[i] % 2 === 0) {
+            s -= nums[i];
+        }
+        nums[i] += v;
+        if (nums[i] % 2 === 0) {
+            s += nums[i];
+        }
+        ans.push(s);
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -195,35 +202,6 @@ var sumEvenAfterQueries = function (nums, queries) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
-    let s = 0;
-    for (const x of nums) {
-        if (x % 2 === 0) {
-            s += x;
-        }
-    }
-    const ans: number[] = [];
-    for (const [v, i] of queries) {
-        if (nums[i] % 2 === 0) {
-            s -= nums[i];
-        }
-        nums[i] += v;
-        if (nums[i] % 2 === 0) {
-            s += nums[i];
-        }
-        ans.push(s);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

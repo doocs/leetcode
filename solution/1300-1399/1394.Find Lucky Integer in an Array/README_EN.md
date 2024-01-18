@@ -43,9 +43,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting
 
-### **Python3**
+We can use a hash table or array $cnt$ to count the occurrences of each number in $arr$, then traverse $cnt$ to find the largest $x$ that satisfies $cnt[x] = x$. If there is no such $x$, return $-1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of $arr$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +61,6 @@ class Solution:
                 ans = x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -100,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findLucky(arr []int) int {
 	cnt := [510]int{}
@@ -118,7 +116,21 @@ func findLucky(arr []int) int {
 }
 ```
 
-### **PHP**
+```ts
+function findLucky(arr: number[]): number {
+    const cnt = new Array(510).fill(0);
+    for (const x of arr) {
+        ++cnt[x];
+    }
+    let ans = -1;
+    for (let x = 1; x < cnt.length; ++x) {
+        if (cnt[x] === x) {
+            ans = x;
+        }
+    }
+    return ans;
+}
+```
 
 ```php
 class Solution {
@@ -142,28 +154,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findLucky(arr: number[]): number {
-    const cnt = new Array(510).fill(0);
-    for (const x of arr) {
-        ++cnt[x];
-    }
-    let ans = -1;
-    for (let x = 1; x < cnt.length; ++x) {
-        if (cnt[x] === x) {
-            ans = x;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

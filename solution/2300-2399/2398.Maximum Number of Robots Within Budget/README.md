@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针 + 单调队列**
+### 方法一：双指针 + 单调队列
 
 问题实际上是求滑动窗口内的最大值，可以用单调队列来求解。只需要二分枚举窗口 $k$ 的大小，找到一个最大的 $k$，使得满足题目要求。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是题目中机器人的数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
 	s := int64(0)
@@ -168,17 +154,6 @@ func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

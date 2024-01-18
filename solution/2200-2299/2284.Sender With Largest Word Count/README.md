@@ -56,19 +56,13 @@ Charlie 总共发出了 5 个单词。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 我们用哈希表 `cnt` 统计每个发件人的单词数，然后枚举每个发件人，找到单词数最多且字典序最大的发件人即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `messages` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 ans = sender
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestWordCount(messages []string, senders []string) (ans string) {
 	cnt := map[string]int{}
@@ -155,16 +141,6 @@ func largestWordCount(messages []string, senders []string) (ans string) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

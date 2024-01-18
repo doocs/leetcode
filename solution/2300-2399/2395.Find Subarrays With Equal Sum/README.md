@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以遍历数组 $nums$，用哈希表 $vis$ 记录数组中每两个相邻元素的和，如果当前两个元素的和已经在哈希表中出现过，则返回 `true`，否则将当前两个元素的和加入哈希表中。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             vis.add(x)
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSubarrays(nums []int) bool {
 	vis := map[int]bool{}
@@ -127,8 +113,6 @@ func findSubarrays(nums []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findSubarrays(nums: number[]): boolean {
     const vis: Set<number> = new Set<number>();
@@ -142,8 +126,6 @@ function findSubarrays(nums: number[]): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -161,8 +143,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 bool findSubarrays(int* nums, int numsSize) {
     for (int i = 1; i < numsSize - 1; i++) {
@@ -176,11 +156,6 @@ bool findSubarrays(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

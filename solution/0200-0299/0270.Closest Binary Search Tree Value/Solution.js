@@ -12,19 +12,20 @@
  * @return {number}
  */
 var closestValue = function (root, target) {
+    let mi = Infinity;
     let ans = root.val;
-    let mi = Number.MAX_VALUE;
-    while (root) {
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
         const t = Math.abs(root.val - target);
-        if (t < mi || (t === mi && root.val < ans)) {
+        if (t < mi) {
             mi = t;
             ans = root.val;
         }
-        if (root.val > target) {
-            root = root.left;
-        } else {
-            root = root.right;
-        }
-    }
+        dfs(root.right);
+    };
+    dfs(root);
     return ans;
 };

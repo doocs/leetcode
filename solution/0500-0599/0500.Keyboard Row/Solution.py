@@ -1,9 +1,11 @@
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
+        s1 = set('qwertyuiop')
+        s2 = set('asdfghjkl')
+        s3 = set('zxcvbnm')
         ans = []
-        s = "12210111011122000010020202"
         for w in words:
-            x = s[ord(w[0].lower()) - ord('a')]
-            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
+            s = set(w.lower())
+            if s <= s1 or s <= s2 or s <= s3:
                 ans.append(w)
         return ans

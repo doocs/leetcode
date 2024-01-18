@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type ToBeOrNotToBe = {
@@ -71,8 +71,6 @@ function expect(val: any): ToBeOrNotToBe {
  */
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} val
@@ -102,3 +100,5 @@ var expect = function (val) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

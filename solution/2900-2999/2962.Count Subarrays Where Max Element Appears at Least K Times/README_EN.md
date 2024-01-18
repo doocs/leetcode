@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 Let's denote the maximum value in the array as $mx$.
 
@@ -49,8 +49,6 @@ Therefore, we enumerate the left endpoint $i$, use the pointer $j$ to maintain t
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -68,8 +66,6 @@ class Solution:
             cnt -= x == mx
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSubarrays(nums []int, k int) (ans int64) {
 	mx := slices.Max(nums)
@@ -143,8 +135,6 @@ func countSubarrays(nums []int, k int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSubarrays(nums: number[], k: number): number {
     const mx = Math.max(...nums);
@@ -165,10 +155,6 @@ function countSubarrays(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

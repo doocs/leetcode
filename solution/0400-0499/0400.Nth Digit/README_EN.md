@@ -31,26 +31,22 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
-        bits, t = 1, 9
-        while n > bits * t:
-            n -= bits * t
-            bits += 1
-            t *= 10
-
-        start = 10 ** (bits - 1) + (n // bits) - 1
-        if n % bits == 0:
-            return start % 10
-        return int(str((start + 1))[(n % bits) - 1])
+        k, cnt = 1, 9
+        while k * cnt < n:
+            n -= k * cnt
+            k += 1
+            cnt *= 10
+        num = 10 ** (k - 1) + (n - 1) // k
+        idx = (n - 1) % k
+        return int(str(num)[idx])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -67,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +81,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findNthDigit(n int) int {
 	k, cnt := 1, 9
@@ -102,8 +94,6 @@ func findNthDigit(n int) int {
 	return int(strconv.Itoa(num)[idx] - '0')
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -124,8 +114,6 @@ var findNthDigit = function (n) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int FindNthDigit(int n) {
@@ -142,10 +130,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

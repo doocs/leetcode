@@ -57,9 +57,17 @@ The resulting array is [1,2,3,4], which is continuous.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Deduplication + Binary Search
 
-### **Python3**
+First, we sort the array and remove duplicates.
+
+Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use binary search to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,21 +79,6 @@ class Solution:
             ans = min(ans, n - (j - i))
         return ans
 ```
-
-```python
-class Solution:
-    def minOperations(self, nums: List[int]) -> int:
-        n = len(nums)
-        nums = sorted(set(nums))
-        ans, j = n, 0
-        for i, v in enumerate(nums):
-            while j < len(nums) and nums[j] - v <= n - 1:
-                j += 1
-            ans = min(ans, n - (j - i))
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,31 +113,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minOperations(int[] nums) {
-        int n = nums.length;
-        Arrays.sort(nums);
-        int m = 1;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] != nums[i - 1]) {
-                nums[m++] = nums[i];
-            }
-        }
-        int ans = n;
-        for (int i = 0, j = 0; i < m; ++i) {
-            while (j < m && nums[j] - nums[i] <= n - 1) {
-                ++j;
-            }
-            ans = Math.min(ans, n - (j - i));
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,26 +130,25 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int minOperations(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int m = unique(nums.begin(), nums.end()) - nums.begin();
-        int n = nums.size();
-        int ans = n;
-        for (int i = 0, j = 0; i < m; ++i) {
-            while (j < m && nums[j] - nums[i] <= n - 1) {
-                ++j;
-            }
-            ans = min(ans, n - (j - i));
-        }
-        return ans;
-    }
-};
+```go
+func minOperations(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	m := 1
+	for i := 1; i < n; i++ {
+		if nums[i] != nums[i-1] {
+			nums[m] = nums[i]
+			m++
+		}
+	}
+	ans := n
+	for i := 0; i < m; i++ {
+		j := sort.Search(m, func(k int) bool { return nums[k] > nums[i]+n-1 })
+		ans = min(ans, n-(j-i))
+	}
+	return ans
+}
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::BTreeSet;
@@ -210,26 +177,73 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func minOperations(nums []int) int {
-	sort.Ints(nums)
-	n := len(nums)
-	m := 1
-	for i := 1; i < n; i++ {
-		if nums[i] != nums[i-1] {
-			nums[m] = nums[i]
-			m++
-		}
-	}
-	ans := n
-	for i := 0; i < m; i++ {
-		j := sort.Search(m, func(k int) bool { return nums[k] > nums[i]+n-1 })
-		ans = min(ans, n-(j-i))
-	}
-	return ans
+### Solution 2: Sorting + Deduplication + Two Pointers
+
+Similar to Solution 1, we first sort the array and remove duplicates.
+
+Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use two pointers to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        n = len(nums)
+        nums = sorted(set(nums))
+        ans, j = n, 0
+        for i, v in enumerate(nums):
+            while j < len(nums) and nums[j] - v <= n - 1:
+                j += 1
+            ans = min(ans, n - (j - i))
+        return ans
+```
+
+```java
+class Solution {
+    public int minOperations(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+        int m = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] != nums[i - 1]) {
+                nums[m++] = nums[i];
+            }
+        }
+        int ans = n;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < m && nums[j] - nums[i] <= n - 1) {
+                ++j;
+            }
+            ans = Math.min(ans, n - (j - i));
+        }
+        return ans;
+    }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int m = unique(nums.begin(), nums.end()) - nums.begin();
+        int n = nums.size();
+        int ans = n;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < m && nums[j] - nums[i] <= n - 1) {
+                ++j;
+            }
+            ans = min(ans, n - (j - i));
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
@@ -254,10 +268,6 @@ func minOperations(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

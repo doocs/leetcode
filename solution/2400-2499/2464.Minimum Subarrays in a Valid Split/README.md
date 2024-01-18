@@ -66,19 +66,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i)$ 表示从下标 $i$ 开始的最小分割数。对于下标 $i$，我们可以枚举所有的分割点 $j$，即 $i \leq j \lt n$，其中 $n$ 为数组长度。对于每个分割点 $j$，我们需要判断 $nums[i]$ 和 $nums[j]$ 的最大公约数是否大于 $1$，如果大于 $1$，则可以进行分割，此时分割数为 $1 + dfs(j + 1)$，否则分割数为 $+\infty$。最后我们取所有分割数的最小值即可。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
         dfs.cache_clear()
         return ans if ans < inf else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +155,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validSubarraySplit(nums []int) int {
@@ -207,16 +193,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

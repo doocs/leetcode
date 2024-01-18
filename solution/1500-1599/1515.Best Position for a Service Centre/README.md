@@ -50,17 +50,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：梯度下降法**
+### 方法一：梯度下降法
 
 我们可以先设定一个初始的服务中心位置为所有客户坐标的几何中心 $(x, y)$。接下来，使用梯度下降法不断迭代，设定一个学习率 $\alpha=0.5$，衰减率 $decay=0.999$。每次一次迭代，计算当前位置到所有客户的距离之和，然后计算当前位置的梯度，最后更新当前位置。当梯度的绝对值都小于 $10^{-6}$ 时，停止迭代，返回当前位置到所有客户的距离之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
             if abs(dx) <= eps and abs(dy) <= eps:
                 return dist
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -132,8 +122,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -172,8 +160,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMinDistSum(positions [][]int) float64 {
 	n := len(positions)
@@ -209,8 +195,6 @@ func getMinDistSum(positions [][]int) float64 {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function getMinDistSum(positions: number[][]): number {
@@ -248,10 +232,6 @@ function getMinDistSum(positions: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

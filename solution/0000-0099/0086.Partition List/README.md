@@ -38,19 +38,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们创建两个链表，一个存放小于 $x$ 的节点，另一个存放大于等于 $x$ 的节点，之后进行拼接即可。
 
 时间复杂度 $O(n)，其中 $n$ 是原链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -74,10 +68,6 @@ class Solution:
         t2.next = None
         return d1.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -149,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -177,44 +163,6 @@ func partition(head *ListNode, x int) *ListNode {
 	return d1.Next
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number} x
- * @return {ListNode}
- */
-var partition = function (head, x) {
-    const d1 = new ListNode();
-    const d2 = new ListNode();
-    let t1 = d1,
-        t2 = d2;
-    while (head) {
-        if (head.val < x) {
-            t1.next = head;
-            t1 = t1.next;
-        } else {
-            t2.next = head;
-            t2 = t2.next;
-        }
-        head = head.next;
-    }
-    t1.next = d2.next;
-    t2.next = null;
-    return d1.next;
-};
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -255,10 +203,40 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} x
+ * @return {ListNode}
+ */
+var partition = function (head, x) {
+    const d1 = new ListNode();
+    const d2 = new ListNode();
+    let t1 = d1,
+        t2 = d2;
+    while (head) {
+        if (head.val < x) {
+            t1.next = head;
+            t1 = t1.next;
+        } else {
+            t2.next = head;
+            t2 = t2.next;
+        }
+        head = head.next;
+    }
+    t1.next = d2.next;
+    t2.next = null;
+    return d1.next;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

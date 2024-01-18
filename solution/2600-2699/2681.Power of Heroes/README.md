@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 数学**
+### 方法一：排序 + 数学
 
 我们注意到，题目中涉及到子序列的最大值和最小值，数组中元素的顺序不影响最终的结果，因此我们可以先对数组进行排序。
 
@@ -73,10 +71,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def sumOfPower(self, nums: List[int]) -> int:
@@ -90,10 +84,6 @@ class Solution:
             p = (p * 2 + x * x) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfPower(nums []int) (ans int) {
 	const mod = 1e9 + 7
@@ -147,8 +133,6 @@ func sumOfPower(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumOfPower(nums: number[]): number {
@@ -166,10 +150,6 @@ function sumOfPower(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 二分查找**
+### 方法一：前缀和 + 二分查找
 
 我们先预处理出数组 $nums$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums$ 前 $i$ 项元素之和。由于数组 $nums$ 中的元素都是正整数，因此数组 $s$ 也是单调递增的。另外，我们初始化答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。
 
@@ -66,21 +64,7 @@
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
-**方法二：双指针**
-
-我们可以使用双指针 $j$ 和 $i$ 维护一个窗口，其中窗口中的所有元素之和小于 $target$。初始时 $j = 0$，答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。
-
-接下来，指针 $i$ 从 $0$ 开始向右移动，每次移动一步，我们将指针 $i$ 对应的元素加入窗口，同时更新窗口中元素之和。如果窗口中元素之和大于等于 $target$，说明当前子数组满足条件，我们可以更新答案，即 $ans = \min(ans, i - j + 1)$。然后我们不断地从窗口中移除元素 $nums[j]$，直到窗口中元素之和小于 $target$，然后重复上述过程。
-
-最后，如果 $ans \leq n$，则说明存在满足条件的子数组，返回 $ans$，否则返回 $0$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,25 +78,6 @@ class Solution:
                 ans = min(ans, j - i)
         return ans if ans <= n else 0
 ```
-
-```python
-class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        n = len(nums)
-        ans = n + 1
-        s = j = 0
-        for i, x in enumerate(nums):
-            s += x
-            while j < n and s >= target:
-                ans = min(ans, i - j + 1)
-                s -= nums[j]
-                j += 1
-        return ans if ans <= n else 0
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -147,26 +112,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minSubArrayLen(int target, int[] nums) {
-        int n = nums.length;
-        long s = 0;
-        int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (j < n && s >= target) {
-                ans = Math.min(ans, i - j + 1);
-                s -= nums[j++];
-            }
-        }
-        return ans <= n ? ans : 0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,27 +133,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int minSubArrayLen(int target, vector<int>& nums) {
-        int n = nums.size();
-        long long s = 0;
-        int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (j < n && s >= target) {
-                ans = min(ans, i - j + 1);
-                s -= nums[j++];
-            }
-        }
-        return ans == n + 1 ? 0 : ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	n := len(nums)
@@ -229,48 +153,6 @@ func minSubArrayLen(target int, nums []int) int {
 	return ans
 }
 ```
-
-```go
-func minSubArrayLen(target int, nums []int) int {
-	n := len(nums)
-	s := 0
-	ans := n + 1
-	for i, j := 0, 0; i < n; i++ {
-		s += nums[i]
-		for s >= target {
-			ans = min(ans, i-j+1)
-			s -= nums[j]
-			j++
-		}
-	}
-	if ans == n+1 {
-		return 0
-	}
-	return ans
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MinSubArrayLen(int target, int[] nums) {
-        int n = nums.Length;
-        long s = 0;
-        int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (s >= target) {
-                ans = Math.Min(ans, i - j + 1);
-                s -= nums[j++];
-            }
-        }
-        return ans == n + 1 ? 0 : ans;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
@@ -303,24 +185,6 @@ function minSubArrayLen(target: number, nums: number[]): number {
 }
 ```
 
-```ts
-function minSubArrayLen(target: number, nums: number[]): number {
-    const n = nums.length;
-    let s = 0;
-    let ans = n + 1;
-    for (let i = 0, j = 0; i < n; ++i) {
-        s += nums[i];
-        while (s >= target) {
-            ans = Math.min(ans, i - j + 1);
-            s -= nums[j++];
-        }
-    }
-    return ans === n + 1 ? 0 : ans;
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn min_sub_array_len(target: i32, nums: Vec<i32>) -> i32 {
@@ -345,10 +209,126 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int MinSubArrayLen(int target, int[] nums) {
+        int n = nums.Length;
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (s >= target) {
+                ans = Math.Min(ans, i - j + 1);
+                s -= nums[j++];
+            }
+        }
+        return ans == n + 1 ? 0 : ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：双指针
+
+我们可以使用双指针 $j$ 和 $i$ 维护一个窗口，其中窗口中的所有元素之和小于 $target$。初始时 $j = 0$，答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。
+
+接下来，指针 $i$ 从 $0$ 开始向右移动，每次移动一步，我们将指针 $i$ 对应的元素加入窗口，同时更新窗口中元素之和。如果窗口中元素之和大于等于 $target$，说明当前子数组满足条件，我们可以更新答案，即 $ans = \min(ans, i - j + 1)$。然后我们不断地从窗口中移除元素 $nums[j]$，直到窗口中元素之和小于 $target$，然后重复上述过程。
+
+最后，如果 $ans \leq n$，则说明存在满足条件的子数组，返回 $ans$，否则返回 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        n = len(nums)
+        ans = n + 1
+        s = j = 0
+        for i, x in enumerate(nums):
+            s += x
+            while j < n and s >= target:
+                ans = min(ans, i - j + 1)
+                s -= nums[j]
+                j += 1
+        return ans if ans <= n else 0
+```
+
+```java
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = Math.min(ans, i - j + 1);
+                s -= nums[j++];
+            }
+        }
+        return ans <= n ? ans : 0;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int n = nums.size();
+        long long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = min(ans, i - j + 1);
+                s -= nums[j++];
+            }
+        }
+        return ans == n + 1 ? 0 : ans;
+    }
+};
+```
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+	n := len(nums)
+	s := 0
+	ans := n + 1
+	for i, j := 0, 0; i < n; i++ {
+		s += nums[i]
+		for s >= target {
+			ans = min(ans, i-j+1)
+			s -= nums[j]
+			j++
+		}
+	}
+	if ans == n+1 {
+		return 0
+	}
+	return ans
+}
+```
+
+```ts
+function minSubArrayLen(target: number, nums: number[]): number {
+    const n = nums.length;
+    let s = 0;
+    let ans = n + 1;
+    for (let i = 0, j = 0; i < n; ++i) {
+        s += nums[i];
+        while (s >= target) {
+            ans = Math.min(ans, i - j + 1);
+            s -= nums[j++];
+        }
+    }
+    return ans === n + 1 ? 0 : ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

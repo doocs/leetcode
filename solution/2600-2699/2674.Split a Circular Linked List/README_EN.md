@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -63,8 +63,6 @@ class Solution:
         a.next = list
         return [list, list2]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -128,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -153,8 +147,6 @@ func splitCircularLinkedList(list *ListNode) []*ListNode {
 	return []*ListNode{list, list2}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -186,10 +178,6 @@ function splitCircularLinkedList(list: ListNode | null): Array<ListNode | null> 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

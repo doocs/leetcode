@@ -39,15 +39,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +64,6 @@ class Solution:
             i, j = i + 1, j + 1
         return i == m and j == n
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isLongPressedName(name string, typed string) bool {
@@ -158,10 +144,6 @@ func isLongPressedName(name string, typed string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

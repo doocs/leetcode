@@ -37,9 +37,24 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + State Compression + Memorized Search
 
-### **Python3**
+The problem actually asks us to find an arrangement order that maximizes the number of groups whose prefix sum (referring to "number of people" here) modulo $batchSize$ equals $0$. Therefore, we can divide all customers into two categories:
+
+-   Customers whose number is a multiple of $batchSize$. These customers will not affect the donuts of the next group of customers. We can greedily arrange these groups of customers first, so these groups of customers will be happy. The "initial answer" is the number of these groups.
+-   Customers whose number is not a multiple of $batchSize$. The arrangement order of these customers will affect the donuts of the next group of customers. We can take the modulo $batchSize$ for the number of people $v$ in each group here, and the remainders form a set. The range of element values in the set is $[1,2...,batchSize-1]$. The maximum length of the $groups$ array is $30$, so the maximum number of each remainder does not exceed $30$. We can use $5$ binary bits to represent the quantity of a remainder, and the maximum $batchSize$ is $9$, so the total number of binary bits required to represent these remainders and their quantities is $5\times (9-1)=40$. We can use a $64$-bit integer $state$ to represent it.
+
+Next, we design a function $dfs(state, mod)$, which represents the number of groups that can be happy when the arrangement state is $state$ and the current prefix remainder is $mod$. Then our "initial answer" plus $dfs(state, 0)$ is the final answer.
+
+The implementation logic of the function $dfs(state, mod)$ is as follows:
+
+We enumerate each remainder $i$ from $1$ to $batchSize-1$. If the quantity of the remainder $i$ is not $0$, we can subtract $1$ from the quantity of the remainder $i$, add $i$ to the current prefix remainder and take modulo $batchSize$, then recursively call the function $dfs$ to find the optimal solution of the sub-state, and take the maximum value. Finally, check whether $mod$ is $0$. If it is $0$, we return after adding $1$ to the maximum value, otherwise we directly return the maximum value.
+
+During the process, we can use memorized search to avoid repeated calculation of states.
+
+The time complexity does not exceed $O(10^7)$, and the space complexity does not exceed $O(10^6)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,29 +78,6 @@ class Solution:
         ans += dfs(state, 0)
         return ans
 ```
-
-```python
-class Solution:
-    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
-        @cache
-        def dfs(state, x):
-            if state == mask:
-                return 0
-            vis = [False] * batchSize
-            res = 0
-            for i, v in enumerate(g):
-                if state >> i & 1 == 0 and not vis[v]:
-                    vis[v] = True
-                    y = (x + v) % batchSize
-                    res = max(res, dfs(state | 1 << i, y))
-            return res + (x == 0)
-
-        g = [v % batchSize for v in groups if v % batchSize]
-        mask = (1 << len(g)) - 1
-        return len(groups) - len(g) + dfs(0, 0)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxHappyGroups(batchSize int, groups []int) (ans int) {
@@ -200,10 +188,33 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxHappyGroups(self, batchSize: int, groups: List[int]) -> int:
+        @cache
+        def dfs(state, x):
+            if state == mask:
+                return 0
+            vis = [False] * batchSize
+            res = 0
+            for i, v in enumerate(g):
+                if state >> i & 1 == 0 and not vis[v]:
+                    vis[v] = True
+                    y = (x + v) % batchSize
+                    res = max(res, dfs(state | 1 << i, y))
+            return res + (x == 0)
+
+        g = [v % batchSize for v in groups if v % batchSize]
+        mask = (1 << len(g)) - 1
+        return len(groups) - len(g) + dfs(0, 0)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

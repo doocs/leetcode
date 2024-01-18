@@ -52,13 +52,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -81,10 +77,6 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -115,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -149,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -175,8 +163,6 @@ func mergeNodes(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -207,8 +193,6 @@ function mergeNodes(head: ListNode | null): ListNode | null {
     return dummy.next;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -246,8 +230,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Definition for singly-linked list.
@@ -276,10 +258,6 @@ struct ListNode* mergeNodes(struct ListNode* head) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

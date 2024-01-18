@@ -69,15 +69,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
             i = j + 1
         return [i for i, v in enumerate(vis) if v]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -162,8 +152,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -211,8 +199,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 	vis := make([]bool, n)
@@ -259,8 +245,6 @@ func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findAllPeople(n: number, meetings: number[][], firstPerson: number): number[] {
@@ -313,10 +297,6 @@ function findAllPeople(n: number, meetings: number[][], firstPerson: number): nu
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

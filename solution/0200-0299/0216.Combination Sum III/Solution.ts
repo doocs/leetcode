@@ -8,7 +8,7 @@ function combinationSum3(k: number, n: number): number[][] {
             }
             return;
         }
-        if (i > 9 || i > s || t.length > k) {
+        if (i > 9 || i > s || t.length >= k) {
             return;
         }
         t.push(i);

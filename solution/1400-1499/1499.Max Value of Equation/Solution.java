@@ -1,19 +1,16 @@
 class Solution {
     public int findMaxValueOfEquation(int[][] points, int k) {
         int ans = -(1 << 30);
-        Deque<int[]> q = new ArrayDeque<>();
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
         for (var p : points) {
             int x = p[0], y = p[1];
-            while (!q.isEmpty() && x - q.peekFirst()[0] > k) {
-                q.pollFirst();
+            while (!pq.isEmpty() && x - pq.peek()[1] > k) {
+                pq.poll();
             }
-            if (!q.isEmpty()) {
-                ans = Math.max(ans, x + y + q.peekFirst()[1] - q.peekFirst()[0]);
+            if (!pq.isEmpty()) {
+                ans = Math.max(ans, x + y + pq.peek()[0]);
             }
-            while (!q.isEmpty() && y - x >= q.peekLast()[1] - q.peekLast()[0]) {
-                q.pollLast();
-            }
-            q.offerLast(p);
+            pq.offer(new int[] {y - x, x});
         }
         return ans;
     }

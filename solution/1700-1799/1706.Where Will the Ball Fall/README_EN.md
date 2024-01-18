@@ -60,17 +60,25 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Case Discussion + DFS
 
-### **Python3**
+We can use DFS to simulate the movement of the ball. We design a function $dfs(i, j)$, which represents that the ball starts from the $i$th row and the $j$th column, and finally falls in which column. The ball will get stuck in the following situations:
+
+1. The ball is in the leftmost column, and the cell's vane directs the ball to the left.
+2. The ball is in the rightmost column, and the cell's vane directs the ball to the right.
+3. The cell's vane where the ball is located directs the ball to the right, and the vane of the cell adjacent to the right of the ball directs the ball to the left.
+4. The cell's vane where the ball is located directs the ball to the left, and the vane of the cell adjacent to the left of the ball directs the ball to the right.
+
+If any of the above situations are met, we can judge that the ball will get stuck and return $-1$. Otherwise, we can continue to recursively find the next position of the ball. Finally, if the ball reaches the last row, we can return the current column number.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Where $m$ and $n$ are the number of rows and columns of the array $grid$, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def findBall(self, grid: List[List[int]]) -> List[int]:
-        m, n = len(grid), len(grid[0])
-
-        def dfs(i, j):
-            nonlocal m, n
+        def dfs(i: int, j: int) -> int:
             if i == m:
                 return j
             if j == 0 and grid[i][j] == -1:
@@ -83,10 +91,9 @@ class Solution:
                 return -1
             return dfs(i + 1, j + 1) if grid[i][j] == 1 else dfs(i + 1, j - 1)
 
+        m, n = len(grid), len(grid[0])
         return [dfs(0, j) for j in range(n)]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -126,40 +133,41 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
-    int m, n;
-    vector<vector<int>> grid;
-
     vector<int> findBall(vector<vector<int>>& grid) {
-        this->grid = grid;
-        m = grid.size();
-        n = grid[0].size();
+        int m = grid.size(), n = grid[0].size();
         vector<int> ans(n);
-        for (int j = 0; j < n; ++j) ans[j] = dfs(0, j);
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i == m) {
+                return j;
+            }
+            if (j == 0 && grid[i][j] == -1) {
+                return -1;
+            }
+            if (j == n - 1 && grid[i][j] == 1) {
+                return -1;
+            }
+            if (grid[i][j] == 1 && grid[i][j + 1] == -1) {
+                return -1;
+            }
+            if (grid[i][j] == -1 && grid[i][j - 1] == 1) {
+                return -1;
+            }
+            return grid[i][j] == 1 ? dfs(i + 1, j + 1) : dfs(i + 1, j - 1);
+        };
+        for (int j = 0; j < n; ++j) {
+            ans[j] = dfs(0, j);
+        }
         return ans;
-    }
-
-    int dfs(int i, int j) {
-        if (i == m) return j;
-        if (j == 0 && grid[i][j] == -1) return -1;
-        if (j == n - 1 && grid[i][j] == 1) return -1;
-        if (grid[i][j] == 1 && grid[i][j + 1] == -1) return -1;
-        if (grid[i][j] == -1 && grid[i][j - 1] == 1) return -1;
-        return grid[i][j] == 1 ? dfs(i + 1, j + 1) : dfs(i + 1, j - 1);
     }
 };
 ```
 
-### **Go**
-
 ```go
-func findBall(grid [][]int) []int {
+func findBall(grid [][]int) (ans []int) {
 	m, n := len(grid), len(grid[0])
-
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
 		if i == m {
@@ -182,22 +190,17 @@ func findBall(grid [][]int) []int {
 		}
 		return dfs(i+1, j-1)
 	}
-
-	var ans []int
 	for j := 0; j < n; j++ {
 		ans = append(ans, dfs(0, j))
 	}
-	return ans
+	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findBall(grid: number[][]): number[] {
     const m = grid.length;
     const n = grid[0].length;
-    const res = new Array(n).fill(0);
     const dfs = (i: number, j: number) => {
         if (i === m) {
             return j;
@@ -214,14 +217,13 @@ function findBall(grid: number[][]): number[] {
             return dfs(i + 1, j - 1);
         }
     };
-    for (let i = 0; i < n; i++) {
-        res[i] = dfs(0, i);
+    const ans: number[] = [];
+    for (let j = 0; j < n; ++j) {
+        ans.push(dfs(0, j));
     }
-    return res;
+    return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -254,10 +256,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

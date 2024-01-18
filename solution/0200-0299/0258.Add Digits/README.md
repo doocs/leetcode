@@ -41,38 +41,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-题目要求的数叫做“数根”，我们把 1~30 的数根列出来：
-
-```
-原数: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
-数根: 1 2 3 4 5 6 7 8 9  1  2  3  4  5  6  7  8  9  1  2  3  4  5  6  7  8  9  1  2  3
-```
-
-可以看到，数根 9 个为一组，循环出现。我们可以得出下面的规律：
-
--   n = 0：数根是 0
--   n 是 9 的倍数：数根是 9
--   n 不是 9 的倍数：数根是 n % 9
-
-将上面的规律用式子：`(n - 1) % 9 + 1` 统一表达。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def addDigits(self, num: int) -> int:
         return 0 if num == 0 else (num - 1) % 9 + 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +58,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +68,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func addDigits(num int) int {
 	if num == 0 {
@@ -103,8 +76,6 @@ func addDigits(num int) int {
 	return (num-1)%9 + 1
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -123,6 +94,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn add_digits(mut num: i32) -> i32 {
@@ -131,10 +108,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,13 +40,27 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：哈希表 + 动态规划
+
+我们可以用一个哈希表 $ss$ 记录字段中的所有单词，方便我们快速判断一个字符串是否在字典中。
+
+接下来，我们定义 $f[i]$ 表示字符串 $s$ 的前 $i$ 个字符的最小额外字符数，初始时 $f[0] = 0$。
+
+当 $i \ge 1$ 时，第 $i$ 个字符 $s[i - 1]$ 可以作为一个额外字符，此时 $f[i] = f[i - 1] + 1$，如果在 $j \in [0, i - 1]$ 中存在一个下标 $j$，使得 $s[j..i)$ 在哈希表 $ss$ 中，那么我们可以将 $s[j..i)$ 作为一个单词，此时 $f[i] = f[j]$。
+
+综上，我们可以得到状态转移方程：
+
+$$
+f[i] = \min \{ f[i - 1] + 1, \min_{j \in [0, i - 1]} f[j] \}
+$$
+
+其中 $i \ge 1$，而 $j \in [0, i - 1]$ 且 $s[j..i)$ 在哈希表 $ss$ 中。
+
+最终答案为 $f[n]$。
+
+时间复杂度 $O(n^3 + L)$，空间复杂度 $O(n + L)$。其中 $n$ 是字符串 $s$ 的长度，而 $L$ 是字典中所有单词的长度之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -61,10 +75,6 @@ class Solution:
                     f[i] = f[j]
         return f[n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,41 +120,6 @@ public:
 };
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-
-impl Solution {
-    #[allow(dead_code)]
-    pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
-        let n = s.len();
-        let mut set = dictionary
-            .iter()
-            .map(|s| s.into())
-            .collect::<HashSet<String>>();
-        let mut dp = vec![0; n + 1];
-
-        // Initialize the dp vector
-        dp[0] = 0;
-
-        // Begin the actual dp process
-        for i in 1..=n {
-            dp[i] = dp[i - 1] + 1;
-            for j in 0..i {
-                if set.contains(&s[j..i]) {
-                    dp[i] = std::cmp::min(dp[i], dp[j]);
-                }
-            }
-        }
-
-        dp[n]
-    }
-}
-```
-
-### **Go**
-
 ```go
 func minExtraChar(s string, dictionary []string) int {
 	ss := map[string]bool{}
@@ -167,8 +140,6 @@ func minExtraChar(s string, dictionary []string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minExtraChar(s: string, dictionary: string[]): number {
     const ss = new Set(dictionary);
@@ -186,10 +157,242 @@ function minExtraChar(s: string, dictionary: string[]): number {
 }
 ```
 
-### **...**
+```rust
+use std::collections::HashSet;
 
-```
-
+impl Solution {
+    pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
+        let ss: HashSet<String> = dictionary.into_iter().collect();
+        let n = s.len();
+        let mut f = vec![0; n + 1];
+        for i in 1..=n {
+            f[i] = f[i - 1] + 1;
+            for j in 0..i {
+                if ss.contains(&s[j..i]) {
+                    f[i] = f[i].min(f[j]);
+                }
+            }
+        }
+        f[n]
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：字典树 + 动态规划
+
+我们可以借助字典树来优化方法一的时间复杂度。
+
+具体地，我们首先将字典中的每个单词逆序插入到字典树 $root$ 中，然后我们定义 $f[i]$ 表示字符串 $s$ 的前 $i$ 个字符的最小额外字符数，初始时 $f[0] = 0$。
+
+当 $i \ge 1$ 时，第 $i$ 个字符 $s[i - 1]$ 可以作为一个额外字符，此时 $f[i] = f[i - 1] + 1$；我们也可以在 $[0..i-1]$ 的范围内逆序枚举下标 $j$，判断 $s[j..i)$ 是否在字典树 $root$ 中，如果存在，那么我们可以将 $s[j..i)$ 作为一个单词，此时 $f[i] = f[j]$。
+
+时间复杂度 $O(n^2 + L)$，空间复杂度 $O(n + L \times |\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $L$ 是字典中所有单词的长度之和，另外 $|\Sigma|$ 是字符集的大小，本题中字符集为小写英文字母，因此 $|\Sigma| = 26$。
+
+<!-- tabs:start -->
+
+```python
+class Node:
+    __slots__ = ['children', 'is_end']
+
+    def __init__(self):
+        self.children: List[Node | None] = [None] * 26
+        self.is_end = False
+
+
+class Solution:
+    def minExtraChar(self, s: str, dictionary: List[str]) -> int:
+        root = Node()
+        for w in dictionary:
+            node = root
+            for c in w[::-1]:
+                i = ord(c) - ord('a')
+                if node.children[i] is None:
+                    node.children[i] = Node()
+                node = node.children[i]
+            node.is_end = True
+
+        n = len(s)
+        f = [0] * (n + 1)
+        for i in range(1, n + 1):
+            f[i] = f[i - 1] + 1
+            node = root
+            for j in range(i - 1, -1, -1):
+                node = node.children[ord(s[j]) - ord('a')]
+                if node is None:
+                    break
+                if node.is_end and f[j] < f[i]:
+                    f[i] = f[j]
+        return f[n]
+```
+
+```java
+class Node {
+    Node[] children = new Node[26];
+    boolean isEnd;
+}
+
+class Solution {
+    public int minExtraChar(String s, String[] dictionary) {
+        Node root = new Node();
+        for (String w : dictionary) {
+            Node node = root;
+            for (int k = w.length() - 1; k >= 0; --k) {
+                int i = w.charAt(k) - 'a';
+                if (node.children[i] == null) {
+                    node.children[i] = new Node();
+                }
+                node = node.children[i];
+            }
+            node.isEnd = true;
+        }
+        int n = s.length();
+        int[] f = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i - 1] + 1;
+            Node node = root;
+            for (int j = i - 1; j >= 0; --j) {
+                node = node.children[s.charAt(j) - 'a'];
+                if (node == null) {
+                    break;
+                }
+                if (node.isEnd && f[j] < f[i]) {
+                    f[i] = f[j];
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+class Node {
+public:
+    Node* children[26];
+    bool isEnd = false;
+    Node() {
+        fill(children, children + 26, nullptr);
+    }
+};
+
+class Solution {
+public:
+    int minExtraChar(string s, vector<string>& dictionary) {
+        Node* root = new Node();
+        for (const string& w : dictionary) {
+            Node* node = root;
+            for (int k = w.length() - 1; k >= 0; --k) {
+                int i = w[k] - 'a';
+                if (node->children[i] == nullptr) {
+                    node->children[i] = new Node();
+                }
+                node = node->children[i];
+            }
+            node->isEnd = true;
+        }
+
+        int n = s.size();
+        int f[n + 1];
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i - 1] + 1;
+            Node* node = root;
+            for (int j = i - 1; ~j; --j) {
+                node = node->children[s[j] - 'a'];
+                if (node == nullptr) {
+                    break;
+                }
+                if (node->isEnd && f[j] < f[i]) {
+                    f[i] = f[j];
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+type Node struct {
+	children [26]*Node
+	isEnd    bool
+}
+
+func minExtraChar(s string, dictionary []string) int {
+	root := &Node{}
+	for _, w := range dictionary {
+		node := root
+		for k := len(w) - 1; k >= 0; k-- {
+			i := int(w[k] - 'a')
+			if node.children[i] == nil {
+				node.children[i] = &Node{}
+			}
+			node = node.children[i]
+		}
+		node.isEnd = true
+	}
+
+	n := len(s)
+	f := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		f[i] = f[i-1] + 1
+		node := root
+		for j := i - 1; j >= 0; j-- {
+			node = node.children[int(s[j]-'a')]
+			if node == nil {
+				break
+			}
+			if node.isEnd && f[j] < f[i] {
+				f[i] = f[j]
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+```ts
+class Node {
+    children: (Node | null)[] = Array(26).fill(null);
+    isEnd: boolean = false;
+}
+
+function minExtraChar(s: string, dictionary: string[]): number {
+    const root = new Node();
+    for (const w of dictionary) {
+        let node = root;
+        for (let k = w.length - 1; ~k; --k) {
+            const i = w.charCodeAt(k) - 'a'.charCodeAt(0);
+            if (node.children[i] === null) {
+                node.children[i] = new Node();
+            }
+            node = node.children[i] as Node;
+        }
+        node.isEnd = true;
+    }
+
+    const n = s.length;
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        f[i] = f[i - 1] + 1;
+        let node = root;
+        for (let j = i - 1; ~j; --j) {
+            node = (node.children[s.charCodeAt(j) - 'a'.charCodeAt(0)] as Node) || null;
+            if (node === null) {
+                break;
+            }
+            if (node.isEnd && f[j] < f[i]) {
+                f[i] = f[j];
+            }
+        }
+    }
+
+    return f[n];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

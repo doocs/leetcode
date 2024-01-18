@@ -49,9 +49,9 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
             k -= 1
         return w
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using pii = pair<int, int>;
@@ -125,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMaximizedCapital(k int, w int, profits []int, capital []int) int {
@@ -169,10 +163,6 @@ func (h *hp2) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

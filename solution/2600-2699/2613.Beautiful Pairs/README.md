@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 分治**
+### 方法一：排序 + 分治
 
 本题相当于找出平面中两个点，使得它们的曼哈顿距离最小，如果有多个点满足条件，则返回下标字典序最小的点。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -111,10 +105,6 @@ class Solution:
         _, pi, pj = dfs(0, len(points) - 1)
         return [pi, pj]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -183,8 +173,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -255,8 +243,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautifulPair(nums1 []int, nums2 []int) []int {
 	n := len(nums1)
@@ -324,8 +310,6 @@ func abs(x int) int {
 	return x
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function beautifulPair(nums1: number[], nums2: number[]): number[] {
@@ -396,10 +380,6 @@ function f(x: number, y: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

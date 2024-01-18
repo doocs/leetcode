@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
             ans += n
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -89,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func trailingZeroes(n int) int {
 	ans := 0
@@ -101,8 +95,6 @@ func trailingZeroes(n int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function trailingZeroes(n: number): number {
@@ -115,10 +107,6 @@ function trailingZeroes(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

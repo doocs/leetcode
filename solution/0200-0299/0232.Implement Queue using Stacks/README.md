@@ -67,9 +67,7 @@ myQueue.empty(); // return false
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双栈**
+### 方法一：双栈
 
 使用两个栈，其中栈 `stk1`用于入队，另一个栈 `stk2` 用于出队。
 
@@ -82,10 +80,6 @@ myQueue.empty(); // return false
 判断队列是否为空时，只要判断两个栈是否都为空即可。时间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MyQueue:
@@ -120,10 +114,6 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MyQueue {
@@ -169,8 +159,6 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MyQueue {
@@ -222,8 +210,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type MyQueue struct {
 	stk1 []int
@@ -273,8 +259,6 @@ func (this *MyQueue) move() {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class MyQueue {
     stk1: number[];
@@ -321,8 +305,6 @@ class MyQueue {
  * var param_4 = obj.empty()
  */
 ```
-
-### **Rust**
 
 ```rust
 struct MyQueue {
@@ -382,10 +364,6 @@ impl MyQueue {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

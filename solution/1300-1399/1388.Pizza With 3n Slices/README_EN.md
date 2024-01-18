@@ -43,9 +43,36 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Dynamic Programming
 
-### **Python3**
+We can transform this problem into: In a circular array of length $3n$, select $n$ non-adjacent numbers so that the sum of these $n$ numbers is maximized.
+
+The proof is as follows:
+
+-   When $n = 1$, we can choose any number in the array.
+-   When $n > 1$, there must exist a number such that there are two consecutive numbers on one side of it that have not been selected, and at least one number on the other side has not been selected. Therefore, we can remove this number and the numbers on both sides of it from the array, and then the remaining $3(n - 1)$ numbers form a new circular array. The problem scale is reduced to selecting $n - 1$ non-adjacent numbers in a circular array of length $3(n - 1)$, so that the sum of these $n - 1$ numbers is maximized.
+
+Therefore, the problem we need to solve can be transformed into: In a circular array of length $3n$, select $n$ non-adjacent numbers so that the sum of these $n$ numbers is maximized.
+
+In a circular array, if the first number is selected, the last number cannot be selected. If the last number is selected, the first number cannot be selected. Therefore, we can split the circular array into two arrays, one is without the first number, and the other is without the last number. Then solve the maximum value of these two arrays separately, and finally take the larger of the two maximum values.
+
+We use a function $g(nums)$, which represents the maximum sum of selecting $n$ non-adjacent numbers in the array $nums$. Then our goal is to find the larger value between $g(slices)$ and $g(slices[1:])$.
+
+The solution method of function $g(nums)$ is as follows:
+
+We denote the length of array $nums$ as $m$, and define $f[i][j]$ as the maximum sum of selecting $j$ non-adjacent numbers in the first $i$ numbers of array $nums$.
+
+Consider $f[i][j]$, if we do not select the $i$-th number, then $f[i][j] = f[i - 1][j]$. If we select the $i$-th number, then $f[i][j] = f[i - 2][j - 1] + nums[i - 1]$. Therefore, we can get the state transition equation:
+
+$$
+f[i][j] = \max(f[i - 1][j], f[i - 2][j - 1] + nums[i - 1])
+$$
+
+Finally, return $f[m][n]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array $slices$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +91,6 @@ class Solution:
         a, b = g(slices[:-1]), g(slices[1:])
         return max(a, b)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSizeSlices(slices []int) int {
 	n := len(slices) / 3
@@ -147,8 +168,6 @@ func maxSizeSlices(slices []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSizeSlices(slices: number[]): number {
     const n = Math.floor(slices.length / 3);
@@ -170,10 +189,6 @@ function maxSizeSlices(slices: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

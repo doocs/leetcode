@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：有序集合 + BFS**
+### 方法一：有序集合 + BFS
 
 我们注意到，对于一个子数组区间 $[l,..r]$ 中的任意一个下标 $i$，翻转后的下标 $j = l + r - i$。
 
@@ -93,10 +91,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 题目中给定的数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -131,10 +125,6 @@ class Solution:
         return ans
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int[] minReverseOperations(int n, int p, int[] banned, int k) {
@@ -167,8 +157,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -206,8 +194,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minReverseOperations(n int, p int, banned []int, k int) []int {
 	ans := make([]int, n)
@@ -240,8 +226,6 @@ func minReverseOperations(n int, p int, banned []int, k int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
@@ -916,7 +900,13 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-````ts
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
     const ans = new Array(n).fill(-1);
     const ts = new Array(2).fill(0).map(() => new TreapMultiSet<number>());
@@ -1049,37 +1039,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
     private readonly leftBound: T;
     private readonly rightBound: T;
 
-    /**
-   *
-   * @param compareFn A compare function which returns boolean or number
-   * @param leftBound defalut value is `-Infinity`
-   * @param rightBound defalut value is `Infinity`
-   * @description
-   * create a `MultiSet`, compare elements using `compareFn`, which is increasing order by default.
-   * @example
-   * ```ts
-   * interface Person {
-        name: string
-        age: number
-    }
-
-    const leftBound = {
-        name: 'Alice',
-        age: -Infinity,
-    }
-
-    const rightBound = {
-        name: 'Bob',
-        age: Infinity,
-    }
-
-    const sortedList = new TreapMultiSet<Person>(
-        (a: Person, b: Person) => a.age - b.age,
-        leftBound,
-        rightBound
-    )
-   * ```
-   */
     constructor(compareFn?: CompareFunction<T, 'number'>);
     constructor(compareFn: CompareFunction<T, 'number'>, leftBound: T, rightBound: T);
     constructor(
@@ -1596,12 +1555,8 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         yield* this.reverseInOrder(root.left);
     }
 }
-````
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

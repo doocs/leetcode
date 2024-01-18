@@ -1,22 +1,31 @@
 function oneEditAway(first: string, second: string): boolean {
-    const n = first.length;
-    const m = second.length;
+    let m: number = first.length;
+    let n: number = second.length;
+    if (m < n) {
+        return oneEditAway(second, first);
+    }
+    if (m - n > 1) {
+        return false;
+    }
 
-    let count = 0;
-    let i = 0;
-    let j = 0;
-    while (i < n || j < m) {
-        if (first[i] !== second[j]) {
-            count++;
-
-            if (i < n && first[i + 1] === second[j]) {
-                i++;
-            } else if (j < m && first[i] === second[j + 1]) {
-                j++;
+    let cnt: number = 0;
+    if (m === n) {
+        for (let i: number = 0; i < n; ++i) {
+            if (first[i] !== second[i]) {
+                if (++cnt > 1) {
+                    return false;
+                }
             }
         }
-        i++;
-        j++;
+        return true;
     }
-    return count <= 1;
+
+    for (let i: number = 0, j: number = 0; i < m; ++i) {
+        if (j === n || (j < n && first[i] !== second[j])) {
+            ++cnt;
+        } else {
+            ++j;
+        }
+    }
+    return cnt < 2;
 }

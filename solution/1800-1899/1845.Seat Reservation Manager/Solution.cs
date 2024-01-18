@@ -7,13 +7,13 @@ public class SeatManager {
             availableSeats.Add(i);
         }
     }
-    
+
     public int Reserve() {
         int reservedSeat = availableSeats.Min;
         availableSeats.Remove(reservedSeat);
         return reservedSeat;
     }
-    
+
     public void Unreserve(int seatNumber) {
         availableSeats.Add(seatNumber);
     }

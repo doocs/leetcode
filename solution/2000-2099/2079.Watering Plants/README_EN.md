@@ -68,9 +68,9 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,8 +85,6 @@ class Solution:
                 ans += i * 2 + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -105,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wateringPlants(plants []int, capacity int) int {
 	ans, cap := 0, capacity
@@ -144,8 +138,6 @@ func wateringPlants(plants []int, capacity int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function wateringPlants(plants: number[], capacity: number): number {
@@ -164,8 +156,6 @@ function wateringPlants(plants: number[], capacity: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -187,8 +177,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int wateringPlants(int* plants, int plantsSize, int capacity) {
     int ans = 0;
@@ -206,10 +194,6 @@ int wateringPlants(int* plants, int plantsSize, int capacity) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,9 @@ Therefore, the size of the longest subarray is 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedList
@@ -72,8 +72,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestSubarray(nums []int, limit int) (ans int) {
@@ -148,9 +142,7 @@ func longestSubarray(nums []int, limit int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-````ts
+```ts
 function longestSubarray(nums: number[], limit: number): number {
     const ts = new TreapMultiSet<number>();
     let ans = 0;
@@ -266,37 +258,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
     private readonly leftBound: T;
     private readonly rightBound: T;
 
-    /**
-   *
-   * @param compareFn A compare function which returns boolean or number
-   * @param leftBound defalut value is `-Infinity`
-   * @param rightBound defalut value is `Infinity`
-   * @description
-   * create a `MultiSet`, compare elements using `compareFn`, which is increasing order by default.
-   * @example
-   * ```ts
-   * interface Person {
-        name: string
-        age: number
-    }
-
-    const leftBound = {
-        name: 'Alice',
-        age: -Infinity,
-    }
-
-    const rightBound = {
-        name: 'Bob',
-        age: Infinity,
-    }
-
-    const sortedList = new TreapMultiSet<Person>(
-        (a: Person, b: Person) => a.age - b.age,
-        leftBound,
-        rightBound
-    )
-   * ```
-   */
     constructor(compareFn?: CompareFunction<T, 'number'>);
     constructor(compareFn: CompareFunction<T, 'number'>, leftBound: T, rightBound: T);
     constructor(
@@ -813,12 +774,8 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         yield* this.reverseInOrder(root.left);
     }
 }
-````
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

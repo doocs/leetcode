@@ -56,9 +56,9 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
         arr.sort(key=lambda x: (-abs(x - m), -x))
         return arr[:k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getStrongest(arr []int, k int) []int {
@@ -136,10 +130,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

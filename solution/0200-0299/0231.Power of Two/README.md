@@ -63,23 +63,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 $\texttt{n\&(n-1)}$ 可将最后一个二进制形式的 $n$ 的最后一位 $1$ 移除，若移除后为 $0$，说明 $n$ 是 $2$ 的幂。
 
-**方法二：lowbit**
-
-$\texttt{n\&(-n)}$ 可以得到 $n$ 的最后一位 $1$ 表示的十进制数，若与 $n$ 相等，说明 $n$ 是 $2$ 的幂。
-
-注意：要满足 $n$ 是 $2$ 的幂次方，需要保证 $n$ 大于 $0$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,18 +75,6 @@ class Solution:
         return n > 0 and (n & (n - 1)) == 0
 ```
 
-lowbit:
-
-```python
-class Solution:
-    def isPowerOfTwo(self, n: int) -> bool:
-        return n > 0 and n == n & (-n)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public boolean isPowerOfTwo(int n) {
@@ -106,18 +82,6 @@ class Solution {
     }
 }
 ```
-
-lowbit:
-
-```java
-class Solution {
-    public boolean isPowerOfTwo(int n) {
-        return n > 0 && n == (n & (-n));
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,18 +92,17 @@ public:
 };
 ```
 
-lowbit:
-
-```cpp
-class Solution {
-public:
-    bool isPowerOfTwo(int n) {
-        return n > 0 && n == (n & (-n));
-    }
-};
+```go
+func isPowerOfTwo(n int) bool {
+	return n > 0 && (n&(n-1)) == 0
+}
 ```
 
-### **JavaScript**
+```ts
+function isPowerOfTwo(n: number): boolean {
+    return n > 0 && (n & (n - 1)) === 0;
+}
+```
 
 ```js
 /**
@@ -151,7 +114,50 @@ var isPowerOfTwo = function (n) {
 };
 ```
 
-lowbit:
+<!-- tabs:end -->
+
+### 方法二：lowbit
+
+$\texttt{n\&(-n)}$ 可以得到 $n$ 的最后一位 $1$ 表示的十进制数，若与 $n$ 相等，说明 $n$ 是 $2$ 的幂。
+
+注意：要满足 $n$ 是 $2$ 的幂次方，需要保证 $n$ 大于 $0$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and n == n & (-n)
+```
+
+```java
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return n > 0 && n == (n & (-n));
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        return n > 0 && n == (n & (-n));
+    }
+};
+```
+
+```go
+func isPowerOfTwo(n int) bool {
+	return n > 0 && n == (n&(-n))
+}
+```
+
+```ts
+function isPowerOfTwo(n: number): boolean {
+    return n > 0 && (n & (n - 1)) === 0;
+}
+```
 
 ```js
 /**
@@ -163,42 +169,6 @@ var isPowerOfTwo = function (n) {
 };
 ```
 
-### **Go**
-
-```go
-func isPowerOfTwo(n int) bool {
-	return n > 0 && (n&(n-1)) == 0
-}
-```
-
-lowbit:
-
-```go
-func isPowerOfTwo(n int) bool {
-	return n > 0 && n == (n&(-n))
-}
-```
-
-### **TypeScript**
-
-```ts
-function isPowerOfTwo(n: number): boolean {
-    return n > 0 && (n & (n - 1)) === 0;
-}
-```
-
-lowbit:
-
-```ts
-function isPowerOfTwo(n: number): boolean {
-    return n > 0 && (n & (n - 1)) === 0;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

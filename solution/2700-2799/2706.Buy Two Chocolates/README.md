@@ -40,13 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：排序
+
+我们可以将巧克力的价格从小到大排序，然后取前两个价格相加，就是我们购买两块巧克力的最小花费 $cost$。如果这个花费大于我们拥有的钱数，那么我们就返回 `money`，否则返回 `money - cost`。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `prices` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -55,10 +55,6 @@ class Solution:
         cost = prices[0] + prices[1]
         return money if money < cost else money - cost
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -69,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -83,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func buyChoco(prices []int, money int) int {
 	sort.Ints(prices)
@@ -96,8 +88,6 @@ func buyChoco(prices []int, money int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function buyChoco(prices: number[], money: number): number {
     prices.sort((a, b) => a - b);
@@ -106,43 +96,136 @@ function buyChoco(prices: number[], money: number): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
         prices.sort();
-
-        let sum = prices[0] + prices[1];
-        if sum > money {
+        let cost = prices[0] + prices[1];
+        if cost > money {
             return money;
         }
-
-        money - sum
+        money - cost
     }
 }
-```
-
-```rust
-impl Solution {
-    pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
-        prices.sort();
-
-        let sum = prices.iter().take(2).sum::<i32>();
-
-        if sum > money {
-            return money;
-        }
-
-        money - sum
-    }
-}
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+### 方法二：一次遍历
+
+我们可以在一次遍历中找到最小的两个价格，然后计算花费。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 `prices` 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def buyChoco(self, prices: List[int], money: int) -> int:
+        a = b = inf
+        for x in prices:
+            if x < a:
+                a, b = x, a
+            elif x < b:
+                b = x
+        cost = a + b
+        return money if money < cost else money - cost
+```
+
+```java
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        int a = 1000, b = 1000;
+        for (int x : prices) {
+            if (x < a) {
+                b = a;
+                a = x;
+            } else if (x < b) {
+                b = x;
+            }
+        }
+        int cost = a + b;
+        return money < cost ? money : money - cost;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int buyChoco(vector<int>& prices, int money) {
+        int a = 1000, b = 1000;
+        for (int x : prices) {
+            if (x < a) {
+                b = a;
+                a = x;
+            } else if (x < b) {
+                b = x;
+            }
+        }
+        int cost = a + b;
+        return money < cost ? money : money - cost;
+    }
+};
+```
+
+```go
+func buyChoco(prices []int, money int) int {
+	a, b := 1001, 1001
+	for _, x := range prices {
+		if x < a {
+			a, b = x, a
+		} else if x < b {
+			b = x
+		}
+	}
+	cost := a + b
+	if money < cost {
+		return money
+	}
+	return money - cost
+}
+```
+
+```ts
+function buyChoco(prices: number[], money: number): number {
+    let [a, b] = [1000, 1000];
+    for (const x of prices) {
+        if (x < a) {
+            b = a;
+            a = x;
+        } else if (x < b) {
+            b = x;
+        }
+    }
+    const cost = a + b;
+    return money < cost ? money : money - cost;
+}
+```
+
+```rust
+impl Solution {
+    pub fn buy_choco(prices: Vec<i32>, money: i32) -> i32 {
+        let mut a = 1000;
+        let mut b = 1000;
+        for &x in prices.iter() {
+            if x < a {
+                b = a;
+                a = x;
+            } else if x < b {
+                b = x;
+            }
+        }
+        let cost = a + b;
+        if money < cost {
+            money
+        } else {
+            money - cost
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

@@ -1,16 +1,12 @@
 function isMonotonic(nums: number[]): boolean {
-    const n = nums.length;
-    let isOrder = false;
-    let isDecs = false;
-    for (let i = 1; i < n; i++) {
-        const pre = nums[i - 1];
-        const cur = nums[i];
-        if (pre < cur) {
-            isOrder = true;
-        } else if (pre > cur) {
-            isDecs = true;
+    let [asc, desc] = [false, false];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            asc = true;
+        } else if (nums[i - 1] > nums[i]) {
+            desc = true;
         }
-        if (isOrder && isDecs) {
+        if (asc && desc) {
             return false;
         }
     }

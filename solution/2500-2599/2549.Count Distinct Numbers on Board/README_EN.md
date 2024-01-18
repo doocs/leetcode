@@ -51,17 +51,21 @@ After a billion days, the only two distinct numbers on the board are 2 and 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Lateral Thinking
 
-### **Python3**
+Since every operation on the number $n$ on the desktop will also cause the number $n-1$ to appear on the desktop, the final numbers on the desktop are $[2,...n]$, that is, $n-1$ numbers.
+
+Note that $n$ could be $1$, so it needs to be specially judged.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def distinctIntegers(self, n: int) -> int:
         return max(1, n - 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -82,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distinctIntegers(n int) int {
 	if n == 1 {
@@ -93,15 +93,11 @@ func distinctIntegers(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distinctIntegers(n: number): number {
     return Math.max(1, n - 1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -115,10 +111,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

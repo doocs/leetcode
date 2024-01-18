@@ -58,15 +58,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-合并前后两个链表，结果放在后一个链表位置上，依次循环下去。最后返回链表数组的最后一个元素。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -97,10 +91,6 @@ class Solution:
         cur.next = l1 or l2
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -144,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -185,8 +173,6 @@ private:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -229,8 +215,6 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for singly-linked list.
@@ -271,49 +255,6 @@ function mergeTwoLists(l1, l2) {
     return dummy.next;
 }
 ```
-
-### **Ruby**
-
-```rb
-# Definition for singly-linked list.
-# class ListNode
-#     attr_accessor :val, :next
-#     def initialize(val = 0, _next = nil)
-#         @val = val
-#         @next = _next
-#     end
-# end
-# @param {ListNode[]} lists
-# @return {ListNode}
-def merge_k_lists(lists)
-    n = lists.length
-    i = 1
-    while i < n
-        lists[i] = merge_two_lists(lists[i - 1], lists[i])
-        i += 1
-    end
-    lists[n - 1]
-end
-
-def merge_two_lists(l1, l2)
-  dummy = ListNode.new()
-  cur = dummy
-  while l1 && l2
-      if l1.val <= l2.val
-          cur.next = l1
-          l1 = l1.next
-      else
-          cur.next = l2
-          l2 = l2.next
-      end
-      cur = cur.next
-  end
-  cur.next = l1 || l2
-  dummy.next
-end
-```
-
-### **C#**
 
 ```cs
 /**
@@ -358,10 +299,45 @@ public class Solution {
 }
 ```
 
-### **...**
+```rb
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode[]} lists
+# @return {ListNode}
+def merge_k_lists(lists)
+    n = lists.length
+    i = 1
+    while i < n
+        lists[i] = merge_two_lists(lists[i - 1], lists[i])
+        i += 1
+    end
+    lists[n - 1]
+end
 
-```
-
+def merge_two_lists(l1, l2)
+  dummy = ListNode.new()
+  cur = dummy
+  while l1 && l2
+      if l1.val <= l2.val
+          cur.next = l1
+          l1 = l1.next
+      else
+          cur.next = l2
+          l2 = l2.next
+      end
+      cur = cur.next
+  end
+  cur.next = l1 || l2
+  dummy.next
+end
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

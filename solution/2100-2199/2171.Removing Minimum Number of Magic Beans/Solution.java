@@ -2,8 +2,8 @@ class Solution {
     public long minimumRemoval(int[] beans) {
         Arrays.sort(beans);
         long s = 0;
-        for (int v : beans) {
-            s += v;
+        for (int x : beans) {
+            s += x;
         }
         long ans = s;
         int n = beans.length;

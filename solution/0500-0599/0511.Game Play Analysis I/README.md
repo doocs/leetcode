@@ -24,7 +24,7 @@
 
 <p>&nbsp;</p>
 
-<p>查询每位玩家 <strong>第一次登陆平台的日期</strong>。</p>
+<p>查询每位玩家 <strong>第一次登录平台的日期</strong>。</p>
 
 <p>查询结果的格式如下所示：</p>
 
@@ -52,24 +52,11 @@ Result 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组求最小值**
+### 方法一：分组求最小值
 
 我们可以用 `GROUP BY` 对 `player_id` 进行分组，然后取每一组中最小的 `event_date` 作为玩家第一次登录平台的日期。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT player_id, MIN(event_date) AS first_login
-FROM Activity
-GROUP BY 1;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -81,7 +68,15 @@ def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
         .agg(first_login=("event_date", "min"))
         .reset_index()
     )
+```
 
+```sql
+# Write your MySQL query statement below
+SELECT player_id, MIN(event_date) AS first_login
+FROM Activity
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

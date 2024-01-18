@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
             return 'Infinite solutions' if y1 == y2 else 'No solution'
         return f'x={(y2 - y1) // (x1 - x2)}'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func solveEquation(equation string) string {
@@ -166,8 +162,6 @@ func solveEquation(equation string) string {
 	return fmt.Sprintf("x=%d", (y2-y1)/(x1-x2))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function solveEquation(equation: string): string {
@@ -227,10 +221,6 @@ function solveEquation(equation: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

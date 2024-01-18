@@ -16,7 +16,7 @@ class Solution:
             i += 1
         res, flag = 0, (2**31 - 1) // 10
         while i < n:
-            # 非数字，跳出循环
+            # 非数字，跳出循环体
             if not str[i].isdigit():
                 break
             c = int(str[i])

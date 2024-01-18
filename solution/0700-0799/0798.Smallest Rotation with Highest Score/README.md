@@ -51,17 +51,11 @@ nums 无论怎么变化总是有 3 分。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 对于每个数，都有一个固定的 k 生效区间。我们先利用差分，预处理每个数的 k 生效区间。有最多个数能覆盖到的 k 即是答案。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
                 ans = k
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func bestRotation(nums []int) int {
 	n := len(nums)
@@ -163,10 +149,6 @@ func bestRotation(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

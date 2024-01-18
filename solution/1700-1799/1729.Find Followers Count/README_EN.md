@@ -54,13 +54,11 @@ The followers of 2 are {0,1}
 
 ## Solutions
 
-**Solution 1: Grouping and Aggregation**
+### Solution 1: Grouping and Aggregation
 
 We can directly group the `Followers` table by `user_id`, and use the `COUNT` function to count the number of followers for each user.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -71,3 +69,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

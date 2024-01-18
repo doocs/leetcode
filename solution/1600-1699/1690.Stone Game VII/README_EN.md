@@ -44,9 +44,22 @@ The score difference is 18 - 12 = 6.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Memorization Search
 
-### **Python3**
+First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the total sum of the first $i$ stones.
+
+Next, we design a function $dfs(i, j)$, which represents the score difference between the first and second players when the remaining stones are $stones[i], stones[i + 1], \dots, stones[j]$. The answer is $dfs(0, n - 1)$.
+
+The calculation process of the function $dfs(i, j)$ is as follows:
+
+-   If $i > j$, it means there are no stones currently, so return $0$;
+-   Otherwise, the first player has two choices, which are to remove $stones[i]$ or $stones[j]$, and then calculate the score difference, i.e., $a = s[j + 1] - s[i + 1] - dfs(i + 1, j)$ and $b = s[j] - s[i] - dfs(i, j - 1)$. We take the larger of the two as the return value of $dfs(i, j)$.
+
+During the process, we use memorization search, i.e., use an array $f$ to record the return value of the function $dfs(i, j)$, to avoid repeated calculations.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of stones.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +77,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stoneGameVII(stones []int) int {
 	n := len(stones)
@@ -154,10 +161,6 @@ func stoneGameVII(stones []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

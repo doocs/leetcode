@@ -61,9 +61,9 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
             i, j = i + 1, j - 1
         return i
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxBoxesInWarehouse(boxes []int, warehouse []int) int {
 	n := len(warehouse)
@@ -164,8 +158,6 @@ func maxBoxesInWarehouse(boxes []int, warehouse []int) int {
 	return i
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxBoxesInWarehouse(boxes: number[], warehouse: number[]): number {
@@ -192,10 +184,6 @@ function maxBoxesInWarehouse(boxes: number[], warehouse: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

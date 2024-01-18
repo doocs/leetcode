@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 长度为 `3` 的环，由三个顶点、三条边组成。我们假设三个顶点分别为 `a`, `b`, `c`。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
                     ans += 1
         return ans // 3
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfPaths(n int, corridors [][]int) int {
@@ -184,10 +170,6 @@ func numberOfPaths(n int, corridors [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

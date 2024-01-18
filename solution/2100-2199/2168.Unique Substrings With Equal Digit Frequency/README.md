@@ -38,13 +38,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +64,6 @@ class Solution:
         vis = set(s[i : j + 1] for i in range(n) for j in range(i, n) if check(i, j))
         return len(vis)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +103,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 func equalDigitFrequency(s string) int {
 	n := len(s)
@@ -151,16 +141,6 @@ func equalDigitFrequency(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

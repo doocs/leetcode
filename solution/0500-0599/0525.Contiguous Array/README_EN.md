@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
                 mp[s] = i
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -92,8 +88,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMaxLength(nums []int) int {
@@ -114,8 +108,6 @@ func findMaxLength(nums []int) int {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[]} nums
@@ -135,10 +127,6 @@ var findMaxLength = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

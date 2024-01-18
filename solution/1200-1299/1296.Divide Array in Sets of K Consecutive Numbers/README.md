@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序**
+### 方法一：哈希表 + 排序
 
 我们先用哈希表 `cnt` 统计数组 `nums` 中每个数字出现的次数，然后对数组 `nums` 进行排序。
 
@@ -67,19 +65,7 @@
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
-**方法二：有序集合**
-
-我们也可以使用有序集合统计数组 `nums` 中每个数字出现的次数。
-
-接下来，循环取出有序集合中的最小值 $v$，然后枚举 $v$ 到 $v+k-1$ 的每个数字，如果这些数字在有序集合中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果出现次数减 $1$ 后为 $0$，则将该数字从有序集合中删除，否则说明无法将数组划分成若干个长度为 $k$ 的子数组，返回 `false`。如果可以将数组划分成若干个长度为 $k$ 的子数组，则遍历结束后返回 `true`。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,36 +81,6 @@ class Solution:
                         cnt.pop(x)
         return True
 ```
-
-```python
-from sortedcontainers import SortedDict
-
-
-class Solution:
-    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
-        if len(nums) % k != 0:
-            return False
-        sd = SortedDict()
-        for h in nums:
-            if h in sd:
-                sd[h] += 1
-            else:
-                sd[h] = 1
-        while sd:
-            v = sd.peekitem(0)[0]
-            for i in range(v, v + k):
-                if i not in sd:
-                    return False
-                if sd[i] == 1:
-                    sd.pop(i)
-                else:
-                    sd[i] -= 1
-        return True
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,6 +106,92 @@ class Solution {
         return true;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool isPossibleDivide(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        for (int& v : nums) ++cnt[v];
+        sort(nums.begin(), nums.end());
+        for (int& v : nums) {
+            if (cnt.count(v)) {
+                for (int x = v; x < v + k; ++x) {
+                    if (!cnt.count(x)) {
+                        return false;
+                    }
+                    if (--cnt[x] == 0) {
+                        cnt.erase(x);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+```go
+func isPossibleDivide(nums []int, k int) bool {
+	cnt := map[int]int{}
+	for _, v := range nums {
+		cnt[v]++
+	}
+	sort.Ints(nums)
+	for _, v := range nums {
+		if _, ok := cnt[v]; ok {
+			for x := v; x < v+k; x++ {
+				if _, ok := cnt[x]; !ok {
+					return false
+				}
+				cnt[x]--
+				if cnt[x] == 0 {
+					delete(cnt, x)
+				}
+			}
+		}
+	}
+	return true
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：有序集合
+
+我们也可以使用有序集合统计数组 `nums` 中每个数字出现的次数。
+
+接下来，循环取出有序集合中的最小值 $v$，然后枚举 $v$ 到 $v+k-1$ 的每个数字，如果这些数字在有序集合中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果出现次数减 $1$ 后为 $0$，则将该数字从有序集合中删除，否则说明无法将数组划分成若干个长度为 $k$ 的子数组，返回 `false`。如果可以将数组划分成若干个长度为 $k$ 的子数组，则遍历结束后返回 `true`。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedDict
+
+
+class Solution:
+    def isPossibleDivide(self, nums: List[int], k: int) -> bool:
+        if len(nums) % k != 0:
+            return False
+        sd = SortedDict()
+        for h in nums:
+            if h in sd:
+                sd[h] += 1
+            else:
+                sd[h] = 1
+        while sd:
+            v = sd.peekitem(0)[0]
+            for i in range(v, v + k):
+                if i not in sd:
+                    return False
+                if sd[i] == 1:
+                    sd.pop(i)
+                else:
+                    sd[i] -= 1
+        return True
 ```
 
 ```java
@@ -180,32 +222,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool isPossibleDivide(vector<int>& nums, int k) {
-        unordered_map<int, int> cnt;
-        for (int& v : nums) ++cnt[v];
-        sort(nums.begin(), nums.end());
-        for (int& v : nums) {
-            if (cnt.count(v)) {
-                for (int x = v; x < v + k; ++x) {
-                    if (!cnt.count(x)) {
-                        return false;
-                    }
-                    if (--cnt[x] == 0) {
-                        cnt.erase(x);
-                    }
-                }
-            }
-        }
-        return true;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -226,32 +242,6 @@ public:
         return true;
     }
 };
-```
-
-### **Go**
-
-```go
-func isPossibleDivide(nums []int, k int) bool {
-	cnt := map[int]int{}
-	for _, v := range nums {
-		cnt[v]++
-	}
-	sort.Ints(nums)
-	for _, v := range nums {
-		if _, ok := cnt[v]; ok {
-			for x := v; x < v+k; x++ {
-				if _, ok := cnt[x]; !ok {
-					return false
-				}
-				cnt[x]--
-				if cnt[x] == 0 {
-					delete(cnt, x)
-				}
-			}
-		}
-	}
-	return true
-}
 ```
 
 ```go
@@ -284,10 +274,6 @@ func isPossibleDivide(nums []int, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

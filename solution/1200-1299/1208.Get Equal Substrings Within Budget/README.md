@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 二分查找**
+### 方法一：前缀和 + 二分查找
 
 我们可以创建一个长度为 $n + 1$ 的数组 $f$，其中 $f[i]$ 表示字符串 $s$ 的前 $i$ 个字符与字符串 $t$ 的前 $i$ 个字符的 ASCII 码值的差的绝对值之和。这样，我们就可以通过 $f[j + 1] - f[i]$ 来计算字符串 $s$ 的第 $i$ 个字符到第 $j$ 个字符的 ASCII 码值的差的绝对值之和，其中 $0 \leq i \leq j < n$。
 
@@ -67,19 +65,7 @@
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
-**方法二：双指针**
-
-我们可以维护两个指针 $j$ 和 $i$，初始时 $i = j = 0$；维护一个变量 $sum$，表示下标区间 $[i,..j]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $i$ 向右移动一位，然后更新 $sum = sum + |s[i] - t[i]|$。如果 $sum \gt maxCost$，那么我们就循环将指针 $j$ 向右移动，并且在移动过程中不断减少 $sum$ 的值，直到 $sum \leq maxCost$。然后我们更新答案，即 $ans = \max(ans, i - j + 1)$。
-
-最后返回答案即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,25 +88,6 @@ class Solution:
                 r = mid - 1
         return l
 ```
-
-```python
-class Solution:
-    def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
-        n = len(s)
-        sum = j = 0
-        ans = 0
-        for i in range(n):
-            sum += abs(ord(s[i]) - ord(t[i]))
-            while sum > maxCost:
-                sum -= abs(ord(s[j]) - ord(t[j]))
-                j += 1
-            ans = max(ans, i - j + 1)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -160,27 +127,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int equalSubstring(String s, String t, int maxCost) {
-        int n = s.length();
-        int sum = 0;
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            sum += Math.abs(s.charAt(i) - t.charAt(i));
-            while (sum > maxCost) {
-                sum -= Math.abs(s.charAt(j) - t.charAt(j));
-                ++j;
-            }
-            ans = Math.max(ans, i - j + 1);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -213,27 +159,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int equalSubstring(string s, string t, int maxCost) {
-        int n = s.size();
-        int ans = 0, sum = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            sum += abs(s[i] - t[i]);
-            while (sum > maxCost) {
-                sum -= abs(s[j] - t[j]);
-                ++j;
-            }
-            ans = max(ans, i - j + 1);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func equalSubstring(s string, t string, maxCost int) int {
@@ -270,6 +195,71 @@ func abs(x int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：双指针
+
+我们可以维护两个指针 $j$ 和 $i$，初始时 $i = j = 0$；维护一个变量 $sum$，表示下标区间 $[i,..j]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $i$ 向右移动一位，然后更新 $sum = sum + |s[i] - t[i]|$。如果 $sum \gt maxCost$，那么我们就循环将指针 $j$ 向右移动，并且在移动过程中不断减少 $sum$ 的值，直到 $sum \leq maxCost$。然后我们更新答案，即 $ans = \max(ans, i - j + 1)$。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
+        n = len(s)
+        sum = j = 0
+        ans = 0
+        for i in range(n):
+            sum += abs(ord(s[i]) - ord(t[i]))
+            while sum > maxCost:
+                sum -= abs(ord(s[j]) - ord(t[j]))
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
+```
+
+```java
+class Solution {
+    public int equalSubstring(String s, String t, int maxCost) {
+        int n = s.length();
+        int sum = 0;
+        int ans = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            sum += Math.abs(s.charAt(i) - t.charAt(i));
+            while (sum > maxCost) {
+                sum -= Math.abs(s.charAt(j) - t.charAt(j));
+                ++j;
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int equalSubstring(string s, string t, int maxCost) {
+        int n = s.size();
+        int ans = 0, sum = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            sum += abs(s[i] - t[i]);
+            while (sum > maxCost) {
+                sum -= abs(s[j] - t[j]);
+                ++j;
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func equalSubstring(s string, t string, maxCost int) (ans int) {
 	var sum, j int
@@ -293,10 +283,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

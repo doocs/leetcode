@@ -51,9 +51,9 @@ The number of positions that have a 1 in both images is 3 (shown in red).
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
                                 cnt[(i - h, j - k)] += 1
         return max(cnt.values()) if cnt else 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
 	type pair struct{ x, y int }
@@ -148,8 +142,6 @@ func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestOverlap(img1: number[][], img2: number[][]): number {
@@ -175,10 +167,6 @@ function largestOverlap(img1: number[][], img2: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

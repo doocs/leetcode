@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：0 后面不能有 1**
+### 方法一：0 后面不能有 1
 
 注意到字符串 $s$ 不含前导零，说明 $s$ 以 '1' 开头。
 
@@ -50,23 +48,15 @@
 
 因此，只需要判断字符串 $s$ 是否存在 "01" 串即可。
 
-时间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def checkOnesSegment(self, s: str) -> bool:
         return '01' not in s
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -75,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,15 +75,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkOnesSegment(s string) bool {
 	return !strings.Contains(s, "01")
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkOnesSegment(s: string): boolean {
@@ -110,14 +94,6 @@ function checkOnesSegment(s: string): boolean {
 }
 ```
 
-```ts
-function checkOnesSegment(s: string): boolean {
-    return !s.includes('01');
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn check_ones_segment(s: String) -> bool {
@@ -126,10 +102,18 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+function checkOnesSegment(s: string): boolean {
+    return !s.includes('01');
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

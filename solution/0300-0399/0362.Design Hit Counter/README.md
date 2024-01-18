@@ -56,15 +56,9 @@ counter.getHits(301); // 在时刻 301 统计过去 5 分钟内的敲击次数�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-用哈希表作为计数器实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class HitCounter:
@@ -94,45 +88,6 @@ class HitCounter:
 # obj.hit(timestamp)
 # param_2 = obj.getHits(timestamp)
 ```
-
-### **Rust**
-
-```rust
-use std::{ collections::BinaryHeap, cmp::Reverse };
-
-struct HitCounter {
-    /// A min heap
-    pq: BinaryHeap<Reverse<i32>>,
-}
-
-impl HitCounter {
-    fn new() -> Self {
-        Self {
-            pq: BinaryHeap::new(),
-        }
-    }
-
-    fn hit(&mut self, timestamp: i32) {
-        self.pq.push(Reverse(timestamp));
-    }
-
-    fn get_hits(&mut self, timestamp: i32) -> i32 {
-        while let Some(Reverse(min_elem)) = self.pq.peek() {
-            if *min_elem <= timestamp - 300 {
-                self.pq.pop();
-            } else {
-                break;
-            }
-        }
-
-        self.pq.len() as i32
-    }
-}
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class HitCounter {
@@ -175,10 +130,39 @@ class HitCounter {
  */
 ```
 
-### **...**
+```rust
+use std::{ collections::BinaryHeap, cmp::Reverse };
 
-```
+struct HitCounter {
+    /// A min heap
+    pq: BinaryHeap<Reverse<i32>>,
+}
 
+impl HitCounter {
+    fn new() -> Self {
+        Self {
+            pq: BinaryHeap::new(),
+        }
+    }
+
+    fn hit(&mut self, timestamp: i32) {
+        self.pq.push(Reverse(timestamp));
+    }
+
+    fn get_hits(&mut self, timestamp: i32) -> i32 {
+        while let Some(Reverse(min_elem)) = self.pq.peek() {
+            if *min_elem <= timestamp - 300 {
+                self.pq.pop();
+            } else {
+                break;
+            }
+        }
+
+        self.pq.len() as i32
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

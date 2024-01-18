@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先将 `edges` 转换成邻接表 $g$，然后使用 DFS，判断是否存在从 `source` 到 `destination` 的路径。
 
@@ -59,7 +57,148 @@
 
 时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是节点数和边数。
 
-**方法二：并查集**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validPath(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
+        def dfs(i):
+            if i == destination:
+                return True
+            vis.add(i)
+            for j in g[i]:
+                if j not in vis and dfs(j):
+                    return True
+            return False
+
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        vis = set()
+        return dfs(source)
+```
+
+```java
+class Solution {
+    private boolean[] vis;
+    private List<Integer>[] g;
+
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        vis = new boolean[n];
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        return dfs(source, destination);
+    }
+
+    private boolean dfs(int source, int destination) {
+        if (source == destination) {
+            return true;
+        }
+        vis[source] = true;
+        for (int nxt : g[source]) {
+            if (!vis[nxt] && dfs(nxt, destination)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        vector<bool> vis(n);
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        function<bool(int)> dfs = [&](int i) -> bool {
+            if (i == destination) return true;
+            vis[i] = true;
+            for (int& j : g[i]) {
+                if (!vis[j] && dfs(j)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        return dfs(source);
+    }
+};
+```
+
+```go
+func validPath(n int, edges [][]int, source int, destination int) bool {
+	vis := make([]bool, n)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int) bool
+	dfs = func(i int) bool {
+		if i == destination {
+			return true
+		}
+		vis[i] = true
+		for _, j := range g[i] {
+			if !vis[j] && dfs(j) {
+				return true
+			}
+		}
+		return false
+	}
+	return dfs(source)
+}
+```
+
+```rust
+impl Solution {
+    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
+        let mut disjoint_set: Vec<i32> = vec![0; n as usize];
+        // Initialize the set
+        for i in 0..n {
+            disjoint_set[i as usize] = i;
+        }
+
+        // Traverse the edges
+        for p_vec in &edges {
+            let parent_one = Solution::find(p_vec[0], &mut disjoint_set);
+            let parent_two = Solution::find(p_vec[1], &mut disjoint_set);
+            disjoint_set[parent_one as usize] = parent_two;
+        }
+
+        let p_s = Solution::find(source, &mut disjoint_set);
+        let p_d = Solution::find(destination, &mut disjoint_set);
+
+        p_s == p_d
+    }
+
+    pub fn find(x: i32, d_set: &mut Vec<i32>) -> i32 {
+        if d_set[x as usize] != x {
+            d_set[x as usize] = Solution::find(d_set[x as usize], d_set);
+        }
+        d_set[x as usize]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：并查集
 
 判断图中两个节点是否连通，一种比较简单直接的方法是使用并查集。
 
@@ -180,32 +319,6 @@ func union(a, b int) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def validPath(
-        self, n: int, edges: List[List[int]], source: int, destination: int
-    ) -> bool:
-        def dfs(i):
-            if i == destination:
-                return True
-            vis.add(i)
-            for j in g[i]:
-                if j not in vis and dfs(j):
-                    return True
-            return False
-
-        g = defaultdict(list)
-        for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
-        vis = set()
-        return dfs(source)
-```
-
 ```python
 class Solution:
     def validPath(
@@ -220,42 +333,6 @@ class Solution:
         for u, v in edges:
             p[find(u)] = find(v)
         return find(source) == find(destination)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    private boolean[] vis;
-    private List<Integer>[] g;
-
-    public boolean validPath(int n, int[][] edges, int source, int destination) {
-        vis = new boolean[n];
-        g = new List[n];
-        Arrays.setAll(g, k -> new ArrayList<>());
-        for (var e : edges) {
-            int a = e[0], b = e[1];
-            g[a].add(b);
-            g[b].add(a);
-        }
-        return dfs(source, destination);
-    }
-
-    private boolean dfs(int source, int destination) {
-        if (source == destination) {
-            return true;
-        }
-        vis[source] = true;
-        for (int nxt : g[source]) {
-            if (!vis[nxt] && dfs(nxt, destination)) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
 ```
 
 ```java
@@ -282,34 +359,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
-        vector<bool> vis(n);
-        vector<vector<int>> g(n);
-        for (auto& e : edges) {
-            int a = e[0], b = e[1];
-            g[a].emplace_back(b);
-            g[b].emplace_back(a);
-        }
-        function<bool(int)> dfs = [&](int i) -> bool {
-            if (i == destination) return true;
-            vis[i] = true;
-            for (int& j : g[i]) {
-                if (!vis[j] && dfs(j)) {
-                    return true;
-                }
-            }
-            return false;
-        };
-        return dfs(source);
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -324,67 +373,6 @@ public:
         return find(source) == find(destination);
     }
 };
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
-        let mut disjoint_set: Vec<i32> = vec![0; n as usize];
-        // Initialize the set
-        for i in 0..n {
-            disjoint_set[i as usize] = i;
-        }
-
-        // Traverse the edges
-        for p_vec in &edges {
-            let parent_one = Solution::find(p_vec[0], &mut disjoint_set);
-            let parent_two = Solution::find(p_vec[1], &mut disjoint_set);
-            disjoint_set[parent_one as usize] = parent_two;
-        }
-
-        let p_s = Solution::find(source, &mut disjoint_set);
-        let p_d = Solution::find(destination, &mut disjoint_set);
-
-        p_s == p_d
-    }
-
-    pub fn find(x: i32, d_set: &mut Vec<i32>) -> i32 {
-        if d_set[x as usize] != x {
-            d_set[x as usize] = Solution::find(d_set[x as usize], d_set);
-        }
-        d_set[x as usize]
-    }
-}
-```
-
-### **Go**
-
-```go
-func validPath(n int, edges [][]int, source int, destination int) bool {
-	vis := make([]bool, n)
-	g := make([][]int, n)
-	for _, e := range edges {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
-	}
-	var dfs func(int) bool
-	dfs = func(i int) bool {
-		if i == destination {
-			return true
-		}
-		vis[i] = true
-		for _, j := range g[i] {
-			if !vis[j] && dfs(j) {
-				return true
-			}
-		}
-		return false
-	}
-	return dfs(source)
-}
 ```
 
 ```go
@@ -407,10 +395,6 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

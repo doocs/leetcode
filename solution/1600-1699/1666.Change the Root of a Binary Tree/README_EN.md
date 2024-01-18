@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 """
@@ -79,8 +79,6 @@ class Solution:
         leaf.parent = None
         return leaf
 ```
-
-### **Java**
 
 ```java
 /*
@@ -117,8 +115,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -158,46 +154,6 @@ public:
 };
 ```
 
-### **C#**
-
-```cs
-/*
-// Definition for a Node.
-public class Node {
-    public int val;
-    public Node left;
-    public Node right;
-    public Node parent;
-}
-*/
-
-public class Solution {
-    public Node FlipBinaryTree(Node root, Node leaf) {
-        Node cur = leaf;
-        Node p = cur.parent;
-        while (cur != root) {
-            Node gp = p.parent;
-            if (cur.left != null) {
-                cur.right = cur.left;
-            }
-            cur.left = p;
-            p.parent = cur;
-            if (p.left == cur) {
-                p.left = null;
-            } else if (p.right == cur) {
-                p.right = null;
-            }
-            cur = p;
-            p = gp;
-        }
-        leaf.parent = null;
-        return leaf;
-    }
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * // Definition for a Node.
@@ -236,10 +192,42 @@ var flipBinaryTree = function (root, leaf) {
 };
 ```
 
-### **...**
+```cs
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node parent;
+}
+*/
 
-```
-
+public class Solution {
+    public Node FlipBinaryTree(Node root, Node leaf) {
+        Node cur = leaf;
+        Node p = cur.parent;
+        while (cur != root) {
+            Node gp = p.parent;
+            if (cur.left != null) {
+                cur.right = cur.left;
+            }
+            cur.left = p;
+            p.parent = cur;
+            if (p.left == cur) {
+                p.left = null;
+            } else if (p.right == cur) {
+                p.right = null;
+            }
+            cur = p;
+            p = gp;
+        }
+        leaf.parent = null;
+        return leaf;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

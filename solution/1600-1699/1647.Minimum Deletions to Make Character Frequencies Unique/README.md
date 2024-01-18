@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组 + 排序**
+### 方法一：数组 + 排序
 
 我们先用一个长度为 $26$ 的数组 `cnt` 统计字符串 $s$ 中每个字母出现的次数。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n + C \times \log C)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度，而 $C$ 为字母集的大小。本题中 $C=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,23 +79,6 @@ class Solution:
                 pre = v
         return ans
 ```
-
-```python
-class Solution:
-    def minDeletions(self, s: str) -> int:
-        cnt = Counter(s)
-        vals = sorted(cnt.values(), reverse=True)
-        ans = 0
-        for i in range(1, len(vals)):
-            while vals[i] >= vals[i - 1] and vals[i] > 0:
-                vals[i] -= 1
-                ans += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,6 +98,105 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minDeletions(string s) {
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        sort(cnt.rbegin(), cnt.rend());
+        int ans = 0;
+        for (int i = 1; i < 26; ++i) {
+            while (cnt[i] >= cnt[i - 1] && cnt[i] > 0) {
+                --cnt[i];
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func minDeletions(s string) (ans int) {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(cnt)))
+	for i := 1; i < 26; i++ {
+		for cnt[i] >= cnt[i-1] && cnt[i] > 0 {
+			cnt[i]--
+			ans++
+		}
+	}
+	return
+}
+```
+
+```ts
+function minDeletions(s: string): number {
+    let map = {};
+    for (let c of s) {
+        map[c] = (map[c] || 0) + 1;
+    }
+    let ans = 0;
+    let vals: number[] = Object.values(map);
+    vals.sort((a, b) => a - b);
+    for (let i = 1; i < vals.length; ++i) {
+        while (vals[i] > 0 && i != vals.indexOf(vals[i])) {
+            --vals[i];
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn min_deletions(s: String) -> i32 {
+        let mut cnt = vec![0; 26];
+        let mut ans = 0;
+
+        for c in s.chars() {
+            cnt[((c as u8) - ('a' as u8)) as usize] += 1;
+        }
+
+        cnt.sort_by(|&lhs, &rhs| { rhs.cmp(&lhs) });
+
+        for i in 1..26 {
+            while cnt[i] >= cnt[i - 1] && cnt[i] > 0 {
+                cnt[i] -= 1;
+                ans += 1;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        cnt = Counter(s)
+        vals = sorted(cnt.values(), reverse=True)
+        ans = 0
+        for i in range(1, len(vals)):
+            while vals[i] >= vals[i - 1] and vals[i] > 0:
+                vals[i] -= 1
+                ans += 1
+        return ans
 ```
 
 ```java
@@ -148,27 +224,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minDeletions(string s) {
-        vector<int> cnt(26);
-        for (char& c : s) ++cnt[c - 'a'];
-        sort(cnt.rbegin(), cnt.rend());
-        int ans = 0;
-        for (int i = 1; i < 26; ++i) {
-            while (cnt[i] >= cnt[i - 1] && cnt[i] > 0) {
-                --cnt[i];
-                ++ans;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -190,52 +245,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    #[allow(dead_code)]
-    pub fn min_deletions(s: String) -> i32 {
-        let mut cnt = vec![0; 26];
-        let mut ans = 0;
-
-        for c in s.chars() {
-            cnt[((c as u8) - ('a' as u8)) as usize] += 1;
-        }
-
-        cnt.sort_by(|&lhs, &rhs| { rhs.cmp(&lhs) });
-
-        for i in 1..26 {
-            while cnt[i] >= cnt[i - 1] && cnt[i] > 0 {
-                cnt[i] -= 1;
-                ans += 1;
-            }
-        }
-
-        ans
-    }
-}
-```
-
-### **Go**
-
-```go
-func minDeletions(s string) (ans int) {
-	cnt := make([]int, 26)
-	for _, c := range s {
-		cnt[c-'a']++
-	}
-	sort.Sort(sort.Reverse(sort.IntSlice(cnt)))
-	for i := 1; i < 26; i++ {
-		for cnt[i] >= cnt[i-1] && cnt[i] > 0 {
-			cnt[i]--
-			ans++
-		}
-	}
-	return
-}
 ```
 
 ```go
@@ -260,31 +269,6 @@ func minDeletions(s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minDeletions(s: string): number {
-    let map = {};
-    for (let c of s) {
-        map[c] = (map[c] || 0) + 1;
-    }
-    let ans = 0;
-    let vals: number[] = Object.values(map);
-    vals.sort((a, b) => a - b);
-    for (let i = 1; i < vals.length; ++i) {
-        while (vals[i] > 0 && i != vals.indexOf(vals[i])) {
-            --vals[i];
-            ++ans;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

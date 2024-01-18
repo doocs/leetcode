@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -75,8 +75,6 @@ class Solution:
             dummy.next = ListNode(val, dummy.next)
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -112,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -155,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -195,8 +189,6 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -231,8 +223,6 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     return dummy.next;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -290,6 +280,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -346,10 +342,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

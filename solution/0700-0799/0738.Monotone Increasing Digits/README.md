@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 从数字 `n` 的高位开始，找到第一个不满足 $n_{i-1} \le n_i$ 的位置 $i$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                 i += 1
         return int(''.join(s))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func monotoneIncreasingDigits(n int) int {
 	s := []byte(strconv.Itoa(n))
@@ -150,10 +136,6 @@ func monotoneIncreasingDigits(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

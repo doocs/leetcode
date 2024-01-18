@@ -50,17 +50,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table
 
-### **Python3**
+The problem can actually be transformed into finding the number of different characters in the string. Therefore, we only need to count the number of different characters in the string.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, the character set is lowercase English letters, so $C=26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def minimizedStringLength(self, s: str) -> int:
         return len(set(s))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -85,8 +85,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimizedStringLength(s string) int {
@@ -98,15 +96,11 @@ func minimizedStringLength(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimizedStringLength(s: string): number {
     return new Set(s.split('')).size;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -124,6 +118,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```rust
 use std::collections::HashSet;
 
@@ -140,10 +140,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

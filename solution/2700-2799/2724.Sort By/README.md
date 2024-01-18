@@ -41,20 +41,16 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>arr 是一个有效的 JSON 数组</code></li>
-	<li><code>fn 是一个函数，返回一个数字</code></li>
+	<li><code>arr</code> 是一个有效的 JSON 数组</li>
+	<li><code>fn</code> 是一个函数，返回一个数字</li>
 	<li><code>1 &lt;=&nbsp;arr.length &lt;= 5 * 10<sup>5</sup></code></li>
 </ul>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function sortBy(arr: any[], fn: Function): any[] {
@@ -63,3 +59,5 @@ function sortBy(arr: any[], fn: Function): any[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

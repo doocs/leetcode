@@ -4,6 +4,7 @@ class Solution:
         s = [[0] * n for _ in range(m + 1)]
         for i in range(m):
             for j in range(n):
+                # 构造列前缀和
                 s[i + 1][j] = s[i][j] + matrix[i][j]
 
         mx = matrix[0][0]

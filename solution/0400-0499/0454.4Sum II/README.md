@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们可以将数组 $nums1$ 和 $nums2$ 中的元素 $a$ 和 $b$ 相加，将所有可能的和存储在哈希表 $cnt$ 中，其中键为两数之和，值为两数之和出现的次数。
 
@@ -60,10 +58,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def fourSumCount(
@@ -72,10 +66,6 @@ class Solution:
         cnt = Counter(a + b for a in nums1 for b in nums2)
         return sum(cnt[-(c + d)] for c in nums3 for d in nums4)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fourSumCount(nums1 []int, nums2 []int, nums3 []int, nums4 []int) (ans int) {
 	cnt := map[int]int{}
@@ -138,8 +124,6 @@ func fourSumCount(nums1 []int, nums2 []int, nums3 []int, nums4 []int) (ans int) 
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function fourSumCount(nums1: number[], nums2: number[], nums3: number[], nums4: number[]): number {
@@ -161,10 +145,6 @@ function fourSumCount(nums1: number[], nums2: number[], nums3: number[], nums4: 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

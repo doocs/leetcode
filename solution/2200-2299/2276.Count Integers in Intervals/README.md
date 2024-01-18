@@ -60,17 +60,22 @@ countIntervals.count();    // 返回 8
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：线段树（动态开点）
 
-**方法一：线段树**
+根据题目描述，我们需要维护一个区间集合，支持区间的添加和查询操作。对于区间的添加，我们可以使用线段树来维护区间集合。
 
-区间求和问题，且值域较大，采用动态开点线段树。
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(width)$。更新某个元素的值，只需要更新 $\log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
+
+-   线段树的每个节点代表一个区间；
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1,N]$；
+-   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x,x]$；
+-   对于每个内部节点 $[l,r]$，它的左儿子是 $[l,mid]$，右儿子是 $[mid+1,r]$, 其中 $mid=⌊(l+r)/2⌋$ (即向下取整)。
+
+由于题目数据范围较大，我们可以使用动态开点的线段树来实现。动态开点的线段树是指，我们只在需要的时候才开点，而不是一开始就开好所有的点，这样可以节省空间。
+
+时间复杂度方面，每次操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(m \times \log n)$。其中 $m$ 为操作次数，而 $n$ 为数据范围。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -116,10 +121,6 @@ class CountIntervals:
 # obj.add(left,right)
 # param_2 = obj.count()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
@@ -234,7 +235,244 @@ class CountIntervals {
  */
 ```
 
-### **TypeScript**
+```cpp
+class Node {
+public:
+    Node(int l, int r)
+        : l(l)
+        , r(r)
+        , mid((l + r) / 2)
+        , v(0)
+        , add(0)
+        , left(nullptr)
+        , right(nullptr) {}
+
+    int l, r, mid, v, add;
+    Node* left;
+    Node* right;
+};
+
+class SegmentTree {
+public:
+    SegmentTree()
+        : root(new Node(1, 1000000001)) {}
+
+    void modify(int l, int r, int v, Node* node = nullptr) {
+        if (node == nullptr) {
+            node = root;
+        }
+        if (l > r) {
+            return;
+        }
+        if (node->l >= l && node->r <= r) {
+            node->v = node->r - node->l + 1;
+            node->add = v;
+            return;
+        }
+        pushdown(node);
+        if (l <= node->mid) {
+            modify(l, r, v, node->left);
+        }
+        if (r > node->mid) {
+            modify(l, r, v, node->right);
+        }
+        pushup(node);
+    }
+
+    int query(int l, int r, Node* node = nullptr) {
+        if (node == nullptr) {
+            node = root;
+        }
+        if (l > r) {
+            return 0;
+        }
+        if (node->l >= l && node->r <= r) {
+            return node->v;
+        }
+        pushdown(node);
+        int v = 0;
+        if (l <= node->mid) {
+            v += query(l, r, node->left);
+        }
+        if (r > node->mid) {
+            v += query(l, r, node->right);
+        }
+        return v;
+    }
+
+private:
+    Node* root;
+
+    void pushup(Node* node) {
+        node->v = node->left->v + node->right->v;
+    }
+
+    void pushdown(Node* node) {
+        if (node->left == nullptr) {
+            node->left = new Node(node->l, node->mid);
+        }
+        if (node->right == nullptr) {
+            node->right = new Node(node->mid + 1, node->r);
+        }
+        if (node->add != 0) {
+            Node* left = node->left;
+            Node* right = node->right;
+            left->add = node->add;
+            right->add = node->add;
+            left->v = left->r - left->l + 1;
+            right->v = right->r - right->l + 1;
+            node->add = 0;
+        }
+    }
+};
+
+class CountIntervals {
+public:
+    CountIntervals() {}
+
+    void add(int left, int right) {
+        tree.modify(left, right, 1);
+    }
+
+    int count() {
+        return tree.query(1, 1000000000);
+    }
+
+private:
+    SegmentTree tree;
+};
+
+/**
+ * Your CountIntervals object will be instantiated and called as such:
+ * CountIntervals* obj = new CountIntervals();
+ * obj->add(left,right);
+ * int param_2 = obj->count();
+ */
+```
+
+```go
+type Node struct {
+	left  *Node
+	right *Node
+	l     int
+	r     int
+	mid   int
+	v     int
+	add   int
+}
+
+type SegmentTree struct {
+	root *Node
+}
+
+func newNode(l, r int) *Node {
+	return &Node{
+		left:  nil,
+		right: nil,
+		l:     l,
+		r:     r,
+		mid:   (l + r) / 2,
+		v:     0,
+		add:   0,
+	}
+}
+
+func newSegmentTree() *SegmentTree {
+	return &SegmentTree{
+		root: newNode(1, 1000000001),
+	}
+}
+
+func (st *SegmentTree) modify(l, r, v int, node *Node) {
+	if node == nil {
+		node = st.root
+	}
+	if l > r {
+		return
+	}
+	if node.l >= l && node.r <= r {
+		node.v = node.r - node.l + 1
+		node.add = v
+		return
+	}
+	st.pushdown(node)
+	if l <= node.mid {
+		st.modify(l, r, v, node.left)
+	}
+	if r > node.mid {
+		st.modify(l, r, v, node.right)
+	}
+	st.pushup(node)
+}
+
+func (st *SegmentTree) query(l, r int, node *Node) int {
+	if node == nil {
+		node = st.root
+	}
+	if l > r {
+		return 0
+	}
+	if node.l >= l && node.r <= r {
+		return node.v
+	}
+	st.pushdown(node)
+	v := 0
+	if l <= node.mid {
+		v += st.query(l, r, node.left)
+	}
+	if r > node.mid {
+		v += st.query(l, r, node.right)
+	}
+	return v
+}
+
+func (st *SegmentTree) pushup(node *Node) {
+	node.v = node.left.v + node.right.v
+}
+
+func (st *SegmentTree) pushdown(node *Node) {
+	if node.left == nil {
+		node.left = newNode(node.l, node.mid)
+	}
+	if node.right == nil {
+		node.right = newNode(node.mid+1, node.r)
+	}
+	if node.add != 0 {
+		left := node.left
+		right := node.right
+		left.add = node.add
+		right.add = node.add
+		left.v = left.r - left.l + 1
+		right.v = right.r - right.l + 1
+		node.add = 0
+	}
+}
+
+type CountIntervals struct {
+	tree *SegmentTree
+}
+
+func Constructor() CountIntervals {
+	return CountIntervals{
+		tree: newSegmentTree(),
+	}
+}
+
+func (ci *CountIntervals) Add(left, right int) {
+	ci.tree.modify(left, right, 1, nil)
+}
+
+func (ci *CountIntervals) Count() int {
+	return ci.tree.query(1, 1000000000, nil)
+}
+
+/**
+ * Your CountIntervals object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Add(left,right);
+ * param_2 := obj.Count();
+ */
+```
 
 ```ts
 class CountIntervals {
@@ -278,10 +516,95 @@ class CountIntervals {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Node:
+    __slots__ = ("left", "right", "l", "r", "mid", "v", "add")
+
+    def __init__(self, l, r):
+        self.left = None
+        self.right = None
+        self.l = l
+        self.r = r
+        self.mid = (l + r) // 2
+        self.v = 0
+        self.add = 0
+
+
+class SegmentTree:
+    def __init__(self):
+        self.root = Node(1, int(1e9) + 1)
+
+    def modify(self, l, r, v, node=None):
+        if node is None:
+            node = self.root
+        if l > r:
+            return
+        if node.l >= l and node.r <= r:
+            node.v = node.r - node.l + 1
+            node.add = v
+            return
+        self.pushdown(node)
+        if l <= node.mid:
+            self.modify(l, r, v, node.left)
+        if r > node.mid:
+            self.modify(l, r, v, node.right)
+        self.pushup(node)
+
+    def query(self, l, r, node=None):
+        if node is None:
+            node = self.root
+        if l > r:
+            return 0
+        if node.l >= l and node.r <= r:
+            return node.v
+        self.pushdown(node)
+        v = 0
+        if l <= node.mid:
+            v += self.query(l, r, node.left)
+        if r > node.mid:
+            v += self.query(l, r, node.right)
+        return v
+
+    def pushup(self, node):
+        node.v = node.left.v + node.right.v
+
+    def pushdown(self, node):
+        if node.left is None:
+            node.left = Node(node.l, node.mid)
+        if node.right is None:
+            node.right = Node(node.mid + 1, node.r)
+        if node.add != 0:
+            left, right = node.left, node.right
+            left.add = node.add
+            right.add = node.add
+            left.v = left.r - left.l + 1
+            right.v = right.r - right.l + 1
+            node.add = 0
+
+
+class CountIntervals:
+    def __init__(self):
+        self.tree = SegmentTree()
+
+    def add(self, left, right):
+        self.tree.modify(left, right, 1)
+
+    def count(self):
+        return self.tree.query(1, int(1e9))
+
+
+# Your CountIntervals object will be instantiated and called as such:
+# obj = CountIntervals()
+# obj.add(left, right)
+# param_2 = obj.count()
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

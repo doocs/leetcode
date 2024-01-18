@@ -56,9 +56,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting + Enumeration
 
-### **Python3**
+We can use a hash table or an array `cnt` to count the frequency of each number in the two arrays.
+
+Then we enumerate each number in `cnt` from small to large. If the frequency of a number is greater than $0$, we add it to the answer array.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(M)$. Where $n$ and $m$ are the lengths of the two arrays respectively; and $M$ is the maximum value in the two arrays, in this problem, $M = 1000$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +76,6 @@ class Solution:
             cnt[i] += v
         return sorted(cnt.items())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	cnt := [1001]int{}
@@ -143,8 +143,6 @@ func mergeArrays(nums1 [][]int, nums2 [][]int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
@@ -165,8 +163,6 @@ function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -193,10 +189,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

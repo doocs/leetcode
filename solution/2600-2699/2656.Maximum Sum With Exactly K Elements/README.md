@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 数学**
+### 方法一：贪心 + 数学
 
 我们注意到，要使得最终的得分最大，我们应该尽可能地使得每次选择的元素最大。因此，我们第一次选择数组中的最大元素 $x$，第二次选择 $x+1$，第三次选择 $x+2$，以此类推，直到第 $k$ 次选择 $x+k-1$。这样的选择方式可以保证每次选择的元素都是当前数组中的最大值，因此最终的得分也是最大的。答案即为 $k$ 个 $x$ 的和加上 $0+1+2+\cdots+(k-1)$，即 $k \times x + (k - 1) \times k / 2$。
 
@@ -66,20 +64,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximizeSum(self, nums: List[int], k: int) -> int:
         x = max(nums)
         return k * x + k * (k - 1) // 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeSum(nums []int, k int) int {
 	x := slices.Max(nums)
@@ -114,16 +100,12 @@ func maximizeSum(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximizeSum(nums: number[], k: number): number {
     const x = Math.max(...nums);
     return k * x + (k * (k - 1)) / 2;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -141,6 +123,12 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```rust
 impl Solution {
     pub fn maximize_sum(nums: Vec<i32>, k: i32) -> i32 {
@@ -151,10 +139,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

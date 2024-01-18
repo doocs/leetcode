@@ -1,20 +1,22 @@
 class Trie:
+    __slots__ = ["children"]
+
     def __init__(self):
         self.children = [None] * 2
 
-    def insert(self, x):
+    def insert(self, x: int):
         node = self
         for i in range(30, -1, -1):
-            v = (x >> i) & 1
+            v = x >> i & 1
             if node.children[v] is None:
                 node.children[v] = Trie()
             node = node.children[v]
 
-    def search(self, x):
+    def search(self, x: int) -> int:
         node = self
         ans = 0
         for i in range(30, -1, -1):
-            v = (x >> i) & 1
+            v = x >> i & 1
             if node.children[v ^ 1]:
                 ans |= 1 << i
                 node = node.children[v ^ 1]

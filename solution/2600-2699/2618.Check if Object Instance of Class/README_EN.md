@@ -47,9 +47,9 @@ Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function checkIfInstanceOf(obj: any, classFunction: any): boolean {
@@ -71,10 +71,6 @@ function checkIfInstanceOf(obj: any, classFunction: any): boolean {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

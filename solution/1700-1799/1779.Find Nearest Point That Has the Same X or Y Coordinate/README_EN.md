@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
                     ans, mi = i, d
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nearestValidPoint(x int, y int, points [][]int) int {
@@ -127,8 +121,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function nearestValidPoint(x: number, y: number, points: number[][]): number {
     let res = -1;
@@ -146,8 +138,6 @@ function nearestValidPoint(x: number, y: number, points: number[][]): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -171,8 +161,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int nearestValidPoint(int x, int y, int** points, int pointsSize, int* pointsColSize) {
     int ans = -1;
@@ -192,10 +180,6 @@ int nearestValidPoint(int x, int y, int** points, int pointsSize, int* pointsCol
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

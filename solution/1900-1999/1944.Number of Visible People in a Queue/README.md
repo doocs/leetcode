@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 我们观察发现，对于第 $i$ 个人来说，他能看到的人一定是按从左到右高度严格单调递增的。
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canSeePersonsCount(self, heights: List[int]) -> List[int]:
@@ -91,10 +85,6 @@ class Solution:
             stk.append(heights[i])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canSeePersonsCount(heights []int) []int {
 	n := len(heights)
@@ -162,8 +148,6 @@ func canSeePersonsCount(heights []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canSeePersonsCount(heights: number[]): number[] {
     const n = heights.length;
@@ -182,8 +166,6 @@ function canSeePersonsCount(heights: number[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -205,8 +187,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 /**
@@ -232,10 +212,6 @@ int* canSeePersonsCount(int* heights, int heightsSize, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

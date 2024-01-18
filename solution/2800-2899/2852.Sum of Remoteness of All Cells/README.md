@@ -64,19 +64,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先统计矩阵中非阻塞的格子的个数，记为 $cnt$，然后从每个非阻塞的格子出发，使用 DFS 计算出每个连通块中格子之和 $s$ 以及格子个数 $t$，那么其它连通块的所有 $(cnt - t)$ 个格子都可以累加上 $s$。我们累加所有连通块的结果即可。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是矩阵的边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
                     ans += (cnt - t) * s
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -154,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -197,8 +185,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumRemoteness(grid [][]int) (ans int64) {
 	n := len(grid)
@@ -236,8 +222,6 @@ func sumRemoteness(grid [][]int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function sumRemoteness(grid: number[][]): number {
@@ -278,10 +262,6 @@ function sumRemoteness(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

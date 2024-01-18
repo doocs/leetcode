@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们不妨记数组 $nums$ 的最小值为 $mi$，数组的和为 $s$，数组的长度为 $n$。
 
@@ -71,19 +69,11 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minMoves(self, nums: List[int]) -> int:
         return sum(nums) - min(nums) * len(nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,22 +82,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int minMoves(int[] nums) {
-        int s = 0;
-        int mi = 1 << 30;
-        for (int x : nums) {
-            s += x;
-            mi = Math.min(mi, x);
-        }
-        return s - mi * nums.length;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -124,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minMoves(nums []int) int {
 	mi := 1 << 30
@@ -140,8 +112,6 @@ func minMoves(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minMoves(nums: number[]): number {
     let mi = 1 << 30;
@@ -154,10 +124,26 @@ function minMoves(nums: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int minMoves(int[] nums) {
+        int s = 0;
+        int mi = 1 << 30;
+        for (int x : nums) {
+            s += x;
+            mi = Math.min(mi, x);
+        }
+        return s - mi * nums.length;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

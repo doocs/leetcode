@@ -68,9 +68,9 @@ Product 3 is sold in Shop and Souq with prices of 1000 and 1900.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 CREATE PROCEDURE UnpivotProducts()
@@ -103,3 +103,5 @@ END;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,15 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-哈希表实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             if target in s:
                 return [a, target]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,24 +94,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
-    let s1 = aliceSizes.reduce((a, c) => a + c, 0);
-    let s2 = bobSizes.reduce((a, c) => a + c, 0);
-    let diff = (s1 - s2) >> 1;
-    for (let num of aliceSizes) {
-        let target = num - diff;
-        if (bobSizes.includes(target)) {
-            return [num, target];
-        }
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,10 +115,20 @@ public:
 };
 ```
 
-### **...**
-
-```
-
+```ts
+function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
+    let s1 = aliceSizes.reduce((a, c) => a + c, 0);
+    let s2 = bobSizes.reduce((a, c) => a + c, 0);
+    let diff = (s1 - s2) >> 1;
+    for (let num of aliceSizes) {
+        let target = num - diff;
+        if (bobSizes.includes(target)) {
+            return [num, target];
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

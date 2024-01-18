@@ -43,19 +43,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优先队列（小根堆）**
+### 方法一：贪心 + 优先队列（小根堆）
 
 每次操作，贪心地选择最小的元素进行加 $1$，共进行 $k$ 次操作。最后累乘所有元素得到结果。注意取模操作。
 
 时间复杂度 $O(n+klogn)$。其中，$n$ 表示 $nums$ 的长度。建堆的时间复杂度为 $O(n)$，每次弹出最小元素进行加 $1$，再放回堆中，时间复杂度为 $O(logn)$，共进行 $k$ 次操作。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             ans = (ans * v) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumProduct(nums []int, k int) int {
@@ -136,8 +122,6 @@ type hp struct{ sort.IntSlice }
 func (hp) Push(any)     {}
 func (hp) Pop() (_ any) { return }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -163,10 +147,6 @@ var maximumProduct = function (nums, k) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,16 +1,14 @@
 func dominantIndex(nums []int) int {
-	mx, mid := 0, 0
-	ans := 0
-	for i, v := range nums {
-		if v > mx {
-			mid, mx = mx, v
-			ans = i
-		} else if v > mid {
-			mid = v
+	k := 0
+	for i, x := range nums {
+		if nums[k] < x {
+			k = i
 		}
 	}
-	if mx >= mid*2 {
-		return ans
+	for i, x := range nums {
+		if k != i && nums[k] < x*2 {
+			return -1
+		}
 	}
-	return -1
+	return k
 }

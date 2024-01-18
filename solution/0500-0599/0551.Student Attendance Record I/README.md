@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串遍历**
+### 方法一：字符串遍历
 
 我们可以遍历字符串 $s$，记录字符 `'A'` 和字符串 `"LLL"` 的出现次数。如果字符 `'A'` 的出现次数小于 $2$，且字符串 `"LLL"` 没有出现过，则可以将该字符串视作记录合法，返回 `true`，否则返回 `false`。
 
@@ -62,19 +60,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def checkRecord(self, s: str) -> bool:
         return s.count('A') < 2 and 'LLL' not in s
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,15 +83,11 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkRecord(s string) bool {
 	return strings.Count(s, "A") < 2 && !strings.Contains(s, "LLL")
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkRecord(s: string): boolean {
@@ -111,10 +95,6 @@ function checkRecord(s: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

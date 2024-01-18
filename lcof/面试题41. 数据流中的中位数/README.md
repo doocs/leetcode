@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（大小根堆）**
+### 方法一：优先队列（大小根堆）
 
 我们可以维护两个优先队列，一个大根堆，一个小根堆，大根堆存储较小的一半数，小根堆存储较大的一半数。
 
@@ -59,10 +57,6 @@
 时间复杂度方面，添加元素的时间复杂度为 $O(\log n)$，查找中位数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。其中 $n$ 为数据流中元素的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MedianFinder:
@@ -90,37 +84,6 @@ class MedianFinder:
 # obj.addNum(num)
 # param_2 = obj.findMedian()
 ```
-
-```python
-from sortedcontainers import SortedList
-
-
-class MedianFinder:
-    def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.sl = SortedList()
-
-    def addNum(self, num: int) -> None:
-        self.sl.add(num)
-
-    def findMedian(self) -> float:
-        n = len(self.sl)
-        if n & 1:
-            return self.sl[n // 2]
-        return (self.sl[(n - 1) // 2] + self.sl[n // 2]) / 2
-
-
-# Your MedianFinder object will be instantiated and called as such:
-# obj = MedianFinder()
-# obj.addNum(num)
-# param_2 = obj.findMedian()
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MedianFinder {
@@ -156,8 +119,6 @@ class MedianFinder {
  * double param_2 = obj.findMedian();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MedianFinder {
@@ -197,8 +158,6 @@ private:
  * double param_2 = obj->findMedian();
  */
 ```
-
-### **Go**
 
 ```go
 type MedianFinder struct {
@@ -246,45 +205,6 @@ func (h *hp) Pop() any {
  */
 ```
 
-### **JavaScript**
-
-```js
-/**
- * initialize your data structure here.
- */
-var MedianFinder = function () {
-    this.val = [];
-};
-
-/**
- * @param {number} num
- * @return {void}
- */
-MedianFinder.prototype.addNum = function (num) {
-    let left = 0;
-    let right = this.val.length;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (num > this.val[mid]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
-    }
-    this.val.splice(left, 0, num);
-};
-
-/**
- * @return {number}
- */
-MedianFinder.prototype.findMedian = function () {
-    let mid = ~~(this.val.length / 2);
-    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
-};
-```
-
-### **TypeScript**
-
 ```ts
 class MedianFinder {
     private nums: number[];
@@ -325,8 +245,6 @@ class MedianFinder {
  * var param_2 = obj.findMedian()
  */
 ```
-
-### **Rust**
 
 ```rust
 struct MedianFinder {
@@ -372,7 +290,40 @@ impl MedianFinder {
  */
 ```
 
-### **C#**
+```js
+/**
+ * initialize your data structure here.
+ */
+var MedianFinder = function () {
+    this.val = [];
+};
+
+/**
+ * @param {number} num
+ * @return {void}
+ */
+MedianFinder.prototype.addNum = function (num) {
+    let left = 0;
+    let right = this.val.length;
+    while (left < right) {
+        let mid = left + ~~((right - left) / 2);
+        if (num > this.val[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    this.val.splice(left, 0, num);
+};
+
+/**
+ * @return {number}
+ */
+MedianFinder.prototype.findMedian = function () {
+    let mid = ~~(this.val.length / 2);
+    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
+};
+```
 
 ```cs
 public class MedianFinder {
@@ -433,10 +384,39 @@ public class MedianFinder {
  */
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+from sortedcontainers import SortedList
+
+
+class MedianFinder:
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.sl = SortedList()
+
+    def addNum(self, num: int) -> None:
+        self.sl.add(num)
+
+    def findMedian(self) -> float:
+        n = len(self.sl)
+        if n & 1:
+            return self.sl[n // 2]
+        return (self.sl[(n - 1) // 2] + self.sl[n // 2]) / 2
+
+
+# Your MedianFinder object will be instantiated and called as such:
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

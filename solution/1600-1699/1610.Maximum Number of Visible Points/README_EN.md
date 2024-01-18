@@ -56,9 +56,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -80,8 +80,6 @@ class Solution:
         mx = max((bisect_right(v, v[i] + t) - i for i in range(n)), default=0)
         return mx + same
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func visiblePoints(points [][]int, angle int, location []int) int {
 	same := 0
@@ -176,10 +170,6 @@ func visiblePoints(points [][]int, angle int, location []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

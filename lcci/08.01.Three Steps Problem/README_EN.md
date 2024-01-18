@@ -32,9 +32,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Recursion
 
-### **Python3**
+We define $f[i]$ as the number of ways to reach the $i$-th step, initially $f[1]=1$, $f[2]=2$, $f[3]=4$. The answer is $f[n]$.
+
+The recursion formula is $f[i] = f[i-1] + f[i-2] + f[i-3]$.
+
+Since $f[i]$ is only related to $f[i-1]$, $f[i-2]$, $f[i-3]$, we can use three variables $a$, $b$, $c$ to store the values of $f[i-1]$, $f[i-2]$, $f[i-3]$, reducing the space complexity to $O(1)$.
+
+The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -45,6 +53,125 @@ class Solution:
             a, b, c = b, c, (a + b + c) % mod
         return a
 ```
+
+```java
+class Solution {
+    public int waysToStep(int n) {
+        final int mod = (int) 1e9 + 7;
+        int a = 1, b = 2, c = 4;
+        for (int i = 1; i < n; ++i) {
+            int t = a;
+            a = b;
+            b = c;
+            c = (((a + b) % mod) + t) % mod;
+        }
+        return a;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int waysToStep(int n) {
+        const int mod = 1e9 + 7;
+        int a = 1, b = 2, c = 4;
+        for (int i = 1; i < n; ++i) {
+            int t = a;
+            a = b;
+            b = c;
+            c = (((a + b) % mod) + t) % mod;
+        }
+        return a;
+    }
+};
+```
+
+```go
+func waysToStep(n int) int {
+	const mod int = 1e9 + 7
+	a, b, c := 1, 2, 4
+	for i := 1; i < n; i++ {
+		a, b, c = b, c, (a+b+c)%mod
+	}
+	return a
+}
+```
+
+```rust
+impl Solution {
+    pub fn ways_to_step(n: i32) -> i32 {
+        let (mut a, mut b, mut c) = (1, 2, 4);
+        let m = 1000000007;
+        for _ in 1..n {
+            let t = a;
+            a = b;
+            b = c;
+            c = (((a + b) % m) + t) % m;
+        }
+        a
+    }
+}
+```
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var waysToStep = function (n) {
+    let [a, b, c] = [1, 2, 4];
+    const mod = 1e9 + 7;
+    for (let i = 1; i < n; ++i) {
+        [a, b, c] = [b, c, (a + b + c) % mod];
+    }
+    return a;
+};
+```
+
+```c
+int waysToStep(int n) {
+    const int mod = 1e9 + 7;
+    int a = 1, b = 2, c = 4;
+    for (int i = 1; i < n; ++i) {
+        int t = a;
+        a = b;
+        b = c;
+        c = (((a + b) % mod) + t) % mod;
+    }
+    return a;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Matrix Quick Power to Accelerate Recursion
+
+We set $F(n)$ to represent a $1 \times 3$ matrix $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$, where $F_{n - 1}$, $F_{n - 2}$ and $F_{n - 3}$ respectively represent the number of ways to reach the $n - 1$-th, $n - 2$-th and $n - 3$-th steps.
+
+We hope to derive $F(n)$ based on $F(n-1) = \begin{bmatrix} F_{n - 2} & F_{n - 3} & F_{n - 4} \end{bmatrix}$. That is to say, we need a matrix $base$, so that $F(n - 1) \times base = F(n)$, i.e.:
+
+$$
+\begin{bmatrix}
+F_{n - 2} & F_{n - 3} & F_{n - 4}
+\end{bmatrix} \times base = \begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}
+$$
+
+Since $F_n = F_{n - 1} + F_{n - 2} + F_{n - 3}$, the matrix $base$ is:
+
+$$
+\begin{bmatrix}
+ 1 & 1 & 0 \\
+ 1 & 0 & 1 \\
+ 1 & 0 & 0
+\end{bmatrix}
+$$
+
+We define the initial matrix $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$, then $F_n$ equals the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 4}$. It can be solved using matrix quick power.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,44 +200,6 @@ class Solution:
             return 2 ** (n - 1)
         a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
         return sum(pow(a, n - 4)[0]) % mod
-```
-
-```python
-import numpy as np
-
-
-class Solution:
-    def waysToStep(self, n: int) -> int:
-        if n < 4:
-            return 2 ** (n - 1)
-        mod = 10**9 + 7
-        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
-        res = np.mat([(4, 2, 1)], np.dtype("O"))
-        n -= 4
-        while n:
-            if n & 1:
-                res = res * factor % mod
-            factor = factor * factor % mod
-            n >>= 1
-        return res.sum() % mod
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int waysToStep(int n) {
-        final int mod = (int) 1e9 + 7;
-        int a = 1, b = 2, c = 4;
-        for (int i = 1; i < n; ++i) {
-            int t = a;
-            a = b;
-            b = c;
-            c = (((a + b) % mod) + t) % mod;
-        }
-        return a;
-    }
-}
 ```
 
 ```java
@@ -155,25 +244,6 @@ class Solution {
         return res;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int waysToStep(int n) {
-        const int mod = 1e9 + 7;
-        int a = 1, b = 2, c = 4;
-        for (int i = 1; i < n; ++i) {
-            int t = a;
-            a = b;
-            b = c;
-            c = (((a + b) % mod) + t) % mod;
-        }
-        return a;
-    }
-};
 ```
 
 ```cpp
@@ -222,19 +292,6 @@ private:
 };
 ```
 
-### **Go**
-
-```go
-func waysToStep(n int) int {
-	const mod int = 1e9 + 7
-	a, b, c := 1, 2, 4
-	for i := 1; i < n; i++ {
-		a, b, c = b, c, (a+b+c)%mod
-	}
-	return a
-}
-```
-
 ```go
 const mod = 1e9 + 7
 
@@ -277,23 +334,6 @@ func pow(a [][]int, n int) [][]int {
 	}
 	return res
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var waysToStep = function (n) {
-    let [a, b, c] = [1, 2, 4];
-    const mod = 1e9 + 7;
-    for (let i = 1; i < n; ++i) {
-        [a, b, c] = [b, c, (a + b + c) % mod];
-    }
-    return a;
-};
 ```
 
 ```js
@@ -348,38 +388,32 @@ function pow(a, n) {
 }
 ```
 
-### **C**
+<!-- tabs:end -->
 
-```c
-int waysToStep(int n) {
-    const int mod = 1e9 + 7;
-    int a = 1, b = 2, c = 4;
-    for (int i = 1; i < n; ++i) {
-        int t = a;
-        a = b;
-        b = c;
-        c = (((a + b) % mod) + t) % mod;
-    }
-    return a;
-}
-```
+### Solution 3
 
-### **Rust**
+<!-- tabs:start -->
 
-```rust
-impl Solution {
-    pub fn ways_to_step(n: i32) -> i32 {
-        let (mut a, mut b, mut c) = (1, 2, 4);
-        let m = 1000000007;
-        for _ in 1..n {
-            let t = a;
-            a = b;
-            b = c;
-            c = (((a + b) % m) + t) % m;
-        }
-        a
-    }
-}
+```python
+import numpy as np
+
+
+class Solution:
+    def waysToStep(self, n: int) -> int:
+        if n < 4:
+            return 2 ** (n - 1)
+        mod = 10**9 + 7
+        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
+        res = np.mat([(4, 2, 1)], np.dtype("O"))
+        n -= 4
+        while n:
+            if n & 1:
+                res = res * factor % mod
+            factor = factor * factor % mod
+            n >>= 1
+        return res.sum() % mod
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

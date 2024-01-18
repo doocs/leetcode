@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
         dfs(0, l, r, 0, 0, '')
         return list(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +169,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeInvalidParentheses(s string) []string {
@@ -225,10 +219,6 @@ func removeInvalidParentheses(s string) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

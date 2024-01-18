@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 枚举**
+### 方法一：预处理 + 枚举
 
 我们可以预处理出每个位置右侧的最小值，记录在数组 $right[i]$ 中，即 $right[i]$ 表示 $nums[i+1..n-1]$ 中的最小值。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
             left = min(left, x)
         return -1 if ans == inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSum(nums []int) int {
 	n := len(nums)
@@ -169,8 +155,6 @@ func minimumSum(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSum(nums: number[]): number {
     const n = nums.length;
@@ -189,10 +173,6 @@ function minimumSum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

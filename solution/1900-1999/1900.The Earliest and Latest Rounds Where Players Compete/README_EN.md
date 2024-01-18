@@ -63,9 +63,9 @@ There is no way to make them compete in any other round.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -96,19 +96,8 @@ class Solution:
             return [a, b]
 
         return dp(firstPlayer, n - secondPlayer + 1, n)
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

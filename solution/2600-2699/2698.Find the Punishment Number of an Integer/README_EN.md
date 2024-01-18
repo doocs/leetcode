@@ -48,9 +48,15 @@ Hence, the punishment number of 37 is 1 + 81 + 100 + 1296 = 1478
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Enumeration + DFS
 
-### **Python3**
+We enumerate $i$, where $1 \leq i \leq n$. For each $i$, we split the decimal representation string of $x = i^2$, and then check whether it meets the requirements of the problem. If it does, we add $x$ to the answer.
+
+After the enumeration ends, we return the answer.
+
+The time complexity is $O(n^{1 + 2 \log_{10}^2})$, and the space complexity is $O(\log n)$, where $n$ is the given positive integer.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +81,6 @@ class Solution:
                 ans += x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +114,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func punishmentNumber(n int) (ans int) {
 	var check func(string, int, int) bool
@@ -180,8 +180,6 @@ func punishmentNumber(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function punishmentNumber(n: number): number {
@@ -214,10 +212,6 @@ function punishmentNumber(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

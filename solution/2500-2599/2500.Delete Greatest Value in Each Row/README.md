@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 由于每一次操作都是从每一行中删除最大值，然后取最大值加到答案中，因此我们可以先对每一行进行排序。
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def deleteGreatestValue(self, grid: List[List[int]]) -> int:
@@ -83,10 +77,6 @@ class Solution:
             row.sort()
         return sum(max(col) for col in zip(*grid))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func deleteGreatestValue(grid [][]int) (ans int) {
@@ -147,7 +133,24 @@ func deleteGreatestValue(grid [][]int) (ans int) {
 }
 ```
 
-### **Rust**
+```ts
+function deleteGreatestValue(grid: number[][]): number {
+    for (const row of grid) {
+        row.sort((a, b) => a - b);
+    }
+
+    let ans = 0;
+    for (let j = 0; j < grid[0].length; ++j) {
+        let t = 0;
+        for (let i = 0; i < grid.length; ++i) {
+            t = Math.max(t, grid[i][j]);
+        }
+        ans += t;
+    }
+
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -175,31 +178,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function deleteGreatestValue(grid: number[][]): number {
-    for (const row of grid) {
-        row.sort((a, b) => a - b);
-    }
-
-    let ans = 0;
-    for (let j = 0; j < grid[0].length; ++j) {
-        let t = 0;
-        for (let i = 0; i < grid.length; ++i) {
-            t = Math.max(t, grid[i][j]);
-        }
-        ans += t;
-    }
-
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

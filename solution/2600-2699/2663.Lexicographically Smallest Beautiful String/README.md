@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们可以发现，一个长度为 $2$ 的回文字符串，其相邻两个字符一定相同；而一个长度为 $3$ 的回文字符串，其首尾两个字符一定相同。因此，一个美丽字符串不包含任何长度为 $2$ 或更长的回文子字符串，意味着该字符串的每个字符与其相邻的前两个字符都不相同。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                 return ''.join(cs)
         return ''
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestBeautifulString(s string, k int) string {
 	cs := []byte(s)
@@ -193,8 +179,6 @@ func smallestBeautifulString(s string, k int) string {
 	return ""
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function smallestBeautifulString(s: string, k: number): string {
@@ -225,10 +209,6 @@ function smallestBeautifulString(s: string, k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 import abc
@@ -117,8 +117,6 @@ expTree = obj.buildTree(postfix);
 ans = expTree.evaluate();
 """
 ```
-
-### **Java**
 
 ```java
 /**
@@ -199,8 +197,6 @@ class TreeBuilder {
  */
 ```
 
-### **C++**
-
 ```cpp
 /**
  * This is the interface for the expression tree Node.
@@ -277,10 +273,6 @@ public:
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

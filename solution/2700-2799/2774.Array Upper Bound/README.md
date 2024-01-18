@@ -10,8 +10,6 @@
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
-
 <p><b>示例 1：</b></p>
 
 <pre>
@@ -45,15 +43,15 @@
 	<li><code>nums</code>&nbsp;按升序排序。</li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你能编写一个时间复杂度为 O(log n) 的算法吗？</p>
+
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 declare global {
@@ -81,6 +79,12 @@ Array.prototype.upperBound = function (target: number) {
 // [3,4,6,6,6,6,7].upperBound(6) // 5
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```ts
 declare global {
     interface Array<T> {
@@ -98,3 +102,5 @@ Array.prototype.upperBound = function (target: number) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

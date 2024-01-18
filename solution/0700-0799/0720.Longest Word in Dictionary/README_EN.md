@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
                     ans = w
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,59 +90,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function longestWord(words: string[]): string {
-    words.sort((a, b) => {
-        const n = a.length;
-        const m = b.length;
-        if (n === m) {
-            return a < b ? -1 : 1;
-        }
-        return m - n;
-    });
-    for (const word of words) {
-        let isPass = true;
-        for (let i = 1; i <= word.length; i++) {
-            if (!words.includes(word.slice(0, i))) {
-                isPass = false;
-                break;
-            }
-        }
-        if (isPass) {
-            return word;
-        }
-    }
-    return '';
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn longest_word(mut words: Vec<String>) -> String {
-        words.sort_unstable_by(|a, b| (b.len(), a).cmp(&(a.len(), b)));
-        for word in words.iter() {
-            let mut is_pass = true;
-            for i in 1..=word.len() {
-                if !words.contains(&word[..i].to_string()) {
-                    is_pass = false;
-                    break;
-                }
-            }
-            if is_pass {
-                return word.clone();
-            }
-        }
-        String::new()
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestWord(words []string) string {
@@ -206,10 +149,53 @@ func longestWord(words []string) string {
 }
 ```
 
-### **...**
-
+```ts
+function longestWord(words: string[]): string {
+    words.sort((a, b) => {
+        const n = a.length;
+        const m = b.length;
+        if (n === m) {
+            return a < b ? -1 : 1;
+        }
+        return m - n;
+    });
+    for (const word of words) {
+        let isPass = true;
+        for (let i = 1; i <= word.length; i++) {
+            if (!words.includes(word.slice(0, i))) {
+                isPass = false;
+                break;
+            }
+        }
+        if (isPass) {
+            return word;
+        }
+    }
+    return '';
+}
 ```
 
+```rust
+impl Solution {
+    pub fn longest_word(mut words: Vec<String>) -> String {
+        words.sort_unstable_by(|a, b| (b.len(), a).cmp(&(a.len(), b)));
+        for word in words.iter() {
+            let mut is_pass = true;
+            for i in 1..=word.len() {
+                if !words.contains(&word[..i].to_string()) {
+                    is_pass = false;
+                    break;
+                }
+            }
+            if is_pass {
+                return word.clone();
+            }
+        }
+        String::new()
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

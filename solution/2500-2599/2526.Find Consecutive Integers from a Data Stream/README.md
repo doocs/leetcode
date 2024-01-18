@@ -48,9 +48,7 @@ dataStream.consec(3); // 最后 k 个整数分别是 [4,4,3] 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 维护一个计数器 $cnt$，记录当前连续整数为 `value` 的个数。
 
@@ -59,10 +57,6 @@ dataStream.consec(3); // 最后 k 个整数分别是 [4,4,3] 。
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class DataStream:
@@ -79,10 +73,6 @@ class DataStream:
 # obj = DataStream(value, k)
 # param_1 = obj.consec(num)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class DataStream {
@@ -107,8 +97,6 @@ class DataStream {
  * boolean param_1 = obj.consec(num);
  */
 ```
-
-### **C++**
 
 ```cpp
 class DataStream {
@@ -135,8 +123,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type DataStream struct {
 	val, k, cnt int
@@ -161,8 +147,6 @@ func (this *DataStream) Consec(num int) bool {
  * param_1 := obj.Consec(num);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class DataStream {
@@ -189,10 +173,6 @@ class DataStream {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

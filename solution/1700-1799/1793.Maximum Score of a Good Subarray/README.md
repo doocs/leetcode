@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 我们可以枚举 $nums$ 中的每个元素 $nums[i]$ 作为子数组的最小值，利用单调栈找出其左边第一个小于 $nums[i]$ 的位置 $left[i]$ 和右边第一个小于等于 $nums[i]$ 的位置 $right[i]$，则以 $nums[i]$ 为最小值的子数组的分数为 $nums[i] \times (right[i] - left[i] - 1)$。
 
@@ -51,10 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                 ans = max(ans, v * (right[i] - left[i] - 1))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumScore(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -212,8 +198,6 @@ func maximumScore(nums []int, k int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumScore(nums: number[], k: number): number {
     const n = nums.length;
@@ -249,10 +233,6 @@ function maximumScore(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

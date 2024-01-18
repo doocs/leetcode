@@ -79,13 +79,11 @@ Steps table:
 
 ## Solutions
 
-**Solution 1: Window Functions**
+### Solution 1: Window Functions
 
 We can use the window function `LAG() OVER()` to calculate the difference in days between the current date and the date before the last date for each user. If the difference is $2$, it means that there are continuous data for $3$ days between these two dates. We can use the window function `AVG() OVER()` to calculate the average of these $3$ data.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -121,3 +119,5 @@ ORDER BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

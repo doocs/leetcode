@@ -1,12 +1,11 @@
 class Solution {
     public int findDerangement(int n) {
+        long[] f = new long[n + 1];
+        f[0] = 1;
         final int mod = (int) 1e9 + 7;
-        long a = 1, b = 0;
         for (int i = 2; i <= n; ++i) {
-            long c = (i - 1) * (a + b) % mod;
-            a = b;
-            b = c;
+            f[i] = (i - 1) * (f[i - 1] + f[i - 2]) % mod;
         }
-        return (int) b;
+        return (int) f[n];
     }
 }

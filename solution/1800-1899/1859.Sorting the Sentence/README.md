@@ -47,68 +47,57 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：字符串分割
 
-**方法一：字符串分割**
+我们先将字符串 $s$ 按照空格分割，得到字符串数组 $words$。然后，我们创建一个长度为 $|words|$ 的字符串数组 $ans$，用于存放答案。
 
-先将字符串 `s` 按照空格分割，得到字符串数组 `words`。
+接下来，遍历字符串数组 $words$ 中的每个字符串 $w$，找到 $w$ 的最后一个字符表示的位置 $i$，然后将 $w$ 的前 $|w|-1$ 个字符作为新的字符串 $w'$，将 $w'$ 放在数组 $ans$ 的第 $i$ 个位置。
 
-遍历字符串数组 `words`，提取 `words[i]` 中最后一位字符，将其转换为数字，得到 `words[i][0:len(words[i])-1]` 的实际位置。
+最后，将数组 $ans$ 按照空格连接成字符串，即为答案。
 
-时间复杂度 $O(n)$，其中 $n$ 是字符串长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def sortSentence(self, s: str) -> str:
-        words = s.split()
-        ans = [None] * len(words)
-        for w in words:
-            i = int(w[-1]) - 1
-            ans[i] = w[:-1]
-        return ' '.join(ans)
+        ws = [(w[:-1], int(w[-1])) for w in s.split()]
+        ws.sort(key=lambda x: x[1])
+        return ' '.join(w for w, _ in ws)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
     public String sortSentence(String s) {
-        String[] words = s.split(" ");
-        String[] ans = new String[words.length];
-        for (String w : words) {
-            int i = w.charAt(w.length() - 1) - '1';
-            ans[i] = w.substring(0, w.length() - 1);
+        String[] ws = s.split(" ");
+        int n = ws.length;
+        String[] ans = new String[n];
+        for (int i = 0; i < n; ++i) {
+            String w = ws[i];
+            ans[w.charAt(w.length() - 1) - '1'] = w.substring(0, w.length() - 1);
         }
         return String.join(" ", ans);
     }
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     string sortSentence(string s) {
-        istringstream is(s);
-        string t;
-        vector<string> words;
-        while (is >> t) words.push_back(t);
-        vector<string> res(words.size());
-        for (auto& w : words) {
-            int i = w[w.size() - 1] - '1';
-            res[i] = w.substr(0, w.size() - 1);
+        istringstream iss(s);
+        string w;
+        vector<string> ws;
+        while (iss >> w) {
+            ws.push_back(w);
+        }
+        vector<string> ss(ws.size());
+        for (auto& w : ws) {
+            ss[w.back() - '1'] = w.substr(0, w.size() - 1);
         }
         string ans;
-        for (auto& w : res) {
+        for (auto& w : ss) {
             ans += w + " ";
         }
         ans.pop_back();
@@ -117,21 +106,27 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortSentence(s string) string {
-	words := strings.Split(s, " ")
-	ans := make([]string, len(words))
-	for _, w := range words {
-		i := w[len(w)-1] - '1'
-		ans[i] = w[:len(w)-1]
+	ws := strings.Split(s, " ")
+	ans := make([]string, len(ws))
+	for _, w := range ws {
+		ans[w[len(w)-1]-'1'] = w[:len(w)-1]
 	}
 	return strings.Join(ans, " ")
 }
 ```
 
-### **JavaScript**
+```ts
+function sortSentence(s: string): string {
+    const ws = s.split(' ');
+    const ans = Array(ws.length);
+    for (const w of ws) {
+        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
+    }
+    return ans.join(' ');
+}
+```
 
 ```js
 /**
@@ -139,34 +134,31 @@ func sortSentence(s string) string {
  * @return {string}
  */
 var sortSentence = function (s) {
-    const words = s.split(' ');
-    const ans = new Array(words.length);
-    for (const w of words) {
-        const i = w.charCodeAt(w.length - 1) - '1'.charCodeAt(0);
-        ans[i] = w.slice(0, w.length - 1);
+    const ws = s.split(' ');
+    const ans = Array(ws.length);
+    for (const w of ws) {
+        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
     }
     return ans.join(' ');
 };
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function sortSentence(s: string): string {
-    const words = s.split(' ');
-    const ans = new Array(words.length);
-    for (const w of words) {
-        const i = w.charCodeAt(w.length - 1) - '1'.charCodeAt(0);
-        ans[i] = w.slice(0, w.length - 1);
-    }
-    return ans.join(' ');
-}
-```
+### 方法二
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```python
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        ws = s.split()
+        ans = [None] * len(ws)
+        for w in ws:
+            ans[int(w[-1]) - 1] = w[:-1]
+        return ' '.join(ans)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

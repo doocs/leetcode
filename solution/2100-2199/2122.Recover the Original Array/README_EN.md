@@ -62,9 +62,9 @@ The only possible combination is arr = [220] and k = 215. Using them, we get low
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -93,8 +93,6 @@ class Solution:
                 return ans
         return []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -136,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func recoverArray(nums []int) []int {
@@ -198,16 +192,6 @@ func recoverArray(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

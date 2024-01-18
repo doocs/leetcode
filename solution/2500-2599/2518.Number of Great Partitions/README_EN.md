@@ -48,9 +48,9 @@ The great partitions will be ([6], [6]) and ([6], [6]).
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod
         return (ans - sum(f[-1]) * 2 + mod) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPartitions(nums []int, k int) int {
@@ -176,10 +170,6 @@ func countPartitions(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

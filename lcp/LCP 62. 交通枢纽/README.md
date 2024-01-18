@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：统计入度和出度**
+### 方法一：统计入度和出度
 
 我们创建两个数组 $ind$ 和 $outd$，分别用于记录每个点的入度和出度，用哈希表 $s$ 保存每个节点。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是节点数量以及路径的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 return c
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func transportationHub(path [][]int) int {
 	ind := [1001]int{}
@@ -172,8 +158,6 @@ func transportationHub(path [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function transportationHub(path: number[][]): number {
     const ind: number[] = new Array(1001).fill(0);
@@ -199,10 +183,6 @@ function transportationHub(path: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

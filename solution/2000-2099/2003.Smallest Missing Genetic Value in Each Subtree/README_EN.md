@@ -62,7 +62,7 @@
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We notice that each node has a unique gene value, so we only need to find the node $idx$ with gene value $1$, and all nodes except for those on the path from node $idx$ to the root node $0$ have an answer of $1$.
 
@@ -79,8 +79,6 @@ Finally, we return the answer array $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -118,8 +116,6 @@ class Solution:
             idx = parents[idx]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -174,8 +170,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -223,8 +217,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestMissingValueSubtree(parents []int, nums []int) []int {
 	n := len(nums)
@@ -269,7 +261,47 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 }
 ```
 
-### **Rust**
+```ts
+function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const vis: boolean[] = Array(n).fill(false);
+    const has: boolean[] = Array(n + 2).fill(false);
+    const ans: number[] = Array(n).fill(1);
+    let idx = -1;
+    for (let i = 0; i < n; ++i) {
+        if (i) {
+            g[parents[i]].push(i);
+        }
+        if (nums[i] === 1) {
+            idx = i;
+        }
+    }
+    if (idx === -1) {
+        return ans;
+    }
+    const dfs = (i: number): void => {
+        if (vis[i]) {
+            return;
+        }
+        vis[i] = true;
+        if (nums[i] < has.length) {
+            has[nums[i]] = true;
+        }
+        for (const j of g[i]) {
+            dfs(j);
+        }
+    };
+    for (let i = 2; ~idx; idx = parents[idx]) {
+        dfs(idx);
+        while (has[i]) {
+            ++i;
+        }
+        ans[idx] = i;
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -325,54 +357,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function smallestMissingValueSubtree(parents: number[], nums: number[]): number[] {
-    const n = nums.length;
-    const g: number[][] = Array.from({ length: n }, () => []);
-    const vis: boolean[] = Array(n).fill(false);
-    const has: boolean[] = Array(n + 2).fill(false);
-    const ans: number[] = Array(n).fill(1);
-    let idx = -1;
-    for (let i = 0; i < n; ++i) {
-        if (i) {
-            g[parents[i]].push(i);
-        }
-        if (nums[i] === 1) {
-            idx = i;
-        }
-    }
-    if (idx === -1) {
-        return ans;
-    }
-    const dfs = (i: number): void => {
-        if (vis[i]) {
-            return;
-        }
-        vis[i] = true;
-        if (nums[i] < has.length) {
-            has[nums[i]] = true;
-        }
-        for (const j of g[i]) {
-            dfs(j);
-        }
-    };
-    for (let i = 2; ~idx; idx = parents[idx]) {
-        dfs(idx);
-        while (has[i]) {
-            ++i;
-        }
-        ans[idx] = i;
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

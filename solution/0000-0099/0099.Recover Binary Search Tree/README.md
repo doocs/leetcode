@@ -40,19 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：中序遍历**
+### 方法一：中序遍历
 
 中序遍历二叉搜索树，得到的序列是递增的。如果有两个节点的值被错误地交换，那么中序遍历得到的序列中，一定会出现两个逆序对。我们用 `first` 和 `second` 分别记录这两个逆序对中较小值和较大值的节点，最后交换这两个节点的值即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -83,10 +77,6 @@ class Solution:
         dfs(root)
         first.val, second.val = second.val, first.val
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -169,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -202,7 +188,43 @@ func recoverTree(root *TreeNode) {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {void} Do not return anything, modify root in-place instead.
+ */
+var recoverTree = function (root) {
+    let prev = null;
+    let first = null;
+    let second = null;
+    function dfs(root) {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        if (prev && prev.val > root.val) {
+            if (!first) {
+                first = prev;
+            }
+            second = root;
+        }
+        prev = root;
+        dfs(root.right);
+    }
+    dfs(root);
+    const t = first.val;
+    first.val = second.val;
+    second.val = t;
+};
+```
 
 ```cs
 /**
@@ -245,50 +267,6 @@ public class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {void} Do not return anything, modify root in-place instead.
- */
-var recoverTree = function (root) {
-    let prev = null;
-    let first = null;
-    let second = null;
-    function dfs(root) {
-        if (!root) {
-            return;
-        }
-        dfs(root.left);
-        if (prev && prev.val > root.val) {
-            if (!first) {
-                first = prev;
-            }
-            second = root;
-        }
-        prev = root;
-        dfs(root.right);
-    }
-    dfs(root);
-    const t = first.val;
-    first.val = second.val;
-    second.val = t;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

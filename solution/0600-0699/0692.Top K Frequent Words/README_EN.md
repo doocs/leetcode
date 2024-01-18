@@ -41,9 +41,9 @@ Note that &quot;i&quot; comes before &quot;love&quot; due to a lower alphabetica
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -51,8 +51,6 @@ class Solution:
         cnt = Counter(words)
         return sorted(cnt, key=lambda x: (-cnt[x], x))[:k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func topKFrequent(words []string, k int) []string {
@@ -119,10 +113,6 @@ func topKFrequent(words []string, k int) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -62,11 +62,9 @@
 
 ## Solutions
 
-Union find.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class UnionFind:
@@ -112,8 +110,6 @@ class Solution:
                 ans += not ufb.union(u, v)
         return ans if ufa.cnt == 1 and ufb.cnt == 1 else -1
 ```
-
-### **Java**
 
 ```java
 class UnionFind {
@@ -184,8 +180,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -250,8 +244,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -321,10 +313,6 @@ func maxNumEdgesToRemove(n int, edges [][]int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,9 @@ It can be shown that no other path has less score.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,30 +76,6 @@ class Solution:
         dfs(1)
         return ans
 ```
-
-```python
-class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
-        g = defaultdict(list)
-        for a, b, d in roads:
-            g[a].append((b, d))
-            g[b].append((a, d))
-        vis = [False] * (n + 1)
-        vis[1] = True
-        ans = inf
-        q = deque([1])
-        while q:
-            for _ in range(len(q)):
-                i = q.popleft()
-                for j, d in g[i]:
-                    ans = min(ans, d)
-                    if not vis[j]:
-                        vis[j] = True
-                        q.append(j)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -131,6 +107,167 @@ class Solution {
         }
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minScore(int n, vector<vector<int>>& roads) {
+        vector<vector<pair<int, int>>> g(n);
+        bool vis[n];
+        memset(vis, 0, sizeof vis);
+        for (auto& e : roads) {
+            int a = e[0] - 1, b = e[1] - 1, d = e[2];
+            g[a].emplace_back(b, d);
+            g[b].emplace_back(a, d);
+        }
+        int ans = INT_MAX;
+        function<void(int)> dfs = [&](int i) {
+            for (auto [j, d] : g[i]) {
+                ans = min(ans, d);
+                if (!vis[j]) {
+                    vis[j] = true;
+                    dfs(j);
+                }
+            }
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+```go
+func minScore(n int, roads [][]int) int {
+	type pair struct{ i, v int }
+	g := make([][]pair, n)
+	for _, e := range roads {
+		a, b, d := e[0]-1, e[1]-1, e[2]
+		g[a] = append(g[a], pair{b, d})
+		g[b] = append(g[b], pair{a, d})
+	}
+	vis := make([]bool, n)
+	ans := 1 << 30
+	var dfs func(int)
+	dfs = func(i int) {
+		for _, nxt := range g[i] {
+			j, d := nxt.i, nxt.v
+			ans = min(ans, d)
+			if !vis[j] {
+				vis[j] = true
+				dfs(j)
+			}
+		}
+	}
+	dfs(0)
+	return ans
+}
+```
+
+```ts
+function minScore(n: number, roads: number[][]): number {
+    const vis = new Array(n + 1).fill(false);
+    const g = Array.from({ length: n + 1 }, () => []);
+    for (const [a, b, v] of roads) {
+        g[a].push([b, v]);
+        g[b].push([a, v]);
+    }
+    let ans = Infinity;
+    const dfs = (i: number) => {
+        if (vis[i]) {
+            return;
+        }
+        vis[i] = true;
+        for (const [j, v] of g[i]) {
+            ans = Math.min(ans, v);
+            dfs(j);
+        }
+    };
+    dfs(1);
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    fn dfs(i: usize, mut ans: i32, g: &Vec<Vec<(usize, i32)>>, vis: &mut Vec<bool>) -> i32 {
+        if vis[i] {
+            return ans;
+        }
+        vis[i] = true;
+        for (j, v) in g[i].iter() {
+            ans = ans.min(*v.min(&Self::dfs(*j, ans, g, vis)));
+        }
+        ans
+    }
+
+    pub fn min_score(n: i32, roads: Vec<Vec<i32>>) -> i32 {
+        let n = n as usize;
+        let mut vis = vec![false; n + 1];
+        let mut g = vec![Vec::new(); n + 1];
+        for road in roads.iter() {
+            let a = road[0] as usize;
+            let b = road[1] as usize;
+            let v = road[2];
+            g[a].push((b, v));
+            g[b].push((a, v));
+        }
+        Self::dfs(1, i32::MAX, &g, &mut vis)
+    }
+}
+```
+
+```js
+var minScore = function (n, roads) {
+    // 构建点到点的映射表
+    const graph = Array.from({ length: n + 1 }, () => new Map());
+    for (let [u, v, w] of roads) {
+        graph[u].set(v, w);
+        graph[v].set(u, w);
+    }
+
+    // DFS
+    const vis = new Array(n).fill(false);
+    let ans = Infinity;
+    var dfs = function (u) {
+        vis[u] = true;
+        for (const [v, w] of graph[u]) {
+            ans = Math.min(ans, w);
+            if (!vis[v]) dfs(v);
+        }
+    };
+    dfs(1);
+
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minScore(self, n: int, roads: List[List[int]]) -> int:
+        g = defaultdict(list)
+        for a, b, d in roads:
+            g[a].append((b, d))
+            g[b].append((a, d))
+        vis = [False] * (n + 1)
+        vis[1] = True
+        ans = inf
+        q = deque([1])
+        while q:
+            for _ in range(len(q)):
+                i = q.popleft()
+                for j, d in g[i]:
+                    ans = min(ans, d)
+                    if not vis[j]:
+                        vis[j] = True
+                        q.append(j)
+        return ans
 ```
 
 ```java
@@ -166,36 +303,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minScore(int n, vector<vector<int>>& roads) {
-        vector<vector<pair<int, int>>> g(n);
-        bool vis[n];
-        memset(vis, 0, sizeof vis);
-        for (auto& e : roads) {
-            int a = e[0] - 1, b = e[1] - 1, d = e[2];
-            g[a].emplace_back(b, d);
-            g[b].emplace_back(a, d);
-        }
-        int ans = INT_MAX;
-        function<void(int)> dfs = [&](int i) {
-            for (auto [j, d] : g[i]) {
-                ans = min(ans, d);
-                if (!vis[j]) {
-                    vis[j] = true;
-                    dfs(j);
-                }
-            }
-        };
-        dfs(0);
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -229,35 +336,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func minScore(n int, roads [][]int) int {
-	type pair struct{ i, v int }
-	g := make([][]pair, n)
-	for _, e := range roads {
-		a, b, d := e[0]-1, e[1]-1, e[2]
-		g[a] = append(g[a], pair{b, d})
-		g[b] = append(g[b], pair{a, d})
-	}
-	vis := make([]bool, n)
-	ans := 1 << 30
-	var dfs func(int)
-	dfs = func(i int) {
-		for _, nxt := range g[i] {
-			j, d := nxt.i, nxt.v
-			ans = min(ans, d)
-			if !vis[j] {
-				vis[j] = true
-				dfs(j)
-			}
-		}
-	}
-	dfs(0)
-	return ans
-}
-```
-
 ```go
 func minScore(n int, roads [][]int) int {
 	type pair struct{ i, v int }
@@ -289,94 +367,6 @@ func minScore(n int, roads [][]int) int {
 }
 ```
 
-### **JavaScript**
-
-```js
-var minScore = function (n, roads) {
-    // 构建点到点的映射表
-    const graph = Array.from({ length: n + 1 }, () => new Map());
-    for (let [u, v, w] of roads) {
-        graph[u].set(v, w);
-        graph[v].set(u, w);
-    }
-
-    // DFS
-    const vis = new Array(n).fill(false);
-    let ans = Infinity;
-    var dfs = function (u) {
-        vis[u] = true;
-        for (const [v, w] of graph[u]) {
-            ans = Math.min(ans, w);
-            if (!vis[v]) dfs(v);
-        }
-    };
-    dfs(1);
-
-    return ans;
-};
-```
-
-### **TypeScript**
-
-```ts
-function minScore(n: number, roads: number[][]): number {
-    const vis = new Array(n + 1).fill(false);
-    const g = Array.from({ length: n + 1 }, () => []);
-    for (const [a, b, v] of roads) {
-        g[a].push([b, v]);
-        g[b].push([a, v]);
-    }
-    let ans = Infinity;
-    const dfs = (i: number) => {
-        if (vis[i]) {
-            return;
-        }
-        vis[i] = true;
-        for (const [j, v] of g[i]) {
-            ans = Math.min(ans, v);
-            dfs(j);
-        }
-    };
-    dfs(1);
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    fn dfs(i: usize, mut ans: i32, g: &Vec<Vec<(usize, i32)>>, vis: &mut Vec<bool>) -> i32 {
-        if vis[i] {
-            return ans;
-        }
-        vis[i] = true;
-        for (j, v) in g[i].iter() {
-            ans = ans.min(*v.min(&Self::dfs(*j, ans, g, vis)));
-        }
-        ans
-    }
-
-    pub fn min_score(n: i32, roads: Vec<Vec<i32>>) -> i32 {
-        let n = n as usize;
-        let mut vis = vec![false; n + 1];
-        let mut g = vec![Vec::new(); n + 1];
-        for road in roads.iter() {
-            let a = road[0] as usize;
-            let b = road[1] as usize;
-            let v = road[2];
-            g[a].push((b, v));
-            g[b].push((a, v));
-        }
-        Self::dfs(1, i32::MAX, &g, &mut vis)
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

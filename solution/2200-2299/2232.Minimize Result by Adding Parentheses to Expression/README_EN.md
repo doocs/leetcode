@@ -52,9 +52,9 @@ It can be shown that 170 is the smallest possible value.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                     ans = f"{l[:i]}({l[i:]}+{r[: j + 1]}){r[j + 1:]}"
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimizeResult(expression: string): string {
@@ -134,10 +130,6 @@ function getNum(arr: Array<string>): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

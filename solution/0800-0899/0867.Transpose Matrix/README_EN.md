@@ -38,17 +38,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
         return list(zip(*matrix))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +63,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -81,8 +77,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func transpose(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
@@ -96,8 +90,6 @@ func transpose(matrix [][]int) [][]int {
 	return ans
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -117,10 +109,6 @@ var transpose = function (matrix) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以先统计出公交车的总行驶距离 $s$，然后模拟公交车的行驶过程，从出发点开始，每次向右移动一站，直到到达目的地为止。在模拟的过程中，我们可以记录从出发点到目的地的距离 $a$，那么从目的地到出发点的最短距离就是 $\min(a, s - a)$。
 
 时间复杂度 $O(n)$，其中 $n$ 是公交车站的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             start = (start + 1) % n
         return min(a, sum(distance) - a)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
@@ -136,7 +122,18 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
+    const s = distance.reduce((a, b) => a + b, 0);
+    let a = 0;
+    const n = distance.length;
+    while (start != destination) {
+        a += distance[start];
+        start = (start + 1) % n;
+    }
+    return Math.min(a, s - a);
+}
+```
 
 ```js
 /**
@@ -157,25 +154,6 @@ var distanceBetweenBusStops = function (distance, start, destination) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
-    const s = distance.reduce((a, b) => a + b, 0);
-    let a = 0;
-    const n = distance.length;
-    while (start != destination) {
-        a += distance[start];
-        start = (start + 1) % n;
-    }
-    return Math.min(a, s - a);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

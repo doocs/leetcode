@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 题目求的是蛇从起始位置到达目标位置的最少移动次数，我们考虑使用广度优先搜索 $BFS$ 来求解。
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是二维迷宫的行数或列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -126,10 +120,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -185,8 +175,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -241,8 +229,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumMoves(grid [][]int) int {
 	n := len(grid)
@@ -296,8 +282,6 @@ func minimumMoves(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumMoves(grid: number[][]): number {
     const n = grid.length;
@@ -345,8 +329,6 @@ function minimumMoves(grid: number[][]): number {
     return -1;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -400,10 +382,6 @@ var minimumMoves = function (grid) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

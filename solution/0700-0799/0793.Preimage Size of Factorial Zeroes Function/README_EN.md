@@ -45,11 +45,9 @@
 
 ## Solutions
 
-Binary search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
 
         return g(k + 1) - g(k)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func preimageSizeFZF(k int) int {
 	f := func(x int) int {
@@ -158,10 +150,6 @@ func preimageSizeFZF(k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

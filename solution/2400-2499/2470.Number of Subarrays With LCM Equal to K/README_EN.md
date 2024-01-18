@@ -41,9 +41,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Enumeration
 
-### **Python3**
+Enumerate each number as the first number of the subarray, and then enumerate each number as the last number of the subarray. Calculate the least common multiple of this subarray. If the least common multiple equals $k$, then increment the answer by one.
+
+The time complexity is $O(n^2)$. Here, $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +62,6 @@ class Solution:
                 a = x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -111,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func subarrayLCM(nums []int, k int) (ans int) {
@@ -140,16 +138,6 @@ func lcm(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

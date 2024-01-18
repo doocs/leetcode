@@ -53,9 +53,9 @@ Teams table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -67,3 +67,5 @@ WHERE t1.team_name != t2.team_name;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

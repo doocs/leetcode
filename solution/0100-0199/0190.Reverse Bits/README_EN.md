@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
             n >>= 1
         return res
 ```
-
-### **Java**
 
 ```java
 public class Solution {
@@ -72,8 +70,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -88,24 +84,16 @@ public:
 };
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} n - a positive integer
- * @return {number} - a positive integer
- */
-var reverseBits = function (n) {
-    let res = 0;
-    for (let i = 0; i < 32 && n > 0; ++i) {
-        res |= (n & 1) << (31 - i);
-        n >>>= 1;
-    }
-    return res >>> 0;
-};
+```go
+func reverseBits(num uint32) uint32 {
+	var ans uint32 = 0
+	for i := 0; i < 32; i++ {
+		ans |= (num & 1) << (31 - i)
+		num >>= 1
+	}
+	return ans
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -120,23 +108,22 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func reverseBits(num uint32) uint32 {
-	var ans uint32 = 0
-	for i := 0; i < 32; i++ {
-		ans |= (num & 1) << (31 - i)
-		num >>= 1
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
+```js
+/**
+ * @param {number} n - a positive integer
+ * @return {number} - a positive integer
+ */
+var reverseBits = function (n) {
+    let res = 0;
+    for (let i = 0; i < 32 && n > 0; ++i) {
+        res |= (n & 1) << (31 - i);
+        n >>>= 1;
+    }
+    // 无符号右移
+    return res >>> 0;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

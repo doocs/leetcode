@@ -47,15 +47,15 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Two Pointers**
+### Solution 1: Greedy + Two Pointers
 
-We use two pointers $i$ and $j$ to point to the beginning and end of the string, initially $i=0,j=n-1$, where $n$ is the length of the string. Each time we compare $s[i]$ and $s[j]$, if they are not the same, we modify the larger character to the smaller one to make them the same. After the modification, the original string $s$ becomes a palindrome.
+We use two pointers $i$ and $j$ to point to the beginning and end of the string, initially $i = 0$, $j = n - 1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string. We only need to traverse the string once. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+Next, each time we greedily modify $s[i]$ and $s[j]$ to their smaller value to make them equal. Then we move $i$ one step forward and $j$ one step backward, and continue this process until $i \ge j$. At this point, we have obtained the smallest palindrome string.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
@@ -109,19 +103,15 @@ func makeSmallestPalindrome(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
     for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
-        cs[i] = cs[j] = String.fromCharCode(Math.min(cs[i].charCodeAt(0), cs[j].charCodeAt(0)));
+        cs[i] = cs[j] = s[i] < s[j] ? s[i] : s[j];
     }
     return cs.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -138,10 +128,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

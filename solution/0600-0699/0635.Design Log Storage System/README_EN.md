@@ -54,9 +54,9 @@ logSystem.retrieve(&quot;2016:01:01:01:01:01&quot;, &quot;2017:01:01:23:00:00&qu
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class LogSystem:
@@ -84,8 +84,6 @@ class LogSystem:
 # obj.put(id,timestamp)
 # param_2 = obj.retrieve(start,end,granularity)
 ```
-
-### **Java**
 
 ```java
 class LogSystem {
@@ -138,8 +136,6 @@ class Log {
  */
 ```
 
-### **C++**
-
 ```cpp
 class LogSystem {
 public:
@@ -182,8 +178,6 @@ private:
  * vector<int> param_2 = obj->retrieve(start,end,granularity);
  */
 ```
-
-### **Go**
 
 ```go
 type LogSystem struct {
@@ -232,10 +226,6 @@ type pair struct {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

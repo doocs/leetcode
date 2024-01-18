@@ -59,9 +59,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 HOLE, MOUSE_START, CAT_START = 0, 1, 2
@@ -121,8 +121,6 @@ class Solution:
                             q.append(prev_state)
         return res[MOUSE_START][CAT_START][MOUSE_TURN]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -208,8 +206,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 const int HOLE = 0;
 const int MOUSE_START = 1;
@@ -287,8 +283,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 const (
@@ -369,10 +363,6 @@ func catMouseGame(graph [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

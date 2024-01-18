@@ -55,7 +55,7 @@ So the total number of operations for the second query is 2 + 4 + 1 + 3 = 10.
 
 ## Solutions
 
-**Solution 1: sort + prefix sum + binary search**
+### Solution 1: sort + prefix sum + binary search
 
 First, we sort the array $nums$ and calculate the prefix sum array $s$ with a length of $n+1$, where $s[i]$ represents the sum of the first $i$ elements in the array $nums$.
 
@@ -71,8 +71,6 @@ Time complexity $O(n \times \log n)$, space complexity $O(n)$, where $n$ is the 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minOperations(self, nums: List[int], queries: List[int]) -> List[int]:
@@ -87,8 +85,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums []int, queries []int) (ans []int64) {
 	sort.Ints(nums)
@@ -170,8 +162,6 @@ func minOperations(nums []int, queries []int) (ans []int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(nums: number[], queries: number[]): number[] {
@@ -206,10 +196,6 @@ function minOperations(nums: number[], queries: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

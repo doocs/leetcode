@@ -52,9 +52,9 @@ The relative ordering of the elements less than and greater than pivot is also m
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
                 c.append(x)
         return a + b + c
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func pivotArray(nums []int, pivot int) []int {
@@ -140,16 +134,6 @@ func pivotArray(nums []int, pivot int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

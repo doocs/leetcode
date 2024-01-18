@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分治**
+### 方法一：分治
 
 对于字符串 $s$，如果存在某个字符 $c$，其出现次数小于 $k$，则任何包含 $c$ 的子串都不可能满足题目要求。因此我们可以将 $s$ 按照每个不满足条件的字符 $c$ 进行分割，分割得到的每个子串都是原字符串的一个「子问题」，我们可以递归地求解每个子问题，最终的答案即为所有子问题的最大值。
 
 时间复杂度 $O(n \times C)$，空间复杂度 $O(C^2)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集的大小。本题中 $C \leq 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
 
         return dfs(0, len(s) - 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSubstring(s string, k int) int {
 	var dfs func(l, r int) int
@@ -219,10 +205,6 @@ func longestSubstring(s string, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

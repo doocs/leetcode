@@ -23,9 +23,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归 + 位运算**
+### 方法一：递归 + 位运算
 
 我们先判断 $B$ 是否为 $1$，如果是，那么直接返回 $A$。
 
@@ -34,10 +32,6 @@
 时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是 $B$ 的大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -48,10 +42,6 @@ class Solution:
             return (self.multiply(A, B >> 1) << 1) + A
         return self.multiply(A, B >> 1) << 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -66,8 +56,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -84,8 +72,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func multiply(A int, B int) int {
 	if B == 1 {
@@ -98,8 +84,6 @@ func multiply(A int, B int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function multiply(A: number, B: number): number {
     if (B === 1) {
@@ -111,8 +95,6 @@ function multiply(A: number, B: number): number {
     return multiply(A, B >> 1) << 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -128,10 +110,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

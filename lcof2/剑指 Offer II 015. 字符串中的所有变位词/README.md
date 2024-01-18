@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 不妨记字符串 $s$ 的长度为 $m$，字符串 $p$ 的长度为 $n$。
 
@@ -60,17 +58,7 @@
 
 时间复杂度 $(m + n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
 
-**方法二：滑动窗口优化**
-
-在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $n$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。
-
-时间复杂度 $O(m + n + |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,6 +78,129 @@ class Solution:
                 ans.append(i - n + 1)
         return ans
 ```
+
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+        List<Integer> ans = new ArrayList<>();
+        if (m < n) {
+            return ans;
+        }
+        int[] cnt1 = new int[26];
+        int[] cnt2 = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[s.charAt(i) - 'a'];
+            ++cnt2[p.charAt(i) - 'a'];
+        }
+        if (Arrays.equals(cnt1, cnt2)) {
+            ans.add(0);
+        }
+        for (int i = n; i < m; ++i) {
+            ++cnt1[s.charAt(i) - 'a'];
+            --cnt1[s.charAt(i - n) - 'a'];
+            if (Arrays.equals(cnt1, cnt2)) {
+                ans.add(i - n + 1);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int m = s.size();
+        int n = p.size();
+        vector<int> ans;
+        if (m < n) {
+            return ans;
+        }
+        vector<int> cnt1(26), cnt2(26);
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[s[i] - 'a'];
+            ++cnt2[p[i] - 'a'];
+        }
+        if (cnt1 == cnt2) {
+            ans.push_back(0);
+        }
+        for (int i = n; i < m; ++i) {
+            ++cnt1[s[i] - 'a'];
+            --cnt1[s[i - n] - 'a'];
+            if (cnt1 == cnt2) {
+                ans.push_back(i - n + 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findAnagrams(s string, p string) (ans []int) {
+	m, n := len(s), len(p)
+	if m < n {
+		return
+	}
+	var cnt1, cnt2 [26]int
+	for i, ch := range p {
+		cnt1[s[i]-'a']++
+		cnt2[ch-'a']++
+	}
+	if cnt1 == cnt2 {
+		ans = append(ans, 0)
+	}
+	for i := n; i < m; i++ {
+		cnt1[s[i]-'a']++
+		cnt1[s[i-n]-'a']--
+		if cnt1 == cnt2 {
+			ans = append(ans, i-n+1)
+		}
+	}
+	return
+}
+```
+
+```ts
+function findAnagrams(s: string, p: string): number[] {
+    const m = s.length;
+    const n = p.length;
+    const ans: number[] = [];
+    if (m < n) {
+        return ans;
+    }
+    const cnt1: number[] = new Array(26).fill(0);
+    const cnt2: number[] = new Array(26).fill(0);
+    for (let i = 0; i < n; ++i) {
+        ++cnt1[s[i].charCodeAt(0) - 'a'.charCodeAt(0)];
+        ++cnt2[p[i].charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    if (cnt1.toString() === cnt2.toString()) {
+        ans.push(0);
+    }
+    for (let i = n; i < m; ++i) {
+        ++cnt1[s[i].charCodeAt(0) - 'a'.charCodeAt(0)];
+        --cnt1[s[i - n].charCodeAt(0) - 'a'.charCodeAt(0)];
+        if (cnt1.toString() === cnt2.toString()) {
+            ans.push(i - n + 1);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：滑动窗口优化
+
+在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $n$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。
+
+时间复杂度 $O(m + n + |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $p$ 的长度；而 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma|=26$。
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -120,40 +231,6 @@ class Solution:
             if diff == 0:
                 ans.append(i - n + 1)
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public List<Integer> findAnagrams(String s, String p) {
-        int m = s.length();
-        int n = p.length();
-        List<Integer> ans = new ArrayList<>();
-        if (m < n) {
-            return ans;
-        }
-        int[] cnt1 = new int[26];
-        int[] cnt2 = new int[26];
-        for (int i = 0; i < n; ++i) {
-            ++cnt1[s.charAt(i) - 'a'];
-            ++cnt2[p.charAt(i) - 'a'];
-        }
-        if (Arrays.equals(cnt1, cnt2)) {
-            ans.add(0);
-        }
-        for (int i = n; i < m; ++i) {
-            ++cnt1[s.charAt(i) - 'a'];
-            --cnt1[s.charAt(i - n) - 'a'];
-            if (Arrays.equals(cnt1, cnt2)) {
-                ans.add(i - n + 1);
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -205,38 +282,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> findAnagrams(string s, string p) {
-        int m = s.size();
-        int n = p.size();
-        vector<int> ans;
-        if (m < n) {
-            return ans;
-        }
-        vector<int> cnt1(26), cnt2(26);
-        for (int i = 0; i < n; ++i) {
-            ++cnt1[s[i] - 'a'];
-            ++cnt2[p[i] - 'a'];
-        }
-        if (cnt1 == cnt2) {
-            ans.push_back(0);
-        }
-        for (int i = n; i < m; ++i) {
-            ++cnt1[s[i] - 'a'];
-            --cnt1[s[i - n] - 'a'];
-            if (cnt1 == cnt2) {
-                ans.push_back(i - n + 1);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -286,33 +331,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findAnagrams(s string, p string) (ans []int) {
-	m, n := len(s), len(p)
-	if m < n {
-		return
-	}
-	var cnt1, cnt2 [26]int
-	for i, ch := range p {
-		cnt1[s[i]-'a']++
-		cnt2[ch-'a']++
-	}
-	if cnt1 == cnt2 {
-		ans = append(ans, 0)
-	}
-	for i := n; i < m; i++ {
-		cnt1[s[i]-'a']++
-		cnt1[s[i-n]-'a']--
-		if cnt1 == cnt2 {
-			ans = append(ans, i-n+1)
-		}
-	}
-	return
-}
-```
-
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -354,36 +372,6 @@ func findAnagrams(s string, p string) (ans []int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function findAnagrams(s: string, p: string): number[] {
-    const m = s.length;
-    const n = p.length;
-    const ans: number[] = [];
-    if (m < n) {
-        return ans;
-    }
-    const cnt1: number[] = new Array(26).fill(0);
-    const cnt2: number[] = new Array(26).fill(0);
-    for (let i = 0; i < n; ++i) {
-        ++cnt1[s[i].charCodeAt(0) - 'a'.charCodeAt(0)];
-        ++cnt2[p[i].charCodeAt(0) - 'a'.charCodeAt(0)];
-    }
-    if (cnt1.toString() === cnt2.toString()) {
-        ans.push(0);
-    }
-    for (let i = n; i < m; ++i) {
-        ++cnt1[s[i].charCodeAt(0) - 'a'.charCodeAt(0)];
-        --cnt1[s[i - n].charCodeAt(0) - 'a'.charCodeAt(0)];
-        if (cnt1.toString() === cnt2.toString()) {
-            ans.push(i - n + 1);
-        }
-    }
-    return ans;
 }
 ```
 
@@ -432,10 +420,6 @@ function findAnagrams(s: string, p: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

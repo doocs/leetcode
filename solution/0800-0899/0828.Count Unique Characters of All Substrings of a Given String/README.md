@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计算每个字符的贡献**
+### 方法一：计算每个字符的贡献
 
 对于字符串 $s$ 的每个字符 $c_i$，当它在某个子字符串中仅出现一次时，它会对这个子字符串统计唯一字符时有贡献。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func uniqueLetterString(s string) (ans int) {
 	d := make([][]int, 26)
@@ -156,8 +142,6 @@ func uniqueLetterString(s string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function uniqueLetterString(s: string): number {
     const d: number[][] = Array.from({ length: 26 }, () => [-1]);
@@ -175,8 +159,6 @@ function uniqueLetterString(s: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -197,10 +179,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

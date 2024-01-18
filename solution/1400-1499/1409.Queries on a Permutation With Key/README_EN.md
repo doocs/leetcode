@@ -52,9 +52,9 @@ Therefore, the array containing the result is [2,1,2,1].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,6 +68,79 @@ class Solution:
             p.insert(0, v)
         return ans
 ```
+
+```java
+class Solution {
+    public int[] processQueries(int[] queries, int m) {
+        List<Integer> p = new LinkedList<>();
+        for (int i = 1; i <= m; ++i) {
+            p.add(i);
+        }
+        int[] ans = new int[queries.length];
+        int i = 0;
+        for (int v : queries) {
+            int j = p.indexOf(v);
+            ans[i++] = j;
+            p.remove(j);
+            p.add(0, v);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> processQueries(vector<int>& queries, int m) {
+        vector<int> p(m);
+        iota(p.begin(), p.end(), 1);
+        vector<int> ans;
+        for (int v : queries) {
+            int j = 0;
+            for (int i = 0; i < m; ++i) {
+                if (p[i] == v) {
+                    j = i;
+                    break;
+                }
+            }
+            ans.push_back(j);
+            p.erase(p.begin() + j);
+            p.insert(p.begin(), v);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func processQueries(queries []int, m int) []int {
+	p := make([]int, m)
+	for i := range p {
+		p[i] = i + 1
+	}
+	ans := []int{}
+	for _, v := range queries {
+		j := 0
+		for i := range p {
+			if p[i] == v {
+				j = i
+				break
+			}
+		}
+		ans = append(ans, j)
+		p = append(p[:j], p[j+1:]...)
+		p = append([]int{v}, p...)
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -109,28 +182,6 @@ class Solution:
             pos[v] = n - i
             tree.update(n - i, 1)
         return ans
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int[] processQueries(int[] queries, int m) {
-        List<Integer> p = new LinkedList<>();
-        for (int i = 1; i <= m; ++i) {
-            p.add(i);
-        }
-        int[] ans = new int[queries.length];
-        int i = 0;
-        for (int v : queries) {
-            int j = p.indexOf(v);
-            ans[i++] = j;
-            p.remove(j);
-            p.add(0, v);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -188,32 +239,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> processQueries(vector<int>& queries, int m) {
-        vector<int> p(m);
-        iota(p.begin(), p.end(), 1);
-        vector<int> ans;
-        for (int v : queries) {
-            int j = 0;
-            for (int i = 0; i < m; ++i) {
-                if (p[i] == v) {
-                    j = i;
-                    break;
-                }
-            }
-            ans.push_back(j);
-            p.erase(p.begin() + j);
-            p.insert(p.begin(), v);
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -269,31 +294,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func processQueries(queries []int, m int) []int {
-	p := make([]int, m)
-	for i := range p {
-		p[i] = i + 1
-	}
-	ans := []int{}
-	for _, v := range queries {
-		j := 0
-		for i := range p {
-			if p[i] == v {
-				j = i
-				break
-			}
-		}
-		ans = append(ans, j)
-		p = append(p[:j], p[j+1:]...)
-		p = append([]int{v}, p...)
-	}
-	return ans
-}
-```
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -345,10 +345,6 @@ func processQueries(queries []int, m int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

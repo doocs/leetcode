@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分情况讨论**
+### 方法一：分情况讨论
 
 首先，我们判断字符串是否以正负号开头，如果是，将指针 $i$ 向后移动一位。如果此时指针 $i$ 已经到达字符串末尾，说明字符串只有一个正负号，返回 `false`。
 
@@ -91,13 +89,9 @@
 
 遍历完字符串后，返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -130,10 +124,6 @@ class Solution:
             j += 1
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -176,8 +166,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -205,8 +193,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isNumber(s string) bool {
@@ -246,7 +232,65 @@ func isNumber(s string) bool {
 }
 ```
 
-### **C#**
+```rust
+impl Solution {
+    pub fn is_number(s: String) -> bool {
+        let mut i = 0;
+        let n = s.len();
+
+        if let Some(c) = s.chars().nth(i) {
+            if c == '+' || c == '-' {
+                i += 1;
+                if i == n {
+                    return false;
+                }
+            }
+        }
+        if let Some(x) = s.chars().nth(i) {
+            if
+                x == '.' &&
+                (i + 1 == n ||
+                    (if let Some(m) = s.chars().nth(i + 1) { m == 'e' || m == 'E' } else { false }))
+            {
+                return false;
+            }
+        }
+
+        let mut dot = 0;
+        let mut e = 0;
+        let mut j = i;
+
+        while j < n {
+            if let Some(c) = s.chars().nth(j) {
+                if c == '.' {
+                    if e > 0 || dot > 0 {
+                        return false;
+                    }
+                    dot += 1;
+                } else if c == 'e' || c == 'E' {
+                    if e > 0 || j == i || j == n - 1 {
+                        return false;
+                    }
+                    e += 1;
+                    if let Some(x) = s.chars().nth(j + 1) {
+                        if x == '+' || x == '-' {
+                            j += 1;
+                            if j == n - 1 {
+                                return false;
+                            }
+                        }
+                    }
+                } else if !c.is_ascii_digit() {
+                    return false;
+                }
+            }
+            j += 1;
+        }
+
+        true
+    }
+}
+```
 
 ```cs
 using System.Text.RegularExpressions;
@@ -260,10 +304,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

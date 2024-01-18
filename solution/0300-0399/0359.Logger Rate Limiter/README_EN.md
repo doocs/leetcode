@@ -47,9 +47,9 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Logger:
@@ -76,8 +76,6 @@ class Logger:
 # obj = Logger()
 # param_1 = obj.shouldPrintMessage(timestamp,message)
 ```
-
-### **Java**
 
 ```java
 class Logger {
@@ -111,8 +109,6 @@ class Logger {
  */
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Initialize your data structure here.
@@ -145,10 +141,6 @@ Logger.prototype.shouldPrintMessage = function (timestamp, message) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -50,13 +50,9 @@ Users table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-MySQL
 
 ```sql
 SELECT
@@ -68,7 +64,11 @@ ORDER BY
     user_id;
 ```
 
-SQL Server
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -84,3 +84,5 @@ ORDER BY
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

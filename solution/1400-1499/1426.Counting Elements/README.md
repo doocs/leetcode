@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以用一个哈希表或数组 $cnt$ 记录数组 $arr$ 中的每个数出现的次数，然后遍历 $cnt$ 中的每个数 $x$，如果 $x+1$ 也在 $cnt$ 中，那么就将 $cnt[x]$ 加到答案中。
 
@@ -48,20 +46,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def countElements(self, arr: List[int]) -> int:
         cnt = Counter(arr)
         return sum(v for x, v in cnt.items() if cnt[x + 1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countElements(arr []int) (ans int) {
 	mx := slices.Max(arr)
@@ -119,8 +105,6 @@ func countElements(arr []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countElements(arr: number[]): number {
@@ -139,7 +123,22 @@ function countElements(arr: number[]): number {
 }
 ```
 
-### **JavaScript**
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn count_elements(arr: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        for &num in &arr {
+            *cnt.entry(num).or_insert(0) += 1;
+        }
+        cnt.iter()
+            .filter(|(&x, _)| cnt.contains_key(&(x + 1)))
+            .map(|(_, &v)| v)
+            .sum()
+    }
+}
+```
 
 ```js
 /**
@@ -162,27 +161,6 @@ var countElements = function (arr) {
 };
 ```
 
-### **Rust**
-
-```rust
-use std::collections::HashMap;
-
-impl Solution {
-    pub fn count_elements(arr: Vec<i32>) -> i32 {
-        let mut cnt = HashMap::new();
-        for &num in &arr {
-            *cnt.entry(num).or_insert(0) += 1;
-        }
-        cnt.iter()
-            .filter(|(&x, _)| cnt.contains_key(&(x + 1)))
-            .map(|(_, &v)| v)
-            .sum()
-    }
-}
-```
-
-### **PHP**
-
 ```php
 class Solution {
     /**
@@ -202,10 +180,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

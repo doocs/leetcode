@@ -60,9 +60,9 @@ The total waste is (5-3) + (5-5) + (10-8) + (10-10) + (14-11) + (14-12) = 9.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -84,8 +84,6 @@ class Solution:
             return -1
         return (ans - sum(packages)) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +132,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minWastedSpace(packages []int, boxes [][]int) int {
@@ -196,8 +190,6 @@ func minWastedSpace(packages []int, boxes [][]int) int {
 	return (ans - s) % mod
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minWastedSpace(packages: number[], boxes: number[][]): number {
@@ -240,10 +232,6 @@ function search(nums: number[], x: number, l: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

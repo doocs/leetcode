@@ -49,9 +49,9 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Twitter:
@@ -105,8 +105,6 @@ class Twitter:
 # obj.follow(followerId,followeeId)
 # obj.unfollow(followerId,followeeId)
 ```
-
-### **Java**
 
 ```java
 class Twitter {
@@ -176,10 +174,6 @@ class Twitter {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

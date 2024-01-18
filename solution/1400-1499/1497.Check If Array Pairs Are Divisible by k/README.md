@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：统计余数**
+### 方法一：统计余数
 
 两个数 $a$ 和 $b$ 的和能被 $k$ 整除，当且仅当这两个数分别对 $k$ 取模的结果之和能被 $k$ 整除。
 
@@ -64,20 +62,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canArrange(self, arr: List[int], k: int) -> bool:
         cnt = Counter(x % k for x in arr)
         return cnt[0] % 2 == 0 and all(cnt[i] == cnt[k - i] for i in range(1, k))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canArrange(arr []int, k int) bool {
 	cnt := make([]int, k)
@@ -133,10 +119,6 @@ func canArrange(arr []int, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

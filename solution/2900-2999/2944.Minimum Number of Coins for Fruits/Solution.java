@@ -11,8 +11,8 @@ class Solution {
     }
 
     private int dfs(int i) {
-        if (i > n) {
-            return 0;
+        if (i * 2 >= n) {
+            return prices[i - 1];
         }
         if (f[i] == 0) {
             f[i] = 1 << 30;

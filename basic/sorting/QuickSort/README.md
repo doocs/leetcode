@@ -66,8 +66,6 @@ void quickSort(int[] nums, int left, int right) {
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 N = int(input())
 nums = list(map(int, input().split()))
@@ -96,8 +94,6 @@ def quick_sort(nums, left, right):
 quick_sort(nums, 0, N - 1)
 print(' '.join(list(map(str, nums))))
 ```
-
-### **Java**
 
 ```java
 import java.util.Scanner;
@@ -139,56 +135,39 @@ public class Main {
 }
 ```
 
-### **JavaScript**
+```cpp
+#include <iostream>
 
-```js
-var buf = '';
+using namespace std;
 
-process.stdin.on('readable', function () {
-    var chunk = process.stdin.read();
-    if (chunk) buf += chunk.toString();
-});
+const int N = 1e6 + 10;
 
-let getInputArgs = line => {
-    return line
-        .split(' ')
-        .filter(s => s !== '')
-        .map(x => parseInt(x));
-};
+int n;
+int nums[N];
 
-function quickSort(nums, left, right) {
-    if (left >= right) {
-        return;
-    }
-
-    let i = left - 1;
-    let j = right + 1;
-    let x = nums[(left + right) >> 1];
+void quick_sort(int nums[], int left, int right) {
+    if (left >= right) return;
+    int i = left - 1, j = right + 1;
+    int x = nums[left + right >> 1];
     while (i < j) {
-        while (nums[++i] < x);
-        while (nums[--j] > x);
-        if (i < j) {
-            const t = nums[i];
-            nums[i] = nums[j];
-            nums[j] = t;
-        }
+        while (nums[++i] < x)
+            ;
+        while (nums[--j] > x)
+            ;
+        if (i < j) swap(nums[i], nums[j]);
     }
-    quickSort(nums, left, j);
-    quickSort(nums, j + 1, right);
+    quick_sort(nums, left, j);
+    quick_sort(nums, j + 1, right);
 }
 
-process.stdin.on('end', function () {
-    buf.split('\n').forEach(function (line, lineIdx) {
-        if (lineIdx % 2 === 1) {
-            nums = getInputArgs(line);
-            quickSort(nums, 0, nums.length - 1);
-            console.log(nums.join(' '));
-        }
-    });
-});
+int main() {
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i < n; ++i) scanf("%d", &nums[i]);
+    quick_sort(nums, 0, n - 1);
+    for (int i = 0; i < n; ++i) printf("%d ", nums[i]);
+}
 ```
-
-### **Go**
 
 ```go
 package main
@@ -237,8 +216,6 @@ func main() {
 	}
 }
 ```
-
-### **Rust**
 
 ```rust
 use rand::Rng; // 0.7.2
@@ -294,40 +271,53 @@ fn main() -> io::Result<()> {
 }
 ```
 
-### **C++**
+```js
+var buf = '';
 
-```cpp
-#include <iostream>
+process.stdin.on('readable', function () {
+    var chunk = process.stdin.read();
+    if (chunk) buf += chunk.toString();
+});
 
-using namespace std;
+let getInputArgs = line => {
+    return line
+        .split(' ')
+        .filter(s => s !== '')
+        .map(x => parseInt(x));
+};
 
-const int N = 1e6 + 10;
-
-int n;
-int nums[N];
-
-void quick_sort(int nums[], int left, int right) {
-    if (left >= right) return;
-    int i = left - 1, j = right + 1;
-    int x = nums[left + right >> 1];
-    while (i < j) {
-        while (nums[++i] < x)
-            ;
-        while (nums[--j] > x)
-            ;
-        if (i < j) swap(nums[i], nums[j]);
+function quickSort(nums, left, right) {
+    if (left >= right) {
+        return;
     }
-    quick_sort(nums, left, j);
-    quick_sort(nums, j + 1, right);
+
+    let i = left - 1;
+    let j = right + 1;
+    let x = nums[(left + right) >> 1];
+    while (i < j) {
+        while (nums[++i] < x);
+        while (nums[--j] > x);
+        if (i < j) {
+            const t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+    }
+    quickSort(nums, left, j);
+    quickSort(nums, j + 1, right);
 }
 
-int main() {
-    int n;
-    scanf("%d", &n);
-    for (int i = 0; i < n; ++i) scanf("%d", &nums[i]);
-    quick_sort(nums, 0, n - 1);
-    for (int i = 0; i < n; ++i) printf("%d ", nums[i]);
-}
+process.stdin.on('end', function () {
+    buf.split('\n').forEach(function (line, lineIdx) {
+        if (lineIdx % 2 === 1) {
+            nums = getInputArgs(line);
+            quickSort(nums, 0, nums.length - 1);
+            console.log(nums.join(' '));
+        }
+    });
+});
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,13 +54,11 @@ Delivery table:
 
 ## Solutions
 
-**Solution 1: Sum**
+### Solution 1: Sum
 
 We can use the `sum` function to count the number of instant orders, and then divide it by the total number of orders. Since the problem requires a percentage, we need to multiply by 100. Finally, we can use the `round` function to keep two decimal places.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -70,3 +68,5 @@ FROM Delivery;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

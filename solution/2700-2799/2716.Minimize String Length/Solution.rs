@@ -1,13 +1,13 @@
-use std::collections::HashSet;
+use std::collections::HashMap;
 
 impl Solution {
     pub fn minimized_string_length(s: String) -> i32 {
-        let mut set = HashSet::new();
+        let mut hash = HashMap::new();
 
         for c in s.chars() {
-            set.insert(c);
+            hash.insert(c, true);
         }
 
-        set.len() as i32
+        hash.len() as i32
     }
 }

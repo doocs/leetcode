@@ -48,21 +48,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：迭代**
+### 方法一：迭代
 
 时间复杂度为 $O(n)$，空间复杂度为 $O(1)$，其中 $n$ 是链表的长度。
 
-**方法二：递归**
-
-时间复杂度为 $O(n)$，空间复杂度为 $O(\log _k n)$，其中 $n$ 是链表的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -97,10 +87,6 @@ class Solution:
             cur = pre
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -148,7 +134,41 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	var dummy *ListNode = &ListNode{}
+	p, cur := dummy, head
+	for cur != nil {
+		start := cur
+		for i := 0; i < k; i++ {
+			if cur == nil {
+				p.Next = start
+				return dummy.Next
+			}
+			cur = cur.Next
+		}
+		p.Next, p = reverse(start, cur), start
+	}
+	return dummy.Next
+}
+
+func reverse(start, end *ListNode) *ListNode {
+	var pre *ListNode = nil
+	for start != end {
+		tmp := start.Next
+		start.Next, pre = pre, start
+		start = tmp
+	}
+	return pre
+}
+```
 
 ```ts
 /**
@@ -200,184 +220,6 @@ function reverse(head: ListNode, tail: ListNode) {
     return [tail, head];
 }
 ```
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
-    if (k === 1) {
-        return head;
-    }
-
-    const dummy = new ListNode(0, head);
-    let root = dummy;
-    while (root != null) {
-        let pre = root;
-        let cur = root;
-
-        let count = 0;
-        while (count !== k) {
-            count++;
-            cur = cur.next;
-            if (cur == null) {
-                return dummy.next;
-            }
-        }
-
-        const nextRoot = pre.next;
-        pre.next = cur;
-
-        let node = nextRoot;
-        let next = node.next;
-        node.next = cur.next;
-        while (node != cur) {
-            [next.next, node, next] = [node, next, next.next];
-        }
-        root = nextRoot;
-    }
-
-    return dummy.next;
-}
-```
-
-### **Go**
-
-迭代：
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func reverseKGroup(head *ListNode, k int) *ListNode {
-	var dummy *ListNode = &ListNode{}
-	p, cur := dummy, head
-	for cur != nil {
-		start := cur
-		for i := 0; i < k; i++ {
-			if cur == nil {
-				p.Next = start
-				return dummy.Next
-			}
-			cur = cur.Next
-		}
-		p.Next, p = reverse(start, cur), start
-	}
-	return dummy.Next
-}
-
-func reverse(start, end *ListNode) *ListNode {
-	var pre *ListNode = nil
-	for start != end {
-		tmp := start.Next
-		start.Next, pre = pre, start
-		start = tmp
-	}
-	return pre
-}
-```
-
-递归：
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func reverseKGroup(head *ListNode, k int) *ListNode {
-	start, end := head, head
-	for i := 0; i < k; i++ {
-		if end == nil {
-			return head
-		}
-		end = end.Next
-	}
-	res := reverse(start, end)
-	start.Next = reverseKGroup(end, k)
-	return res
-}
-
-func reverse(start, end *ListNode) *ListNode {
-	var pre *ListNode = nil
-	for start != end {
-		tmp := start.Next
-		start.Next, pre = pre, start
-		start = tmp
-	}
-	return pre
-}
-```
-
-### **C#**
-
-```cs
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
-public class Solution {
-    public ListNode ReverseKGroup(ListNode head, int k) {
-        ListNode dummy = new ListNode(0, head);
-        ListNode pre = dummy, cur = dummy;
-        while (cur.next != null)
-        {
-            for (int i = 0; i < k && cur != null; ++i)
-            {
-                cur = cur.next;
-            }
-            if (cur == null)
-            {
-                return dummy.next;
-            }
-            ListNode t = cur.next;
-            cur.next = null;
-            ListNode start = pre.next;
-            pre.next = ReverseList(start);
-            start.next = t;
-            pre = start;
-            cur = pre;
-        }
-        return dummy.next;
-    }
-
-    private ListNode ReverseList(ListNode head) {
-        ListNode pre = null, p = head;
-        while (p != null)
-        {
-            ListNode q = p.next;
-            p.next = pre;
-            pre = p;
-            p = q;
-        }
-        return pre;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -437,10 +279,146 @@ impl Solution {
 }
 ```
 
-### **...**
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseKGroup(ListNode head, int k) {
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy, cur = dummy;
+        while (cur.next != null)
+        {
+            for (int i = 0; i < k && cur != null; ++i)
+            {
+                cur = cur.next;
+            }
+            if (cur == null)
+            {
+                return dummy.next;
+            }
+            ListNode t = cur.next;
+            cur.next = null;
+            ListNode start = pre.next;
+            pre.next = ReverseList(start);
+            start.next = t;
+            pre = start;
+            cur = pre;
+        }
+        return dummy.next;
+    }
 
-```
-
+    private ListNode ReverseList(ListNode head) {
+        ListNode pre = null, p = head;
+        while (p != null)
+        {
+            ListNode q = p.next;
+            p.next = pre;
+            pre = p;
+            p = q;
+        }
+        return pre;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：递归
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(\log _k n)$，其中 $n$ 是链表的长度。
+
+<!-- tabs:start -->
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	start, end := head, head
+	for i := 0; i < k; i++ {
+		if end == nil {
+			return head
+		}
+		end = end.Next
+	}
+	res := reverse(start, end)
+	start.Next = reverseKGroup(end, k)
+	return res
+}
+
+func reverse(start, end *ListNode) *ListNode {
+	var pre *ListNode = nil
+	for start != end {
+		tmp := start.Next
+		start.Next, pre = pre, start
+		start = tmp
+	}
+	return pre
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
+    if (k === 1) {
+        return head;
+    }
+
+    const dummy = new ListNode(0, head);
+    let root = dummy;
+    while (root != null) {
+        let pre = root;
+        let cur = root;
+
+        let count = 0;
+        while (count !== k) {
+            count++;
+            cur = cur.next;
+            if (cur == null) {
+                return dummy.next;
+            }
+        }
+
+        const nextRoot = pre.next;
+        pre.next = cur;
+
+        let node = nextRoot;
+        let next = node.next;
+        node.next = cur.next;
+        while (node != cur) {
+            [next.next, node, next] = [node, next, next.next];
+        }
+        root = nextRoot;
+    }
+
+    return dummy.next;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

@@ -25,9 +25,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -46,8 +46,6 @@ class Solution:
         ans = int(''.join(cs))
         return -1 if ans > 2**31 - 1 else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +99,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nextGreaterElement(n int) int {
@@ -130,10 +124,6 @@ func nextGreaterElement(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

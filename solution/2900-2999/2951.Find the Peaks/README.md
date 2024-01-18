@@ -51,9 +51,7 @@ mountain[2] 也不可能是峰值，因为它不严格大于 mountain[3] 和 mou
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接遍历**
+### 方法一：直接遍历
 
 我们直接遍历下标 $i \in [1, n-2]$，对于每个下标 $i$，如果满足 $mountain[i-1] < mountain[i]$ 并且 $mountain[i + 1] < mountain[i]$，那么 $mountain[i]$ 就是一个峰值，我们将下标 $i$ 加入答案数组中。
 
@@ -62,10 +60,6 @@ mountain[2] 也不可能是峰值，因为它不严格大于 mountain[3] 和 mou
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             if mountain[i - 1] < mountain[i] > mountain[i + 1]
         ]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPeaks(mountain []int) (ans []int) {
 	for i := 1; i < len(mountain)-1; i++ {
@@ -124,8 +110,6 @@ func findPeaks(mountain []int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findPeaks(mountain: number[]): number[] {
@@ -139,10 +123,6 @@ function findPeaks(mountain: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

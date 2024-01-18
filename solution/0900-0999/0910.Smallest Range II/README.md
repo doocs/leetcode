@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 枚举**
+### 方法一：贪心 + 枚举
 
 根据题目要求，我们需要求数组中的元素最大值与最小值差值的最小值。每个元素可以加上或者减去 $k$，因此我们可以将数组中的元素分为两部分，一部分加上 $k$，一部分减去 $k$。那么，我们应该将数组中的较大值减去 $k$，较小值加上 $k$，这样才能保证最大值与最小值的差值最小。
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
             ans = min(ans, mx - mi)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestRangeII(nums []int, k int) int {
 	sort.Ints(nums)
@@ -138,10 +124,6 @@ func smallestRangeII(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

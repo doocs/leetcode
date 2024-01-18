@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 双指针**
+### 方法一：排序 + 双指针
 
 我们注意到，题目中要求找到不重复的四元组，那么我们可以先对数组进行排序，这样就可以方便地跳过重复的元素。
 
@@ -59,10 +57,6 @@
 时间复杂度为 $O(n^3)$，空间复杂度为 $O(\log n)$，其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                             l -= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -184,8 +172,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fourSum(nums []int, target int) (ans [][]int) {
 	n := len(nums)
@@ -226,7 +212,44 @@ func fourSum(nums []int, target int) (ans [][]int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function fourSum(nums: number[], target: number): number[][] {
+    const n = nums.length;
+    const ans: number[][] = [];
+    if (n < 4) {
+        return ans;
+    }
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < n - 3; ++i) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
+        for (let j = i + 1; j < n - 2; ++j) {
+            if (j > i + 1 && nums[j] === nums[j - 1]) {
+                continue;
+            }
+            let [k, l] = [j + 1, n - 1];
+            while (k < l) {
+                const x = nums[i] + nums[j] + nums[k] + nums[l];
+                if (x < target) {
+                    ++k;
+                } else if (x > target) {
+                    --l;
+                } else {
+                    ans.push([nums[i], nums[j], nums[k++], nums[l--]]);
+                    while (k < l && nums[k] === nums[k - 1]) {
+                        ++k;
+                    }
+                    while (k < l && nums[l] === nums[l + 1]) {
+                        --l;
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -272,49 +295,6 @@ var fourSum = function (nums, target) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function fourSum(nums: number[], target: number): number[][] {
-    const n = nums.length;
-    const ans: number[][] = [];
-    if (n < 4) {
-        return ans;
-    }
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < n - 3; ++i) {
-        if (i > 0 && nums[i] === nums[i - 1]) {
-            continue;
-        }
-        for (let j = i + 1; j < n - 2; ++j) {
-            if (j > i + 1 && nums[j] === nums[j - 1]) {
-                continue;
-            }
-            let [k, l] = [j + 1, n - 1];
-            while (k < l) {
-                const x = nums[i] + nums[j] + nums[k] + nums[l];
-                if (x < target) {
-                    ++k;
-                } else if (x > target) {
-                    --l;
-                } else {
-                    ans.push([nums[i], nums[j], nums[k++], nums[l--]]);
-                    while (k < l && nums[k] === nums[k - 1]) {
-                        ++k;
-                    }
-                    while (k < l && nums[l] === nums[l + 1]) {
-                        --l;
-                    }
-                }
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public IList<IList<int>> FourSum(int[] nums, int target) {
@@ -356,10 +336,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

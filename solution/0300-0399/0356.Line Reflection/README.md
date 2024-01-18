@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们先找出所有点中的最小、最大的 $x$ 坐标 $minX$ 和 $maxX$。若存在满足条件的直线，则直线 $x = (minX + maxX) / 2$，或者说 $s = minX + maxX$。
 
@@ -54,10 +52,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $points$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
         s = min_x + max_x
         return all((s - x, y) in point_set for x, y in points)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isReflected(points [][]int) bool {
 	const inf = 1 << 30
@@ -145,10 +131,6 @@ func isReflected(points [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

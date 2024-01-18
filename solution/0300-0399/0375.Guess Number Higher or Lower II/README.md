@@ -74,20 +74,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-区间 DP。
-
--   状态表示：`dp[i][j]` 表示数字区间 `[i, j]` 确保赢得游戏的最少现金。
--   状态计算：枚举闭区间 `[i, j]` 中以数字 k 作为选择的数字。那么 `dp[i][j] = min(dp[i][j], max(dp[i][k - 1], dp[k + 1][j]) + k), k ∈ [i, j]`。
-
-以区间长度 l 从小到大开始处理每个状态值。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +91,6 @@ class Solution:
                     dp[i][j] = min(dp[i][j], t)
         return dp[1][n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMoneyAmount(n int) int {
 	dp := make([][]int, n+10)
@@ -170,10 +151,6 @@ func getMoneyAmount(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,23 +48,28 @@ Note that the string &quot;bbabaaa&quot; is lexicographically larger but the let
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy Algorithm
 
-### **Python3**
+First, we use an array $cnt$ of length $26$ to count the number of occurrences of each character in string $s$. Then, we enumerate the $i$th letter of the alphabet in descending order, each time taking out at most $\min(cnt[i], repeatLimit)$ of letter $i$. If after taking them out $cnt[i]$ is still greater than $0$, we continue to take the $j$th letter of the alphabet, where $j$ is the largest index satisfying $j < i$ and $cnt[j] > 0$, until all letters are taken.
+
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of string $s$, and $\Sigma$ is the character set. In this problem, $|\Sigma| = 26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def repeatLimitedString(self, s: str, repeatLimit: int) -> str:
         cnt = [0] * 26
         for c in s:
-            cnt[ord(c) - ord('a')] += 1
+            cnt[ord(c) - ord("a")] += 1
         ans = []
+        j = 24
         for i in range(25, -1, -1):
-            j = i - 1
+            j = min(i - 1, j)
             while 1:
-                for _ in range(min(repeatLimit, cnt[i])):
-                    cnt[i] -= 1
-                    ans.append(chr(ord('a') + i))
+                x = min(repeatLimit, cnt[i])
+                cnt[i] -= x
+                ans.append(ascii_lowercase[i] * x)
                 if cnt[i] == 0:
                     break
                 while j >= 0 and cnt[j] == 0:
@@ -72,26 +77,24 @@ class Solution:
                 if j < 0:
                     break
                 cnt[j] -= 1
-                ans.append(chr(ord('a') + j))
-        return ''.join(ans)
+                ans.append(ascii_lowercase[j])
+        return "".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
     public String repeatLimitedString(String s, int repeatLimit) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            cnt[c - 'a']++;
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
         StringBuilder ans = new StringBuilder();
-        for (int i = 25; i >= 0; --i) {
-            int j = i - 1;
+        for (int i = 25, j = 24; i >= 0; --i) {
+            j = Math.min(j, i - 1);
             while (true) {
-                for (int k = Math.min(repeatLimit, cnt[i]); k > 0; --k) {
-                    cnt[i]--;
+                for (int k = Math.min(cnt[i], repeatLimit); k > 0; --k) {
                     ans.append((char) ('a' + i));
+                    --cnt[i];
                 }
                 if (cnt[i] == 0) {
                     break;
@@ -102,8 +105,8 @@ class Solution {
                 if (j < 0) {
                     break;
                 }
-                cnt[j]--;
                 ans.append((char) ('a' + j));
+                --cnt[j];
             }
         }
         return ans.toString();
@@ -111,27 +114,33 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     string repeatLimitedString(string s, int repeatLimit) {
-        vector<int> cnt(26);
-        for (char& c : s) cnt[c - 'a']++;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
         string ans;
-        for (int i = 25; ~i; --i) {
-            int j = i - 1;
-            while (true) {
+        for (int i = 25, j = 24; ~i; --i) {
+            j = min(j, i - 1);
+            while (1) {
                 for (int k = min(cnt[i], repeatLimit); k; --k) {
-                    cnt[i]--;
-                    ans.push_back('a' + i);
+                    ans += 'a' + i;
+                    --cnt[i];
                 }
-                if (cnt[i] == 0) break;
-                while (~j && cnt[j] == 0) --j;
-                if (j < 0) break;
-                cnt[j]--;
-                ans.push_back('a' + j);
+                if (cnt[i] == 0) {
+                    break;
+                }
+                while (j >= 0 && cnt[j] == 0) {
+                    --j;
+                }
+                if (j < 0) {
+                    break;
+                }
+                ans += 'a' + j;
+                --cnt[j];
             }
         }
         return ans;
@@ -139,16 +148,68 @@ public:
 };
 ```
 
-### **TypeScript**
+```go
+func repeatLimitedString(s string, repeatLimit int) string {
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	var ans []byte
+	for i, j := 25, 24; i >= 0; i-- {
+		j = min(j, i-1)
+		for {
+			for k := min(cnt[i], repeatLimit); k > 0; k-- {
+				ans = append(ans, byte(i+'a'))
+				cnt[i]--
+			}
+			if cnt[i] == 0 {
+				break
+			}
+			for j >= 0 && cnt[j] == 0 {
+				j--
+			}
+			if j < 0 {
+				break
+			}
+			ans = append(ans, byte(j+'a'))
+			cnt[j]--
+		}
+	}
+	return string(ans)
+}
+```
 
 ```ts
-
-```
-
-### **...**
-
-```
-
+function repeatLimitedString(s: string, repeatLimit: number): string {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 97]++;
+    }
+    const ans: string[] = [];
+    for (let i = 25, j = 24; ~i; --i) {
+        j = Math.min(j, i - 1);
+        while (true) {
+            for (let k = Math.min(cnt[i], repeatLimit); k; --k) {
+                ans.push(String.fromCharCode(97 + i));
+                --cnt[i];
+            }
+            if (!cnt[i]) {
+                break;
+            }
+            while (j >= 0 && !cnt[j]) {
+                --j;
+            }
+            if (j < 0) {
+                break;
+            }
+            ans.push(String.fromCharCode(97 + j));
+            --cnt[j];
+        }
+    }
+    return ans.join('');
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

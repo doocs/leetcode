@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -82,8 +82,6 @@ class Solution:
 
         return all(c == 2 or c == 4 for c in cnt.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -152,8 +150,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -197,8 +193,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type pair struct {
@@ -248,10 +242,6 @@ func isRectangleCover(rectangles [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

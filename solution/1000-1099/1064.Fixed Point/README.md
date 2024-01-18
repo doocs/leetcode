@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 题目给定的数组是按升序排列的，因此我们可以使用二分查找的方法找出最小的满足 $arr[i]$ 等于 $i$ 的下标 $i$。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(\log n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
                 left = mid + 1
         return left if arr[left] == left else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fixedPoint(arr []int) int {
 	left, right := 0, len(arr)-1
@@ -141,8 +127,6 @@ func fixedPoint(arr []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function fixedPoint(arr: number[]): number {
     let left = 0;
@@ -159,10 +143,6 @@ function fixedPoint(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

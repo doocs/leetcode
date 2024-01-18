@@ -71,9 +71,9 @@ Each Metal element pairs with a Nonmetal element in the output table.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -85,3 +85,5 @@ WHERE a.type = 'Metal' AND b.type = 'Nonmetal';
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -5,7 +5,10 @@ class Solution:
         if source == target:
             return 0
 
+        # 一条公交线路有哪些公交站
         s = [set(r) for r in routes]
+
+        # 一个公交站在哪些公交线路有
         d = defaultdict(list)
         for i, r in enumerate(routes):
             for v in r:

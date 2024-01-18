@@ -29,7 +29,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/images/lc-keys2.jpg" /></p>
 
 <pre>
-<strong>输入：</strong>grid = ["@.a.#","###.#","b.A.B"]
+<strong>输入：</strong>grid = ["@.a..","###.#","b.A.B"]
 <strong>输出：</strong>8
 <strong>解释：</strong>目标是获得所有钥匙，而不是打开所有锁。
 </pre>
@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + BFS**
+### 方法一：状态压缩 + BFS
 
 根据题意，我们需要从起点出发，往上下左右四个方向走，获取所有钥匙，最后返回获取所有钥匙所需要的移动的最少次数。若无法获取所有钥匙，返回 $-1$。
 
@@ -100,10 +98,6 @@ f   d c b
 时间复杂度 $O(m\times n\times 2^k)$，空间复杂度 $O(m\times n\times 2^k)$。其中 $m$ 和 $n$ 分别为网格的行数和列数，而 $k$ 为钥匙的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -150,10 +144,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -222,8 +212,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -279,8 +267,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestPathAllKeys(grid []string) int {
@@ -341,10 +327,6 @@ func shortestPathAllKeys(grid []string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

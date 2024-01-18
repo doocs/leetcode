@@ -3,6 +3,8 @@ public:
     int movingCount(int m, int n, int k) {
         bool vis[m][n];
         memset(vis, false, sizeof vis);
+        int ans = 0;
+        int dirs[3] = {1, 0, 1};
         auto f = [](int x) {
             int s = 0;
             for (; x; x /= 10) {
@@ -10,13 +12,17 @@ public:
             }
             return s;
         };
-        function<int(int i, int j)> dfs = [&](int i, int j) -> int {
-            if (i < 0 || i >= m || j < 0 || j >= n || vis[i][j] || f(i) + f(j) > k) {
-                return false;
-            }
+        function<void(int i, int j)> dfs = [&](int i, int j) {
             vis[i][j] = true;
-            return 1 + dfs(i + 1, j) + dfs(i, j + 1);
+            ++ans;
+            for (int l = 0; l < 2; ++l) {
+                int x = i + dirs[l], y = j + dirs[l + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && f(x) + f(y) <= k && !vis[x][y]) {
+                    dfs(x, y);
+                }
+            }
         };
-        return dfs(0, 0);
+        dfs(0, 0);
+        return ans;
     }
 };

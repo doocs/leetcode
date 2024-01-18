@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归 + 排序**
+### 方法一：递归 + 排序
 
 我们可以把特殊的二进制序列看作“有效的括号”，$1$ 代表左括号，$0$ 代表右括号。例如，"11011000" 可以看作："(()(()))"。
 
@@ -49,10 +47,6 @@
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
         ans.sort(reverse=True)
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeLargestSpecial(s string) string {
@@ -145,10 +131,6 @@ func makeLargestSpecial(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,9 +61,7 @@ todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 有序集合**
+### 方法一：哈希表 + 有序集合
 
 我们使用哈希表 $tasks$ 记录每个用户的任务集合，其中键为用户 ID，值为一个有序集合，按照任务的截止日期排序。另外用一个变量 $i$ 记录当前任务的 ID。
 
@@ -78,10 +76,6 @@ todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未
 空间复杂度 $O(n)$。其中 $n$ 为所有任务的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -120,10 +114,6 @@ class TodoList:
 # param_3 = obj.getTasksForTag(userId,tag)
 # obj.completeTask(userId,taskId)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Task {
@@ -200,8 +190,6 @@ class TodoList {
  * obj.completeTask(userId,taskId);
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashMap, HashSet };
@@ -317,22 +305,6 @@ impl TodoList {
 }
 ```
 
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

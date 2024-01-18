@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：组合计数**
+### 方法一：组合计数
 
 我们可以选择涂黑 $n$ 行中的任意 $i$ 行，涂黑 $n$ 列中的任意 $j$ 列。那么涂黑的格子数为 $n \times (i + j) - i \times j$。如果满足 $n \times (i + j) - i \times j = k$，则方案数为 $\binom{n}{i} \times \binom{n}{j}$。累加所有满足条件的方案数即可。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是网格的边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                     ans += comb(n, i) * comb(n, j)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func paintingPlan(n int, k int) (ans int) {
 	if k == n*n {
@@ -161,8 +147,6 @@ func paintingPlan(n int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function paintingPlan(n: number, k: number): number {
@@ -190,10 +174,6 @@ function paintingPlan(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

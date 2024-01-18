@@ -44,9 +44,9 @@ As shown in the diagram above, the line chart can be represented with a single l
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
             dx, dy = dx1, dy1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumLines(stockPrices [][]int) int {
 	ans := 0
@@ -125,8 +119,6 @@ func minimumLines(stockPrices [][]int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumLines(stockPrices: number[][]): number {
@@ -146,10 +138,6 @@ function minimumLines(stockPrices: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

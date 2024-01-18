@@ -3,8 +3,6 @@ class Solution:
         ans = []
         n = len(nums)
         for i in range(n):
-            for j in range(n):
-                if abs(i - j) <= k and nums[j] == key:
-                    ans.append(i)
-                    break
+            if any(abs(i - j) <= k and nums[j] == key for j in range(n)):
+                ans.append(i)
         return ans

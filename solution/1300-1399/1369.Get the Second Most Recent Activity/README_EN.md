@@ -58,9 +58,9 @@ Bob only has one record, we just take that one.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -83,3 +83,5 @@ WHERE a.rk = 2 OR a.cnt = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

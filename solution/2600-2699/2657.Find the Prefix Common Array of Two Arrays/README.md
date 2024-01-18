@@ -47,9 +47,7 @@ i = 2：1，2 和 3 是两个数组的前缀公共元素，所以 C[2] = 3 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们可以使用两个数组 $cnt1$ 和 $cnt2$ 分别记录数组 $A$ 和 $B$ 中每个元素出现的次数，用数组 $ans$ 记录答案。
 
@@ -59,23 +57,7 @@ i = 2：1，2 和 3 是两个数组的前缀公共元素，所以 C[2] = 3 。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $A$ 和 $B$ 的长度。
 
-**方法二：位运算（异或运算）**
-
-我们可以使用一个长度为 $n+1$ 的数组 $vis$ 记录数组 $A$ 和 $B$ 中每个元素的出现情况，数组 $vis$ 的初始值为 $1$。另外，我们用一个变量 $s$ 记录当前公共元素的个数。
-
-接下来，我们遍历数组 $A$ 和 $B$，更新 $vis[A[i]] = vis[A[i]] \oplus 1$，并且更新 $vis[B[i]] = vis[B[i]] \oplus 1$，其中 $\oplus$ 表示异或运算。
-
-如果遍历到当前位置，元素 $A[i]$ 出现过两次（即在数组 $A$ 和 $B$ 中都出现过），那么 $vis[A[i]]$ 的值将为会 $1$，我们将 $s$ 加一。同理，如果元素 $B[i]$ 出现过两次，那么 $vis[B[i]]$ 的值将为会 $1$，我们将 $s$ 加一。然后将 $s$ 的值加入到答案数组 $ans$ 中。
-
-遍历结束后，返回答案数组 $ans$ 即可。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $A$ 和 $B$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,25 +72,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-```python
-class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
-        ans = []
-        vis = [1] * (len(A) + 1)
-        s = 0
-        for a, b in zip(A, B):
-            vis[a] ^= 1
-            s += vis[a]
-            vis[b] ^= 1
-            s += vis[b]
-            ans.append(s)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,6 +90,91 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
+        int n = A.size();
+        vector<int> ans(n);
+        vector<int> cnt1(n + 1), cnt2(n + 1);
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[A[i]];
+            ++cnt2[B[i]];
+            for (int j = 1; j <= n; ++j) {
+                ans[i] += min(cnt1[j], cnt2[j]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findThePrefixCommonArray(A []int, B []int) []int {
+	n := len(A)
+	cnt1 := make([]int, n+1)
+	cnt2 := make([]int, n+1)
+	ans := make([]int, n)
+	for i, a := range A {
+		b := B[i]
+		cnt1[a]++
+		cnt2[b]++
+		for j := 1; j <= n; j++ {
+			ans[i] += min(cnt1[j], cnt2[j])
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function findThePrefixCommonArray(A: number[], B: number[]): number[] {
+    const n = A.length;
+    const cnt1: number[] = Array(n + 1).fill(0);
+    const cnt2: number[] = Array(n + 1).fill(0);
+    const ans: number[] = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        ++cnt1[A[i]];
+        ++cnt2[B[i]];
+        for (let j = 1; j <= n; ++j) {
+            ans[i] += Math.min(cnt1[j], cnt2[j]);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：位运算（异或运算）
+
+我们可以使用一个长度为 $n+1$ 的数组 $vis$ 记录数组 $A$ 和 $B$ 中每个元素的出现情况，数组 $vis$ 的初始值为 $1$。另外，我们用一个变量 $s$ 记录当前公共元素的个数。
+
+接下来，我们遍历数组 $A$ 和 $B$，更新 $vis[A[i]] = vis[A[i]] \oplus 1$，并且更新 $vis[B[i]] = vis[B[i]] \oplus 1$，其中 $\oplus$ 表示异或运算。
+
+如果遍历到当前位置，元素 $A[i]$ 出现过两次（即在数组 $A$ 和 $B$ 中都出现过），那么 $vis[A[i]]$ 的值将为会 $1$，我们将 $s$ 加一。同理，如果元素 $B[i]$ 出现过两次，那么 $vis[B[i]]$ 的值将为会 $1$，我们将 $s$ 加一。然后将 $s$ 的值加入到答案数组 $ans$ 中。
+
+遍历结束后，返回答案数组 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $A$ 和 $B$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+        ans = []
+        vis = [1] * (len(A) + 1)
+        s = 0
+        for a, b in zip(A, B):
+            vis[a] ^= 1
+            s += vis[a]
+            vis[b] ^= 1
+            s += vis[b]
+            ans.append(s)
+        return ans
 ```
 
 ```java
@@ -149,27 +197,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
-        int n = A.size();
-        vector<int> ans(n);
-        vector<int> cnt1(n + 1), cnt2(n + 1);
-        for (int i = 0; i < n; ++i) {
-            ++cnt1[A[i]];
-            ++cnt2[B[i]];
-            for (int j = 1; j <= n; ++j) {
-                ans[i] += min(cnt1[j], cnt2[j]);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -188,26 +215,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func findThePrefixCommonArray(A []int, B []int) []int {
-	n := len(A)
-	cnt1 := make([]int, n+1)
-	cnt2 := make([]int, n+1)
-	ans := make([]int, n)
-	for i, a := range A {
-		b := B[i]
-		cnt1[a]++
-		cnt2[b]++
-		for j := 1; j <= n; j++ {
-			ans[i] += min(cnt1[j], cnt2[j])
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -229,25 +236,6 @@ func findThePrefixCommonArray(A []int, B []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findThePrefixCommonArray(A: number[], B: number[]): number[] {
-    const n = A.length;
-    const cnt1: number[] = Array(n + 1).fill(0);
-    const cnt2: number[] = Array(n + 1).fill(0);
-    const ans: number[] = Array(n).fill(0);
-    for (let i = 0; i < n; ++i) {
-        ++cnt1[A[i]];
-        ++cnt2[B[i]];
-        for (let j = 1; j <= n; ++j) {
-            ans[i] += Math.min(cnt1[j], cnt2[j]);
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {
     const n = A.length;
@@ -266,10 +254,6 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

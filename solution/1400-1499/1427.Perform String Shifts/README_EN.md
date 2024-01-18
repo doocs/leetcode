@@ -50,15 +50,13 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 We can denote the length of the string $s$ as $n$. Next, we traverse the array $shift$, accumulate to get the final offset $x$, then take $x$ modulo $n$, the final result is to move the first $n - x$ characters of $s$ to the end.
 
 The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the string $s$ and the array $shift$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,8 +65,6 @@ class Solution:
         x %= len(s)
         return s[-x:] + s[:-x]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stringShift(s string, shift [][]int) string {
 	x := 0
@@ -124,8 +116,6 @@ func stringShift(s string, shift [][]int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function stringShift(s: string, shift: number[][]): string {
     let x = 0;
@@ -140,10 +130,6 @@ function stringShift(s: string, shift: number[][]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

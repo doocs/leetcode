@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题目描述进行模拟即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
             s = str(t)
         return int(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getLucky(s string, k int) int {
@@ -146,8 +132,6 @@ func getLucky(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getLucky(s: string, k: number): number {
     let ans = '';
@@ -164,8 +148,6 @@ function getLucky(s: string, k: number): number {
     return Number(ans);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -185,8 +167,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -214,10 +194,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

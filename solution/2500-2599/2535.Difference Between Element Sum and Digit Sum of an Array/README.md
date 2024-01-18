@@ -52,19 +52,13 @@ nums 的数字和是 1 + 2 + 3 + 4 = 10 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们遍历数组 $nums$，计算元素和 $a$ 与数字和 $b$，最后返回 $|a - b|$ 即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
                 x //= 10
         return abs(a - b)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +101,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func differenceOfSum(nums []int) int {
@@ -136,8 +122,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function differenceOfSum(nums: number[]): number {
     return nums.reduce((r, v) => {
@@ -150,8 +134,6 @@ function differenceOfSum(nums: number[]): number {
     }, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -169,6 +151,26 @@ impl Solution {
     }
 }
 ```
+
+```c
+int differenceOfSum(int* nums, int numsSize) {
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        ans += nums[i];
+        while (nums[i]) {
+            ans -= nums[i] % 10;
+            nums[i] /= 10;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -189,26 +191,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int differenceOfSum(int* nums, int numsSize) {
-    int ans = 0;
-    for (int i = 0; i < numsSize; i++) {
-        ans += nums[i];
-        while (nums[i]) {
-            ans -= nums[i] % 10;
-            nums[i] /= 10;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

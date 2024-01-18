@@ -8,12 +8,16 @@ var getMaximumXor = function (nums, maximumBit) {
     for (const x of nums) {
         xs ^= x;
     }
-    const mask = (1 << maximumBit) - 1;
     const n = nums.length;
     const ans = new Array(n);
     for (let i = 0; i < n; ++i) {
         const x = nums[n - i - 1];
-        let k = xs ^ mask;
+        let k = 0;
+        for (let j = maximumBit - 1; j >= 0; --j) {
+            if (((xs >> j) & 1) == 0) {
+                k |= 1 << j;
+            }
+        }
         ans[i] = k;
         xs ^= x;
     }

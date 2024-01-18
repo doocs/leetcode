@@ -49,19 +49,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 最长二进制子序列必然包含原字符串中所有的 $0$，在此基础上，我们从右到左遍历 $s$，若遇到 $1$，判断子序列能否添加 $1$，使得子序列对应的二进制数字 $v \leq k$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -117,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestSubsequence(s string, k int) (ans int) {
 	for i, v := len(s)-1, 0; i >= 0; i-- {
@@ -132,8 +118,6 @@ func longestSubsequence(s string, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestSubsequence(s: string, k: number): number {
@@ -149,27 +133,6 @@ function longestSubsequence(s: string, k: number): number {
     return ans;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int LongestSubsequence(string s, int k) {
-        int ans = 0, v = 0;
-        for (int i = s.Length - 1; i >= 0; --i) {
-            if (s[i] == '0') {
-                ++ans;
-            } else if (ans < 30 && (v | 1 << ans) <= k) {
-                v |= 1 << ans;
-                ++ans;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -191,10 +154,23 @@ var longestSubsequence = function (s, k) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int LongestSubsequence(string s, int k) {
+        int ans = 0, v = 0;
+        for (int i = s.Length - 1; i >= 0; --i) {
+            if (s[i] == '0') {
+                ++ans;
+            } else if (ans < 30 && (v | 1 << ans) <= k) {
+                v |= 1 << ans;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

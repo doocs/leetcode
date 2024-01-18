@@ -29,9 +29,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Two Pointers
 
-### **Python3**
+We use two pointers $i$ and $j$, where pointer $i$ points to the end of the sequence that has been processed, and pointer $j$ points to the head of the sequence to be processed. Initially, $i=-1$.
+
+Next, we traverse $j \in [0,n)$, if $nums[j] \neq 0$, then we swap the next number pointed by pointer $i$ with $nums[j]$, and move $i$ forward. Continue to traverse until $j$ reaches the end of the array, all non-zero elements of the array are moved to the front of the array in the original order, and all zero elements are moved to the end of the array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -42,8 +48,6 @@ class Solution:
                 i += 1
                 nums[i], nums[j] = nums[j], nums[i]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -60,8 +64,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -76,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func moveZeroes(nums []int) {
 	i := -1
@@ -89,27 +89,6 @@ func moveZeroes(nums []int) {
 	}
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
- */
-var moveZeroes = function (nums) {
-    let i = -1;
-    for (let j = 0; j < nums.length; ++j) {
-        if (nums[j]) {
-            const t = nums[++i];
-            nums[i] = nums[j];
-            nums[j] = t;
-        }
-    }
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -129,8 +108,6 @@ function moveZeroes(nums: number[]): void {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
@@ -148,7 +125,22 @@ impl Solution {
 }
 ```
 
-### **C**
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function (nums) {
+    let i = -1;
+    for (let j = 0; j < nums.length; ++j) {
+        if (nums[j]) {
+            const t = nums[++i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+    }
+};
+```
 
 ```c
 void moveZeroes(int* nums, int numsSize) {
@@ -165,10 +157,6 @@ void moveZeroes(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

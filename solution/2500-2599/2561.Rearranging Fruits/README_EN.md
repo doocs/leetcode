@@ -43,9 +43,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + Construction
 
-### **Python3**
+First, we can remove the common elements from both arrays. For the remaining numbers, the occurrence of each number must be even, otherwise, it is impossible to construct identical arrays. Let's denote the arrays after removing common elements as $a$ and $b$.
+
+Next, we consider how to perform the swaps.
+
+If we want to swap the smallest number in $a$, we need to find the largest number in $b$ to swap with it; similarly, if we want to swap the smallest number in $b$, we need to find the largest number in $a$ to swap with it. This can be achieved by sorting.
+
+However, there is another swapping scheme. We can use a smallest number $mi$ as a transition element, first swap the number in $a$ with $mi$, and then swap $mi$ with the number in $b$. In this way, the cost of swapping is $2 \times mi$.
+
+In the code implementation, we can directly merge arrays $a$ and $b$ into an array $nums$, and then sort the array $nums$. Next, we enumerate the first half of the numbers, calculate the minimum cost each time, and add it to the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +76,6 @@ class Solution:
         m = len(nums) // 2
         return sum(min(x, mi * 2) for x in nums[:m])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCost(basket1 []int, basket2 []int) (ans int64) {
@@ -169,10 +175,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

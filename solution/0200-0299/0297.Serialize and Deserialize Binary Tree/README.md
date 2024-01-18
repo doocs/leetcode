@@ -10,9 +10,9 @@
 
 <p>请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。</p>
 
-<p><strong>提示: </strong>输入输出格式与 LeetCode 目前使用的方式一致，详情请参阅 <a href="/faq/#binary-tree">LeetCode 序列化二叉树的格式</a>。你并非必须采取这种方式，你也可以采用其他的方法解决这个问题。</p>
+<p><strong>提示: </strong>输入输出格式与 LeetCode 目前使用的方式一致，详情请参阅&nbsp;<a href="https://support.leetcode.cn/hc/kb/article/1567641/">LeetCode 序列化二叉树的格式</a>。你并非必须采取这种方式，你也可以采用其他的方法解决这个问题。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0297.Serialize%20and%20Deserialize%20Binary%20Tree/images/serdeser.jpg" style="width: 442px; height: 324px;" />
@@ -42,24 +42,20 @@
 <strong>输出：</strong>[1,2]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li>树中结点数在范围 <code>[0, 10<sup>4</sup>]</code> 内</li>
-	<li><code>-1000 <= Node.val <= 1000</code></li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -117,10 +113,6 @@ class Codec:
 # deser = Codec()
 # ans = deser.deserialize(ser.serialize(root))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -186,8 +178,6 @@ public class Codec {
 // TreeNode ans = deser.deserialize(ser.serialize(root));
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -241,71 +231,6 @@ public:
 // TreeNode* ans = deser.deserialize(ser.serialize(root));
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-
-/**
- * Encodes a tree to a single string.
- *
- * @param {TreeNode} root
- * @return {string}
- */
-var serialize = function (root) {
-    return rserialize(root, '');
-};
-
-/**
- * Decodes your encoded data to tree.
- *
- * @param {string} data
- * @return {TreeNode}
- */
-var deserialize = function (data) {
-    const dataArray = data.split(',');
-    return rdeserialize(dataArray);
-};
-
-const rserialize = (root, str) => {
-    if (root === null) {
-        str += '#,';
-    } else {
-        str += root.val + '' + ',';
-        str = rserialize(root.left, str);
-        str = rserialize(root.right, str);
-    }
-    return str;
-};
-
-const rdeserialize = dataList => {
-    if (dataList[0] === '#') {
-        dataList.shift();
-        return null;
-    }
-
-    const root = new TreeNode(parseInt(dataList[0]));
-    dataList.shift();
-    root.left = rdeserialize(dataList);
-    root.right = rdeserialize(dataList);
-
-    return root;
-};
-
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
-```
-
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -340,59 +265,6 @@ function deserialize(data: string): TreeNode | null {
  * deserialize(serialize(root));
  */
 ```
-
-```ts
-/**
- * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
- * }
- */
-
-/*
- * Encodes a tree to a single string.
- */
-function serialize(root: TreeNode | null): string {
-    if (root == null) {
-        return '#';
-    }
-    const { val, left, right } = root;
-    return `${val},${serialize(left)},${serialize(right)}`;
-}
-
-/*
- * Decodes your encoded data to tree.
- */
-function deserialize(data: string): TreeNode | null {
-    const n = data.length;
-    if (n === 1) {
-        return null;
-    }
-    const vals = data.split(',').reverse();
-    const renew = () => {
-        const val = vals.pop();
-        if (val == null || val === '#') {
-            return null;
-        }
-        return new TreeNode(Number(val), renew(), renew());
-    };
-    return renew();
-}
-
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
-```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -466,10 +338,124 @@ impl Codec {
  */
 ```
 
-### **...**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
 
-```
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function (root) {
+    return rserialize(root, '');
+};
 
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function (data) {
+    const dataArray = data.split(',');
+    return rdeserialize(dataArray);
+};
+
+const rserialize = (root, str) => {
+    if (root === null) {
+        str += '#,';
+    } else {
+        str += root.val + '' + ',';
+        str = rserialize(root.left, str);
+        str = rserialize(root.right, str);
+    }
+    return str;
+};
+
+const rdeserialize = dataList => {
+    if (dataList[0] === '#') {
+        dataList.shift();
+        return null;
+    }
+
+    const root = new TreeNode(parseInt(dataList[0]));
+    dataList.shift();
+    root.left = rdeserialize(dataList);
+    root.right = rdeserialize(dataList);
+
+    return root;
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+    if (root == null) {
+        return '#';
+    }
+    const { val, left, right } = root;
+    return `${val},${serialize(left)},${serialize(right)}`;
+}
+
+/*
+ * Decodes your encoded data to tree.
+ */
+function deserialize(data: string): TreeNode | null {
+    const n = data.length;
+    if (n === 1) {
+        return null;
+    }
+    const vals = data.split(',').reverse();
+    const renew = () => {
+        const val = vals.pop();
+        if (val == null || val === '#') {
+            return null;
+        }
+        return new TreeNode(Number(val), renew(), renew());
+    };
+    return renew();
+}
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

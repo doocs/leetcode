@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
             ans += last + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +87,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func evenProduct(nums []int) int64 {
 	ans, last := 0, -1
@@ -106,10 +100,6 @@ func evenProduct(nums []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

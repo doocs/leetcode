@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 模拟**
+### 方法一：贪心 + 模拟
 
 对上对手时，需要满足经验和精力都严格超过对手，因此，我们遍历 $n$ 个对手，若经验或者精力不足以超过对手，则补到刚好能超过（每次训练，可以增加 $1$）。然后增加对应的经验值，减少对应的精力值。
 
@@ -67,21 +65,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是对手的数量。
 
-**方法二：贪心**
-
-我们可以先在初始时，把精力直接补充到足够击败这 $n$ 个对手，因此初始训练小时数为 $ans = \max(0, (\sum_{i=0}^{n-1} energy[i]) - initialEnergy + 1)$。
-
-接下来我们只需考虑经验值的问题。遍历 $n$ 个对手，若当前经验不足以超过对手，则将经验补到刚好能超过该对手，击败对手后，把对手的经验值加到自己身上。
-
-遍历结束，返回训练的小时数。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是对手的数量。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,28 +88,6 @@ class Solution:
             initialExperience += b
         return ans
 ```
-
-```python
-class Solution:
-    def minNumberOfHours(
-        self,
-        initialEnergy: int,
-        initialExperience: int,
-        energy: List[int],
-        experience: List[int],
-    ) -> int:
-        ans = max(0, sum(energy) - initialEnergy + 1)
-        for x in experience:
-            if initialExperience <= x:
-                ans += x - initialExperience + 1
-                initialExperience = x + 1
-            initialExperience += x
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,29 +112,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minNumberOfHours(
-        int initialEnergy, int initialExperience, int[] energy, int[] experience) {
-        int s = 0;
-        for (int x : energy) {
-            s += x;
-        }
-        int ans = Math.max(0, s - initialEnergy + 1);
-        for (int x : experience) {
-            if (initialExperience <= x) {
-                ans += x - initialExperience + 1;
-                initialExperience = x + 1;
-            }
-            initialExperience += x;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -196,26 +135,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int minNumberOfHours(int initialEnergy, int initialExperience, vector<int>& energy, vector<int>& experience) {
-        int s = accumulate(energy.begin(), energy.end(), 0);
-        int ans = max(0, s - initialEnergy + 1);
-        for (int x : experience) {
-            if (initialExperience <= x) {
-                ans += x - initialExperience + 1;
-                initialExperience = x + 1;
-            }
-            initialExperience += x;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, experience []int) int {
 	ans := 0
@@ -235,28 +154,6 @@ func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, ex
 	return ans
 }
 ```
-
-```go
-func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, experience []int) (ans int) {
-	s := 0
-	for _, x := range energy {
-		s += x
-	}
-	if y := s - initialEnergy + 1; y > 0 {
-		ans = y
-	}
-	for _, x := range experience {
-		if initialExperience <= x {
-			ans += x - initialExperience + 1
-			initialExperience = x + 1
-		}
-		initialExperience += x
-	}
-	return
-}
-```
-
-### **TypeScript**
 
 ```ts
 function minNumberOfHours(
@@ -287,75 +184,6 @@ function minNumberOfHours(
 }
 ```
 
-```ts
-function minNumberOfHours(
-    initialEnergy: number,
-    initialExperience: number,
-    energy: number[],
-    experience: number[],
-): number {
-    let res = 0;
-    for (const v of experience) {
-        if (initialExperience <= v) {
-            res += v - initialExperience + 1;
-            initialExperience = v + 1;
-        }
-        initialExperience += v;
-    }
-    for (const v of energy) {
-        if (initialEnergy <= v) {
-            res += v - initialEnergy + 1;
-            initialEnergy = v + 1;
-        }
-        initialEnergy -= v;
-    }
-    return res;
-}
-```
-
-```ts
-function minNumberOfHours(
-    initialEnergy: number,
-    initialExperience: number,
-    energy: number[],
-    experience: number[],
-): number {
-    const s = energy.reduce((a, b) => a + b, 0);
-    let ans = Math.max(0, s - initialEnergy + 1);
-    for (const x of experience) {
-        if (initialExperience <= x) {
-            ans += x - initialExperience + 1;
-            initialExperience = x + 1;
-        }
-        initialExperience += x;
-    }
-    return ans;
-}
-```
-
-### **C**
-
-```c
-int minNumberOfHours(int initialEnergy, int initialExperience, int* energy, int energySize, int* experience, int experienceSize) {
-    int res = 0;
-    for (int i = 0; i < energySize; i++) {
-        if (initialEnergy <= energy[i]) {
-            res += energy[i] - initialEnergy + 1;
-            initialEnergy = energy[i] + 1;
-        }
-        if (initialExperience <= experience[i]) {
-            res += experience[i] - initialExperience + 1;
-            initialExperience = experience[i] + 1;
-        }
-        initialEnergy -= energy[i];
-        initialExperience += experience[i];
-    }
-    return res;
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn min_number_of_hours(
@@ -383,11 +211,168 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-
+```c
+int minNumberOfHours(int initialEnergy, int initialExperience, int* energy, int energySize, int* experience, int experienceSize) {
+    int res = 0;
+    for (int i = 0; i < energySize; i++) {
+        if (initialEnergy <= energy[i]) {
+            res += energy[i] - initialEnergy + 1;
+            initialEnergy = energy[i] + 1;
+        }
+        if (initialExperience <= experience[i]) {
+            res += experience[i] - initialExperience + 1;
+            initialExperience = experience[i] + 1;
+        }
+        initialEnergy -= energy[i];
+        initialExperience += experience[i];
+    }
+    return res;
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：贪心
+
+我们可以先在初始时，把精力直接补充到足够击败这 $n$ 个对手，因此初始训练小时数为 $ans = \max(0, (\sum_{i=0}^{n-1} energy[i]) - initialEnergy + 1)$。
+
+接下来我们只需考虑经验值的问题。遍历 $n$ 个对手，若当前经验不足以超过对手，则将经验补到刚好能超过该对手，击败对手后，把对手的经验值加到自己身上。
+
+遍历结束，返回训练的小时数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是对手的数量。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minNumberOfHours(
+        self,
+        initialEnergy: int,
+        initialExperience: int,
+        energy: List[int],
+        experience: List[int],
+    ) -> int:
+        ans = max(0, sum(energy) - initialEnergy + 1)
+        for x in experience:
+            if initialExperience <= x:
+                ans += x - initialExperience + 1
+                initialExperience = x + 1
+            initialExperience += x
+        return ans
+```
+
+```java
+class Solution {
+    public int minNumberOfHours(
+        int initialEnergy, int initialExperience, int[] energy, int[] experience) {
+        int s = 0;
+        for (int x : energy) {
+            s += x;
+        }
+        int ans = Math.max(0, s - initialEnergy + 1);
+        for (int x : experience) {
+            if (initialExperience <= x) {
+                ans += x - initialExperience + 1;
+                initialExperience = x + 1;
+            }
+            initialExperience += x;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minNumberOfHours(int initialEnergy, int initialExperience, vector<int>& energy, vector<int>& experience) {
+        int s = accumulate(energy.begin(), energy.end(), 0);
+        int ans = max(0, s - initialEnergy + 1);
+        for (int x : experience) {
+            if (initialExperience <= x) {
+                ans += x - initialExperience + 1;
+                initialExperience = x + 1;
+            }
+            initialExperience += x;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func minNumberOfHours(initialEnergy int, initialExperience int, energy []int, experience []int) (ans int) {
+	s := 0
+	for _, x := range energy {
+		s += x
+	}
+	if y := s - initialEnergy + 1; y > 0 {
+		ans = y
+	}
+	for _, x := range experience {
+		if initialExperience <= x {
+			ans += x - initialExperience + 1
+			initialExperience = x + 1
+		}
+		initialExperience += x
+	}
+	return
+}
+```
+
+```ts
+function minNumberOfHours(
+    initialEnergy: number,
+    initialExperience: number,
+    energy: number[],
+    experience: number[],
+): number {
+    let res = 0;
+    for (const v of experience) {
+        if (initialExperience <= v) {
+            res += v - initialExperience + 1;
+            initialExperience = v + 1;
+        }
+        initialExperience += v;
+    }
+    for (const v of energy) {
+        if (initialEnergy <= v) {
+            res += v - initialEnergy + 1;
+            initialEnergy = v + 1;
+        }
+        initialEnergy -= v;
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
+```ts
+function minNumberOfHours(
+    initialEnergy: number,
+    initialExperience: number,
+    energy: number[],
+    experience: number[],
+): number {
+    const s = energy.reduce((a, b) => a + b, 0);
+    let ans = Math.max(0, s - initialEnergy + 1);
+    for (const x of experience) {
+        if (initialExperience <= x) {
+            ans += x - initialExperience + 1;
+            initialExperience = x + 1;
+        }
+        initialExperience += x;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

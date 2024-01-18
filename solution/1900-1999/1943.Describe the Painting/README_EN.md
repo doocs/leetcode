@@ -78,9 +78,9 @@ Note that returning a single segment [1,7) is incorrect because the mixed color 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -95,8 +95,6 @@ class Solution:
             s[i][1] += s[i - 1][1]
         return [[s[i][0], s[i + 1][0], s[i][1]] for i in range(n - 1) if s[i][1]]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,10 +152,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

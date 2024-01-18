@@ -49,9 +49,32 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: 0-1 Trie
 
-### **Python3**
+For this kind of problem that counts the interval $[low, high]$, we can consider converting it into counting $[0, high]$ and $[0, low - 1]$, and then subtracting the latter from the former to get the answer.
+
+In this problem, we can count how many pairs of numbers have an XOR value less than $high+1$, and then count how many pairs of numbers have an XOR value less than $low$. The difference between these two counts is the number of pairs whose XOR value is in the interval $[low, high]$.
+
+Moreover, for array XOR counting problems, we can usually use a "0-1 Trie" to solve them.
+
+The definition of the Trie node is as follows:
+
+-   `children[0]` and `children[1]` represent the left and right child nodes of the current node, respectively;
+-   `cnt` represents the number of numbers ending with the current node.
+
+In the Trie, we also define the following two functions:
+
+One function is $insert(x)$, which inserts the number $x$ into the Trie. This function inserts the number $x$ into the "0-1 Trie" in the order of binary bits from high to low. If the current binary bit is $0$, it is inserted into the left child node, otherwise, it is inserted into the right child node. Then the count value $cnt$ of the node is increased by $1$.
+
+Another function is $search(x, limit)$, which searches for the count of numbers in the Trie that have an XOR value with $x$ less than $limit$. This function starts from the root node `node` of the Trie, traverses the binary bits of $x$ from high to low, and denotes the current binary bit of $x$ as $v$. If the current binary bit of $limit$ is $1$, we can directly add the count value $cnt$ of the child node that has the same binary bit $v$ as $x$ to the answer, and then move the current node to the child node that has a different binary bit $v$ from $x$, i.e., `node = node.children[v ^ 1]`. Continue to traverse the next bit. If the current binary bit of $limit$ is $0$, we can only move the current node to the child node that has the same binary bit $v$ as $x$, i.e., `node = node.children[v]`. Continue to traverse the next bit. After traversing the binary bits of $x$, return the answer.
+
+With the above two functions, we can solve this problem.
+
+We traverse the array `nums`. For each number $x$, we first search in the Trie for the count of numbers that have an XOR value with $x$ less than $high+1$, and then search in the Trie for the count of pairs that have an XOR value with $x$ less than $low$, and add the difference between the two counts to the answer. Then insert $x$ into the Trie. Continue to traverse the next number $x$ until the array `nums` is traversed. Finally, return the answer.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array `nums`, and $M$ is the maximum value in the array `nums`. In this problem, we directly take $\log M = 16$.
+
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -93,8 +116,6 @@ class Solution:
             tree.insert(x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -143,8 +164,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -201,8 +220,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -251,10 +268,6 @@ func countPairs(nums []int, low int, high int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

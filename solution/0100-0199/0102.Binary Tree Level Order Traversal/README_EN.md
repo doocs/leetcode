@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: BFS**
+### Solution 1: BFS
 
 We can use the BFS method to solve this problem. First, enqueue the root node, then continuously perform the following operations until the queue is empty:
 
@@ -50,8 +50,6 @@ Finally, return the answer array.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -78,8 +76,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -124,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -160,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -194,43 +186,6 @@ func levelOrder(root *TreeNode) (ans [][]int) {
 	return
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number[][]}
- */
-var levelOrder = function (root) {
-    let ans = [];
-    if (!root) {
-        return ans;
-    }
-    let q = [root];
-    while (q.length) {
-        let t = [];
-        for (let n = q.length; n; --n) {
-            const { val, left, right } = q.shift();
-            t.push(val);
-            left && q.push(left);
-            right && q.push(right);
-        }
-        ans.push(t);
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -267,8 +222,6 @@ function levelOrder(root: TreeNode | null): number[][] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -323,10 +276,39 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function (root) {
+    let ans = [];
+    if (!root) {
+        return ans;
+    }
+    let q = [root];
+    while (q.length) {
+        let t = [];
+        for (let n = q.length; n; --n) {
+            const { val, left, right } = q.shift();
+            t.push(val);
+            left && q.push(left);
+            right && q.push(right);
+        }
+        ans.push(t);
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

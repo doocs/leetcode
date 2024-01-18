@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 如果字符串 $s$ 与字符串 $t$ 长度不相等，或者字符串 $s$ 与字符串 $t$ 完全相等，那么 $s$ 和 $t$ 一定不是变位词，返回 `false`。
 
@@ -60,10 +58,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -71,10 +65,6 @@ class Solution:
             return False
         return Counter(s) == Counter(t)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isAnagram(s string, t string) bool {
 	m, n := len(s), len(t)
@@ -147,8 +133,6 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isAnagram(s: string, t: string): boolean {
     const m = s.length;
@@ -165,10 +149,6 @@ function isAnagram(s: string, t: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

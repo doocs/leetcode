@@ -84,9 +84,9 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -105,3 +105,5 @@ WHERE cnt=5;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

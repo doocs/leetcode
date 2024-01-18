@@ -47,19 +47,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算 + 模拟**
+### 方法一：位运算 + 模拟
 
 我们先通过位运算（lowbit）得到 powers 数组，然后通过模拟的方式求出每个查询的答案。
 
-时间复杂度 $O(n\times \log n)$，忽略答案的空间消耗，空间复杂度 $O(\log n)$。其中 $n$ 为 $queries$ 的长度。
+时间复杂度 $O(n \times \log n)$，忽略答案的空间消耗，空间复杂度 $O(\log n)$。其中 $n$ 为 $queries$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             ans.append(x)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func productQueries(n int, queries [][]int) []int {
 	var mod int = 1e9 + 7
@@ -160,16 +146,6 @@ func productQueries(n int, queries [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

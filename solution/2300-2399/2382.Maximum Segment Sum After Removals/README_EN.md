@@ -52,9 +52,9 @@ Finally, we return [16,5,3,0].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,8 +85,6 @@ class Solution:
             ans[j - 1] = mx
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -173,8 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSegmentSum(nums []int, removeQueries []int) []int64 {
 	n := len(nums)
@@ -213,17 +207,6 @@ func maximumSegmentSum(nums []int, removeQueries []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

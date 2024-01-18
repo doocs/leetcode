@@ -2,15 +2,14 @@ class Solution {
 public:
     int numberOfBoomerangs(vector<vector<int>>& points) {
         int ans = 0;
-        for (const auto& p : points) {
+        for (auto& p1 : points) {
             unordered_map<int, int> cnt;
-            for (const auto& q : points) {
-                ++cnt[(p[0] - q[0]) * (p[0] - q[0]) + (p[1] - q[1]) * (p[1] - q[1])];
-            }
-            for (const auto& [_, v] : cnt) {
-                ans += v * (v - 1);
+            for (auto& p2 : points) {
+                int d = (p1[0] - p2[0]) * (p1[0] - p2[0]) + (p1[1] - p2[1]) * (p1[1] - p2[1]);
+                ans += cnt[d];
+                cnt[d]++;
             }
         }
-        return ans;
+        return ans << 1;
     }
 };

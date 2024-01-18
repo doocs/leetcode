@@ -51,9 +51,43 @@ trie.countWordsStartingWith(&quot;app&quot;); // return 0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Implement Trie with Array
 
-### **Python3**
+Each node in the Trie includes three parts:
+
+1. An array of pointers `children` pointing to child nodes. For this problem, the array length is 26, which is the number of lowercase English letters. `children[0]` corresponds to the lowercase letter a, ..., `children[25]` corresponds to the lowercase letter z.
+1. An int variable `v`, representing the number of strings ending with this node.
+1. An int variable `pv`, representing the number of strings with this node as the prefix node.
+
+### 1. Insert String
+
+We start from the root of the Trie and insert the string. For the child node corresponding to the current character, there are two cases:
+
+-   The child node exists. Move to the child node along the pointer and continue to process the next character.
+-   The child node does not exist. Create a new child node, record it in the corresponding position of the `children` array, then move to the child node along the pointer, and increase the `pv` value of the child node by 1. Continue to search for the next character.
+
+Repeat the above steps until the last character of the string is processed, then increase the `v` value of the current node by 1.
+
+The time complexity is $O(n)$, where $n$ is the length of the string.
+
+### 2. Search Prefix
+
+We start from the root of the Trie and search for the prefix. For the child node corresponding to the current character, there are two cases:
+
+-   The child node exists. Move to the child node along the pointer and continue to search for the next character.
+-   The child node does not exist. This means that the Trie does not contain this prefix, return a null pointer.
+
+Repeat the above steps until a null pointer is returned or the last character of the prefix is searched.
+
+The time complexity is $O(n)$, where $n$ is the length of the string.
+
+### 3. Remove String
+
+We start from the root node of the Trie, and sequentially reduce the `pv` value of the corresponding child node by 1, until the last character of the string is searched. Then reduce the `v` value of the current node by 1.
+
+The time complexity is $O(n)$, where $n$ is the length of the string.
+
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -104,8 +138,6 @@ class Trie:
 # param_3 = obj.countWordsStartingWith(prefix)
 # obj.erase(word)
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -171,8 +203,6 @@ class Trie {
  * obj.erase(word);
  */
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -242,8 +272,6 @@ private:
  * obj->erase(word);
  */
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -315,10 +343,6 @@ func (this *Trie) search(word string) *Trie {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

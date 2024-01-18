@@ -38,9 +38,9 @@ It can be shown with 5 or less moves that it is impossible for the array to have
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
                 ans += d
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -94,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minIncrementForUnique(nums []int) int {
 	sort.Ints(nums)
@@ -111,10 +105,6 @@ func minIncrementForUnique(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,16 +1,11 @@
 class Solution {
     public int[] largestSubarray(int[] nums, int k) {
-        int i = 0, mx = 0;
-        for (int j = 0; j < nums.length - k + 1; ++j) {
-            if (mx < nums[j]) {
-                mx = nums[j];
-                i = j;
+        int j = 0;
+        for (int i = 1; i < nums.length - k + 1; ++i) {
+            if (nums[j] < nums[i]) {
+                j = i;
             }
         }
-        int[] ans = new int[k];
-        for (int j = 0; j < k; ++j) {
-            ans[j] = nums[i + j];
-        }
-        return ans;
+        return Arrays.copyOfRange(nums, j, j + k);
     }
 }

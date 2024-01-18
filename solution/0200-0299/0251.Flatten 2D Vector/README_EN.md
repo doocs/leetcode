@@ -50,9 +50,9 @@ vector2D.hasNext(); // return False
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Vector2D:
@@ -82,8 +82,6 @@ class Vector2D:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
-
-### **Java**
 
 ```java
 class Vector2D {
@@ -120,8 +118,6 @@ class Vector2D {
  * boolean param_2 = obj.hasNext();
  */
 ```
-
-### **C++**
 
 ```cpp
 class Vector2D {
@@ -161,8 +157,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type Vector2D struct {
 	i, j int
@@ -199,8 +193,6 @@ func (this *Vector2D) forward() {
  * param_2 := obj.HasNext();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class Vector2D {
@@ -240,10 +232,6 @@ class Vector2D {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

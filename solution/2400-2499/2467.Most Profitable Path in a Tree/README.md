@@ -82,9 +82,7 @@ Alice 按照路径 0-&gt;1 移动，同时 Bob 按照路径 1-&gt;0 移动。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次 DFS**
+### 方法一：两次 DFS
 
 根据题意，我们可以知道，Bob 的移动路径是固定的，即从节点 $bob$ 出发，最终到达节点 $0$。因此，我们可以先跑一遍 DFS，求出 Bob 到达每个节点的时间，记在数组 $ts$ 中。
 
@@ -99,10 +97,6 @@ Alice 按照路径 0-&gt;1 移动，同时 Bob 按照路径 1-&gt;0 移动。
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -144,10 +138,6 @@ class Solution:
         dfs2(0, -1, 0, 0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -207,8 +197,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -254,8 +242,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostProfitablePath(edges [][]int, bob int, amount []int) int {
@@ -309,16 +295,6 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

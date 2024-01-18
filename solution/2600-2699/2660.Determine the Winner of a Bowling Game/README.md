@@ -70,19 +70,13 @@ player1 的得分等于 player2 的得分，所以这一场比赛平局，答案
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们可以用一个函数 $f(arr)$ 计算出两个玩家的得分，分别记为 $a$ 和 $b$，然后根据 $a$ 和 $b$ 的大小关系返回答案即可。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
         a, b = f(player1), f(player2)
         return 1 if a > b else (2 if b > a else 0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isWinner(player1 []int, player2 []int) int {
@@ -166,8 +152,6 @@ func isWinner(player1 []int, player2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isWinner(player1: number[], player2: number[]): number {
     const f = (arr: number[]): number => {
@@ -185,8 +169,6 @@ function isWinner(player1: number[], player2: number[]): number {
     return a > b ? 1 : a < b ? 2 : 0;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -216,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

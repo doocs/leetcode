@@ -43,9 +43,17 @@ It can be shown that it is the minimum length that we can obtain.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Stack
 
-### **Python3**
+We traverse the string $s$. For the current character $c$ we are traversing, if the stack is not empty and the top element of the stack $top$ can form $AB$ or $CD$ with $c$, then we pop the top element of the stack, otherwise we push $c$ into the stack.
+
+The number of remaining elements in the stack is the length of the final string.
+
+> In implementation, we can pre-place an empty character in the stack, so there is no need to judge whether the stack is empty when traversing the string. Finally, we can return the size of the stack minus one.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +66,6 @@ class Solution:
                 stk.append(c)
         return len(stk) - 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -97,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minLength(s string) int {
 	stk := []byte{' '}
@@ -113,15 +115,13 @@ func minLength(s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minLength(s: string): number {
     const stk: string[] = [''];
     for (const c of s) {
-        if (c === 'B' && stk[stk.length - 1] === 'A') {
+        if (c === 'B' && stk.at(-1)! === 'A') {
             stk.pop();
-        } else if (c === 'D' && stk[stk.length - 1] === 'C') {
+        } else if (c === 'D' && stk.at(-1)! === 'C') {
             stk.pop();
         } else {
             stk.push(c);
@@ -130,8 +130,6 @@ function minLength(s: string): number {
     return stk.length - 1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -157,10 +155,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

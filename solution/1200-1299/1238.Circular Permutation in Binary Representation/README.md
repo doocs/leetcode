@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二进制码转格雷码**
+### 方法一：二进制码转格雷码
 
 我们观察题目中的排列，可以发现，它的二进制表示中，任意两个（包括首尾）相邻的数只有一位二进制数不同。这种编码方式就是格雷码，它是我们在工程中会遇到的一种编码方式。
 
@@ -66,19 +64,7 @@ int gray(x) {
 
 时间复杂度 $O(2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 为题目给定的整数。
 
-**方法二：转换优化**
-
-由于 $gray(0) = 0$，那么 $gray(0) \oplus start = start$，而 $gray(i)$ 与 $gray(i-1)$ 只有一个二进制位不同，所以 $gray(i) \oplus start$ 与 $gray(i-1) \oplus start$ 也只有一个二进制位不同。
-
-因此，我们也可以直接将 $[0,..2^n - 1]$ 这些整数转换成对应的 $gray(i) \oplus start$，即可得到首项为 $start$ 的格雷码排列。
-
-时间复杂度 $O(2^n)$，其中 $n$ 为题目给定的整数。忽略答案的空间消耗，空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,16 +73,6 @@ class Solution:
         j = g.index(start)
         return g[j:] + g[:j]
 ```
-
-```python
-class Solution:
-    def circularPermutation(self, n: int, start: int) -> List[int]:
-        return [i ^ (i >> 1) ^ start for i in range(1 << n)]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,20 +93,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public List<Integer> circularPermutation(int n, int start) {
-        List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < 1 << n; ++i) {
-            ans.add(i ^ (i >> 1) ^ start);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,21 +115,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> circularPermutation(int n, int start) {
-        vector<int> ans(1 << n);
-        for (int i = 0; i < 1 << n; ++i) {
-            ans[i] = i ^ (i >> 1) ^ start;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func circularPermutation(n int, start int) []int {
 	g := make([]int, 1<<n)
@@ -182,17 +129,6 @@ func circularPermutation(n int, start int) []int {
 }
 ```
 
-```go
-func circularPermutation(n int, start int) (ans []int) {
-	for i := 0; i < 1<<n; i++ {
-		ans = append(ans, i^(i>>1)^start)
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function circularPermutation(n: number, start: number): number[] {
     const ans: number[] = [];
@@ -203,10 +139,58 @@ function circularPermutation(n: number, start: number): number[] {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：转换优化
+
+由于 $gray(0) = 0$，那么 $gray(0) \oplus start = start$，而 $gray(i)$ 与 $gray(i-1)$ 只有一个二进制位不同，所以 $gray(i) \oplus start$ 与 $gray(i-1) \oplus start$ 也只有一个二进制位不同。
+
+因此，我们也可以直接将 $[0,..2^n - 1]$ 这些整数转换成对应的 $gray(i) \oplus start$，即可得到首项为 $start$ 的格雷码排列。
+
+时间复杂度 $O(2^n)$，其中 $n$ 为题目给定的整数。忽略答案的空间消耗，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def circularPermutation(self, n: int, start: int) -> List[int]:
+        return [i ^ (i >> 1) ^ start for i in range(1 << n)]
 ```
 
+```java
+class Solution {
+    public List<Integer> circularPermutation(int n, int start) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << n; ++i) {
+            ans.add(i ^ (i >> 1) ^ start);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> circularPermutation(int n, int start) {
+        vector<int> ans(1 << n);
+        for (int i = 0; i < 1 << n; ++i) {
+            ans[i] = i ^ (i >> 1) ^ start;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func circularPermutation(n int, start int) (ans []int) {
+	for i := 0; i < 1<<n; i++ {
+		ans = append(ans, i^(i>>1)^start)
+	}
+	return
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

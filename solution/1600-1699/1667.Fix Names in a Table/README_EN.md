@@ -48,11 +48,9 @@ Users table:
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-### **SQL**
-
-MySQL
 
 ```sql
 SELECT
@@ -64,7 +62,11 @@ ORDER BY
     user_id;
 ```
 
-SQL Server
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 SELECT
@@ -80,3 +82,5 @@ ORDER BY
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

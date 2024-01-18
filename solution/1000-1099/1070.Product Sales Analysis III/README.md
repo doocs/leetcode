@@ -78,11 +78,9 @@ Product 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -102,6 +100,12 @@ WHERE
     );
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 WITH
@@ -120,3 +124,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

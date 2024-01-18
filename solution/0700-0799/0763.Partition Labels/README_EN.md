@@ -39,9 +39,9 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
                 j = i + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func partitionLabels(s string) (ans []int) {
 	last := [26]int{}
@@ -125,8 +119,6 @@ func partitionLabels(s string) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function partitionLabels(s: string): number[] {
@@ -147,8 +139,6 @@ function partitionLabels(s: string): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -174,8 +164,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -200,8 +188,6 @@ var partitionLabels = function (s) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public IList<int> PartitionLabels(string s) {
@@ -223,10 +209,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

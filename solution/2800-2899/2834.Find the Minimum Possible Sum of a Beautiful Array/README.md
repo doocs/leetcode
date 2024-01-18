@@ -62,19 +62,13 @@ nums = [1,3,4] 是美丽数组。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 哈希表**
+### 方法一：贪心 + 哈希表
 
 我们从正整数 $i=1$ 开始，依次判断 $i$ 是否可以加入数组中，如果可以加入，则将 $i$ 加入数组中，累加到答案中，然后将 $target-i$ 置为已访问，表示 $target-i$ 不能加入数组中。循环直到数组长度为 $n$。
 
 时间复杂度 $O(n + target)$，空间复杂度 $O(n + target)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumPossibleSum(n int, target int) (ans int64) {
 	vis := make([]bool, n+target)
@@ -154,8 +140,6 @@ func minimumPossibleSum(n int, target int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumPossibleSum(n: number, target: number): number {
@@ -174,10 +158,6 @@ function minimumPossibleSum(n: number, target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

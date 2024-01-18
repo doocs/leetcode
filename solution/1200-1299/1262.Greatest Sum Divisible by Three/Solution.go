@@ -1,12 +1,13 @@
 func maxSumDivThree(nums []int) int {
+	n := len(nums)
 	const inf = 1 << 30
-	f := [3]int{0, -inf, -inf}
-	for _, x := range nums {
-		g := [3]int{}
-		for j := range f {
-			g[j] = max(f[j], f[(j-x%3+3)%3]+x)
+	f := make([][3]int, n+1)
+	f[0] = [3]int{0, -inf, -inf}
+	for i, x := range nums {
+		i++
+		for j := 0; j < 3; j++ {
+			f[i][j] = max(f[i-1][j], f[i-1][(j-x%3+3)%3]+x)
 		}
-		f = g
 	}
-	return f[0]
+	return f[n][0]
 }

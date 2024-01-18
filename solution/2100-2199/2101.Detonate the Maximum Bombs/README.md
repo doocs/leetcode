@@ -65,17 +65,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 枚举每个炸弹 k 作为起始引爆点，BFS 搜索能影响到的所有炸弹的数量，取其最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,10 +103,6 @@ class Solution:
             ans = max(ans, cnt)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -161,8 +151,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -203,8 +191,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumDetonation(bombs [][]int) int {
@@ -248,18 +234,6 @@ func maximumDetonation(bombs [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

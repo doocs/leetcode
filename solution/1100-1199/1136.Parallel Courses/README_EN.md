@@ -43,7 +43,7 @@ In the second semester, you can take course 3.
 
 ## Solutions
 
-**Solution 1: Topological Sorting**
+### Solution 1: Topological Sorting
 
 We can first build a graph $g$ to represent the prerequisite relationships between courses, and count the in-degree $indeg$ of each course.
 
@@ -52,8 +52,6 @@ Then we enqueue the courses with an in-degree of $0$ and start topological sorti
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of courses and the number of prerequisite relationships, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -77,8 +75,6 @@ class Solution:
                         q.append(j)
         return -1 if n else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSemesters(n int, relations [][]int) (ans int) {
 	g := make([][]int, n)
@@ -191,8 +183,6 @@ func minimumSemesters(n int, relations [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSemesters(n: number, relations: number[][]): number {
     const g = Array.from({ length: n }, () => []);
@@ -224,10 +214,6 @@ function minimumSemesters(n: number, relations: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

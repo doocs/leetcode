@@ -54,9 +54,9 @@ We need at least 3 flip operations to form target.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minFlips(target string) int {
 	ans := 0
@@ -118,16 +112,6 @@ func minFlips(target string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

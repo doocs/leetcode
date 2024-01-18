@@ -35,9 +35,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: String Hashing
 
-### **Python3**
+**String Hashing** is a method to map a string of any length to a non-negative integer, with the probability of collision being almost zero. String hashing is used to calculate the hash value of a string, which allows for quick determination of whether two strings are equal.
+
+We choose a fixed value BASE, and consider the string as a number in BASE radix, assigning a value greater than 0 to represent each character. Generally, the values we assign are much smaller than BASE. For example, for strings composed of lowercase letters, we can assign a=1, b=2, ..., z=26. We choose a fixed value MOD, and calculate the remainder of the BASE radix number divided by MOD, which is used as the hash value of the string.
+
+Generally, we choose BASE=131 or BASE=13331, at which point the probability of hash value collision is extremely low. As long as the hash values of two strings are the same, we consider the two strings to be equal. Usually, MOD is chosen as $2^{64}$. In C++, we can directly use the unsigned long long type to store this hash value. When calculating, we do not handle arithmetic overflow. When overflow occurs, it is equivalent to automatically taking the modulus of $2^{64}$, which can avoid inefficient modulus operations.
+
+Except for extremely specially constructed data, the above hash algorithm is unlikely to produce collisions. In general, the above hash algorithm can appear in the standard answers of the problem. We can also choose some appropriate values of BASE and MOD (such as large prime numbers), and perform several groups of hash operations. Only when the results are all the same do we consider the original strings to be equal, making it even more difficult to construct data that causes this hash to produce errors.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -47,8 +55,6 @@ class Solution:
                 return s[i:]
         return ''
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 typedef unsigned long long ULL;
 
@@ -107,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPrefix(s string) string {
 	base := 131
@@ -130,8 +132,6 @@ func longestPrefix(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function longestPrefix(s: string): string {
     const n = s.length;
@@ -143,8 +143,6 @@ function longestPrefix(s: string): string {
     return '';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -160,10 +158,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

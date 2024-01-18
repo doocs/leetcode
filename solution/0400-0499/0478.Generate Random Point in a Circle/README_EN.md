@@ -41,9 +41,9 @@ solution.randPoint(); // return [0.36572, 0.17248]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,19 +58,8 @@ class Solution:
         x = self.x_center + length * math.cos(degree)
         y = self.y_center + length * math.sin(degree)
         return [x, y]
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     bool validUtf8(vector<int>& data) {
         int n = 0;

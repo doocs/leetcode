@@ -58,9 +58,7 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 遍历字符串数组 $patterns$ 中的每个字符串 $p$，判断其是否为 $word$ 的子字符串，如果是，答案加一。
 
@@ -70,19 +68,11 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
         return sum(p in word for p in patterns)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numOfStrings(patterns []string, word string) (ans int) {
 	for _, p := range patterns {
@@ -125,8 +111,6 @@ func numOfStrings(patterns []string, word string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numOfStrings(patterns: string[], word: string): number {
@@ -140,10 +124,6 @@ function numOfStrings(patterns: string[], word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

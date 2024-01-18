@@ -51,9 +51,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                 mask |= 8
         return mask == 15
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func strongPasswordCheckerII(password string) bool {
 	if len(password) < 8 {
@@ -159,8 +153,6 @@ func strongPasswordCheckerII(password string) bool {
 	return mask == 15
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function strongPasswordCheckerII(password: string): boolean {
@@ -186,8 +178,6 @@ function strongPasswordCheckerII(password: string): boolean {
     return mask == 15;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -219,8 +209,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 bool strongPasswordCheckerII(char* password) {
     int n = strlen(password);
@@ -248,10 +236,6 @@ bool strongPasswordCheckerII(char* password) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

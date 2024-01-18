@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示第一次访问第 $i$ 号房间的日期编号，那么答案就是 $f[n - 1]$。
 
@@ -81,10 +79,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def firstDayBeenInAllRooms(self, nextVisit: List[int]) -> int:
@@ -95,10 +89,6 @@ class Solution:
             f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1) % mod
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstDayBeenInAllRooms(nextVisit []int) int {
 	n := len(nextVisit)
@@ -145,10 +131,6 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

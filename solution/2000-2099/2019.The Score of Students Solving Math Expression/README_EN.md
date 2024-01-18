@@ -69,9 +69,32 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Dynamic Programming (Interval DP)
 
-### **Python3**
+First, we design a function $cal(s)$ to calculate the result of a valid mathematical expression that only contains single-digit numbers. The correct answer is $x = cal(s)$.
+
+Let the length of the string $s$ be $n$, then the number of digits in $s$ is $m = \frac{n+1}{2}$.
+
+We define $f[i][j]$ as the possible values of the result calculated by selecting the digits from the $i$-th to the $j$-th in $s$ (index starts from $0$). Initially, $f[i][i]$ represents the selection of the $i$-th digit, and the result can only be this digit itself, i.e., $f[i][i] = \{s[i \times 2]\}$ (the $i$-th digit maps to the character at index $i \times 2$ in the string $s$).
+
+Next, we enumerate $i$ from large to small, and then enumerate $j$ from small to large. We need to find out the possible values of the results of the operation of all digits in the interval $[i, j]$. We enumerate the boundary point $k$ in the interval $[i, j]$, then $f[i][j]$ can be obtained from $f[i][k]$ and $f[k+1][j]$ through the operator $s[k \times 2 + 1]$. Therefore, we can get the following state transition equation:
+
+$$
+f[i][j] = \begin{cases}
+\{s[i \times 2]\}, & i = j \\
+\bigcup\limits_{k=i}^{j-1} \{f[i][k] \otimes f[k+1][j]\}, & i < j
+\end{cases}
+$$
+
+Where $\otimes$ represents the operator, i.e., $s[k \times 2 + 1]$.
+
+The possible values of the results of all digit operations in the string $s$ are $f[0][m-1]$.
+
+Finally, we count the answer. We use an array $cnt$ to count the number of times each answer appears in the answer array $answers$. If the answer is equal to $x$, then this student gets $5$ points, otherwise if the answer is in $f[0][m-1]$, then this student gets $2$ points. Traverse $cnt$ to count the answer.
+
+The time complexity is $O(n^3 \times M^2)$, and the space complexity is $O(n^2 \times M^2)$. Here, $M$ is the maximum possible value of the answer, and $n$ is the number of digits in the length of the string $s$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -109,8 +132,6 @@ class Solution:
                 ans += v << 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -172,8 +193,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -232,8 +251,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func scoreOfStudents(s string, answers []int) int {
 	n := len(s)
@@ -291,8 +308,6 @@ func cal(s string) int {
 	return res
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function scoreOfStudents(s: string, answers: number[]): number {
@@ -354,10 +369,6 @@ function scoreOfStudents(s: string, answers: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

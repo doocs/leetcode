@@ -58,7 +58,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Sorting**
+### Solution 1: Hash Table + Sorting
 
 First, we traverse the `phrases` list, storing the first and last words of each phrase in the array $ps$, where $ps[i][0]$ and $ps[i][1]$ represent the first and last words of the $i$th phrase, respectively.
 
@@ -69,8 +69,6 @@ Finally, we convert the hash table $s$ into an array and sort it to get the answ
 The time complexity is $O(n^2 \times m \times (\log n + \log m))$, and the space complexity is $O(n^2 \times m)$. Here, $n$ and $m$ represent the length of the `phrases` array and the average length of each phrase, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -87,8 +85,6 @@ class Solution:
                     ans.append(phrases[i] + phrases[j][len(ps[j][0]) :])
         return sorted(set(ans))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beforeAndAfterPuzzles(phrases []string) []string {
 	n := len(phrases)
@@ -173,8 +165,6 @@ func beforeAndAfterPuzzles(phrases []string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function beforeAndAfterPuzzles(phrases: string[]): string[] {
     const ps: string[][] = [];
@@ -195,10 +185,6 @@ function beforeAndAfterPuzzles(phrases: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

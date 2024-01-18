@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：最短路（Dijkstra 算法）**
+### 方法一：最短路（Dijkstra 算法）
 
 我们先不考虑边权为 $-1$ 的边，使用 Dijkstra 算法求出从 $source$ 到 $destination$ 的最短距离 $d$。
 
@@ -85,10 +83,6 @@
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是图中的点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -132,10 +126,6 @@ class Solution:
                 e[2] += target - d
         return edges if ok else []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -199,8 +189,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using ll = long long;
@@ -267,8 +255,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func modifiedGraphEdges(n int, edges [][]int, source int, destination int, target int) [][]int {
 	const inf int = 2e9
@@ -332,8 +318,6 @@ func modifiedGraphEdges(n int, edges [][]int, source int, destination int, targe
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function modifiedGraphEdges(
     n: number,
@@ -395,10 +379,6 @@ function modifiedGraphEdges(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

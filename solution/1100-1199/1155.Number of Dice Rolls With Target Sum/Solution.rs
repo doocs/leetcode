@@ -4,19 +4,17 @@ impl Solution {
         let n = n as usize;
         let k = k as usize;
         let target = target as usize;
-        let mut f = vec![0; target + 1];
-        f[0] = 1;
+        let mut f = vec![vec![0; target + 1]; n + 1];
+        f[0][0] = 1;
 
         for i in 1..=n {
-            let mut g = vec![0; target + 1];
-            for j in 1..=target {
+            for j in 1..=target.min(i * k) {
                 for h in 1..=j.min(k) {
-                    g[j] = (g[j] + f[j - h]) % _mod;
+                    f[i][j] = (f[i][j] + f[i - 1][j - h]) % _mod;
                 }
             }
-            f = g;
         }
 
-        f[target]
+        f[n][target]
     }
 }

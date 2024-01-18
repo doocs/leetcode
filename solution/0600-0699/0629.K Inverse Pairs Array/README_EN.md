@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,8 +52,6 @@ class Solution:
                 s[j] = (s[j - 1] + f[j - 1]) % mod
         return f[k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kInversePairs(n int, k int) int {
 	f := make([]int, k+1)
@@ -126,8 +120,6 @@ func kInversePairs(n int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kInversePairs(n: number, k: number): number {
     const f: number[] = new Array(k + 1).fill(0);
@@ -147,10 +139,6 @@ function kInversePairs(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

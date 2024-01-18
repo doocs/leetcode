@@ -49,9 +49,15 @@ Since both the maximal and minimal score are the same, we return 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Problem Transformation + Sorting
 
-### **Python3**
+We can transform the problem into: dividing the array `weights` into $k$ consecutive subarrays, that is, we need to find $k-1$ splitting points, each splitting point's cost is the sum of the elements on the left and right of the splitting point. The difference between the sum of the costs of the largest $k-1$ splitting points and the smallest $k-1$ splitting points is the answer.
+
+Therefore, we can process the array `weights` and transform it into an array `arr` of length $n-1$, where `arr[i] = weights[i] + weights[i+1]`. Then we sort the array `arr`, and finally calculate the difference between the sum of the costs of the largest $k-1$ splitting points and the smallest $k-1$ splitting points.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `weights`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +65,6 @@ class Solution:
         arr = sorted(a + b for a, b in pairwise(weights))
         return sum(arr[len(arr) - k + 1 :]) - sum(arr[: k - 1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -103,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func putMarbles(weights []int, k int) (ans int64) {
 	n := len(weights)
@@ -119,8 +119,6 @@ func putMarbles(weights []int, k int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function putMarbles(weights: number[], k: number): number {
@@ -138,10 +136,6 @@ function putMarbles(weights: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

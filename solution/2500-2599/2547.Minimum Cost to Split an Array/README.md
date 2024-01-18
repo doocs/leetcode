@@ -74,9 +74,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始拆分的最小代价。那么答案就是 $dfs(0)$。
 
@@ -87,13 +85,9 @@
 
 过程中，我们可以使用记忆化搜索，即使用一个数组 $f$ 记忆化函数 $dfs(i)$ 的返回值，避免重复计算。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -117,10 +111,6 @@ class Solution:
         n = len(nums)
         return dfs(0)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -160,8 +150,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -196,8 +184,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minCost(nums []int, k int) int {
 	n := len(nums)
@@ -229,8 +215,6 @@ func minCost(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minCost(nums: number[], k: number): number {
     const n = nums.length;
@@ -261,10 +245,6 @@ function minCost(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

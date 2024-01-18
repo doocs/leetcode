@@ -48,19 +48,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 双指针**
+### 方法一：贪心 + 双指针
 
 排序后，使用双指针分别指向数组首尾，每次取两个指针指向的元素之和与 `limit` 比较，如果小于等于 `limit`，则两个指针同时向中间移动一位，否则只移动右指针。累加答案即可。
 
 时间复杂度 $O(n\log n)$，其中 $n$ 为数组 `people` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -95,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numRescueBoats(people []int, limit int) int {
 	sort.Ints(people)
@@ -131,10 +117,6 @@ func numRescueBoats(people []int, limit int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -67,7 +67,7 @@ So, the answer is -1.
 
 ## Solutions
 
-**Solution 1: Case Discussion + Greedy**
+### Solution 1: Case Discussion + Greedy
 
 We can discuss two cases:
 
@@ -81,8 +81,6 @@ We denote the number of swaps in the two cases as $a$ and $b$, respectively. If 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -100,8 +98,6 @@ class Solution:
         a, b = f(nums1[-1], nums2[-1]), f(nums2[-1], nums1[-1])
         return -1 if a + b == -2 else min(a, b + 1)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -157,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -183,8 +175,6 @@ func minOperations(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minOperations(nums1: number[], nums2: number[]): number {
     const n = nums1.length;
@@ -207,10 +197,6 @@ function minOperations(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

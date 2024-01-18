@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Kruskal 算法（最小生成树）**
+### 方法一：Kruskal 算法（最小生成树）
 
 我们假设有一个水井编号为 $0$，那么我们可以将每个房子与水井 $0$ 之间的连通性看作是一条边，每条边的权值为该房子建造水井的成本。同时，我们将每个房子之间的连通性也看作是一条边，每条边的权值为铺设管道的成本。这样一来，我们就可以将本题转化成求一张无向图的最小生成树的问题。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O((m + n) \times \log (m + n))$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是 $pipes$ 数组和 $wells$ 数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,53 +98,6 @@ class Solution:
                     return ans
 ```
 
-```python
-class UnionFind:
-    __slots__ = ("p", "size")
-
-    def __init__(self, n):
-        self.p = list(range(n))
-        self.size = [1] * n
-
-    def find(self, x: int) -> int:
-        if self.p[x] != x:
-            self.p[x] = self.find(self.p[x])
-        return self.p[x]
-
-    def union(self, a: int, b: int) -> bool:
-        pa, pb = self.find(a), self.find(b)
-        if pa == pb:
-            return False
-        if self.size[pa] > self.size[pb]:
-            self.p[pb] = pa
-            self.size[pa] += self.size[pb]
-        else:
-            self.p[pa] = pb
-            self.size[pb] += self.size[pa]
-        return True
-
-
-class Solution:
-    def minCostToSupplyWater(
-        self, n: int, wells: List[int], pipes: List[List[int]]
-    ) -> int:
-        for i, w in enumerate(wells, 1):
-            pipes.append([0, i, w])
-        pipes.sort(key=lambda x: x[2])
-        uf = UnionFind(n + 1)
-        ans = 0
-        for a, b, c in pipes:
-            if uf.union(a, b):
-                ans += c
-                n -= 1
-                if n == 0:
-                    return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     private int[] p;
@@ -158,7 +105,7 @@ class Solution {
     public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
         int[][] nums = Arrays.copyOf(pipes, pipes.length + n);
         for (int i = 0; i < n; i++) {
-            nums[pipes.length + i] = new int[]{0, i + 1, wells[i]};
+            nums[pipes.length + i] = new int[] {0, i + 1, wells[i]};
         }
         Arrays.sort(nums, (a, b) -> a[2] - b[2]);
         p = new int[n + 1];
@@ -188,68 +135,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class UnionFind {
-    private int[] p;
-    private int[] size;
-
-    public UnionFind(int n) {
-        p = new int[n];
-        size = new int[n];
-        for (int i = 0; i < n; ++i) {
-            p[i] = i;
-            size[i] = 1;
-        }
-    }
-
-    public int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-
-    public boolean union(int a, int b) {
-        int pa = find(a), pb = find(b);
-        if (pa == pb) {
-            return false;
-        }
-        if (size[pa] > size[pb]) {
-            p[pb] = pa;
-            size[pa] += size[pb];
-        } else {
-            p[pa] = pb;
-            size[pb] += size[pa];
-        }
-        return true;
-    }
-}
-
-class Solution {
-    public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
-        int[][] nums = Arrays.copyOf(pipes, pipes.length + n);
-        for (int i = 0; i < n; i++) {
-            nums[pipes.length + i] = new int[] {0, i + 1, wells[i]};
-        }
-        Arrays.sort(nums, (a, b) -> a[2] - b[2]);
-        UnionFind uf = new UnionFind(n + 1);
-        int ans = 0;
-        for (var x : nums) {
-            int a = x[0], b = x[1], c = x[2];
-            if (uf.union(a, b)) {
-                ans += c;
-                if (--n == 0) {
-                    break;
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -286,67 +171,6 @@ public:
 };
 ```
 
-```cpp
-class UnionFind {
-public:
-    UnionFind(int n) {
-        p = vector<int>(n);
-        size = vector<int>(n, 1);
-        iota(p.begin(), p.end(), 0);
-    }
-
-    bool unite(int a, int b) {
-        int pa = find(a), pb = find(b);
-        if (pa == pb) {
-            return false;
-        }
-        if (size[pa] > size[pb]) {
-            p[pb] = pa;
-            size[pa] += size[pb];
-        } else {
-            p[pa] = pb;
-            size[pb] += size[pa];
-        }
-        return true;
-    }
-
-    int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-
-private:
-    vector<int> p, size;
-};
-
-class Solution {
-public:
-    int minCostToSupplyWater(int n, vector<int>& wells, vector<vector<int>>& pipes) {
-        for (int i = 0; i < n; ++i) {
-            pipes.push_back({0, i + 1, wells[i]});
-        }
-        sort(pipes.begin(), pipes.end(), [](const vector<int>& a, const vector<int>& b) {
-            return a[2] < b[2];
-        });
-        UnionFind uf(n + 1);
-        int ans = 0;
-        for (const auto& x : pipes) {
-            if (uf.unite(x[0], x[1])) {
-                ans += x[2];
-                if (--n == 0) {
-                    break;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	for i, w := range wells {
@@ -381,64 +205,6 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 }
 ```
 
-```go
-type unionFind struct {
-	p, size []int
-}
-
-func newUnionFind(n int) *unionFind {
-	p := make([]int, n)
-	size := make([]int, n)
-	for i := range p {
-		p[i] = i
-		size[i] = 1
-	}
-	return &unionFind{p, size}
-}
-
-func (uf *unionFind) find(x int) int {
-	if uf.p[x] != x {
-		uf.p[x] = uf.find(uf.p[x])
-	}
-	return uf.p[x]
-}
-
-func (uf *unionFind) union(a, b int) bool {
-	pa, pb := uf.find(a), uf.find(b)
-	if pa == pb {
-		return false
-	}
-	if uf.size[pa] > uf.size[pb] {
-		uf.p[pb] = pa
-		uf.size[pa] += uf.size[pb]
-	} else {
-		uf.p[pa] = pb
-		uf.size[pb] += uf.size[pa]
-	}
-	return true
-}
-
-func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
-	for i, w := range wells {
-		pipes = append(pipes, []int{0, i + 1, w})
-	}
-	sort.Slice(pipes, func(i, j int) bool { return pipes[i][2] < pipes[j][2] })
-	uf := newUnionFind(n + 1)
-	for _, x := range pipes {
-		if uf.union(x[0], x[1]) {
-			ans += x[2]
-			n--
-			if n == 0 {
-				break
-			}
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): number {
     for (let i = 0; i < n; ++i) {
@@ -470,63 +236,6 @@ function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): nu
     return ans;
 }
 ```
-
-```ts
-class UnionFind {
-    private p: number[];
-    private size: number[];
-
-    constructor(n: number) {
-        this.p = Array(n)
-            .fill(0)
-            .map((_, i) => i);
-        this.size = Array(n).fill(1);
-    }
-
-    find(x: number): number {
-        if (this.p[x] !== x) {
-            this.p[x] = this.find(this.p[x]);
-        }
-        return this.p[x];
-    }
-
-    union(a: number, b: number): boolean {
-        const pa = this.find(a);
-        const pb = this.find(b);
-        if (pa === pb) {
-            return false;
-        }
-        if (this.size[pa] > this.size[pb]) {
-            this.p[pb] = pa;
-            this.size[pa] += this.size[pb];
-        } else {
-            this.p[pa] = pb;
-            this.size[pb] += this.size[pa];
-        }
-        return true;
-    }
-}
-
-function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): number {
-    for (let i = 0; i < n; ++i) {
-        pipes.push([0, i + 1, wells[i]]);
-    }
-    pipes.sort((a, b) => a[2] - b[2]);
-    const uf = new UnionFind(n + 1);
-    let ans = 0;
-    for (const [a, b, c] of pipes) {
-        if (uf.union(a, b)) {
-            ans += c;
-            if (--n === 0) {
-                break;
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 struct UnionFind {
@@ -591,10 +300,285 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class UnionFind:
+    __slots__ = ("p", "size")
+
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
+
+    def find(self, x: int) -> int:
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a: int, b: int) -> bool:
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
+
+
+class Solution:
+    def minCostToSupplyWater(
+        self, n: int, wells: List[int], pipes: List[List[int]]
+    ) -> int:
+        for i, w in enumerate(wells, 1):
+            pipes.append([0, i, w])
+        pipes.sort(key=lambda x: x[2])
+        uf = UnionFind(n + 1)
+        ans = 0
+        for a, b, c in pipes:
+            if uf.union(a, b):
+                ans += c
+                n -= 1
+                if n == 0:
+                    return ans
 ```
 
+```java
+class UnionFind {
+    private int[] p;
+    private int[] size;
+
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public boolean union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+}
+
+class Solution {
+    public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
+        int[][] nums = Arrays.copyOf(pipes, pipes.length + n);
+        for (int i = 0; i < n; i++) {
+            nums[pipes.length + i] = new int[] {0, i + 1, wells[i]};
+        }
+        Arrays.sort(nums, (a, b) -> a[2] - b[2]);
+        UnionFind uf = new UnionFind(n + 1);
+        int ans = 0;
+        for (var x : nums) {
+            int a = x[0], b = x[1], c = x[2];
+            if (uf.union(a, b)) {
+                ans += c;
+                if (--n == 0) {
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class UnionFind {
+public:
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
+        iota(p.begin(), p.end(), 0);
+    }
+
+    bool unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+private:
+    vector<int> p, size;
+};
+
+class Solution {
+public:
+    int minCostToSupplyWater(int n, vector<int>& wells, vector<vector<int>>& pipes) {
+        for (int i = 0; i < n; ++i) {
+            pipes.push_back({0, i + 1, wells[i]});
+        }
+        sort(pipes.begin(), pipes.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[2] < b[2];
+        });
+        UnionFind uf(n + 1);
+        int ans = 0;
+        for (const auto& x : pipes) {
+            if (uf.unite(x[0], x[1])) {
+                ans += x[2];
+                if (--n == 0) {
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	return true
+}
+
+func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
+	for i, w := range wells {
+		pipes = append(pipes, []int{0, i + 1, w})
+	}
+	sort.Slice(pipes, func(i, j int) bool { return pipes[i][2] < pipes[j][2] })
+	uf := newUnionFind(n + 1)
+	for _, x := range pipes {
+		if uf.union(x[0], x[1]) {
+			ans += x[2]
+			n--
+			if n == 0 {
+				break
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+class UnionFind {
+    private p: number[];
+    private size: number[];
+
+    constructor(n: number) {
+        this.p = Array(n)
+            .fill(0)
+            .map((_, i) => i);
+        this.size = Array(n).fill(1);
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        const pa = this.find(a);
+        const pb = this.find(b);
+        if (pa === pb) {
+            return false;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): number {
+    for (let i = 0; i < n; ++i) {
+        pipes.push([0, i + 1, wells[i]]);
+    }
+    pipes.sort((a, b) => a[2] - b[2]);
+    const uf = new UnionFind(n + 1);
+    let ans = 0;
+    for (const [a, b, c] of pipes) {
+        if (uf.union(a, b)) {
+            ans += c;
+            if (--n === 0) {
+                break;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

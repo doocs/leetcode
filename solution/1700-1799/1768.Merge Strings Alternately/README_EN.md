@@ -52,17 +52,19 @@ merged: a p b q c   d
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Direct Simulation
 
-### **Python3**
+We traverse the two strings `word1` and `word2`, take out the characters one by one, and append them to the result string. The Python code can be simplified into one line.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two strings respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -98,8 +98,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mergeAlternately(word1 string, word2 string) string {
@@ -117,21 +115,21 @@ func mergeAlternately(word1 string, word2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mergeAlternately(word1: string, word2: string): string {
-    const res = [];
-    const n = Math.max(word1.length, word2.length);
-    for (let i = 0; i < n; i++) {
-        word1[i] && res.push(word1[i]);
-        word2[i] && res.push(word2[i]);
+    const ans: string[] = [];
+    const [m, n] = [word1.length, word2.length];
+    for (let i = 0; i < m || i < n; ++i) {
+        if (i < m) {
+            ans.push(word1[i]);
+        }
+        if (i < n) {
+            ans.push(word2[i]);
+        }
     }
-    return res.join('');
+    return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -152,8 +150,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 char* mergeAlternately(char* word1, char* word2) {
@@ -177,10 +173,6 @@ char* mergeAlternately(char* word1, char* word2) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

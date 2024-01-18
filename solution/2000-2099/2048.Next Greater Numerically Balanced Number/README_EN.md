@@ -54,15 +54,13 @@ It is also the smallest numerically balanced number strictly greater than 3000.
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We note that the range of $n$ in the problem is $[0, 10^6]$, and one of the balanced numbers greater than $10^6$ is $1224444$. Therefore, we directly enumerate $x \in [n + 1, ..]$ and then judge whether $x$ is a balanced number. The enumerated $x$ will definitely not exceed $1224444$.
 
 The time complexity is $O(M - n)$, where $M = 1224444$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
             if all(v == 0 or i == v for i, v in enumerate(cnt)):
                 return x
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nextBeautifulNumber(n int) int {
 	for x := n + 1; ; x++ {
@@ -150,8 +142,6 @@ func nextBeautifulNumber(n int) int {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function nextBeautifulNumber(n: number): number {
@@ -174,10 +164,6 @@ function nextBeautifulNumber(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -5,7 +5,6 @@ function* cycleGenerator(arr: number[], startIndex: number): Generator<number, v
         startIndex = (((startIndex + jump) % n) + n) % n;
     }
 }
-
 /**
  *  const gen = cycleGenerator([1,2,3,4,5], 0);
  *  gen.next().value  // 1

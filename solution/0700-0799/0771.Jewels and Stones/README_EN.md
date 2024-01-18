@@ -27,9 +27,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -37,8 +37,6 @@ class Solution:
         s = set(jewels)
         return sum(c in s for c in stones)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -56,8 +54,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -70,8 +66,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numJewelsInStones(jewels string, stones string) (ans int) {
@@ -86,22 +80,6 @@ func numJewelsInStones(jewels string, stones string) (ans int) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} jewels
- * @param {string} stones
- * @return {number}
- */
-var numJewelsInStones = function (jewels, stones) {
-    const s = new Set(jewels.split(''));
-    return stones.split('').reduce((prev, val) => prev + s.has(val), 0);
-};
-```
-
-### **TypeScript**
-
 ```ts
 function numJewelsInStones(jewels: string, stones: string): number {
     const s = new Set([...jewels]);
@@ -112,8 +90,6 @@ function numJewelsInStones(jewels: string, stones: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -131,7 +107,17 @@ impl Solution {
 }
 ```
 
-### **C**
+```js
+/**
+ * @param {string} jewels
+ * @param {string} stones
+ * @return {number}
+ */
+var numJewelsInStones = function (jewels, stones) {
+    const s = new Set(jewels.split(''));
+    return stones.split('').reduce((prev, val) => prev + s.has(val), 0);
+};
+```
 
 ```c
 int numJewelsInStones(char* jewels, char* stones) {
@@ -147,10 +133,6 @@ int numJewelsInStones(char* jewels, char* stones) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找**
+### 方法一：排序 + 二分查找
 
 我们先按照题目描述，实现函数 $f(s)$，函数返回字符串 $s$ 中按字典序比较最小字母的出现频次。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O((n + q) \times M)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是数组 $words$ 和 $queries$ 的长度，而 $M$ 是字符串的最大长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
         nums = sorted(f(w) for w in words)
         return [n - bisect_right(nums, f(q)) for q in queries]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSmallerByFrequency(queries []string, words []string) (ans []int) {
 	f := func(s string) int {
@@ -184,8 +170,6 @@ func numSmallerByFrequency(queries []string, words []string) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numSmallerByFrequency(queries: string[], words: string[]): number[] {
@@ -216,10 +200,6 @@ function numSmallerByFrequency(queries: string[], words: string[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

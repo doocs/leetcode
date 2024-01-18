@@ -45,13 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -76,10 +72,6 @@ class Solution:
                 stk.append(child)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -122,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /*
 // Definition for a Node.
@@ -164,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a Node.
@@ -193,8 +181,6 @@ func preorder(root *Node) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -226,37 +212,6 @@ function preorder(root: Node | null): number[] {
     return res;
 }
 ```
-
-```ts
-/**
- * Definition for node.
- * class Node {
- *     val: number
- *     children: Node[]
- *     constructor(val?: number) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.children = []
- *     }
- * }
- */
-
-function preorder(root: Node | null): number[] {
-    const ans = [];
-    const dfs = (root: Node | null) => {
-        if (root == null) {
-            return;
-        }
-        ans.push(root.val);
-        for (const node of root.children) {
-            dfs(node);
-        }
-    };
-    dfs(root);
-    return ans;
-}
-```
-
-### **C**
 
 ```c
 /**
@@ -290,10 +245,41 @@ int* preorder(struct Node* root, int* returnSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const ans = [];
+    const dfs = (root: Node | null) => {
+        if (root == null) {
+            return;
+        }
+        ans.push(root.val);
+        for (const node of root.children) {
+            dfs(node);
+        }
+    };
+    dfs(root);
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

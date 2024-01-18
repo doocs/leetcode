@@ -45,9 +45,9 @@ The data types of the column grade is converted to int.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -58,10 +58,6 @@ def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
     return students
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

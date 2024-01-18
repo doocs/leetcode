@@ -76,13 +76,11 @@ Department table:
 
 ## Solutions
 
-**Solution 1: Left Join + Grouping**
+### Solution 1: Left Join + Grouping
 
 We can use a left join to join the `Department` table and the `Student` table on `dept_id`, and then group by `dept_id` to count the number of students in each department. Finally, we can sort the result by `student_number` in descending order and `dept_name` in ascending order.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -95,3 +93,5 @@ ORDER BY 2 DESC, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 利用哈希表 cnt 统计字符串 s 中每个字符出现的次数。
 
@@ -47,26 +45,7 @@
 
 否则，按字符出现频率从大到小遍历，依次间隔 1 个位置填充字符。若位置大于等于 n，则重置为 1 继续填充。
 
-**方法二：贪心 + 哈希表 + 优先队列（大根堆）**
-
-先用哈希表 `cnt` 统计每个字母出现的次数，然后构建一个大根堆 `pq`，其中每个元素是一个 `(v, c)` 的元组，其中 `c` 是字母，`v` 是字母出现的次数。
-
-重排字符串时，我们每次从堆顶弹出一个元素 `(v, c)`，将 `c` 添加到结果字符串中，并将 `(v-1, c)` 放入队列 `q` 中。当队列 `q` 的长度达到 $k$ （本题中 $k$ 为 2）及以上时，弹出队首元素，若此时 `v` 大于 0，则将队首元素放入堆中。循环，直至堆为空。
-
-最后判断结果字符串的长度，若与 `s` 长度相等，则返回结果字符串，否则返回空串。
-
-时间复杂度 $O(n\log n)$，其中 $n$ 是字符串 `s` 的长度。
-
-相似题目：
-
--   [358. K 距离间隔重排字符串](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md)
--   [1054. 距离相等的条形码](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,32 +66,6 @@ class Solution:
                     i = 1
         return ''.join(ans)
 ```
-
-```python
-class Solution:
-    def reorganizeString(self, s: str) -> str:
-        return self.rearrangeString(s, 2)
-
-    def rearrangeString(self, s: str, k: int) -> str:
-        h = [(-v, c) for c, v in Counter(s).items()]
-        heapify(h)
-        q = deque()
-        ans = []
-        while h:
-            v, c = heappop(h)
-            v *= -1
-            ans.append(c)
-            q.append((v - 1, c))
-            if len(q) >= k:
-                w, c = q.popleft()
-                if w:
-                    heappush(h, (-w, c))
-        return "" if len(ans) != len(s) else "".join(ans)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -159,45 +112,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String reorganizeString(String s) {
-        return rearrangeString(s, 2);
-    }
-
-    public String rearrangeString(String s, int k) {
-        int n = s.length();
-        int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt[c - 'a'];
-        }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
-        for (int i = 0; i < 26; ++i) {
-            if (cnt[i] > 0) {
-                pq.offer(new int[] {cnt[i], i});
-            }
-        }
-        Deque<int[]> q = new ArrayDeque<>();
-        StringBuilder ans = new StringBuilder();
-        while (!pq.isEmpty()) {
-            var p = pq.poll();
-            int v = p[0], c = p[1];
-            ans.append((char) ('a' + c));
-            q.offer(new int[] {v - 1, c});
-            if (q.size() >= k) {
-                p = q.pollFirst();
-                if (p[0] > 0) {
-                    pq.offer(p);
-                }
-            }
-        }
-        return ans.length() == n ? ans.toString() : "";
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -228,39 +142,43 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    string reorganizeString(string s) {
-        return rearrangeString(s, 2);
-    }
-
-    string rearrangeString(string s, int k) {
-        unordered_map<char, int> cnt;
-        for (char c : s) ++cnt[c];
-        priority_queue<pair<int, char>> pq;
-        for (auto& [c, v] : cnt) pq.push({v, c});
-        queue<pair<int, char>> q;
-        string ans;
-        while (!pq.empty()) {
-            auto [v, c] = pq.top();
-            pq.pop();
-            ans += c;
-            q.push({v - 1, c});
-            if (q.size() >= k) {
-                auto p = q.front();
-                q.pop();
-                if (p.first) {
-                    pq.push(p);
-                }
-            }
-        }
-        return ans.size() == s.size() ? ans : "";
-    }
-};
+```go
+func reorganizeString(s string) string {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		t := c - 'a'
+		cnt[t]++
+	}
+	mx := slices.Max(cnt)
+	n := len(s)
+	if mx > (n+1)/2 {
+		return ""
+	}
+	m := [][]int{}
+	for i, v := range cnt {
+		if v > 0 {
+			m = append(m, []int{v, i})
+		}
+	}
+	sort.Slice(m, func(i, j int) bool {
+		return m[i][0] > m[j][0]
+	})
+	ans := make([]byte, n)
+	k := 0
+	for _, e := range m {
+		v, i := e[0], e[1]
+		for v > 0 {
+			ans[k] = byte('a' + i)
+			k += 2
+			if k >= n {
+				k = 1
+			}
+			v--
+		}
+	}
+	return string(ans)
+}
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::{ HashMap, BinaryHeap, VecDeque };
@@ -313,44 +231,114 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
 
-```go
-func reorganizeString(s string) string {
-	cnt := make([]int, 26)
-	for _, c := range s {
-		t := c - 'a'
-		cnt[t]++
-	}
-	mx := slices.Max(cnt)
-	n := len(s)
-	if mx > (n+1)/2 {
-		return ""
-	}
-	m := [][]int{}
-	for i, v := range cnt {
-		if v > 0 {
-			m = append(m, []int{v, i})
-		}
-	}
-	sort.Slice(m, func(i, j int) bool {
-		return m[i][0] > m[j][0]
-	})
-	ans := make([]byte, n)
-	k := 0
-	for _, e := range m {
-		v, i := e[0], e[1]
-		for v > 0 {
-			ans[k] = byte('a' + i)
-			k += 2
-			if k >= n {
-				k = 1
-			}
-			v--
-		}
-	}
-	return string(ans)
+### 方法二：贪心 + 哈希表 + 优先队列（大根堆）
+
+先用哈希表 `cnt` 统计每个字母出现的次数，然后构建一个大根堆 `pq`，其中每个元素是一个 `(v, c)` 的元组，其中 `c` 是字母，`v` 是字母出现的次数。
+
+重排字符串时，我们每次从堆顶弹出一个元素 `(v, c)`，将 `c` 添加到结果字符串中，并将 `(v-1, c)` 放入队列 `q` 中。当队列 `q` 的长度达到 $k$ （本题中 $k$ 为 2）及以上时，弹出队首元素，若此时 `v` 大于 0，则将队首元素放入堆中。循环，直至堆为空。
+
+最后判断结果字符串的长度，若与 `s` 长度相等，则返回结果字符串，否则返回空串。
+
+时间复杂度 $O(n\log n)$，其中 $n$ 是字符串 `s` 的长度。
+
+相似题目：
+
+-   [358. K 距离间隔重排字符串](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md)
+-   [1054. 距离相等的条形码](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reorganizeString(self, s: str) -> str:
+        return self.rearrangeString(s, 2)
+
+    def rearrangeString(self, s: str, k: int) -> str:
+        h = [(-v, c) for c, v in Counter(s).items()]
+        heapify(h)
+        q = deque()
+        ans = []
+        while h:
+            v, c = heappop(h)
+            v *= -1
+            ans.append(c)
+            q.append((v - 1, c))
+            if len(q) >= k:
+                w, c = q.popleft()
+                if w:
+                    heappush(h, (-w, c))
+        return "" if len(ans) != len(s) else "".join(ans)
+```
+
+```java
+class Solution {
+    public String reorganizeString(String s) {
+        return rearrangeString(s, 2);
+    }
+
+    public String rearrangeString(String s, int k) {
+        int n = s.length();
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0) {
+                pq.offer(new int[] {cnt[i], i});
+            }
+        }
+        Deque<int[]> q = new ArrayDeque<>();
+        StringBuilder ans = new StringBuilder();
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int v = p[0], c = p[1];
+            ans.append((char) ('a' + c));
+            q.offer(new int[] {v - 1, c});
+            if (q.size() >= k) {
+                p = q.pollFirst();
+                if (p[0] > 0) {
+                    pq.offer(p);
+                }
+            }
+        }
+        return ans.length() == n ? ans.toString() : "";
+    }
 }
+```
+
+```cpp
+class Solution {
+public:
+    string reorganizeString(string s) {
+        return rearrangeString(s, 2);
+    }
+
+    string rearrangeString(string s, int k) {
+        unordered_map<char, int> cnt;
+        for (char c : s) ++cnt[c];
+        priority_queue<pair<int, char>> pq;
+        for (auto& [c, v] : cnt) pq.push({v, c});
+        queue<pair<int, char>> q;
+        string ans;
+        while (!pq.empty()) {
+            auto [v, c] = pq.top();
+            pq.pop();
+            ans += c;
+            q.push({v - 1, c});
+            if (q.size() >= k) {
+                auto p = q.front();
+                q.pop();
+                if (p.first) {
+                    pq.push(p);
+                }
+            }
+        }
+        return ans.size() == s.size() ? ans : "";
+    }
+};
 ```
 
 ```go
@@ -405,10 +393,6 @@ func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

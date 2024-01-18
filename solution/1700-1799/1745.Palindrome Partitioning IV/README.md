@@ -39,19 +39,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 枚举**
+### 方法一：预处理 + 枚举
 
 预处理出字符串 `s` 的所有子串是否为回文串，然后枚举 `s` 的所有分割点，判断是否满足条件。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 `s` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkPartitioning(s string) bool {
@@ -150,10 +136,6 @@ func checkPartitioning(s string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

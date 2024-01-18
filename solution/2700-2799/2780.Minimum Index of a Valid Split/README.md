@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表统计每个元素出现的次数，然后找出出现次数最多的元素 $x$，即为支配元素。要使得分割后的两个数组中都有支配元素，且支配元素相同，那么支配元素一定是 $x$。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                     return i - 1
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumIndex(nums []int) int {
 	x, cnt := 0, 0
@@ -176,8 +162,6 @@ func minimumIndex(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumIndex(nums: number[]): number {
     let [x, cnt] = [0, 0];
@@ -201,10 +185,6 @@ function minimumIndex(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

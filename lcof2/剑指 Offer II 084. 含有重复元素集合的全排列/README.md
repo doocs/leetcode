@@ -40,15 +40,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-排序 + 深度优先搜索。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
         dfs(0)
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func permuteUnique(nums []int) [][]int {
@@ -174,10 +160,47 @@ func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
 }
 ```
 
-### **...**
+```cs
+using System.Collections.Generic;
+using System.Linq;
 
-```
+public class Solution {
+    public IList<IList<int>> PermuteUnique(int[] nums) {
+        var results = new List<IList<int>>();
+        var temp = new List<int>();
+        var count = nums.GroupBy(n => n).ToDictionary(g => g.Key, g => g.Count());
+        Search(count, temp, results);
+        return results;
+    }
 
+    private void Search(Dictionary<int, int> count, IList<int> temp, IList<IList<int>> results)
+    {
+        if (!count.Any() && temp.Any())
+        {
+            results.Add(new List<int>(temp));
+            return;
+        }
+        var keys = count.Keys.ToList();
+        foreach (var key in keys)
+        {
+            temp.Add(key);
+            --count[key];
+            if (count[key] == 0) count.Remove(key);
+            Search(count, temp, results);
+            temp.RemoveAt(temp.Count - 1);
+            if (count.ContainsKey(key))
+            {
+                ++count[key];
+            }
+            else
+            {
+                count[key] = 1;
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前后缀预处理 + 二分查找**
+### 方法一：前后缀预处理 + 二分查找
 
 根据题目我们知道，删除字符的下标范围是 `[left, right]`，最优的做法一定是删除 `[left, right]` 范围内的所有字符。也就是说，我们要删除字符串 $t$ 中的一个子串，使得字符串 $t$ 的剩余前缀可以匹配字符串 $s$ 的前缀，字符串 $t$ 的剩余后缀可以匹配字符串 $s$ 的后缀，且字符串 $s$ 的前后缀不相交。注意，这里的匹配指的是子序列匹配。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $t$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
 
         return bisect_left(range(n + 1), True, key=check)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -165,8 +155,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -213,8 +201,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumScore(s string, t string) int {
 	m, n := len(s), len(t)
@@ -255,10 +241,6 @@ func minimumScore(s string, t string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

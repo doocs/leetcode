@@ -21,7 +21,7 @@
 
 ## 解法
 
-**方法一：模拟**
+### 方法一：模拟
 
 直接根据题意模拟即可。
 
@@ -30,8 +30,6 @@
 如果 $n$ 的值比较大，那么直接使用整数会溢出，因此可以使用字符串来模拟，参考以下代码中的 `print()` 函数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -56,8 +54,6 @@ class Solution:
             dfs(0, i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func printNumbers(n int) []int {
@@ -167,8 +159,6 @@ func print(n int) []string {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number} n
@@ -183,8 +173,6 @@ var printNumbers = function (n) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int[] PrintNumbers(int n) {
@@ -198,10 +186,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

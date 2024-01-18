@@ -72,7 +72,7 @@ boundFunc(); // "My name is Kathy"
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>obj 是一个非空对象</code></li>
+	<li><code>obj</code> 是一个非空对象</li>
 	<li><code>0 &lt;= inputs.length &lt;= 100</code></li>
 </ul>
 
@@ -81,13 +81,9 @@ boundFunc(); // "My name is Kathy"
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 type Fn = (...args) => any;
@@ -106,3 +102,5 @@ Function.prototype.bindPolyfill = function (obj) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

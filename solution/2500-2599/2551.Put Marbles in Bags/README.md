@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：问题转化 + 排序**
+### 方法一：问题转化 + 排序
 
 我们可以将问题转化为：将数组 `weights` 分成 $k$ 个连续的子数组，也就是说，我们要找到 $k-1$ 个分割点，每个分割点的价格是分割点左右两个元素的和，求最大的 $k-1$ 个分割点的价格之和与最小的 $k-1$ 个分割点的价格之和的差值，即为答案。
 
@@ -63,20 +61,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def putMarbles(self, weights: List[int], k: int) -> int:
         arr = sorted(a + b for a, b in pairwise(weights))
         return sum(arr[len(arr) - k + 1 :]) - sum(arr[: k - 1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func putMarbles(weights []int, k int) (ans int64) {
 	n := len(weights)
@@ -135,8 +121,6 @@ func putMarbles(weights []int, k int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function putMarbles(weights: number[], k: number): number {
@@ -154,10 +138,6 @@ function putMarbles(weights: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

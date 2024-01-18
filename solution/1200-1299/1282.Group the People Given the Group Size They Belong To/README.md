@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表或数组**
+### 方法一：哈希表或数组
 
 我们用一个哈希表 $g$ 来存放每个 $groupSize$ 都有哪些人。然后对每个 $groupSize$ 中的人划分为 $k$ 等份，每一等份有 $groupSize$ 个人。
 
@@ -59,10 +57,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
@@ -71,27 +65,6 @@ class Solution:
             g[v].append(i)
         return [v[j : j + i] for i, v in g.items() for j in range(0, len(v), i)]
 ```
-
-```python
-class Solution:
-    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
-        g = defaultdict(list)
-        for i, x in enumerate(groupSizes):
-            g[x].append(i)
-        ans = []
-        for x, idx in g.items():
-            t = []
-            for i in idx:
-                t.append(i)
-                if len(t) == x:
-                    ans.append(t)
-                    t = []
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func groupThePeople(groupSizes []int) [][]int {
 	n := len(groupSizes)
@@ -153,8 +122,6 @@ func groupThePeople(groupSizes []int) [][]int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function groupThePeople(groupSizes: number[]): number[][] {
@@ -174,8 +141,6 @@ function groupThePeople(groupSizes: number[]): number[][] {
 }
 ```
 
-### **Rust**
-
 ```rust
 use std::collections::HashMap;
 impl Solution {
@@ -194,6 +159,29 @@ impl Solution {
         res
     }
 }
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
+        g = defaultdict(list)
+        for i, x in enumerate(groupSizes):
+            g[x].append(i)
+        ans = []
+        for x, idx in g.items():
+            t = []
+            for i in idx:
+                t.append(i)
+                if len(t) == x:
+                    ans.append(t)
+                    t = []
+        return ans
 ```
 
 ```rust
@@ -217,10 +205,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

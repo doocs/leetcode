@@ -32,15 +32,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二维数组解决；也可以使用一维数组，以下标 `0,3,6,..`、`1,4,7,..`、`2,5,8,..` 区分，一维数组最后三个元素记录每个栈的元素个数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class TripleInOne:
@@ -69,10 +63,6 @@ class TripleInOne:
 # param_3 = obj.peek(stackNum)
 # param_4 = obj.isEmpty(stackNum)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class TripleInOne {
@@ -117,8 +107,6 @@ class TripleInOne {
  * boolean param_4 = obj.isEmpty(stackNum);
  */
 ```
-
-### **Go**
 
 ```go
 type TripleInOne struct {
@@ -180,10 +168,6 @@ func (this *TripleInOne) IsEmpty(stackNum int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

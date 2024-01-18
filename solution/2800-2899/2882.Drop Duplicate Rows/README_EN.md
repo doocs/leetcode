@@ -51,9 +51,9 @@ Alic (customer_id = 4) and Finn (customer_id = 5) both use john@example.com, so 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -63,10 +63,6 @@ def dropDuplicateEmails(customers: pd.DataFrame) -> pd.DataFrame:
     return customers.drop_duplicates(subset=['email'])
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

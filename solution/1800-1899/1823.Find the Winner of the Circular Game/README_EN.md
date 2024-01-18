@@ -57,9 +57,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
         ans = (k + self.findTheWinner(n - 1, k)) % n
         return n if ans == 0 else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findTheWinner(n int, k int) int {
@@ -111,8 +105,6 @@ func findTheWinner(n int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class LinkNode {
@@ -152,10 +144,6 @@ function findTheWinner(n: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

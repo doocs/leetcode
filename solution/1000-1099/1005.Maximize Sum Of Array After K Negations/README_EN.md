@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
                     break
         return sum(x * v for x, v in cnt.items())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +142,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestSumAfterKNegations(nums []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -177,8 +171,6 @@ func largestSumAfterKNegations(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestSumAfterKNegations(nums: number[], k: number): number {
@@ -211,10 +203,6 @@ function largestSumAfterKNegations(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

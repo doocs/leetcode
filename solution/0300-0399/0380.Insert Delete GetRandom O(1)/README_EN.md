@@ -47,7 +47,7 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 ## Solutions
 
-**Solution 1: Hash Table + Dynamic List**
+### Solution 1: Hash Table + Dynamic List
 
 We define a dynamic list $q$ to store the elements in the set, and a hash table $d$ to store the index of each element in $q$.
 
@@ -60,8 +60,6 @@ When getting a random element, we can randomly select an element from the dynami
 Time complexity $O(1)$, space complexity $O(n)$, where $n$ is the number of elements in the set.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class RandomizedSet:
@@ -96,8 +94,6 @@ class RandomizedSet:
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
 ```
-
-### **Java**
 
 ```java
 class RandomizedSet {
@@ -142,8 +138,6 @@ class RandomizedSet {
  * int param_3 = obj.getRandom();
  */
 ```
-
-### **C++**
 
 ```cpp
 class RandomizedSet {
@@ -190,8 +184,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type RandomizedSet struct {
 	d map[int]int
@@ -236,8 +228,6 @@ func (this *RandomizedSet) GetRandom() int {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class RandomizedSet {
     private d: Map<number, number> = new Map();
@@ -280,8 +270,6 @@ class RandomizedSet {
  */
 ```
 
-### **Rust**
-
 ```rust
 use std::collections::HashSet;
 use rand::Rng;
@@ -321,8 +309,6 @@ impl RandomizedSet {
  * let ret_3: i32 = obj.get_random();
  */
 ```
-
-### **C#**
 
 ```cs
 public class RandomizedSet {
@@ -368,10 +354,6 @@ public class RandomizedSet {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

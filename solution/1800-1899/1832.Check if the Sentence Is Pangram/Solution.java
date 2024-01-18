@@ -1,9 +1,14 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        int mask = 0;
+        boolean[] vis = new boolean[26];
         for (int i = 0; i < sentence.length(); ++i) {
-            mask |= 1 << (sentence.charAt(i) - 'a');
+            vis[sentence.charAt(i) - 'a'] = true;
         }
-        return mask == (1 << 26) - 1;
+        for (boolean v : vis) {
+            if (!v) {
+                return false;
+            }
+        }
+        return true;
     }
 }

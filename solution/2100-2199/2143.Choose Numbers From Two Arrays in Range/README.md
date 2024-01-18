@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示以第 $i$ 个元素结尾，且从 $nums1$ 中选取的数字和与从 $nums2$ 中选取的数字和之差为 $j$ 的平衡区间的个数。由于差值可能为负数，因此，我们统一将 $j$ 加上 $s_2 = \sum_{k=0}^{n-1}nums2[k]$，这样就可以保证 $j$ 为非负整数。
 
@@ -84,10 +82,6 @@
 时间复杂度 $O(n \times M)$，空间复杂度 $O(n \times M)$。其中 $n$ 和 $M$ 分别为数组 $nums1$ 的长度以及数字和的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,10 +103,6 @@ class Solution:
             ans = (ans + f[i][s2]) % mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -177,8 +165,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countSubranges(nums1 []int, nums2 []int) (ans int) {
@@ -216,8 +202,6 @@ func sum(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSubranges(nums1: number[], nums2: number[]): number {
     const n = nums1.length;
@@ -248,10 +232,6 @@ function countSubranges(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

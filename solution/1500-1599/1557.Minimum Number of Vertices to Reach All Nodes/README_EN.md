@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
         cnt = Counter(t for _, t in edges)
         return [i for i in range(n) if cnt[i] == 0]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSmallestSetOfVertices(n int, edges [][]int) (ans []int) {
 	cnt := make([]int, n)
@@ -111,8 +105,6 @@ func findSmallestSetOfVertices(n int, edges [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findSmallestSetOfVertices(n: number, edges: number[][]): number[] {
@@ -130,8 +122,6 @@ function findSmallestSetOfVertices(n: number, edges: number[][]): number[] {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn find_smallest_set_of_vertices(n: i32, edges: Vec<Vec<i32>>) -> Vec<i32> {
@@ -147,10 +137,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

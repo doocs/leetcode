@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 遍历价格数组 `prices`，先将每个价格 $p$ 向下舍入，累加到 `mi` 中，同时将每个价格的小数点部分添加到数组 `arr` 中。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(n\log n)$。其中 $n$ 为 `prices` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
         ans = d - sum(arr[:d]) + sum(arr[d:])
         return f'{ans:.3f}'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizeError(prices []string, target int) string {
 	arr := []float64{}
@@ -183,10 +169,6 @@ func minimizeError(prices []string, target int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Flood fill 算法**
+### 方法一：Flood fill 算法
 
 Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻区域区分开（或分别染成不同颜色）的经典算法。因为其思路类似洪水从一个区域扩散到所有能到达的区域而得名。
 
@@ -60,12 +58,6 @@ Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-DFS：
 
 ```python
 class Solution:
@@ -90,35 +82,6 @@ class Solution:
         dfs(sr, sc)
         return image
 ```
-
-BFS：
-
-```python
-class Solution:
-    def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, color: int
-    ) -> List[List[int]]:
-        if image[sr][sc] == color:
-            return image
-        q = deque([(sr, sc)])
-        oc = image[sr][sc]
-        image[sr][sc] = color
-        dirs = (-1, 0, 1, 0, -1)
-        while q:
-            i, j = q.popleft()
-            for a, b in pairwise(dirs):
-                x, y = i + a, j + b
-                if 0 <= x < len(image) and 0 <= y < len(image[0]) and image[x][y] == oc:
-                    q.append((x, y))
-                    image[x][y] = color
-        return image
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-DFS：
 
 ```java
 class Solution {
@@ -148,7 +111,128 @@ class Solution {
 }
 ```
 
-BFS：
+```cpp
+class Solution {
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        int m = image.size(), n = image[0].size();
+        int oc = image[sr][sc];
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<void(int, int)> dfs = [&](int i, int j) {
+            if (i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == color) {
+                return;
+            }
+            image[i][j] = color;
+            for (int k = 0; k < 4; ++k) {
+                dfs(i + dirs[k], j + dirs[k + 1]);
+            }
+        };
+        dfs(sr, sc);
+        return image;
+    }
+};
+```
+
+```go
+func floodFill(image [][]int, sr int, sc int, color int) [][]int {
+	oc := image[sr][sc]
+	m, n := len(image), len(image[0])
+	dirs := []int{-1, 0, 1, 0, -1}
+	var dfs func(i, j int)
+	dfs = func(i, j int) {
+		if i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == color {
+			return
+		}
+		image[i][j] = color
+		for k := 0; k < 4; k++ {
+			dfs(i+dirs[k], j+dirs[k+1])
+		}
+	}
+	dfs(sr, sc)
+	return image
+}
+```
+
+```ts
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
+    const m = image.length;
+    const n = image[0].length;
+    const target = image[sr][sc];
+    const dfs = (i: number, j: number) => {
+        if (
+            i < 0 ||
+            i === m ||
+            j < 0 ||
+            j === n ||
+            image[i][j] !== target ||
+            image[i][j] === newColor
+        ) {
+            return;
+        }
+        image[i][j] = newColor;
+        dfs(i + 1, j);
+        dfs(i - 1, j);
+        dfs(i, j + 1);
+        dfs(i, j - 1);
+    };
+    dfs(sr, sc);
+    return image;
+}
+```
+
+```rust
+impl Solution {
+    fn dfs(image: &mut Vec<Vec<i32>>, sr: i32, sc: i32, new_color: i32, target: i32) {
+        if sr < 0 || sr == (image.len() as i32) || sc < 0 || sc == (image[0].len() as i32) {
+            return;
+        }
+        let sr = sr as usize;
+        let sc = sc as usize;
+        if sr < 0 || image[sr][sc] == new_color || image[sr][sc] != target {
+            return;
+        }
+        image[sr][sc] = new_color;
+        let sr = sr as i32;
+        let sc = sc as i32;
+        Self::dfs(image, sr + 1, sc, new_color, target);
+        Self::dfs(image, sr - 1, sc, new_color, target);
+        Self::dfs(image, sr, sc + 1, new_color, target);
+        Self::dfs(image, sr, sc - 1, new_color, target);
+    }
+    pub fn flood_fill(image: Vec<Vec<i32>>, sr: i32, sc: i32, new_color: i32) -> Vec<Vec<i32>> {
+        let target = image[sr as usize][sc as usize];
+        Self::dfs(&mut image, sr, sc, new_color, target);
+        image
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def floodFill(
+        self, image: List[List[int]], sr: int, sc: int, color: int
+    ) -> List[List[int]]:
+        if image[sr][sc] == color:
+            return image
+        q = deque([(sr, sc)])
+        oc = image[sr][sc]
+        image[sr][sc] = color
+        dirs = (-1, 0, 1, 0, -1)
+        while q:
+            i, j = q.popleft()
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < len(image) and 0 <= y < len(image[0]) and image[x][y] == oc:
+                    q.append((x, y))
+                    image[x][y] = color
+        return image
+```
 
 ```java
 class Solution {
@@ -178,34 +262,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-DFS：
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
-        int m = image.size(), n = image[0].size();
-        int oc = image[sr][sc];
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> dfs = [&](int i, int j) {
-            if (i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == color) {
-                return;
-            }
-            image[i][j] = color;
-            for (int k = 0; k < 4; ++k) {
-                dfs(i + dirs[k], j + dirs[k + 1]);
-            }
-        };
-        dfs(sr, sc);
-        return image;
-    }
-};
-```
-
-BFS：
-
 ```cpp
 class Solution {
 public:
@@ -233,32 +289,6 @@ public:
 };
 ```
 
-### **Go**
-
-DFS：
-
-```go
-func floodFill(image [][]int, sr int, sc int, color int) [][]int {
-	oc := image[sr][sc]
-	m, n := len(image), len(image[0])
-	dirs := []int{-1, 0, 1, 0, -1}
-	var dfs func(i, j int)
-	dfs = func(i, j int) {
-		if i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == color {
-			return
-		}
-		image[i][j] = color
-		for k := 0; k < 4; k++ {
-			dfs(i+dirs[k], j+dirs[k+1])
-		}
-	}
-	dfs(sr, sc)
-	return image
-}
-```
-
-BFS：
-
 ```go
 func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 	if image[sr][sc] == color {
@@ -283,68 +313,6 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
-    const m = image.length;
-    const n = image[0].length;
-    const target = image[sr][sc];
-    const dfs = (i: number, j: number) => {
-        if (
-            i < 0 ||
-            i === m ||
-            j < 0 ||
-            j === n ||
-            image[i][j] !== target ||
-            image[i][j] === newColor
-        ) {
-            return;
-        }
-        image[i][j] = newColor;
-        dfs(i + 1, j);
-        dfs(i - 1, j);
-        dfs(i, j + 1);
-        dfs(i, j - 1);
-    };
-    dfs(sr, sc);
-    return image;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    fn dfs(image: &mut Vec<Vec<i32>>, sr: i32, sc: i32, new_color: i32, target: i32) {
-        if sr < 0 || sr == (image.len() as i32) || sc < 0 || sc == (image[0].len() as i32) {
-            return;
-        }
-        let sr = sr as usize;
-        let sc = sc as usize;
-        if sr < 0 || image[sr][sc] == new_color || image[sr][sc] != target {
-            return;
-        }
-        image[sr][sc] = new_color;
-        let sr = sr as i32;
-        let sc = sc as i32;
-        Self::dfs(image, sr + 1, sc, new_color, target);
-        Self::dfs(image, sr - 1, sc, new_color, target);
-        Self::dfs(image, sr, sc + 1, new_color, target);
-        Self::dfs(image, sr, sc - 1, new_color, target);
-    }
-    pub fn flood_fill(image: Vec<Vec<i32>>, sr: i32, sc: i32, new_color: i32) -> Vec<Vec<i32>> {
-        let target = image[sr as usize][sc as usize];
-        Self::dfs(&mut image, sr, sc, new_color, target);
-        image
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

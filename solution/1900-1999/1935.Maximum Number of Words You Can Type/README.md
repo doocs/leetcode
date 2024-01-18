@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 我们可以用哈希表或者一个长度为 $26$ 的数组 $s$ 来记录所有损坏的字母键。
 
@@ -61,20 +59,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
         s = set(brokenLetters)
         return sum(all(c not in s for c in w) for w in text.split())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	s := [26]bool{}
@@ -158,8 +144,6 @@ func canBeTypedWords(text string, brokenLetters string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canBeTypedWords(text: string, brokenLetters: string): number {
@@ -180,8 +164,6 @@ function canBeTypedWords(text: string, brokenLetters: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -206,10 +188,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

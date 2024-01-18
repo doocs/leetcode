@@ -62,7 +62,7 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 
 ## Solutions
 
-**Solution 1: Hash Table + Prefix Sum**
+### Solution 1: Hash Table + Prefix Sum
 
 The problem requires the number of indices $i$ in an interval that satisfy $nums[i] \bmod modulo = k$. We can transform the array $nums$ into a $0-1$ array $arr$, where $arr[i] = 1$ indicates $nums[i] \bmod modulo = k$, otherwise $arr[i] = 0$.
 
@@ -78,8 +78,6 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def countInterestingSubarrays(self, nums: List[int], modulo: int, k: int) -> int:
@@ -93,8 +91,6 @@ class Solution:
             cnt[s % modulo] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countInterestingSubarrays(nums []int, modulo int, k int) (ans int64) {
 	arr := make([]int, len(nums))
@@ -165,8 +157,6 @@ func countInterestingSubarrays(nums []int, modulo int, k int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countInterestingSubarrays(nums: number[], modulo: number, k: number): number {
     const arr: number[] = [];
@@ -186,10 +176,6 @@ function countInterestingSubarrays(nums: number[], modulo: number, k: number): n
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,19 +47,13 @@ X 矩阵应该满足：绿色元素（对角线上）都不是 0 ，红色元素
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 遍历矩阵，对于每个元素，判断其是否满足 $X$ 矩阵的条件。若不满足，直接返回 `false`；若遍历完所有元素都满足，返回 `true`。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为矩阵的行数或列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
                     return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkXMatrix(grid [][]int) bool {
 	for i, row := range grid {
@@ -139,8 +125,6 @@ func checkXMatrix(grid [][]int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkXMatrix(grid: number[][]): boolean {
@@ -159,30 +143,6 @@ function checkXMatrix(grid: number[][]): boolean {
     return true;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool CheckXMatrix(int[][] grid) {
-        int n = grid.Length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (i == j || i + j == n - 1) {
-                    if (grid[i][j] == 0) {
-                        return false;
-                    }
-                } else if (grid[i][j] != 0) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -204,7 +164,25 @@ impl Solution {
 }
 ```
 
-### **C**
+```cs
+public class Solution {
+    public bool CheckXMatrix(int[][] grid) {
+        int n = grid.Length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i == j || i + j == n - 1) {
+                    if (grid[i][j] == 0) {
+                        return false;
+                    }
+                } else if (grid[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
 
 ```c
 bool checkXMatrix(int** grid, int gridSize, int* gridColSize) {
@@ -223,10 +201,6 @@ bool checkXMatrix(int** grid, int gridSize, int* gridColSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

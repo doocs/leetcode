@@ -40,46 +40,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 遍历字符串 `sentence`，用数组或哈希表记录出现过的字母，最后判断数组或哈希表中是否有 $26$ 个字母即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 `sentence` 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
 
-**方法二：位运算**
-
-我们也可以用一个整数 $mask$ 记录出现过的字母，其中 $mask$ 的第 $i$ 位表示第 $i$ 个字母是否出现过。
-
-最后判断 $mask$ 的二进制表示中是否有 $26$ 个 $1$，也即判断 $mask$ 是否等于 $2^{26} - 1$。若是，返回 `true`，否则返回 `false`。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `sentence` 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
         return len(set(sentence)) == 26
 ```
-
-```python
-class Solution:
-    def checkIfPangram(self, sentence: str) -> bool:
-        mask = 0
-        for c in sentence:
-            mask |= 1 << (ord(c) - ord('a'))
-        return mask == (1 << 26) - 1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,20 +71,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean checkIfPangram(String sentence) {
-        int mask = 0;
-        for (int i = 0; i < sentence.length(); ++i) {
-            mask |= 1 << (sentence.charAt(i) - 'a');
-        }
-        return mask == (1 << 26) - 1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -124,19 +83,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool checkIfPangram(string sentence) {
-        int mask = 0;
-        for (char& c : sentence) mask |= 1 << (c - 'a');
-        return mask == (1 << 26) - 1;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func checkIfPangram(sentence string) bool {
@@ -153,18 +99,6 @@ func checkIfPangram(sentence string) bool {
 }
 ```
 
-```go
-func checkIfPangram(sentence string) bool {
-	mask := 0
-	for _, c := range sentence {
-		mask |= 1 << int(c-'a')
-	}
-	return mask == 1<<26-1
-}
-```
-
-### **TypeScript**
-
 ```ts
 function checkIfPangram(sentence: string): boolean {
     const vis = new Array(26).fill(false);
@@ -174,18 +108,6 @@ function checkIfPangram(sentence: string): boolean {
     return vis.every(v => v);
 }
 ```
-
-```ts
-function checkIfPangram(sentence: string): boolean {
-    let mark = 0;
-    for (const c of sentence) {
-        mark |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
-    }
-    return mark === (1 << 26) - 1;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -198,20 +120,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn check_if_pangram(sentence: String) -> bool {
-        let mut mark = 0;
-        for c in sentence.as_bytes() {
-            mark |= 1 << (*c - b'a');
-        }
-        mark == (1 << 26) - 1
-    }
-}
-```
-
-### **C**
 
 ```c
 bool checkIfPangram(char* sentence) {
@@ -228,6 +136,82 @@ bool checkIfPangram(char* sentence) {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二：位运算
+
+我们也可以用一个整数 $mask$ 记录出现过的字母，其中 $mask$ 的第 $i$ 位表示第 $i$ 个字母是否出现过。
+
+最后判断 $mask$ 的二进制表示中是否有 $26$ 个 $1$，也即判断 $mask$ 是否等于 $2^{26} - 1$。若是，返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 `sentence` 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        mask = 0
+        for c in sentence:
+            mask |= 1 << (ord(c) - ord('a'))
+        return mask == (1 << 26) - 1
+```
+
+```java
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        int mask = 0;
+        for (int i = 0; i < sentence.length(); ++i) {
+            mask |= 1 << (sentence.charAt(i) - 'a');
+        }
+        return mask == (1 << 26) - 1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        int mask = 0;
+        for (char& c : sentence) mask |= 1 << (c - 'a');
+        return mask == (1 << 26) - 1;
+    }
+};
+```
+
+```go
+func checkIfPangram(sentence string) bool {
+	mask := 0
+	for _, c := range sentence {
+		mask |= 1 << int(c-'a')
+	}
+	return mask == 1<<26-1
+}
+```
+
+```ts
+function checkIfPangram(sentence: string): boolean {
+    let mark = 0;
+    for (const c of sentence) {
+        mark |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+    }
+    return mark === (1 << 26) - 1;
+}
+```
+
+```rust
+impl Solution {
+    pub fn check_if_pangram(sentence: String) -> bool {
+        let mut mark = 0;
+        for c in sentence.as_bytes() {
+            mark |= 1 << (*c - b'a');
+        }
+        mark == (1 << 26) - 1
+    }
+}
+```
+
 ```c
 bool checkIfPangram(char* sentence) {
     int mark = 0;
@@ -238,10 +222,6 @@ bool checkIfPangram(char* sentence) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

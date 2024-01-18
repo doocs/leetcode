@@ -58,13 +58,9 @@ Numbers 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：开窗函数**
+### 方法一：开窗函数
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -83,10 +79,6 @@ FROM t
 WHERE rk1 >= s / 2 AND rk2 >= s / 2;
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

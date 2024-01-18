@@ -58,7 +58,7 @@ Then, evaluate !(f) --&gt; NOT false --&gt; true. We return true.
 
 ## Solutions
 
-**Solution 1: Stack**
+### Solution 1: Stack
 
 For this type of expression parsing problem, we can use a stack to assist.
 
@@ -72,8 +72,6 @@ After traversing the expression `expression`, there is only one character left i
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the expression `expression`.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,8 +96,6 @@ class Solution:
                 stk.append(c)
         return stk[0] == 't'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +123,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func parseBoolExpr(expression string) bool {
 	stk := []rune{}
@@ -188,8 +180,6 @@ func parseBoolExpr(expression string) bool {
 	return stk[0] == 't'
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function parseBoolExpr(expression: string): boolean {
@@ -221,8 +211,6 @@ function parseBoolExpr(expression: string): boolean {
     return dfs()[0];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -273,10 +261,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

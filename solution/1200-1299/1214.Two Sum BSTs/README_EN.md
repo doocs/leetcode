@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Solution 1: In-order Traversal + Two Pointers**
+### Solution 1: In-order Traversal + Two Pointers
 
 We perform in-order traversals on the two trees separately, obtaining two sorted arrays $nums[0]$ and $nums[1]$. Then we use a two-pointer method to determine whether there exist two numbers whose sum equals the target value. The two-pointer method is as follows:
 
@@ -43,8 +43,6 @@ Each time, compare the sum $x = nums[0][i] + nums[1][j]$ with the target value. 
 The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of nodes in the two trees respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -78,8 +76,6 @@ class Solution:
                 j -= 1
         return False
 ```
-
-### **Java**
 
 ```java
 /**
@@ -130,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -175,8 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -214,8 +206,6 @@ func twoSumBSTs(root1 *TreeNode, root2 *TreeNode, target int) bool {
 	return false
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -263,10 +253,6 @@ function twoSumBSTs(root1: TreeNode | null, root2: TreeNode | null, target: numb
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

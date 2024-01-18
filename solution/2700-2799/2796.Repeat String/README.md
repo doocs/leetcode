@@ -41,19 +41,14 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= str.length &lt;= 1000</code></li>
-	<li><code>1 &lt;= times &lt;= 1000</code></li>
+	<li><code>1 &lt;= str.length,&nbsp;times &lt;=&nbsp;10<sup>5</sup></code></li>
 </ul>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 declare global {
@@ -67,8 +62,6 @@ String.prototype.replicate = function (times: number) {
 };
 ```
 
-### **JavaScript**
-
 ```js
 String.prototype.replicate = function (times) {
     return Array(times).fill(this).join('');
@@ -76,3 +69,5 @@ String.prototype.replicate = function (times) {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

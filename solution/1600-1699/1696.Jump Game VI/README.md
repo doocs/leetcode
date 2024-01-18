@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 单调队列优化**
+### 方法一：动态规划 + 单调队列优化
 
 我们定义 $f[i]$ 表示到达下标 $i$ 的最大得分，那么 $f[i]$ 的值可以从 $f[j]$ 转移而来，其中 $j$ 满足 $i - k \leq j \leq i - 1$。因此我们可以使用动态规划求解。
 
@@ -67,10 +65,6 @@ $$
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
             q.append(i)
         return f[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxResult(nums []int, k int) int {
@@ -156,10 +142,6 @@ func maxResult(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

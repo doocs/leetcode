@@ -86,9 +86,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历字符串**
+### 方法一：遍历字符串
 
 我们首先判断字符串是否为空，如果是，直接返回 $0$。
 
@@ -103,10 +101,6 @@
 同[面试题 67. 把字符串转换成整数](/lcof/面试题67.%20把字符串转换成整数/README.md)。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -139,10 +133,6 @@ class Solution:
         return sign * res
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int myAtoi(String s) {
@@ -170,8 +160,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func myAtoi(s string) int {
@@ -211,10 +199,82 @@ func myAtoi(s string) int {
 }
 ```
 
-### **...**
-
+```js
+const myAtoi = function (str) {
+    str = str.trim();
+    if (!str) return 0;
+    let isPositive = 1;
+    let i = 0,
+        ans = 0;
+    if (str[i] === '+') {
+        isPositive = 1;
+        i++;
+    } else if (str[i] === '-') {
+        isPositive = 0;
+        i++;
+    }
+    for (; i < str.length; i++) {
+        let t = str.charCodeAt(i) - 48;
+        if (t > 9 || t < 0) break;
+        if (ans > 2147483647 / 10 || ans > (2147483647 - t) / 10) {
+            return isPositive ? 2147483647 : -2147483648;
+        } else {
+            ans = ans * 10 + t;
+        }
+    }
+    return isPositive ? ans : -ans;
+};
 ```
 
+```cs
+﻿// https://leetcode.com/problems/string-to-integer-atoi/
+
+public partial class Solution
+{
+    public int MyAtoi(string str)
+    {
+        int i = 0;
+        long result = 0;
+        bool minus = false;
+        while (i < str.Length && char.IsWhiteSpace(str[i]))
+        {
+            ++i;
+        }
+        if (i < str.Length)
+        {
+            if (str[i] == '+')
+            {
+                ++i;
+            }
+            else if (str[i] == '-')
+            {
+                minus = true;
+                ++i;
+            }
+        }
+        while (i < str.Length && char.IsDigit(str[i]))
+        {
+            result = result * 10 + str[i] - '0';
+            if (result > int.MaxValue)
+            {
+                break;
+            }
+            ++i;
+        }
+        if (minus) result = -result;
+        if (result > int.MaxValue)
+        {
+            result = int.MaxValue;
+        }
+        if (result < int.MinValue)
+        {
+            result = int.MinValue;
+        }
+        return (int)result;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

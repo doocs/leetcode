@@ -60,9 +60,9 @@ Hence, we return -1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -87,8 +87,6 @@ class Solution:
                 m -= 1
         return -1 if m else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
 	same, n := 0, len(nums1)
@@ -198,10 +192,6 @@ func minimumTotalCost(nums1 []int, nums2 []int) (ans int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

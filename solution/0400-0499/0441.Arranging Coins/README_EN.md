@@ -34,30 +34,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def arrangeCoins(self, n: int) -> int:
         return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
-
-```python
-class Solution:
-    def arrangeCoins(self, n: int) -> int:
-        left, right = 1, n
-        while left < right:
-            mid = (left + right + 1) >> 1
-            if (1 + mid) * mid // 2 <= n:
-                left = mid
-            else:
-                right = mid - 1
-        return left
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,25 +51,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int arrangeCoins(int n) {
-        long left = 1, right = n;
-        while (left < right) {
-            long mid = (left + right + 1) >>> 1;
-            if ((1 + mid) * mid / 2 <= n) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return (int) left;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 using LL = long;
@@ -106,8 +72,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func arrangeCoins(n int) int {
 	left, right := 1, n
@@ -123,10 +87,42 @@ func arrangeCoins(n int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        left, right = 1, n
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if (1 + mid) * mid // 2 <= n:
+                left = mid
+            else:
+                right = mid - 1
+        return left
 ```
 
+```java
+class Solution {
+    public int arrangeCoins(int n) {
+        long left = 1, right = n;
+        while (left < right) {
+            long mid = (left + right + 1) >>> 1;
+            if ((1 + mid) * mid / 2 <= n) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return (int) left;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,7 +44,7 @@ As shown below, there are 5 ways you can generate &quot;bag&quot; from s.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the number of schemes where the first $i$ characters of string $s$ form the first $j$ characters of string $t$. Initially, $f[i][0]=1$ for all $i \in [0,m]$.
 
@@ -72,8 +72,6 @@ We notice that the calculation of $f[i][j]$ is only related to $f[i-1][..]$. The
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -88,20 +86,6 @@ class Solution:
                     f[i][j] += f[i - 1][j - 1]
         return f[m][n]
 ```
-
-```python
-class Solution:
-    def numDistinct(self, s: str, t: str) -> int:
-        n = len(t)
-        f = [1] + [0] * n
-        for a in s:
-            for j in range(n, 0, -1):
-                if a == t[j - 1]:
-                    f[j] += f[j - 1]
-        return f[n]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -123,49 +107,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int numDistinct(String s, String t) {
-        int n = t.length();
-        int[] f = new int[n + 1];
-        f[0] = 1;
-        for (char a : s.toCharArray()) {
-            for (int j = n; j > 0; --j) {
-                char b = t.charAt(j - 1);
-                if (a == b) {
-                    f[j] += f[j - 1];
-                }
-            }
-        }
-        return f[n];
-    }
-}
-```
-
-### **Go**
-
-```go
-func numDistinct(s string, t string) int {
-	m, n := len(s), len(t)
-	dp := make([][]int, m+1)
-	for i := 0; i <= m; i++ {
-		dp[i] = make([]int, n+1)
-		dp[i][0] = 1
-	}
-	for i := 1; i <= m; i++ {
-		for j := 1; j <= n; j++ {
-			dp[i][j] = dp[i-1][j]
-			if s[i-1] == t[j-1] {
-				dp[i][j] += dp[i-1][j-1]
-			}
-		}
-	}
-	return dp[m][n]
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -190,29 +131,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int numDistinct(string s, string t) {
-        int n = t.size();
-        unsigned long long f[n + 1];
-        memset(f, 0, sizeof(f));
-        f[0] = 1;
-        for (char& a : s) {
-            for (int j = n; j; --j) {
-                char b = t[j - 1];
-                if (a == b) {
-                    f[j] += f[j - 1];
-                }
-            }
-        }
-        return f[n];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func numDistinct(s string, t string) int {
 	m, n := len(s), len(t)
@@ -235,24 +153,6 @@ func numDistinct(s string, t string) int {
 }
 ```
 
-```go
-func numDistinct(s string, t string) int {
-	n := len(t)
-	f := make([]int, n+1)
-	f[0] = 1
-	for _, a := range s {
-		for j := n; j > 0; j-- {
-			if b := t[j-1]; byte(a) == b {
-				f[j] += f[j-1]
-			}
-		}
-	}
-	return f[n]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function numDistinct(s: string, t: string): number {
     const m = s.length;
@@ -272,25 +172,6 @@ function numDistinct(s: string, t: string): number {
     return f[m][n];
 }
 ```
-
-```ts
-function numDistinct(s: string, t: string): number {
-    const n = t.length;
-    const f: number[] = new Array(n + 1).fill(0);
-    f[0] = 1;
-    for (const a of s) {
-        for (let j = n; j; --j) {
-            const b = t[j - 1];
-            if (a === b) {
-                f[j] += f[j - 1];
-            }
-        }
-    }
-    return f[n];
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -321,10 +202,97 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        n = len(t)
+        f = [1] + [0] * n
+        for a in s:
+            for j in range(n, 0, -1):
+                if a == t[j - 1]:
+                    f[j] += f[j - 1]
+        return f[n]
 ```
 
+```java
+class Solution {
+    public int numDistinct(String s, String t) {
+        int n = t.length();
+        int[] f = new int[n + 1];
+        f[0] = 1;
+        for (char a : s.toCharArray()) {
+            for (int j = n; j > 0; --j) {
+                char b = t.charAt(j - 1);
+                if (a == b) {
+                    f[j] += f[j - 1];
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int n = t.size();
+        unsigned long long f[n + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (char& a : s) {
+            for (int j = n; j; --j) {
+                char b = t[j - 1];
+                if (a == b) {
+                    f[j] += f[j - 1];
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+func numDistinct(s string, t string) int {
+	n := len(t)
+	f := make([]int, n+1)
+	f[0] = 1
+	for _, a := range s {
+		for j := n; j > 0; j-- {
+			if b := t[j-1]; byte(a) == b {
+				f[j] += f[j-1]
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+```ts
+function numDistinct(s: string, t: string): number {
+    const n = t.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    f[0] = 1;
+    for (const a of s) {
+        for (let j = n; j; --j) {
+            const b = t[j - 1];
+            if (a === b) {
+                f[j] += f[j - 1];
+            }
+        }
+    }
+    return f[n];
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

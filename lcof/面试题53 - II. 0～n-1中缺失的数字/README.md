@@ -25,7 +25,7 @@
 
 ## 解法
 
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们可以使用二分查找的方法找到这个缺失的数字。初始化左边界 $l=0$，右边界 $r=n$，其中 $n$ 是数组的长度。
 
@@ -36,8 +36,6 @@
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -51,8 +49,6 @@ class Solution:
                 l = mid + 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +66,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -91,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func missingNumber(nums []int) int {
 	l, r := 0, len(nums)
@@ -108,7 +100,22 @@ func missingNumber(nums []int) int {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let (mut l, mut r) = (0, nums.len() as i32);
+        while l < r {
+            let mut mid = (l + r) >> 1;
+            if nums[mid as usize] > mid {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
+}
+```
 
 ```js
 /**
@@ -130,40 +137,6 @@ var missingNumber = function (nums) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn missing_number(nums: Vec<i32>) -> i32 {
-        let (mut l, mut r) = (0, nums.len() as i32);
-        while l < r {
-            let mut mid = (l + r) >> 1;
-            if nums[mid as usize] > mid {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        l
-    }
-}
-```
-
-```rust
-impl Solution {
-    pub fn missing_number(nums: Vec<i32>) -> i32 {
-        let n = nums.len() as i32;
-        let mut sum = ((1 + n) * n) / 2;
-        for num in nums.iter() {
-            sum -= num;
-        }
-        sum
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int MissingNumber(int[] nums) {
@@ -181,10 +154,25 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut sum = ((1 + n) * n) / 2;
+        for num in nums.iter() {
+            sum -= num;
+        }
+        sum
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

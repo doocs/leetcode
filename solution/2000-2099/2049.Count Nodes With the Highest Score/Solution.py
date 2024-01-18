@@ -1,25 +1,26 @@
 class Solution:
     def countHighestScoreNodes(self, parents: List[int]) -> int:
-        n, max_score, ans = len(parents), 0, 0
+        def dfs(i: int, fa: int):
+            cnt = score = 1
+            for j in g[i]:
+                if j != fa:
+                    t = dfs(j, i)
+                    score *= t
+                    cnt += t
+            if n - cnt:
+                score *= n - cnt
+            nonlocal ans, mx
+            if mx < score:
+                mx = score
+                ans = 1
+            elif mx == score:
+                ans += 1
+            return cnt
+
+        n = len(parents)
         g = [[] for _ in range(n)]
         for i in range(1, n):
             g[parents[i]].append(i)
-
-        def dfs(cur: int) -> int:
-            nonlocal max_score, ans
-            size, score = 1, 1
-            for c in g[cur]:
-                s = dfs(c)
-                size += s
-                score *= s
-            if cur > 0:
-                score *= n - size
-            if score > max_score:
-                max_score = score
-                ans = 1
-            elif score == max_score:
-                ans += 1
-            return size
-
-        dfs(0)
+        ans = mx = 0
+        dfs(0, -1)
         return ans

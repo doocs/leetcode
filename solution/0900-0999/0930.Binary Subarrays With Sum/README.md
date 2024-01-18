@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表 + 前缀和**
+### 方法一：数组或哈希表 + 前缀和
 
 我们可以用数组或哈希表 $cnt$ 记录每个前缀和出现的次数，其中 $cnt[i]$ 表示前缀和为 $i$ 的子数组个数。初始时 $cnt[0] = 1$。
 
@@ -52,13 +50,7 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
 
-**方法二：双指针**
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,6 +63,85 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
+
+```java
+class Solution {
+    public int numSubarraysWithSum(int[] nums, int goal) {
+        int[] cnt = new int[nums.length + 1];
+        cnt[0] = 1;
+        int ans = 0, s = 0;
+        for (int v : nums) {
+            s += v;
+            if (s - goal >= 0) {
+                ans += cnt[s - goal];
+            }
+            ++cnt[s];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        int cnt[nums.size() + 1];
+        memset(cnt, 0, sizeof cnt);
+        cnt[0] = 1;
+        int ans = 0, s = 0;
+        for (int& v : nums) {
+            s += v;
+            if (s - goal >= 0) {
+                ans += cnt[s - goal];
+            }
+            ++cnt[s];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numSubarraysWithSum(nums []int, goal int) (ans int) {
+	cnt := map[int]int{0: 1}
+	s := 0
+	for _, v := range nums {
+		s += v
+		ans += cnt[s-goal]
+		cnt[s]++
+	}
+	return
+}
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} goal
+ * @return {number}
+ */
+var numSubarraysWithSum = function (nums, goal) {
+    const cnt = new Array(nums.length + 1).fill(0);
+    cnt[0] = 1;
+    let ans = 0;
+    let s = 0;
+    for (const v of nums) {
+        s += v;
+        if (s >= goal) {
+            ans += cnt[s - goal];
+        }
+        ++cnt[s];
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二：双指针
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -89,28 +160,6 @@ class Solution:
             ans += i2 - i1
             j += 1
         return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int numSubarraysWithSum(int[] nums, int goal) {
-        int[] cnt = new int[nums.length + 1];
-        cnt[0] = 1;
-        int ans = 0, s = 0;
-        for (int v : nums) {
-            s += v;
-            if (s - goal >= 0) {
-                ans += cnt[s - goal];
-            }
-            ++cnt[s];
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -135,28 +184,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numSubarraysWithSum(vector<int>& nums, int goal) {
-        int cnt[nums.size() + 1];
-        memset(cnt, 0, sizeof cnt);
-        cnt[0] = 1;
-        int ans = 0, s = 0;
-        for (int& v : nums) {
-            s += v;
-            if (s - goal >= 0) {
-                ans += cnt[s - goal];
-            }
-            ++cnt[s];
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -174,21 +201,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func numSubarraysWithSum(nums []int, goal int) (ans int) {
-	cnt := map[int]int{0: 1}
-	s := 0
-	for _, v := range nums {
-		s += v
-		ans += cnt[s-goal]
-		cnt[s]++
-	}
-	return
-}
 ```
 
 ```go
@@ -210,30 +222,6 @@ func numSubarraysWithSum(nums []int, goal int) int {
 	}
 	return ans
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} goal
- * @return {number}
- */
-var numSubarraysWithSum = function (nums, goal) {
-    const cnt = new Array(nums.length + 1).fill(0);
-    cnt[0] = 1;
-    let ans = 0;
-    let s = 0;
-    for (const v of nums) {
-        s += v;
-        if (s >= goal) {
-            ans += cnt[s - goal];
-        }
-        ++cnt[s];
-    }
-    return ans;
-};
 ```
 
 ```js
@@ -262,10 +250,6 @@ var numSubarraysWithSum = function (nums, goal) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

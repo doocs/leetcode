@@ -40,9 +40,9 @@ The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &qu
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,28 +60,6 @@ class Solution:
             cnt2[s[i - n + 1]] -= 1
         return ans
 ```
-
-```python
-class Solution:
-    def findAnagrams(self, s: str, p: str) -> List[int]:
-        m, n = len(s), len(p)
-        ans = []
-        if m < n:
-            return ans
-        cnt1 = Counter(p)
-        cnt2 = Counter()
-        j = 0
-        for i, c in enumerate(s):
-            cnt2[c] += 1
-            while cnt2[c] > cnt1[c]:
-                cnt2[s[j]] -= 1
-                j += 1
-            if i - j + 1 == n:
-                ans.append(j)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,36 +88,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public List<Integer> findAnagrams(String s, String p) {
-        int m = s.length(), n = p.length();
-        List<Integer> ans = new ArrayList<>();
-        if (m < n) {
-            return ans;
-        }
-        int[] cnt1 = new int[26];
-        for (int i = 0; i < n; ++i) {
-            ++cnt1[p.charAt(i) - 'a'];
-        }
-        int[] cnt2 = new int[26];
-        for (int i = 0, j = 0; i < m; ++i) {
-            int k = s.charAt(i) - 'a';
-            ++cnt2[k];
-            while (cnt2[k] > cnt1[k]) {
-                --cnt2[s.charAt(j++) - 'a'];
-            }
-            if (i - j + 1 == n) {
-                ans.add(j);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -170,37 +118,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> findAnagrams(string s, string p) {
-        int m = s.size(), n = p.size();
-        vector<int> ans;
-        if (m < n) {
-            return ans;
-        }
-        vector<int> cnt1(26);
-        for (char& c : p) {
-            ++cnt1[c - 'a'];
-        }
-        vector<int> cnt2(26);
-        for (int i = 0, j = 0; i < m; ++i) {
-            int k = s[i] - 'a';
-            ++cnt2[k];
-            while (cnt2[k] > cnt1[k]) {
-                --cnt2[s[j++] - 'a'];
-            }
-            if (i - j + 1 == n) {
-                ans.push_back(j);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -225,34 +142,6 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
-
-```go
-func findAnagrams(s string, p string) (ans []int) {
-	m, n := len(s), len(p)
-	if m < n {
-		return
-	}
-	cnt1 := [26]int{}
-	cnt2 := [26]int{}
-	for _, c := range p {
-		cnt1[c-'a']++
-	}
-	j := 0
-	for i, c := range s {
-		cnt2[c-'a']++
-		for cnt2[c-'a'] > cnt1[c-'a'] {
-			cnt2[s[j]-'a']--
-			j++
-		}
-		if i-j+1 == n {
-			ans = append(ans, j)
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {
@@ -281,36 +170,6 @@ function findAnagrams(s: string, p: string): number[] {
     return ans;
 }
 ```
-
-```ts
-function findAnagrams(s: string, p: string): number[] {
-    const m = s.length;
-    const n = p.length;
-    const ans: number[] = [];
-    if (m < n) {
-        return ans;
-    }
-    const cnt1: number[] = new Array(26).fill(0);
-    const cnt2: number[] = new Array(26).fill(0);
-    const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
-    for (const c of p) {
-        ++cnt1[idx(c)];
-    }
-    for (let i = 0, j = 0; i < m; ++i) {
-        const k = idx(s[i]);
-        ++cnt2[k];
-        while (cnt2[k] > cnt1[k]) {
-            --cnt2[idx(s[j++])];
-        }
-        if (i - j + 1 === n) {
-            ans.push(j);
-        }
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -342,8 +201,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public IList<int> FindAnagrams(string s, string p) {
@@ -372,10 +229,143 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        m, n = len(s), len(p)
+        ans = []
+        if m < n:
+            return ans
+        cnt1 = Counter(p)
+        cnt2 = Counter()
+        j = 0
+        for i, c in enumerate(s):
+            cnt2[c] += 1
+            while cnt2[c] > cnt1[c]:
+                cnt2[s[j]] -= 1
+                j += 1
+            if i - j + 1 == n:
+                ans.append(j)
+        return ans
 ```
 
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int m = s.length(), n = p.length();
+        List<Integer> ans = new ArrayList<>();
+        if (m < n) {
+            return ans;
+        }
+        int[] cnt1 = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[p.charAt(i) - 'a'];
+        }
+        int[] cnt2 = new int[26];
+        for (int i = 0, j = 0; i < m; ++i) {
+            int k = s.charAt(i) - 'a';
+            ++cnt2[k];
+            while (cnt2[k] > cnt1[k]) {
+                --cnt2[s.charAt(j++) - 'a'];
+            }
+            if (i - j + 1 == n) {
+                ans.add(j);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int m = s.size(), n = p.size();
+        vector<int> ans;
+        if (m < n) {
+            return ans;
+        }
+        vector<int> cnt1(26);
+        for (char& c : p) {
+            ++cnt1[c - 'a'];
+        }
+        vector<int> cnt2(26);
+        for (int i = 0, j = 0; i < m; ++i) {
+            int k = s[i] - 'a';
+            ++cnt2[k];
+            while (cnt2[k] > cnt1[k]) {
+                --cnt2[s[j++] - 'a'];
+            }
+            if (i - j + 1 == n) {
+                ans.push_back(j);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findAnagrams(s string, p string) (ans []int) {
+	m, n := len(s), len(p)
+	if m < n {
+		return
+	}
+	cnt1 := [26]int{}
+	cnt2 := [26]int{}
+	for _, c := range p {
+		cnt1[c-'a']++
+	}
+	j := 0
+	for i, c := range s {
+		cnt2[c-'a']++
+		for cnt2[c-'a'] > cnt1[c-'a'] {
+			cnt2[s[j]-'a']--
+			j++
+		}
+		if i-j+1 == n {
+			ans = append(ans, j)
+		}
+	}
+	return
+}
+```
+
+```ts
+function findAnagrams(s: string, p: string): number[] {
+    const m = s.length;
+    const n = p.length;
+    const ans: number[] = [];
+    if (m < n) {
+        return ans;
+    }
+    const cnt1: number[] = new Array(26).fill(0);
+    const cnt2: number[] = new Array(26).fill(0);
+    const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    for (const c of p) {
+        ++cnt1[idx(c)];
+    }
+    for (let i = 0, j = 0; i < m; ++i) {
+        const k = idx(s[i]);
+        ++cnt2[k];
+        while (cnt2[k] > cnt1[k]) {
+            --cnt2[idx(s[j++])];
+        }
+        if (i - j + 1 === n) {
+            ans.push(j);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

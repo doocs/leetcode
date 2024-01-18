@@ -46,9 +46,9 @@ The additive sequence is: 1, 99, 100, 199.&nbsp;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -119,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -149,8 +145,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isAdditiveNumber(num string) bool {
@@ -192,10 +186,6 @@ func isAdditiveNumber(num string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

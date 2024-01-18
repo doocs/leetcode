@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 我们先统计数组 $nums$ 中 $1$ 的个数 $cnt$，如果 $cnt \gt 0$，那么只需要 $n - cnt$ 次操作，就可以将整个数组变成 $1$。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n \times (n + \log M))$，空间复杂度 $(\log M)$。其中 $n$ 和 $M$ 分别是数组 $nums$ 的长度以及数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
                     mi = min(mi, j - i + 1)
         return -1 if mi > n else n - 1 + mi - 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +136,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minOperations(nums []int) int {
@@ -187,8 +173,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minOperations(nums: number[]): number {
     const n = nums.length;
@@ -219,10 +203,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

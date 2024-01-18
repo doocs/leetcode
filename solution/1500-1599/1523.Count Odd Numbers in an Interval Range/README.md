@@ -32,27 +32,17 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和思想**
+### 方法一：前缀和思想
 
 `[0, x]` 之间的奇数个数为 `(x + 1) >> 1`，那么 `[low, high]` 之间的奇数个数为 `((high + 1) >> 1) - (low >> 1)`。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def countOdds(self, low: int, high: int) -> int:
         return ((high + 1) >> 1) - (low >> 1)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -61,8 +51,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -73,23 +61,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countOdds(low int, high int) int {
 	return ((high + 1) >> 1) - (low >> 1)
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countOdds(low: number, high: number): number {
     return ((high + 1) >> 1) - (low >> 1);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -98,16 +80,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
-
-```c
-int countOdds(int low, int high) {
-    return ((high + 1) >> 1) - (low >> 1);
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -122,10 +94,12 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int countOdds(int low, int high) {
+    return ((high + 1) >> 1) - (low >> 1);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

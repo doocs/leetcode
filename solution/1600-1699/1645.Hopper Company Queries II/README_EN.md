@@ -149,9 +149,9 @@ By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one acc
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -194,3 +194,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

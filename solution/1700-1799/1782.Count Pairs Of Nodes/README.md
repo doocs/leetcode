@@ -55,9 +55,7 @@ answers[1] = 5。所有的点对(a, b)中除了(3,4)边数等于3，其它点对
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序 + 二分查找**
+### 方法一：哈希表 + 排序 + 二分查找
 
 根据题目，我们可以知道，与点对 $(a, b)$ 相连的边数等于“与 $a$ 相连的边数”加上“与 $b$ 相连的边数”，再减去同时与 $a$ 和 $b$ 相连的边数。
 
@@ -68,10 +66,6 @@ answers[1] = 5。所有的点对(a, b)中除了(3,4)边数等于3，其它点对
 时间复杂度 $O(q \times (n \times \log n + m))$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是点数和边数，而 $q$ 是查询数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
                     ans[i] -= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -188,8 +176,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPairs(n int, edges [][]int, queries []int) []int {
 	cnt := make([]int, n)
@@ -222,8 +208,6 @@ func countPairs(n int, edges [][]int, queries []int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countPairs(n: number, edges: number[][], queries: number[]): number[] {
@@ -268,10 +252,6 @@ function countPairs(n: number, edges: number[][], queries: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

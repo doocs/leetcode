@@ -44,9 +44,7 @@ i = 4 ，arr[4] = 0 因为不存在值等于 2 的其他下标。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 前缀和**
+### 方法一：哈希表 + 前缀和
 
 我们先用哈希表 $d$ 记录数组 $nums$ 中每个元素对应的下标列表，即 $d[x]$ 表示数组 $nums$ 中所有值为 $x$ 的下标列表。
 
@@ -57,10 +55,6 @@ i = 4 ，arr[4] = 0 因为不存在值等于 2 的其他下标。
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                     right -= (idx[i + 1] - idx[i]) * (len(idx) - i - 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distance(nums []int) []int64 {
 	n := len(nums)
@@ -172,10 +158,6 @@ func distance(nums []int) []int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,15 +44,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：区间 DP**
+### 方法一：区间 DP
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                         dp[i][j][k] = dp[i + 1][j - 1][k]
         return sum(dp[0][-1]) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -153,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPalindromicSubsequences(s string) int {
@@ -195,10 +181,6 @@ func countPalindromicSubsequences(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,27 +36,33 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Prefix Sum (Difference Array)
 
-### **Python3**
+We assume the altitude of each point is $h_i$. Since $gain[i]$ represents the altitude difference between the $i$th point and the $(i + 1)$th point, we have $gain[i] = h_{i + 1} - h_i$. Therefore:
+
+$$
+\sum_{i = 0}^{n-1} gain[i] = h_1 - h_0 + h_2 - h_1 + \cdots + h_n - h_{n - 1} = h_n - h_0 = h_n
+$$
+
+which implies:
+
+$$
+h_{i+1} = \sum_{j = 0}^{i} gain[j]
+$$
+
+We can see that the altitude of each point can be calculated through the prefix sum. Therefore, we only need to traverse the array once, find the maximum value of the prefix sum, which is the highest altitude.
+
+> In fact, the $gain$ array in the problem is a difference array. The prefix sum of the difference array gives the original altitude array. Then find the maximum value of the original altitude array.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `gain`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
         return max(accumulate(gain, initial=0))
 ```
-
-```python
-class Solution:
-    def largestAltitude(self, gain: List[int]) -> int:
-        ans = h = 0
-        for v in gain:
-            h += v
-            ans = max(ans, h)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -83,8 +87,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestAltitude(gain []int) (ans int) {
@@ -99,7 +101,19 @@ func largestAltitude(gain []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn largest_altitude(gain: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut h = 0;
+        for v in gain.iter() {
+            h += v;
+            ans = ans.max(h);
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -116,40 +130,6 @@ var largestAltitude = function (gain) {
     return ans;
 };
 ```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn largest_altitude(gain: Vec<i32>) -> i32 {
-        let mut ans = 0;
-        let mut h = 0;
-        for v in gain.iter() {
-            h += v;
-            ans = ans.max(h);
-        }
-        ans
-    }
-}
-```
-
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int largestAltitude(int* gain, int gainSize) {
-    int ans = 0;
-    int h = 0;
-    for (int i = 0; i < gainSize; i++) {
-        h += gain[i];
-        ans = max(ans, h);
-    }
-    return ans;
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -170,10 +150,36 @@ class Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```
-
+int largestAltitude(int* gain, int gainSize) {
+    int ans = 0;
+    int h = 0;
+    for (int i = 0; i < gainSize; i++) {
+        h += gain[i];
+        ans = max(ans, h);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        ans = h = 0
+        for v in gain:
+            h += v
+            ans = max(ans, h)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

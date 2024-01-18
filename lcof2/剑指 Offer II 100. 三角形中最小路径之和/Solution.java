@@ -1,4 +1,5 @@
 class Solution {
+
     public int minimumTotal(List<List<Integer>> triangle) {
         int n = triangle.size();
         int[] dp = new int[n + 1];

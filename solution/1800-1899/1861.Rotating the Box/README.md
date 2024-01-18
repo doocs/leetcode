@@ -72,19 +72,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：队列模拟**
+### 方法一：队列模拟
 
 我们先将矩阵顺时针旋转 90 度，然后模拟每一列石头的下落过程。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,10 +101,6 @@ class Solution:
                     q.append(i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -175,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rotateTheBox(box [][]byte) [][]byte {
 	m, n := len(box), len(box[0])
@@ -208,10 +194,6 @@ func rotateTheBox(box [][]byte) [][]byte {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

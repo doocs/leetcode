@@ -56,7 +56,7 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 
 ## Solutions
 
-**Solution 1: Multithreading + Semaphore**
+### Solution 1: Multithreading + Semaphore
 
 We use three semaphores $z$, $e$, and $o$ to control the execution order of the three threads, where $z$ is initially set to $1$, and $e$ and $o$ are set to $0$.
 
@@ -67,8 +67,6 @@ We use three semaphores $z$, $e$, and $o$ to control the execution order of the 
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from threading import Semaphore
@@ -103,8 +101,6 @@ class ZeroEvenOdd:
             printNumber(i)
             self.z.release()
 ```
-
-### **Java**
 
 ```java
 class ZeroEvenOdd {
@@ -147,8 +143,6 @@ class ZeroEvenOdd {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 #include <semaphore.h>
@@ -197,10 +191,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -38,9 +38,9 @@ Hence, we return false.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 seen[v] = True
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,27 +92,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function checkValid(matrix: number[][]): boolean {
-    const n = matrix.length;
-    let rows = Array.from({ length: n }, () => new Array(n).fill(false));
-    let cols = Array.from({ length: n }, () => new Array(n).fill(false));
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            let cur = matrix[i][j];
-            if (rows[i][cur] || cols[j][cur]) return false;
-            rows[i][cur] = true;
-            cols[j][cur] = true;
-        }
-    }
-    return true;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkValid(matrix [][]int) bool {
@@ -170,10 +145,23 @@ func checkValid(matrix [][]int) bool {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function checkValid(matrix: number[][]): boolean {
+    const n = matrix.length;
+    let rows = Array.from({ length: n }, () => new Array(n).fill(false));
+    let cols = Array.from({ length: n }, () => new Array(n).fill(false));
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            let cur = matrix[i][j];
+            if (rows[i][cur] || cols[j][cur]) return false;
+            rows[i][cur] = true;
+            cols[j][cur] = true;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Preprocessing + Enumeration**
+### Solution 1: Preprocessing + Enumeration
 
 We can first preprocess the array $arr$ to find the maximum subarray sum ending at and starting from each element, and store them in the arrays $left$ and $right$ respectively.
 
@@ -51,8 +51,6 @@ If we do not delete any element, then the maximum subarray sum is the maximum va
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -73,8 +71,6 @@ class Solution:
             ans = max(ans, left[i - 1] + right[i + 1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSum(arr []int) int {
 	n := len(arr)
@@ -148,8 +140,6 @@ func maximumSum(arr []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumSum(arr: number[]): number {
@@ -172,10 +162,6 @@ function maximumSum(arr: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

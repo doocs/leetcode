@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Array Counting**
+### Solution 1: Hash Table + Array Counting
 
 We use a hash table $idx$ to record the position of each element in the matrix $mat$, that is $idx[mat[i][j]] = (i, j)$, and define two arrays $row$ and $col$ to record the number of colored elements in each row and each column respectively.
 
@@ -52,8 +52,6 @@ Traverse the array $arr$. For each element $arr[k]$, we find its position $(i, j
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here $m$ and $n$ are the number of rows and columns of the matrix $mat$ respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
             if row[i] == n or col[j] == m:
                 return k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstCompleteIndex(arr []int, mat [][]int) int {
 	m, n := len(mat), len(mat[0])
@@ -151,8 +143,6 @@ func firstCompleteIndex(arr []int, mat [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function firstCompleteIndex(arr: number[], mat: number[][]): number {
     const m = mat.length;
@@ -175,8 +165,6 @@ function firstCompleteIndex(arr: number[], mat: number[][]): number {
     }
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -210,10 +198,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

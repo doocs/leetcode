@@ -53,13 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +80,6 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPalindromePaths(parent []int, s string) (ans int64) {
 	type pair struct{ i, v int }
@@ -184,8 +172,6 @@ func countPalindromePaths(parent []int, s string) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPalindromePaths(parent: number[], s: string): number {
     const n = parent.length;
@@ -212,10 +198,6 @@ function countPalindromePaths(parent: number[], s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

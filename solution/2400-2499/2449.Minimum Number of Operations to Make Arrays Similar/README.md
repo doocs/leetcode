@@ -62,25 +62,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：奇偶分类 + 排序**
+### 方法一：奇偶分类 + 排序
 
 注意到，由于每次操作，元素的值只会增加 $2$ 或减少 $2$，因此，元素的奇偶性不会改变。
 
-因此，我们可以将数组 `nums` 和 `target` 分别按奇偶性分为两组，分别记为 $a_1$ 和 $a_2$，以及 $b_1$ 和 $b_2$。
+因此，我们可以将数组 $nums$ 和 $target$ 分别按奇偶性分为两组，分别记为 $a_1$ 和 $a_2$，以及 $b_1$ 和 $b_2$。
 
 那么，我们只需要将 $a_1$ 中的元素与 $b_1$ 中的元素配对，将 $a_2$ 中的元素与 $b_2$ 中的元素配对，然后进行操作。配对的过程中，我们可以使用贪心的策略，每次将 $a_i$ 中较小的元素与 $b_i$ 中较小的元素配对，这样可以保证操作的次数最少。这里可以直接通过排序来实现。
 
 由于每次操作，都可以将对应位置的元素差值减少 $4$，因此，我们累计每个对应位置的差值，最后除以 $4$ 即可得到答案。
 
-时间复杂度 $O(n\times \log n)$，其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
         target.sort(key=lambda x: (x & 1, x))
         return sum(abs(a - b) for a, b in zip(nums, target)) // 4
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -129,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +148,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makeSimilar(nums []int, target []int) int64 {
@@ -199,8 +185,6 @@ func abs(x int) int {
 	return x
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function makeSimilar(nums: number[], target: number[]): number {
@@ -241,10 +225,6 @@ function makeSimilar(nums: number[], target: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

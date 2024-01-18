@@ -48,19 +48,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历 + 取模**
+### 方法一：遍历 + 取模
 
 我们遍历字符串 `word`，用变量 $x$ 记录当前前缀与 $m$ 的取模结果，如果 $x$ 为 $0$，则当前位置的可整除数组值为 $1$，否则为 $0$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `word` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 `word` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
             ans.append(1 if x == 0 else 0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +98,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func divisibilityArray(word string, m int) (ans []int) {
@@ -128,8 +114,6 @@ func divisibilityArray(word string, m int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function divisibilityArray(word: string, m: number): number[] {
     const ans: number[] = [];
@@ -141,8 +125,6 @@ function divisibilityArray(word: string, m: number): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -164,8 +146,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -183,10 +163,6 @@ int* divisibilityArray(char* word, int m, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

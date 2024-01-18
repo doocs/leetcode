@@ -46,28 +46,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：转换为最长上升子序列问题**
+### 方法一：转换为最长上升子序列问题
 
 最长上升子序列问题，动态规划的做法，时间复杂度是 $O(n^2)$，这里可以采用贪心优化，将复杂度降至 $O(n\log n)$。
 
-**方法二：排序 + 贪心**
-
-先按照区间右边界排序。优先选择最小的区间的右边界作为起始边界。遍历区间：
-
--   若当前区间左边界大于等于起始右边界，说明该区间无需移除，直接更新起始右边界；
--   否则说明该区间需要移除，更新移除区间的数量 ans。
-
-最后返回 ans 即可。
-
-时间复杂度 $O(n\log n)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,24 +64,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-        intervals.sort()
-        d = [intervals[0][1]]
-        for s, e in intervals[1:]:
-            if s >= d[-1]:
-                d.append(e)
-            else:
-                idx = bisect_left(d, s)
-                d[idx] = min(d[idx], e)
-        return len(intervals) - len(d)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,6 +80,86 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end(), [](const auto& a, const auto& b) { return a[1] < b[1]; });
+        int ans = 0, t = intervals[0][1];
+        for (int i = 1; i < intervals.size(); ++i) {
+            if (t <= intervals[i][0])
+                t = intervals[i][1];
+            else
+                ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func eraseOverlapIntervals(intervals [][]int) int {
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][1] < intervals[j][1]
+	})
+	t, ans := intervals[0][1], 0
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] >= t {
+			t = intervals[i][1]
+		} else {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function eraseOverlapIntervals(intervals: number[][]): number {
+    intervals.sort((a, b) => a[1] - b[1]);
+    let end = intervals[0][1],
+        ans = 0;
+    for (let i = 1; i < intervals.length; ++i) {
+        let cur = intervals[i];
+        if (end > cur[0]) {
+            ans++;
+        } else {
+            end = cur[1];
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：排序 + 贪心
+
+先按照区间右边界排序。优先选择最小的区间的右边界作为起始边界。遍历区间：
+
+-   若当前区间左边界大于等于起始右边界，说明该区间无需移除，直接更新起始右边界；
+-   否则说明该区间需要移除，更新移除区间的数量 ans。
+
+最后返回 ans 即可。
+
+时间复杂度 $O(n\log n)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        intervals.sort()
+        d = [intervals[0][1]]
+        for s, e in intervals[1:]:
+            if s >= d[-1]:
+                d.append(e)
+            else:
+                idx = bisect_left(d, s)
+                d[idx] = min(d[idx], e)
+        return len(intervals) - len(d)
 ```
 
 ```java
@@ -152,67 +197,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function eraseOverlapIntervals(intervals: number[][]): number {
-    intervals.sort((a, b) => a[1] - b[1]);
-    let end = intervals[0][1],
-        ans = 0;
-    for (let i = 1; i < intervals.length; ++i) {
-        let cur = intervals[i];
-        if (end > cur[0]) {
-            ans++;
-        } else {
-            end = cur[1];
-        }
-    }
-    return ans;
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](const auto& a, const auto& b) { return a[1] < b[1]; });
-        int ans = 0, t = intervals[0][1];
-        for (int i = 1; i < intervals.size(); ++i) {
-            if (t <= intervals[i][0])
-                t = intervals[i][1];
-            else
-                ++ans;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func eraseOverlapIntervals(intervals [][]int) int {
-	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][1] < intervals[j][1]
-	})
-	t, ans := intervals[0][1], 0
-	for i := 1; i < len(intervals); i++ {
-		if intervals[i][0] >= t {
-			t = intervals[i][1]
-		} else {
-			ans++
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

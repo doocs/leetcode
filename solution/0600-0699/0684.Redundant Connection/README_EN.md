@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
             p[find(a)] = find(b)
         return []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findRedundantConnection(edges [][]int) []int {
@@ -141,8 +135,6 @@ func findRedundantConnection(edges [][]int) []int {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {number[][]} edges
@@ -166,10 +158,6 @@ var findRedundantConnection = function (edges) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,9 @@ The expression contains 3 operations.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
 
         return dfs(target)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func leastOpsExpressTarget(x int, target int) int {
 	f := map[int]int{}
@@ -173,8 +167,6 @@ func leastOpsExpressTarget(x int, target int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function leastOpsExpressTarget(x: number, target: number): number {
     const f: Map<number, number> = new Map();
@@ -202,10 +194,6 @@ function leastOpsExpressTarget(x: number, target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

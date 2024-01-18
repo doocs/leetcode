@@ -48,15 +48,9 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-利用哈希表存储每个键的所有前缀子串。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MapSum:
@@ -82,10 +76,6 @@ class MapSum:
 # obj.insert(key,val)
 # param_2 = obj.sum(prefix)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MapSum {
@@ -120,8 +110,6 @@ class MapSum {
  */
 ```
 
-### **C++**
-
 ```cpp
 class MapSum {
 public:
@@ -153,8 +141,6 @@ public:
  * int param_2 = obj->sum(prefix);
  */
 ```
-
-### **Go**
 
 ```go
 type MapSum struct {
@@ -191,10 +177,6 @@ func (this *MapSum) Sum(prefix string) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

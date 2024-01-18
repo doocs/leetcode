@@ -40,7 +40,7 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 
 ## Solutions
 
-**Solution 1: Array + Binary Search**
+### Solution 1: Array + Binary Search
 
 Maintain an array, each element of which is a list storing the values set each time and their corresponding snapshot IDs.
 
@@ -51,8 +51,6 @@ Each time a value is retrieved, use binary search to find the first value in the
 In terms of time complexity, the time complexity of setting a value is $O(1)$, the time complexity of a snapshot is $O(1)$, and the time complexity of getting a value is $O(\log n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class SnapshotArray:
@@ -79,8 +77,6 @@ class SnapshotArray:
 # param_2 = obj.snap()
 # param_3 = obj.get(index,snap_id)
 ```
-
-### **Java**
 
 ```java
 class SnapshotArray {
@@ -123,8 +119,6 @@ class SnapshotArray {
  * int param_3 = obj.get(index,snap_id);
  */
 ```
-
-### **C++**
 
 ```cpp
 class SnapshotArray {
@@ -170,8 +164,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type SnapshotArray struct {
 	idx int
@@ -211,10 +203,6 @@ type pair struct{ i, v int }
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

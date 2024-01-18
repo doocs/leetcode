@@ -49,9 +49,9 @@ g.shortestPath(0, 3); // return 6. The shortest path from 0 to 3 now is 0 -&gt; 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Graph:
@@ -85,8 +85,6 @@ class Graph:
 # obj.addEdge(edge)
 # param_2 = obj.shortestPath(node1,node2)
 ```
-
-### **Java**
 
 ```java
 class Graph {
@@ -140,8 +138,6 @@ class Graph {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Graph {
 public:
@@ -191,8 +187,6 @@ private:
  * int param_2 = obj->shortestPath(node1,node2);
  */
 ```
-
-### **Go**
 
 ```go
 const inf = 1 << 29
@@ -255,8 +249,6 @@ func (this *Graph) ShortestPath(node1 int, node2 int) int {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class Graph {
     private g: number[][] = [];
@@ -302,8 +294,6 @@ class Graph {
  * var param_2 = obj.shortestPath(node1,node2)
  */
 ```
-
-### **C#**
 
 ```cs
 public class Graph {
@@ -364,10 +354,6 @@ public class Graph {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

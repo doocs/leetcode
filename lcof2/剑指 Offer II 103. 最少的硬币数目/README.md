@@ -60,17 +60,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-动态规划。
-
-类似完全背包的思路，硬币数量不限，求凑成总金额所需的最少的硬币个数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +74,6 @@ class Solution:
                 dp[j] = min(dp[j], dp[j - coin] + 1)
         return -1 if dp[-1] > amount else dp[-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,14 +98,61 @@ class Solution {
 }
 ```
 
-下面对 k 这层循环进行优化：
+```cpp
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        vector<int> dp(amount + 1, amount + 1);
+        dp[0] = 0;
+        for (auto& coin : coins)
+            for (int j = coin; j <= amount; ++j)
+                dp[j] = min(dp[j], dp[j - coin] + 1);
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+};
+```
 
-由于：
+```go
+func coinChange(coins []int, amount int) int {
+	dp := make([]int, amount+1)
+	for i := 1; i <= amount; i++ {
+		dp[i] = amount + 1
+	}
+	for _, coin := range coins {
+		for j := coin; j <= amount; j++ {
+			dp[j] = min(dp[j], dp[j-coin]+1)
+		}
+	}
+	if dp[amount] > amount {
+		return -1
+	}
+	return dp[amount]
+}
+```
 
--   `dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2v] + 2, ... , dp[i - 1][j - kv] + k)`
--   `dp[i][j - v] = min( dp[i - 1][j - v], dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
+```js
+/**
+ * @param {number[]} coins
+ * @param {number} amount
+ * @return {number}
+ */
+var coinChange = function (coins, amount) {
+    let dp = Array(amount + 1).fill(amount + 1);
+    dp[0] = 0;
+    for (const coin of coins) {
+        for (let j = coin; j <= amount; ++j) {
+            dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+        }
+    }
+    return dp[amount] > amount ? -1 : dp[amount];
+};
+```
 
-因此 `dp[i][j] = min(dp[i - 1][j], dp[i][j - v] + 1)`。
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -143,7 +178,11 @@ class Solution {
 }
 ```
 
-空间优化：
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -162,60 +201,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} coins
- * @param {number} amount
- * @return {number}
- */
-var coinChange = function (coins, amount) {
-    let dp = Array(amount + 1).fill(amount + 1);
-    dp[0] = 0;
-    for (const coin of coins) {
-        for (let j = coin; j <= amount; ++j) {
-            dp[j] = Math.min(dp[j], dp[j - coin] + 1);
-        }
-    }
-    return dp[amount] > amount ? -1 : dp[amount];
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int coinChange(vector<int>& coins, int amount) {
-        vector<int> dp(amount + 1, amount + 1);
-        dp[0] = 0;
-        for (auto& coin : coins)
-            for (int j = coin; j <= amount; ++j)
-                dp[j] = min(dp[j], dp[j - coin] + 1);
-        return dp[amount] > amount ? -1 : dp[amount];
-    }
-};
-```
-
-### **Go**
-
-```go
-func coinChange(coins []int, amount int) int {
-	dp := make([]int, amount+1)
-	for i := 1; i <= amount; i++ {
-		dp[i] = amount + 1
-	}
-	for _, coin := range coins {
-		for j := coin; j <= amount; j++ {
-			dp[j] = min(dp[j], dp[j-coin]+1)
-		}
-	}
-	if dp[amount] > amount {
-		return -1
-	}
-	return dp[amount]
-}
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

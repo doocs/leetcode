@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 我们可以枚举每根柱子的高度 $h$ 作为矩形的高度，利用单调栈，向左右两边找第一个高度小于 $h$ 的下标 $left_i$, $right_i$。那么此时矩形面积为 $h \times (right_i-left_i-1)$，求最大值即可。
 
@@ -61,10 +59,6 @@ for i in range(n):
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
@@ -81,34 +75,6 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
-
-```python
-class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
-        n = len(heights)
-        stk = []
-        left = [-1] * n
-        right = [n] * n
-        for i, h in enumerate(heights):
-            while stk and heights[stk[-1]] >= h:
-                stk.pop()
-            if stk:
-                left[i] = stk[-1]
-            stk.append(i)
-        stk = []
-        for i in range(n - 1, -1, -1):
-            h = heights[i]
-            while stk and heights[stk[-1]] >= h:
-                stk.pop()
-            if stk:
-                right[i] = stk[-1]
-            stk.append(i)
-        return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -158,7 +122,32 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func largestRectangleArea(heights []int) int {
+	res, n := 0, len(heights)
+	var stk []int
+	left, right := make([]int, n), make([]int, n)
+	for i := range right {
+		right[i] = n
+	}
+	for i, h := range heights {
+		for len(stk) > 0 && heights[stk[len(stk)-1]] >= h {
+			right[stk[len(stk)-1]] = i
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			left[i] = stk[len(stk)-1]
+		} else {
+			left[i] = -1
+		}
+		stk = append(stk, i)
+	}
+	for i, h := range heights {
+		res = max(res, h*(right[i]-left[i]-1))
+	}
+	return res
+}
+```
 
 ```rust
 impl Solution {
@@ -208,39 +197,66 @@ impl Solution {
 }
 ```
 
-### **Go**
+```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-```go
-func largestRectangleArea(heights []int) int {
-	res, n := 0, len(heights)
-	var stk []int
-	left, right := make([]int, n), make([]int, n)
-	for i := range right {
-		right[i] = n
-	}
-	for i, h := range heights {
-		for len(stk) > 0 && heights[stk[len(stk)-1]] >= h {
-			right[stk[len(stk)-1]] = i
-			stk = stk[:len(stk)-1]
-		}
-		if len(stk) > 0 {
-			left[i] = stk[len(stk)-1]
-		} else {
-			left[i] = -1
-		}
-		stk = append(stk, i)
-	}
-	for i, h := range heights {
-		res = max(res, h*(right[i]-left[i]-1))
-	}
-	return res
+public class Solution {
+    public int LargestRectangleArea(int[] height) {
+        var stack = new Stack<int>();
+        var result = 0;
+        var i = 0;
+        while (i < height.Length || stack.Any())
+        {
+            if (!stack.Any() || (i < height.Length && height[stack.Peek()] < height[i]))
+            {
+                stack.Push(i);
+                ++i;
+            }
+            else
+            {
+                var previousIndex = stack.Pop();
+                var area = height[previousIndex] * (stack.Any() ? (i - stack.Peek() - 1) : i);
+                result = Math.Max(result, area);
+            }
+        }
+
+        return result;
+    }
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        n = len(heights)
+        stk = []
+        left = [-1] * n
+        right = [n] * n
+        for i, h in enumerate(heights):
+            while stk and heights[stk[-1]] >= h:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            h = heights[i]
+            while stk and heights[stk[-1]] >= h:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

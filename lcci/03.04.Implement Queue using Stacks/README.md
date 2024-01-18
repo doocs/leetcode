@@ -9,17 +9,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
--   每次压入元素时，放入第 1 个栈中；
--   第 2 个栈不为空时，不能倒入元素；
--   第 2 个栈为空时，必须将第 1 个栈的所有元素按顺序倒入第 2 个栈中。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MyQueue:
@@ -67,10 +59,6 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MyQueue {
@@ -123,8 +111,6 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
-
-### **Go**
 
 ```go
 type MyQueue struct {
@@ -184,8 +170,6 @@ func (this *MyQueue) transfer() {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class MyQueue {
     private inStack: number[];
@@ -235,10 +219,6 @@ class MyQueue {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

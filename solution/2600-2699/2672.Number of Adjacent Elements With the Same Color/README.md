@@ -54,13 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +77,6 @@ class Solution:
             nums[i] = c
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +105,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func colorTheArray(n int, queries [][]int) (ans []int) {
 	nums := make([]int, n)
@@ -171,8 +159,6 @@ func colorTheArray(n int, queries [][]int) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function colorTheArray(n: number, queries: number[][]): number[] {
@@ -199,10 +185,6 @@ function colorTheArray(n: number, queries: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,9 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,24 +59,6 @@ class Solution:
             heappush(pq, (x - y, x))
         return ans
 ```
-
-```python
-class Solution:
-    def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
-        ans = -inf
-        q = deque()
-        for x, y in points:
-            while q and x - q[0][0] > k:
-                q.popleft()
-            if q:
-                ans = max(ans, x + y + q[0][1] - q[0][0])
-            while q and y - x >= q[-1][1] - q[-1][0]:
-                q.pop()
-            q.append((x, y))
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,31 +80,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int findMaxValueOfEquation(int[][] points, int k) {
-        int ans = -(1 << 30);
-        Deque<int[]> q = new ArrayDeque<>();
-        for (var p : points) {
-            int x = p[0], y = p[1];
-            while (!q.isEmpty() && x - q.peekFirst()[0] > k) {
-                q.pollFirst();
-            }
-            if (!q.isEmpty()) {
-                ans = Math.max(ans, x + y + q.peekFirst()[1] - q.peekFirst()[0]);
-            }
-            while (!q.isEmpty() && y - x >= q.peekLast()[1] - q.peekLast()[0]) {
-                q.pollLast();
-            }
-            q.offerLast(p);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,32 +100,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int findMaxValueOfEquation(vector<vector<int>>& points, int k) {
-        int ans = -(1 << 30);
-        deque<pair<int, int>> q;
-        for (auto& p : points) {
-            int x = p[0], y = p[1];
-            while (!q.empty() && x - q.front().first > k) {
-                q.pop_front();
-            }
-            if (!q.empty()) {
-                ans = max(ans, x + y + q.front().second - q.front().first);
-            }
-            while (!q.empty() && y - x >= q.back().second - q.back().first) {
-                q.pop_back();
-            }
-            q.emplace_back(x, y);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func findMaxValueOfEquation(points [][]int, k int) int {
@@ -200,29 +131,6 @@ func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
-
-```go
-func findMaxValueOfEquation(points [][]int, k int) int {
-	ans := -(1 << 30)
-	q := [][2]int{}
-	for _, p := range points {
-		x, y := p[0], p[1]
-		for len(q) > 0 && x-q[0][0] > k {
-			q = q[1:]
-		}
-		if len(q) > 0 {
-			ans = max(ans, x+y+q[0][1]-q[0][0])
-		}
-		for len(q) > 0 && y-x >= q[len(q)-1][1]-q[len(q)-1][0] {
-			q = q[:len(q)-1]
-		}
-		q = append(q, [2]int{x, y})
-	}
-	return ans
-}
-```
-
-### **TypeScript**
 
 ```ts
 function findMaxValueOfEquation(points: number[][], k: number): number {
@@ -307,6 +215,96 @@ class Heap<T = number> {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
+        ans = -inf
+        q = deque()
+        for x, y in points:
+            while q and x - q[0][0] > k:
+                q.popleft()
+            if q:
+                ans = max(ans, x + y + q[0][1] - q[0][0])
+            while q and y - x >= q[-1][1] - q[-1][0]:
+                q.pop()
+            q.append((x, y))
+        return ans
+```
+
+```java
+class Solution {
+    public int findMaxValueOfEquation(int[][] points, int k) {
+        int ans = -(1 << 30);
+        Deque<int[]> q = new ArrayDeque<>();
+        for (var p : points) {
+            int x = p[0], y = p[1];
+            while (!q.isEmpty() && x - q.peekFirst()[0] > k) {
+                q.pollFirst();
+            }
+            if (!q.isEmpty()) {
+                ans = Math.max(ans, x + y + q.peekFirst()[1] - q.peekFirst()[0]);
+            }
+            while (!q.isEmpty() && y - x >= q.peekLast()[1] - q.peekLast()[0]) {
+                q.pollLast();
+            }
+            q.offerLast(p);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int findMaxValueOfEquation(vector<vector<int>>& points, int k) {
+        int ans = -(1 << 30);
+        deque<pair<int, int>> q;
+        for (auto& p : points) {
+            int x = p[0], y = p[1];
+            while (!q.empty() && x - q.front().first > k) {
+                q.pop_front();
+            }
+            if (!q.empty()) {
+                ans = max(ans, x + y + q.front().second - q.front().first);
+            }
+            while (!q.empty() && y - x >= q.back().second - q.back().first) {
+                q.pop_back();
+            }
+            q.emplace_back(x, y);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findMaxValueOfEquation(points [][]int, k int) int {
+	ans := -(1 << 30)
+	q := [][2]int{}
+	for _, p := range points {
+		x, y := p[0], p[1]
+		for len(q) > 0 && x-q[0][0] > k {
+			q = q[1:]
+		}
+		if len(q) > 0 {
+			ans = max(ans, x+y+q[0][1]-q[0][0])
+		}
+		for len(q) > 0 && y-x >= q[len(q)-1][1]-q[len(q)-1][0] {
+			q = q[:len(q)-1]
+		}
+		q = append(q, [2]int{x, y})
+	}
+	return ans
+}
+```
+
 ```ts
 function findMaxValueOfEquation(points: number[][], k: number): number {
     let ans = -(1 << 30);
@@ -327,10 +325,6 @@ function findMaxValueOfEquation(points: number[][], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

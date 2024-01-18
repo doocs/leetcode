@@ -71,15 +71,9 @@ encrypter.decrypt("eizfeiam"); // return 2.
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Encrypter:
@@ -104,10 +98,6 @@ class Encrypter:
 # param_1 = obj.encrypt(word1)
 # param_2 = obj.decrypt(word2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Encrypter {
@@ -148,8 +138,6 @@ class Encrypter {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Encrypter {
 public:
@@ -182,8 +170,6 @@ public:
  * int param_2 = obj->decrypt(word2);
  */
 ```
-
-### **Go**
 
 ```go
 type Encrypter struct {
@@ -228,16 +214,6 @@ func (this *Encrypter) Decrypt(word2 string) int {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

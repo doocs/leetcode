@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,10 +81,7 @@ class Solution:
                     dp[i] = stride[i]
 
         return (zeros + 1) * sum(dp[l : r + 1]) % kMod
-
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,7 +108,8 @@ class Solution {
             int c = e.getValue();
             sum = Math.min(sum + c * num, r);
             // prefix part
-            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i % num]
+            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i %
+            // num]
             for (int i = num; i <= sum; i++) {
                 dp[i] = (dp[i] + dp[i - num]) % MOD;
             }
@@ -131,25 +129,8 @@ class Solution {
         return ans;
     }
 }
-
-```
-
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

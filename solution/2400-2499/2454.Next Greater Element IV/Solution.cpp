@@ -1,23 +1,20 @@
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<int> secondGreaterElement(vector<int>& nums) {
-        stack<int> stk;
-        priority_queue<pii, vector<pii>, greater<pii>> q;
         int n = nums.size();
         vector<int> ans(n, -1);
+        vector<pair<int, int>> arr(n);
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!q.empty() && q.top().first < v) {
-                ans[q.top().second] = v;
-                q.pop();
+            arr[i] = {-nums[i], i};
+        }
+        sort(arr.begin(), arr.end());
+        set<int> ts;
+        for (auto& [_, i] : arr) {
+            auto it = ts.upper_bound(i);
+            if (it != ts.end() && ts.upper_bound(*it) != ts.end()) {
+                ans[i] = nums[*ts.upper_bound(*it)];
             }
-            while (!stk.empty() && nums[stk.top()] < v) {
-                q.push({nums[stk.top()], stk.top()});
-                stk.pop();
-            }
-            stk.push(i);
+            ts.insert(i);
         }
         return ans;
     }

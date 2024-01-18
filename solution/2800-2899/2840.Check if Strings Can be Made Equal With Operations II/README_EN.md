@@ -45,7 +45,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We observe the operation in the problem, and find that if the parity of the two indices $i$ and $j$ of the string is the same, then their order can be changed by swapping.
 
@@ -59,8 +59,6 @@ Similar problems:
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def checkStrings(self, s1: str, s2: str) -> bool:
@@ -68,8 +66,6 @@ class Solution:
             s2[1::2]
         )
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkStrings(s1 string, s2 string) bool {
 	cnt := [2][26]int{}
@@ -127,8 +119,6 @@ func checkStrings(s1 string, s2 string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkStrings(s1: string, s2: string): boolean {
@@ -146,10 +136,6 @@ function checkStrings(s1: string, s2: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

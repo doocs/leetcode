@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 题目要求找到链表中每个节点的下一个更大的节点，即找到链表中每个节点的右边第一个比它大的节点。我们先遍历链表，将链表中的值存入数组 $nums$ 中。那么对于数组 $nums$ 中的每个元素，我们只需要找到它右边第一个比它大的元素即可。求下一个更大的元素的问题可以使用单调栈来解决。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -87,10 +81,6 @@ class Solution:
             stk.append(nums[i])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -125,8 +115,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -163,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -193,42 +179,6 @@ func nextLargerNodes(head *ListNode) []int {
 	return ans
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @return {number[]}
- */
-var nextLargerNodes = function (head) {
-    const nums = [];
-    while (head) {
-        nums.push(head.val);
-        head = head.next;
-    }
-    const stk = [];
-    const n = nums.length;
-    const ans = new Array(n).fill(0);
-    for (let i = n - 1; i >= 0; --i) {
-        while (stk.length && stk[stk.length - 1] <= nums[i]) {
-            stk.pop();
-        }
-        ans[i] = stk.length ? stk[stk.length - 1] : 0;
-        stk.push(nums[i]);
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -262,46 +212,6 @@ function nextLargerNodes(head: ListNode | null): number[] {
     return ans;
 }
 ```
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-interface Item {
-    index: number;
-    val: number;
-}
-
-function nextLargerNodes(head: ListNode | null): number[] {
-    const res: number[] = [];
-    const stack: Item[] = [];
-    let cur = head;
-    for (let i = 0; cur != null; i++) {
-        res.push(0);
-        const { val, next } = cur;
-        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
-            res[stack.pop().index] = val;
-        }
-        stack.push({
-            val,
-            index: i,
-        });
-        cur = next;
-    }
-    return res;
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -350,10 +260,82 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number[]}
+ */
+var nextLargerNodes = function (head) {
+    const nums = [];
+    while (head) {
+        nums.push(head.val);
+        head = head.next;
+    }
+    const stk = [];
+    const n = nums.length;
+    const ans = new Array(n).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+            stk.pop();
+        }
+        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        stk.push(nums[i]);
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+interface Item {
+    index: number;
+    val: number;
+}
+
+function nextLargerNodes(head: ListNode | null): number[] {
+    const res: number[] = [];
+    const stack: Item[] = [];
+    let cur = head;
+    for (let i = 0; cur != null; i++) {
+        res.push(0);
+        const { val, next } = cur;
+        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
+            res[stack.pop().index] = val;
+        }
+        stack.push({
+            val,
+            index: i,
+        });
+        cur = next;
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

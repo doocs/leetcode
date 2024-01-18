@@ -59,15 +59,13 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 
 ## Solutions
 
-**Solution 1: Greedy + Hash Table**
+### Solution 1: Greedy + Hash Table
 
 We start from the positive integer $i=1$, and judge whether $i$ can be added to the array in turn. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $target-i$ as visited, indicating that $target-i$ cannot be added to the array. The loop continues until the length of the array is $n$.
 
 The time complexity is $O(n + target)$, and the space complexity is $O(n + target)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,8 +81,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -104,8 +100,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumPossibleSum(n int, target int) (ans int64) {
 	vis := make([]bool, n+target)
@@ -145,8 +137,6 @@ func minimumPossibleSum(n int, target int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumPossibleSum(n: number, target: number): number {
@@ -165,10 +155,6 @@ function minimumPossibleSum(n: number, target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

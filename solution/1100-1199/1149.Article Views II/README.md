@@ -59,15 +59,11 @@ Views 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DISTINCT + GROUP BY + HAVING**
+### 方法一：DISTINCT + GROUP BY + HAVING
 
 我们将数据按照 `viewer_id` 和 `view_date` 分组，然后利用 `HAVING` 子句来筛选出浏览文章数大于 $1$ 的记录，最后按照 `id` 去重排序即可。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -79,3 +75,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

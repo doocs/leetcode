@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>On a <strong>0-indexed</strong> <code>8 x 8</code> chessboard, there can be multiple black queens ad one white king.</p>
+<p>On a <strong>0-indexed</strong> <code>8 x 8</code> chessboard, there can be multiple black queens and one white king.</p>
 
 <p>You are given a 2D integer array <code>queens</code> where <code>queens[i] = [xQueen<sub>i</sub>, yQueen<sub>i</sub>]</code> represents the position of the <code>i<sup>th</sup></code> black queen on the chessboard. You are also given an integer array <code>king</code> of length <code>2</code> where <code>king = [xKing, yKing]</code> represents the position of the white king.</p>
 
@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Direct Search**
+### Solution 1: Direct Search
 
 First, we store all the positions of the queens in a hash table or a two-dimensional array $s$.
 
@@ -50,8 +50,6 @@ After the search is over, we return the answer.
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. In this problem, $n = 8$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
                             break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func queensAttacktheKing(queens [][]int, king []int) (ans [][]int) {
 	n := 8
@@ -164,8 +156,6 @@ func queensAttacktheKing(queens [][]int, king []int) (ans [][]int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function queensAttacktheKing(queens: number[][], king: number[]): number[][] {
     const n = 8;
@@ -191,10 +181,6 @@ function queensAttacktheKing(queens: number[][], king: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

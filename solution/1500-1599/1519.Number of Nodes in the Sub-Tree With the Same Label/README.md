@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们先将边数组转换为邻接表 $g$。
 
@@ -78,10 +76,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为节点数；而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -175,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSubTrees(n int, edges [][]int, labels string) []int {
 	g := make([][]int, n)
@@ -204,8 +190,6 @@ func countSubTrees(n int, edges [][]int, labels string) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSubTrees(n: number, edges: number[][], labels: string): number[] {
     const dfs = (i: number, fa: number) => {
@@ -231,10 +215,6 @@ function countSubTrees(n: number, edges: number[][], labels: string): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

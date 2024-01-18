@@ -47,9 +47,9 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
         mod = 10**9 + 7
         return sum(d[: n + 1]) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 const int mod = 1e9 + 7;
@@ -131,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func peopleAwareOfSecret(n int, delay int, forget int) int {
 	m := (n << 1) + 10
@@ -160,8 +154,6 @@ func peopleAwareOfSecret(n int, delay int, forget int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
     let dp = new Array(n + 1).fill(0n);
@@ -186,10 +178,6 @@ function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

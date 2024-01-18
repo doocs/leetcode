@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS**
+### 方法一：BFS
 
 我们定义一个二维数组 $dist$，其中 $dist[i][j]$ 表示从起始位置到达 $(i,j)$ 的最短路径长度。初始时，$dist$ 中的所有元素都被初始化为一个很大的数，除了起始位置，因为起始位置到自身的距离是 $0$。
 
@@ -79,10 +77,6 @@
 时间复杂度 $O(m \times n \times \max(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是迷宫的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,10 +101,6 @@ class Solution:
                     q.append((x, y))
         return -1 if dist[di][dj] == inf else dist[di][dj]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,8 +174,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestDistance(maze [][]int, start []int, destination []int) int {
@@ -227,8 +213,6 @@ func shortestDistance(maze [][]int, start []int, destination []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestDistance(maze: number[][], start: number[], destination: number[]): number {
     const m = maze.length;
@@ -261,10 +245,6 @@ function shortestDistance(maze: number[][], start: number[], destination: number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

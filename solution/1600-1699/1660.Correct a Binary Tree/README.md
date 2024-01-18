@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们设计一个函数 $dfs(root)$，用于处理以 $root$ 为根的子树。如果 $root$ 为 $null$ 或者 $root.right$ 已经被访问过，说明 $root$ 为无效节点，返回 $null$。否则，递归处理 $root.right$ 和 $root.left$，并返回 $root$。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -96,10 +90,6 @@ class Solution:
         vis = set()
         return dfs(root)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -167,8 +155,6 @@ public:
     }
 };
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -200,10 +186,6 @@ var correctBinaryTree = function (root) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

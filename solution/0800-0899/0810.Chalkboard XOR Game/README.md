@@ -52,9 +52,7 @@ Alice 有两个选择: 擦掉数字 1 或 2。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 根据游戏规则，轮到某个玩家时，如果当前黑板上所有数字按位异或运算结果为 $0$，这个玩家获胜。由于 Alice 先手，因此当 `nums` 中所有数字的异或结果为 $0$ 时，Alice 可以获胜。
 
@@ -102,19 +100,11 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def xorGame(self, nums: List[int]) -> bool:
         return len(nums) % 2 == 0 or reduce(xor, nums) == 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func xorGame(nums []int) bool {
@@ -153,10 +139,6 @@ func xorGame(nums []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

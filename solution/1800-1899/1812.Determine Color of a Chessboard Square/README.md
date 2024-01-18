@@ -51,31 +51,21 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：找规律**
+### 方法一：找规律
 
 观察棋盘我们发现，颜色相同的两个格子 $(x_1, y_1)$ 和 $(x_2, y_2)$ 满足 $x_1 + y_1$ 和 $x_2 + y_2$ 均为奇数或偶数。
 
 因此，我们可以根据 `coordinates` 获取对应的坐标 $(x, y)$，如果 $x + y$ 为奇数，则格子为白色，返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(1)$。
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def squareIsWhite(self, coordinates: str) -> bool:
         return (ord(coordinates[0]) + ord(coordinates[1])) % 2 == 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,8 +74,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,15 +84,26 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func squareIsWhite(coordinates string) bool {
 	return (coordinates[0]+coordinates[1])%2 == 1
 }
 ```
 
-### **JavaScript**
+```ts
+function squareIsWhite(coordinates: string): boolean {
+    return ((coordinates.charCodeAt(0) + coordinates.charCodeAt(1)) & 1) === 1;
+}
+```
+
+```rust
+impl Solution {
+    pub fn square_is_white(coordinates: String) -> bool {
+        let s = coordinates.as_bytes();
+        ((s[0] + s[1]) & 1) == 1
+    }
+}
+```
 
 ```js
 /**
@@ -118,37 +117,12 @@ var squareIsWhite = function (coordinates) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function squareIsWhite(coordinates: string): boolean {
-    return ((coordinates.charCodeAt(0) + coordinates.charCodeAt(1)) & 1) === 1;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn square_is_white(coordinates: String) -> bool {
-        let s = coordinates.as_bytes();
-        ((s[0] + s[1]) & 1) == 1
-    }
-}
-```
-
-### **C**
-
 ```c
 bool squareIsWhite(char* coordinates) {
     return (coordinates[0] + coordinates[1]) & 1;
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

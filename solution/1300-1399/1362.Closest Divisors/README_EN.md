@@ -40,9 +40,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Enumeration
 
-### **Python3**
+We design a function $f(x)$ that returns two numbers whose product equals $x$ and the absolute difference between these two numbers is the smallest. We can start enumerating $i$ from $\sqrt{x}$. If $x$ can be divided by $i$, then $\frac{x}{i}$ is another factor. At this point, we have found two factors whose product equals $x$. We can return them directly. Otherwise, we decrease the value of $i$ and continue to enumerate.
+
+Next, we only need to calculate $f(num + 1)$ and $f(num + 2)$ respectively, and then compare the return values of the two functions. We return the one with the smaller absolute difference.
+
+The time complexity is $O(\sqrt{num})$, and the space complexity is $O(1)$. Where $num$ is the given integer.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +62,6 @@ class Solution:
         b = f(num + 2)
         return a if abs(a[0] - a[1]) < abs(b[0] - b[1]) else b
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +98,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closestDivisors(num int) []int {
@@ -123,10 +123,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,9 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,20 +73,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def mostPoints(self, questions: List[List[int]]) -> int:
-        n = len(questions)
-        f = [0] * (n + 1)
-        for i in range(n - 1, -1, -1):
-            p, b = questions[i]
-            j = i + b + 1
-            f[i] = max(f[i + 1], p + (0 if j > n else f[j]))
-        return f[0]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,23 +100,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public long mostPoints(int[][] questions) {
-        int n = questions.length;
-        long[] f = new long[n + 1];
-        for (int i = n - 1; i >= 0; --i) {
-            int p = questions[i][0], b = questions[i][1];
-            int j = i + b + 1;
-            f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
-        }
-        return f[0];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,25 +122,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    long long mostPoints(vector<vector<int>>& questions) {
-        int n = questions.size();
-        long long f[n + 1];
-        memset(f, 0, sizeof(f));
-        for (int i = n - 1; ~i; --i) {
-            int p = questions[i][0], b = questions[i][1];
-            int j = i + b + 1;
-            f[i] = max(f[i + 1], p + (j > n ? 0 : f[j]));
-        }
-        return f[0];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func mostPoints(questions [][]int) int64 {
 	n := len(questions)
@@ -192,23 +142,6 @@ func mostPoints(questions [][]int) int64 {
 }
 ```
 
-```go
-func mostPoints(questions [][]int) int64 {
-	n := len(questions)
-	f := make([]int64, n+1)
-	for i := n - 1; i >= 0; i-- {
-		p := int64(questions[i][0])
-		if j := i + questions[i][1] + 1; j <= n {
-			p += f[j]
-		}
-		f[i] = max(f[i+1], p)
-	}
-	return f[0]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function mostPoints(questions: number[][]): number {
     const n = questions.length;
@@ -227,6 +160,71 @@ function mostPoints(questions: number[][]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def mostPoints(self, questions: List[List[int]]) -> int:
+        n = len(questions)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            p, b = questions[i]
+            j = i + b + 1
+            f[i] = max(f[i + 1], p + (0 if j > n else f[j]))
+        return f[0]
+```
+
+```java
+class Solution {
+    public long mostPoints(int[][] questions) {
+        int n = questions.length;
+        long[] f = new long[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int p = questions[i][0], b = questions[i][1];
+            int j = i + b + 1;
+            f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
+        }
+        return f[0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long mostPoints(vector<vector<int>>& questions) {
+        int n = questions.size();
+        long long f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 1; ~i; --i) {
+            int p = questions[i][0], b = questions[i][1];
+            int j = i + b + 1;
+            f[i] = max(f[i + 1], p + (j > n ? 0 : f[j]));
+        }
+        return f[0];
+    }
+};
+```
+
+```go
+func mostPoints(questions [][]int) int64 {
+	n := len(questions)
+	f := make([]int64, n+1)
+	for i := n - 1; i >= 0; i-- {
+		p := int64(questions[i][0])
+		if j := i + questions[i][1] + 1; j <= n {
+			p += f[j]
+		}
+		f[i] = max(f[i+1], p)
+	}
+	return f[0]
+}
+```
+
 ```ts
 function mostPoints(questions: number[][]): number {
     const n = questions.length;
@@ -240,10 +238,6 @@ function mostPoints(questions: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

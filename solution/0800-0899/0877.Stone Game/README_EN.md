@@ -45,9 +45,9 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,21 +60,6 @@ class Solution:
 
         return dfs(0, len(piles) - 1) > 0
 ```
-
-```python
-class Solution:
-    def stoneGame(self, piles: List[int]) -> bool:
-        n = len(piles)
-        f = [[0] * n for _ in range(n)]
-        for i, x in enumerate(piles):
-            f[i][i] = x
-        for i in range(n - 2, -1, -1):
-            for j in range(i + 1, n):
-                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])
-        return f[0][n - 1] > 0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,26 +85,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean stoneGame(int[] piles) {
-        int n = piles.length;
-        int[][] f = new int[n][n];
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = piles[i];
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                f[i][j] = Math.max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
-            }
-        }
-        return f[0][n - 1] > 0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,28 +105,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool stoneGame(vector<int>& piles) {
-        int n = piles.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = piles[i];
-        }
-        for (int i = n - 2; ~i; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
-            }
-        }
-        return f[0][n - 1] > 0;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func stoneGame(piles []int) bool {
@@ -184,25 +127,6 @@ func stoneGame(piles []int) bool {
 }
 ```
 
-```go
-func stoneGame(piles []int) bool {
-	n := len(piles)
-	f := make([][]int, n)
-	for i, x := range piles {
-		f[i] = make([]int, n)
-		f[i][i] = x
-	}
-	for i := n - 2; i >= 0; i-- {
-		for j := i + 1; j < n; j++ {
-			f[i][j] = max(piles[i]-f[i+1][j], piles[j]-f[i][j-1])
-		}
-	}
-	return f[0][n-1] > 0
-}
-```
-
-### **TypeScript**
-
 ```ts
 function stoneGame(piles: number[]): boolean {
     const n = piles.length;
@@ -217,6 +141,80 @@ function stoneGame(piles: number[]): boolean {
         return f[i][j];
     };
     return dfs(0, n - 1) > 0;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def stoneGame(self, piles: List[int]) -> bool:
+        n = len(piles)
+        f = [[0] * n for _ in range(n)]
+        for i, x in enumerate(piles):
+            f[i][i] = x
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])
+        return f[0][n - 1] > 0
+```
+
+```java
+class Solution {
+    public boolean stoneGame(int[] piles) {
+        int n = piles.length;
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = piles[i];
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = Math.max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] > 0;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool stoneGame(vector<int>& piles) {
+        int n = piles.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = piles[i];
+        }
+        for (int i = n - 2; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] > 0;
+    }
+};
+```
+
+```go
+func stoneGame(piles []int) bool {
+	n := len(piles)
+	f := make([][]int, n)
+	for i, x := range piles {
+		f[i] = make([]int, n)
+		f[i][i] = x
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = max(piles[i]-f[i+1][j], piles[j]-f[i][j-1])
+		}
+	}
+	return f[0][n-1] > 0
 }
 ```
 
@@ -236,10 +234,6 @@ function stoneGame(piles: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

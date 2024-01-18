@@ -56,13 +56,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,18 +88,7 @@ class Solution:
                     return "Neither"
             return "IPv6"
         return "Neither"
-
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **TypeScript**
 
 ```ts
 function validIPAddress(queryIP: string): string {
@@ -147,8 +132,6 @@ function validIPAddress(queryIP: string): string {
     return 'Neither';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -207,10 +190,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

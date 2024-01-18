@@ -47,37 +47,11 @@ iterator.hasNext(); // 返回 false
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS 回溯**
+### 方法一：DFS 回溯
 
 我们通过 $DFS$ 枚举，预处理生成所有长度为 $combinationLength$ 的字符串，存放到 $cs$ 数组中。
 
-**方法二：二进制编码**
-
-我们看个例子，对于 $abcd$，若 $combinationLength$ 为 2，则 $cs$ 就是 $ab, ac, ad, bc, bd, cd, ...$。
-
-对应的二进制数为：
-
-```
-1100
-1010
-1001
-0110
-0101
-0011
-...
-```
-
-观察到上述规律后，我们依次按照二进制编码从大到小的规律，将所有字符串依次求出。
-
-所谓的长度 $combinationLength$，只需要满足二进制编码中 $1$ 的个数满足要求即可。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class CombinationIterator:
@@ -114,39 +88,6 @@ class CombinationIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
-
-```python
-class CombinationIterator:
-    def __init__(self, characters: str, combinationLength: int):
-        self.curr = (1 << len(characters)) - 1
-        self.size = combinationLength
-        self.cs = characters[::-1]
-
-    def next(self) -> str:
-        while self.curr >= 0 and self.curr.bit_count() != self.size:
-            self.curr -= 1
-        ans = []
-        for i in range(len(self.cs)):
-            if (self.curr >> i) & 1:
-                ans.append(self.cs[i])
-        self.curr -= 1
-        return ''.join(ans[::-1])
-
-    def hasNext(self) -> bool:
-        while self.curr >= 0 and self.curr.bit_count() != self.size:
-            self.curr -= 1
-        return self.curr >= 0
-
-
-# Your CombinationIterator object will be instantiated and called as such:
-# obj = CombinationIterator(characters, combinationLength)
-# param_1 = obj.next()
-# param_2 = obj.hasNext()
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class CombinationIterator {
@@ -195,54 +136,6 @@ class CombinationIterator {
  */
 ```
 
-```java
-class CombinationIterator {
-    private int curr;
-    private int size;
-    private char[] cs;
-
-    public CombinationIterator(String characters, int combinationLength) {
-        int n = characters.length();
-        curr = (1 << n) - 1;
-        size = combinationLength;
-        cs = new char[n];
-        for (int i = 0; i < n; ++i) {
-            cs[i] = characters.charAt(n - i - 1);
-        }
-    }
-
-    public String next() {
-        while (curr >= 0 && Integer.bitCount(curr) != size) {
-            --curr;
-        }
-        StringBuilder ans = new StringBuilder();
-        for (int i = 0; i < cs.length; ++i) {
-            if (((curr >> i) & 1) == 1) {
-                ans.append(cs[i]);
-            }
-        }
-        --curr;
-        return ans.reverse().toString();
-    }
-
-    public boolean hasNext() {
-        while (curr >= 0 && Integer.bitCount(curr) != size) {
-            --curr;
-        }
-        return curr >= 0;
-    }
-}
-
-/**
- * Your CombinationIterator object will be instantiated and called as such:
- * CombinationIterator obj = new CombinationIterator(characters, combinationLength);
- * String param_1 = obj.next();
- * boolean param_2 = obj.hasNext();
- */
-```
-
-### **C++**
-
 ```cpp
 class CombinationIterator {
 public:
@@ -290,50 +183,6 @@ public:
  */
 ```
 
-```cpp
-class CombinationIterator {
-public:
-    int size;
-    string cs;
-    int curr;
-
-    CombinationIterator(string characters, int combinationLength) {
-        int n = characters.size();
-        curr = (1 << n) - 1;
-        reverse(characters.begin(), characters.end());
-        cs = characters;
-        size = combinationLength;
-    }
-
-    string next() {
-        while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
-        string ans;
-        for (int i = 0; i < cs.size(); ++i) {
-            if ((curr >> i) & 1) {
-                ans += cs[i];
-            }
-        }
-        reverse(ans.begin(), ans.end());
-        --curr;
-        return ans;
-    }
-
-    bool hasNext() {
-        while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
-        return curr >= 0;
-    }
-};
-
-/**
- * Your CombinationIterator object will be instantiated and called as such:
- * CombinationIterator* obj = new CombinationIterator(characters, combinationLength);
- * string param_1 = obj->next();
- * bool param_2 = obj->hasNext();
- */
-```
-
-### **Go**
-
 ```go
 type CombinationIterator struct {
 	cs  []string
@@ -377,6 +226,147 @@ func (this *CombinationIterator) HasNext() bool {
  * obj := Constructor(characters, combinationLength);
  * param_1 := obj.Next();
  * param_2 := obj.HasNext();
+ */
+```
+
+<!-- tabs:end -->
+
+### 方法二：二进制编码
+
+我们看个例子，对于 $abcd$，若 $combinationLength$ 为 2，则 $cs$ 就是 $ab, ac, ad, bc, bd, cd, ...$。
+
+对应的二进制数为：
+
+```
+1100
+1010
+1001
+0110
+0101
+0011
+...
+```
+
+观察到上述规律后，我们依次按照二进制编码从大到小的规律，将所有字符串依次求出。
+
+所谓的长度 $combinationLength$，只需要满足二进制编码中 $1$ 的个数满足要求即可。
+
+<!-- tabs:start -->
+
+```python
+class CombinationIterator:
+    def __init__(self, characters: str, combinationLength: int):
+        self.curr = (1 << len(characters)) - 1
+        self.size = combinationLength
+        self.cs = characters[::-1]
+
+    def next(self) -> str:
+        while self.curr >= 0 and self.curr.bit_count() != self.size:
+            self.curr -= 1
+        ans = []
+        for i in range(len(self.cs)):
+            if (self.curr >> i) & 1:
+                ans.append(self.cs[i])
+        self.curr -= 1
+        return ''.join(ans[::-1])
+
+    def hasNext(self) -> bool:
+        while self.curr >= 0 and self.curr.bit_count() != self.size:
+            self.curr -= 1
+        return self.curr >= 0
+
+
+# Your CombinationIterator object will be instantiated and called as such:
+# obj = CombinationIterator(characters, combinationLength)
+# param_1 = obj.next()
+# param_2 = obj.hasNext()
+```
+
+```java
+class CombinationIterator {
+    private int curr;
+    private int size;
+    private char[] cs;
+
+    public CombinationIterator(String characters, int combinationLength) {
+        int n = characters.length();
+        curr = (1 << n) - 1;
+        size = combinationLength;
+        cs = new char[n];
+        for (int i = 0; i < n; ++i) {
+            cs[i] = characters.charAt(n - i - 1);
+        }
+    }
+
+    public String next() {
+        while (curr >= 0 && Integer.bitCount(curr) != size) {
+            --curr;
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < cs.length; ++i) {
+            if (((curr >> i) & 1) == 1) {
+                ans.append(cs[i]);
+            }
+        }
+        --curr;
+        return ans.reverse().toString();
+    }
+
+    public boolean hasNext() {
+        while (curr >= 0 && Integer.bitCount(curr) != size) {
+            --curr;
+        }
+        return curr >= 0;
+    }
+}
+
+/**
+ * Your CombinationIterator object will be instantiated and called as such:
+ * CombinationIterator obj = new CombinationIterator(characters, combinationLength);
+ * String param_1 = obj.next();
+ * boolean param_2 = obj.hasNext();
+ */
+```
+
+```cpp
+class CombinationIterator {
+public:
+    int size;
+    string cs;
+    int curr;
+
+    CombinationIterator(string characters, int combinationLength) {
+        int n = characters.size();
+        curr = (1 << n) - 1;
+        reverse(characters.begin(), characters.end());
+        cs = characters;
+        size = combinationLength;
+    }
+
+    string next() {
+        while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
+        string ans;
+        for (int i = 0; i < cs.size(); ++i) {
+            if ((curr >> i) & 1) {
+                ans += cs[i];
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        --curr;
+        return ans;
+    }
+
+    bool hasNext() {
+        while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
+        return curr >= 0;
+    }
+};
+
+/**
+ * Your CombinationIterator object will be instantiated and called as such:
+ * CombinationIterator* obj = new CombinationIterator(characters, combinationLength);
+ * string param_1 = obj->next();
+ * bool param_2 = obj->hasNext();
  */
 ```
 
@@ -430,10 +420,6 @@ func (this *CombinationIterator) HasNext() bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

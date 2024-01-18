@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组 + 前缀和**
+### 方法一：差分数组 + 前缀和
 
 我们先考虑 $nums$ 的第一个元素 $nums[0]$：
 
@@ -71,10 +69,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def checkArray(self, nums: List[int], k: int) -> bool:
@@ -92,10 +86,6 @@ class Solution:
             d[i + k] += x
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -146,8 +134,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkArray(nums []int, k int) bool {
 	n := len(nums)
@@ -168,8 +154,6 @@ func checkArray(nums []int, k int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkArray(nums: number[], k: number): boolean {
@@ -192,10 +176,6 @@ function checkArray(nums: number[], k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,19 +46,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：因数分解**
+### 方法一：因数分解
 
 我们可以对每个数进行因数分解，如果因数的个数为 $4$ 个，那么这个数就是符合题意的数，我们将其因数累加到答案中即可。
 
 时间复杂度 $O(n \times \sqrt{n})$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
 
         return sum(f(x) for x in nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumFourDivisors(nums []int) (ans int) {
 	f := func(x int) int {
@@ -168,8 +154,6 @@ func sumFourDivisors(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumFourDivisors(nums: number[]): number {
     const f = (x: number): number => {
@@ -195,10 +179,6 @@ function sumFourDivisors(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

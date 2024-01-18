@@ -120,15 +120,11 @@ Calls 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：等值连接 + 分组 + 子查询**
+### 方法一：等值连接 + 分组 + 子查询
 
 我们可以使用等值连接，将 `Person` 表和 `Calls` 表连接起来，连接的条件是 `Person.id = Calls.caller_id` 或者 `Person.id = Calls.callee_id`，然后再将连接后的表和 `Country` 表连接起来，连接的条件是 `left(phone_number, 3) = country_code`，最后按照国家分组，计算每个国家的平均通话时长，然后再使用子查询，找出平均通话时长大于全球平均通话时长的国家。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -144,6 +140,12 @@ FROM
     ) AS t
 WHERE duration > (SELECT AVG(duration) FROM Calls);
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -162,3 +164,5 @@ WHERE duration > (SELECT AVG(duration) FROM Calls);
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

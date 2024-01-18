@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：原地翻转**
+### 方法一：原地翻转
 
 根据题目要求，我们实际上需要将 $matrix[i][j]$ 旋转至 $matrix[j][n - i - 1]$。
 
@@ -51,10 +49,6 @@
 时间复杂度 $O(n^2)$，其中 $n$ 是矩阵的边长。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
             for j in range(i):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rotate(matrix [][]int) {
 	n := len(matrix)
@@ -133,25 +119,6 @@ func rotate(matrix [][]int) {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} matrix
- * @return {void} Do not return anything, modify matrix in-place instead.
- */
-var rotate = function (matrix) {
-    matrix.reverse();
-    for (let i = 0; i < matrix.length; ++i) {
-        for (let j = 0; j < i; ++j) {
-            [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
-        }
-    }
-};
-```
-
-### **TypeScript**
-
 ```ts
 /**
  Do not return anything, modify matrix in-place instead.
@@ -167,32 +134,6 @@ function rotate(matrix: number[][]): void {
     }
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public void Rotate(int[][] matrix) {
-        int n = matrix.Length;
-        for (int i = 0; i < n >> 1; ++i) {
-            for (int j = 0; j < n; ++j) {
-                int t = matrix[i][j];
-                matrix[i][j] = matrix[n - i - 1][j];
-                matrix[n - i - 1][j] = t;
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                int t = matrix[i][j];
-                matrix[i][j] = matrix[j][i];
-                matrix[j][i] = t;
-            }
-        }
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -216,10 +157,43 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function (matrix) {
+    matrix.reverse();
+    for (let i = 0; i < matrix.length; ++i) {
+        for (let j = 0; j < i; ++j) {
+            [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+        }
+    }
+};
 ```
 
+```cs
+public class Solution {
+    public void Rotate(int[][] matrix) {
+        int n = matrix.Length;
+        for (int i = 0; i < n >> 1; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int t = matrix[i][j];
+                matrix[i][j] = matrix[n - i - 1][j];
+                matrix[n - i - 1][j] = t;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                int t = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = t;
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,23 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Offline Query + Priority Queue (Min Heap)
 
-### **Python3**
+We notice that the order of queries does not affect the answer, and the intervals involved do not change. Therefore, we consider sorting all queries in ascending order, and sorting all intervals in ascending order of the left endpoint.
+
+We use a priority queue (min heap) $pq$ to maintain all current intervals. Each element in the queue is a pair $(v, r)$, representing an interval with length $v$ and right endpoint $r$. Initially, the priority queue is empty. In addition, we define a pointer $i$ that points to the current interval being traversed, and initially $i=0$.
+
+We traverse each query $(x, j)$ in ascending order and perform the following operations:
+
+-   If the pointer $i$ has not traversed all intervals, and the left endpoint of the current interval $[a, b]$ is less than or equal to $x$, then we add this interval to the priority queue and move the pointer $i$ one step forward. Repeat this process.
+-   If the priority queue is not empty, and the right endpoint of the heap top element is less than $x$, then we pop the heap top element. Repeat this process.
+-   At this point, if the priority queue is not empty, then the heap top element is the smallest interval containing $x$. We add its length $v$ to the answer array $ans$.
+
+After the above process is over, we return the answer array $ans$.
+
+The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the arrays `intervals` and `queries` respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +86,6 @@ class Solution:
                 ans[j] = pq[0][0]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minInterval(intervals [][]int, queries []int) []int {
@@ -184,10 +192,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

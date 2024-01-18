@@ -1,6 +1,6 @@
 class Solution:
     def totalNQueens(self, n: int) -> int:
-        def dfs(i):
+        def dfs(i: int):
             if i == n:
                 nonlocal ans
                 ans += 1

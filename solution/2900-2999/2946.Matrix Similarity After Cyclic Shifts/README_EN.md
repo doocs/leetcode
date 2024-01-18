@@ -51,9 +51,9 @@ Therefore, return true.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
                     return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areSimilar(mat [][]int, k int) bool {
 	n := len(mat[0])
@@ -132,8 +126,6 @@ func areSimilar(mat [][]int, k int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function areSimilar(mat: number[][], k: number): boolean {
@@ -154,10 +146,6 @@ function areSimilar(mat: number[][], k: number): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

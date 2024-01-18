@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
         vis = set()
         return dfs(0, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func wordPatternMatch(pattern string, s string) bool {
@@ -200,10 +194,6 @@ func wordPatternMatch(pattern string, s string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

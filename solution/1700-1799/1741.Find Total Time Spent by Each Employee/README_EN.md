@@ -61,13 +61,11 @@ Employee 2 has two events: one on day 2020-11-28 with a total of (33 - 3) = 30, 
 
 ## Solutions
 
-**Solution 1: Group By + Sum Function**
+### Solution 1: Group By + Sum Function
 
 We can first group by `emp_id` and `event_day`, and then calculate the total time for each group. The total time is equal to the sum of the differences between `out_time` and `in_time` for each record in the group.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -77,3 +75,5 @@ GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

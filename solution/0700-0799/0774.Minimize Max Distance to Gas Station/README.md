@@ -42,19 +42,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找（浮点数二分）**
+### 方法一：二分查找（浮点数二分）
 
 我们二分枚举相邻两个加油站间的距离，找到最小的距离，使得加油站的数量不超过 $k$。
 
 时间复杂度 $O(n\log M)$。其中 $n$ 为加油站的数量；而 $M$ 为答案的范围，即 $10^8$ 除以答案的精度 $10^{-6}$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,10 +65,6 @@ class Solution:
                 left = mid
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -101,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minmaxGasDist(stations []int, k int) float64 {
 	check := func(x float64) bool {
@@ -152,10 +138,6 @@ func minmaxGasDist(stations []int, k int) float64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

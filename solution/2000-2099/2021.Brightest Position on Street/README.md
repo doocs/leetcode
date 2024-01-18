@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组 + 哈希表 + 排序**
+### 方法一：差分数组 + 哈希表 + 排序
 
 我们可以将每个路灯照亮的范围看作是一个区间，区间左端点 $l = position_i - range_i$，区间右端点 $r = position_i + range_i$。我们可以利用差分数组的思想，对于每个区间 $[l, r]$，将位置 $l$ 的值加 $1$，将位置 $r + 1$ 的值减 $1$，用哈希表维护每个位置的变化值。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 $lights$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 ans = k
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func brightestPosition(lights [][]int) (ans int) {
@@ -165,8 +151,6 @@ func brightestPosition(lights [][]int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -200,10 +184,6 @@ var brightestPosition = function (lights) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

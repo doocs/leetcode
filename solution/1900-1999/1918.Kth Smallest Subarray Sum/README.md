@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 双指针**
+### 方法一：二分查找 + 双指针
 
 我们注意到，题目中数组元素均为正整数，子数组的和 $s$ 越大，那么数组中子数组和小于等于 $s$ 的个数就越多。这存在一个单调性，因此我们可以考虑使用使用二分查找的方法来求解。
 
@@ -81,10 +79,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def kthSmallestSubarraySum(self, nums: List[int], k: int) -> int:
@@ -102,10 +96,6 @@ class Solution:
         l, r = min(nums), sum(nums)
         return l + bisect_left(range(l, r + 1), True, key=f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -176,8 +164,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthSmallestSubarraySum(nums []int, k int) int {
 	l, r := 1<<30, 0
@@ -209,10 +195,6 @@ func kthSmallestSubarraySum(nums []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

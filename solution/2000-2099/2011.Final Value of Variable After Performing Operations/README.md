@@ -67,29 +67,19 @@ X--：X 减 1 ，X = 1 - 1 = 0
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 遍历数组 `operations`，对于每个操作 $operations[i]$，如果包含 `'+'`，那么答案加 $1$，否则答案减 $1$。
 
-时间复杂度为 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `operations` 的长度。
+时间复杂度为 $O(n)$，其中 $n$ 为数组 `operations` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
         return sum(1 if s[1] == '+' else -1 for s in operations)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +103,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func finalValueAfterOperations(operations []string) (ans int) {
@@ -131,7 +117,27 @@ func finalValueAfterOperations(operations []string) (ans int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function finalValueAfterOperations(operations: string[]): number {
+    let ans = 0;
+    for (let operation of operations) {
+        ans += operation.includes('+') ? 1 : -1;
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn final_value_after_operations(operations: Vec<String>) -> i32 {
+        let mut ans = 0;
+        for s in operations.iter() {
+            ans += if s.as_bytes()[1] == b'+' { 1 } else { -1 };
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -147,40 +153,6 @@ var finalValueAfterOperations = function (operations) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function finalValueAfterOperations(operations: string[]): number {
-    let ans = 0;
-    for (let operation of operations) {
-        ans += operation.includes('+') ? 1 : -1;
-    }
-    return ans;
-}
-```
-
-```ts
-function finalValueAfterOperations(operations: string[]): number {
-    return operations.reduce((r, v) => r + (v[1] === '+' ? 1 : -1), 0);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn final_value_after_operations(operations: Vec<String>) -> i32 {
-        let mut ans = 0;
-        for s in operations.iter() {
-            ans += if s.as_bytes()[1] == b'+' { 1 } else { -1 };
-        }
-        ans
-    }
-}
-```
-
-### **C**
-
 ```c
 int finalValueAfterOperations(char** operations, int operationsSize) {
     int ans = 0;
@@ -191,10 +163,18 @@ int finalValueAfterOperations(char** operations, int operationsSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+function finalValueAfterOperations(operations: string[]): number {
+    return operations.reduce((r, v) => r + (v[1] === '+' ? 1 : -1), 0);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

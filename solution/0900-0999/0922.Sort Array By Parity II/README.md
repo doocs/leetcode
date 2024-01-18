@@ -46,15 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-双指针原地修改数组。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortArrayByParityII(nums []int) []int {
 	for i, j := 0, 1; i < len(nums); i += 2 {
@@ -124,8 +110,6 @@ func sortArrayByParityII(nums []int) []int {
 	return nums
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -145,10 +129,6 @@ var sortArrayByParityII = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

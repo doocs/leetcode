@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i)$，表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $dfs(0)$。
 
@@ -129,25 +127,7 @@ $$
 
 时间复杂度 $O(k + maxPts)$，空间复杂度 $O(k + maxPts)$。其中 $k$ 为最大分数。
 
-**方法二：动态规划**
-
-我们可以将方法一中的记忆化搜索改成动态规划。
-
-定义 $f[i]$ 表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $f[0]$。
-
-当 $k \leq i \leq \min(n, k + maxPts - 1)$ 时，有 $f[i] = 1$。
-
-当 $i = k - 1$ 时，有 $f[i] = \min(n-k+1, maxPts) / maxPts$。
-
-当 $i \lt k - 1$ 时，有 $f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts$。
-
-时间复杂度 $O(k + maxPts)$，空间复杂度 $O(k + maxPts)$。其中 $k$ 为最大分数。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -162,22 +142,6 @@ class Solution:
 
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def new21Game(self, n: int, k: int, maxPts: int) -> float:
-        f = [0] * (k + maxPts)
-        for i in range(k, min(n + 1, k + maxPts)):
-            f[i] = 1
-        f[k - 1] = min(n - k + 1, maxPts) / maxPts
-        for i in range(k - 2, -1, -1):
-            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts
-        return f[0]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -207,27 +171,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public double new21Game(int n, int k, int maxPts) {
-        if (k == 0) {
-            return 1.0;
-        }
-        double[] f = new double[k + maxPts];
-        for (int i = k; i < Math.min(n + 1, k + maxPts); ++i) {
-            f[i] = 1;
-        }
-        f[k - 1] = Math.min(n - k + 1, maxPts) * 1.0 / maxPts;
-        for (int i = k - 2; i >= 0; --i) {
-            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
-        }
-        return f[0];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -249,29 +192,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    double new21Game(int n, int k, int maxPts) {
-        if (k == 0) {
-            return 1.0;
-        }
-        double f[k + maxPts];
-        memset(f, 0, sizeof(f));
-        for (int i = k; i < min(n + 1, k + maxPts); ++i) {
-            f[i] = 1;
-        }
-        f[k - 1] = min(n - k + 1, maxPts) * 1.0 / maxPts;
-        for (int i = k - 2; i >= 0; --i) {
-            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
-        }
-        return f[0];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func new21Game(n int, k int, maxPts int) float64 {
@@ -297,25 +217,6 @@ func new21Game(n int, k int, maxPts int) float64 {
 }
 ```
 
-```go
-func new21Game(n int, k int, maxPts int) float64 {
-	if k == 0 {
-		return 1
-	}
-	f := make([]float64, k+maxPts)
-	for i := k; i < min(n+1, k+maxPts); i++ {
-		f[i] = 1
-	}
-	f[k-1] = float64(min(n-k+1, maxPts)) / float64(maxPts)
-	for i := k - 2; i >= 0; i-- {
-		f[i] = f[i+1] + (f[i+1]-f[i+maxPts+1])/float64(maxPts)
-	}
-	return f[0]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function new21Game(n: number, k: number, maxPts: number): number {
     const f = new Array(k).fill(0);
@@ -332,6 +233,93 @@ function new21Game(n: number, k: number, maxPts: number): number {
         return (f[i] = dfs(i + 1) + (dfs(i + 1) - dfs(i + maxPts + 1)) / maxPts);
     };
     return dfs(0);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们可以将方法一中的记忆化搜索改成动态规划。
+
+定义 $f[i]$ 表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $f[0]$。
+
+当 $k \leq i \leq \min(n, k + maxPts - 1)$ 时，有 $f[i] = 1$。
+
+当 $i = k - 1$ 时，有 $f[i] = \min(n-k+1, maxPts) / maxPts$。
+
+当 $i \lt k - 1$ 时，有 $f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts$。
+
+时间复杂度 $O(k + maxPts)$，空间复杂度 $O(k + maxPts)$。其中 $k$ 为最大分数。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def new21Game(self, n: int, k: int, maxPts: int) -> float:
+        f = [0] * (k + maxPts)
+        for i in range(k, min(n + 1, k + maxPts)):
+            f[i] = 1
+        f[k - 1] = min(n - k + 1, maxPts) / maxPts
+        for i in range(k - 2, -1, -1):
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts
+        return f[0]
+```
+
+```java
+class Solution {
+    public double new21Game(int n, int k, int maxPts) {
+        if (k == 0) {
+            return 1.0;
+        }
+        double[] f = new double[k + maxPts];
+        for (int i = k; i < Math.min(n + 1, k + maxPts); ++i) {
+            f[i] = 1;
+        }
+        f[k - 1] = Math.min(n - k + 1, maxPts) * 1.0 / maxPts;
+        for (int i = k - 2; i >= 0; --i) {
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+        }
+        return f[0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    double new21Game(int n, int k, int maxPts) {
+        if (k == 0) {
+            return 1.0;
+        }
+        double f[k + maxPts];
+        memset(f, 0, sizeof(f));
+        for (int i = k; i < min(n + 1, k + maxPts); ++i) {
+            f[i] = 1;
+        }
+        f[k - 1] = min(n - k + 1, maxPts) * 1.0 / maxPts;
+        for (int i = k - 2; i >= 0; --i) {
+            f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts;
+        }
+        return f[0];
+    }
+};
+```
+
+```go
+func new21Game(n int, k int, maxPts int) float64 {
+	if k == 0 {
+		return 1
+	}
+	f := make([]float64, k+maxPts)
+	for i := k; i < min(n+1, k+maxPts); i++ {
+		f[i] = 1
+	}
+	f[k-1] = float64(min(n-k+1, maxPts)) / float64(maxPts)
+	for i := k - 2; i >= 0; i-- {
+		f[i] = f[i+1] + (f[i+1]-f[i+maxPts+1])/float64(maxPts)
+	}
+	return f[0]
 }
 ```
 
@@ -352,10 +340,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

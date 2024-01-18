@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 对于一个点 $(x, y)$，它到圆心 $(xCenter, yCenter)$ 的最短距离为 $\sqrt{(x - xCenter)^2 + (y - yCenter)^2}$，如果这个距离小于等于半径 $radius$，那么这个点就在圆内（包括边界）。
 
@@ -70,10 +68,6 @@
 即 $a = f(x_1, x_2, xCenter)$, $b = f(y_1, y_2, yCenter)$，如果 $a^2 + b^2 \leq radius^2$，则说明圆和矩形有重叠的部分。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
         return a * a + b * b <= radius * radius
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public boolean checkOverlap(
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, y2 int) bool {
 	f := func(i, j, k int) int {
@@ -156,8 +142,6 @@ func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, 
 	return a*a+b*b <= radius*radius
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkOverlap(
@@ -181,10 +165,6 @@ function checkOverlap(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

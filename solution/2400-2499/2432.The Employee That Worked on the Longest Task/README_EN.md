@@ -70,9 +70,17 @@ The tasks with the longest time are tasks 0 and 1. The employees that worked on 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Direct Traversal
 
-### **Python3**
+We use a variable $last$ to record the end time of the last task, a variable $mx$ to record the longest working time, and a variable $ans$ to record the employee with the longest working time and the smallest $id$. Initially, all three variables are $0$.
+
+Next, we traverse the array $logs$. For each employee, we subtract the end time of the last task from the time the employee completes the task to get the working time $t$ of this employee. If $mx$ is less than $t$, or $mx$ equals $t$ and the $id$ of this employee is less than $ans$, then we update $mx$ and $ans$. Then we update $last$ to be the end time of the last task plus $t$. Continue to traverse until the entire array is traversed.
+
+Finally, return the answer $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $logs$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,8 +93,6 @@ class Solution:
             last += t
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func hardestWorker(n int, logs [][]int) (ans int) {
 	var mx, last int
@@ -146,7 +148,39 @@ func hardestWorker(n int, logs [][]int) (ans int) {
 }
 ```
 
-### **C**
+```ts
+function hardestWorker(n: number, logs: number[][]): number {
+    let [ans, mx, last] = [0, 0, 0];
+    for (let [uid, t] of logs) {
+        t -= last;
+        if (mx < t || (mx == t && ans > uid)) {
+            ans = uid;
+            mx = t;
+        }
+        last += t;
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn hardest_worker(n: i32, logs: Vec<Vec<i32>>) -> i32 {
+        let mut res = 0;
+        let mut max = 0;
+        let mut pre = 0;
+        for log in logs.iter() {
+            let t = log[1] - pre;
+            if t > max || (t == max && res > log[0]) {
+                res = log[0];
+                max = t;
+            }
+            pre = log[1];
+        }
+        res
+    }
+}
+```
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -167,43 +201,11 @@ int hardestWorker(int n, int** logs, int logsSize, int* logsColSize) {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function hardestWorker(n: number, logs: number[][]): number {
-    let [ans, mx, last] = [0, 0, 0];
-    for (let [uid, t] of logs) {
-        t -= last;
-        if (mx < t || (mx == t && ans > uid)) {
-            ans = uid;
-            mx = t;
-        }
-        last += t;
-    }
-    return ans;
-}
-```
+### Solution 2
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn hardest_worker(n: i32, logs: Vec<Vec<i32>>) -> i32 {
-        let mut res = 0;
-        let mut max = 0;
-        let mut pre = 0;
-        for log in logs.iter() {
-            let t = log[1] - pre;
-            if t > max || (t == max && res > log[0]) {
-                res = log[0];
-                max = t;
-            }
-            pre = log[1];
-        }
-        res
-    }
-}
-```
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -230,10 +232,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,9 @@ The final answer = 10.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
             row.sort()
         return sum(max(col) for col in zip(*grid))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func deleteGreatestValue(grid [][]int) (ans int) {
@@ -125,7 +119,24 @@ func deleteGreatestValue(grid [][]int) (ans int) {
 }
 ```
 
-### **Rust**
+```ts
+function deleteGreatestValue(grid: number[][]): number {
+    for (const row of grid) {
+        row.sort((a, b) => a - b);
+    }
+
+    let ans = 0;
+    for (let j = 0; j < grid[0].length; ++j) {
+        let t = 0;
+        for (let i = 0; i < grid.length; ++i) {
+            t = Math.max(t, grid[i][j]);
+        }
+        ans += t;
+    }
+
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -153,31 +164,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function deleteGreatestValue(grid: number[][]): number {
-    for (const row of grid) {
-        row.sort((a, b) => a - b);
-    }
-
-    let ans = 0;
-    for (let j = 0; j < grid[0].length; ++j) {
-        let t = 0;
-        for (let i = 0; i < grid.length; ++i) {
-            t = Math.max(t, grid[i][j]);
-        }
-        ans += t;
-    }
-
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

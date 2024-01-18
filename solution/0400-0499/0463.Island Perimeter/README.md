@@ -50,15 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-遍历二维数组
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
                         ans -= 2
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,7 +94,46 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    ans += 4;
+                    if (i < m - 1 && grid[i + 1][j] == 1) ans -= 2;
+                    if (j < n - 1 && grid[i][j + 1] == 1) ans -= 2;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func islandPerimeter(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 {
+				ans += 4
+				if i < m-1 && grid[i+1][j] == 1 {
+					ans -= 2
+				}
+				if j < n-1 && grid[i][j+1] == 1 {
+					ans -= 2
+				}
+			}
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function islandPerimeter(grid: number[][]): number {
@@ -137,55 +166,6 @@ function islandPerimeter(grid: number[][]): number {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int islandPerimeter(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
-        int ans = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    ans += 4;
-                    if (i < m - 1 && grid[i + 1][j] == 1) ans -= 2;
-                    if (j < n - 1 && grid[i][j + 1] == 1) ans -= 2;
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func islandPerimeter(grid [][]int) int {
-	m, n := len(grid), len(grid[0])
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				ans += 4
-				if i < m-1 && grid[i+1][j] == 1 {
-					ans -= 2
-				}
-				if j < n-1 && grid[i][j+1] == 1 {
-					ans -= 2
-				}
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

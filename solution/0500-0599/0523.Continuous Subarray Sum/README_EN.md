@@ -57,9 +57,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
                 mp[r] = i
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func checkSubarraySum(nums []int, k int) bool {
@@ -139,10 +133,6 @@ func checkSubarraySum(nums []int, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

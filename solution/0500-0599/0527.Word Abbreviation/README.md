@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组字典树**
+### 方法一：分组字典树
 
 我们注意到，如果两个单词的缩写相同，那么它们的首尾字母一定相同，并且它们的长度一定相同。因此，我们可以将所有的单词按照长度以及末尾字母进行分组，对于每组单词，我们使用字典树存储这组单词的信息。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 为所有单词的长度和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -113,10 +107,6 @@ class Solution:
             )
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -169,8 +159,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -236,8 +224,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -296,8 +282,6 @@ func wordsAbbreviation(words []string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     private children: Trie[] = Array(26);
@@ -352,10 +336,6 @@ function wordsAbbreviation(words: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -30,11 +30,9 @@
 
 ## Solutions
 
-Similar to [897. Increasing Order Search Tree](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README_EN.md).
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -62,8 +60,6 @@ class Solution:
         dfs(root)
         return dummy.right
 ```
-
-### **Java**
 
 ```java
 /**
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -132,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -162,10 +154,6 @@ func convertBiNode(root *TreeNode) *TreeNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

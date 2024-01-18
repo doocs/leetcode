@@ -53,24 +53,4 @@ The lexicographically smallest subsequence among them is &quot;eet&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

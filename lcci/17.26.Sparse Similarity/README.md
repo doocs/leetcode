@@ -30,9 +30,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 用哈希表 $d$ 记录每个单词对应了哪些文档。
 
@@ -41,10 +39,6 @@
 时间复杂度 $O(n^3)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -67,10 +61,6 @@ class Solution:
             ans.append(f'{i},{j}: {x:.4f}')
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 using pii = pair<int, int>;
@@ -144,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func computeSimilarities(docs [][]int) []string {
 	d := map[int][]int{}
@@ -176,10 +162,6 @@ func computeSimilarities(docs [][]int) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

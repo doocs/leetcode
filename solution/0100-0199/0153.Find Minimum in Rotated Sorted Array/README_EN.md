@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
                 right = mid
         return nums[left]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMin(nums []int) int {
@@ -139,27 +133,21 @@ func findMin(nums []int) int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var findMin = function (nums) {
-    let l = 0,
-        r = nums.length - 1;
-    if (nums[l] < nums[r]) return nums[0];
-    while (l < r) {
-        const m = (l + r) >> 1;
-        if (nums[m] > nums[r]) l = m + 1;
-        else r = m;
+```ts
+function findMin(nums: number[]): number {
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >>> 1;
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
     }
-    return nums[l];
-};
+    return nums[left];
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -179,28 +167,24 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findMin(nums: number[]): number {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >>> 1;
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function (nums) {
+    let l = 0,
+        r = nums.length - 1;
+    if (nums[l] < nums[r]) return nums[0];
+    while (l < r) {
+        const m = (l + r) >> 1;
+        if (nums[m] > nums[r]) l = m + 1;
+        else r = m;
     }
-    return nums[left];
-}
-```
-
-### **...**
-
-```
-
+    return nums[l];
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

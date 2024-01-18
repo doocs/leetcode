@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 数位 DP**
+### 方法一：状态压缩 + 数位 DP
 
 题目要求统计 $[1,..n]$ 中至少有一位重复的数字的个数，我们可以换一种思路，用一个函数 $f(n)$ 统计 $[1,..n]$ 中没有重复数字的个数，那么答案就是 $n - f(n)$。
 
@@ -80,10 +78,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numDupDigitsAtMostN(self, n: int) -> int:
@@ -113,38 +107,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def numDupDigitsAtMostN(self, n: int) -> int:
-        return n - self.f(n)
-
-    def f(self, n: int) -> int:
-        @cache
-        def dfs(pos: int, mask: int, lead: bool, limit: bool) -> int:
-            if pos < 0:
-                return int(lead) ^ 1
-            up = nums[pos] if limit else 9
-            ans = 0
-            for i in range(up + 1):
-                if mask >> i & 1:
-                    continue
-                if i == 0 and lead:
-                    ans += dfs(pos - 1, mask, lead, limit and i == up)
-                else:
-                    ans += dfs(pos - 1, mask | 1 << i, False, limit and i == up)
-            return ans
-
-        nums = []
-        while n:
-            nums.append(n % 10)
-            n //= 10
-        return dfs(len(nums) - 1, 0, True, True)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -189,6 +151,170 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int numDupDigitsAtMostN(int n) {
+        return n - f(n);
+    }
+
+    int f(int n) {
+        int ans = 0;
+        vector<int> digits;
+        while (n) {
+            digits.push_back(n % 10);
+            n /= 10;
+        }
+        int m = digits.size();
+        vector<bool> vis(10);
+        for (int i = 1; i < m; ++i) {
+            ans += 9 * A(9, i - 1);
+        }
+        for (int i = m - 1; ~i; --i) {
+            int v = digits[i];
+            for (int j = i == m - 1 ? 1 : 0; j < v; ++j) {
+                if (!vis[j]) {
+                    ans += A(10 - (m - i), i);
+                }
+            }
+            if (vis[v]) {
+                break;
+            }
+            vis[v] = true;
+            if (i == 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    int A(int m, int n) {
+        return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
+    }
+};
+```
+
+```go
+func numDupDigitsAtMostN(n int) int {
+	return n - f(n)
+}
+
+func f(n int) int {
+	digits := []int{}
+	for n != 0 {
+		digits = append(digits, n%10)
+		n /= 10
+	}
+	m := len(digits)
+	vis := make([]bool, 10)
+	ans := 0
+	for i := 1; i < m; i++ {
+		ans += 9 * A(9, i-1)
+	}
+	for i := m - 1; i >= 0; i-- {
+		v := digits[i]
+		j := 0
+		if i == m-1 {
+			j = 1
+		}
+		for ; j < v; j++ {
+			if !vis[j] {
+				ans += A(10-(m-i), i)
+			}
+		}
+		if vis[v] {
+			break
+		}
+		vis[v] = true
+		if i == 0 {
+			ans++
+		}
+	}
+	return ans
+}
+
+func A(m, n int) int {
+	if n == 0 {
+		return 1
+	}
+	return A(m, n-1) * (m - n + 1)
+}
+```
+
+```ts
+function numDupDigitsAtMostN(n: number): number {
+    return n - f(n);
+}
+
+function f(n: number): number {
+    const nums: number[] = [];
+    let i = -1;
+    for (; n; n = Math.floor(n / 10)) {
+        nums[++i] = n % 10;
+    }
+    const dp = Array.from({ length: 11 }, () => Array(1 << 11).fill(-1));
+    const dfs = (pos: number, mask: number, lead: boolean, limit: boolean): number => {
+        if (pos < 0) {
+            return lead ? 0 : 1;
+        }
+        if (!lead && !limit && dp[pos][mask] !== -1) {
+            return dp[pos][mask];
+        }
+        const up = limit ? nums[pos] : 9;
+        let ans = 0;
+        for (let i = 0; i <= up; ++i) {
+            if ((mask >> i) & 1) {
+                continue;
+            }
+            if (lead && i === 0) {
+                ans += dfs(pos - 1, mask, lead, limit && i === up);
+            } else {
+                ans += dfs(pos - 1, mask | (1 << i), false, limit && i === up);
+            }
+        }
+        if (!lead && !limit) {
+            dp[pos][mask] = ans;
+        }
+        return ans;
+    };
+    return dfs(i, 0, true, true);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numDupDigitsAtMostN(self, n: int) -> int:
+        return n - self.f(n)
+
+    def f(self, n: int) -> int:
+        @cache
+        def dfs(pos: int, mask: int, lead: bool, limit: bool) -> int:
+            if pos < 0:
+                return int(lead) ^ 1
+            up = nums[pos] if limit else 9
+            ans = 0
+            for i in range(up + 1):
+                if mask >> i & 1:
+                    continue
+                if i == 0 and lead:
+                    ans += dfs(pos - 1, mask, lead, limit and i == up)
+                else:
+                    ans += dfs(pos - 1, mask | 1 << i, False, limit and i == up)
+            return ans
+
+        nums = []
+        while n:
+            nums.append(n % 10)
+            n //= 10
+        return dfs(len(nums) - 1, 0, True, True)
+```
+
 ```java
 class Solution {
     private int[] nums = new int[11];
@@ -231,51 +357,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numDupDigitsAtMostN(int n) {
-        return n - f(n);
-    }
-
-    int f(int n) {
-        int ans = 0;
-        vector<int> digits;
-        while (n) {
-            digits.push_back(n % 10);
-            n /= 10;
-        }
-        int m = digits.size();
-        vector<bool> vis(10);
-        for (int i = 1; i < m; ++i) {
-            ans += 9 * A(9, i - 1);
-        }
-        for (int i = m - 1; ~i; --i) {
-            int v = digits[i];
-            for (int j = i == m - 1 ? 1 : 0; j < v; ++j) {
-                if (!vis[j]) {
-                    ans += A(10 - (m - i), i);
-                }
-            }
-            if (vis[v]) {
-                break;
-            }
-            vis[v] = true;
-            if (i == 0) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    int A(int m, int n) {
-        return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
-    }
-};
 ```
 
 ```cpp
@@ -323,55 +404,6 @@ private:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func numDupDigitsAtMostN(n int) int {
-	return n - f(n)
-}
-
-func f(n int) int {
-	digits := []int{}
-	for n != 0 {
-		digits = append(digits, n%10)
-		n /= 10
-	}
-	m := len(digits)
-	vis := make([]bool, 10)
-	ans := 0
-	for i := 1; i < m; i++ {
-		ans += 9 * A(9, i-1)
-	}
-	for i := m - 1; i >= 0; i-- {
-		v := digits[i]
-		j := 0
-		if i == m-1 {
-			j = 1
-		}
-		for ; j < v; j++ {
-			if !vis[j] {
-				ans += A(10-(m-i), i)
-			}
-		}
-		if vis[v] {
-			break
-		}
-		vis[v] = true
-		if i == 0 {
-			ans++
-		}
-	}
-	return ans
-}
-
-func A(m, n int) int {
-	if n == 0 {
-		return 1
-	}
-	return A(m, n-1) * (m - n + 1)
-}
 ```
 
 ```go
@@ -425,52 +457,6 @@ func f(n int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function numDupDigitsAtMostN(n: number): number {
-    return n - f(n);
-}
-
-function f(n: number): number {
-    const nums: number[] = [];
-    let i = -1;
-    for (; n; n = Math.floor(n / 10)) {
-        nums[++i] = n % 10;
-    }
-    const dp = Array.from({ length: 11 }, () => Array(1 << 11).fill(-1));
-    const dfs = (pos: number, mask: number, lead: boolean, limit: boolean): number => {
-        if (pos < 0) {
-            return lead ? 0 : 1;
-        }
-        if (!lead && !limit && dp[pos][mask] !== -1) {
-            return dp[pos][mask];
-        }
-        const up = limit ? nums[pos] : 9;
-        let ans = 0;
-        for (let i = 0; i <= up; ++i) {
-            if ((mask >> i) & 1) {
-                continue;
-            }
-            if (lead && i === 0) {
-                ans += dfs(pos - 1, mask, lead, limit && i === up);
-            } else {
-                ans += dfs(pos - 1, mask | (1 << i), false, limit && i === up);
-            }
-        }
-        if (!lead && !limit) {
-            dp[pos][mask] = ans;
-        }
-        return ans;
-    };
-    return dfs(i, 0, true, true);
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

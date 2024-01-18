@@ -61,21 +61,9 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **TypeScript**
 
 ```ts
 function maximalPathQuality(values: number[], edges: number[][], maxTime: number): number {
@@ -115,10 +103,6 @@ function maximalPathQuality(values: number[], edges: number[][], maxTime: number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

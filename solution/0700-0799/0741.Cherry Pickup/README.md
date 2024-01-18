@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 线性 DP。题目中，玩家从 `(0, 0)` 到 `(N-1, N-1)` 后又重新返回到起始点 `(0, 0)`，我们可以视为玩家两次从 `(0, 0)` 出发到 `(N-1, N-1)`。
 
@@ -69,10 +67,6 @@
 类似题型：方格取数、传纸条。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
                                 )
         return max(0, dp[-1][-1][-1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func cherryPickup(grid [][]int) int {
@@ -207,8 +193,6 @@ func cherryPickup(grid [][]int) int {
 	return max(0, dp[n*2-2][n-1][n-1])
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -258,10 +242,6 @@ var cherryPickup = function (grid) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

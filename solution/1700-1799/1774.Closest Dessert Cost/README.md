@@ -82,21 +82,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举子集和 + 排序 + 二分查找**
+### 方法一：枚举子集和 + 排序 + 二分查找
 
 每种类型的配料最多可以选两份，因此，我们可以复制一份配料，然后利用 `DFS` 枚举子集之和。在实现上，我们可以只枚举一半的配料的所有子集和，然后在另一半配料子集和中，利用二分查找找到最接近的配料。
 
-时间复杂度 $O(n\times 2^m \times \log {2^m})$。
+时间复杂度 $O(n \times 2^m \times \log {2^m})$。
 
 相似题目：[1755. 最接近目标值的子序列和](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -129,10 +123,6 @@ class Solution:
                             ans = x + y + arr[j]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -190,8 +180,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -230,8 +218,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func closestCost(baseCosts []int, toppingCosts []int, target int) int {
@@ -277,10 +263,30 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
+```js
+const closestCost = function (baseCosts, toppingCosts, target) {
+    let closestDessertCost = -Infinity;
+    function dfs(dessertCost, j) {
+        const tarCurrDiff = Math.abs(target - dessertCost);
+        const tarCloseDiff = Math.abs(target - closestDessertCost);
+        if (tarCurrDiff < tarCloseDiff) {
+            closestDessertCost = dessertCost;
+        } else if (tarCurrDiff === tarCloseDiff && dessertCost < closestDessertCost) {
+            closestDessertCost = dessertCost;
+        }
+        if (dessertCost > target) return;
+        if (j === toppingCosts.length) return;
+        for (let count = 0; count <= 2; count++) {
+            dfs(dessertCost + count * toppingCosts[j], j + 1);
+        }
+    }
+    for (let i = 0; i < baseCosts.length; i++) {
+        dfs(baseCosts[i], 0);
+    }
+    return closestDessertCost;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

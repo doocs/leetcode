@@ -12,12 +12,11 @@
 
 <p>例如，一个跳表包含 <code>[30, 40, 50, 60, 70, 90]</code> ，然后增加 <code>80</code>、<code>45</code> 到跳表中，以下图的方式操作：</p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1206.Design%20Skiplist/images/1506_skiplist.gif" /><br />
-<small>Artyom Kalinin [CC BY-SA 3.0], via <a href="https://commons.wikimedia.org/wiki/File:Skip_list_add_element-en.gif" target="_blank" title="Artyom Kalinin [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons">Wikimedia Commons</a></small></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1206.Design%20Skiplist/images/1702370216-mKQcTt-1506_skiplist.gif" style="width: 500px; height: 173px;" /></p>
 
 <p>跳表中有很多层，每一层是一个短的链表。在第一层的作用下，增加、删除和搜索操作的时间复杂度不超过 <code>O(n)</code>。跳表的每一个操作的平均时间复杂度是 <code>O(log(n))</code>，空间复杂度是 <code>O(n)</code>。</p>
 
-<p>了解更多 :&nbsp;<a href="https://en.wikipedia.org/wiki/Skip_list" target="_blank">https://en.wikipedia.org/wiki/Skip_list</a></p>
+<p>了解更多 :&nbsp;<a href="https://oi-wiki.org/ds/skiplist/" target="_blank">https://oi-wiki.org/ds/skiplist/</a></p>
 
 <p>在本题中，你的设计应该要包含这些函数：</p>
 
@@ -64,17 +63,11 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数据结构**
+### 方法一：数据结构
 
 因为节点 `level` 随机，所以需要多个 `next` 指针，其余操作类似单链表。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -142,10 +135,6 @@ class Skiplist:
 # obj.add(num)
 # param_3 = obj.erase(num)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Skiplist {
@@ -234,7 +223,84 @@ class Skiplist {
  */
 ```
 
-### **Go**
+```cpp
+struct Node {
+    int val;
+    vector<Node*> next;
+    Node(int v, int level)
+        : val(v)
+        , next(level, nullptr) {}
+};
+
+class Skiplist {
+public:
+    const int p = RAND_MAX / 4;
+    const int maxLevel = 32;
+    Node* head;
+    int level;
+
+    Skiplist() {
+        head = new Node(-1, maxLevel);
+        level = 0;
+    }
+
+    bool search(int target) {
+        Node* curr = head;
+        for (int i = level - 1; ~i; --i) {
+            curr = findClosest(curr, i, target);
+            if (curr->next[i] && curr->next[i]->val == target) return true;
+        }
+        return false;
+    }
+
+    void add(int num) {
+        Node* curr = head;
+        int lv = randomLevel();
+        Node* node = new Node(num, lv);
+        level = max(level, lv);
+        for (int i = level - 1; ~i; --i) {
+            curr = findClosest(curr, i, num);
+            if (i < lv) {
+                node->next[i] = curr->next[i];
+                curr->next[i] = node;
+            }
+        }
+    }
+
+    bool erase(int num) {
+        Node* curr = head;
+        bool ok = false;
+        for (int i = level - 1; ~i; --i) {
+            curr = findClosest(curr, i, num);
+            if (curr->next[i] && curr->next[i]->val == num) {
+                curr->next[i] = curr->next[i]->next[i];
+                ok = true;
+            }
+        }
+        while (level > 1 && !head->next[level - 1]) --level;
+        return ok;
+    }
+
+    Node* findClosest(Node* curr, int level, int target) {
+        while (curr->next[level] && curr->next[level]->val < target) curr = curr->next[level];
+        return curr;
+    }
+
+    int randomLevel() {
+        int lv = 1;
+        while (lv < maxLevel && rand() < p) ++lv;
+        return lv;
+    }
+};
+
+/**
+ * Your Skiplist object will be instantiated and called as such:
+ * Skiplist* obj = new Skiplist();
+ * bool param_1 = obj->search(target);
+ * obj->add(num);
+ * bool param_3 = obj->erase(num);
+ */
+```
 
 ```go
 func init() { rand.Seed(time.Now().UnixNano()) }
@@ -335,91 +401,6 @@ func randomLevel() int {
  */
 ```
 
-### **C++**
-
-```cpp
-struct Node {
-    int val;
-    vector<Node*> next;
-    Node(int v, int level)
-        : val(v)
-        , next(level, nullptr) {}
-};
-
-class Skiplist {
-public:
-    const int p = RAND_MAX / 4;
-    const int maxLevel = 32;
-    Node* head;
-    int level;
-
-    Skiplist() {
-        head = new Node(-1, maxLevel);
-        level = 0;
-    }
-
-    bool search(int target) {
-        Node* curr = head;
-        for (int i = level - 1; ~i; --i) {
-            curr = findClosest(curr, i, target);
-            if (curr->next[i] && curr->next[i]->val == target) return true;
-        }
-        return false;
-    }
-
-    void add(int num) {
-        Node* curr = head;
-        int lv = randomLevel();
-        Node* node = new Node(num, lv);
-        level = max(level, lv);
-        for (int i = level - 1; ~i; --i) {
-            curr = findClosest(curr, i, num);
-            if (i < lv) {
-                node->next[i] = curr->next[i];
-                curr->next[i] = node;
-            }
-        }
-    }
-
-    bool erase(int num) {
-        Node* curr = head;
-        bool ok = false;
-        for (int i = level - 1; ~i; --i) {
-            curr = findClosest(curr, i, num);
-            if (curr->next[i] && curr->next[i]->val == num) {
-                curr->next[i] = curr->next[i]->next[i];
-                ok = true;
-            }
-        }
-        while (level > 1 && !head->next[level - 1]) --level;
-        return ok;
-    }
-
-    Node* findClosest(Node* curr, int level, int target) {
-        while (curr->next[level] && curr->next[level]->val < target) curr = curr->next[level];
-        return curr;
-    }
-
-    int randomLevel() {
-        int lv = 1;
-        while (lv < maxLevel && rand() < p) ++lv;
-        return lv;
-    }
-};
-
-/**
- * Your Skiplist object will be instantiated and called as such:
- * Skiplist* obj = new Skiplist();
- * bool param_1 = obj->search(target);
- * obj->add(num);
- * bool param_3 = obj->erase(num);
- */
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

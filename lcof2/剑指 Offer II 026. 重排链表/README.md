@@ -46,19 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-相当于这 3 道问题，只需要 5 行代码将它们组合：
-
--   [链表的中间结点](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README.md)
--   [反转链表](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
--   合并两个链表
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -103,10 +93,6 @@ class Solution:
         cur.next = l1 or l2
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -164,8 +150,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -227,8 +211,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -287,10 +269,6 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

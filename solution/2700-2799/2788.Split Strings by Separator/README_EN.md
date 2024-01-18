@@ -62,17 +62,19 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simulation
 
-### **Python3**
+We traverse the string array $words$. For each string $w$, we use `separator` as the delimiter to split it. If the split string is not empty, we add it to the answer array.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, where $n$ is the length of the string array $words$, and $m$ is the maximum length of the strings in the array $words$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
         return [s for w in words for s in w.split(separator) if s]
 ```
-
-### **Java**
 
 ```java
 import java.util.regex.Pattern;
@@ -92,36 +94,24 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     vector<string> splitWordsBySeparator(vector<string>& words, char separator) {
         vector<string> ans;
-        for (auto& w : words) {
-            for (auto& s : split(w, separator)) {
+        for (const auto& w : words) {
+            istringstream ss(w);
+            string s;
+            while (getline(ss, s, separator)) {
                 if (!s.empty()) {
-                    ans.emplace_back(s);
+                    ans.push_back(s);
                 }
             }
         }
         return ans;
     }
-
-    vector<string> split(string& s, char c) {
-        vector<string> res;
-        stringstream ss(s);
-        string t;
-        while (getline(ss, t, c)) {
-            res.push_back(t);
-        }
-        return res;
-    }
 };
 ```
-
-### **Go**
 
 ```go
 func splitWordsBySeparator(words []string, separator byte) (ans []string) {
@@ -136,26 +126,12 @@ func splitWordsBySeparator(words []string, separator byte) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function splitWordsBySeparator(words: string[], separator: string): string[] {
-    const ans: string[] = [];
-    for (const w of words) {
-        for (const s of w.split(separator)) {
-            if (s.length > 0) {
-                ans.push(s);
-            }
-        }
-    }
-    return ans;
+    return words.flatMap(w => w.split(separator).filter(s => s.length > 0));
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

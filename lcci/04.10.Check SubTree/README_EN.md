@@ -36,11 +36,9 @@
 
 ## Solutions
 
-Find the t2 node in t1 first, then use the depth-first search (DFS) algorithm to make sure that the subtree and the subtree of t2 are identical, otherwise return FALSE.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -64,8 +62,6 @@ class Solution:
 
         return dfs(t1, t2)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -93,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -115,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -140,8 +132,6 @@ func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
 	return checkSubTree(t1.Left, t2) || checkSubTree(t1.Right, t2)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -171,8 +161,6 @@ function checkSubTree(t1: TreeNode | null, t2: TreeNode | null): boolean {
     return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -220,10 +208,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

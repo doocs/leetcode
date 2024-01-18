@@ -1,13 +1,12 @@
-func minMoves(target int, maxDoubles int) (ans int) {
-	for maxDoubles > 0 && target > 1 {
-		ans++
-		if target&1 == 1 {
-			target--
-		} else {
-			maxDoubles--
-			target >>= 1
-		}
+func minMoves(target int, maxDoubles int) int {
+	if target == 1 {
+		return 0
 	}
-	ans += target - 1
-	return
+	if maxDoubles == 0 {
+		return target - 1
+	}
+	if target%2 == 0 && maxDoubles > 0 {
+		return 1 + minMoves(target>>1, maxDoubles-1)
+	}
+	return 1 + minMoves(target-1, maxDoubles)
 }

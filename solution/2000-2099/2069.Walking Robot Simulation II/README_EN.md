@@ -62,24 +62,4 @@ robot.getDir(); // return &quot;West&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

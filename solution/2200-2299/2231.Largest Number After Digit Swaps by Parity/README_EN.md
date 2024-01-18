@@ -39,9 +39,9 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
                     break
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestInteger(num int) int {
 	cnt := make([]int, 10)
@@ -156,8 +150,6 @@ func largestInteger(num int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestInteger(num: number): number {
     let arrs = String(num).split('').map(Number);
@@ -180,10 +172,6 @@ function largestInteger(num: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

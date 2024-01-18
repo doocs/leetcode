@@ -50,19 +50,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 三维 DP。
 
 设 $dp[k][i][j]$ 表示序列长度为 $k$，且序列的最后两个数字分别为 $i$, $j$ 的所有满足要求的不同序列的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 ans += dp[-1][i][j]
         return ans % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func distinctSequences(n int) int {
@@ -221,16 +207,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

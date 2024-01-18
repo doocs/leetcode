@@ -47,9 +47,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting + Two Pointers
 
-### **Python3**
+First, we use a hash table or array `cnt` to count the number of each character in string $s$. If the count of all characters does not exceed $n/4$, then the string $s$ is balanced, and we directly return $0$.
+
+Otherwise, we use two pointers $j$ and $i$ to maintain the left and right boundaries of the window, initially $j = 0$.
+
+Next, we traverse the string $s$ from left to right. Each time we encounter a character, we decrease its count by $1$, then we check whether the current window meets the condition, that is, the count of characters outside the window does not exceed $n/4$. If the condition is met, we update the answer, then move the left boundary of the window to the right until the condition is not met.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, in this problem $C = 4$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +77,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func balancedString(s string) int {
 	cnt := [4]int{}
@@ -152,10 +156,6 @@ func balancedString(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Binary Search
 
-### **Python3**
+First, we sort the array `nums` in ascending order. Then, for each `nums[i]`, we use binary search to find the lower bound `j` of `nums[j]`, i.e., the first index that satisfies `nums[j] >= lower - nums[i]`. Then, we use binary search again to find the lower bound `k` of `nums[k]`, i.e., the first index that satisfies `nums[k] >= upper - nums[i] + 1`. Therefore, `[j, k)` is the index range for `nums[j]` that satisfies `lower <= nums[i] + nums[j] <= upper`. The count of these indices corresponding to `nums[j]` is `k - j`, and we can add this to the answer. Note that $j > i$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `nums`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +61,6 @@ class Solution:
             ans += k - j
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countFairPairs(nums []int, lower int, upper int) (ans int64) {
 	sort.Ints(nums)
@@ -120,8 +118,6 @@ func countFairPairs(nums []int, lower int, upper int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countFairPairs(nums: number[], lower: number, upper: number): number {
@@ -149,10 +145,6 @@ function countFairPairs(nums: number[], lower: number, upper: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

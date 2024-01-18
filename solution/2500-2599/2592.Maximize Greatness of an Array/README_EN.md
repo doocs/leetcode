@@ -38,7 +38,7 @@ At indices = 0, 1, and 2, perm[i] &gt; nums[i]. Hence, we return 3.
 
 ## Solutions
 
-**Solution 1: Greedy**
+### Solution 1: Greedy
 
 We can sort the array $nums$ first.
 
@@ -50,8 +50,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maximizeGreatness(self, nums: List[int]) -> int:
@@ -61,8 +59,6 @@ class Solution:
             i += x > nums[i]
         return i
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +75,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximizeGreatness(nums []int) int {
 	sort.Ints(nums)
@@ -109,8 +101,6 @@ func maximizeGreatness(nums []int) int {
 	return i
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximizeGreatness(nums: number[]): number {
@@ -125,10 +115,6 @@ function maximizeGreatness(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

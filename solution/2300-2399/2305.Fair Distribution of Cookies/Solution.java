@@ -8,9 +8,11 @@ class Solution {
     public int distributeCookies(int[] cookies, int k) {
         n = cookies.length;
         cnt = new int[k];
+        // 升序排列
         Arrays.sort(cookies);
         this.cookies = cookies;
         this.k = k;
+        // 这里搜索顺序是 n-1, n-2,...0
         dfs(n - 1);
         return ans;
     }

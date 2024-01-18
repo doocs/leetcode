@@ -1,13 +1,12 @@
-func numberOfBoomerangs(points [][]int) int {
-	ans := 0
-	for _, p := range points {
-		cnt := make(map[int]int)
-		for _, q := range points {
-			cnt[(p[0]-q[0])*(p[0]-q[0])+(p[1]-q[1])*(p[1]-q[1])]++
-		}
-		for _, v := range cnt {
-			ans += v * (v - 1)
+func numberOfBoomerangs(points [][]int) (ans int) {
+	for _, p1 := range points {
+		cnt := map[int]int{}
+		for _, p2 := range points {
+			d := (p1[0]-p2[0])*(p1[0]-p2[0]) + (p1[1]-p2[1])*(p1[1]-p2[1])
+			ans += cnt[d]
+			cnt[d]++
 		}
 	}
-	return ans
+	ans <<= 1
+	return
 }

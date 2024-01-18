@@ -14,9 +14,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -31,26 +31,6 @@ class Solution:
                     heappush(h, nxt)
         return h[0]
 ```
-
-```python
-class Solution:
-    def getKthMagicNumber(self, k: int) -> int:
-        dp = [1] * (k + 1)
-        p3 = p5 = p7 = 1
-        for i in range(2, k + 1):
-            a, b, c = dp[p3] * 3, dp[p5] * 5, dp[p7] * 7
-            v = min(a, b, c)
-            dp[i] = v
-            if v == a:
-                p3 += 1
-            if v == b:
-                p5 += 1
-            if v == c:
-                p7 += 1
-        return dp[k]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,33 +57,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int getKthMagicNumber(int k) {
-        int[] dp = new int[k + 1];
-        Arrays.fill(dp, 1);
-        int p3 = 1, p5 = 1, p7 = 1;
-        for (int i = 2; i <= k; ++i) {
-            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
-            int v = Math.min(Math.min(a, b), c);
-            dp[i] = v;
-            if (v == a) {
-                ++p3;
-            }
-            if (v == b) {
-                ++p5;
-            }
-            if (v == c) {
-                ++p7;
-            }
-        }
-        return dp[k];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,33 +82,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int getKthMagicNumber(int k) {
-        vector<int> dp(k + 1, 1);
-        int p3 = 1, p5 = 1, p7 = 1;
-        for (int i = 2; i <= k; ++i) {
-            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
-            int v = min(min(a, b), c);
-            dp[i] = v;
-            if (v == a) {
-                ++p3;
-            }
-            if (v == b) {
-                ++p5;
-            }
-            if (v == c) {
-                ++p7;
-            }
-        }
-        return dp[k];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func getKthMagicNumber(k int) int {
@@ -185,30 +111,56 @@ func (h *hp) Pop() any {
 }
 ```
 
-```go
-func getKthMagicNumber(k int) int {
-	dp := make([]int, k+1)
-	dp[1] = 1
-	p3, p5, p7 := 1, 1, 1
-	for i := 2; i <= k; i++ {
-		a, b, c := dp[p3]*3, dp[p5]*5, dp[p7]*7
-		v := min(min(a, b), c)
-		dp[i] = v
-		if v == a {
-			p3++
-		}
-		if v == b {
-			p5++
-		}
-		if v == c {
-			p7++
-		}
-	}
-	return dp[k]
+```ts
+function getKthMagicNumber(k: number): number {
+    const dp = [1];
+    const index = [0, 0, 0];
+    while (dp.length < k) {
+        const a = dp[index[0]] * 3;
+        const b = dp[index[1]] * 5;
+        const c = dp[index[2]] * 7;
+        const num = Math.min(a, b, c);
+        dp.push(num);
+        if (a === num) {
+            index[0]++;
+        }
+        if (b === num) {
+            index[1]++;
+        }
+        if (c === num) {
+            index[2]++;
+        }
+    }
+    return dp[k - 1];
 }
 ```
 
-### **C**
+```rust
+impl Solution {
+    pub fn get_kth_magic_number(k: i32) -> i32 {
+        let k = k as usize;
+        let mut dp = vec![1];
+        let mut index = [0, 0, 0];
+        for _ in 1..k {
+            let a = dp[index[0]] * 3;
+            let b = dp[index[1]] * 5;
+            let c = dp[index[2]] * 7;
+            let num = a.min(b.min(c));
+            dp.push(num);
+            if a == num {
+                index[0] += 1;
+            }
+            if b == num {
+                index[1] += 1;
+            }
+            if c == num {
+                index[2] += 1;
+            }
+        }
+        dp[k - 1]
+    }
+}
+```
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -239,65 +191,103 @@ int getKthMagicNumber(int k) {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function getKthMagicNumber(k: number): number {
-    const dp = [1];
-    const index = [0, 0, 0];
-    while (dp.length < k) {
-        const a = dp[index[0]] * 3;
-        const b = dp[index[1]] * 5;
-        const c = dp[index[2]] * 7;
-        const num = Math.min(a, b, c);
-        dp.push(num);
-        if (a === num) {
-            index[0]++;
-        }
-        if (b === num) {
-            index[1]++;
-        }
-        if (c === num) {
-            index[2]++;
-        }
-    }
-    return dp[k - 1];
-}
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def getKthMagicNumber(self, k: int) -> int:
+        dp = [1] * (k + 1)
+        p3 = p5 = p7 = 1
+        for i in range(2, k + 1):
+            a, b, c = dp[p3] * 3, dp[p5] * 5, dp[p7] * 7
+            v = min(a, b, c)
+            dp[i] = v
+            if v == a:
+                p3 += 1
+            if v == b:
+                p5 += 1
+            if v == c:
+                p7 += 1
+        return dp[k]
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn get_kth_magic_number(k: i32) -> i32 {
-        let k = k as usize;
-        let mut dp = vec![1];
-        let mut index = [0, 0, 0];
-        for _ in 1..k {
-            let a = dp[index[0]] * 3;
-            let b = dp[index[1]] * 5;
-            let c = dp[index[2]] * 7;
-            let num = a.min(b.min(c));
-            dp.push(num);
-            if a == num {
-                index[0] += 1;
+```java
+class Solution {
+    public int getKthMagicNumber(int k) {
+        int[] dp = new int[k + 1];
+        Arrays.fill(dp, 1);
+        int p3 = 1, p5 = 1, p7 = 1;
+        for (int i = 2; i <= k; ++i) {
+            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
+            int v = Math.min(Math.min(a, b), c);
+            dp[i] = v;
+            if (v == a) {
+                ++p3;
             }
-            if b == num {
-                index[1] += 1;
+            if (v == b) {
+                ++p5;
             }
-            if c == num {
-                index[2] += 1;
+            if (v == c) {
+                ++p7;
             }
         }
-        dp[k - 1]
+        return dp[k];
     }
 }
 ```
 
-### **...**
-
+```cpp
+class Solution {
+public:
+    int getKthMagicNumber(int k) {
+        vector<int> dp(k + 1, 1);
+        int p3 = 1, p5 = 1, p7 = 1;
+        for (int i = 2; i <= k; ++i) {
+            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
+            int v = min(min(a, b), c);
+            dp[i] = v;
+            if (v == a) {
+                ++p3;
+            }
+            if (v == b) {
+                ++p5;
+            }
+            if (v == c) {
+                ++p7;
+            }
+        }
+        return dp[k];
+    }
+};
 ```
 
+```go
+func getKthMagicNumber(k int) int {
+	dp := make([]int, k+1)
+	dp[1] = 1
+	p3, p5, p7 := 1, 1, 1
+	for i := 2; i <= k; i++ {
+		a, b, c := dp[p3]*3, dp[p5]*5, dp[p7]*7
+		v := min(min(a, b), c)
+		dp[i] = v
+		if v == a {
+			p3++
+		}
+		if v == b {
+			p5++
+		}
+		if v == c {
+			p7++
+		}
+	}
+	return dp[k]
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -37,19 +37,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 滑动窗口**
+### 方法一：哈希表 + 滑动窗口
 
 我们维护一个哈希表 `cnt` 记录当前滑动窗口中各个字符出现的次数，如果哈希表中的键值对个数超过 $2$，则说明当前滑动窗口中包含了超过 $2$ 个不同的字符，此时需要移动左指针 `j`，直到哈希表中的键值对个数不超过 $2$ 为止，然后更新窗口的最大长度。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lengthOfLongestSubstringTwoDistinct(s string) (ans int) {
 	cnt := map[byte]int{}
@@ -140,10 +126,6 @@ func lengthOfLongestSubstringTwoDistinct(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

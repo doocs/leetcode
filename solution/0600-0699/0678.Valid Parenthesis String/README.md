@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 定义 $dp[i][j]$ 表示字符串 $s$ 中下标范围 $[i..j]$ 内的子串是否为有效括号字符串。答案为 $dp[0][n - 1]$。
 
@@ -67,19 +65,7 @@
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 `s` 的长度。
 
-**方法二：贪心 + 两遍扫描**
-
-两遍扫描，第一遍从左往右，确定每一个右括号都可以成功配对，第二遍从右往左，确定每一个左括号都可以成功配对。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `s` 的长度。
-
-相似题目：[2116. 判断一个括号字符串是否有效](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,32 +84,6 @@ class Solution:
                 )
         return dp[0][-1]
 ```
-
-```python
-class Solution:
-    def checkValidString(self, s: str) -> bool:
-        x = 0
-        for c in s:
-            if c in '(*':
-                x += 1
-            elif x:
-                x -= 1
-            else:
-                return False
-        x = 0
-        for c in s[::-1]:
-            if c in '*)':
-                x += 1
-            elif x:
-                x -= 1
-            else:
-                return False
-        return True
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,6 +106,84 @@ class Solution {
         return dp[0][n - 1];
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool checkValidString(string s) {
+        int n = s.size();
+        vector<vector<bool>> dp(n, vector<bool>(n));
+        for (int i = 0; i < n; ++i) {
+            dp[i][i] = s[i] == '*';
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                char a = s[i], b = s[j];
+                dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i + 1 == j || dp[i + 1][j - 1]);
+                for (int k = i; k < j && !dp[i][j]; ++k) {
+                    dp[i][j] = dp[i][k] && dp[k + 1][j];
+                }
+            }
+        }
+        return dp[0][n - 1];
+    }
+};
+```
+
+```go
+func checkValidString(s string) bool {
+	n := len(s)
+	dp := make([][]bool, n)
+	for i := range dp {
+		dp[i] = make([]bool, n)
+		dp[i][i] = s[i] == '*'
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			a, b := s[i], s[j]
+			dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i+1 == j || dp[i+1][j-1])
+			for k := i; k < j && !dp[i][j]; k++ {
+				dp[i][j] = dp[i][k] && dp[k+1][j]
+			}
+		}
+	}
+	return dp[0][n-1]
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：贪心 + 两遍扫描
+
+两遍扫描，第一遍从左往右，确定每一个右括号都可以成功配对，第二遍从右往左，确定每一个左括号都可以成功配对。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `s` 的长度。
+
+相似题目：[2116. 判断一个括号字符串是否有效](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def checkValidString(self, s: str) -> bool:
+        x = 0
+        for c in s:
+            if c in '(*':
+                x += 1
+            elif x:
+                x -= 1
+            else:
+                return False
+        x = 0
+        for c in s[::-1]:
+            if c in '*)':
+                x += 1
+            elif x:
+                x -= 1
+            else:
+                return False
+        return True
 ```
 
 ```java
@@ -177,31 +215,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool checkValidString(string s) {
-        int n = s.size();
-        vector<vector<bool>> dp(n, vector<bool>(n));
-        for (int i = 0; i < n; ++i) {
-            dp[i][i] = s[i] == '*';
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                char a = s[i], b = s[j];
-                dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i + 1 == j || dp[i + 1][j - 1]);
-                for (int k = i; k < j && !dp[i][j]; ++k) {
-                    dp[i][j] = dp[i][k] && dp[k + 1][j];
-                }
-            }
-        }
-        return dp[0][n - 1];
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -231,29 +244,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func checkValidString(s string) bool {
-	n := len(s)
-	dp := make([][]bool, n)
-	for i := range dp {
-		dp[i] = make([]bool, n)
-		dp[i][i] = s[i] == '*'
-	}
-	for i := n - 2; i >= 0; i-- {
-		for j := i + 1; j < n; j++ {
-			a, b := s[i], s[j]
-			dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i+1 == j || dp[i+1][j-1])
-			for k := i; k < j && !dp[i][j]; k++ {
-				dp[i][j] = dp[i][k] && dp[k+1][j]
-			}
-		}
-	}
-	return dp[0][n-1]
-}
-```
-
 ```go
 func checkValidString(s string) bool {
 	x := 0
@@ -280,10 +270,6 @@ func checkValidString(s string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

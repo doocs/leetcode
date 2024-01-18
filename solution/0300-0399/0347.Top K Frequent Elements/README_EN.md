@@ -29,9 +29,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -39,20 +39,6 @@ class Solution:
         cnt = Counter(nums)
         return [v[0] for v in cnt.most_common(k)]
 ```
-
-```python
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        cnt = Counter(nums)
-        hp = []
-        for num, freq in cnt.items():
-            heappush(hp, (freq, num))
-            if len(hp) > k:
-                heappop(hp)
-        return [v[1] for v in hp]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,72 +56,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
-        }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
-        for (var e : cnt.entrySet()) {
-            pq.offer(new int[] {e.getKey(), e.getValue()});
-            if (pq.size() > k) {
-                pq.poll();
-            }
-        }
-        int[] ans = new int[k];
-        for (int i = 0; i < k; ++i) {
-            ans[i] = pq.poll()[0];
-        }
-        return ans;
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function topKFrequent(nums: number[], k: number): number[] {
-    let hashMap = new Map();
-    for (let num of nums) {
-        hashMap.set(num, (hashMap.get(num) || 0) + 1);
-    }
-    let list = [...hashMap];
-    list.sort((a, b) => b[1] - a[1]);
-    let ans = [];
-    for (let i = 0; i < k; i++) {
-        ans.push(list[i][0]);
-    }
-    return ans;
-}
-```
-
-```ts
-function topKFrequent(nums: number[], k: number): number[] {
-    const map = new Map<number, number>();
-    let maxCount = 0;
-    for (const num of nums) {
-        map.set(num, (map.get(num) ?? 0) + 1);
-        maxCount = Math.max(maxCount, map.get(num));
-    }
-
-    const res = [];
-    while (k > 0) {
-        for (const key of map.keys()) {
-            if (map.get(key) === maxCount) {
-                res.push(key);
-                k--;
-            }
-        }
-        maxCount--;
-    }
-    return res;
-}
-```
-
-### **C++**
 
 ```cpp
 using pii = pair<int, int>;
@@ -161,8 +81,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func topKFrequent(nums []int, k int) []int {
@@ -194,7 +112,21 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **Rust**
+```ts
+function topKFrequent(nums: number[], k: number): number[] {
+    let hashMap = new Map();
+    for (let num of nums) {
+        hashMap.set(num, (hashMap.get(num) || 0) + 1);
+    }
+    let list = [...hashMap];
+    list.sort((a, b) => b[1] - a[1]);
+    let ans = [];
+    for (let i = 0; i < k; i++) {
+        ans.push(list[i][0]);
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -227,10 +159,70 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        cnt = Counter(nums)
+        hp = []
+        for num, freq in cnt.items():
+            heappush(hp, (freq, num))
+            if len(hp) > k:
+                heappop(hp)
+        return [v[1] for v in hp]
 ```
 
+```java
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int v : nums) {
+            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+        for (var e : cnt.entrySet()) {
+            pq.offer(new int[] {e.getKey(), e.getValue()});
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+        int[] ans = new int[k];
+        for (int i = 0; i < k; ++i) {
+            ans[i] = pq.poll()[0];
+        }
+        return ans;
+    }
+}
+```
+
+```ts
+function topKFrequent(nums: number[], k: number): number[] {
+    const map = new Map<number, number>();
+    let maxCount = 0;
+    for (const num of nums) {
+        map.set(num, (map.get(num) ?? 0) + 1);
+        maxCount = Math.max(maxCount, map.get(num));
+    }
+
+    const res = [];
+    while (k > 0) {
+        for (const key of map.keys()) {
+            if (map.get(key) === maxCount) {
+                res.push(key);
+                k--;
+            }
+        }
+        maxCount--;
+    }
+    return res;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

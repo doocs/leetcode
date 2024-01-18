@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -70,39 +70,6 @@ class Solution:
         dfs(root)
         return root
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def convertBST(self, root: TreeNode) -> TreeNode:
-        s = 0
-        node = root
-        while root:
-            if root.right is None:
-                s += root.val
-                root.val = s
-                root = root.left
-            else:
-                next = root.right
-                while next.left and next.left != root:
-                    next = next.left
-                if next.left is None:
-                    next.left = root
-                    root = root.right
-                else:
-                    s += root.val
-                    root.val = s
-                    next.left = None
-                    root = root.left
-        return node
-```
-
-### **Java**
 
 ```java
 /**
@@ -138,6 +105,129 @@ class Solution {
         dfs(root.left);
     }
 }
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int s = 0;
+
+    TreeNode* convertBST(TreeNode* root) {
+        dfs(root);
+        return root;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->right);
+        s += root->val;
+        root->val = s;
+        dfs(root->left);
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func convertBST(root *TreeNode) *TreeNode {
+	s := 0
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Right)
+		s += root.Val
+		root.Val = s
+		dfs(root.Left)
+	}
+	dfs(root)
+	return root
+}
+```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var convertBST = function (root) {
+    let s = 0;
+    function dfs(root) {
+        if (!root) {
+            return;
+        }
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
+    }
+    dfs(root);
+    return root;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def convertBST(self, root: TreeNode) -> TreeNode:
+        s = 0
+        node = root
+        while root:
+            if root.right is None:
+                s += root.val
+                root.val = s
+                root = root.left
+            else:
+                next = root.right
+                while next.left and next.left != root:
+                    next = next.left
+                if next.left is None:
+                    next.left = root
+                    root = root.right
+                else:
+                    s += root.val
+                    root.val = s
+                    next.left = None
+                    root = root.left
+        return node
 ```
 
 ```java
@@ -186,39 +276,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    int s = 0;
-
-    TreeNode* convertBST(TreeNode* root) {
-        dfs(root);
-        return root;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->right);
-        s += root->val;
-        root->val = s;
-        dfs(root->left);
-    }
-};
-```
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -262,33 +319,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func convertBST(root *TreeNode) *TreeNode {
-	add := 0
-	var dfs func(*TreeNode)
-	dfs = func(node *TreeNode) {
-		if node != nil {
-			dfs(node.Right)
-			node.Val += add
-			add = node.Val
-			dfs(node.Left)
-		}
-	}
-	dfs(root)
-	return root
-}
-```
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -326,41 +356,6 @@ func convertBST(root *TreeNode) *TreeNode {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {TreeNode}
- */
-var convertBST = function (root) {
-    let s = 0;
-    function dfs(root) {
-        if (!root) {
-            return;
-        }
-        dfs(root.right);
-        s += root.val;
-        root.val = s;
-        dfs(root.left);
-    }
-    dfs(root);
-    return root;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

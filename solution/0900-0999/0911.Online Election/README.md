@@ -55,19 +55,9 @@ topVotedCandidate.q(8); // 返回 1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-二分查找。
-
-先预处理得到每个时刻的领先的候选人编号 `wins[i]`。
-
-然后对于每次查询 q，二分查找得到小于等于 t 时刻的最大时刻 left，返回 `wins[left]` 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class TopVotedCandidate:
@@ -97,10 +87,6 @@ class TopVotedCandidate:
 # obj = TopVotedCandidate(persons, times)
 # param_1 = obj.q(t)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class TopVotedCandidate {
@@ -142,8 +128,6 @@ class TopVotedCandidate {
  * int param_1 = obj.q(t);
  */
 ```
-
-### **C++**
 
 ```cpp
 class TopVotedCandidate {
@@ -187,8 +171,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 type TopVotedCandidate struct {
 	times []int
@@ -230,10 +212,6 @@ func (this *TopVotedCandidate) Q(t int) int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

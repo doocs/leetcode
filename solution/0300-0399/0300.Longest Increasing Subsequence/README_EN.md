@@ -42,11 +42,9 @@
 
 ## Solutions
 
-Dynamic programming or Binary Indexed Tree.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -59,6 +57,102 @@ class Solution:
                     f[i] = max(f[i], f[j] + 1)
         return max(f)
 ```
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        int ans = 1;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> f(n, 1);
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    f[i] = max(f[i], f[j] + 1);
+                }
+            }
+        }
+        return *max_element(f.begin(), f.end());
+    }
+};
+```
+
+```go
+func lengthOfLIS(nums []int) int {
+	n := len(nums)
+	f := make([]int, n)
+	for i := range f {
+		f[i] = 1
+	}
+	ans := 1
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
+			if nums[j] < nums[i] {
+				f[i] = max(f[i], f[j]+1)
+				ans = max(ans, f[i])
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function lengthOfLIS(nums: number[]): number {
+    const n = nums.length;
+    const f: number[] = new Array(n).fill(1);
+    for (let i = 1; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (nums[j] < nums[i]) {
+                f[i] = Math.max(f[i], f[j] + 1);
+            }
+        }
+    }
+    return Math.max(...f);
+}
+```
+
+```rust
+impl Solution {
+    pub fn length_of_lis(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut f = vec![1; n];
+        for i in 1..n {
+            for j in 0..i {
+                if nums[j] < nums[i] {
+                    f[i] = f[i].max(f[j] + 1);
+                }
+            }
+        }
+        *f.iter().max().unwrap()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -89,28 +183,6 @@ class Solution:
             t = tree.query(x - 1) + 1
             tree.update(x, t)
         return tree.query(m)
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int lengthOfLIS(int[] nums) {
-        int n = nums.length;
-        int[] f = new int[n];
-        Arrays.fill(f, 1);
-        int ans = 1;
-        for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i]) {
-                    f[i] = Math.max(f[i], f[j] + 1);
-                }
-            }
-            ans = Math.max(ans, f[i]);
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -175,26 +247,6 @@ class BinaryIndexedTree {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> f(n, 1);
-        for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i]) {
-                    f[i] = max(f[i], f[j] + 1);
-                }
-            }
-        }
-        return *max_element(f.begin(), f.end());
-    }
-};
-```
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -238,28 +290,6 @@ public:
         return tree.query(s.size());
     }
 };
-```
-
-### **Go**
-
-```go
-func lengthOfLIS(nums []int) int {
-	n := len(nums)
-	f := make([]int, n)
-	for i := range f {
-		f[i] = 1
-	}
-	ans := 1
-	for i := 1; i < n; i++ {
-		for j := 0; j < i; j++ {
-			if nums[j] < nums[i] {
-				f[i] = max(f[i], f[j]+1)
-				ans = max(ans, f[i])
-			}
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -307,23 +337,6 @@ func lengthOfLIS(nums []int) int {
 		tree.update(x, t)
 	}
 	return tree.query(m)
-}
-```
-
-### **TypeScript**
-
-```ts
-function lengthOfLIS(nums: number[]): number {
-    const n = nums.length;
-    const f: number[] = new Array(n).fill(1);
-    for (let i = 1; i < n; ++i) {
-        for (let j = 0; j < i; ++j) {
-            if (nums[j] < nums[i]) {
-                f[i] = Math.max(f[i], f[j] + 1);
-            }
-        }
-    }
-    return Math.max(...f);
 }
 ```
 
@@ -381,29 +394,6 @@ function search(nums: number[], x: number): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn length_of_lis(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut f = vec![1; n];
-        for i in 1..n {
-            for j in 0..i {
-                if nums[j] < nums[i] {
-                    f[i] = f[i].max(f[j] + 1);
-                }
-            }
-        }
-        *f.iter().max().unwrap()
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

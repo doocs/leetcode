@@ -31,17 +31,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def isPowerOfFour(self, n: int) -> bool:
         return n > 0 and (n & (n - 1)) == 0 and (n & 0xAAAAAAAA) == 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -50,8 +48,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -62,7 +58,17 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+func isPowerOfFour(n int) bool {
+	return n > 0 && (n&(n-1)) == 0 && (n&0xaaaaaaaa) == 0
+}
+```
+
+```ts
+function isPowerOfFour(n: number): boolean {
+    return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+}
+```
 
 ```js
 /**
@@ -74,26 +80,6 @@ var isPowerOfFour = function (n) {
 };
 ```
 
-### **Go**
-
-```go
-func isPowerOfFour(n int) bool {
-	return n > 0 && (n&(n-1)) == 0 && (n&0xaaaaaaaa) == 0
-}
-```
-
-### **TypeScript**
-
-```ts
-function isPowerOfFour(n: number): boolean {
-    return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

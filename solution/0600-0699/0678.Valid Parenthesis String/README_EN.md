@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 Let `dp[i][j]` be true if and only if the interval `s[i], s[i+1], ..., s[j]` can be made valid. Then `dp[i][j]` is true only if:
 
@@ -46,16 +46,7 @@ Let `dp[i][j]` be true if and only if the interval `s[i], s[i+1], ..., s[j]` can
 -   Time Complexity: $O(n^3)$, where $n$ is the length of the string. There are $O(n^2)$ states corresponding to entries of dp, and we do an average of $O(n)$ work on each state.
 -   Space Complexity: $O(n^2)$.
 
-**Solution 2: Greedy**
-
-Scan twice, first from left to right to make sure that each of the closing brackets is matched successfully, and second from right to left to make sure that each of the opening brackets is matched successfully.
-
--   Time Complexity: $O(n)$, where $n$ is the length of the string.
--   Space Complexity: $O(1)$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,30 +65,6 @@ class Solution:
                 )
         return dp[0][-1]
 ```
-
-```python
-class Solution:
-    def checkValidString(self, s: str) -> bool:
-        x = 0
-        for c in s:
-            if c in '(*':
-                x += 1
-            elif x:
-                x -= 1
-            else:
-                return False
-        x = 0
-        for c in s[::-1]:
-            if c in '*)':
-                x += 1
-            elif x:
-                x -= 1
-            else:
-                return False
-        return True
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,6 +87,83 @@ class Solution {
         return dp[0][n - 1];
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    bool checkValidString(string s) {
+        int n = s.size();
+        vector<vector<bool>> dp(n, vector<bool>(n));
+        for (int i = 0; i < n; ++i) {
+            dp[i][i] = s[i] == '*';
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                char a = s[i], b = s[j];
+                dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i + 1 == j || dp[i + 1][j - 1]);
+                for (int k = i; k < j && !dp[i][j]; ++k) {
+                    dp[i][j] = dp[i][k] && dp[k + 1][j];
+                }
+            }
+        }
+        return dp[0][n - 1];
+    }
+};
+```
+
+```go
+func checkValidString(s string) bool {
+	n := len(s)
+	dp := make([][]bool, n)
+	for i := range dp {
+		dp[i] = make([]bool, n)
+		dp[i][i] = s[i] == '*'
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			a, b := s[i], s[j]
+			dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i+1 == j || dp[i+1][j-1])
+			for k := i; k < j && !dp[i][j]; k++ {
+				dp[i][j] = dp[i][k] && dp[k+1][j]
+			}
+		}
+	}
+	return dp[0][n-1]
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Greedy
+
+Scan twice, first from left to right to make sure that each of the closing brackets is matched successfully, and second from right to left to make sure that each of the opening brackets is matched successfully.
+
+-   Time Complexity: $O(n)$, where $n$ is the length of the string.
+-   Space Complexity: $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def checkValidString(self, s: str) -> bool:
+        x = 0
+        for c in s:
+            if c in '(*':
+                x += 1
+            elif x:
+                x -= 1
+            else:
+                return False
+        x = 0
+        for c in s[::-1]:
+            if c in '*)':
+                x += 1
+            elif x:
+                x -= 1
+            else:
+                return False
+        return True
 ```
 
 ```java
@@ -151,31 +195,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool checkValidString(string s) {
-        int n = s.size();
-        vector<vector<bool>> dp(n, vector<bool>(n));
-        for (int i = 0; i < n; ++i) {
-            dp[i][i] = s[i] == '*';
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                char a = s[i], b = s[j];
-                dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i + 1 == j || dp[i + 1][j - 1]);
-                for (int k = i; k < j && !dp[i][j]; ++k) {
-                    dp[i][j] = dp[i][k] && dp[k + 1][j];
-                }
-            }
-        }
-        return dp[0][n - 1];
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -205,29 +224,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func checkValidString(s string) bool {
-	n := len(s)
-	dp := make([][]bool, n)
-	for i := range dp {
-		dp[i] = make([]bool, n)
-		dp[i][i] = s[i] == '*'
-	}
-	for i := n - 2; i >= 0; i-- {
-		for j := i + 1; j < n; j++ {
-			a, b := s[i], s[j]
-			dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')') && (i+1 == j || dp[i+1][j-1])
-			for k := i; k < j && !dp[i][j]; k++ {
-				dp[i][j] = dp[i][k] && dp[k+1][j]
-			}
-		}
-	}
-	return dp[0][n-1]
-}
-```
-
 ```go
 func checkValidString(s string) bool {
 	x := 0
@@ -254,10 +250,6 @@ func checkValidString(s string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

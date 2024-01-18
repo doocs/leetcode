@@ -1,11 +1,17 @@
 func minimizeXor(num1 int, num2 int) int {
-	cnt1 := bits.OnesCount(uint(num1))
-	cnt2 := bits.OnesCount(uint(num2))
-	for ; cnt1 > cnt2; cnt1-- {
-		num1 &= (num1 - 1)
+	cnt := bits.OnesCount(uint(num2))
+	x := 0
+	for i := 30; i >= 0 && cnt > 0; i-- {
+		if num1>>i&1 == 1 {
+			x |= 1 << i
+			cnt--
+		}
 	}
-	for ; cnt1 < cnt2; cnt1++ {
-		num1 |= (num1 + 1)
+	for i := 0; cnt > 0; i++ {
+		if num1>>i&1 == 0 {
+			x |= 1 << i
+			cnt--
+		}
 	}
-	return num1
+	return x
 }

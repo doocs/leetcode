@@ -46,15 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先找到两个整数节点的最近公共祖先 g。然后累加节点 g 到节点 p 和节点 q 的距离即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -89,10 +83,6 @@ class Solution:
         g = lca(root, p, q)
         return dfs(g, p) + dfs(g, q)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -148,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -188,8 +176,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -234,10 +220,6 @@ func findDistance(root *TreeNode, p int, q int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

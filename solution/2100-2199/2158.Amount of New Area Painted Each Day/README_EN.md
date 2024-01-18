@@ -64,11 +64,9 @@ The amount of new area painted on day 1 is 0.
 
 ## Solutions
 
-Segment Tree.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Node:
@@ -145,8 +143,6 @@ class Solution:
             tree.modify(l, r, 1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -255,8 +251,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -354,16 +348,6 @@ public:
 };
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

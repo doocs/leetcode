@@ -1,15 +1,13 @@
-func countGoodRectangles(rectangles [][]int) int {
-	ans, mx := 0, 0
-	for _, r := range rectangles {
-		t := r[0]
-		if t > r[1] {
-			t = r[1]
-		}
-		if mx < t {
-			mx, ans = t, 1
-		} else if mx == t {
+func countGoodRectangles(rectangles [][]int) (ans int) {
+	mx := 0
+	for _, e := range rectangles {
+		x := min(e[0], e[1])
+		if mx < x {
+			mx = x
+			ans = 1
+		} else if mx == x {
 			ans++
 		}
 	}
-	return ans
+	return
 }

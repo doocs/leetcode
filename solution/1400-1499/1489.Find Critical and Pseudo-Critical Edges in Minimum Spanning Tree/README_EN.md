@@ -49,9 +49,9 @@ The edges 2, 3, 4, and 5 are only part of some MSTs, therefore they are consider
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class UnionFind:
@@ -96,8 +96,6 @@ class Solution:
                 ans[1].append(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -187,8 +185,6 @@ class UnionFind {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -252,8 +248,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type unionFind struct {
@@ -332,10 +326,6 @@ func findCriticalAndPseudoCriticalEdges(n int, edges [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

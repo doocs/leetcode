@@ -63,26 +63,20 @@ Tatiana 的体重为 464，Jonathan 的体重为 463，Tommy 的体重为 349，
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Pandas**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 import pandas as pd
 
 
 def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
-    return animals[animals['weight'] > 100].sort_values('weight', ascending=False)[['name']]
-```
-
-### **...**
-
-```
-
+    return animals[animals['weight'] > 100].sort_values('weight', ascending=False)[
+        ['name']
+    ]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

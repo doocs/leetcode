@@ -27,9 +27,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们设计一个函数 $dfs(n, a, b, c)$，表示将 $n$ 个盘子从 $a$ 移动到 $c$，其中 $b$ 为辅助柱子。
 
@@ -37,7 +35,100 @@
 
 时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 是盘子的数目。
 
-**方法二：迭代（栈）**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
+        def dfs(n, a, b, c):
+            if n == 1:
+                c.append(a.pop())
+                return
+            dfs(n - 1, a, c, b)
+            c.append(a.pop())
+            dfs(n - 1, b, a, c)
+
+        dfs(len(A), A, B, C)
+```
+
+```java
+class Solution {
+    public void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
+        dfs(A.size(), A, B, C);
+    }
+
+    private void dfs(int n, List<Integer> a, List<Integer> b, List<Integer> c) {
+        if (n == 1) {
+            c.add(a.remove(a.size() - 1));
+            return;
+        }
+        dfs(n - 1, a, c, b);
+        c.add(a.remove(a.size() - 1));
+        dfs(n - 1, b, a, c);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    void hanota(vector<int>& A, vector<int>& B, vector<int>& C) {
+        function<void(int, vector<int>&, vector<int>&, vector<int>&)> dfs = [&](int n, vector<int>& a, vector<int>& b, vector<int>& c) {
+            if (n == 1) {
+                c.push_back(a.back());
+                a.pop_back();
+                return;
+            }
+            dfs(n - 1, a, c, b);
+            c.push_back(a.back());
+            a.pop_back();
+            dfs(n - 1, b, a, c);
+        };
+        dfs(A.size(), A, B, C);
+    }
+};
+```
+
+```go
+func hanota(A []int, B []int, C []int) []int {
+	var dfs func(n int, a, b, c *[]int)
+	dfs = func(n int, a, b, c *[]int) {
+		if n == 1 {
+			*c = append(*c, (*a)[len(*a)-1])
+			*a = (*a)[:len(*a)-1]
+			return
+		}
+		dfs(n-1, a, c, b)
+		*c = append(*c, (*a)[len(*a)-1])
+		*a = (*a)[:len(*a)-1]
+		dfs(n-1, b, a, c)
+	}
+	dfs(len(A), &A, &B, &C)
+	return C
+}
+```
+
+```ts
+/**
+ Do not return anything, modify C in-place instead.
+ */
+function hanota(A: number[], B: number[], C: number[]): void {
+    const dfs = (n: number, a: number[], b: number[], c: number[]) => {
+        if (n === 1) {
+            c.push(a.pop()!);
+            return;
+        }
+        dfs(n - 1, a, c, b);
+        c.push(a.pop()!);
+        dfs(n - 1, b, a, c);
+    };
+    dfs(A.length, A, B, C);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：迭代（栈）
 
 我们可以用栈来模拟递归的过程。
 
@@ -57,24 +148,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
-        def dfs(n, a, b, c):
-            if n == 1:
-                c.append(a.pop())
-                return
-            dfs(n - 1, a, c, b)
-            c.append(a.pop())
-            dfs(n - 1, b, a, c)
-
-        dfs(len(A), A, B, C)
-```
-
 ```python
 class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
@@ -87,28 +160,6 @@ class Solution:
                 stk.append((n - 1, b, a, c))
                 stk.append((1, a, b, c))
                 stk.append((n - 1, a, c, b))
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
-        dfs(A.size(), A, B, C);
-    }
-
-    private void dfs(int n, List<Integer> a, List<Integer> b, List<Integer> c) {
-        if (n == 1) {
-            c.add(a.remove(a.size() - 1));
-            return;
-        }
-        dfs(n - 1, a, c, b);
-        c.add(a.remove(a.size() - 1));
-        dfs(n - 1, b, a, c);
-    }
-}
 ```
 
 ```java
@@ -148,28 +199,6 @@ class Task {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    void hanota(vector<int>& A, vector<int>& B, vector<int>& C) {
-        function<void(int, vector<int>&, vector<int>&, vector<int>&)> dfs = [&](int n, vector<int>& a, vector<int>& b, vector<int>& c) {
-            if (n == 1) {
-                c.push_back(a.back());
-                a.pop_back();
-                return;
-            }
-            dfs(n - 1, a, c, b);
-            c.push_back(a.back());
-            a.pop_back();
-            dfs(n - 1, b, a, c);
-        };
-        dfs(A.size(), A, B, C);
-    }
-};
-```
-
 ```cpp
 struct Task {
     int n;
@@ -199,27 +228,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func hanota(A []int, B []int, C []int) []int {
-	var dfs func(n int, a, b, c *[]int)
-	dfs = func(n int, a, b, c *[]int) {
-		if n == 1 {
-			*c = append(*c, (*a)[len(*a)-1])
-			*a = (*a)[:len(*a)-1]
-			return
-		}
-		dfs(n-1, a, c, b)
-		*c = append(*c, (*a)[len(*a)-1])
-		*a = (*a)[:len(*a)-1]
-		dfs(n-1, b, a, c)
-	}
-	dfs(len(A), &A, &B, &C)
-	return C
-}
-```
-
 ```go
 func hanota(A []int, B []int, C []int) []int {
 	stk := []Task{{len(A), &A, &B, &C}}
@@ -244,26 +252,6 @@ type Task struct {
 }
 ```
 
-### **TypeScript**
-
-```ts
-/**
- Do not return anything, modify C in-place instead.
- */
-function hanota(A: number[], B: number[], C: number[]): void {
-    const dfs = (n: number, a: number[], b: number[], c: number[]) => {
-        if (n === 1) {
-            c.push(a.pop()!);
-            return;
-        }
-        dfs(n - 1, a, c, b);
-        c.push(a.pop()!);
-        dfs(n - 1, b, a, c);
-    };
-    dfs(A.length, A, B, C);
-}
-```
-
 ```ts
 /**
  Do not return anything, modify C in-place instead.
@@ -283,10 +271,6 @@ function hanota(A: number[], B: number[], C: number[]): void {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

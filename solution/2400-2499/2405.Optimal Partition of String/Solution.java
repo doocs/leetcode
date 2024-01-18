@@ -1,14 +1,13 @@
 class Solution {
     public int partitionString(String s) {
-        int v = 0;
+        Set<Character> ss = new HashSet<>();
         int ans = 1;
         for (char c : s.toCharArray()) {
-            int i = c - 'a';
-            if (((v >> i) & 1) == 1) {
-                v = 0;
+            if (ss.contains(c)) {
                 ++ans;
+                ss.clear();
             }
-            v |= 1 << i;
+            ss.add(c);
         }
         return ans;
     }

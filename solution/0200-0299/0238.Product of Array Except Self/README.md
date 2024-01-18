@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 我们定义两个变量 $left$ 和 $right$，分别表示当前元素左边所有元素的乘积和右边所有元素的乘积。初始时 $left=1$, $right=1$。定义一个长度为 $n$ 的答案数组 $ans$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 `nums` 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             right *= nums[i]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func productExceptSelf(nums []int) []int {
 	n := len(nums)
@@ -141,7 +127,39 @@ func productExceptSelf(nums []int) []int {
 }
 ```
 
-### **JavaScript**
+```ts
+function productExceptSelf(nums: number[]): number[] {
+    const n = nums.length;
+    const ans: number[] = new Array(n);
+    for (let i = 0, left = 1; i < n; ++i) {
+        ans[i] = left;
+        left *= nums[i];
+    }
+    for (let i = n - 1, right = 1; i >= 0; --i) {
+        ans[i] *= right;
+        right *= nums[i];
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut ans = vec![1; n];
+        for i in 1..n {
+            ans[i] = ans[i - 1] * nums[i - 1];
+        }
+        let mut r = 1;
+        for i in (0..n).rev() {
+            ans[i] *= r;
+            r *= nums[i];
+        }
+        ans
+    }
+}
+```
 
 ```js
 /**
@@ -163,52 +181,6 @@ var productExceptSelf = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function productExceptSelf(nums: number[]): number[] {
-    const n = nums.length;
-    const ans: number[] = new Array(n);
-    for (let i = 0, left = 1; i < n; ++i) {
-        ans[i] = left;
-        left *= nums[i];
-    }
-    for (let i = n - 1, right = 1; i >= 0; --i) {
-        ans[i] *= right;
-        right *= nums[i];
-    }
-    return ans;
-}
-```
-
-```ts
-function productExceptSelf(nums: number[]): number[] {
-    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
-        let mut ans = vec![1; n];
-        for i in 1..n {
-            ans[i] = ans[i - 1] * nums[i - 1];
-        }
-        let mut r = 1;
-        for i in (0..n).rev() {
-            ans[i] *= r;
-            r *= nums[i];
-        }
-        ans
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int[] ProductExceptSelf(int[] nums) {
@@ -226,8 +198,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -251,10 +221,18 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```ts
+function productExceptSelf(nums: number[]): number[] {
+    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,17 +59,11 @@ Salaries table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：GROUP BY 分组**
+### 方法一：GROUP BY 分组
 
 我们可以先分别计算出每个部门的最高工资，然后再计算两个最高工资的差值。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -83,3 +77,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

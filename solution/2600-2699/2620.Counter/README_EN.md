@@ -41,9 +41,9 @@ n = -2
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function createCounter(n: number): () => number {
@@ -61,10 +61,6 @@ function createCounter(n: number): () => number {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

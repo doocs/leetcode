@@ -1,23 +1,33 @@
 class Solution {
+    private int[][] events;
+    private int[][] f;
+    private int n;
+
     public int maxValue(int[][] events, int k) {
-        Arrays.sort(events, (a, b) -> a[1] - b[1]);
-        int n = events.length;
-        int[][] f = new int[n + 1][k + 1];
-        for (int i = 1; i <= n; ++i) {
-            int st = events[i - 1][0], val = events[i - 1][2];
-            int p = search(events, st, i - 1);
-            for (int j = 1; j <= k; ++j) {
-                f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
-            }
-        }
-        return f[n][k];
+        Arrays.sort(events, (a, b) -> a[0] - b[0]);
+        this.events = events;
+        n = events.length;
+        f = new int[n][k + 1];
+        return dfs(0, k);
     }
 
-    private int search(int[][] events, int x, int hi) {
-        int l = 0, r = hi;
+    private int dfs(int i, int k) {
+        if (i >= n || k <= 0) {
+            return 0;
+        }
+        if (f[i][k] != 0) {
+            return f[i][k];
+        }
+        int j = search(events, events[i][1], i + 1);
+        int ans = Math.max(dfs(i + 1, k), dfs(j, k - 1) + events[i][2]);
+        return f[i][k] = ans;
+    }
+
+    private int search(int[][] events, int x, int lo) {
+        int l = lo, r = n;
         while (l < r) {
             int mid = (l + r) >> 1;
-            if (events[mid][1] >= x) {
+            if (events[mid][0] > x) {
                 r = mid;
             } else {
                 l = mid + 1;

@@ -55,9 +55,9 @@ Notice that walls are only built on the shared boundary of two different cells.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -104,8 +104,6 @@ class Solution:
                                 isInfected[x][y] = 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -200,8 +198,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -290,8 +286,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func containVirus(isInfected [][]int) int {
 	m, n := len(isInfected), len(isInfected[0])
@@ -376,10 +370,6 @@ func containVirus(isInfected [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

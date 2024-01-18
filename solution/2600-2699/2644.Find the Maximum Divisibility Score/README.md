@@ -60,9 +60,7 @@ divisors[1] 的可整除性得分为 0 ，因为 nums 中没有任何数字能�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举 $divisors$ 中的每个元素 $div$，计算 $nums$ 中有多少个元素能被 $div$ 整除，记为 $cnt$。
 
@@ -74,10 +72,6 @@ divisors[1] 的可整除性得分为 0 ，因为 nums 中没有任何数字能�
 时间复杂度 $(m \times n)$，其中 $m$ 和 $n$ 分别是 $nums$ 和 $divisors$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
                 ans = div
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxDivScore(nums []int, divisors []int) int {
 	ans, mx := divisors[0], 0
@@ -167,8 +153,6 @@ func maxDivScore(nums []int, divisors []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxDivScore(nums: number[], divisors: number[]): number {
     let ans: number = divisors[0];
@@ -185,8 +169,6 @@ function maxDivScore(nums: number[], divisors: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -214,10 +196,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

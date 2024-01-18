@@ -50,9 +50,13 @@ We return 0 because no subarrays meet the conditions.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sliding Window + Hash Table
 
-### **Python3**
+We maintain a sliding window of length $k$, use a hash table $cnt$ to record the count of each number in the window, and use a variable $s$ to record the sum of all numbers in the window. Each time we slide the window, if all numbers in the window are unique, we update the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +75,6 @@ class Solution:
                 ans = max(ans, s)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumSubarraySum(nums []int, k int) (ans int64) {
 	n := len(nums)
@@ -163,8 +161,6 @@ func maximumSubarraySum(nums []int, k int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumSubarraySum(nums: number[], k: number): number {
     const n = nums.length;
@@ -191,10 +187,6 @@ function maximumSubarraySum(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

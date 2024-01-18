@@ -64,15 +64,11 @@ Activity table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：GROUP BY + HAVING**
+### 方法一：GROUP BY + HAVING
 
 我们查询出所有在 `2019-07-27` 且在 $30$ 天内的所有活动记录，然后按照日期分组，统计每天的去重活跃用户数。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -83,3 +79,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

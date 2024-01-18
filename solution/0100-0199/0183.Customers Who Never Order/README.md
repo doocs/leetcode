@@ -71,41 +71,11 @@ Orders table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：NOT IN**
+### 方法一：NOT IN
 
 列举所有已存在订单的客户 ID，使用 `NOT IN` 找到不存在其中的客户。
 
-**方法二：LEFT JOIN**
-
-使用 `LEFT JOIN` 连接表格，返回 `CustomerId` 为 `NULL` 的数据。
-
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT name AS Customers
-FROM Customers
-WHERE
-    id NOT IN (
-        SELECT customerId
-        FROM Orders
-    );
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT name AS Customers
-FROM
-    Customers AS c
-    LEFT JOIN Orders AS o ON c.id = o.customerId
-WHERE o.id IS NULL;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -121,4 +91,34 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
     return df
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT name AS Customers
+FROM Customers
+WHERE
+    id NOT IN (
+        SELECT customerId
+        FROM Orders
+    );
+```
+
 <!-- tabs:end -->
+
+### 方法二：LEFT JOIN
+
+使用 `LEFT JOIN` 连接表格，返回 `CustomerId` 为 `NULL` 的数据。
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+SELECT name AS Customers
+FROM
+    Customers AS c
+    LEFT JOIN Orders AS o ON c.id = o.customerId
+WHERE o.id IS NULL;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

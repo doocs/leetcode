@@ -40,9 +40,9 @@ Notice that there is a unique path between every pair of points.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,37 +70,6 @@ class Solution:
                     dist[j] = min(dist[j], g[i][j])
         return ans
 ```
-
-```python
-class Solution:
-    def minCostConnectPoints(self, points: List[List[int]]) -> int:
-        def find(x: int) -> int:
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        n = len(points)
-        g = []
-        for i, (x1, y1) in enumerate(points):
-            for j in range(i + 1, n):
-                x2, y2 = points[j]
-                t = abs(x1 - x2) + abs(y1 - y2)
-                g.append((t, i, j))
-        p = list(range(n))
-        ans = 0
-        for cost, i, j in sorted(g):
-            pa, pb = find(i), find(j)
-            if pa == pb:
-                continue
-            p[pa] = pb
-            ans += cost
-            n -= 1
-            if n == 1:
-                break
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -142,51 +111,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    private int[] p;
-
-    public int minCostConnectPoints(int[][] points) {
-        int n = points.length;
-        List<int[]> g = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            int x1 = points[i][0], y1 = points[i][1];
-            for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                g.add(new int[] {Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
-            }
-        }
-        g.sort(Comparator.comparingInt(a -> a[0]));
-        p = new int[n];
-        for (int i = 0; i < n; ++i) {
-            p[i] = i;
-        }
-        int ans = 0;
-        for (int[] e : g) {
-            int cost = e[0], i = e[1], j = e[2];
-            if (find(i) == find(j)) {
-                continue;
-            }
-            p[find(i)] = find(j);
-            ans += cost;
-            if (--n == 1) {
-                return ans;
-            }
-        }
-        return 0;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -227,44 +151,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    vector<int> p;
-
-    int minCostConnectPoints(vector<vector<int>>& points) {
-        int n = points.size();
-        vector<vector<int>> g;
-        for (int i = 0; i < n; ++i) {
-            int x1 = points[i][0], y1 = points[i][1];
-            for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                g.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
-            }
-        }
-        sort(g.begin(), g.end());
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        int ans = 0;
-        for (auto& e : g) {
-            int cost = e[0], i = e[1], j = e[2];
-            if (find(i) == find(j)) continue;
-            p[find(i)] = find(j);
-            ans += cost;
-            if (--n == 1) return ans;
-        }
-        return 0;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minCostConnectPoints(points [][]int) (ans int) {
@@ -310,6 +196,158 @@ func abs(x int) int {
 	}
 	return x
 }
+```
+
+```ts
+function minCostConnectPoints(points: number[][]): number {
+    const n = points.length;
+    const g: number[][] = Array(n)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    const dist: number[] = Array(n).fill(1 << 30);
+    const vis: boolean[] = Array(n).fill(false);
+    for (let i = 0; i < n; ++i) {
+        const [x1, y1] = points[i];
+        for (let j = i + 1; j < n; ++j) {
+            const [x2, y2] = points[j];
+            const t = Math.abs(x1 - x2) + Math.abs(y1 - y2);
+            g[i][j] = t;
+            g[j][i] = t;
+        }
+    }
+    let ans = 0;
+    dist[0] = 0;
+    for (let i = 0; i < n; ++i) {
+        let j = -1;
+        for (let k = 0; k < n; ++k) {
+            if (!vis[k] && (j === -1 || dist[k] < dist[j])) {
+                j = k;
+            }
+        }
+        vis[j] = true;
+        ans += dist[j];
+        for (let k = 0; k < n; ++k) {
+            if (!vis[k]) {
+                dist[k] = Math.min(dist[k], g[j][k]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minCostConnectPoints(self, points: List[List[int]]) -> int:
+        def find(x: int) -> int:
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        n = len(points)
+        g = []
+        for i, (x1, y1) in enumerate(points):
+            for j in range(i + 1, n):
+                x2, y2 = points[j]
+                t = abs(x1 - x2) + abs(y1 - y2)
+                g.append((t, i, j))
+        p = list(range(n))
+        ans = 0
+        for cost, i, j in sorted(g):
+            pa, pb = find(i), find(j)
+            if pa == pb:
+                continue
+            p[pa] = pb
+            ans += cost
+            n -= 1
+            if n == 1:
+                break
+        return ans
+```
+
+```java
+class Solution {
+    private int[] p;
+
+    public int minCostConnectPoints(int[][] points) {
+        int n = points.length;
+        List<int[]> g = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                g.add(new int[] {Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
+            }
+        }
+        g.sort(Comparator.comparingInt(a -> a[0]));
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        int ans = 0;
+        for (int[] e : g) {
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) {
+                continue;
+            }
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) {
+                return ans;
+            }
+        }
+        return 0;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int minCostConnectPoints(vector<vector<int>>& points) {
+        int n = points.size();
+        vector<vector<int>> g;
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                g.push_back({abs(x1 - x2) + abs(y1 - y2), i, j});
+            }
+        }
+        sort(g.begin(), g.end());
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        int ans = 0;
+        for (auto& e : g) {
+            int cost = e[0], i = e[1], j = e[2];
+            if (find(i) == find(j)) continue;
+            p[find(i)] = find(j);
+            ans += cost;
+            if (--n == 1) return ans;
+        }
+        return 0;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
 ```
 
 ```go
@@ -361,50 +399,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minCostConnectPoints(points: number[][]): number {
-    const n = points.length;
-    const g: number[][] = Array(n)
-        .fill(0)
-        .map(() => Array(n).fill(0));
-    const dist: number[] = Array(n).fill(1 << 30);
-    const vis: boolean[] = Array(n).fill(false);
-    for (let i = 0; i < n; ++i) {
-        const [x1, y1] = points[i];
-        for (let j = i + 1; j < n; ++j) {
-            const [x2, y2] = points[j];
-            const t = Math.abs(x1 - x2) + Math.abs(y1 - y2);
-            g[i][j] = t;
-            g[j][i] = t;
-        }
-    }
-    let ans = 0;
-    dist[0] = 0;
-    for (let i = 0; i < n; ++i) {
-        let j = -1;
-        for (let k = 0; k < n; ++k) {
-            if (!vis[k] && (j === -1 || dist[k] < dist[j])) {
-                j = k;
-            }
-        }
-        vis[j] = true;
-        ans += dist[j];
-        for (let k = 0; k < n; ++k) {
-            if (!vis[k]) {
-                dist[k] = Math.min(dist[k], g[j][k]);
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

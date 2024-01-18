@@ -49,7 +49,7 @@ The tree structure of the employees in the company is shown.
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We first build an adjacent list $g$ according to the $manager$ array, where $g[i]$ represents all direct subordinates of employee $i$.
 
@@ -60,8 +60,6 @@ In function $dfs(i)$, we need to traverse all direct subordinates $j$ of $i$. Fo
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of employees.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,8 +77,6 @@ class Solution:
             g[x].append(i)
         return dfs(headID)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 	g := make([][]int, n)
@@ -154,8 +146,6 @@ func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numOfMinutes(n: number, headID: number, manager: number[], informTime: number[]): number {
     const g: number[][] = new Array(n).fill(0).map(() => []);
@@ -174,8 +164,6 @@ function numOfMinutes(n: number, headID: number, manager: number[], informTime: 
     return dfs(headID);
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -206,10 +194,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

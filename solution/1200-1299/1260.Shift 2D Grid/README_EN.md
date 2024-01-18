@@ -52,70 +52,51 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Flattening the 2D Array
 
-### **Python3**
+According to the problem description, if we flatten the 2D array into a 1D array, then each shift operation is to move the elements in the array one position to the right, with the last element moving to the first position of the array.
+
+Therefore, we can flatten the 2D array into a 1D array, then calculate the final position $idx = (x, y)$ of each element, and update the answer array `ans[x][y] = grid[i][j]`.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the `grid` array, respectively. We need to traverse the `grid` array once to calculate the final position of each element. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
         m, n = len(grid), len(grid[0])
-        k %= m * n
-        t = [grid[i][j] for i in range(m) for j in range(n)]
-        t = t[-k:] + t[:-k]
-        for i in range(m):
-            for j in range(n):
-                grid[i][j] = t[i * n + j]
-        return grid
+        ans = [[0] * n for _ in range(m)]
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                x, y = divmod((i * n + j + k) % (m * n), n)
+                ans[x][y] = v
+        return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
         int m = grid.length, n = grid[0].length;
-        k %= (m * n);
         List<List<Integer>> ans = new ArrayList<>();
         for (int i = 0; i < m; ++i) {
-            List<Integer> t = new ArrayList<>();
+            List<Integer> row = new ArrayList<>();
             for (int j = 0; j < n; ++j) {
-                t.add(0);
+                row.add(0);
             }
-            ans.add(t);
+            ans.add(row);
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                int t = (i * n + j + k) % (m * n);
-                ans.get(t / n).set(t % n, grid[i][j]);
+                int idx = (i * n + j + k) % (m * n);
+                int x = idx / n, y = idx % n;
+                ans.get(x).set(y, grid[i][j]);
             }
         }
         return ans;
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function shiftGrid(grid: number[][], k: number): number[][] {
-    const m = grid.length,
-        n = grid[0].length;
-    const size = m * n;
-    k = k % size;
-    if (k == 0 || size <= 1) return grid;
-    let arr = grid.flat();
-    if (size <= 1) return grid;
-    let ans = Array.from({ length: m }, v => new Array(n));
-    for (let i = 0, j = size - k; i < size; i++) {
-        ans[Math.floor(i / n)][i % n] = arr[j];
-        j = j == size - 1 ? 0 : j + 1;
-    }
-    return ans;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,16 +106,15 @@ public:
         vector<vector<int>> ans(m, vector<int>(n));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                int t = (i * n + j + k) % (m * n);
-                ans[t / n][t % n] = grid[i][j];
+                int idx = (i * n + j + k) % (m * n);
+                int x = idx / n, y = idx % n;
+                ans[x][y] = grid[i][j];
             }
         }
         return ans;
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shiftGrid(grid [][]int, k int) [][]int {
@@ -145,18 +125,30 @@ func shiftGrid(grid [][]int, k int) [][]int {
 	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			t := (i*n + j + k) % (m * n)
-			ans[t/n][t%n] = grid[i][j]
+			idx := (i*n + j + k) % (m * n)
+			x, y := idx/n, idx%n
+			ans[x][y] = grid[i][j]
 		}
 	}
 	return ans
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function shiftGrid(grid: number[][], k: number): number[][] {
+    const [m, n] = [grid.length, grid[0].length];
+    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            const idx = (i * n + j + k) % (m * n);
+            const [x, y] = [Math.floor(idx / n), idx % n];
+            ans[x][y] = grid[i][j];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

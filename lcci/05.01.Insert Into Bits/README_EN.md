@@ -24,9 +24,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Bit Manipulation
 
-### **Python3**
+First, we clear the bits from the $i$-th to the $j$-th in $N$, then we left shift $M$ by $i$ bits, and finally perform a bitwise OR operation on $M$ and $N$.
+
+The time complexity is $O(\log n)$, where $n$ is the size of $N$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -35,8 +39,6 @@ class Solution:
             N &= ~(1 << k)
         return N | M << i
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -48,8 +50,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -63,8 +63,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func insertBits(N int, M int, i int, j int) int {
 	for k := i; k <= j; k++ {
@@ -73,8 +71,6 @@ func insertBits(N int, M int, i int, j int) int {
 	return N | M<<i
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function insertBits(N: number, M: number, i: number, j: number): number {
@@ -85,10 +81,6 @@ function insertBits(N: number, M: number, i: number, j: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

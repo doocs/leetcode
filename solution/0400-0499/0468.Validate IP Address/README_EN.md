@@ -52,9 +52,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -84,16 +84,7 @@ class Solution:
                     return "Neither"
             return "IPv6"
         return "Neither"
-
 ```
-
-### **Java**
-
-```java
-
-```
-
-### **TypeScript**
 
 ```ts
 function validIPAddress(queryIP: string): string {
@@ -137,8 +128,6 @@ function validIPAddress(queryIP: string): string {
     return 'Neither';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -197,10 +186,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

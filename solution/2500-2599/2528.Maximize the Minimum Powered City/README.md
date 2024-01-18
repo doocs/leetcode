@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找 + 差分数组 + 贪心**
+### 方法一：二分查找 + 差分数组 + 贪心
 
 根据题目描述，最小供电站数目随着 $k$ 值的增大而增大，因此，我们可以用二分查找，找到一个最大的最小供电站数目，并且需要额外建造的供电站不超过 $k$ 座。
 
@@ -81,10 +79,6 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 为城市数量，而 $M$ 我们固定取 $2^{40}$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -122,10 +116,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -181,8 +171,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -234,8 +222,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxPower(stations []int, r int, k int) int64 {
 	n := len(stations)
@@ -283,10 +269,6 @@ func maxPower(stations []int, r int, k int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

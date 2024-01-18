@@ -39,13 +39,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -65,10 +61,6 @@ class Solution:
                 ans = a
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,7 +90,51 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    string findLongestWord(string s, vector<string>& dictionary) {
+        string ans = "";
+        for (string& a : dictionary)
+            if (check(s, a) && (ans.size() < a.size() || (ans.size() == a.size() && a < ans)))
+                ans = a;
+        return ans;
+    }
+
+    bool check(string& a, string& b) {
+        int m = a.size(), n = b.size();
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (a[i] == b[j]) ++j;
+            ++i;
+        }
+        return j == n;
+    }
+};
+```
+
+```go
+func findLongestWord(s string, dictionary []string) string {
+	ans := ""
+	check := func(a, b string) bool {
+		m, n := len(a), len(b)
+		i, j := 0, 0
+		for i < m && j < n {
+			if a[i] == b[j] {
+				j++
+			}
+			i++
+		}
+		return j == n
+	}
+	for _, a := range dictionary {
+		if check(s, a) && (len(ans) < len(a) || (len(ans) == len(a) && a < ans)) {
+			ans = a
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function findLongestWord(s: string, dictionary: string[]): string {
@@ -130,8 +166,6 @@ function findLongestWord(s: string, dictionary: string[]): string {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn find_longest_word(s: String, mut dictionary: Vec<String>) -> String {
@@ -157,60 +191,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string findLongestWord(string s, vector<string>& dictionary) {
-        string ans = "";
-        for (string& a : dictionary)
-            if (check(s, a) && (ans.size() < a.size() || (ans.size() == a.size() && a < ans)))
-                ans = a;
-        return ans;
-    }
-
-    bool check(string& a, string& b) {
-        int m = a.size(), n = b.size();
-        int i = 0, j = 0;
-        while (i < m && j < n) {
-            if (a[i] == b[j]) ++j;
-            ++i;
-        }
-        return j == n;
-    }
-};
-```
-
-### **Go**
-
-```go
-func findLongestWord(s string, dictionary []string) string {
-	ans := ""
-	check := func(a, b string) bool {
-		m, n := len(a), len(b)
-		i, j := 0, 0
-		for i < m && j < n {
-			if a[i] == b[j] {
-				j++
-			}
-			i++
-		}
-		return j == n
-	}
-	for _, a := range dictionary {
-		if check(s, a) && (len(ans) < len(a) || (len(ans) == len(a) && a < ans)) {
-			ans = a
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -61,7 +61,7 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 
 ## Solutions
 
-**Solution 1: Memorized Search**
+### Solution 1: Memorized Search
 
 We design a function $dfs(i, j, k)$, which means whether the substring starting from $i$ with length $k$ in $s_1$ can be converted into the substring starting from $j$ with length $k$ in $s_2$. If it can be converted, return `true`, otherwise return `false`. The answer is $dfs(0, 0, n)$, where $n$ is the length of the string.
 
@@ -76,21 +76,7 @@ In order to avoid repeated calculation, we can use memory search.
 
 The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the string.
 
-**Solution 2: Dynamic Programming (Interval DP)**
-
-We define $f[i][j][k]$ as whether the substring of length $k$ starting from $i$ of string $s_1$ can be transformed into the substring of length $k$ starting from $j$ of string $s_2$. Then the answer is $f[0][0][n]$, where $n$ is the length of the string.
-
-For substring of length $1$, if $s_1[i] = s_2[j]$, then $f[i][j][1] = true$, otherwise $f[i][j][1] = false$.
-
-Next, we enumerate the length $k$ of the substring from small to large, and enumerate $i$ from $0$, and enumerate $j$ from $0$. If $f[i][j][h] \land f[i + h][j + h][k - h]$ or $f[i][j + k - h][h] \land f[i + h][j][k - h]$ is true, then $f[i][j][k]$ is also true.
-
-Finally, we return $f[0][0][n]$.
-
-The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the string.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -108,29 +94,6 @@ class Solution:
 
         return dfs(0, 0, len(s1))
 ```
-
-```python
-class Solution:
-    def isScramble(self, s1: str, s2: str) -> bool:
-        n = len(s1)
-        f = [[[False] * (n + 1) for _ in range(n)] for _ in range(n)]
-        for i in range(n):
-            for j in range(n):
-                f[i][j][1] = s1[i] == s2[j]
-        for k in range(2, n + 1):
-            for i in range(n - k + 1):
-                for j in range(n - k + 1):
-                    for h in range(1, k):
-                        if f[i][j][h] and f[i + h][j + h][k - h]:
-                            f[i][j][k] = True
-                            break
-                        if f[i + h][j][k - h] and f[i][j + k - h][h]:
-                            f[i][j][k] = True
-                            break
-        return f[0][0][n]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -166,39 +129,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean isScramble(String s1, String s2) {
-        int n = s1.length();
-        boolean[][][] f = new boolean[n][n][n + 1];
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                f[i][j][1] = s1.charAt(i) == s2.charAt(j);
-            }
-        }
-        for (int k = 2; k <= n; ++k) {
-            for (int i = 0; i <= n - k; ++i) {
-                for (int j = 0; j <= n - k; ++j) {
-                    for (int h = 1; h < k; ++h) {
-                        if (f[i][j][h] && f[i + h][j + h][k - h]) {
-                            f[i][j][k] = true;
-                            break;
-                        }
-                        if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
-                            f[i][j][k] = true;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        return f[0][0][n];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -227,41 +157,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool isScramble(string s1, string s2) {
-        int n = s1.length();
-        bool f[n][n][n + 1];
-        memset(f, false, sizeof(f));
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                f[i][j][1] = s1[i] == s2[j];
-            }
-        }
-        for (int k = 2; k <= n; ++k) {
-            for (int i = 0; i <= n - k; ++i) {
-                for (int j = 0; j <= n - k; ++j) {
-                    for (int h = 1; h < k; ++h) {
-                        if (f[i][j][h] && f[i + h][j + h][k - h]) {
-                            f[i][j][k] = true;
-                            break;
-                        }
-                        if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
-                            f[i][j][k] = true;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        return f[0][0][n];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func isScramble(s1 string, s2 string) bool {
@@ -294,35 +189,6 @@ func isScramble(s1 string, s2 string) bool {
 }
 ```
 
-```go
-func isScramble(s1 string, s2 string) bool {
-	n := len(s1)
-	f := make([][][]bool, n)
-	for i := range f {
-		f[i] = make([][]bool, n)
-		for j := 0; j < n; j++ {
-			f[i][j] = make([]bool, n+1)
-			f[i][j][1] = s1[i] == s2[j]
-		}
-	}
-	for k := 2; k <= n; k++ {
-		for i := 0; i <= n-k; i++ {
-			for j := 0; j <= n-k; j++ {
-				for h := 1; h < k; h++ {
-					if (f[i][j][h] && f[i+h][j+h][k-h]) || (f[i+h][j][k-h] && f[i][j+k-h][h]) {
-						f[i][j][k] = true
-						break
-					}
-				}
-			}
-		}
-	}
-	return f[0][0][n]
-}
-```
-
-### **TypeScript**
-
 ```ts
 function isScramble(s1: string, s2: string): boolean {
     const n = s1.length;
@@ -349,39 +215,6 @@ function isScramble(s1: string, s2: string): boolean {
     return dfs(0, 0, n);
 }
 ```
-
-```ts
-function isScramble(s1: string, s2: string): boolean {
-    const n = s1.length;
-    const f = new Array(n)
-        .fill(0)
-        .map(() => new Array(n).fill(0).map(() => new Array(n + 1).fill(false)));
-    for (let i = 0; i < n; ++i) {
-        for (let j = 0; j < n; ++j) {
-            f[i][j][1] = s1[i] === s2[j];
-        }
-    }
-    for (let k = 2; k <= n; ++k) {
-        for (let i = 0; i <= n - k; ++i) {
-            for (let j = 0; j <= n - k; ++j) {
-                for (let h = 1; h < k; ++h) {
-                    if (f[i][j][h] && f[i + h][j + h][k - h]) {
-                        f[i][j][k] = true;
-                        break;
-                    }
-                    if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
-                        f[i][j][k] = true;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    return f[0][0][n];
-}
-```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -420,6 +253,165 @@ public class Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Dynamic Programming (Interval DP)
+
+We define $f[i][j][k]$ as whether the substring of length $k$ starting from $i$ of string $s_1$ can be transformed into the substring of length $k$ starting from $j$ of string $s_2$. Then the answer is $f[0][0][n]$, where $n$ is the length of the string.
+
+For substring of length $1$, if $s_1[i] = s_2[j]$, then $f[i][j][1] = true$, otherwise $f[i][j][1] = false$.
+
+Next, we enumerate the length $k$ of the substring from small to large, and enumerate $i$ from $0$, and enumerate $j$ from $0$. If $f[i][j][h] \land f[i + h][j + h][k - h]$ or $f[i][j + k - h][h] \land f[i + h][j][k - h]$ is true, then $f[i][j][k]$ is also true.
+
+Finally, we return $f[0][0][n]$.
+
+The time complexity is $O(n^4)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isScramble(self, s1: str, s2: str) -> bool:
+        n = len(s1)
+        f = [[[False] * (n + 1) for _ in range(n)] for _ in range(n)]
+        for i in range(n):
+            for j in range(n):
+                f[i][j][1] = s1[i] == s2[j]
+        for k in range(2, n + 1):
+            for i in range(n - k + 1):
+                for j in range(n - k + 1):
+                    for h in range(1, k):
+                        if f[i][j][h] and f[i + h][j + h][k - h]:
+                            f[i][j][k] = True
+                            break
+                        if f[i + h][j][k - h] and f[i][j + k - h][h]:
+                            f[i][j][k] = True
+                            break
+        return f[0][0][n]
+```
+
+```java
+class Solution {
+    public boolean isScramble(String s1, String s2) {
+        int n = s1.length();
+        boolean[][][] f = new boolean[n][n][n + 1];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[i][j][1] = s1.charAt(i) == s2.charAt(j);
+            }
+        }
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i <= n - k; ++i) {
+                for (int j = 0; j <= n - k; ++j) {
+                    for (int h = 1; h < k; ++h) {
+                        if (f[i][j][h] && f[i + h][j + h][k - h]) {
+                            f[i][j][k] = true;
+                            break;
+                        }
+                        if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
+                            f[i][j][k] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return f[0][0][n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isScramble(string s1, string s2) {
+        int n = s1.length();
+        bool f[n][n][n + 1];
+        memset(f, false, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[i][j][1] = s1[i] == s2[j];
+            }
+        }
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i <= n - k; ++i) {
+                for (int j = 0; j <= n - k; ++j) {
+                    for (int h = 1; h < k; ++h) {
+                        if () {
+                            f[i][j][k] = true;
+                            break;
+                        }
+                        if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
+                            f[i][j][k] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return f[0][0][n];
+    }
+};
+```
+
+```go
+func isScramble(s1 string, s2 string) bool {
+	n := len(s1)
+	f := make([][][]bool, n)
+	for i := range f {
+		f[i] = make([][]bool, n)
+		for j := 0; j < n; j++ {
+			f[i][j] = make([]bool, n+1)
+			f[i][j][1] = s1[i] == s2[j]
+		}
+	}
+	for k := 2; k <= n; k++ {
+		for i := 0; i <= n-k; i++ {
+			for j := 0; j <= n-k; j++ {
+				for h := 1; h < k; h++ {
+					if (f[i][j][h] && f[i+h][j+h][k-h]) || (f[i+h][j][k-h] && f[i][j+k-h][h]) {
+						f[i][j][k] = true
+						break
+					}
+				}
+			}
+		}
+	}
+	return f[0][0][n]
+}
+```
+
+```ts
+function isScramble(s1: string, s2: string): boolean {
+    const n = s1.length;
+    const f = new Array(n)
+        .fill(0)
+        .map(() => new Array(n).fill(0).map(() => new Array(n + 1).fill(false)));
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            f[i][j][1] = s1[i] === s2[j];
+        }
+    }
+    for (let k = 2; k <= n; ++k) {
+        for (let i = 0; i <= n - k; ++i) {
+            for (let j = 0; j <= n - k; ++j) {
+                for (let h = 1; h < k; ++h) {
+                    if (f[i][j][h] && f[i + h][j + h][k - h]) {
+                        f[i][j][k] = true;
+                        break;
+                    }
+                    if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
+                        f[i][j][k] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return f[0][0][n];
+}
+```
+
 ```cs
 public class Solution {
     public bool IsScramble(string s1, string s2) {
@@ -451,10 +443,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,9 @@ Customer 3 has one bill with an amount strictly greater than 500.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -66,3 +66,5 @@ WHERE amount > 500;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

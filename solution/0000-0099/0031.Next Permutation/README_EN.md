@@ -54,7 +54,7 @@
 
 ## Solutions
 
-**Solution 1: Two traversals**
+### Solution 1: Two traversals
 
 We first traverse the array from back to front and find the first position $i$ where $nums[i] \lt nums[i + 1]$.
 
@@ -63,8 +63,6 @@ Then traverse the array from back to front again and find the first position $j$
 The time complexity is $O(n)$ and the space complexity is $O(1)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -76,8 +74,6 @@ class Solution:
             nums[i], nums[j] = nums[j], nums[i]
         nums[i + 1 :] = nums[i + 1 :][::-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nextPermutation(nums []int) {
 	n := len(nums)
@@ -156,8 +148,6 @@ func nextPermutation(nums []int) {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function nextPermutation(nums: number[]): void {
@@ -180,7 +170,29 @@ function nextPermutation(nums: number[]): void {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var nextPermutation = function (nums) {
+    const n = nums.length;
+    let i = n - 2;
+    while (i >= 0 && nums[i] >= nums[i + 1]) {
+        --i;
+    }
+    if (i >= 0) {
+        let j = n - 1;
+        while (j > i && nums[j] <= nums[i]) {
+            --j;
+        }
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+    for (i = i + 1, j = n - 1; i < j; ++i, --j) {
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+};
+```
 
 ```cs
 public class Solution {
@@ -211,36 +223,6 @@ public class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
- */
-var nextPermutation = function (nums) {
-    const n = nums.length;
-    let i = n - 2;
-    while (i >= 0 && nums[i] >= nums[i + 1]) {
-        --i;
-    }
-    if (i >= 0) {
-        let j = n - 1;
-        while (j > i && nums[j] <= nums[i]) {
-            --j;
-        }
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    }
-    for (i = i + 1, j = n - 1; i < j; ++i, --j) {
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    }
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

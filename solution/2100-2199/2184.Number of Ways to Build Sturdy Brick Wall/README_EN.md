@@ -43,9 +43,9 @@ There are no ways to build a sturdy wall because the only type of brick we have 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -98,8 +98,6 @@ class Solution:
                     dp[i][j] %= mod
         return sum(dp[-1]) % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -179,8 +177,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -254,22 +250,18 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func buildWall(height int, width int, bricks []int) int {
 	mod := int(1e9) + 7
 	res := [][]int{}
 	t := []int{}
-	var dfs func(v int)
+	var dfs func(int)
 	dfs = func(v int) {
 		if v > width {
 			return
 		}
 		if v == width {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			res = append(res, cp)
+			res = append(res, slices.Clone(t))
 			return
 		}
 		for _, x := range bricks {
@@ -333,16 +325,6 @@ func buildWall(height int, width int, bricks []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,15 +57,13 @@ The difference is 4, which is more than the allowed 3.
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We can create an array $cnt$ of length $26$ to record the difference in the number of times each letter appears in the two strings. Then we traverse $cnt$, if any letter appears the difference in the number of times greater than $3$, then return `false`, otherwise return `true`.
 
 The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is the length of the string, and $C$ is the size of the character set, and in this question $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -75,8 +73,6 @@ class Solution:
             cnt[c] -= 1
         return all(abs(x) <= 3 for x in cnt.values())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkAlmostEquivalent(word1 string, word2 string) bool {
 	cnt := [26]int{}
@@ -141,8 +133,6 @@ func checkAlmostEquivalent(word1 string, word2 string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function checkAlmostEquivalent(word1: string, word2: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -156,7 +146,26 @@ function checkAlmostEquivalent(word1: string, word2: string): boolean {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {boolean}
+ */
+var checkAlmostEquivalent = function (word1, word2) {
+    const m = new Map();
+    for (let i = 0; i < word1.length; i++) {
+        m.set(word1[i], (m.get(word1[i]) || 0) + 1);
+        m.set(word2[i], (m.get(word2[i]) || 0) - 1);
+    }
+    for (const v of m.values()) {
+        if (Math.abs(v) > 3) {
+            return false;
+        }
+    }
+    return true;
+};
+```
 
 ```cs
 public class Solution {
@@ -172,8 +181,6 @@ public class Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -198,33 +205,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} word1
- * @param {string} word2
- * @return {boolean}
- */
-var checkAlmostEquivalent = function (word1, word2) {
-    const m = new Map();
-    for (let i = 0; i < word1.length; i++) {
-        m.set(word1[i], (m.get(word1[i]) || 0) + 1);
-        m.set(word2[i], (m.get(word2[i]) || 0) - 1);
-    }
-    for (const v of m.values()) {
-        if (Math.abs(v) > 3) {
-            return false;
-        }
-    }
-    return true;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

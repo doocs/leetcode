@@ -69,9 +69,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 自定义排序**
+### 方法一：贪心 + 自定义排序
 
 我们假设任务数为 $n$，初始能量值为 $E$，考虑完成最后一个任务，这需要我们完成前 $n-1$ 个任务后，剩余的能量值不小于完成最后一个任务需要达到的能量值 $m_n$，即：
 
@@ -99,10 +97,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumEffort(self, tasks: List[List[int]]) -> int:
@@ -114,10 +108,6 @@ class Solution:
             cur -= a
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumEffort(tasks [][]int) (ans int) {
 	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0]-tasks[i][1] < tasks[j][0]-tasks[j][1] })
@@ -175,8 +161,6 @@ func minimumEffort(tasks [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumEffort(tasks: number[][]): number {
@@ -194,10 +178,6 @@ function minimumEffort(tasks: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

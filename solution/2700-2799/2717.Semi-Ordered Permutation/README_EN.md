@@ -59,9 +59,15 @@ It can be proved that there is no sequence of less than three operations that ma
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Find the Positions of 1 and n
 
-### **Python3**
+We can first find the indices $i$ and $j$ of $1$ and $n$, respectively. Then, based on the relative positions of $i$ and $j$, we can determine the number of swaps required.
+
+If $i < j$, the number of swaps required is $i + n - j - 1$. If $i > j$, the number of swaps required is $i + n - j - 2$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +78,6 @@ class Solution:
         k = 1 if i < j else 2
         return i + n - j - k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func semiOrderedPermutation(nums []int) int {
@@ -131,8 +131,6 @@ func semiOrderedPermutation(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function semiOrderedPermutation(nums: number[]): number {
     const n = nums.length;
@@ -142,8 +140,6 @@ function semiOrderedPermutation(nums: number[]): number {
     return i + n - j - k;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -170,6 +166,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -198,10 +200,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

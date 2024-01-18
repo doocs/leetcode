@@ -64,9 +64,17 @@ Out of all these positions, -1 is the smallest, so return it.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Difference Array + Hash Table + Sorting
 
-### **Python3**
+We can consider the range illuminated by each street light as an interval, with the left endpoint $l = position_i - range_i$ and the right endpoint $r = position_i + range_i$. We can use the idea of a difference array. For each interval $[l, r]$, we add $1$ to the value at position $l$ and subtract $1$ from the value at position $r + 1$. We use a hash table to maintain the change value at each position.
+
+Then we traverse each position in ascending order, calculate the brightness $s$ at the current position. If the previous maximum brightness $mx < s$, then update the maximum brightness $mx = s$ and record the current position $ans = i$.
+
+Finally, return $ans$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of `lights`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -84,8 +92,6 @@ class Solution:
                 ans = k
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func brightestPosition(lights [][]int) (ans int) {
@@ -161,8 +163,6 @@ func brightestPosition(lights [][]int) (ans int) {
 	return
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -196,10 +196,6 @@ var brightestPosition = function (lights) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

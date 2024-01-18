@@ -73,9 +73,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + DFS**
+### 方法一：贪心 + DFS
 
 根据题目描述，我们可以发现，所有车只会往首都（节点 $0$）开。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -112,10 +106,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -182,8 +170,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumFuelCost(roads [][]int, seats int) (ans int64) {
 	n := len(roads) + 1
@@ -210,8 +196,6 @@ func minimumFuelCost(roads [][]int, seats int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumFuelCost(roads: number[][], seats: number): number {
     const n = roads.length + 1;
@@ -236,8 +220,6 @@ function minimumFuelCost(roads: number[][], seats: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -268,10 +250,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

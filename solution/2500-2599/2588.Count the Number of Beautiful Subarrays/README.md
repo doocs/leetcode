@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀异或 + 哈希表**
+### 方法一：前缀异或 + 哈希表
 
 我们观察发现，一个子数组能变成一个全为 $0$ 的数组，当且仅当该子数组中的所有元素，每一个二进制位上的 $1$ 的个数都是偶数个。
 
@@ -72,10 +70,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def beautifulSubarrays(self, nums: List[int]) -> int:
@@ -87,10 +81,6 @@ class Solution:
             cnt[mask] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautifulSubarrays(nums []int) (ans int64) {
 	cnt := map[int]int{0: 1}
@@ -142,8 +128,6 @@ func beautifulSubarrays(nums []int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function beautifulSubarrays(nums: number[]): number {
@@ -160,10 +144,6 @@ function beautifulSubarrays(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

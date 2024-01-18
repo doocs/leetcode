@@ -14,9 +14,7 @@
 
 ## Introduction
 
-The Doocs LeetCode repository is a comprehensive collection of solutions to LeetCode questions in multiple programming languages. The repository contains solutions to LeetCode, LCOF, LCCI questions, and more in multiple programming languages.
-
-The repository is maintained by the Doocs community, and please give us a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
+This project contains solutions for problems from LeetCode, "Coding Interviews (2nd Edition)", "Coding Interviews (Special Edition)", "Cracking the Coding Interview (6th Edition)", etc. All solutions are implemented in multiple programming languages, including but not limited to: Java, Python, C++, Go, TypeScript, Rust. We are working hard to update, welcome to Star 🌟 and follow [this project](https://github.com/doocs/leetcode) to get the latest updates.
 
 [中文文档](/README.md)
 
@@ -43,7 +41,6 @@ The repository is maintained by the Doocs community, and please give us a [star]
 
 -   [Find First and Last Position of Element in Sorted Array](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README_EN.md) - `Binary search`
 -   [Minimum Speed to Arrive on Time](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README_EN.md) - `Binary search`
--   [Find the Student that Will Replace the Chalk](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md) - `Binary search`
 -   [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md) - `Binary search`
 -   [Sort an Array](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md) - `Quick Sort`, `Merge Sort`
 -   [Add Strings](/solution/0400-0499/0415.Add%20Strings/README_EN.md) - `Addition of large numbers`
@@ -191,9 +188,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
   <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
 </p>
 
-You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) using [Gitpod.io](https://www.gitpod.io), a free online dev environment with a single click.
-
-<a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location=EastUs)
 
 ## Stargazers over time
 
@@ -218,6 +213,17 @@ Thank you to all our backers and sponsors!
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
 > "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
+
+## Copyright
+
+The copyright of this project belongs to [Doocs](https://github.com/doocs) community. For commercial reprints, please contact [@yanglbme](mailto:contact@yanglibin.info) for authorization. For non-commercial reprints, please indicate the source.
+
+## Contact Us
+
+We welcome everyone to add @yanglbme's personal WeChat (WeChat ID: YLB0109), with the note "leetcode". In the future, we will create algorithm and technology related discussion groups, where we can learn and share experiences together, and make progress together.
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png" width="260px" align="left"/> |
+| --------------------------------------------------------------------------------------------------------------------------------- |
 
 ## License
 

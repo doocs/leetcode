@@ -43,17 +43,15 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
         return [nums[num] for num in nums]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -82,8 +78,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func buildArray(nums []int) []int {
 	ans := make([]int, len(nums))
@@ -94,7 +88,21 @@ func buildArray(nums []int) []int {
 }
 ```
 
-### **JavaScript**
+```ts
+function buildArray(nums: number[]): number[] {
+    return nums.map(v => nums[v]);
+}
+```
+
+```rust
+impl Solution {
+    pub fn build_array(nums: Vec<i32>) -> Vec<i32> {
+        nums.iter()
+            .map(|&v| nums[v as usize])
+            .collect()
+    }
+}
+```
 
 ```js
 /**
@@ -110,28 +118,6 @@ var buildArray = function (nums) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function buildArray(nums: number[]): number[] {
-    return nums.map(v => nums[v]);
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn build_array(nums: Vec<i32>) -> Vec<i32> {
-        nums.iter()
-            .map(|&v| nums[v as usize])
-            .collect()
-    }
-}
-```
-
-### **C**
-
 ```c
 /**
  * Note: The returned array must be malloced, assume caller calls free().
@@ -146,10 +132,6 @@ int* buildArray(int* nums, int numsSize, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

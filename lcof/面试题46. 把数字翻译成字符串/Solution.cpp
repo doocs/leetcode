@@ -3,15 +3,20 @@ public:
     int translateNum(int num) {
         string s = to_string(num);
         int n = s.size();
-        int a = 1, b = 1;
-        for (int i = 1; i < n; ++i) {
-            int c = b;
-            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
-                c += a;
+        int f[12]{};
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i >= n - 1) {
+                return 1;
             }
-            a = b;
-            b = c;
-        }
-        return b;
+            if (f[i]) {
+                return f[i];
+            }
+            int ans = dfs(i + 1);
+            if (s[i] == '1' || (s[i] == '2' && s[i + 1] < '6')) {
+                ans += dfs(i + 2);
+            }
+            return f[i] = ans;
+        };
+        return dfs(0);
     }
 };

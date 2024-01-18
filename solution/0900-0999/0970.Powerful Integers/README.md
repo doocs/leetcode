@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 根据题目描述，一个强整数可以表示成 $x^i + y^j$，其中 $i \geq 0$, $j \geq 0$。
 
@@ -61,10 +59,6 @@
 时间复杂度 $O(\log^2 bound)$，空间复杂度 $O(\log^2 bound)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
             a *= x
         return list(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func powerfulIntegers(x int, y int, bound int) (ans []int) {
 	s := map[int]struct{}{}
@@ -154,8 +140,6 @@ func powerfulIntegers(x int, y int, bound int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function powerfulIntegers(x: number, y: number, bound: number): number[] {
     const ans = new Set<number>();
@@ -173,8 +157,6 @@ function powerfulIntegers(x: number, y: number, bound: number): number[] {
     return Array.from(ans);
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -200,10 +182,6 @@ var powerfulIntegers = function (x, y, bound) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -21,7 +21,6 @@ impl Solution {
             [0, 1],
         ];
         for [x, y] in dirs.into_iter() {
-            // 索引合法性审核
             let i = x + (i as i32);
             let j = y + (j as i32);
             if i < 0 || i == (board.len() as i32) || j < 0 || j == (board[0].len() as i32) {

@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 定义 $dp[i][0]$ 表示栅栏 $[0,..i]$ 且最后两个栅栏颜色不同的方案数，$dp[i][1]$ 表示栅栏 $[0,..i]$ 且最后两个栅栏颜色相同的方案数。
 
@@ -72,10 +70,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numWays(self, n: int, k: int) -> int:
@@ -86,10 +80,6 @@ class Solution:
             dp[i][1] = dp[i - 1][0]
         return sum(dp[-1])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numWays(n int, k int) int {
 	dp := make([][]int, n)
@@ -139,10 +125,6 @@ func numWays(n int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

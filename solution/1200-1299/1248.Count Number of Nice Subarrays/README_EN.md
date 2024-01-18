@@ -43,9 +43,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Prefix Sum + Array or Hash Table
 
-### **Python3**
+The problem asks for the number of subarrays that contain exactly $k$ odd numbers. We can calculate the number of odd numbers $t$ in each prefix array and record it in an array or hash table $cnt$. For each prefix array, we only need to find the number of prefix arrays with $t-k$ odd numbers, which is the number of subarrays ending with the current prefix array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +62,6 @@ class Solution:
             cnt[t] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfSubarrays(nums []int, k int) (ans int) {
 	n := len(nums)
@@ -120,8 +118,6 @@ func numberOfSubarrays(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfSubarrays(nums: number[], k: number): number {
@@ -141,10 +137,6 @@ function numberOfSubarrays(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,23 +49,11 @@ It can be shown that 4 is the minimum number of moves required to place one ston
 
 ## Solutions
 
-**Solution 1: Naive BFS**
+### Solution 1: Naive BFS
 
 The problem is essentially finding the shortest path from the initial state to the target state in a state graph, so we can use BFS to solve it. The initial state is `grid`, and the target state is `[[1, 1, 1], [1, 1, 1], [1, 1, 1]]`. In each operation, we can move a stone greater than $1$ from a cell to an adjacent cell that does not exceed $1$. If the target state is found, we can return the current layer number, which is the minimum number of moves.
 
-**Solution 2: State Compression Dynamic Programming**
-
-We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.
-
-Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $left$ is filled by a coordinate in $right$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.
-
-Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $cal(left[k-1], right[j])$, where $cal$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
-
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of $left$, and in this problem, $n \le 9$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -94,34 +82,6 @@ class Solution:
                                         q.append(nxt)
             ans += 1
 ```
-
-```python
-class Solution:
-    def minimumMoves(self, grid: List[List[int]]) -> int:
-        def cal(a: tuple, b: tuple) -> int:
-            return abs(a[0] - b[0]) + abs(a[1] - b[1])
-
-        left, right = [], []
-        for i in range(3):
-            for j in range(3):
-                if grid[i][j] == 0:
-                    left.append((i, j))
-                else:
-                    for _ in range(grid[i][j] - 1):
-                        right.append((i, j))
-
-        n = len(left)
-        f = [inf] * (1 << n)
-        f[0] = 0
-        for i in range(1, 1 << n):
-            k = i.bit_count()
-            for j in range(n):
-                if i >> j & 1:
-                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
-        return f[-1]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -189,45 +149,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minimumMoves(int[][] grid) {
-        List<int[]> left = new ArrayList<>();
-        List<int[]> right = new ArrayList<>();
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                if (grid[i][j] == 0) {
-                    left.add(new int[] {i, j});
-                } else {
-                    for (int k = 1; k < grid[i][j]; ++k) {
-                        right.add(new int[] {i, j});
-                    }
-                }
-            }
-        }
-        int n = left.size();
-        int[] f = new int[1 << n];
-        Arrays.fill(f, 1 << 30);
-        f[0] = 0;
-        for (int i = 1; i < 1 << n; ++i) {
-            int k = Integer.bitCount(i);
-            for (int j = 0; j < n; ++j) {
-                if ((i >> j & 1) == 1) {
-                    f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left.get(k - 1), right.get(j)));
-                }
-            }
-        }
-        return f[(1 << n) - 1];
-    }
-
-    private int cal(int[] a, int[] b) {
-        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -264,8 +185,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumMoves(grid [][]int) int {
@@ -308,8 +227,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumMoves(grid: number[][]): number {
     const left: number[][] = [];
@@ -348,10 +265,83 @@ function minimumMoves(grid: number[][]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2: State Compression Dynamic Programming
+
+We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.
+
+Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $left$ is filled by a coordinate in $right$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.
+
+Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $cal(left[k-1], right[j])$, where $cal$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of $left$, and in this problem, $n \le 9$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minimumMoves(self, grid: List[List[int]]) -> int:
+        def cal(a: tuple, b: tuple) -> int:
+            return abs(a[0] - b[0]) + abs(a[1] - b[1])
+
+        left, right = [], []
+        for i in range(3):
+            for j in range(3):
+                if grid[i][j] == 0:
+                    left.append((i, j))
+                else:
+                    for _ in range(grid[i][j] - 1):
+                        right.append((i, j))
+
+        n = len(left)
+        f = [inf] * (1 << n)
+        f[0] = 0
+        for i in range(1, 1 << n):
+            k = i.bit_count()
+            for j in range(n):
+                if i >> j & 1:
+                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
+        return f[-1]
 ```
 
+```java
+class Solution {
+    public int minimumMoves(int[][] grid) {
+        List<int[]> left = new ArrayList<>();
+        List<int[]> right = new ArrayList<>();
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (grid[i][j] == 0) {
+                    left.add(new int[] {i, j});
+                } else {
+                    for (int k = 1; k < grid[i][j]; ++k) {
+                        right.add(new int[] {i, j});
+                    }
+                }
+            }
+        }
+        int n = left.size();
+        int[] f = new int[1 << n];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            int k = Integer.bitCount(i);
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left.get(k - 1), right.get(j)));
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+
+    private int cal(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -12,13 +12,21 @@ func deleteString(s string) int {
 		}
 	}
 	f := make([]int, n)
-	for i := n - 1; i >= 0; i-- {
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i == n {
+			return 0
+		}
+		if f[i] > 0 {
+			return f[i]
+		}
 		f[i] = 1
 		for j := 1; j <= (n-i)/2; j++ {
 			if g[i][i+j] >= j {
-				f[i] = max(f[i], f[i+j]+1)
+				f[i] = max(f[i], dfs(i+j)+1)
 			}
 		}
+		return f[i]
 	}
-	return f[0]
+	return dfs(0)
 }

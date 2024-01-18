@@ -41,9 +41,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Direct Enumeration
 
-### **Python3**
+We can enumerate $nums[i]$ as the left endpoint of the subarray, and then enumerate $nums[j]$ as the right endpoint of the subarray, where $i \le j$. During the enumeration of the right endpoint, we can use a variable $g$ to maintain the greatest common divisor of the current subarray. Each time we enumerate a new right endpoint, we update the greatest common divisor $g = \gcd(g, nums[j])$. If $g=k$, then the greatest common divisor of the current subarray equals $k$, and we increase the answer by $1$.
+
+After the enumeration ends, return the answer.
+
+The time complexity is $O(n \times (n + \log M))$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +62,6 @@ class Solution:
                 ans += g == k
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -82,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +103,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func subarrayGCD(nums []int, k int) (ans int) {
@@ -126,8 +126,6 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function subarrayGCD(nums: number[], k: number): number {
     let ans = 0;
@@ -149,10 +147,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

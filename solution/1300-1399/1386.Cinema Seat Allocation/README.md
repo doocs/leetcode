@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 状态压缩**
+### 方法一：哈希表 + 状态压缩
 
 我们用哈希表 $d$ 来存储所有已经被预约的座位，其中键为行号，值为该行上已经被预约的座位的状态，即一个二进制数，第 $j$ 位为 $1$ 表示第 $j$ 个座位已经被预约，为 $0$ 表示第 $j$ 个座位尚未被预约。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 是 $reservedSeats$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 	d := map[int]int{}
@@ -166,8 +152,6 @@ func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
     const d: Map<number, number> = new Map();
@@ -188,10 +172,6 @@ function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

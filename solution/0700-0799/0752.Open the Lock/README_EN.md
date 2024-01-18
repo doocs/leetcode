@@ -53,13 +53,9 @@ because the wheels of the lock become stuck after the display becomes the dead e
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
-
-BFS:
 
 ```python
 class Solution:
@@ -96,57 +92,6 @@ class Solution:
                         s.add(t)
         return -1
 ```
-
-Two-end BFS:
-
-```python
-class Solution:
-    def openLock(self, deadends: List[str], target: str) -> int:
-        def next(s):
-            res = []
-            s = list(s)
-            for i in range(4):
-                c = s[i]
-                s[i] = '9' if c == '0' else str(int(c) - 1)
-                res.append(''.join(s))
-                s[i] = '0' if c == '9' else str(int(c) + 1)
-                res.append(''.join(s))
-                s[i] = c
-            return res
-
-        def extend(m1, m2, q):
-            for _ in range(len(q)):
-                p = q.popleft()
-                step = m1[p]
-                for t in next(p):
-                    if t in s or t in m1:
-                        continue
-                    if t in m2:
-                        return step + 1 + m2[t]
-                    m1[t] = step + 1
-                    q.append(t)
-            return -1
-
-        def bfs():
-            m1, m2 = {"0000": 0}, {target: 0}
-            q1, q2 = deque([('0000')]), deque([(target)])
-            while q1 and q2:
-                t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
-                if t != -1:
-                    return t
-            return -1
-
-        if target == '0000':
-            return 0
-        s = set(deadends)
-        if '0000' in s:
-            return -1
-        return bfs()
-```
-
-### **Java**
-
-BFS:
 
 ```java
 class Solution {
@@ -196,7 +141,151 @@ class Solution {
 }
 ```
 
-Two-end BFS:
+```cpp
+class Solution {
+public:
+    int openLock(vector<string>& deadends, string target) {
+        unordered_set<string> s(deadends.begin(), deadends.end());
+        if (s.count("0000")) return -1;
+        if (target == "0000") return 0;
+        queue<string> q{{"0000"}};
+        s.insert("0000");
+        int ans = 0;
+        while (!q.empty()) {
+            ++ans;
+            for (int n = q.size(); n > 0; --n) {
+                string p = q.front();
+                q.pop();
+                for (string t : next(p)) {
+                    if (target == t) return ans;
+                    if (!s.count(t)) {
+                        q.push(t);
+                        s.insert(t);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    vector<string> next(string& t) {
+        vector<string> res;
+        for (int i = 0; i < 4; ++i) {
+            char c = t[i];
+            t[i] = c == '0' ? '9' : (char) (c - 1);
+            res.push_back(t);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
+            res.push_back(t);
+            t[i] = c;
+        }
+        return res;
+    }
+};
+```
+
+```go
+func openLock(deadends []string, target string) int {
+	if target == "0000" {
+		return 0
+	}
+	s := make(map[string]bool)
+	for _, d := range deadends {
+		s[d] = true
+	}
+	if s["0000"] {
+		return -1
+	}
+	q := []string{"0000"}
+	s["0000"] = true
+	ans := 0
+	next := func(t string) []string {
+		s := []byte(t)
+		var res []string
+		for i, b := range s {
+			s[i] = b - 1
+			if s[i] < '0' {
+				s[i] = '9'
+			}
+			res = append(res, string(s))
+			s[i] = b + 1
+			if s[i] > '9' {
+				s[i] = '0'
+			}
+			res = append(res, string(s))
+			s[i] = b
+		}
+		return res
+	}
+	for len(q) > 0 {
+		ans++
+		for n := len(q); n > 0; n-- {
+			p := q[0]
+			q = q[1:]
+			for _, t := range next(p) {
+				if target == t {
+					return ans
+				}
+				if !s[t] {
+					q = append(q, t)
+					s[t] = true
+				}
+			}
+		}
+	}
+	return -1
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def openLock(self, deadends: List[str], target: str) -> int:
+        def next(s):
+            res = []
+            s = list(s)
+            for i in range(4):
+                c = s[i]
+                s[i] = '9' if c == '0' else str(int(c) - 1)
+                res.append(''.join(s))
+                s[i] = '0' if c == '9' else str(int(c) + 1)
+                res.append(''.join(s))
+                s[i] = c
+            return res
+
+        def extend(m1, m2, q):
+            for _ in range(len(q)):
+                p = q.popleft()
+                step = m1[p]
+                for t in next(p):
+                    if t in s or t in m1:
+                        continue
+                    if t in m2:
+                        return step + 1 + m2[t]
+                    m1[t] = step + 1
+                    q.append(t)
+            return -1
+
+        def bfs():
+            m1, m2 = {"0000": 0}, {target: 0}
+            q1, q2 = deque([('0000')]), deque([(target)])
+            while q1 and q2:
+                t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
+                if t != -1:
+                    return t
+            return -1
+
+        if target == '0000':
+            return 0
+        s = set(deadends)
+        if '0000' in s:
+            return -1
+        return bfs()
+```
 
 ```java
 class Solution {
@@ -271,128 +360,6 @@ class Solution {
 }
 ```
 
-A\* search:
-
-```java
-class Solution {
-    private String target;
-
-    public int openLock(String[] deadends, String target) {
-        if ("0000".equals(target)) {
-            return 0;
-        }
-        String start = "0000";
-        this.target = target;
-        Set<String> s = new HashSet<>();
-        for (String d : deadends) {
-            s.add(d);
-        }
-        if (s.contains(start)) {
-            return -1;
-        }
-        PriorityQueue<Pair<Integer, String>> q
-            = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
-        q.offer(new Pair<>(f(start), start));
-        Map<String, Integer> dist = new HashMap<>();
-        dist.put(start, 0);
-        while (!q.isEmpty()) {
-            String state = q.poll().getValue();
-            int step = dist.get(state);
-            if (target.equals(state)) {
-                return step;
-            }
-            for (String t : next(state)) {
-                if (s.contains(t)) {
-                    continue;
-                }
-                if (!dist.containsKey(t) || dist.get(t) > step + 1) {
-                    dist.put(t, step + 1);
-                    q.offer(new Pair<>(step + 1 + f(t), t));
-                }
-            }
-        }
-        return -1;
-    }
-
-    private int f(String s) {
-        int ans = 0;
-        for (int i = 0; i < 4; ++i) {
-            int a = s.charAt(i) - '0';
-            int b = target.charAt(i) - '0';
-            if (a > b) {
-                int t = a;
-                a = b;
-                b = a;
-            }
-            ans += Math.min(b - a, a + 10 - b);
-        }
-        return ans;
-    }
-
-    private List<String> next(String t) {
-        List res = new ArrayList<>();
-        char[] chars = t.toCharArray();
-        for (int i = 0; i < 4; ++i) {
-            char c = chars[i];
-            chars[i] = c == '0' ? '9' : (char) (c - 1);
-            res.add(String.valueOf(chars));
-            chars[i] = c == '9' ? '0' : (char) (c + 1);
-            res.add(String.valueOf(chars));
-            chars[i] = c;
-        }
-        return res;
-    }
-}
-```
-
-### **C++**
-
-BFS:
-
-```cpp
-class Solution {
-public:
-    int openLock(vector<string>& deadends, string target) {
-        unordered_set<string> s(deadends.begin(), deadends.end());
-        if (s.count("0000")) return -1;
-        if (target == "0000") return 0;
-        queue<string> q{{"0000"}};
-        s.insert("0000");
-        int ans = 0;
-        while (!q.empty()) {
-            ++ans;
-            for (int n = q.size(); n > 0; --n) {
-                string p = q.front();
-                q.pop();
-                for (string t : next(p)) {
-                    if (target == t) return ans;
-                    if (!s.count(t)) {
-                        q.push(t);
-                        s.insert(t);
-                    }
-                }
-            }
-        }
-        return -1;
-    }
-
-    vector<string> next(string& t) {
-        vector<string> res;
-        for (int i = 0; i < 4; ++i) {
-            char c = t[i];
-            t[i] = c == '0' ? '9' : (char) (c - 1);
-            res.push_back(t);
-            t[i] = c == '9' ? '0' : (char) (c + 1);
-            res.push_back(t);
-            t[i] = c;
-        }
-        return res;
-    }
-};
-```
-
-Two-end BFS:
-
 ```cpp
 class Solution {
 public:
@@ -452,130 +419,6 @@ public:
     }
 };
 ```
-
-A\* search:
-
-```cpp
-class Solution {
-public:
-    string target;
-
-    int openLock(vector<string>& deadends, string target) {
-        if (target == "0000") return 0;
-        unordered_set<string> s(deadends.begin(), deadends.end());
-        if (s.count("0000")) return -1;
-        string start = "0000";
-        this->target = target;
-        typedef pair<int, string> PIS;
-        priority_queue<PIS, vector<PIS>, greater<PIS>> q;
-        unordered_map<string, int> dist;
-        dist[start] = 0;
-        q.push({f(start), start});
-        while (!q.empty()) {
-            PIS t = q.top();
-            q.pop();
-            string state = t.second;
-            int step = dist[state];
-            if (state == target) return step;
-            for (string& t : next(state)) {
-                if (s.count(t)) continue;
-                if (!dist.count(t) || dist[t] > step + 1) {
-                    dist[t] = step + 1;
-                    q.push({step + 1 + f(t), t});
-                }
-            }
-        }
-        return -1;
-    }
-
-    int f(string s) {
-        int ans = 0;
-        for (int i = 0; i < 4; ++i) {
-            int a = s[i] - '0';
-            int b = target[i] - '0';
-            if (a < b) {
-                int t = a;
-                a = b;
-                b = t;
-            }
-            ans += min(b - a, a + 10 - b);
-        }
-        return ans;
-    }
-
-    vector<string> next(string& t) {
-        vector<string> res;
-        for (int i = 0; i < 4; ++i) {
-            char c = t[i];
-            t[i] = c == '0' ? '9' : (char) (c - 1);
-            res.push_back(t);
-            t[i] = c == '9' ? '0' : (char) (c + 1);
-            res.push_back(t);
-            t[i] = c;
-        }
-        return res;
-    }
-};
-```
-
-### **Go**
-
-BFS:
-
-```go
-func openLock(deadends []string, target string) int {
-	if target == "0000" {
-		return 0
-	}
-	s := make(map[string]bool)
-	for _, d := range deadends {
-		s[d] = true
-	}
-	if s["0000"] {
-		return -1
-	}
-	q := []string{"0000"}
-	s["0000"] = true
-	ans := 0
-	next := func(t string) []string {
-		s := []byte(t)
-		var res []string
-		for i, b := range s {
-			s[i] = b - 1
-			if s[i] < '0' {
-				s[i] = '9'
-			}
-			res = append(res, string(s))
-			s[i] = b + 1
-			if s[i] > '9' {
-				s[i] = '0'
-			}
-			res = append(res, string(s))
-			s[i] = b
-		}
-		return res
-	}
-	for len(q) > 0 {
-		ans++
-		for n := len(q); n > 0; n-- {
-			p := q[0]
-			q = q[1:]
-			for _, t := range next(p) {
-				if target == t {
-					return ans
-				}
-				if !s[t] {
-					q = append(q, t)
-					s[t] = true
-				}
-			}
-		}
-	}
-	return -1
-}
-```
-
-Two-end BFS:
 
 ```go
 func openLock(deadends []string, target string) int {
@@ -653,10 +496,193 @@ func openLock(deadends []string, target string) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def openLock(self, deadends: List[str], target: str) -> int:
+        def next(s):
+            res = []
+            s = list(s)
+            for i in range(4):
+                c = s[i]
+                s[i] = '9' if c == '0' else str(int(c) - 1)
+                res.append(''.join(s))
+                s[i] = '0' if c == '9' else str(int(c) + 1)
+                res.append(''.join(s))
+                s[i] = c
+            return res
+
+        def f(s):
+            ans = 0
+            for i in range(4):
+                a = ord(s[i]) - ord('0')
+                b = ord(target[i]) - ord('0')
+                if a > b:
+                    a, b = b, a
+                ans += min(b - a, a + 10 - b)
+            return ans
+
+        if target == '0000':
+            return 0
+        s = set(deadends)
+        if '0000' in s:
+            return -1
+        start = '0000'
+        q = [(f(start), start)]
+        dist = {start: 0}
+        while q:
+            _, state = heappop(q)
+            if state == target:
+                return dist[state]
+            for t in next(state):
+                if t in s:
+                    continue
+                if t not in dist or dist[t] > dist[state] + 1:
+                    dist[t] = dist[state] + 1
+                    heappush(q, (dist[t] + f(t), t))
+        return -1
 ```
 
+```java
+class Solution {
+    private String target;
+
+    public int openLock(String[] deadends, String target) {
+        if ("0000".equals(target)) {
+            return 0;
+        }
+        String start = "0000";
+        this.target = target;
+        Set<String> s = new HashSet<>();
+        for (String d : deadends) {
+            s.add(d);
+        }
+        if (s.contains(start)) {
+            return -1;
+        }
+        PriorityQueue<Pair<Integer, String>> q
+            = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        q.offer(new Pair<>(f(start), start));
+        Map<String, Integer> dist = new HashMap<>();
+        dist.put(start, 0);
+        while (!q.isEmpty()) {
+            String state = q.poll().getValue();
+            int step = dist.get(state);
+            if (target.equals(state)) {
+                return step;
+            }
+            for (String t : next(state)) {
+                if (s.contains(t)) {
+                    continue;
+                }
+                if (!dist.containsKey(t) || dist.get(t) > step + 1) {
+                    dist.put(t, step + 1);
+                    q.offer(new Pair<>(step + 1 + f(t), t));
+                }
+            }
+        }
+        return -1;
+    }
+
+    private int f(String s) {
+        int ans = 0;
+        for (int i = 0; i < 4; ++i) {
+            int a = s.charAt(i) - '0';
+            int b = target.charAt(i) - '0';
+            if (a > b) {
+                int t = a;
+                a = b;
+                b = a;
+            }
+            ans += Math.min(b - a, a + 10 - b);
+        }
+        return ans;
+    }
+
+    private List<String> next(String t) {
+        List res = new ArrayList<>();
+        char[] chars = t.toCharArray();
+        for (int i = 0; i < 4; ++i) {
+            char c = chars[i];
+            chars[i] = c == '0' ? '9' : (char) (c - 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c == '9' ? '0' : (char) (c + 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c;
+        }
+        return res;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string target;
+
+    int openLock(vector<string>& deadends, string target) {
+        if (target == "0000") return 0;
+        unordered_set<string> s(deadends.begin(), deadends.end());
+        if (s.count("0000")) return -1;
+        string start = "0000";
+        this->target = target;
+        typedef pair<int, string> PIS;
+        priority_queue<PIS, vector<PIS>, greater<PIS>> q;
+        unordered_map<string, int> dist;
+        dist[start] = 0;
+        q.push({f(start), start});
+        while (!q.empty()) {
+            PIS t = q.top();
+            q.pop();
+            string state = t.second;
+            int step = dist[state];
+            if (state == target) return step;
+            for (string& t : next(state)) {
+                if (s.count(t)) continue;
+                if (!dist.count(t) || dist[t] > step + 1) {
+                    dist[t] = step + 1;
+                    q.push({step + 1 + f(t), t});
+                }
+            }
+        }
+        return -1;
+    }
+
+    int f(string s) {
+        int ans = 0;
+        for (int i = 0; i < 4; ++i) {
+            int a = s[i] - '0';
+            int b = target[i] - '0';
+            if (a < b) {
+                int t = a;
+                a = b;
+                b = t;
+            }
+            ans += min(b - a, a + 10 - b);
+        }
+        return ans;
+    }
+
+    vector<string> next(string& t) {
+        vector<string> res;
+        for (int i = 0; i < 4; ++i) {
+            char c = t[i];
+            t[i] = c == '0' ? '9' : (char) (c - 1);
+            res.push_back(t);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
+            res.push_back(t);
+            t[i] = c;
+        }
+        return res;
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

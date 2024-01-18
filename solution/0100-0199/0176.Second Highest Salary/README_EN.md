@@ -64,41 +64,9 @@ Employee table:
 
 ## Solutions
 
-**Solution 1: Use Sub Query and LIMIT**
-
-**Solution 2: Use `MAX()` function**
-
-**Solution 3: Use `IFNULL()` and window function**
+### Solution 1: Use Sub Query and LIMIT
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT
-    (
-        SELECT DISTINCT salary
-        FROM Employee
-        ORDER BY salary DESC
-        LIMIT 1, 1
-    ) AS SecondHighestSalary;
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT MAX(salary) AS SecondHighestSalary
-FROM Employee
-WHERE salary < (SELECT MAX(salary) FROM Employee);
-```
-
-```sql
-# Write your MySQL query statement below
-WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Employee)
-SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -123,4 +91,42 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     return result_df
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT
+    (
+        SELECT DISTINCT salary
+        FROM Employee
+        ORDER BY salary DESC
+        LIMIT 1, 1
+    ) AS SecondHighestSalary;
+```
+
 <!-- tabs:end -->
+
+### Solution 2: Use `MAX()` function
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+SELECT MAX(salary) AS SecondHighestSalary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+```
+
+<!-- tabs:end -->
+
+### Solution 3: Use `IFNULL()` and window function
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Employee)
+SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

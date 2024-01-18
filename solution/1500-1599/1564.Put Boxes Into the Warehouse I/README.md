@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 排序 + 双指针**
+### 方法一：预处理 + 排序 + 双指针
 
 我们可以先对仓库的房间进行预处理，得到一个数组 $left$，其中 $left[i]$ 表示下标 $i$ 可以放入的最大箱子高度。
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为仓库的房间数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -102,10 +96,6 @@ class Solution:
             i, j = i + 1, j - 1
         return i
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -132,8 +122,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxBoxesInWarehouse(boxes []int, warehouse []int) int {
 	n := len(warehouse)
@@ -186,8 +172,6 @@ func maxBoxesInWarehouse(boxes []int, warehouse []int) int {
 	return i
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxBoxesInWarehouse(boxes: number[], warehouse: number[]): number {
@@ -214,10 +198,6 @@ function maxBoxesInWarehouse(boxes: number[], warehouse: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

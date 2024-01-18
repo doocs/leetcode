@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -104,8 +104,6 @@ class Solution:
 
         return ''.join(ans)
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -184,8 +182,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Trie {
 public:
@@ -254,8 +250,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -333,10 +327,6 @@ func boldWords(words []string, s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

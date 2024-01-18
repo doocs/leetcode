@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（大小根堆）+ 前后缀和 + 枚举分割点**
+### 方法一：优先队列（大小根堆）+ 前后缀和 + 枚举分割点
 
 题目实际上等价于在 $nums$ 中找到一个分割点，将数组分成左右两部分，在前一部分中选取最小的 $n$ 个元素，在后一部分中选取最大的 $n$ 个元素，使得两部分和的差值最小。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,10 +101,6 @@ class Solution:
 
         return min(pre[i] - suf[i + 1] for i in range(n, n * 2 + 1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -194,8 +182,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumDifference(nums []int) int64 {
@@ -244,8 +230,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumDifference(nums: number[]): number {
     const m = nums.length;
@@ -282,10 +266,6 @@ function minimumDifference(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

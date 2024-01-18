@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 我们先创建一个长度为 $n$ 的答案数组 $ans$。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
             ans[i] = min(ans[i], suf - i)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestToChar(s string, c byte) []int {
 	n := len(s)
@@ -161,8 +147,6 @@ func shortestToChar(s string, c byte) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestToChar(s: string, c: string): number[] {
     const n = s.length;
@@ -183,8 +167,6 @@ function shortestToChar(s: string, c: string): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -212,10 +194,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

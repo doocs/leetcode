@@ -53,9 +53,13 @@ Choosing index 2 is optimal: nums1[2] * nums2[2] = 3 * 10 = 30 is the maximum po
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Priority Queue (Min Heap)
 
-### **Python3**
+Sort nums2 and nums1 in descending order according to nums2, then traverse from front to back, maintaining a min heap. The heap stores elements from nums1, and the number of elements in the heap does not exceed $k$. At the same time, maintain a variable $s$ representing the sum of the elements in the heap, and continuously update the answer during the traversal process.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array nums1.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +75,6 @@ class Solution:
                 s -= heappop(q)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxScore(nums1 []int, nums2 []int, k int) int64 {
@@ -163,10 +161,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

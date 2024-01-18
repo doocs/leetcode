@@ -53,9 +53,17 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + Enumeration
 
-### **Python3**
+We use the variable $s$ to represent the sum of the currently selected integers, and the variable $ans$ to represent the number of currently selected integers. We convert the array `banned` into a hash table for easy determination of whether a certain integer is not selectable.
+
+Next, we start enumerating the integer $i$ from $1$. If $s + i \leq maxSum$ and $i$ is not in `banned`, then we can select the integer $i$, and add $i$ and $1$ to $s$ and $ans$ respectively.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the given integer.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,6 +78,144 @@ class Solution:
                 s += i
         return ans
 ```
+
+```java
+class Solution {
+    public int maxCount(int[] banned, int n, int maxSum) {
+        Set<Integer> ban = new HashSet<>(banned.length);
+        for (int x : banned) {
+            ban.add(x);
+        }
+        int ans = 0, s = 0;
+        for (int i = 1; i <= n && s + i <= maxSum; ++i) {
+            if (!ban.contains(i)) {
+                ++ans;
+                s += i;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxCount(vector<int>& banned, int n, int maxSum) {
+        unordered_set<int> ban(banned.begin(), banned.end());
+        int ans = 0, s = 0;
+        for (int i = 1; i <= n && s + i <= maxSum; ++i) {
+            if (!ban.count(i)) {
+                ++ans;
+                s += i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maxCount(banned []int, n int, maxSum int) (ans int) {
+	ban := map[int]bool{}
+	for _, x := range banned {
+		ban[x] = true
+	}
+	s := 0
+	for i := 1; i <= n && s+i <= maxSum; i++ {
+		if !ban[i] {
+			ans++
+			s += i
+		}
+	}
+	return
+}
+```
+
+```ts
+function maxCount(banned: number[], n: number, maxSum: number): number {
+    const set = new Set(banned);
+    let sum = 0;
+    let ans = 0;
+    for (let i = 1; i <= n; i++) {
+        if (i + sum > maxSum) {
+            break;
+        }
+        if (set.has(i)) {
+            continue;
+        }
+        sum += i;
+        ans++;
+    }
+    return ans;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn max_count(banned: Vec<i32>, n: i32, max_sum: i32) -> i32 {
+        let mut set = banned.into_iter().collect::<HashSet<i32>>();
+        let mut sum = 0;
+        let mut ans = 0;
+        for i in 1..=n {
+            if sum + i > max_sum {
+                break;
+            }
+            if set.contains(&i) {
+                continue;
+            }
+            sum += i;
+            ans += 1;
+        }
+        ans
+    }
+}
+```
+
+```c
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
+}
+
+int maxCount(int* banned, int bannedSize, int n, int maxSum) {
+    qsort(banned, bannedSize, sizeof(int), cmp);
+    int sum = 0;
+    int ans = 0;
+    for (int i = 1, j = 0; i <= n; i++) {
+        if (sum + i > maxSum) {
+            break;
+        }
+        if (j < bannedSize && i == banned[j]) {
+            while (j < bannedSize && i == banned[j]) {
+                j++;
+            }
+        } else {
+            sum += i;
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Greedy + Binary Search
+
+If $n$ is very large, the enumeration in Method One will time out.
+
+We can add $0$ and $n + 1$ to the array `banned`, deduplicate the array `banned`, remove elements greater than $n+1$, and then sort it.
+
+Next, we enumerate every two adjacent elements $i$ and $j$ in the array `banned`. The range of selectable integers is $[i + 1, j - 1]$. We use binary search to enumerate the number of elements we can select in this range, find the maximum number of selectable elements, and then add it to $ans$. At the same time, we subtract the sum of these elements from `maxSum`. If `maxSum` is less than $0$, we break the loop. Return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `banned`.
+
+Similar problems:
+
+-   [2557. Maximum Number of Integers to Choose From a Range II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -90,27 +236,6 @@ class Solution:
             if maxSum <= 0:
                 break
         return ans
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int maxCount(int[] banned, int n, int maxSum) {
-        Set<Integer> ban = new HashSet<>(banned.length);
-        for (int x : banned) {
-            ban.add(x);
-        }
-        int ans = 0, s = 0;
-        for (int i = 1; i <= n && s + i <= maxSum; ++i) {
-            if (!ban.contains(i)) {
-                ++ans;
-                s += i;
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -149,25 +274,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int maxCount(vector<int>& banned, int n, int maxSum) {
-        unordered_set<int> ban(banned.begin(), banned.end());
-        int ans = 0, s = 0;
-        for (int i = 1; i <= n && s + i <= maxSum; ++i) {
-            if (!ban.count(i)) {
-                ++ans;
-                s += i;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -198,25 +304,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func maxCount(banned []int, n int, maxSum int) (ans int) {
-	ban := map[int]bool{}
-	for _, x := range banned {
-		ban[x] = true
-	}
-	s := 0
-	for i := 1; i <= n && s+i <= maxSum; i++ {
-		if !ban[i] {
-			ans++
-			s += i
-		}
-	}
-	return
-}
 ```
 
 ```go
@@ -251,83 +338,6 @@ func maxCount(banned []int, n int, maxSum int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxCount(banned: number[], n: number, maxSum: number): number {
-    const set = new Set(banned);
-    let sum = 0;
-    let ans = 0;
-    for (let i = 1; i <= n; i++) {
-        if (i + sum > maxSum) {
-            break;
-        }
-        if (set.has(i)) {
-            continue;
-        }
-        sum += i;
-        ans++;
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn max_count(banned: Vec<i32>, n: i32, max_sum: i32) -> i32 {
-        let mut set = banned.into_iter().collect::<HashSet<i32>>();
-        let mut sum = 0;
-        let mut ans = 0;
-        for i in 1..=n {
-            if sum + i > max_sum {
-                break;
-            }
-            if set.contains(&i) {
-                continue;
-            }
-            sum += i;
-            ans += 1;
-        }
-        ans
-    }
-}
-```
-
-### **C**
-
-```c
-int cmp(const void* a, const void* b) {
-    return *(int*) a - *(int*) b;
-}
-
-int maxCount(int* banned, int bannedSize, int n, int maxSum) {
-    qsort(banned, bannedSize, sizeof(int), cmp);
-    int sum = 0;
-    int ans = 0;
-    for (int i = 1, j = 0; i <= n; i++) {
-        if (sum + i > maxSum) {
-            break;
-        }
-        if (j < bannedSize && i == banned[j]) {
-            while (j < bannedSize && i == banned[j]) {
-                j++;
-            }
-        } else {
-            sum += i;
-            ans++;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

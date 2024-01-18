@@ -45,9 +45,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simulation
 
-### **Python3**
+We directly simulate the allocation of memory.
+
+Assume $t$ is the moment of unexpected exit, then the two memory sticks can definitely accommodate the memory consumed at the moment $t-1$ and before, so we have:
+
+$$
+\sum_{i=1}^{t-1} i = \frac{t\times (t-1)}{2}  \leq (m_1+m_2)
+$$
+
+The time complexity is $O(\sqrt{m_1+m_2})$, where $m_1$ and $m_2$ are the sizes of the two memory sticks respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +71,6 @@ class Solution:
             i += 1
         return [i, memory1, memory2]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,7 +88,50 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+```cpp
+class Solution {
+public:
+    vector<int> memLeak(int memory1, int memory2) {
+        int i = 1;
+        for (; i <= max(memory1, memory2); ++i) {
+            if (memory1 >= memory2) {
+                memory1 -= i;
+            } else {
+                memory2 -= i;
+            }
+        }
+        return {i, memory1, memory2};
+    }
+};
+```
+
+```go
+func memLeak(memory1 int, memory2 int) []int {
+	i := 1
+	for ; i <= memory1 || i <= memory2; i++ {
+		if memory1 >= memory2 {
+			memory1 -= i
+		} else {
+			memory2 -= i
+		}
+	}
+	return []int{i, memory1, memory2}
+}
+```
+
+```ts
+function memLeak(memory1: number, memory2: number): number[] {
+    let i = 1;
+    for (; i <= Math.max(memory1, memory2); ++i) {
+        if (memory1 >= memory2) {
+            memory1 -= i;
+        } else {
+            memory2 -= i;
+        }
+    }
+    return [i, memory1, memory2];
+}
+```
 
 ```js
 /**
@@ -101,61 +152,6 @@ var memLeak = function (memory1, memory2) {
 };
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> memLeak(int memory1, int memory2) {
-        int i = 1;
-        for (; i <= max(memory1, memory2); ++i) {
-            if (memory1 >= memory2) {
-                memory1 -= i;
-            } else {
-                memory2 -= i;
-            }
-        }
-        return {i, memory1, memory2};
-    }
-};
-```
-
-### **Go**
-
-```go
-func memLeak(memory1 int, memory2 int) []int {
-	i := 1
-	for ; i <= memory1 || i <= memory2; i++ {
-		if memory1 >= memory2 {
-			memory1 -= i
-		} else {
-			memory2 -= i
-		}
-	}
-	return []int{i, memory1, memory2}
-}
-```
-
-### **TypeScript**
-
-```ts
-function memLeak(memory1: number, memory2: number): number[] {
-    let i = 1;
-    for (; i <= Math.max(memory1, memory2); ++i) {
-        if (memory1 >= memory2) {
-            memory1 -= i;
-        } else {
-            memory2 -= i;
-        }
-    }
-    return [i, memory1, memory2];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

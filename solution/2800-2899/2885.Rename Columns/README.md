@@ -59,28 +59,27 @@ DataFrame <code>students</code>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Pandas**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 import pandas as pd
 
 
 def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
-    students.rename(columns={'id': 'student_id', 'first': 'first_name', 'last': 'last_name', 'age': 'age_in_years'},
-                    inplace=True)
+    students.rename(
+        columns={
+            'id': 'student_id',
+            'first': 'first_name',
+            'last': 'last_name',
+            'age': 'age_in_years',
+        },
+        inplace=True,
+    )
     return students
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

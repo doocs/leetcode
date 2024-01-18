@@ -4,10 +4,7 @@ func getFactors(n int) [][]int {
 	var dfs func(n, i int)
 	dfs = func(n, i int) {
 		if len(t) > 0 {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			cp = append(cp, n)
-			ans = append(ans, cp)
+			ans = append(ans, append(slices.Clone(t), n))
 		}
 		for j := i; j <= n/j; j++ {
 			if n%j == 0 {

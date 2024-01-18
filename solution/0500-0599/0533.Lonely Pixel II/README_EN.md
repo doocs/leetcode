@@ -45,9 +45,9 @@ Take &#39;B&#39; at row r = 0 and column c = 1 as an example:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
                         res += 1
         return res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -132,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -179,8 +175,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findBlackPixel(picture [][]byte, target int) int {
@@ -240,10 +234,6 @@ func all(row1, row2 []byte) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

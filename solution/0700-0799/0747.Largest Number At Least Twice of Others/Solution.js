@@ -3,17 +3,16 @@
  * @return {number}
  */
 var dominantIndex = function (nums) {
-    let mx = 0,
-        mid = 0;
-    let ans = 0;
+    let k = 0;
     for (let i = 0; i < nums.length; ++i) {
-        if (nums[i] > mx) {
-            mid = mx;
-            mx = nums[i];
-            ans = i;
-        } else if (nums[i] > mid) {
-            mid = nums[i];
+        if (nums[i] > nums[k]) {
+            k = i;
         }
     }
-    return mx >= mid * 2 ? ans : -1;
+    for (let i = 0; i < nums.length; ++i) {
+        if (i !== k && nums[k] < nums[i] * 2) {
+            return -1;
+        }
+    }
+    return k;
 };

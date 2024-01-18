@@ -67,19 +67,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 将两个数组分别排序，然后遍历两个数组，计算每个学生的座位与其实际座位的距离，将所有距离相加即为答案。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `seats` 和 `students` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
         students.sort()
         return sum(abs(a - b) for a, b in zip(seats, students))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minMovesToSeat(seats []int, students []int) (ans int) {
@@ -145,8 +131,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minMovesToSeat(seats: number[], students: number[]): number {
     seats.sort((a, b) => a - b);
@@ -159,8 +143,6 @@ function minMovesToSeat(seats: number[], students: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -176,8 +158,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -195,10 +175,6 @@ int minMovesToSeat(int* seats, int seatsSize, int* students, int studentsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

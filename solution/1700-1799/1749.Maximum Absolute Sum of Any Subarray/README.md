@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示以 $nums[i]$ 结尾的子数组的和的最大值，定义 $g[i]$ 表示以 $nums[i]$ 结尾的子数组的和的最小值。那么 $f[i]$ 和 $g[i]$ 的状态转移方程如下：
 
@@ -67,10 +65,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxAbsoluteSum(self, nums: List[int]) -> int:
@@ -82,10 +76,6 @@ class Solution:
             ans = max(ans, f, abs(g))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxAbsoluteSum(nums []int) (ans int) {
@@ -141,8 +127,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxAbsoluteSum(nums: number[]): number {
     let f = 0;
@@ -156,8 +140,6 @@ function maxAbsoluteSum(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -175,10 +157,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

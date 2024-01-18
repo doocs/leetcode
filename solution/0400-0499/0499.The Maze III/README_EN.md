@@ -59,11 +59,9 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 
 ## Solutions
 
-BFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -99,8 +97,6 @@ class Solution:
                         q.append((x, y))
         return path[rh][ch] or 'impossible'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -148,8 +144,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -189,8 +183,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 import "math"
@@ -241,10 +233,6 @@ func findShortestWay(maze [][]int, ball []int, hole []int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

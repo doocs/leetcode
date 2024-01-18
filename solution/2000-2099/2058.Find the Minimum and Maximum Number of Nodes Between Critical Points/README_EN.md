@@ -59,9 +59,9 @@ Note that the last node is not considered a local maxima because it does not hav
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -89,8 +89,6 @@ class Solution:
             prev, curr = curr, curr.next
         return ans if first != last else [-1, -1]
 ```
-
-### **Java**
 
 ```java
 /**
@@ -132,7 +130,77 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> nodesBetweenCriticalPoints(ListNode* head) {
+        ListNode* prev = head;
+        ListNode* curr = head->next;
+        int first = 0, last = 0;
+        int i = 1;
+        vector<int> ans(2, INT_MAX);
+        while (curr->next) {
+            if (curr->val < min(prev->val, curr->next->val) || curr->val > max(prev->val, curr->next->val)) {
+                if (last == 0)
+                    first = i;
+                else {
+                    ans[0] = min(ans[0], i - last);
+                    ans[1] = i - first;
+                }
+                last = i;
+            }
+            ++i;
+            prev = curr;
+            curr = curr->next;
+        }
+        if (first == last) return {-1, -1};
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func nodesBetweenCriticalPoints(head *ListNode) []int {
+	prev, curr := head, head.Next
+	first, last := 0, 0
+	i := 1
+	ans := []int{math.MaxInt32, 0}
+	for curr.Next != nil {
+		if curr.Val < min(prev.Val, curr.Next.Val) || curr.Val > max(prev.Val, curr.Next.Val) {
+			if last == 0 {
+				first, last = i, i
+			} else {
+				ans[0] = min(ans[0], i-last)
+				ans[1] = i - first
+				last = i
+			}
+		}
+		i++
+		prev, curr = curr, curr.Next
+	}
+	if first == last {
+		return []int{-1, -1}
+	}
+	return ans
+}
+```
 
 ```ts
 /**
@@ -175,86 +243,6 @@ function nodesBetweenCriticalPoints(head: ListNode | null): number[] {
 }
 ```
 
-### **C++**
-
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        ListNode* prev = head;
-        ListNode* curr = head->next;
-        int first = 0, last = 0;
-        int i = 1;
-        vector<int> ans(2, INT_MAX);
-        while (curr->next) {
-            if (curr->val < min(prev->val, curr->next->val) || curr->val > max(prev->val, curr->next->val)) {
-                if (last == 0)
-                    first = i;
-                else {
-                    ans[0] = min(ans[0], i - last);
-                    ans[1] = i - first;
-                }
-                last = i;
-            }
-            ++i;
-            prev = curr;
-            curr = curr->next;
-        }
-        if (first == last) return {-1, -1};
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func nodesBetweenCriticalPoints(head *ListNode) []int {
-	prev, curr := head, head.Next
-	first, last := 0, 0
-	i := 1
-	ans := []int{math.MaxInt32, 0}
-	for curr.Next != nil {
-		if curr.Val < min(prev.Val, curr.Next.Val) || curr.Val > max(prev.Val, curr.Next.Val) {
-			if last == 0 {
-				first, last = i, i
-			} else {
-				ans[0] = min(ans[0], i-last)
-				ans[1] = i - first
-				last = i
-			}
-		}
-		i++
-		prev, curr = curr, curr.Next
-	}
-	if first == last {
-		return []int{-1, -1}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

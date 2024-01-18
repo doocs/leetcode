@@ -47,15 +47,13 @@ There is no root-to-leaf path with sum = 5.
 
 ## Solutions
 
-**Solution 1: Recursion**
+### Solution 1: Recursion
 
 Starting from the root node, recursively traverse the tree and update the value of the node to the path sum from the root node to that node. When you traverse to a leaf node, determine whether this path sum is equal to the target value. If it is equal, return `true`, otherwise return `false`.
 
 The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. Each node is visited once.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -76,8 +74,6 @@ class Solution:
 
         return dfs(root, 0)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -113,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -141,8 +135,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -167,8 +159,6 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	return dfs(root, 0)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -196,8 +186,6 @@ function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
     return hasPathSum(left, targetSum - val) || hasPathSum(right, targetSum - val);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -239,8 +227,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -266,10 +252,6 @@ var hasPathSum = function (root, targetSum) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

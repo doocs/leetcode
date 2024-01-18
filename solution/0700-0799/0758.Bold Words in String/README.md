@@ -44,17 +44,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树 + 区间合并**
+### 方法一：前缀树 + 区间合并
 
 相似题目：[1065. 字符串的索引对](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README.md)、[616. 给字符串添加加粗标签](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -117,10 +111,6 @@ class Solution:
 
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -199,8 +189,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Trie {
 public:
@@ -269,8 +257,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -348,10 +334,6 @@ func boldWords(words []string, s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

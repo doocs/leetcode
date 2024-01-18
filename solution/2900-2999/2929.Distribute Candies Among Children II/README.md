@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：组合数学 + 容斥原理**
+### 方法一：组合数学 + 容斥原理
 
 根据题目描述，我们需要将 $n$ 个糖果分给 $3$ 个小孩，每个小孩分到的糖果数在 $[0, limit]$ 之间。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             ans += 3 * comb(n - 2 * limit, 2)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -96,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distributeCandies(n int, limit int) int64 {
 	comb2 := func(n int) int {
@@ -130,7 +116,7 @@ func distributeCandies(n int, limit int) int64 {
 	if n > 3*limit {
 		return 0
 	}
-	ans := comb2(n+2)
+	ans := comb2(n + 2)
 	if n > limit {
 		ans -= 3 * comb2(n-limit+1)
 	}
@@ -140,8 +126,6 @@ func distributeCandies(n int, limit int) int64 {
 	return int64(ans)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function distributeCandies(n: number, limit: number): number {
@@ -160,10 +144,6 @@ function distributeCandies(n: number, limit: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

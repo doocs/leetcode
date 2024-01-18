@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次遍历**
+### 方法一：两次遍历
 
 我们先从后往前遍历数组 $nums$，找到第一个满足 $nums[i] \lt nums[i + 1]$ 的位置 $i$，那么 $nums[i]$ 就是我们需要交换的元素，而 $nums[i + 1]$ 到 $nums[n - 1]$ 的元素是一个降序序列。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
             nums[i], nums[j] = nums[j], nums[i]
         nums[i + 1 :] = nums[i + 1 :][::-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nextPermutation(nums []int) {
 	n := len(nums)
@@ -166,8 +152,6 @@ func nextPermutation(nums []int) {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function nextPermutation(nums: number[]): void {
@@ -190,7 +174,29 @@ function nextPermutation(nums: number[]): void {
 }
 ```
 
-### **C#**
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var nextPermutation = function (nums) {
+    const n = nums.length;
+    let i = n - 2;
+    while (i >= 0 && nums[i] >= nums[i + 1]) {
+        --i;
+    }
+    if (i >= 0) {
+        let j = n - 1;
+        while (j > i && nums[j] <= nums[i]) {
+            --j;
+        }
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+    for (i = i + 1, j = n - 1; i < j; ++i, --j) {
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+};
+```
 
 ```cs
 public class Solution {
@@ -221,36 +227,6 @@ public class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
- */
-var nextPermutation = function (nums) {
-    const n = nums.length;
-    let i = n - 2;
-    while (i >= 0 && nums[i] >= nums[i + 1]) {
-        --i;
-    }
-    if (i >= 0) {
-        let j = n - 1;
-        while (j > i && nums[j] <= nums[i]) {
-            --j;
-        }
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    }
-    for (i = i + 1, j = n - 1; i < j; ++i, --j) {
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    }
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

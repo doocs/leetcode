@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二进制枚举**
+### 方法一：二进制枚举
 
 我们注意到，换楼请求列表长度不超过 $16$，因此我们可以使用二进制枚举的方法枚举所有的换楼请求列表。具体地，我们可以使用一个长度为 $16$ 的二进制数来表示一种换楼请求列表，其中第 $i$ 位为 $1$ 表示第 $i$ 个换楼请求被选中，为 $0$ 表示第 $i$ 个换楼请求不被选中。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(2^m \times (m + n))$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是换楼请求列表的长度和楼的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
                 ans = cnt
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -141,8 +131,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -177,8 +165,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumRequests(n int, requests [][]int) (ans int) {
 	m := len(requests)
@@ -207,8 +193,6 @@ func maximumRequests(n int, requests [][]int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumRequests(n: number, requests: number[][]): number {
@@ -243,8 +227,6 @@ function bitCount(i: number): number {
     return i & 0x3f;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -285,10 +267,6 @@ function bitCount(i) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

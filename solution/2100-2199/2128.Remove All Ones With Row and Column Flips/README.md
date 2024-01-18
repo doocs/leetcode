@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们观察发现，如果矩阵中的两行满足以下条件之一，则它们可以通过翻转某些列的方式得到相等的行：
 
@@ -76,10 +74,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def removeOnes(self, grid: List[List[int]]) -> bool:
@@ -89,10 +83,6 @@ class Solution:
             s.add(t)
         return len(s) == 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func removeOnes(grid [][]int) bool {
@@ -149,8 +135,6 @@ func removeOnes(grid [][]int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function removeOnes(grid: number[][]): boolean {
     const s = new Set<string>();
@@ -167,10 +151,6 @@ function removeOnes(grid: number[][]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

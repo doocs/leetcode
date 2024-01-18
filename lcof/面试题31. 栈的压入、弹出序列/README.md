@@ -38,9 +38,7 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈模拟**
+### 方法一：栈模拟
 
 遍历 `pushed` 序列，将每个数 `v` 依次压入栈中，压入后检查这个数是不是 `popped` 序列中下一个要弹出的值，如果是就循环把栈顶元素弹出。
 
@@ -49,10 +47,6 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是 `pushed` 序列的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -65,10 +59,6 @@ class Solution:
                 j += 1
         return j == len(pushed)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func validateStackSequences(pushed []int, popped []int) bool {
 	stk := []int{}
@@ -124,8 +110,6 @@ func validateStackSequences(pushed []int, popped []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function validateStackSequences(pushed: number[], popped: number[]): boolean {
     const stk = [];
@@ -140,28 +124,6 @@ function validateStackSequences(pushed: number[], popped: number[]): boolean {
     return j == pushed.length;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool ValidateStackSequences(int[] pushed, int[] popped) {
-        Stack<int> stk = new Stack<int>();
-        int j = 0;
-        foreach (int x in pushed)
-        {
-            stk.Push(x);
-            while (stk.Count != 0 && stk.Peek() == popped[j]) {
-                stk.Pop();
-                ++j;
-            }
-        }
-        return stk.Count == 0;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -179,8 +141,6 @@ impl Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -202,10 +162,24 @@ var validateStackSequences = function (pushed, popped) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool ValidateStackSequences(int[] pushed, int[] popped) {
+        Stack<int> stk = new Stack<int>();
+        int j = 0;
+        foreach (int x in pushed)
+        {
+            stk.Push(x);
+            while (stk.Count != 0 && stk.Peek() == popped[j]) {
+                stk.Pop();
+                ++j;
+            }
+        }
+        return stk.Count == 0;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

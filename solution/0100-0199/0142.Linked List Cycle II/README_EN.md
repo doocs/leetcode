@@ -49,7 +49,7 @@
 
 ## Solutions
 
-**Solution 1: Two Pointers**
+### Solution 1: Two Pointers
 
 We first use the fast and slow pointers to judge whether the linked list has a ring. If there is a ring, the fast and slow pointers will definitely meet, and the meeting node must be in the ring.
 
@@ -70,8 +70,6 @@ That is to say, if we define an answer pointer $ans$ to point to the head of the
 The time complexity is $O(n)$, where $n$ is the number of nodes in the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -94,8 +92,6 @@ class Solution:
                     slow = slow.next
                 return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -129,8 +125,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -162,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -189,8 +181,6 @@ func detectCycle(head *ListNode) *ListNode {
 	return nil
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -223,8 +213,6 @@ function detectCycle(head: ListNode | null): ListNode | null {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for singly-linked list.
@@ -256,10 +244,6 @@ var detectCycle = function (head) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

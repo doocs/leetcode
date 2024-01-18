@@ -55,15 +55,11 @@ Customers</code> 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 利用 `recursive` 关键字，递归生成 `[1, 100]` 的序列，然后排除已有的 `customer_id`，即可得到结果。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -94,3 +90,5 @@ WHERE
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

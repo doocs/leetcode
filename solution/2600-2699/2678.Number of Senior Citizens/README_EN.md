@@ -45,7 +45,7 @@
 
 ## Solutions
 
-**Solution 1: Traversal and Counting**
+### Solution 1: Traversal and Counting
 
 We can traverse each string $x$ in `details` and convert the $12$th and $13$th characters (indexed at $11$ and $12$) of $x$ to integers, and check if they are greater than $60$. If so, we add one to the answer.
 
@@ -55,15 +55,11 @@ The time complexity is $O(n)$, where $n$ is the length of `details`. The space c
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def countSeniors(self, details: List[str]) -> int:
         return sum(int(x[11:13]) > 60 for x in details)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSeniors(details []string) (ans int) {
 	for _, x := range details {
@@ -110,7 +102,18 @@ func countSeniors(details []string) (ans int) {
 }
 ```
 
-### **Rust**
+```ts
+function countSeniors(details: string[]): number {
+    let ans = 0;
+    for (const x of details) {
+        const age = parseInt(x.slice(11, 13));
+        if (age > 60) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -130,6 +133,18 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function countSeniors(details: string[]): number {
+    return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
+}
+```
+
 ```rust
 impl Solution {
     pub fn count_seniors(details: Vec<String>) -> i32 {
@@ -142,31 +157,6 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countSeniors(details: string[]): number {
-    let ans = 0;
-    for (const x of details) {
-        const age = parseInt(x.slice(11, 13));
-        if (age > 60) {
-            ++ans;
-        }
-    }
-    return ans;
-}
-```
-
-```ts
-function countSeniors(details: string[]): number {
-    return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

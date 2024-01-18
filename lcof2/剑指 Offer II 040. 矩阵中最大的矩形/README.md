@@ -65,19 +65,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 把每一行视为柱状图的底部，对每一行求柱状图的最大面积即可。
 
 时间复杂度 $O(mn)$，其中 $m$ 表示 $matrix$ 的行数，$n$ 表示 $matrix$ 的列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -116,10 +110,6 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -164,13 +154,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
--   首先在柱状图中求最大矩形面积可以通过单调栈，维护每一列的左边第一个比它小的位置 $L$，和右边第一个比它小的位置 $R$，就能得到以这一列为高的最大矩形面积为 $(R-L-1)*h$。
--   考虑每一行作为底边的柱状图中，能够得到的最大的矩形面积。再对每一行的最大面积取 $max$ 就是最终的答案。
--   柱状图中每一列的高可以通过类似前缀和的方式去维护。
--   假设矩阵大小为 $n*m$，那么时间复杂为 $O(nm)$，空间复杂度为 $O(m)$。
-
 ```cpp
 class Solution {
 public:
@@ -204,48 +187,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int maximalRectangle(vector<string>& matrix) {
-        if (matrix.empty()) return 0;
-        int n = matrix[0].size();
-        vector<int> heights(n);
-        int ans = 0;
-        for (auto& row : matrix) {
-            for (int j = 0; j < n; ++j) {
-                if (row[j] == '1')
-                    ++heights[j];
-                else
-                    heights[j] = 0;
-            }
-            ans = max(ans, largestRectangleArea(heights));
-        }
-        return ans;
-    }
-
-    int largestRectangleArea(vector<int>& heights) {
-        int res = 0, n = heights.size();
-        stack<int> stk;
-        vector<int> left(n, -1);
-        vector<int> right(n, n);
-        for (int i = 0; i < n; ++i) {
-            while (!stk.empty() && heights[stk.top()] >= heights[i]) {
-                right[stk.top()] = i;
-                stk.pop();
-            }
-            if (!stk.empty()) left[i] = stk.top();
-            stk.push(i);
-        }
-        for (int i = 0; i < n; ++i)
-            res = max(res, heights[i] * (right[i] - left[i] - 1));
-        return res;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func maximalRectangle(matrix []string) int {
@@ -294,10 +235,52 @@ func largestRectangleArea(heights []int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```cpp
+class Solution {
+public:
+    int maximalRectangle(vector<string>& matrix) {
+        if (matrix.empty()) return 0;
+        int n = matrix[0].size();
+        vector<int> heights(n);
+        int ans = 0;
+        for (auto& row : matrix) {
+            for (int j = 0; j < n; ++j) {
+                if (row[j] == '1')
+                    ++heights[j];
+                else
+                    heights[j] = 0;
+            }
+            ans = max(ans, largestRectangleArea(heights));
+        }
+        return ans;
+    }
+
+    int largestRectangleArea(vector<int>& heights) {
+        int res = 0, n = heights.size();
+        stack<int> stk;
+        vector<int> left(n, -1);
+        vector<int> right(n, n);
+        for (int i = 0; i < n; ++i) {
+            while (!stk.empty() && heights[stk.top()] >= heights[i]) {
+                right[stk.top()] = i;
+                stk.pop();
+            }
+            if (!stk.empty()) left[i] = stk.top();
+            stk.push(i);
+        }
+        for (int i = 0; i < n; ++i)
+            res = max(res, heights[i] * (right[i] - left[i] - 1));
+        return res;
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

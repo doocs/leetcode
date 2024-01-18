@@ -1,11 +1,15 @@
 func minimumDeletions(s string) int {
-	ans, b := 0, 0
-	for _, c := range s {
+	n := len(s)
+	f := make([]int, n+1)
+	b := 0
+	for i, c := range s {
+		i++
 		if c == 'b' {
+			f[i] = f[i-1]
 			b++
 		} else {
-			ans = min(ans+1, b)
+			f[i] = min(f[i-1]+1, b)
 		}
 	}
-	return ans
+	return f[n]
 }

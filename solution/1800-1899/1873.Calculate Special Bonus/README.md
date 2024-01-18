@@ -61,17 +61,11 @@ Employees 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：IF 语句 + ORDER BY 子句**
+### 方法一：IF 语句 + ORDER BY 子句
 
 我们可以使用 `IF` 语句来判断奖金的计算方式，然后使用 `ORDER BY` 将结果按照 `employee_id` 排序。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -89,3 +83,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

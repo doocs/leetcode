@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 双指针**
+### 方法一：哈希表 + 双指针
 
 如果一个子数组中包含 $k$ 对相同的元素，那么包含这个子数组的数组一定至少包含 $k$ 对相同的元素。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                 ans += i + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countGood(nums []int, k int) int64 {
 	cnt := map[int]int{}
@@ -153,10 +139,6 @@ func countGood(nums []int, k int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -67,9 +67,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function areDeeplyEqual(o1: any, o2: any): boolean {
@@ -108,10 +108,6 @@ function areDeeplyEqual(o1: any, o2: any): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

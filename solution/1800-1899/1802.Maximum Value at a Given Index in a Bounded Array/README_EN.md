@@ -45,9 +45,24 @@ There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Binary Search
 
-### **Python3**
+According to the problem description, if we determine the value of $nums[index]$ as $x$, we can find a minimum array sum. That is, the elements on the left side of $index$ in the array decrease from $x-1$ to $1$, and if there are remaining elements, the remaining elements are all $1$; similarly, the elements at $index$ and on the right side of the array decrease from $x$ to $1$, and if there are remaining elements, the remaining elements are all $1$.
+
+In this way, we can calculate the sum of the array. If the sum is less than or equal to $maxSum$, then the current $x$ is valid. As $x$ increases, the sum of the array will also increase, so we can use the binary search method to find the maximum $x$ that meets the conditions.
+
+To facilitate the calculation of the sum of the elements on the left and right sides of the array, we define a function $sum(x, cnt)$, which represents the sum of an array with $cnt$ elements and a maximum value of $x$. The function $sum(x, cnt)$ can be divided into two cases:
+
+-   If $x \geq cnt$, then the sum of the array is $\frac{(x + x - cnt + 1) \times cnt}{2}$
+-   If $x \lt cnt$, then the sum of the array is $\frac{(x + 1) \times x}{2} + cnt - x$
+
+Next, define the left boundary of the binary search as $left = 1$, the right boundary as $right = maxSum$, and then binary search for the value $mid$ of $nums[index]$. If $sum(mid - 1, index) + sum(mid, n - index) \leq maxSum$, then the current $mid$ is valid, we can update $left$ to $mid$, otherwise we update $right$ to $mid - 1$.
+
+Finally, return $left$ as the answer.
+
+The time complexity is $O(\log M)$, where $M=maxSum$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +81,6 @@ class Solution:
                 right = mid - 1
         return left
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxValue(n int, index int, maxSum int) int {
 	sum := func(x, cnt int) int {
@@ -130,10 +139,6 @@ func maxValue(n int, index int, maxSum int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,9 @@ The quantity for Wristwatch and WirelessEarbuds are filled by 0.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
@@ -57,10 +57,6 @@ def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:
     return products
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

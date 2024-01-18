@@ -74,19 +74,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们先调用 `BinaryMatrix.dimensions()` 得到矩阵的行数 $m$ 和列数 $n$，然后对于每一行，我们使用二分查找来找到最左边的 $1$ 所在的列数 $j$，找出所有行中最小的满足 $j$ 的值即为答案。如果不存在这样的列，则返回 $-1$。
 
 时间复杂度 $O(m \times \log n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。需要遍历每一行，每一行内使用二分查找，时间复杂度为 $O(\log n)$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -107,10 +101,6 @@ class Solution:
             ans = min(ans, j)
         return -1 if ans >= n else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -143,8 +133,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -180,8 +168,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the BinaryMatrix's API interface.
@@ -215,8 +201,6 @@ func leftMostColumnWithOne(binaryMatrix BinaryMatrix) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * // This is the BinaryMatrix's API interface.
@@ -247,9 +231,8 @@ function leftMostColumnWithOne(binaryMatrix: BinaryMatrix) {
 }
 ```
 
-### **Rust**
-
 ```rust
+
 /**
  * // This is the BinaryMatrix's API interface.
  * // You should not implement it, or speculate about its implementation
@@ -289,8 +272,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
 ```cs
 /**
  * // This is BinaryMatrix's API interface.
@@ -323,10 +304,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

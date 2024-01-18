@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 我们定义一棵前缀树，前缀树每个节点有两个属性，一个是长度为 $26$ 的子节点数组 `children`，另一个是是否为单词结尾的标记 `isEnd`。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(\sum_{w \in words} |w|)$，空间复杂度 $O(\sum_{w \in words} |w|)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -105,10 +99,6 @@ class Solution:
                 ans = w
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -160,8 +150,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -217,8 +205,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -268,8 +254,6 @@ func longestWord(words []string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class Trie {
     private children: (Trie | null)[] = Array(26).fill(null);
@@ -314,8 +298,6 @@ function longestWord(words: string[]): string {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 struct Trie {
@@ -372,8 +354,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Trie {
     private Trie[] children = new Trie[26];
@@ -424,10 +404,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

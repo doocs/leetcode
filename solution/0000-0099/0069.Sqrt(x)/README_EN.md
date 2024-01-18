@@ -38,83 +38,92 @@
 
 ## Solutions
 
-Binary search.
+### Solution 1: Binary Search
+
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = x$, then we search for the square root within the range $[l, r]$.
+
+In each step of the search, we find the middle value $mid = (l + r + 1) / 2$. If $mid > x / mid$, it means the square root is within the range $[l, mid - 1]$, so we set $r = mid - 1$. Otherwise, it means the square root is within the range $[mid, r]$, so we set $l = mid$.
+
+After the search ends, we return $l$.
+
+The time complexity is $O(\log x)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
-        left, right = 0, x
-        while left < right:
-            mid = (left + right + 1) >> 1
-            # mid*mid <= x
-            if mid <= x // mid:
-                left = mid
+        l, r = 0, x
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if mid > x // mid:
+                r = mid - 1
             else:
-                right = mid - 1
-        return left
+                l = mid
+        return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
     public int mySqrt(int x) {
-        int left = 0, right = x;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (mid <= x / mid) {
-                // mid*mid <= x
-                left = mid;
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1) >>> 1;
+            if (mid > x / mid) {
+                r = mid - 1;
             } else {
-                right = mid - 1;
+                l = mid;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
     int mySqrt(int x) {
-        long long left = 0, right = x;
-        while (left < right) {
-            long long mid = left + ((right - left + 1) >> 1);
-            if (mid <= x / mid)
-                left = mid;
-            else
-                right = mid - 1;
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1ll) >> 1;
+            if (mid > x / mid) {
+                r = mid - 1;
+            } else {
+                l = mid;
+            }
         }
-        return (int) left;
+        return l;
     }
 };
 ```
 
-### **Go**
-
 ```go
 func mySqrt(x int) int {
-	left, right := 0, x
-	for left < right {
-		mid := left + (right-left+1)>>1
-		if mid <= x/mid {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
+	return sort.Search(x+1, func(i int) bool { return i*i > x }) - 1
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn my_sqrt(x: i32) -> i32 {
+        let mut l = 0;
+        let mut r = x;
+
+        while l < r {
+            let mid = (l + r + 1) / 2;
+
+            if mid > x / mid {
+                r = mid - 1;
+            } else {
+                l = mid;
+            }
+        }
+
+        l
+    }
+}
+```
 
 ```js
 /**
@@ -122,70 +131,36 @@ func mySqrt(x int) int {
  * @return {number}
  */
 var mySqrt = function (x) {
-    let left = 0;
-    let right = x;
-    while (left < right) {
-        const mid = (left + right + 1) >>> 1;
-        if (mid <= x / mid) {
-            left = mid;
+    let [l, r] = [0, x];
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (mid > x / mid) {
+            r = mid - 1;
         } else {
-            right = mid - 1;
+            l = mid;
         }
     }
-    return left;
+    return l;
 };
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
     public int MySqrt(int x) {
-        int left = 0, right = x;
-        while (left < right)
-        {
-            int mid = left + right + 1 >> 1;
-            if (mid <= x / mid)
-            {
-                left = mid;
-            }
-            else
-            {
-                right = mid - 1;
-            }
-        }
-        return left;
-    }
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn my_sqrt(x: i32) -> i32 {
-        if x < 2 {
-            return x;
-        }
-        let mut l = 1;
-        let mut r = x / 2;
-        while l < r {
-            let mid = (l + r + 1) >> 1;
-            if x / mid < mid {
+        int l = 0, r = x;
+        while (l < r) {
+            int mid = (l + r + 1) >>> 1;
+            if (mid > x / mid) {
                 r = mid - 1;
             } else {
                 l = mid;
             }
         }
-        l
+        return l;
     }
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

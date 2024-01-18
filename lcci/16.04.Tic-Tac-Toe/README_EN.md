@@ -51,7 +51,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 For each cell, if it is `X`, we can add $1$ to the count; if it is `O`, we can subtract $1$ from the count. When the absolute value of the count of a row, column, or diagonal equals $n$, it means that the current player has placed $n$ identical characters in that row, column, or diagonal, and the game is over. We can return the corresponding character.
 
@@ -62,8 +62,6 @@ Finally, we traverse the entire board. If there is a character ` `, it means tha
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the side length of the board.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,12 +83,15 @@ class Solution:
                     dg += v
                 if i + j + 1 == n:
                     udg += v
-                if abs(rows[i]) == n or abs(cols[j]) == n or abs(dg) == n or abs(udg) == n:
+                if (
+                    abs(rows[i]) == n
+                    or abs(cols[j]) == n
+                    or abs(dg) == n
+                    or abs(udg) == n
+                ):
                     return c
         return 'Pending' if has_empty_grid else 'Draw'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +161,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func tictactoe(board []string) string {
@@ -209,8 +206,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function tictactoe(board: string[]): string {
     const n = board.length;
@@ -248,10 +243,6 @@ function tictactoe(board: string[]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

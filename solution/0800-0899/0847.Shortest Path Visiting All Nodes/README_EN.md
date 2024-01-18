@@ -39,11 +39,9 @@
 
 ## Solutions
 
-Because each edge has the same weight, the shortest path can be solution by using BFS, and the access of the point can be recorded by state compression.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,35 +65,6 @@ class Solution:
                         q.append((j, nst))
             ans += 1
 ```
-
-A\* search:
-
-```python
-class Solution:
-    def shortestPathLength(self, graph: List[List[int]]) -> int:
-        n = len(graph)
-
-        def f(state):
-            return sum(((state >> i) & 1) == 0 for i in range(n))
-
-        q = []
-        dist = [[inf] * (1 << n) for _ in range(n)]
-        for i in range(n):
-            heappush(q, (f(1 << i), i, 1 << i))
-            dist[i][1 << i] = 0
-        while q:
-            _, u, state = heappop(q)
-            if state == (1 << n) - 1:
-                return dist[u][state]
-            for v in graph[u]:
-                nxt = state | (1 << v)
-                if dist[v][nxt] > dist[u][state] + 1:
-                    dist[v][nxt] = dist[u][state] + 1
-                    heappush(q, (dist[v][nxt] + f(nxt), v, nxt))
-        return 0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,7 +96,162 @@ class Solution {
 }
 ```
 
-A\* search:
+```cpp
+class Solution {
+public:
+    int shortestPathLength(vector<vector<int>>& graph) {
+        int n = graph.size();
+        queue<pair<int, int>> q;
+        bool vis[n][1 << n];
+        memset(vis, false, sizeof(vis));
+        for (int i = 0; i < n; ++i) {
+            q.emplace(i, 1 << i);
+            vis[i][1 << i] = true;
+        }
+        for (int ans = 0;; ++ans) {
+            for (int k = q.size(); k; --k) {
+                auto [i, st] = q.front();
+                q.pop();
+                if (st == (1 << n) - 1) {
+                    return ans;
+                }
+                for (int j : graph[i]) {
+                    int nst = st | 1 << j;
+                    if (!vis[j][nst]) {
+                        vis[j][nst] = true;
+                        q.emplace(j, nst);
+                    }
+                }
+            }
+        }
+    }
+};
+```
+
+```go
+func shortestPathLength(graph [][]int) int {
+	n := len(graph)
+	q := [][2]int{}
+	vis := make([][]bool, n)
+	for i := range vis {
+		vis[i] = make([]bool, 1<<n)
+		vis[i][1<<i] = true
+		q = append(q, [2]int{i, 1 << i})
+	}
+	for ans := 0; ; ans++ {
+		for k := len(q); k > 0; k-- {
+			p := q[0]
+			q = q[1:]
+			i, st := p[0], p[1]
+			if st == (1<<n)-1 {
+				return ans
+			}
+			for _, j := range graph[i] {
+				nst := st | 1<<j
+				if !vis[j][nst] {
+					vis[j][nst] = true
+					q = append(q, [2]int{j, nst})
+				}
+			}
+		}
+	}
+}
+```
+
+```ts
+function shortestPathLength(graph: number[][]): number {
+    const n = graph.length;
+    const q: number[][] = [];
+    const vis: boolean[][] = new Array(n).fill(false).map(() => new Array(1 << n).fill(false));
+    for (let i = 0; i < n; ++i) {
+        q.push([i, 1 << i]);
+        vis[i][1 << i] = true;
+    }
+    for (let ans = 0; ; ++ans) {
+        for (let k = q.length; k; --k) {
+            const [i, st] = q.shift()!;
+            if (st === (1 << n) - 1) {
+                return ans;
+            }
+            for (const j of graph[i]) {
+                const nst = st | (1 << j);
+                if (!vis[j][nst]) {
+                    vis[j][nst] = true;
+                    q.push([j, nst]);
+                }
+            }
+        }
+    }
+}
+```
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    #[allow(dead_code)]
+    pub fn shortest_path_length(graph: Vec<Vec<i32>>) -> i32 {
+        let n = graph.len();
+        let mut vis = vec![vec![false; 1 << n]; n];
+        let mut q = VecDeque::new();
+
+        // Initialize the queue
+        for i in 0..n {
+            q.push_back(((i, 1 << i), 0));
+            vis[i][1 << i] = true;
+        }
+
+        // Begin BFS
+        while !q.is_empty() {
+            let ((i, st), count) = q.pop_front().unwrap();
+            if st == (1 << n) - 1 {
+                return count;
+            }
+            // If the path has not been visited
+            for j in &graph[i] {
+                let nst = st | (1 << *j);
+                if !vis[*j as usize][nst] {
+                    q.push_back(((*j as usize, nst), count + 1));
+                    vis[*j as usize][nst] = true;
+                }
+            }
+        }
+
+        -1
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def shortestPathLength(self, graph: List[List[int]]) -> int:
+        n = len(graph)
+
+        def f(state):
+            return sum(((state >> i) & 1) == 0 for i in range(n))
+
+        q = []
+        dist = [[inf] * (1 << n) for _ in range(n)]
+        for i in range(n):
+            heappush(q, (f(1 << i), i, 1 << i))
+            dist[i][1 << i] = 0
+        while q:
+            _, u, state = heappop(q)
+            if state == (1 << n) - 1:
+                return dist[u][state]
+            for v in graph[u]:
+                nxt = state | (1 << v)
+                if dist[v][nxt] > dist[u][state] + 1:
+                    dist[v][nxt] = dist[u][state] + 1
+                    heappush(q, (dist[v][nxt] + f(nxt), v, nxt))
+        return 0
+```
 
 ```java
 class Solution {
@@ -173,42 +297,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int shortestPathLength(vector<vector<int>>& graph) {
-        int n = graph.size();
-        queue<pair<int, int>> q;
-        bool vis[n][1 << n];
-        memset(vis, false, sizeof(vis));
-        for (int i = 0; i < n; ++i) {
-            q.emplace(i, 1 << i);
-            vis[i][1 << i] = true;
-        }
-        for (int ans = 0;; ++ans) {
-            for (int k = q.size(); k; --k) {
-                auto [i, st] = q.front();
-                q.pop();
-                if (st == (1 << n) - 1) {
-                    return ans;
-                }
-                for (int j : graph[i]) {
-                    int nst = st | 1 << j;
-                    if (!vis[j][nst]) {
-                        vis[j][nst] = true;
-                        q.emplace(j, nst);
-                    }
-                }
-            }
-        }
-    }
-};
-```
-
-A\* search:
-
 ```cpp
 class Solution {
 public:
@@ -247,110 +335,6 @@ public:
 };
 ```
 
-### **Rust**
-
-```rust
-use std::collections::VecDeque;
-
-impl Solution {
-    #[allow(dead_code)]
-    pub fn shortest_path_length(graph: Vec<Vec<i32>>) -> i32 {
-        let n = graph.len();
-        let mut vis = vec![vec![false; 1 << n]; n];
-        let mut q = VecDeque::new();
-
-        // Initialize the queue
-        for i in 0..n {
-            q.push_back(((i, 1 << i), 0));
-            vis[i][1 << i] = true;
-        }
-
-        // Begin BFS
-        while !q.is_empty() {
-            let ((i, st), count) = q.pop_front().unwrap();
-            if st == (1 << n) - 1 {
-                return count;
-            }
-            // If the path has not been visited
-            for j in &graph[i] {
-                let nst = st | (1 << *j);
-                if !vis[*j as usize][nst] {
-                    q.push_back(((*j as usize, nst), count + 1));
-                    vis[*j as usize][nst] = true;
-                }
-            }
-        }
-
-        -1
-    }
-}
-```
-
-### **Go**
-
-```go
-func shortestPathLength(graph [][]int) int {
-	n := len(graph)
-	q := [][2]int{}
-	vis := make([][]bool, n)
-	for i := range vis {
-		vis[i] = make([]bool, 1<<n)
-		vis[i][1<<i] = true
-		q = append(q, [2]int{i, 1 << i})
-	}
-	for ans := 0; ; ans++ {
-		for k := len(q); k > 0; k-- {
-			p := q[0]
-			q = q[1:]
-			i, st := p[0], p[1]
-			if st == (1<<n)-1 {
-				return ans
-			}
-			for _, j := range graph[i] {
-				nst := st | 1<<j
-				if !vis[j][nst] {
-					vis[j][nst] = true
-					q = append(q, [2]int{j, nst})
-				}
-			}
-		}
-	}
-}
-```
-
-### **TypeScript**
-
-```ts
-function shortestPathLength(graph: number[][]): number {
-    const n = graph.length;
-    const q: number[][] = [];
-    const vis: boolean[][] = new Array(n).fill(false).map(() => new Array(1 << n).fill(false));
-    for (let i = 0; i < n; ++i) {
-        q.push([i, 1 << i]);
-        vis[i][1 << i] = true;
-    }
-    for (let ans = 0; ; ++ans) {
-        for (let k = q.length; k; --k) {
-            const [i, st] = q.shift()!;
-            if (st === (1 << n) - 1) {
-                return ans;
-            }
-            for (const j of graph[i]) {
-                const nst = st | (1 << j);
-                if (!vis[j][nst]) {
-                    vis[j][nst] = true;
-                    q.push([j, nst]);
-                }
-            }
-        }
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

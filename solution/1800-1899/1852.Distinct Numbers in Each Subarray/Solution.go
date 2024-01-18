@@ -1,16 +1,15 @@
 func distinctNumbers(nums []int, k int) []int {
 	cnt := map[int]int{}
-	for _, v := range nums[:k] {
-		cnt[v]++
+	for _, x := range nums[:k] {
+		cnt[x]++
 	}
 	ans := []int{len(cnt)}
 	for i := k; i < len(nums); i++ {
-		u := nums[i-k]
-		cnt[u]--
-		if cnt[u] == 0 {
-			delete(cnt, u)
-		}
 		cnt[nums[i]]++
+		cnt[nums[i-k]]--
+		if cnt[nums[i-k]] == 0 {
+			delete(cnt, nums[i-k])
+		}
 		ans = append(ans, len(cnt))
 	}
 	return ans

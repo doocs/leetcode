@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 初始，判断数组首尾元素的大小关系，若 `nums[0] <= nums[n - 1]` 条件成立，则说明当前数组已经是递增数组，最小值一定是数组第一个元素，提前返回 `nums[0]`。
 
@@ -74,10 +72,6 @@
 时间复杂度：$O(logN)$
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
                 right = mid
         return nums[left]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,8 +127,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMin(nums []int) int {
@@ -161,27 +147,21 @@ func findMin(nums []int) int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var findMin = function (nums) {
-    let l = 0,
-        r = nums.length - 1;
-    if (nums[l] < nums[r]) return nums[0];
-    while (l < r) {
-        const m = (l + r) >> 1;
-        if (nums[m] > nums[r]) l = m + 1;
-        else r = m;
+```ts
+function findMin(nums: number[]): number {
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >>> 1;
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
     }
-    return nums[l];
-};
+    return nums[left];
+}
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -201,28 +181,24 @@ impl Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findMin(nums: number[]): number {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >>> 1;
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function (nums) {
+    let l = 0,
+        r = nums.length - 1;
+    if (nums[l] < nums[r]) return nums[0];
+    while (l < r) {
+        const m = (l + r) >> 1;
+        if (nums[m] > nums[r]) l = m + 1;
+        else r = m;
     }
-    return nums[left];
-}
-```
-
-### **...**
-
-```
-
+    return nums[l];
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

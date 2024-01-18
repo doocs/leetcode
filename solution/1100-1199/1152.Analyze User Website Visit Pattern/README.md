@@ -65,19 +65,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序**
+### 方法一：哈希表 + 排序
 
 我们先用哈希表 $d$ 记录每个用户访问的网站，然后遍历 $d$，对于每个用户，我们枚举其访问的所有三元组，统计去重三元组的出现次数，最后遍历所有三元组，返回出现次数最多的、字典序最小的三元组。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^3)$。其中 $n$ 是 `username` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
                 cnt[t] += 1
         return sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[0][0]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,8 +153,6 @@ class Node {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -218,8 +206,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostVisitedPattern(username []string, timestamp []int, website []string) []string {
 	d := map[string][]pair{}
@@ -262,10 +248,6 @@ type pair struct {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

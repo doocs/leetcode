@@ -6,11 +6,11 @@ class Solution:
         for i in range(n):
             f[i][i] = 1
         ans = 0
-        for i in range(n - 1, -1, -1):
+        for i in range(n - 2, -1, -1):
             for j in range(i + 1, n):
                 if s[i] == s[j]:
                     f[i][j] = f[i + 1][j - 1] + 2
-                    if i < len(word1) and j >= len(word1):
+                    if i < len(word1) <= j:
                         ans = max(ans, f[i][j])
                 else:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])

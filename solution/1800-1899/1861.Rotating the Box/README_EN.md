@@ -71,9 +71,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Queue Simulation
 
-### **Python3**
+First, we rotate the matrix 90 degrees clockwise, then simulate the falling process of the stones in each column.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -96,8 +100,6 @@ class Solution:
                     q.append(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +129,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +162,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rotateTheBox(box [][]byte) [][]byte {
 	m, n := len(box), len(box[0])
@@ -195,10 +193,6 @@ func rotateTheBox(box [][]byte) [][]byte {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

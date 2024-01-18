@@ -54,11 +54,9 @@ After move 5: [[1,2,3],[4,5,0]]
 
 ## Solutions
 
-A\* search.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -107,59 +105,6 @@ class Solution:
                         q.append(y)
         return -1
 ```
-
-A\* search:
-
-```python
-class Solution:
-    def slidingPuzzle(self, board: List[List[int]]) -> int:
-        m, n = 2, 3
-        seq = []
-        start, end = '', '123450'
-        for i in range(m):
-            for j in range(n):
-                if board[i][j] != 0:
-                    seq.append(board[i][j])
-                start += str(board[i][j])
-
-        def check(seq):
-            n = len(seq)
-            cnt = sum(seq[i] > seq[j] for i in range(n) for j in range(i, n))
-            return cnt % 2 == 0
-
-        def f(s):
-            ans = 0
-            for i in range(m * n):
-                if s[i] != '0':
-                    num = ord(s[i]) - ord('1')
-                    ans += abs(i // n - num // n) + abs(i % n - num % n)
-            return ans
-
-        if not check(seq):
-            return -1
-        q = [(f(start), start)]
-        dist = {start: 0}
-        while q:
-            _, state = heappop(q)
-            if state == end:
-                return dist[state]
-            p1 = state.index('0')
-            i, j = p1 // n, p1 % n
-            s = list(state)
-            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
-                x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n:
-                    p2 = x * n + y
-                    s[p1], s[p2] = s[p2], s[p1]
-                    next = ''.join(s)
-                    s[p1], s[p2] = s[p2], s[p1]
-                    if next not in dist or dist[next] > dist[state] + 1:
-                        dist[next] = dist[state] + 1
-                        heappush(q, (dist[next] + f(next), next))
-        return -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -250,7 +195,135 @@ class Solution {
 }
 ```
 
-A\* search:
+```cpp
+class Solution {
+public:
+    int slidingPuzzle(vector<vector<int>>& board) {
+        string start = gets(board);
+        string end = "123450";
+        if (start == end) return 0;
+        unordered_set<string> vis;
+        vis.insert(start);
+        queue<string> q{{start}};
+        int ans = 0;
+        while (!q.empty()) {
+            ++ans;
+            for (int n = q.size(); n > 0; --n) {
+                string x = q.front();
+                q.pop();
+                setb(x, board);
+                for (string y : next(board)) {
+                    if (y == end) return ans;
+                    if (!vis.count(y)) {
+                        vis.insert(y);
+                        q.push(y);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    string gets(vector<vector<int>>& board) {
+        string s = "";
+        for (int i = 0; i < 2; ++i)
+            for (int j = 0; j < 3; ++j)
+                s.push_back('0' + board[i][j]);
+        return s;
+    }
+
+    void setb(string s, vector<vector<int>>& board) {
+        for (int i = 0; i < 2; ++i)
+            for (int j = 0; j < 3; ++j)
+                board[i][j] = s[i * 3 + j] - '0';
+    }
+
+    vector<string> next(vector<vector<int>>& board) {
+        vector<string> res;
+        auto p = find0(board);
+        int i = p.first, j = p.second;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < 2 && y >= 0 && y < 3) {
+                swap(i, j, x, y, board);
+                res.push_back(gets(board));
+                swap(i, j, x, y, board);
+            }
+        }
+        return res;
+    }
+
+    void swap(int i, int j, int x, int y, vector<vector<int>>& board) {
+        int t = board[i][j];
+        board[i][j] = board[x][y];
+        board[x][y] = t;
+    }
+
+    pair<int, int> find0(vector<vector<int>>& board) {
+        for (int i = 0; i < 2; ++i)
+            for (int j = 0; j < 3; ++j)
+                if (board[i][j] == 0)
+                    return {i, j};
+        return {0, 0};
+    }
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def slidingPuzzle(self, board: List[List[int]]) -> int:
+        m, n = 2, 3
+        seq = []
+        start, end = '', '123450'
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] != 0:
+                    seq.append(board[i][j])
+                start += str(board[i][j])
+
+        def check(seq):
+            n = len(seq)
+            cnt = sum(seq[i] > seq[j] for i in range(n) for j in range(i, n))
+            return cnt % 2 == 0
+
+        def f(s):
+            ans = 0
+            for i in range(m * n):
+                if s[i] != '0':
+                    num = ord(s[i]) - ord('1')
+                    ans += abs(i // n - num // n) + abs(i % n - num % n)
+            return ans
+
+        if not check(seq):
+            return -1
+        q = [(f(start), start)]
+        dist = {start: 0}
+        while q:
+            _, state = heappop(q)
+            if state == end:
+                return dist[state]
+            p1 = state.index('0')
+            i, j = p1 // n, p1 % n
+            s = list(state)
+            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n:
+                    p2 = x * n + y
+                    s[p1], s[p2] = s[p2], s[p1]
+                    next = ''.join(s)
+                    s[p1], s[p2] = s[p2], s[p1]
+                    if next not in dist or dist[next] > dist[state] + 1:
+                        dist[next] = dist[state] + 1
+                        heappush(q, (dist[next] + f(next), next))
+        return -1
+```
 
 ```java
 class Solution {
@@ -336,85 +409,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int slidingPuzzle(vector<vector<int>>& board) {
-        string start = gets(board);
-        string end = "123450";
-        if (start == end) return 0;
-        unordered_set<string> vis;
-        vis.insert(start);
-        queue<string> q{{start}};
-        int ans = 0;
-        while (!q.empty()) {
-            ++ans;
-            for (int n = q.size(); n > 0; --n) {
-                string x = q.front();
-                q.pop();
-                setb(x, board);
-                for (string y : next(board)) {
-                    if (y == end) return ans;
-                    if (!vis.count(y)) {
-                        vis.insert(y);
-                        q.push(y);
-                    }
-                }
-            }
-        }
-        return -1;
-    }
-
-    string gets(vector<vector<int>>& board) {
-        string s = "";
-        for (int i = 0; i < 2; ++i)
-            for (int j = 0; j < 3; ++j)
-                s.push_back('0' + board[i][j]);
-        return s;
-    }
-
-    void setb(string s, vector<vector<int>>& board) {
-        for (int i = 0; i < 2; ++i)
-            for (int j = 0; j < 3; ++j)
-                board[i][j] = s[i * 3 + j] - '0';
-    }
-
-    vector<string> next(vector<vector<int>>& board) {
-        vector<string> res;
-        auto p = find0(board);
-        int i = p.first, j = p.second;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < 2 && y >= 0 && y < 3) {
-                swap(i, j, x, y, board);
-                res.push_back(gets(board));
-                swap(i, j, x, y, board);
-            }
-        }
-        return res;
-    }
-
-    void swap(int i, int j, int x, int y, vector<vector<int>>& board) {
-        int t = board[i][j];
-        board[i][j] = board[x][y];
-        board[x][y] = t;
-    }
-
-    pair<int, int> find0(vector<vector<int>>& board) {
-        for (int i = 0; i < 2; ++i)
-            for (int j = 0; j < 3; ++j)
-                if (board[i][j] == 0)
-                    return {i, j};
-        return {0, 0};
-    }
-};
-```
-
-A\* search:
-
 ```cpp
 class Solution {
 public:
@@ -482,10 +476,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

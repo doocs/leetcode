@@ -44,9 +44,9 @@ Note that there are other valid answers as [8, 3] that can be accepted.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,6 +56,50 @@ class Solution:
             if "0" not in str(a) + str(b):
                 return [a, b]
 ```
+
+```java
+class Solution {
+    public int[] getNoZeroIntegers(int n) {
+        for (int a = 1;; ++a) {
+            int b = n - a;
+            if (!(a + "" + b).contains("0")) {
+                return new int[] {a, b};
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> getNoZeroIntegers(int n) {
+        for (int a = 1;; ++a) {
+            int b = n - a;
+            if ((to_string(a) + to_string(b)).find('0') == -1) {
+                return {a, b};
+            }
+        }
+    }
+};
+```
+
+```go
+func getNoZeroIntegers(n int) []int {
+	for a := 1; ; a++ {
+		b := n - a
+		if !strings.Contains(strconv.Itoa(a)+strconv.Itoa(b), "0") {
+			return []int{a, b}
+		}
+	}
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,21 +115,6 @@ class Solution:
             b = n - a
             if f(a) and f(b):
                 return [a, b]
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int[] getNoZeroIntegers(int n) {
-        for (int a = 1;; ++a) {
-            int b = n - a;
-            if (!(a + "" + b).contains("0")) {
-                return new int[] {a, b};
-            }
-        }
-    }
-}
 ```
 
 ```java
@@ -110,22 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> getNoZeroIntegers(int n) {
-        for (int a = 1;; ++a) {
-            int b = n - a;
-            if ((to_string(a) + to_string(b)).find('0') == -1) {
-                return {a, b};
-            }
-        }
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -148,19 +161,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func getNoZeroIntegers(n int) []int {
-	for a := 1; ; a++ {
-		b := n - a
-		if !strings.Contains(strconv.Itoa(a)+strconv.Itoa(b), "0") {
-			return []int{a, b}
-		}
-	}
-}
-```
-
 ```go
 func getNoZeroIntegers(n int) []int {
 	f := func(x int) bool {
@@ -180,10 +180,6 @@ func getNoZeroIntegers(n int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

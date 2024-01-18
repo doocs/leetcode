@@ -1,8 +1,13 @@
 # Write your MySQL query statement below
-SELECT name
+SELECT
+    Name
 FROM
-    Candidate AS c
-    LEFT JOIN Vote AS v ON c.id = v.candidateId
-GROUP BY c.id
-ORDER BY COUNT(1) DESC
-LIMIT 1;
+    (
+        SELECT
+            CandidateId AS id
+        FROM Vote
+        GROUP BY CandidateId
+        ORDER BY COUNT(id) DESC
+        LIMIT 1
+    ) AS t
+    INNER JOIN Candidate AS c ON t.id = c.id;

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学乘法模拟**
+### 方法一：数学乘法模拟
 
 假设 $num1$ 和 $num2$ 的长度分别为 $m$ 和 $n$，则它们的乘积的长度最多为 $m + n$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为 $num1$ 和 $num2$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
         i = 0 if arr[0] else 1
         return "".join(str(x) for x in arr[i:])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -145,77 +133,33 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func multiply(num1 string, num2 string) string {
+	if num1 == "0" || num2 == "0" {
+		return "0"
+	}
 	m, n := len(num1), len(num2)
-	res := make([]int, m+n)
-	mul := func(b, i int) {
-		for j, t := m-1, 0; j >= 0 || t > 0; i, j = i+1, j-1 {
-			if j >= 0 {
-				a := int(num1[j] - '0')
-				t += a * b
-			}
-			res[i] += t % 10
-			if res[i] >= 10 {
-				res[i] %= 10
-				res[i+1]++
-			}
-			t /= 10
+	arr := make([]int, m+n)
+	for i := m - 1; i >= 0; i-- {
+		a := int(num1[i] - '0')
+		for j := n - 1; j >= 0; j-- {
+			b := int(num2[j] - '0')
+			arr[i+j+1] += a * b
 		}
 	}
-	for i := 0; i < n; i++ {
-		b := num2[n-1-i] - '0'
-		mul(int(b), i)
+	for i := len(arr) - 1; i > 0; i-- {
+		arr[i-1] += arr[i] / 10
+		arr[i] %= 10
 	}
-	var ans []byte
-	for _, v := range res {
-		ans = append(ans, byte(v+'0'))
+	i := 0
+	if arr[0] == 0 {
+		i = 1
 	}
-	for len(ans) > 1 && ans[len(ans)-1] == '0' {
-		ans = ans[:len(ans)-1]
-	}
-	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
-		ans[i], ans[j] = ans[j], ans[i]
+	ans := []byte{}
+	for ; i < len(arr); i++ {
+		ans = append(ans, byte('0'+arr[i]))
 	}
 	return string(ans)
-}
-```
-
-### **TypeScript**
-
-```ts
-function multiply(num1: string, num2: string): string {
-    if ([num1, num2].includes('0')) return '0';
-    const n1 = num1.length,
-        n2 = num2.length;
-    let ans = '';
-    for (let i = 0; i < n1; i++) {
-        let cur1 = parseInt(num1.charAt(n1 - i - 1), 10);
-        let sum = '';
-        for (let j = 0; j < n2; j++) {
-            let cur2 = parseInt(num2.charAt(n2 - j - 1), 10);
-            sum = addString(sum, cur1 * cur2 + '0'.repeat(j));
-        }
-        ans = addString(ans, sum + '0'.repeat(i));
-    }
-    return ans;
-}
-
-function addString(s1: string, s2: string): string {
-    const n1 = s1.length,
-        n2 = s2.length;
-    let ans = [];
-    let sum = 0;
-    for (let i = 0; i < n1 || i < n2 || sum > 0; i++) {
-        let num1 = i < n1 ? parseInt(s1.charAt(n1 - i - 1), 10) : 0;
-        let num2 = i < n2 ? parseInt(s2.charAt(n2 - i - 1), 10) : 0;
-        sum += num1 + num2;
-        ans.unshift(sum % 10);
-        sum = Math.floor(sum / 10);
-    }
-    return ans.join('');
 }
 ```
 
@@ -224,26 +168,27 @@ function multiply(num1: string, num2: string): string {
     if (num1 === '0' || num2 === '0') {
         return '0';
     }
-
-    const n = num1.length;
-    const m = num2.length;
-    const res = [];
-    for (let i = 0; i < n; i++) {
-        const a = Number(num1[n - i - 1]);
-        let sum = 0;
-        for (let j = 0; j < m || sum !== 0; j++) {
-            const b = Number(num2[m - j - 1] ?? 0);
-            sum += a * b + (res[i + j] ?? 0);
-            res[i + j] = sum % 10;
-            sum = Math.floor(sum / 10);
+    const m: number = num1.length;
+    const n: number = num2.length;
+    const arr: number[] = Array(m + n).fill(0);
+    for (let i: number = m - 1; i >= 0; i--) {
+        const a: number = +num1[i];
+        for (let j: number = n - 1; j >= 0; j--) {
+            const b: number = +num2[j];
+            arr[i + j + 1] += a * b;
         }
     }
-
-    return res.reverse().join('');
+    for (let i: number = arr.length - 1; i > 0; i--) {
+        arr[i - 1] += Math.floor(arr[i] / 10);
+        arr[i] %= 10;
+    }
+    let i: number = 0;
+    while (i < arr.length && arr[i] === 0) {
+        i++;
+    }
+    return arr.slice(i).join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -277,10 +222,45 @@ impl Solution {
 }
 ```
 
-### **...**
+```cs
+public class Solution {
+    public string Multiply(string num1, string num2) {
+        if (num1 == "0" || num2 == "0") {
+            return "0";
+        }
 
-```
+        int m = num1.Length;
+        int n = num2.Length;
+        int[] arr = new int[m + n];
 
+        for (int i = m - 1; i >= 0; i--) {
+            int a = num1[i] - '0';
+            for (int j = n - 1; j >= 0; j--) {
+                int b = num2[j] - '0';
+                arr[i + j + 1] += a * b;
+            }
+        }
+
+        for (int i = arr.Length - 1; i > 0; i--) {
+            arr[i - 1] += arr[i] / 10;
+            arr[i] %= 10;
+        }
+
+        int index = 0;
+        while (index < arr.Length && arr[index] == 0) {
+            index++;
+        }
+
+        StringBuilder ans = new StringBuilder();
+        for (; index < arr.Length; index++) {
+            ans.Append(arr[index]);
+        }
+
+        return ans.ToString();
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

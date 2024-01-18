@@ -67,7 +67,7 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We first build an adjacency list $g$ based on the given roads, where $g[i]$ represents the list of cities directly connected to city $i$.
 
@@ -84,8 +84,6 @@ In the process of state transition, we record the predecessor city of each state
 The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of $targetPath$ and $names$ respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -119,8 +117,6 @@ class Solution:
             k = pre[i][k]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -172,8 +168,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -220,8 +214,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostSimilar(n int, roads [][]int, names []string, targetPath []string) []int {
@@ -280,8 +272,6 @@ func mostSimilar(n int, roads [][]int, names []string, targetPath []string) []in
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostSimilar(
     n: number,
@@ -328,10 +318,6 @@ function mostSimilar(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

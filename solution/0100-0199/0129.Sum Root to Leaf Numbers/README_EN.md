@@ -51,7 +51,7 @@ Therefore, sum = 495 + 491 + 40 = <code>1026</code>.
 
 ## Solutions
 
-**Solution 1: DFS**
+### Solution 1: DFS
 
 We can design a function $dfs(root, s)$, which represents the sum of all path numbers from the current node $root$ to the leaf nodes, given that the current path number is $s$. The answer is $dfs(root, 0)$.
 
@@ -65,8 +65,6 @@ The calculation of the function $dfs(root, s)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -87,8 +85,6 @@ class Solution:
 
         return dfs(root, 0)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -124,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -152,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -178,36 +170,6 @@ func sumNumbers(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
-
-### **C**
-
-```c
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
-
-int dfs(struct TreeNode* root, int num) {
-    if (!root) {
-        return 0;
-    }
-    num = num * 10 + root->val;
-    if (!root->left && !root->right) {
-        return num;
-    }
-    return dfs(root->left, num) + dfs(root->right, num);
-}
-
-int sumNumbers(struct TreeNode* root) {
-    return dfs(root, 0);
-}
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -234,8 +196,6 @@ function sumNumbers(root: TreeNode | null): number {
     return dfs(root, 0);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -277,8 +237,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -303,10 +261,32 @@ var sumNumbers = function (root) {
 };
 ```
 
-### **...**
+```c
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
 
-```
+int dfs(struct TreeNode* root, int num) {
+    if (!root) {
+        return 0;
+    }
+    num = num * 10 + root->val;
+    if (!root->left && !root->right) {
+        return num;
+    }
+    return dfs(root->left, num) + dfs(root->right, num);
+}
 
+int sumNumbers(struct TreeNode* root) {
+    return dfs(root, 0);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

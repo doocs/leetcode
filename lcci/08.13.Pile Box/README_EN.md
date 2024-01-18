@@ -29,9 +29,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Dynamic Programming
 
-### **Python3**
+First, we sort the boxes in ascending order by width and descending order by depth, then use dynamic programming to solve the problem.
+
+We define $f[i]$ as the maximum height with the $i$-th box at the bottom. For $f[i]$, we enumerate $j \in [0, i)$, if $box[j][1] < box[i][1]$ and $box[j][2] < box[i][2]$, then we can put the $j$-th box on top of the $i$-th box, in which case $f[i] = \max\{f[i], f[j]\}$. Finally, we add the height of the $i$-th box to $f[i]$ to get the final value of $f[i]$.
+
+The answer is the maximum value in $f$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -46,8 +54,6 @@ class Solution:
             f[i] += box[i][2]
         return max(f)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pileBox(box [][]int) int {
 	sort.Slice(box, func(i, j int) bool {
@@ -117,8 +119,6 @@ func pileBox(box [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function pileBox(box: number[][]): number {
     box.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
@@ -138,10 +138,6 @@ function pileBox(box: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

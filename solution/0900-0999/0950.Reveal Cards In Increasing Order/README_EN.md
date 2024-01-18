@@ -57,9 +57,9 @@ Since all the cards revealed are in increasing order, the answer is correct.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             q.appendleft(v)
         return list(q)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func deckRevealedIncreasing(deck []int) []int {
 	sort.Sort(sort.Reverse(sort.IntSlice(deck)))
@@ -131,10 +125,6 @@ func deckRevealedIncreasing(deck []int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

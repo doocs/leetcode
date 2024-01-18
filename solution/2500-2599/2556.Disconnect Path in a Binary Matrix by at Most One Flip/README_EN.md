@@ -43,9 +43,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Two DFS Traversals
 
-### **Python3**
+First, we perform a DFS traversal to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $a$. During the DFS process, we set the value of the visited cells to $0$ to prevent revisiting.
+
+Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and perform another DFS traversal to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $b$. During the DFS process, we set the value of the visited cells to $0$ to avoid revisiting.
+
+Finally, if both $a$ and $b$ are `true`, we return `false`, otherwise, we return `true`.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +72,6 @@ class Solution:
         b = dfs(0, 0)
         return not (a and b)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -97,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPossibleToCutPath(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -144,8 +146,6 @@ func isPossibleToCutPath(grid [][]int) bool {
 	return !(a && b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isPossibleToCutPath(grid: number[][]): boolean {
@@ -170,10 +170,6 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

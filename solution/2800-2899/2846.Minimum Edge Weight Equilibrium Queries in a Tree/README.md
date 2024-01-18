@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：倍增法求 LCA**
+### 方法一：倍增法求 LCA
 
 题目求的是任意两点的路径上，将其所有边的权重变成相同值的最小操作次数。实际上就是求这两点之间的路径长度，减去路径上出现次数最多的边的次数。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O((n + q) \times C \times \log n)$，空间复杂度 $O(n \times C \times \log n)$，其中 $C$ 为边权重的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -136,10 +130,6 @@ class Solution:
             ans.append(depth[u] + depth[v] - 2 * depth[x] - mx)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -211,8 +201,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -283,8 +271,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperationsQueries(n int, edges [][]int, queries [][]int) []int {
 	m := bits.Len(uint(n))
@@ -354,10 +340,6 @@ func minOperationsQueries(n int, edges [][]int, queries [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

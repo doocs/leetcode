@@ -56,17 +56,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
--   去除前缀为 `L` 的字符；
--   去除后缀为 `R` 的字符；
--   剩余的字符串中，除了 `S` 以外的字符，都会贡献一次碰撞次数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +66,6 @@ class Solution:
         d = directions.lstrip('L').rstrip('R')
         return len(d) - d.count('S')
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,7 +91,32 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int countCollisions(string directions) {
+        int l = 0, r = directions.size() - 1, count = 0;
+        while (l <= r && directions[l] == 'L') {
+            l++;
+        }
+        while (l <= r && directions[r] == 'R') {
+            r--;
+        }
+        for (int i = l; i <= r; i++) {
+            count += directions[i] != 'S';
+        }
+        return count;
+    }
+};
+```
+
+```go
+func countCollisions(directions string) int {
+	d := strings.TrimLeft(directions, "L")
+	d = strings.TrimRight(d, "R")
+	return len(d) - strings.Count(d, "S")
+}
+```
 
 ```ts
 function countCollisions(directions: string): number {
@@ -126,41 +139,6 @@ function countCollisions(directions: string): number {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countCollisions(string directions) {
-        int l = 0, r = directions.size() - 1, count = 0;
-        while (l <= r && directions[l] == 'L') {
-            l++;
-        }
-        while (l <= r && directions[r] == 'R') {
-            r--;
-        }
-        for (int i = l; i <= r; i++) {
-            count += directions[i] != 'S';
-        }
-        return count;
-    }
-};
-```
-
-### **Go**
-
-```go
-func countCollisions(directions string) int {
-	d := strings.TrimLeft(directions, "L")
-	d = strings.TrimRight(d, "R")
-	return len(d) - strings.Count(d, "S")
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

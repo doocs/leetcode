@@ -44,9 +44,9 @@ The second beautiful arrangement is [2,1]:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
         dfs(1)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,30 +116,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countArrangement(int N) {
-        int maxn = 1 << N;
-        int[] f = new int[maxn];
-        f[0] = 1;
-        for (int i = 0; i < maxn; ++i) {
-            int s = 1;
-            for (int j = 0; j < N; ++j) {
-                s += (i >> j) & 1;
-            }
-            for (int j = 1; j <= N; ++j) {
-                if (((i >> (j - 1) & 1) == 0) && (s % j == 0 || j % s == 0)) {
-                    f[i | (1 << (j - 1))] += f[i];
-                }
-            }
-        }
-        return f[maxn - 1];
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -178,8 +152,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countArrangement(n int) int {
 	ans := 0
@@ -213,8 +185,6 @@ func countArrangement(n int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countArrangement(n: number): number {
     const vis = new Array(n + 1).fill(0);
@@ -245,8 +215,6 @@ function countArrangement(n: number): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -283,10 +251,34 @@ impl Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int countArrangement(int N) {
+        int maxn = 1 << N;
+        int[] f = new int[maxn];
+        f[0] = 1;
+        for (int i = 0; i < maxn; ++i) {
+            int s = 1;
+            for (int j = 0; j < N; ++j) {
+                s += (i >> j) & 1;
+            }
+            for (int j = 1; j <= N; ++j) {
+                if (((i >> (j - 1) & 1) == 0) && (s % j == 0 || j % s == 0)) {
+                    f[i | (1 << (j - 1))] += f[i];
+                }
+            }
+        }
+        return f[maxn - 1];
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

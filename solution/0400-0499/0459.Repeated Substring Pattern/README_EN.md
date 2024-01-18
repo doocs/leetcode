@@ -40,17 +40,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
         return (s + s).index(s, 1) < len(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -61,8 +59,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -72,21 +68,31 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func repeatedSubstringPattern(s string) bool {
 	return strings.Index(s[1:]+s, s) < len(s)-1
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function repeatedSubstringPattern(s: string): boolean {
     return (s + s).slice(1, (s.length << 1) - 1).includes(s);
 }
 ```
+
+```rust
+impl Solution {
+    pub fn repeated_substring_pattern(s: String) -> bool {
+        (s.clone() + &s)[1..s.len() * 2 - 1].contains(&s)
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```ts
 function repeatedSubstringPattern(s: string): boolean {
@@ -111,20 +117,6 @@ function repeatedSubstringPattern(s: string): boolean {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn repeated_substring_pattern(s: String) -> bool {
-        (s.clone() + &s)[1..s.len() * 2 - 1].contains(&s)
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

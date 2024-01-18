@@ -40,9 +40,9 @@ It can be proven that 8 is the minimum number of minutes needed.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return len(s) - ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +106,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func takeCharacters(s string, k int) int {
@@ -136,8 +130,6 @@ func takeCharacters(s string, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function takeCharacters(s: string, k: number): number {
     const getIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -161,8 +153,6 @@ function takeCharacters(s: string, k: number): number {
     return n - ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -191,10 +181,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

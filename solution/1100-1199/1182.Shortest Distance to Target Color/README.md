@@ -48,9 +48,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理**
+### 方法一：预处理
 
 我们可以预处理出每个位置到左边最近的颜色 $1$,$2$,$3$ 的距离，以及每个位置到右边最近的颜色 $1$,$2$,$3$ 的距离，记录在数组 $left$ 和 $right$ 中。初始时 $left[0][0] = left[0][1] = left[0][2] = -\infty$，而 $right[n][0] = right[n][1] = right[n][2] = \infty$，其中 $n$ 是数组 $colors$ 的长度。
 
@@ -59,10 +57,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $colors$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             ans.append(-1 if d > n else d)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -122,8 +112,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestDistanceColor(colors []int, queries [][]int) (ans []int) {
 	n := len(colors)
@@ -192,8 +178,6 @@ func shortestDistanceColor(colors []int, queries [][]int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function shortestDistanceColor(colors: number[], queries: number[][]): number[] {
     const n = colors.length;
@@ -225,10 +209,6 @@ function shortestDistanceColor(colors: number[], queries: number[][]): number[] 
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

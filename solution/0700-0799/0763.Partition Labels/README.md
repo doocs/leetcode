@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们先用数组或哈希表 $last$ 记录字符串 $s$ 中每个字母最后一次出现的位置。
 
@@ -61,10 +59,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
@@ -78,10 +72,6 @@ class Solution:
                 j = i + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func partitionLabels(s string) (ans []int) {
 	last := [26]int{}
@@ -149,8 +135,6 @@ func partitionLabels(s string) (ans []int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function partitionLabels(s: string): number[] {
@@ -171,8 +155,6 @@ function partitionLabels(s: string): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -198,8 +180,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -224,8 +204,6 @@ var partitionLabels = function (s) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public IList<int> PartitionLabels(string s) {
@@ -247,10 +225,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

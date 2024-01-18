@@ -59,22 +59,20 @@ The results should be sorted in descending order of weight.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
 
 
 def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
-    return animals[animals['weight'] > 100].sort_values('weight', ascending=False)[['name']]
-```
-
-### **...**
-
-```
-
+    return animals[animals['weight'] > 100].sort_values('weight', ascending=False)[
+        ['name']
+    ]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,9 @@ The beauty of the array nums is 4 (whole array).
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             ans = max(ans, s)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumBeauty(nums []int, k int) (ans int) {
 	m := slices.Max(nums)
@@ -137,8 +131,6 @@ func maximumBeauty(nums []int, k int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumBeauty(nums: number[], k: number): number {
     const m = Math.max(...nums) + k * 2 + 2;
@@ -157,10 +149,6 @@ function maximumBeauty(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

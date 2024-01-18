@@ -47,160 +47,198 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting
 
-### **Python3**
+First, we use a hash table or an array $cnt$ of length $26$ to count the frequency of each letter in the string `licensePlate`. Note that we convert all letters to lowercase for counting.
+
+Then, we traverse each word $w$ in the array `words`. If the length of the word $w$ is longer than the length of the answer $ans$, we directly skip this word. Otherwise, we use another hash table or an array $t$ of length $26$ to count the frequency of each letter in the word $w$. If for any letter, the frequency of this letter in $t$ is less than the frequency of this letter in $cnt$, we can also directly skip this word. Otherwise, we have found a word that meets the conditions, and we update the answer $ans$ to the current word $w$.
+
+The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the array `words`, and $\Sigma$ is the character set. In this case, the character set is all lowercase letters, so $|\Sigma| = 26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
-        def count(word):
-            counter = [0] * 26
-            for c in word:
-                counter[ord(c) - ord('a')] += 1
-            return counter
-
-        def check(counter1, counter2):
-            for i in range(26):
-                if counter1[i] > counter2[i]:
-                    return False
-            return True
-
-        counter = count(c.lower() for c in licensePlate if c.isalpha())
-        ans, n = None, 16
-        for word in words:
-            if n <= len(word):
+        cnt = Counter(c.lower() for c in licensePlate if c.isalpha())
+        ans = None
+        for w in words:
+            if ans and len(w) >= len(ans):
                 continue
-            t = count(word)
-            if check(counter, t):
-                n = len(word)
-                ans = word
+            t = Counter(w)
+            if all(v <= t[c] for c, v in cnt.items()):
+                ans = w
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
     public String shortestCompletingWord(String licensePlate, String[] words) {
-        int[] counter = count(licensePlate.toLowerCase());
-        String ans = null;
-        int n = 16;
-        for (String word : words) {
-            if (n <= word.length()) {
+        int[] cnt = new int[26];
+        for (int i = 0; i < licensePlate.length(); ++i) {
+            char c = licensePlate.charAt(i);
+            if (Character.isLetter(c)) {
+                cnt[Character.toLowerCase(c) - 'a']++;
+            }
+        }
+        String ans = "";
+        for (String w : words) {
+            if (!ans.isEmpty() && w.length() >= ans.length()) {
                 continue;
             }
-            int[] t = count(word);
-            if (check(counter, t)) {
-                n = word.length();
-                ans = word;
+            int[] t = new int[26];
+            for (int i = 0; i < w.length(); ++i) {
+                t[w.charAt(i) - 'a']++;
+            }
+            boolean ok = true;
+            for (int i = 0; i < 26; ++i) {
+                if (t[i] < cnt[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans = w;
             }
         }
         return ans;
     }
-
-    private int[] count(String word) {
-        int[] counter = new int[26];
-        for (char c : word.toCharArray()) {
-            if (Character.isLetter(c)) {
-                ++counter[c - 'a'];
-            }
-        }
-        return counter;
-    }
-
-    private boolean check(int[] counter1, int[] counter2) {
-        for (int i = 0; i < 26; ++i) {
-            if (counter1[i] > counter2[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
     string shortestCompletingWord(string licensePlate, vector<string>& words) {
-        vector<int> counter = count(licensePlate);
-        int n = 16;
+        int cnt[26]{};
+        for (char& c : licensePlate) {
+            if (isalpha(c)) {
+                ++cnt[tolower(c) - 'a'];
+            }
+        }
         string ans;
-        for (auto& word : words) {
-            if (n <= word.size()) continue;
-            vector<int> t = count(word);
-            if (check(counter, t)) {
-                n = word.size();
-                ans = word;
+        for (auto& w : words) {
+            if (ans.size() && ans.size() <= w.size()) {
+                continue;
+            }
+            int t[26]{};
+            for (char& c : w) {
+                ++t[c - 'a'];
+            }
+            bool ok = true;
+            for (int i = 0; i < 26; ++i) {
+                if (cnt[i] > t[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans = w;
             }
         }
         return ans;
     }
-
-    vector<int> count(string& word) {
-        vector<int> counter(26);
-        for (char& c : word)
-            if (isalpha(c))
-                ++counter[tolower(c) - 'a'];
-        return counter;
-    }
-
-    bool check(vector<int>& counter1, vector<int>& counter2) {
-        for (int i = 0; i < 26; ++i)
-            if (counter1[i] > counter2[i])
-                return false;
-        return true;
-    }
 };
 ```
 
-### **Go**
-
 ```go
-func shortestCompletingWord(licensePlate string, words []string) string {
-	count := func(word string) []int {
-		counter := make([]int, 26)
-		for _, c := range word {
-			if unicode.IsLetter(c) {
-				counter[c-'a']++
-			}
+func shortestCompletingWord(licensePlate string, words []string) (ans string) {
+	cnt := [26]int{}
+	for _, c := range licensePlate {
+		if unicode.IsLetter(c) {
+			cnt[unicode.ToLower(c)-'a']++
 		}
-		return counter
 	}
-
-	check := func(cnt1, cnt2 []int) bool {
-		for i := 0; i < 26; i++ {
-			if cnt1[i] > cnt2[i] {
-				return false
-			}
-		}
-		return true
-	}
-
-	counter := count(strings.ToLower(licensePlate))
-	var ans string
-	n := 16
-	for _, word := range words {
-		if n <= len(word) {
+	for _, w := range words {
+		if len(ans) > 0 && len(ans) <= len(w) {
 			continue
 		}
-		t := count(word)
-		if check(counter, t) {
-			n = len(word)
-			ans = word
+		t := [26]int{}
+		for _, c := range w {
+			t[c-'a']++
+		}
+		ok := true
+		for i, v := range cnt {
+			if t[i] < v {
+				ok = false
+				break
+			}
+		}
+		if ok {
+			ans = w
 		}
 	}
-	return ans
+	return
 }
 ```
 
-### **...**
-
+```ts
+function shortestCompletingWord(licensePlate: string, words: string[]): string {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of licensePlate) {
+        const i = c.toLowerCase().charCodeAt(0) - 97;
+        if (0 <= i && i < 26) {
+            ++cnt[i];
+        }
+    }
+    let ans = '';
+    for (const w of words) {
+        if (ans.length && ans.length <= w.length) {
+            continue;
+        }
+        const t = Array(26).fill(0);
+        for (const c of w) {
+            ++t[c.charCodeAt(0) - 97];
+        }
+        let ok = true;
+        for (let i = 0; i < 26; ++i) {
+            if (t[i] < cnt[i]) {
+                ok = false;
+                break;
+            }
+        }
+        if (ok) {
+            ans = w;
+        }
+    }
+    return ans;
+}
 ```
 
+```rust
+impl Solution {
+    pub fn shortest_completing_word(license_plate: String, words: Vec<String>) -> String {
+        let mut cnt = vec![0; 26];
+        for c in license_plate.chars() {
+            if c.is_ascii_alphabetic() {
+                cnt[((c.to_ascii_lowercase() as u8) - b'a') as usize] += 1;
+            }
+        }
+        let mut ans = String::new();
+        for w in words {
+            if !ans.is_empty() && w.len() >= ans.len() {
+                continue;
+            }
+            let mut t = vec![0; 26];
+            for c in w.chars() {
+                t[((c as u8) - b'a') as usize] += 1;
+            }
+            let mut ok = true;
+            for i in 0..26 {
+                if t[i] < cnt[i] {
+                    ok = false;
+                    break;
+                }
+            }
+            if ok {
+                ans = w;
+            }
+        }
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

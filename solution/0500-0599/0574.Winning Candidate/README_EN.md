@@ -79,9 +79,9 @@ The winner is candidate B.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -99,6 +99,12 @@ FROM
     INNER JOIN Candidate AS c ON t.id = c.id;
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT name
@@ -111,3 +117,5 @@ LIMIT 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,7 +51,7 @@ After the second operation, nums is sorted in strictly increasing order, so the 
 
 ## Solutions
 
-**Solution 1: Preprocessing prime numbers + binary search**
+### Solution 1: Preprocessing prime numbers + binary search
 
 We first preprocess all the primes within $1000$ and record them in the array $p$.
 
@@ -62,8 +62,6 @@ If all the elements in $nums$ are processed, it means that it can be strictly in
 The time complexity is $O(n \log n)$ and the space complexity is $O(n)$. where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -86,8 +84,6 @@ class Solution:
             nums[i] -= p[j]
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -134,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,8 +163,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func primeSubOperation(nums []int) bool {
 	p := []int{}
@@ -199,8 +191,6 @@ func primeSubOperation(nums []int) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function primeSubOperation(nums: number[]): boolean {
@@ -245,10 +235,6 @@ function primeSubOperation(nums: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

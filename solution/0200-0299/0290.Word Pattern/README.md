@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们先将字符串 $s$ 按照空格分割成单词数组 $ws$，如果 $pattern$ 和 $ws$ 的长度不相等，直接返回 `false`。否则，我们使用两个哈希表 $d_1$ 和 $d_2$，分别记录 $pattern$ 和 $ws$ 中每个字符和单词的对应关系。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是 $pattern$ 和字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
             d2[b] = a
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func wordPattern(pattern string, s string) bool {
 	ws := strings.Split(s, " ")
@@ -160,8 +146,6 @@ func wordPattern(pattern string, s string) bool {
 	return true
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function wordPattern(pattern: string, s: string): boolean {
@@ -186,36 +170,6 @@ function wordPattern(pattern: string, s: string): boolean {
     return true;
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool WordPattern(string pattern, string s) {
-        var ws = s.Split(' ');
-        if (pattern.Length != ws.Length) {
-            return false;
-        }
-        var d1 = new Dictionary<char, string>();
-        var d2 = new Dictionary<string, char>();
-        for (int i = 0; i < ws.Length; ++i) {
-            var a = pattern[i];
-            var b = ws[i];
-            if (d1.ContainsKey(a) && d1[a] != b) {
-                return false;
-            }
-            if (d2.ContainsKey(b) && d2[b] != a) {
-                return false;
-            }
-            d1[a] = b;
-            d2[b] = a;
-        }
-        return true;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -248,10 +202,32 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool WordPattern(string pattern, string s) {
+        var ws = s.Split(' ');
+        if (pattern.Length != ws.Length) {
+            return false;
+        }
+        var d1 = new Dictionary<char, string>();
+        var d2 = new Dictionary<string, char>();
+        for (int i = 0; i < ws.Length; ++i) {
+            var a = pattern[i];
+            var b = ws[i];
+            if (d1.ContainsKey(a) && d1[a] != b) {
+                return false;
+            }
+            if (d2.ContainsKey(b) && d2[b] != a) {
+                return false;
+            }
+            d1[a] = b;
+            d2[b] = a;
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

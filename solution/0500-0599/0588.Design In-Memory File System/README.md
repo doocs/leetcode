@@ -69,17 +69,11 @@ fileSystem.readContentFromFile("/a/b/c/d"); // 返回 "hello"</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树**
+### 方法一：前缀树
 
 哈希表实现前缀树。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -144,10 +138,6 @@ class FileSystem:
 # obj.addContentToFile(filePath,content)
 # param_4 = obj.readContentFromFile(filePath)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -234,8 +224,6 @@ class FileSystem {
  * String param_4 = obj.readContentFromFile(filePath);
  */
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -331,10 +319,6 @@ func (this *FileSystem) ReadContentFromFile(filePath string) string {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

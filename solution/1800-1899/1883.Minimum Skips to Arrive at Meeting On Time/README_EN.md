@@ -63,9 +63,9 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,26 +85,6 @@ class Solution:
                 return j
         return -1
 ```
-
-```python
-class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
-        n = len(dist)
-        f = [[inf] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        for i, x in enumerate(dist, 1):
-            for j in range(i + 1):
-                if j < i:
-                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
-                if j:
-                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
-        for j in range(n + 1):
-            if f[n][j] <= hoursBefore * speed:
-                return j
-        return -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -137,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +144,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSkips(dist []int, speed int, hoursBefore int) int {
@@ -200,8 +176,6 @@ func minSkips(dist []int, speed int, hoursBefore int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minSkips(dist: number[], speed: number, hoursBefore: number): number {
     const n = dist.length;
@@ -227,10 +201,30 @@ function minSkips(dist: number[], speed: number, hoursBefore: number): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        f = [[inf] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(dist, 1):
+            for j in range(i + 1):
+                if j < i:
+                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
+                if j:
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
+        for j in range(n + 1):
+            if f[n][j] <= hoursBefore * speed:
+                return j
+        return -1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

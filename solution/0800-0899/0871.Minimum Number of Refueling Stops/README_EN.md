@@ -55,9 +55,9 @@ We made 2 refueling stops along the way, so we return 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
             prev = a
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
@@ -172,10 +166,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

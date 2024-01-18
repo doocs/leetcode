@@ -59,9 +59,9 @@ The second (add x y) evaluates as 3+2 = 5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -120,8 +120,6 @@ class Solution:
         scope = defaultdict(list)
         return eval()
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -199,8 +197,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -268,8 +264,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func evaluate(expression string) int {
@@ -351,10 +345,6 @@ func evaluate(expression string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

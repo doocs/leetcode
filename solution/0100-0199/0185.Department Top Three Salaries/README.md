@@ -96,50 +96,9 @@ Department  表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-SELECT
-    Department.NAME AS Department,
-    Employee.NAME AS Employee,
-    Salary
-FROM
-    Employee,
-    Department
-WHERE
-    Employee.DepartmentId = Department.Id
-    AND (
-        SELECT
-            COUNT(DISTINCT e2.Salary)
-        FROM Employee AS e2
-        WHERE e2.Salary > Employee.Salary AND Employee.DepartmentId = e2.DepartmentId
-    ) < 3;
-```
-
-```sql
-# Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            *,
-            DENSE_RANK() OVER (
-                PARTITION BY departmentId
-                ORDER BY salary DESC
-            ) AS rk
-        FROM Employee
-    )
-SELECT d.name AS Department, t.name AS Employee, salary AS Salary
-FROM
-    T AS t
-    JOIN Department AS d ON t.departmentId = d.id
-WHERE rk <= 3;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -162,7 +121,51 @@ def top_three_salaries(
     return employee[employee["salary"] >= employee["cutoff"]].rename(
         columns={"name": "Employee", "salary": "Salary"}
     )[["Department", "Employee", "Salary"]]
+```
 
+```sql
+SELECT
+    Department.NAME AS Department,
+    Employee.NAME AS Employee,
+    Salary
+FROM
+    Employee,
+    Department
+WHERE
+    Employee.DepartmentId = Department.Id
+    AND (
+        SELECT
+            COUNT(DISTINCT e2.Salary)
+        FROM Employee AS e2
+        WHERE e2.Salary > Employee.Salary AND Employee.DepartmentId = e2.DepartmentId
+    ) < 3;
 ```
 
 <!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            DENSE_RANK() OVER (
+                PARTITION BY departmentId
+                ORDER BY salary DESC
+            ) AS rk
+        FROM Employee
+    )
+SELECT d.name AS Department, t.name AS Employee, salary AS Salary
+FROM
+    T AS t
+    JOIN Department AS d ON t.departmentId = d.id
+WHERE rk <= 3;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

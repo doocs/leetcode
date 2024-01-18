@@ -54,15 +54,9 @@ solution.pick(); // 返回 4
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
 # obj = Solution(n, blacklist)
 # param_1 = obj.pick()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -160,8 +148,6 @@ public:
  * int param_1 = obj->pick();
  */
 ```
-
-### **Go**
 
 ```go
 type Solution struct {
@@ -204,10 +190,6 @@ func (this *Solution) Pick() int {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们遍历三个数组，用哈希表 $cnt$ 统计每个创作者的播放量总和，用哈希表 $d$ 记录每个创作者播放量最大的视频的下标。
 
@@ -68,10 +66,6 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为视频数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
         mx = max(cnt.values())
         return [[c, ids[d[c]]] for c, x in cnt.items() if x == mx]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]string) {
 	cnt := map[string]int{}
@@ -183,8 +169,6 @@ func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]s
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function mostPopularCreator(creators: string[], ids: string[], views: number[]): string[][] {
     const cnt: Map<string, number> = new Map();
@@ -208,10 +192,6 @@ function mostPopularCreator(creators: string[], ids: string[], views: number[]):
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

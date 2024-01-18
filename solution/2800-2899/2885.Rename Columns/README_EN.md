@@ -55,24 +55,27 @@ The column names are changed accordingly.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Pandas**
+<!-- tabs:start -->
 
 ```python
 import pandas as pd
 
 
 def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
-    students.rename(columns={'id': 'student_id', 'first': 'first_name', 'last': 'last_name', 'age': 'age_in_years'},
-                    inplace=True)
+    students.rename(
+        columns={
+            'id': 'student_id',
+            'first': 'first_name',
+            'last': 'last_name',
+            'age': 'age_in_years',
+        },
+        inplace=True,
+    )
     return students
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

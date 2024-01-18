@@ -84,15 +84,11 @@ Jonathan 唯一标识码是 1 。</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：LEFT JOIN**
+### 方法一：LEFT JOIN
 
 我们可以使用 `LEFT JOIN` 来连接 `Employees` 和 `EmployeeUNI` 表，然后使用 `SELECT` 语句来选择 `unique_id` 和 `name` 列。
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -103,3 +99,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

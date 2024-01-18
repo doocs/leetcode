@@ -137,9 +137,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们先用一个哈希表或数组 $mp$ 记录每个字母对应的数字。
 
@@ -149,21 +147,7 @@
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $word$ 的长度，而 $C$ 是字符集的大小，本题中 $C=26$。
 
-**方法二：哈希表 + 前缀和 + 枚举**
-
-与方法一类似，我们先用一个哈希表或数组 $mp$ 记录每个字母对应的数字。
-
-如果一个整数子数组的数字之和能被它的长度整除，那么这个子数组的平均值一定是一个整数。而由于子数组中每个元素的数字都在 $[1, 9]$ 范围内，因此子数组的平均值只能是 $1, 2, \cdots, 9$ 中的一个。
-
-我们可以枚举子数组的平均值 $i$，如果一个子数组的元素和能被 $i$ 整除，假设子数组为 $a_1, a_2, \cdots, a_k$，那么 $a_1 + a_2 + \cdots + a_k = i \times k$，即 $(a_1 - i) + (a_2 - i) + \cdots + (a_k - i) = 0$。如果我们把 $a_k - i$ 视为一个新的元素 $b_k$，那么原来的子数组就变成了 $b_1, b_2, \cdots, b_k$，其中 $b_1 + b_2 + \cdots + b_k = 0$。我们只需要求出新的数组中，有多少个子数组的元素和为 $0$ 即可，这可以用“哈希表”结合“前缀和”来实现。
-
-时间复杂度 $O(10 \times n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $word$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -182,30 +166,6 @@ class Solution:
                 ans += s % (j - i + 1) == 0
         return ans
 ```
-
-```python
-class Solution:
-    def countDivisibleSubstrings(self, word: str) -> int:
-        d = ["ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"]
-        mp = {}
-        for i, s in enumerate(d, 1):
-            for c in s:
-                mp[c] = i
-        ans = 0
-        for i in range(1, 10):
-            cnt = defaultdict(int)
-            cnt[0] = 1
-            s = 0
-            for c in word:
-                s += mp[c] - i
-                ans += cnt[s]
-                cnt[s] += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -229,6 +189,141 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int countDivisibleSubstrings(string word) {
+        string d[9] = {"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"};
+        int mp[26]{};
+        for (int i = 0; i < 9; ++i) {
+            for (char& c : d[i]) {
+                mp[c - 'a'] = i + 1;
+            }
+        }
+        int ans = 0;
+        int n = word.size();
+        for (int i = 0; i < n; ++i) {
+            int s = 0;
+            for (int j = i; j < n; ++j) {
+                s += mp[word[j] - 'a'];
+                ans += s % (j - i + 1) == 0 ? 1 : 0;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countDivisibleSubstrings(word string) (ans int) {
+	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
+	mp := [26]int{}
+	for i, s := range d {
+		for _, c := range s {
+			mp[c-'a'] = i + 1
+		}
+	}
+	n := len(word)
+	for i := 0; i < n; i++ {
+		s := 0
+		for j := i; j < n; j++ {
+			s += mp[word[j]-'a']
+			if s%(j-i+1) == 0 {
+				ans++
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+function countDivisibleSubstrings(word: string): number {
+    const d: string[] = ['ab', 'cde', 'fgh', 'ijk', 'lmn', 'opq', 'rst', 'uvw', 'xyz'];
+    const mp: number[] = Array(26).fill(0);
+    for (let i = 0; i < d.length; ++i) {
+        for (const c of d[i]) {
+            mp[c.charCodeAt(0) - 'a'.charCodeAt(0)] = i + 1;
+        }
+    }
+    const n = word.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        let s = 0;
+        for (let j = i; j < n; ++j) {
+            s += mp[word.charCodeAt(j) - 'a'.charCodeAt(0)];
+            if (s % (j - i + 1) === 0) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn count_divisible_substrings(word: String) -> i32 {
+        let d = vec!["ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"];
+        let mut mp = vec![0; 26];
+
+        for (i, s) in d.iter().enumerate() {
+            s.chars().for_each(|c| {
+                mp[(c as usize) - ('a' as usize)] = (i + 1) as i32;
+            });
+        }
+
+        let mut ans = 0;
+        let n = word.len();
+
+        for i in 0..n {
+            let mut s = 0;
+
+            for j in i..n {
+                s += mp[(word.as_bytes()[j] as usize) - ('a' as usize)];
+                ans += (s % ((j - i + 1) as i32) == 0) as i32;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：哈希表 + 前缀和 + 枚举
+
+与方法一类似，我们先用一个哈希表或数组 $mp$ 记录每个字母对应的数字。
+
+如果一个整数子数组的数字之和能被它的长度整除，那么这个子数组的平均值一定是一个整数。而由于子数组中每个元素的数字都在 $[1, 9]$ 范围内，因此子数组的平均值只能是 $1, 2, \cdots, 9$ 中的一个。
+
+我们可以枚举子数组的平均值 $i$，如果一个子数组的元素和能被 $i$ 整除，假设子数组为 $a_1, a_2, \cdots, a_k$，那么 $a_1 + a_2 + \cdots + a_k = i \times k$，即 $(a_1 - i) + (a_2 - i) + \cdots + (a_k - i) = 0$。如果我们把 $a_k - i$ 视为一个新的元素 $b_k$，那么原来的子数组就变成了 $b_1, b_2, \cdots, b_k$，其中 $b_1 + b_2 + \cdots + b_k = 0$。我们只需要求出新的数组中，有多少个子数组的元素和为 $0$ 即可，这可以用“哈希表”结合“前缀和”来实现。
+
+时间复杂度 $O(10 \times n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $word$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countDivisibleSubstrings(self, word: str) -> int:
+        d = ["ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"]
+        mp = {}
+        for i, s in enumerate(d, 1):
+            for c in s:
+                mp[c] = i
+        ans = 0
+        for i in range(1, 10):
+            cnt = defaultdict(int)
+            cnt[0] = 1
+            s = 0
+            for c in word:
+                s += mp[c] - i
+                ans += cnt[s]
+                cnt[s] += 1
+        return ans
 ```
 
 ```java
@@ -258,33 +353,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countDivisibleSubstrings(string word) {
-        string d[9] = {"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"};
-        int mp[26]{};
-        for (int i = 0; i < 9; ++i) {
-            for (char& c : d[i]) {
-                mp[c - 'a'] = i + 1;
-            }
-        }
-        int ans = 0;
-        int n = word.size();
-        for (int i = 0; i < n; ++i) {
-            int s = 0;
-            for (int j = i; j < n; ++j) {
-                s += mp[word[j] - 'a'];
-                ans += s % (j - i + 1) == 0 ? 1 : 0;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -310,31 +378,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countDivisibleSubstrings(word string) (ans int) {
-	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
-	mp := [26]int{}
-	for i, s := range d {
-		for _, c := range s {
-			mp[c-'a'] = i + 1
-		}
-	}
-	n := len(word)
-	for i := 0; i < n; i++ {
-		s := 0
-		for j := i; j < n; j++ {
-			s += mp[word[j]-'a']
-			if s%(j-i+1) == 0 {
-				ans++
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func countDivisibleSubstrings(word string) (ans int) {
 	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
@@ -354,32 +397,6 @@ func countDivisibleSubstrings(word string) (ans int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function countDivisibleSubstrings(word: string): number {
-    const d: string[] = ['ab', 'cde', 'fgh', 'ijk', 'lmn', 'opq', 'rst', 'uvw', 'xyz'];
-    const mp: number[] = Array(26).fill(0);
-    for (let i = 0; i < d.length; ++i) {
-        for (const c of d[i]) {
-            mp[c.charCodeAt(0) - 'a'.charCodeAt(0)] = i + 1;
-        }
-    }
-    const n = word.length;
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        let s = 0;
-        for (let j = i; j < n; ++j) {
-            s += mp[word.charCodeAt(j) - 'a'.charCodeAt(0)];
-            if (s % (j - i + 1) === 0) {
-                ++ans;
-            }
-        }
-    }
-    return ans;
 }
 ```
 
@@ -405,37 +422,6 @@ function countDivisibleSubstrings(word: string): number {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn count_divisible_substrings(word: String) -> i32 {
-        let d = vec!["ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"];
-        let mut mp = vec![0; 26];
-
-        for (i, s) in d.iter().enumerate() {
-            s.chars().for_each(|c| {
-                mp[(c as usize) - ('a' as usize)] = (i + 1) as i32;
-            });
-        }
-
-        let mut ans = 0;
-        let n = word.len();
-
-        for i in 0..n {
-            let mut s = 0;
-
-            for j in i..n {
-                s += mp[(word.as_bytes()[j] as usize) - ('a' as usize)];
-                ans += (s % ((j - i + 1) as i32) == 0) as i32;
-            }
-        }
-
-        ans
-    }
 }
 ```
 
@@ -467,10 +453,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

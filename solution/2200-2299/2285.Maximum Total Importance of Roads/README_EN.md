@@ -56,9 +56,9 @@ It can be shown that we cannot obtain a greater total importance than 20.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
         deg.sort()
         return sum(i * v for i, v in enumerate(deg, 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumImportance(n int, roads [][]int) int64 {
 	deg := make([]int, n)
@@ -128,16 +122,6 @@ func maximumImportance(n int, roads [][]int) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

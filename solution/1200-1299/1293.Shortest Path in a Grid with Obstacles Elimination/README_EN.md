@@ -41,9 +41,9 @@ The shortest path with one obstacle elimination at position (3,2) is 6. Such pat
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
                             vis.add((x, y, k - 1))
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestPath(grid [][]int, k int) int {
@@ -202,10 +196,6 @@ func shortestPath(grid [][]int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

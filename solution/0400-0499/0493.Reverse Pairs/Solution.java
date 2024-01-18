@@ -1,52 +1,47 @@
 class Solution {
+    private int[] nums;
+    private int[] t;
+
     public int reversePairs(int[] nums) {
-        TreeSet<Long> ts = new TreeSet<>();
-        for (int num : nums) {
-            ts.add((long) num);
-            ts.add((long) num * 2);
+        this.nums = nums;
+        int n = nums.length;
+        this.t = new int[n];
+        return mergeSort(0, n - 1);
+    }
+
+    private int mergeSort(int l, int r) {
+        if (l >= r) {
+            return 0;
         }
-        Map<Long, Integer> m = new HashMap<>();
-        int idx = 0;
-        for (long num : ts) {
-            m.put(num, ++idx);
+        int mid = (l + r) >> 1;
+        int ans = mergeSort(l, mid) + mergeSort(mid + 1, r);
+        int i = l, j = mid + 1, k = 0;
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j] * 2L) {
+                ++i;
+            } else {
+                ans += mid - i + 1;
+                ++j;
+            }
         }
-        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
-        int ans = 0;
-        for (int i = nums.length - 1; i >= 0; --i) {
-            int x = m.get((long) nums[i]);
-            ans += tree.query(x - 1);
-            tree.update(m.get((long) nums[i] * 2), 1);
+        i = l;
+        j = mid + 1;
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j]) {
+                t[k++] = nums[i++];
+            } else {
+                t[k++] = nums[j++];
+            }
+        }
+        while (i <= mid) {
+            t[k++] = nums[i++];
+        }
+        while (j <= r) {
+            t[k++] = nums[j++];
+        }
+        for (i = l; i <= r; ++i) {
+            nums[i] = t[i - l];
         }
         return ans;
-    }
-}
-
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        c = new int[n + 1];
-    }
-
-    public void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
     }
 }

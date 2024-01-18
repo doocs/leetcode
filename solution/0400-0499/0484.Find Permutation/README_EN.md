@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
             i = max(i + 1, j)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -113,8 +109,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findPermutation(s string) []int {
@@ -141,10 +135,6 @@ func reverse(arr []int, i, j int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

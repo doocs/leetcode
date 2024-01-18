@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 我们把每一行视为柱状图的底部，对每一行求柱状图的最大面积即可。
 
 时间复杂度 $O(m \times n)$，其中 $m$ 表示 $matrix$ 的行数，$n$ 表示 $matrix$ 的列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -139,8 +129,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -180,7 +168,49 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func maximalRectangle(matrix [][]byte) int {
+	n := len(matrix[0])
+	heights := make([]int, n)
+	ans := 0
+	for _, row := range matrix {
+		for j, v := range row {
+			if v == '1' {
+				heights[j]++
+			} else {
+				heights[j] = 0
+			}
+		}
+		ans = max(ans, largestRectangleArea(heights))
+	}
+	return ans
+}
+
+func largestRectangleArea(heights []int) int {
+	res, n := 0, len(heights)
+	var stk []int
+	left, right := make([]int, n), make([]int, n)
+	for i := range right {
+		right[i] = n
+	}
+	for i, h := range heights {
+		for len(stk) > 0 && heights[stk[len(stk)-1]] >= h {
+			right[stk[len(stk)-1]] = i
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			left[i] = stk[len(stk)-1]
+		} else {
+			left[i] = -1
+		}
+		stk = append(stk, i)
+	}
+	for i, h := range heights {
+		res = max(res, h*(right[i]-left[i]-1))
+	}
+	return res
+}
+```
 
 ```rust
 impl Solution {
@@ -260,56 +290,59 @@ impl Solution {
 }
 ```
 
-### **Go**
+```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-```go
-func maximalRectangle(matrix [][]byte) int {
-	n := len(matrix[0])
-	heights := make([]int, n)
-	ans := 0
-	for _, row := range matrix {
-		for j, v := range row {
-			if v == '1' {
-				heights[j]++
-			} else {
-				heights[j] = 0
-			}
-		}
-		ans = max(ans, largestRectangleArea(heights))
-	}
-	return ans
+public class Solution {
+    private int MaximalRectangleHistagram(int[] height) {
+        var stack = new Stack<int>();
+        var result = 0;
+        var i = 0;
+        while (i < height.Length || stack.Any())
+        {
+            if (!stack.Any() || (i < height.Length && height[stack.Peek()] < height[i]))
+            {
+                stack.Push(i);
+                ++i;
+            }
+            else
+            {
+                var previousIndex = stack.Pop();
+                var area = height[previousIndex] * (stack.Any() ? (i - stack.Peek() - 1) : i);
+                result = Math.Max(result, area);
+            }
+        }
+
+        return result;
+    }
+
+    public int MaximalRectangle(char[][] matrix) {
+        var lenI = matrix.Length;
+        var lenJ = lenI == 0 ? 0 : matrix[0].Length;
+        var height = new int[lenJ];
+        var result = 0;
+        for (var i = 0; i < lenI; ++i)
+        {
+            for (var j = 0; j < lenJ; ++j)
+            {
+                if (matrix[i][j] == '1')
+                {
+                    ++height[j];
+                }
+                else
+                {
+                    height[j] = 0;
+                }
+            }
+            result = Math.Max(result, MaximalRectangleHistagram(height));
+        }
+        return result;
+    }
 }
-
-func largestRectangleArea(heights []int) int {
-	res, n := 0, len(heights)
-	var stk []int
-	left, right := make([]int, n), make([]int, n)
-	for i := range right {
-		right[i] = n
-	}
-	for i, h := range heights {
-		for len(stk) > 0 && heights[stk[len(stk)-1]] >= h {
-			right[stk[len(stk)-1]] = i
-			stk = stk[:len(stk)-1]
-		}
-		if len(stk) > 0 {
-			left[i] = stk[len(stk)-1]
-		} else {
-			left[i] = -1
-		}
-		stk = append(stk, i)
-	}
-	for i, h := range heights {
-		res = max(res, h*(right[i]-left[i]-1))
-	}
-	return res
-}
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

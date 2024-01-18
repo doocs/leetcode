@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ to represent the maximum value of the subarray ending with $nums[i]$, and define $g[i]$ to represent the minimum value of the subarray ending with $nums[i]$. Then the state transition equation of $f[i]$ and $g[i]$ is as follows:
 
@@ -61,8 +61,6 @@ Time complexity $O(n)$, space complexity $O(1)$, where $n$ is the length of the 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maxAbsoluteSum(self, nums: List[int]) -> int:
@@ -74,8 +72,6 @@ class Solution:
             ans = max(ans, f, abs(g))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +103,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxAbsoluteSum(nums []int) (ans int) {
@@ -131,8 +123,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxAbsoluteSum(nums: number[]): number {
     let f = 0;
@@ -146,8 +136,6 @@ function maxAbsoluteSum(nums: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -165,10 +153,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

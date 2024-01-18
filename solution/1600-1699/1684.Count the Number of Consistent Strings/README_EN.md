@@ -46,9 +46,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table or Array
 
-### **Python3**
+A straightforward approach is to use a hash table or array $s$ to record the characters in `allowed`. Then iterate over the `words` array, for each string $w$, determine whether it is composed of characters in `allowed`. If so, increment the answer.
+
+The time complexity is $O(m)$, and the space complexity is $O(C)$. Here, $m$ is the total length of all strings, and $C$ is the size of the character set `allowed`. In this problem, $C \leq 26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,18 +60,6 @@ class Solution:
         s = set(allowed)
         return sum(all(c in s for c in w) for w in words)
 ```
-
-```python
-class Solution:
-    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
-        def f(w):
-            return reduce(or_, (1 << (ord(c) - ord('a')) for c in w))
-
-        mask = f(allowed)
-        return sum((mask | f(w)) == mask for w in words)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,31 +88,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countConsistentStrings(String allowed, String[] words) {
-        int mask = f(allowed);
-        int ans = 0;
-        for (String w : words) {
-            if ((mask | f(w)) == mask) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    private int f(String w) {
-        int mask = 0;
-        for (int i = 0; i < w.length(); ++i) {
-            mask |= 1 << (w.charAt(i) - 'a');
-        }
-        return mask;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,25 +105,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int countConsistentStrings(string allowed, vector<string>& words) {
-        auto f = [](string& w) {
-            int mask = 0;
-            for (auto& c : w) mask |= 1 << (c - 'a');
-            return mask;
-        };
-        int mask = f(allowed);
-        int ans = 0;
-        for (auto& w : words) ans += (mask | f(w)) == mask;
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func countConsistentStrings(allowed string, words []string) (ans int) {
@@ -181,26 +129,44 @@ func countConsistentStrings(allowed string, words []string) (ans int) {
 }
 ```
 
-```go
-func countConsistentStrings(allowed string, words []string) (ans int) {
-	f := func(w string) (mask int) {
-		for _, c := range w {
-			mask |= 1 << (c - 'a')
-		}
-		return
-	}
-
-	mask := f(allowed)
-	for _, w := range words {
-		if (mask | f(w)) == mask {
-			ans++
-		}
-	}
-	return
+```ts
+function countConsistentStrings(allowed: string, words: string[]): number {
+    const set = new Set([...allowed]);
+    const n = words.length;
+    let ans = n;
+    for (const word of words) {
+        for (const c of word) {
+            if (!set.has(c)) {
+                ans--;
+                break;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
-### **C**
+```rust
+impl Solution {
+    pub fn count_consistent_strings(allowed: String, words: Vec<String>) -> i32 {
+        let n = words.len();
+        let mut make = [false; 26];
+        for c in allowed.as_bytes() {
+            make[(c - b'a') as usize] = true;
+        }
+        let mut ans = n as i32;
+        for word in words.iter() {
+            for c in word.as_bytes().iter() {
+                if !make[(c - b'a') as usize] {
+                    ans -= 1;
+                    break;
+                }
+            }
+        }
+        ans
+    }
+}
+```
 
 ```c
 int countConsistentStrings(char* allowed, char** words, int wordsSize) {
@@ -223,44 +189,86 @@ int countConsistentStrings(char* allowed, char** words, int wordsSize) {
 }
 ```
 
-```c
-int helper(char* s) {
-    int res = 0;
-    int n = strlen(s);
-    for (int i = 0; i < n; i++) {
-        res |= 1 << (s[i] - 'a');
-    }
-    return res;
-}
+<!-- tabs:end -->
 
-int countConsistentStrings(char* allowed, char** words, int wordsSize) {
-    int mask = helper(allowed);
-    int ans = 0;
-    for (int i = 0; i < wordsSize; i++) {
-        if ((mask | helper(words[i])) == mask) {
-            ans++;
+### Solution 2: Bit Manipulation
+
+We can also use a single integer to represent the occurrence of characters in each string. In this integer, each bit in the binary representation indicates whether a character appears.
+
+We simply define a function $f(w)$ that can convert a string $w$ into an integer. Each bit in the binary representation of the integer indicates whether a character appears. For example, the string `ab` can be converted into the integer $3$, which is represented in binary as $11$. The string `abd` can be converted into the integer $11$, which is represented in binary as $1011$.
+
+Back to the problem, to determine whether a string $w$ is composed of characters in `allowed`, we can check whether the result of the bitwise OR operation between $f(allowed)$ and $f(w)$ is equal to $f(allowed)$. If so, increment the answer.
+
+The time complexity is $O(m)$, where $m$ is the total length of all strings. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        def f(w):
+            return reduce(or_, (1 << (ord(c) - ord('a')) for c in w))
+
+        mask = f(allowed)
+        return sum((mask | f(w)) == mask for w in words)
+```
+
+```java
+class Solution {
+    public int countConsistentStrings(String allowed, String[] words) {
+        int mask = f(allowed);
+        int ans = 0;
+        for (String w : words) {
+            if ((mask | f(w)) == mask) {
+                ++ans;
+            }
         }
+        return ans;
     }
-    return ans;
+
+    private int f(String w) {
+        int mask = 0;
+        for (int i = 0; i < w.length(); ++i) {
+            mask |= 1 << (w.charAt(i) - 'a');
+        }
+        return mask;
+    }
 }
 ```
 
-### **TypeScript**
-
-```ts
-function countConsistentStrings(allowed: string, words: string[]): number {
-    const set = new Set([...allowed]);
-    const n = words.length;
-    let ans = n;
-    for (const word of words) {
-        for (const c of word) {
-            if (!set.has(c)) {
-                ans--;
-                break;
-            }
-        }
+```cpp
+class Solution {
+public:
+    int countConsistentStrings(string allowed, vector<string>& words) {
+        auto f = [](string& w) {
+            int mask = 0;
+            for (auto& c : w) mask |= 1 << (c - 'a');
+            return mask;
+        };
+        int mask = f(allowed);
+        int ans = 0;
+        for (auto& w : words) ans += (mask | f(w)) == mask;
+        return ans;
     }
-    return ans;
+};
+```
+
+```go
+func countConsistentStrings(allowed string, words []string) (ans int) {
+	f := func(w string) (mask int) {
+		for _, c := range w {
+			mask |= 1 << (c - 'a')
+		}
+		return
+	}
+
+	mask := f(allowed)
+	for _, w := range words {
+		if (mask | f(w)) == mask {
+			ans++
+		}
+	}
+	return
 }
 ```
 
@@ -281,30 +289,6 @@ function countConsistentStrings(allowed: string, words: string[]): number {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn count_consistent_strings(allowed: String, words: Vec<String>) -> i32 {
-        let n = words.len();
-        let mut make = [false; 26];
-        for c in allowed.as_bytes() {
-            make[(c - b'a') as usize] = true;
-        }
-        let mut ans = n as i32;
-        for word in words.iter() {
-            for c in word.as_bytes().iter() {
-                if !make[(c - b'a') as usize] {
-                    ans -= 1;
-                    break;
-                }
-            }
-        }
-        ans
-    }
 }
 ```
 
@@ -331,10 +315,28 @@ impl Solution {
 }
 ```
 
-### **...**
+```c
+int helper(char* s) {
+    int res = 0;
+    int n = strlen(s);
+    for (int i = 0; i < n; i++) {
+        res |= 1 << (s[i] - 'a');
+    }
+    return res;
+}
 
-```
-
+int countConsistentStrings(char* allowed, char** words, int wordsSize) {
+    int mask = helper(allowed);
+    int ans = 0;
+    for (int i = 0; i < wordsSize; i++) {
+        if ((mask | helper(words[i])) == mask) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

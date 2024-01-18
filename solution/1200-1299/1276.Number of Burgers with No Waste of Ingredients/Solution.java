@@ -3,6 +3,6 @@ class Solution {
         int k = 4 * cheeseSlices - tomatoSlices;
         int y = k / 2;
         int x = cheeseSlices - y;
-        return k % 2 != 0 || y < 0 || x < 0 ? Collections.emptyList() : Arrays.asList(x, y);
+        return k % 2 != 0 || y < 0 || x < 0 ? List.of() : List.of(x, y);
     }
 }

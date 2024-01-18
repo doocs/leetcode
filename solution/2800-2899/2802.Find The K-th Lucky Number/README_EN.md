@@ -42,9 +42,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Mathematics
 
-### **Python3**
+According to the problem description, a lucky number only contains the digits $4$ and $7$, so the number of $n$-digit lucky numbers is $2^n$.
+
+We initialize $n=1$, then loop to check whether $k$ is greater than $2^n$. If it is, we subtract $2^n$ from $k$ and increment $n$, until $k$ is less than or equal to $2^n$. At this point, we just need to find the $k$-th lucky number among the $n$-digit lucky numbers.
+
+If $k$ is less than or equal to $2^{n-1}$, then the first digit of the $k$-th lucky number is $4$, otherwise the first digit is $7$. Then we subtract $2^{n-1}$ from $k$ and continue to determine the second digit, until all digits of the $n$-digit lucky number are determined.
+
+The time complexity is $O(\log k)$, and the space complexity is $O(\log k)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +71,6 @@ class Solution:
                 k -= 1 << n
         return "".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +93,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthLuckyNumber(k int) string {
 	n := 1
@@ -136,8 +138,6 @@ func kthLuckyNumber(k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kthLuckyNumber(k: number): string {
     let n = 1;
@@ -158,10 +158,6 @@ function kthLuckyNumber(k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

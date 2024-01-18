@@ -40,9 +40,9 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,7 +52,7 @@ class Solution:
         cnt = Counter()
         ans = [-inf, inf]
         j = 0
-        for b, v in t:
+        for i, (b, v) in enumerate(t):
             cnt[v] += 1
             while len(cnt) == len(nums):
                 a = t[j][0]
@@ -66,8 +66,6 @@ class Solution:
                 j += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestRange(nums [][]int) []int {
 	t := [][]int{}
@@ -186,8 +180,6 @@ func smallestRange(nums [][]int) []int {
 	return ans
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -230,10 +222,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

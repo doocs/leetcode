@@ -2,23 +2,23 @@ class Solution {
 public:
     vector<string> sortFeatures(vector<string>& features, vector<string>& responses) {
         unordered_map<string, int> cnt;
-        for (auto& r : responses) {
-            stringstream ss(r);
-            string t;
-            unordered_set<string> ws;
-            while (ss >> t) {
-                ws.insert(t);
+        for (auto& s : responses) {
+            istringstream iss(s);
+            string w;
+            unordered_set<string> st;
+            while (iss >> w) {
+                st.insert(w);
             }
-            for (auto& w : ws) {
-                cnt[w]++;
+            for (auto& w : st) {
+                ++cnt[w];
             }
         }
         int n = features.size();
         vector<int> idx(n);
         iota(idx.begin(), idx.end(), 0);
-        sort(idx.begin(), idx.end(), [&](int i, int j) -> bool {
-            int d = cnt[features[i]] - cnt[features[j]];
-            return d > 0 || (d == 0 && i < j);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            int x = cnt[features[i]], y = cnt[features[j]];
+            return x == y ? i < j : x > y;
         });
         vector<string> ans(n);
         for (int i = 0; i < n; ++i) {

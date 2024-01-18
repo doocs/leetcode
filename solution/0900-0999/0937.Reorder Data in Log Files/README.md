@@ -57,15 +57,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
 
         return sorted(logs, key=cmp)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function reorderLogFiles(logs: string[]): string[] {
@@ -132,8 +120,6 @@ function reorderLogFiles(logs: string[]): string[] {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn reorder_log_files(mut logs: Vec<String>) -> Vec<String> {
@@ -157,10 +143,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

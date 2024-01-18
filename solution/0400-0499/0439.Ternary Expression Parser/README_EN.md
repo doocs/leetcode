@@ -50,9 +50,9 @@ or &quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(T ? 4 : 5)&quot; --&gt; &quot
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -77,8 +77,6 @@ class Solution:
                     stk.append(c)
         return stk[0]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -148,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func parseTernary(expression string) string {
 	stk := []byte{}
@@ -180,10 +174,6 @@ func parseTernary(expression string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

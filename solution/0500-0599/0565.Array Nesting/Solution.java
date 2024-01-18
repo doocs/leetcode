@@ -1,17 +1,21 @@
 class Solution {
     public int arrayNesting(int[] nums) {
-        int ans = 0, n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            int cnt = 0;
-            int j = i;
-            while (nums[j] < n) {
-                int k = nums[j];
-                nums[j] = n;
-                j = k;
-                ++cnt;
+        int n = nums.length;
+        boolean[] vis = new boolean[n];
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (vis[i]) {
+                continue;
             }
-            ans = Math.max(ans, cnt);
+            int cur = nums[i], m = 1;
+            vis[cur] = true;
+            while (nums[cur] != nums[i]) {
+                cur = nums[cur];
+                m++;
+                vis[cur] = true;
+            }
+            res = Math.max(res, m);
         }
-        return ans;
+        return res;
     }
 }

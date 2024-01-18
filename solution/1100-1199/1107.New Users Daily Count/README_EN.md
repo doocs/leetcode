@@ -65,9 +65,9 @@ The user with id 5 first logged in on 2019-03-01 so he&#39;s not counted on 2019
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -86,3 +86,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

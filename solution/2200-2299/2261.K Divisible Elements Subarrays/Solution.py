@@ -4,11 +4,9 @@ class Solution:
         s = set()
         for i in range(n):
             cnt = 0
-            t = ""
-            for x in nums[i:]:
-                cnt += x % p == 0
+            for j in range(i, n):
+                cnt += nums[j] % p == 0
                 if cnt > k:
                     break
-                t += str(x) + ","
-                s.add(t)
+                s.add(tuple(nums[i : j + 1]))
         return len(s)

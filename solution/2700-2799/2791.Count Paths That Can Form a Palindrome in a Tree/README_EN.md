@@ -49,9 +49,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPalindromePaths(parent []int, s string) (ans int64) {
 	type pair struct{ i, v int }
@@ -174,8 +168,6 @@ func countPalindromePaths(parent []int, s string) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPalindromePaths(parent: number[], s: string): number {
     const n = parent.length;
@@ -202,10 +194,6 @@ function countPalindromePaths(parent: number[], s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

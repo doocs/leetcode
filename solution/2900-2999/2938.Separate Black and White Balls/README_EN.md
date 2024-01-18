@@ -51,7 +51,7 @@ It can be proven that the minimum number of steps needed is 2.
 
 ## Solutions
 
-**Solution 1: Counting Simulation**
+### Solution 1: Counting Simulation
 
 We consider moving all the '1's to the rightmost side. We use a variable $cnt$ to record the current number of '1's that have been moved to the rightmost side, and a variable $ans$ to record the number of moves.
 
@@ -60,8 +60,6 @@ We traverse the string from right to left. If the current position is '1', then 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
                 ans += n - i - cnt
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSteps(s string) (ans int64) {
 	n := len(s)
@@ -129,8 +121,6 @@ func minimumSteps(s string) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumSteps(s: string): number {
@@ -146,10 +136,6 @@ function minimumSteps(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

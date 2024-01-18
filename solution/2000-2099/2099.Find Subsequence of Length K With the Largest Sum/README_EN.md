@@ -49,9 +49,9 @@ Another possible subsequence is [4, 3].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
         idx.sort(key=lambda i: nums[i])
         return [nums[i] for i in sorted(idx[-k:])]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -106,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSubsequence(nums []int, k int) []int {
 	idx := make([]int, len(nums))
@@ -124,16 +118,6 @@ func maxSubsequence(nums []int, k int) []int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

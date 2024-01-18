@@ -46,13 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,10 +60,6 @@ class Solution:
                 ans.append(num)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +95,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findLonely(nums []int) []int {
@@ -124,10 +112,6 @@ func findLonely(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
 function findLonely(nums: number[]): number[] {
     let hashMap: Map<number, number> = new Map();
@@ -144,10 +128,6 @@ function findLonely(nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

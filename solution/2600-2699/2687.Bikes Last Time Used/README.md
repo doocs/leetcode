@@ -61,13 +61,9 @@ ride_id 是该表的主键。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -80,3 +76,5 @@ ORDER BY end_time DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

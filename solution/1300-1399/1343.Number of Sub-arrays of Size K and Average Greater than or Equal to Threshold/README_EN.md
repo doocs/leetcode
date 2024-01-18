@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
             ans += int(s / k >= threshold)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -86,8 +82,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
@@ -108,8 +102,6 @@ func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numOfSubarrays(arr: number[], k: number, threshold: number): number {
     let s = arr.slice(0, k).reduce((acc, cur) => acc + cur, 0);
@@ -122,10 +114,6 @@ function numOfSubarrays(arr: number[], k: number, threshold: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

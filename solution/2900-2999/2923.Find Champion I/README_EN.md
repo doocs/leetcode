@@ -48,15 +48,13 @@ So team 1 will be the champion.
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We can enumerate each team $i$. If team $i$ has won every match, then team $i$ is the champion, and we can directly return $i$.
 
 The time complexity is $O(n^2)$, where $n$ is the number of teams. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -65,8 +63,6 @@ class Solution:
             if all(x == 1 for j, x in enumerate(row) if i != j):
                 return i
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findChampion(grid [][]int) int {
 	n := len(grid)
@@ -128,8 +120,6 @@ func findChampion(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findChampion(grid: number[][]): number {
     for (let i = 0, n = grid.length; ; ++i) {
@@ -146,10 +136,6 @@ function findChampion(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

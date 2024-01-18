@@ -57,9 +57,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
 
         return sum(check(token) for token in sentence.split())
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -121,8 +119,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countValidWords(sentence: string): number {
@@ -163,10 +159,6 @@ function isValied(str: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

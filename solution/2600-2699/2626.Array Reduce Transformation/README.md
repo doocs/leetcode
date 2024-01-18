@@ -6,11 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>请你编写一个函数，它的参数为一个整数数组&nbsp;<code>nums</code>&nbsp;、一个计算函数&nbsp;<code>fn</code>&nbsp;和初始值<code>init</code>&nbsp;。返回一个数组&nbsp;<strong>归约后 </strong>的值。</p>
+<p>给定一个整数数组 <code>nums</code>、一个 reducer 函数 <code>fn</code> 和一个初始值 <code>init</code>，返回通过依次对数组的每个元素执行 <code>fn</code> 函数得到的最终结果。</p>
 
-<p>你可以定义一个数组&nbsp;<strong>归约后 </strong>的值，然后应用以下操作： <code>val = fn(init, nums[0])</code>&nbsp;， <code>val = fn(val, nums[1])</code>&nbsp;， <code>val = fn(val, nums[2])</code>&nbsp;，<code>...</code>&nbsp;直到数组中的每个元素都被处理完毕。返回 <code>val</code> 的最终值。</p>
+<p>通过以下操作实现这个结果：<code>val = fn(init, nums[0])，val = fn(val, nums[1])，val = fn(val, nums[2])，...</code> 直到处理数组中的每个元素。然后返回 <code>val</code> 的最终值。</p>
 
-<p>如果数组的长度为 0，它应该返回 <code>init</code>&nbsp;的值。</p>
+<p>如果数组的长度为 0，则函数应返回 <code>init</code>。</p>
 
 <p>请你在不使用内置数组方法的&nbsp;<code>Array.reduce</code>&nbsp;前提下解决这个问题。</p>
 
@@ -73,13 +73,9 @@ init = 25
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 type Fn = (accum: number, curr: number) => number;
@@ -93,10 +89,6 @@ function reduce(nums: number[], fn: Fn, init: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

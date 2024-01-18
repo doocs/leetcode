@@ -63,17 +63,11 @@ High Salary: Accounts 3, 6, and 8.
 
 ## Solutions
 
-**Solution 1: Temporary Table + Grouping + Left Join**
+### Solution 1: Temporary Table + Grouping + Left Join
 
 We can first create a temporary table containing all salary categories, and then count the number of bank accounts for each salary category. Finally, we use a left join to connect the temporary table with the result table to ensure that the result table contains all salary categories.
 
-**Solution 2: Filtering + Merging**
-
-We can filter out the number of bank accounts for each salary category separately, and then merge the results. Here, we use `UNION` to merge the results.
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -102,6 +96,14 @@ FROM
     LEFT JOIN T USING (category);
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Filtering + Merging
+
+We can filter out the number of bank accounts for each salary category separately, and then merge the results. Here, we use `UNION` to merge the results.
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT 'Low Salary' AS category, IFNULL(SUM(income < 20000), 0) AS accounts_count FROM Accounts
@@ -115,3 +117,5 @@ SELECT 'High Salary' AS category, IFNULL(SUM(income > 50000), 0) AS accounts_cou
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

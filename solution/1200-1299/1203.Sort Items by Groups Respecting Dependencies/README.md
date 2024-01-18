@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 我们先遍历数组 $group$，对于每个项目，如果其不属于任何小组，则将其新建一个小组，编号为 $m$，并将 $m$ 的值加一。这样我们就能保证所有项目都属于某个小组了。然后，我们用一个数组 $groupItems$ 记录每个小组包含的项目，数组下标为小组编号，数组值为包含的项目列表。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是项目总数和小组总数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -121,10 +115,6 @@ class Solution:
             ans.extend(item_order)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -197,8 +187,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -265,8 +253,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sortItems(n int, m int, group []int, beforeItems [][]int) []int {
@@ -337,8 +323,6 @@ func sortItems(n int, m int, group []int, beforeItems [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortItems(n: number, m: number, group: number[], beforeItems: number[][]): number[] {
     let idx = m;
@@ -401,10 +385,6 @@ function sortItems(n: number, m: number, group: number[], beforeItems: number[][
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

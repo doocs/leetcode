@@ -1,13 +1,10 @@
 class Solution:
     def subsetXORSum(self, nums: List[int]) -> int:
-        def dfs(nums, depth, prev):
-            self.res += prev
-            for num in nums[depth:]:
-                prev ^= num
-                depth += 1
-                dfs(nums, depth, prev)
-                prev ^= num
-
-        self.res = 0
-        dfs(nums, 0, 0)
-        return self.res
+        ans, n = 0, len(nums)
+        for i in range(1 << n):
+            s = 0
+            for j in range(n):
+                if i >> j & 1:
+                    s ^= nums[j]
+            ans += s
+        return ans

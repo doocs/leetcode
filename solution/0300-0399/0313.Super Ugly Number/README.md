@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（小根堆）**
+### 方法一：优先队列（小根堆）
 
 我们用一个优先队列（小根堆）维护所有可能的超级丑数，初始时将 $1$ 放入队列中。
 
@@ -62,10 +60,6 @@
 时间复杂度 $O(n \times m \times \log (n \times m))$，空间复杂度 $O(n \times m)$。其中 $m$ 和 $n$ 分别为数组 `primes` 的长度和给定的整数 $n$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                     break
         return x
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -137,8 +125,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func nthSuperUglyNumber(n int, primes []int) (x int) {
@@ -168,6 +154,12 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```go
 type Ugly struct{ value, prime, index int }
@@ -202,10 +194,6 @@ func nthSuperUglyNumber(n int, primes []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

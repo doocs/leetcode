@@ -72,9 +72,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划（区间 DP）**
+### 方法一：动态规划（区间 DP）
 
 我们先设计一个函数 $cal(s)$，用于计算一个合法的只含有个位数数字的数学表达式的结果。那么正确答案就是 $x = cal(s)$。
 
@@ -100,10 +98,6 @@ $$
 时间复杂度 $O(n^3 \times M^2)$，空间复杂度 $O(n^2 \times M^2)$。其中 $M$ 是答案可能的最大值，而 $n$ 是字符串 $s$ 的长度中数字的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -141,10 +135,6 @@ class Solution:
                 ans += v << 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -206,8 +196,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -266,8 +254,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func scoreOfStudents(s string, answers []int) int {
 	n := len(s)
@@ -325,8 +311,6 @@ func cal(s string) int {
 	return res
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function scoreOfStudents(s: string, answers: number[]): number {
@@ -388,10 +372,6 @@ function scoreOfStudents(s: string, answers: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

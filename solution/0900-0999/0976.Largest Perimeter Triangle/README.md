@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 > 三角形由三条边组成，且满足 <var>C</var> >= <var>B</var> && <var>C</var> >= <var>A</var> && <var>C</var> < <var>A</var> + <var>B</var>
 
@@ -58,10 +56,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def largestPerimeter(self, nums: List[int]) -> int:
@@ -71,10 +65,6 @@ class Solution:
                 return c + nums[i]
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestPerimeter(nums []int) int {
 	sort.Ints(nums)
@@ -121,8 +107,6 @@ func largestPerimeter(nums []int) int {
 	return 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestPerimeter(nums: number[]): number {
@@ -137,8 +121,6 @@ function largestPerimeter(nums: number[]): number {
     return 0;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -156,8 +138,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int cmp(const void* a, const void* b) {
     return *(int*) b - *(int*) a;
@@ -174,10 +154,6 @@ int largestPerimeter(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

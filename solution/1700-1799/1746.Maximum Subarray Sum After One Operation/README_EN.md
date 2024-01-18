@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -49,8 +49,6 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -68,8 +66,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -89,7 +85,19 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func maxSumAfterOperation(nums []int) int {
+	var f, g int
+	ans := -(1 << 30)
+	for _, x := range nums {
+		ff := max(f, 0) + x
+		gg := max(max(f, 0)+x*x, g+x)
+		f, g = ff, gg
+		ans = max(ans, max(f, g))
+	}
+	return ans
+}
+```
 
 ```rust
 impl Solution {
@@ -119,26 +127,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func maxSumAfterOperation(nums []int) int {
-	var f, g int
-	ans := -(1 << 30)
-	for _, x := range nums {
-		ff := max(f, 0) + x
-		gg := max(max(f, 0)+x*x, g+x)
-		f, g = ff, gg
-		ans = max(ans, max(f, g))
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,7 +44,7 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 
 ## Solutions
 
-**Solution 1: Bitwise Operation**
+### Solution 1: Bitwise Operation
 
 Assume that the elements of array $arr1$ are $a_1, a_2, ..., a_n$, and the elements of array $arr2$ are $b_1, b_2, ..., b_m$. Then, the answer to the problem is:
 
@@ -69,8 +69,6 @@ The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays $
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def getXORSum(self, arr1: List[int], arr2: List[int]) -> int:
@@ -78,8 +76,6 @@ class Solution:
         b = reduce(xor, arr2)
         return a & b
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getXORSum(arr1 []int, arr2 []int) int {
@@ -124,8 +116,6 @@ func getXORSum(arr1 []int, arr2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getXORSum(arr1: number[], arr2: number[]): number {
     const a = arr1.reduce((acc, x) => acc ^ x);
@@ -134,10 +124,6 @@ function getXORSum(arr1: number[], arr2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

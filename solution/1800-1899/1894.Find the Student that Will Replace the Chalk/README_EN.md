@@ -55,100 +55,112 @@ Student number 1 does not have enough chalk, so they will have to replace it.
 
 ## Solutions
 
-PreSum and Binary search.
+### Solution 1: Sum and Modulo + Simulation
+
+Since the students' answers are conducted in rounds, we can add up the chalk needed by all students to get a total $s$. Then we take the remainder of $k$ by $s$, which can tell us the remaining number of chalks after the last round.
+
+Next, we just need to simulate the last round. Initially, the remaining number of chalks is $k$, and the student with the number $0$ starts to answer the question. When the remaining number of chalks is less than the current student needs, the current student needs to replenish the chalk, and we directly return the current student's number $i$. Otherwise, we subtract the chalk needed by the current student from the remaining chalk, and add one to the current student's number $i$ for the next simulation.
+
+The time complexity is $O(n)$, where $n$ is the number of students. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def chalkReplacer(self, chalk: List[int], k: int) -> int:
-        s = list(accumulate(chalk))
-        k %= s[-1]
-        return bisect_right(s, k)
+        s = sum(chalk)
+        k %= s
+        for i, x in enumerate(chalk):
+            if k < x:
+                return i
+            k -= x
 ```
-
-### **Java**
 
 ```java
 class Solution {
     public int chalkReplacer(int[] chalk, int k) {
-        int n = chalk.length;
-        long[] preSum = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + chalk[i];
+        long s = 0;
+        for (int x : chalk) {
+            s += x;
         }
-        k %= preSum[n];
-        int left = 0, right = n - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (preSum[mid + 1] > k) {
-                right = mid;
-            } else {
-                left = mid + 1;
+        k %= s;
+        for (int i = 0;; ++i) {
+            if (k < chalk[i]) {
+                return i;
             }
+            k -= chalk[i];
         }
-        return left;
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
 public:
     int chalkReplacer(vector<int>& chalk, int k) {
-        int n = chalk.size();
-        vector<long long> s(n, chalk[0]);
-        for (int i = 1; i < n; ++i) s[i] = s[i - 1] + chalk[i];
-        k %= s[n - 1];
-        return upper_bound(s.begin(), s.end(), k) - s.begin();
+        long long s = accumulate(chalk.begin(), chalk.end(), 0LL);
+        k %= s;
+        for (int i = 0;; ++i) {
+            if (k < chalk[i]) {
+                return i;
+            }
+            k -= chalk[i];
+        }
     }
 };
 ```
 
-### **Go**
-
 ```go
 func chalkReplacer(chalk []int, k int) int {
-	n := len(chalk)
-	s := make([]int, n+1)
-	for i := 0; i < n; i++ {
-		s[i+1] = s[i] + chalk[i]
+	s := 0
+	for _, x := range chalk {
+		s += x
 	}
-	k %= s[n]
-	return sort.Search(n, func(i int) bool { return s[i+1] > k })
+	k %= s
+	for i := 0; ; i++ {
+		if k < chalk[i] {
+			return i
+		}
+		k -= chalk[i]
+	}
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn chalk_replacer(chalk: Vec<i32>, k: i32) -> i32 {
-        let pre_sum: Vec<i64> = chalk
-            .into_iter()
-            .map(|x| x as i64)
-            .scan(0, |state, x| {
-                *state += x;
-                Some(*state)
-            })
-            .collect();
-
-        pre_sum.binary_search(&((k as i64) % pre_sum.last().unwrap())).map_or_else(
-            |e| e,
-            |v| v + 1
-        ) as i32
+```ts
+function chalkReplacer(chalk: number[], k: number): number {
+    let s = 0;
+    for (const x of chalk) {
+        s += x;
+    }
+    k %= s;
+    for (let i = 0; ; ++i) {
+        if (k < chalk[i]) {
+            return i;
+        }
+        k -= chalk[i];
     }
 }
 ```
 
-### **...**
-
-```
-
+```rust
+impl Solution {
+    pub fn chalk_replacer(chalk: Vec<i32>, k: i32) -> i32 {
+        let mut s: i64 = chalk
+            .iter()
+            .map(|&x| x as i64)
+            .sum();
+        let mut k = (k as i64) % s;
+        for (i, &x) in chalk.iter().enumerate() {
+            if k < (x as i64) {
+                return i as i32;
+            }
+            k -= x as i64;
+        }
+        0
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

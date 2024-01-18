@@ -47,9 +47,9 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
             return list(range(rounds[0], rounds[-1] + 1))
         return list(range(1, rounds[-1] + 1)) + list(range(rounds[0], n + 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostVisited(n int, rounds []int) []int {
@@ -124,10 +118,6 @@ func mostVisited(n int, rounds []int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

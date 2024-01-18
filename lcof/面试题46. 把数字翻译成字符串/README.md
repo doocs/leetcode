@@ -24,9 +24,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们先将数字 `num` 转为字符串 $s$，字符串 $s$ 的长度记为 $n$。
 
@@ -41,23 +39,7 @@
 
 时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定的数字。
 
-**方法二：动态规划**
-
-我们可以将方法一中的记忆化搜索改为动态规划。
-
-定义 $f[i]$ 表示前 $i$ 个数字的不同翻译的数目，那么答案就是 $f[n]$。初始化 $f[0] = 1$, $f[1] = 1$。
-
-我们可以从前往后计算 $f[i]$ 的值，对于每个 $i$，我们可以选择翻译第 $i$ 个数字，此时翻译方法数目为 $f[i - 1]$；如果第 $i-1$ 个数字和第 $i$ 个数字可以组成一个有效的字符（即 $s[i - 1] == 1$ 或者 $s[i - 1] == 2$ 且 $s[i] \lt 6$），那么我们还可以选择翻译第 $i - 1$ 和第 $i$ 个数字，此时翻译方法数目为 $f[i - 2]$。因此 $f[i] = f[i-1] + f[i-2]$。
-
-由于 $f[i]$ 只与 $f[i - 1]$ 和 $f[i - 2]$ 有关，因此我们可以只用两个变量来存储 $f[i - 1]$ 和 $f[i - 2]$ 的值，从而省去数组 $f$ 的空间。
-
-时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定的数字。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,24 +57,6 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
-
-```python
-class Solution:
-    def translateNum(self, num: int) -> int:
-        s = str(num)
-        n = len(s)
-        a = b = 1
-        for i in range(1, n):
-            c = b
-            if s[i - 1] == '1' or (s[i - 1] == '2' and s[i] < '6'):
-                c += a
-            a, b = b, c
-        return b
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,27 +87,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int translateNum(int num) {
-        char[] s = String.valueOf(num).toCharArray();
-        int n = s.length;
-        int a = 1, b = 1;
-        for (int i = 1; i < n; ++i) {
-            int c = b;
-            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
-                c += a;
-            }
-            a = b;
-            b = c;
-        }
-        return b;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -169,28 +112,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int translateNum(int num) {
-        string s = to_string(num);
-        int n = s.size();
-        int a = 1, b = 1;
-        for (int i = 1; i < n; ++i) {
-            int c = b;
-            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
-                c += a;
-            }
-            a = b;
-            b = c;
-        }
-        return b;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func translateNum(num int) int {
 	s := strconv.Itoa(num)
@@ -215,23 +136,47 @@ func translateNum(num int) int {
 }
 ```
 
-```go
-func translateNum(num int) int {
-	s := strconv.Itoa(num)
-	n := len(s)
-	a, b := 1, 1
-	for i := 1; i < n; i++ {
-		c := b
-		if s[i-1] == '1' || (s[i-1] == '2' && s[i] < '6') {
-			c += a
-		}
-		a, b = b, c
-	}
-	return b
+```ts
+function translateNum(num: number): number {
+    const s = num.toString();
+    const n = s.length;
+    const f = new Array(n).fill(0);
+    const dfs = (i: number): number => {
+        if (i >= n - 1) {
+            return 1;
+        }
+        if (f[i]) {
+            return f[i];
+        }
+        let ans = dfs(i + 1);
+        if (s[i] === '1' || (s[i] === '2' && s[i + 1] < '6')) {
+            ans += dfs(i + 2);
+        }
+        f[i] = ans;
+        return ans;
+    };
+    return dfs(0);
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn translate_num(num: i32) -> i32 {
+        let mut a = 1;
+        let mut b = 1;
+        let str = num.to_string();
+        for i in 0..str.len() - 1 {
+            let c = a + b;
+            a = b;
+            let num = str[i..i + 2].parse::<i32>().unwrap();
+            if num >= 10 && num < 26 {
+                b = c;
+            }
+        }
+        b
+    }
+}
+```
 
 ```js
 /**
@@ -260,50 +205,107 @@ var translateNum = function (num) {
 };
 ```
 
-```js
-/**
- * @param {number} num
- * @return {number}
- */
-var translateNum = function (num) {
-    const s = num.toString();
-    const n = s.length;
-    let a = 1;
-    let b = 1;
-    for (let i = 1; i < n; ++i) {
-        let c = b;
-        if (s[i - 1] === '1' || (s[i - 1] === '2' && s[i] < '6')) {
-            c += a;
+```cs
+public class Solution {
+    public int TranslateNum(int num) {
+        var s = num.ToString();
+        int n = s.Length;
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
         }
-        a = b;
-        b = c;
+        return b;
     }
-    return b;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们可以将方法一中的记忆化搜索改为动态规划。
+
+定义 $f[i]$ 表示前 $i$ 个数字的不同翻译的数目，那么答案就是 $f[n]$。初始化 $f[0] = 1$, $f[1] = 1$。
+
+我们可以从前往后计算 $f[i]$ 的值，对于每个 $i$，我们可以选择翻译第 $i$ 个数字，此时翻译方法数目为 $f[i - 1]$；如果第 $i-1$ 个数字和第 $i$ 个数字可以组成一个有效的字符（即 $s[i - 1] == 1$ 或者 $s[i - 1] == 2$ 且 $s[i] \lt 6$），那么我们还可以选择翻译第 $i - 1$ 和第 $i$ 个数字，此时翻译方法数目为 $f[i - 2]$。因此 $f[i] = f[i-1] + f[i-2]$。
+
+由于 $f[i]$ 只与 $f[i - 1]$ 和 $f[i - 2]$ 有关，因此我们可以只用两个变量来存储 $f[i - 1]$ 和 $f[i - 2]$ 的值，从而省去数组 $f$ 的空间。
+
+时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定的数字。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def translateNum(self, num: int) -> int:
+        s = str(num)
+        n = len(s)
+        a = b = 1
+        for i in range(1, n):
+            c = b
+            if s[i - 1] == '1' or (s[i - 1] == '2' and s[i] < '6'):
+                c += a
+            a, b = b, c
+        return b
+```
+
+```java
+class Solution {
+    public int translateNum(int num) {
+        char[] s = String.valueOf(num).toCharArray();
+        int n = s.length;
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int translateNum(int num) {
+        string s = to_string(num);
+        int n = s.size();
+        int a = 1, b = 1;
+        for (int i = 1; i < n; ++i) {
+            int c = b;
+            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
+                c += a;
+            }
+            a = b;
+            b = c;
+        }
+        return b;
+    }
 };
 ```
 
-### **TypeScript**
-
-```ts
-function translateNum(num: number): number {
-    const s = num.toString();
-    const n = s.length;
-    const f = new Array(n).fill(0);
-    const dfs = (i: number): number => {
-        if (i >= n - 1) {
-            return 1;
-        }
-        if (f[i]) {
-            return f[i];
-        }
-        let ans = dfs(i + 1);
-        if (s[i] === '1' || (s[i] === '2' && s[i + 1] < '6')) {
-            ans += dfs(i + 2);
-        }
-        f[i] = ans;
-        return ans;
-    };
-    return dfs(0);
+```go
+func translateNum(num int) int {
+	s := strconv.Itoa(num)
+	n := len(s)
+	a, b := 1, 1
+	for i := 1; i < n; i++ {
+		c := b
+		if s[i-1] == '1' || (s[i-1] == '2' && s[i] < '6') {
+			c += a
+		}
+		a, b = b, c
+	}
+	return b
 }
 ```
 
@@ -322,27 +324,6 @@ function translateNum(num: number): number {
         b = c;
     }
     return b;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn translate_num(num: i32) -> i32 {
-        let mut a = 1;
-        let mut b = 1;
-        let str = num.to_string();
-        for i in 0..str.len() - 1 {
-            let c = a + b;
-            a = b;
-            let num = str[i..i + 2].parse::<i32>().unwrap();
-            if num >= 10 && num < 26 {
-                b = c;
-            }
-        }
-        b
-    }
 }
 ```
 
@@ -369,31 +350,28 @@ impl Solution {
 }
 ```
 
-### **C#**
-
-```cs
-public class Solution {
-    public int TranslateNum(int num) {
-        var s = num.ToString();
-        int n = s.Length;
-        int a = 1, b = 1;
-        for (int i = 1; i < n; ++i) {
-            int c = b;
-            if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] < '6')) {
-                c += a;
-            }
-            a = b;
-            b = c;
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var translateNum = function (num) {
+    const s = num.toString();
+    const n = s.length;
+    let a = 1;
+    let b = 1;
+    for (let i = 1; i < n; ++i) {
+        let c = b;
+        if (s[i - 1] === '1' || (s[i - 1] === '2' && s[i] < '6')) {
+            c += a;
         }
-        return b;
+        a = b;
+        b = c;
     }
-}
-```
-
-### **...**
-
-```
-
+    return b;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

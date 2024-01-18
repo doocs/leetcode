@@ -47,9 +47,19 @@ Other original arrays could be [4,3,1] or [3,1,4].
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Counting + Traversal
 
-### **Python3**
+First, we check if the length $n$ of the array `changed` is odd. If it is, we directly return an empty array.
+
+Then, we sort the array `changed`, and use a hash table or array `cnt` to count the occurrence of each element in `changed`.
+
+Next, we traverse the array `changed`. For each element $x$ in `changed`, we first check if $x$ exists in the hash table `cnt`. If it does not exist, we directly skip this element. Otherwise, we check if $x \times 2$ exists in `cnt`. If it does not exist, we directly return an empty array. Otherwise, we add $x$ to the answer array `ans`, and decrease the occurrence counts of $x$ and $x \times 2$ in `cnt` by $1$ each.
+
+After the traversal, we check if the length of the answer array `ans` is $\frac{n}{2}$. If it is, we return `ans`, otherwise we return an empty array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `changed`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +80,6 @@ class Solution:
             cnt[x * 2] -= 1
         return ans if len(ans) == n // 2 else []
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findOriginalArray(changed []int) []int {
@@ -167,8 +171,6 @@ func findOriginalArray(changed []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findOriginalArray(changed: number[]): number[] {
     const n = changed.length;
@@ -196,10 +198,6 @@ function findOriginalArray(changed: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

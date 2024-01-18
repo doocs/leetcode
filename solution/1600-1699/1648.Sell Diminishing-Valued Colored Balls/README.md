@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优化模拟**
+### 方法一：贪心 + 优化模拟
 
 要使得总价值最大，我们可以贪心地每次卖出数量最多的一种颜色的球。由于 `orders` 值域较大，如果直接简单地模拟，会超时。因此，我们需要优化模拟的过程。
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(n\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `inventory` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -106,10 +100,6 @@ class Solution:
             ans %= mod
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +173,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxProfit(inventory []int, orders int) int {
@@ -224,10 +210,6 @@ func maxProfit(inventory []int, orders int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

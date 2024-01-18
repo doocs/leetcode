@@ -31,9 +31,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
         dfs(0, -1000, [])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +86,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSubsequences(nums []int) [][]int {
 	var ans [][]int
@@ -124,9 +118,7 @@ func findSubsequences(nums []int) [][]int {
 	dfs = func(u, last int, t []int) {
 		if u == len(nums) {
 			if len(t) > 1 {
-				cp := make([]int, len(t))
-				copy(cp, t)
-				ans = append(ans, cp)
+				ans = append(ans, slices.Clone(t))
 			}
 			return
 		}
@@ -145,10 +137,6 @@ func findSubsequences(nums []int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

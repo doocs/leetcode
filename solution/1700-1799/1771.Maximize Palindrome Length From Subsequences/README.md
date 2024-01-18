@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们首先将字符串 `word1` 和 `word2` 连接起来，得到字符串 $s$，然后我们可以将问题转化为求字符串 $s$ 的最长回文子序列的长度。只不过这里在算最后的答案时，需要保证回文字符串中，至少有一个字符来自 `word1`，另一个字符来自 `word2`。
 
@@ -65,13 +63,9 @@
 
 最后我们返回答案即可。
 
-时间复杂度为 $O(n^2)$，其中 $n$ 是字符串 $s$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$，其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,20 +76,16 @@ class Solution:
         for i in range(n):
             f[i][i] = 1
         ans = 0
-        for i in range(n - 1, -1, -1):
+        for i in range(n - 2, -1, -1):
             for j in range(i + 1, n):
                 if s[i] == s[j]:
                     f[i][j] = f[i + 1][j - 1] + 2
-                    if i < len(word1) and j >= len(word1):
+                    if i < len(word1) <= j:
                         ans = max(ans, f[i][j])
                 else:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPalindrome(word1 string, word2 string) (ans int) {
 	s := word1 + word2
@@ -180,10 +166,58 @@ func longestPalindrome(word1 string, word2 string) (ans int) {
 }
 ```
 
-### **...**
-
+```ts
+function longestPalindrome(word1: string, word2: string): number {
+    const s = word1 + word2;
+    const n = s.length;
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < n; ++i) {
+        f[i][i] = 1;
+    }
+    let ans = 0;
+    for (let i = n - 2; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (s[i] === s[j]) {
+                f[i][j] = f[i + 1][j - 1] + 2;
+                if (i < word1.length && j >= word1.length) {
+                    ans = Math.max(ans, f[i][j]);
+                }
+            } else {
+                f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
+```rust
+impl Solution {
+    pub fn longest_palindrome(word1: String, word2: String) -> i32 {
+        let s: Vec<char> = format!("{}{}", word1, word2).chars().collect();
+        let n = s.len();
+        let mut f = vec![vec![0; n]; n];
+        for i in 0..n {
+            f[i][i] = 1;
+        }
+        let mut ans = 0;
+        for i in (0..n - 1).rev() {
+            for j in i + 1..n {
+                if s[i] == s[j] {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                    if i < word1.len() && j >= word1.len() {
+                        ans = ans.max(f[i][j]);
+                    }
+                } else {
+                    f[i][j] = f[i + 1][j].max(f[i][j - 1]);
+                }
+            }
+        }
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

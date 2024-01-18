@@ -50,9 +50,7 @@ rangeModule.queryRange(16, 17); 返回 true （尽管执行了删除操作，区
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：线段树**
+### 方法一：线段树
 
 根据题目描述，我们需要维护一个区间集合，支持区间的添加、删除和查询操作。对于区间的添加和删除操作，我们可以使用线段树来维护区间集合。
 
@@ -68,10 +66,6 @@ rangeModule.queryRange(16, 17); 返回 true （尽管执行了删除操作，区
 时间复杂度方面，每次操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(m \times \log n)$。其中 $m$ 为操作次数，而 $n$ 为数据范围。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -151,16 +145,13 @@ class RangeModule:
     def removeRange(self, left: int, right: int) -> None:
         self.tree.modify(left, right - 1, -1)
 
+
 # Your RangeModule object will be instantiated and called as such:
 # obj = RangeModule()
 # obj.addRange(left,right)
 # param_2 = obj.queryRange(left,right)
 # obj.removeRange(left,right)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
@@ -265,8 +256,6 @@ class RangeModule {
  * obj.removeRange(left,right);
  */
 ```
-
-### **C++**
 
 ```cpp
 template <class T>
@@ -395,8 +384,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 const N int = 1e9
 
@@ -500,8 +487,6 @@ func (this *RangeModule) RemoveRange(left int, right int) {
  * obj.RemoveRange(left,right);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class Node {
@@ -641,10 +626,6 @@ class RangeModule {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

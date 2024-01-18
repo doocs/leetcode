@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：组合计数**
+### 方法一：组合计数
 
 根据题目描述我们可以知道，最终的路径是由 $destination[0]$ 个 `'V'` 和 $destination[1]$ 个 `'H'` 组成的，且按字典序排列后的第 $k$ 条最小指令。
 
@@ -84,10 +82,6 @@
 时间复杂度 $O((h + v) \times h)$，空间复杂度 $O((h + v) \times h)$。其中 $h$ 和 $v$ 分别为 $destination[1]$ 和 $destination[0]$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -108,10 +102,6 @@ class Solution:
                     h -= 1
         return "".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,8 +136,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -185,8 +173,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func kthSmallestPath(destination []int, k int) string {
 	v, h := destination[0], destination[1]
@@ -221,10 +207,6 @@ func kthSmallestPath(destination []int, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

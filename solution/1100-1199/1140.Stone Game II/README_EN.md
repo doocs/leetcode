@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Memoization Search**
+### Solution 1: Prefix Sum + Memoization Search
 
 Since the player can take all the stones from the first $X$ piles each time, that is, they can take the stones from an interval, we can first preprocess a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the sum of the first $i$ elements of the array `piles`.
 
@@ -59,8 +59,6 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def stoneGameII(self, piles: List[int]) -> int:
@@ -76,24 +74,6 @@ class Solution:
         s = list(accumulate(piles, initial=0))
         return dfs(0, 1)
 ```
-
-```python
-class Solution:
-    def stoneGameII(self, piles: List[int]) -> int:
-        @cache
-        def dfs(i: int, m: int = 1) -> int:
-            if i >= len(piles):
-                return 0
-            t = inf
-            for x in range(1, m << 1 | 1):
-                t = min(t, dfs(i + x, max(m, x)))
-            return s[-1] - s[i] - t
-
-        s = list(accumulate(piles, initial=0))
-        return dfs(0)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -159,8 +137,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func stoneGameII(piles []int) int {
 	n := len(piles)
@@ -188,8 +164,6 @@ func stoneGameII(piles []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function stoneGameII(piles: number[]): number {
     const n = piles.length;
@@ -215,10 +189,28 @@ function stoneGameII(piles: number[]): number {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def stoneGameII(self, piles: List[int]) -> int:
+        @cache
+        def dfs(i: int, m: int = 1) -> int:
+            if i >= len(piles):
+                return 0
+            t = inf
+            for x in range(1, m << 1 | 1):
+                t = min(t, dfs(i + x, max(m, x)))
+            return s[-1] - s[i] - t
+
+        s = list(accumulate(piles, initial=0))
+        return dfs(0)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

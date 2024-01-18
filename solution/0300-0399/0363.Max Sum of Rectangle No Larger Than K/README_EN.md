@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -67,8 +67,6 @@ class Solution:
                     ts.add(s)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSumSubmatrix(matrix [][]int, k int) int {
 	m, n := len(matrix), len(matrix[0])
@@ -163,8 +157,6 @@ func maxSumSubmatrix(matrix [][]int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSumSubmatrix(matrix: number[][], k: number): number {
@@ -834,10 +826,6 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

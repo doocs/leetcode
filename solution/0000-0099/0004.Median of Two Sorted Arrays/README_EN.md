@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Divide and Conquer**
+### Solution 1: Divide and Conquer
 
 The problem requires the time complexity of the algorithm to be $O(\log (m + n))$, so we cannot directly traverse the two arrays, but need to use the binary search method.
 
@@ -59,8 +59,6 @@ The implementation idea of the function $f(i, j, k)$ is as follows:
 The time complexity is $O(\log(m + n))$, and the space complexity is $O(\log(m + n))$. Here, $m$ and $n$ are the lengths of arrays $nums1$ and $nums2$ respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -82,8 +80,6 @@ class Solution:
         b = f(0, 0, (m + n + 2) // 2)
         return (a + b) / 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -148,8 +142,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
@@ -183,8 +175,6 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
     const m = nums1.length;
@@ -209,8 +199,6 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
     return (a + b) / 2;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -242,9 +230,7 @@ var findMedianSortedArrays = function (nums1, nums2) {
 };
 ```
 
-### **TypeScript**
-
-```ts
+```cs
 public class Solution {
     private int m;
     private int n;
@@ -279,10 +265,29 @@ public class Solution {
 }
 ```
 
-### **...**
+```nim
+import std/[algorithm, sequtils]
 
-```
+proc medianOfTwoSortedArrays(nums1: seq[int], nums2: seq[int]): float =
+  var
+    fullList: seq[int] = concat(nums1, nums2)
+    value: int = fullList.len div 2
 
+  fullList.sort()
+
+  if fullList.len mod 2 == 0:
+    result = (fullList[value - 1] + fullList[value]) / 2
+  else:
+    result = fullList[value].toFloat()
+
+# Driver Code
+
+# var
+#   arrA: seq[int] = @[1, 2]
+#   arrB: seq[int] = @[3, 4, 5]
+# echo medianOfTwoSortedArrays(arrA, arrB)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

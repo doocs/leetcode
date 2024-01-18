@@ -53,9 +53,9 @@ Because the given array is not non-decreasing, the maximum<!-- notionvc: 3447a50
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             pre[j] = i
         return f[n]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMaximumLength(nums []int) int {
 	n := len(nums)
@@ -141,8 +135,6 @@ func findMaximumLength(nums []int) int {
 	return f[n]
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findMaximumLength(nums: number[]): number {
@@ -175,10 +167,6 @@ function findMaximumLength(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

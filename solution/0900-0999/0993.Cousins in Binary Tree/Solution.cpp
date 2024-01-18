@@ -12,24 +12,33 @@
 class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
-        TreeNode *p1, *p2;
-        int d1, d2;
-        function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* root, TreeNode* fa, int d) {
-            if (!root) {
-                return;
+        TreeNode* p1 = nullptr;
+        TreeNode* p2 = nullptr;
+        int d1 = 0, d2 = 0;
+        queue<pair<TreeNode*, TreeNode*>> q;
+        q.emplace(root, nullptr);
+        int d = 0;
+        while (!q.empty()) {
+            for (int n = q.size(); n; --n) {
+                auto [node, fa] = q.front();
+                q.pop();
+                if (node->val == x) {
+                    p1 = fa;
+                    d1 = d;
+                }
+                if (node->val == y) {
+                    p2 = fa;
+                    d2 = d;
+                }
+                if (node->left) {
+                    q.emplace(node->left, node);
+                }
+                if (node->right) {
+                    q.emplace(node->right, node);
+                }
             }
-            if (root->val == x) {
-                p1 = fa;
-                d1 = d;
-            }
-            if (root->val == y) {
-                p2 = fa;
-                d2 = d;
-            }
-            dfs(root->left, root, d + 1);
-            dfs(root->right, root, d + 1);
-        };
-        dfs(root, nullptr, 0);
+            ++d;
+        }
         return p1 != p2 && d1 == d2;
     }
 };

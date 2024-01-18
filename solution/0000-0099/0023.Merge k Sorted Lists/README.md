@@ -53,19 +53,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（小根堆）**
+### 方法一：优先队列（小根堆）
 
 我们可以创建一个小根堆来 $pq$ 维护所有链表的头节点，每次从小根堆中取出值最小的节点，添加到结果链表的末尾，然后将该节点的下一个节点加入堆中，重复上述步骤直到堆为空。
 
 时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 是所有链表节点数目的总和，而 $k$ 是题目给定的链表数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -87,10 +81,6 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -125,8 +115,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -165,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -204,8 +190,6 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(*ListNode)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -239,80 +223,6 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     return dummy.next;
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-var mergeKLists = function (lists) {
-    const pq = new MinPriorityQueue({ priority: node => node.val });
-    for (const head of lists) {
-        if (head) {
-            pq.enqueue(head);
-        }
-    }
-    const dummy = new ListNode();
-    let cur = dummy;
-    while (!pq.isEmpty()) {
-        const node = pq.dequeue().element;
-        cur.next = node;
-        cur = cur.next;
-        if (node.next) {
-            pq.enqueue(node.next);
-        }
-    }
-    return dummy.next;
-};
-```
-
-### **C#**
-
-```cs
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
-public class Solution {
-    public ListNode MergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode, int> pq = new PriorityQueue<ListNode, int>();
-        foreach (var head in lists) {
-            if (head != null) {
-                pq.Enqueue(head, head.val);
-            }
-        }
-        var dummy = new ListNode();
-        var cur = dummy;
-        while (pq.Count > 0) {
-            var node = pq.Dequeue();
-            cur.next = node;
-            cur = cur.next;
-            if (node.next != null) {
-                pq.Enqueue(node.next, node.next.val);
-            }
-        }
-        return dummy.next;
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -363,10 +273,74 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ */
+var mergeKLists = function (lists) {
+    const pq = new MinPriorityQueue({ priority: node => node.val });
+    for (const head of lists) {
+        if (head) {
+            pq.enqueue(head);
+        }
+    }
+    const dummy = new ListNode();
+    let cur = dummy;
+    while (!pq.isEmpty()) {
+        const node = pq.dequeue().element;
+        cur.next = node;
+        cur = cur.next;
+        if (node.next) {
+            pq.enqueue(node.next);
+        }
+    }
+    return dummy.next;
+};
 ```
 
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode MergeKLists(ListNode[] lists) {
+        PriorityQueue<ListNode, int> pq = new PriorityQueue<ListNode, int>();
+        foreach (var head in lists) {
+            if (head != null) {
+                pq.Enqueue(head, head.val);
+            }
+        }
+        var dummy = new ListNode();
+        var cur = dummy;
+        while (pq.Count > 0) {
+            var node = pq.Dequeue();
+            cur.next = node;
+            cur = cur.next;
+            if (node.next != null) {
+                pq.Enqueue(node.next, node.next.val);
+            }
+        }
+        return dummy.next;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

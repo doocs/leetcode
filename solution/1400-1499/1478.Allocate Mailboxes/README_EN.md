@@ -40,9 +40,9 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
                     f[i][j] = min(f[i][j], f[p][j - 1] + g[p + 1][i])
         return f[-1][k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,8 +91,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDistance(houses []int, k int) int {
@@ -156,10 +150,6 @@ func minDistance(houses []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

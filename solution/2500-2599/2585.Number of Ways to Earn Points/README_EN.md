@@ -66,7 +66,7 @@
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ to represent the number of methods to get $j$ points exactly from the first $i$ types of questions. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$. The answer is $f[n][target]$.
 
@@ -84,8 +84,6 @@ The time complexity is $O(n \times target \times count)$ and the space complexit
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def waysToReachTarget(self, target: int, types: List[List[int]]) -> int:
@@ -101,8 +99,6 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][j - k * marks]) % mod
         return f[n][target]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -125,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -152,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToReachTarget(target int, types [][]int) int {
 	n := len(types)
@@ -177,8 +169,6 @@ func waysToReachTarget(target int, types [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function waysToReachTarget(target: number, types: number[][]): number {
     const n = types.length;
@@ -199,10 +189,6 @@ function waysToReachTarget(target: number, types: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

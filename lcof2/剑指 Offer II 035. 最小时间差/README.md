@@ -37,9 +37,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们注意到，时间点最多只有 $24 \times 60$ 个，因此，当 $timePoints$ 长度超过 $24 \times 60$，说明有重复的时间点，提前返回 $0$。
 
@@ -53,10 +51,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findMinDifference(self, timePoints: List[str]) -> int:
@@ -66,10 +60,6 @@ class Solution:
         mins.append(mins[0] + 24 * 60)
         return min(b - a for a, b in pairwise(mins))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -93,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -116,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findMinDifference(timePoints []string) int {
@@ -141,8 +127,6 @@ func findMinDifference(timePoints []string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMinDifference(timePoints: string[]): number {
     if (timePoints.length > 24 * 60) {
@@ -162,10 +146,6 @@ function findMinDifference(timePoints: string[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -89,15 +89,13 @@ So, we only return the information of Student 2.
 
 ## Solutions
 
-**Solution 1: Using RANK() Window Function + Group By**
+### Solution 1: Using RANK() Window Function + Group By
 
 We can use the `RANK()` window function to calculate the ascending rank $rk1$ and descending rank $rk2$ of each student in each exam, and obtain the table $T$.
 
 Next, we can perform an inner join between the table $T$ and the table $Student$, and then group by student ID to obtain the number of times each student has a rank of $1$ in ascending order $cnt1$ and descending order $cnt2$ in all exams. If both $cnt1$ and $cnt2$ are $0$, it means that the student is in the middle of the pack in all exams.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -125,3 +123,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

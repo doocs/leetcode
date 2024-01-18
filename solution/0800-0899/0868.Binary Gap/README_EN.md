@@ -47,9 +47,9 @@ There are not any adjacent pairs of 1&#39;s in the binary representation of 8, s
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
             n >>= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,7 +81,36 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int binaryGap(int n) {
+        int ans = 0;
+        for (int i = 0, j = -1; n; ++i, n >>= 1) {
+            if (n & 1) {
+                if (j != -1) ans = max(ans, i - j);
+                j = i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func binaryGap(n int) int {
+	ans := 0
+	for i, j := 0, -1; n != 0; i, n = i+1, n>>1 {
+		if (n & 1) == 1 {
+			if j != -1 && ans < i-j {
+				ans = i - j
+			}
+			j = i
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function binaryGap(n: number): number {
@@ -101,8 +128,6 @@ function binaryGap(n: number): number {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -125,45 +150,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int binaryGap(int n) {
-        int ans = 0;
-        for (int i = 0, j = -1; n; ++i, n >>= 1) {
-            if (n & 1) {
-                if (j != -1) ans = max(ans, i - j);
-                j = i;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func binaryGap(n int) int {
-	ans := 0
-	for i, j := 0, -1; n != 0; i, n = i+1, n>>1 {
-		if (n & 1) == 1 {
-			if j != -1 && ans < i-j {
-				ans = i - j
-			}
-			j = i
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

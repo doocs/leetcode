@@ -71,56 +71,50 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：计数 + 模拟
+
+我们先用一个哈希表或者一个长度为 $26$ 的数组 $cnt$ 统计字符串 $s$ 中每个字符出现的次数。
+
+然后，我们枚举字母 $[a,...,z]$，对于当前枚举到的字母 $c$，如果 $cnt[c] \gt 0$，我们就将字母 $c$ 接在答案字符串的末尾，并将 $cnt[c]$ 减一。我们重复这一步骤，直到 $cnt[c]=0$。随后我们逆序枚举字母 $[z,...,a]$，执行类似的操作。如果答案字符串的长度等于 $s$ 的长度，那么我们就完成了所有的拼接操作。
+
+时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为所有小写字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def sortString(self, s: str) -> str:
-        counter = [0] * 26
-        for c in s:
-            counter[ord(c) - ord('a')] += 1
+        cnt = Counter(s)
+        cs = ascii_lowercase + ascii_lowercase[::-1]
         ans = []
         while len(ans) < len(s):
-            for i in range(26):
-                if counter[i]:
-                    ans.append(chr(i + ord('a')))
-                    counter[i] -= 1
-            for i in range(25, -1, -1):
-                if counter[i]:
-                    ans.append(chr(i + ord('a')))
-                    counter[i] -= 1
-        return ''.join(ans)
+            for c in cs:
+                if cnt[c]:
+                    ans.append(c)
+                    cnt[c] -= 1
+        return "".join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
     public String sortString(String s) {
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            cnt[s.charAt(i) - 'a']++;
         }
         StringBuilder sb = new StringBuilder();
-        while (sb.length() < s.length()) {
+        while (sb.length() < n) {
             for (int i = 0; i < 26; ++i) {
-                if (counter[i] > 0) {
+                if (cnt[i] > 0) {
                     sb.append((char) ('a' + i));
-                    --counter[i];
+                    --cnt[i];
                 }
             }
             for (int i = 25; i >= 0; --i) {
-                if (counter[i] > 0) {
+                if (cnt[i] > 0) {
                     sb.append((char) ('a' + i));
-                    --counter[i];
+                    --cnt[i];
                 }
             }
         }
@@ -129,26 +123,26 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
     string sortString(string s) {
-        vector<int> counter(26);
-        for (char c : s) ++counter[c - 'a'];
-        string ans = "";
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        string ans;
         while (ans.size() < s.size()) {
             for (int i = 0; i < 26; ++i) {
-                if (counter[i]) {
-                    ans += (i + 'a');
-                    --counter[i];
+                if (cnt[i]) {
+                    ans += i + 'a';
+                    --cnt[i];
                 }
             }
             for (int i = 25; i >= 0; --i) {
-                if (counter[i]) {
-                    ans += (i + 'a');
-                    --counter[i];
+                if (cnt[i]) {
+                    ans += i + 'a';
+                    --cnt[i];
                 }
             }
         }
@@ -157,26 +151,25 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortString(s string) string {
-	counter := ['z' + 1]int{}
+	cnt := [26]int{}
 	for _, c := range s {
-		counter[c]++
+		cnt[c-'a']++
 	}
-	var ans []byte
-	for len(ans) < len(s) {
-		for i := byte('a'); i <= 'z'; i++ {
-			if counter[i] > 0 {
-				ans = append(ans, i)
-				counter[i]--
+	n := len(s)
+	ans := make([]byte, 0, n)
+	for len(ans) < n {
+		for i := 0; i < 26; i++ {
+			if cnt[i] > 0 {
+				ans = append(ans, byte(i)+'a')
+				cnt[i]--
 			}
 		}
-		for i := byte('z'); i >= 'a'; i-- {
-			if counter[i] > 0 {
-				ans = append(ans, i)
-				counter[i]--
+		for i := 25; i >= 0; i-- {
+			if cnt[i] > 0 {
+				ans = append(ans, byte(i)+'a')
+				cnt[i]--
 			}
 		}
 	}
@@ -184,7 +177,30 @@ func sortString(s string) string {
 }
 ```
 
-### **Javascript**
+```ts
+function sortString(s: string): string {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    const ans: string[] = [];
+    while (ans.length < s.length) {
+        for (let i = 0; i < 26; ++i) {
+            if (cnt[i]) {
+                ans.push(String.fromCharCode(i + 'a'.charCodeAt(0)));
+                --cnt[i];
+            }
+        }
+        for (let i = 25; i >= 0; --i) {
+            if (cnt[i]) {
+                ans.push(String.fromCharCode(i + 'a'.charCodeAt(0)));
+                --cnt[i];
+            }
+        }
+    }
+    return ans.join('');
+}
+```
 
 ```js
 /**
@@ -192,35 +208,29 @@ func sortString(s string) string {
  * @return {string}
  */
 var sortString = function (s) {
-    let rs = '';
-    const m = new Map();
-    for (let i = 0; i < s.length; i++) {
-        m.set(s[i], (m.get(s[i]) || 0) + 1);
+    const cnt = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
     }
-    const keys = [...m.keys()];
-    keys.sort();
-    while (rs.length < s.length) {
-        for (let j = 0; j < keys.length; j++) {
-            if (m.get(keys[j]) != 0) {
-                rs += keys[j];
-                m.set(keys[j], m.get(keys[j]) - 1);
+    const ans = [];
+    while (ans.length < s.length) {
+        for (let i = 0; i < 26; ++i) {
+            if (cnt[i]) {
+                ans.push(String.fromCharCode(i + 'a'.charCodeAt(0)));
+                --cnt[i];
             }
         }
-        for (let j = keys.length - 1; j >= 0; j--) {
-            if (m.get(keys[j]) != 0) {
-                rs += keys[j];
-                m.set(keys[j], m.get(keys[j]) - 1);
+        for (let i = 25; i >= 0; --i) {
+            if (cnt[i]) {
+                ans.push(String.fromCharCode(i + 'a'.charCodeAt(0)));
+                --cnt[i];
             }
         }
     }
-    return rs;
+    return ans.join('');
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,13 +51,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -108,10 +104,6 @@ class Solution:
                 uf.union(i, j + n)
         return len(set(uf.find(i) for i in range(n))) == 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class UnionFind {
@@ -192,8 +184,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 int MX = 100010;
 vector<int> P[100010];
@@ -272,8 +262,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const mx = 100010
 
@@ -351,10 +339,6 @@ func canTraverseAllPairs(nums []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

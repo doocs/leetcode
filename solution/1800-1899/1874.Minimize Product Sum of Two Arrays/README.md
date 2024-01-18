@@ -40,15 +40,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-对两数组排序，然后首尾相乘求和。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +54,6 @@ class Solution:
             res += nums1[i] * nums2[n - i - 1]
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -78,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minProductSum(nums1 []int, nums2 []int) int {
 	sort.Ints(nums1)
@@ -110,10 +96,6 @@ func minProductSum(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

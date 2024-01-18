@@ -37,7 +37,7 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 According to the problem description, the array $arr$ is an arithmetic sequence with the first term as $1$ and the common difference as $2$. Therefore, the sum of the first $n$ terms of the array is:
 
@@ -59,15 +59,11 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minOperations(self, n: int) -> int:
         return sum(n - (i << 1 | 1) for i in range(n >> 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperations(n int) (ans int) {
 	for i := 0; i < n>>1; i++ {
@@ -106,8 +98,6 @@ func minOperations(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minOperations(n: number): number {
@@ -119,10 +109,6 @@ function minOperations(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

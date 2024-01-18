@@ -50,7 +50,7 @@ The difficulty of the schedule = 6 + 1 = 7
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
 We define $f[i][j]$ as the minimum difficulty to finish the first $i$ jobs within $j$ days. Initially $f[0][0] = 0$, and all other $f[i][j]$ are $\infty$.
 
@@ -66,8 +66,6 @@ The time complexity is $O(n^2 \times d)$, and the space complexity is $O(n \time
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
@@ -82,8 +80,6 @@ class Solution:
                     f[i][j] = min(f[i][j], f[k - 1][j - 1] + mx)
         return -1 if f[n][d] >= inf else f[n][d]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDifficulty(jobDifficulty []int, d int) int {
@@ -163,8 +155,6 @@ func minDifficulty(jobDifficulty []int, d int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minDifficulty(jobDifficulty: number[], d: number): number {
     const n = jobDifficulty.length;
@@ -184,10 +174,6 @@ function minDifficulty(jobDifficulty: number[], d: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

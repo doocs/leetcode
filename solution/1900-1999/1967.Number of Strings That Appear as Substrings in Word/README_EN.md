@@ -54,17 +54,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
         return sum(p in word for p in patterns)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numOfStrings(patterns []string, word string) (ans int) {
 	for _, p := range patterns {
@@ -107,8 +101,6 @@ func numOfStrings(patterns []string, word string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numOfStrings(patterns: string[], word: string): number {
@@ -122,10 +114,6 @@ function numOfStrings(patterns: string[], word: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

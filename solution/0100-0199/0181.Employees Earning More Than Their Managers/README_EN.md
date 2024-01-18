@@ -52,9 +52,20 @@ Employee table:
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
 
-### **SQL**
+```python
+import pandas as pd
+
+
+def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
+    df = employee.merge(right=employee, how="left", left_on="managerId", right_on="id")
+    emp = df[df["salary_x"] > df["salary_y"]]["name_x"]
+
+    return pd.DataFrame({"Employee": emp})
+```
 
 ```sql
 SELECT Name AS Employee
@@ -67,6 +78,12 @@ WHERE
     );
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -77,18 +94,6 @@ FROM
 WHERE e1.salary > e2.salary;
 ```
 
-### **Pandas**
-
-```python
-import pandas as pd
-
-
-def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
-    df = employee.merge(right=employee, how="left", left_on="managerId", right_on="id")
-    emp = df[df["salary_x"] > df["salary_y"]]["name_x"]
-
-    return pd.DataFrame({"Employee": emp})
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

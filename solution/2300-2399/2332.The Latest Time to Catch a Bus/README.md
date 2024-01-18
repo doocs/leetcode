@@ -52,24 +52,18 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：模拟
 
-**方法一：模拟**
-
-先排序，然后用双指针模拟乘客上车的过程：遍历公交车 $bus$，乘客遵循“先到先上车”的原则。
+我们先排序，然后用双指针模拟乘客上车的过程：遍历公交车 $bus$，乘客遵循“先到先上车”的原则。
 
 模拟结束后，判断最后一班公交车是否还有空位：
 
--   若有空位，我们可以在公交车发车时 $bus[bus.length-1]$ 到达公交站；若此时有人，可以顺着往前找到没人到达的时刻；
+-   若有空位，我们可以在公交车发车时 $bus[|bus|-1]$ 到达公交站；若此时有人，可以顺着往前找到没人到达的时刻；
 -   若无空位，我们可以找到上一个上车的乘客，顺着他往前找到没人到达的时刻。
 
-时间复杂度 $O(nlogn+mlogm)$。
+时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(\log n + \log m)$。其中 $n$ 和 $m$ 分别是公交车和乘客的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
             ans, j = ans - 1, j - 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
@@ -166,16 +152,56 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
-
+function latestTimeCatchTheBus(buses: number[], passengers: number[], capacity: number): number {
+    buses.sort((a, b) => a - b);
+    passengers.sort((a, b) => a - b);
+    let [j, c] = [0, 0];
+    for (const t of buses) {
+        c = capacity;
+        while (c && j < passengers.length && passengers[j] <= t) {
+            --c;
+            ++j;
+        }
+    }
+    --j;
+    let ans = c > 0 ? buses.at(-1)! : passengers[j];
+    while (j >= 0 && passengers[j] === ans) {
+        --ans;
+        --j;
+    }
+    return ans;
+}
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number[]} buses
+ * @param {number[]} passengers
+ * @param {number} capacity
+ * @return {number}
+ */
+var latestTimeCatchTheBus = function (buses, passengers, capacity) {
+    buses.sort((a, b) => a - b);
+    passengers.sort((a, b) => a - b);
+    let [j, c] = [0, 0];
+    for (const t of buses) {
+        c = capacity;
+        while (c && j < passengers.length && passengers[j] <= t) {
+            --c;
+            ++j;
+        }
+    }
+    --j;
+    let ans = c > 0 ? buses.at(-1) : passengers[j];
+    while (j >= 0 && passengers[j] === ans) {
+        --ans;
+        --j;
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

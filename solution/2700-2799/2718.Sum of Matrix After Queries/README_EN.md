@@ -46,9 +46,20 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table
 
-### **Python3**
+Since the value of each row and column depends on the last modification, we can traverse all queries in reverse order and use hash tables $row$ and $col$ to record which rows and columns have been modified.
+
+For each query $(t, i, v)$:
+
+-   If $t = 0$, we check whether the $i$th row has been modified. If not, we add $v \times (n - |col|)$ to the answer, where $|col|$ represents the size of $col$, and then add $i$ to $row$.
+-   If $t = 1$, we check whether the $i$th column has been modified. If not, we add $v \times (n - |row|)$ to the answer, where $|row|$ represents the size of $row$, and then add $i$ to $col$.
+
+Finally, return the answer.
+
+The time complexity is $O(m)$, and the space complexity is $O(n)$. Here, $m$ represents the number of queries.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +78,6 @@ class Solution:
                     col.add(i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	row, col := map[int]bool{}, map[int]bool{}
@@ -146,8 +151,6 @@ func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function matrixSumQueries(n: number, queries: number[][]): number {
@@ -172,10 +175,6 @@ function matrixSumQueries(n: number, queries: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

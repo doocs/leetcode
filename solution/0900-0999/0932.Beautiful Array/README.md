@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分治**
+### 方法一：分治
 
 根据题意，漂亮数组 $A$ 需要满足对于任意 $i<k<j$, $A_k*2 \neq A_i+A_j$。
 
@@ -61,10 +59,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def beautifulArray(self, n: int) -> List[int]:
@@ -76,10 +70,6 @@ class Solution:
         right = [x * 2 for x in right]
         return left + right
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func beautifulArray(n int) []int {
@@ -140,10 +126,6 @@ func beautifulArray(n int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

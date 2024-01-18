@@ -5,12 +5,12 @@ class Solution:
                 p[x] = find(p[x])
             return p[x]
 
-        cnt = 0
+        cnt, size = 0, n
         p = list(range(n))
         for a, b in connections:
             if find(a) == find(b):
                 cnt += 1
             else:
                 p[find(a)] = find(b)
-                n -= 1
-        return -1 if n - 1 > cnt else n - 1
+                size -= 1
+        return -1 if size - 1 > cnt else size - 1

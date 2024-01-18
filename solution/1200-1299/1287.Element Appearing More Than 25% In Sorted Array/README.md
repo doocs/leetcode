@@ -30,13 +30,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -47,10 +43,6 @@ class Solution:
                 return val
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -66,8 +58,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -80,8 +70,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findSpecialInteger(arr []int) int {
 	n := len(arr)
@@ -93,8 +81,6 @@ func findSpecialInteger(arr []int) int {
 	return 0
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -111,8 +97,6 @@ var findSpecialInteger = function (arr) {
     return 0;
 };
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -132,10 +116,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

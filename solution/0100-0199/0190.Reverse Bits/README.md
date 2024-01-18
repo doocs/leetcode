@@ -47,13 +47,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,10 +60,6 @@ class Solution:
             n >>= 1
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 public class Solution {
@@ -83,8 +75,6 @@ public class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,7 +89,29 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+func reverseBits(num uint32) uint32 {
+	var ans uint32 = 0
+	for i := 0; i < 32; i++ {
+		ans |= (num & 1) << (31 - i)
+		num >>= 1
+	}
+	return ans
+}
+```
+
+```rust
+impl Solution {
+    pub fn reverse_bits(mut x: u32) -> u32 {
+        let mut res = 0;
+        for _ in 0..32 {
+            res = (res << 1) | (x & 1);
+            x >>= 1;
+        }
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -117,38 +129,6 @@ var reverseBits = function (n) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn reverse_bits(mut x: u32) -> u32 {
-        let mut res = 0;
-        for _ in 0..32 {
-            res = (res << 1) | (x & 1);
-            x >>= 1;
-        }
-        res
-    }
-}
-```
-
-### **Go**
-
-```go
-func reverseBits(num uint32) uint32 {
-	var ans uint32 = 0
-	for i := 0; i < 32; i++ {
-		ans |= (num & 1) << (31 - i)
-		num >>= 1
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

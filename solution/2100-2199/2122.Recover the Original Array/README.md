@@ -62,17 +62,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-对 nums 排序后，`nums[0]` 必然是 `lower[0]`，接下来从在 `[1, i)` 区间内枚举 `higher[0]`，然后使用双指针遍历 nums，得到剩余的 lower 和 higher 元素。
-
-双指针遍历时，可以用 vis 数组标记 higher 中出现过的数字。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -101,10 +93,6 @@ class Solution:
                 return ans
         return []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +159,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func recoverArray(nums []int) []int {
@@ -208,18 +192,6 @@ func recoverArray(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

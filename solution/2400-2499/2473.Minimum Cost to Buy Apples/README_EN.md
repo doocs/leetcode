@@ -50,9 +50,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Heap-optimized Dijkstra's Algorithm
 
-### **Python3**
+We enumerate the starting point, and for each starting point, we use Dijkstra's algorithm to find the shortest distance to all other points, and update the minimum value accordingly.
+
+The time complexity is $O(n \times m \times \log m)$, where $n$ and $m$ are the number of cities and roads, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -80,8 +84,6 @@ class Solution:
             g[b].append((a, c))
         return [dijkstra(i) for i in range(n)]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -135,8 +137,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 using pii = pair<int, int>;
@@ -181,8 +181,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minCost(n int, roads [][]int, appleCost []int, k int) []int64 {
@@ -239,16 +237,6 @@ func (a *pairs) Push(x any)       { *a = append(*a, x.(pair)) }
 func (a *pairs) Pop() any         { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

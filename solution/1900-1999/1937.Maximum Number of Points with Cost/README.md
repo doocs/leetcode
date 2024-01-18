@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示选取前 $i-1$ 行，并且第 $i-1$ 行选择第 $j$ 列的格子时的最大得分。初始时 $f[0][j] = points[0][j]$。
 
@@ -85,10 +83,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
@@ -107,10 +101,6 @@ class Solution:
             f = g
         return max(f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -140,8 +130,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxPoints(points [][]int) int64 {
 	n := len(points[0])
@@ -191,8 +177,6 @@ func maxPoints(points [][]int) int64 {
 	return slices.Max(f)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxPoints(points: number[][]): number {
@@ -216,10 +200,6 @@ function maxPoints(points: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

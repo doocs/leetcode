@@ -39,9 +39,27 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table + Enumeration of Powers of Two
 
-### **Python3**
+According to the problem, we need to count the number of combinations in the array where the sum of two numbers is a power of $2$. Directly enumerating all combinations has a time complexity of $O(n^2)$, which will definitely time out.
+
+We can traverse the array and use a hash table $cnt$ to maintain the number of occurrences of each element $d$ in the array.
+
+For each element, we enumerate the powers of two $s$ as the sum of two numbers from small to large, and add the number of occurrences of $s - d$ in the hash table to the answer. Then increase the number of occurrences of the current element $d$ by one.
+
+After the traversal ends, return the answer.
+
+The time complexity is $O(n \times \log M)$, where $n$ is the length of the array `deliciousness`, and $M$ is the upper limit of the elements. For this problem, the upper limit $M=2^{20}$.
+
+We can also use a hash table $cnt$ to count the number of occurrences of each element in the array first.
+
+Then enumerate the powers of two $s$ as the sum of two numbers from small to large. For each $s$, traverse each key-value pair $(a, m)$ in the hash table. If $s - a$ is also in the hash table, and $s - a \neq a$, then add $m \times cnt[s - a]$ to the answer; if $s - a = a$, then add $m \times (m - 1)$ to the answer.
+
+Finally, divide the answer by $2$, modulo $10^9 + 7$, and return.
+
+The time complexity is the same as the method above.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,22 +76,6 @@ class Solution:
             cnt[d] += 1
         return ans
 ```
-
-```python
-class Solution:
-    def countPairs(self, deliciousness: List[int]) -> int:
-        mod = 10**9 + 7
-        cnt = Counter(deliciousness)
-        ans = 0
-        for i in range(22):
-            s = 1 << i
-            for a, m in cnt.items():
-                if (b := s - a) in cnt:
-                    ans += m * (m - 1) if a == b else m * cnt[b]
-        return (ans >> 1) % mod
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,6 +94,61 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countPairs(vector<int>& deliciousness) {
+        int mx = *max_element(deliciousness.begin(), deliciousness.end()) << 1;
+        unordered_map<int, int> cnt;
+        int ans = 0;
+        for (auto& d : deliciousness) {
+            for (int s = 1; s <= mx; s <<= 1) {
+                ans = (ans + cnt[s - d]) % mod;
+            }
+            ++cnt[d];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countPairs(deliciousness []int) (ans int) {
+	mx := slices.Max(deliciousness) << 1
+	const mod int = 1e9 + 7
+	cnt := map[int]int{}
+	for _, d := range deliciousness {
+		for s := 1; s <= mx; s <<= 1 {
+			ans = (ans + cnt[s-d]) % mod
+		}
+		cnt[d]++
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countPairs(self, deliciousness: List[int]) -> int:
+        mod = 10**9 + 7
+        cnt = Counter(deliciousness)
+        ans = 0
+        for i in range(22):
+            s = 1 << i
+            for a, m in cnt.items():
+                if (b := s - a) in cnt:
+                    ans += m * (m - 1) if a == b else m * cnt[b]
+        return (ans >> 1) % mod
 ```
 
 ```java
@@ -121,28 +178,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    const int mod = 1e9 + 7;
-
-    int countPairs(vector<int>& deliciousness) {
-        int mx = *max_element(deliciousness.begin(), deliciousness.end()) << 1;
-        unordered_map<int, int> cnt;
-        int ans = 0;
-        for (auto& d : deliciousness) {
-            for (int s = 1; s <= mx; s <<= 1) {
-                ans = (ans + cnt[s - d]) % mod;
-            }
-            ++cnt[d];
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -164,23 +199,6 @@ public:
         return ans % mod;
     }
 };
-```
-
-### **Go**
-
-```go
-func countPairs(deliciousness []int) (ans int) {
-	mx := slices.Max(deliciousness) << 1
-	const mod int = 1e9 + 7
-	cnt := map[int]int{}
-	for _, d := range deliciousness {
-		for s := 1; s <= mx; s <<= 1 {
-			ans = (ans + cnt[s-d]) % mod
-		}
-		cnt[d]++
-	}
-	return
-}
 ```
 
 ```go
@@ -208,10 +226,6 @@ func countPairs(deliciousness []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -64,13 +64,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +95,6 @@ class Solution:
         return max(f, g) % mod
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int maxSum(int[] nums1, int[] nums2) {
@@ -129,8 +121,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -159,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxSum(nums1 []int, nums2 []int) int {
@@ -192,8 +180,6 @@ func maxSum(nums1 []int, nums2 []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxSum(nums1: number[], nums2: number[]): number {
     const mod = 1e9 + 7;
@@ -220,10 +206,6 @@ function maxSum(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

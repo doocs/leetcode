@@ -61,9 +61,9 @@ Day 6 is the first day where you have been in all the rooms.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +75,6 @@ class Solution:
             f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1) % mod
         return f[-1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstDayBeenInAllRooms(nextVisit []int) int {
 	n := len(nextVisit)
@@ -123,10 +117,6 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

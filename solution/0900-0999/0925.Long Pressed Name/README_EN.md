@@ -35,9 +35,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             i, j = i + 1, j + 1
         return i == m and j == n
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isLongPressedName(name string, typed string) bool {
@@ -146,10 +140,6 @@ func isLongPressedName(name string, typed string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

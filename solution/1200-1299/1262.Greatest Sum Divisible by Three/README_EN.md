@@ -40,9 +40,28 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Dynamic Programming
 
-### **Python3**
+We define $f[i][j]$ as the maximum sum of several numbers selected from the first $i$ numbers, such that the sum modulo $3$ equals $j$. Initially, $f[0][0]=0$, and the rest are $-\infty$.
+
+For $f[i][j]$, we can consider the state of the $i$th number $x$:
+
+-   If we do not select $x$, then $f[i][j]=f[i-1][j]$;
+-   If we select $x$, then $f[i][j]=f[i-1][(j-x \bmod 3 + 3)\bmod 3]+x$.
+
+Therefore, we can get the state transition equation:
+
+$$
+f[i][j]=\max\{f[i-1][j],f[i-1][(j-x \bmod 3 + 3)\bmod 3]+x\}
+$$
+
+The final answer is $f[n][0]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
+Note that the value of $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][(j-x \bmod 3 + 3)\bmod 3]$, so we can use a rolling array to optimize the space complexity, reducing the space complexity to $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,20 +74,6 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[i - 1][(j - x) % 3] + x)
         return f[n][0]
 ```
-
-```python
-class Solution:
-    def maxSumDivThree(self, nums: List[int]) -> int:
-        f = [0, -inf, -inf]
-        for x in nums:
-            g = f[:]
-            for j in range(3):
-                g[j] = max(f[j], f[(j - x) % 3] + x)
-            f = g
-        return f[0]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,25 +92,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int maxSumDivThree(int[] nums) {
-        final int inf = 1 << 30;
-        int[] f = new int[] {0, -inf, -inf};
-        for (int x : nums) {
-            int[] g = f.clone();
-            for (int j = 0; j < 3; ++j) {
-                g[j] = Math.max(f[j], f[(j - x % 3 + 3) % 3] + x);
-            }
-            f = g;
-        }
-        return f[0];
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,26 +113,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maxSumDivThree(vector<int>& nums) {
-        const int inf = 1 << 30;
-        vector<int> f = {0, -inf, -inf};
-        for (int& x : nums) {
-            vector<int> g = f;
-            for (int j = 0; j < 3; ++j) {
-                g[j] = max(f[j], f[(j - x % 3 + 3) % 3] + x);
-            }
-            f = move(g);
-        }
-        return f[0];
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxSumDivThree(nums []int) int {
 	n := len(nums)
@@ -162,23 +128,6 @@ func maxSumDivThree(nums []int) int {
 	return f[n][0]
 }
 ```
-
-```go
-func maxSumDivThree(nums []int) int {
-	const inf = 1 << 30
-	f := [3]int{0, -inf, -inf}
-	for _, x := range nums {
-		g := [3]int{}
-		for j := range f {
-			g[j] = max(f[j], f[(j-x%3+3)%3]+x)
-		}
-		f = g
-	}
-	return f[0]
-}
-```
-
-### **TypeScript**
 
 ```ts
 function maxSumDivThree(nums: number[]): number {
@@ -198,6 +147,74 @@ function maxSumDivThree(nums: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxSumDivThree(self, nums: List[int]) -> int:
+        f = [0, -inf, -inf]
+        for x in nums:
+            g = f[:]
+            for j in range(3):
+                g[j] = max(f[j], f[(j - x) % 3] + x)
+            f = g
+        return f[0]
+```
+
+```java
+class Solution {
+    public int maxSumDivThree(int[] nums) {
+        final int inf = 1 << 30;
+        int[] f = new int[] {0, -inf, -inf};
+        for (int x : nums) {
+            int[] g = f.clone();
+            for (int j = 0; j < 3; ++j) {
+                g[j] = Math.max(f[j], f[(j - x % 3 + 3) % 3] + x);
+            }
+            f = g;
+        }
+        return f[0];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxSumDivThree(vector<int>& nums) {
+        const int inf = 1 << 30;
+        vector<int> f = {0, -inf, -inf};
+        for (int& x : nums) {
+            vector<int> g = f;
+            for (int j = 0; j < 3; ++j) {
+                g[j] = max(f[j], f[(j - x % 3 + 3) % 3] + x);
+            }
+            f = move(g);
+        }
+        return f[0];
+    }
+};
+```
+
+```go
+func maxSumDivThree(nums []int) int {
+	const inf = 1 << 30
+	f := [3]int{0, -inf, -inf}
+	for _, x := range nums {
+		g := [3]int{}
+		for j := range f {
+			g[j] = max(f[j], f[(j-x%3+3)%3]+x)
+		}
+		f = g
+	}
+	return f[0]
+}
+```
+
 ```ts
 function maxSumDivThree(nums: number[]): number {
     const inf = 1 << 30;
@@ -212,10 +229,6 @@ function maxSumDivThree(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

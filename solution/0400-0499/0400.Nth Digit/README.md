@@ -35,9 +35,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 位数为 $k$ 的最小整数和最大整数分别为 $10^{k-1}$ 和 $10^k-1$，因此 $k$ 位数的总位数为 $k \times 9 \times 10^{k-1}$。
 
@@ -51,10 +49,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
@@ -67,10 +61,6 @@ class Solution:
         idx = (n - 1) % k
         return int(str(num)[idx])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -87,8 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +95,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findNthDigit(n int) int {
 	k, cnt := 1, 9
@@ -122,8 +108,6 @@ func findNthDigit(n int) int {
 	return int(strconv.Itoa(num)[idx] - '0')
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -144,8 +128,6 @@ var findNthDigit = function (n) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int FindNthDigit(int n) {
@@ -162,10 +144,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

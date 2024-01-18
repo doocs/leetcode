@@ -1,4 +1,4 @@
-﻿public class LRUCache {
+public class LRUCache {
     class Node {
         public Node Prev;
         public Node Next;
@@ -17,7 +17,7 @@
         head.Next = tail;
         tail.Prev = head;
     }
-    
+
     public int Get(int key) {
         Node node;
         if (cache.TryGetValue(key, out node)) {
@@ -26,7 +26,7 @@
         }
         return -1;
     }
-    
+
     public void Put(int key, int Val) {
         Node node;
         if (cache.TryGetValue(key, out node)) {

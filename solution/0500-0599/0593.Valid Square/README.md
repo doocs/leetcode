@@ -46,19 +46,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学**
+### 方法一：数学
 
 若任选三个点，都能构成等腰直角三角形，说明是有效的正方形。
 
 时间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
             and check(p1, p2, p4)
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
@@ -167,10 +153,6 @@ func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 遍历 `letters`，返回第一个满足 `letters[i] > target` 条件的元素。若是遍历结束还未找到，则返回 `letters[0]`。
 
@@ -57,30 +55,7 @@
 
 时间复杂度：$O(N)$。
 
-**方法二：二分**
-
-利用 `letters` 有序的特点，可以使用二分来快速查找。
-
-在返回值方面相比传统二分不一样，需要对结果进行取余操作：`letters[l % n]`。
-
-为什么？如题描述，字母是重复出现的，当索引过界时，不是没有结果，而是需要返回前面的元素。
-
-一个容易理解的版本，使用减法：
-
-```c
-if (l < n) {
-    return letters[l];
-}
-return letters[l - n];
-```
-
-时间复杂度：$O(logN)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +69,6 @@ class Solution:
                 left = mid + 1
         return letters[left % len(letters)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -115,27 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function nextGreatestLetter(letters: string[], target: string): string {
-    const n = letters.length;
-    let left = 0;
-    let right = letters.length;
-    while (left < right) {
-        let mid = (left + right) >>> 1;
-        if (letters[mid] > target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return letters[left % n];
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -155,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nextGreatestLetter(letters []byte, target byte) byte {
 	left, right := 0, len(letters)
@@ -172,7 +120,22 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 }
 ```
 
-### **Rust**
+```ts
+function nextGreatestLetter(letters: string[], target: string): string {
+    const n = letters.length;
+    let left = 0;
+    let right = letters.length;
+    while (left < right) {
+        let mid = (left + right) >>> 1;
+        if (letters[mid] > target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return letters[left % n];
+}
+```
 
 ```rust
 impl Solution {
@@ -184,27 +147,6 @@ impl Solution {
     }
 }
 ```
-
-```rust
-impl Solution {
-    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        let n = letters.len();
-        let mut left = 0;
-        let mut right = n;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if letters[mid] > target {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        letters[left % n]
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -233,10 +175,48 @@ class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：二分
+
+利用 `letters` 有序的特点，可以使用二分来快速查找。
+
+在返回值方面相比传统二分不一样，需要对结果进行取余操作：`letters[l % n]`。
+
+为什么？如题描述，字母是重复出现的，当索引过界时，不是没有结果，而是需要返回前面的元素。
+
+一个容易理解的版本，使用减法：
+
+```c
+if (l < n) {
+    return letters[l];
+}
+return letters[l - n];
 ```
 
+时间复杂度：$O(logN)$。
+
+<!-- tabs:start -->
+
+```rust
+impl Solution {
+    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
+        let n = letters.len();
+        let mut left = 0;
+        let mut right = n;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            if letters[mid] > target {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        letters[left % n]
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

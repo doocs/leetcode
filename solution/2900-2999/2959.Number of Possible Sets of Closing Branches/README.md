@@ -84,9 +84,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二进制枚举 + Floyd 算法**
+### 方法一：二进制枚举 + Floyd 算法
 
 我们注意到 $n \leq 10$，所以我们不妨考虑使用二进制枚举的方法来枚举所有的分部集合。
 
@@ -95,10 +93,6 @@
 时间复杂度 $O(2^n \times (n^3 + m))$，空间复杂度 $O(n^2)$。其中 $n$ 和 $m$ 分别是分部数量和道路数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -127,10 +121,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -175,8 +165,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -216,8 +204,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfSets(n int, maxDistance int, roads [][]int) (ans int) {
@@ -260,8 +246,6 @@ func numberOfSets(n int, maxDistance int, roads [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfSets(n: number, maxDistance: number, roads: number[][]): number {
     let ans = 0;
@@ -297,10 +281,6 @@ function numberOfSets(n: number, maxDistance: number, roads: number[][]): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

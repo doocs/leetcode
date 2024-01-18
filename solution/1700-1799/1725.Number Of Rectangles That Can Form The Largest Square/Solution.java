@@ -1,12 +1,12 @@
 class Solution {
     public int countGoodRectangles(int[][] rectangles) {
         int ans = 0, mx = 0;
-        for (int[] r : rectangles) {
-            int t = Math.min(r[0], r[1]);
-            if (mx < t) {
-                mx = t;
+        for (var e : rectangles) {
+            int x = Math.min(e[0], e[1]);
+            if (mx < x) {
+                mx = x;
                 ans = 1;
-            } else if (mx == t) {
+            } else if (mx == x) {
                 ++ans;
             }
         }

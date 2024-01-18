@@ -41,21 +41,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表 + 前缀和**
+### 方法一：数组或哈希表 + 前缀和
 
 我们用数组或哈希表 $d$ 记录每个数字最后一次出现的位置，用 $s$ 记录前缀和，用 $j$ 记录当前不重复子数组的左端点。
 
 遍历数组，对于每个数字 $v$，如果 $d[v]$ 存在，那么我们更新 $j$ 为 $max(j, d[v])$，这样就保证了当前不重复子数组不包含 $v$，然后更新答案为 $max(ans, s[i] - s[j])$，最后更新 $d[v]$ 为 $i$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -69,10 +63,6 @@ class Solution:
             d[v] = i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -120,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumUniqueSubarray(nums []int) (ans int) {
 	d := [10001]int{}
@@ -140,10 +126,25 @@ func maximumUniqueSubarray(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function maximumUniqueSubarray(nums: number[]): number {
+    const m = Math.max(...nums);
+    const n = nums.length;
+    const s: number[] = Array.from({ length: n + 1 }, () => 0);
+    for (let i = 1; i <= n; ++i) {
+        s[i] = s[i - 1] + nums[i - 1];
+    }
+    const d = Array.from({ length: m + 1 }, () => 0);
+    let [ans, j] = [0, 0];
+    for (let i = 1; i <= n; ++i) {
+        j = Math.max(j, d[nums[i - 1]]);
+        ans = Math.max(ans, s[i] - s[j]);
+        d[nums[i - 1]] = i;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

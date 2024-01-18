@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分桶**
+### 方法一：分桶
 
 题目中字符串 $s$ 的数据规模最高达到 $5 \times 10^4$，如果暴力枚举 $words$ 中的每个字符串 $w$，判断其是否为 $s$ 的子序列，很有可能会超时。
 
@@ -73,23 +71,7 @@ b: ["bb"]
 
 时间复杂度 $O(n + \sum_{i=0}^{m-1} |w_i|)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
 
-**方法二：二分查找**
-
-我们还可以先用数组或哈希表 $d$ 存放字符串 $s$ 每个字符的下标，即 $d[c]$ 为 $s$ 中所有字符 $c$ 的下标组成的数组。
-
-然后我们遍历 $words$ 中的每个单词 $w$，我们通过二分查找的方法，判断 $w$ 是否为 $s$ 的子序列，是则答案加 $1$。判断逻辑如下：
-
-1. 定义指针 $i$ 表示当前指向字符串 $s$ 的第 $i$ 个字符，初始化为 $-1$。
-1. 遍历字符串 $w$ 中的每个字符 $c$，在 $d[c]$ 中二分查找第一个大于 $i$ 的位置 $j$，如果不存在，则说明 $w$ 不是 $s$ 的子序列，直接跳出循环；否则，将 $i$ 更新为 $d[c][j]$，继续遍历下一个字符。
-1. 如果遍历完 $w$ 中的所有字符，说明 $w$ 是 $s$ 的子序列。
-
-时间复杂度 $O(\sum_{i=0}^{m-1} |w_i| \times \log n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -107,46 +89,6 @@ class Solution:
                     d[t[1]].append(t[1:])
         return ans
 ```
-
-```python
-class Solution:
-    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
-        d = defaultdict(deque)
-        for i, w in enumerate(words):
-            d[w[0]].append((i, 0))
-        ans = 0
-        for c in s:
-            for _ in range(len(d[c])):
-                i, j = d[c].popleft()
-                j += 1
-                if j == len(words[i]):
-                    ans += 1
-                else:
-                    d[words[i][j]].append((i, j))
-        return ans
-```
-
-```python
-class Solution:
-    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
-        def check(w):
-            i = -1
-            for c in w:
-                j = bisect_right(d[c], i)
-                if j == len(d[c]):
-                    return False
-                i = d[c][j]
-            return True
-
-        d = defaultdict(list)
-        for i, c in enumerate(s):
-            d[c].append(i)
-        return sum(check(w) for w in words)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -173,6 +115,84 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int numMatchingSubseq(string s, vector<string>& words) {
+        vector<queue<string>> d(26);
+        for (auto& w : words) d[w[0] - 'a'].emplace(w);
+        int ans = 0;
+        for (char& c : s) {
+            auto& q = d[c - 'a'];
+            for (int k = q.size(); k; --k) {
+                auto t = q.front();
+                q.pop();
+                if (t.size() == 1)
+                    ++ans;
+                else
+                    d[t[1] - 'a'].emplace(t.substr(1));
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numMatchingSubseq(s string, words []string) (ans int) {
+	d := [26][]string{}
+	for _, w := range words {
+		d[w[0]-'a'] = append(d[w[0]-'a'], w)
+	}
+	for _, c := range s {
+		q := d[c-'a']
+		d[c-'a'] = nil
+		for _, t := range q {
+			if len(t) == 1 {
+				ans++
+			} else {
+				d[t[1]-'a'] = append(d[t[1]-'a'], t[1:])
+			}
+		}
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：二分查找
+
+我们还可以先用数组或哈希表 $d$ 存放字符串 $s$ 每个字符的下标，即 $d[c]$ 为 $s$ 中所有字符 $c$ 的下标组成的数组。
+
+然后我们遍历 $words$ 中的每个单词 $w$，我们通过二分查找的方法，判断 $w$ 是否为 $s$ 的子序列，是则答案加 $1$。判断逻辑如下：
+
+1. 定义指针 $i$ 表示当前指向字符串 $s$ 的第 $i$ 个字符，初始化为 $-1$。
+1. 遍历字符串 $w$ 中的每个字符 $c$，在 $d[c]$ 中二分查找第一个大于 $i$ 的位置 $j$，如果不存在，则说明 $w$ 不是 $s$ 的子序列，直接跳出循环；否则，将 $i$ 更新为 $d[c][j]$，继续遍历下一个字符。
+1. 如果遍历完 $w$ 中的所有字符，说明 $w$ 是 $s$ 的子序列。
+
+时间复杂度 $O(\sum_{i=0}^{m-1} |w_i| \times \log n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $s$ 和 $words$ 的长度，而 $|w_i|$ 为 $words[i]$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+        d = defaultdict(deque)
+        for i, w in enumerate(words):
+            d[w[0]].append((i, 0))
+        ans = 0
+        for c in s:
+            for _ in range(len(d[c])):
+                i, j = d[c].popleft()
+                j += 1
+                if j == len(words[i]):
+                    ans += 1
+                else:
+                    d[words[i][j]].append((i, j))
+        return ans
+```
+
 ```java
 class Solution {
     public int numMatchingSubseq(String s, String[] words) {
@@ -197,6 +217,76 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int numMatchingSubseq(string s, vector<string>& words) {
+        vector<queue<pair<int, int>>> d(26);
+        for (int i = 0; i < words.size(); ++i) d[words[i][0] - 'a'].emplace(i, 0);
+        int ans = 0;
+        for (char& c : s) {
+            auto& q = d[c - 'a'];
+            for (int t = q.size(); t; --t) {
+                auto [i, j] = q.front();
+                q.pop();
+                if (++j == words[i].size())
+                    ++ans;
+                else
+                    d[words[i][j] - 'a'].emplace(i, j);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func numMatchingSubseq(s string, words []string) (ans int) {
+	type pair struct{ i, j int }
+	d := [26][]pair{}
+	for i, w := range words {
+		d[w[0]-'a'] = append(d[w[0]-'a'], pair{i, 0})
+	}
+	for _, c := range s {
+		q := d[c-'a']
+		d[c-'a'] = nil
+		for _, p := range q {
+			i, j := p.i, p.j+1
+			if j == len(words[i]) {
+				ans++
+			} else {
+				d[words[i][j]-'a'] = append(d[words[i][j]-'a'], pair{i, j})
+			}
+		}
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numMatchingSubseq(self, s: str, words: List[str]) -> int:
+        def check(w):
+            i = -1
+            for c in w:
+                j = bisect_right(d[c], i)
+                if j == len(d[c]):
+                    return False
+                i = d[c][j]
+            return True
+
+        d = defaultdict(list)
+        for i, c in enumerate(s):
+            d[c].append(i)
+        return sum(check(w) for w in words)
 ```
 
 ```java
@@ -245,54 +335,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numMatchingSubseq(string s, vector<string>& words) {
-        vector<queue<string>> d(26);
-        for (auto& w : words) d[w[0] - 'a'].emplace(w);
-        int ans = 0;
-        for (char& c : s) {
-            auto& q = d[c - 'a'];
-            for (int k = q.size(); k; --k) {
-                auto t = q.front();
-                q.pop();
-                if (t.size() == 1)
-                    ++ans;
-                else
-                    d[t[1] - 'a'].emplace(t.substr(1));
-            }
-        }
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int numMatchingSubseq(string s, vector<string>& words) {
-        vector<queue<pair<int, int>>> d(26);
-        for (int i = 0; i < words.size(); ++i) d[words[i][0] - 'a'].emplace(i, 0);
-        int ans = 0;
-        for (char& c : s) {
-            auto& q = d[c - 'a'];
-            for (int t = q.size(); t; --t) {
-                auto [i, j] = q.front();
-                q.pop();
-                if (++j == words[i].size())
-                    ++ans;
-                else
-                    d[words[i][j] - 'a'].emplace(i, j);
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -314,52 +356,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func numMatchingSubseq(s string, words []string) (ans int) {
-	d := [26][]string{}
-	for _, w := range words {
-		d[w[0]-'a'] = append(d[w[0]-'a'], w)
-	}
-	for _, c := range s {
-		q := d[c-'a']
-		d[c-'a'] = nil
-		for _, t := range q {
-			if len(t) == 1 {
-				ans++
-			} else {
-				d[t[1]-'a'] = append(d[t[1]-'a'], t[1:])
-			}
-		}
-	}
-	return
-}
-```
-
-```go
-func numMatchingSubseq(s string, words []string) (ans int) {
-	type pair struct{ i, j int }
-	d := [26][]pair{}
-	for i, w := range words {
-		d[w[0]-'a'] = append(d[w[0]-'a'], pair{i, 0})
-	}
-	for _, c := range s {
-		q := d[c-'a']
-		d[c-'a'] = nil
-		for _, p := range q {
-			i, j := p.i, p.j+1
-			if j == len(words[i]) {
-				ans++
-			} else {
-				d[words[i][j]-'a'] = append(d[words[i][j]-'a'], pair{i, j})
-			}
-		}
-	}
-	return
-}
 ```
 
 ```go
@@ -389,10 +385,6 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

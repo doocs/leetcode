@@ -45,19 +45,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：多源 BFS**
+### 方法一：多源 BFS
 
 初始化结果矩阵 ans，所有 0 的距离为 0，所以 1 的距离为 -1。初始化队列 q 存储 BFS 需要检查的位置，并将所有 0 的位置入队。
 
 循环弹出队列 q 的元素 `p(i, j)`，检查邻居四个点。对于邻居 `(x, y)`，如果 `ans[x][y] = -1`，则更新 `ans[x][y] = ans[i][j] + 1`。同时将 `(x, y)` 入队。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -119,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -154,7 +142,69 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func updateMatrix(mat [][]int) [][]int {
+	m, n := len(mat), len(mat[0])
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
+		for j := range ans[i] {
+			ans[i][j] = -1
+		}
+	}
+	type pair struct{ x, y int }
+	var q []pair
+	for i, row := range mat {
+		for j, v := range row {
+			if v == 0 {
+				ans[i][j] = 0
+				q = append(q, pair{i, j})
+			}
+		}
+	}
+	dirs := []int{-1, 0, 1, 0, -1}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		for i := 0; i < 4; i++ {
+			x, y := p.x+dirs[i], p.y+dirs[i+1]
+			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
+				ans[x][y] = ans[p.x][p.y] + 1
+				q = append(q, pair{x, y})
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function updateMatrix(mat: number[][]): number[][] {
+    const [m, n] = [mat.length, mat[0].length];
+    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => -1));
+    const q: [number, number][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (mat[i][j] === 0) {
+                q.push([i, j]);
+                ans[i][j] = 0;
+            }
+        }
+    }
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    while (q.length) {
+        const [i, j] = q.shift()!;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
+                ans[x][y] = ans[i][j] + 1;
+                q.push([x, y]);
+            }
+        }
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::VecDeque;
@@ -208,78 +258,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func updateMatrix(mat [][]int) [][]int {
-	m, n := len(mat), len(mat[0])
-	ans := make([][]int, m)
-	for i := range ans {
-		ans[i] = make([]int, n)
-		for j := range ans[i] {
-			ans[i][j] = -1
-		}
-	}
-	type pair struct{ x, y int }
-	var q []pair
-	for i, row := range mat {
-		for j, v := range row {
-			if v == 0 {
-				ans[i][j] = 0
-				q = append(q, pair{i, j})
-			}
-		}
-	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for len(q) > 0 {
-		p := q[0]
-		q = q[1:]
-		for i := 0; i < 4; i++ {
-			x, y := p.x+dirs[i], p.y+dirs[i+1]
-			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
-				ans[x][y] = ans[p.x][p.y] + 1
-				q = append(q, pair{x, y})
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function updateMatrix(mat: number[][]): number[][] {
-    const [m, n] = [mat.length, mat[0].length];
-    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => -1));
-    const q: [number, number][] = [];
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (mat[i][j] === 0) {
-                q.push([i, j]);
-                ans[i][j] = 0;
-            }
-        }
-    }
-    const dirs: number[] = [-1, 0, 1, 0, -1];
-    while (q.length) {
-        const [i, j] = q.shift()!;
-        for (let k = 0; k < 4; ++k) {
-            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
-            if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
-                ans[x][y] = ans[i][j] + 1;
-                q.push([x, y]);
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,11 +52,9 @@
 
 ## Solutions
 
-Dynamic Programming.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -80,8 +78,6 @@ class Solution:
             ans %= mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -114,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numOfArrays(n int, m int, k int) int {
@@ -178,10 +170,6 @@ func numOfArrays(n int, m int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

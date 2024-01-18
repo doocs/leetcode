@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 枚举**
+### 方法一：数学 + 枚举
 
 符合拆分条件的每个数都可以表示成 $10x_i+k$，若总共有 $n$ 个数，那么 $num-n*k$ 必然是 $10$ 的倍数。
 
@@ -71,13 +69,7 @@
 
 也可以只考虑个位，个位满足，高位随意。
 
-**方法二：记忆化搜索**
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,6 +82,70 @@ class Solution:
         return -1
 ```
 
+```java
+class Solution {
+    public int minimumNumbers(int num, int k) {
+        if (num == 0) {
+            return 0;
+        }
+        for (int i = 1; i <= num; ++i) {
+            int t = num - k * i;
+            if (t >= 0 && t % 10 == 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minimumNumbers(int num, int k) {
+        if (num == 0) return 0;
+        for (int i = 1; i <= num; ++i) {
+            int t = num - k * i;
+            if (t >= 0 && t % 10 == 0) return i;
+        }
+        return -1;
+    }
+};
+```
+
+```go
+func minimumNumbers(num int, k int) int {
+	if num == 0 {
+		return 0
+	}
+	for i := 1; i <= num; i++ {
+		t := num - k*i
+		if t >= 0 && t%10 == 0 {
+			return i
+		}
+	}
+	return -1
+}
+```
+
+```ts
+function minimumNumbers(num: number, k: number): number {
+    if (!num) return 0;
+    let digit = num % 10;
+    for (let i = 1; i < 11; i++) {
+        let target = i * k;
+        if (target <= num && target % 10 == digit) return i;
+    }
+    return -1;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：记忆化搜索
+
+<!-- tabs:start -->
+
 ```python
 class Solution:
     def minimumNumbers(self, num: int, k: int) -> int:
@@ -100,6 +156,55 @@ class Solution:
                 return i
         return -1
 ```
+
+```java
+class Solution {
+    public int minimumNumbers(int num, int k) {
+        if (num == 0) {
+            return 0;
+        }
+        for (int i = 1; i <= 10; ++i) {
+            if ((k * i) % 10 == num % 10 && k * i <= num) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minimumNumbers(int num, int k) {
+        if (!num) return 0;
+        for (int i = 1; i <= 10; ++i)
+            if ((k * i) % 10 == num % 10 && k * i <= num)
+                return i;
+        return -1;
+    }
+};
+```
+
+```go
+func minimumNumbers(num int, k int) int {
+	if num == 0 {
+		return 0
+	}
+	for i := 1; i <= 10; i++ {
+		if (k*i)%10 == num%10 && k*i <= num {
+			return i
+		}
+	}
+	return -1
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -125,121 +230,6 @@ class Solution:
         return -1 if ans >= inf else ans
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int minimumNumbers(int num, int k) {
-        if (num == 0) {
-            return 0;
-        }
-        for (int i = 1; i <= num; ++i) {
-            int t = num - k * i;
-            if (t >= 0 && t % 10 == 0) {
-                return i;
-            }
-        }
-        return -1;
-    }
-}
-```
-
-```java
-class Solution {
-    public int minimumNumbers(int num, int k) {
-        if (num == 0) {
-            return 0;
-        }
-        for (int i = 1; i <= 10; ++i) {
-            if ((k * i) % 10 == num % 10 && k * i <= num) {
-                return i;
-            }
-        }
-        return -1;
-    }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minimumNumbers(int num, int k) {
-        if (num == 0) return 0;
-        for (int i = 1; i <= num; ++i) {
-            int t = num - k * i;
-            if (t >= 0 && t % 10 == 0) return i;
-        }
-        return -1;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minimumNumbers(int num, int k) {
-        if (!num) return 0;
-        for (int i = 1; i <= 10; ++i)
-            if ((k * i) % 10 == num % 10 && k * i <= num)
-                return i;
-        return -1;
-    }
-};
-```
-
-### **Go**
-
-```go
-func minimumNumbers(num int, k int) int {
-	if num == 0 {
-		return 0
-	}
-	for i := 1; i <= num; i++ {
-		t := num - k*i
-		if t >= 0 && t%10 == 0 {
-			return i
-		}
-	}
-	return -1
-}
-```
-
-```go
-func minimumNumbers(num int, k int) int {
-	if num == 0 {
-		return 0
-	}
-	for i := 1; i <= 10; i++ {
-		if (k*i)%10 == num%10 && k*i <= num {
-			return i
-		}
-	}
-	return -1
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimumNumbers(num: number, k: number): number {
-    if (!num) return 0;
-    let digit = num % 10;
-    for (let i = 1; i < 11; i++) {
-        let target = i * k;
-        if (target <= num && target % 10 == digit) return i;
-    }
-    return -1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

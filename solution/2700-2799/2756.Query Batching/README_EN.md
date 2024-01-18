@@ -24,8 +24,6 @@
 <p><img alt="Throttle info" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2756.Query%20Batching/images/throttle.png" style="width: 622px; height: 200px;" /></p>
 
 <p>&nbsp;</p>
-
-<p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
@@ -119,17 +117,9 @@ queryMultiple([&#39;f&#39;]) is called at t=350ms, it is resolved at 450ms
 	<li><code>0 &lt;= t &lt;= 1000</code></li>
 	<li><code>0 &lt;= calls.length &lt;= 10</code></li>
 	<li><code>1 &lt;= key.length&nbsp;&lt;= 100</code></li>
-	<li><code>all keys are unique</code></li>
+	<li>All keys are unique</li>
 </ul>
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **TypeScript**
-
-```ts
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

@@ -61,9 +61,9 @@ Returning output in order by the bike that were most recently used.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -76,3 +76,5 @@ ORDER BY end_time DESC;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

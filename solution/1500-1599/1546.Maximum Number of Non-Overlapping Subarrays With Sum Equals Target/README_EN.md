@@ -35,15 +35,13 @@
 
 ## Solutions
 
-**Solution 1: Greedy + Prefix Sum + Hash Table**
+### Solution 1: Greedy + Prefix Sum + Hash Table
 
 We traverse the array $nums$, using the method of prefix sum + hash table, to find subarrays with a sum of $target$. If found, we increment the answer by one, then we set the prefix sum to $0$ and continue to traverse the array $nums$ until the entire array is traversed.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -63,8 +61,6 @@ class Solution:
             i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNonOverlapping(nums []int, target int) (ans int) {
 	n := len(nums)
@@ -134,8 +126,6 @@ func maxNonOverlapping(nums []int, target int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNonOverlapping(nums: number[], target: number): number {
@@ -158,10 +148,6 @@ function maxNonOverlapping(nums: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

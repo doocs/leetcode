@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 根据题目描述，我们需要找出数组 $arr$ 中任意两个元素的最小绝对差，因此我们可以先对数组 $arr$ 排序，随后遍历相邻元素，得到最小绝对差 $mi$。
 
@@ -64,10 +62,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
@@ -75,10 +69,6 @@ class Solution:
         mi = min(b - a for a, b in pairwise(arr))
         return [[a, b] for a, b in pairwise(arr) if b - a == mi]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumAbsDifference(arr []int) (ans [][]int) {
 	sort.Ints(arr)
@@ -144,8 +130,6 @@ func minimumAbsDifference(arr []int) (ans [][]int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumAbsDifference(arr: number[]): number[][] {
     arr.sort((a, b) => a - b);
@@ -164,10 +148,6 @@ function minimumAbsDifference(arr: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

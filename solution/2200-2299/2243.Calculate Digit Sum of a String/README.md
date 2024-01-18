@@ -56,19 +56,13 @@ s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题意，我们可以模拟题目中的操作过程，直到字符串长度小于等于 $k$ 为止，最后返回字符串即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,22 +78,6 @@ class Solution:
             s = "".join(t)
         return s
 ```
-
-```python
-class Solution:
-    def digitSum(self, s: str, k: int) -> str:
-        if len(s) <= k:
-            return s
-        t = []
-        while s:
-            t.append(str(sum(int(v) for v in s[:k])))
-            s = s[k:]
-        return self.digitSum(''.join(t), k)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -144,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func digitSum(s string, k int) string {
 	for len(s) > k {
@@ -164,8 +138,6 @@ func digitSum(s string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function digitSum(s: string, k: number): string {
     let ans = [];
@@ -181,10 +153,24 @@ function digitSum(s: string, k: number): string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def digitSum(self, s: str, k: int) -> str:
+        if len(s) <= k:
+            return s
+        t = []
+        while s:
+            t.append(str(sum(int(v) for v in s[:k])))
+            s = s[k:]
+        return self.digitSum(''.join(t), k)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

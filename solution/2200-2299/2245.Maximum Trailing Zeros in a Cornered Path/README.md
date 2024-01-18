@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 枚举拐点**
+### 方法一：前缀和 + 枚举拐点
 
 首先我们要明确，对于一个乘积，尾随零的个数取决于因子中 $2$ 和 $5$ 的个数的较小值。另外，每一条转角路径应该覆盖尽可能多的数，因此，它一定是从某个边界出发，到达某个拐点，再到达另一个边界。
 
@@ -92,10 +90,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维数组 `grid` 的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -131,10 +125,6 @@ class Solution:
                 ans = max(ans, a, b, c, d)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -176,8 +166,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -217,8 +205,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxTrailingZeros(grid [][]int) (ans int) {
@@ -264,8 +250,6 @@ func get(m, n int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxTrailingZeros(grid: number[][]): number {
     const m = grid.length;
@@ -308,10 +292,6 @@ function maxTrailingZeros(grid: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             mx = max(mx, x)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -79,8 +77,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +91,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWeakCharacters(properties [][]int) (ans int) {
@@ -119,8 +113,6 @@ func numberOfWeakCharacters(properties [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWeakCharacters(properties: number[][]): number {
     properties.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
@@ -136,8 +128,6 @@ function numberOfWeakCharacters(properties: number[][]): number {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -159,10 +149,6 @@ var numberOfWeakCharacters = function (properties) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,9 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,20 +53,6 @@ class Solution:
     ) -> int:
         return sum(a <= queryTime <= b for a, b in zip(startTime, endTime))
 ```
-
-```python
-class Solution:
-    def busyStudent(
-        self, startTime: List[int], endTime: List[int], queryTime: int
-    ) -> int:
-        c = [0] * 1010
-        for a, b in zip(startTime, endTime):
-            c[a] += 1
-            c[b + 1] -= 1
-        return sum(c[: queryTime + 1])
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,6 +66,89 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
+        int ans = 0;
+        for (int i = 0; i < startTime.size(); ++i) {
+            ans += startTime[i] <= queryTime && queryTime <= endTime[i];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func busyStudent(startTime []int, endTime []int, queryTime int) int {
+	ans := 0
+	for i, a := range startTime {
+		b := endTime[i]
+		if a <= queryTime && queryTime <= b {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function busyStudent(startTime: number[], endTime: number[], queryTime: number): number {
+    const n = startTime.length;
+    let res = 0;
+    for (let i = 0; i < n; i++) {
+        if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+```rust
+impl Solution {
+    pub fn busy_student(start_time: Vec<i32>, end_time: Vec<i32>, query_time: i32) -> i32 {
+        let mut res = 0;
+        for i in 0..start_time.len() {
+            if start_time[i] <= query_time && end_time[i] >= query_time {
+                res += 1;
+            }
+        }
+        res
+    }
+}
+```
+
+```c
+int busyStudent(int* startTime, int startTimeSize, int* endTime, int endTimeSize, int queryTime) {
+    int res = 0;
+    for (int i = 0; i < startTimeSize; i++) {
+        if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
+            res++;
+        }
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def busyStudent(
+        self, startTime: List[int], endTime: List[int], queryTime: int
+    ) -> int:
+        c = [0] * 1010
+        for a, b in zip(startTime, endTime):
+            c[a] += 1
+            c[b + 1] -= 1
+        return sum(c[: queryTime + 1])
 ```
 
 ```java
@@ -97,21 +166,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
-        int ans = 0;
-        for (int i = 0; i < startTime.size(); ++i) {
-            ans += startTime[i] <= queryTime && queryTime <= endTime[i];
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -132,21 +186,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func busyStudent(startTime []int, endTime []int, queryTime int) int {
-	ans := 0
-	for i, a := range startTime {
-		b := endTime[i]
-		if a <= queryTime && queryTime <= b {
-			ans++
-		}
-	}
-	return ans
-}
-```
-
 ```go
 func busyStudent(startTime []int, endTime []int, queryTime int) int {
 	c := make([]int, 1010)
@@ -163,55 +202,6 @@ func busyStudent(startTime []int, endTime []int, queryTime int) int {
 }
 ```
 
-### **C**
-
-```c
-int busyStudent(int* startTime, int startTimeSize, int* endTime, int endTimeSize, int queryTime) {
-    int res = 0;
-    for (int i = 0; i < startTimeSize; i++) {
-        if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
-            res++;
-        }
-    }
-    return res;
-}
-```
-
-### **TypeScript**
-
-```ts
-function busyStudent(startTime: number[], endTime: number[], queryTime: number): number {
-    const n = startTime.length;
-    let res = 0;
-    for (let i = 0; i < n; i++) {
-        if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
-            res++;
-        }
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn busy_student(start_time: Vec<i32>, end_time: Vec<i32>, query_time: i32) -> i32 {
-        let mut res = 0;
-        for i in 0..start_time.len() {
-            if start_time[i] <= query_time && end_time[i] >= query_time {
-                res += 1;
-            }
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

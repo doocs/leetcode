@@ -55,11 +55,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 SELECT
@@ -71,3 +69,5 @@ WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%';
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

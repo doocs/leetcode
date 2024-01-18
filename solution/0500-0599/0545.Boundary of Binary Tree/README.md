@@ -58,17 +58,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-分别求根节点、左边界、叶子节点、右边界，依次放入结果数组 res 中。
-
-注意，求右边界的时候，需要逆序结果，这时可以用栈实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -121,10 +113,6 @@ class Solution:
     def is_leaf(self, node) -> bool:
         return node and node.left is None and node.right is None
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -204,8 +192,6 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * Definition for a binary tree node.
@@ -273,10 +259,6 @@ var boundaryOfBinaryTree = function (root) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

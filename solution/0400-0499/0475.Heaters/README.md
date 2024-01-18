@@ -50,15 +50,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-排序 + 二分查找 + 双指针。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
         return left
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public int findRadius(int[] houses, int[] heaters) {
@@ -114,31 +104,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
-
-```ts
-function findRadius(houses: number[], heaters: number[]): number {
-    houses.sort((a, b) => a - b);
-    heaters.sort((a, b) => a - b);
-    const m = houses.length,
-        n = heaters.length;
-    let ans = 0;
-    for (let i = 0, j = 0; i < m; i++) {
-        let cur = Math.abs(houses[i] - heaters[j]);
-        while (
-            j + 1 < n &&
-            Math.abs(houses[i] - heaters[j]) >= Math.abs(houses[i] - heaters[j + 1])
-        ) {
-            cur = Math.min(Math.abs(houses[i] - heaters[++j]), cur);
-        }
-        ans = Math.max(cur, ans);
-    }
-    return ans;
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -174,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findRadius(houses []int, heaters []int) int {
@@ -214,10 +177,27 @@ func findRadius(houses []int, heaters []int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function findRadius(houses: number[], heaters: number[]): number {
+    houses.sort((a, b) => a - b);
+    heaters.sort((a, b) => a - b);
+    const m = houses.length,
+        n = heaters.length;
+    let ans = 0;
+    for (let i = 0, j = 0; i < m; i++) {
+        let cur = Math.abs(houses[i] - heaters[j]);
+        while (
+            j + 1 < n &&
+            Math.abs(houses[i] - heaters[j]) >= Math.abs(houses[i] - heaters[j + 1])
+        ) {
+            cur = Math.min(Math.abs(houses[i] - heaters[++j]), cur);
+        }
+        ans = Math.max(cur, ans);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

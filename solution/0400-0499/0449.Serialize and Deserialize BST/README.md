@@ -40,9 +40,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：先序遍历**
+### 方法一：先序遍历
 
 题目给定的是二叉搜索树，我们知道二叉搜索树的中序遍历是有序的，而通过“先序遍历”和“中序遍历”可以唯一确定一棵二叉树，所以我们可以通过先序遍历的结果和中序遍历的结果来唯一确定一棵二叉搜索树。
 
@@ -51,10 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -107,10 +101,6 @@ class Codec:
 # ans = deser.deserialize(tree)
 # return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -176,8 +166,6 @@ public class Codec {
 // TreeNode ans = deser.deserialize(tree);
 // return ans;
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -248,8 +236,6 @@ public:
 // TreeNode* ans = deser->deserialize(tree);
 // return ans;
 ```
-
-### **Go**
 
 ```go
 /**
@@ -323,10 +309,6 @@ func (this *Codec) deserialize(data string) *TreeNode {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,9 @@ It can be proven that there is no longer path that satisfies the conditions.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
         dfs(0)
         return ans + 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestPath(parent []int, s string) int {
 	n := len(parent)
@@ -157,10 +151,7 @@ func longestPath(parent []int, s string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
-function longestPath(parent: number[], s: string): number {
 function longestPath(parent: number[], s: string): number {
     const n = parent.length;
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -184,10 +175,6 @@ function longestPath(parent: number[], s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,9 +43,9 @@ The diagram on the right represents the answer.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -64,8 +64,6 @@ class Solution:
             return None
         return root
 ```
-
-### **Java**
 
 ```java
 /**
@@ -98,32 +96,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func pruneTree(root *TreeNode) *TreeNode {
-	if root == nil {
-		return nil
-	}
-	root.Left = pruneTree(root.Left)
-	root.Right = pruneTree(root.Right)
-	if root.Val == 0 && root.Left == nil && root.Right == nil {
-		return nil
-	}
-	return root
-}
-```
-
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -148,33 +120,27 @@ public:
 };
 ```
 
-### **JavaScript**
-
-```js
+```go
 /**
  * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
  * }
  */
-/**
- * @param {TreeNode} root
- * @return {TreeNode}
- */
-var pruneTree = function (root) {
-    if (!root) return null;
-    root.left = pruneTree(root.left);
-    root.right = pruneTree(root.right);
-    if (root.val == 0 && !root.left && !root.right) {
-        return null;
-    }
-    return root;
-};
+func pruneTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	root.Left = pruneTree(root.Left)
+	root.Right = pruneTree(root.Right)
+	if root.Val == 0 && root.Left == nil && root.Right == nil {
+		return nil
+	}
+	return root
+}
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -203,8 +169,6 @@ function pruneTree(root: TreeNode | null): TreeNode | null {
     return root;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -247,10 +211,30 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var pruneTree = function (root) {
+    if (!root) return null;
+    root.left = pruneTree(root.left);
+    root.right = pruneTree(root.right);
+    if (root.val == 0 && !root.left && !root.right) {
+        return null;
+    }
+    return root;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

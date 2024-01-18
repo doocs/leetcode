@@ -37,16 +37,16 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>arr is a valid JSON array</code></li>
-	<li><code>fn is a function that returns a number</code></li>
+	<li><code>arr</code> is a valid JSON array</li>
+	<li><code>fn</code> is a function that returns a number</li>
 	<li><code>1 &lt;=&nbsp;arr.length &lt;= 5 * 10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function sortBy(arr: any[], fn: Function): any[] {
@@ -55,3 +55,5 @@ function sortBy(arr: any[], fn: Function): any[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

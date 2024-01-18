@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：预处理 + 枚举**
+### 方法一：预处理 + 枚举
 
 我们先预处理出 $n$ 范围内的所有质数，记录在数组 $primes$ 中，其中 $primes[i]$ 为 `true` 表示 $i$ 是一个质数。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n \log \log n)$，空间复杂度 $O(n)$。其中 $n$ 是题目给定的数字。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                 ans.append([x, y])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPrimePairs(n int) (ans [][]int) {
 	primes := make([]bool, n)
@@ -159,8 +145,6 @@ func findPrimePairs(n int) (ans [][]int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findPrimePairs(n: number): number[][] {
     const primes: boolean[] = new Array(n).fill(true);
@@ -182,10 +166,6 @@ function findPrimePairs(n: number): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

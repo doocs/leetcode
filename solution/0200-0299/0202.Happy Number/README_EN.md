@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,24 +62,6 @@ class Solution:
             n = x
         return n == 1
 ```
-
-```python
-class Solution:
-    def isHappy(self, n: int) -> bool:
-        def next(x):
-            y = 0
-            while x:
-                x, v = divmod(x, 10)
-                y += v * v
-            return y
-
-        slow, fast = n, next(n)
-        while slow != fast:
-            slow, fast = next(slow), next(next(fast))
-        return slow == 1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,29 +81,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean isHappy(int n) {
-        int slow = n, fast = next(n);
-        while (slow != fast) {
-            slow = next(slow);
-            fast = next(next(fast));
-        }
-        return slow == 1;
-    }
-
-    private int next(int x) {
-        int y = 0;
-        for (; x > 0; x /= 10) {
-            y += (x % 10) * (x % 10);
-        }
-        return y;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,29 +99,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool isHappy(int n) {
-        auto next = [](int x) {
-            int y = 0;
-            for (; x; x /= 10) {
-                y += pow(x % 10, 2);
-            }
-            return y;
-        };
-        int slow = n, fast = next(n);
-        while (slow != fast) {
-            slow = next(slow);
-            fast = next(next(fast));
-        }
-        return slow == 1;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func isHappy(n int) bool {
 	vis := map[int]bool{}
@@ -177,25 +113,6 @@ func isHappy(n int) bool {
 	return n == 1
 }
 ```
-
-```go
-func isHappy(n int) bool {
-	next := func(x int) (y int) {
-		for ; x > 0; x /= 10 {
-			y += (x % 10) * (x % 10)
-		}
-		return
-	}
-	slow, fast := n, next(n)
-	for slow != fast {
-		slow = next(slow)
-		fast = next(next(fast))
-	}
-	return slow == 1
-}
-```
-
-### **TypeScript**
 
 ```ts
 function isHappy(n: number): boolean {
@@ -219,29 +136,6 @@ function isHappy(n: number): boolean {
     return true;
 }
 ```
-
-```ts
-function isHappy(n: number): boolean {
-    const getNext = (n: number) => {
-        let res = 0;
-        while (n !== 0) {
-            res += (n % 10) ** 2;
-            n = Math.floor(n / 10);
-        }
-        return res;
-    };
-
-    let slow = n;
-    let fast = getNext(n);
-    while (slow !== fast) {
-        slow = getNext(slow);
-        fast = getNext(getNext(fast));
-    }
-    return fast === 1;
-}
-```
-
-### **Rust**
 
 ```rust
 use std::collections::HashSet;
@@ -270,6 +164,129 @@ impl Solution {
 }
 ```
 
+```c
+int getNext(int n) {
+    int res = 0;
+    while (n) {
+        res += (n % 10) * (n % 10);
+        n /= 10;
+    }
+    return res;
+}
+
+bool isHappy(int n) {
+    int slow = n;
+    int fast = getNext(n);
+    while (slow != fast) {
+        slow = getNext(slow);
+        fast = getNext(getNext(fast));
+    }
+    return fast == 1;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def next(x):
+            y = 0
+            while x:
+                x, v = divmod(x, 10)
+                y += v * v
+            return y
+
+        slow, fast = n, next(n)
+        while slow != fast:
+            slow, fast = next(slow), next(next(fast))
+        return slow == 1
+```
+
+```java
+class Solution {
+    public boolean isHappy(int n) {
+        int slow = n, fast = next(n);
+        while (slow != fast) {
+            slow = next(slow);
+            fast = next(next(fast));
+        }
+        return slow == 1;
+    }
+
+    private int next(int x) {
+        int y = 0;
+        for (; x > 0; x /= 10) {
+            y += (x % 10) * (x % 10);
+        }
+        return y;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isHappy(int n) {
+        auto next = [](int x) {
+            int y = 0;
+            for (; x; x /= 10) {
+                y += pow(x % 10, 2);
+            }
+            return y;
+        };
+        int slow = n, fast = next(n);
+        while (slow != fast) {
+            slow = next(slow);
+            fast = next(next(fast));
+        }
+        return slow == 1;
+    }
+};
+```
+
+```go
+func isHappy(n int) bool {
+	next := func(x int) (y int) {
+		for ; x > 0; x /= 10 {
+			y += (x % 10) * (x % 10)
+		}
+		return
+	}
+	slow, fast := n, next(n)
+	for slow != fast {
+		slow = next(slow)
+		fast = next(next(fast))
+	}
+	return slow == 1
+}
+```
+
+```ts
+function isHappy(n: number): boolean {
+    const getNext = (n: number) => {
+        let res = 0;
+        while (n !== 0) {
+            res += (n % 10) ** 2;
+            n = Math.floor(n / 10);
+        }
+        return res;
+    };
+
+    let slow = n;
+    let fast = getNext(n);
+    while (slow !== fast) {
+        slow = getNext(slow);
+        fast = getNext(getNext(fast));
+    }
+    return fast === 1;
+}
+```
+
 ```rust
 impl Solution {
     pub fn is_happy(n: i32) -> bool {
@@ -292,33 +309,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int getNext(int n) {
-    int res = 0;
-    while (n) {
-        res += (n % 10) * (n % 10);
-        n /= 10;
-    }
-    return res;
-}
-
-bool isHappy(int n) {
-    int slow = n;
-    int fast = getNext(n);
-    while (slow != fast) {
-        slow = getNext(slow);
-        fast = getNext(getNext(fast));
-    }
-    return fast == 1;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,28 +1,38 @@
+using pii = pair<int, int>;
+
 class Solution {
 public:
+    vector<int> p;
+    vector<int> size;
+
     int validSubarraySize(vector<int>& nums, int threshold) {
         int n = nums.size();
-        vector<int> left(n, -1);
-        vector<int> right(n, n);
-        stack<int> stk;
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
-            if (!stk.empty()) left[i] = stk.top();
-            stk.push(i);
-        }
-        stk = stack<int>();
-        for (int i = n - 1; ~i; --i) {
-            int v = nums[i];
-            while (!stk.empty() && nums[stk.top()] >= v) stk.pop();
-            if (!stk.empty()) right[i] = stk.top();
-            stk.push(i);
-        }
-        for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int k = right[i] - left[i] - 1;
-            if (v > threshold / k) return k;
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        size.assign(n, 1);
+        vector<pii> arr(n);
+        for (int i = 0; i < n; ++i) arr[i] = {nums[i], i};
+        sort(arr.begin(), arr.end());
+        vector<bool> vis(n);
+        for (int j = n - 1; ~j; --j) {
+            int v = arr[j].first, i = arr[j].second;
+            if (i && vis[i - 1]) merge(i, i - 1);
+            if (j < n - 1 && vis[i + 1]) merge(i, i + 1);
+            if (v > threshold / size[find(i)]) return size[find(i)];
+            vis[i] = true;
         }
         return -1;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+
+    void merge(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) return;
+        p[pa] = pb;
+        size[pb] += size[pa];
     }
 };

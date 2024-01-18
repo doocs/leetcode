@@ -11,26 +11,30 @@
  */
 class Solution {
 public:
-    vector<int> vals;
-
     TreeNode* balanceBST(TreeNode* root) {
         dfs(root);
-        return build(0, vals.size() - 1);
+        return build(0, nums.size() - 1);
     }
 
+private:
+    vector<int> nums;
+
     void dfs(TreeNode* root) {
-        if (!root) return;
+        if (!root) {
+            return;
+        }
         dfs(root->left);
-        vals.push_back(root->val);
+        nums.push_back(root->val);
         dfs(root->right);
     }
 
     TreeNode* build(int i, int j) {
-        if (i > j) return nullptr;
+        if (i > j) {
+            return nullptr;
+        }
         int mid = (i + j) >> 1;
-        TreeNode* root = new TreeNode(vals[mid]);
-        root->left = build(i, mid - 1);
-        root->right = build(mid + 1, j);
-        return root;
+        TreeNode* left = build(i, mid - 1);
+        TreeNode* right = build(mid + 1, j);
+        return new TreeNode(nums[mid], left, right);
     }
 };

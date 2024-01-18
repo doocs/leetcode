@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search + Inclusion-Exclusion Principle**
+### Solution 1: Binary Search + Inclusion-Exclusion Principle
 
 We can transform the problem into: find the smallest positive integer $x$ such that the number of ugly numbers less than or equal to $x$ is exactly $n$.
 
@@ -61,8 +61,6 @@ Define the left boundary of binary search as $l=1$ and the right boundary as $r=
 The time complexity is $O(\log m)$, where $m = 2 \times 10^9$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -89,8 +87,6 @@ class Solution:
                 l = mid + 1
         return l
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +147,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func nthUglyNumber(n int, a int, b int, c int) int {
 	ab, bc, ac := lcm(a, b), lcm(b, c), lcm(a, c)
@@ -182,8 +174,6 @@ func lcm(a, b int) int {
 	return a * b / gcd(a, b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function nthUglyNumber(n: number, a: number, b: number, c: number): number {
@@ -221,10 +211,6 @@ function lcm(a: bigint, b: bigint): bigint {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

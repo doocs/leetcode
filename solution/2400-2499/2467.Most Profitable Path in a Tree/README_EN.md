@@ -76,9 +76,21 @@ Thus, Alice opens the gate at node 0 only. Hence, her net income is -7280.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Two DFS Traversals
 
-### **Python3**
+According to the problem, we know that Bob's moving path is fixed, that is, starting from node $bob$ and finally reaching node $0$. Therefore, we can first run a DFS to find out the time it takes for Bob to reach each node, which we record in the array $ts$.
+
+Then we run another DFS to find the maximum score for each of Alice's moving paths. We denote the time for Alice to reach node $i$ as $t$, and the current cumulative score as $v$. After Alice passes node $i$, the cumulative score has three cases:
+
+1. The time $t$ for Alice to reach node $i$ is the same as the time $ts[i]$ for Bob to reach node $i$. In this case, Alice and Bob open the door at node $i$ at the same time, and the score Alice gets is $v + \frac{amount[i]}{2}$.
+2. The time $t$ for Alice to reach node $i$ is less than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice opens the door at node $i$, and the score Alice gets is $v + amount[i]$.
+3. The time $t$ for Alice to reach node $i$ is greater than the time $ts[i]$ for Bob to reach node $i$. In this case, Alice does not open the door at node $i$, and the score Alice gets is $v$, which remains unchanged.
+
+When Alice reaches a leaf node, update the maximum score.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -120,8 +132,6 @@ class Solution:
         dfs2(0, -1, 0, 0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -181,8 +191,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -228,8 +236,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func mostProfitablePath(edges [][]int, bob int, amount []int) int {
@@ -283,16 +289,6 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,19 +49,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 从根节点开始，递归遍历每个节点，每次递归时，将当前节点值加入到路径中，然后判断当前节点是否为叶子节点，如果是叶子节点并且路径和等于目标值，则将该路径加入到结果中。如果当前节点不是叶子节点，则递归遍历其左右子节点。递归遍历时，需要将当前节点从路径中移除，以确保返回父节点时路径刚好是从根节点到父节点。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -88,10 +82,6 @@ class Solution:
         dfs(root, target)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -134,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -172,8 +160,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -193,9 +179,7 @@ func pathSum(root *TreeNode, target int) (ans [][]int) {
 		t = append(t, root.Val)
 		s -= root.Val
 		if root.Left == nil && root.Right == nil && s == 0 {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 		}
 		dfs(root.Left, s)
 		dfs(root.Right, s)
@@ -205,45 +189,6 @@ func pathSum(root *TreeNode, target int) (ans [][]int) {
 	return
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {number} target
- * @return {number[][]}
- */
-var pathSum = function (root, target) {
-    const ans = [];
-    const t = [];
-    const dfs = (root, s) => {
-        if (!root) {
-            return;
-        }
-        t.push(root.val);
-        s -= root.val;
-        if (!root.left && !root.right && !s) {
-            ans.push([...t]);
-        }
-        dfs(root.left, s);
-        dfs(root.right, s);
-        t.pop();
-    };
-    dfs(root, target);
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -283,8 +228,6 @@ function pathSum(root: TreeNode | null, target: number): number[][] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -334,6 +277,86 @@ impl Solution {
     }
 }
 ```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} target
+ * @return {number[][]}
+ */
+var pathSum = function (root, target) {
+    const ans = [];
+    const t = [];
+    const dfs = (root, s) => {
+        if (!root) {
+            return;
+        }
+        t.push(root.val);
+        s -= root.val;
+        if (!root.left && !root.right && !s) {
+            ans.push([...t]);
+        }
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.pop();
+    };
+    dfs(root, target);
+    return ans;
+};
+```
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private List<IList<int>> ans = new List<IList<int>>();
+    private List<int> t = new List<int>();
+
+    public IList<IList<int>> PathSum(TreeNode root, int target) {
+        dfs(root, target);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int s) {
+        if (root == null) {
+            return;
+        }
+        t.Add(root.val);
+        s -= root.val;
+        if (root.left == null && root.right == null && s == 0) {
+            ans.Add(new List<int>(t));
+        }
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.RemoveAt(t.Count - 1);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 // Definition for a binary tree node.
@@ -397,51 +420,6 @@ impl Solution {
 }
 ```
 
-### **C#**
-
-```cs
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     public int val;
- *     public TreeNode left;
- *     public TreeNode right;
- *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-public class Solution {
-    private List<IList<int>> ans = new List<IList<int>>();
-    private List<int> t = new List<int>();
-
-    public IList<IList<int>> PathSum(TreeNode root, int target) {
-        dfs(root, target);
-        return ans;
-    }
-
-    private void dfs(TreeNode root, int s) {
-        if (root == null) {
-            return;
-        }
-        t.Add(root.val);
-        s -= root.val;
-        if (root.left == null && root.right == null && s == 0) {
-            ans.Add(new List<int>(t));
-        }
-        dfs(root.left, s);
-        dfs(root.right, s);
-        t.RemoveAt(t.Count - 1);
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

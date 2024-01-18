@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 动态规划**
+### 方法一：DFS + 动态规划
 
 首先通过 DFS 构造出所有合法的排列。然后所有排列进行两两比较，找出每种排列相邻的合法排列，记录在 `g` 数组中。
 
@@ -59,10 +57,6 @@
 答案为最后一排的方案数之和。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -115,10 +109,6 @@ class Solution:
                     dp[i][j] %= mod
         return sum(dp[-1]) % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -198,8 +188,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -273,22 +261,18 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func buildWall(height int, width int, bricks []int) int {
 	mod := int(1e9) + 7
 	res := [][]int{}
 	t := []int{}
-	var dfs func(v int)
+	var dfs func(int)
 	dfs = func(v int) {
 		if v > width {
 			return
 		}
 		if v == width {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			res = append(res, cp)
+			res = append(res, slices.Clone(t))
 			return
 		}
 		for _, x := range bricks {
@@ -352,16 +336,6 @@ func buildWall(height int, width int, bricks []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

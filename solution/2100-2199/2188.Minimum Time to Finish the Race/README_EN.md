@@ -59,9 +59,9 @@ The minimum time to complete the race is 25 seconds.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -84,8 +84,6 @@ class Solution:
             f[i] += changeTime
         return f[numLaps]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -147,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
@@ -181,8 +175,6 @@ func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumFinishTime(tires: number[][], changeTime: number, numLaps: number): number {
     const cost: number[] = Array(18).fill(Infinity);
@@ -207,10 +199,6 @@ function minimumFinishTime(tires: number[][], changeTime: number, numLaps: numbe
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

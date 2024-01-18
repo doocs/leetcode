@@ -37,13 +37,9 @@
 
 ## Solutions
 
-BFS or DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
-
-BFS:
 
 ```python
 """
@@ -70,38 +66,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-DFS:
-
-```python
-"""
-# Definition for a Node.
-class Node:
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children
-"""
-
-
-class Solution:
-    def levelOrder(self, root: 'Node') -> List[List[int]]:
-        def dfs(root, i):
-            if root is None:
-                return
-            if len(ans) <= i:
-                ans.append([])
-            ans[i].append(root.val)
-            for child in root.children:
-                dfs(child, i + 1)
-
-        ans = []
-        dfs(root, 0)
-        return ans
-```
-
-### **Java**
-
-BFS:
 
 ```java
 /*
@@ -145,7 +109,143 @@ class Solution {
 }
 ```
 
-DFS:
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<vector<int>> levelOrder(Node* root) {
+        vector<vector<int>> ans;
+        if (!root) return ans;
+        queue<Node*> q{{root}};
+        while (!q.empty()) {
+            vector<int> t;
+            for (int n = q.size(); n > 0; --n) {
+                root = q.front();
+                q.pop();
+                t.push_back(root->val);
+                for (auto& child : root->children) q.push(child);
+            }
+            ans.push_back(t);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func levelOrder(root *Node) [][]int {
+	var ans [][]int
+	if root == nil {
+		return ans
+	}
+	q := []*Node{root}
+	for len(q) > 0 {
+		var t []int
+		for n := len(q); n > 0; n-- {
+			root = q[0]
+			q = q[1:]
+			t = append(t, root.Val)
+			for _, child := range root.Children {
+				q = append(q, child)
+			}
+		}
+		ans = append(ans, t)
+	}
+	return ans
+}
+```
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function levelOrder(root: Node | null): number[][] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    const queue = [root];
+    while (queue.length !== 0) {
+        const n = queue.length;
+        const vals = [];
+        for (let i = 0; i < n; i++) {
+            const { val, children } = queue.shift();
+            vals.push(val);
+            queue.push(...children);
+        }
+        res.push(vals);
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        def dfs(root, i):
+            if root is None:
+                return
+            if len(ans) <= i:
+                ans.append([])
+            ans[i].append(root.val)
+            for child in root.children:
+                dfs(child, i + 1)
+
+        ans = []
+        dfs(root, 0)
+        return ans
+```
 
 ```java
 /*
@@ -189,54 +289,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-BFS:
-
-```cpp
-/*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    vector<Node*> children;
-
-    Node() {}
-
-    Node(int _val) {
-        val = _val;
-    }
-
-    Node(int _val, vector<Node*> _children) {
-        val = _val;
-        children = _children;
-    }
-};
-*/
-
-class Solution {
-public:
-    vector<vector<int>> levelOrder(Node* root) {
-        vector<vector<int>> ans;
-        if (!root) return ans;
-        queue<Node*> q{{root}};
-        while (!q.empty()) {
-            vector<int> t;
-            for (int n = q.size(); n > 0; --n) {
-                root = q.front();
-                q.pop();
-                t.push_back(root->val);
-                for (auto& child : root->children) q.push(child);
-            }
-            ans.push_back(t);
-        }
-        return ans;
-    }
-};
-```
-
-DFS:
-
 ```cpp
 /*
 // Definition for a Node.
@@ -275,43 +327,6 @@ public:
 };
 ```
 
-### **Go**
-
-BFS:
-
-```go
-/**
- * Definition for a Node.
- * type Node struct {
- *     Val int
- *     Children []*Node
- * }
- */
-
-func levelOrder(root *Node) [][]int {
-	var ans [][]int
-	if root == nil {
-		return ans
-	}
-	q := []*Node{root}
-	for len(q) > 0 {
-		var t []int
-		for n := len(q); n > 0; n-- {
-			root = q[0]
-			q = q[1:]
-			t = append(t, root.Val)
-			for _, child := range root.Children {
-				q = append(q, child)
-			}
-		}
-		ans = append(ans, t)
-	}
-	return ans
-}
-```
-
-DFS:
-
 ```go
 /**
  * Definition for a Node.
@@ -340,45 +355,6 @@ func levelOrder(root *Node) [][]int {
 	return ans
 }
 ```
-
-### **TypeScript**
-
-BFS:
-
-```ts
-/**
- * Definition for node.
- * class Node {
- *     val: number
- *     children: Node[]
- *     constructor(val?: number) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.children = []
- *     }
- * }
- */
-
-function levelOrder(root: Node | null): number[][] {
-    const res = [];
-    if (root == null) {
-        return res;
-    }
-    const queue = [root];
-    while (queue.length !== 0) {
-        const n = queue.length;
-        const vals = [];
-        for (let i = 0; i < n; i++) {
-            const { val, children } = queue.shift();
-            vals.push(val);
-            queue.push(...children);
-        }
-        res.push(vals);
-    }
-    return res;
-}
-```
-
-DFS:
 
 ```ts
 /**
@@ -411,10 +387,6 @@ function levelOrder(root: Node | null): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

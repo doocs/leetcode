@@ -43,9 +43,9 @@ The input has been split into consecutive parts with size difference at most 1, 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -75,8 +75,6 @@ class Solution:
         return res
 ```
 
-### **Java**
-
 ```java
 /**
  * Definition for singly-linked list.
@@ -94,6 +92,8 @@ class Solution {
             ++n;
             cur = cur.next;
         }
+        // width 表示每一部分至少含有的结点个数
+        // remainder 表示前 remainder 部分，每一部分多出一个数
         int width = n / k, remainder = n % k;
         ListNode[] res = new ListNode[k];
         cur = root;
@@ -116,10 +116,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

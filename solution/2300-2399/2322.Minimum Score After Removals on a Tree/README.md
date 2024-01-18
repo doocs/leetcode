@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS + 子树异或和**
+### 方法一：DFS + 子树异或和
 
 枚举 $[0,n)$ 的每个点 $i$ 作为树的根节点，将根节点与某个子节点相连的边作为第一条被删除的边。这样我们就获得了两个连通块，我们记包含根节点 $i$ 的连通块为 $A$，不包含根节点 $i$ 的连通块为 $B$。
 
@@ -77,10 +75,6 @@
 记每个连通块的异或和为 $S_i$，那么对于枚举的每一种情况，得到的分数为 $max(S_B, S_C, S_D)-min(S_B, S_C, S_D)$。求所有情况的最小值作为答案。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -121,10 +115,6 @@ class Solution:
                 dfs2(i, -1, j)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -184,8 +174,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -238,8 +226,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumScore(nums []int, edges [][]int) int {
 	n := len(nums)
@@ -290,16 +276,6 @@ func minimumScore(nums []int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

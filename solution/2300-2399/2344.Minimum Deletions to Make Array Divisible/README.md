@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 排序**
+### 方法一：数学 + 排序
 
 如果一个元素能整除数组 `numsDivide` 所有元素，那么这个元素是所有 $numsDivide[i]$ 的最大公约数 $x$ 的因子。因此，我们可以先求出 `numsDivide` 的最大公约数 $x$。
 
@@ -60,10 +58,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
@@ -76,26 +70,6 @@ class Solution:
                 return i
         return -1
 ```
-
-```python
-class Solution:
-    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        x = gcd(*numsDivide)
-        nums.sort()
-        return next((i for i, v in enumerate(nums) if x % v == 0), -1)
-```
-
-```python
-class Solution:
-    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        x = gcd(*numsDivide)
-        y = min((v for v in nums if x % v == 0), default=0)
-        return sum(v < y for v in nums) if y else -1
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,6 +91,62 @@ class Solution {
         return b == 0 ? a : gcd(b, a % b);
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums, vector<int>& numsDivide) {
+        int x = 0;
+        for (int& v : numsDivide) {
+            x = gcd(x, v);
+        }
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); ++i) {
+            if (x % nums[i] == 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+```go
+func minOperations(nums []int, numsDivide []int) int {
+	x := 0
+	for _, v := range numsDivide {
+		x = gcd(x, v)
+	}
+	sort.Ints(nums)
+	for i, v := range nums {
+		if x%v == 0 {
+			return i
+		}
+	}
+	return -1
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
+        x = gcd(*numsDivide)
+        nums.sort()
+        return next((i for i, v in enumerate(nums) if x % v == 0), -1)
 ```
 
 ```java
@@ -150,27 +180,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minOperations(vector<int>& nums, vector<int>& numsDivide) {
-        int x = 0;
-        for (int& v : numsDivide) {
-            x = gcd(x, v);
-        }
-        sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size(); ++i) {
-            if (x % nums[i] == 0) {
-                return i;
-            }
-        }
-        return -1;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -195,31 +204,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func minOperations(nums []int, numsDivide []int) int {
-	x := 0
-	for _, v := range numsDivide {
-		x = gcd(x, v)
-	}
-	sort.Ints(nums)
-	for i, v := range nums {
-		if x%v == 0 {
-			return i
-		}
-	}
-	return -1
-}
-
-func gcd(a, b int) int {
-	if b == 0 {
-		return a
-	}
-	return gcd(b, a%b)
-}
 ```
 
 ```go
@@ -254,16 +238,20 @@ func gcd(a, b int) int {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
+### 方法三
 
-```
+<!-- tabs:start -->
 
-### **...**
-
-```
-
+```python
+class Solution:
+    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
+        x = gcd(*numsDivide)
+        y = min((v for v in nums if x % v == 0), default=0)
+        return sum(v < y for v in nums) if y else -1
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

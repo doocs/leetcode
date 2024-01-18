@@ -46,11 +46,9 @@ Person 5 can see no one since nobody is to the right of them.
 
 ## Solutions
 
-Monotonic stack.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -67,8 +65,6 @@ class Solution:
             stk.append(heights[i])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -115,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canSeePersonsCount(heights []int) []int {
 	n := len(heights)
@@ -136,8 +128,6 @@ func canSeePersonsCount(heights []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canSeePersonsCount(heights: number[]): number[] {
     const n = heights.length;
@@ -156,8 +146,6 @@ function canSeePersonsCount(heights: number[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -179,8 +167,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 /**
@@ -206,10 +192,6 @@ int* canSeePersonsCount(int* heights, int heightsSize, int* returnSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

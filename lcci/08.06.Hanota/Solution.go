@@ -1,21 +1,16 @@
 func hanota(A []int, B []int, C []int) []int {
-	stk := []Task{{len(A), &A, &B, &C}}
-	for len(stk) > 0 {
-		task := stk[len(stk)-1]
-		stk = stk[:len(stk)-1]
-		if task.n == 1 {
-			*task.c = append(*task.c, (*task.a)[len(*task.a)-1])
-			*task.a = (*task.a)[:len(*task.a)-1]
-		} else {
-			stk = append(stk, Task{task.n - 1, task.b, task.a, task.c})
-			stk = append(stk, Task{1, task.a, task.b, task.c})
-			stk = append(stk, Task{task.n - 1, task.a, task.c, task.b})
+	var dfs func(n int, a, b, c *[]int)
+	dfs = func(n int, a, b, c *[]int) {
+		if n == 1 {
+			*c = append(*c, (*a)[len(*a)-1])
+			*a = (*a)[:len(*a)-1]
+			return
 		}
+		dfs(n-1, a, c, b)
+		*c = append(*c, (*a)[len(*a)-1])
+		*a = (*a)[:len(*a)-1]
+		dfs(n-1, b, a, c)
 	}
+	dfs(len(A), &A, &B, &C)
 	return C
-}
-
-type Task struct {
-	n       int
-	a, b, c *[]int
 }

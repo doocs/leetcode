@@ -1,8 +1,9 @@
 func findDerangement(n int) int {
-	a, b := 1, 0
+	f := make([]int, n+1)
+	f[0] = 1
 	const mod = 1e9 + 7
 	for i := 2; i <= n; i++ {
-		a, b = b, (i-1)*(a+b)%mod
+		f[i] = (i - 1) * (f[i-1] + f[i-2]) % mod
 	}
-	return b
+	return f[n]
 }

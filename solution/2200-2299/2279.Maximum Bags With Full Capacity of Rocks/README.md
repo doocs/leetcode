@@ -54,15 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                 additionalRocks -= v
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumBags(capacity []int, rocks []int, additionalRocks int) int {
@@ -149,8 +135,6 @@ func maximumBags(capacity []int, rocks []int, additionalRocks int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumBags(capacity: number[], rocks: number[], additionalRocks: number): number {
     const n = capacity.length;
@@ -164,8 +148,6 @@ function maximumBags(capacity: number[], rocks: number[], additionalRocks: numbe
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -187,10 +169,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

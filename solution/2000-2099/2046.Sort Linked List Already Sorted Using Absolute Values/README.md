@@ -54,17 +54,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：头插法**
+### 方法一：头插法
 
 先默认第一个点已经排序完毕。然后从第二个点开始，遇到值为负数的节点，采用头插法；非负数，则继续往下遍历即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -86,10 +80,6 @@ class Solution:
                 prev, curr = curr, curr.next
         return head
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -121,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -157,8 +145,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -184,10 +170,6 @@ func sortLinkedList(head *ListNode) *ListNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

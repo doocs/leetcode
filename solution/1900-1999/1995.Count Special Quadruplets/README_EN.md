@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,35 +66,6 @@ class Solution:
                             ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
-        ans, n = 0, len(nums)
-        counter = Counter()
-        for c in range(n - 2, 1, -1):
-            counter[nums[c + 1]] += 1
-            for a in range(c - 1):
-                for b in range(a + 1, c):
-                    ans += counter[nums[a] + nums[b] + nums[c]]
-        return ans
-```
-
-```python
-class Solution:
-    def countQuadruplets(self, nums: List[int]) -> int:
-        ans, n = 0, len(nums)
-        counter = Counter()
-        for b in range(n - 3, 0, -1):
-            c = b + 1
-            for d in range(c + 1, n):
-                counter[nums[d] - nums[c]] += 1
-            for a in range(b):
-                ans += counter[nums[a] + nums[b]]
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,47 +87,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countQuadruplets(int[] nums) {
-        int ans = 0, n = nums.length;
-        int[] counter = new int[310];
-        for (int c = n - 2; c > 1; --c) {
-            ++counter[nums[c + 1]];
-            for (int a = 0; a < c - 1; ++a) {
-                for (int b = a + 1; b < c; ++b) {
-                    ans += counter[nums[a] + nums[b] + nums[c]];
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
-
-```java
-class Solution {
-    public int countQuadruplets(int[] nums) {
-        int ans = 0, n = nums.length;
-        int[] counter = new int[310];
-        for (int b = n - 3; b > 0; --b) {
-            int c = b + 1;
-            for (int d = c + 1; d < n; ++d) {
-                if (nums[d] - nums[c] >= 0) {
-                    ++counter[nums[d] - nums[c]];
-                }
-            }
-            for (int a = 0; a < b; ++a) {
-                ans += counter[nums[a] + nums[b]];
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,49 +101,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int countQuadruplets(vector<int>& nums) {
-        int ans = 0, n = nums.size();
-        vector<int> counter(310);
-        for (int c = n - 2; c > 1; --c) {
-            ++counter[nums[c + 1]];
-            for (int a = 0; a < c - 1; ++a) {
-                for (int b = a + 1; b < c; ++b) {
-                    ans += counter[nums[a] + nums[b] + nums[c]];
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int countQuadruplets(vector<int>& nums) {
-        int ans = 0, n = nums.size();
-        vector<int> counter(310);
-        for (int b = n - 3; b > 0; --b) {
-            int c = b + 1;
-            for (int d = c + 1; d < n; ++d) {
-                if (nums[d] - nums[c] >= 0) {
-                    ++counter[nums[d] - nums[c]];
-                }
-            }
-            for (int a = 0; a < b; ++a) {
-                ans += counter[nums[a] + nums[b]];
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func countQuadruplets(nums []int) int {
@@ -233,6 +120,62 @@ func countQuadruplets(nums []int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countQuadruplets(self, nums: List[int]) -> int:
+        ans, n = 0, len(nums)
+        counter = Counter()
+        for c in range(n - 2, 1, -1):
+            counter[nums[c + 1]] += 1
+            for a in range(c - 1):
+                for b in range(a + 1, c):
+                    ans += counter[nums[a] + nums[b] + nums[c]]
+        return ans
+```
+
+```java
+class Solution {
+    public int countQuadruplets(int[] nums) {
+        int ans = 0, n = nums.length;
+        int[] counter = new int[310];
+        for (int c = n - 2; c > 1; --c) {
+            ++counter[nums[c + 1]];
+            for (int a = 0; a < c - 1; ++a) {
+                for (int b = a + 1; b < c; ++b) {
+                    ans += counter[nums[a] + nums[b] + nums[c]];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countQuadruplets(vector<int>& nums) {
+        int ans = 0, n = nums.size();
+        vector<int> counter(310);
+        for (int c = n - 2; c > 1; --c) {
+            ++counter[nums[c + 1]];
+            for (int a = 0; a < c - 1; ++a) {
+                for (int b = a + 1; b < c; ++b) {
+                    ans += counter[nums[a] + nums[b] + nums[c]];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ```go
 func countQuadruplets(nums []int) int {
 	ans, n := 0, len(nums)
@@ -247,6 +190,69 @@ func countQuadruplets(nums []int) int {
 	}
 	return ans
 }
+```
+
+<!-- tabs:end -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countQuadruplets(self, nums: List[int]) -> int:
+        ans, n = 0, len(nums)
+        counter = Counter()
+        for b in range(n - 3, 0, -1):
+            c = b + 1
+            for d in range(c + 1, n):
+                counter[nums[d] - nums[c]] += 1
+            for a in range(b):
+                ans += counter[nums[a] + nums[b]]
+        return ans
+```
+
+```java
+class Solution {
+    public int countQuadruplets(int[] nums) {
+        int ans = 0, n = nums.length;
+        int[] counter = new int[310];
+        for (int b = n - 3; b > 0; --b) {
+            int c = b + 1;
+            for (int d = c + 1; d < n; ++d) {
+                if (nums[d] - nums[c] >= 0) {
+                    ++counter[nums[d] - nums[c]];
+                }
+            }
+            for (int a = 0; a < b; ++a) {
+                ans += counter[nums[a] + nums[b]];
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countQuadruplets(vector<int>& nums) {
+        int ans = 0, n = nums.size();
+        vector<int> counter(310);
+        for (int b = n - 3; b > 0; --b) {
+            int c = b + 1;
+            for (int d = c + 1; d < n; ++d) {
+                if (nums[d] - nums[c] >= 0) {
+                    ++counter[nums[d] - nums[c]];
+                }
+            }
+            for (int a = 0; a < b; ++a) {
+                ans += counter[nums[a] + nums[b]];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
@@ -268,10 +274,6 @@ func countQuadruplets(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

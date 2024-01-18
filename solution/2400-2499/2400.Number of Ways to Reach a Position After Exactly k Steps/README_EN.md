@@ -41,9 +41,24 @@ It can be proven that no other way is possible, so we return 3.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Memorization Search
 
-### **Python3**
+We design a function $dfs(i, j)$, which represents the number of ways to reach the target position when the current position is $i$ distance from the target position and there are $j$ steps left. The answer is $dfs(abs(startPos - endPos), k)$.
+
+The calculation method of the function $dfs(i, j)$ is as follows:
+
+-   If $i \gt j$ or $j \lt 0$, it means that the current distance from the target position is greater than the remaining steps, or the remaining steps are negative. In this case, it is impossible to reach the target position, so return $0$;
+-   If $j = 0$, it means that there are no steps left. At this time, only when the current distance from the target position is $0$ can the target position be reached, otherwise it is impossible to reach the target position. Return $1$ or $0$;
+-   Otherwise, the current distance from the target position is $i$, and there are $j$ steps left. There are two ways to reach the target position:
+    -   Move one step to the left, the current distance from the target position is $i + 1$, and there are $j - 1$ steps left. The number of methods is $dfs(i + 1, j - 1)$;
+    -   Move one step to the right, the current distance from the target position is $abs(i - 1)$, and there are $j - 1$ steps left. The number of methods is $dfs(abs(i - 1), j - 1)$;
+-   Finally, return the result of the sum of the two methods modulo $10^9 + 7$.
+
+To avoid repeated calculations, we use memorization search, that is, we use a two-dimensional array $f$ to record the result of the function $dfs(i, j)$. When the function $dfs(i, j)$ is called, if $f[i][j]$ is not $-1$, return $f[i][j]$ directly, otherwise calculate the value of $f[i][j]$, and return $f[i][j]$.
+
+The time complexity is $O(k^2)$, and the space complexity is $O(k^2)$. Here, $k$ is the number of steps given in the problem.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +74,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(abs(startPos - endPos), k)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWays(startPos int, endPos int, k int) int {
@@ -156,8 +165,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWays(startPos: number, endPos: number, k: number): number {
     const mod = 10 ** 9 + 7;
@@ -180,11 +187,6 @@ function numberOfWays(startPos: number, endPos: number, k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

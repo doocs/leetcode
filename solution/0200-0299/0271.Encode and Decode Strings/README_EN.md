@@ -79,9 +79,9 @@ String[] strs = decoder.decode(msg);
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Codec:
@@ -98,34 +98,6 @@ class Codec:
 # codec = Codec()
 # codec.decode(codec.encode(strs))
 ```
-
-```python
-class Codec:
-    def encode(self, strs: List[str]) -> str:
-        """Encodes a list of strings to a single string."""
-        ans = []
-        for s in strs:
-            ans.append('{:4}'.format(len(s)) + s)
-        return ''.join(ans)
-
-    def decode(self, s: str) -> List[str]:
-        """Decodes a single string to a list of strings."""
-        ans = []
-        i, n = 0, len(s)
-        while i < n:
-            size = int(s[i : i + 4])
-            i += 4
-            ans.append(s[i : i + size])
-            i += size
-        return ans
-
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.decode(codec.encode(strs))
-```
-
-### **Java**
 
 ```java
 public class Codec {
@@ -156,8 +128,6 @@ public class Codec {
 // Codec codec = new Codec();
 // codec.decode(codec.encode(strs));
 ```
-
-### **C++**
 
 ```cpp
 class Codec {
@@ -193,8 +163,6 @@ public:
 // codec.decode(codec.encode(strs));
 ```
 
-### **Go**
-
 ```go
 type Codec struct {
 }
@@ -229,10 +197,38 @@ func (codec *Codec) Decode(strs string) []string {
 // codec.Decode(codec.Encode(strs));
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Codec:
+    def encode(self, strs: List[str]) -> str:
+        """Encodes a list of strings to a single string."""
+        ans = []
+        for s in strs:
+            ans.append('{:4}'.format(len(s)) + s)
+        return ''.join(ans)
+
+    def decode(self, s: str) -> List[str]:
+        """Decodes a single string to a list of strings."""
+        ans = []
+        i, n = 0, len(s)
+        while i < n:
+            size = int(s[i : i + 4])
+            i += 4
+            ans.append(s[i : i + size])
+            i += size
+        return ans
+
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.decode(codec.encode(strs))
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

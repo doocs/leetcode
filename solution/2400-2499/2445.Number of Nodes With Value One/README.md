@@ -55,21 +55,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题意，我们可以模拟每次查询的过程，即将查询节点及其子树的节点值反转。最后统计节点值为 1 的节点个数即可。
 
 这里有一个优化点，每个节点及其对应的子树，如果经过了偶数次查询，那么节点值不会发生变化，因此我们可以记录每个节点的查询次数，对于奇数次查询的节点及其子树，才进行反转。
 
-时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 dfs(i)
         return sum(tree)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfNodes(n int, queries []int) int {
@@ -182,16 +168,6 @@ func numberOfNodes(n int, queries []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -67,9 +67,9 @@ The single function was resolved at 200ms with a value of 5.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 async function promiseAll<T>(functions: (() => Promise<T>)[]): Promise<T[]> {
@@ -100,3 +100,5 @@ async function promiseAll<T>(functions: (() => Promise<T>)[]): Promise<T[]> {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

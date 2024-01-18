@@ -35,9 +35,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双队列**
+### 方法一：双队列
 
 我们维护两个队列 $q_1$ 和 $q_2$，其中 $q_1$ 用于存储所有元素，而 $q_2$ 用于存储当前队列中的最大值。
 
@@ -50,10 +48,6 @@
 以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(n)$。其中 $n$ 为队列中的元素个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class MaxQueue:
@@ -85,10 +79,6 @@ class MaxQueue:
 # obj.push_back(value)
 # param_3 = obj.pop_front()
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class MaxQueue {
@@ -130,8 +120,6 @@ class MaxQueue {
  * int param_3 = obj.pop_front();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MaxQueue {
@@ -176,8 +164,6 @@ private:
  * int param_3 = obj->pop_front();
  */
 ```
-
-### **Go**
 
 ```go
 type MaxQueue struct {
@@ -224,58 +210,6 @@ func (this *MaxQueue) Pop_front() int {
  */
 ```
 
-### **JavaScript**
-
-```js
-var MaxQueue = function () {
-    this.q1 = [];
-    this.q2 = [];
-};
-
-/**
- * @return {number}
- */
-MaxQueue.prototype.max_value = function () {
-    return this.q2.length ? this.q2[0] : -1;
-};
-
-/**
- * @param {number} value
- * @return {void}
- */
-MaxQueue.prototype.push_back = function (value) {
-    while (this.q2.length && this.q2[this.q2.length - 1] < value) {
-        this.q2.pop();
-    }
-    this.q1.push(value);
-    this.q2.push(value);
-};
-
-/**
- * @return {number}
- */
-MaxQueue.prototype.pop_front = function () {
-    if (!this.q1.length) {
-        return -1;
-    }
-    const ans = this.q1.shift();
-    if (this.q2[0] == ans) {
-        this.q2.shift();
-    }
-    return ans;
-};
-
-/**
- * Your MaxQueue object will be instantiated and called as such:
- * var obj = new MaxQueue()
- * var param_1 = obj.max_value()
- * obj.push_back(value)
- * var param_3 = obj.pop_front()
- */
-```
-
-### **TypeScript**
-
 ```ts
 class MaxQueue {
     private queue: number[];
@@ -315,8 +249,6 @@ class MaxQueue {
  * var param_3 = obj.pop_front()
  */
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -368,7 +300,53 @@ impl MaxQueue {
  */
 ```
 
-### **C#**
+```js
+var MaxQueue = function () {
+    this.q1 = [];
+    this.q2 = [];
+};
+
+/**
+ * @return {number}
+ */
+MaxQueue.prototype.max_value = function () {
+    return this.q2.length ? this.q2[0] : -1;
+};
+
+/**
+ * @param {number} value
+ * @return {void}
+ */
+MaxQueue.prototype.push_back = function (value) {
+    while (this.q2.length && this.q2[this.q2.length - 1] < value) {
+        this.q2.pop();
+    }
+    this.q1.push(value);
+    this.q2.push(value);
+};
+
+/**
+ * @return {number}
+ */
+MaxQueue.prototype.pop_front = function () {
+    if (!this.q1.length) {
+        return -1;
+    }
+    const ans = this.q1.shift();
+    if (this.q2[0] == ans) {
+        this.q2.shift();
+    }
+    return ans;
+};
+
+/**
+ * Your MaxQueue object will be instantiated and called as such:
+ * var obj = new MaxQueue()
+ * var param_1 = obj.max_value()
+ * obj.push_back(value)
+ * var param_3 = obj.pop_front()
+ */
+```
 
 ```cs
 public class MaxQueue {
@@ -416,10 +394,6 @@ public class MaxQueue {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

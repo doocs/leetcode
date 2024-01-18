@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：求和**
+### 方法一：求和
 
 遍历 `accounts`，求出每一行的和，然后求出最大值。
 
@@ -61,19 +59,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
         return max(sum(v) for v in accounts)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -106,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumWealth(accounts [][]int) int {
@@ -125,8 +111,6 @@ func maximumWealth(accounts [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumWealth(accounts: number[][]): number {
     return accounts.reduce(
@@ -140,8 +124,6 @@ function maximumWealth(accounts: number[][]): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn maximum_wealth(accounts: Vec<Vec<i32>>) -> i32 {
@@ -153,43 +135,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
-    int ans = INT_MIN;
-    for (int i = 0; i < accountsSize; i++) {
-        int sum = 0;
-        for (int j = 0; j < accountsColSize[i]; j++) {
-            sum += accounts[i][j];
-        }
-        ans = max(ans, sum);
-    }
-    return ans;
-}
-```
-
-### **Kotlin**
-
-```kotlin
-class Solution {
-    fun maximumWealth(accounts: Array<IntArray>): Int {
-        var max = 0
-        for (account in accounts) {
-            val sum = account.sum()
-            if (sum > max) {
-                max = sum
-            }
-        }
-        return max
-    }
-}
-```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -213,10 +158,37 @@ class Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
+int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
+    int ans = INT_MIN;
+    for (int i = 0; i < accountsSize; i++) {
+        int sum = 0;
+        for (int j = 0; j < accountsColSize[i]; j++) {
+            sum += accounts[i][j];
+        }
+        ans = max(ans, sum);
+    }
+    return ans;
+}
 ```
 
+```kotlin
+class Solution {
+    fun maximumWealth(accounts: Array<IntArray>): Int {
+        var max = 0
+        for (account in accounts) {
+            val sum = account.sum()
+            if (sum > max) {
+                max = sum
+            }
+        }
+        return max
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

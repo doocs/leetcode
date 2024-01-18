@@ -38,9 +38,9 @@ The sum of these widths is 6.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
             p = (p << 1) % mod
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumSubseqWidths(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -108,10 +102,6 @@ func sumSubseqWidths(nums []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以用两个指针 $j$ 和 $i$ 分别表示子数组的左右端点，初始时两个指针都指向数组的第一个元素。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSubarrayLength(nums []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -143,8 +129,6 @@ func maxSubarrayLength(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSubarrayLength(nums: number[], k: number): number {
@@ -161,10 +145,6 @@ function maxSubarrayLength(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

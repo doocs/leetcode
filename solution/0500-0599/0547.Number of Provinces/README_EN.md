@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,29 +63,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        def find(x: int) -> int:
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        n = len(isConnected)
-        p = list(range(n))
-        ans = n
-        for i in range(n):
-            for j in range(i + 1, n):
-                if isConnected[i][j]:
-                    pa, pb = find(i), find(j)
-                    if pa != pb:
-                        p[pa] = pb
-                        ans -= 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,6 +92,134 @@ class Solution {
         }
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        int n = isConnected.size();
+        int ans = 0;
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
+        function<void(int)> dfs = [&](int i) {
+            vis[i] = true;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && isConnected[i][j]) {
+                    dfs(j);
+                }
+            }
+        };
+        for (int i = 0; i < n; ++i) {
+            if (!vis[i]) {
+                dfs(i);
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func findCircleNum(isConnected [][]int) (ans int) {
+	n := len(isConnected)
+	vis := make([]bool, n)
+	var dfs func(int)
+	dfs = func(i int) {
+		vis[i] = true
+		for j, x := range isConnected[i] {
+			if !vis[j] && x == 1 {
+				dfs(j)
+			}
+		}
+	}
+	for i, v := range vis {
+		if !v {
+			ans++
+			dfs(i)
+		}
+	}
+	return
+}
+```
+
+```ts
+function findCircleNum(isConnected: number[][]): number {
+    const n = isConnected.length;
+    const vis: boolean[] = new Array(n).fill(false);
+    const dfs = (i: number) => {
+        vis[i] = true;
+        for (let j = 0; j < n; ++j) {
+            if (!vis[j] && isConnected[i][j]) {
+                dfs(j);
+            }
+        }
+    };
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (!vis[i]) {
+            dfs(i);
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    fn dfs(is_connected: &mut Vec<Vec<i32>>, vis: &mut Vec<bool>, i: usize) {
+        vis[i] = true;
+        for j in 0..is_connected.len() {
+            if vis[j] || is_connected[i][j] == 0 {
+                continue;
+            }
+            Self::dfs(is_connected, vis, j);
+        }
+    }
+
+    pub fn find_circle_num(mut is_connected: Vec<Vec<i32>>) -> i32 {
+        let n = is_connected.len();
+        let mut vis = vec![false; n];
+        let mut res = 0;
+        for i in 0..n {
+            if vis[i] {
+                continue;
+            }
+            res += 1;
+            Self::dfs(&mut is_connected, &mut vis, i);
+        }
+        res
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        def find(x: int) -> int:
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        n = len(isConnected)
+        p = list(range(n))
+        ans = n
+        for i in range(n):
+            for j in range(i + 1, n):
+                if isConnected[i][j]:
+                    pa, pb = find(i), find(j)
+                    if pa != pb:
+                        p[pa] = pb
+                        ans -= 1
+        return ans
 ```
 
 ```java
@@ -151,35 +256,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int findCircleNum(vector<vector<int>>& isConnected) {
-        int n = isConnected.size();
-        int ans = 0;
-        bool vis[n];
-        memset(vis, false, sizeof(vis));
-        function<void(int)> dfs = [&](int i) {
-            vis[i] = true;
-            for (int j = 0; j < n; ++j) {
-                if (!vis[j] && isConnected[i][j]) {
-                    dfs(j);
-                }
-            }
-        };
-        for (int i = 0; i < n; ++i) {
-            if (!vis[i]) {
-                dfs(i);
-                ++ans;
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -210,31 +286,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func findCircleNum(isConnected [][]int) (ans int) {
-	n := len(isConnected)
-	vis := make([]bool, n)
-	var dfs func(int)
-	dfs = func(i int) {
-		vis[i] = true
-		for j, x := range isConnected[i] {
-			if !vis[j] && x == 1 {
-				dfs(j)
-			}
-		}
-	}
-	for i, v := range vis {
-		if !v {
-			ans++
-			dfs(i)
-		}
-	}
-	return
-}
-```
-
 ```go
 func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
@@ -262,31 +313,6 @@ func findCircleNum(isConnected [][]int) (ans int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function findCircleNum(isConnected: number[][]): number {
-    const n = isConnected.length;
-    const vis: boolean[] = new Array(n).fill(false);
-    const dfs = (i: number) => {
-        vis[i] = true;
-        for (let j = 0; j < n; ++j) {
-            if (!vis[j] && isConnected[i][j]) {
-                dfs(j);
-            }
-        }
-    };
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        if (!vis[i]) {
-            dfs(i);
-            ++ans;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -320,40 +346,6 @@ function findCircleNum(isConnected: number[][]): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    fn dfs(is_connected: &mut Vec<Vec<i32>>, vis: &mut Vec<bool>, i: usize) {
-        vis[i] = true;
-        for j in 0..is_connected.len() {
-            if vis[j] || is_connected[i][j] == 0 {
-                continue;
-            }
-            Self::dfs(is_connected, vis, j);
-        }
-    }
-
-    pub fn find_circle_num(mut is_connected: Vec<Vec<i32>>) -> i32 {
-        let n = is_connected.len();
-        let mut vis = vec![false; n];
-        let mut res = 0;
-        for i in 0..n {
-            if vis[i] {
-                continue;
-            }
-            res += 1;
-            Self::dfs(&mut is_connected, &mut vis, i);
-        }
-        res
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

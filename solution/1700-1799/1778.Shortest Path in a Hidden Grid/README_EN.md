@@ -86,9 +86,19 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: DFS for Graph Construction + BFS for Shortest Path
 
-### **Python3**
+We can assume that the robot starts from the coordinate $(0, 0)$. Then, we can use DFS to find all reachable coordinates and record them in the hash table $vis$. In addition, we also need to record the coordinates of the endpoint $target$.
+
+If the endpoint cannot be found, we directly return $-1$. Otherwise, we can use BFS to find the shortest path.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
+Similar problems:
+
+-   [1810. Minimum Path Cost in a Hidden Grid](/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md)
+
+<!-- tabs:start -->
 
 ```python
 # """
@@ -108,31 +118,28 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 
 
 class Solution(object):
-    def findShortestPath(self, master: 'GridMaster') -> int:
-        def dfs(i, j):
-            nonlocal target
+    def findShortestPath(self, master: "GridMaster") -> int:
+        def dfs(i: int, j: int):
             if master.isTarget():
+                nonlocal target
                 target = (i, j)
-            for dir, ndir, a, b in dirs:
-                x, y = i + a, j + b
-                if master.canMove(dir) and (x, y) not in s:
-                    s.add((x, y))
-                    master.move(dir)
+                return
+            for k, c in enumerate(s):
+                x, y = i + dirs[k], j + dirs[k + 1]
+                if master.canMove(c) and (x, y) not in vis:
+                    vis.add((x, y))
+                    master.move(c)
                     dfs(x, y)
-                    master.move(ndir)
+                    master.move(s[(k + 2) % 4])
 
+        s = "URDL"
+        dirs = (-1, 0, 1, 0, -1)
         target = None
-        s = set()
-        dirs = [
-            ['U', 'D', -1, 0],
-            ['D', 'U', 1, 0],
-            ['L', 'R', 0, -1],
-            ['R', 'L', 0, 1],
-        ]
+        vis = set()
         dfs(0, 0)
         if target is None:
             return -1
-        s.remove((0, 0))
+        vis.discard((0, 0))
         q = deque([(0, 0)])
         ans = -1
         while q:
@@ -141,15 +148,13 @@ class Solution(object):
                 i, j = q.popleft()
                 if (i, j) == target:
                     return ans
-                for _, _, a, b in dirs:
+                for a, b in pairwise(dirs):
                     x, y = i + a, j + b
-                    if (x, y) in s:
-                        s.remove((x, y))
+                    if (x, y) in vis:
+                        vis.remove((x, y))
                         q.append((x, y))
         return -1
 ```
-
-### **Java**
 
 ```java
 /**
@@ -163,37 +168,31 @@ class Solution(object):
  */
 
 class Solution {
-    private static final char[] dir = {'U', 'R', 'D', 'L'};
-    private static final char[] ndir = {'D', 'L', 'U', 'R'};
-    private static final int[] dirs = {-1, 0, 1, 0, -1};
-    private static final int N = 1010;
-    private Set<Integer> s;
     private int[] target;
+    private GridMaster master;
+    private final int n = 2010;
+    private final String s = "URDL";
+    private final int[] dirs = {-1, 0, 1, 0, -1};
+    private final Set<Integer> vis = new HashSet<>();
 
     public int findShortestPath(GridMaster master) {
-        target = null;
-        s = new HashSet<>();
-        s.add(0);
-        dfs(0, 0, master);
+        this.master = master;
+        dfs(0, 0);
         if (target == null) {
             return -1;
         }
-        s.remove(0);
+        vis.remove(0);
         Deque<int[]> q = new ArrayDeque<>();
         q.offer(new int[] {0, 0});
-        int ans = -1;
-        while (!q.isEmpty()) {
-            ++ans;
-            for (int n = q.size(); n > 0; --n) {
-                int[] p = q.poll();
-                int i = p[0], j = p[1];
-                if (target[0] == i && target[1] == j) {
+        for (int ans = 0; !q.isEmpty(); ++ans) {
+            for (int m = q.size(); m > 0; --m) {
+                var p = q.poll();
+                if (p[0] == target[0] && p[1] == target[1]) {
                     return ans;
                 }
                 for (int k = 0; k < 4; ++k) {
-                    int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (s.contains(x * N + y)) {
-                        s.remove(x * N + y);
+                    int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
+                    if (vis.remove(x * n + y)) {
                         q.offer(new int[] {x, y});
                     }
                 }
@@ -202,28 +201,90 @@ class Solution {
         return -1;
     }
 
-    private void dfs(int i, int j, GridMaster master) {
+    private void dfs(int i, int j) {
         if (master.isTarget()) {
             target = new int[] {i, j};
+            return;
         }
         for (int k = 0; k < 4; ++k) {
-            char d = dir[k], nd = ndir[k];
             int x = i + dirs[k], y = j + dirs[k + 1];
-            if (master.canMove(d) && !s.contains(x * N + y)) {
-                s.add(x * N + y);
-                master.move(d);
-                dfs(x, y, master);
-                master.move(nd);
+            if (master.canMove(s.charAt(k)) && vis.add(x * n + y)) {
+                master.move(s.charAt(k));
+                dfs(x, y);
+                master.move(s.charAt((k + 2) % 4));
             }
         }
     }
 }
 ```
 
-### **...**
+```cpp
+/**
+ * // This is the GridMaster's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class GridMaster {
+ *   public:
+ *     bool canMove(char direction);
+ *     void move(char direction);
+ *     boolean isTarget();
+ * };
+ */
 
-```
+class Solution {
+private:
+    const int n = 2010;
+    int dirs[5] = {-1, 0, 1, 0, -1};
+    string s = "URDL";
+    int target;
+    unordered_set<int> vis;
 
+public:
+    int findShortestPath(GridMaster& master) {
+        target = n * n;
+        vis.insert(0);
+        dfs(0, 0, master);
+        if (target == n * n) {
+            return -1;
+        }
+        vis.erase(0);
+        queue<pair<int, int>> q;
+        q.emplace(0, 0);
+        for (int ans = 0; q.size(); ++ans) {
+            for (int m = q.size(); m; --m) {
+                auto [i, j] = q.front();
+                q.pop();
+                if (i * n + j == target) {
+                    return ans;
+                }
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dirs[k], y = j + dirs[k + 1];
+                    if (vis.count(x * n + y)) {
+                        vis.erase(x * n + y);
+                        q.emplace(x, y);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    void dfs(int i, int j, GridMaster& master) {
+        if (master.isTarget()) {
+            target = i * n + j;
+        }
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (master.canMove(s[k]) && !vis.count(x * n + y)) {
+                vis.insert(x * n + y);
+                master.move(s[k]);
+                dfs(x, y, master);
+                master.move(s[(k + 2) % 4]);
+            }
+        }
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 哈希表**
+### 方法一：贪心 + 哈希表
 
 题目实际上要我们找到一个最小的下标 $i$ 和一个最大的下标 $j$，使得 $firstString[i]$ 与 $secondString[j]$ 相等，且 $i - j$ 的值是所有满足条件的下标对中最小的。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是 $firstString$ 和 $secondString$ 的长度，而 $C$ 是字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countQuadruples(firstString string, secondString string) (ans int) {
 	last := [26]int{}
@@ -160,10 +146,29 @@ func countQuadruples(firstString string, secondString string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function countQuadruples(firstString: string, secondString: string): number {
+    const last: number[] = new Array(26).fill(0);
+    for (let i = 0; i < secondString.length; ++i) {
+        last[secondString.charCodeAt(i) - 97] = i + 1;
+    }
+    let [ans, mi] = [0, Infinity];
+    for (let i = 0; i < firstString.length; ++i) {
+        const j = last[firstString.charCodeAt(i) - 97];
+        if (j) {
+            const t = i - j;
+            if (mi > t) {
+                mi = t;
+                ans = 1;
+            } else if (mi === t) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

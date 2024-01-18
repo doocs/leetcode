@@ -46,17 +46,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting
 
-### **Python3**
+We sort score in descending order based on the scores in the $k^{th}$ column, and then return it.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(1)$. Here, $m$ is the number of rows in score.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def sortTheStudents(self, score: List[List[int]], k: int) -> List[List[int]]:
         return sorted(score, key=lambda x: -x[k])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -79,8 +79,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortTheStudents(score [][]int, k int) [][]int {
 	sort.Slice(score, func(i, j int) bool { return score[i][k] > score[j][k] })
@@ -88,15 +86,11 @@ func sortTheStudents(score [][]int, k int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortTheStudents(score: number[][], k: number): number[][] {
     return score.sort((a, b) => b[k] - a[k]);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -108,10 +102,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

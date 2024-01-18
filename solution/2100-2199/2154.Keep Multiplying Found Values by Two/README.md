@@ -52,13 +52,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +64,6 @@ class Solution:
             original <<= 1
         return original
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -89,20 +81,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findFinalValue(nums: number[], original: number): number {
-    let set: Set<number> = new Set(nums);
-    while (set.has(original)) {
-        original *= 2;
-    }
-    return original;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +92,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findFinalValue(nums []int, original int) int {
@@ -130,10 +106,16 @@ func findFinalValue(nums []int, original int) int {
 }
 ```
 
-### **...**
-
-```
-
+```ts
+function findFinalValue(nums: number[], original: number): number {
+    let set: Set<number> = new Set(nums);
+    while (set.has(original)) {
+        original *= 2;
+    }
+    return original;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

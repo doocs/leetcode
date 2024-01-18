@@ -54,25 +54,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：试除法**
+### 方法一：试除法
 
 如果 $n \gt 2$，我们可以不断地将 $n$ 除以 $3$，如果不能整除，说明 $n$ 不是 $3$ 的幂，否则继续除以 $3$，直到 $n$ 小于等于 $2$。如果 $n$ 等于 $1$，说明 $n$ 是 $3$ 的幂，否则不是 $3$ 的幂。
 
 时间复杂度 $O(\log_3n)$，空间复杂度 $O(1)$。
 
-**方法二：数学**
-
-如果 $n$ 是 $3$ 的幂，那么 $n$ 最大是 $3^{19} = 1162261467$，因此我们只需要判断 $n$ 是否是 $3^{19}$ 的约数即可。
-
-时间复杂度 $O(1)$，空间复杂度 $O(1)$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,16 +71,6 @@ class Solution:
             n //= 3
         return n == 1
 ```
-
-```python
-class Solution:
-    def isPowerOfThree(self, n: int) -> bool:
-        return n > 0 and 1162261467 % n == 0
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,16 +85,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public boolean isPowerOfThree(int n) {
-        return n > 0 && 1162261467 % n == 0;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,17 +101,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool isPowerOfThree(int n) {
-        return n > 0 && 1162261467 % n == 0;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func isPowerOfThree(n int) bool {
 	for n > 2 {
@@ -156,21 +113,11 @@ func isPowerOfThree(n int) bool {
 }
 ```
 
-```go
-func isPowerOfThree(n int) bool {
-	return n > 0 && 1162261467%n == 0
-}
-```
-
-### **TypeScript**
-
 ```ts
 function isPowerOfThree(n: number): boolean {
     return n > 0 && 1162261467 % n == 0;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -182,10 +129,45 @@ var isPowerOfThree = function (n) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二：数学
+
+如果 $n$ 是 $3$ 的幂，那么 $n$ 最大是 $3^{19} = 1162261467$，因此我们只需要判断 $n$ 是否是 $3^{19}$ 的约数即可。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        return n > 0 and 1162261467 % n == 0
 ```
 
+```java
+class Solution {
+    public boolean isPowerOfThree(int n) {
+        return n > 0 && 1162261467 % n == 0;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        return n > 0 && 1162261467 % n == 0;
+    }
+};
+```
+
+```go
+func isPowerOfThree(n int) bool {
+	return n > 0 && 1162261467%n == 0
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

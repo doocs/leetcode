@@ -41,9 +41,9 @@ The first six palindromes of length 4 are:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
             ans.append(int(s))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -112,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func kthPalindrome(queries []int, intLength int) []int64 {
@@ -140,8 +134,6 @@ func kthPalindrome(queries []int, intLength int) []int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function kthPalindrome(queries: number[], intLength: number): number[] {
     const isOdd = intLength % 2 === 1;
@@ -163,8 +155,6 @@ function kthPalindrome(queries: number[], intLength: number): number[] {
     });
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -197,10 +187,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

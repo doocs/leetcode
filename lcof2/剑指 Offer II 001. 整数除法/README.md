@@ -61,9 +61,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟 + 快速幂**
+### 方法一：模拟 + 快速幂
 
 除法本质上就是减法，题目要求我们计算出两个数相除之后的取整结果，其实就是计算被除数是多少个除数加上一个小于除数的数构成的。但是一次循环只能做一次减法，效率太低会导致超时，可借助快速幂的思想进行优化。
 
@@ -72,10 +70,6 @@
 假设被除数为 $a$，除数为 $b$，则时间复杂度为 $O(\log a \times \log b)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
             ans += cnt
         return ans if sign else -ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -131,8 +121,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func divide(a int, b int) int {
@@ -200,8 +186,6 @@ func divide(a int, b int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function divide(a: number, b: number): number {
     if (b === 1) {
@@ -233,8 +217,6 @@ function divide(a: number, b: number): number {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int Divide(int a, int b) {
@@ -263,10 +245,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

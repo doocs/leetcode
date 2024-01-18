@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -45,6 +45,7 @@ class Solution:
         s = [[0] * n for _ in range(m + 1)]
         for i in range(m):
             for j in range(n):
+                # 构造列前缀和
                 s[i + 1][j] = s[i][j] + matrix[i][j]
 
         mx = matrix[0][0]
@@ -68,8 +69,6 @@ class Solution:
                         ans = [i1, start, i2, j]
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -109,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -152,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaxMatrix(matrix [][]int) []int {
 	m, n := len(matrix), len(matrix[0])
@@ -194,10 +189,6 @@ func getMaxMatrix(matrix [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

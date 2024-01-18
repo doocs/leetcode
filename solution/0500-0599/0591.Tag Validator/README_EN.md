@@ -67,9 +67,9 @@ The reason why cdata is NOT <b>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&qu
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -107,8 +107,6 @@ class Solution:
             i += 1
         return not stk
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -165,8 +163,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -207,8 +203,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isValid(code string) bool {
@@ -269,8 +263,6 @@ func check(tag string) bool {
 	return true
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -336,10 +328,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

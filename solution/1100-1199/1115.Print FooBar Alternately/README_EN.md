@@ -58,7 +58,7 @@ class FooBar {
 
 ## Solutions
 
-**Solution 1: Multithreading + Semaphore**
+### Solution 1: Multithreading + Semaphore
 
 We use two semaphores $f$ and $b$ to control the execution order of the two threads, where $f$ is initially set to $1$ and $b$ is set to $0$, indicating that thread $A$ executes first.
 
@@ -71,8 +71,6 @@ Therefore, we only need to loop $n$ times, each time executing the $foo$ and $ba
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 from threading import Semaphore
@@ -98,8 +96,6 @@ class FooBar:
             printBar()
             self.f.release()
 ```
-
-### **Java**
 
 ```java
 class FooBar {
@@ -130,8 +126,6 @@ class FooBar {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 #include <semaphore.h>
@@ -168,10 +162,6 @@ public:
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

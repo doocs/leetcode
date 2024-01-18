@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # """
@@ -77,8 +77,6 @@ class Solution:
         return left if reader.get(left) == target else -1
 ```
 
-### **Java**
-
 ```java
 /**
  * // This is ArrayReader's API interface.
@@ -103,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -133,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the ArrayReader's API interface.
@@ -162,10 +156,6 @@ func search(reader ArrayReader, target int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -9,6 +9,7 @@
  * }
  */
 class Solution {
+
     public int[] nodesBetweenCriticalPoints(ListNode head) {
         ListNode prev = head;
         ListNode curr = head.next;

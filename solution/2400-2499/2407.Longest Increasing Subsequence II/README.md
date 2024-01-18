@@ -60,13 +60,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：线段树
 
-**方法一：线段树**
+我们假设 $f[v]$ 表示以数字 $v$ 结尾的最长递增子序列的长度。
 
-我们假设 `f[v]` 表示以数字 $v$ 结尾的最长递增子序列的长度。
-
-我们遍历数组 `nums` 中的每个元素 $v$，有状态转移方程：`f[v]=max(f[v], f[x])`，其中 $x$ 的取值范围是 $[v-k, v-1]$。
+我们遍历数组 $nums$ 中的每个元素 $v$，有状态转移方程：$f[v] = \max(f[v], f[x])$，其中 $x$ 的取值范围是 $[v-k, v-1]$。
 
 因此，我们需要一个数据结构，来维护区间的最大值，不难想到使用线段树。
 
@@ -79,13 +77,9 @@
 
 对于本题，线段树节点维护的信息是区间范围内的最大值。
 
-时间复杂度 $O(n\log n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -145,10 +139,6 @@ class Solution:
             tree.modify(1, v, t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -231,8 +221,6 @@ class SegmentTree {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -301,8 +289,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func lengthOfLIS(nums []int, k int) int {
@@ -382,17 +368,6 @@ func (t *segmentTree) pushup(u int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

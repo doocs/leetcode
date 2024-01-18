@@ -52,9 +52,9 @@ Since it is not possible to obtain a non-empty pile after one move, we return -1
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
             ans = max(ans, nums[k])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumTop(nums []int, k int) int {
@@ -144,16 +138,6 @@ func maximumTop(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

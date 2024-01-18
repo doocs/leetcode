@@ -54,17 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-预处理得到每个位置最左边、最右边的蜡烛位置 `left`, `right`。
-
-对于每个查询 `(i, j)`，可以获取到区间左端、右端蜡烛位置 `right[i]`, `left[j]`，然后前缀和求解两个蜡烛之间的盘子数量即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +84,6 @@ class Solution:
                 ans[k] = presum[j] - presum[i + 1]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -132,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +147,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func platesBetweenCandles(s string, queries [][]int) []int {
@@ -198,10 +182,6 @@ func platesBetweenCandles(s string, queries [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

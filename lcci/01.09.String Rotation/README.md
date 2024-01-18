@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：字符串匹配**
+### 方法一：字符串匹配
 
 首先，如果字符串 $s1$ 和 $s2$ 长度不相等，那么肯定不是旋转字符串。
 
@@ -61,17 +59,11 @@ s1 + s1 = "abaaba"
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def isFlipedString(self, s1: str, s2: str) -> bool:
         return len(s1) == len(s2) and s2 in s1 * 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -92,23 +82,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isFlipedString(s1 string, s2 string) bool {
 	return len(s1) == len(s2) && strings.Contains(s1+s1, s2)
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isFlipedString(s1: string, s2: string): boolean {
     return s1.length === s2.length && (s2 + s2).indexOf(s1) !== -1;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -118,41 +102,6 @@ impl Solution {
 }
 ```
 
-原始写法：
-
-```rust
-impl Solution {
-    pub fn is_fliped_string(s1: String, s2: String) -> bool {
-        if s1 == s2 {
-            return true;
-        }
-        if s1.len() != s2.len() {
-            return false;
-        }
-        let s2: Vec<char> = (s2.clone() + &s2).chars().collect();
-        let n = s1.len();
-        let m = s2.len();
-        for i in 0..m - n {
-            let mut is_pass = true;
-            for (j, c) in s1.chars().enumerate() {
-                if c != s2[i + j] {
-                    is_pass = false;
-                    break;
-                }
-            }
-            if is_pass {
-                return true;
-            }
-        }
-        false
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

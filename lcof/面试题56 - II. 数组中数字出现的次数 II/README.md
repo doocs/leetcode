@@ -30,15 +30,13 @@
 
 ## 解法
 
-**方法一：位运算**
+### 方法一：位运算
 
 我们用一个长度为 32 的数组 $cnt$ 来统计所有数字的每一位中 $1$ 的出现次数。如果某一位的 $1$ 的出现次数能被 $3$ 整除，那么那个只出现一次的数字二进制表示中对应的那一位也是 $0$；否则，那个只出现一次的数字二进制表示中对应的那一位是 $1$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是数组的长度；而 $C$ 是整数的位数，本题中 $C=32$。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -50,8 +48,6 @@ class Solution:
                 x >>= 1
         return sum(1 << i for i in range(32) if cnt[i] % 3)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -73,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func singleNumber(nums []int) (ans int) {
 	cnt := [32]int{}
@@ -118,7 +110,24 @@ func singleNumber(nums []int) (ans int) {
 }
 ```
 
-### **JavaScript**
+```rust
+impl Solution {
+    pub fn single_number(nums: Vec<i32>) -> i32 {
+        let mut counts = [0; 32];
+        for num in nums.iter() {
+            for i in 0..32 {
+                counts[i] += (num >> i) & 1;
+            }
+        }
+        let mut res = 0;
+        for count in counts.iter().rev() {
+            res <<= 1;
+            res |= count % 3;
+        }
+        res
+    }
+}
+```
 
 ```js
 /**
@@ -143,29 +152,6 @@ var singleNumber = function (nums) {
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn single_number(nums: Vec<i32>) -> i32 {
-        let mut counts = [0; 32];
-        for num in nums.iter() {
-            for i in 0..32 {
-                counts[i] += (num >> i) & 1;
-            }
-        }
-        let mut res = 0;
-        for count in counts.iter().rev() {
-            res <<= 1;
-            res |= count % 3;
-        }
-        res
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int SingleNumber(int[] nums) {
@@ -188,10 +174,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

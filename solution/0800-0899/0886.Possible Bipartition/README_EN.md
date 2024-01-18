@@ -38,11 +38,9 @@
 
 ## Solutions
 
-Union find.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,30 +62,6 @@ class Solution:
             g[b].append(a)
         return all(c or dfs(i, 1) for i, c in enumerate(color))
 ```
-
-```python
-class Solution:
-    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        g = defaultdict(list)
-        for a, b in dislikes:
-            a, b = a - 1, b - 1
-            g[a].append(b)
-            g[b].append(a)
-        p = list(range(n))
-        for i in range(n):
-            for j in g[i]:
-                if find(i) == find(j):
-                    return False
-                p[find(j)] = find(g[i][0])
-        return True
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -128,6 +102,149 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
+        unordered_map<int, vector<int>> g;
+        for (auto& e : dislikes) {
+            int a = e[0] - 1, b = e[1] - 1;
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> color(n);
+        function<bool(int, int)> dfs = [&](int i, int c) -> bool {
+            color[i] = c;
+            for (int j : g[i]) {
+                if (!color[j] && !dfs(j, 3 - c)) return false;
+                if (color[j] == c) return false;
+            }
+            return true;
+        };
+        for (int i = 0; i < n; ++i) {
+            if (!color[i] && !dfs(i, 1)) return false;
+        }
+        return true;
+    }
+};
+```
+
+```go
+func possibleBipartition(n int, dislikes [][]int) bool {
+	g := make([][]int, n)
+	for _, e := range dislikes {
+		a, b := e[0]-1, e[1]-1
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	color := make([]int, n)
+	var dfs func(int, int) bool
+	dfs = func(i, c int) bool {
+		color[i] = c
+		for _, j := range g[i] {
+			if color[j] == c {
+				return false
+			}
+			if color[j] == 0 && !dfs(j, 3-c) {
+				return false
+			}
+		}
+		return true
+	}
+	for i, c := range color {
+		if c == 0 && !dfs(i, 1) {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```ts
+function possibleBipartition(n: number, dislikes: number[][]): boolean {
+    const color = new Array(n + 1).fill(0);
+    const g = Array.from({ length: n + 1 }, () => []);
+    const dfs = (i: number, v: number) => {
+        color[i] = v;
+        for (const j of g[i]) {
+            if (color[j] === color[i] || (color[j] === 0 && dfs(j, 3 ^ v))) {
+                return true;
+            }
+        }
+        return false;
+    };
+    for (const [a, b] of dislikes) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    for (let i = 1; i <= n; i++) {
+        if (color[i] === 0 && dfs(i, 1)) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```rust
+impl Solution {
+    fn dfs(i: usize, v: usize, color: &mut Vec<usize>, g: &Vec<Vec<usize>>) -> bool {
+        color[i] = v;
+        for &j in (*g[i]).iter() {
+            if color[j] == color[i] || (color[j] == 0 && Self::dfs(j, v ^ 3, color, g)) {
+                return true;
+            }
+        }
+        false
+    }
+
+    pub fn possible_bipartition(n: i32, dislikes: Vec<Vec<i32>>) -> bool {
+        let n = n as usize;
+        let mut color = vec![0; n + 1];
+        let mut g = vec![Vec::new(); n + 1];
+        for d in dislikes.iter() {
+            let (i, j) = (d[0] as usize, d[1] as usize);
+            g[i].push(j);
+            g[j].push(i);
+        }
+        for i in 1..=n {
+            if color[i] == 0 && Self::dfs(i, 1, &mut color, &g) {
+                return false;
+            }
+        }
+        true
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        g = defaultdict(list)
+        for a, b in dislikes:
+            a, b = a - 1, b - 1
+            g[a].append(b)
+            g[b].append(a)
+        p = list(range(n))
+        for i in range(n):
+            for j in g[i]:
+                if find(i) == find(j):
+                    return False
+                p[find(j)] = find(g[i][0])
+        return True
+```
+
 ```java
 class Solution {
     private int[] p;
@@ -164,35 +281,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
-        unordered_map<int, vector<int>> g;
-        for (auto& e : dislikes) {
-            int a = e[0] - 1, b = e[1] - 1;
-            g[a].push_back(b);
-            g[b].push_back(a);
-        }
-        vector<int> color(n);
-        function<bool(int, int)> dfs = [&](int i, int c) -> bool {
-            color[i] = c;
-            for (int j : g[i]) {
-                if (!color[j] && !dfs(j, 3 - c)) return false;
-                if (color[j] == c) return false;
-            }
-            return true;
-        };
-        for (int i = 0; i < n; ++i) {
-            if (!color[i] && !dfs(i, 1)) return false;
-        }
-        return true;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -218,39 +306,6 @@ public:
         return true;
     }
 };
-```
-
-### **Go**
-
-```go
-func possibleBipartition(n int, dislikes [][]int) bool {
-	g := make([][]int, n)
-	for _, e := range dislikes {
-		a, b := e[0]-1, e[1]-1
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
-	}
-	color := make([]int, n)
-	var dfs func(int, int) bool
-	dfs = func(i, c int) bool {
-		color[i] = c
-		for _, j := range g[i] {
-			if color[j] == c {
-				return false
-			}
-			if color[j] == 0 && !dfs(j, 3-c) {
-				return false
-			}
-		}
-		return true
-	}
-	for i, c := range color {
-		if c == 0 && !dfs(i, 1) {
-			return false
-		}
-	}
-	return true
-}
 ```
 
 ```go
@@ -284,71 +339,6 @@ func possibleBipartition(n int, dislikes [][]int) bool {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function possibleBipartition(n: number, dislikes: number[][]): boolean {
-    const color = new Array(n + 1).fill(0);
-    const g = Array.from({ length: n + 1 }, () => []);
-    const dfs = (i: number, v: number) => {
-        color[i] = v;
-        for (const j of g[i]) {
-            if (color[j] === color[i] || (color[j] === 0 && dfs(j, 3 ^ v))) {
-                return true;
-            }
-        }
-        return false;
-    };
-    for (const [a, b] of dislikes) {
-        g[a].push(b);
-        g[b].push(a);
-    }
-    for (let i = 1; i <= n; i++) {
-        if (color[i] === 0 && dfs(i, 1)) {
-            return false;
-        }
-    }
-    return true;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    fn dfs(i: usize, v: usize, color: &mut Vec<usize>, g: &Vec<Vec<usize>>) -> bool {
-        color[i] = v;
-        for &j in (*g[i]).iter() {
-            if color[j] == color[i] || (color[j] == 0 && Self::dfs(j, v ^ 3, color, g)) {
-                return true;
-            }
-        }
-        false
-    }
-
-    pub fn possible_bipartition(n: i32, dislikes: Vec<Vec<i32>>) -> bool {
-        let n = n as usize;
-        let mut color = vec![0; n + 1];
-        let mut g = vec![Vec::new(); n + 1];
-        for d in dislikes.iter() {
-            let (i, j) = (d[0] as usize, d[1] as usize);
-            g[i].push(j);
-            g[j].push(i);
-        }
-        for i in 1..=n {
-            if color[i] == 0 && Self::dfs(i, 1, &mut color, &g) {
-                return false;
-            }
-        }
-        true
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,9 @@ There are no good integers no matter how we flip the cards, so we return 0.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,8 +52,6 @@ class Solution:
         s = {a for a, b in zip(fronts, backs) if a == b}
         return min((x for x in chain(fronts, backs) if x not in s), default=0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func flipgame(fronts []int, backs []int) int {
 	s := map[int]struct{}{}
@@ -134,8 +128,6 @@ func flipgame(fronts []int, backs []int) int {
 	return ans % 9999
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function flipgame(fronts: number[], backs: number[]): number {
@@ -161,8 +153,6 @@ function flipgame(fronts: number[], backs: number[]): number {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int Flipgame(int[] fronts, int[] backs) {
@@ -187,10 +177,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

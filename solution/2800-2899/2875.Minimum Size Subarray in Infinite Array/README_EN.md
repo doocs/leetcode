@@ -51,7 +51,7 @@ It can be proven that there is no subarray with sum equal to target = 3.
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Hash Table**
+### Solution 1: Prefix Sum + Hash Table
 
 First, we calculate the sum of all elements in the array $nums$, denoted as $s$.
 
@@ -64,8 +64,6 @@ If we find such a subarray, the final answer is $a + b$. Otherwise, the answer i
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is the length of the array $nums$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -90,8 +88,6 @@ class Solution:
             pos[pre] = i
         return -1 if b == inf else a + b
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -124,6 +120,109 @@ class Solution {
     }
 }
 ```
+
+```cpp
+class Solution {
+public:
+    int minSizeSubarray(vector<int>& nums, int target) {
+        long long s = accumulate(nums.begin(), nums.end(), 0LL);
+        int n = nums.size();
+        int a = 0;
+        if (target > s) {
+            a = n * (target / s);
+            target -= target / s * s;
+        }
+        if (target == s) {
+            return n;
+        }
+        unordered_map<int, int> pos{{0, -1}};
+        long long pre = 0;
+        int b = 1 << 30;
+        for (int i = 0; i < n; ++i) {
+            pre += nums[i];
+            if (pos.count(pre - target)) {
+                b = min(b, i - pos[pre - target]);
+            }
+            if (pos.count(pre - (s - target))) {
+                b = min(b, n - (i - pos[pre - (s - target)]));
+            }
+            pos[pre] = i;
+        }
+        return b == 1 << 30 ? -1 : a + b;
+    }
+};
+```
+
+```go
+func minSizeSubarray(nums []int, target int) int {
+	s := 0
+	for _, x := range nums {
+		s += x
+	}
+	n := len(nums)
+	a := 0
+	if target > s {
+		a = n * (target / s)
+		target -= target / s * s
+	}
+	if target == s {
+		return n
+	}
+	pos := map[int]int{0: -1}
+	pre := 0
+	b := 1 << 30
+	for i, x := range nums {
+		pre += x
+		if j, ok := pos[pre-target]; ok {
+			b = min(b, i-j)
+		}
+		if j, ok := pos[pre-(s-target)]; ok {
+			b = min(b, n-(i-j))
+		}
+		pos[pre] = i
+	}
+	if b == 1<<30 {
+		return -1
+	}
+	return a + b
+}
+```
+
+```ts
+function minSizeSubarray(nums: number[], target: number): number {
+    const s = nums.reduce((a, b) => a + b);
+    const n = nums.length;
+    let a = 0;
+    if (target > s) {
+        a = n * ((target / s) | 0);
+        target -= ((target / s) | 0) * s;
+    }
+    if (target === s) {
+        return n;
+    }
+    const pos: Map<number, number> = new Map();
+    let pre = 0;
+    pos.set(0, -1);
+    let b = Infinity;
+    for (let i = 0; i < n; ++i) {
+        pre += nums[i];
+        if (pos.has(pre - target)) {
+            b = Math.min(b, i - pos.get(pre - target)!);
+        }
+        if (pos.has(pre - (s - target))) {
+            b = Math.min(b, n - (i - pos.get(pre - (s - target))!));
+        }
+        pos.set(pre, i);
+    }
+    return b === Infinity ? -1 : a + b;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```java
 class Solution {
@@ -171,116 +270,8 @@ class Solution {
         return res == -1 ? -1 : ans + res;
     }
 }
-
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int minSizeSubarray(vector<int>& nums, int target) {
-        long long s = accumulate(nums.begin(), nums.end(), 0LL);
-        int n = nums.size();
-        int a = 0;
-        if (target > s) {
-            a = n * (target / s);
-            target -= target / s * s;
-        }
-        if (target == s) {
-            return n;
-        }
-        unordered_map<int, int> pos{{0, -1}};
-        long long pre = 0;
-        int b = 1 << 30;
-        for (int i = 0; i < n; ++i) {
-            pre += nums[i];
-            if (pos.count(pre - target)) {
-                b = min(b, i - pos[pre - target]);
-            }
-            if (pos.count(pre - (s - target))) {
-                b = min(b, n - (i - pos[pre - (s - target)]));
-            }
-            pos[pre] = i;
-        }
-        return b == 1 << 30 ? -1 : a + b;
-    }
-};
-```
-
-### **Go**
-
-```go
-func minSizeSubarray(nums []int, target int) int {
-	s := 0
-	for _, x := range nums {
-		s += x
-	}
-	n := len(nums)
-	a := 0
-	if target > s {
-		a = n * (target / s)
-		target -= target / s * s
-	}
-	if target == s {
-		return n
-	}
-	pos := map[int]int{0: -1}
-	pre := 0
-	b := 1 << 30
-	for i, x := range nums {
-		pre += x
-		if j, ok := pos[pre-target]; ok {
-			b = min(b, i-j)
-		}
-		if j, ok := pos[pre-(s-target)]; ok {
-			b = min(b, n-(i-j))
-		}
-		pos[pre] = i
-	}
-	if b == 1<<30 {
-		return -1
-	}
-	return a + b
-}
-```
-
-### **TypeScript**
-
-```ts
-function minSizeSubarray(nums: number[], target: number): number {
-    const s = nums.reduce((a, b) => a + b);
-    const n = nums.length;
-    let a = 0;
-    if (target > s) {
-        a = n * ((target / s) | 0);
-        target -= ((target / s) | 0) * s;
-    }
-    if (target === s) {
-        return n;
-    }
-    const pos: Map<number, number> = new Map();
-    let pre = 0;
-    pos.set(0, -1);
-    let b = Infinity;
-    for (let i = 0; i < n; ++i) {
-        pre += nums[i];
-        if (pos.has(pre - target)) {
-            b = Math.min(b, i - pos.get(pre - target)!);
-        }
-        if (pos.has(pre - (s - target))) {
-            b = Math.min(b, n - (i - pos.get(pre - (s - target))!));
-        }
-        pos.set(pre, i);
-    }
-    return b === Infinity ? -1 : a + b;
-}
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,17 +53,15 @@ The alternating subarray sum is 1.
 
 ## Solutions
 
-**Solution 1: Dynamic Programming**
+### Solution 1: Dynamic Programming
 
-We define $f$ as the maximum alternating subarray sum ending with $nums[i]$, and $g$ as the maximum alternating subarray sum ending with $-nums[i]$. Initially, $f$ and $g$ are both $-\infty$.
+We define $f$ as the maximum sum of the alternating subarray ending with $nums[i]$, and define $g$ as the maximum sum of the alternating subarray ending with $-nums[i]$. Initially, both $f$ and $g$ are $-\infty$.
 
-Next, we traverse the array $nums$. For each position $i$, we need to maintain the values of $f$ and $g$, which are $f = \max(g, 0) + nums[i]$ and $g = f - nums[i]$, respectively. The answer is the maximum value among all $f$ and $g$.
+Next, we traverse the array $nums$. For position $i$, we need to maintain the values of $f$ and $g$, i.e., $f = \max(g, 0) + nums[i]$, and $g = f - nums[i]$. The answer is the maximum value among all $f$ and $g$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +72,6 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -113,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumAlternatingSubarraySum(nums []int) int64 {
 	const inf = 1 << 60
@@ -127,8 +119,6 @@ func maximumAlternatingSubarraySum(nums []int) int64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumAlternatingSubarraySum(nums: number[]): number {
     let [ans, f, g] = [-Infinity, -Infinity, -Infinity];
@@ -140,10 +130,6 @@ function maximumAlternatingSubarraySum(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 模拟**
+### 方法一：哈希表 + 模拟
 
 我们使用哈希表 $black$ 来记录所有黑色方格的位置，哈希表 $dirs$ 来记录蚂蚁的四个方向。我们使用变量 $x, y$ 来记录蚂蚁的位置，使用变量 $p$ 来记录蚂蚁的方向。我们使用变量 $x1, y1, x2, y2$ 来记录所有黑色方格的最小横坐标、最小纵坐标、最大横坐标、最大纵坐标。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(K)$，空间复杂度 $O(K)$。其中 $K$ 是蚂蚁行走的步数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
         g[x - x1][y - y1] = d[p]
         return ["".join(row) for row in g]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -172,8 +160,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func printKMoves(K int) []string {
@@ -220,10 +206,6 @@ func printKMoves(K int) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

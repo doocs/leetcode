@@ -74,9 +74,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 构造**
+### 方法一：贪心 + 构造
 
 我们可以先初始化一个 $m$ 行 $n$ 列的答案矩阵 $ans$。
 
@@ -92,10 +90,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def restoreMatrix(self, rowSum: List[int], colSum: List[int]) -> List[List[int]]:
@@ -109,10 +103,6 @@ class Solution:
                 colSum[j] -= x
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func restoreMatrix(rowSum []int, colSum []int) [][]int {
@@ -175,7 +161,22 @@ func restoreMatrix(rowSum []int, colSum []int) [][]int {
 }
 ```
 
-### **JavaScript**
+```ts
+function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
+    const m = rowSum.length;
+    const n = colSum.length;
+    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = Math.min(rowSum[i], colSum[j]);
+            ans[i][j] = x;
+            rowSum[i] -= x;
+            colSum[j] -= x;
+        }
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -199,29 +200,6 @@ var restoreMatrix = function (rowSum, colSum) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
-    const m = rowSum.length;
-    const n = colSum.length;
-    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            const x = Math.min(rowSum[i], colSum[j]);
-            ans[i][j] = x;
-            rowSum[i] -= x;
-            colSum[j] -= x;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

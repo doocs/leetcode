@@ -6,28 +6,24 @@ function findShortestCycle(n: number, edges: number[][]): number {
     }
     const inf = 1 << 30;
     let ans = inf;
-    const bfs = (u: number) => {
-        const dist: number[] = new Array(n).fill(-1);
+    const bfs = (u: number, v: number) => {
+        const dist: number[] = new Array(n).fill(inf);
         dist[u] = 0;
-        const q: number[][] = [[u, -1]];
-        let ans = inf;
+        const q: number[] = [u];
         while (q.length) {
-            const p = q.shift()!;
-            u = p[0];
-            const fa = p[1];
-            for (const v of g[u]) {
-                if (dist[v] < 0) {
-                    dist[v] = dist[u] + 1;
-                    q.push([v, u]);
-                } else if (v !== fa) {
-                    ans = Math.min(ans, dist[u] + dist[v] + 1);
+            const i = q.shift()!;
+            for (const j of g[i]) {
+                if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
+                    continue;
                 }
+                dist[j] = dist[i] + 1;
+                q.push(j);
             }
         }
-        return ans;
+        return 1 + dist[v];
     };
-    for (let i = 0; i < n; ++i) {
-        ans = Math.min(ans, bfs(i));
+    for (const [u, v] of edges) {
+        ans = Math.min(ans, bfs(u, v));
     }
     return ans < inf ? ans : -1;
 }

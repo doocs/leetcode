@@ -45,9 +45,9 @@ The minimum possible difference is 2.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -55,8 +55,6 @@ class Solution:
         nums.sort()
         return min(nums[i + k - 1] - nums[i] for i in range(len(nums) - k + 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,22 +69,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minimumDifference(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    let ans = nums[n - 1] - nums[0];
-    for (let i = 0; i + k - 1 < n; i++) {
-        ans = Math.min(nums[i + k - 1] - nums[i], ans);
-    }
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +82,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumDifference(nums []int, k int) int {
 	sort.Ints(nums)
@@ -113,7 +93,17 @@ func minimumDifference(nums []int, k int) int {
 }
 ```
 
-### **Rust**
+```ts
+function minimumDifference(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let ans = nums[n - 1] - nums[0];
+    for (let i = 0; i + k - 1 < n; i++) {
+        ans = Math.min(nums[i + k - 1] - nums[i], ans);
+    }
+    return ans;
+}
+```
 
 ```rust
 impl Solution {
@@ -128,8 +118,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -149,10 +137,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

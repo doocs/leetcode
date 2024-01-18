@@ -56,15 +56,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-拓扑排序，BFS 实现。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                     q.append(j)
         return ans if len(ans) == numCourses else []
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,38 +113,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findOrder(numCourses: number, prerequisites: number[][]): number[] {
-    let g = Array.from({ length: numCourses }, () => []);
-    let indeg = new Array(numCourses).fill(0);
-    for (let [a, b] of prerequisites) {
-        g[b].push(a);
-        ++indeg[a];
-    }
-    let q = [];
-    for (let i = 0; i < numCourses; ++i) {
-        if (!indeg[i]) {
-            q.push(i);
-        }
-    }
-    let ans = [];
-    while (q.length) {
-        const i = q.shift();
-        ans.push(i);
-        for (let j of g[i]) {
-            if (--indeg[j] == 0) {
-                q.push(j);
-            }
-        }
-    }
-    return ans.length == numCourses ? ans : [];
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -181,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findOrder(numCourses int, prerequisites [][]int) []int {
@@ -218,7 +174,33 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
-### **C#**
+```ts
+function findOrder(numCourses: number, prerequisites: number[][]): number[] {
+    let g = Array.from({ length: numCourses }, () => []);
+    let indeg = new Array(numCourses).fill(0);
+    for (let [a, b] of prerequisites) {
+        g[b].push(a);
+        ++indeg[a];
+    }
+    let q = [];
+    for (let i = 0; i < numCourses; ++i) {
+        if (!indeg[i]) {
+            q.push(i);
+        }
+    }
+    let ans = [];
+    while (q.length) {
+        const i = q.shift();
+        ans.push(i);
+        for (let j of g[i]) {
+            if (--indeg[j] == 0) {
+                q.push(j);
+            }
+        }
+    }
+    return ans.length == numCourses ? ans : [];
+}
+```
 
 ```cs
 public class Solution {
@@ -256,10 +238,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

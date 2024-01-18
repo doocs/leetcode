@@ -50,13 +50,9 @@ i = 0 和 j = 2 ：nums[0] 的第一个数字是 1 ，nums[2] 的最后一个数
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -70,10 +66,6 @@ class Solution:
             cnt[int(str(x)[0])] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -100,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countBeautifulPairs(nums []int) (ans int) {
@@ -150,8 +138,6 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countBeautifulPairs(nums: number[]): number {
@@ -179,10 +165,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

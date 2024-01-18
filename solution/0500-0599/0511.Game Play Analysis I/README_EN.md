@@ -55,22 +55,11 @@ Activity table:
 
 ## Solutions
 
-**Solution 1: Group By + Min Function**
+### Solution 1: Group By + Min Function
 
 We can use `GROUP BY` to group the `player_id` and then take the minimum `event_date` in each group as the date when the player first logged into the platform.
 
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT player_id, MIN(event_date) AS first_login
-FROM Activity
-GROUP BY 1;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -82,7 +71,15 @@ def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
         .agg(first_login=("event_date", "min"))
         .reset_index()
     )
+```
 
+```sql
+# Write your MySQL query statement below
+SELECT player_id, MIN(event_date) AS first_login
+FROM Activity
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

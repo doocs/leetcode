@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树形 DP**
+### 方法一：树形 DP
 
 由于每个节点价值均为正整数，因此，以节点 $root$ 作为根节点的最小的一条路径就是 $root$ 节点本身，那么价值和最大的一条路径与最小的一条路径的差值就等价于去掉路径的一个端点。
 
@@ -83,10 +81,6 @@
 时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -110,10 +104,6 @@ class Solution:
         dfs(0, -1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -150,8 +140,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -183,8 +171,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxOutput(n int, edges [][]int, price []int) int64 {
 	g := make([][]int, n)
@@ -214,10 +200,6 @@ func maxOutput(n int, edges [][]int, price []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

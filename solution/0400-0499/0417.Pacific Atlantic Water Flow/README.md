@@ -45,15 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-反向寻找，从海洋开始逆流，只要比该陆地高的地方就能逆流。最后是寻找两个海洋的水流都能经过的陆地即为结果。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
             if (i, j) in vis1 and (i, j) in vis2
         ]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,8 +148,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 typedef pair<int, int> pii;
@@ -224,8 +212,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pacificAtlantic(heights [][]int) [][]int {
 	m, n := len(heights), len(heights[0])
@@ -275,8 +261,6 @@ func pacificAtlantic(heights [][]int) [][]int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function pacificAtlantic(heights: number[][]): number[][] {
@@ -331,10 +315,6 @@ function pacificAtlantic(heights: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

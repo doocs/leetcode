@@ -40,19 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们枚举 $[low, high]$ 中的每个整数 $x$，判断其是否是对称整数。如果是，那么答案 $ans$ 增加 $1$。
 
 时间复杂度 $O(n \times \log m)$，空间复杂度 $O(\log m)$。其中 $n$ 是 $[low, high]$ 中整数的个数，而 $m$ 是题目中给出的最大整数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
 
         return sum(f(x) for x in range(low, high + 1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,8 +115,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSymmetricIntegers(low int, high int) (ans int) {
 	f := func(x int) int {
@@ -154,8 +140,6 @@ func countSymmetricIntegers(low int, high int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSymmetricIntegers(low: number, high: number): number {
     let ans = 0;
@@ -180,10 +164,6 @@ function countSymmetricIntegers(low: number, high: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

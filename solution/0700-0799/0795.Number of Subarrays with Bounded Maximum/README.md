@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：区间计数**
+### 方法一：区间计数
 
 题目要我们统计数组 `nums` 中，最大值在区间 $[left, right]$ 范围内的子数组个数。
 
@@ -59,21 +57,7 @@ $$
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
-**方法二：单调栈 + 枚举元素计算贡献**
-
-我们还可以枚举数组中每个元素 $nums[i]$ 作为子数组的最大值，然后统计以该元素为最大值的子数组的个数。问题转化为求出每个元素 $nums[i]$ 左侧第一个大于该元素的下标 $l[i]$，右侧第一个大于等于该元素的下标 $r[i]$，则以该元素为最大值的子数组的个数为 $(i - l[i]) \times (r[i] - i)$。
-
-我们可以使用单调栈方便地求出 $l[i]$ 和 $r[i]$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
-
-相似题目：[907. 子数组的最小值之和](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,6 +71,71 @@ class Solution:
 
         return f(right) - f(left - 1)
 ```
+
+```java
+class Solution {
+    public int numSubarrayBoundedMax(int[] nums, int left, int right) {
+        return f(nums, right) - f(nums, left - 1);
+    }
+
+    private int f(int[] nums, int x) {
+        int cnt = 0, t = 0;
+        for (int v : nums) {
+            t = v > x ? 0 : t + 1;
+            cnt += t;
+        }
+        return cnt;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
+        auto f = [&](int x) {
+            int cnt = 0, t = 0;
+            for (int& v : nums) {
+                t = v > x ? 0 : t + 1;
+                cnt += t;
+            }
+            return cnt;
+        };
+        return f(right) - f(left - 1);
+    }
+};
+```
+
+```go
+func numSubarrayBoundedMax(nums []int, left int, right int) int {
+	f := func(x int) (cnt int) {
+		t := 0
+		for _, v := range nums {
+			t++
+			if v > x {
+				t = 0
+			}
+			cnt += t
+		}
+		return
+	}
+	return f(right) - f(left-1)
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：单调栈 + 枚举元素计算贡献
+
+我们还可以枚举数组中每个元素 $nums[i]$ 作为子数组的最大值，然后统计以该元素为最大值的子数组的个数。问题转化为求出每个元素 $nums[i]$ 左侧第一个大于该元素的下标 $l[i]$，右侧第一个大于等于该元素的下标 $r[i]$，则以该元素为最大值的子数组的个数为 $(i - l[i]) \times (r[i] - i)$。
+
+我们可以使用单调栈方便地求出 $l[i]$ 和 $r[i]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+相似题目：[907. 子数组的最小值之和](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -110,27 +159,6 @@ class Solution:
         return sum(
             (i - l[i]) * (r[i] - i) for i, v in enumerate(nums) if left <= v <= right
         )
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int numSubarrayBoundedMax(int[] nums, int left, int right) {
-        return f(nums, right) - f(nums, left - 1);
-    }
-
-    private int f(int[] nums, int x) {
-        int cnt = 0, t = 0;
-        for (int v : nums) {
-            t = v > x ? 0 : t + 1;
-            cnt += t;
-        }
-        return cnt;
-    }
-}
 ```
 
 ```java
@@ -174,25 +202,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
-        auto f = [&](int x) {
-            int cnt = 0, t = 0;
-            for (int& v : nums) {
-                t = v > x ? 0 : t + 1;
-                cnt += t;
-            }
-            return cnt;
-        };
-        return f(right) - f(left - 1);
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -223,25 +232,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func numSubarrayBoundedMax(nums []int, left int, right int) int {
-	f := func(x int) (cnt int) {
-		t := 0
-		for _, v := range nums {
-			t++
-			if v > x {
-				t = 0
-			}
-			cnt += t
-		}
-		return
-	}
-	return f(right) - f(left-1)
-}
 ```
 
 ```go
@@ -282,10 +272,6 @@ func numSubarrayBoundedMax(nums []int, left int, right int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

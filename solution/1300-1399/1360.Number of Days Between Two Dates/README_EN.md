@@ -25,9 +25,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Mathematics
 
-### **Python3**
+First, we define a function `isLeapYear(year)` to determine whether the given year `year` is a leap year. If it is a leap year, return `true`, otherwise return `false`.
+
+Next, we define another function `daysInMonth(year, month)` to calculate the total number of days in the given year `year` and month `month`. We can use an array `days` to store the number of days in each month, where `days[1]` represents the number of days in February. If it is a leap year, it is $29$ days, otherwise it is $28$ days.
+
+Then, we define another function `calcDays(date)` to calculate the number of days from the given date `date` to `1971-01-01`. We can use `date.split("-")` to split the date `date` into year `year`, month `month`, and day `day` by `-`. Then we can use a loop to calculate the total number of days from `1971` to `year`, then calculate the total number of days from January to `month`, and finally add `day` days.
+
+Finally, we only need to return the absolute value of `calcDays(date1) - calcDays(date2)`.
+
+The time complexity is $O(y + m)$, where $y$ represents the number of years from the given date to `1971-01-01`, and $m$ represents the number of months of the given date. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +75,6 @@ class Solution:
         return abs(calcDays(date1) - calcDays(date2))
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public int daysBetweenDates(String date1, String date2) {
@@ -99,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func daysBetweenDates(date1 string, date2 string) int {
@@ -181,8 +185,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function daysBetweenDates(date1: string, date2: string): number {
     return Math.abs(calcDays(date1) - calcDays(date2));
@@ -211,10 +213,6 @@ function calcDays(date: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

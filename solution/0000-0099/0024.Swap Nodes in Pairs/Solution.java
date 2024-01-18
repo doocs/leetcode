@@ -10,17 +10,13 @@
  */
 class Solution {
     public ListNode swapPairs(ListNode head) {
-        ListNode dummy = new ListNode(0, head);
-        ListNode pre = dummy;
-        ListNode cur = head;
-        while (cur != null && cur.next != null) {
-            ListNode t = cur.next;
-            cur.next = t.next;
-            t.next = cur;
-            pre.next = t;
-            pre = cur;
-            cur = cur.next;
+        if (head == null || head.next == null) {
+            return head;
         }
-        return dummy.next;
+        ListNode t = swapPairs(head.next.next);
+        ListNode p = head.next;
+        p.next = head;
+        head.next = t;
+        return p;
     }
 }

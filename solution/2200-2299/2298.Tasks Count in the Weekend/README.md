@@ -68,17 +68,11 @@ Task 6 是在周日提交的。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：WEEKDAY() 函数**
+### 方法一：WEEKDAY() 函数
 
 `WEEKDAY()` 函数返回日期的工作日编号，从 0 开始，0 表示星期一，1 表示星期二，以此类推，6 表示星期日。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -89,3 +83,5 @@ FROM Tasks;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

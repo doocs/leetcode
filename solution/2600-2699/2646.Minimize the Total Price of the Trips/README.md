@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树形 DP**
+### 方法一：树形 DP
 
 我们可以统计每一次旅行经过的节点，记录在数组 $cnt$ 中，其中 $cnt[i]$ 表示所有旅行中经过节点 $i$ 的次数。我们设计一个函数 $dfs(i, fa, k)$，表示从节点 $i$ 开始搜索，最终到达节点 $k$，过程中记录所有经过的节点。其中 $fa$ 表示节点 $i$ 的父节点。
 
@@ -78,10 +76,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为旅行次数以及节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -116,10 +110,6 @@ class Solution:
             dfs(start, -1, end)
         return min(dfs2(0, -1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -180,8 +170,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -234,8 +222,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	g := make([][]int, n)
@@ -286,8 +272,6 @@ func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	return min(a, b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumTotalPrice(
@@ -341,10 +325,6 @@ function minimumTotalPrice(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,9 @@ minStack.getMin(); // return -2
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class MinStack:
@@ -83,8 +83,6 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
-
-### **Java**
 
 ```java
 class MinStack {
@@ -123,8 +121,6 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
-
-### **C++**
 
 ```cpp
 class MinStack {
@@ -166,8 +162,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type MinStack struct {
 	stk1 []int
@@ -205,8 +199,6 @@ func (this *MinStack) GetMin() int {
  * param_4 := obj.GetMin();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class MinStack {
@@ -246,57 +238,6 @@ class MinStack {
  * var param_4 = obj.getMin()
  */
 ```
-
-### **JavaScript**
-
-```js
-var MinStack = function () {
-    this.stk1 = [];
-    this.stk2 = [Infinity];
-};
-
-/**
- * @param {number} val
- * @return {void}
- */
-MinStack.prototype.push = function (val) {
-    this.stk1.push(val);
-    this.stk2.push(Math.min(this.stk2[this.stk2.length - 1], val));
-};
-
-/**
- * @return {void}
- */
-MinStack.prototype.pop = function () {
-    this.stk1.pop();
-    this.stk2.pop();
-};
-
-/**
- * @return {number}
- */
-MinStack.prototype.top = function () {
-    return this.stk1[this.stk1.length - 1];
-};
-
-/**
- * @return {number}
- */
-MinStack.prototype.getMin = function () {
-    return this.stk2[this.stk2.length - 1];
-};
-
-/**
- * Your MinStack object will be instantiated and called as such:
- * var obj = new MinStack()
- * obj.push(val)
- * obj.pop()
- * var param_3 = obj.top()
- * var param_4 = obj.getMin()
- */
-```
-
-### **Rust**
 
 ```rust
 use std::collections::VecDeque;
@@ -345,7 +286,52 @@ impl MinStack {
  */
 ```
 
-### **C#**
+```js
+var MinStack = function () {
+    this.stk1 = [];
+    this.stk2 = [Infinity];
+};
+
+/**
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function (val) {
+    this.stk1.push(val);
+    this.stk2.push(Math.min(this.stk2[this.stk2.length - 1], val));
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function () {
+    this.stk1.pop();
+    this.stk2.pop();
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function () {
+    return this.stk1[this.stk1.length - 1];
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function () {
+    return this.stk2[this.stk2.length - 1];
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+```
 
 ```cs
 public class MinStack {
@@ -385,10 +371,6 @@ public class MinStack {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

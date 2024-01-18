@@ -38,9 +38,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -83,8 +83,6 @@ class Solution:
                 trie.insert(w)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -140,8 +138,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Trie {
 public:
@@ -193,8 +189,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -249,10 +243,6 @@ func findAllConcatenatedWordsInADict(words []string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

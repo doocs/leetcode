@@ -34,11 +34,17 @@
 
 ## Solutions
 
-**Stack**
+### Solution 1: Stack
+
+We use an array `last` to record the last occurrence of each character, a stack to save the result string, and an array `vis` or an integer variable `mask` to record whether the current character is in the stack.
+
+Traverse the string $s$, for each character $c$, if $c$ is not in the stack, we need to check whether the top element of the stack is greater than $c$. If it is greater than $c$ and the top element of the stack will appear later, we pop the top element of the stack and push $c$ into the stack.
+
+Finally, concatenate the elements in the stack into a string and return it as the result.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -55,30 +61,6 @@ class Solution:
             vis.add(c)
         return ''.join(stk)
 ```
-
-```python
-class Solution:
-    def removeDuplicateLetters(self, s: str) -> str:
-        count, in_stack = [0] * 128, [False] * 128
-        stack = []
-        for c in s:
-            count[ord(c)] += 1
-        for c in s:
-            count[ord(c)] -= 1
-            if in_stack[ord(c)]:
-                continue
-            while len(stack) and stack[-1] > c:
-                peek = stack[-1]
-                if count[ord(peek)] < 1:
-                    break
-                in_stack[ord(peek)] = False
-                stack.pop()
-            stack.append(c)
-            in_stack[ord(c)] = True
-        return ''.join(stack)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func removeDuplicateLetters(s string) string {
 	last := make([]int, 26)
@@ -163,6 +141,34 @@ func removeDuplicateLetters(s string) string {
 	}
 	return string(stk)
 }
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        count, in_stack = [0] * 128, [False] * 128
+        stack = []
+        for c in s:
+            count[ord(c)] += 1
+        for c in s:
+            count[ord(c)] -= 1
+            if in_stack[ord(c)]:
+                continue
+            while len(stack) and stack[-1] > c:
+                peek = stack[-1]
+                if count[ord(peek)] < 1:
+                    break
+                in_stack[ord(peek)] = False
+                stack.pop()
+            stack.append(c)
+            in_stack[ord(c)] = True
+        return ''.join(stack)
 ```
 
 ```go
@@ -189,10 +195,6 @@ func removeDuplicateLetters(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

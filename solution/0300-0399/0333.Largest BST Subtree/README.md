@@ -54,15 +54,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-后序遍历，定义 `dfs(root)` 获取以当前结点为根结点的二叉搜索树的结点最小值、最大值、结点数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -88,10 +82,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -134,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -171,8 +159,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -202,10 +188,6 @@ func largestBSTSubtree(root *TreeNode) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

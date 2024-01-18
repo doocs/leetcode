@@ -33,9 +33,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -62,8 +62,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -105,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -155,8 +151,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -186,8 +180,6 @@ func binaryTreePaths(root *TreeNode) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -225,10 +217,6 @@ function binaryTreePaths(root: TreeNode | null): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,19 +59,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数组或哈希表**
+### 方法一：数组或哈希表
 
 我们可以使用数组或哈希表 $d$ 存储对照表，然后遍历 `message` 中的每个字符，将其替换为对应的字符即可。
 
 时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为 `key` 和 `message` 的长度；而 $C$ 为字符集大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
                 i += 1
         return "".join(d[c] for c in message)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func decodeMessage(key string, message string) string {
 	d := [128]byte{}
@@ -151,8 +137,6 @@ func decodeMessage(key string, message string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function decodeMessage(key: string, message: string): string {
     const d = new Map<string, string>();
@@ -166,8 +150,6 @@ function decodeMessage(key: string, message: string): string {
     return [...message].map(v => d.get(v)).join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -188,8 +170,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 char* decodeMessage(char* key, char* message) {
@@ -212,10 +192,6 @@ char* decodeMessage(char* key, char* message) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

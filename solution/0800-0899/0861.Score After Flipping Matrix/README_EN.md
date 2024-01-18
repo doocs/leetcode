@@ -40,9 +40,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +58,6 @@ class Solution:
             ans += max(cnt, m - cnt) * (1 << (n - j - 1))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -112,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func matrixScore(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -139,8 +133,6 @@ func matrixScore(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function matrixScore(grid: number[][]): number {
     const m = grid.length;
@@ -163,8 +155,6 @@ function matrixScore(grid: number[][]): number {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -192,10 +182,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -59,7 +59,7 @@ For each queries[i], it can be shown that answer[i] is the minimum number of ope
 
 ## Solutions
 
-**Solution 1: Binary Lifting for LCA**
+### Solution 1: Binary Lifting for LCA
 
 The problem asks for the minimum number of operations to make all edge weights the same on the path between any two points. This is essentially the length of the path between these two points, minus the number of times the most frequently occurring edge appears on the path.
 
@@ -80,8 +80,6 @@ Finally, the minimum number of operations from node $u$ to node $v$ is $depth(u)
 The time complexity is $O((n + q) \times C \times \log n)$, and the space complexity is $O(n \times C \times \log n)$. Here, $C$ is the maximum value of the edge weight.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -128,8 +126,6 @@ class Solution:
             ans.append(depth[u] + depth[v] - 2 * depth[x] - mx)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -201,8 +197,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -273,8 +267,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minOperationsQueries(n int, edges [][]int, queries [][]int) []int {
 	m := bits.Len(uint(n))
@@ -344,10 +336,6 @@ func minOperationsQueries(n int, edges [][]int, queries [][]int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -3,25 +3,13 @@ class Solution:
         m, n = len(s1), len(s2)
         if m > n:
             return False
-        cnt = Counter()
-        for a, b in zip(s1, s2):
-            cnt[a] -= 1
-            cnt[b] += 1
-        diff = sum(x != 0 for x in cnt.values())
-        if diff == 0:
+        cnt1 = Counter(s1)
+        cnt2 = Counter(s2[:m])
+        if cnt1 == cnt2:
             return True
         for i in range(m, n):
-            a, b = s2[i - m], s2[i]
-            if cnt[a] == 0:
-                diff += 1
-            cnt[a] -= 1
-            if cnt[a] == 0:
-                diff -= 1
-            if cnt[b] == 0:
-                diff += 1
-            cnt[b] += 1
-            if cnt[b] == 0:
-                diff -= 1
-            if diff == 0:
+            cnt2[s2[i]] += 1
+            cnt2[s2[i - m]] -= 1
+            if cnt1 == cnt2:
                 return True
         return False

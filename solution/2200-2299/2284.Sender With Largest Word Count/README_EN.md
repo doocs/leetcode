@@ -54,9 +54,9 @@ Since there is a tie for the largest word count, we return the sender with the l
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
                 ans = sender
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,8 +98,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestWordCount(messages []string, senders []string) (ans string) {
 	cnt := map[string]int{}
@@ -141,16 +135,6 @@ func largestWordCount(messages []string, senders []string) (ans string) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 For a complete binary tree, the number of nodes in the $i$th row is $2^{i-1}$, and the range of node labels in the $i$th row is $[2^{i-1}, 2^i - 1]$. In the problem, for odd-numbered rows, the nodes are labeled from left to right, while for even-numbered rows, the nodes are labeled from right to left. Therefore, for the node $label$ in the $i$th row, its complementary node label is $2^{i-1} + 2^i - 1 - label$. So the actual parent node label of node $label$ is $(2^{i-1} + 2^i - 1 - label) / 2$. We can find the path from the root node to node $label$ by continuously finding the complementary node label and the parent node label until we reach the root node.
 
@@ -45,8 +45,6 @@ Finally, we need to reverse the path, because the problem requires the path from
 The time complexity is $O(\log n)$, where $n$ is the label of the node. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -62,8 +60,6 @@ class Solution:
             i -= 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +100,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func pathInZigZagTree(label int) (ans []int) {
 	x, i := 1, 1
@@ -126,10 +118,6 @@ func pathInZigZagTree(label int) (ans []int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

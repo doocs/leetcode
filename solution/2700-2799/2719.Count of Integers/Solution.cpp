@@ -25,8 +25,8 @@ public:
             return ans;
         };
 
-        int ans = dfs(0, 0, true);
-        for (int i = num1.size() - 1; i >= 0; --i) {
+        int a = dfs(0, 0, true);
+        for (int i = num1.size() - 1; ~i; --i) {
             if (num1[i] == '0') {
                 num1[i] = '9';
             } else {
@@ -36,7 +36,7 @@ public:
         }
         num = num1;
         memset(f, -1, sizeof(f));
-        ans -= dfs(0, 0, true);
-        return (ans + mod) % mod;
+        int b = dfs(0, 0, true);
+        return (a - b + mod) % mod;
     }
 };

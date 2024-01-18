@@ -68,36 +68,4 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 
 ## Solutions
 
-<!-- tabs:start -->
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
-```
-
-<!-- tabs:end -->
+<!-- end -->

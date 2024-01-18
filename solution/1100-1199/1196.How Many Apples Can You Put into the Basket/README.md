@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 要使得苹果数量最多，那么就要使得苹果的重量尽可能的小，因此我们可以对苹果的重量进行排序，然后从小到大依次放入篮子中，直到篮子的重量超过 $5000$ 为止，返回此时放入篮子的苹果数量。
 
@@ -50,10 +48,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是苹果的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
                 return i
         return len(weight)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNumberOfApples(weight []int) int {
 	sort.Ints(weight)
@@ -121,8 +107,6 @@ func maxNumberOfApples(weight []int) int {
 	return len(weight)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNumberOfApples(weight: number[]): number {
@@ -138,10 +122,6 @@ function maxNumberOfApples(weight: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

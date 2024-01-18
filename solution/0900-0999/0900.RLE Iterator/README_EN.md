@@ -51,25 +51,33 @@ but the second term did not exist. Since the last term exhausted does not exist,
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Maintain Two Pointers
 
-### **Python3**
+We define two pointers $i$ and $j$, where pointer $i$ points to the current run-length encoding being read, and pointer $j$ points to which character in the current run-length encoding is being read. Initially, $i = 0$, $j = 0$.
+
+Each time we call `next(n)`, we judge whether the remaining number of characters in the current run-length encoding $encoding[i] - j$ is less than $n$. If it is, we subtract $n$ by $encoding[i] - j$, add $2$ to $i$, and set $j$ to $0$, then continue to judge the next run-length encoding. If it is not, we add $n$ to $j$ and return $encoding[i + 1]$.
+
+If $i$ exceeds the length of the run-length encoding and there is still no return value, it means that there are no remaining elements to be exhausted, and we return $-1$.
+
+The time complexity is $O(n + q)$, and the space complexity is $O(n)$. Here, $n$ is the length of the run-length encoding, and $q$ is the number of times `next(n)` is called.
+
+<!-- tabs:start -->
 
 ```python
 class RLEIterator:
     def __init__(self, encoding: List[int]):
         self.encoding = encoding
         self.i = 0
-        self.curr = 0
+        self.j = 0
 
     def next(self, n: int) -> int:
         while self.i < len(self.encoding):
-            if self.curr + n > self.encoding[self.i]:
-                n -= self.encoding[self.i] - self.curr
-                self.curr = 0
+            if self.encoding[self.i] - self.j < n:
+                n -= self.encoding[self.i] - self.j
                 self.i += 2
+                self.j = 0
             else:
-                self.curr += n
+                self.j += n
                 return self.encoding[self.i + 1]
         return -1
 
@@ -79,28 +87,24 @@ class RLEIterator:
 # param_1 = obj.next(n)
 ```
 
-### **Java**
-
 ```java
 class RLEIterator {
     private int[] encoding;
-    private int curr;
     private int i;
+    private int j;
 
     public RLEIterator(int[] encoding) {
         this.encoding = encoding;
-        curr = 0;
-        i = 0;
     }
 
     public int next(int n) {
         while (i < encoding.length) {
-            if (curr + n > encoding[i]) {
-                n -= encoding[i] - curr;
+            if (encoding[i] - j < n) {
+                n -= (encoding[i] - j);
                 i += 2;
-                curr = 0;
+                j = 0;
             } else {
-                curr += n;
+                j += n;
                 return encoding[i + 1];
             }
         }
@@ -115,34 +119,31 @@ class RLEIterator {
  */
 ```
 
-### **C++**
-
 ```cpp
 class RLEIterator {
 public:
-    vector<int> encoding;
-    int curr;
-    int i;
-
     RLEIterator(vector<int>& encoding) {
         this->encoding = encoding;
-        this->curr = 0;
-        this->i = 0;
     }
 
     int next(int n) {
         while (i < encoding.size()) {
-            if (curr + n > encoding[i]) {
-                n -= encoding[i] - curr;
-                curr = 0;
+            if (encoding[i] - j < n) {
+                n -= (encoding[i] - j);
                 i += 2;
+                j = 0;
             } else {
-                curr += n;
+                j += n;
                 return encoding[i + 1];
             }
         }
         return -1;
     }
+
+private:
+    vector<int> encoding;
+    int i = 0;
+    int j = 0;
 };
 
 /**
@@ -152,27 +153,24 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 type RLEIterator struct {
 	encoding []int
-	curr     int
-	i        int
+	i, j     int
 }
 
 func Constructor(encoding []int) RLEIterator {
-	return RLEIterator{encoding: encoding, curr: 0, i: 0}
+	return RLEIterator{encoding, 0, 0}
 }
 
 func (this *RLEIterator) Next(n int) int {
 	for this.i < len(this.encoding) {
-		if this.curr+n > this.encoding[this.i] {
-			n -= this.encoding[this.i] - this.curr
-			this.curr = 0
+		if this.encoding[this.i]-this.j < n {
+			n -= (this.encoding[this.i] - this.j)
 			this.i += 2
+			this.j = 0
 		} else {
-			this.curr += n
+			this.j += n
 			return this.encoding[this.i+1]
 		}
 	}
@@ -186,10 +184,40 @@ func (this *RLEIterator) Next(n int) int {
  */
 ```
 
-### **...**
+```ts
+class RLEIterator {
+    private encoding: number[];
+    private i: number;
+    private j: number;
 
-```
+    constructor(encoding: number[]) {
+        this.encoding = encoding;
+        this.i = 0;
+        this.j = 0;
+    }
 
+    next(n: number): number {
+        while (this.i < this.encoding.length) {
+            if (this.encoding[this.i] - this.j < n) {
+                n -= this.encoding[this.i] - this.j;
+                this.i += 2;
+                this.j = 0;
+            } else {
+                this.j += n;
+                return this.encoding[this.i + 1];
+            }
+        }
+        return -1;
+    }
+}
+
+/**
+ * Your RLEIterator object will be instantiated and called as such:
+ * var obj = new RLEIterator(encoding)
+ * var param_1 = obj.next(n)
+ */
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

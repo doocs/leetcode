@@ -53,15 +53,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先用哈希表记录相同元素出现的位置。遍历哈希表，先计算最左侧元素的间隔和，然后逐个计算下个元素的间隔和。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -80,10 +74,6 @@ class Solution:
                 ans[p] = val
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -112,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func getDistances(arr []int) []int64 {
@@ -169,18 +155,6 @@ func getDistances(arr []int) []int64 {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

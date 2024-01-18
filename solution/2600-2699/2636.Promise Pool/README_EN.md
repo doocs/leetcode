@@ -83,9 +83,9 @@ At t=900, the 3rd function resolves. Pool size is 0 so the returned promise reso
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 type F = () => Promise<any>;
@@ -103,10 +103,6 @@ function promisePool(functions: F[], n: number): Promise<any> {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

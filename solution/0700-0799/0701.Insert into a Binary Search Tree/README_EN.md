@@ -45,11 +45,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -71,8 +69,6 @@ class Solution:
 
         return dfs(root)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -106,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -133,8 +127,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -157,10 +149,6 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

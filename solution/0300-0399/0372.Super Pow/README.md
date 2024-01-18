@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：快速幂**
+### 方法一：快速幂
 
 我们初始化答案变量 $ans = 1$。
 
@@ -65,10 +63,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def superPow(self, a: int, b: List[int]) -> int:
@@ -79,10 +73,6 @@ class Solution:
             a = pow(a, 10, mod)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -110,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -138,8 +126,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func superPow(a int, b []int) int {
 	const mod int = 1337
@@ -161,8 +147,6 @@ func superPow(a int, b []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function superPow(a: number, b: number[]): number {
@@ -186,10 +170,6 @@ function superPow(a: number, b: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,9 @@ Note that there are other sequences that cannot be taken from rolls but [4] is t
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
                 s.clear()
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +86,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +105,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestSequence(rolls []int, k int) int {
 	s := map[int]bool{}
@@ -126,16 +120,6 @@ func shortestSequence(rolls []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

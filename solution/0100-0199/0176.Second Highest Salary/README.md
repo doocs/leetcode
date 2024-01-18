@@ -71,49 +71,11 @@ Employee 表：
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：使用 LIMIT 语句和子查询**
+### 方法一：使用 LIMIT 语句和子查询
 
 我们可以按照薪水降序排列，然后使用 `LIMIT` 语句来获取第二高的薪水，如果不存在第二高的薪水，那么就返回 `null`。
 
-**方法二：使用 MAX() 函数和子查询**
-
-我们也可以使用 `MAX()` 函数，从小于 `MAX()` 的薪水中挑选一个最大的薪水即可。
-
-**方法三：使用 DISTINCT 和窗口函数**
-
-我们还可以先通过 `DENSE_RANK()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工薪水即可。
-
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT
-    (
-        SELECT DISTINCT salary
-        FROM Employee
-        ORDER BY salary DESC
-        LIMIT 1, 1
-    ) AS SecondHighestSalary;
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT MAX(salary) AS SecondHighestSalary
-FROM Employee
-WHERE salary < (SELECT MAX(salary) FROM Employee);
-```
-
-```sql
-# Write your MySQL query statement below
-WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Employee)
-SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -138,4 +100,46 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     return result_df
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT
+    (
+        SELECT DISTINCT salary
+        FROM Employee
+        ORDER BY salary DESC
+        LIMIT 1, 1
+    ) AS SecondHighestSalary;
+```
+
 <!-- tabs:end -->
+
+### 方法二：使用 MAX() 函数和子查询
+
+我们也可以使用 `MAX()` 函数，从小于 `MAX()` 的薪水中挑选一个最大的薪水即可。
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+SELECT MAX(salary) AS SecondHighestSalary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+```
+
+<!-- tabs:end -->
+
+### 方法三：使用 DISTINCT 和窗口函数
+
+我们还可以先通过 `DENSE_RANK()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工薪水即可。
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Employee)
+SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

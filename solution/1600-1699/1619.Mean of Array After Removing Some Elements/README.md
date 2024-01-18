@@ -60,9 +60,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 直接模拟。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n\log n)$。其中 $n$ 为数组 `arr` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
         t = arr[start:end]
         return round(sum(t) / len(t), 5)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,23 +94,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function trimMean(arr: number[]): number {
-    arr.sort((a, b) => a - b);
-    let n = arr.length,
-        rmLen = n * 0.05;
-    let sum = 0;
-    for (let i = rmLen; i < n - rmLen; i++) {
-        sum += arr[i];
-    }
-    return sum / (n * 0.9);
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -135,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func trimMean(arr []int) float64 {
 	sort.Ints(arr)
@@ -149,7 +120,18 @@ func trimMean(arr []int) float64 {
 }
 ```
 
-### **Rust**
+```ts
+function trimMean(arr: number[]): number {
+    arr.sort((a, b) => a - b);
+    let n = arr.length,
+        rmLen = n * 0.05;
+    let sum = 0;
+    for (let i = rmLen; i < n - rmLen; i++) {
+        sum += arr[i];
+    }
+    return sum / (n * 0.9);
+}
+```
 
 ```rust
 impl Solution {
@@ -166,10 +148,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

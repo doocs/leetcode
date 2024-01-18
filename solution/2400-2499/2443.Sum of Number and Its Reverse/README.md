@@ -46,29 +46,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
+### 方法一：暴力枚举
 
 在 $[0,.., num]$ 范围内枚举 $k$，判断 $k + reverse(k)$ 是否等于 $num$ 即可。
 
-时间复杂度 $O(n\times \log n)。其中 $n$ 为 `num` 的大小。
+时间复杂度 $O(n \times \log n)。其中 $n$ 为 $num$ 的大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def sumOfNumberAndReverse(self, num: int) -> bool:
         return any(k + int(str(k)[::-1]) == num for k in range(num + 1))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -111,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumOfNumberAndReverse(num int) bool {
 	for x := 0; x <= num; x++ {
@@ -129,27 +115,6 @@ func sumOfNumberAndReverse(num int) bool {
 }
 ```
 
-### **C**
-
-```c
-bool sumOfNumberAndReverse(int num) {
-    for (int i = 0; i <= num; i++) {
-        int t = i;
-        int j = 0;
-        while (t > 0) {
-            j = j * 10 + t % 10;
-            t /= 10;
-        }
-        if (i + j == num) {
-            return 1;
-        }
-    }
-    return 0;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function sumOfNumberAndReverse(num: number): boolean {
     for (let i = 0; i <= num; i++) {
@@ -160,8 +125,6 @@ function sumOfNumberAndReverse(num: number): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -187,10 +150,23 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+bool sumOfNumberAndReverse(int num) {
+    for (int i = 0; i <= num; i++) {
+        int t = i;
+        int j = 0;
+        while (t > 0) {
+            j = j * 10 + t % 10;
+            t /= 10;
+        }
+        if (i + j == num) {
+            return 1;
+        }
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

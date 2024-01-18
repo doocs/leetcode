@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：队列 + 模拟**
+### 方法一：队列 + 模拟
 
 我们创建两个队列 $qr$ 和 $qd$，分别记录天辉和夜魇阵营的参议员的下标。然后我们开始进行模拟，每一轮各从队首取出一位参议员，然后根据他的阵营进行不同的操作：
 
@@ -72,10 +70,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为参议员的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -97,10 +91,6 @@ class Solution:
             qd.popleft()
         return "Radiant" if qr else "Dire"
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -161,8 +149,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func predictPartyVictory(senate string) string {
 	n := len(senate)
@@ -191,8 +177,6 @@ func predictPartyVictory(senate string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function predictPartyVictory(senate: string): string {
     const n = senate.length;
@@ -217,8 +201,6 @@ function predictPartyVictory(senate: string): string {
     return qr.length > 0 ? 'Radiant' : 'Dire';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -253,10 +235,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

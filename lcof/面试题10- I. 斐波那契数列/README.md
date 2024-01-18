@@ -38,15 +38,13 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.</pre>
 
 ## 解法
 
-**方法一：递推**
+### 方法一：递推
 
 我们定义初始项 $a=0$, $b=1$，接下来执行 $n$ 次循环，每次循环中，计算 $c=a+b$，并更新 $a=b$, $b=c$，循环 $n$ 次后，答案即为 $a$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为输入的整数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -56,8 +54,6 @@ class Solution:
             a, b = b, (a + b) % 1000000007
         return a
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -72,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -90,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func fib(n int) int {
 	a, b := 0, 1
@@ -102,7 +94,29 @@ func fib(n int) int {
 }
 ```
 
-### **JavaScript**
+```ts
+function fib(n: number): number {
+    let a: number = 0,
+        b: number = 1;
+    for (let i: number = 0; i < n; i++) {
+        let c: number = (a + b) % 1000000007;
+        [a, b] = [b, c];
+    }
+    return a;
+}
+```
+
+```rust
+impl Solution {
+    pub fn fib(n: i32) -> i32 {
+        let mut tup = (0, 1);
+        for _ in 0..n {
+            tup = (tup.1, (tup.0 + tup.1) % 1000000007);
+        }
+        return tup.0;
+    }
+}
+```
 
 ```js
 /**
@@ -119,36 +133,6 @@ var fib = function (n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function fib(n: number): number {
-    let a: number = 0,
-        b: number = 1;
-    for (let i: number = 0; i < n; i++) {
-        let c: number = (a + b) % 1000000007;
-        [a, b] = [b, c];
-    }
-    return a;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn fib(n: i32) -> i32 {
-        let mut tup = (0, 1);
-        for _ in 0..n {
-            tup = (tup.1, (tup.0 + tup.1) % 1000000007);
-        }
-        return tup.0;
-    }
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public int Fib(int n) {
@@ -163,10 +147,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

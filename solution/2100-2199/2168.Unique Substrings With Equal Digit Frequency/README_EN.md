@@ -34,9 +34,9 @@ Note that although the substring &quot;12&quot; appears twice, it is only counte
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
         vis = set(s[i : j + 1] for i in range(n) for j in range(i, n) if check(i, j))
         return len(vis)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 func equalDigitFrequency(s string) int {
 	n := len(s)
@@ -141,16 +137,6 @@ func equalDigitFrequency(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

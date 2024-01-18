@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 将 `text` 按空格切分为字符串数组 `words`，并将 `words[0]` 转为小写。然后对 `words` 进行排序（这里需要确保长度相同的情况下，相对顺序保持不变，因此是一种稳定排序）。
 
@@ -67,10 +65,6 @@
 时间复杂度 $O(n\log n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -81,10 +75,6 @@ class Solution:
         words[0] = words[0].title()
         return " ".join(words)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func arrangeWords(text string) string {
 	words := strings.Split(text, " ")
@@ -137,7 +123,29 @@ func arrangeWords(text string) string {
 }
 ```
 
-### **PHP**
+```ts
+function arrangeWords(text: string): string {
+    let words: string[] = text.split(' ');
+    words[0] = words[0].toLowerCase();
+    words.sort((a, b) => a.length - b.length);
+    words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+    return words.join(' ');
+}
+```
+
+```js
+/**
+ * @param {string} text
+ * @return {string}
+ */
+var arrangeWords = function (text) {
+    let arr = text.split(' ');
+    arr[0] = arr[0].toLocaleLowerCase();
+    arr.sort((a, b) => a.length - b.length);
+    arr[0] = arr[0][0].toLocaleUpperCase() + arr[0].substr(1);
+    return arr.join(' ');
+};
+```
 
 ```php
 class Solution {
@@ -162,38 +170,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function arrangeWords(text: string): string {
-    let words: string[] = text.split(' ');
-    words[0] = words[0].toLowerCase();
-    words.sort((a, b) => a.length - b.length);
-    words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
-    return words.join(' ');
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} text
- * @return {string}
- */
-var arrangeWords = function (text) {
-    let arr = text.split(' ');
-    arr[0] = arr[0].toLocaleLowerCase();
-    arr.sort((a, b) => a.length - b.length);
-    arr[0] = arr[0][0].toLocaleUpperCase() + arr[0].substr(1);
-    return arr.join(' ');
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

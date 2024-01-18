@@ -1,34 +1,33 @@
 class TopVotedCandidate {
     private int[] times;
-    private int[] wins;
+    private int[] winPersons;
 
     public TopVotedCandidate(int[] persons, int[] times) {
-        int n = persons.length;
-        int mx = 0, cur = 0;
         this.times = times;
-        wins = new int[n];
-        int[] counter = new int[n];
+        int mx = -1, curWin = -1;
+        int n = persons.length;
+        int[] counter = new int[n + 1];
+        winPersons = new int[n];
         for (int i = 0; i < n; ++i) {
-            int p = persons[i];
-            if (++counter[p] >= mx) {
-                mx = counter[p];
-                cur = p;
+            if (++counter[persons[i]] >= mx) {
+                mx = counter[persons[i]];
+                curWin = persons[i];
             }
-            wins[i] = cur;
+            winPersons[i] = curWin;
         }
     }
 
     public int q(int t) {
-        int left = 0, right = wins.length - 1;
+        int left = 0, right = winPersons.length - 1;
         while (left < right) {
-            int mid = (left + right + 1) >>> 1;
+            int mid = (left + right + 1) >> 1;
             if (times[mid] <= t) {
                 left = mid;
             } else {
                 right = mid - 1;
             }
         }
-        return wins[left];
+        return winPersons[left];
     }
 }
 

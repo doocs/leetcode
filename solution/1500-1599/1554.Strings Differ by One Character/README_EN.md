@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
                 s.add(t)
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +99,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func differByOne(dict []string) bool {
 	s := make(map[string]bool)
@@ -121,10 +115,6 @@ func differByOne(dict []string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

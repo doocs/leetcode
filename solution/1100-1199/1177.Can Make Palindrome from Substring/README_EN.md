@@ -45,7 +45,7 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 
 ## Solutions
 
-**Solution 1: Prefix Sum**
+### Solution 1: Prefix Sum
 
 First, consider whether a substring can become a palindrome after at most $k$ replacements. Obviously, we need to count the number of times each character appears in the substring, which can be implemented through prefix sum. For characters that appear an even number of times, we do not need to replace them. For characters that appear an odd number of times, we need to replace them. The number of replacements is $\lfloor \frac{x}{2} \rfloor$, where $x$ is the number of characters that appear an odd number of times. If $\lfloor \frac{x}{2} \rfloor \leq k$, then this substring can become a palindrome.
 
@@ -54,8 +54,6 @@ Therefore, we define a prefix sum array $ss$, where $ss[i][j]$ represents the nu
 The time complexity is $O((n + m) \times C)$, and the space complexity is $O(n \times C)$. Here, $n$ and $m$ are the lengths of the string $s$ and the query array respectively; and $C$ is the size of the character set. In this problem, the character set is lowercase English letters, so $C = 26$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -71,8 +69,6 @@ class Solution:
             ans.append(cnt // 2 <= k)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	n := len(s)
@@ -151,8 +143,6 @@ func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
@@ -176,10 +166,6 @@ function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

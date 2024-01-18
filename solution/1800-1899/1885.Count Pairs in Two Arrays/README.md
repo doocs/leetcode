@@ -44,19 +44,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 二分查找**
+### 方法一：排序 + 二分查找
 
 `nums1[i] + nums1[j] > nums2[i] + nums2[j]` 可以转换为 `nums1[i] - nums2[i] > -(nums1[j] - nums2[j])`。
 
 因此，对 nums1 和 nums2 求对应元素的差值，得到 d 数组，题目就是求 `d[i] > -d[j]` 的所有数对个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
         d.sort()
         return sum(n - bisect_right(d, -v, lo=i + 1) for i, v in enumerate(d))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countPairs(nums1 []int, nums2 []int) int64 {
@@ -145,10 +131,6 @@ func countPairs(nums1 []int, nums2 []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

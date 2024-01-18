@@ -60,13 +60,9 @@ Orders 表:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -82,6 +78,12 @@ FROM
     JOIN P AS p2 ON p1.y = p2.y - 1 AND p1.product_id = p2.product_id
 WHERE p1.mark AND p2.mark;
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -99,3 +101,5 @@ FROM
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

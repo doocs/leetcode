@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们观察发现，如果矩阵中的两行满足以下条件之一，则它们可以通过翻转某些列的方式得到相等的行：
 
@@ -79,10 +77,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maxEqualRowsAfterFlips(self, matrix: List[List[int]]) -> int:
@@ -92,10 +86,6 @@ class Solution:
             cnt[t] += 1
         return max(cnt.values())
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -114,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxEqualRowsAfterFlips(matrix [][]int) (ans int) {
@@ -155,8 +141,6 @@ func maxEqualRowsAfterFlips(matrix [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxEqualRowsAfterFlips(matrix: number[][]): number {
     const cnt = new Map<string, number>();
@@ -175,10 +159,6 @@ function maxEqualRowsAfterFlips(matrix: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Solution 1: Mathematics**
+### Solution 1: Mathematics
 
 First, count the number of prime numbers within the range $[1,n]$, which we denote as $cnt$. Then, calculate the product of the factorial of $cnt$ and $n-cnt$ to get the answer, remember to perform the modulo operation.
 
@@ -50,8 +50,6 @@ We sequentially traverse each number $i$ in the range $[2,n]$. If this number is
 The time complexity is $O(n \times \log \log n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
         ans = factorial(cnt) * factorial(n - cnt)
         return ans % (10**9 + 7)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 const int MOD = 1e9 + 7;
@@ -141,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numPrimeArrangements(n int) int {
@@ -178,10 +170,6 @@ func numPrimeArrangements(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

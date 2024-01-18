@@ -55,19 +55,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：有序集合 + 滑动窗口**
+### 方法一：有序集合 + 滑动窗口
 
 我们可以枚举每个位置作为子数组的右端点，找到其对应的最靠左的左端点，满足区间内中最大值与最小值的差值不超过 $limit$。过程中，我们用有序集合维护窗口内的最大值和最小值。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -85,10 +79,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -130,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func longestSubarray(nums []int, limit int) (ans int) {
@@ -163,9 +149,7 @@ func longestSubarray(nums []int, limit int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-````ts
+```ts
 function longestSubarray(nums: number[], limit: number): number {
     const ts = new TreapMultiSet<number>();
     let ans = 0;
@@ -281,37 +265,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
     private readonly leftBound: T;
     private readonly rightBound: T;
 
-    /**
-   *
-   * @param compareFn A compare function which returns boolean or number
-   * @param leftBound defalut value is `-Infinity`
-   * @param rightBound defalut value is `Infinity`
-   * @description
-   * create a `MultiSet`, compare elements using `compareFn`, which is increasing order by default.
-   * @example
-   * ```ts
-   * interface Person {
-        name: string
-        age: number
-    }
-
-    const leftBound = {
-        name: 'Alice',
-        age: -Infinity,
-    }
-
-    const rightBound = {
-        name: 'Bob',
-        age: Infinity,
-    }
-
-    const sortedList = new TreapMultiSet<Person>(
-        (a: Person, b: Person) => a.age - b.age,
-        leftBound,
-        rightBound
-    )
-   * ```
-   */
     constructor(compareFn?: CompareFunction<T, 'number'>);
     constructor(compareFn: CompareFunction<T, 'number'>, leftBound: T, rightBound: T);
     constructor(
@@ -828,12 +781,8 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         yield* this.reverseInOrder(root.left);
     }
 }
-````
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

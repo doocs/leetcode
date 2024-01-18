@@ -53,7 +53,7 @@ The 11<sup>th</sup> bit is &quot;1&quot;.
 
 ## Solutions
 
-**Solution 1: Case Analysis + Recursion**
+### Solution 1: Case Analysis + Recursion
 
 We can observe that for $S_n$, the first half is the same as $S_{n-1}$, and the second half is the reverse and negation of $S_{n-1}$. Therefore, we can design a function $dfs(n, k)$, which represents the $k$-th character of the $n$-th string. The answer is $dfs(n, k)$.
 
@@ -67,8 +67,6 @@ The calculation process of the function $dfs(n, k)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the given $n$ in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -85,8 +83,6 @@ class Solution:
 
         return str(dfs(n, k))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -110,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findKthBit(n int, k int) byte {
 	var dfs func(n, k int) int
@@ -156,8 +148,6 @@ func findKthBit(n int, k int) byte {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findKthBit(n: number, k: number): string {
     const dfs = (n: number, k: number): number => {
@@ -177,10 +167,6 @@ function findKthBit(n: number, k: number): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

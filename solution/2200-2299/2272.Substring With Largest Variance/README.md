@@ -48,9 +48,7 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 动态规划**
+### 方法一：枚举 + 动态规划
 
 由于字符集只包含小写字母，我们可以考虑枚举出现次数最多的字符 $a$ 以及出现次数最少的字符 $b$。对于一个子串来说，这两种字符出现的次数之差就是子串的波动值。
 
@@ -67,10 +65,6 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 时间复杂度 $O(n\times C^2)$，其中 $n$ 表示字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                     ans = f[1]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -152,8 +140,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestVariance(s string) int {
 	ans, n := 0, len(s)
@@ -179,16 +165,6 @@ func largestVariance(s string) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

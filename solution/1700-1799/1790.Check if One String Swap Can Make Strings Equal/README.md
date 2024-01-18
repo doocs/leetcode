@@ -51,23 +51,17 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：简单计数**
+### 方法一：计数
 
 我们用变量 $cnt$ 记录两个字符串中相同位置字符不同的个数，两个字符串若满足题目要求，那么 $cnt$ 一定为 $0$ 或 $2$。另外用两个字符变量 $c1$ 和 $c2$ 记录两个字符串中相同位置字符不同的字符。
 
 同时遍历两个字符串，对于相同位置的两个字符 $a$ 和 $b$，如果 $a \ne b$，那么 $cnt$ 自增 $1$。如果此时 $cnt$ 大于 $2$，或者 $cnt$ 为 $2$ 且 $a \ne c2$ 或 $b \ne c1$，那么直接返回 `false`。注意记录一下 $c1$ 和 $c2$。
 
-遍历结束，若 $cnt\neq 1$，返回 `true`。
+遍历结束，若 $cnt \neq 1$，返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 c1, c2 = a, b
         return cnt != 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +117,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func areAlmostEqual(s1 string, s2 string) bool {
 	cnt := 0
@@ -149,7 +135,45 @@ func areAlmostEqual(s1 string, s2 string) bool {
 }
 ```
 
-### **C**
+```ts
+function areAlmostEqual(s1: string, s2: string): boolean {
+    let c1, c2;
+    let cnt = 0;
+    for (let i = 0; i < s1.length; ++i) {
+        const a = s1.charAt(i);
+        const b = s2.charAt(i);
+        if (a != b) {
+            if (++cnt > 2 || (cnt == 2 && (a != c2 || b != c1))) {
+                return false;
+            }
+            c1 = a;
+            c2 = b;
+        }
+    }
+    return cnt != 1;
+}
+```
+
+```rust
+impl Solution {
+    pub fn are_almost_equal(s1: String, s2: String) -> bool {
+        if s1 == s2 {
+            return true;
+        }
+        let (s1, s2) = (s1.as_bytes(), s2.as_bytes());
+        let mut idxs = vec![];
+        for i in 0..s1.len() {
+            if s1[i] != s2[i] {
+                idxs.push(i);
+            }
+        }
+        if idxs.len() != 2 {
+            return false;
+        }
+        s1[idxs[0]] == s2[idxs[1]] && s2[idxs[0]] == s1[idxs[1]]
+    }
+}
+```
 
 ```c
 bool areAlmostEqual(char* s1, char* s2) {
@@ -177,54 +201,6 @@ bool areAlmostEqual(char* s1, char* s2) {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function areAlmostEqual(s1: string, s2: string): boolean {
-    let c1, c2;
-    let cnt = 0;
-    for (let i = 0; i < s1.length; ++i) {
-        const a = s1.charAt(i);
-        const b = s2.charAt(i);
-        if (a != b) {
-            if (++cnt > 2 || (cnt == 2 && (a != c2 || b != c1))) {
-                return false;
-            }
-            c1 = a;
-            c2 = b;
-        }
-    }
-    return cnt != 1;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn are_almost_equal(s1: String, s2: String) -> bool {
-        if s1 == s2 {
-            return true;
-        }
-        let (s1, s2) = (s1.as_bytes(), s2.as_bytes());
-        let mut idxs = vec![];
-        for i in 0..s1.len() {
-            if s1[i] != s2[i] {
-                idxs.push(i);
-            }
-        }
-        if idxs.len() != 2 {
-            return false;
-        }
-        s1[idxs[0]] == s2[idxs[1]] && s2[idxs[0]] == s1[idxs[1]]
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

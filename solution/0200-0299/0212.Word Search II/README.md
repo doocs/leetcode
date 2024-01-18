@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀树 + DFS**
+### 方法一：前缀树 + DFS
 
 我们首先将 `words` 中的单词构建成前缀树，前缀树的每个节点包含一个长度为 $26$ 的数组 `children`，表示该节点的子节点，数组的下标表示子节点对应的字符，数组的值表示子节点的引用。同时，每个节点还包含一个整数 `ref`，表示该节点对应的单词在 `words` 中的引用，如果该节点不是单词的结尾，则 `ref` 的值为 $-1$。
 
@@ -56,10 +54,6 @@
 时间复杂度 $(m \times n \times 3^{l-1})$，空间复杂度 $(k \times l)$。其中 $m$ 和 $n$ 分别是 `board` 的行数和列数。而 $l$ 和 $k$ 分别是 `words` 中的单词的平均长度和单词的个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Trie:
@@ -105,10 +99,6 @@ class Solution:
                 dfs(tree, i, j)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Trie {
@@ -172,8 +162,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Trie {
@@ -240,8 +228,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -299,8 +285,6 @@ func findWords(board [][]byte, words []string) (ans []string) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class Trie {
@@ -364,10 +348,6 @@ function findWords(board: string[][], words: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

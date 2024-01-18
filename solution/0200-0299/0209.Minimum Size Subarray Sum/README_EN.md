@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: Prefix Sum + Binary Search**
+### Solution 1: Prefix Sum + Binary Search
 
 First, we preprocess the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$. Since all elements in the array $nums$ are positive integers, the array $s$ is also monotonically increasing. Also, we initialize the answer $ans = n + 1$, where $n$ is the length of the array $nums$.
 
@@ -53,19 +53,7 @@ Finally, if $ans \leq n$, it means that there exists a subarray that satisfies t
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
-**Solution 2: Two Pointers**
-
-We can use two pointers $j$ and $i$ to maintain a window, where the sum of all elements in the window is less than $target$. Initially, $j = 0$, and the answer $ans = n + 1$, where $n$ is the length of the array $nums$.
-
-Next, the pointer $i$ starts to move to the right from $0$, moving one step each time. We add the element corresponding to the pointer $i$ to the window and update the sum of the elements in the window. If the sum of the elements in the window is greater than or equal to $target$, it means that the current subarray satisfies the condition, and we can update the answer, i.e., $ans = \min(ans, i - j + 1)$. Then we continuously remove the element $nums[j]$ from the window until the sum of the elements in the window is less than $target$, and then repeat the above process.
-
-Finally, if $ans \leq n$, it means that there exists a subarray that satisfies the condition, return $ans$, otherwise return $0$.
-
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -79,23 +67,6 @@ class Solution:
                 ans = min(ans, j - i)
         return ans if ans <= n else 0
 ```
-
-```python
-class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        n = len(nums)
-        ans = n + 1
-        s = j = 0
-        for i, x in enumerate(nums):
-            s += x
-            while j < n and s >= target:
-                ans = min(ans, i - j + 1)
-                s -= nums[j]
-                j += 1
-        return ans if ans <= n else 0
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,26 +101,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minSubArrayLen(int target, int[] nums) {
-        int n = nums.length;
-        long s = 0;
-        int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (j < n && s >= target) {
-                ans = Math.min(ans, i - j + 1);
-                s -= nums[j++];
-            }
-        }
-        return ans <= n ? ans : 0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -171,27 +122,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int minSubArrayLen(int target, vector<int>& nums) {
-        int n = nums.size();
-        long long s = 0;
-        int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (j < n && s >= target) {
-                ans = min(ans, i - j + 1);
-                s -= nums[j++];
-            }
-        }
-        return ans == n + 1 ? 0 : ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	n := len(nums)
@@ -212,48 +142,6 @@ func minSubArrayLen(target int, nums []int) int {
 	return ans
 }
 ```
-
-```go
-func minSubArrayLen(target int, nums []int) int {
-	n := len(nums)
-	s := 0
-	ans := n + 1
-	for i, j := 0, 0; i < n; i++ {
-		s += nums[i]
-		for s >= target {
-			ans = min(ans, i-j+1)
-			s -= nums[j]
-			j++
-		}
-	}
-	if ans == n+1 {
-		return 0
-	}
-	return ans
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MinSubArrayLen(int target, int[] nums) {
-        int n = nums.Length;
-        long s = 0;
-        int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (s >= target) {
-                ans = Math.Min(ans, i - j + 1);
-                s -= nums[j++];
-            }
-        }
-        return ans == n + 1 ? 0 : ans;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
@@ -286,24 +174,6 @@ function minSubArrayLen(target: number, nums: number[]): number {
 }
 ```
 
-```ts
-function minSubArrayLen(target: number, nums: number[]): number {
-    const n = nums.length;
-    let s = 0;
-    let ans = n + 1;
-    for (let i = 0, j = 0; i < n; ++i) {
-        s += nums[i];
-        while (s >= target) {
-            ans = Math.min(ans, i - j + 1);
-            s -= nums[j++];
-        }
-    }
-    return ans === n + 1 ? 0 : ans;
-}
-```
-
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn min_sub_array_len(target: i32, nums: Vec<i32>) -> i32 {
@@ -328,10 +198,126 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int MinSubArrayLen(int target, int[] nums) {
+        int n = nums.Length;
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (s >= target) {
+                ans = Math.Min(ans, i - j + 1);
+                s -= nums[j++];
+            }
+        }
+        return ans == n + 1 ? 0 : ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2: Two Pointers
+
+We can use two pointers $j$ and $i$ to maintain a window, where the sum of all elements in the window is less than $target$. Initially, $j = 0$, and the answer $ans = n + 1$, where $n$ is the length of the array $nums$.
+
+Next, the pointer $i$ starts to move to the right from $0$, moving one step each time. We add the element corresponding to the pointer $i$ to the window and update the sum of the elements in the window. If the sum of the elements in the window is greater than or equal to $target$, it means that the current subarray satisfies the condition, and we can update the answer, i.e., $ans = \min(ans, i - j + 1)$. Then we continuously remove the element $nums[j]$ from the window until the sum of the elements in the window is less than $target$, and then repeat the above process.
+
+Finally, if $ans \leq n$, it means that there exists a subarray that satisfies the condition, return $ans$, otherwise return $0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        n = len(nums)
+        ans = n + 1
+        s = j = 0
+        for i, x in enumerate(nums):
+            s += x
+            while j < n and s >= target:
+                ans = min(ans, i - j + 1)
+                s -= nums[j]
+                j += 1
+        return ans if ans <= n else 0
+```
+
+```java
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = Math.min(ans, i - j + 1);
+                s -= nums[j++];
+            }
+        }
+        return ans <= n ? ans : 0;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int n = nums.size();
+        long long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = min(ans, i - j + 1);
+                s -= nums[j++];
+            }
+        }
+        return ans == n + 1 ? 0 : ans;
+    }
+};
+```
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+	n := len(nums)
+	s := 0
+	ans := n + 1
+	for i, j := 0, 0; i < n; i++ {
+		s += nums[i]
+		for s >= target {
+			ans = min(ans, i-j+1)
+			s -= nums[j]
+			j++
+		}
+	}
+	if ans == n+1 {
+		return 0
+	}
+	return ans
+}
+```
+
+```ts
+function minSubArrayLen(target: number, nums: number[]): number {
+    const n = nums.length;
+    let s = 0;
+    let ans = n + 1;
+    for (let i = 0, j = 0; i < n; ++i) {
+        s += nums[i];
+        while (s >= target) {
+            ans = Math.min(ans, i - j + 1);
+            s -= nums[j++];
+        }
+    }
+    return ans === n + 1 ? 0 : ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

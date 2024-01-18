@@ -53,9 +53,9 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
 
         return sorted(logs, key=cmp)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function reorderLogFiles(logs: string[]): string[] {
@@ -120,8 +116,6 @@ function reorderLogFiles(logs: string[]): string[] {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn reorder_log_files(mut logs: Vec<String>) -> Vec<String> {
@@ -145,10 +139,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

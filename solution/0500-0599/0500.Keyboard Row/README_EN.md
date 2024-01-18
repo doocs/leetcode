@@ -47,9 +47,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,20 +64,6 @@ class Solution:
                 ans.append(w)
         return ans
 ```
-
-```python
-class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
-        ans = []
-        s = "12210111011122000010020202"
-        for w in words:
-            x = s[ord(w[0].lower()) - ord('a')]
-            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
-                ans.append(w)
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findWords(words []string) (ans []string) {
 	s := "12210111011122000010020202"
@@ -151,7 +133,27 @@ func findWords(words []string) (ans []string) {
 }
 ```
 
-### **C#**
+```ts
+function findWords(words: string[]): string[] {
+    const s = '12210111011122000010020202';
+    const ans: string[] = [];
+    for (const w of words) {
+        const t = w.toLowerCase();
+        const x = s[t.charCodeAt(0) - 'a'.charCodeAt(0)];
+        let ok = true;
+        for (const c of t) {
+            if (s[c.charCodeAt(0) - 'a'.charCodeAt(0)] !== x) {
+                ok = false;
+                break;
+            }
+        }
+        if (ok) {
+            ans.push(w);
+        }
+    }
+    return ans;
+}
+```
 
 ```cs
 public class Solution {
@@ -176,34 +178,24 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function findWords(words: string[]): string[] {
-    const s = '12210111011122000010020202';
-    const ans: string[] = [];
-    for (const w of words) {
-        const t = w.toLowerCase();
-        const x = s[t.charCodeAt(0) - 'a'.charCodeAt(0)];
-        let ok = true;
-        for (const c of t) {
-            if (s[c.charCodeAt(0) - 'a'.charCodeAt(0)] !== x) {
-                ok = false;
-                break;
-            }
-        }
-        if (ok) {
-            ans.push(w);
-        }
-    }
-    return ans;
-}
-```
+### Solution 2
 
-### **...**
+<!-- tabs:start -->
 
-```
-
+```python
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        ans = []
+        s = "12210111011122000010020202"
+        for w in words:
+            x = s[ord(w[0].lower()) - ord('a')]
+            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
+                ans.append(w)
+        return ans
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

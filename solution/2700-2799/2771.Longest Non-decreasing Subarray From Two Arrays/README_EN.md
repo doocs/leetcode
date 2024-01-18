@@ -55,28 +55,9 @@ The entire array forms a non-decreasing subarray of length 2, making it the maxi
 
 ## Solutions
 
-**Solution 1：Dynamic Programming**
-
-We define two variables $f$ and $g$, which represent the longest non-decreasing subarray length at the current position, where $f$ represents the longest non-decreasing subarray length ending in the $nums1$ element, and $g$ represents the longest non-decreasing subarray length ending in the $nums2$ element. At the beginning, $f = g = 1$, and the initial answer $ans = 1$.
-
-Next, we traverse the array elements in the range of $i \in [1, n)$, for each $i$, we define two variables $ff$ and $gg$, which represent the longest non-decreasing subarray length ending in the $nums1[i]$ and $nums2[i]$ element, respectively, and initialize $ff = gg = 1$.
-
-We can calculate the value of $ff$ and $gg$ from the values of $f$ and $g$:
-
--   If $nums1[i] \ge nums1[i - 1]$, then $ff = max(ff, f + 1)$;
--   If $nums1[i] \ge nums2[i - 1]$, then $ff = max(ff, g + 1)$;
--   If $nums2[i] \ge nums1[i - 1]$, then $gg = max(gg, f + 1)$;
--   If $nums2[i] \ge nums2[i - 1]$, then $gg = max(gg, g + 1)$.
-
-Then, we update $f = ff$ and $g = gg$, and update $ans$ to $max(ans, f, g)$.
-
-After the traversal is over, we return $ans$.
-
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,8 +79,6 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +139,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -188,8 +163,6 @@ func maxNonDecreasingLength(nums1 []int, nums2 []int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {
@@ -217,10 +190,6 @@ function maxNonDecreasingLength(nums1: number[], nums2: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,13 +1,13 @@
 func minimumRemoval(beans []int) int64 {
 	sort.Ints(beans)
 	s := 0
-	for _, v := range beans {
-		s += v
+	for _, x := range beans {
+		s += x
 	}
 	ans := s
 	n := len(beans)
-	for i, v := range beans {
-		ans = min(ans, s-v*(n-i))
+	for i, x := range beans {
+		ans = min(ans, s-x*(n-i))
 	}
 	return int64(ans)
 }

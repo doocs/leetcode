@@ -1,13 +1,10 @@
 class Solution {
 public:
     int findRepeatNumber(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
         for (int i = 0;; ++i) {
-            while (nums[i] != i) {
-                int j = nums[i];
-                if (nums[j] == j) {
-                    return j;
-                }
-                swap(nums[i], nums[j]);
+            if (nums[i] == nums[i + 1]) {
+                return nums[i];
             }
         }
     }

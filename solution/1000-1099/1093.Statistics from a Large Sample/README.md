@@ -63,9 +63,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们直接根据题目描述模拟即可，定义以下变量：
 
@@ -92,10 +90,6 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 $count$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -124,10 +118,6 @@ class Solution:
         )
         return [mi, mx, s / cnt, median, mode]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -166,8 +156,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -199,8 +187,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sampleStats(count []int) []float64 {
@@ -235,8 +221,6 @@ func sampleStats(count []int) []float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sampleStats(count: number[]): number[] {
     const find = (i: number): number => {
@@ -267,10 +251,6 @@ function sampleStats(count: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

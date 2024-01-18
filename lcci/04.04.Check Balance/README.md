@@ -9,9 +9,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归（后序遍历）**
+### 方法一：递归（后序遍历）
 
 我们设计一个函数 $dfs(root)$，它的作用是返回以 $root$ 为根节点的树的高度，如果以 $root$ 为根节点的树是平衡树，则返回树的高度，否则返回 $-1$。
 
@@ -25,10 +23,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -50,32 +44,6 @@ class Solution:
 
         return dfs(root)[1]
 ```
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        def dfs(root: TreeNode):
-            if root is None:
-                return 0
-            l, r = dfs(root.left), dfs(root.right)
-            if l == -1 or r == -1 or abs(l - r) > 1:
-                return -1
-            return max(l, r) + 1
-
-        return dfs(root) >= 0
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -106,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -136,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -171,8 +135,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -204,10 +166,34 @@ function isBalanced(root: TreeNode | null): boolean {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### 方法二
 
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def dfs(root: TreeNode):
+            if root is None:
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return max(l, r) + 1
+
+        return dfs(root) >= 0
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

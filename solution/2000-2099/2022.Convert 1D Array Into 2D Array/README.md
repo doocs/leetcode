@@ -63,9 +63,7 @@ original 中只有 1 个元素。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 根据题目描述，我们知道，要想构造出一个 $m$ 行 $n$ 列的二维数组，需要满足 $m \times n$ 等于原数组的长度。如果不满足，直接返回空数组即可。
 
@@ -75,10 +73,6 @@ original 中只有 1 个元素。
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
@@ -86,10 +80,6 @@ class Solution:
             return []
         return [original[i : i + n] for i in range(0, m * n, n)]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +116,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	if m*n != len(original) {
@@ -142,7 +128,18 @@ func construct2DArray(original []int, m int, n int) (ans [][]int) {
 }
 ```
 
-### **JavaScript**
+```ts
+function construct2DArray(original: number[], m: number, n: number): number[][] {
+    if (m * n != original.length) {
+        return [];
+    }
+    const ans: number[][] = [];
+    for (let i = 0; i < m * n; i += n) {
+        ans.push(original.slice(i, i + n));
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -163,25 +160,6 @@ var construct2DArray = function (original, m, n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function construct2DArray(original: number[], m: number, n: number): number[][] {
-    if (m * n != original.length) {
-        return [];
-    }
-    const ans: number[][] = [];
-    for (let i = 0; i < m * n; i += n) {
-        ans.push(original.slice(i, i + n));
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

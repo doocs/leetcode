@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Solution 1: Three Pointers**
+### Solution 1: Three Pointers
 
 We define three pointers $i$, $j$, and $k$. Pointer $i$ is used to point to the rightmost boundary of the elements with a value of $0$ in the array, and pointer $j$ is used to point to the leftmost boundary of the elements with a value of $2$ in the array. Initially, $i=-1$, $j=n$. Pointer $k$ is used to point to the current element being traversed, initially $k=0$.
 
@@ -54,8 +54,6 @@ After the traversal, the elements in the array are divided into three parts: $[0
 The time complexity is $O(n)$, where $n$ is the length of the array. Only one traversal of the array is needed. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -72,8 +70,6 @@ class Solution:
             else:
                 k += 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,8 +112,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sortColors(nums []int) {
 	i, j, k := -1, len(nums), 0
@@ -137,8 +129,6 @@ func sortColors(nums []int) {
 	}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -163,8 +153,6 @@ function sortColors(nums: number[]): void {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {
@@ -186,8 +174,6 @@ impl Solution {
     }
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -212,10 +198,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

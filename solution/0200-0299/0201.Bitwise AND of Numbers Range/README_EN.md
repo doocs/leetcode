@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -48,8 +48,6 @@ class Solution:
             right &= right - 1
         return right
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -61,8 +59,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -76,8 +72,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func rangeBitwiseAnd(left int, right int) int {
 	for left < right {
@@ -86,21 +80,6 @@ func rangeBitwiseAnd(left int, right int) int {
 	return right
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int RangeBitwiseAnd(int left, int right) {
-        while (left < right) {
-            right &= (right - 1);
-        }
-        return right;
-    }
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -116,10 +95,17 @@ var rangeBitwiseAnd = function (left, right) {
 };
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public int RangeBitwiseAnd(int left, int right) {
+        while (left < right) {
+            right &= (right - 1);
+        }
+        return right;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

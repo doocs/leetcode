@@ -48,9 +48,19 @@ Each dish is prepared in one unit of time.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy + Sorting
 
-### **Python3**
+Suppose we only choose one dish, then we should choose the dish with the highest satisfaction $s_0$, and check whether $s_0$ is greater than 0. If $s_0 \leq 0$, then we don't cook any dishes, otherwise, we cook this dish, and the total satisfaction is $s_0$.
+
+If we choose two dishes, then we should choose the two dishes with the highest satisfaction $s_0$ and $s_1$, and the satisfaction is $s_1 + 2 \times s_0$. At this time, we need to ensure that the satisfaction after the selection is greater than the satisfaction before the selection, that is, $s_1 + 2 \times s_0 > s_0$, which means as long as $s_1 + s_0 > 0$, we can choose these two dishes.
+
+By analogy, we can find a rule, that is, we should choose the $k$ dishes with the highest satisfaction, and ensure that the sum of the satisfaction of the first $k$ dishes is greater than $0$.
+
+In implementation, we can first sort the satisfaction of all dishes, and then start choosing from the dish with the highest satisfaction. Each time we add the satisfaction of the current dish, if the result of the addition is less than or equal to $0$, then we no longer choose the dishes behind, otherwise, we choose this dish.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,10 +73,7 @@ class Solution:
                 break
             ans += s
         return ans
-
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +91,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -105,8 +110,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxSatisfaction(satisfaction []int) (ans int) {
 	sort.Slice(satisfaction, func(i, j int) bool { return satisfaction[i] > satisfaction[j] })
@@ -121,8 +124,6 @@ func maxSatisfaction(satisfaction []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maxSatisfaction(satisfaction: number[]): number {
@@ -139,10 +140,6 @@ function maxSatisfaction(satisfaction: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

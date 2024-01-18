@@ -1,4 +1,4 @@
-﻿public class Solution {
+public class Solution {
     public int MaximalSquare(char[][] matrix) {
         int m = matrix.Length, n = matrix[0].Length;
         var dp = new int[m + 1, n + 1];

@@ -43,9 +43,9 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,20 +56,6 @@ class Solution:
 
         return dfs(0, 0)
 ```
-
-```python
-class Solution:
-    def countVowelStrings(self, n: int) -> int:
-        f = [1] * 5
-        for _ in range(n - 1):
-            s = 0
-            for j in range(5):
-                s += f[j]
-                f[j] = s
-        return sum(f)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,24 +84,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int countVowelStrings(int n) {
-        int[] f = {1, 1, 1, 1, 1};
-        for (int i = 0; i < n - 1; ++i) {
-            int s = 0;
-            for (int j = 0; j < 5; ++j) {
-                s += f[j];
-                f[j] = s;
-            }
-        }
-        return Arrays.stream(f).sum();
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -140,25 +108,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int countVowelStrings(int n) {
-        int f[5] = {1, 1, 1, 1, 1};
-        for (int i = 0; i < n - 1; ++i) {
-            int s = 0;
-            for (int j = 0; j < 5; ++j) {
-                s += f[j];
-                f[j] = s;
-            }
-        }
-        return accumulate(f, f + 5, 0);
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countVowelStrings(n int) int {
 	f := make([][5]int, n)
@@ -181,6 +130,57 @@ func countVowelStrings(n int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        f = [1] * 5
+        for _ in range(n - 1):
+            s = 0
+            for j in range(5):
+                s += f[j]
+                f[j] = s
+        return sum(f)
+```
+
+```java
+class Solution {
+    public int countVowelStrings(int n) {
+        int[] f = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
+            }
+        }
+        return Arrays.stream(f).sum();
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int countVowelStrings(int n) {
+        int f[5] = {1, 1, 1, 1, 1};
+        for (int i = 0; i < n - 1; ++i) {
+            int s = 0;
+            for (int j = 0; j < 5; ++j) {
+                s += f[j];
+                f[j] = s;
+            }
+        }
+        return accumulate(f, f + 5, 0);
+    }
+};
+```
+
 ```go
 func countVowelStrings(n int) (ans int) {
 	f := [5]int{1, 1, 1, 1, 1}
@@ -198,10 +198,6 @@ func countVowelStrings(n int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

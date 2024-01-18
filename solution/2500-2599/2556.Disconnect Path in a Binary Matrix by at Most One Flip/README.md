@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：两次 DFS**
+### 方法一：两次 DFS
 
 我们先进行一次 DFS，判断从 $(0, 0)$ 到 $(m - 1, n - 1)$ 是否存在路径，记结果为 $a$。在 DFS 的过程中，我们将访问过的格子的值置为 $0$，以防止重复访问。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
         b = dfs(0, 0)
         return not (a and b)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isPossibleToCutPath(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -167,8 +153,6 @@ func isPossibleToCutPath(grid [][]int) bool {
 	return !(a && b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function isPossibleToCutPath(grid: number[][]): boolean {
@@ -193,10 +177,6 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -62,9 +62,9 @@ Thus, one milestone in project 0 will remain unfinished.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -73,8 +73,6 @@ class Solution:
         rest = s - mx
         return rest * 2 + 1 if mx > rest + 1 else s
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +100,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWeeks(milestones []int) int64 {
@@ -122,10 +116,6 @@ func numberOfWeeks(milestones []int) int64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们将会议按照开始时间进行排序，然后遍历排序后的会议，如果当前会议的开始时间小于前一个会议的结束时间，则说明两个会议有重叠，返回 `false` 即可。
 
@@ -48,20 +46,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
         intervals.sort()
         return all(a[1] <= b[0] for a, b in pairwise(intervals))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -78,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,7 +86,31 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func canAttendMeetings(intervals [][]int) bool {
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] < intervals[i-1][1] {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```ts
+function canAttendMeetings(intervals: number[][]): boolean {
+    intervals.sort((a, b) => a[0] - b[0]);
+    for (let i = 1; i < intervals.length; ++i) {
+        if (intervals[i][0] < intervals[i - 1][1]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
 
 ```rust
 impl Solution {
@@ -133,40 +145,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func canAttendMeetings(intervals [][]int) bool {
-	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][0] < intervals[j][0]
-	})
-	for i := 1; i < len(intervals); i++ {
-		if intervals[i][0] < intervals[i-1][1] {
-			return false
-		}
-	}
-	return true
-}
-```
-
-### **TypeScript**
-
-```ts
-function canAttendMeetings(intervals: number[][]): boolean {
-    intervals.sort((a, b) => a[0] - b[0]);
-    for (let i = 1; i < intervals.length; ++i) {
-        if (intervals[i][0] < intervals[i - 1][1]) {
-            return false;
-        }
-    }
-    return true;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,11 +47,9 @@ generator.next().done; // true
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
 
 ```ts
 type MultidimensionalArray = (MultidimensionalArray | number)[];
@@ -74,10 +72,6 @@ function* inorderTraversal(arr: MultidimensionalArray): Generator<number, void, 
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

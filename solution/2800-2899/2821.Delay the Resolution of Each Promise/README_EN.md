@@ -50,9 +50,9 @@ ms = 70
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function delayAll(functions: Function[], ms: number): Function[] {
@@ -66,3 +66,5 @@ function delayAll(functions: Function[], ms: number): Function[] {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

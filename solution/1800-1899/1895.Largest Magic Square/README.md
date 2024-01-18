@@ -42,15 +42,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先求每行、每列的前缀和。然后从大到小枚举尺寸 k，找到第一个符合条件的 k，然后返回即可。否则最后返回 1。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
                 i += 1
         return 1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -163,7 +153,111 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    int largestMagicSquare(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid.size();
+        vector<vector<int>> rowsum(m + 1, vector<int>(n + 1));
+        vector<vector<int>> colsum(m + 1, vector<int>(n + 1));
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                rowsum[i][j] = rowsum[i][j - 1] + grid[i - 1][j - 1];
+                colsum[i][j] = colsum[i - 1][j] + grid[i - 1][j - 1];
+            }
+        }
+        for (int k = min(m, n); k > 1; --k) {
+            for (int i = 0; i + k - 1 < m; ++i) {
+                for (int j = 0; j + k - 1 < n; ++j) {
+                    int i2 = i + k - 1, j2 = j + k - 1;
+                    if (check(grid, rowsum, colsum, i, j, i2, j2))
+                        return k;
+                }
+            }
+        }
+        return 1;
+    }
+
+    bool check(vector<vector<int>>& grid, vector<vector<int>>& rowsum, vector<vector<int>>& colsum, int x1, int y1, int x2, int y2) {
+        int val = rowsum[x1 + 1][y2 + 1] - rowsum[x1 + 1][y1];
+        for (int i = x1 + 1; i <= x2; ++i)
+            if (rowsum[i + 1][y2 + 1] - rowsum[i + 1][y1] != val)
+                return false;
+        for (int j = y1; j <= y2; ++j)
+            if (colsum[x2 + 1][j + 1] - colsum[x1][j + 1] != val)
+                return false;
+        int s = 0;
+        for (int i = x1, j = y1; i <= x2; ++i, ++j)
+            s += grid[i][j];
+        if (s != val)
+            return false;
+        s = 0;
+        for (int i = x1, j = y2; i <= x2; ++i, --j)
+            s += grid[i][j];
+        if (s != val)
+            return false;
+        return true;
+    }
+};
+```
+
+```go
+func largestMagicSquare(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	rowsum := make([][]int, m+1)
+	colsum := make([][]int, m+1)
+	for i := 0; i <= m; i++ {
+		rowsum[i] = make([]int, n+1)
+		colsum[i] = make([]int, n+1)
+	}
+	for i := 1; i < m+1; i++ {
+		for j := 1; j < n+1; j++ {
+			rowsum[i][j] = rowsum[i][j-1] + grid[i-1][j-1]
+			colsum[i][j] = colsum[i-1][j] + grid[i-1][j-1]
+		}
+	}
+	for k := min(m, n); k > 1; k-- {
+		for i := 0; i+k-1 < m; i++ {
+			for j := 0; j+k-1 < n; j++ {
+				i2, j2 := i+k-1, j+k-1
+				if check(grid, rowsum, colsum, i, j, i2, j2) {
+					return k
+				}
+			}
+		}
+	}
+	return 1
+}
+
+func check(grid, rowsum, colsum [][]int, x1, y1, x2, y2 int) bool {
+	val := rowsum[x1+1][y2+1] - rowsum[x1+1][y1]
+	for i := x1 + 1; i < x2+1; i++ {
+		if rowsum[i+1][y2+1]-rowsum[i+1][y1] != val {
+			return false
+		}
+	}
+	for j := y1; j < y2+1; j++ {
+		if colsum[x2+1][j+1]-colsum[x1][j+1] != val {
+			return false
+		}
+	}
+	s := 0
+	for i, j := x1, y1; i <= x2; i, j = i+1, j+1 {
+		s += grid[i][j]
+	}
+	if s != val {
+		return false
+	}
+	s = 0
+	for i, j := x1, y2; i <= x2; i, j = i+1, j-1 {
+		s += grid[i][j]
+	}
+	if s != val {
+		return false
+	}
+	return true
+}
+```
 
 ```ts
 function largestMagicSquare(grid: number[][]): number {
@@ -239,120 +333,6 @@ function valid(
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int largestMagicSquare(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid.size();
-        vector<vector<int>> rowsum(m + 1, vector<int>(n + 1));
-        vector<vector<int>> colsum(m + 1, vector<int>(n + 1));
-        for (int i = 1; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                rowsum[i][j] = rowsum[i][j - 1] + grid[i - 1][j - 1];
-                colsum[i][j] = colsum[i - 1][j] + grid[i - 1][j - 1];
-            }
-        }
-        for (int k = min(m, n); k > 1; --k) {
-            for (int i = 0; i + k - 1 < m; ++i) {
-                for (int j = 0; j + k - 1 < n; ++j) {
-                    int i2 = i + k - 1, j2 = j + k - 1;
-                    if (check(grid, rowsum, colsum, i, j, i2, j2))
-                        return k;
-                }
-            }
-        }
-        return 1;
-    }
-
-    bool check(vector<vector<int>>& grid, vector<vector<int>>& rowsum, vector<vector<int>>& colsum, int x1, int y1, int x2, int y2) {
-        int val = rowsum[x1 + 1][y2 + 1] - rowsum[x1 + 1][y1];
-        for (int i = x1 + 1; i <= x2; ++i)
-            if (rowsum[i + 1][y2 + 1] - rowsum[i + 1][y1] != val)
-                return false;
-        for (int j = y1; j <= y2; ++j)
-            if (colsum[x2 + 1][j + 1] - colsum[x1][j + 1] != val)
-                return false;
-        int s = 0;
-        for (int i = x1, j = y1; i <= x2; ++i, ++j)
-            s += grid[i][j];
-        if (s != val)
-            return false;
-        s = 0;
-        for (int i = x1, j = y2; i <= x2; ++i, --j)
-            s += grid[i][j];
-        if (s != val)
-            return false;
-        return true;
-    }
-};
-```
-
-### **Go**
-
-```go
-func largestMagicSquare(grid [][]int) int {
-	m, n := len(grid), len(grid[0])
-	rowsum := make([][]int, m+1)
-	colsum := make([][]int, m+1)
-	for i := 0; i <= m; i++ {
-		rowsum[i] = make([]int, n+1)
-		colsum[i] = make([]int, n+1)
-	}
-	for i := 1; i < m+1; i++ {
-		for j := 1; j < n+1; j++ {
-			rowsum[i][j] = rowsum[i][j-1] + grid[i-1][j-1]
-			colsum[i][j] = colsum[i-1][j] + grid[i-1][j-1]
-		}
-	}
-	for k := min(m, n); k > 1; k-- {
-		for i := 0; i+k-1 < m; i++ {
-			for j := 0; j+k-1 < n; j++ {
-				i2, j2 := i+k-1, j+k-1
-				if check(grid, rowsum, colsum, i, j, i2, j2) {
-					return k
-				}
-			}
-		}
-	}
-	return 1
-}
-
-func check(grid, rowsum, colsum [][]int, x1, y1, x2, y2 int) bool {
-	val := rowsum[x1+1][y2+1] - rowsum[x1+1][y1]
-	for i := x1 + 1; i < x2+1; i++ {
-		if rowsum[i+1][y2+1]-rowsum[i+1][y1] != val {
-			return false
-		}
-	}
-	for j := y1; j < y2+1; j++ {
-		if colsum[x2+1][j+1]-colsum[x1][j+1] != val {
-			return false
-		}
-	}
-	s := 0
-	for i, j := x1, y1; i <= x2; i, j = i+1, j+1 {
-		s += grid[i][j]
-	}
-	if s != val {
-		return false
-	}
-	s = 0
-	for i, j := x1, y2; i <= x2; i, j = i+1, j-1 {
-		s += grid[i][j]
-	}
-	if s != val {
-		return false
-	}
-	return true
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

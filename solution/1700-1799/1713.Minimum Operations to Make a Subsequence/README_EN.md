@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class BinaryIndexedTree:
@@ -84,8 +84,6 @@ class Solution:
             tree.update(x, t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class BinaryIndexedTree {
@@ -156,8 +154,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -220,8 +216,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 type BinaryIndexedTree struct {
@@ -298,10 +292,6 @@ func lengthOfLIS(nums []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

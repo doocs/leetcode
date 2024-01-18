@@ -38,9 +38,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们观察发现，题目实际上等价于判断字符串 $s2$ 中是否存在窗口大小为 $n$，且窗口内的字符及其个数与字符串 $s1$ 相同的子串。
 
@@ -50,17 +48,7 @@
 
 时间复杂度 $(n + m \times C)$，空间复杂度 $O(C)$。其中 $n$ 和 $m$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
 
-**方法二：滑动窗口优化**
-
-在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $n$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。
-
-时间复杂度 $O(n + m)$，空间复杂度 $O(C)$。其中 $n$ 和 $m$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,43 +65,6 @@ class Solution:
                 return True
         return False
 ```
-
-```python
-class Solution:
-    def checkInclusion(self, s1: str, s2: str) -> bool:
-        n, m = len(s1), len(s2)
-        if n > m:
-            return False
-        cnt = Counter()
-        for a, b in zip(s1, s2):
-            cnt[a] -= 1
-            cnt[b] += 1
-        diff = sum(x != 0 for x in cnt.values())
-        if diff == 0:
-            return True
-        for i in range(n, m):
-            a, b = s2[i - n], s2[i]
-
-            if cnt[b] == 0:
-                diff += 1
-            cnt[b] += 1
-            if cnt[b] == 0:
-                diff -= 1
-
-            if cnt[a] == 0:
-                diff += 1
-            cnt[a] -= 1
-            if cnt[a] == 0:
-                diff -= 1
-
-            if diff == 0:
-                return True
-        return False
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,54 +95,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean checkInclusion(String s1, String s2) {
-        int n = s1.length();
-        int m = s2.length();
-        if (n > m) {
-            return false;
-        }
-        int[] cnt = new int[26];
-        for (int i = 0; i < n; ++i) {
-            --cnt[s1.charAt(i) - 'a'];
-            ++cnt[s2.charAt(i) - 'a'];
-        }
-        int diff = 0;
-        for (int x : cnt) {
-            if (x != 0) {
-                ++diff;
-            }
-        }
-        if (diff == 0) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            int a = s2.charAt(i - n) - 'a';
-            int b = s2.charAt(i) - 'a';
-            if (cnt[b] == 0) {
-                ++diff;
-            }
-            if (++cnt[b] == 0) {
-                --diff;
-            }
-            if (cnt[a] == 0) {
-                ++diff;
-            }
-            if (--cnt[a] == 0) {
-                --diff;
-            }
-            if (diff == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -220,54 +123,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    bool checkInclusion(string s1, string s2) {
-        int n = s1.size(), m = s2.size();
-        if (n > m) {
-            return false;
-        }
-        vector<int> cnt(26);
-        for (int i = 0; i < n; ++i) {
-            --cnt[s1[i] - 'a'];
-            ++cnt[s2[i] - 'a'];
-        }
-        int diff = 0;
-        for (int x : cnt) {
-            if (x) {
-                ++diff;
-            }
-        }
-        if (diff == 0) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            int a = s2[i - n] - 'a';
-            int b = s2[i] - 'a';
-            if (cnt[b] == 0) {
-                ++diff;
-            }
-            if (++cnt[b] == 0) {
-                --diff;
-            }
-            if (cnt[a] == 0) {
-                ++diff;
-            }
-            if (--cnt[a] == 0) {
-                --diff;
-            }
-            if (diff == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func checkInclusion(s1 string, s2 string) bool {
 	n, m := len(s1), len(s2)
@@ -293,52 +148,6 @@ func checkInclusion(s1 string, s2 string) bool {
 	return false
 }
 ```
-
-```go
-func checkInclusion(s1 string, s2 string) bool {
-	n, m := len(s1), len(s2)
-	if n > m {
-		return false
-	}
-	cnt := [26]int{}
-	for i := range s1 {
-		cnt[s1[i]-'a']--
-		cnt[s2[i]-'a']++
-	}
-	diff := 0
-	for _, x := range cnt {
-		if x != 0 {
-			diff++
-		}
-	}
-	if diff == 0 {
-		return true
-	}
-	for i := n; i < m; i++ {
-		a, b := s2[i-n]-'a', s2[i]-'a'
-		if cnt[b] == 0 {
-			diff++
-		}
-		cnt[b]++
-		if cnt[b] == 0 {
-			diff--
-		}
-		if cnt[a] == 0 {
-			diff++
-		}
-		cnt[a]--
-		if cnt[a] == 0 {
-			diff--
-		}
-		if diff == 0 {
-			return true
-		}
-	}
-	return false
-}
-```
-
-### **TypeScript**
 
 ```ts
 function checkInclusion(s1: string, s2: string): boolean {
@@ -385,8 +194,6 @@ function checkInclusion(s1: string, s2: string): boolean {
     return isMatch();
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -437,7 +244,190 @@ impl Solution {
 }
 ```
 
-### **Go**
+<!-- tabs:end -->
+
+### 方法二：滑动窗口优化
+
+在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $n$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(C)$。其中 $n$ 和 $m$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        n, m = len(s1), len(s2)
+        if n > m:
+            return False
+        cnt = Counter()
+        for a, b in zip(s1, s2):
+            cnt[a] -= 1
+            cnt[b] += 1
+        diff = sum(x != 0 for x in cnt.values())
+        if diff == 0:
+            return True
+        for i in range(n, m):
+            a, b = s2[i - n], s2[i]
+
+            if cnt[b] == 0:
+                diff += 1
+            cnt[b] += 1
+            if cnt[b] == 0:
+                diff -= 1
+
+            if cnt[a] == 0:
+                diff += 1
+            cnt[a] -= 1
+            if cnt[a] == 0:
+                diff -= 1
+
+            if diff == 0:
+                return True
+        return False
+```
+
+```java
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+        if (n > m) {
+            return false;
+        }
+        int[] cnt = new int[26];
+        for (int i = 0; i < n; ++i) {
+            --cnt[s1.charAt(i) - 'a'];
+            ++cnt[s2.charAt(i) - 'a'];
+        }
+        int diff = 0;
+        for (int x : cnt) {
+            if (x != 0) {
+                ++diff;
+            }
+        }
+        if (diff == 0) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            int a = s2.charAt(i - n) - 'a';
+            int b = s2.charAt(i) - 'a';
+            if (cnt[b] == 0) {
+                ++diff;
+            }
+            if (++cnt[b] == 0) {
+                --diff;
+            }
+            if (cnt[a] == 0) {
+                ++diff;
+            }
+            if (--cnt[a] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        int n = s1.size(), m = s2.size();
+        if (n > m) {
+            return false;
+        }
+        vector<int> cnt(26);
+        for (int i = 0; i < n; ++i) {
+            --cnt[s1[i] - 'a'];
+            ++cnt[s2[i] - 'a'];
+        }
+        int diff = 0;
+        for (int x : cnt) {
+            if (x) {
+                ++diff;
+            }
+        }
+        if (diff == 0) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            int a = s2[i - n] - 'a';
+            int b = s2[i] - 'a';
+            if (cnt[b] == 0) {
+                ++diff;
+            }
+            if (++cnt[b] == 0) {
+                --diff;
+            }
+            if (cnt[a] == 0) {
+                ++diff;
+            }
+            if (--cnt[a] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+```go
+func checkInclusion(s1 string, s2 string) bool {
+	n, m := len(s1), len(s2)
+	if n > m {
+		return false
+	}
+	cnt := [26]int{}
+	for i := range s1 {
+		cnt[s1[i]-'a']--
+		cnt[s2[i]-'a']++
+	}
+	diff := 0
+	for _, x := range cnt {
+		if x != 0 {
+			diff++
+		}
+	}
+	if diff == 0 {
+		return true
+	}
+	for i := n; i < m; i++ {
+		a, b := s2[i-n]-'a', s2[i]-'a'
+		if cnt[b] == 0 {
+			diff++
+		}
+		cnt[b]++
+		if cnt[b] == 0 {
+			diff--
+		}
+		if cnt[a] == 0 {
+			diff++
+		}
+		cnt[a]--
+		if cnt[a] == 0 {
+			diff--
+		}
+		if diff == 0 {
+			return true
+		}
+	}
+	return false
+}
+```
+
+<!-- tabs:end -->
+
+### 方法三
+
+<!-- tabs:start -->
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
@@ -468,10 +458,6 @@ func checkInclusion(s1 string, s2 string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

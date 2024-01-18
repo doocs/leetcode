@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接遍历**
+### 方法一：直接遍历
 
 我们可以遍历数组 $flips$，记录当前遍历过的元素的最大值 $mx$，若 $mx$ 等于当前遍历到的下标 $i$，则说明前 $i$ 个元素都被翻转过了，即前缀一致，答案累加。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 $flips$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +73,6 @@ class Solution:
             ans += mx == i
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -115,8 +103,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numTimesAllBlue(flips []int) (ans int) {
 	mx := 0
@@ -129,8 +115,6 @@ func numTimesAllBlue(flips []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numTimesAllBlue(flips: number[]): number {
@@ -146,10 +130,6 @@ function numTimesAllBlue(flips: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

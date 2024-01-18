@@ -1,4 +1,5 @@
 class Solution {
+
     public String[] findOcurrences(String text, String first, String second) {
         String[] words = text.split(" ");
         List<String> ans = new ArrayList<>();

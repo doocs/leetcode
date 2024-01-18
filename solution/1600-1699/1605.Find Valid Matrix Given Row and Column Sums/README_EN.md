@@ -47,9 +47,9 @@ Another possible matrix is: [[1,2],
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
                 colSum[j] -= x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -106,8 +102,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func restoreMatrix(rowSum []int, colSum []int) [][]int {
@@ -128,7 +122,22 @@ func restoreMatrix(rowSum []int, colSum []int) [][]int {
 }
 ```
 
-### **JavaScript**
+```ts
+function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
+    const m = rowSum.length;
+    const n = colSum.length;
+    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = Math.min(rowSum[i], colSum[j]);
+            ans[i][j] = x;
+            rowSum[i] -= x;
+            colSum[j] -= x;
+        }
+    }
+    return ans;
+}
+```
 
 ```js
 /**
@@ -152,29 +161,6 @@ var restoreMatrix = function (rowSum, colSum) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
-    const m = rowSum.length;
-    const n = colSum.length;
-    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            const x = Math.min(rowSum[i], colSum[j]);
-            ans[i][j] = x;
-            rowSum[i] -= x;
-            colSum[j] -= x;
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

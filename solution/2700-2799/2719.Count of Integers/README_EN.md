@@ -42,9 +42,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Digit DP
 
-### **Python3**
+The problem is actually asking for the number of integers in the range $[num1,..num2]$ whose digit sum is in the range $[min\_sum,..max\_sum]$. For this kind of range $[l,..r]$ problem, we can consider transforming it into finding the answers for $[1,..r]$ and $[1,..l-1]$, and then subtracting the latter from the former.
+
+For the answer to $[1,..r]$, we can use digit DP to solve it. We design a function $dfs(pos, s, limit)$, which represents the number of schemes when we are currently processing the $pos$th digit, the digit sum is $s$, and whether the current number has an upper limit $limit$. Here, $pos$ is enumerated from high to low.
+
+For $dfs(pos, s, limit)$, we can enumerate the value of the current digit $i$, and then recursively calculate $dfs(pos+1, s+i, limit \bigcap  i==up)$, where $up$ represents the upper limit of the current digit. If $limit$ is true, then $up$ is the upper limit of the current digit, otherwise $up$ is $9$. If $pos$ is greater than or equal to the length of $num$, then we can judge whether $s$ is in the range $[min\_sum,..max\_sum]$. If it is, return $1$, otherwise return $0$.
+
+The time complexity is $O(10 \times n \times max\_sum)$, and the space complexity is $O(n \times max\_sum)$. Here, $n$ represents the length of $num$.
+
+Similar problems:
+
+-   [2801. Count Stepping Numbers in Range](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,7 +64,7 @@ class Solution:
         @cache
         def dfs(pos: int, s: int, limit: bool) -> int:
             if pos >= len(num):
-                return 1 if min_sum <= s <= max_sum else 0
+                return int(min_sum <= s <= max_sum)
             up = int(num[pos]) if limit else 9
             return (
                 sum(dfs(pos + 1, s + i, limit and i == up) for i in range(up + 1)) % mod
@@ -60,14 +72,12 @@ class Solution:
 
         mod = 10**9 + 7
         num = num2
-        ans = dfs(0, 0, True)
+        a = dfs(0, 0, True)
         dfs.cache_clear()
         num = str(int(num1) - 1)
-        ans -= dfs(0, 0, True)
-        return ans % mod
+        b = dfs(0, 0, True)
+        return (a - b) % mod
 ```
-
-### **Java**
 
 ```java
 import java.math.BigInteger;
@@ -84,11 +94,11 @@ class Solution {
         max = max_sum;
         num = num2;
         f = new Integer[23][220];
-        int ans = dfs(0, 0, true);
+        int a = dfs(0, 0, true);
         num = new BigInteger(num1).subtract(BigInteger.ONE).toString();
         f = new Integer[23][220];
-        ans = (ans - dfs(0, 0, true) + mod) % mod;
-        return ans;
+        int b = dfs(0, 0, true);
+        return (a - b + mod) % mod;
     }
 
     private int dfs(int pos, int s, boolean limit) {
@@ -110,8 +120,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -141,8 +149,8 @@ public:
             return ans;
         };
 
-        int ans = dfs(0, 0, true);
-        for (int i = num1.size() - 1; i >= 0; --i) {
+        int a = dfs(0, 0, true);
+        for (int i = num1.size() - 1; ~i; --i) {
             if (num1[i] == '0') {
                 num1[i] = '9';
             } else {
@@ -152,13 +160,11 @@ public:
         }
         num = num1;
         memset(f, -1, sizeof(f));
-        ans -= dfs(0, 0, true);
-        return (ans + mod) % mod;
+        int b = dfs(0, 0, true);
+        return (a - b + mod) % mod;
     }
 };
 ```
-
-### **Go**
 
 ```go
 func count(num1 string, num2 string, min_sum int, max_sum int) int {
@@ -194,7 +200,7 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 		}
 		return ans
 	}
-	ans := dfs(0, 0, true)
+	a := dfs(0, 0, true)
 	t := []byte(num1)
 	for i := len(t) - 1; i >= 0; i-- {
 		if t[i] != '0' {
@@ -210,19 +216,15 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 			f[i][j] = -1
 		}
 	}
-	ans -= dfs(0, 0, true)
-	return (ans%mod + mod) % mod
+	b := dfs(0, 0, true)
+	return (a - b + mod) % mod
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function count(num1: string, num2: string, min_sum: number, max_sum: number): number {
     const mod = 1e9 + 7;
-    let f: number[][] = Array(23)
-        .fill(0)
-        .map(() => Array(220).fill(-1));
+    const f: number[][] = Array.from({ length: 23 }, () => Array(220).fill(-1));
     let num = num2;
     const dfs = (pos: number, s: number, limit: boolean): number => {
         if (pos >= num.length) {
@@ -241,20 +243,14 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
         }
         return ans;
     };
-    let ans = dfs(0, 0, true);
+    const a = dfs(0, 0, true);
     num = (BigInt(num1) - 1n).toString();
-    f = Array(23)
-        .fill(0)
-        .map(() => Array(220).fill(-1));
-    ans = (ans - dfs(0, 0, true) + mod) % mod;
-    return ans;
+    f.forEach(v => v.fill(-1));
+    const b = dfs(0, 0, true);
+    return (a - b + mod) % mod;
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

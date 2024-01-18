@@ -47,9 +47,9 @@ Thus, we return 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,8 +63,6 @@ class Solution:
             cnt[int(str(x)[0])] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countBeautifulPairs(nums []int) (ans int) {
@@ -141,8 +135,6 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function countBeautifulPairs(nums: number[]): number {
@@ -170,10 +162,6 @@ function gcd(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

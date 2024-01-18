@@ -40,15 +40,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：暴力枚举**
+### 方法一：暴力枚举
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +54,6 @@ class Solution:
             for j in range(i + 1, n)
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -82,8 +72,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -100,8 +88,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countPairs(nums []int, k int) int {
 	n := len(nums)
@@ -117,8 +103,6 @@ func countPairs(nums []int, k int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countPairs(nums: number[], k: number): number {
     const n = nums.length;
@@ -133,8 +117,6 @@ function countPairs(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -154,8 +136,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int countPairs(int* nums, int numsSize, int k) {
     int ans = 0;
@@ -170,10 +150,6 @@ int countPairs(int* nums, int numsSize, int k) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

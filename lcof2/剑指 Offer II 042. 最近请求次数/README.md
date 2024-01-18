@@ -50,17 +50,9 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-在第 1、100、3001、3002 这四个时间点分别进行了 ping 请求， 在 3001 秒的时候， 它前面的 3000 秒指的是区间 `[1,3001]`， 所以一共是有 `1、100、3001` 三个请求， t = 3002 的前 3000 秒指的是区间 `[2,3002]`, 所以有 `100、3001、3002` 三次请求。
-
-可以用队列实现。每次将 t 进入队尾，同时从队头开始依次移除小于 `t-3000` 的元素。然后返回队列的大小 `q.size()` 即可。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class RecentCounter:
@@ -78,10 +70,6 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class RecentCounter {
@@ -107,8 +95,6 @@ class RecentCounter {
  */
 ```
 
-### **C++**
-
 ```cpp
 class RecentCounter {
 public:
@@ -132,8 +118,6 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
-
-### **Go**
 
 ```go
 type RecentCounter struct {
@@ -161,7 +145,26 @@ func (this *RecentCounter) Ping(t int) int {
  */
 ```
 
-### **JavaScript**
+```ts
+class RecentCounter {
+    stack: Array<number>;
+    cnt: number;
+    constructor() {
+        this.stack = [];
+        this.cnt = 0;
+    }
+
+    ping(t: number): number {
+        while (this.stack.length && this.stack[0] + 3000 < t) {
+            this.cnt--;
+            this.stack.shift();
+        }
+        this.cnt++;
+        this.stack.push(t);
+        return this.cnt;
+    }
+}
+```
 
 ```js
 var RecentCounter = function () {
@@ -187,10 +190,6 @@ RecentCounter.prototype.ping = function (t) {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

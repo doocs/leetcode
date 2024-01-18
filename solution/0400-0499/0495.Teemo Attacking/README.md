@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：一次遍历**
+### 方法一：一次遍历
 
 我们先考虑最后一次攻击，此次攻击一定可以使得艾希处于中毒状态，所以总中毒时间至少为 `duration`。
 
@@ -62,10 +60,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
@@ -74,10 +68,6 @@ class Solution:
             ans += min(duration, b - a)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -91,8 +81,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -108,8 +96,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 	ans = duration
@@ -120,7 +106,16 @@ func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 }
 ```
 
-### **C#**
+```ts
+function findPoisonedDuration(timeSeries: number[], duration: number): number {
+    const n = timeSeries.length;
+    let ans = duration;
+    for (let i = 1; i < n; ++i) {
+        ans += Math.min(duration, timeSeries[i] - timeSeries[i - 1]);
+    }
+    return ans;
+}
+```
 
 ```cs
 public class Solution {
@@ -135,23 +130,6 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findPoisonedDuration(timeSeries: number[], duration: number): number {
-    const n = timeSeries.length;
-    let ans = duration;
-    for (let i = 1; i < n; ++i) {
-        ans += Math.min(duration, timeSeries[i] - timeSeries[i - 1]);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

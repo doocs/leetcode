@@ -30,11 +30,20 @@
 
 ## Solutions
 
-DFS.
+### Solution 1: DFS + Pruning
+
+The range of $n$ in the problem is $[1, 8]$, so we can directly solve this problem quickly through "brute force search + pruning".
+
+We design a function `dfs(l, r, t)`, where $l$ and $r$ represent the number of left and right parentheses respectively, and $t$ represents the current parentheses sequence. Then we can get the following recursive structure:
+
+-   If $l > n$ or $r > n$ or $l < r$, then the current parentheses combination $t$ is illegal, return directly;
+-   If $l = n$ and $r = n$, then the current parentheses combination $t$ is legal, add it to the answer array `ans`, and return directly;
+-   We can choose to add a left parenthesis, and recursively execute `dfs(l + 1, r, t + "(")`;
+-   We can also choose to add a right parenthesis, and recursively execute `dfs(l, r + 1, t + ")")`.
+
+The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -52,8 +61,6 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -103,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func generateParenthesis(n int) []string {
 	ans := []string{}
@@ -125,33 +128,6 @@ func generateParenthesis(n int) []string {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {string[]}
- */
-var generateParenthesis = function (n) {
-    function dfs(l, r, t) {
-        if (l > n || r > n || l < r) {
-            return;
-        }
-        if (l == n && r == n) {
-            ans.push(t);
-            return;
-        }
-        dfs(l + 1, r, t + '(');
-        dfs(l, r + 1, t + ')');
-    }
-    let ans = [];
-    dfs(0, 0, '');
-    return ans;
-};
-```
-
-### **TypeScript**
-
 ```ts
 function generateParenthesis(n: number): string[] {
     function dfs(l, r, t) {
@@ -170,8 +146,6 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -200,10 +174,29 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function (n) {
+    function dfs(l, r, t) {
+        if (l > n || r > n || l < r) {
+            return;
+        }
+        if (l == n && r == n) {
+            ans.push(t);
+            return;
+        }
+        dfs(l + 1, r, t + '(');
+        dfs(l, r + 1, t + ')');
+    }
+    let ans = [];
+    dfs(0, 0, '');
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

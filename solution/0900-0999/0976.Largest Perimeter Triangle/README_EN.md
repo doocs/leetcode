@@ -37,9 +37,9 @@ As we cannot use any three side lengths to form a triangle of non-zero area, we 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,8 +50,6 @@ class Solution:
                 return c + nums[i]
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -68,8 +66,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -84,8 +80,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestPerimeter(nums []int) int {
 	sort.Ints(nums)
@@ -98,8 +92,6 @@ func largestPerimeter(nums []int) int {
 	return 0
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestPerimeter(nums: number[]): number {
@@ -114,8 +106,6 @@ function largestPerimeter(nums: number[]): number {
     return 0;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -133,8 +123,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int cmp(const void* a, const void* b) {
     return *(int*) b - *(int*) a;
@@ -151,10 +139,6 @@ int largestPerimeter(int* nums, int numsSize) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 将字符串 $s$ 中的所有字符分成“数字”、“字母”两类，分别放入 $a$, $b$ 两个数组中。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
             ans.append(a[-1])
         return ''.join(ans)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -134,8 +124,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reformat(s string) string {
 	a := []byte{}
@@ -197,10 +183,6 @@ func reformat(s string) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int firstUniqChar(string s) {
         int cnt[26]{};

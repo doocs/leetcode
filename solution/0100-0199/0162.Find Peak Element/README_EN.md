@@ -38,7 +38,7 @@
 
 ## Solutions
 
-**Solution 1: Binary Search**
+### Solution 1: Binary Search
 
 We define the left boundary of binary search as $left=0$ and the right boundary as $right=n-1$, where $n$ is the length of the array. In each step of binary search, we find the middle element $mid$ of the current interval, and compare the values of $mid$ and its right neighbor $mid+1$:
 
@@ -49,8 +49,6 @@ We define the left boundary of binary search as $left=0$ and the right boundary 
 The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. Each step of binary search can reduce the search interval by half, so the time complexity is $O(\log n)$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -64,8 +62,6 @@ class Solution:
                 left = mid + 1
         return left
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +79,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +98,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findPeakElement(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -120,8 +112,6 @@ func findPeakElement(nums []int) int {
 	return left
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findPeakElement(nums: number[]): number {
@@ -138,10 +128,6 @@ function findPeakElement(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

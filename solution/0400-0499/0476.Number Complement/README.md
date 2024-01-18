@@ -49,13 +49,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -71,17 +67,6 @@ class Solution:
                 ans |= 1 << i
         return ans
 ```
-
-```python
-class Solution:
-    def findComplement(self, num: int) -> int:
-        return num ^ (2 ** (len(bin(num)[2:])) - 1)
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -103,8 +88,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -114,25 +97,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int findComplement(int num) {
-        int ans = 0;
-        bool find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = num & (1 << i);
-            if (!find && b == 0) continue;
-            find = true;
-            if (b == 0) ans |= (1 << i);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func findComplement(num int) int {
@@ -152,10 +116,35 @@ func findComplement(num int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findComplement(self, num: int) -> int:
+        return num ^ (2 ** (len(bin(num)[2:])) - 1)
 ```
 
+```cpp
+class Solution {
+public:
+    int findComplement(int num) {
+        int ans = 0;
+        bool find = false;
+        for (int i = 30; i >= 0; --i) {
+            int b = num & (1 << i);
+            if (!find && b == 0) continue;
+            find = true;
+            if (b == 0) ans |= (1 << i);
+        }
+        return ans;
+    }
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

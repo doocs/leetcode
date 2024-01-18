@@ -48,19 +48,13 @@ bulbs = [1,3,2]，k = 1
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 我们可以使用树状数组来维护区间和，每一次打开灯泡，我们就在树状数组中更新对应位置的值，然后查询当前位置左边 $k$ 个灯泡是否都是关闭的，并且第 $k+1$ 个灯泡是否已经打开；或者查询当前位置右边 $k$ 个灯泡是否都是关闭的，并且第 $k+1$ 个灯泡是否已经打开。如果满足这两个条件之一，那么就说明当前位置是一个符合要求的位置，我们就可以返回当前的天数。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是灯泡的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class BinaryIndexedTree:
@@ -97,10 +91,6 @@ class Solution:
                 return i
         return -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class BinaryIndexedTree {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class BinaryIndexedTree {
@@ -202,8 +190,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -248,8 +234,6 @@ func kEmptySlots(bulbs []int, k int) int {
 	return -1
 }
 ```
-
-### **TypeScript**
 
 ```ts
 class BinaryIndexedTree {
@@ -297,10 +281,6 @@ function kEmptySlots(bulbs: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

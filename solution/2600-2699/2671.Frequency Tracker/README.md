@@ -79,13 +79,9 @@ frequencyTracker.hasFrequency(1); // 返回 true ，因为 3 出现 1 次
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class FrequencyTracker:
@@ -116,10 +112,6 @@ class FrequencyTracker:
 # obj.deleteOne(number)
 # param_3 = obj.hasFrequency(frequency)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class FrequencyTracker {
@@ -161,8 +153,6 @@ class FrequencyTracker {
  * boolean param_3 = obj.hasFrequency(frequency);
  */
 ```
-
-### **C++**
 
 ```cpp
 class FrequencyTracker {
@@ -207,8 +197,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type FrequencyTracker struct {
 	cnt  map[int]int
@@ -250,8 +238,6 @@ func (this *FrequencyTracker) HasFrequency(frequency int) bool {
  * param_3 := obj.HasFrequency(frequency);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class FrequencyTracker {
@@ -296,10 +282,6 @@ class FrequencyTracker {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

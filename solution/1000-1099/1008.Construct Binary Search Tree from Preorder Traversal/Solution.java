@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+
     public TreeNode bstFromPreorder(int[] preorder) {
         return dfs(preorder, 0, preorder.length - 1);
     }

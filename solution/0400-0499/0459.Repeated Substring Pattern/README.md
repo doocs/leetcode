@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双倍字符串**
+### 方法一：双倍字符串
 
 若长度为 $n$ 的字符串 $s$ 由 $m$ 个重复子串组成，将 $s$ 拼接在自身上，得到字符串 $ss$，长度为 $2n$，此时若从下标 $1$ 开始查找 $s$，那么查找到的下标一定小于 $s$ 的长度。
 
@@ -58,19 +56,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
         return (s + s).index(s, 1) < len(s)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +71,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -92,21 +80,31 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func repeatedSubstringPattern(s string) bool {
 	return strings.Index(s[1:]+s, s) < len(s)-1
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function repeatedSubstringPattern(s: string): boolean {
     return (s + s).slice(1, (s.length << 1) - 1).includes(s);
 }
 ```
+
+```rust
+impl Solution {
+    pub fn repeated_substring_pattern(s: String) -> bool {
+        (s.clone() + &s)[1..s.len() * 2 - 1].contains(&s)
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```ts
 function repeatedSubstringPattern(s: string): boolean {
@@ -131,20 +129,6 @@ function repeatedSubstringPattern(s: string): boolean {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn repeated_substring_pattern(s: String) -> bool {
-        (s.clone() + &s)[1..s.len() * 2 - 1].contains(&s)
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

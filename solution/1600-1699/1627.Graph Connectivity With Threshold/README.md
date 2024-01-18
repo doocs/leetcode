@@ -82,19 +82,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集**
+### 方法一：并查集
 
 我们可以枚举 $z$ 以及 $z$ 的倍数，用并查集将它们连通起来。这样，对于每个查询 $[a, b]$，我们只需要判断 $a$ 和 $b$ 是否在同一个连通块中即可。
 
 时间复杂度 $O(n \times \log n \time (\alpha(n) + q))$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是节点数和查询数，而 $\alpha$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -130,10 +124,6 @@ class Solution:
                 uf.union(a, b)
         return [uf.find(a) == uf.find(b) for a, b in queries]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class UnionFind {
@@ -189,8 +179,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class UnionFind {
 public:
@@ -244,8 +232,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type unionFind struct {
 	p, size []int
@@ -298,8 +284,6 @@ func areConnected(n int, threshold int, queries [][]int) []bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 class UnionFind {
     p: number[];
@@ -345,10 +329,6 @@ function areConnected(n: number, threshold: number, queries: number[][]): boolea
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

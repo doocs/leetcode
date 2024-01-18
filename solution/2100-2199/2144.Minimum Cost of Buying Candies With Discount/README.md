@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们可以先将糖果按照价格从高到低排序，然后每三个糖果中取两个糖果，这样可以保证免费获得的糖果价格最高，从而使得总开销最小。
 
@@ -69,20 +67,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minimumCost(self, cost: List[int]) -> int:
         cost.sort(reverse=True)
         return sum(cost) - sum(cost[2::3])
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumCost(cost []int) (ans int) {
 	sort.Ints(cost)
@@ -133,8 +119,6 @@ func minimumCost(cost []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minimumCost(cost: number[]): number {
@@ -150,10 +134,6 @@ function minimumCost(cost: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

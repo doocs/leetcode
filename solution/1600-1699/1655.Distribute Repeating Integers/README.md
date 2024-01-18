@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩动态规划 + 子集枚举**
+### 方法一：状态压缩动态规划 + 子集枚举
 
 我们先统计数组 $nums$ 中每个数字出现的次数，记录在哈希表 $cnt$ 中，然后将哈希表中的值存入数组 $arr$ 中，我们记数组 $arr$ 的长度为 $n$。
 
@@ -77,10 +75,6 @@
 时间复杂度 $O(n \times 3^m)$，空间复杂度 $O(n \times 2^m)$。其中 $n$ 是数组 $nums$ 中不同整数的个数；而 $m$ 是数组 $quantity$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -113,10 +107,6 @@ class Solution:
                     k = (k - 1) & j
         return f[-1][-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -165,8 +155,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -218,8 +206,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canDistribute(nums []int, quantity []int) bool {
 	m := len(quantity)
@@ -266,8 +252,6 @@ func canDistribute(nums []int, quantity []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function canDistribute(nums: number[], quantity: number[]): boolean {
     const m = quantity.length;
@@ -313,10 +297,6 @@ function canDistribute(nums: number[], quantity: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

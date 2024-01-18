@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function invertObject(obj: Record<any, any>): Record<any, any> {
@@ -66,3 +66,5 @@ function invertObject(obj: Record<any, any>): Record<any, any> {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

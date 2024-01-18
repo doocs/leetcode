@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 哈希表**
+### 方法一：贪心 + 哈希表
 
 我们先用哈希表 `cnt` 统计每个单词出现的次数。
 
@@ -69,10 +67,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def longestPalindrome(self, words: List[str]) -> int:
@@ -87,10 +81,6 @@ class Solution:
         ans += 2 if x else 0
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +129,6 @@ public:
     }
 };
 ```
-
-## **Go**
 
 ```go
 func longestPalindrome(words []string) int {
@@ -169,18 +155,6 @@ func longestPalindrome(words []string) int {
 }
 ```
 
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

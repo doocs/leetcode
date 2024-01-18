@@ -55,9 +55,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -76,8 +76,6 @@ class Solution:
         return "".join(ans)
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public String largestMerge(String word1, String word2) {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +110,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestMerge(word1 string, word2 string) string {
@@ -137,8 +131,6 @@ func largestMerge(word1 string, word2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function largestMerge(word1: string, word2: string): string {
     const m = word1.length;
@@ -154,8 +146,6 @@ function largestMerge(word1: string, word2: string): string {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -182,8 +172,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 char* largestMerge(char* word1, char* word2) {
@@ -218,10 +206,6 @@ char* largestMerge(char* word1, char* word2) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -53,9 +53,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -83,8 +83,6 @@ class Solution:
                 vis.add(i - 1)
                 q.append((i - 1, step))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -127,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -170,8 +166,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minJumps(arr []int) int {
 	idx := map[int][]int{}
@@ -209,10 +203,6 @@ func minJumps(arr []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

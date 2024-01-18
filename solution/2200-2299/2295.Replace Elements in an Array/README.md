@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们先用哈希表 $d$ 记录数组 `nums` 中每个数字的下标，然后遍历操作数组 `operations`，对于每个操作 $[a, b]$，我们将 $a$ 在 `nums` 中的下标 $d[a]$ 对应的数字替换为 $b$，并更新 $d$ 中 $b$ 的下标为 $d[a]$。
 
@@ -69,10 +67,6 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `operations` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
             d[b] = d[a]
         return nums
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -104,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +113,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func arrayChange(nums []int, operations [][]int) []int {
 	d := map[int]int{}
@@ -142,8 +128,6 @@ func arrayChange(nums []int, operations [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function arrayChange(nums: number[], operations: number[][]): number[] {
     const d = new Map(nums.map((v, i) => [v, i]));
@@ -155,10 +139,6 @@ function arrayChange(nums: number[], operations: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

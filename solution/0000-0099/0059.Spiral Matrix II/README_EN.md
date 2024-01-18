@@ -30,7 +30,7 @@
 
 ## Solutions
 
-**Solution 1: Simulation**
+### Solution 1: Simulation
 
 Directly simulate the generation process of the spiral matrix.
 
@@ -41,8 +41,6 @@ Starting from `1`, fill in each position of the matrix in turn. After filling in
 The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. Ignoring the output array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -59,8 +57,6 @@ class Solution:
             i, j = x, y
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func generateMatrix(n int) [][]int {
 	ans := make([][]int, n)
@@ -130,37 +122,6 @@ func generateMatrix(n int) [][]int {
 	return ans
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number[][]}
- */
-var generateMatrix = function (n) {
-    const ans = new Array(n).fill(0).map(() => new Array(n).fill(0));
-    let [i, j, k] = [0, 0, 0];
-    const dirs = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    for (let v = 1; v <= n * n; ++v) {
-        ans[i][j] = v;
-        let [x, y] = [i + dirs[k][0], j + dirs[k][1]];
-        if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0) {
-            k = (k + 1) % 4;
-            [x, y] = [i + dirs[k][0], j + dirs[k][1]];
-        }
-        [i, j] = [x, y];
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 function generateMatrix(n: number): number[][] {
@@ -186,33 +147,6 @@ function generateMatrix(n: number): number[][] {
     return ans;
 }
 ```
-
-```ts
-function generateMatrix(n: number): number[][] {
-    const res = new Array(n).fill(0).map(() => new Array(n).fill(0));
-    let num = 1;
-    for (let i = 0; i < Math.floor(n / 2); i++) {
-        for (let j = i; j < n - i - 1; j++) {
-            res[i][j] = num++;
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res[j][n - i - 1] = num++;
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res[n - i - 1][n - j - 1] = num++;
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res[n - j - 1][i] = num++;
-        }
-    }
-    if (n % 2 === 1) {
-        res[n >> 1][n >> 1] = num;
-    }
-    return res;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -246,10 +180,64 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * @param {number} n
+ * @return {number[][]}
+ */
+var generateMatrix = function (n) {
+    const ans = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    let [i, j, k] = [0, 0, 0];
+    const dirs = [
+        [0, 1],
+        [1, 0],
+        [0, -1],
+        [-1, 0],
+    ];
+    for (let v = 1; v <= n * n; ++v) {
+        ans[i][j] = v;
+        let [x, y] = [i + dirs[k][0], j + dirs[k][1]];
+        if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0) {
+            k = (k + 1) % 4;
+            [x, y] = [i + dirs[k][0], j + dirs[k][1]];
+        }
+        [i, j] = [x, y];
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+function generateMatrix(n: number): number[][] {
+    const res = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    let num = 1;
+    for (let i = 0; i < Math.floor(n / 2); i++) {
+        for (let j = i; j < n - i - 1; j++) {
+            res[i][j] = num++;
+        }
+        for (let j = i; j < n - i - 1; j++) {
+            res[j][n - i - 1] = num++;
+        }
+        for (let j = i; j < n - i - 1; j++) {
+            res[n - i - 1][n - j - 1] = num++;
+        }
+        for (let j = i; j < n - i - 1; j++) {
+            res[n - j - 1][i] = num++;
+        }
+    }
+    if (n % 2 === 1) {
+        res[n >> 1][n >> 1] = num;
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

@@ -40,30 +40,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-回溯法的基本模板：
-
-```py
-res = []
-path = []
-
-def backtrack(未探索区域, res, path):
-    if path 满足条件:
-        res.add(path) # 深度拷贝
-        # return  # 如果不用继续搜索需要 return
-    for 选择 in 未探索区域当前可能的选择:
-        if 当前选择符合要求:
-            path.add(当前选择)
-            backtrack(新的未探索区域, res, path)
-            path.pop()
-```
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +61,6 @@ class Solution:
         dfs(0, len(nums), [])
         return res
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +106,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subsets(nums []int) [][]int {
 	var res [][]int
@@ -144,9 +115,7 @@ func subsets(nums []int) [][]int {
 }
 
 func dfs(i int, nums, t []int, res *[][]int) {
-	cp := make([]int, len(t))
-	copy(cp, t)
-	*res = append(*res, cp)
+	*res = append(*res, slices.Clone(t))
 	if i == len(nums) {
 		return
 	}
@@ -157,8 +126,6 @@ func dfs(i int, nums, t []int, res *[][]int) {
 	}
 }
 ```
-
-### **TypeScipt**
 
 ```ts
 function subsets(nums: number[]): number[][] {
@@ -176,8 +143,6 @@ function subsets(nums: number[]): number[][] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -200,10 +165,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

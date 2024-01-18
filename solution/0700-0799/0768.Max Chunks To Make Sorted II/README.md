@@ -44,19 +44,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 根据题目，我们可以发现，从左到右，每个分块都有一个最大值，并且这些分块的最大值呈单调递增（非严格递增）。我们可以用一个栈来存储这些分块的最大值。最后得到的栈的大小，也就是题目所求的最多能完成排序的块。
 
 时间复杂度 $O(n)$，其中 $n$ 表示 $arr$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                 stk.append(mx)
         return len(stk)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxChunksToSorted(arr []int) int {
 	var stk []int
@@ -140,8 +126,6 @@ func maxChunksToSorted(arr []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maxChunksToSorted(arr: number[]): number {
     const stack = [];
@@ -159,8 +143,6 @@ function maxChunksToSorted(arr: number[]): number {
     return stack.length;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -182,10 +164,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,26 +49,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
         return [i.bit_count() for i in range(n + 1)]
 ```
-
-```python
-class Solution:
-    def countBits(self, n: int) -> List[int]:
-        ans = [0] * (n + 1)
-        for i in range(1, n + 1):
-            ans[i] = ans[i & (i - 1)] + 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,20 +70,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int[] countBits(int n) {
-        int[] ans = new int[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            ans[i] = ans[i & (i - 1)] + 1;
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,21 +84,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    vector<int> countBits(int n) {
-        vector<int> ans(n + 1);
-        for (int i = 1; i <= n; ++i) {
-            ans[i] = ans[i & (i - 1)] + 1;
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func countBits(n int) []int {
 	ans := make([]int, n+1)
@@ -133,18 +93,6 @@ func countBits(n int) []int {
 	return ans
 }
 ```
-
-```go
-func countBits(n int) []int {
-	ans := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		ans[i] = ans[i&(i-1)] + 1
-	}
-	return ans
-}
-```
-
-### **TypeScript**
 
 ```ts
 function countBits(n: number): number[] {
@@ -165,6 +113,56 @@ function bitCount(n: number): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        ans = [0] * (n + 1)
+        for i in range(1, n + 1):
+            ans[i] = ans[i & (i - 1)] + 1
+        return ans
+```
+
+```java
+class Solution {
+    public int[] countBits(int n) {
+        int[] ans = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            ans[i] = ans[i & (i - 1)] + 1;
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> countBits(int n) {
+        vector<int> ans(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            ans[i] = ans[i & (i - 1)] + 1;
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countBits(n int) []int {
+	ans := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		ans[i] = ans[i&(i-1)] + 1
+	}
+	return ans
+}
+```
+
 ```ts
 function countBits(n: number): number[] {
     const ans: number[] = Array(n + 1).fill(0);
@@ -175,10 +173,6 @@ function countBits(n: number): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

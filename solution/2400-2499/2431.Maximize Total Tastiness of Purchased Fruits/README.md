@@ -69,11 +69,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：记忆化搜索
 
-**方法一：记忆化搜索**
-
-设计函数 $dfs(i, j, k)$ 表示从第 $i$ 个水果开始，剩余 $j$ 元钱，剩余 $k$ 张优惠券时，最大的总美味度。
+我们设计函数 $dfs(i, j, k)$ 表示从第 $i$ 个水果开始，剩余 $j$ 元钱，剩余 $k$ 张优惠券时，最大的总美味度。
 
 对于第 $i$ 个水果，可以选择购买或者不购买，如果购买，那么可以选择使用优惠券或者不使用优惠券。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O(n \times maxAmount \times maxCoupons)$。其中 $n$ 是水果的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -109,10 +103,6 @@ class Solution:
 
         return dfs(0, maxAmount, maxCoupons)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +162,6 @@ private:
     int f[101][1001][6];
 };
 ```
-
-### **Go**
 
 ```go
 func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) int {
@@ -209,16 +195,6 @@ func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) i
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

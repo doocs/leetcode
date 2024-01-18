@@ -37,9 +37,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting
 
-### **Python3**
+We can use a hash table or array $cnt$ to count the occurrence of each character in string $s$, then traverse string $t$. For each character, we subtract its occurrence in $cnt$. If the corresponding count is negative, it means that the occurrence of this character in $t$ is greater than in $s$, so this character is the added character.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ represents the character set. Here the character set is all lowercase letters, so $|\Sigma|=26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,16 +54,6 @@ class Solution:
             if cnt[c] < 0:
                 return c
 ```
-
-```python
-class Solution:
-    def findTheDifference(self, s: str, t: str) -> str:
-        a = sum(ord(c) for c in s)
-        b = sum(ord(c) for c in t)
-        return chr(b - a)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,73 +71,56 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public char findTheDifference(String s, String t) {
-        int ss = 0;
-        for (int i = 0; i < t.length(); ++i) {
-            ss += t.charAt(i);
-        }
-        for (int i = 0; i < s.length(); ++i) {
-            ss -= s.charAt(i);
-        }
-        return (char) ss;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        int cnt[26] = {0};
-        for (char& c : s) ++cnt[c - 'a'];
-        for (char& c : t)
-            if (--cnt[c - 'a'] < 0) return c;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        for (char& c : t) {
+            if (--cnt[c - 'a'] < 0) {
+                return c;
+            }
+        }
         return ' ';
     }
 };
 ```
 
-```cpp
-class Solution {
-public:
-    char findTheDifference(string s, string t) {
-        int a = 0, b = 0;
-        for (char& c : s) a += c;
-        for (char& c : t) b += c;
-        return b - a;
-    }
-};
-```
-
-### **TypeScript**
-
-```ts
-function findTheDifference(s: string, t: string): string {
-    const n = s.length;
-    const count = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
-        count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
-    }
-    count[t.charCodeAt(n) - 'a'.charCodeAt(0)]--;
-    return String.fromCharCode('a'.charCodeAt(0) + count.findIndex(v => v !== 0));
+```go
+func findTheDifference(s, t string) byte {
+	cnt := [26]int{}
+	for _, ch := range s {
+		cnt[ch-'a']++
+	}
+	for i := 0; ; i++ {
+		ch := t[i]
+		cnt[ch-'a']--
+		if cnt[ch-'a'] < 0 {
+			return ch
+		}
+	}
 }
 ```
 
 ```ts
 function findTheDifference(s: string, t: string): string {
-    return String.fromCharCode(
-        [...t].reduce((r, v) => r + v.charCodeAt(0), 0) -
-            [...s].reduce((r, v) => r + v.charCodeAt(0), 0),
-    );
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    for (const c of t) {
+        --cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    for (let i = 0; ; ++i) {
+        if (cnt[i] < 0) {
+            return String.fromCharCode(i + 'a'.charCodeAt(0));
+        }
+    }
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -170,6 +147,94 @@ impl Solution {
 }
 ```
 
+```c
+char findTheDifference(char* s, char* t) {
+    int n = strlen(s);
+    int cnt[26] = {0};
+    for (int i = 0; i < n; i++) {
+        cnt[s[i] - 'a']++;
+        cnt[t[i] - 'a']--;
+    }
+    cnt[t[n] - 'a']--;
+    for (int i = 0;; i++) {
+        if (cnt[i]) {
+            return 'a' + i;
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Summation
+
+We can sum the ASCII values of each character in string $t$, then subtract the sum of the ASCII values of each character in string $s$. The final result is the ASCII value of the added character.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        a = sum(ord(c) for c in s)
+        b = sum(ord(c) for c in t)
+        return chr(b - a)
+```
+
+```java
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int ss = 0;
+        for (int i = 0; i < t.length(); ++i) {
+            ss += t.charAt(i);
+        }
+        for (int i = 0; i < s.length(); ++i) {
+            ss -= s.charAt(i);
+        }
+        return (char) ss;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int a = 0, b = 0;
+        for (char& c : s) {
+            a += c;
+        }
+        for (char& c : t) {
+            b += c;
+        }
+        return b - a;
+    }
+};
+```
+
+```go
+func findTheDifference(s string, t string) byte {
+	ss := 0
+	for _, c := range s {
+		ss -= int(c)
+	}
+	for _, c := range t {
+		ss += int(c)
+	}
+	return byte(ss)
+}
+```
+
+```ts
+function findTheDifference(s: string, t: string): string {
+    return String.fromCharCode(
+        [...t].reduce((r, v) => r + v.charCodeAt(0), 0) -
+            [...s].reduce((r, v) => r + v.charCodeAt(0), 0),
+    );
+}
+```
+
 ```rust
 impl Solution {
     pub fn find_the_difference(s: String, t: String) -> char {
@@ -182,27 +247,6 @@ impl Solution {
         }
         char::from(ans)
     }
-}
-```
-
-### **C**
-
-```c
-char findTheDifference(char* s, char* t) {
-    int n = strlen(s);
-    int count[26] = {0};
-    for (int i = 0; i < n; i++) {
-        count[s[i] - 'a']++;
-        count[t[i] - 'a']--;
-    }
-    count[t[n] - 'a']--;
-    int i;
-    for (i = 0; i < 26; i++) {
-        if (count[i]) {
-            break;
-        }
-    }
-    return 'a' + i;
 }
 ```
 
@@ -219,41 +263,6 @@ char findTheDifference(char* s, char* t) {
 }
 ```
 
-### **Go**
-
-```go
-func findTheDifference(s, t string) byte {
-	cnt := [26]int{}
-	for _, ch := range s {
-		cnt[ch-'a']++
-	}
-	for i := 0; ; i++ {
-		ch := t[i]
-		cnt[ch-'a']--
-		if cnt[ch-'a'] < 0 {
-			return ch
-		}
-	}
-}
-```
-
-```go
-func findTheDifference(s string, t string) byte {
-	ss := 0
-	for _, c := range s {
-		ss -= int(c)
-	}
-	for _, c := range t {
-		ss += int(c)
-	}
-	return byte(ss)
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

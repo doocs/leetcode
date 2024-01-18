@@ -43,15 +43,14 @@
 	<li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>nums1</code> and <code>nums2</code> both are sorted in <strong>non-decreasing order</strong>.</li>
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li>
 </ul>
 
 ## Solutions
 
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/images/demo.png"/>
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -69,8 +68,6 @@ class Solution:
                 heappush(q, [nums1[i] + nums2[j + 1], i, j + 1])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +116,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func kSmallestPairs(nums1, nums2 []int, k int) (ans [][]int) {
@@ -158,10 +151,6 @@ func (h *hp) Push(v any)   { h.data = append(h.data, v.(pair)) }
 func (h *hp) Pop() any     { a := h.data; v := a[len(a)-1]; h.data = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

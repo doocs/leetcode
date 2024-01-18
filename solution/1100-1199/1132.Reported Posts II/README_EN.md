@@ -87,9 +87,9 @@ Note that the output is only one number and that we do not care about the remove
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -108,3 +108,5 @@ FROM T;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

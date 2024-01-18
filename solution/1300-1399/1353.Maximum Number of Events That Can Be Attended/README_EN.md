@@ -41,9 +41,17 @@ Attend the third event on day 3.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table + Greedy + Priority Queue
 
-### **Python3**
+Define a hash table to record the start and end times of each meeting, where the key is the start time of the meeting, and the value is a list of end times.
+
+Enumerate the current time $s$, find all meetings that start at the current time, and add their end times to the priority queue (min heap). At the same time, the priority queue needs to remove all meetings that end before the current time.
+
+Then, take out the meeting with the smallest end time from the priority queue, which is the meeting that can be attended at the current time, and accumulate the answer count. If the priority queue is empty, it means that there are no meetings that can be attended at the current time.
+
+The time complexity is $O(m \times \log n)$, and the space complexity is $O(n)$. Where $m$ and $n$ represent the maximum end time of the meetings and the number of meetings, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +74,6 @@ class Solution:
                 heappop(h)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +105,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +135,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxEvents(events [][]int) int {
@@ -173,10 +175,6 @@ func (h *hp) Pop() any {
 func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

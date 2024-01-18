@@ -56,28 +56,21 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simulation
 
-### **Python3**
+We can directly simulate the process as described in the problem.
+
+We define an initial symbol $sign=1$. Starting from the most significant digit, we take out one digit $x$ each time, multiply it by $sign$, add the result to the answer, then negate $sign$, and continue to process the next digit until all digits are processed.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given number.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
         return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
 ```
-
-```python
-class Solution:
-    def alternateDigitSum(self, n: int) -> int:
-        ans, sign = 0, 1
-        for c in str(n):
-            x = int(c)
-            ans += sign * x
-            sign *= -1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -110,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func alternateDigitSum(n int) (ans int) {
 	sign := 1
@@ -123,8 +112,6 @@ func alternateDigitSum(n int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function alternateDigitSum(n: number): number {
@@ -139,8 +126,6 @@ function alternateDigitSum(n: number): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn alternate_digit_sum(mut n: i32) -> i32 {
@@ -154,6 +139,36 @@ impl Solution {
         ans * -sign
     }
 }
+```
+
+```c
+int alternateDigitSum(int n) {
+    int ans = 0;
+    int sign = 1;
+    while (n) {
+        ans += (n % 10) * sign;
+        sign = -sign;
+        n /= 10;
+    }
+    return ans * -sign;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def alternateDigitSum(self, n: int) -> int:
+        ans, sign = 0, 1
+        for c in str(n):
+            x = int(c)
+            ans += sign * x
+            sign *= -1
+        return ans
 ```
 
 ```rust
@@ -173,25 +188,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
-```c
-int alternateDigitSum(int n) {
-    int ans = 0;
-    int sign = 1;
-    while (n) {
-        ans += (n % 10) * sign;
-        sign = -sign;
-        n /= 10;
-    }
-    return ans * -sign;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

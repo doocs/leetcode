@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：状态压缩 + 前缀和思想**
+### 方法一：状态压缩 + 前缀和思想
 
 根据题目描述，“超赞子字符串”中的字符可以通过交换得到回文字符串，因此，“超赞子字符串”中最多有一个数字字符出现奇数次，其余数字字符出现偶数次。
 
@@ -71,10 +69,6 @@
 时间复杂度 $O(n \times C)$，空间复杂度 $O(2^C)$。其中 $n$ 和 $C$ 分别为字符串 $s$ 的长度和数字字符的种类数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -94,10 +88,6 @@ class Solution:
                     ans = max(ans, i - d[st ^ (1 << v)])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestAwesome(s string) int {
 	d := [1024]int{}
@@ -178,10 +164,6 @@ func longestAwesome(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -42,9 +42,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 在一次操作中，我们可以把 `nums[i]` 更新为 `nums[i] AND (nums[i] XOR x)`。由于 $x$ 是任意非负整数，因此 $nums[i] \oplus x$ 的结果是一个任意值，再与 `nums[i]` 逐位与运算，可以把 `nums[i]` 的二进制表示中的若干位 $1$ 变为 $0$。
 
@@ -54,19 +52,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
         return reduce(or_, nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumXOR(nums []int) (ans int) {
 	for _, x := range nums {
@@ -105,8 +91,6 @@ func maximumXOR(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximumXOR(nums: number[]): number {
@@ -118,10 +102,6 @@ function maximumXOR(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

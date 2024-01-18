@@ -145,9 +145,9 @@ By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -186,3 +186,5 @@ LIMIT 10;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

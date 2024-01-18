@@ -42,26 +42,19 @@
 	<li><code>2 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 	<li><code>1 &lt;= queries.length &lt;= 3 * 10<sup>4</sup></code></li>
-	<li><code>queries[i].length == 2</code></li>
 	<li><code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code></li>
 	<li><code>0 &lt;= l<sub>i</sub> &lt;= r<sub>i</sub> &lt; s.length</code></li>
 </ul>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 枚举**
+### 方法一：前缀和 + 枚举
 
 我们可以预处理出每个字母的前缀和，记录在数组 $cnt$ 中，其中 $cnt[i][j]$ 表示第 $i$ 个字母在前 $j$ 个字符中出现的次数。这样，对于每个区间 $[l, r]$，我们可以枚举区间中的每个字母 $c$，利用前缀和数组快速计算出 $c$ 在区间中出现的次数 $x$，我们任取其中两个，即可组成一个同尾子串，子串数为 $C_x^2=\frac{x(x-1)}{2}$，加上区间中每个字母可以单独组成同尾子串的情况，一共有 $r - l + 1$ 个字母。因此，对于每个查询 $[l, r]$，满足条件的同尾子串数为 $r - l + 1 + \sum_{c \in \Sigma} \frac{x_c(x_c-1)}{2}$，其中 $x_c$ 表示字母 $c$ 在区间 $[l, r]$ 中出现的次数。
 
 时间复杂度 $O((n + m) \times |\Sigma|)$，空间复杂度 $O(n \times |\Sigma|)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 的长度和查询数，而 $\Sigma$ 表示字符串 $s$ 中出现的字母集合，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +75,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +102,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sameEndSubstringCount(s string, queries [][]int) []int {
@@ -173,8 +158,6 @@ func sameEndSubstringCount(s string, queries [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     const n: number = s.length;
@@ -196,8 +179,6 @@ function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -226,10 +207,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

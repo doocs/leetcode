@@ -55,9 +55,9 @@ obj1 + obj2; // 0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 class ArrayWrapper {
@@ -88,3 +88,5 @@ class ArrayWrapper {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

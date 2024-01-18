@@ -53,9 +53,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针**
+### 方法一：双指针
 
 我们可以遍历 `queries` 中的每个字符串，判断其是否与 `pattern` 匹配，若匹配则将 `true` 加入答案数组，否则加入 `false`。
 
@@ -68,10 +66,6 @@
 时间复杂度 $(n \times m)$，其中 $n$ 和 $m$ 分别为数组 `queries` 的长度和字符串 `pattern` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -91,10 +85,6 @@ class Solution:
 
         return [check(q, pattern) for q in queries]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func camelMatch(queries []string, pattern string) (ans []bool) {
 	check := func(s, t string) bool {
@@ -182,8 +168,6 @@ func camelMatch(queries []string, pattern string) (ans []bool) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function camelMatch(queries: string[], pattern: string): boolean[] {
@@ -213,10 +197,6 @@ function camelMatch(queries: string[], pattern: string): boolean[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

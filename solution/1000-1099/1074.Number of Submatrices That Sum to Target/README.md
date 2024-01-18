@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举上下边界 + 前缀和 + 哈希表**
+### 方法一：枚举上下边界 + 前缀和 + 哈希表
 
 我们可以枚举矩阵的上下边界 $i$ 和 $j$，每次算出当前上下边界内每列的元素和，记为数组 $col$，然后问题就转换为如何在数组 $col$ 中寻找和为目标值 $target$ 的子数组个数。我们累加这些子数组的个数，就是题目要求的答案。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(m^2 \times n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,10 +92,6 @@ class Solution:
                 ans += f(col)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -169,8 +157,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numSubmatrixSumTarget(matrix [][]int, target int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -199,8 +185,6 @@ func f(nums []int, target int) (cnt int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numSubmatrixSumTarget(matrix: number[][], target: number): number {
@@ -235,10 +219,6 @@ function f(nums: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

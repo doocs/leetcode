@@ -42,15 +42,13 @@
 
 ## Solutions
 
-**Solution 1: Mathematics (Fast Powering)**
+### Solution 1: Mathematics (Fast Powering)
 
 The core idea of the fast powering algorithm is to decompose the exponent $n$ into the sum of $1$s on several binary bits, and then transform the $n$th power of $x$ into the product of several powers of $x$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the exponent.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -66,8 +64,6 @@ class Solution:
 
         return qpow(x, n) if n >= 0 else 1 / qpow(x, -n)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,7 +103,40 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func myPow(x float64, n int) float64 {
+	qpow := func(a float64, n int) float64 {
+		ans := 1.0
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans *= a
+			}
+			a *= a
+		}
+		return ans
+	}
+	if n >= 0 {
+		return qpow(x, n)
+	}
+	return 1 / qpow(x, -n)
+}
+```
+
+```ts
+function myPow(x: number, n: number): number {
+    const qpow = (a: number, n: number): number => {
+        let ans = 1;
+        for (; n; n >>>= 1) {
+            if (n & 1) {
+                ans *= a;
+            }
+            a *= a;
+        }
+        return ans;
+    };
+    return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
+}
+```
 
 ```rust
 impl Solution {
@@ -140,29 +167,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func myPow(x float64, n int) float64 {
-	qpow := func(a float64, n int) float64 {
-		ans := 1.0
-		for ; n > 0; n >>= 1 {
-			if n&1 == 1 {
-				ans *= a
-			}
-			a *= a
-		}
-		return ans
-	}
-	if n >= 0 {
-		return qpow(x, n)
-	}
-	return 1 / qpow(x, -n)
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {number} x
@@ -184,26 +188,6 @@ var myPow = function (x, n) {
 };
 ```
 
-### **TypeScript**
-
-```ts
-function myPow(x: number, n: number): number {
-    const qpow = (a: number, n: number): number => {
-        let ans = 1;
-        for (; n; n >>>= 1) {
-            if (n & 1) {
-                ans *= a;
-            }
-            a *= a;
-        }
-        return ans;
-    };
-    return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
-}
-```
-
-### **C#**
-
 ```cs
 public class Solution {
     public double MyPow(double x, int n) {
@@ -223,10 +207,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

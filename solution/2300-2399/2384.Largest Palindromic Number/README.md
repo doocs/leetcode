@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：统计 + 贪心**
+### 方法一：统计 + 贪心
 
 用 $cnt$ 数组记录每个数字出现的次数。
 
@@ -65,10 +63,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为 $num$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,10 +83,6 @@ class Solution:
                 ans = s + ans + s
         return ans.strip('0') or '0'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -125,8 +115,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestPalindromic(num string) string {
 	cnt := make([]int, 10)
@@ -192,8 +178,6 @@ func largestPalindromic(num string) string {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestPalindromic(num: string): string {
@@ -239,11 +223,6 @@ function largestPalindromic(num: string): string {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

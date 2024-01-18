@@ -60,9 +60,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 import operator
@@ -84,28 +84,6 @@ class Solution:
                 s.append(int(token))
         return s[0]
 ```
-
-```python
-class Solution:
-    def evalRPN(self, tokens: List[str]) -> int:
-        nums = []
-        for t in tokens:
-            if len(t) > 1 or t.isdigit():
-                nums.append(int(t))
-            else:
-                if t == "+":
-                    nums[-2] += nums[-1]
-                elif t == "-":
-                    nums[-2] -= nums[-1]
-                elif t == "*":
-                    nums[-2] *= nums[-1]
-                else:
-                    nums[-2] = int(nums[-2] / nums[-1])
-                nums.pop()
-        return nums[0]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -138,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -167,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func evalRPN(tokens []string) int {
@@ -202,7 +176,59 @@ func popInt(stack *arraystack.Stack) int {
 }
 ```
 
-### **C#**
+```ts
+function evalRPN(tokens: string[]): number {
+    const stack = [];
+    for (const token of tokens) {
+        if (/\d/.test(token)) {
+            stack.push(Number(token));
+        } else {
+            const a = stack.pop();
+            const b = stack.pop();
+            switch (token) {
+                case '+':
+                    stack.push(b + a);
+                    break;
+                case '-':
+                    stack.push(b - a);
+                    break;
+                case '*':
+                    stack.push(b * a);
+                    break;
+                case '/':
+                    stack.push(~~(b / a));
+                    break;
+            }
+        }
+    }
+    return stack[0];
+}
+```
+
+```rust
+impl Solution {
+    pub fn eval_rpn(tokens: Vec<String>) -> i32 {
+        let mut stack = vec![];
+        for token in tokens {
+            match token.parse() {
+                Ok(num) => stack.push(num),
+                Err(_) => {
+                    let a = stack.pop().unwrap();
+                    let b = stack.pop().unwrap();
+                    stack.push(match token.as_str() {
+                        "+" => b + a,
+                        "-" => b - a,
+                        "*" => b * a,
+                        "/" => b / a,
+                        _ => 0,
+                    });
+                }
+            }
+        }
+        stack[0]
+    }
+}
+```
 
 ```cs
 using System.Collections.Generic;
@@ -237,68 +263,32 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+<!-- tabs:end -->
 
-```ts
-function evalRPN(tokens: string[]): number {
-    const stack = [];
-    for (const token of tokens) {
-        if (/\d/.test(token)) {
-            stack.push(Number(token));
-        } else {
-            const a = stack.pop();
-            const b = stack.pop();
-            switch (token) {
-                case '+':
-                    stack.push(b + a);
-                    break;
-                case '-':
-                    stack.push(b - a);
-                    break;
-                case '*':
-                    stack.push(b * a);
-                    break;
-                case '/':
-                    stack.push(~~(b / a));
-                    break;
-            }
-        }
-    }
-    return stack[0];
-}
-```
+### Solution 2
 
-### **Rust**
+<!-- tabs:start -->
 
-```rust
-impl Solution {
-    pub fn eval_rpn(tokens: Vec<String>) -> i32 {
-        let mut stack = vec![];
-        for token in tokens {
-            match token.parse() {
-                Ok(num) => stack.push(num),
-                Err(_) => {
-                    let a = stack.pop().unwrap();
-                    let b = stack.pop().unwrap();
-                    stack.push(match token.as_str() {
-                        "+" => b + a,
-                        "-" => b - a,
-                        "*" => b * a,
-                        "/" => b / a,
-                        _ => 0,
-                    });
-                }
-            }
-        }
-        stack[0]
-    }
-}
-```
-
-### **...**
-
-```
-
+```python
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        nums = []
+        for t in tokens:
+            if len(t) > 1 or t.isdigit():
+                nums.append(int(t))
+            else:
+                if t == "+":
+                    nums[-2] += nums[-1]
+                elif t == "-":
+                    nums[-2] -= nums[-1]
+                elif t == "*":
+                    nums[-2] *= nums[-1]
+                else:
+                    nums[-2] = int(nums[-2] / nums[-1])
+                nums.pop()
+        return nums[0]
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

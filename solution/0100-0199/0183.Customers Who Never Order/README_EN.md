@@ -73,39 +73,11 @@ Orders table:
 
 ## Solutions
 
-**Solution 1: NOT IN**
+### Solution 1: NOT IN
 
 List all customer IDs of existing orders, and use `NOT IN` to find customers who are not in the list.
 
-**Solution 2: LEFT JOIN**
-
-Use `LEFT JOIN` to join the tables and return the data where `CustomerId` is `NULL`.
-
 <!-- tabs:start -->
-
-### **SQL**
-
-```sql
-# Write your MySQL query statement below
-SELECT name AS Customers
-FROM Customers
-WHERE
-    id NOT IN (
-        SELECT customerId
-        FROM Orders
-    );
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT name AS Customers
-FROM
-    Customers AS c
-    LEFT JOIN Orders AS o ON c.id = o.customerId
-WHERE o.id IS NULL;
-```
-
-### **Pandas**
 
 ```python
 import pandas as pd
@@ -121,4 +93,34 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
     return df
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT name AS Customers
+FROM Customers
+WHERE
+    id NOT IN (
+        SELECT customerId
+        FROM Orders
+    );
+```
+
 <!-- tabs:end -->
+
+### Solution 2: LEFT JOIN
+
+Use `LEFT JOIN` to join the tables and return the data where `CustomerId` is `NULL`.
+
+<!-- tabs:start -->
+
+```sql
+# Write your MySQL query statement below
+SELECT name AS Customers
+FROM
+    Customers AS c
+    LEFT JOIN Orders AS o ON c.id = o.customerId
+WHERE o.id IS NULL;
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

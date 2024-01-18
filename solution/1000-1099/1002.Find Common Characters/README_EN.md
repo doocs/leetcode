@@ -25,9 +25,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -42,8 +42,6 @@ class Solution:
             ans.extend([c] * v)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +67,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func commonChars(words []string) (ans []string) {
 	cnt := [26]int{}
@@ -125,8 +119,6 @@ func commonChars(words []string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function commonChars(words: string[]): string[] {
     const freq: number[] = new Array(26).fill(10000);
@@ -149,10 +141,6 @@ function commonChars(words: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

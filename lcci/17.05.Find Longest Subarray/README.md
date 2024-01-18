@@ -31,9 +31,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 哈希表**
+### 方法一：前缀和 + 哈希表
 
 题目要求找到最长的子数组，且包含的字符和数字的个数相同。我们可以将字符看作 $1$，数字看作 $-1$，那么问题就转化为：求最长的子数组，使得该子数组的和为 $0$。
 
@@ -50,10 +48,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findLongestSubarray(self, array: List[str]) -> List[str]:
@@ -69,10 +63,6 @@ class Solution:
                 vis[s] = i
         return array[k : k + mx]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findLongestSubarray(array []string) []string {
@@ -149,8 +135,6 @@ func findLongestSubarray(array []string) []string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findLongestSubarray(array: string[]): string[] {
     const vis = new Map();
@@ -174,10 +158,6 @@ function findLongestSubarray(array: string[]): string[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

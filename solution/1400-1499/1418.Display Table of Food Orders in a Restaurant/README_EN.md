@@ -55,9 +55,9 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
             res.append(t)
         return res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -117,8 +115,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -157,8 +153,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func displayTable(orders [][]string) [][]string {
@@ -202,10 +196,6 @@ func displayTable(orders [][]string) [][]string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

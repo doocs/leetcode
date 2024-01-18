@@ -90,7 +90,7 @@ Matches table:
 
 ## Solutions
 
-**Solution 1: Left Join + Group By + Case Expression**
+### Solution 1: Left Join + Group By + Case Expression
 
 We can join the `Teams` table and the `Matches` table using a left join, where the join condition is `team_id = host_team OR team_id = guest_team`, to obtain all the match information for each team.
 
@@ -103,8 +103,6 @@ Next, we group by `team_id` and use a `CASE` expression to calculate the points 
 Finally, we sort the result by points in descending order, and if the points are the same, we sort by `team_id` in ascending order.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -129,3 +127,5 @@ ORDER BY 3 DESC, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

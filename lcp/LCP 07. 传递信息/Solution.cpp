@@ -1,16 +1,15 @@
 class Solution {
 public:
     int numWays(int n, vector<vector<int>>& relation, int k) {
-        vector<int> f(n);
-        f[0] = 1;
-        while (k--) {
-            vector<int> g(n);
+        int f[k + 1][n];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= k; ++i) {
             for (auto& r : relation) {
                 int a = r[0], b = r[1];
-                g[b] += f[a];
+                f[i][b] += f[i - 1][a];
             }
-            f = move(g);
         }
-        return f[n - 1];
+        return f[k][n - 1];
     }
 };

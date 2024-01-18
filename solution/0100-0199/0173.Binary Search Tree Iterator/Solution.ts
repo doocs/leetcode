@@ -13,34 +13,30 @@
  */
 
 class BSTIterator {
-    private stack: TreeNode[];
+    private data: number[];
+    private index: number;
 
     constructor(root: TreeNode | null) {
-        this.stack = [];
+        this.index = 0;
+        this.data = [];
         const dfs = (root: TreeNode | null) => {
             if (root == null) {
                 return;
             }
-            this.stack.push(root);
-            dfs(root.left);
+            const { val, left, right } = root;
+            dfs(left);
+            this.data.push(val);
+            dfs(right);
         };
         dfs(root);
     }
 
     next(): number {
-        const { val, right } = this.stack.pop();
-        if (right) {
-            let cur = right;
-            while (cur != null) {
-                this.stack.push(cur);
-                cur = cur.left;
-            }
-        }
-        return val;
+        return this.data[this.index++];
     }
 
     hasNext(): boolean {
-        return this.stack.length !== 0;
+        return this.index < this.data.length;
     }
 }
 

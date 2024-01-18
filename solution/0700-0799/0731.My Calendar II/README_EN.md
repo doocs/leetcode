@@ -47,9 +47,9 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedDict
@@ -76,6 +76,112 @@ class MyCalendarTwo:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
 ```
+
+```java
+class MyCalendarTwo {
+    private Map<Integer, Integer> tm = new TreeMap<>();
+
+    public MyCalendarTwo() {
+    }
+
+    public boolean book(int start, int end) {
+        tm.put(start, tm.getOrDefault(start, 0) + 1);
+        tm.put(end, tm.getOrDefault(end, 0) - 1);
+        int s = 0;
+        for (int v : tm.values()) {
+            s += v;
+            if (s > 2) {
+                tm.put(start, tm.get(start) - 1);
+                tm.put(end, tm.get(end) + 1);
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */
+```
+
+```cpp
+class MyCalendarTwo {
+public:
+    map<int, int> m;
+
+    MyCalendarTwo() {
+    }
+
+    bool book(int start, int end) {
+        ++m[start];
+        --m[end];
+        int s = 0;
+        for (auto& [_, v] : m) {
+            s += v;
+            if (s > 2) {
+                --m[start];
+                ++m[end];
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo* obj = new MyCalendarTwo();
+ * bool param_1 = obj->book(start,end);
+ */
+```
+
+```go
+type MyCalendarTwo struct {
+	*redblacktree.Tree
+}
+
+func Constructor() MyCalendarTwo {
+	return MyCalendarTwo{redblacktree.NewWithIntComparator()}
+}
+
+func (this *MyCalendarTwo) Book(start int, end int) bool {
+	add := func(key, val int) {
+		if v, ok := this.Get(key); ok {
+			this.Put(key, v.(int)+val)
+		} else {
+			this.Put(key, val)
+		}
+	}
+	add(start, 1)
+	add(end, -1)
+	s := 0
+	it := this.Iterator()
+	for it.Next() {
+		s += it.Value().(int)
+		if s > 2 {
+			add(start, -1)
+			add(end, 1)
+			return false
+		}
+	}
+	return true
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Book(start,end);
+ */
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -154,38 +260,6 @@ class MyCalendarTwo:
 # Your MyCalendarTwo object will be instantiated and called as such:
 # obj = MyCalendarTwo()
 # param_1 = obj.book(start,end)
-```
-
-### **Java**
-
-```java
-class MyCalendarTwo {
-    private Map<Integer, Integer> tm = new TreeMap<>();
-
-    public MyCalendarTwo() {
-    }
-
-    public boolean book(int start, int end) {
-        tm.put(start, tm.getOrDefault(start, 0) + 1);
-        tm.put(end, tm.getOrDefault(end, 0) - 1);
-        int s = 0;
-        for (int v : tm.values()) {
-            s += v;
-            if (s > 2) {
-                tm.put(start, tm.get(start) - 1);
-                tm.put(end, tm.get(end) + 1);
-                return false;
-            }
-        }
-        return true;
-    }
-}
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * MyCalendarTwo obj = new MyCalendarTwo();
- * boolean param_1 = obj.book(start,end);
- */
 ```
 
 ```java
@@ -299,39 +373,6 @@ class MyCalendarTwo {
  */
 ```
 
-### **C++**
-
-```cpp
-class MyCalendarTwo {
-public:
-    map<int, int> m;
-
-    MyCalendarTwo() {
-    }
-
-    bool book(int start, int end) {
-        ++m[start];
-        --m[end];
-        int s = 0;
-        for (auto& [_, v] : m) {
-            s += v;
-            if (s > 2) {
-                --m[start];
-                ++m[end];
-                return false;
-            }
-        }
-        return true;
-    }
-};
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * MyCalendarTwo* obj = new MyCalendarTwo();
- * bool param_1 = obj->book(start,end);
- */
-```
-
 ```cpp
 class Node {
 public:
@@ -429,47 +470,6 @@ public:
  * Your MyCalendarTwo object will be instantiated and called as such:
  * MyCalendarTwo* obj = new MyCalendarTwo();
  * bool param_1 = obj->book(start,end);
- */
-```
-
-### **Go**
-
-```go
-type MyCalendarTwo struct {
-	*redblacktree.Tree
-}
-
-func Constructor() MyCalendarTwo {
-	return MyCalendarTwo{redblacktree.NewWithIntComparator()}
-}
-
-func (this *MyCalendarTwo) Book(start int, end int) bool {
-	add := func(key, val int) {
-		if v, ok := this.Get(key); ok {
-			this.Put(key, v.(int)+val)
-		} else {
-			this.Put(key, val)
-		}
-	}
-	add(start, 1)
-	add(end, -1)
-	s := 0
-	it := this.Iterator()
-	for it.Next() {
-		s += it.Value().(int)
-		if s > 2 {
-			add(start, -1)
-			add(end, 1)
-			return false
-		}
-	}
-	return true
-}
-
-/**
- * Your MyCalendarTwo object will be instantiated and called as such:
- * obj := Constructor();
- * param_1 := obj.Book(start,end);
  */
 ```
 
@@ -579,10 +579,6 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

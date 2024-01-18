@@ -1,12 +1,9 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
-        ans = cnt = 0
+        stk = []
         for c in s:
-            if c == '(':
-                cnt += 1
-            elif cnt:
-                cnt -= 1
+            if c == ')' and stk and stk[-1] == '(':
+                stk.pop()
             else:
-                ans += 1
-        ans += cnt
-        return ans
+                stk.append(c)
+        return len(stk)

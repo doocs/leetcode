@@ -86,17 +86,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：栈模拟**
+### 方法一：栈模拟
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -119,10 +113,6 @@ class Solution:
                 curr = ts + 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -151,7 +141,58 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    vector<int> exclusiveTime(int n, vector<string>& logs) {
+        vector<int> ans(n);
+        stack<int> stk;
+        int curr = -1;
+        for (auto& log : logs) {
+            char type[10];
+            int fid, ts;
+            sscanf(log.c_str(), "%d:%[^:]:%d", &fid, type, &ts);
+            if (type[0] == 's') {
+                if (!stk.empty()) ans[stk.top()] += ts - curr;
+                curr = ts;
+                stk.push(fid);
+            } else {
+                fid = stk.top();
+                stk.pop();
+                ans[fid] += ts - curr + 1;
+                curr = ts + 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func exclusiveTime(n int, logs []string) []int {
+	ans := make([]int, n)
+	stk := []int{}
+	curr := 1
+	for _, log := range logs {
+		t := strings.Split(log, ":")
+		fid, _ := strconv.Atoi(t[0])
+		ts, _ := strconv.Atoi(t[2])
+		if t[1][0] == 's' {
+			if len(stk) > 0 {
+				ans[stk[len(stk)-1]] += ts - curr
+			}
+			stk = append(stk, fid)
+			curr = ts
+		} else {
+			fid := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			ans[fid] += ts - curr + 1
+			curr = ts + 1
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function exclusiveTime(n: number, logs: string[]): number[] {
@@ -181,67 +222,6 @@ function exclusiveTime(n: number, logs: string[]): number[] {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> exclusiveTime(int n, vector<string>& logs) {
-        vector<int> ans(n);
-        stack<int> stk;
-        int curr = -1;
-        for (auto& log : logs) {
-            char type[10];
-            int fid, ts;
-            sscanf(log.c_str(), "%d:%[^:]:%d", &fid, type, &ts);
-            if (type[0] == 's') {
-                if (!stk.empty()) ans[stk.top()] += ts - curr;
-                curr = ts;
-                stk.push(fid);
-            } else {
-                fid = stk.top();
-                stk.pop();
-                ans[fid] += ts - curr + 1;
-                curr = ts + 1;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func exclusiveTime(n int, logs []string) []int {
-	ans := make([]int, n)
-	stk := []int{}
-	curr := 1
-	for _, log := range logs {
-		t := strings.Split(log, ":")
-		fid, _ := strconv.Atoi(t[0])
-		ts, _ := strconv.Atoi(t[2])
-		if t[1][0] == 's' {
-			if len(stk) > 0 {
-				ans[stk[len(stk)-1]] += ts - curr
-			}
-			stk = append(stk, fid)
-			curr = ts
-		} else {
-			fid := stk[len(stk)-1]
-			stk = stk[:len(stk)-1]
-			ans[fid] += ts - curr + 1
-			curr = ts + 1
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

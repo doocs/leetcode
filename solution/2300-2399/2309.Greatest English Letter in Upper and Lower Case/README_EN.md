@@ -47,9 +47,15 @@ There is no letter that appears in both lower and upper case.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Hash Table + Enumeration
 
-### **Python3**
+First, we use a hash table $ss$ to record all the letters that appear in the string $s$. Then we start enumerating from the last letter of the uppercase alphabet. If both the uppercase and lowercase forms of the current letter are in $ss$, we return that letter.
+
+At the end of the enumeration, if no letter that meets the conditions is found, we return an empty string.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ and $C$ are the length of the string $s$ and the size of the character set, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,21 +66,6 @@ class Solution:
                 return c
         return ''
 ```
-
-```python
-class Solution:
-    def greatestLetter(self, s: str) -> str:
-        mask1 = mask2 = 0
-        for c in s:
-            if c.islower():
-                mask1 |= 1 << (ord(c) - ord("a"))
-            else:
-                mask2 |= 1 << (ord(c) - ord("A"))
-        mask = mask1 & mask2
-        return chr(mask.bit_length() - 1 + ord("A")) if mask else ""
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -93,27 +84,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public String greatestLetter(String s) {
-        int mask1 = 0, mask2 = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            if (Character.isLowerCase(c)) {
-                mask1 |= 1 << (c - 'a');
-            } else {
-                mask2 |= 1 << (c - 'A');
-            }
-        }
-        int mask = mask1 & mask2;
-        return mask > 0 ? String.valueOf((char) (31 - Integer.numberOfLeadingZeros(mask) + 'A'))
-                        : "";
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -128,26 +98,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    string greatestLetter(string s) {
-        int mask1 = 0, mask2 = 0;
-        for (char& c : s) {
-            if (islower(c)) {
-                mask1 |= 1 << (c - 'a');
-            } else {
-                mask2 |= 1 << (c - 'A');
-            }
-        }
-        int mask = mask1 & mask2;
-        return mask ? string(1, 31 - __builtin_clz(mask) + 'A') : "";
-    }
-};
-```
-
-### **Go**
 
 ```go
 func greatestLetter(s string) string {
@@ -164,26 +114,6 @@ func greatestLetter(s string) string {
 }
 ```
 
-```go
-func greatestLetter(s string) string {
-	mask1, mask2 := 0, 0
-	for _, c := range s {
-		if unicode.IsLower(c) {
-			mask1 |= 1 << (c - 'a')
-		} else {
-			mask2 |= 1 << (c - 'A')
-		}
-	}
-	mask := mask1 & mask2
-	if mask == 0 {
-		return ""
-	}
-	return string(byte(bits.Len(uint(mask))-1) + 'A')
-}
-```
-
-### **TypeScript**
-
 ```ts
 function greatestLetter(s: string): string {
     const ss = new Array(128).fill(false);
@@ -198,8 +128,6 @@ function greatestLetter(s: string): string {
     return '';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -222,8 +150,6 @@ impl Solution {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -243,10 +169,88 @@ var greatestLetter = function (s) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2: Bit Manipulation (Space Optimization)
+
+We can use two integers $mask1$ and $mask2$ to record the lowercase and uppercase letters that appear in the string $s$, respectively. The $i$-th bit of $mask1$ indicates whether the $i$-th lowercase letter appears, and the $i$-th bit of $mask2$ indicates whether the $i$-th uppercase letter appears.
+
+Then we perform a bitwise AND operation on $mask1$ and $mask2$. The $i$-th bit of the resulting $mask$ indicates whether the $i$-th letter appears in both uppercase and lowercase.
+
+Next, we just need to get the position of the highest $1$ in the binary representation of $mask$, and convert it to the corresponding uppercase letter. If all binary bits are not $1$, it means that there is no letter that appears in both uppercase and lowercase, so we return an empty string.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def greatestLetter(self, s: str) -> str:
+        mask1 = mask2 = 0
+        for c in s:
+            if c.islower():
+                mask1 |= 1 << (ord(c) - ord("a"))
+            else:
+                mask2 |= 1 << (ord(c) - ord("A"))
+        mask = mask1 & mask2
+        return chr(mask.bit_length() - 1 + ord("A")) if mask else ""
 ```
 
+```java
+class Solution {
+    public String greatestLetter(String s) {
+        int mask1 = 0, mask2 = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (Character.isLowerCase(c)) {
+                mask1 |= 1 << (c - 'a');
+            } else {
+                mask2 |= 1 << (c - 'A');
+            }
+        }
+        int mask = mask1 & mask2;
+        return mask > 0 ? String.valueOf((char) (31 - Integer.numberOfLeadingZeros(mask) + 'A'))
+                        : "";
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string greatestLetter(string s) {
+        int mask1 = 0, mask2 = 0;
+        for (char& c : s) {
+            if (islower(c)) {
+                mask1 |= 1 << (c - 'a');
+            } else {
+                mask2 |= 1 << (c - 'A');
+            }
+        }
+        int mask = mask1 & mask2;
+        return mask ? string(1, 31 - __builtin_clz(mask) + 'A') : "";
+    }
+};
+```
+
+```go
+func greatestLetter(s string) string {
+	mask1, mask2 := 0, 0
+	for _, c := range s {
+		if unicode.IsLower(c) {
+			mask1 |= 1 << (c - 'a')
+		} else {
+			mask2 |= 1 << (c - 'A')
+		}
+	}
+	mask := mask1 & mask2
+	if mask == 0 {
+		return ""
+	}
+	return string(byte(bits.Len(uint(mask))-1) + 'A')
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

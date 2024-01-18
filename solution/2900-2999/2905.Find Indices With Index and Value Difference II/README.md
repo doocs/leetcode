@@ -65,27 +65,9 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-## Solutions
-
-**Solution 1: Two Pointers + Maintaining Maximum and Minimum Values**
-
-We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $indexDifference$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $indexDifference$, and $j` points to $0$.
-
-We use $mi$ and $mx$ to maintain the indices of the minimum and maximum values to the left of pointer $j$.
-
-When pointer $i$ moves to the right, we need to update $mi$ and $mx$. If $nums[j] \lt nums[mi]$, then $mi$ is updated to $j$; if $nums[j] \gt nums[mx]$, then $mx$ is updated to $j$. After updating $mi$ and $mx$, we can determine whether we have found a pair of indices that satisfy the condition. If $nums[i] - nums[mi] \ge valueDifference$, then we have found a pair of indices $[mi, i]$ that satisfy the condition; if $nums[mx] - nums[i] >= valueDifference$, then we have found a pair of indices $[mx, i]$ that satisfy the condition.
-
-If pointer $i$ moves to the end of the array and we have not found a pair of indices that satisfy the condition, we return $[-1, -1]$.
-
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +87,6 @@ class Solution:
                 return [mx, i]
         return [-1, -1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -162,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 	mi, mx := 0, 0
@@ -185,8 +159,6 @@ func findIndices(nums []int, indexDifference int, valueDifference int) []int {
 	return []int{-1, -1}
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
@@ -210,10 +182,38 @@ function findIndices(nums: number[], indexDifference: number, valueDifference: n
 }
 ```
 
-### **...**
+```rust
+impl Solution {
+    pub fn find_indices(nums: Vec<i32>, index_difference: i32, value_difference: i32) -> Vec<i32> {
+        let index_difference = index_difference as usize;
+        let mut mi = 0;
+        let mut mx = 0;
 
-```
+        for i in index_difference..nums.len() {
+            let j = i - index_difference;
 
+            if nums[j] < nums[mi] {
+                mi = j;
+            }
+
+            if nums[j] > nums[mx] {
+                mx = j;
+            }
+
+            if nums[i] - nums[mi] >= value_difference {
+                return vec![mi as i32, i as i32];
+            }
+
+            if nums[mx] - nums[i] >= value_difference {
+                return vec![mx as i32, i as i32];
+            }
+        }
+
+        vec![-1, -1]
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

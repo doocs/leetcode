@@ -14,10 +14,10 @@
 
 <ol>
 	<li><code>1 &lt;= heights[i] &lt;= maxHeights[i]</code></li>
-	<li><code>heights</code>&nbsp;是一个 <strong>山状</strong>&nbsp;数组。</li>
+	<li><code>heights</code>&nbsp;是一个 <strong>山脉</strong> 数组。</li>
 </ol>
 
-<p>如果存在下标 <code>i</code>&nbsp;满足以下条件，那么我们称数组&nbsp;<code>heights</code>&nbsp;是一个 <strong>山状</strong>&nbsp;数组：</p>
+<p>如果存在下标 <code>i</code>&nbsp;满足以下条件，那么我们称数组&nbsp;<code>heights</code>&nbsp;是一个 <strong>山脉</strong> 数组：</p>
 
 <ul>
 	<li>对于所有&nbsp;<code>0 &lt; j &lt;= i</code>&nbsp;，都有&nbsp;<code>heights[j - 1] &lt;= heights[j]</code></li>
@@ -35,7 +35,7 @@
 <b>输出：</b>13
 <b>解释：</b>和最大的美丽塔方案为 heights = [5,3,3,1,1] ，这是一个美丽塔方案，因为：
 - 1 &lt;= heights[i] &lt;= maxHeights[i]  
-- heights 是个山状数组，峰值在 i = 0 处。
+- heights 是个山脉数组，峰值在 i = 0 处。
 13 是所有美丽塔方案中的最大高度和。</pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -45,7 +45,7 @@
 <b>输出：</b>22
 <strong>解释：</strong> 和最大的美丽塔方案为 heights = [3,3,3,9,2,2] ，这是一个美丽塔方案，因为：
 - 1 &lt;= heights[i] &lt;= maxHeights[i]
-- heights 是个山状数组，峰值在 i = 3 处。
+- heights 是个山脉数组，峰值在 i = 3 处。
 22 是所有美丽塔方案中的最大高度和。</pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -55,7 +55,7 @@
 <b>输出：</b>18
 <strong>解释：</strong>和最大的美丽塔方案为 heights = [2,2,5,5,2,2] ，这是一个美丽塔方案，因为：
 - 1 &lt;= heights[i] &lt;= maxHeights[i]
-- heights 是个山状数组，最大值在 i = 2 处。
+- heights 是个山脉数组，最大值在 i = 2 处。
 注意，在这个方案中，i = 3 也是一个峰值。
 18 是所有美丽塔方案中的最大高度和。
 </pre>
@@ -71,9 +71,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 单调栈**
+### 方法一：动态规划 + 单调栈
 
 我们定义 $f[i]$ 表示前 $i+1$ 座塔中，以最后一座塔作为最高塔的美丽塔方案的高度和。我们可以得到如下的状态转移方程：
 
@@ -92,10 +90,6 @@ $$
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $maxHeights$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -134,10 +128,6 @@ class Solution:
                 g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
         return max(a + b - c for a, b, c in zip(f, g, maxHeights))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -198,8 +188,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -256,8 +244,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumSumOfHeights(maxHeights []int) (ans int64) {
@@ -321,8 +307,6 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {
     const n = maxHeights.length;
@@ -378,10 +362,6 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

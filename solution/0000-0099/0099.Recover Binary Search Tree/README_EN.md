@@ -36,15 +36,13 @@
 
 ## Solutions
 
-**Solution 1: In-order Traversal**
+### Solution 1: In-order Traversal
 
 In-order traversal of a binary search tree results in an increasing sequence. If two nodes' values are mistakenly swapped, there will definitely be two reverse pairs in the sequence obtained from the in-order traversal. We use `first` and `second` to record the smaller and larger values of these two reverse pairs, respectively. Finally, swapping the values of these two nodes will correct the mistake.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -75,8 +73,6 @@ class Solution:
         dfs(root)
         first.val, second.val = second.val, first.val
 ```
-
-### **Java**
 
 ```java
 /**
@@ -123,8 +119,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -159,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -192,7 +184,43 @@ func recoverTree(root *TreeNode) {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {void} Do not return anything, modify root in-place instead.
+ */
+var recoverTree = function (root) {
+    let prev = null;
+    let first = null;
+    let second = null;
+    function dfs(root) {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        if (prev && prev.val > root.val) {
+            if (!first) {
+                first = prev;
+            }
+            second = root;
+        }
+        prev = root;
+        dfs(root.right);
+    }
+    dfs(root);
+    const t = first.val;
+    first.val = second.val;
+    second.val = t;
+};
+```
 
 ```cs
 /**
@@ -235,50 +263,6 @@ public class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {void} Do not return anything, modify root in-place instead.
- */
-var recoverTree = function (root) {
-    let prev = null;
-    let first = null;
-    let second = null;
-    function dfs(root) {
-        if (!root) {
-            return;
-        }
-        dfs(root.left);
-        if (prev && prev.val > root.val) {
-            if (!first) {
-                first = prev;
-            }
-            second = root;
-        }
-        prev = root;
-        dfs(root.right);
-    }
-    dfs(root);
-    const t = first.val;
-    first.val = second.val;
-    second.val = t;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

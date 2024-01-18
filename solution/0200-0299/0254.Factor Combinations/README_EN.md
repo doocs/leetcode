@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
         dfs(n, 2)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getFactors(n int) [][]int {
 	t := []int{}
@@ -135,10 +129,7 @@ func getFactors(n int) [][]int {
 	var dfs func(n, i int)
 	dfs = func(n, i int) {
 		if len(t) > 0 {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			cp = append(cp, n)
-			ans = append(ans, cp)
+			ans = append(ans, append(slices.Clone(t), n))
 		}
 		for j := i; j <= n/j; j++ {
 			if n%j == 0 {
@@ -153,10 +144,6 @@ func getFactors(n int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

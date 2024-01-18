@@ -46,9 +46,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 我们用一个变量 $ans$ 记录当前数组的长度，用一个变量 $y$ 记录当前数组的乘积，初始时 $ans = 1$, $y = nums[0]$。
 
@@ -64,10 +62,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minArrayLength(self, nums: List[int], k: int) -> int:
@@ -82,10 +76,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -108,8 +98,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -134,8 +122,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minArrayLength(nums []int, k int) int {
 	ans, y := 1, nums[0]
@@ -153,8 +139,6 @@ func minArrayLength(nums []int, k int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minArrayLength(nums: number[], k: number): number {
@@ -174,10 +158,6 @@ function minArrayLength(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,69 +1,94 @@
-class Solution {
-    public long countPaths(int n, int[][] edges) {
-        List<Boolean> prime = new ArrayList<>(n + 1);
-        for (int i = 0; i <= n; ++i) {
-            prime.add(true);
-        }
-        prime.set(1, false);
+class PrimeTable {
+    private final boolean[] prime;
 
-        List<Integer> all = new ArrayList<>();
+    public PrimeTable(int n) {
+        prime = new boolean[n + 1];
+        Arrays.fill(prime, true);
+        prime[0] = false;
+        prime[1] = false;
         for (int i = 2; i <= n; ++i) {
-            if (prime.get(i)) {
-                all.add(i);
-            }
-            for (int x : all) {
-                int temp = i * x;
-                if (temp > n) {
-                    break;
-                }
-                prime.set(temp, false);
-                if (i % x == 0) {
-                    break;
+            if (prime[i]) {
+                for (int j = i + i; j <= n; j += i) {
+                    prime[j] = false;
                 }
             }
         }
+    }
 
-        List<List<Integer>> con = new ArrayList<>(n + 1);
-        for (int i = 0; i <= n; ++i) {
-            con.add(new ArrayList<>());
+    public boolean isPrime(int x) {
+        return prime[x];
+    }
+}
+
+class UnionFind {
+    private final int[] p;
+    private final int[] size;
+
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            size[i] = 1;
         }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public boolean union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+
+    public int size(int x) {
+        return size[find(x)];
+    }
+}
+
+class Solution {
+    private static final PrimeTable PT = new PrimeTable(100010);
+
+    public long countPaths(int n, int[][] edges) {
+        List<Integer>[] g = new List[n + 1];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        UnionFind uf = new UnionFind(n + 1);
         for (int[] e : edges) {
-            con.get(e[0]).add(e[1]);
-            con.get(e[1]).add(e[0]);
-        }
-
-        long[] r = {0};
-        dfs(1, 0, con, prime, r);
-        return r[0];
-    }
-
-    private long mul(long x, long y) {
-        return x * y;
-    }
-
-    private class Pair {
-        int first;
-        int second;
-
-        Pair(int first, int second) {
-            this.first = first;
-            this.second = second;
-        }
-    }
-
-    private Pair dfs(int x, int f, List<List<Integer>> con, List<Boolean> prime, long[] r) {
-        Pair v = new Pair(!prime.get(x) ? 1 : 0, prime.get(x) ? 1 : 0);
-        for (int y : con.get(x)) {
-            if (y == f) continue;
-            Pair p = dfs(y, x, con, prime, r);
-            r[0] += mul(p.first, v.second) + mul(p.second, v.first);
-            if (prime.get(x)) {
-                v.second += p.first;
-            } else {
-                v.first += p.first;
-                v.second += p.second;
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+            if (!PT.isPrime(u) && !PT.isPrime(v)) {
+                uf.union(u, v);
             }
         }
-        return v;
+        long ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            if (PT.isPrime(i)) {
+                long t = 0;
+                for (int j : g[i]) {
+                    if (!PT.isPrime(j)) {
+                        long cnt = uf.size(j);
+                        ans += cnt;
+                        ans += cnt * t;
+                        t += cnt;
+                    }
+                }
+            }
+        }
+        return ans;
     }
 }

@@ -56,9 +56,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义状态 $dp[i][j]$ 表示 $s$ 的前 $i$ 个字符和 $p$ 的前 $j$ 个字符是否匹配。
 
@@ -77,10 +75,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -98,10 +92,6 @@ class Solution:
                     dp[i][j] = dp[i - 1][j] or dp[i][j - 1]
         return dp[m][n]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -156,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -184,10 +170,52 @@ func isMatch(s string, p string) bool {
 }
 ```
 
-### **...**
+```cs
+using System.Linq;
 
-```
+public class Solution {
+    public bool IsMatch(string s, string p) {
+        if (p.Count(ch => ch != '*') > s.Length)
+        {
+            return false;
+        }
 
+        bool[,] f = new bool[s.Length + 1, p.Length + 1];
+        bool[] d = new bool[s.Length + 1]; // d[i] means f[0, j] || f[1, j] || ... || f[i, j]
+        for (var j = 0; j <= p.Length; ++j)
+        {
+            d[0] = j == 0 ? true : d[0] && p[j - 1] == '*';
+            for (var i = 0; i <= s.Length; ++i)
+            {
+                if (j == 0)
+                {
+                    f[i, j] = i == 0;
+                    continue;
+                }
+
+                if (p[j - 1] == '*')
+                {
+                    if (i > 0)
+                    {
+                        d[i] = f[i, j - 1] || d[i - 1];
+                    }
+                    f[i, j] = d[i];
+                }
+                else if (p[j - 1] == '?')
+                {
+                    f[i, j] = i > 0 && f[i - 1, j - 1];
+                }
+                else
+                {
+                    f[i, j] = i > 0 && f[i - 1, j - 1] && s[i - 1] == p[j - 1];
+                }
+            }
+        }
+        return f[s.Length, p.Length];
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

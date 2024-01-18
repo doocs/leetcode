@@ -57,19 +57,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 我们遍历数组 $nums$ 中的每个元素 $nums[i]$，将其映射后的值 $y$ 与下标 $i$ 一起存入数组 $arr$ 中，然后对数组 $arr$ 进行排序，最后将排序后的数组 $arr$ 中的下标 $i$ 取出，转换为原数组 $nums$ 中的元素 $nums[i]$ 即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
         arr.sort()
         return [nums[i] for _, i in arr]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -116,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +131,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sortJumbled(mapping []int, nums []int) (ans []int) {
@@ -173,8 +159,6 @@ func sortJumbled(mapping []int, nums []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortJumbled(mapping: number[], nums: number[]): number[] {
     const n = nums.length;
@@ -193,10 +177,6 @@ function sortJumbled(mapping: number[], nums: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

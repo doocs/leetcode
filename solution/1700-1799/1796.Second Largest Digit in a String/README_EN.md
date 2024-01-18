@@ -35,9 +35,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: One Pass
 
-### **Python3**
+We define $a$ and $b$ to represent the largest and second largest numbers in the string, initially $a = b = -1$.
+
+We traverse the string $s$. If the current character is a digit, we convert it to a number $v$. If $v > a$, it means that $v$ is the largest number currently appearing, we update $b$ to $a$, and update $a$ to $v$; if $v < a$, it means that $v$ is the second largest number currently appearing, we update $b$ to $v$.
+
+After the traversal, we return $b$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,21 +60,6 @@ class Solution:
                     b = v
         return b
 ```
-
-```python
-class Solution:
-    def secondHighest(self, s: str) -> int:
-        mask = reduce(or_, (1 << int(c) for c in s if c.isdigit()), 0)
-        cnt = 0
-        for i in range(9, -1, -1):
-            if (mask >> i) & 1:
-                cnt += 1
-            if cnt == 2:
-                return i
-        return -1
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,28 +82,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int secondHighest(String s) {
-        int mask = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            if (Character.isDigit(c)) {
-                mask |= 1 << (c - '0');
-            }
-        }
-        for (int i = 9, cnt = 0; i >= 0; --i) {
-            if (((mask >> i) & 1) == 1 && ++cnt == 2) {
-                return i;
-            }
-        }
-        return -1;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -131,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func secondHighest(s string) int {
 	a, b := -1, -1
@@ -149,28 +118,6 @@ func secondHighest(s string) int {
 	return b
 }
 ```
-
-```go
-func secondHighest(s string) int {
-	mask := 0
-	for _, c := range s {
-		if c >= '0' && c <= '9' {
-			mask |= 1 << int(c-'0')
-		}
-	}
-	for i, cnt := 9, 0; i >= 0; i-- {
-		if mask>>i&1 == 1 {
-			cnt++
-			if cnt == 2 {
-				return i
-			}
-		}
-	}
-	return -1
-}
-```
-
-### **TypeScript**
 
 ```ts
 function secondHighest(s: string): number {
@@ -189,8 +136,6 @@ function secondHighest(s: string): number {
     return second;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -213,8 +158,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int secondHighest(char* s) {
     int first = -1;
@@ -234,10 +177,87 @@ int secondHighest(char* s) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2: Bit Manipulation
+
+We can use an integer $mask$ to mark the numbers that appear in the string, where the $i$-th bit of $mask$ indicates whether the number $i$ has appeared.
+
+We traverse the string $s$. If the current character is a digit, we convert it to a number $v$, and set the $v$-th bit of $mask$ to $1$.
+
+Finally, we traverse $mask$ from high to low, find the second bit that is $1$, and the corresponding number is the second largest number. If there is no second largest number, return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        mask = reduce(or_, (1 << int(c) for c in s if c.isdigit()), 0)
+        cnt = 0
+        for i in range(9, -1, -1):
+            if (mask >> i) & 1:
+                cnt += 1
+            if cnt == 2:
+                return i
+        return -1
 ```
 
+```java
+class Solution {
+    public int secondHighest(String s) {
+        int mask = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                mask |= 1 << (c - '0');
+            }
+        }
+        for (int i = 9, cnt = 0; i >= 0; --i) {
+            if (((mask >> i) & 1) == 1 && ++cnt == 2) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int secondHighest(string s) {
+        int mask = 0;
+        for (char& c : s)
+            if (isdigit(c)) mask |= 1 << c - '0';
+        for (int i = 9, cnt = 0; ~i; --i)
+            if (mask >> i & 1 && ++cnt == 2) return i;
+        return -1;
+    }
+};
+```
+
+```go
+func secondHighest(s string) int {
+	mask := 0
+	for _, c := range s {
+		if c >= '0' && c <= '9' {
+			mask |= 1 << int(c-'0')
+		}
+	}
+	for i, cnt := 9, 0; i >= 0; i-- {
+		if mask>>i&1 == 1 {
+			cnt++
+			if cnt == 2 {
+				return i
+			}
+		}
+	}
+	return -1
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

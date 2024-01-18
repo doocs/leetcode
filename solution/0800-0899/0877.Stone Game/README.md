@@ -49,9 +49,7 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i, j)$，表示从第 $i$ 堆石子到第 $j$ 堆石子，当前玩家与另一个玩家的石子数量之差的最大值。那么答案就是 $dfs(0, n - 1) \gt 0$。
 
@@ -66,32 +64,7 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石子的堆数。
 
-**方法二：动态规划**
-
-我们也可以使用动态规划的方法，定义 $f[i][j]$ 表示当前玩家在 $piles[i..j]$ 这部分石子中能够获得的最大石子数的差值。那么最后答案就是 $f[0][n - 1] \gt 0$。
-
-初始时 $f[i][i]=piles[i]$，因为只有一堆石子，所以当前玩家只能拿取这堆石子，差值为 $piles[i]$。
-
-考虑 $f[i][j]$，其中 $i \lt j$，有两种情况：
-
--   如果当前玩家拿走了石子堆 $piles[i]$，那么剩下的石子堆为 $piles[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[i] - f[i + 1][j]$。
--   如果当前玩家拿走了石子堆 $piles[j]$，那么剩下的石子堆为 $piles[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[j] - f[i][j - 1]$。
-
-因此，最终的状态转移方程为 $f[i][j] = \max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])$。
-
-最后，我们只需要判断 $f[0][n - 1] \gt 0$ 即可。
-
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石子的堆数。
-
-相似题目：
-
--   [486. 预测赢家](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,23 +77,6 @@ class Solution:
 
         return dfs(0, len(piles) - 1) > 0
 ```
-
-```python
-class Solution:
-    def stoneGame(self, piles: List[int]) -> bool:
-        n = len(piles)
-        f = [[0] * n for _ in range(n)]
-        for i, x in enumerate(piles):
-            f[i][i] = x
-        for i in range(n - 2, -1, -1):
-            for j in range(i + 1, n):
-                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])
-        return f[0][n - 1] > 0
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -146,26 +102,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public boolean stoneGame(int[] piles) {
-        int n = piles.length;
-        int[][] f = new int[n][n];
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = piles[i];
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                f[i][j] = Math.max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
-            }
-        }
-        return f[0][n - 1] > 0;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -186,28 +122,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    bool stoneGame(vector<int>& piles) {
-        int n = piles.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = piles[i];
-        }
-        for (int i = n - 2; ~i; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
-            }
-        }
-        return f[0][n - 1] > 0;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func stoneGame(piles []int) bool {
@@ -230,25 +144,6 @@ func stoneGame(piles []int) bool {
 }
 ```
 
-```go
-func stoneGame(piles []int) bool {
-	n := len(piles)
-	f := make([][]int, n)
-	for i, x := range piles {
-		f[i] = make([]int, n)
-		f[i][i] = x
-	}
-	for i := n - 2; i >= 0; i-- {
-		for j := i + 1; j < n; j++ {
-			f[i][j] = max(piles[i]-f[i+1][j], piles[j]-f[i][j-1])
-		}
-	}
-	return f[0][n-1] > 0
-}
-```
-
-### **TypeScript**
-
 ```ts
 function stoneGame(piles: number[]): boolean {
     const n = piles.length;
@@ -263,6 +158,99 @@ function stoneGame(piles: number[]): boolean {
         return f[i][j];
     };
     return dfs(0, n - 1) > 0;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们也可以使用动态规划的方法，定义 $f[i][j]$ 表示当前玩家在 $piles[i..j]$ 这部分石子中能够获得的最大石子数的差值。那么最后答案就是 $f[0][n - 1] \gt 0$。
+
+初始时 $f[i][i]=piles[i]$，因为只有一堆石子，所以当前玩家只能拿取这堆石子，差值为 $piles[i]$。
+
+考虑 $f[i][j]$，其中 $i \lt j$，有两种情况：
+
+-   如果当前玩家拿走了石子堆 $piles[i]$，那么剩下的石子堆为 $piles[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[i] - f[i + 1][j]$。
+-   如果当前玩家拿走了石子堆 $piles[j]$，那么剩下的石子堆为 $piles[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[j] - f[i][j - 1]$。
+
+因此，最终的状态转移方程为 $f[i][j] = \max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])$。
+
+最后，我们只需要判断 $f[0][n - 1] \gt 0$ 即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石子的堆数。
+
+相似题目：
+
+-   [486. 预测赢家](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def stoneGame(self, piles: List[int]) -> bool:
+        n = len(piles)
+        f = [[0] * n for _ in range(n)]
+        for i, x in enumerate(piles):
+            f[i][i] = x
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])
+        return f[0][n - 1] > 0
+```
+
+```java
+class Solution {
+    public boolean stoneGame(int[] piles) {
+        int n = piles.length;
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = piles[i];
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = Math.max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] > 0;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool stoneGame(vector<int>& piles) {
+        int n = piles.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = piles[i];
+        }
+        for (int i = n - 2; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] > 0;
+    }
+};
+```
+
+```go
+func stoneGame(piles []int) bool {
+	n := len(piles)
+	f := make([][]int, n)
+	for i, x := range piles {
+		f[i] = make([]int, n)
+		f[i][i] = x
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = max(piles[i]-f[i+1][j], piles[j]-f[i][j-1])
+		}
+	}
+	return f[0][n-1] > 0
 }
 ```
 
@@ -282,10 +270,6 @@ function stoneGame(piles: number[]): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -49,9 +49,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -74,8 +74,6 @@ class Solution:
         j1, j2 = find(cnt * 2), find(cnt * 2 + 1)
         return (i2 - i1) * (j2 - j1) % (10**9 + 7)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -116,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +147,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numWays(s string) int {
@@ -189,10 +183,6 @@ func numWays(s string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

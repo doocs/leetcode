@@ -5,8 +5,8 @@ public:
         int f[n + 1];
         memset(f, 0x3f, sizeof(f));
         function<int(int)> dfs = [&](int i) {
-            if (i > n) {
-                return 0;
+            if (i * 2 >= n) {
+                return prices[i - 1];
             }
             if (f[i] == 0x3f3f3f3f) {
                 for (int j = i + 1; j <= i * 2 + 1; ++j) {

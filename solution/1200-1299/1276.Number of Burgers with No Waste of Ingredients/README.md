@@ -65,11 +65,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：数学
 
-**方法一：数学**
-
-设巨无霸汉堡数量为 $x$，小皇堡数量为 $y$，则有：
+我们设巨无霸汉堡数量为 $x$，小皇堡数量为 $y$，则有：
 
 $$
 \begin{aligned}
@@ -93,10 +91,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def numOfBurgers(self, tomatoSlices: int, cheeseSlices: int) -> List[int]:
@@ -106,22 +100,16 @@ class Solution:
         return [] if k % 2 or y < 0 or x < 0 else [x, y]
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class Solution {
     public List<Integer> numOfBurgers(int tomatoSlices, int cheeseSlices) {
         int k = 4 * cheeseSlices - tomatoSlices;
         int y = k / 2;
         int x = cheeseSlices - y;
-        return k % 2 != 0 || y < 0 || x < 0 ? Collections.emptyList() : Arrays.asList(x, y);
+        return k % 2 != 0 || y < 0 || x < 0 ? List.of() : List.of(x, y);
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -135,8 +123,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 	k := 4*cheeseSlices - tomatoSlices
@@ -149,10 +135,30 @@ func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 }
 ```
 
-### **...**
-
+```ts
+function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
+    const k = 4 * cheeseSlices - tomatoSlices;
+    const y = k >> 1;
+    const x = cheeseSlices - y;
+    return k % 2 || y < 0 || x < 0 ? [] : [x, y];
+}
 ```
 
+```rust
+impl Solution {
+    pub fn num_of_burgers(tomato_slices: i32, cheese_slices: i32) -> Vec<i32> {
+        let k = 4 * cheese_slices - tomato_slices;
+        let y = k / 2;
+        let x = cheese_slices - y;
+        if k % 2 != 0 || y < 0 || x < 0 {
+            Vec::new()
+        } else {
+            vec![x, y]
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

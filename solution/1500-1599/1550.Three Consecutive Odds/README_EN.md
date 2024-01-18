@@ -33,9 +33,9 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,17 +50,6 @@ class Solution:
                 return True
         return False
 ```
-
-```python
-class Solution:
-    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
-        for i in range(len(arr) - 2):
-            if arr[i] % 2 + arr[i + 1] % 2 + arr[i + 2] % 2 == 3:
-                return True
-        return False
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,8 +70,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -99,8 +86,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func threeConsecutiveOdds(arr []int) bool {
@@ -119,8 +104,6 @@ func threeConsecutiveOdds(arr []int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function threeConsecutiveOdds(arr: number[]): boolean {
     let cnt = 0;
@@ -138,10 +121,21 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        for i in range(len(arr) - 2):
+            if arr[i] % 2 + arr[i + 1] % 2 + arr[i + 2] % 2 == 3:
+                return True
+        return False
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

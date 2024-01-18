@@ -74,9 +74,9 @@ From the top left corner, its position is one row below and three columns right.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # """
@@ -139,8 +139,6 @@ class Solution:
         dfs(0, 0, 0)
 ```
 
-### **Java**
-
 ```java
 /**
  * // This is the robot's control interface.
@@ -190,8 +188,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * // This is the robot's control interface.
@@ -239,8 +235,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the robot's control interface.
@@ -286,8 +280,6 @@ func cleanRoom(robot *Robot) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * class Robot {
@@ -332,10 +324,6 @@ function cleanRoom(robot: Robot) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

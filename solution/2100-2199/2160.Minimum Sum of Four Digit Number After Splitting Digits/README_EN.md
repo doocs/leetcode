@@ -40,9 +40,9 @@ The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
         nums.sort()
         return 10 * (nums[0] + nums[1]) + nums[2] + nums[3]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +68,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -88,8 +84,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSum(num int) int {
 	var nums []int
@@ -102,8 +96,6 @@ func minimumSum(num int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumSum(num: number): number {
     const nums = new Array(4).fill(0);
@@ -115,8 +107,6 @@ function minimumSum(num: number): number {
     return 10 * (nums[0] + nums[1]) + nums[2] + nums[3];
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -131,8 +121,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -150,10 +138,6 @@ int minimumSum(int num) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -4,12 +4,16 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 	for i := range vis {
 		vis[i] = make([]bool, n)
 	}
-	vis[start[0]][start[1]] = true
-	q := [][]int{start}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for len(q) > 0 {
-		i, j := q[0][0], q[0][1]
-		q = q[1:]
+	var dfs func(i, j int)
+	dfs = func(i, j int) {
+		if vis[i][j] {
+			return
+		}
+		vis[i][j] = true
+		if i == destination[0] && j == destination[1] {
+			return
+		}
+		dirs := []int{-1, 0, 1, 0, -1}
 		for k := 0; k < 4; k++ {
 			x, y := i, j
 			a, b := dirs[k], dirs[k+1]
@@ -17,14 +21,9 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 				x += a
 				y += b
 			}
-			if x == destination[0] && y == destination[1] {
-				return true
-			}
-			if !vis[x][y] {
-				vis[x][y] = true
-				q = append(q, []int{x, y})
-			}
+			dfs(x, y)
 		}
 	}
-	return false
+	dfs(start[0], start[1])
+	return vis[destination[0]][destination[1]]
 }

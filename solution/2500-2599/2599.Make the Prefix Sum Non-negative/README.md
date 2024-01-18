@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 优先队列（小根堆）**
+### 方法一：贪心 + 优先队列（小根堆）
 
 我们用变量 $s$ 记录当前数组的前缀和。
 
@@ -58,10 +56,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,10 +71,6 @@ class Solution:
                 ans += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -102,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -127,8 +115,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func makePrefSumNonNegative(nums []int) (ans int) {
@@ -159,8 +145,6 @@ func (h *hp) Pop() any {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makePrefSumNonNegative(nums: number[]): number {
     const pq = new MinPriorityQueue();
@@ -180,10 +164,6 @@ function makePrefSumNonNegative(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

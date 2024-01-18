@@ -36,9 +36,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Dynamic Programming (Interval DP)
 
-### **Python3**
+We define $f[i][j]$ as the minimum number of operations required to delete all numbers in the index range $[i,..j]$. Initially, $f[i][i] = 1$, which means that when there is only one number, one deletion operation is needed.
+
+For $f[i][j]$, if $i + 1 = j$, i.e., there are only two numbers, if $arr[i]=arr[j]$, then $f[i][j] = 1$, otherwise $f[i][j] = 2$.
+
+For the case of more than two numbers, if $arr[i]=arr[j]$, then $f[i][j]$ can be $f[i + 1][j - 1]$, or we can enumerate $k$ in the index range $[i,..j-1]$, take the minimum value of $f[i][k] + f[k + 1][j]$. Assign the minimum value to $f[i][j]$.
+
+The answer is $f[0][n - 1]$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,8 +68,6 @@ class Solution:
                     f[i][j] = t
         return f[0][n - 1]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -86,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +122,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumMoves(arr []int) int {
@@ -150,10 +154,6 @@ func minimumMoves(arr []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

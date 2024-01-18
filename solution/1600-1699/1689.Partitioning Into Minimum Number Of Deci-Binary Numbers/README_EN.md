@@ -42,17 +42,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Quick Thinking
 
-### **Python3**
+The problem is equivalent to finding the maximum number in the string.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
     def minPartitions(self, n: str) -> int:
         return int(max(n))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -66,8 +68,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -78,8 +78,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minPartitions(n string) (ans int) {
@@ -92,8 +90,6 @@ func minPartitions(n string) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minPartitions(n: string): number {
     let nums = n.split('').map(d => parseInt(d));
@@ -101,8 +97,6 @@ function minPartitions(n: string): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -115,8 +109,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 int minPartitions(char* n) {
@@ -131,10 +123,6 @@ int minPartitions(char* n) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

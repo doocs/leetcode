@@ -67,9 +67,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 观察灯泡开关随按钮操作的变化规律，我们可以发现，位置 $i$ 与 $i+6$ 的灯泡，开关状态始终保持一致，因此，我们只需要考虑最多前 $n=6$ 个灯泡的开关状态。
 
@@ -82,10 +80,6 @@
 时空复杂度均为常数级别。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -105,10 +99,6 @@ class Solution:
                 vis.add(t)
         return len(vis)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -135,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -161,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func flipLights(n int, presses int) int {
@@ -189,10 +175,6 @@ func flipLights(n int, presses int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

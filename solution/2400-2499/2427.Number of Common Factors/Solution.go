@@ -1,11 +1,8 @@
 func commonFactors(a int, b int) (ans int) {
 	g := gcd(a, b)
-	for x := 1; x*x <= g; x++ {
+	for x := 1; x <= g; x++ {
 		if g%x == 0 {
 			ans++
-			if x*x < g {
-				ans++
-			}
 		}
 	}
 	return

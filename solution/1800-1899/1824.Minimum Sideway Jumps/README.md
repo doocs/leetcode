@@ -64,9 +64,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示青蛙到达第 $i$ 个点，且处于第 $j$ 条跑道（下标从 $0$ 开始）的最小侧跳次数。
 
@@ -76,13 +74,9 @@
 
 在代码实现上，我们可以将第一维空间优化掉，只用一个长度为 $3$ 的数组 $f$ 来维护。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $obstacles$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $obstacles$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -99,10 +93,6 @@ class Solution:
                     f[j] = min(f[j], x)
         return min(f)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -127,8 +117,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -155,8 +143,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minSideJumps(obstacles []int) int {
 	f := [3]int{1, 0, 1}
@@ -178,8 +164,6 @@ func minSideJumps(obstacles []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minSideJumps(obstacles: number[]): number {
@@ -203,10 +187,6 @@ function minSideJumps(obstacles: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 对于每个格子，如果是 `X`，我们不妨将计数加 $1$，如果是 `O`，我们不妨将计数减 $1$。那么当某个格子所在的行、列或者对角线的计数的绝对值等于 $n$ 时，说明当前玩家在该行、列或者对角线上放置了 $n$ 个相同字符，游戏结束，返回对应的字符即可。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是棋盘的边长。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -77,14 +71,15 @@ class Solution:
                     dg += v
                 if i + j + 1 == n:
                     udg += v
-                if abs(rows[i]) == n or abs(cols[j]) == n or abs(dg) == n or abs(udg) == n:
+                if (
+                    abs(rows[i]) == n
+                    or abs(cols[j]) == n
+                    or abs(dg) == n
+                    or abs(udg) == n
+                ):
                     return c
         return 'Pending' if has_empty_grid else 'Draw'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +149,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func tictactoe(board []string) string {
@@ -203,8 +194,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function tictactoe(board: string[]): string {
     const n = board.length;
@@ -242,10 +231,6 @@ function tictactoe(board: string[]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

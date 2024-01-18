@@ -29,7 +29,7 @@
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We first determine whether the length of the two strings is equal. If they are not equal, the characters in the two strings must be different, so return `false`.
 
@@ -38,8 +38,6 @@ Otherwise, we use a hash table or an array of length $26$ to record the number o
 The time complexity is $O(n)$, the space complexity is $O(C)$, where $n$ is the length of the string; and $C$ is the size of the character set, which is $C=26$ in this problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -53,8 +51,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -77,8 +73,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -95,8 +89,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isAnagram(s string, t string) bool {
@@ -117,29 +109,6 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @param {string} t
- * @return {boolean}
- */
-var isAnagram = function (s, t) {
-    if (s.length !== t.length) {
-        return false;
-    }
-    const cnt = new Array(26).fill(0);
-    for (let i = 0; i < s.length; ++i) {
-        ++cnt[s.charCodeAt(i) - 'a'.charCodeAt(0)];
-        --cnt[t.charCodeAt(i) - 'a'.charCodeAt(0)];
-    }
-    return cnt.every(x => x === 0);
-};
-```
-
-### **TypeScript**
-
 ```ts
 function isAnagram(s: string, t: string): boolean {
     if (s.length !== t.length) {
@@ -153,26 +122,6 @@ function isAnagram(s: string, t: string): boolean {
     return cnt.every(x => x === 0);
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool IsAnagram(string s, string t) {
-        if (s.Length != t.Length) {
-            return false;
-        }
-        int[] cnt = new int[26];
-        for (int i = 0; i < s.Length; ++i) {
-            ++cnt[s[i] - 'a'];
-            --cnt[t[i] - 'a'];
-        }
-        return cnt.All(x => x == 0);
-    }
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -196,6 +145,70 @@ impl Solution {
 }
 ```
 
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+    if (s.length !== t.length) {
+        return false;
+    }
+    const cnt = new Array(26).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        ++cnt[s.charCodeAt(i) - 'a'.charCodeAt(0)];
+        --cnt[t.charCodeAt(i) - 'a'.charCodeAt(0)];
+    }
+    return cnt.every(x => x === 0);
+};
+```
+
+```cs
+public class Solution {
+    public bool IsAnagram(string s, string t) {
+        if (s.Length != t.Length) {
+            return false;
+        }
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.Length; ++i) {
+            ++cnt[s[i] - 'a'];
+            --cnt[t[i] - 'a'];
+        }
+        return cnt.All(x => x == 0);
+    }
+}
+```
+
+```c
+int cmp(const void* a, const void* b) {
+    return *(char*) a - *(char*) b;
+}
+
+bool isAnagram(char* s, char* t) {
+    int n = strlen(s);
+    int m = strlen(t);
+    if (n != m) {
+        return 0;
+    }
+    qsort(s, n, sizeof(char), cmp);
+    qsort(t, n, sizeof(char), cmp);
+    return !strcmp(s, t);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+```
+
 ```rust
 impl Solution {
     pub fn is_anagram(s: String, t: String) -> bool {
@@ -212,25 +225,6 @@ impl Solution {
         }
         count.iter().all(|&c| c == 0)
     }
-}
-```
-
-### **C**
-
-```c
-int cmp(const void* a, const void* b) {
-    return *(char*) a - *(char*) b;
-}
-
-bool isAnagram(char* s, char* t) {
-    int n = strlen(s);
-    int m = strlen(t);
-    if (n != m) {
-        return 0;
-    }
-    qsort(s, n, sizeof(char), cmp);
-    qsort(t, n, sizeof(char), cmp);
-    return !strcmp(s, t);
 }
 ```
 
@@ -255,10 +249,6 @@ bool isAnagram(char* s, char* t) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

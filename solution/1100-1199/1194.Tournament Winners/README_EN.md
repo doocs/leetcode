@@ -86,9 +86,9 @@ Matches table:
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -125,3 +125,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

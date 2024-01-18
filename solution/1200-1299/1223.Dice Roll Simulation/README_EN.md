@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Solution 1: Memoization Search**
+### Solution 1: Memoization Search
 
 We can design a function $dfs(i, j, x)$ to represent the number of schemes starting from the $i$-th dice roll, with the current dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. The range of $j$ is $[1, 6]$, and the range of $x$ is $[1, rollMax[j - 1]]$. The answer is $dfs(0, 0, 0)$.
 
@@ -57,28 +57,7 @@ During the process, we can use memoization search to avoid repeated calculations
 
 The time complexity is $O(n \times k^2 \times M)$, and the space complexity is $O(n \times k \times M)$. Here, $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
 
-**Solution 2: Dynamic Programming**
-
-We can change the memoization search in Solution 1 to dynamic programming.
-
-Define $f[i][j][x]$ as the number of schemes for the first $i$ dice rolls, with the $i$-th dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. Initially, $f[1][j][1] = 1$, where $1 \leq j \leq 6$. The answer is:
-
-$$
-\sum_{j=1}^6 \sum_{x=1}^{rollMax[j-1]} f[n][j][x]
-$$
-
-We enumerate the last dice roll as $j$, and the number of consecutive times $j$ is rolled as $x$. The current dice roll can be $1, 2, \cdots, 6$. If the current dice roll is $k$, there are two cases:
-
--   If $k \neq j$, we can directly roll $k$, and the number of consecutive times $j$ is rolled will be reset to $1$. Therefore, the number of schemes $f[i][k][1]$ will increase by $f[i-1][j][x]$.
--   If $k = j$, we need to judge whether $x+1$ is less than or equal to $rollMax[j-1]$. If it is less than or equal to, we can continue to roll $j$, and the number of consecutive times $j$ is rolled will increase by $1$. Therefore, the number of schemes $f[i][j][x+1]$ will increase by $f[i-1][j][x]$.
-
-The final answer is the sum of all $f[n][j][x]$.
-
-The time complexity is $O(n \times k^2 \times M)$, and the space complexity is $O(n \times k \times M)$. Here, $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -97,30 +76,6 @@ class Solution:
 
         return dfs(0, 0, 0)
 ```
-
-```python
-class Solution:
-    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
-        f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
-        for j in range(1, 7):
-            f[1][j][1] = 1
-        for i in range(2, n + 1):
-            for j in range(1, 7):
-                for x in range(1, rollMax[j - 1] + 1):
-                    for k in range(1, 7):
-                        if k != j:
-                            f[i][k][1] += f[i - 1][j][x]
-                        elif x + 1 <= rollMax[j - 1]:
-                            f[i][j][x + 1] += f[i - 1][j][x]
-        mod = 10**9 + 7
-        ans = 0
-        for j in range(1, 7):
-            for x in range(1, rollMax[j - 1] + 1):
-                ans = (ans + f[n][j][x]) % mod
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -154,6 +109,108 @@ class Solution {
 }
 ```
 
+```cpp
+class Solution {
+public:
+    int dieSimulator(int n, vector<int>& rollMax) {
+        int f[n][7][16];
+        memset(f, 0, sizeof f);
+        const int mod = 1e9 + 7;
+        function<int(int, int, int)> dfs = [&](int i, int j, int x) -> int {
+            if (i >= n) {
+                return 1;
+            }
+            if (f[i][j][x]) {
+                return f[i][j][x];
+            }
+            long ans = 0;
+            for (int k = 1; k <= 6; ++k) {
+                if (k != j) {
+                    ans += dfs(i + 1, k, 1);
+                } else if (x < rollMax[j - 1]) {
+                    ans += dfs(i + 1, j, x + 1);
+                }
+            }
+            ans %= mod;
+            return f[i][j][x] = ans;
+        };
+        return dfs(0, 0, 0);
+    }
+};
+```
+
+```go
+func dieSimulator(n int, rollMax []int) int {
+	f := make([][7][16]int, n)
+	const mod = 1e9 + 7
+	var dfs func(i, j, x int) int
+	dfs = func(i, j, x int) int {
+		if i >= n {
+			return 1
+		}
+		if f[i][j][x] != 0 {
+			return f[i][j][x]
+		}
+		ans := 0
+		for k := 1; k <= 6; k++ {
+			if k != j {
+				ans += dfs(i+1, k, 1)
+			} else if x < rollMax[j-1] {
+				ans += dfs(i+1, j, x+1)
+			}
+		}
+		f[i][j][x] = ans % mod
+		return f[i][j][x]
+	}
+	return dfs(0, 0, 0)
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Dynamic Programming
+
+We can change the memoization search in Solution 1 to dynamic programming.
+
+Define $f[i][j][x]$ as the number of schemes for the first $i$ dice rolls, with the $i$-th dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. Initially, $f[1][j][1] = 1$, where $1 \leq j \leq 6$. The answer is:
+
+$$
+\sum_{j=1}^6 \sum_{x=1}^{rollMax[j-1]} f[n][j][x]
+$$
+
+We enumerate the last dice roll as $j$, and the number of consecutive times $j$ is rolled as $x$. The current dice roll can be $1, 2, \cdots, 6$. If the current dice roll is $k$, there are two cases:
+
+-   If $k \neq j$, we can directly roll $k$, and the number of consecutive times $j$ is rolled will be reset to $1$. Therefore, the number of schemes $f[i][k][1]$ will increase by $f[i-1][j][x]$.
+-   If $k = j$, we need to judge whether $x+1$ is less than or equal to $rollMax[j-1]$. If it is less than or equal to, we can continue to roll $j$, and the number of consecutive times $j$ is rolled will increase by $1$. Therefore, the number of schemes $f[i][j][x+1]$ will increase by $f[i-1][j][x]$.
+
+The final answer is the sum of all $f[n][j][x]$.
+
+The time complexity is $O(n \times k^2 \times M)$, and the space complexity is $O(n \times k \times M)$. Here, $k$ is the range of dice points, and $M$ is the maximum number of times a certain point can be rolled consecutively.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+        f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
+        for j in range(1, 7):
+            f[1][j][1] = 1
+        for i in range(2, n + 1):
+            for j in range(1, 7):
+                for x in range(1, rollMax[j - 1] + 1):
+                    for k in range(1, 7):
+                        if k != j:
+                            f[i][k][1] += f[i - 1][j][x]
+                        elif x + 1 <= rollMax[j - 1]:
+                            f[i][j][x + 1] += f[i - 1][j][x]
+        mod = 10**9 + 7
+        ans = 0
+        for j in range(1, 7):
+            for x in range(1, rollMax[j - 1] + 1):
+                ans = (ans + f[n][j][x]) % mod
+        return ans
+```
+
 ```java
 class Solution {
     public int dieSimulator(int n, int[] rollMax) {
@@ -184,38 +241,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int dieSimulator(int n, vector<int>& rollMax) {
-        int f[n][7][16];
-        memset(f, 0, sizeof f);
-        const int mod = 1e9 + 7;
-        function<int(int, int, int)> dfs = [&](int i, int j, int x) -> int {
-            if (i >= n) {
-                return 1;
-            }
-            if (f[i][j][x]) {
-                return f[i][j][x];
-            }
-            long ans = 0;
-            for (int k = 1; k <= 6; ++k) {
-                if (k != j) {
-                    ans += dfs(i + 1, k, 1);
-                } else if (x < rollMax[j - 1]) {
-                    ans += dfs(i + 1, j, x + 1);
-                }
-            }
-            ans %= mod;
-            return f[i][j][x] = ans;
-        };
-        return dfs(0, 0, 0);
-    }
-};
 ```
 
 ```cpp
@@ -252,35 +277,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func dieSimulator(n int, rollMax []int) int {
-	f := make([][7][16]int, n)
-	const mod = 1e9 + 7
-	var dfs func(i, j, x int) int
-	dfs = func(i, j, x int) int {
-		if i >= n {
-			return 1
-		}
-		if f[i][j][x] != 0 {
-			return f[i][j][x]
-		}
-		ans := 0
-		for k := 1; k <= 6; k++ {
-			if k != j {
-				ans += dfs(i+1, k, 1)
-			} else if x < rollMax[j-1] {
-				ans += dfs(i+1, j, x+1)
-			}
-		}
-		f[i][j][x] = ans % mod
-		return f[i][j][x]
-	}
-	return dfs(0, 0, 0)
-}
-```
-
 ```go
 func dieSimulator(n int, rollMax []int) (ans int) {
 	f := make([][7][16]int, n+1)
@@ -310,10 +306,6 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

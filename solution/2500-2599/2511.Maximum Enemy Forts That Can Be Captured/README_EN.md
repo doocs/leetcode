@@ -53,9 +53,9 @@ Since 4 is the maximum number of enemy forts that can be captured, we return 4.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +72,6 @@ class Solution:
             i = j
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func captureForts(forts []int) (ans int) {
 	n := len(forts)
@@ -143,8 +137,6 @@ func captureForts(forts []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function captureForts(forts: number[]): number {
@@ -166,8 +158,6 @@ function captureForts(forts: number[]): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -191,6 +181,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```rust
 impl Solution {
@@ -224,10 +220,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

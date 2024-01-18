@@ -83,9 +83,9 @@ Users 102 and 103 spent the same amount and we break the tie by their ID while u
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -98,3 +98,5 @@ ORDER BY 2 DESC, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

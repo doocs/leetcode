@@ -56,19 +56,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：中序遍历 + 二分查找**
+### 方法一：中序遍历 + 二分查找
 
 由于题目中给出的是一棵二叉搜索树，因此我们可以通过中序遍历得到一个有序数组，然后对于每个查询，我们可以通过二分查找得到小于等于该查询值的最大值和大于等于该查询值的最小值。
 
 时间复杂度 $O(n + m \times \log n)$，空间复杂度 $O(n)。其中 $n$ 和 $m$ 分别是二叉搜索树中的节点数和查询数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -99,10 +93,6 @@ class Solution:
             ans.append([mi, mx])
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -149,8 +139,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -190,8 +178,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -228,8 +214,6 @@ func closestNodes(root *TreeNode, queries []int) (ans [][]int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -281,10 +265,6 @@ function closestNodes(root: TreeNode | null, queries: number[]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

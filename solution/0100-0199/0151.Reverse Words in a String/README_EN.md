@@ -50,46 +50,19 @@
 
 ## Solutions
 
-**Solution 1: Use Language Built-in Functions**
+### Solution 1: Use Language Built-in Functions
 
 We split the string into a list of strings by spaces, then reverse the list, and finally join the list into a string separated by spaces.
 
 Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
 
-**Solution 2: Two Pointers**
-
-We can use two pointers $i$ and $j$, each time we find a word, add it to the result list, then reverse the result list, and finally join the list into a string.
-
-Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
-
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
         return ' '.join(reversed(s.split()))
 ```
-
-```python
-class Solution:
-    def reverseWords(self, s: str) -> str:
-        ans = []
-        i, n = 0, len(s)
-        while i < n:
-            while i < n and s[i] == ' ':
-                i += 1
-            if i < n:
-                j = i
-                while j < n and s[j] != ' ':
-                    j += 1
-                ans.append(s[i:j])
-                i = j
-        return ' '.join(ans[::-1])
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,33 +73,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public String reverseWords(String s) {
-        List<String> words = new ArrayList<>();
-        int n = s.length();
-        for (int i = 0; i < n;) {
-            while (i < n && s.charAt(i) == ' ') {
-                ++i;
-            }
-            if (i < n) {
-                StringBuilder t = new StringBuilder();
-                int j = i;
-                while (j < n && s.charAt(j) != ' ') {
-                    t.append(s.charAt(j++));
-                }
-                words.add(t.toString());
-                i = j;
-            }
-        }
-        Collections.reverse(words);
-        return String.join(" ", words);
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -158,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reverseWords(s string) string {
 	words := strings.Split(s, " ")
@@ -173,25 +117,11 @@ func reverseWords(s string) string {
 }
 ```
 
-### **C#**
-
-```cs
-public class Solution {
-    public string ReverseWords(string s) {
-         return string.Join(" ", s.Trim().Split(" ").Where(word => !string.IsNullOrEmpty(word) && !string.IsNullOrEmpty(word.Trim())).Reverse());
-    }
-}
-```
-
-### **TypeScript**
-
 ```ts
 function reverseWords(s: string): string {
     return s.trim().split(/\s+/).reverse().join(' ');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -201,10 +131,66 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public string ReverseWords(string s) {
+         return string.Join(" ", s.Trim().Split(" ").Where(word => !string.IsNullOrEmpty(word) && !string.IsNullOrEmpty(word.Trim())).Reverse());
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### Solution 2: Two Pointers
+
+We can use two pointers $i$ and $j$, each time we find a word, add it to the result list, then reverse the result list, and finally join the list into a string.
+
+Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        ans = []
+        i, n = 0, len(s)
+        while i < n:
+            while i < n and s[i] == ' ':
+                i += 1
+            if i < n:
+                j = i
+                while j < n and s[j] != ' ':
+                    j += 1
+                ans.append(s[i:j])
+                i = j
+        return ' '.join(ans[::-1])
+```
+
+```java
+class Solution {
+    public String reverseWords(String s) {
+        List<String> words = new ArrayList<>();
+        int n = s.length();
+        for (int i = 0; i < n;) {
+            while (i < n && s.charAt(i) == ' ') {
+                ++i;
+            }
+            if (i < n) {
+                StringBuilder t = new StringBuilder();
+                int j = i;
+                while (j < n && s.charAt(j) != ' ') {
+                    t.append(s.charAt(j++));
+                }
+                words.add(t.toString());
+                i = j;
+            }
+        }
+        Collections.reverse(words);
+        return String.join(" ", words);
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

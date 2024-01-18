@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数**
+### 方法一：计数
 
 我们首先判断字符串 $s$ 和字符串 $t$ 的长度是否相等，如果不相等，直接返回 `false`。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(n + C)$，空间复杂度 $O(C)$，其中 $n$ 为字符串 $s$ 和 $t$ 的长度；而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -93,10 +87,6 @@ class Solution:
                 return False
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -118,8 +108,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -143,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func canConvertString(s string, t string, k int) bool {
 	if len(s) != len(t) {
@@ -164,10 +150,6 @@ func canConvertString(s string, t string, k int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

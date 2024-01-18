@@ -1,12 +1,19 @@
 func findClosestElements(arr []int, k int, x int) []int {
-	left, right := 0, len(arr)-k
-	for left < right {
-		mid := (left + right) >> 1
-		if x-arr[mid] <= arr[mid+k]-x {
-			right = mid
-		} else {
-			left = mid + 1
+	sort.Slice(arr, func(i, j int) bool {
+		v := abs(arr[i]-x) - abs(arr[j]-x)
+		if v == 0 {
+			return arr[i] < arr[j]
 		}
+		return v < 0
+	})
+	ans := arr[:k]
+	sort.Ints(ans)
+	return ans
+}
+
+func abs(x int) int {
+	if x >= 0 {
+		return x
 	}
-	return arr[left : left+k]
+	return -x
 }

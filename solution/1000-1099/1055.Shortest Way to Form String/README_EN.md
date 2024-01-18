@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -67,8 +67,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -123,8 +119,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func shortestWay(source string, target string) int {
 	m, n := len(source), len(target)
@@ -146,10 +140,6 @@ func shortestWay(source string, target string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

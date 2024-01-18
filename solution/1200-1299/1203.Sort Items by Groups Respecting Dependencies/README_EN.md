@@ -48,7 +48,7 @@
 
 ## Solutions
 
-**Solution 1: Topological Sorting**
+### Solution 1: Topological Sorting
 
 First, we traverse the array $group$. For each project, if it does not belong to any group, we create a new group for it with the ID $m$, and increment $m$. This ensures that all projects belong to some group. Then, we use an array $groupItems$ to record the projects contained in each group. The array index is the group ID, and the array value is the list of projects in the group.
 
@@ -59,8 +59,6 @@ Next, we perform topological sorting on the group graph to get the sorted group 
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the total number of projects and groups, respectively.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -113,8 +111,6 @@ class Solution:
             ans.extend(item_order)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -187,8 +183,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -255,8 +249,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sortItems(n int, m int, group []int, beforeItems [][]int) []int {
@@ -327,8 +319,6 @@ func sortItems(n int, m int, group []int, beforeItems [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortItems(n: number, m: number, group: number[], beforeItems: number[][]): number[] {
     let idx = m;
@@ -391,10 +381,6 @@ function sortItems(n: number, m: number, group: number[], beforeItems: number[][
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,9 @@ There are no people who are not &quot;it&quot; to catch.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +70,6 @@ class Solution:
                     j += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -94,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +113,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func catchMaximumAmountofPeople(team []int, dist int) (ans int) {
@@ -145,10 +139,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

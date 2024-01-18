@@ -64,9 +64,19 @@ Joining the blocks gives &quot;123-456-78&quot;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simple Simulation
 
-### **Python3**
+First, according to the problem description, we remove all spaces and hyphens from the string.
+
+Let the current string length be $n$. Then we traverse the string from the beginning, grouping every $3$ characters together and adding them to the result string. We take a total of $n / 3$ groups.
+
+If there is $1$ character left in the end, we form a new group of two characters with the last character of the last group and this character, and add it to the result string. If there are $2$ characters left, we directly form a new group with these two characters and add it to the result string.
+
+Finally, we add hyphens between all groups and return the result string.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +91,6 @@ class Solution:
             ans.append(number[-2:])
         return "-".join(ans)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +111,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +144,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func reformatNumber(number string) string {
 	number = strings.ReplaceAll(number, " ", "")
@@ -159,8 +163,6 @@ func reformatNumber(number string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function reformatNumber(number: string): string {
     const cs = [...number].filter(c => c !== ' ' && c !== '-');
@@ -175,8 +177,6 @@ function reformatNumber(number: string): string {
         .join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -199,10 +199,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

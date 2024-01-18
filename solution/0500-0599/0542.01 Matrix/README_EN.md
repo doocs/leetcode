@@ -37,21 +37,9 @@
 
 ## Solutions
 
-**Method One: Multi-source BFS**
-
-Initialize the result matrix ans, where the distance of all zeros is 0, and thus the distance of all ones is -1.
-
-Initialize a queue q to store the positions to be checked by BFS, and enqueue all positions of zeros.
-
-Continually dequeue elements `p(i, j)` from queue q, inspecting the four neighboring points.
-
-For each neighbor `(x, y)`, if `ans[x][y] = -1`, then update `ans[x][y] = ans[i][j] + 1`.
-
-Also, enqueue the position `(x, y)`.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -74,8 +62,6 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,7 +130,69 @@ public:
 };
 ```
 
-### **Rust**
+```go
+func updateMatrix(mat [][]int) [][]int {
+	m, n := len(mat), len(mat[0])
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
+		for j := range ans[i] {
+			ans[i][j] = -1
+		}
+	}
+	type pair struct{ x, y int }
+	var q []pair
+	for i, row := range mat {
+		for j, v := range row {
+			if v == 0 {
+				ans[i][j] = 0
+				q = append(q, pair{i, j})
+			}
+		}
+	}
+	dirs := []int{-1, 0, 1, 0, -1}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		for i := 0; i < 4; i++ {
+			x, y := p.x+dirs[i], p.y+dirs[i+1]
+			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
+				ans[x][y] = ans[p.x][p.y] + 1
+				q = append(q, pair{x, y})
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function updateMatrix(mat: number[][]): number[][] {
+    const [m, n] = [mat.length, mat[0].length];
+    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => -1));
+    const q: [number, number][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (mat[i][j] === 0) {
+                q.push([i, j]);
+                ans[i][j] = 0;
+            }
+        }
+    }
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    while (q.length) {
+        const [i, j] = q.shift()!;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
+                ans[x][y] = ans[i][j] + 1;
+                q.push([x, y]);
+            }
+        }
+    }
+    return ans;
+}
+```
 
 ```rust
 use std::collections::VecDeque;
@@ -200,78 +246,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func updateMatrix(mat [][]int) [][]int {
-	m, n := len(mat), len(mat[0])
-	ans := make([][]int, m)
-	for i := range ans {
-		ans[i] = make([]int, n)
-		for j := range ans[i] {
-			ans[i][j] = -1
-		}
-	}
-	type pair struct{ x, y int }
-	var q []pair
-	for i, row := range mat {
-		for j, v := range row {
-			if v == 0 {
-				ans[i][j] = 0
-				q = append(q, pair{i, j})
-			}
-		}
-	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for len(q) > 0 {
-		p := q[0]
-		q = q[1:]
-		for i := 0; i < 4; i++ {
-			x, y := p.x+dirs[i], p.y+dirs[i+1]
-			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
-				ans[x][y] = ans[p.x][p.y] + 1
-				q = append(q, pair{x, y})
-			}
-		}
-	}
-	return ans
-}
-```
-
-### **TypeScript**
-
-```ts
-function updateMatrix(mat: number[][]): number[][] {
-    const [m, n] = [mat.length, mat[0].length];
-    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => -1));
-    const q: [number, number][] = [];
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (mat[i][j] === 0) {
-                q.push([i, j]);
-                ans[i][j] = 0;
-            }
-        }
-    }
-    const dirs: number[] = [-1, 0, 1, 0, -1];
-    while (q.length) {
-        const [i, j] = q.shift()!;
-        for (let k = 0; k < 4; ++k) {
-            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
-            if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
-                ans[x][y] = ans[i][j] + 1;
-                q.push([x, y]);
-            }
-        }
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +68,6 @@ class Solution:
         dfs(r, c)
         return g
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -111,8 +109,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -143,8 +139,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func tourOfKnight(m int, n int, r int, c int) [][]int {
@@ -181,8 +175,6 @@ func tourOfKnight(m int, n int, r int, c int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     const g: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
@@ -210,8 +202,6 @@ function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     return g;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -254,10 +244,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

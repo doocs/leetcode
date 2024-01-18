@@ -63,9 +63,9 @@ Notice that we made only 3 calls, so the answer is valid.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # """
@@ -103,8 +103,6 @@ class Solution:
         return left
 ```
 
-### **Java**
-
 ```java
 /**
  * // This is ArrayReader's API interface.
@@ -140,8 +138,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -181,8 +177,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is the ArrayReader's API interface.
@@ -216,10 +210,6 @@ func getIndex(reader *ArrayReader) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

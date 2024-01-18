@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -72,8 +72,6 @@ class Solution:
         root.right = None
         return new_root
 ```
-
-### **Java**
 
 ```java
 /**
@@ -106,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -134,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -158,10 +152,6 @@ func upsideDownBinaryTree(root *TreeNode) *TreeNode {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

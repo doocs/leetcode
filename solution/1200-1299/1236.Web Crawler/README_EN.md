@@ -89,11 +89,9 @@ startUrl = &quot;http://news.google.com&quot;
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # """
@@ -126,8 +124,6 @@ class Solution:
         dfs(startUrl)
         return list(ans)
 ```
-
-### **Java**
 
 ```java
 /**
@@ -165,8 +161,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -209,8 +203,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * // This is HtmlParser's API interface.
@@ -244,10 +236,6 @@ func crawl(startUrl string, htmlParser HtmlParser) []string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

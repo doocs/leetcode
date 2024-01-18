@@ -1,4 +1,4 @@
-# [1216. 验证回文字符串 III](https://leetcode.cn/problems/valid-palindrome-iii)
+# [1216. 验证回文串 III](https://leetcode.cn/problems/valid-palindrome-iii)
 
 [English Version](/solution/1200-1299/1216.Valid%20Palindrome%20III/README_EN.md)
 
@@ -39,9 +39,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 题目要求删去最多 $k$ 个字符，使得剩余的字符串是回文串。可以转换为求最长回文子序列的问题。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -78,10 +72,6 @@ class Solution:
                     return True
         return False
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -107,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -137,8 +125,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isValidPalindrome(s string, k int) bool {
 	n := len(s)
@@ -163,8 +149,6 @@ func isValidPalindrome(s string, k int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isValidPalindrome(s: string, k: number): boolean {
     const n = s.length;
@@ -187,8 +171,6 @@ function isValidPalindrome(s: string, k: number): boolean {
     return false;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -220,10 +202,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

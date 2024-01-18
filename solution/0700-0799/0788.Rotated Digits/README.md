@@ -33,9 +33,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：直接枚举**
+### 方法一：直接枚举
 
 一种直观且有效的思路是，直接枚举 $[1,2,..n]$ 中的每个数，判断其是否为好数，若为好数，则答案加一。
 
@@ -49,7 +47,117 @@
 
 相似题目：[1056. 易混淆数](/solution/1000-1099/1056.Confusing%20Number/README.md)
 
-**方法二：数位 DP**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def rotatedDigits(self, n: int) -> int:
+        def check(x):
+            y, t = 0, x
+            k = 1
+            while t:
+                v = t % 10
+                if d[v] == -1:
+                    return False
+                y = d[v] * k + y
+                k *= 10
+                t //= 10
+            return x != y
+
+        d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
+        return sum(check(i) for i in range(1, n + 1))
+```
+
+```java
+class Solution {
+    private int[] d = new int[] {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
+
+    public int rotatedDigits(int n) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            if (check(i)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private boolean check(int x) {
+        int y = 0, t = x;
+        int k = 1;
+        while (t > 0) {
+            int v = t % 10;
+            if (d[v] == -1) {
+                return false;
+            }
+            y = d[v] * k + y;
+            k *= 10;
+            t /= 10;
+        }
+        return x != y;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    const vector<int> d = {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
+
+    int rotatedDigits(int n) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans += check(i);
+        }
+        return ans;
+    }
+
+    bool check(int x) {
+        int y = 0, t = x;
+        int k = 1;
+        while (t) {
+            int v = t % 10;
+            if (d[v] == -1) {
+                return false;
+            }
+            y = d[v] * k + y;
+            k *= 10;
+            t /= 10;
+        }
+        return x != y;
+    }
+};
+```
+
+```go
+func rotatedDigits(n int) int {
+	d := []int{0, 1, 5, -1, -1, 2, 9, -1, 8, 6}
+	check := func(x int) bool {
+		y, t := 0, x
+		k := 1
+		for ; t > 0; t /= 10 {
+			v := t % 10
+			if d[v] == -1 {
+				return false
+			}
+			y = d[v]*k + y
+			k *= 10
+		}
+		return x != y
+	}
+	ans := 0
+	for i := 1; i <= n; i++ {
+		if check(i) {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：数位 DP
 
 方法一的做法足以通过本题，但时间复杂度较高。如果题目的数据范围达到 $10^9$ 级别，则方法一的做法会超出时间限制。
 
@@ -91,29 +199,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def rotatedDigits(self, n: int) -> int:
-        def check(x):
-            y, t = 0, x
-            k = 1
-            while t:
-                v = t % 10
-                if d[v] == -1:
-                    return False
-                y = d[v] * k + y
-                k *= 10
-                t //= 10
-            return x != y
-
-        d = [0, 1, 5, -1, -1, 2, 9, -1, 8, 6]
-        return sum(check(i) for i in range(1, n + 1))
-```
-
 ```python
 class Solution:
     def rotatedDigits(self, n: int) -> int:
@@ -137,41 +222,6 @@ class Solution:
             n //= 10
             l += 1
         return dfs(l, 0, True)
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    private int[] d = new int[] {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
-
-    public int rotatedDigits(int n) {
-        int ans = 0;
-        for (int i = 1; i <= n; ++i) {
-            if (check(i)) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    private boolean check(int x) {
-        int y = 0, t = x;
-        int k = 1;
-        while (t > 0) {
-            int v = t % 10;
-            if (d[v] == -1) {
-                return false;
-            }
-            y = d[v] * k + y;
-            k *= 10;
-            t /= 10;
-        }
-        return x != y;
-    }
-}
 ```
 
 ```java
@@ -216,38 +266,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    const vector<int> d = {0, 1, 5, -1, -1, 2, 9, -1, 8, 6};
-
-    int rotatedDigits(int n) {
-        int ans = 0;
-        for (int i = 1; i <= n; ++i) {
-            ans += check(i);
-        }
-        return ans;
-    }
-
-    bool check(int x) {
-        int y = 0, t = x;
-        int k = 1;
-        while (t) {
-            int v = t % 10;
-            if (d[v] == -1) {
-                return false;
-            }
-            y = d[v] * k + y;
-            k *= 10;
-            t /= 10;
-        }
-        return x != y;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -287,34 +305,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func rotatedDigits(n int) int {
-	d := []int{0, 1, 5, -1, -1, 2, 9, -1, 8, 6}
-	check := func(x int) bool {
-		y, t := 0, x
-		k := 1
-		for ; t > 0; t /= 10 {
-			v := t % 10
-			if d[v] == -1 {
-				return false
-			}
-			y = d[v]*k + y
-			k *= 10
-		}
-		return x != y
-	}
-	ans := 0
-	for i := 1; i <= n; i++ {
-		if check(i) {
-			ans++
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -362,10 +352,6 @@ func rotatedDigits(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

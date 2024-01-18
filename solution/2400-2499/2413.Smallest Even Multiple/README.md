@@ -34,29 +34,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：数学
 
-**方法一：数学**
-
-如果 $n$ 为偶数，那么 $2$ 和 $n$ 的最小公倍数就是 $n$ 本身。否则，$2$ 和 $n$ 的最小公倍数就是 $n\times 2$。
+如果 $n$ 为偶数，那么 $2$ 和 $n$ 的最小公倍数就是 $n$ 本身。否则，$2$ 和 $n$ 的最小公倍数就是 $n \times 2$。
 
 时间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def smallestEvenMultiple(self, n: int) -> int:
         return n if n % 2 == 0 else n * 2
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -65,8 +55,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -77,8 +65,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func smallestEvenMultiple(n int) int {
 	if n%2 == 0 {
@@ -88,23 +74,11 @@ func smallestEvenMultiple(n int) int {
 }
 ```
 
-### **C**
-
-```c
-int smallestEvenMultiple(int n) {
-    return n % 2 == 0 ? n : n * 2;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function smallestEvenMultiple(n: number): number {
     return n % 2 === 0 ? n : n * 2;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -117,10 +91,12 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int smallestEvenMultiple(int n) {
+    return n % 2 == 0 ? n : n * 2;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二进制枚举**
+### 方法一：二进制枚举
 
 我们注意到，料理的数量 $n$ 不超过 $8$，因此，我们可以使用二进制枚举的方法枚举所有的料理方案。
 
@@ -60,10 +58,6 @@
 时间复杂度 $(2^n \times n)$，其中 $n$ 是料理的数量。我们需要枚举所有的料理方案，对于每种方案，我们需要 $O(n)$ 的时间计算其美味度和饱腹感，因此总时间复杂度为 $O(2^n \times n)$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -90,10 +84,6 @@ class Solution:
                 ans = a
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +150,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func perfectMenu(materials []int, cookbooks [][]int, attribute [][]int, limit int) int {
 	n := len(cookbooks)
@@ -192,8 +178,6 @@ func perfectMenu(materials []int, cookbooks [][]int, attribute [][]int, limit in
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function perfectMenu(
@@ -229,10 +213,6 @@ function perfectMenu(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

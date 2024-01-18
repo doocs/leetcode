@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们遍历两个数组，从最低位开始，记两个数组当前位的数字为 $a$ 和 $b$，进位为 $c$，三个数相加的结果为 $x$。
 
@@ -72,10 +70,6 @@
 -   [1017. 负二进制转换](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
             ans.pop()
         return ans[::-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -133,8 +123,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -163,8 +151,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
@@ -197,8 +183,6 @@ func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function addNegabinary(arr1: number[], arr2: number[]): number[] {
     let i = arr1.length - 1,
@@ -224,8 +208,6 @@ function addNegabinary(arr1: number[], arr2: number[]): number[] {
     return ans.reverse();
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -255,10 +237,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

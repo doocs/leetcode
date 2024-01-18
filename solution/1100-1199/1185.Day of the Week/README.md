@@ -42,31 +42,107 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：蔡勒公式
 
-直接调库或者应用蔡勒公式。
+我们可以使用蔡勒公式来计算星期几，蔡勒公式如下：
 
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1185.Day%20of%20the%20Week/images/zeller.svg">
+$$
+w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
+$$
+
+其中：
 
 -   `w`: 星期（从 Sunday 开始）
 -   `c`: 年份前两位
 -   `y`: 年份后两位
 -   `m`: 月（m 的取值范围是 3 至 14，即在蔡勒公式中，某年的 1、2 月要看作上一年的 13、14 月来计算，比如 2003 年 1 月 1 日要看作 2002 年的 13 月 1 日来计算）
 -   `d`: 日
--   `[ ]`: 向下取整
+-   `⌊⌋`: 向下取整
 -   `mod`: 取余
 
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
         return datetime.date(year, month, day).strftime('%A')
 ```
+
+```java
+import java.util.Calendar;
+
+class Solution {
+    private static final String[] WEEK
+        = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+    public static String dayOfTheWeek(int day, int month, int year) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, day);
+        return WEEK[calendar.get(Calendar.DAY_OF_WEEK) - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string dayOfTheWeek(int d, int m, int y) {
+        if (m < 3) {
+            m += 12;
+            y -= 1;
+        }
+        int c = y / 100;
+        y %= 100;
+        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
+        vector<string> weeks = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        return weeks[(w + 7) % 7];
+    }
+};
+```
+
+```go
+func dayOfTheWeek(d int, m int, y int) string {
+	if m < 3 {
+		m += 12
+		y -= 1
+	}
+	c := y / 100
+	y %= 100
+	w := (c/4 - 2*c + y + y/4 + 13*(m+1)/5 + d - 1) % 7
+	weeks := []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
+	return weeks[(w+7)%7]
+}
+```
+
+```ts
+function dayOfTheWeek(d: number, m: number, y: number): string {
+    if (m < 3) {
+        m += 12;
+        y -= 1;
+    }
+    const c: number = (y / 100) | 0;
+    y %= 100;
+    const w = (((c / 4) | 0) - 2 * c + y + ((y / 4) | 0) + (((13 * (m + 1)) / 5) | 0) + d - 1) % 7;
+    const weeks: string[] = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+    ];
+    return weeks[(w + 7) % 7];
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -88,25 +164,6 @@ class Solution:
         ][w]
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-import java.util.Calendar;
-
-class Solution {
-    private static final String[] WEEK
-        = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-
-    public static String dayOfTheWeek(int day, int month, int year) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month - 1, day);
-        return WEEK[calendar.get(Calendar.DAY_OF_WEEK) - 1];
-    }
-}
-```
-
 ```java
 class Solution {
     public String dayOfTheWeek(int d, int m, int y) {
@@ -123,45 +180,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string dayOfTheWeek(int d, int m, int y) {
-        if (m < 3) {
-            m += 12;
-            y -= 1;
-        }
-        int c = y / 100;
-        y %= 100;
-        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
-        vector<string> weeks = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-        return weeks[(w + 7) % 7];
-    }
-};
-```
-
-### **Go**
-
-```go
-func dayOfTheWeek(d int, m int, y int) string {
-	if m < 3 {
-		m += 12
-		y -= 1
-	}
-	c := y / 100
-	y %= 100
-	w := (c/4 - 2*c + y + y/4 + 13*(m+1)/5 + d - 1) % 7
-	weeks := []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
-	return weeks[(w+7)%7]
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

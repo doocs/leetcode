@@ -26,19 +26,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：BFS 层序遍历**
+### 方法一：BFS 层序遍历
 
 我们可以使用 BFS 层序遍历的方法，每次遍历一层，将当前层的节点值存入链表中，然后将链表加入到结果数组中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -72,10 +66,6 @@ class Solution:
             ans.append(dummy.next)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -120,8 +110,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -168,8 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -208,8 +194,6 @@ func listOfDepth(tree *TreeNode) (ans []*ListNode) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -256,8 +240,6 @@ function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -329,10 +311,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

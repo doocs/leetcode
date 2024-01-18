@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们定义一个哈希表 $cnt$，用于存储所有长度为 $10$ 的子字符串出现的次数。
 
@@ -55,17 +53,7 @@
 
 时间复杂度 $O(n \times 10)$，空间复杂度 $O(n \times 10)$。其中 $n$ 是字符串 $s$ 的长度。
 
-**方法二：Rabin-Karp 字符串匹配算法**
-
-本质上是滑动窗口和哈希的结合方法，和 [0028.找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) 类似，本题可以借助哈希函数将子序列计数的时间复杂度降低到 $O(1)$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -79,10 +67,6 @@ class Solution:
                 ans.append(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +83,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findRepeatedDnaSequences(s string) (ans []string) {
 	cnt := map[string]int{}
@@ -134,71 +114,6 @@ func findRepeatedDnaSequences(s string) (ans []string) {
 	return
 }
 ```
-
-```go
-func findRepeatedDnaSequences(s string) []string {
-	hashCode := map[byte]int{'A': 0, 'C': 1, 'G': 2, 'T': 3}
-	ans, cnt, left, right := []string{}, map[int]int{}, 0, 0
-
-	sha, multi := 0, int(math.Pow(4, 9))
-	for ; right < len(s); right++ {
-		sha = sha*4 + hashCode[s[right]]
-		if right-left+1 < 10 {
-			continue
-		}
-		cnt[sha]++
-		if cnt[sha] == 2 {
-			ans = append(ans, s[left:right+1])
-		}
-		sha, left = sha-multi*hashCode[s[left]], left+1
-	}
-	return ans
-}
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} s
- * @return {string[]}
- */
-var findRepeatedDnaSequences = function (s) {
-    const cnt = new Map();
-    const ans = [];
-    for (let i = 0; i < s.length - 10 + 1; ++i) {
-        const t = s.slice(i, i + 10);
-        cnt.set(t, (cnt.get(t) || 0) + 1);
-        if (cnt.get(t) === 2) {
-            ans.push(t);
-        }
-    }
-    return ans;
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public IList<string> FindRepeatedDnaSequences(string s) {
-        var cnt = new Dictionary<string, int>();
-        var ans = new List<string>();
-        for (int i = 0; i < s.Length - 10 + 1; ++i) {
-            var t = s.Substring(i, 10);
-            if (!cnt.ContainsKey(t)) {
-                cnt[t] = 0;
-            }
-            if (++cnt[t] == 2) {
-                ans.Add(t);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function findRepeatedDnaSequences(s: string): string[] {
@@ -215,8 +130,6 @@ function findRepeatedDnaSequences(s: string): string[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -241,10 +154,75 @@ impl Solution {
 }
 ```
 
-### **...**
-
+```js
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+var findRepeatedDnaSequences = function (s) {
+    const cnt = new Map();
+    const ans = [];
+    for (let i = 0; i < s.length - 10 + 1; ++i) {
+        const t = s.slice(i, i + 10);
+        cnt.set(t, (cnt.get(t) || 0) + 1);
+        if (cnt.get(t) === 2) {
+            ans.push(t);
+        }
+    }
+    return ans;
+};
 ```
 
+```cs
+public class Solution {
+    public IList<string> FindRepeatedDnaSequences(string s) {
+        var cnt = new Dictionary<string, int>();
+        var ans = new List<string>();
+        for (int i = 0; i < s.Length - 10 + 1; ++i) {
+            var t = s.Substring(i, 10);
+            if (!cnt.ContainsKey(t)) {
+                cnt[t] = 0;
+            }
+            if (++cnt[t] == 2) {
+                ans.Add(t);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+### 方法二：Rabin-Karp 字符串匹配算法
+
+本质上是滑动窗口和哈希的结合方法，和 [0028.找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) 类似，本题可以借助哈希函数将子序列计数的时间复杂度降低到 $O(1)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+```go
+func findRepeatedDnaSequences(s string) []string {
+	hashCode := map[byte]int{'A': 0, 'C': 1, 'G': 2, 'T': 3}
+	ans, cnt, left, right := []string{}, map[int]int{}, 0, 0
+
+	sha, multi := 0, int(math.Pow(4, 9))
+	for ; right < len(s); right++ {
+		sha = sha*4 + hashCode[s[right]]
+		if right-left+1 < 10 {
+			continue
+		}
+		cnt[sha]++
+		if cnt[sha] == 2 {
+			ans = append(ans, s[left:right+1])
+		}
+		sha, left = sha-multi*hashCode[s[left]], left+1
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

@@ -48,29 +48,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：脑筋急转弯
 
-**方法一：脑筋急转弯**
+我们注意到 $1$ 其实是数字转换的“工具”，因此只要两个字符串中都有 $1$ 或者都没有 $1$，那么就可以通过操作使得两个字符串相等。
 
-注意到 $1$ 其实是数字转换的“工具”，因此只要两个字符串中都有 $1$ 或者都没有 $1$，那么就可以通过操作使得两个字符串相等。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def makeStringsEqual(self, s: str, target: str) -> bool:
         return ("1" in s) == ("1" in target)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -79,8 +69,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,23 +81,17 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeStringsEqual(s string, target string) bool {
 	return strings.Contains(s, "1") == strings.Contains(target, "1")
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function makeStringsEqual(s: string, target: string): boolean {
     return s.includes('1') === target.includes('1');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -118,8 +100,6 @@ impl Solution {
     }
 }
 ```
-
-### **C**
 
 ```c
 bool makeStringsEqual(char* s, char* target) {
@@ -140,10 +120,6 @@ bool makeStringsEqual(char* s, char* target) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

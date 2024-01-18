@@ -58,7 +58,7 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 
 ## Solutions
 
-**Solution 1: Two Deques**
+### Solution 1: Two Deques
 
 We use two deques, where $q_1$ stores the first half, and $q_2$ stores the second half. The `rebalance` function is used to maintain the balance between the two queues, i.e., keeping the length of $q_2$ greater than or equal to the length of $q_1$, and the difference in length does not exceed $1$.
 
@@ -73,8 +73,6 @@ For the `popBack` function, we only need to check whether $q_2$ is empty. If it 
 The time complexity of the above operations is $O(1)$, and the space complexity is $O(n)$, where $n$ is the number of elements in the queue.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class FrontMiddleBackQueue:
@@ -137,8 +135,6 @@ class FrontMiddleBackQueue:
 # param_5 = obj.popMiddle()
 # param_6 = obj.popBack()
 ```
-
-### **Java**
 
 ```java
 class FrontMiddleBackQueue {
@@ -211,8 +207,6 @@ class FrontMiddleBackQueue {
  * int param_6 = obj.popBack();
  */
 ```
-
-### **C++**
 
 ```cpp
 class FrontMiddleBackQueue {
@@ -298,8 +292,6 @@ private:
  * int param_6 = obj->popBack();
  */
 ```
-
-### **Go**
 
 ```go
 type FrontMiddleBackQueue struct {
@@ -440,8 +432,6 @@ func (q Deque) Get(i int) int {
  * param_6 := obj.PopBack();
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class FrontMiddleBackQueue {
@@ -614,8 +604,6 @@ class Deque<T> {
  */
 ```
 
-### **JavaScript**
-
 ```js
 class FrontMiddleBackQueue {
     constructor() {
@@ -776,10 +764,6 @@ class Deque {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -54,9 +54,9 @@ s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,20 +72,6 @@ class Solution:
             s = "".join(t)
         return s
 ```
-
-```python
-class Solution:
-    def digitSum(self, s: str, k: int) -> str:
-        if len(s) <= k:
-            return s
-        t = []
-        while s:
-            t.append(str(sum(int(v) for v in s[:k])))
-            s = s[k:]
-        return self.digitSum(''.join(t), k)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -106,8 +92,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func digitSum(s string, k int) string {
 	for len(s) > k {
@@ -150,8 +132,6 @@ func digitSum(s string, k int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function digitSum(s: string, k: number): string {
     let ans = [];
@@ -167,10 +147,24 @@ function digitSum(s: string, k: number): string {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def digitSum(self, s: str, k: int) -> str:
+        if len(s) <= k:
+            return s
+        t = []
+        while s:
+            t.append(str(sum(int(v) for v in s[:k])))
+            s = s[k:]
+        return self.digitSum(''.join(t), k)
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

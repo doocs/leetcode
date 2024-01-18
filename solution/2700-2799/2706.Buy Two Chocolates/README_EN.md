@@ -38,9 +38,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting
 
-### **Python3**
+We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $cost$ of buying two chocolates. If this cost is greater than the money we have, then we return `money`. Otherwise, we return `money - cost`.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `prices`.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -49,8 +53,6 @@ class Solution:
         cost = prices[0] + prices[1]
         return money if money < cost else money - cost
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -61,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -75,8 +75,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func buyChoco(prices []int, money int) int {
 	sort.Ints(prices)
@@ -88,8 +86,6 @@ func buyChoco(prices []int, money int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function buyChoco(prices: number[], money: number): number {
     prices.sort((a, b) => a - b);
@@ -98,43 +94,136 @@ function buyChoco(prices: number[], money: number): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
         prices.sort();
-
-        let sum = prices[0] + prices[1];
-        if sum > money {
+        let cost = prices[0] + prices[1];
+        if cost > money {
             return money;
         }
-
-        money - sum
+        money - cost
     }
 }
-```
-
-```rust
-impl Solution {
-    pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
-        prices.sort();
-
-        let sum = prices.iter().take(2).sum::<i32>();
-
-        if sum > money {
-            return money;
-        }
-
-        money - sum
-    }
-}
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+### Solution 2: One-pass Traversal
+
+We can find the two smallest prices in one pass, and then calculate the cost.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def buyChoco(self, prices: List[int], money: int) -> int:
+        a = b = inf
+        for x in prices:
+            if x < a:
+                a, b = x, a
+            elif x < b:
+                b = x
+        cost = a + b
+        return money if money < cost else money - cost
+```
+
+```java
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        int a = 1000, b = 1000;
+        for (int x : prices) {
+            if (x < a) {
+                b = a;
+                a = x;
+            } else if (x < b) {
+                b = x;
+            }
+        }
+        int cost = a + b;
+        return money < cost ? money : money - cost;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int buyChoco(vector<int>& prices, int money) {
+        int a = 1000, b = 1000;
+        for (int x : prices) {
+            if (x < a) {
+                b = a;
+                a = x;
+            } else if (x < b) {
+                b = x;
+            }
+        }
+        int cost = a + b;
+        return money < cost ? money : money - cost;
+    }
+};
+```
+
+```go
+func buyChoco(prices []int, money int) int {
+	a, b := 1001, 1001
+	for _, x := range prices {
+		if x < a {
+			a, b = x, a
+		} else if x < b {
+			b = x
+		}
+	}
+	cost := a + b
+	if money < cost {
+		return money
+	}
+	return money - cost
+}
+```
+
+```ts
+function buyChoco(prices: number[], money: number): number {
+    let [a, b] = [1000, 1000];
+    for (const x of prices) {
+        if (x < a) {
+            b = a;
+            a = x;
+        } else if (x < b) {
+            b = x;
+        }
+    }
+    const cost = a + b;
+    return money < cost ? money : money - cost;
+}
+```
+
+```rust
+impl Solution {
+    pub fn buy_choco(prices: Vec<i32>, money: i32) -> i32 {
+        let mut a = 1000;
+        let mut b = 1000;
+        for &x in prices.iter() {
+            if x < a {
+                b = a;
+                a = x;
+            } else if x < b {
+                b = x;
+            }
+        }
+        let cost = a + b;
+        if money < cost {
+            money
+        } else {
+            money - cost
+        }
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

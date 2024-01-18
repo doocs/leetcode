@@ -40,19 +40,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举购买钢笔的数量 $x$，对于每个 $x$，我们最多可以购买铅笔的数量为 $\frac{total - x \times cost1}{cost2}$，那么数量加 $1$ 即为 $x$ 的方案数。我们累加所有的 $x$ 的方案数，即为答案。
 
 时间复杂度 $O(\frac{total}{cost1})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
             ans += y
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -80,8 +70,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +85,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 	for x := 0; x <= total/cost1; x++ {
@@ -108,8 +94,6 @@ func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function waysToBuyPensPencils(total: number, cost1: number, cost2: number): number {
@@ -121,8 +105,6 @@ function waysToBuyPensPencils(total: number, cost1: number, cost2: number): numb
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -136,10 +118,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -89,21 +89,11 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：子查询 + 分组统计**
+### 方法一：子查询 + 分组统计
 
 我们可以使用子查询，先找出所有没有进行交易的 `visit_id`，然后按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
 
-**方法二：左连接 + 分组统计**
-
-我们也可以使用左连接，将 `Visits` 表和 `Transactions` 表按照 `visit_id` 进行连接，然后筛选出 `amount` 为 `NULL` 的记录，按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
-
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -112,6 +102,14 @@ FROM Visits
 WHERE visit_id NOT IN (SELECT visit_id FROM Transactions)
 GROUP BY 1;
 ```
+
+<!-- tabs:end -->
+
+### 方法二：左连接 + 分组统计
+
+我们也可以使用左连接，将 `Visits` 表和 `Transactions` 表按照 `visit_id` 进行连接，然后筛选出 `amount` 为 `NULL` 的记录，按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -124,3 +122,5 @@ GROUP BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,9 +60,9 @@ But the second continuation byte does not start with 10, so it is invalid.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -85,8 +85,6 @@ class Solution:
                 return False
         return n == 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -141,8 +137,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func validUtf8(data []int) bool {
@@ -169,10 +163,6 @@ func validUtf8(data []int) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

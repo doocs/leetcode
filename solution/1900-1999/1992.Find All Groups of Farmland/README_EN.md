@@ -54,9 +54,9 @@ There are no groups of farmland.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
                 ans.append([i, j, x, y])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +106,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -134,8 +130,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findFarmland(land [][]int) [][]int {
 	m, n := len(land), len(land[0])
@@ -157,10 +151,6 @@ func findFarmland(land [][]int) [][]int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -55,9 +55,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序 + 贪心**
+### 方法一：排序 + 贪心
 
 由于可以将每一个数字重新填入并且使最终矩阵的最大值最小化，可考虑贪心。
 
@@ -68,10 +66,6 @@
 时间复杂度 $O(mn\log mn)$，空间复杂度 $O(mn)$。其中 $m$ 和 $n$ 是矩阵的行数和列数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
             row_max[i] = col_max[j] = ans[i][j]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -117,8 +107,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -142,8 +130,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minScore(grid [][]int) [][]int {
@@ -171,8 +157,6 @@ func minScore(grid [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minScore(grid: number[][]): number[][] {
     const m = grid.length;
@@ -195,10 +179,6 @@ function minScore(grid: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

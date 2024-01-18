@@ -60,9 +60,9 @@ fn = (x) =&gt; Array.isArray(x)
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any> | undefined {
@@ -91,3 +91,5 @@ function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any>
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

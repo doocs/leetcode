@@ -25,6 +25,55 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 380
+
+- [3005. Count Elements With Maximum Frequency](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md)
+- [3006. Find Beautiful Indices in the Given Array I](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md)
+- [3007. Maximum Number That Sum of the Prices Is Less Than or Equal to K](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
+- [3008. Find Beautiful Indices in the Given Array II](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md)
+
+#### Weekly Contest 379
+
+- [3000. Maximum Area of Longest Diagonal Rectangle](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)
+- [3001. Minimum Moves to Capture The Queen](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
+- [3002. Maximum Size of a Set After Removals](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
+- [3003. Maximize the Number of Partitions After Operations](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
+
+#### Biweekly Contest 121
+
+- [2996. Smallest Missing Integer Greater Than Sequential Prefix Sum](/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md)
+- [2997. Minimum Number of Operations to Make Array XOR Equal to K](/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)
+- [2998. Minimum Number of Operations to Make X and Y Equal](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)
+- [2999. Count the Number of Powerful Integers](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
+
+#### Weekly Contest 378
+
+- [2980. Check if Bitwise OR Has Trailing Zeros](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README_EN.md)
+- [2981. Find Longest Special Substring That Occurs Thrice I](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README_EN.md)
+- [2982. Find Longest Special Substring That Occurs Thrice II](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README_EN.md)
+- [2983. Palindrome Rearrangement Queries](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md)
+
+#### Weekly Contest 377
+
+- [2974. Minimum Number Game](/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md)
+- [2975. Maximum Square Area by Removing Fences From a Field](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md)
+- [2976. Minimum Cost to Convert String I](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md)
+- [2977. Minimum Cost to Convert String II](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README_EN.md)
+
+#### Biweekly Contest 120
+
+- [2970. Count the Number of Incremovable Subarrays I](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)
+- [2971. Find Polygon With the Largest Perimeter](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)
+- [2972. Count the Number of Incremovable Subarrays II](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)
+- [2973. Find Number of Coins to Place in Tree Nodes](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)
+
+#### Weekly Contest 376
+
+- [2965. Find Missing and Repeated Values](/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README_EN.md)
+- [2966. Divide Array Into Arrays With Max Difference](/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README_EN.md)
+- [2967. Minimum Cost to Make Array Equalindromic](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
+- [2968. Apply Operations to Maximize Frequency Score](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README_EN.md)
+
 #### Weekly Contest 375
 
 - [2960. Count Tested Devices After Test Operations](/solution/2900-2999/2960.Count%20Tested%20Devices%20After%20Test%20Operations/README_EN.md)

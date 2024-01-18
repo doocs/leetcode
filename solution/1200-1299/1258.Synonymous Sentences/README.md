@@ -41,9 +41,7 @@ text = &quot;I am happy today but was sad yesterday&quot;
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：并查集 + DFS**
+### 方法一：并查集 + DFS
 
 我们可以发现，题目中的近义词是可以传递的，即如果 `a` 和 `b` 是近义词，`b` 和 `c` 是近义词，那么 `a` 和 `c` 也是近义词。因此，我们可以用并查集找出近义词的连通分量，每个连通分量中的单词都是近义词，并且按字典序从小到大排列。
 
@@ -58,10 +56,6 @@ text = &quot;I am happy today but was sad yesterday&quot;
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是单词的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class UnionFind:
@@ -118,10 +112,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class UnionFind {
@@ -214,8 +204,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class UnionFind {
@@ -315,8 +303,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type unionFind struct {
 	p, size []int
@@ -403,10 +389,6 @@ func generateSentences(synonyms [][]string, text string) (ans []string) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

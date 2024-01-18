@@ -66,9 +66,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数统计**
+### 方法一：计数统计
 
 由于题目中说明同一时刻只有一辆车处于使用状态，因此我们直接模拟每辆车的运行过程，累加时间。
 
@@ -80,10 +78,6 @@
 时间复杂度 $O(n)$，其中 $n$ 为垃圾的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -98,27 +92,6 @@ class Solution:
         ans += sum(s[i] for i in last.values())
         return ans
 ```
-
-```python
-class Solution:
-    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
-        def f(x: str) -> int:
-            ans = 0
-            st = 0
-            for i, s in enumerate(garbage):
-                if t := s.count(x):
-                    ans += t + st
-                    st = 0
-                if i < len(travel):
-                    st += travel[i]
-            return ans
-
-        return f('M') + f('P') + f('G')
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,6 +117,151 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
+        int n = garbage.size(), m = travel.size();
+        int last[26]{};
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += garbage[i].size();
+            for (char& c : garbage[i]) {
+                last[c - 'A'] = i;
+            }
+        }
+        int s[m + 1];
+        s[0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            s[i] = s[i - 1] + travel[i - 1];
+        }
+        for (int i : last) {
+            ans += s[i];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func garbageCollection(garbage []string, travel []int) (ans int) {
+	last := [26]int{}
+	for i, s := range garbage {
+		ans += len(s)
+		for _, c := range s {
+			last[c-'A'] = i
+		}
+	}
+	s := make([]int, len(travel)+1)
+	for i, x := range travel {
+		s[i+1] = s[i] + x
+	}
+	for _, i := range last {
+		ans += s[i]
+	}
+	return
+}
+```
+
+```ts
+function garbageCollection(garbage: string[], travel: number[]): number {
+    const n = garbage.length;
+    const m = travel.length;
+    let ans = 0;
+    const last = new Array(26).fill(0);
+    for (let i = 0; i < n; ++i) {
+        ans += garbage[i].length;
+        for (const c of garbage[i]) {
+            last[c.charCodeAt(0) - 'A'.charCodeAt(0)] = i;
+        }
+    }
+    const s = new Array(m + 1).fill(0);
+    for (let i = 1; i <= m; ++i) {
+        s[i] = s[i - 1] + travel[i - 1];
+    }
+    for (const i of last) {
+        ans += s[i];
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn garbage_collection(garbage: Vec<String>, travel: Vec<i32>) -> i32 {
+        let n = garbage.len();
+        let cs = [b'M', b'P', b'G'];
+        let mut count = [0, 0, 0];
+        for s in garbage.iter() {
+            for c in s.as_bytes().iter() {
+                count[if c == &b'M' { 0 } else if c == &b'P' { 1 } else { 2 }] += 1;
+            }
+        }
+
+        let mut res = 0;
+        for i in 0..3 {
+            for j in 0..n {
+                let s = &garbage[j];
+                for c in s.as_bytes().iter() {
+                    if c == &cs[i] {
+                        res += 1;
+                        count[i] -= 1;
+                    }
+                }
+                if count[i] == 0 {
+                    break;
+                }
+
+                res += travel[j];
+            }
+        }
+        res
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int GarbageCollection(string[] garbage, int[] travel) {
+        int len = garbage.Length;
+        int res = 0;
+        HashSet<char> s = new HashSet<char>();
+        for (int i = len - 1; i >= 0; i--) {
+            foreach (char ch in garbage[i].ToCharArray()) {
+                if (!s.Contains(ch))
+                    s.Add(ch);
+            }
+            res += garbage[i].Length;
+            res += i > 0 ? s.Count * travel[i - 1] : 0;
+        }
+        return res;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
+        def f(x: str) -> int:
+            ans = 0
+            st = 0
+            for i, s in enumerate(garbage):
+                if t := s.count(x):
+                    ans += t + st
+                    st = 0
+                if i < len(travel):
+                    st += travel[i]
+            return ans
+
+        return f('M') + f('P') + f('G')
 ```
 
 ```java
@@ -180,34 +298,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
-        int n = garbage.size(), m = travel.size();
-        int last[26]{};
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans += garbage[i].size();
-            for (char& c : garbage[i]) {
-                last[c - 'A'] = i;
-            }
-        }
-        int s[m + 1];
-        s[0] = 0;
-        for (int i = 1; i <= m; ++i) {
-            s[i] = s[i - 1] + travel[i - 1];
-        }
-        for (int i : last) {
-            ans += s[i];
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -236,28 +326,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func garbageCollection(garbage []string, travel []int) (ans int) {
-	last := [26]int{}
-	for i, s := range garbage {
-		ans += len(s)
-		for _, c := range s {
-			last[c-'A'] = i
-		}
-	}
-	s := make([]int, len(travel)+1)
-	for i, x := range travel {
-		s[i+1] = s[i] + x
-	}
-	for _, i := range last {
-		ans += s[i]
-	}
-	return
-}
-```
-
 ```go
 func garbageCollection(garbage []string, travel []int) (ans int) {
 	f := func(x rune) int {
@@ -275,31 +343,6 @@ func garbageCollection(garbage []string, travel []int) (ans int) {
 		return ans
 	}
 	return f('M') + f('P') + f('G')
-}
-```
-
-### **TypeScript**
-
-```ts
-function garbageCollection(garbage: string[], travel: number[]): number {
-    const n = garbage.length;
-    const m = travel.length;
-    let ans = 0;
-    const last = new Array(26).fill(0);
-    for (let i = 0; i < n; ++i) {
-        ans += garbage[i].length;
-        for (const c of garbage[i]) {
-            last[c.charCodeAt(0) - 'A'.charCodeAt(0)] = i;
-        }
-    }
-    const s = new Array(m + 1).fill(0);
-    for (let i = 1; i <= m; ++i) {
-        s[i] = s[i - 1] + travel[i - 1];
-    }
-    for (const i of last) {
-        ans += s[i];
-    }
-    return ans;
 }
 ```
 
@@ -329,67 +372,6 @@ function garbageCollection(garbage: string[], travel: number[]): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn garbage_collection(garbage: Vec<String>, travel: Vec<i32>) -> i32 {
-        let n = garbage.len();
-        let cs = [b'M', b'P', b'G'];
-        let mut count = [0, 0, 0];
-        for s in garbage.iter() {
-            for c in s.as_bytes().iter() {
-                count[if c == &b'M' { 0 } else if c == &b'P' { 1 } else { 2 }] += 1;
-            }
-        }
-
-        let mut res = 0;
-        for i in 0..3 {
-            for j in 0..n {
-                let s = &garbage[j];
-                for c in s.as_bytes().iter() {
-                    if c == &cs[i] {
-                        res += 1;
-                        count[i] -= 1;
-                    }
-                }
-                if count[i] == 0 {
-                    break;
-                }
-
-                res += travel[j];
-            }
-        }
-        res
-    }
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int GarbageCollection(string[] garbage, int[] travel) {
-        int len = garbage.Length;
-        int res = 0;
-        HashSet<char> s = new HashSet<char>();
-        for (int i = len - 1; i >= 0; i--) {
-            foreach (char ch in garbage[i].ToCharArray()) {
-                if (!s.Contains(ch))
-                    s.Add(ch);
-            }
-            res += garbage[i].Length;
-            res += i > 0 ? s.Count * travel[i - 1] : 0;
-        }
-        return res;
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

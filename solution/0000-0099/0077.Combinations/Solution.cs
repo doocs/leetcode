@@ -3,7 +3,7 @@ public class Solution {
     private List<int> t = new List<int>();
     private int n;
     private int k;
-    
+
     public IList<IList<int>> Combine(int n, int k) {
         this.n = n;
         this.k = k;
@@ -19,10 +19,9 @@ public class Solution {
         if (i > n) {
             return;
         }
-        for (int j = i; j <= n; ++j) {
-            t.Add(j);
-            dfs(j + 1);
-            t.RemoveAt(t.Count - 1);
-        }
+        t.Add(i);
+        dfs(i + 1);
+        t.RemoveAt(t.Count - 1);
+        dfs(i + 1);
     }
 }

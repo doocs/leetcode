@@ -36,9 +36,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -63,8 +63,6 @@ class Solution:
             stk.append(nums[i])
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -99,8 +97,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /**
@@ -137,8 +133,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -167,42 +161,6 @@ func nextLargerNodes(head *ListNode) []int {
 	return ans
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} head
- * @return {number[]}
- */
-var nextLargerNodes = function (head) {
-    const nums = [];
-    while (head) {
-        nums.push(head.val);
-        head = head.next;
-    }
-    const stk = [];
-    const n = nums.length;
-    const ans = new Array(n).fill(0);
-    for (let i = n - 1; i >= 0; --i) {
-        while (stk.length && stk[stk.length - 1] <= nums[i]) {
-            stk.pop();
-        }
-        ans[i] = stk.length ? stk[stk.length - 1] : 0;
-        stk.push(nums[i]);
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -236,46 +194,6 @@ function nextLargerNodes(head: ListNode | null): number[] {
     return ans;
 }
 ```
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-interface Item {
-    index: number;
-    val: number;
-}
-
-function nextLargerNodes(head: ListNode | null): number[] {
-    const res: number[] = [];
-    const stack: Item[] = [];
-    let cur = head;
-    for (let i = 0; cur != null; i++) {
-        res.push(0);
-        const { val, next } = cur;
-        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
-            res[stack.pop().index] = val;
-        }
-        stack.push({
-            val,
-            index: i,
-        });
-        cur = next;
-    }
-    return res;
-}
-```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -324,10 +242,82 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number[]}
+ */
+var nextLargerNodes = function (head) {
+    const nums = [];
+    while (head) {
+        nums.push(head.val);
+        head = head.next;
+    }
+    const stk = [];
+    const n = nums.length;
+    const ans = new Array(n).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+            stk.pop();
+        }
+        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        stk.push(nums[i]);
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+interface Item {
+    index: number;
+    val: number;
+}
+
+function nextLargerNodes(head: ListNode | null): number[] {
+    const res: number[] = [];
+    const stack: Item[] = [];
+    let cur = head;
+    for (let i = 0; cur != null; i++) {
+        res.push(0);
+        const { val, next } = cur;
+        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
+            res[stack.pop().index] = val;
+        }
+        stack.push({
+            val,
+            index: i,
+        });
+        cur = next;
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- end -->

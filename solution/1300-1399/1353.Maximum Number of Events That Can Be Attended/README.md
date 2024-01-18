@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 贪心 + 优先队列**
+### 方法一：哈希表 + 贪心 + 优先队列
 
 定义哈希表记录每个会议的开始和结束时间，其中键为会议开始时间，值为结束时间列表。
 
@@ -57,13 +55,9 @@
 
 然后从优先队列中取出结束时间最小的会议，即为当前时间可以参加的会议，累加答案数。如果优先队列为空，则说明当前时间没有可以参加的会议。
 
-时间复杂度 $O(m\log n)$。其中 $m$, $n$ 分别表示会议的最大结束时间，以及会议的数量。
+时间复杂度 $O(m \times \log n)$，空间复杂度 $O(n)$。其中 $m$, $n$ 分别表示会议的最大结束时间，以及会议的数量。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 heappop(h)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,8 +111,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxEvents(events [][]int) int {
@@ -195,10 +181,6 @@ func (h *hp) Pop() any {
 func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

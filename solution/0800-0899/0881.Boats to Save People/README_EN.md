@@ -43,9 +43,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +60,6 @@ class Solution:
             ans += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -98,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numRescueBoats(people []int, limit int) int {
 	sort.Ints(people)
@@ -114,10 +108,6 @@ func numRescueBoats(people []int, limit int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

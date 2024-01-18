@@ -53,9 +53,7 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划 + 倍增**
+### 方法一：动态规划 + 倍增
 
 题目要我们寻找节点 $node$ 的第 $k$ 个祖先节点，如果暴力求解，需要从 $node$ 开始向上遍历 $k$ 次，时间复杂度为 $O(k)$，显然会超时。
 
@@ -79,18 +77,14 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class TreeAncestor:
     def __init__(self, n: int, parent: List[int]):
         self.p = [[-1] * 18 for _ in range(n)]
         for i, fa in enumerate(parent):
             self.p[i][0] = fa
-        for i in range(n):
-            for j in range(1, 18):
+        for j in range(1, 18):
+            for i in range(n):
                 if self.p[i][j - 1] == -1:
                     continue
                 self.p[i][j] = self.p[self.p[i][j - 1]][j - 1]
@@ -109,10 +103,6 @@ class TreeAncestor:
 # param_1 = obj.getKthAncestor(node,k)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 class TreeAncestor {
     private int[][] p;
@@ -125,8 +115,8 @@ class TreeAncestor {
         for (int i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 1; j < 18; ++j) {
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
                 if (p[i][j - 1] == -1) {
                     continue;
                 }
@@ -155,8 +145,6 @@ class TreeAncestor {
  */
 ```
 
-### **C++**
-
 ```cpp
 class TreeAncestor {
 public:
@@ -165,8 +153,8 @@ public:
         for (int i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 1; j < 18; ++j) {
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
                 if (p[i][j - 1] == -1) {
                     continue;
                 }
@@ -198,8 +186,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type TreeAncestor struct {
 	p [][18]int
@@ -213,8 +199,8 @@ func Constructor(n int, parent []int) TreeAncestor {
 			p[i][j] = -1
 		}
 	}
-	for i := range p {
-		for j := 1; j < 18; j++ {
+	for j := 1; j < 18; j++ {
+		for i := range p {
 			if p[i][j-1] == -1 {
 				continue
 			}
@@ -243,8 +229,6 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class TreeAncestor {
     private p: number[][];
@@ -254,8 +238,8 @@ class TreeAncestor {
         for (let i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (let i = 0; i < n; ++i) {
-            for (let j = 1; j < 18; ++j) {
+        for (let j = 1; j < 18; ++j) {
+            for (let i = 0; i < n; ++i) {
                 if (p[i][j - 1] === -1) {
                     continue;
                 }
@@ -285,10 +269,6 @@ class TreeAncestor {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 要使得数组中最大数对和的值最小，那么我们可以将数组中最小的数和最大的数配对，次小的数和次大的数配对，依此类推。
 
@@ -64,10 +62,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minPairSum(self, nums: List[int]) -> int:
@@ -75,10 +69,6 @@ class Solution:
         n = len(nums)
         return max(x + nums[n - i - 1] for i, x in enumerate(nums[: n >> 1]))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -92,8 +82,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -109,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minPairSum(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -121,8 +107,6 @@ func minPairSum(nums []int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minPairSum(nums: number[]): number {
@@ -135,8 +119,6 @@ function minPairSum(nums: number[]): number {
     return ans;
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -151,10 +133,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

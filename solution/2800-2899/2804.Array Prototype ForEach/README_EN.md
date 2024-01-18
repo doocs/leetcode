@@ -71,9 +71,9 @@ context = {&quot;context&quot;: 5}
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **TypeScript**
+<!-- tabs:start -->
 
 ```ts
 Array.prototype.forEach = function (callback: Function, context: any): void {
@@ -94,3 +94,5 @@ Array.prototype.forEach = function (callback: Function, context: any): void {
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

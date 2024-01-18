@@ -75,9 +75,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：脑筋急转弯 + 排序**
+### 方法一：脑筋急转弯 + 排序
 
 两个机器人相撞后，它们会立即改变方向，实际上相当于两个机器人继续往原来的方向移动。因此，我们遍历数组 $nums$，按照字符串 $s$ 的指令，将每个机器人的位置加上或减去 $d$，然后对数组 $nums$ 进行排序。
 
@@ -86,10 +84,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是机器人的数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -104,10 +98,6 @@ class Solution:
             s += x
         return ans % mod
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -153,8 +141,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumDistance(nums []int, s string, d int) (ans int) {
 	for i, c := range s {
@@ -175,8 +161,6 @@ func sumDistance(nums []int, s string, d int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumDistance(nums: number[], s: string, d: number): number {
     const n = nums.length;
@@ -195,10 +179,6 @@ function sumDistance(nums: number[], s: string, d: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

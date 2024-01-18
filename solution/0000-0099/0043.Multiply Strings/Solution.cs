@@ -1,36 +1,36 @@
-using System.Text;
-
 public class Solution {
     public string Multiply(string num1, string num2) {
-        var digits = new int[num1.Length + num2.Length];
-        for (var i = 0; i < num1.Length; ++i)
-        {
-            for (var j = 0; j < num2.Length; ++j)
-            {
-                var digit1 = num1[num1.Length - i - 1] - '0';
-                var digit2 = num2[num2.Length - j - 1] - '0';
-                var product = digit1 * digit2;
-                digits[i + j] += product;
+        if (num1 == "0" || num2 == "0") {
+            return "0";
+        }
+
+        int m = num1.Length;
+        int n = num2.Length;
+        int[] arr = new int[m + n];
+
+        for (int i = m - 1; i >= 0; i--) {
+            int a = num1[i] - '0';
+            for (int j = n - 1; j >= 0; j--) {
+                int b = num2[j] - '0';
+                arr[i + j + 1] += a * b;
             }
         }
-        
-        var carry = 0;
-        for (var i = 0; i < digits.Length; ++i)
-        {
-            digits[i] += carry;
-            carry = digits[i] / 10;
-            digits[i] %= 10;
+
+        for (int i = arr.Length - 1; i > 0; i--) {
+            arr[i - 1] += arr[i] / 10;
+            arr[i] %= 10;
         }
-        
-        var sb = new StringBuilder();
-        for (var i = digits.Length - 1; i >= 0; --i)
-        {
-            if (digits[i] > 0 || sb.Length > 0)
-            {
-                sb.Append((char)(digits[i] + '0'));
-            }
+
+        int index = 0;
+        while (index < arr.Length && arr[index] == 0) {
+            index++;
         }
-        if (sb.Length == 0) sb.Append('0');
-        return sb.ToString();
+
+        StringBuilder ans = new StringBuilder();
+        for (; index < arr.Length; index++) {
+            ans.Append(arr[index]);
+        }
+
+        return ans.ToString();
     }
 }

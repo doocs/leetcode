@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
             ans += cnt
         return ans // n2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -96,8 +94,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -128,8 +124,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 	n := len(s2)
@@ -157,8 +151,6 @@ func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): number {
     const n = s2.length;
@@ -185,10 +177,6 @@ function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): numb
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -56,13 +56,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 """
@@ -84,10 +80,6 @@ class Solution:
             b = b.parent if b.parent else p
         return a
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /*
@@ -111,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 /*
@@ -139,8 +129,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -171,10 +159,6 @@ func lowestCommonAncestor(p *Node, q *Node) *Node {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

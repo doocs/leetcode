@@ -44,9 +44,9 @@ Use Floor, Ceil and Ceil operations to get (0.7 - 0) + (3 - 2.8) + (5 - 4.9) = 0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -65,8 +65,6 @@ class Solution:
         ans = d - sum(arr[:d]) + sum(arr[d:])
         return f'{ans:.3f}'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -133,8 +129,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimizeError(prices []string, target int) string {
 	arr := []float64{}
@@ -163,10 +157,6 @@ func minimizeError(prices []string, target int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

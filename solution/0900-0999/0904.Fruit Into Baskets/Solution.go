@@ -1,16 +1,16 @@
 func totalFruit(fruits []int) int {
 	cnt := map[int]int{}
-	j := 0
-	for _, x := range fruits {
+	ans, j := 0, 0
+	for i, x := range fruits {
 		cnt[x]++
-		if len(cnt) > 2 {
+		for ; len(cnt) > 2; j++ {
 			y := fruits[j]
 			cnt[y]--
 			if cnt[y] == 0 {
 				delete(cnt, y)
 			}
-			j++
 		}
+		ans = max(ans, i-j+1)
 	}
-	return len(fruits) - j
+	return ans
 }

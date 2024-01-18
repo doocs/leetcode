@@ -40,9 +40,7 @@ words = ["hello", "hi", "helo"]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数 + 双指针**
+### 方法一：遍历计数 + 双指针
 
 我们可以遍历数组 `words`，对于数组中的每个单词 $t$，判断 $t$ 是否可以通过扩张得到 $s$，如果可以，那么答案加一。
 
@@ -57,10 +55,6 @@ words = ["hello", "hi", "helo"]
 时间复杂度 $O(n \times m + \sum_{i=0}^{m-1} w_i)$，其中 $n$ 和 $m$ 分别为字符串 $s$ 和数组 $words$ 的长度，而 $w_i$ 为数组 $words$ 中第 $i$ 个单词的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
 
         return sum(check(s, t) for t in words)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -136,8 +126,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -166,8 +154,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func expressiveWords(s string, words []string) (ans int) {
@@ -207,10 +193,6 @@ func expressiveWords(s string, words []string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

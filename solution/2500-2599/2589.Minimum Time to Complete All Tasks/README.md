@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 我们观察发现，题目相当于在每一个区间 $[start,..,end]$ 中，选择 $duration$ 个整数时间点，使得总共选择的整数时间点最少。
 
@@ -64,10 +62,6 @@
 时间复杂度 $O(n \times \log n + n \times m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $tasks$ 的长度和 $vis$ 数组的长度。本题中 $m = 2010$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,10 +80,6 @@ class Solution:
                 i -= 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -113,8 +103,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func findMinimumTime(tasks [][]int) (ans int) {
 	sort.Slice(tasks, func(i, j int) bool { return tasks[i][1] < tasks[j][1] })
@@ -163,8 +149,6 @@ func findMinimumTime(tasks [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function findMinimumTime(tasks: number[][]): number {
     tasks.sort((a, b) => a[1] - b[1]);
@@ -185,10 +169,6 @@ function findMinimumTime(tasks: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

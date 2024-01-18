@@ -54,9 +54,9 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +64,6 @@ class Solution:
         s = {''.join(sorted(word[::2]) + sorted(word[1::2])) for word in words}
         return len(s)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -102,8 +100,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -125,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numSpecialEquivGroups(words []string) int {
@@ -152,10 +146,6 @@ func numSpecialEquivGroups(words []string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

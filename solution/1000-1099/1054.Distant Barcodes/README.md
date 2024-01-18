@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：计数 + 排序**
+### 方法一：计数 + 排序
 
 我们先用哈希表或数组 $cnt$ 统计数组 $barcodes$ 中各个数出现的次数，然后将 $barcodes$ 中的数按照它们在 $cnt$ 中出现的次数从大到小排序，如果出现次数相同，那么就按照数的大小从小到大排序（确保相同的数相邻）。
 
@@ -47,10 +45,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别是数组 $barcodes$ 的长度以及数组 $barcodes$ 中的最大值。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -63,10 +57,6 @@ class Solution:
         ans[1::2] = barcodes[(n + 1) // 2 :]
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +108,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
@@ -148,8 +134,6 @@ func rearrangeBarcodes(barcodes []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function rearrangeBarcodes(barcodes: number[]): number[] {
     const mx = Math.max(...barcodes);
@@ -169,10 +153,6 @@ function rearrangeBarcodes(barcodes: number[]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

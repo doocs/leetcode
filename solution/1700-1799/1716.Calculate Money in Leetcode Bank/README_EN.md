@@ -44,9 +44,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
         a, b = divmod(n, 7)
         return (28 + 28 + 7 * (a - 1)) * a // 2 + (a * 2 + b + 1) * b // 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -65,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -78,8 +74,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func totalMoney(n int) int {
 	a, b := n/7, n%7
@@ -87,10 +81,6 @@ func totalMoney(n int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

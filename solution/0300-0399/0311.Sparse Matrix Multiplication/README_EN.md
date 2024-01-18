@@ -34,9 +34,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Direct Multiplication
 
-### **Python3**
+We can directly calculate each element in the result matrix according to the definition of matrix multiplication.
+
+The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows of matrix $mat1$ and the number of columns of matrix $mat2$ respectively, and $k$ is the number of columns of matrix $mat1$ or the number of rows of matrix $mat2$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -49,6 +53,86 @@ class Solution:
                     ans[i][j] += mat1[i][k] * mat2[k][j]
         return ans
 ```
+
+```java
+class Solution {
+    public int[][] multiply(int[][] mat1, int[][] mat2) {
+        int m = mat1.length, n = mat2[0].length;
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < mat2.length; ++k) {
+                    ans[i][j] += mat1[i][k] * mat2[k][j];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> multiply(vector<vector<int>>& mat1, vector<vector<int>>& mat2) {
+        int m = mat1.size(), n = mat2[0].size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < mat2.size(); ++k) {
+                    ans[i][j] += mat1[i][k] * mat2[k][j];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func multiply(mat1 [][]int, mat2 [][]int) [][]int {
+	m, n := len(mat1), len(mat2[0])
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < len(mat2); k++ {
+				ans[i][j] += mat1[i][k] * mat2[k][j]
+			}
+		}
+	}
+	return ans
+}
+```
+
+```ts
+function multiply(mat1: number[][], mat2: number[][]): number[][] {
+    const [m, n] = [mat1.length, mat2[0].length];
+    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < mat2.length; ++k) {
+                ans[i][j] += mat1[i][k] * mat2[k][j];
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Preprocessing
+
+We can preprocess the sparse representation of the two matrices, i.e., $g1[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat1$, and $g2[i]$ represents the column index and value of all non-zero elements in the $i$th row of matrix $mat2$.
+
+Next, we traverse each row $i$, traverse each element $(k, x)$ in $g1[i]$, traverse each element $(j, y)$ in $g2[k]$, then $mat1[i][k] \times mat2[k][j]$ will correspond to $ans[i][j]$ in the result matrix, and we can accumulate all the results.
+
+The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows of matrix $mat1$ and the number of columns of matrix $mat2$ respectively, and $k$ is the number of columns of matrix $mat1$ or the number of rows of matrix $mat2$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,25 +154,6 @@ class Solution:
                 for j, y in g2[k]:
                     ans[i][j] += x * y
         return ans
-```
-
-### **Java**
-
-```java
-class Solution {
-    public int[][] multiply(int[][] mat1, int[][] mat2) {
-        int m = mat1.length, n = mat2[0].length;
-        int[][] ans = new int[m][n];
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                for (int k = 0; k < mat2.length; ++k) {
-                    ans[i][j] += mat1[i][k] * mat2[k][j];
-                }
-            }
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -126,26 +191,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<vector<int>> multiply(vector<vector<int>>& mat1, vector<vector<int>>& mat2) {
-        int m = mat1.size(), n = mat2[0].size();
-        vector<vector<int>> ans(m, vector<int>(n));
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                for (int k = 0; k < mat2.size(); ++k) {
-                    ans[i][j] += mat1[i][k] * mat2[k][j];
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -176,26 +221,6 @@ public:
         return g;
     }
 };
-```
-
-### **Go**
-
-```go
-func multiply(mat1 [][]int, mat2 [][]int) [][]int {
-	m, n := len(mat1), len(mat2[0])
-	ans := make([][]int, m)
-	for i := range ans {
-		ans[i] = make([]int, n)
-	}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			for k := 0; k < len(mat2); k++ {
-				ans[i][j] += mat1[i][k] * mat2[k][j]
-			}
-		}
-	}
-	return ans
-}
 ```
 
 ```go
@@ -232,23 +257,6 @@ func multiply(mat1 [][]int, mat2 [][]int) [][]int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function multiply(mat1: number[][], mat2: number[][]): number[][] {
-    const [m, n] = [mat1.length, mat2[0].length];
-    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            for (let k = 0; k < mat2.length; ++k) {
-                ans[i][j] += mat1[i][k] * mat2[k][j];
-            }
-        }
-    }
-    return ans;
-}
-```
-
 ```ts
 function multiply(mat1: number[][], mat2: number[][]): number[][] {
     const [m, n] = [mat1.length, mat2[0].length];
@@ -278,10 +286,6 @@ function multiply(mat1: number[][], mat2: number[][]): number[][] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,7 @@ nums 的最优分组是[9], [1, 2, 3], [9]. 得到的分数是 9 + (1 + 2 + 3) /
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：前缀和 + 记忆化搜索**
+### 方法一：前缀和 + 记忆化搜索
 
 我们可以先预处理得到前缀和数组 $s$，方便快速得到子数组的和。
 
@@ -63,10 +61,6 @@ nums 的最优分组是[9], [1, 2, 3], [9]. 得到的分数是 9 + (1 + 2 + 3) /
 时间复杂度 $O(n^2 \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 表示数组 `nums` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -87,10 +81,6 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         return dfs(0, k)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -128,8 +118,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -155,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func largestSumOfAverages(nums []int, k int) float64 {
@@ -189,10 +175,6 @@ func largestSumOfAverages(nums []int, k int) float64 {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

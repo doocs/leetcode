@@ -63,7 +63,7 @@ The distance from 8 to 2 is 2.
 
 ## Solutions
 
-**Solution 1: Topological Sorting**
+### Solution 1: Topological Sorting
 
 We can first convert the edges in $edges$ into an adjacency list $g$, where $g[i]$ represents all adjacent nodes of node $i$, represented as a set.
 
@@ -82,8 +82,6 @@ Similar problems:
 -   [2603. Collect Coins in a Tree](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -109,8 +107,6 @@ class Solution:
             ans[i] = ans[f[i]] + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -150,8 +146,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -195,8 +189,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func distanceToCycle(n int, edges [][]int) []int {
 	g := make([]map[int]bool, n)
@@ -238,8 +230,6 @@ func distanceToCycle(n int, edges [][]int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function distanceToCycle(n: number, edges: number[][]): number[] {
     const g: Set<number>[] = new Array(n).fill(0).map(() => new Set<number>());
@@ -276,10 +266,6 @@ function distanceToCycle(n: number, edges: number[][]): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

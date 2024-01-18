@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口 + 哈希表**
+### 方法一：滑动窗口 + 哈希表
 
 我们可以使用滑动窗口的思想，维护一个滑动窗口，使得窗口内的字符串中不同字符的个数不超过 $k$ 个。窗口内不同字符个数的统计可以用哈希表 `cnt` 来维护。
 
@@ -47,10 +45,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(\min(n, k))$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func lengthOfLongestSubstringKDistinct(s string, k int) (ans int) {
 	cnt := map[byte]int{}
@@ -142,10 +128,6 @@ func lengthOfLongestSubstringKDistinct(s string, k int) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

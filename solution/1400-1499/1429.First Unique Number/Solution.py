@@ -1,16 +1,17 @@
 class FirstUnique:
     def __init__(self, nums: List[int]):
         self.cnt = Counter(nums)
-        self.q = deque(nums)
+        self.unique = OrderedDict({v: 1 for v in nums if self.cnt[v] == 1})
 
     def showFirstUnique(self) -> int:
-        while self.q and self.cnt[self.q[0]] != 1:
-            self.q.popleft()
-        return -1 if not self.q else self.q[0]
+        return -1 if not self.unique else next(v for v in self.unique.keys())
 
     def add(self, value: int) -> None:
         self.cnt[value] += 1
-        self.q.append(value)
+        if self.cnt[value] == 1:
+            self.unique[value] = 1
+        elif value in self.unique:
+            self.unique.pop(value)
 
 
 # Your FirstUnique object will be instantiated and called as such:

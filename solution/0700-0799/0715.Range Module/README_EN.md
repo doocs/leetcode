@@ -46,7 +46,7 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 
 ## Solutions
 
-**Solution 1: Segment Tree**
+### Solution 1: Segment Tree
 
 According to the problem description, we need to maintain a set of intervals, supporting operations of interval addition, deletion, and query. For the addition and deletion of intervals, we can use a segment tree to maintain the set of intervals.
 
@@ -62,8 +62,6 @@ Due to the large data range of the problem, we can implement it with a dynamical
 In terms of time complexity, the time complexity of each operation is $O(\log n)$. The space complexity is $O(m \times \log n)$. Here, $m$ is the number of operations, and $n$ is the data range.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Node:
@@ -143,14 +141,13 @@ class RangeModule:
     def removeRange(self, left: int, right: int) -> None:
         self.tree.modify(left, right - 1, -1)
 
+
 # Your RangeModule object will be instantiated and called as such:
 # obj = RangeModule()
 # obj.addRange(left,right)
 # param_2 = obj.queryRange(left,right)
 # obj.removeRange(left,right)
 ```
-
-### **Java**
 
 ```java
 class Node {
@@ -255,8 +252,6 @@ class RangeModule {
  * obj.removeRange(left,right);
  */
 ```
-
-### **C++**
 
 ```cpp
 template <class T>
@@ -385,8 +380,6 @@ public:
  */
 ```
 
-### **Go**
-
 ```go
 const N int = 1e9
 
@@ -490,8 +483,6 @@ func (this *RangeModule) RemoveRange(left int, right int) {
  * obj.RemoveRange(left,right);
  */
 ```
-
-### **TypeScript**
 
 ```ts
 class Node {
@@ -631,10 +622,6 @@ class RangeModule {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

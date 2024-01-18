@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Topological sorting**
+### Solution 1: Topological sorting
 
 We first convert the edges in $edges$ to the adjacency list $g$, where $g[i]$ represents all the adjacent nodes of node $i$, represented by a set.
 
@@ -69,8 +69,6 @@ Similar problems:
 -   [2204. Distance to a Cycle in Undirected Graph](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md)
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -96,8 +94,6 @@ class Solution:
                 g[i].clear()
         return sum(len(g[a]) > 0 and len(g[b]) > 0 for a, b in edges) * 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -151,8 +147,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -208,8 +202,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func collectTheCoins(coins []int, edges [][]int) int {
 	n := len(coins)
@@ -264,8 +256,6 @@ func collectTheCoins(coins []int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function collectTheCoins(coins: number[], edges: number[][]): number {
     const n = coins.length;
@@ -314,10 +304,6 @@ function collectTheCoins(coins: number[], edges: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

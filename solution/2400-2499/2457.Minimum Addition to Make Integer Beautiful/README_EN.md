@@ -46,9 +46,28 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy Algorithm
 
-### **Python3**
+We define a function $f(x)$ to represent the sum of the digits of an integer $x$. The problem is to find the minimum non-negative integer $x$ such that $f(n + x) \leq target$.
+
+If the sum of the digits of $y = n+x$ is greater than $target$, we can loop through the following operations to reduce the sum of the digits of $y$ to less than or equal to $target$:
+
+-   Find the lowest non-zero digit of $y$, reduce it to $0$, and add $1$ to the digit one place higher;
+-   Update $x$ and continue the above operation until the sum of the digits of $n+x$ is less than or equal to $target$.
+
+After the loop ends, return $x$.
+
+For example, if $n=467$ and $target=6$, the change process of $n$ is as follows:
+
+$$
+\begin{aligned}
+& 467 \rightarrow 470 \rightarrow 500 \\
+\end{aligned}
+$$
+
+The time complexity is $O(\log^2 n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -70,8 +89,6 @@ class Solution:
             x = (y // 10 + 1) * p - n
         return x
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +116,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -131,8 +146,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func makeIntegerBeautiful(n int64, target int) (x int64) {
 	f := func(x int64) (y int) {
@@ -153,8 +166,6 @@ func makeIntegerBeautiful(n int64, target int) (x int64) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function makeIntegerBeautiful(n: number, target: number): number {
@@ -180,10 +191,6 @@ function makeIntegerBeautiful(n: number, target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

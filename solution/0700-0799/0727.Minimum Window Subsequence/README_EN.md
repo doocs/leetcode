@@ -37,9 +37,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
                     p = j
         return "" if k > m else s1[p : p + k]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -92,8 +90,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minWindow(s1 string, s2 string) string {
@@ -165,8 +159,6 @@ func minWindow(s1 string, s2 string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minWindow(s1: string, s2: string): string {
     const m = s1.length;
@@ -198,10 +190,6 @@ function minWindow(s1: string, s2: string): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

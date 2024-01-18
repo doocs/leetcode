@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：模拟**
+### 方法一：模拟
 
 我们根据题目描述，将数字 $n$ 与 $2 \times n$ 和 $3 \times n$ 连接，得到字符串 $s$，然后判断 $s$ 是否包含数字 $1$ 到 $9$ 各一次且不包含任何 $0$ 即可。
 
@@ -54,20 +52,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def isFascinating(self, n: int) -> bool:
         s = str(n) + str(2 * n) + str(3 * n)
         return "".join(sorted(s)) == "123456789"
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -84,8 +74,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -96,8 +84,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func isFascinating(n int) bool {
@@ -113,16 +99,12 @@ func isFascinating(n int) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function isFascinating(n: number): boolean {
     const s = `${n}${n * 2}${n * 3}`;
     return s.split('').sort().join('') === '123456789';
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -142,6 +124,12 @@ impl Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```rust
 use std::collections::HashMap;
@@ -182,10 +170,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

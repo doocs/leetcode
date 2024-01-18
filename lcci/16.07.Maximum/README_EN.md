@@ -16,7 +16,7 @@
 
 ## Solutions
 
-**Solution 1: Bitwise Operation**
+### Solution 1: Bitwise Operation
 
 We can extract the sign bit $k$ of $a-b$. If the sign bit is $1$, it means $a \lt b$; if the sign bit is $0$, it means $a \ge b$.
 
@@ -26,16 +26,12 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def maximum(self, a: int, b: int) -> int:
         k = (int(((a - b) & 0xFFFFFFFFFFFFFFFF) >> 63)) & 1
         return a * (k ^ 1) + b * k
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -45,8 +41,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -58,16 +52,12 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximum(a int, b int) int {
 	k := (a - b) >> 63 & 1
 	return a*(k^1) + b*k
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function maximum(a: number, b: number): number {
@@ -76,10 +66,6 @@ function maximum(a: number, b: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

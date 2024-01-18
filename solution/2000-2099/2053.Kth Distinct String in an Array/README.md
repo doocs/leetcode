@@ -53,15 +53,9 @@ arr 中所有字符串都是独一无二的，所以返回第 1 个字符串 "aa
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-哈希表计数。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -74,10 +68,6 @@ class Solution:
                     return v
         return ''
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -99,8 +89,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func kthDistinct(arr []string, k int) string {
@@ -138,10 +124,6 @@ func kthDistinct(arr []string, k int) string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

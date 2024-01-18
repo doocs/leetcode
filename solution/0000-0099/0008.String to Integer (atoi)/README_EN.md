@@ -83,7 +83,7 @@ Since 4193 is in the range [-2<sup>31</sup>, 2<sup>31</sup> - 1], the final resu
 
 ## Solutions
 
-**Solution 1: Traverse the String**
+### Solution 1: Traverse the String
 
 First, we determine whether the string is empty. If it is, we directly return $0$.
 
@@ -97,8 +97,6 @@ The time complexity is $O(n)$, where $n$ is the length of the string. We only ne
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def myAtoi(self, s: str) -> int:
@@ -110,7 +108,7 @@ class Solution:
         i = 0
         while s[i] == ' ':
             i += 1
-            # only contains blank space
+            # 仅包含空格
             if i == n:
                 return 0
         sign = -1 if s[i] == '-' else 1
@@ -118,19 +116,17 @@ class Solution:
             i += 1
         res, flag = 0, (2**31 - 1) // 10
         while i < n:
-            # not a number, exit the loop
+            # 非数字，跳出循环体
             if not s[i].isdigit():
                 break
             c = int(s[i])
-            # if overflows
+            # 溢出判断
             if res > flag or (res == flag and c > 7):
                 return 2**31 - 1 if sign > 0 else -(2**31)
             res = res * 10 + c
             i += 1
         return sign * res
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -140,7 +136,7 @@ class Solution {
         if (n == 0) return 0;
         int i = 0;
         while (s.charAt(i) == ' ') {
-            // only contains blank space
+            // 仅包含空格
             if (++i == n) return 0;
         }
         int sign = 1;
@@ -148,9 +144,9 @@ class Solution {
         if (s.charAt(i) == '-' || s.charAt(i) == '+') ++i;
         int res = 0, flag = Integer.MAX_VALUE / 10;
         for (; i < n; ++i) {
-            // not a number, exit the loop
+            // 非数字，跳出循环体
             if (s.charAt(i) < '0' || s.charAt(i) > '9') break;
-            // if overflows
+            // 溢出判断
             if (res > flag || (res == flag && s.charAt(i) > '7'))
                 return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             res = res * 10 + (s.charAt(i) - '0');
@@ -159,8 +155,6 @@ class Solution {
     }
 }
 ```
-
-### **Go**
 
 ```go
 func myAtoi(s string) int {
@@ -200,10 +194,82 @@ func myAtoi(s string) int {
 }
 ```
 
-### **...**
-
+```js
+const myAtoi = function (str) {
+    str = str.trim();
+    if (!str) return 0;
+    let isPositive = 1;
+    let i = 0,
+        ans = 0;
+    if (str[i] === '+') {
+        isPositive = 1;
+        i++;
+    } else if (str[i] === '-') {
+        isPositive = 0;
+        i++;
+    }
+    for (; i < str.length; i++) {
+        let t = str.charCodeAt(i) - 48;
+        if (t > 9 || t < 0) break;
+        if (ans > 2147483647 / 10 || ans > (2147483647 - t) / 10) {
+            return isPositive ? 2147483647 : -2147483648;
+        } else {
+            ans = ans * 10 + t;
+        }
+    }
+    return isPositive ? ans : -ans;
+};
 ```
 
+```cs
+﻿// https://leetcode.com/problems/string-to-integer-atoi/
+
+public partial class Solution
+{
+    public int MyAtoi(string str)
+    {
+        int i = 0;
+        long result = 0;
+        bool minus = false;
+        while (i < str.Length && char.IsWhiteSpace(str[i]))
+        {
+            ++i;
+        }
+        if (i < str.Length)
+        {
+            if (str[i] == '+')
+            {
+                ++i;
+            }
+            else if (str[i] == '-')
+            {
+                minus = true;
+                ++i;
+            }
+        }
+        while (i < str.Length && char.IsDigit(str[i]))
+        {
+            result = result * 10 + str[i] - '0';
+            if (result > int.MaxValue)
+            {
+                break;
+            }
+            ++i;
+        }
+        if (minus) result = -result;
+        if (result > int.MaxValue)
+        {
+            result = int.MaxValue;
+        }
+        if (result < int.MinValue)
+        {
+            result = int.MinValue;
+        }
+        return (int)result;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -1,6 +1,5 @@
-func findBall(grid [][]int) []int {
+func findBall(grid [][]int) (ans []int) {
 	m, n := len(grid), len(grid[0])
-
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
 		if i == m {
@@ -23,10 +22,8 @@ func findBall(grid [][]int) []int {
 		}
 		return dfs(i+1, j-1)
 	}
-
-	var ans []int
 	for j := 0; j < n; j++ {
 		ans = append(ans, dfs(0, j))
 	}
-	return ans
+	return
 }

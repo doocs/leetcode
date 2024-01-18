@@ -1,14 +1,17 @@
 function countTime(time: string): number {
-    const f = (s: string, m: number): number => {
-        let cnt = 0;
-        for (let i = 0; i < m; ++i) {
-            const a = s[0] === '?' || s[0] === Math.floor(i / 10).toString();
-            const b = s[1] === '?' || s[1] === (i % 10).toString();
-            if (a && b) {
-                ++cnt;
+    let ans = 0;
+    for (let h = 0; h < 24; ++h) {
+        for (let m = 0; m < 60; ++m) {
+            const s = `${h}`.padStart(2, '0') + ':' + `${m}`.padStart(2, '0');
+            let ok = 1;
+            for (let i = 0; i < 5; ++i) {
+                if (s[i] !== time[i] && time[i] !== '?') {
+                    ok = 0;
+                    break;
+                }
             }
+            ans += ok;
         }
-        return cnt;
-    };
-    return f(time.slice(0, 2), 24) * f(time.slice(3), 60);
+    }
+    return ans;
 }

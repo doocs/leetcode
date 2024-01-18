@@ -40,9 +40,17 @@ That string has length 14, and we can show that it is impossible to construct a 
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Case Discussion
 
-### **Python3**
+We observe that the string 'AA' can only be followed by 'BB', and the string 'AB' can be placed at the beginning or end of the string. Therefore:
+
+-   If $x < y$, we can first alternately place 'BBAABBAA..BB', placing a total of $x$ 'AA' and $x+1$ 'BB', then place the remaining $z$ 'AB', with a total length of $(x \times 2 + z + 1) \times 2$;
+-   If $x > y$, we can first alternately place 'AABBAABB..AA', placing a total of $y$ 'BB' and $y+1$ 'AA', then place the remaining $z$ 'AB', with a total length of $(y \times 2 + z + 1) \times 2$;
+-   If $x = y$, we only need to alternately place 'AABB', placing a total of $x$ 'AA' and $y$ 'BB', then place the remaining $z$ 'AB', with a total length of $(x + y + z) \times 2$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +61,6 @@ class Solution:
             return (y * 2 + z + 1) * 2
         return (x + y + z) * 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -69,8 +75,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -87,8 +91,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestString(x int, y int, z int) int {
 	if x < y {
@@ -100,8 +102,6 @@ func longestString(x int, y int, z int) int {
 	return (x + y + z) * 2
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function longestString(x: number, y: number, z: number): number {
@@ -115,10 +115,6 @@ function longestString(x: number, y: number, z: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -36,9 +36,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：双指针模拟**
+### 方法一：双指针模拟
 
 我们定义一个数组 $d$，其中 $d[i]$ 表示数字 $i$ 旋转 180° 之后的数字。如果 $d[i]$ 为 $-1$，表示数字 $i$ 不能旋转 180° 得到一个数字。
 
@@ -47,10 +45,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -64,10 +58,6 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,8 +73,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isStrobogrammatic(num string) bool {
 	d := []int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
@@ -117,10 +103,6 @@ func isStrobogrammatic(num string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -68,19 +68,13 @@ Bob 会获胜。
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心 + 排序**
+### 方法一：贪心 + 排序
 
 选取石头的最优化的策略是，让自己得分最高，同时让对手失分最多。因此，我们创建一个数组 `arr`，其中 `arr[i] = aliceValues[i] + bobValues[i]`，然后对 `arr` 进行降序排序。然后，我们从 `arr` 中取出石头，每次取出两个石头，分别给 Alice 和 Bob，直到 `arr` 中没有石头为止。最后，我们比较 Alice 和 Bob 的得分，得分高的人获胜。
 
-时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -95,10 +89,6 @@ class Solution:
             return -1
         return 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,8 +116,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -152,8 +140,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func stoneGameVI(aliceValues []int, bobValues []int) int {
@@ -181,10 +167,6 @@ func stoneGameVI(aliceValues []int, bobValues []int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

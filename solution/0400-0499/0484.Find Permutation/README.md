@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：贪心**
+### 方法一：贪心
 
 先初始化结果数组 `ans` 为 `[1, 2, 3, ..., n+1]`。
 
@@ -57,10 +55,6 @@
 时间复杂度 $O(n)$，其中 $n$ 表示字符串 `s` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -76,10 +70,6 @@ class Solution:
             i = max(i + 1, j)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -111,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +121,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findPermutation(s string) []int {
@@ -161,10 +147,6 @@ func reverse(arr []int, i, j int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

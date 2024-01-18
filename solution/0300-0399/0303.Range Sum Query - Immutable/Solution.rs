@@ -1,5 +1,5 @@
 struct NumArray {
-    sums: Vec<i32>,
+    s: Vec<i32>,
 }
 
 /**
@@ -9,15 +9,15 @@ struct NumArray {
 impl NumArray {
     fn new(mut nums: Vec<i32>) -> Self {
         let n = nums.len();
-        let mut sums = vec![0; n + 1];
+        let mut s = vec![0; n + 1];
         for i in 0..n {
-            sums[i + 1] = sums[i] + nums[i];
+            s[i + 1] = s[i] + nums[i];
         }
-        Self { sums }
+        Self { s }
     }
 
     fn sum_range(&self, left: i32, right: i32) -> i32 {
-        self.sums[(right + 1) as usize] - self.sums[left as usize]
+        self.s[(right + 1) as usize] - self.s[left as usize]
     }
 }/**
  * Your NumArray object will be instantiated and called as such:

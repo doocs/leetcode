@@ -45,9 +45,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -63,21 +63,6 @@ class Solution:
             ans = min(ans, left[i] + right[i])
         return ans
 ```
-
-```python
-class Solution:
-    def minFlipsMonoIncr(self, s: str) -> int:
-        n = len(s)
-        presum = [0] * (n + 1)
-        for i, c in enumerate(s):
-            presum[i + 1] = presum[i] + int(c)
-        ans = presum[-1]
-        for i in range(n):
-            ans = min(ans, presum[i] + n - i - (presum[-1] - presum[i]))
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -100,25 +85,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minFlipsMonoIncr(String s) {
-        int n = s.length();
-        int[] presum = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + (s.charAt(i) - '0');
-        }
-        int ans = presum[n];
-        for (int i = 0; i < n; ++i) {
-            ans = Math.min(ans, presum[i] + n - i - (presum[n] - presum[i]));
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -139,22 +105,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minFlipsMonoIncr(string s) {
-        int n = s.size();
-        vector<int> presum(n + 1);
-        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + (s[i] == '1');
-        int ans = presum[n];
-        for (int i = 0; i < n; ++i) ans = min(ans, presum[i] + n - i - (presum[n] - presum[i]));
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minFlipsMonoIncr(s string) int {
@@ -180,23 +130,6 @@ func minFlipsMonoIncr(s string) int {
 }
 ```
 
-```go
-func minFlipsMonoIncr(s string) int {
-	n := len(s)
-	presum := make([]int, n+1)
-	for i, c := range s {
-		presum[i+1] = presum[i] + int(c-'0')
-	}
-	ans := presum[n]
-	for i := range s {
-		ans = min(ans, presum[i]+n-i-(presum[n]-presum[i]))
-	}
-	return ans
-}
-```
-
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -216,10 +149,71 @@ var minFlipsMonoIncr = function (s) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minFlipsMonoIncr(self, s: str) -> int:
+        n = len(s)
+        presum = [0] * (n + 1)
+        for i, c in enumerate(s):
+            presum[i + 1] = presum[i] + int(c)
+        ans = presum[-1]
+        for i in range(n):
+            ans = min(ans, presum[i] + n - i - (presum[-1] - presum[i]))
+        return ans
 ```
 
+```java
+class Solution {
+    public int minFlipsMonoIncr(String s) {
+        int n = s.length();
+        int[] presum = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + (s.charAt(i) - '0');
+        }
+        int ans = presum[n];
+        for (int i = 0; i < n; ++i) {
+            ans = Math.min(ans, presum[i] + n - i - (presum[n] - presum[i]));
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minFlipsMonoIncr(string s) {
+        int n = s.size();
+        vector<int> presum(n + 1);
+        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + (s[i] == '1');
+        int ans = presum[n];
+        for (int i = 0; i < n; ++i) ans = min(ans, presum[i] + n - i - (presum[n] - presum[i]));
+        return ans;
+    }
+};
+```
+
+```go
+func minFlipsMonoIncr(s string) int {
+	n := len(s)
+	presum := make([]int, n+1)
+	for i, c := range s {
+		presum[i+1] = presum[i] + int(c-'0')
+	}
+	ans := presum[n]
+	for i := range s {
+		ans = min(ans, presum[i]+n-i-(presum[n]-presum[i]))
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -60,9 +60,9 @@ fileSystem.readContentFromFile(&quot;/a/b/c/d&quot;); // return &quot;hello&quot
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Trie:
@@ -127,8 +127,6 @@ class FileSystem:
 # obj.addContentToFile(filePath,content)
 # param_4 = obj.readContentFromFile(filePath)
 ```
-
-### **Java**
 
 ```java
 class Trie {
@@ -215,8 +213,6 @@ class FileSystem {
  * String param_4 = obj.readContentFromFile(filePath);
  */
 ```
-
-### **Go**
 
 ```go
 type Trie struct {
@@ -312,10 +308,6 @@ func (this *FileSystem) ReadContentFromFile(filePath string) string {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

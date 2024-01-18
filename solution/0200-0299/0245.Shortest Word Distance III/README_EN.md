@@ -28,9 +28,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -54,8 +54,6 @@ class Solution:
                     ans = min(ans, abs(i - j))
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +85,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -122,8 +118,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func shortestWordDistance(wordsDict []string, word1 string, word2 string) int {
@@ -163,10 +157,6 @@ func abs(x int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

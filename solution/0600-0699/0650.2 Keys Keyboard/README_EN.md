@@ -41,9 +41,9 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,22 +61,6 @@ class Solution:
 
         return dfs(n)
 ```
-
-```python
-class Solution:
-    def minSteps(self, n: int) -> int:
-        dp = list(range(n + 1))
-        dp[1] = 0
-        for i in range(2, n + 1):
-            j = 2
-            while j * j <= i:
-                if i % j == 0:
-                    dp[i] = min(dp[i], dp[i // j] + j)
-                j += 1
-        return dp[-1]
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,43 +91,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int minSteps(int n) {
-        int[] dp = new int[n + 1];
-        for (int i = 0; i < n + 1; ++i) {
-            dp[i] = i;
-        }
-        dp[1] = 0;
-        for (int i = 2; i < n + 1; ++i) {
-            for (int j = 2; j * j <= i; ++j) {
-                if (i % j == 0) {
-                    dp[i] = Math.min(dp[i], dp[i / j] + j);
-                }
-            }
-        }
-        return dp[n];
-    }
-}
-```
-
-```java
-class Solution {
-    public int minSteps(int n) {
-        int res = 0;
-        for (int i = 2; n > 1; ++i) {
-            while (n % i == 0) {
-                res += i;
-                n /= i;
-            }
-        }
-        return res;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,27 +115,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    int minSteps(int n) {
-        vector<int> dp(n + 1);
-        iota(dp.begin(), dp.end(), 0);
-        dp[1] = 0;
-        for (int i = 2; i < n + 1; ++i) {
-            for (int j = 2; j * j <= i; ++j) {
-                if (i % j == 0) {
-                    dp[i] = min(dp[i], dp[i / j] + j);
-                }
-            }
-        }
-        return dp[n];
-    }
-};
-```
-
-### **Go**
 
 ```go
 func minSteps(n int) int {
@@ -216,6 +142,65 @@ func minSteps(n int) int {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def minSteps(self, n: int) -> int:
+        dp = list(range(n + 1))
+        dp[1] = 0
+        for i in range(2, n + 1):
+            j = 2
+            while j * j <= i:
+                if i % j == 0:
+                    dp[i] = min(dp[i], dp[i // j] + j)
+                j += 1
+        return dp[-1]
+```
+
+```java
+class Solution {
+    public int minSteps(int n) {
+        int[] dp = new int[n + 1];
+        for (int i = 0; i < n + 1; ++i) {
+            dp[i] = i;
+        }
+        dp[1] = 0;
+        for (int i = 2; i < n + 1; ++i) {
+            for (int j = 2; j * j <= i; ++j) {
+                if (i % j == 0) {
+                    dp[i] = Math.min(dp[i], dp[i / j] + j);
+                }
+            }
+        }
+        return dp[n];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minSteps(int n) {
+        vector<int> dp(n + 1);
+        iota(dp.begin(), dp.end(), 0);
+        dp[1] = 0;
+        for (int i = 2; i < n + 1; ++i) {
+            for (int j = 2; j * j <= i; ++j) {
+                if (i % j == 0) {
+                    dp[i] = min(dp[i], dp[i / j] + j);
+                }
+            }
+        }
+        return dp[n];
+    }
+};
+```
+
 ```go
 func minSteps(n int) int {
 	dp := make([]int, n+1)
@@ -234,10 +219,27 @@ func minSteps(n int) int {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 3
 
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public int minSteps(int n) {
+        int res = 0;
+        for (int i = 2; n > 1; ++i) {
+            while (n % i == 0) {
+                res += i;
+                n /= i;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

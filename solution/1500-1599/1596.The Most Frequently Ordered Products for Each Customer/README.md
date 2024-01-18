@@ -122,17 +122,11 @@ John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：分组 + 窗口函数**
+### 方法一：分组 + 窗口函数
 
 我们将 `Orders` 表按照 `customer_id` 和 `product_id` 进行分组，然后利用窗口函数 `rank()`，按照 `customer_id` 分区，并且按照 `count(1)` 降序排列，得到每个 `customer_id` 下对应的 `product_id` 的排名，排名为 $1$ 的就是该 `customer_id` 下最经常订购的商品。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -156,3 +150,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

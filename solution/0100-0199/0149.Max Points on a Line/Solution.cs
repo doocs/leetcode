@@ -1,4 +1,4 @@
-﻿public class Solution {
+public class Solution {
     public int MaxPoints(int[][] points) {
         int n = points.Length;
         int ans = 1;

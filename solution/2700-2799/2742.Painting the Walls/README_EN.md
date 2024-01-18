@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Solution 1: Memorization**
+### Solution 1: Memorization
 
 We can consider whether each wall is painted by a paid painter or a free painter. Design a function $dfs(i, j)$, which means that from the $i$th wall, and the current remaining free painter working time is $j$, the minimum cost of painting all the remaining walls. Then the answer is $dfs(0, 0)$.
 
@@ -58,8 +58,6 @@ Time complexity $O(n^2)$, space complexity $O(n^2)$. Where $n$ is the length of 
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def paintWalls(self, cost: List[int], time: List[int]) -> int:
@@ -74,8 +72,6 @@ class Solution:
         n = len(cost)
         return dfs(0, 0)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -107,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +126,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func paintWalls(cost []int, time []int) int {
@@ -161,8 +153,6 @@ func paintWalls(cost []int, time []int) int {
 	return dfs(0, n)
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -205,10 +195,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

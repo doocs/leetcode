@@ -48,9 +48,9 @@ Notice that element mat[1][1] = 5 is counted only once.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -62,8 +62,6 @@ class Solution:
             ans += row[i] + (0 if j == i else row[j])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -96,8 +92,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func diagonalSum(mat [][]int) (ans int) {
 	n := len(mat)
@@ -111,8 +105,6 @@ func diagonalSum(mat [][]int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function diagonalSum(mat: number[][]): number {
     let ans = 0;
@@ -124,22 +116,6 @@ function diagonalSum(mat: number[][]): number {
     return ans;
 }
 ```
-
-```ts
-function diagonalSum(mat: number[][]): number {
-    const n = mat.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        ans += mat[i][i] + mat[i][n - 1 - i];
-    }
-    if (n & 1) {
-        ans -= mat[n >> 1][n >> 1];
-    }
-    return ans;
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -157,8 +133,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 int diagonalSum(int** mat, int matSize, int* matColSize) {
     int ans = 0;
@@ -172,10 +146,26 @@ int diagonalSum(int** mat, int matSize, int* matColSize) {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
-```
+### Solution 2
 
+<!-- tabs:start -->
+
+```ts
+function diagonalSum(mat: number[][]): number {
+    const n = mat.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        ans += mat[i][i] + mat[i][n - 1 - i];
+    }
+    if (n & 1) {
+        ans -= mat[n >> 1][n >> 1];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

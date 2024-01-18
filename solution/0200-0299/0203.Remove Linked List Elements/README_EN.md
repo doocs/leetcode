@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for singly-linked list.
@@ -60,8 +60,6 @@ class Solution:
                 pre.next = pre.next.next
         return dummy.next
 ```
-
-### **Java**
 
 ```java
 /**
@@ -89,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,38 +106,6 @@ public:
 };
 ```
 
-### **C#**
-
-```cs
-public class Solution {
-    public ListNode RemoveElements(ListNode head, int val) {
-        ListNode newHead = null;
-        ListNode newTail = null;
-        var current = head;
-        while (current != null)
-        {
-            if (current.val != val)
-            {
-                if (newHead == null)
-                {
-                    newHead = newTail = current;
-                }
-                else
-                {
-                    newTail.next = current;
-                    newTail = current;
-                }
-            }
-            current = current.next;
-        }
-        if (newTail != null) newTail.next = null;
-        return newHead;
-    }
-}
-```
-
-### **Go**
-
 ```go
 func removeElements(head *ListNode, val int) *ListNode {
 	dummy := new(ListNode)
@@ -157,8 +121,6 @@ func removeElements(head *ListNode, val int) *ListNode {
 	return dummy.Next
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -186,8 +148,6 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
     return dummy.next;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -223,10 +183,34 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public ListNode RemoveElements(ListNode head, int val) {
+        ListNode newHead = null;
+        ListNode newTail = null;
+        var current = head;
+        while (current != null)
+        {
+            if (current.val != val)
+            {
+                if (newHead == null)
+                {
+                    newHead = newTail = current;
+                }
+                else
+                {
+                    newTail.next = current;
+                    newTail = current;
+                }
+            }
+            current = current.next;
+        }
+        if (newTail != null) newTail.next = null;
+        return newHead;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

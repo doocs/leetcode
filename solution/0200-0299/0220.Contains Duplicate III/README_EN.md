@@ -49,9 +49,15 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sliding Window + Ordered Set
 
-### **Python3**
+We maintain a sliding window of size $k$, and the elements in the window are kept in order.
+
+We traverse the array `nums`. For each element $nums[i]$, we look for the first element in the ordered set that is greater than or equal to $nums[i] - t$. If the element exists, and this element is less than or equal to $nums[i] + t$, it means we have found a pair of elements that meet the conditions, and we return `true`. Otherwise, we insert $nums[i]$ into the ordered set, and if the size of the ordered set exceeds $k$, we need to remove the earliest added element from the ordered set.
+
+The time complexity is $O(n \times \log k)$, where $n$ is the length of the array `nums`. For each element, we need $O(\log k)$ time to find the element in the ordered set, and there are $n$ elements in total, so the total time complexity is $O(n \times \log k)$.
+
+<!-- tabs:start -->
 
 ```python
 from sortedcontainers import SortedSet
@@ -72,8 +78,6 @@ class Solution:
         return False
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
@@ -93,8 +97,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -110,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
@@ -136,36 +136,6 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	return false
 }
 ```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-        if (k <= 0 || t < 0) return false;
-        var index = new SortedList<int, object>();
-        for (int i = 0; i < nums.Length; ++i) {
-            if (index.ContainsKey(nums[i])) {
-                return true;
-            }
-            index.Add(nums[i], null);
-            var j = index.IndexOfKey(nums[i]);
-            if (j > 0 && (long)nums[i] - index.Keys[j - 1] <= t) {
-                return true;
-            }
-            if (j < index.Count - 1 && (long)index.Keys[j + 1] - nums[i] <= t) {
-                return true;
-            }
-            if (index.Count > k) {
-                index.Remove(nums[i - k]);
-            }
-        }
-        return false;
-    }
-}
-```
-
-### **TypeScript**
 
 ```ts
 function containsNearbyAlmostDuplicate(
@@ -828,10 +798,32 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-### **...**
-
-```
-
+```cs
+public class Solution {
+    public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if (k <= 0 || t < 0) return false;
+        var index = new SortedList<int, object>();
+        for (int i = 0; i < nums.Length; ++i) {
+            if (index.ContainsKey(nums[i])) {
+                return true;
+            }
+            index.Add(nums[i], null);
+            var j = index.IndexOfKey(nums[i]);
+            if (j > 0 && (long)nums[i] - index.Keys[j - 1] <= t) {
+                return true;
+            }
+            if (j < index.Count - 1 && (long)index.Keys[j + 1] - nums[i] <= t) {
+                return true;
+            }
+            if (index.Count > k) {
+                index.Remove(nums[i - k]);
+            }
+        }
+        return false;
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 我们可以用一个哈希表 $cnt$ 统计数组 $coordinates$ 中每个点出现的次数。
 
@@ -55,10 +53,6 @@
 时间复杂度 $O(n \times k)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $coordinates$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -73,10 +67,6 @@ class Solution:
             cnt[(x2, y2)] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -118,6 +106,45 @@ public:
     }
 };
 ```
+
+```go
+func countPairs(coordinates [][]int, k int) (ans int) {
+	cnt := map[[2]int]int{}
+	for _, c := range coordinates {
+		x2, y2 := c[0], c[1]
+		for a := 0; a <= k; a++ {
+			b := k - a
+			x1, y1 := a^x2, b^y2
+			ans += cnt[[2]int{x1, y1}]
+		}
+		cnt[[2]int{x2, y2}]++
+	}
+	return
+}
+```
+
+```ts
+function countPairs(coordinates: number[][], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    const f = (x: number, y: number): number => x * 1000000 + y;
+    let ans = 0;
+    for (const [x2, y2] of coordinates) {
+        for (let a = 0; a <= k; ++a) {
+            const b = k - a;
+            const [x1, y1] = [a ^ x2, b ^ y2];
+            ans += cnt.get(f(x1, y1)) ?? 0;
+        }
+        cnt.set(f(x2, y2), (cnt.get(f(x2, y2)) ?? 0) + 1);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
 
 ```cpp
 class Solution {
@@ -142,47 +169,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countPairs(coordinates [][]int, k int) (ans int) {
-	cnt := map[[2]int]int{}
-	for _, c := range coordinates {
-		x2, y2 := c[0], c[1]
-		for a := 0; a <= k; a++ {
-			b := k - a
-			x1, y1 := a^x2, b^y2
-			ans += cnt[[2]int{x1, y1}]
-		}
-		cnt[[2]int{x2, y2}]++
-	}
-	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function countPairs(coordinates: number[][], k: number): number {
-    const cnt: Map<number, number> = new Map();
-    const f = (x: number, y: number): number => x * 1000000 + y;
-    let ans = 0;
-    for (const [x2, y2] of coordinates) {
-        for (let a = 0; a <= k; ++a) {
-            const b = k - a;
-            const [x1, y1] = [a ^ x2, b ^ y2];
-            ans += cnt.get(f(x1, y1)) ?? 0;
-        }
-        cnt.set(f(x2, y2), (cnt.get(f(x2, y2)) ?? 0) + 1);
-    }
-    return ans;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

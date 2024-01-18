@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -58,8 +58,6 @@ class Solution:
         res += self.sumOfLeftLeaves(root.right)
         return res
 ```
-
-### **Java**
 
 ```java
 /**
@@ -87,8 +85,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a binary tree node.
@@ -111,8 +107,6 @@ func sumOfLeftLeaves(root *TreeNode) int {
 	return res
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -147,8 +141,6 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
     return dfs(root, false);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -194,8 +186,6 @@ impl Solution {
 }
 ```
 
-### **C**
-
 ```c
 /**
  * Definition for a binary tree node.
@@ -221,10 +211,6 @@ int sumOfLeftLeaves(struct TreeNode* root) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

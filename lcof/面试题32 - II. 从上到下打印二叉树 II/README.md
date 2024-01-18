@@ -37,7 +37,7 @@
 
 ## 解法
 
-**方法一：BFS**
+### 方法一：BFS
 
 我们可以使用 BFS 的方法来解决这道题。首先将根节点入队，然后不断地进行以下操作，直到队列为空：
 
@@ -49,8 +49,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -79,8 +77,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -119,8 +115,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -152,8 +146,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -187,42 +179,6 @@ func levelOrder(root *TreeNode) (ans [][]int) {
 	return
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {number[][]}
- */
-var levelOrder = function (root) {
-    let ans = [];
-    if (!root) {
-        return ans;
-    }
-    let q = [root];
-    while (q.length) {
-        let t = [];
-        for (let n = q.length; n; --n) {
-            const { val, left, right } = q.shift();
-            t.push(val);
-            left && q.push(left);
-            right && q.push(right);
-        }
-        ans.push(t);
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -259,8 +215,6 @@ function levelOrder(root: TreeNode | null): number[][] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for a binary tree node.
@@ -313,7 +267,37 @@ impl Solution {
 }
 ```
 
-### **C#**
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function (root) {
+    let ans = [];
+    if (!root) {
+        return ans;
+    }
+    let q = [root];
+    while (q.length) {
+        let t = [];
+        for (let n = q.length; n; --n) {
+            const { val, left, right } = q.shift();
+            t.push(val);
+            left && q.push(left);
+            right && q.push(right);
+        }
+        ans.push(t);
+    }
+    return ans;
+};
+```
 
 ```cs
 /**
@@ -353,10 +337,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

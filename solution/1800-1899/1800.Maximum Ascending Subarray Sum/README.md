@@ -56,25 +56,19 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：直接模拟
 
-**方法一：直接模拟**
+我们用变量 $t$ 记录当前升序子数组的和，用变量 $ans$ 记录最大的升序子数组和。
 
-我们用变量 `t` 记录当前升序子数组的和，用变量 `ans` 记录最大的升序子数组和。
+遍历数组 $nums$：
 
-遍历数组 `nums`：
+如果当前元素是数组的第一个元素，或者当前元素大于前一个元素，那么将当前元素加入到当前升序子数组的和，即 $t = t + nums[i]$，并且更新最大升序子数组和 $ans = \max(ans, t)$；否则，当前元素不满足升序子数组的条件，那么将当前升序子数组的和 $t$ 重置为当前元素，即 $t = nums[i]$。
 
-如果当前元素是数组的第一个元素，或者当前元素大于前一个元素，那么将当前元素加入到当前升序子数组的和，即 `t += nums[i]`，并且更新最大升序子数组和 `ans = max(ans, t)`；否则，当前元素不满足升序子数组的条件，那么将当前升序子数组的和 `t` 重置为当前元素，即 `t = nums[i]`。
+遍历结束，返回最大升序子数组和 $ans$。
 
-遍历结束，返回最大升序子数组和 `ans`。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -88,10 +82,6 @@ class Solution:
                 t = v
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -109,8 +99,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -130,8 +118,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxAscendingSum(nums []int) int {
 	ans, t := 0, 0
@@ -149,27 +135,6 @@ func maxAscendingSum(nums []int) int {
 }
 ```
 
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int maxAscendingSum(int* nums, int numsSize) {
-    int res = nums[0];
-    int sum = nums[0];
-    for (int i = 1; i < numsSize; i++) {
-        if (nums[i - 1] >= nums[i]) {
-            res = max(res, sum);
-            sum = 0;
-        }
-        sum += nums[i];
-    }
-    return max(res, sum);
-}
-```
-
-### **TypeScript**
-
 ```ts
 function maxAscendingSum(nums: number[]): number {
     const n = nums.length;
@@ -185,8 +150,6 @@ function maxAscendingSum(nums: number[]): number {
     return Math.max(res, sum);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -206,10 +169,23 @@ impl Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```
-
+int maxAscendingSum(int* nums, int numsSize) {
+    int res = nums[0];
+    int sum = nums[0];
+    for (int i = 1; i < numsSize; i++) {
+        if (nums[i - 1] >= nums[i]) {
+            res = max(res, sum);
+            sum = 0;
+        }
+        sum += nums[i];
+    }
+    return max(res, sum);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -40,9 +40,9 @@ Since &quot;d&quot; does not appear in order, it can be at any position in the r
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -50,21 +50,6 @@ class Solution:
         d = {c: i for i, c in enumerate(order)}
         return ''.join(sorted(s, key=lambda x: d.get(x, 0)))
 ```
-
-```python
-class Solution:
-    def customSortString(self, order: str, s: str) -> str:
-        cnt = Counter(s)
-        ans = []
-        for c in order:
-            ans.append(c * cnt[c])
-            cnt[c] = 0
-        for c, v in cnt.items():
-            ans.append(c * v)
-        return ''.join(ans)
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -81,6 +66,78 @@ class Solution {
         return cs.stream().map(String::valueOf).collect(Collectors.joining());
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        int d[26] = {0};
+        for (int i = 0; i < order.size(); ++i) d[order[i] - 'a'] = i;
+        sort(s.begin(), s.end(), [&](auto a, auto b) { return d[a - 'a'] < d[b - 'a']; });
+        return s;
+    }
+};
+```
+
+```go
+func customSortString(order string, s string) string {
+	d := [26]int{}
+	for i := range order {
+		d[order[i]-'a'] = i
+	}
+	cs := []byte(s)
+	sort.Slice(cs, func(i, j int) bool { return d[cs[i]-'a'] < d[cs[j]-'a'] })
+	return string(cs)
+}
+```
+
+```ts
+function customSortString(order: string, s: string): string {
+    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const n = order.length;
+    const d = new Array(26).fill(n);
+    for (let i = 0; i < n; i++) {
+        d[toIndex(order[i])] = i;
+    }
+    return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
+}
+```
+
+```rust
+impl Solution {
+    pub fn custom_sort_string(order: String, s: String) -> String {
+        let n = order.len();
+        let mut d = [n; 26];
+        for (i, c) in order.as_bytes().iter().enumerate() {
+            d[(c - b'a') as usize] = i;
+        }
+        let mut ans = s.chars().collect::<Vec<_>>();
+        ans.sort_by(|&a, &b|
+            d[((a as u8) - ('a' as u8)) as usize].cmp(&d[((b as u8) - ('a' as u8)) as usize])
+        );
+        ans.into_iter().collect()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        cnt = Counter(s)
+        ans = []
+        for c in order:
+            ans.append(c * cnt[c])
+            cnt[c] = 0
+        for c, v in cnt.items():
+            ans.append(c * v)
+        return ''.join(ans)
 ```
 
 ```java
@@ -107,20 +164,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    string customSortString(string order, string s) {
-        int d[26] = {0};
-        for (int i = 0; i < order.size(); ++i) d[order[i] - 'a'] = i;
-        sort(s.begin(), s.end(), [&](auto a, auto b) { return d[a - 'a'] < d[b - 'a']; });
-        return s;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -135,20 +178,6 @@ public:
         return ans;
     }
 };
-```
-
-### **Go**
-
-```go
-func customSortString(order string, s string) string {
-	d := [26]int{}
-	for i := range order {
-		d[order[i]-'a'] = i
-	}
-	cs := []byte(s)
-	sort.Slice(cs, func(i, j int) bool { return d[cs[i]-'a'] < d[cs[j]-'a'] })
-	return string(cs)
-}
 ```
 
 ```go
@@ -173,20 +202,6 @@ func customSortString(order string, s string) string {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function customSortString(order: string, s: string): string {
-    const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
-    const n = order.length;
-    const d = new Array(26).fill(n);
-    for (let i = 0; i < n; i++) {
-        d[toIndex(order[i])] = i;
-    }
-    return [...s].sort((a, b) => d[toIndex(a)] - d[toIndex(b)]).join('');
-}
-```
-
 ```ts
 function customSortString(order: string, s: string): string {
     const toIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -205,25 +220,6 @@ function customSortString(order: string, s: string): string {
         ans.push(String.fromCharCode('a'.charCodeAt(0) + i).repeat(count[i]));
     }
     return ans.join('');
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn custom_sort_string(order: String, s: String) -> String {
-        let n = order.len();
-        let mut d = [n; 26];
-        for (i, c) in order.as_bytes().iter().enumerate() {
-            d[(c - b'a') as usize] = i;
-        }
-        let mut ans = s.chars().collect::<Vec<_>>();
-        ans.sort_by(|&a, &b|
-            d[((a as u8) - ('a' as u8)) as usize].cmp(&d[((b as u8) - ('a' as u8)) as usize])
-        );
-        ans.into_iter().collect()
-    }
 }
 ```
 
@@ -251,10 +247,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

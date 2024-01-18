@@ -58,9 +58,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 设计函数 `dfs(i, cnt)` 表示从下标 `i` 开始，且当前已经分配了 `cnt` 个座位的方案数。
 
@@ -73,10 +71,6 @@
 时间复杂度 $O(n\times 3)$，空间复杂度 $O(n\times 3)$。其中 $n$ 为字符串 `corridor` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -100,10 +94,6 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -144,8 +134,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -172,8 +160,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfWays(corridor string) int {
@@ -215,8 +201,6 @@ func numberOfWays(corridor string) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numberOfWays(corridor: string): number {
     const M: number = 1e9 + 7;
@@ -242,10 +226,6 @@ function numberOfWays(corridor: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

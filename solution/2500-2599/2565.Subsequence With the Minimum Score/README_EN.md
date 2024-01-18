@@ -52,9 +52,17 @@ It can be proven that 3 is the minimum score that we can achieve.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Prefix and Suffix Preprocessing + Binary Search
 
-### **Python3**
+According to the problem, we know that the range of the index to delete characters is `[left, right]`. The optimal approach is to delete all characters within the range `[left, right]`. In other words, we need to delete a substring from string $t$, so that the remaining prefix of string $t$ can match the prefix of string $s$, and the remaining suffix of string $t$ can match the suffix of string $s$, and the prefix and suffix of string $s$ do not overlap. Note that the match here refers to subsequence matching.
+
+Therefore, we can preprocess to get arrays $f$ and $g$, where $f[i]$ represents the minimum number of characters in the prefix $t[0,..i]$ of string $t$ that match the first $[0,..f[i]]$ characters of string $s$; similarly, $g[i]$ represents the maximum number of characters in the suffix $t[i,..n-1]$ of string $t$ that match the last $[g[i],..n-1]$ characters of string $s$.
+
+The length of the deleted characters has monotonicity. If the condition is satisfied after deleting a string of length $x$, then the condition is definitely satisfied after deleting a string of length $x+1$. Therefore, we can use the method of binary search to find the smallest length that satisfies the condition.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of string $t$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -86,8 +94,6 @@ class Solution:
 
         return bisect_left(range(n + 1), True, key=check)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -143,8 +149,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -191,8 +195,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumScore(s string, t string) int {
 	m, n := len(s), len(t)
@@ -233,10 +235,6 @@ func minimumScore(s string, t string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

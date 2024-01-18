@@ -69,9 +69,9 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Encrypter:
@@ -96,8 +96,6 @@ class Encrypter:
 # param_1 = obj.encrypt(word1)
 # param_2 = obj.decrypt(word2)
 ```
-
-### **Java**
 
 ```java
 class Encrypter {
@@ -138,8 +136,6 @@ class Encrypter {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Encrypter {
 public:
@@ -172,8 +168,6 @@ public:
  * int param_2 = obj->decrypt(word2);
  */
 ```
-
-### **Go**
 
 ```go
 type Encrypter struct {
@@ -218,16 +212,6 @@ func (this *Encrypter) Decrypt(word2 string) int {
  */
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

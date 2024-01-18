@@ -25,11 +25,9 @@
 
 ## Solutions
 
-DFS.
+### Solution 1
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -46,24 +44,6 @@ class Solution:
             dfs(i)
         return ans
 ```
-
-```python
-class Solution:
-    def lexicalOrder(self, n: int) -> List[int]:
-        v = 1
-        ans = []
-        for i in range(n):
-            ans.append(v)
-            if v * 10 <= n:
-                v *= 10
-            else:
-                while v % 10 == 9 or v + 1 > n:
-                    v //= 10
-                v += 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,29 +67,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public List<Integer> lexicalOrder(int n) {
-        List<Integer> ans = new ArrayList<>();
-        int v = 1;
-        for (int i = 0; i < n; ++i) {
-            ans.add(v);
-            if (v * 10 <= n) {
-                v *= 10;
-            } else {
-                while (v % 10 == 9 || v + 1 > n) {
-                    v /= 10;
-                }
-                ++v;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,28 +83,6 @@ public:
     }
 };
 ```
-
-```cpp
-class Solution {
-public:
-    vector<int> lexicalOrder(int n) {
-        vector<int> ans;
-        int v = 1;
-        for (int i = 0; i < n; ++i) {
-            ans.push_back(v);
-            if (v * 10 <= n)
-                v *= 10;
-            else {
-                while (v % 10 == 9 || v + 1 > n) v /= 10;
-                ++v;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
 
 ```go
 func lexicalOrder(n int) []int {
@@ -168,27 +103,6 @@ func lexicalOrder(n int) []int {
 	return ans
 }
 ```
-
-```go
-func lexicalOrder(n int) []int {
-	var ans []int
-	v := 1
-	for i := 0; i < n; i++ {
-		ans = append(ans, v)
-		if v*10 <= n {
-			v *= 10
-		} else {
-			for v%10 == 9 || v+1 > n {
-				v /= 10
-			}
-			v++
-		}
-	}
-	return ans
-}
-```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -211,8 +125,6 @@ impl Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -237,10 +149,72 @@ var lexicalOrder = function (n) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```java
+class Solution {
+    public List<Integer> lexicalOrder(int n) {
+        List<Integer> ans = new ArrayList<>();
+        int v = 1;
+        for (int i = 0; i < n; ++i) {
+            ans.add(v);
+            if (v * 10 <= n) {
+                v *= 10;
+            } else {
+                while (v % 10 == 9 || v + 1 > n) {
+                    v /= 10;
+                }
+                ++v;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> lexicalOrder(int n) {
+        vector<int> ans;
+        int v = 1;
+        for (int i = 0; i < n; ++i) {
+            ans.push_back(v);
+            if (v * 10 <= n)
+                v *= 10;
+            else {
+                while (v % 10 == 9 || v + 1 > n) v /= 10;
+                ++v;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func lexicalOrder(n int) []int {
+	var ans []int
+	v := 1
+	for i := 0; i < n; i++ {
+		ans = append(ans, v)
+		if v*10 <= n {
+			v *= 10
+		} else {
+			for v%10 == 9 || v+1 > n {
+				v /= 10
+			}
+			v++
+		}
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -48,9 +48,17 @@ The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 =
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Maintaining Prefix Minimum
 
-### **Python3**
+We use the variable $mi$ to represent the minimum value of the elements we have traversed so far, and the variable $ans$ to represent the maximum difference. Initially, $mi$ is set to $+\infty$, and $ans$ is set to $-1$.
+
+We traverse the array. For the current element $x$, if $x > mi$, then we update $ans$ to be $max(ans, x - mi)$, otherwise we update $mi = x$.
+
+After the traversal, we return $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -64,8 +72,6 @@ class Solution:
                 mi = x
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +89,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -104,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maximumDifference(nums []int) int {
 	mi := 1 << 30
@@ -121,8 +123,6 @@ func maximumDifference(nums []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function maximumDifference(nums: number[]): number {
     const n = nums.length;
@@ -135,8 +135,6 @@ function maximumDifference(nums: number[]): number {
     return res === 0 ? -1 : res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -154,8 +152,6 @@ impl Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -176,10 +172,6 @@ var maximumDifference = function (nums) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

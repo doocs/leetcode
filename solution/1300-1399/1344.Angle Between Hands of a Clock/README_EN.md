@@ -40,15 +40,9 @@
 
 ## Solutions
 
+### Solution 1
+
 <!-- tabs:start -->
-
-**Solution 1: Mathematics**
-
-The hour hand moves 30 degrees every hour and an additional 0.5 degrees for each minute. The minute hand moves 6 degrees every minute. If the angle between the hands is greater than 180 degrees, take its difference from 360 degrees to ensure the smallest angle is obtained.
-
-The time complexity is $O(1)$ and the space complexity is $O(1)$.
-
-### **Python3**
 
 ```python
 class Solution:
@@ -58,8 +52,6 @@ class Solution:
         diff = abs(h - m)
         return min(diff, 360 - diff)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -71,8 +63,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -86,8 +76,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func angleClock(hour int, minutes int) float64 {
 	h := 30*float64(hour) + 0.5*float64(minutes)
@@ -96,8 +84,6 @@ func angleClock(hour int, minutes int) float64 {
 	return math.Min(diff, 360-diff)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function angleClock(hour: number, minutes: number): number {
@@ -108,10 +94,6 @@ function angleClock(hour: number, minutes: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

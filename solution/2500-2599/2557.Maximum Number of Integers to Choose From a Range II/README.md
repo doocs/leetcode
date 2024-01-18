@@ -49,9 +49,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：去重 + 排序 + 二分查找**
+### 方法一：去重 + 排序 + 二分查找
 
 我们可以在数组 `banned` 中加入 $0$ 和 $n + 1$，将数组 `banned` 去重并排序。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `banned` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,10 +79,6 @@ class Solution:
                 break
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -124,8 +114,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -156,8 +144,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxCount(banned []int, n int, maxSum int64) (ans int) {
@@ -191,10 +177,6 @@ func maxCount(banned []int, n int, maxSum int64) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

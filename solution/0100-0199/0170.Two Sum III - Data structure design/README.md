@@ -47,9 +47,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们用哈希表 `cnt` 存储数字出现的次数。
 
@@ -65,10 +63,6 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 空间复杂度 $O(n)$，其中 $n$ 为哈希表 `cnt` 的大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class TwoSum:
@@ -92,10 +86,6 @@ class TwoSum:
 # obj.add(number)
 # param_2 = obj.find(value)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class TwoSum {
@@ -129,8 +119,6 @@ class TwoSum {
  * boolean param_2 = obj.find(value);
  */
 ```
-
-### **C++**
 
 ```cpp
 class TwoSum {
@@ -166,8 +154,6 @@ private:
  */
 ```
 
-### **Go**
-
 ```go
 type TwoSum struct {
 	cnt map[int]int
@@ -199,10 +185,6 @@ func (this *TwoSum) Find(value int) bool {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

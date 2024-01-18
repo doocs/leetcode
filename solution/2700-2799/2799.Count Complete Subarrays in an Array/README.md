@@ -45,9 +45,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 枚举**
+### 方法一：哈希表 + 枚举
 
 我们先用哈希表统计数组中不同元素的数目，记为 $cnt$。
 
@@ -57,21 +55,7 @@
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
-**方法二：哈希表 + 双指针**
-
-与方法一类似，我们可以使用哈希表统计数组中不同元素的数目，记为 $cnt$。
-
-接下来，我们使用双指针维护一个滑动窗口，滑动窗口的右端点下标为 $j$，左端点下标为 $i$。
-
-每次固定左端点下标 $i$，然后向右移动右端点下标 $j$，当滑动窗口中的元素种类数等于 $cnt$ 时，这意味着从左端点下标 $i$ 到右端点下标 $j$ 以及右侧的所有子数组都是完全子数组，我们将答案增加 $n - j$，其中 $n$ 是数组的长度。然后我们将左端点下标 $i$ 右移一位，继续上述过程。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -86,28 +70,6 @@ class Solution:
                     ans += 1
         return ans
 ```
-
-```python
-class Solution:
-    def countCompleteSubarrays(self, nums: List[int]) -> int:
-        cnt = len(set(nums))
-        d = Counter()
-        ans, n = 0, len(nums)
-        i = 0
-        for j, x in enumerate(nums):
-            d[x] += 1
-            while len(d) == cnt:
-                ans += n - j
-                d[nums[i]] -= 1
-                if d[nums[i]] == 0:
-                    d.pop(nums[i])
-                i += 1
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,6 +92,121 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int countCompleteSubarrays(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        int cnt = s.size();
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            s.clear();
+            for (int j = i; j < n; ++j) {
+                s.insert(nums[j]);
+                if (s.size() == cnt) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countCompleteSubarrays(nums []int) (ans int) {
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
+	}
+	cnt := len(s)
+	for i := range nums {
+		s = map[int]bool{}
+		for _, x := range nums[i:] {
+			s[x] = true
+			if len(s) == cnt {
+				ans++
+			}
+		}
+	}
+	return
+}
+```
+
+```ts
+function countCompleteSubarrays(nums: number[]): number {
+    const s: Set<number> = new Set(nums);
+    const cnt = s.size;
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        s.clear();
+        for (let j = i; j < n; ++j) {
+            s.add(nums[j]);
+            if (s.size === cnt) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn count_complete_subarrays(nums: Vec<i32>) -> i32 {
+        let mut set: HashSet<&i32> = nums.iter().collect();
+        let n = nums.len();
+        let m = set.len();
+        let mut ans = 0;
+        for i in 0..n {
+            set.clear();
+            for j in i..n {
+                set.insert(&nums[j]);
+                if set.len() == m {
+                    ans += n - j;
+                    break;
+                }
+            }
+        }
+        ans as i32
+    }
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：哈希表 + 双指针
+
+与方法一类似，我们可以使用哈希表统计数组中不同元素的数目，记为 $cnt$。
+
+接下来，我们使用双指针维护一个滑动窗口，滑动窗口的右端点下标为 $j$，左端点下标为 $i$。
+
+每次固定左端点下标 $i$，然后向右移动右端点下标 $j$，当滑动窗口中的元素种类数等于 $cnt$ 时，这意味着从左端点下标 $i$ 到右端点下标 $j$ 以及右侧的所有子数组都是完全子数组，我们将答案增加 $n - j$，其中 $n$ 是数组的长度。然后我们将左端点下标 $i$ 右移一位，继续上述过程。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countCompleteSubarrays(self, nums: List[int]) -> int:
+        cnt = len(set(nums))
+        d = Counter()
+        ans, n = 0, len(nums)
+        i = 0
+        for j, x in enumerate(nums):
+            d[x] += 1
+            while len(d) == cnt:
+                ans += n - j
+                d[nums[i]] -= 1
+                if d[nums[i]] == 0:
+                    d.pop(nums[i])
+                i += 1
+        return ans
 ```
 
 ```java
@@ -155,29 +232,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countCompleteSubarrays(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        int cnt = s.size();
-        int ans = 0, n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            s.clear();
-            for (int j = i; j < n; ++j) {
-                s.insert(nums[j]);
-                if (s.size() == cnt) {
-                    ++ans;
-                }
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -206,28 +260,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countCompleteSubarrays(nums []int) (ans int) {
-	s := map[int]bool{}
-	for _, x := range nums {
-		s[x] = true
-	}
-	cnt := len(s)
-	for i := range nums {
-		s = map[int]bool{}
-		for _, x := range nums[i:] {
-			s[x] = true
-			if len(s) == cnt {
-				ans++
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func countCompleteSubarrays(nums []int) (ans int) {
 	d := map[int]int{}
@@ -249,27 +281,6 @@ func countCompleteSubarrays(nums []int) (ans int) {
 		}
 	}
 	return
-}
-```
-
-### **TypeScript**
-
-```ts
-function countCompleteSubarrays(nums: number[]): number {
-    const s: Set<number> = new Set(nums);
-    const cnt = s.size;
-    const n = nums.length;
-    let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        s.clear();
-        for (let j = i; j < n; ++j) {
-            s.add(nums[j]);
-            if (s.size === cnt) {
-                ++ans;
-            }
-        }
-    }
-    return ans;
 }
 ```
 
@@ -296,31 +307,6 @@ function countCompleteSubarrays(nums: number[]): number {
         }
     }
     return ans;
-}
-```
-
-### **Rust**
-
-```rust
-use std::collections::HashSet;
-impl Solution {
-    pub fn count_complete_subarrays(nums: Vec<i32>) -> i32 {
-        let mut set: HashSet<&i32> = nums.iter().collect();
-        let n = nums.len();
-        let m = set.len();
-        let mut ans = 0;
-        for i in 0..n {
-            set.clear();
-            for j in i..n {
-                set.insert(&nums[j]);
-                if set.len() == m {
-                    ans += n - j;
-                    break;
-                }
-            }
-        }
-        ans as i32
-    }
 }
 ```
 
@@ -351,10 +337,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

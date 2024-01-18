@@ -1,6 +1,7 @@
 func evenOddBit(n int) []int {
-	mask := 0x5555
-	even := bits.OnesCount32(uint32(n & mask))
-	odd := bits.OnesCount32(uint32(n & ^mask))
-	return []int{even, odd}
+	ans := make([]int, 2)
+	for i := 0; n != 0; n, i = n>>1, i^1 {
+		ans[i] += n & 1
+	}
+	return ans
 }

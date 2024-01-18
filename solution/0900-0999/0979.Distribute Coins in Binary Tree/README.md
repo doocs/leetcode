@@ -43,9 +43,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 我们定义一个函数 $dfs(node)$，表示以 $node$ 为根节点的子树中，金币的超载量，即金币的数量减去节点数。如果 $dfs(node)$ 为正数，表示该子树中金币的数量多于节点数，需要将多余的金币移出该子树；如果 $dfs(node)$ 为负数，表示该子树中金币的数量少于节点数，需要将不足的金币移入该子树。
 
@@ -56,10 +54,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(h)$。其中 $n$ 和 $h$ 分别是二叉树的节点数和高度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -82,10 +76,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -123,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -155,8 +143,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -189,8 +175,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a binary tree node.
@@ -222,10 +206,6 @@ function distributeCoins(root: TreeNode | null): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

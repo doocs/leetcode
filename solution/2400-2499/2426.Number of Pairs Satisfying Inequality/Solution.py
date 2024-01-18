@@ -8,13 +8,11 @@ class BinaryIndexedTree:
         return x & -x
 
     def update(self, x, delta):
-        x += 40000
         while x <= self.n:
             self.c[x] += delta
             x += BinaryIndexedTree.lowbit(x)
 
     def query(self, x):
-        x += 40000
         s = 0
         while x:
             s += self.c[x]
@@ -28,6 +26,6 @@ class Solution:
         ans = 0
         for a, b in zip(nums1, nums2):
             v = a - b
-            ans += tree.query(v + diff)
-            tree.update(v, 1)
+            ans += tree.query(v + diff + 40000)
+            tree.update(v + 40000, 1)
         return ans

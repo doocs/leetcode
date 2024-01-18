@@ -1,7 +1,12 @@
 func fillCups(amount []int) int {
-	sort.Ints(amount)
-	if amount[0]+amount[1] <= amount[2] {
-		return amount[2]
+	ans := 0
+	for amount[0]+amount[1]+amount[2] > 0 {
+		sort.Ints(amount)
+		ans++
+		amount[2]--
+		if amount[1] > 0 {
+			amount[1]--
+		}
 	}
-	return (amount[0] + amount[1] + amount[2] + 1) / 2
+	return ans
 }

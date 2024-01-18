@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举 + 有序集合**
+### 方法一：枚举 + 有序集合
 
 我们可以先枚举子数组的左端点 $i$，对于每个 $i$，我们从小到大枚举子数组的右端点 $j$，并且用一个有序列表维护当前子数组中的所有元素，用一个变量 $cnt$ 维护当前子数组的不平衡数字。
 
@@ -74,10 +72,6 @@
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -103,10 +97,6 @@ class Solution:
                 ans += cnt
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -137,8 +127,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -168,16 +156,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

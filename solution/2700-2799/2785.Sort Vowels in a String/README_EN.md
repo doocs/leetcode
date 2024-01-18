@@ -42,9 +42,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -59,8 +59,6 @@ class Solution:
                 j += 1
         return "".join(cs)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +83,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -109,8 +105,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func sortVowels(s string) string {
@@ -135,8 +129,6 @@ func sortVowels(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sortVowels(s: string): string {
     const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
@@ -152,8 +144,6 @@ function sortVowels(s: string): string {
     return ans.join('');
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -181,10 +171,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：质因数分解 + 组合数学**
+### 方法一：质因数分解 + 组合数学
 
 我们可以对 $k$ 进行质因数分解，即 $k = p_1^{x_1} \times p_2^{x_2} \times \cdots \times p_m^{x_m}$，其中 $p_i$ 为质数，而 $x_i$ 为 $p_i$ 的指数。那么题目实际上等价于：把 $x_1$ 个 $p_1$, $x_2$ 个 $p_2$, $\cdots$, $x_m$ 个 $p_m$ 分别放到 $n$ 个位置上，单个位置可以为空，问有多少种方案。
 
@@ -60,10 +58,6 @@
 时间复杂度 $O(K \times \log \log K + N + m \times \log K)$，空间复杂度 $O(N)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 N = 10020
@@ -102,10 +96,6 @@ class Solution:
             ans.append(t)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -171,8 +161,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 int N = 10020;
 int MOD = 1e9 + 7;
@@ -237,8 +225,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 const n = 1e4 + 20
 const mod = 1e9 + 7
@@ -298,10 +284,6 @@ func waysToFillArray(queries [][]int) (ans []int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

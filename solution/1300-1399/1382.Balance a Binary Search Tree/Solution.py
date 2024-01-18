@@ -6,22 +6,21 @@
 #         self.right = right
 class Solution:
     def balanceBST(self, root: TreeNode) -> TreeNode:
-        def dfs(root):
+        def dfs(root: TreeNode):
             if root is None:
                 return
             dfs(root.left)
-            vals.append(root.val)
+            nums.append(root.val)
             dfs(root.right)
 
-        def build(i, j):
+        def build(i: int, j: int) -> TreeNode:
             if i > j:
                 return None
             mid = (i + j) >> 1
-            root = TreeNode(vals[mid])
-            root.left = build(i, mid - 1)
-            root.right = build(mid + 1, j)
-            return root
+            left = build(i, mid - 1)
+            right = build(mid + 1, j)
+            return TreeNode(nums[mid], left, right)
 
-        vals = []
+        nums = []
         dfs(root)
-        return build(0, len(vals) - 1)
+        return build(0, len(nums) - 1)

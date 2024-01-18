@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：递归**
+### 方法一：递归
 
 我们设计一个递归函数 $dfs(head, root)$，表示链表 $head$ 是否是以 $root$ 为起点的路径上的节点值一一对应的子路径。函数 $dfs(head, root)$ 的逻辑如下：
 
@@ -66,10 +64,6 @@
 时间复杂度 $O(n^2)，空间复杂度 O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for singly-linked list.
@@ -100,10 +94,6 @@ class Solution:
             or self.isSubPath(head, root.right)
         )
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -151,8 +141,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -196,8 +184,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -231,8 +217,6 @@ func dfs(head *ListNode, root *TreeNode) bool {
 	return dfs(head.Next, root.Left) || dfs(head.Next, root.Right)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 /**
@@ -278,8 +262,6 @@ function isSubPath(head: ListNode | null, root: TreeNode | null): boolean {
     return dfs(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
 }
 ```
-
-### **Rust**
 
 ```rust
 // Definition for singly-linked list.
@@ -350,10 +332,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

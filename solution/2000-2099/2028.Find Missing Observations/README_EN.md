@@ -50,9 +50,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Construction
 
-### **Python3**
+According to the problem description, the sum of all numbers is $(n + m) \times mean$, and the sum of known numbers is `sum(rolls)`. Therefore, the sum of the missing numbers is $s = (n + m) \times mean - sum(rolls)$.
+
+If $s > n \times 6$ or $s < n$, it means there is no answer that satisfies the conditions, so return an empty array.
+
+Otherwise, we can evenly distribute $s$ to $n$ numbers, that is, the value of each number is $s / n$, and the value of $s \bmod n$ numbers is increased by $1$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$. Here, $n$ and $m$ are the number of missing numbers and known numbers, respectively.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +74,6 @@ class Solution:
             ans[i] += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -90,7 +96,41 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+```cpp
+class Solution {
+public:
+    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
+        int m = rolls.size();
+        int s = (n + m) * mean;
+        for (int& v : rolls) s -= v;
+        if (s > n * 6 || s < n) return {};
+        vector<int> ans(n, s / n);
+        for (int i = 0; i < s % n; ++i) ++ans[i];
+        return ans;
+    }
+};
+```
+
+```go
+func missingRolls(rolls []int, mean int, n int) []int {
+	m := len(rolls)
+	s := (n + m) * mean
+	for _, v := range rolls {
+		s -= v
+	}
+	if s > n*6 || s < n {
+		return []int{}
+	}
+	ans := make([]int, n)
+	for i, j := 0, 0; i < n; i, j = i+1, j+1 {
+		ans[i] = s / n
+		if j < s%n {
+			ans[i]++
+		}
+	}
+	return ans
+}
+```
 
 ```ts
 function missingRolls(rolls: number[], mean: number, n: number): number[] {
@@ -123,8 +163,6 @@ function missingRolls(rolls: number[], mean: number, n: number): number[] {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -163,50 +201,6 @@ impl Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
-        int m = rolls.size();
-        int s = (n + m) * mean;
-        for (int& v : rolls) s -= v;
-        if (s > n * 6 || s < n) return {};
-        vector<int> ans(n, s / n);
-        for (int i = 0; i < s % n; ++i) ++ans[i];
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func missingRolls(rolls []int, mean int, n int) []int {
-	m := len(rolls)
-	s := (n + m) * mean
-	for _, v := range rolls {
-		s -= v
-	}
-	if s > n*6 || s < n {
-		return []int{}
-	}
-	ans := make([]int, n)
-	for i, j := 0, 0; i < n; i, j = i+1, j+1 {
-		ans[i] = s / n
-		if j < s%n {
-			ans[i]++
-		}
-	}
-	return ans
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

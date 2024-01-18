@@ -39,9 +39,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -53,8 +53,6 @@ class Solution:
         target = (m * n + 1) >> 1
         return bisect_left(range(10**6 + 1), target, key=count)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +93,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +119,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func matrixMedian(grid [][]int) int {
@@ -160,17 +154,6 @@ func matrixMedian(grid [][]int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

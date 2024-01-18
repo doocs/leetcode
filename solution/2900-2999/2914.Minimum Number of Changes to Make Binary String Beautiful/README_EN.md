@@ -57,7 +57,7 @@ It can be proven that 1 is the minimum number of changes needed to make the stri
 
 ## Solutions
 
-**Solution 1: Counting**
+### Solution 1: Counting
 
 We only need to traverse all odd indices $1, 3, 5, \cdots$ of the string $s$. If the current odd index is different from the previous index, i.e., $s[i] \ne s[i - 1]$, we need to modify the current character so that $s[i] = s[i - 1]$. Therefore, the answer needs to be incremented by $1$.
 
@@ -67,15 +67,11 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def minChanges(self, s: str) -> int:
         return sum(s[i] != s[i - 1] for i in range(1, len(s), 2))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -91,8 +87,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +101,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minChanges(s string) (ans int) {
 	for i := 1; i < len(s); i += 2 {
@@ -119,8 +111,6 @@ func minChanges(s string) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function minChanges(s: string): number {
@@ -134,10 +124,6 @@ function minChanges(s: string): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

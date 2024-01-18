@@ -1,4 +1,4 @@
-# [2527. 查询数组 Xor 美丽值](https://leetcode.cn/problems/find-xor-beauty-of-array)
+# [2527. 查询数组异或美丽值](https://leetcode.cn/problems/find-xor-beauty-of-array)
 
 [English Version](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README_EN.md)
 
@@ -10,9 +10,9 @@
 
 <p>三个下标&nbsp;<code>i</code>&nbsp;，<code>j</code>&nbsp;和&nbsp;<code>k</code>&nbsp;的 <strong>有效值</strong>&nbsp;定义为&nbsp;<code>((nums[i] | nums[j]) &amp; nums[k])</code>&nbsp;。</p>
 
-<p>一个数组的 <strong>xor 美丽值</strong>&nbsp;是数组中所有满足&nbsp;<code>0 &lt;= i, j, k &lt; n</code>&nbsp;&nbsp;<strong>的三元组</strong>&nbsp;<code>(i, j, k)</code>&nbsp;的 <strong>有效值</strong>&nbsp;的异或结果。</p>
+<p>一个数组的 <strong>异或美丽值</strong>&nbsp;是数组中所有满足&nbsp;<code>0 &lt;= i, j, k &lt; n</code>&nbsp;&nbsp;<strong>的三元组</strong>&nbsp;<code>(i, j, k)</code>&nbsp;的 <strong>有效值</strong>&nbsp;的异或结果。</p>
 
-<p>请你返回&nbsp;<code>nums</code>&nbsp;的 xor 美丽值。</p>
+<p>请你返回&nbsp;<code>nums</code>&nbsp;的异或美丽值。</p>
 
 <p><b>注意：</b></p>
 
@@ -38,14 +38,14 @@
 - (1,0,1) 有效值为 ((4 | 1) &amp; 4) = 4
 - (1,1,0) 有效值为 ((4 | 4) &amp; 1) = 0
 - (1,1,1) 有效值为 ((4 | 4) &amp; 4) = 4 
-数组的 xor 美丽值为所有有效值的按位异或 1 ^ 0 ^ 1 ^ 4 ^ 1 ^ 4 ^ 0 ^ 4 = 5 。</pre>
+数组的异或美丽值为所有有效值的按位异或 1 ^ 0 ^ 1 ^ 4 ^ 1 ^ 4 ^ 0 ^ 4 = 5 。</pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
 <b>输入：</b>nums = [15,45,20,2,34,35,5,44,32,30]
 <b>输出：</b>34
-<code><span style=""><b>解释：</b>数组的 xor 美丽值为</span> 34 。</code>
+<code><span style=""><b>解释：</b>数组的异或美丽值为</span> 34 。</code>
 </pre>
 
 <p>&nbsp;</p>
@@ -59,9 +59,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：位运算**
+### 方法一：位运算
 
 我们首先考虑 $i$ 与 $j$ 不相等的情况，此时 $(nums[i] | nums[j]) \& nums[k]$ 与 $(nums[j] | nums[i]) \& nums[k]$ 的结果是相同的，两者的异或结果为 $0$。
 
@@ -73,19 +71,11 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def xorBeauty(self, nums: List[int]) -> int:
         return reduce(xor, nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -114,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func xorBeauty(nums []int) (ans int) {
 	for _, x := range nums {
@@ -125,18 +111,12 @@ func xorBeauty(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function xorBeauty(nums: number[]): number {
     return nums.reduce((acc, cur) => acc ^ cur, 0);
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

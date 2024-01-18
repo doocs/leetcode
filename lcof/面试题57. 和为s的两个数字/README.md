@@ -202,4 +202,157 @@ public class Solution {
 
 ```
 
+<!-- tabs:end -->## 解法
+
+### 方法一
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            if nums[l] + nums[r] == target:
+                return [nums[l], nums[r]]
+            if nums[l] + nums[r] > target:
+                r -= 1
+            else:
+                l += 1
+```
+
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int l = 0, r = nums.length - 1;
+        while (true) {
+            if (nums[l] + nums[r] == target) {
+                return new int[] {nums[l], nums[r]};
+            }
+            if (nums[l] + nums[r] > target) {
+                --r;
+            } else {
+                ++l;
+            }
+        }
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int l = 0, r = nums.size() - 1;
+        while (1) {
+            if (nums[l] + nums[r] == target) {
+                return {nums[l], nums[r]};
+            }
+            if (nums[l] + nums[r] > target) {
+                --r;
+            } else {
+                ++l;
+            }
+        }
+    }
+};
+```
+
+```go
+func twoSum(nums []int, target int) []int {
+	l, r := 0, len(nums)-1
+	for {
+		if nums[l]+nums[r] == target {
+			return []int{nums[l], nums[r]}
+		}
+		if nums[l]+nums[r] > target {
+			r--
+		} else {
+			l++
+		}
+	}
+}
+```
+
+```ts
+function twoSum(nums: number[], target: number): number[] {
+    let l = 0;
+    let r = nums.length - 1;
+    while (nums[l] + nums[r] !== target) {
+        if (nums[l] + nums[r] < target) {
+            l++;
+        } else {
+            r--;
+        }
+    }
+    return [nums[l], nums[r]];
+}
+```
+
+```rust
+use std::cmp::Ordering;
+
+impl Solution {
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut l = 0;
+        let mut r = nums.len() - 1;
+        loop {
+            match target.cmp(&(nums[l] + nums[r])) {
+                Ordering::Less => {
+                    r -= 1;
+                }
+                Ordering::Greater => {
+                    l += 1;
+                }
+                Ordering::Equal => {
+                    break vec![nums[l], nums[r]];
+                }
+            }
+        }
+    }
+}
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    let l = 0;
+    let r = nums.length - 1;
+    while (1) {
+        if (nums[l] + nums[r] == target) {
+            return [nums[l], nums[r]];
+        }
+        if (nums[l] + nums[r] > target) {
+            --r;
+        } else {
+            ++l;
+        }
+    }
+};
+```
+
+```cs
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        int l = 0, r = nums.Length - 1;
+        while (true) {
+            if (nums[l] + nums[r] == target) {
+                return new int[] {nums[l], nums[r]};
+            }
+            if (nums[l] + nums[r] > target) {
+                --r;
+            } else {
+                ++l;
+            }
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- end -->

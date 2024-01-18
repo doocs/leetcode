@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：排序**
+### 方法一：排序
 
 我们观察到：
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def findDiagonalOrder(self, nums: List[List[int]]) -> List[int]:
@@ -81,10 +75,6 @@ class Solution:
         arr.sort()
         return [v[2] for v in arr]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -126,8 +114,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findDiagonalOrder(nums [][]int) []int {
@@ -151,8 +137,6 @@ func findDiagonalOrder(nums [][]int) []int {
 }
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int[] FindDiagonalOrder(IList<IList<int>> nums) {
@@ -172,10 +156,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

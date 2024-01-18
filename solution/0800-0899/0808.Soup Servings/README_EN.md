@@ -47,9 +47,9 @@ So the total probability of A becoming empty first plus half the probability tha
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -71,8 +71,6 @@ class Solution:
 
         return 1 if n > 4800 else dfs((n + 24) // 25, (n + 24) // 25)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -123,8 +119,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func soupServings(n int) float64 {
@@ -154,8 +148,6 @@ func soupServings(n int) float64 {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function soupServings(n: number): number {
     const f = new Array(200).fill(0).map(() => new Array(200).fill(-1));
@@ -180,10 +172,6 @@ function soupServings(n: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

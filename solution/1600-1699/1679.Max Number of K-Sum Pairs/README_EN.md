@@ -41,9 +41,20 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting
 
-### **Python3**
+We sort $nums$. Then $l$ and $r$ point to the first and last elements of $nums$ respectively, and we compare the sum $s$ of the two integers with $k$.
+
+-   If $s = k$, it means that we have found two integers whose sum is $k$. We increment the answer and then move $l$ and $r$ towards the middle;
+-   If $s > k$, then we move the $r$ pointer to the left;
+-   If $s < k$, then we move the $l$ pointer to the right;
+-   We continue the loop until $l \geq r$.
+
+After the loop ends, we return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of $nums$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,22 +72,6 @@ class Solution:
                 l += 1
         return ans
 ```
-
-```python
-class Solution:
-    def maxOperations(self, nums: List[int], k: int) -> int:
-        cnt = Counter()
-        ans = 0
-        for x in nums:
-            if cnt[k - x]:
-                ans += 1
-                cnt[k - x] -= 1
-            else:
-                cnt[x] += 1
-        return ans
-```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,28 +96,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int maxOperations(int[] nums, int k) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        int ans = 0;
-        for (int x : nums) {
-            if (cnt.containsKey(k - x)) {
-                ++ans;
-                if (cnt.merge(k - x, -1, Integer::sum) == 0) {
-                    cnt.remove(k - x);
-                }
-            } else {
-                cnt.merge(x, 1, Integer::sum);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -146,27 +119,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int maxOperations(vector<int>& nums, int k) {
-        unordered_map<int, int> cnt;
-        int ans = 0;
-        for (int& x : nums) {
-            if (cnt[k - x]) {
-                --cnt[k - x];
-                ++ans;
-            } else {
-                ++cnt[x];
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func maxOperations(nums []int, k int) int {
 	sort.Ints(nums)
@@ -187,23 +139,6 @@ func maxOperations(nums []int, k int) int {
 }
 ```
 
-```go
-func maxOperations(nums []int, k int) (ans int) {
-	cnt := map[int]int{}
-	for _, x := range nums {
-		if cnt[k-x] > 0 {
-			cnt[k-x]--
-			ans++
-		} else {
-			cnt[x]++
-		}
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function maxOperations(nums: number[], k: number): number {
     const cnt = new Map();
@@ -219,8 +154,6 @@ function maxOperations(nums: number[], k: number): number {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -248,6 +181,88 @@ impl Solution {
 }
 ```
 
+<!-- tabs:end -->
+
+### Solution 2: Hash Table
+
+We use a hash table $cnt$ to record the current remaining integers and their occurrence counts.
+
+We iterate over $nums$. For the current integer $x$, we check if $k - x$ is in $cnt$. If it exists, it means that we have found two integers whose sum is $k$. We increment the answer and then decrement the occurrence count of $k - x$; otherwise, we increment the occurrence count of $x$.
+
+After the iteration ends, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of $nums$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        cnt = Counter()
+        ans = 0
+        for x in nums:
+            if cnt[k - x]:
+                ans += 1
+                cnt[k - x] -= 1
+            else:
+                cnt[x] += 1
+        return ans
+```
+
+```java
+class Solution {
+    public int maxOperations(int[] nums, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (int x : nums) {
+            if (cnt.containsKey(k - x)) {
+                ++ans;
+                if (cnt.merge(k - x, -1, Integer::sum) == 0) {
+                    cnt.remove(k - x);
+                }
+            } else {
+                cnt.merge(x, 1, Integer::sum);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxOperations(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        int ans = 0;
+        for (int& x : nums) {
+            if (cnt[k - x]) {
+                --cnt[k - x];
+                ++ans;
+            } else {
+                ++cnt[x];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maxOperations(nums []int, k int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		if cnt[k-x] > 0 {
+			cnt[k-x]--
+			ans++
+		} else {
+			cnt[x]++
+		}
+	}
+	return
+}
+```
+
 ```rust
 impl Solution {
     pub fn max_operations(nums: Vec<i32>, k: i32) -> i32 {
@@ -272,10 +287,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

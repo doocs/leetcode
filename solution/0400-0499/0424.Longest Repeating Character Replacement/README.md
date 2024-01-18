@@ -43,20 +43,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-我们维护一个数组 `int[26]` 来存储当前窗口中各个字母的出现次数，j 表示窗口的左边界，i 表示窗口右边界。
-
--   窗口扩张：j 不变，i++
--   窗口滑动：j++，i++
-
-`maxCnt` 保存滑动窗口内相同字母出现次数的**历史最大值**，通过判断窗口宽度 `i - j + 1` 是否大于 `maxCnt + k` 来决定窗口是否做滑动，否则窗口就扩张。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +61,6 @@ class Solution:
             i += 1
         return i - j
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,8 +82,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +102,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func characterReplacement(s string, k int) int {
 	counter := make([]int, 26)
@@ -140,10 +121,6 @@ func characterReplacement(s string, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

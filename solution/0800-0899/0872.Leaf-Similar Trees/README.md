@@ -47,17 +47,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：DFS**
+### 方法一：DFS
 
 后序遍历。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # Definition for a binary tree node.
@@ -76,10 +70,6 @@ class Solution:
 
         return dfs(root1) == dfs(root2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 /**
@@ -118,8 +108,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -149,7 +137,31 @@ public:
 };
 ```
 
-### **Rust**
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
+	var dfs func(*TreeNode) []int
+	dfs = func(root *TreeNode) []int {
+		if root == nil {
+			return []int{}
+		}
+		ans := dfs(root.Left)
+		ans = append(ans, dfs(root.Right)...)
+		if len(ans) == 0 {
+			ans = append(ans, root.Val)
+		}
+		return ans
+	}
+	return reflect.DeepEqual(dfs(root1), dfs(root2))
+}
+```
 
 ```rust
 // Definition for a binary tree node.
@@ -210,38 +222,6 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
-	var dfs func(*TreeNode) []int
-	dfs = func(root *TreeNode) []int {
-		if root == nil {
-			return []int{}
-		}
-		ans := dfs(root.Left)
-		ans = append(ans, dfs(root.Right)...)
-		if len(ans) == 0 {
-			ans = append(ans, root.Val)
-		}
-		return ans
-	}
-	return reflect.DeepEqual(dfs(root1), dfs(root2))
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

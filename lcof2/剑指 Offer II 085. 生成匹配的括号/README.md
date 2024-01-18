@@ -36,15 +36,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-深度优先搜索 DFS。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -62,10 +56,6 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,30 +80,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function generateParenthesis(n: number): string[] {
-    let ans = [];
-    let dfs = function (left, right, t) {
-        if (left == n && right == n) {
-            ans.push(t);
-            return;
-        }
-        if (left < n) {
-            dfs(left + 1, right, t + '(');
-        }
-        if (right < left) {
-            dfs(left, right + 1, t + ')');
-        }
-    };
-    dfs(0, 0, '');
-    return ans;
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -133,8 +99,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func generateParenthesis(n int) []string {
@@ -157,7 +121,25 @@ func generateParenthesis(n int) []string {
 }
 ```
 
-### **JavaScript**
+```ts
+function generateParenthesis(n: number): string[] {
+    let ans = [];
+    let dfs = function (left, right, t) {
+        if (left == n && right == n) {
+            ans.push(t);
+            return;
+        }
+        if (left < n) {
+            dfs(left + 1, right, t + '(');
+        }
+        if (right < left) {
+            dfs(left, right + 1, t + ')');
+        }
+    };
+    dfs(0, 0, '');
+    return ans;
+}
+```
 
 ```js
 /**
@@ -183,10 +165,6 @@ var generateParenthesis = function (n) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

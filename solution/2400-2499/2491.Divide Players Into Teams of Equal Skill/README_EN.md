@@ -51,9 +51,9 @@ There is no way to divide the players into teams such that the total skill of ea
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,6 +69,113 @@ class Solution:
             i, j = i + 1, j - 1
         return ans
 ```
+
+```java
+class Solution {
+    public long dividePlayers(int[] skill) {
+        Arrays.sort(skill);
+        int n = skill.length;
+        int t = skill[0] + skill[n - 1];
+        long ans = 0;
+        for (int i = 0, j = n - 1; i < j; ++i, --j) {
+            if (skill[i] + skill[j] != t) {
+                return -1;
+            }
+            ans += (long) skill[i] * skill[j];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long dividePlayers(vector<int>& skill) {
+        sort(skill.begin(), skill.end());
+        int n = skill.size();
+        int t = skill[0] + skill[n - 1];
+        long long ans = 0;
+        for (int i = 0, j = n - 1; i < j; ++i, --j) {
+            if (skill[i] + skill[j] != t) return -1;
+            ans += 1ll * skill[i] * skill[j];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func dividePlayers(skill []int) (ans int64) {
+	sort.Ints(skill)
+	n := len(skill)
+	t := skill[0] + skill[n-1]
+	for i, j := 0, n-1; i < j; i, j = i+1, j-1 {
+		if skill[i]+skill[j] != t {
+			return -1
+		}
+		ans += int64(skill[i] * skill[j])
+	}
+	return
+}
+```
+
+```ts
+function dividePlayers(skill: number[]): number {
+    const n = skill.length;
+    skill.sort((a, b) => a - b);
+    const target = skill[0] + skill[n - 1];
+    let ans = 0;
+    for (let i = 0; i < n >> 1; i++) {
+        if (target !== skill[i] + skill[n - 1 - i]) {
+            return -1;
+        }
+        ans += skill[i] * skill[n - 1 - i];
+    }
+    return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn divide_players(mut skill: Vec<i32>) -> i64 {
+        let n = skill.len();
+        skill.sort();
+        let target = skill[0] + skill[n - 1];
+        let mut ans = 0;
+        for i in 0..n >> 1 {
+            if skill[i] + skill[n - 1 - i] != target {
+                return -1;
+            }
+            ans += (skill[i] * skill[n - 1 - i]) as i64;
+        }
+        ans
+    }
+}
+```
+
+```js
+var dividePlayers = function (skill) {
+    const n = skill.length,
+        m = n / 2;
+    skill.sort((a, b) => a - b);
+    const sum = skill[0] + skill[n - 1];
+    let ans = 0;
+    for (let i = 0; i < m; i++) {
+        const x = skill[i],
+            y = skill[n - 1 - i];
+        if (x + y != sum) return -1;
+        ans += x * y;
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -88,26 +195,6 @@ class Solution:
             else:
                 d[v] += 1
         return -1 if m else ans
-```
-
-### **Java**
-
-```java
-class Solution {
-    public long dividePlayers(int[] skill) {
-        Arrays.sort(skill);
-        int n = skill.length;
-        int t = skill[0] + skill[n - 1];
-        long ans = 0;
-        for (int i = 0, j = n - 1; i < j; ++i, --j) {
-            if (skill[i] + skill[j] != t) {
-                return -1;
-            }
-            ans += (long) skill[i] * skill[j];
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -135,25 +222,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
-```cpp
-class Solution {
-public:
-    long long dividePlayers(vector<int>& skill) {
-        sort(skill.begin(), skill.end());
-        int n = skill.size();
-        int t = skill[0] + skill[n - 1];
-        long long ans = 0;
-        for (int i = 0, j = n - 1; i < j; ++i, --j) {
-            if (skill[i] + skill[j] != t) return -1;
-            ans += 1ll * skill[i] * skill[j];
-        }
-        return ans;
-    }
-};
-```
-
 ```cpp
 class Solution {
 public:
@@ -176,23 +244,6 @@ public:
         return m == 0 ? ans : -1;
     }
 };
-```
-
-### **Go**
-
-```go
-func dividePlayers(skill []int) (ans int64) {
-	sort.Ints(skill)
-	n := len(skill)
-	t := skill[0] + skill[n-1]
-	for i, j := 0, n-1; i < j; i, j = i+1, j-1 {
-		if skill[i]+skill[j] != t {
-			return -1
-		}
-		ans += int64(skill[i] * skill[j])
-	}
-	return
-}
 ```
 
 ```go
@@ -224,67 +275,6 @@ func dividePlayers(skill []int) int64 {
 }
 ```
 
-### **JavaScript**
-
-```js
-var dividePlayers = function (skill) {
-    const n = skill.length,
-        m = n / 2;
-    skill.sort((a, b) => a - b);
-    const sum = skill[0] + skill[n - 1];
-    let ans = 0;
-    for (let i = 0; i < m; i++) {
-        const x = skill[i],
-            y = skill[n - 1 - i];
-        if (x + y != sum) return -1;
-        ans += x * y;
-    }
-    return ans;
-};
-```
-
-### **TypeScript**
-
-```ts
-function dividePlayers(skill: number[]): number {
-    const n = skill.length;
-    skill.sort((a, b) => a - b);
-    const target = skill[0] + skill[n - 1];
-    let ans = 0;
-    for (let i = 0; i < n >> 1; i++) {
-        if (target !== skill[i] + skill[n - 1 - i]) {
-            return -1;
-        }
-        ans += skill[i] * skill[n - 1 - i];
-    }
-    return ans;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn divide_players(mut skill: Vec<i32>) -> i64 {
-        let n = skill.len();
-        skill.sort();
-        let target = skill[0] + skill[n - 1];
-        let mut ans = 0;
-        for i in 0..n >> 1 {
-            if skill[i] + skill[n - 1 - i] != target {
-                return -1;
-            }
-            ans += (skill[i] * skill[n - 1 - i]) as i64;
-        }
-        ans
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

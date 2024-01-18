@@ -65,17 +65,11 @@ Transactions table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：窗口函数**
+### 方法一：窗口函数
 
 我们可以使用窗口函数 `RANK`，按照每天的交易金额 `amount` 降序排列，然后选择排名为 $1$ 的交易。
 
 <!-- tabs:start -->
-
-### **SQL**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
 # Write your MySQL query statement below
@@ -96,3 +90,5 @@ ORDER BY 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

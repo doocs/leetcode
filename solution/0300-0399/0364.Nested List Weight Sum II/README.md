@@ -1,4 +1,4 @@
-# [364. 加权嵌套序列和 II](https://leetcode.cn/problems/nested-list-weight-sum-ii)
+# [364. 嵌套列表加权和 II](https://leetcode.cn/problems/nested-list-weight-sum-ii)
 
 [English Version](/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README_EN.md)
 
@@ -46,15 +46,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-先求序列的最大深度 `depth`，然后利用 DFS 累加求和。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 # """
@@ -122,10 +116,6 @@ class Solution:
         return dfs(nestedList, depth)
 ```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
 /**
  * // This is the interface that allows for creating nested lists.
@@ -185,8 +175,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -258,10 +246,6 @@ var depthSumInverse = function (nestedList) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

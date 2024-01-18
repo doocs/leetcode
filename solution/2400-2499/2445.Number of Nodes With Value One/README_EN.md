@@ -51,9 +51,15 @@ After processing the queries, there are one red node (node with value 1): 2.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simulation
 
-### **Python3**
+According to the problem description, we can simulate the process of each query, that is, reverse the values of the query node and its subtree nodes. Finally, count the number of nodes with a value of 1.
+
+There is an optimization point here. If a node and its corresponding subtree have been queried an even number of times, the node value will not change. Therefore, we can record the number of queries for each node, and only reverse the nodes and their subtrees that have been queried an odd number of times.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -72,8 +78,6 @@ class Solution:
                 dfs(i)
         return sum(tree)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -108,8 +112,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +134,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numberOfNodes(n int, queries []int) int {
@@ -164,16 +164,6 @@ func numberOfNodes(n int, queries []int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

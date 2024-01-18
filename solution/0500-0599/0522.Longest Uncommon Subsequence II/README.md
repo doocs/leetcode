@@ -44,19 +44,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：判断子序列**
+### 方法一：判断子序列
 
 判断是否独有，只需要取字符串 $s$ 本身，与其他字符串比较即可。题目可以转化为：获取**非其他字符串子序列**的字符串的最大长度。若不存在，返回 -1。
 
 其中，$check(a,b)$ 用于判断字符串 $b$ 是否为字符串 $a$ 的子序列。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -83,10 +77,6 @@ class Solution:
                 ans = max(ans, len(strs[i]))
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -120,8 +110,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +133,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findLUSlength(strs []string) int {
@@ -178,10 +164,6 @@ func findLUSlength(strs []string) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

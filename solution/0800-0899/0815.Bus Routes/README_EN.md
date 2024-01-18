@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -58,7 +58,10 @@ class Solution:
         if source == target:
             return 0
 
+        # 一条公交线路有哪些公交站
         s = [set(r) for r in routes]
+
+        # 一个公交站在哪些公交线路有
         d = defaultdict(list)
         for i, r in enumerate(routes):
             for v in r:
@@ -87,8 +90,6 @@ class Solution:
             ans += 1
         return -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -145,8 +146,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -202,8 +201,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numBusesToDestination(routes [][]int, source int, target int) int {
 	if source == target {
@@ -257,8 +254,6 @@ func numBusesToDestination(routes [][]int, source int, target int) int {
 	return -1
 }
 ```
-
-### **C#**
 
 ```cs
 public class Solution {
@@ -317,10 +312,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

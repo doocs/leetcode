@@ -41,19 +41,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 前缀和**
+### 方法一：哈希表 + 前缀和
 
 由于数组中既有正数又有负数，无法使用双指针。我们可以使用哈希表记录每个前缀和出现的次数，从而在 $O(1)$ 的时间内得到以当前位置为右端点的子数组中和为 $k$ 的子数组个数。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -66,10 +60,6 @@ class Solution:
             cnt[s] += 1
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -86,8 +76,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -106,8 +94,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func subarraySum(nums []int, k int) (ans int) {
 	cnt := map[int]int{0: 1}
@@ -120,8 +106,6 @@ func subarraySum(nums []int, k int) (ans int) {
 	return
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function subarraySum(nums: number[], k: number): number {
@@ -138,10 +122,6 @@ function subarraySum(nums: number[], k: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

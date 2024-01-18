@@ -37,9 +37,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Enumeration + Counting
 
-### **Python3**
+Enumerate the starting position $i$ of each substring, find all substrings with the character at this starting position as the left endpoint, then calculate the beauty value of each substring, and accumulate it to the answer.
+
+The time complexity is $O(n^2 \times C)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -52,8 +56,6 @@ class Solution:
                 ans += max(cnt.values()) - min(cnt.values())
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -78,8 +80,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -107,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func beautySum(s string) (ans int) {
 	for i := range s {
@@ -133,8 +131,6 @@ func beautySum(s string) (ans int) {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} s
@@ -154,10 +150,163 @@ var beautySum = function (s) {
 };
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def beautySum(self, s: str) -> int:
+        ans, n = 0, len(s)
+        for i in range(n):
+            cnt = Counter()
+            freq = Counter()
+            mi = mx = 1
+            for j in range(i, n):
+                freq[cnt[s[j]]] -= 1
+                cnt[s[j]] += 1
+                freq[cnt[s[j]]] += 1
+
+                if cnt[s[j]] == 1:
+                    mi = 1
+                if freq[mi] == 0:
+                    mi += 1
+                if cnt[s[j]] > mx:
+                    mx = cnt[s[j]]
+
+                ans += mx - mi
+        return ans
 ```
 
+```java
+class Solution {
+    public int beautySum(String s) {
+        int n = s.length();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int[] cnt = new int[26];
+            Map<Integer, Integer> freq = new HashMap<>();
+            int mi = 1, mx = 1;
+            for (int j = i; j < n; ++j) {
+                int k = s.charAt(j) - 'a';
+                freq.merge(cnt[k], -1, Integer::sum);
+                ++cnt[k];
+                freq.merge(cnt[k], 1, Integer::sum);
+
+                if (cnt[k] == 1) {
+                    mi = 1;
+                }
+                if (freq.getOrDefault(mi, 0) == 0) {
+                    ++mi;
+                }
+                if (cnt[k] > mx) {
+                    mx = cnt[k];
+                }
+                ans += mx - mi;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int beautySum(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int cnt[26]{};
+            unordered_map<int, int> freq;
+            int mi = 1, mx = 1;
+            for (int j = i; j < n; ++j) {
+                int k = s[j] - 'a';
+                --freq[cnt[k]];
+                ++cnt[k];
+                ++freq[cnt[k]];
+
+                if (cnt[k] == 1) {
+                    mi = 1;
+                }
+                if (freq[mi] == 0) {
+                    ++mi;
+                }
+                if (cnt[k] > mx) {
+                    mx = cnt[k];
+                }
+                ans += mx - mi;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func beautySum(s string) (ans int) {
+	n := len(s)
+	for i := 0; i < n; i++ {
+		cnt := [26]int{}
+		freq := map[int]int{}
+		mi, mx := 1, 1
+		for j := i; j < n; j++ {
+			k := int(s[j] - 'a')
+			freq[cnt[k]]--
+			cnt[k]++
+			freq[cnt[k]]++
+
+			if cnt[k] == 1 {
+				mi = 1
+			}
+			if freq[mi] == 0 {
+				mi++
+			}
+			if cnt[k] > mx {
+				mx = cnt[k]
+			}
+			ans += mx - mi
+		}
+	}
+	return
+}
+```
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var beautySum = function (s) {
+    const n = s.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const cnt = Array(26).fill(0);
+        const freq = new Map();
+        let [mi, mx] = [1, 1];
+        for (let j = i; j < n; ++j) {
+            const k = s[j].charCodeAt() - 97;
+            freq.set(cnt[k], (freq.get(cnt[k]) || 0) - 1);
+            ++cnt[k];
+            freq.set(cnt[k], (freq.get(cnt[k]) || 0) + 1);
+            if (cnt[k] === 1) {
+                mi = 1;
+            }
+            if (freq.get(mi) === 0) {
+                ++mi;
+            }
+            if (cnt[k] > mx) {
+                mx = cnt[k];
+            }
+            ans += mx - mi;
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

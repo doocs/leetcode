@@ -60,19 +60,13 @@ const newArray = filter(arr, fn); // [20, 30]
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历**
+### 方法一：遍历
 
 我们遍历数组 $arr$，对于每个元素 $arr[i]$，如果 $fn(arr[i], i)$ 为真，则将其加入答案数组中。最后返回答案数组即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $arr$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 function filter(arr: number[], fn: (n: number, i: number) => any): number[] {
@@ -86,10 +80,6 @@ function filter(arr: number[], fn: (n: number, i: number) => any): number[] {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

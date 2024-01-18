@@ -40,9 +40,13 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Two Pointers
 
-### **Python3**
+We use two pointers $i$ and $j$ to point to the start and end of the current consecutive substring respectively. Traverse the string $s$, if the current character $s[j]$ is greater than $s[j-1]$, then move $j$ one step to the right, otherwise update $i$ to $j$, and update the length of the longest consecutive substring.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +61,6 @@ class Solution:
         ans = max(ans, j - i)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -76,8 +78,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -97,8 +97,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func longestContinuousSubstring(s string) int {
 	ans := 0
@@ -114,27 +112,6 @@ func longestContinuousSubstring(s string) int {
 }
 ```
 
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int longestContinuousSubstring(char* s) {
-    int n = strlen(s);
-    int i = 0;
-    int res = 1;
-    for (int j = 1; j < n; j++) {
-        if (s[j] - s[j - 1] != 1) {
-            res = max(res, j - i);
-            i = j;
-        }
-    }
-    return max(res, n - i);
-}
-```
-
-### **TypeScript**
-
 ```ts
 function longestContinuousSubstring(s: string): number {
     const n = s.length;
@@ -149,8 +126,6 @@ function longestContinuousSubstring(s: string): number {
     return Math.max(res, n - i);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -170,10 +145,23 @@ impl Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```
-
+int longestContinuousSubstring(char* s) {
+    int n = strlen(s);
+    int i = 0;
+    int res = 1;
+    for (int j = 1; j < n; j++) {
+        if (s[j] - s[j - 1] != 1) {
+            res = max(res, j - i);
+            i = j;
+        }
+    }
+    return max(res, n - i);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

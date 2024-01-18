@@ -50,9 +50,18 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Two Passes
 
-### **Python3**
+First, we scan from left to right and remove the extra right parentheses. Then, we scan from right to left and remove the extra left parentheses.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+
+Similar problems:
+
+-   [678. Valid Parenthesis String](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README_EN.md)
+-   [2116. Check if a Parentheses String Can Be Valid](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README_EN.md)
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +88,6 @@ class Solution:
             ans.append(c)
         return ''.join(ans[::-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -118,8 +125,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -151,8 +156,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minRemoveToMakeValid(s string) string {
@@ -191,8 +194,6 @@ func minRemoveToMakeValid(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minRemoveToMakeValid(s: string): string {
     let left = 0;
@@ -228,8 +229,6 @@ function minRemoveToMakeValid(s: string): string {
     return res;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -278,10 +277,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

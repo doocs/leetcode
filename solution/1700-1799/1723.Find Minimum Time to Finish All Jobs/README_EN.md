@@ -39,9 +39,9 @@ The maximum working time is 11.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -66,8 +66,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -115,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -145,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minimumTimeRequired(jobs []int, k int) int {
@@ -179,10 +173,6 @@ func minimumTimeRequired(jobs []int, k int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

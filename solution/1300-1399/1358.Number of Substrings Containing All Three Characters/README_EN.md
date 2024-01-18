@@ -42,9 +42,15 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Single Pass
 
-### **Python3**
+We use an array $d$ of length $3$ to record the most recent occurrence of the three characters, initially all set to $-1$.
+
+We traverse the string $s$. For the current position $i$, we first update $d[s[i]]=i$, then the number of valid strings is $\min(d[0], d[1], d[2]) + 1$, which is accumulated to the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +62,6 @@ class Solution:
             ans += min(d["a"], d["b"], d["c"]) + 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +78,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -91,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfSubstrings(s string) (ans int) {
 	d := [3]int{-1, -1, -1}
@@ -104,10 +104,6 @@ func numberOfSubstrings(s string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

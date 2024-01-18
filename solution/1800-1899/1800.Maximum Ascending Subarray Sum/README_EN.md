@@ -45,9 +45,19 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Direct Simulation
 
-### **Python3**
+We use a variable $t$ to record the current sum of the ascending subarray, and a variable $ans$ to record the maximum sum of the ascending subarray.
+
+Traverse the array $nums$:
+
+If the current element is the first element of the array, or the current element is greater than the previous one, then add the current element to the sum of the current ascending subarray, i.e., $t = t + nums[i]$, and update the maximum sum of the ascending subarray $ans = \max(ans, t)$. Otherwise, the current element does not satisfy the condition of the ascending subarray, so reset the sum $t$ of the current ascending subarray to the current element, i.e., $t = nums[i]$.
+
+After the traversal, return the maximum sum of the ascending subarray $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +71,6 @@ class Solution:
                 t = v
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -80,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -101,8 +107,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func maxAscendingSum(nums []int) int {
 	ans, t := 0, 0
@@ -120,27 +124,6 @@ func maxAscendingSum(nums []int) int {
 }
 ```
 
-### **C**
-
-```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int maxAscendingSum(int* nums, int numsSize) {
-    int res = nums[0];
-    int sum = nums[0];
-    for (int i = 1; i < numsSize; i++) {
-        if (nums[i - 1] >= nums[i]) {
-            res = max(res, sum);
-            sum = 0;
-        }
-        sum += nums[i];
-    }
-    return max(res, sum);
-}
-```
-
-### **TypeScript**
-
 ```ts
 function maxAscendingSum(nums: number[]): number {
     const n = nums.length;
@@ -156,8 +139,6 @@ function maxAscendingSum(nums: number[]): number {
     return Math.max(res, sum);
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -177,10 +158,23 @@ impl Solution {
 }
 ```
 
-### **...**
+```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-```
-
+int maxAscendingSum(int* nums, int numsSize) {
+    int res = nums[0];
+    int sum = nums[0];
+    for (int i = 1; i < numsSize; i++) {
+        if (nums[i - 1] >= nums[i]) {
+            res = max(res, sum);
+            sum = 0;
+        }
+        sum += nums[i];
+    }
+    return max(res, sum);
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

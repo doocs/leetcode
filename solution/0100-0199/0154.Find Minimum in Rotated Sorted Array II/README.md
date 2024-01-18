@@ -52,9 +52,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 若 `nums[mid] > nums[right]`，说明最小值在 mid 的右边；若 `nums[mid] < nums[right]`，说明最小值在 mid 的左边（包括 mid）；若相等，无法判断，直接将 right 减 1。循环比较。
 
@@ -63,10 +61,6 @@
 时间复杂度 O(logn)。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,10 +76,6 @@ class Solution:
                 right -= 1
         return nums[left]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -127,7 +115,40 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+func findMin(nums []int) int {
+	left, right := 0, len(nums)-1
+	for left < right {
+		mid := (left + right) >> 1
+		if nums[mid] > nums[right] {
+			left = mid + 1
+		} else if nums[mid] < nums[right] {
+			right = mid
+		} else {
+			right--
+		}
+	}
+	return nums[left]
+}
+```
+
+```ts
+function findMin(nums: number[]): number {
+    let left = 0,
+        right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else if (nums[mid] < nums[right]) {
+            right = mid;
+        } else {
+            --right;
+        }
+    }
+    return nums[left];
+}
+```
 
 ```js
 /**
@@ -151,49 +172,6 @@ var findMin = function (nums) {
 };
 ```
 
-### **Go**
-
-```go
-func findMin(nums []int) int {
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
-		if nums[mid] > nums[right] {
-			left = mid + 1
-		} else if nums[mid] < nums[right] {
-			right = mid
-		} else {
-			right--
-		}
-	}
-	return nums[left]
-}
-```
-
-### **TypeScript**
-
-```ts
-function findMin(nums: number[]): number {
-    let left = 0,
-        right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
-        } else if (nums[mid] < nums[right]) {
-            right = mid;
-        } else {
-            --right;
-        }
-    }
-    return nums[left];
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

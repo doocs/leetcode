@@ -55,15 +55,130 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：差分数组**
+### 方法一：差分数组
 
 我们注意到，每一次预订都是在某个区间 `[first, last]` 内的所有航班上预订了 `seats` 个座位。因此，我们可以利用差分数组的思想，对于每一次预订，将 `first` 位置的数加上 `seats`，将 `last + 1` 位置的数减去 `seats`。最后，对差分数组求前缀和，即可得到每个航班预定的座位总数。
 
 时间复杂度 $O(n)$，其中 $n$ 为航班数。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
-**方法二：树状数组 + 差分思想**
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        ans = [0] * n
+        for first, last, seats in bookings:
+            ans[first - 1] += seats
+            if last < n:
+                ans[last] -= seats
+        return list(accumulate(ans))
+```
+
+```java
+class Solution {
+    public int[] corpFlightBookings(int[][] bookings, int n) {
+        int[] ans = new int[n];
+        for (var e : bookings) {
+            int first = e[0], last = e[1], seats = e[2];
+            ans[first - 1] += seats;
+            if (last < n) {
+                ans[last] -= seats;
+            }
+        }
+        for (int i = 1; i < n; ++i) {
+            ans[i] += ans[i - 1];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
+        vector<int> ans(n);
+        for (auto& e : bookings) {
+            int first = e[0], last = e[1], seats = e[2];
+            ans[first - 1] += seats;
+            if (last < n) {
+                ans[last] -= seats;
+            }
+        }
+        for (int i = 1; i < n; ++i) {
+            ans[i] += ans[i - 1];
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func corpFlightBookings(bookings [][]int, n int) []int {
+	ans := make([]int, n)
+	for _, e := range bookings {
+		first, last, seats := e[0], e[1], e[2]
+		ans[first-1] += seats
+		if last < n {
+			ans[last] -= seats
+		}
+	}
+	for i := 1; i < n; i++ {
+		ans[i] += ans[i-1]
+	}
+	return ans
+}
+```
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn corp_flight_bookings(bookings: Vec<Vec<i32>>, n: i32) -> Vec<i32> {
+        let mut ans = vec![0; n as usize];
+
+        // Build the difference vector first
+        for b in &bookings {
+            let (l, r) = ((b[0] as usize) - 1, (b[1] as usize) - 1);
+            ans[l] += b[2];
+            if r < (n as usize) - 1 {
+                ans[r + 1] -= b[2];
+            }
+        }
+
+        // Build the prefix sum vector based on the difference vector
+        for i in 1..n as usize {
+            ans[i] += ans[i - 1];
+        }
+
+        ans
+    }
+}
+```
+
+```js
+/**
+ * @param {number[][]} bookings
+ * @param {number} n
+ * @return {number[]}
+ */
+var corpFlightBookings = function (bookings, n) {
+    const ans = new Array(n).fill(0);
+    for (const [first, last, seats] of bookings) {
+        ans[first - 1] += seats;
+        if (last < n) {
+            ans[last] -= seats;
+        }
+    }
+    for (let i = 1; i < n; ++i) {
+        ans[i] += ans[i - 1];
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+### 方法二：树状数组 + 差分思想
 
 我们也可以利用树状数组，结合差分的思想，来实现上述操作。我们可以将每一次预订看作是在某个区间 `[first, last]` 内的所有航班上预订了 `seats` 个座位。因此，我们可以对每一次预订，对树状数组的 `first` 位置加上 `seats`，对树状数组的 `last + 1` 位置减去 `seats`。最后，对树状数组每个位置求前缀和，即可得到每个航班预定的座位总数。
 
@@ -79,21 +194,6 @@
 这两个操作的时间复杂度均为 $O(\log n)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
-        ans = [0] * n
-        for first, last, seats in bookings:
-            ans[first - 1] += seats
-            if last < n:
-                ans[last] -= seats
-        return list(accumulate(ans))
-```
 
 ```python
 class BinaryIndexedTree:
@@ -121,29 +221,6 @@ class Solution:
             tree.update(first, seats)
             tree.update(last + 1, -seats)
         return [tree.query(i + 1) for i in range(n)]
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-class Solution {
-    public int[] corpFlightBookings(int[][] bookings, int n) {
-        int[] ans = new int[n];
-        for (var e : bookings) {
-            int first = e[0], last = e[1], seats = e[2];
-            ans[first - 1] += seats;
-            if (last < n) {
-                ans[last] -= seats;
-            }
-        }
-        for (int i = 1; i < n; ++i) {
-            ans[i] += ans[i - 1];
-        }
-        return ans;
-    }
-}
 ```
 
 ```java
@@ -188,28 +265,6 @@ class BinaryIndexedTree {
         return s;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
-        vector<int> ans(n);
-        for (auto& e : bookings) {
-            int first = e[0], last = e[1], seats = e[2];
-            ans[first - 1] += seats;
-            if (last < n) {
-                ans[last] -= seats;
-            }
-        }
-        for (int i = 1; i < n; ++i) {
-            ans[i] += ans[i - 1];
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -258,52 +313,6 @@ public:
 };
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    #[allow(dead_code)]
-    pub fn corp_flight_bookings(bookings: Vec<Vec<i32>>, n: i32) -> Vec<i32> {
-        let mut ans = vec![0; n as usize];
-
-        // Build the difference vector first
-        for b in &bookings {
-            let (l, r) = ((b[0] as usize) - 1, (b[1] as usize) - 1);
-            ans[l] += b[2];
-            if r < (n as usize) - 1 {
-                ans[r + 1] -= b[2];
-            }
-        }
-
-        // Build the prefix sum vector based on the difference vector
-        for i in 1..n as usize {
-            ans[i] += ans[i - 1];
-        }
-
-        ans
-    }
-}
-```
-
-### **Go**
-
-```go
-func corpFlightBookings(bookings [][]int, n int) []int {
-	ans := make([]int, n)
-	for _, e := range bookings {
-		first, last, seats := e[0], e[1], e[2]
-		ans[first-1] += seats
-		if last < n {
-			ans[last] -= seats
-		}
-	}
-	for i := 1; i < n; i++ {
-		ans[i] += ans[i-1]
-	}
-	return ans
-}
-```
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -346,33 +355,6 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} bookings
- * @param {number} n
- * @return {number[]}
- */
-var corpFlightBookings = function (bookings, n) {
-    const ans = new Array(n).fill(0);
-    for (const [first, last, seats] of bookings) {
-        ans[first - 1] += seats;
-        if (last < n) {
-            ans[last] -= seats;
-        }
-    }
-    for (let i = 1; i < n; ++i) {
-        ans[i] += ans[i - 1];
-    }
-    return ans;
-};
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

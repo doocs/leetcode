@@ -52,33 +52,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**此题最难之处是理解题目想描述的是什么玩意**。
-
-假定： `a = "abc", b = "abb"`
-
-要是说其中最长的相同子序列，便是 `ab`。
-
-而特殊序列则是求**非子序列**，此时列举 `a` 的子序列 `"abc"`，`b` 拿不出来，那这就是一个成功的非子序列。
-
-如此，在 `a != b` 时，谁最长谁就是 _最长的特殊序列_
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def findLUSlength(self, a: str, b: str) -> int:
         return -1 if a == b else max(len(a), len(b))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -88,29 +70,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findLUSlength(a: string, b: string): number {
-    return a != b ? Math.max(a.length, b.length) : -1;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_lu_slength(a: String, b: String) -> i32 {
-        if a == b {
-            return -1;
-        }
-        a.len().max(b.len()) as i32
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -119,8 +78,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findLUSlength(a string, b string) int {
@@ -134,10 +91,23 @@ func findLUSlength(a string, b string) int {
 }
 ```
 
-### **...**
-
+```ts
+function findLUSlength(a: string, b: string): number {
+    return a != b ? Math.max(a.length, b.length) : -1;
+}
 ```
 
+```rust
+impl Solution {
+    pub fn find_lu_slength(a: String, b: String) -> i32 {
+        if a == b {
+            return -1;
+        }
+        a.len().max(b.len()) as i32
+    }
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -66,7 +66,7 @@ The distance between the two robots is abs(-2 - 3) = 5.
 
 ## Solutions
 
-**Solution 1: Quick thinking + Sorting**
+### Solution 1: Quick thinking + Sorting
 
 After two robots collide, they will immediately change direction, which is equivalent to the two robots continuing to move in their original direction. Therefore, we traverse the array $nums$, and according to the instructions in the string $s$, we add or subtract $d$ from the position of each robot, and then sort the array $nums$.
 
@@ -75,8 +75,6 @@ Next, we enumerate the position of each robot from small to large, and calculate
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of robots.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -91,8 +89,6 @@ class Solution:
             s += x
         return ans % mod
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -113,8 +109,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -138,8 +132,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func sumDistance(nums []int, s string, d int) (ans int) {
 	for i, c := range s {
@@ -160,8 +152,6 @@ func sumDistance(nums []int, s string, d int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function sumDistance(nums: number[], s: string, d: number): number {
     const n = nums.length;
@@ -180,10 +170,6 @@ function sumDistance(nums: number[], s: string, d: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

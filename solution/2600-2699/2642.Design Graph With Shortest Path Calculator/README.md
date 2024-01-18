@@ -53,9 +53,7 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：Dijsktra 算法**
+### 方法一：Dijsktra 算法
 
 在初始化函数中，我们先用邻接矩阵 $g$ 存储图的边权，其中 $g_{ij}$ 表示从节点 $i$ 到节点 $j$ 的边权，如果 $i$ 和 $j$ 之间没有边，则 $g_{ij}$ 的值为 $\infty$。
 
@@ -66,10 +64,6 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 时间复杂度 $O(n^2 \times q)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数，而 $q$ 为 `shortestPath` 函数的调用次数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Graph:
@@ -103,10 +97,6 @@ class Graph:
 # obj.addEdge(edge)
 # param_2 = obj.shortestPath(node1,node2)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Graph {
@@ -160,8 +150,6 @@ class Graph {
  */
 ```
 
-### **C++**
-
 ```cpp
 class Graph {
 public:
@@ -211,8 +199,6 @@ private:
  * int param_2 = obj->shortestPath(node1,node2);
  */
 ```
-
-### **Go**
 
 ```go
 const inf = 1 << 29
@@ -275,8 +261,6 @@ func (this *Graph) ShortestPath(node1 int, node2 int) int {
  */
 ```
 
-### **TypeScript**
-
 ```ts
 class Graph {
     private g: number[][] = [];
@@ -322,8 +306,6 @@ class Graph {
  * var param_2 = obj.shortestPath(node1,node2)
  */
 ```
-
-### **C#**
 
 ```cs
 public class Graph {
@@ -384,10 +366,6 @@ public class Graph {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

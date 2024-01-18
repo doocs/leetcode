@@ -1,11 +1,12 @@
 class Solution {
 public:
     long long maxAlternatingSum(vector<int>& nums) {
-        long long f = 0, g = 0;
-        for (int& x : nums) {
-            long ff = max(g - x, f), gg = max(f + x, g);
-            f = ff, g = gg;
+        int n = nums.size();
+        vector<long long> f(n + 1), g(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            f[i] = max(g[i - 1] - nums[i - 1], f[i - 1]);
+            g[i] = max(f[i - 1] + nums[i - 1], g[i - 1]);
         }
-        return max(f, g);
+        return max(f[n], g[n]);
     }
 };

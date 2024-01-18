@@ -88,13 +88,11 @@ Bob registered in contest 207 and the percentage is ((1/3) * 100) = 33.33%
 
 ## Solutions
 
-**Solution 1: Grouping and Subquery**
+### Solution 1: Grouping and Subquery
 
 We can group the `Register` table by `contest_id` and count the number of registrations for each contest. The registration rate of each contest is the number of registrations divided by the total number of registrations.
 
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -107,3 +105,5 @@ ORDER BY 2 DESC, 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

@@ -57,9 +57,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i)$，表示当前玩家在 $[i, n)$ 范围内进行游戏时，可以获得的最大得分差值。如果 $dfs(0) \gt 0$，则表示先手玩家 Alice 可以获胜；如果 $dfs(0) \lt 0$，则表示后手玩家 Bob 可以获胜；否则，表示两人打成平局。
 
@@ -77,10 +75,6 @@ $$
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是石子的堆数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -103,10 +97,6 @@ class Solution:
             return 'Tie'
         return 'Alice' if ans > 0 else 'Bob'
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -174,8 +162,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func stoneGameIII(stoneValue []int) string {
@@ -212,8 +198,6 @@ func stoneGameIII(stoneValue []int) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function stoneGameIII(stoneValue: number[]): string {
     const n = stoneValue.length;
@@ -242,10 +226,6 @@ function stoneGameIII(stoneValue: number[]): string {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

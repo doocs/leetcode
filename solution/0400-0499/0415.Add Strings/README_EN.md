@@ -41,9 +41,17 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Two Pointers
 
-### **Python3**
+We use two pointers $i$ and $j$ to point to the end of the two strings respectively, and start adding bit by bit from the end. Each time we take out the corresponding digits $a$ and $b$, calculate their sum $a + b + c$, where $c$ represents the carry from the last addition. Finally, we append the units digit of $a + b + c$ to the end of the answer string, and then take the tens digit of $a + b + c$ as the value of the carry $c$, and loop this process until the pointers of both strings have pointed to the beginning of the string and the value of the carry $c$ is $0$.
+
+Finally, reverse the answer string and return it.
+
+The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of the two strings respectively. Ignoring the space consumption of the answer string, the space complexity is $O(1)$.
+
+The following code also implements string subtraction, refer to the `subStrings(num1, num2)` function.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -78,8 +86,6 @@ class Solution:
             ans.append('-')
         return ''.join(ans[::-1])
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -122,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -165,8 +169,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func addStrings(num1 string, num2 string) string {
@@ -221,33 +223,21 @@ func subStrings(num1 string, num2 string) string {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {string} num1
- * @param {string} num2
- * @return {string}
- */
-var addStrings = function (num1, num2) {
+```ts
+function addStrings(num1: string, num2: string): string {
     let i = num1.length - 1;
     let j = num2.length - 1;
-    const ans = [];
+    const ans: number[] = [];
     for (let c = 0; i >= 0 || j >= 0 || c; --i, --j) {
-        c += i < 0 ? 0 : parseInt(num1.charAt(i), 10);
-        c += j < 0 ? 0 : parseInt(num2.charAt(j), 10);
+        c += i < 0 ? 0 : +num1[i];
+        c += j < 0 ? 0 : +num2[j];
         ans.push(c % 10);
         c = Math.floor(c / 10);
     }
     return ans.reverse().join('');
-};
+}
 
-/**
- * @param {string} num1
- * @param {string} num2
- * @return {string}
- */
-var subStrings = function (num1, num2) {
+function subStrings(num1: string, num2: string): string {
     const m = num1.length;
     const n = num2.length;
     const neg = m < n || (m == n && num1 < num2);
@@ -258,45 +248,21 @@ var subStrings = function (num1, num2) {
     }
     let i = num1.length - 1;
     let j = num2.length - 1;
-    const ans = [];
+    const ans: number[] = [];
     for (let c = 0; i >= 0; --i, --j) {
-        c = parseInt(num1.charAt(i), 10) - c;
+        c = +num1[i] - c;
         if (j >= 0) {
-            c -= parseInt(num2.charAt(j), 10);
+            c -= +num2[j];
         }
         ans.push((c + 10) % 10);
         c = c < 0 ? 1 : 0;
     }
-    while (ans.length > 1 && ans[ans.length - 1] == '0') {
+    while (ans.length > 1 && ans.at(-1) === 0) {
         ans.pop();
     }
-    if (neg) {
-        ans.push('-');
-    }
-    return ans.reverse().join('');
-};
-```
-
-### **TypeScript**
-
-```ts
-function addStrings(num1: string, num2: string): string {
-    const res = [];
-    let i = num1.length - 1;
-    let j = num2.length - 1;
-    let isOver = false;
-    while (i >= 0 || j >= 0 || isOver) {
-        const x = Number(num1[i--]) || 0;
-        const y = Number(num2[j--]) || 0;
-        const sum = x + y + (isOver ? 1 : 0);
-        isOver = sum >= 10;
-        res.push(sum % 10);
-    }
-    return res.reverse().join('');
+    return (neg ? '-' : '') + ans.reverse().join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -324,10 +290,57 @@ impl Solution {
 }
 ```
 
-### **...**
+```js
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var addStrings = function (num1, num2) {
+    let i = num1.length - 1;
+    let j = num2.length - 1;
+    const ans = [];
+    for (let c = 0; i >= 0 || j >= 0 || c; --i, --j) {
+        c += i < 0 ? 0 : +num1[i];
+        c += j < 0 ? 0 : +num2[j];
+        ans.push(c % 10);
+        c = Math.floor(c / 10);
+    }
+    return ans.reverse().join('');
+};
 
-```
-
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var subStrings = function (num1, num2) {
+    const m = num1.length;
+    const n = num2.length;
+    const neg = m < n || (m == n && num1 < num2);
+    if (neg) {
+        const t = num1;
+        num1 = num2;
+        num2 = t;
+    }
+    let i = num1.length - 1;
+    let j = num2.length - 1;
+    const ans = [];
+    for (let c = 0; i >= 0; --i, --j) {
+        c = +num1[i] - c;
+        if (j >= 0) {
+            c -= +num2[j];
+        }
+        ans.push((c + 10) % 10);
+        c = c < 0 ? 1 : 0;
+    }
+    while (ans.length > 1 && ans.at(-1) === 0) {
+        ans.pop();
+    }
+    return (neg ? '-' : '') + ans.reverse().join('');
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

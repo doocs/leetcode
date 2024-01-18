@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table + Simulation**
+### Solution 1: Hash Table + Simulation
 
 We traverse the transaction list. For each transaction, if the amount is greater than 1000, or if the transaction has the same name but different cities and the time interval does not exceed 60 minutes, then add it to the answer.
 
@@ -63,8 +63,6 @@ Finally, we traverse the transaction numbers in the answer and add the correspon
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the transaction list.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -83,8 +81,6 @@ class Solution:
                     idx.add(j)
         return [transactions[i] for i in idx]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -129,8 +125,6 @@ class Item {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -173,8 +167,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func invalidTransactions(transactions []string) (ans []string) {
 	d := map[string][]tuple{}
@@ -215,10 +207,6 @@ type tuple struct {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

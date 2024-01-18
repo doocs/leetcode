@@ -1,17 +1,9 @@
 class Solution:
     def minFallingPathSum(self, grid: List[List[int]]) -> int:
-        f = g = 0
-        fp = -1
-        for row in grid:
-            ff = gg = inf
-            ffp = -1
+        n = len(grid)
+        f = [[0] * n for _ in range(n + 1)]
+        for i, row in enumerate(grid, 1):
             for j, v in enumerate(row):
-                s = (g if j == fp else f) + v
-                if s < ff:
-                    gg = ff
-                    ff = s
-                    ffp = j
-                elif s < gg:
-                    gg = s
-            f, g, fp = ff, gg, ffp
-        return f
+                x = min((f[i - 1][k] for k in range(n) if k != j), default=0)
+                f[i][j] = v + x
+        return min(f[n])

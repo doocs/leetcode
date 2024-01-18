@@ -47,9 +47,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：树状数组**
+### 方法一：树状数组
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
@@ -64,24 +62,7 @@
 
 解决方案是直接遍历数组，每个位置先求出 `query(a[i])`，然后再修改树状数组 `update(a[i], 1)` 即可。当数的范围比较大时，需要进行离散化，即先进行去重并排序，然后对每个数字进行编号。
 
-**方法二：线段树**
-
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
-
--   线段树的每个节点代表一个区间；
--   线段树具有唯一的根节点，代表的区间是整个统计范围，如 `[1, N]`；
--   线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
--   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
-
-**方法三：归并排序**
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-树状数组：
 
 ```python
 class BinaryIndexedTree:
@@ -119,7 +100,182 @@ class Solution:
         return ans[::-1]
 ```
 
-线段树：
+```java
+class Solution {
+    public List<Integer> countSmaller(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int v : nums) {
+            s.add(v);
+        }
+        List<Integer> alls = new ArrayList<>(s);
+        alls.sort(Comparator.comparingInt(a -> a));
+        int n = alls.size();
+        Map<Integer, Integer> m = new HashMap<>(n);
+        for (int i = 0; i < n; ++i) {
+            m.put(alls.get(i), i + 1);
+        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        LinkedList<Integer> ans = new LinkedList<>();
+        for (int i = nums.length - 1; i >= 0; --i) {
+            int x = m.get(nums[i]);
+            tree.update(x, 1);
+            ans.addFirst(tree.query(x - 1));
+        }
+        return ans;
+    }
+}
+
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    public static int lowbit(int x) {
+        return x & -x;
+    }
+}
+```
+
+```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    int lowbit(int x) {
+        return x & -x;
+    }
+};
+
+class Solution {
+public:
+    vector<int> countSmaller(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        vector<int> alls(s.begin(), s.end());
+        sort(alls.begin(), alls.end());
+        unordered_map<int, int> m;
+        int n = alls.size();
+        for (int i = 0; i < n; ++i) m[alls[i]] = i + 1;
+        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
+        vector<int> ans(nums.size());
+        for (int i = nums.size() - 1; i >= 0; --i) {
+            int x = m[nums[i]];
+            tree->update(x, 1);
+            ans[i] = tree->query(x - 1);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += this.lowbit(x)
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= this.lowbit(x)
+	}
+	return s
+}
+
+func countSmaller(nums []int) []int {
+	s := make(map[int]bool)
+	for _, v := range nums {
+		s[v] = true
+	}
+	var alls []int
+	for v := range s {
+		alls = append(alls, v)
+	}
+	sort.Ints(alls)
+	m := make(map[int]int)
+	for i, v := range alls {
+		m[v] = i + 1
+	}
+	ans := make([]int, len(nums))
+	tree := newBinaryIndexedTree(len(alls))
+	for i := len(nums) - 1; i >= 0; i-- {
+		x := m[nums[i]]
+		tree.update(x, 1)
+		ans[i] = tree.query(x - 1)
+	}
+	return ans
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：线段树
+
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
+
+-   线段树的每个节点代表一个区间；
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 `[1, N]`；
+-   线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
+-   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
+
+<!-- tabs:start -->
 
 ```python
 class Node:
@@ -181,70 +337,6 @@ class Solution:
             tree.modify(1, x, 1)
         return ans[::-1]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-树状数组：
-
-```java
-class Solution {
-    public List<Integer> countSmaller(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            s.add(v);
-        }
-        List<Integer> alls = new ArrayList<>(s);
-        alls.sort(Comparator.comparingInt(a -> a));
-        int n = alls.size();
-        Map<Integer, Integer> m = new HashMap<>(n);
-        for (int i = 0; i < n; ++i) {
-            m.put(alls.get(i), i + 1);
-        }
-        BinaryIndexedTree tree = new BinaryIndexedTree(n);
-        LinkedList<Integer> ans = new LinkedList<>();
-        for (int i = nums.length - 1; i >= 0; --i) {
-            int x = m.get(nums[i]);
-            tree.update(x, 1);
-            ans.addFirst(tree.query(x - 1));
-        }
-        return ans;
-    }
-}
-
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        c = new int[n + 1];
-    }
-
-    public void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
-    }
-}
-```
-
-线段树：
 
 ```java
 class Solution {
@@ -334,64 +426,6 @@ class SegmentTree {
 }
 ```
 
-### **C++**
-
-树状数组：
-
-```cpp
-class BinaryIndexedTree {
-public:
-    int n;
-    vector<int> c;
-
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
-
-    void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
-    }
-};
-
-class Solution {
-public:
-    vector<int> countSmaller(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        vector<int> alls(s.begin(), s.end());
-        sort(alls.begin(), alls.end());
-        unordered_map<int, int> m;
-        int n = alls.size();
-        for (int i = 0; i < n; ++i) m[alls[i]] = i + 1;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
-        vector<int> ans(nums.size());
-        for (int i = nums.size() - 1; i >= 0; --i) {
-            int x = m[nums[i]];
-            tree->update(x, 1);
-            ans[i] = tree->query(x - 1);
-        }
-        return ans;
-    }
-};
-```
-
-线段树：
-
 ```cpp
 class Node {
 public:
@@ -467,68 +501,6 @@ public:
 };
 ```
 
-### **Go**
-
-树状数组：
-
-```go
-type BinaryIndexedTree struct {
-	n int
-	c []int
-}
-
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
-}
-
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
-	}
-}
-
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
-	}
-	return s
-}
-
-func countSmaller(nums []int) []int {
-	s := make(map[int]bool)
-	for _, v := range nums {
-		s[v] = true
-	}
-	var alls []int
-	for v := range s {
-		alls = append(alls, v)
-	}
-	sort.Ints(alls)
-	m := make(map[int]int)
-	for i, v := range alls {
-		m[v] = i + 1
-	}
-	ans := make([]int, len(nums))
-	tree := newBinaryIndexedTree(len(alls))
-	for i := len(nums) - 1; i >= 0; i-- {
-		x := m[nums[i]]
-		tree.update(x, 1)
-		ans[i] = tree.query(x - 1)
-	}
-	return ans
-}
-```
-
-归并排序：
-
 ```go
 type Pair struct {
 	val   int
@@ -588,10 +560,8 @@ func merge(arr []Pair, low, mid, high int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+### 方法三：归并排序
+
+<!-- end -->

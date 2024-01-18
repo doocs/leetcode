@@ -59,13 +59,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -89,12 +85,7 @@ class Solution:
                     dp[i] = stride[i]
 
         return (zeros + 1) * sum(dp[l : r + 1]) % kMod
-
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -121,7 +112,8 @@ class Solution {
             int c = e.getValue();
             sum = Math.min(sum + c * num, r);
             // prefix part
-            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i % num]
+            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i %
+            // num]
             for (int i = num; i <= sum; i++) {
                 dp[i] = (dp[i] + dp[i - num]) % MOD;
             }
@@ -141,25 +133,8 @@ class Solution {
         return ans;
     }
 }
-
-```
-
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
-
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

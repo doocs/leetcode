@@ -35,19 +35,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表**
+### 方法一：哈希表
 
 我们初始化答案为 $+\infty$，遍历数组，对于每个数字 $x$，如果 $last[x]$ 存在，则表示 $x$ 有一对匹配卡牌，此时更新答案为 $ans = min(ans, i - last[x] + 1)$，最后如果答案为 $+\infty$，则返回 $-1$，否则返回答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -60,10 +54,6 @@ class Solution:
             last[x] = i
         return -1 if ans == inf else ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -81,8 +71,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -102,8 +90,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumCardPickup(cards []int) int {
 	last := map[int]int{}
@@ -122,8 +108,6 @@ func minimumCardPickup(cards []int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minimumCardPickup(cards: number[]): number {
     const n = cards.length;
@@ -139,10 +123,6 @@ function minimumCardPickup(cards: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

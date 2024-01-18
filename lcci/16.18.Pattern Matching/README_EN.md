@@ -48,7 +48,7 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We first count the number of characters `'a'` and `'b'` in the pattern string $pattern$, denoted as $cnt[0]$ and $cnt[1]$, respectively. Let the length of the string $value$ be $n$.
 
@@ -61,8 +61,6 @@ Next, we denote the length of the string matched by the character `'a'` as $la$,
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $value$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -98,8 +96,6 @@ class Solution:
                 return True
         return False
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -156,8 +152,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -218,8 +212,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func patternMatching(pattern string, value string) bool {
 	cnt := [2]int{}
@@ -268,8 +260,6 @@ func patternMatching(pattern string, value string) bool {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
     const cnt: number[] = [0, 0];
@@ -317,10 +307,6 @@ function patternMatching(pattern: string, value: string): boolean {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

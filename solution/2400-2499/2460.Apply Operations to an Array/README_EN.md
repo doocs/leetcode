@@ -55,9 +55,19 @@ After that, we shift the 0&#39;s to the end, which gives the array [1,4,2,0,0,0]
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Simulation
 
-### **Python3**
+We can directly simulate according to the problem description.
+
+First, we traverse the array $nums$. For any two adjacent elements $nums[i]$ and $nums[i+1]$, if $nums[i] = nums[i+1]$, then we double the value of $nums[i]$ and change the value of $nums[i+1]$ to $0$.
+
+Then, we create an answer array $ans$ of length $n$, and put all non-zero elements of $nums$ into $ans$ in order.
+
+Finally, we return the answer array $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -75,8 +85,6 @@ class Solution:
                 i += 1
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -99,8 +107,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -125,8 +131,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func applyOperations(nums []int) []int {
 	n := len(nums)
@@ -148,8 +152,6 @@ func applyOperations(nums []int) []int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function applyOperations(nums: number[]): number[] {
     const n = nums.length;
@@ -169,8 +171,6 @@ function applyOperations(nums: number[]): number[] {
     return ans;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -197,10 +197,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

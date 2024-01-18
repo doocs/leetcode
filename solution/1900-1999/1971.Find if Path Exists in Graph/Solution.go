@@ -1,17 +1,23 @@
 func validPath(n int, edges [][]int, source int, destination int) bool {
-	p := make([]int, n)
-	for i := range p {
-		p[i] = i
-	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
+	vis := make([]bool, n)
+	g := make([][]int, n)
 	for _, e := range edges {
-		p[find(e[0])] = find(e[1])
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
 	}
-	return find(source) == find(destination)
+	var dfs func(int) bool
+	dfs = func(i int) bool {
+		if i == destination {
+			return true
+		}
+		vis[i] = true
+		for _, j := range g[i] {
+			if !vis[j] && dfs(j) {
+				return true
+			}
+		}
+		return false
+	}
+	return dfs(source)
 }

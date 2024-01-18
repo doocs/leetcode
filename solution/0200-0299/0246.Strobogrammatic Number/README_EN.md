@@ -41,9 +41,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -57,8 +57,6 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -74,8 +72,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -93,8 +89,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func isStrobogrammatic(num string) bool {
 	d := []int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
@@ -108,10 +102,6 @@ func isStrobogrammatic(num string) bool {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

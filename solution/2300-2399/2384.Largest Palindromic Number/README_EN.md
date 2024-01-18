@@ -46,9 +46,9 @@ Note that the integer returned should not contain leading zeroes.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
                 ans = s + ans + s
         return ans.strip('0') or '0'
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -103,8 +101,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestPalindromic(num string) string {
 	cnt := make([]int, 10)
@@ -170,8 +164,6 @@ func largestPalindromic(num string) string {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function largestPalindromic(num: string): string {
@@ -217,11 +209,6 @@ function largestPalindromic(num: string): string {
 }
 ```
 
-### **...**
-
-```
-
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

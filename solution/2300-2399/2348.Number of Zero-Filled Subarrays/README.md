@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：遍历计数**
+### 方法一：遍历计数
 
 我们可以遍历数组 `nums`，用变量 $cnt$ 记录当前连续的 `0` 的个数，用变量 $ans$ 记录答案。当遍历到 `nums[i]` 时，如果 `nums[i]` 为 `0`，则 $cnt$ 自增 $1$，否则 $cnt$ 置 $0$。然后将 $cnt$ 累加到答案 $ans$ 中。
 
@@ -67,10 +65,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
@@ -80,10 +74,6 @@ class Solution:
             ans += cnt
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -98,8 +88,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -116,8 +104,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
@@ -133,8 +119,6 @@ func zeroFilledSubarray(nums []int) (ans int64) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function zeroFilledSubarray(nums: number[]): number {
     let ans = 0;
@@ -147,10 +131,6 @@ function zeroFilledSubarray(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

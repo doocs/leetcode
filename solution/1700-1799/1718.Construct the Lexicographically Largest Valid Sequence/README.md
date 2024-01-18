@@ -45,15 +45,9 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-DFS 回溯。
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -84,10 +78,6 @@ class Solution:
         dfs(1)
         return path[1:]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -143,8 +133,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -185,8 +173,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func constructDistancedSequence(n int) []int {
@@ -231,10 +217,6 @@ func constructDistancedSequence(n int) []int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

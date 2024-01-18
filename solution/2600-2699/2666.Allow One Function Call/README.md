@@ -51,11 +51,9 @@ onceFn(4, 6, 8); // undefined, fn 没有被调用
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **TypeScript**
 
 ```ts
 function once<T extends (...args: any[]) => any>(
@@ -79,10 +77,6 @@ function once<T extends (...args: any[]) => any>(
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

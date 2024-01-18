@@ -36,17 +36,11 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：自定义排序**
+### 方法一：自定义排序
 
 先转成字符串列表，再对字符串列表进行字典序降序排列。最后将列表所有字符串拼接即可。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -55,10 +49,6 @@ class Solution:
         nums.sort(key=cmp_to_key(lambda a, b: 1 if a + b < b + a else -1))
         return "0" if nums[0] == "0" else "".join(nums)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -75,8 +65,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -95,8 +83,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestNumber(nums []int) string {
 	vs := make([]string, len(nums))
@@ -112,8 +98,6 @@ func largestNumber(nums []int) string {
 	return strings.Join(vs, "")
 }
 ```
-
-### **C#**
 
 ```cs
 using System;
@@ -172,10 +156,6 @@ public class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

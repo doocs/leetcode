@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：单调栈**
+### 方法一：单调栈
 
 题目实际上是求解每个位置 $i$ 的右边第一个小于 $nums[i]$ 的位置 $j$，那么以 $i$ 为左端点的有效子数组的个数就是 $j - i$。
 
@@ -63,10 +61,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -82,24 +76,6 @@ class Solution:
             stk.append(i)
         return sum(j - i for i, j in enumerate(right))
 ```
-
-```python
-class Solution:
-    def validSubarrays(self, nums: List[int]) -> int:
-        n = len(nums)
-        stk = []
-        ans = 0
-        for i in range(n - 1, -1, -1):
-            while stk and nums[stk[-1]] >= nums[i]:
-                stk.pop()
-            ans += (stk[-1] if stk else n) - i
-            stk.append(i)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -126,27 +102,6 @@ class Solution {
 }
 ```
 
-```java
-class Solution {
-    public int validSubarrays(int[] nums) {
-        int n = nums.length;
-        Deque<Integer> stk = new ArrayDeque<>();
-        int ans = 0;
-        for (int i = n - 1; i >= 0; --i) {
-            while (!stk.isEmpty() && nums[stk.peek()] >= nums[i]) {
-                stk.pop();
-            }
-            ans += (stk.isEmpty() ? n : stk.peek()) - i;
-
-            stk.push(i);
-        }
-        return ans;
-    }
-}
-```
-
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -172,27 +127,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int validSubarrays(vector<int>& nums) {
-        int n = nums.size();
-        stack<int> stk;
-        int ans = 0;
-        for (int i = n - 1; ~i; --i) {
-            while (stk.size() && nums[stk.top()] >= nums[i]) {
-                stk.pop();
-            }
-            ans += (stk.size() ? stk.top() : n) - i;
-            stk.push(i);
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func validSubarrays(nums []int) (ans int) {
 	n := len(nums)
@@ -217,28 +151,6 @@ func validSubarrays(nums []int) (ans int) {
 }
 ```
 
-```go
-func validSubarrays(nums []int) (ans int) {
-	n := len(nums)
-	stk := []int{}
-	for i := n - 1; i >= 0; i-- {
-		for len(stk) > 0 && nums[stk[len(stk)-1]] >= nums[i] {
-			stk = stk[:len(stk)-1]
-		}
-		ans -= i
-		if len(stk) > 0 {
-			ans += stk[len(stk)-1]
-		} else {
-			ans += n
-		}
-		stk = append(stk, i)
-	}
-	return
-}
-```
-
-### **TypeScript**
-
 ```ts
 function validSubarrays(nums: number[]): number {
     const n = nums.length;
@@ -261,6 +173,84 @@ function validSubarrays(nums: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def validSubarrays(self, nums: List[int]) -> int:
+        n = len(nums)
+        stk = []
+        ans = 0
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            ans += (stk[-1] if stk else n) - i
+            stk.append(i)
+        return ans
+```
+
+```java
+class Solution {
+    public int validSubarrays(int[] nums) {
+        int n = nums.length;
+        Deque<Integer> stk = new ArrayDeque<>();
+        int ans = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && nums[stk.peek()] >= nums[i]) {
+                stk.pop();
+            }
+            ans += (stk.isEmpty() ? n : stk.peek()) - i;
+
+            stk.push(i);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int validSubarrays(vector<int>& nums) {
+        int n = nums.size();
+        stack<int> stk;
+        int ans = 0;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size() && nums[stk.top()] >= nums[i]) {
+                stk.pop();
+            }
+            ans += (stk.size() ? stk.top() : n) - i;
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func validSubarrays(nums []int) (ans int) {
+	n := len(nums)
+	stk := []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] >= nums[i] {
+			stk = stk[:len(stk)-1]
+		}
+		ans -= i
+		if len(stk) > 0 {
+			ans += stk[len(stk)-1]
+		} else {
+			ans += n
+		}
+		stk = append(stk, i)
+	}
+	return
+}
+```
+
 ```ts
 function validSubarrays(nums: number[]): number {
     const n = nums.length;
@@ -277,10 +267,6 @@ function validSubarrays(nums: number[]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -45,9 +45,9 @@ Some of the strings which can be obtained from text and have 6 subsequences &quo
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +61,6 @@ class Solution:
         ans += max(cnt[pattern[0]], cnt[pattern[1]])
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -83,8 +81,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -101,8 +97,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumSubsequenceCount(text string, pattern string) int64 {
@@ -121,16 +115,6 @@ func maximumSubsequenceCount(text string, pattern string) int64 {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

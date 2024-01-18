@@ -43,9 +43,18 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy
 
-### **Python3**
+We process each digit of the string in order, following these rules:
+
+1. First digit: If the value of the second digit is determined and falls within the range $[4, 9]$, then the first digit can only be $1$. Otherwise, the first digit can be up to $2$.
+1. Second digit: If the value of the first digit is determined and is $2$, then the second digit can be up to $3$. Otherwise, the second digit can be up to $9$.
+1. Third digit: The third digit can be up to $5$.
+1. Fourth digit: The fourth digit can be up to $9$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -61,8 +70,6 @@ class Solution:
             t[4] = '9'
         return ''.join(t)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -85,8 +92,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -107,8 +112,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maximumTime(time string) string {
@@ -137,8 +140,6 @@ func maximumTime(time string) string {
 }
 ```
 
-### **JavaScript**
-
 ```js
 /**
  * @param {string} time
@@ -162,10 +163,6 @@ var maximumTime = function (time) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

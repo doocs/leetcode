@@ -47,23 +47,15 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
     def isPowerOfFour(self, n: int) -> bool:
         return n > 0 and (n & (n - 1)) == 0 and (n & 0xAAAAAAAA) == 0
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -72,8 +64,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -84,7 +74,17 @@ public:
 };
 ```
 
-### **JavaScript**
+```go
+func isPowerOfFour(n int) bool {
+	return n > 0 && (n&(n-1)) == 0 && (n&0xaaaaaaaa) == 0
+}
+```
+
+```ts
+function isPowerOfFour(n: number): boolean {
+    return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+}
+```
 
 ```js
 /**
@@ -96,26 +96,6 @@ var isPowerOfFour = function (n) {
 };
 ```
 
-### **Go**
-
-```go
-func isPowerOfFour(n int) bool {
-	return n > 0 && (n&(n-1)) == 0 && (n&0xaaaaaaaa) == 0
-}
-```
-
-### **TypeScript**
-
-```ts
-function isPowerOfFour(n: number): boolean {
-    return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

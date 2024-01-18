@@ -54,9 +54,19 @@ Hence all students are able to eat.
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Counting
 
-### **Python3**
+We observe that the positions of the students can be adjusted, but the positions of the sandwiches cannot be adjusted. That is to say, if the sandwich in front is not taken, then all the sandwiches behind cannot be taken.
+
+Therefore, we first use a counter $cnt$ to count the types of sandwiches that students like and their corresponding quantities.
+
+Then we traverse the sandwiches. If we cannot find a student who likes this sandwich in $cnt$, it means that the sandwiches behind cannot be taken, and we return the current number of remaining students.
+
+If the traversal is over, it means that all students have sandwiches to eat, and we return $0$.
+
+The time complexity is $O(n)$, where $n$ is the number of sandwiches. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -68,8 +78,6 @@ class Solution:
             cnt[v] -= 1
         return 0
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -88,8 +96,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -105,8 +111,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func countStudents(students []int, sandwiches []int) int {
@@ -124,27 +128,6 @@ func countStudents(students []int, sandwiches []int) int {
 }
 ```
 
-### **C**
-
-```c
-int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
-    int count[2] = {0};
-    for (int i = 0; i < studentsSize; i++) {
-        count[students[i]]++;
-    }
-    for (int i = 0; i < sandwichesSize; i++) {
-        int j = sandwiches[i];
-        if (count[j] == 0) {
-            return count[j ^ 1];
-        }
-        count[j]--;
-    }
-    return 0;
-}
-```
-
-### **TypeScript**
-
 ```ts
 function countStudents(students: number[], sandwiches: number[]): number {
     const count = [0, 0];
@@ -160,8 +143,6 @@ function countStudents(students: number[], sandwiches: number[]): number {
     return 0;
 }
 ```
-
-### **Rust**
 
 ```rust
 impl Solution {
@@ -182,10 +163,23 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
+```c
+int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
+    int count[2] = {0};
+    for (int i = 0; i < studentsSize; i++) {
+        count[students[i]]++;
+    }
+    for (int i = 0; i < sandwichesSize; i++) {
+        int j = sandwiches[i];
+        if (count[j] == 0) {
+            return count[j ^ 1];
+        }
+        count[j]--;
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

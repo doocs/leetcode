@@ -48,9 +48,9 @@ Note that, there are other ways to obtain the minimum of the sum of square diffe
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -79,8 +79,6 @@ class Solution:
                 d[i] -= 1
         return sum(v * v for v in d)
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -130,8 +128,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 using ll = long long;
 
@@ -175,8 +171,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minSumSquareDiff(nums1 []int, nums2 []int, k1 int, k2 int) int64 {
@@ -233,16 +227,6 @@ func abs(x int) int {
 }
 ```
 
-### **TypeScript**
-
-```ts
-
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

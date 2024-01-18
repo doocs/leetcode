@@ -1,8 +1,9 @@
 class Solution:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
-        ans, cur = 0, -inf
-        for a, b in sorted(pairs, key=lambda x: x[1]):
-            if cur < a:
-                cur = b
-                ans += 1
-        return ans
+        pairs.sort()
+        dp = [1] * len(pairs)
+        for i, (c, _) in enumerate(pairs):
+            for j, (_, b) in enumerate(pairs[:i]):
+                if b < c:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        return max(dp)

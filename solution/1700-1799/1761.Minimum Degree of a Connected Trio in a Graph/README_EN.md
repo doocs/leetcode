@@ -46,9 +46,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +69,6 @@ class Solution:
                             ans = min(ans, deg[i] + deg[j] + deg[k] - 6)
         return -1 if ans == inf else ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -101,8 +99,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -132,8 +128,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minTrioDegree(n int, edges [][]int) int {
@@ -167,8 +161,6 @@ func minTrioDegree(n int, edges [][]int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minTrioDegree(n: number, edges: number[][]): number {
     const g = Array.from({ length: n }, () => Array(n).fill(false));
@@ -196,10 +188,6 @@ function minTrioDegree(n: number, edges: number[][]): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -68,9 +68,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：枚举**
+### 方法一：枚举
 
 我们可以枚举字符串 $s$ 和 $t$ 中不同的那个字符位置，然后分别向两边扩展，直到遇到不同的字符为止，这样就可以得到以该位置为中心的满足条件的子串对数目。我们记左边扩展的相同字符个数为 $l$，右边扩展的相同字符个数为 $r$，那么以该位置为中心的满足条件的子串对数目为 $(l + 1) \times (r + 1)$，累加到答案中即可。
 
@@ -78,19 +76,7 @@
 
 时间复杂度 $O(m \times n \times \min(m, n))$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $t$ 的长度。
 
-**方法二：预处理 + 枚举**
-
-方法一中，我们每次需要分别往左右两边扩展，得出 $l$ 和 $r$ 的值。实际上，我们可以预处理出以每个位置 $(i, j)$ 结尾的最长相同后缀的长度，以及以每个位置 $(i, j)$ 开头的最长相同前缀的长度，分别记录在数组 $f$ 和 $g$ 中。
-
-接下来，与方法一类似，我们枚举字符串 $s$ 和 $t$ 中不同的那个字符位置 $(i, j)$，那么以该位置为中心的满足条件的子串对数目为 $(f[i][j] + 1) \times (g[i + 1][j + 1] + 1)$，累加到答案中即可。
-
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $t$ 的长度。
-
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -110,30 +96,6 @@ class Solution:
                     ans += (l + 1) * (r + 1)
         return ans
 ```
-
-```python
-class Solution:
-    def countSubstrings(self, s: str, t: str) -> int:
-        ans = 0
-        m, n = len(s), len(t)
-        f = [[0] * (n + 1) for _ in range(m + 1)]
-        g = [[0] * (n + 1) for _ in range(m + 1)]
-        for i, a in enumerate(s, 1):
-            for j, b in enumerate(t, 1):
-                if a == b:
-                    f[i][j] = f[i - 1][j - 1] + 1
-        for i in range(m - 1, -1, -1):
-            for j in range(n - 1, -1, -1):
-                if s[i] == t[j]:
-                    g[i][j] = g[i + 1][j + 1] + 1
-                else:
-                    ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1)
-        return ans
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -158,6 +120,84 @@ class Solution {
         return ans;
     }
 }
+```
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s, string t) {
+        int ans = 0;
+        int m = s.size(), n = t.size();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (s[i] != t[j]) {
+                    int l = 0, r = 0;
+                    while (i - l > 0 && j - l > 0 && s[i - l - 1] == t[j - l - 1]) {
+                        ++l;
+                    }
+                    while (i + r + 1 < m && j + r + 1 < n && s[i + r + 1] == t[j + r + 1]) {
+                        ++r;
+                    }
+                    ans += (l + 1) * (r + 1);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func countSubstrings(s string, t string) (ans int) {
+	m, n := len(s), len(t)
+	for i, a := range s {
+		for j, b := range t {
+			if a != b {
+				l, r := 0, 0
+				for i > l && j > l && s[i-l-1] == t[j-l-1] {
+					l++
+				}
+				for i+r+1 < m && j+r+1 < n && s[i+r+1] == t[j+r+1] {
+					r++
+				}
+				ans += (l + 1) * (r + 1)
+			}
+		}
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：预处理 + 枚举
+
+方法一中，我们每次需要分别往左右两边扩展，得出 $l$ 和 $r$ 的值。实际上，我们可以预处理出以每个位置 $(i, j)$ 结尾的最长相同后缀的长度，以及以每个位置 $(i, j)$ 开头的最长相同前缀的长度，分别记录在数组 $f$ 和 $g$ 中。
+
+接下来，与方法一类似，我们枚举字符串 $s$ 和 $t$ 中不同的那个字符位置 $(i, j)$，那么以该位置为中心的满足条件的子串对数目为 $(f[i][j] + 1) \times (g[i + 1][j + 1] + 1)$，累加到答案中即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为字符串 $s$ 和 $t$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def countSubstrings(self, s: str, t: str) -> int:
+        ans = 0
+        m, n = len(s), len(t)
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        g = [[0] * (n + 1) for _ in range(m + 1)]
+        for i, a in enumerate(s, 1):
+            for j, b in enumerate(t, 1):
+                if a == b:
+                    f[i][j] = f[i - 1][j - 1] + 1
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                if s[i] == t[j]:
+                    g[i][j] = g[i + 1][j + 1] + 1
+                else:
+                    ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1)
+        return ans
 ```
 
 ```java
@@ -186,33 +226,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int countSubstrings(string s, string t) {
-        int ans = 0;
-        int m = s.size(), n = t.size();
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (s[i] != t[j]) {
-                    int l = 0, r = 0;
-                    while (i - l > 0 && j - l > 0 && s[i - l - 1] == t[j - l - 1]) {
-                        ++l;
-                    }
-                    while (i + r + 1 < m && j + r + 1 < n && s[i + r + 1] == t[j + r + 1]) {
-                        ++r;
-                    }
-                    ans += (l + 1) * (r + 1);
-                }
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 ```cpp
@@ -246,29 +259,6 @@ public:
 };
 ```
 
-### **Go**
-
-```go
-func countSubstrings(s string, t string) (ans int) {
-	m, n := len(s), len(t)
-	for i, a := range s {
-		for j, b := range t {
-			if a != b {
-				l, r := 0, 0
-				for i > l && j > l && s[i-l-1] == t[j-l-1] {
-					l++
-				}
-				for i+r+1 < m && j+r+1 < n && s[i+r+1] == t[j+r+1] {
-					r++
-				}
-				ans += (l + 1) * (r + 1)
-			}
-		}
-	}
-	return
-}
-```
-
 ```go
 func countSubstrings(s string, t string) (ans int) {
 	m, n := len(s), len(t)
@@ -298,10 +288,6 @@ func countSubstrings(s string, t string) (ans int) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

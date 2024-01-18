@@ -44,9 +44,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：优先队列（增量大根堆）**
+### 方法一：优先队列（增量大根堆）
 
 假设一个班级当前的通过率为 $\frac{a}{b}$，那么如果我们将一个聪明的学生安排到此班级，那么班级的通过率就会变为 $\frac{a+1}{b+1}$。我们可以发现，通过率的增量为 $\frac{a+1}{b+1} - \frac{a}{b}$。
 
@@ -56,13 +54,9 @@
 
 最后，我们将所有班级的通过率求和，然后除以班级数目，即为答案。
 
-时间复杂度 $O(n\log n)$，其中 $n$ 为班级数目。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为班级数目。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -75,10 +69,6 @@ class Solution:
             heappush(h, (a / b - (a + 1) / (b + 1), a, b))
         return sum(v[1] / v[2] for v in h) / len(classes)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -105,8 +95,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -136,8 +124,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func maxAverageRatio(classes [][]int, extraStudents int) float64 {
@@ -179,10 +165,6 @@ func (h *hp) Push(v any)   { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

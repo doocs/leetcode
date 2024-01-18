@@ -11,21 +11,20 @@
  */
 class Solution {
 public:
-    TreeNode* prev;
-
     TreeNode* increasingBST(TreeNode* root) {
         TreeNode* dummy = new TreeNode(0, nullptr, root);
-        prev = dummy;
+        TreeNode* prev = dummy;
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->left);
+            prev->right = root;
+            root->left = nullptr;
+            prev = root;
+            dfs(root->right);
+        };
         dfs(root);
         return dummy->right;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        prev->right = root;
-        root->left = nullptr;
-        prev = root;
-        dfs(root->right);
     }
 };

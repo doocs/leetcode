@@ -14,12 +14,11 @@
  * }
  */
 class Solution {
-    private List<Integer> vals;
+    private List<Integer> nums = new ArrayList<>();
 
     public TreeNode balanceBST(TreeNode root) {
-        vals = new ArrayList<>();
         dfs(root);
-        return build(0, vals.size() - 1);
+        return build(0, nums.size() - 1);
     }
 
     private void dfs(TreeNode root) {
@@ -27,7 +26,7 @@ class Solution {
             return;
         }
         dfs(root.left);
-        vals.add(root.val);
+        nums.add(root.val);
         dfs(root.right);
     }
 
@@ -36,9 +35,8 @@ class Solution {
             return null;
         }
         int mid = (i + j) >> 1;
-        TreeNode root = new TreeNode(vals.get(mid));
-        root.left = build(i, mid - 1);
-        root.right = build(mid + 1, j);
-        return root;
+        TreeNode left = build(i, mid - 1);
+        TreeNode right = build(mid + 1, j);
+        return new TreeNode(nums.get(mid), left, right);
     }
 }

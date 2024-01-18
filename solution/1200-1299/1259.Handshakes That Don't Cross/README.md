@@ -54,9 +54,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：记忆化搜索**
+### 方法一：记忆化搜索
 
 我们设计一个函数 $dfs(i)$，表示 $i$ 个人的握手方案数。答案为 $dfs(n)$。
 
@@ -70,10 +68,6 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为 $numPeople$ 的大小。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -92,10 +86,6 @@ class Solution:
         mod = 10**9 + 7
         return dfs(numPeople)
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -123,8 +113,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -150,8 +138,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func numberOfWays(numPeople int) int {
 	const mod int = 1e9 + 7
@@ -173,8 +159,6 @@ func numberOfWays(numPeople int) int {
 	return dfs(numPeople)
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function numberOfWays(numPeople: number): number {
@@ -198,10 +182,6 @@ function numberOfWays(numPeople: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

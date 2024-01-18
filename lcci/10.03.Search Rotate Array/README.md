@@ -22,9 +22,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：二分查找**
+### 方法一：二分查找
 
 我们定义二分查找的左边界 $l=0$，右边界 $r=n-1$，其中 $n$ 为数组的长度。
 
@@ -45,10 +43,6 @@
 -   [81. 搜索旋转排序数组 II](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -72,10 +66,6 @@ class Solution:
                 r -= 1
         return l if arr[l] == target else -1
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -106,8 +96,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -140,8 +128,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func search(arr []int, target int) int {
 	l, r := 0, len(arr)-1
@@ -173,8 +159,6 @@ func search(arr []int, target int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function search(arr: number[], target: number): number {
     let [l, r] = [0, arr.length - 1];
@@ -203,10 +187,6 @@ function search(arr: number[], target: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

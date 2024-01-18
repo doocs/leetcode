@@ -1,10 +1,10 @@
 function maximumNumberOfStringPairs(words: string[]): number {
-    const cnt: Map<string, number> = new Map();
+    const cnt: { [key: number]: number } = {};
     let ans = 0;
     for (const w of words) {
-        ans += cnt.get(w) || 0;
-        const s = w.split('').reverse().join('');
-        cnt.set(s, (cnt.get(s) || 0) + 1);
+        const [a, b] = [w.charCodeAt(0) - 97, w.charCodeAt(w.length - 1) - 97];
+        ans += cnt[(b << 5) | a] || 0;
+        cnt[(a << 5) | b] = (cnt[(a << 5) | b] || 0) + 1;
     }
     return ans;
 }

@@ -65,9 +65,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：动态规划**
+### 方法一：动态规划
 
 我们定义 $f[i][j]$ 表示完成前 $i$ 项工作，且一共用了 $j$ 天的最小难度。初始时 $f[0][0] = 0$，其余 $f[i][j]$ 均为 $\infty$。
 
@@ -83,10 +81,6 @@ $$
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
@@ -101,10 +95,6 @@ class Solution:
                     f[i][j] = min(f[i][j], f[k - 1][j - 1] + mx)
         return -1 if f[n][d] >= inf else f[n][d]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -130,8 +120,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -153,8 +141,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func minDifficulty(jobDifficulty []int, d int) int {
@@ -184,8 +170,6 @@ func minDifficulty(jobDifficulty []int, d int) int {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function minDifficulty(jobDifficulty: number[], d: number): number {
     const n = jobDifficulty.length;
@@ -205,10 +189,6 @@ function minDifficulty(jobDifficulty: number[], d: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

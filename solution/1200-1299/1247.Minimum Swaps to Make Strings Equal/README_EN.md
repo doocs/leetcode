@@ -45,9 +45,17 @@ Note that you cannot swap s1[0] and s1[1] to make s1 equal to &quot;yx&quot;, ca
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Greedy
 
-### **Python3**
+According to the problem description, both strings $s1$ and $s2$ only contain characters $x$ and $y$, and have the same length. Therefore, we can pair the characters in $s1$ and $s2$, i.e., $s1[i]$ and $s2[i]$.
+
+If $s1[i] = s2[i]$, no swap is needed, and we can skip it. If $s1[i] \neq s2[i]$, a swap is needed. We count the combination of $s1[i]$ and $s2[i]$, i.e., the situation where $s1[i] = x$ and $s2[i] = y$, denoted as $xy$, and the situation where $s1[i] = y$ and $s2[i] = x$, denoted as $yx$.
+
+If $xy + yx$ is odd, the swap cannot be completed, and we return $-1$. If $xy + yx$ is even, the number of swaps needed is $\left \lfloor \frac{x}{2} \right \rfloor$ + $\left \lfloor \frac{y}{2} \right \rfloor$ + $xy \bmod{2}$ + $yx \bmod{2}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the strings $s1$ and $s2$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -60,8 +68,6 @@ class Solution:
             return -1
         return xy // 2 + yx // 2 + xy % 2 + yx % 2
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -84,8 +90,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -104,8 +108,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func minimumSwap(s1 string, s2 string) int {
 	xy, yx := 0, 0
@@ -123,8 +125,6 @@ func minimumSwap(s1 string, s2 string) int {
 	return xy/2 + yx/2 + xy%2 + yx%2
 }
 ```
-
-### **JavaScript**
 
 ```js
 var minimumSwap = function (s1, s2) {
@@ -147,10 +147,6 @@ var minimumSwap = function (s1, s2) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

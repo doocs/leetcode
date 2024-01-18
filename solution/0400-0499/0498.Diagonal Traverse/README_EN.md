@@ -34,9 +34,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +56,6 @@ class Solution:
             ans.extend(t)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -87,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +104,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func findDiagonalOrder(mat [][]int) []int {
@@ -141,8 +135,6 @@ func findDiagonalOrder(mat [][]int) []int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function findDiagonalOrder(mat: number[][]): number[] {
@@ -182,8 +174,6 @@ function findDiagonalOrder(mat: number[][]): number[] {
 }
 ```
 
-### **Rust**
-
 ```rust
 impl Solution {
     pub fn find_diagonal_order(mat: Vec<Vec<i32>>) -> Vec<i32> {
@@ -218,10 +208,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

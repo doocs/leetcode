@@ -3,20 +3,16 @@ class Solution {
         if (numRows == 1) {
             return s;
         }
-        StringBuilder ans = new StringBuilder();
-        int group = 2 * numRows - 2;
-        for (int i = 1; i <= numRows; i++) {
-            int interval = i == numRows ? group : 2 * numRows - 2 * i;
-            int idx = i - 1;
-            while (idx < s.length()) {
-                ans.append(s.charAt(idx));
-                idx += interval;
-                interval = group - interval;
-                if (interval == 0) {
-                    interval = group;
-                }
+        StringBuilder[] g = new StringBuilder[numRows];
+        Arrays.setAll(g, k -> new StringBuilder());
+        int i = 0, k = -1;
+        for (char c : s.toCharArray()) {
+            g[i].append(c);
+            if (i == 0 || i == numRows - 1) {
+                k = -k;
             }
+            i += k;
         }
-        return ans.toString();
+        return String.join("", g);
     }
 }

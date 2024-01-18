@@ -1,24 +1,19 @@
 class Solution {
 public:
     vector<int> distinctNumbers(vector<int>& nums, int k) {
-        int cnt[100010] = {0};
-        int x = 0;
+        unordered_map<int, int> cnt;
         for (int i = 0; i < k; ++i) {
-            if (cnt[nums[i]]++ == 0) {
-                ++x;
-            }
+            ++cnt[nums[i]];
         }
         int n = nums.size();
-        vector<int> ans(n - k + 1);
-        ans[0] = x;
+        vector<int> ans;
+        ans.push_back(cnt.size());
         for (int i = k; i < n; ++i) {
+            ++cnt[nums[i]];
             if (--cnt[nums[i - k]] == 0) {
-                --x;
+                cnt.erase(nums[i - k]);
             }
-            if (cnt[nums[i]]++ == 0) {
-                ++x;
-            }
-            ans[i - k + 1] = x;
+            ans.push_back(cnt.size());
         }
         return ans;
     }

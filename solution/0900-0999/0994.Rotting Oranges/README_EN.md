@@ -52,9 +52,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -81,8 +81,6 @@ class Solution:
                         q.append((x, y))
         return ans if cnt == 0 else -1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -120,8 +118,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -162,8 +158,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func orangesRotting(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -201,8 +195,6 @@ func orangesRotting(grid [][]int) int {
 	return ans
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function orangesRotting(grid: number[][]): number {
@@ -243,8 +235,6 @@ function orangesRotting(grid: number[][]): number {
 }
 ```
 
-### **Rust**
-
 ```rust
 use std::collections::VecDeque;
 
@@ -253,6 +243,7 @@ impl Solution {
         let mut queue = VecDeque::new();
         let m = grid.len();
         let n = grid[0].len();
+        // 新鲜橘子数量
         let mut count = 0;
         for i in 0..m {
             for j in 0..n {
@@ -298,10 +289,6 @@ impl Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -51,9 +51,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：线段树**
+### 方法一：线段树
 
 根据题目描述：
 
@@ -89,10 +87,6 @@
 时间复杂度 $O(n + m \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 `nums1` 和 `queries` 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Node:
@@ -172,10 +166,6 @@ class Solution:
                 ans.append(s)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Node {
@@ -288,8 +278,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Node {
 public:
@@ -398,8 +386,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 type node struct {
 	l, r, s, lazy int
@@ -500,10 +486,6 @@ func handleQuery(nums1 []int, nums2 []int, queries [][]int) (ans []int64) {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -86,9 +86,9 @@ With he same formula for the average salary comparison in February, the result i
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **SQL**
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -113,6 +113,12 @@ SELECT DISTINCT
     END AS comparison
 FROM t;
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -144,3 +150,5 @@ GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

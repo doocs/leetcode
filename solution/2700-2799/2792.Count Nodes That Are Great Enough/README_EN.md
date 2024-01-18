@@ -67,9 +67,9 @@ See the picture below for a better understanding.</pre>
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
@@ -101,8 +101,6 @@ class Solution:
         dfs(root)
         return ans
 ```
-
-### **Java**
 
 ```java
 /**
@@ -154,8 +152,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -199,8 +195,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 /**
@@ -251,10 +245,6 @@ func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -47,15 +47,13 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一：逆序遍历
 
-从后往前遍历字符串中的每个数字，遇到奇数则直接返回结果。若遍历结束仍未遇到奇数，返回空字符串。
+我们可以从后往前遍历字符串，找到第一个奇数，然后返回从开头到该奇数的子字符串即可。如果不存在奇数，则返回空字符串。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $num$ 的长度。忽略答案字符串的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -65,10 +63,6 @@ class Solution:
                 return num[: i + 1]
         return ''
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -83,26 +77,6 @@ class Solution {
     }
 }
 ```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} num
- * @return {string}
- */
-var largestOddNumber = function (num) {
-    let n = num.length;
-    for (let j = n - 1; j >= 0; j--) {
-        if (num.charAt(j) & (1 == 1)) {
-            return num.slice(0, j + 1);
-        }
-    }
-    return '';
-};
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -119,8 +93,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func largestOddNumber(num string) string {
 	for i := len(num) - 1; i >= 0; i-- {
@@ -133,10 +105,32 @@ func largestOddNumber(num string) string {
 }
 ```
 
-### **...**
-
+```ts
+function largestOddNumber(num: string): string {
+    for (let i = num.length - 1; ~i; --i) {
+        if (Number(num[i]) & 1) {
+            return num.slice(0, i + 1);
+        }
+    }
+    return '';
+}
 ```
 
+```js
+/**
+ * @param {string} num
+ * @return {string}
+ */
+var largestOddNumber = function (num) {
+    for (let i = num.length - 1; ~i; --i) {
+        if (Number(num[i]) & 1) {
+            return num.slice(0, i + 1);
+        }
+    }
+    return '';
+};
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

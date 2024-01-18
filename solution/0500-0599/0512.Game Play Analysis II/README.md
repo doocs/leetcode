@@ -53,19 +53,11 @@ Activity table:
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：子查询**
+### 方法一：子查询
 
 我们可以使用 `GROUP BY` 和 `MIN` 函数来找到每个玩家的第一次登录日期，然后使用联合键子查询来找到每个玩家的第一次登录设备。
 
-**方法二：窗口函数**
-
-我们可以使用窗口函数 `rank()`，它可以为每个玩家的每个登录日期分配一个排名，然后我们可以选择排名为 $1$ 的行。
-
 <!-- tabs:start -->
-
-### **SQL**
 
 ```sql
 # Write your MySQL query statement below
@@ -82,6 +74,14 @@ WHERE
         GROUP BY 1
     );
 ```
+
+<!-- tabs:end -->
+
+### 方法二：窗口函数
+
+我们可以使用窗口函数 `rank()`，它可以为每个玩家的每个登录日期分配一个排名，然后我们可以选择排名为 $1$ 的行。
+
+<!-- tabs:start -->
 
 ```sql
 # Write your MySQL query statement below
@@ -101,3 +101,5 @@ WHERE rk = 1;
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

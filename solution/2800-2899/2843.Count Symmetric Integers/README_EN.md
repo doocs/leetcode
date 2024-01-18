@@ -36,15 +36,13 @@
 
 ## Solutions
 
-**Solution 1: Enumeration**
+### Solution 1: Enumeration
 
 We enumerate each integer $x$ in the range $[low, high]$, and check whether it is a palindromic number. If it is, then the answer $ans$ is increased by $1$.
 
 The time complexity is $O(n \times \log m)$, and the space complexity is $O(\log m)$. Here, $n$ is the number of integers in the range $[low, high]$, and $m$ is the maximum integer given in the problem.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -58,8 +56,6 @@ class Solution:
 
         return sum(f(x) for x in range(low, high + 1))
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -89,8 +85,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -117,8 +111,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func countSymmetricIntegers(low int, high int) (ans int) {
 	f := func(x int) int {
@@ -144,8 +136,6 @@ func countSymmetricIntegers(low int, high int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function countSymmetricIntegers(low: number, high: number): number {
     let ans = 0;
@@ -170,10 +160,6 @@ function countSymmetricIntegers(low: number, high: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

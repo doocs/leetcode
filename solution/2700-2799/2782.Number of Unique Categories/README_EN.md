@@ -50,9 +50,9 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 # Definition for a category handler.
@@ -75,8 +75,6 @@ class Solution:
                     p[find(a)] = find(b)
         return sum(i == x for i, x in enumerate(p))
 ```
-
-### **Java**
 
 ```java
 /**
@@ -119,8 +117,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 /**
  * Definition for a category handler.
@@ -157,8 +153,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 /**
  * Definition for a category handler.
@@ -194,8 +188,6 @@ func numberOfCategories(n int, categoryHandler CategoryHandler) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 /**
  * Definition for a category handler.
@@ -229,10 +221,6 @@ function numberOfCategories(n: number, categoryHandler: CategoryHandler): number
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

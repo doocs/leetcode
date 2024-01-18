@@ -48,13 +48,9 @@ Toaster 和 Headphones 的数量被填充为 0。</pre>
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+### 方法一
 
 <!-- tabs:start -->
-
-### **Pandas**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 import pandas as pd
@@ -65,10 +61,6 @@ def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:
     return products
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

@@ -43,7 +43,7 @@
 
 ## Solutions
 
-**Solution 1: In-place Swap**
+### Solution 1: In-place Swap
 
 We assume the length of the array $nums$ is $n$, then the smallest positive integer must be in the range $[1, .., n + 1]$. We can traverse the array and swap each number $x$ to its correct position, that is, the position $x - 1$. If $x$ is not in the range $[1, n + 1]$, then we can ignore it.
 
@@ -52,8 +52,6 @@ After the traversal, we traverse the array again. If $i+1$ is not equal to $nums
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
-
-### **Python3**
 
 ```python
 class Solution:
@@ -70,8 +68,6 @@ class Solution:
                 return i + 1
         return n + 1
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -98,8 +94,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -120,8 +114,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func firstMissingPositive(nums []int) int {
 	n := len(nums)
@@ -139,34 +131,47 @@ func firstMissingPositive(nums []int) int {
 }
 ```
 
-### **C**
-
-```c
-int firstMissingPositive(int* nums, int numsSize) {
-
-    int Max = nums[0], i, *Count;
-
-    for (i = 1; i < numsSize; i++) {
-        Max = (Max < nums[i]) ? nums[i] : Max;
-    }
-
-    Count = (int*) calloc(Max + 1, sizeof(int));
-    for (i = 0; i < numsSize; i++) {
-        if (nums[i] > 0) {
-            Count[nums[i]]++;
+```ts
+function firstMissingPositive(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    while (i < n) {
+        const j = nums[i] - 1;
+        if (j === i || j < 0 || j >= n || nums[i] === nums[j]) {
+            i++;
+        } else {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
         }
     }
 
-    i = 1;
-    while (Count[i] != 0) {
-        i++;
-    }
-
-    return i;
+    const res = nums.findIndex((v, i) => v !== i + 1);
+    return (res === -1 ? n : res) + 1;
 }
 ```
 
-### **C#**
+```rust
+impl Solution {
+    pub fn first_missing_positive(mut nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut i = 0;
+        while i < n {
+            let j = nums[i] - 1;
+            if (i as i32) == j || j < 0 || j >= (n as i32) || nums[i] == nums[j as usize] {
+                i += 1;
+            } else {
+                nums.swap(i, j as usize);
+            }
+        }
+        (
+            nums
+                .iter()
+                .enumerate()
+                .position(|(i, &v)| (v as usize) != i + 1)
+                .unwrap_or(n) as i32
+        ) + 1
+    }
+}
+```
 
 ```cs
 public class Solution {
@@ -206,25 +211,36 @@ public class Solution {
 }
 ```
 
-### **TypeScript**
+```c
+int firstMissingPositive(int* nums, int numsSize) {
 
-```ts
-function firstMissingPositive(nums: number[]): number {
-    const n = nums.length;
-    let i = 0;
-    while (i < n) {
-        const j = nums[i] - 1;
-        if (j === i || j < 0 || j >= n || nums[i] === nums[j]) {
-            i++;
-        } else {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
+    int Max = nums[0], i, *Count;
+
+    for (i = 1; i < numsSize; i++) {
+        Max = (Max < nums[i]) ? nums[i] : Max;
+    }
+
+    Count = (int*) calloc(Max + 1, sizeof(int));
+    for (i = 0; i < numsSize; i++) {
+        if (nums[i] > 0) {
+            Count[nums[i]]++;
         }
     }
 
-    const res = nums.findIndex((v, i) => v !== i + 1);
-    return (res === -1 ? n : res) + 1;
+    i = 1;
+    while (Count[i] != 0) {
+        i++;
+    }
+
+    return i;
 }
 ```
+
+<!-- tabs:end -->
+
+### Solution 2
+
+<!-- tabs:start -->
 
 ```ts
 function firstMissingPositive(nums: number[]): number {
@@ -237,36 +253,6 @@ function firstMissingPositive(nums: number[]): number {
 }
 ```
 
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn first_missing_positive(mut nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut i = 0;
-        while i < n {
-            let j = nums[i] - 1;
-            if (i as i32) == j || j < 0 || j >= (n as i32) || nums[i] == nums[j as usize] {
-                i += 1;
-            } else {
-                nums.swap(i, j as usize);
-            }
-        }
-        (
-            nums
-                .iter()
-                .enumerate()
-                .position(|(i, &v)| (v as usize) != i + 1)
-                .unwrap_or(n) as i32
-        ) + 1
-    }
-}
-```
-
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

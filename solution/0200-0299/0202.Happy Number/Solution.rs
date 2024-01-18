@@ -1,19 +1,24 @@
+use std::collections::HashSet;
 impl Solution {
-    pub fn is_happy(n: i32) -> bool {
-        let get_next = |mut n: i32| {
-            let mut res = 0;
-            while n != 0 {
-                res += (n % 10).pow(2);
-                n /= 10;
-            }
-            res
-        };
-        let mut slow = n;
-        let mut fast = get_next(n);
-        while slow != fast {
-            slow = get_next(slow);
-            fast = get_next(get_next(fast));
+    fn get_next(mut n: i32) -> i32 {
+        let mut res = 0;
+        while n != 0 {
+            res += (n % 10).pow(2);
+            n /= 10;
         }
-        slow == 1
+        res
+    }
+
+    pub fn is_happy(mut n: i32) -> bool {
+        let mut set = HashSet::new();
+        while n != 1 {
+            let next = Self::get_next(n);
+            if set.contains(&next) {
+                return false;
+            }
+            set.insert(next);
+            n = next;
+        }
+        true
     }
 }

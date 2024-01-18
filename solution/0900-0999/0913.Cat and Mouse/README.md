@@ -62,9 +62,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：拓扑排序**
+### 方法一：拓扑排序
 
 猫和老鼠的游戏中，状态由三个因素决定：老鼠的位置、猫的位置和移动方。根据游戏规则，可以直接确定胜负的边界状态有：
 
@@ -90,10 +88,6 @@
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是图中的结点数。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 HOLE, MOUSE_START, CAT_START = 0, 1, 2
@@ -153,10 +147,6 @@ class Solution:
                             q.append(prev_state)
         return res[MOUSE_START][CAT_START][MOUSE_TURN]
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -242,8 +232,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 const int HOLE = 0;
 const int MOUSE_START = 1;
@@ -321,8 +309,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 const (
@@ -403,10 +389,6 @@ func catMouseGame(graph [][]int) int {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

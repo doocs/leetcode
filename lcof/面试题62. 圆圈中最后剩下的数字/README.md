@@ -35,9 +35,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：数学 + 递归（迭代）**
+### 方法一：数学 + 递归（迭代）
 
 我们不妨设 $f(n, m)$ 表示从 $n$ 个数中每次删除第 $m$ 个，最后剩下的是第几个数字。
 
@@ -53,10 +51,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def lastRemaining(self, n: int, m: int) -> int:
@@ -68,19 +62,6 @@ class Solution:
 
         return f(n, m)
 ```
-
-```python
-class Solution:
-    def lastRemaining(self, n: int, m: int) -> int:
-        f = 0
-        for i in range(2, n + 1):
-            f = (f + m) % i
-        return f
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -97,20 +78,6 @@ class Solution {
     }
 }
 ```
-
-```java
-class Solution {
-    public int lastRemaining(int n, int m) {
-        int f = 0;
-        for (int i = 2; i <= n; ++i) {
-            f = (f + m) % i;
-        }
-        return f;
-    }
-}
-```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -129,21 +96,6 @@ public:
 };
 ```
 
-```cpp
-class Solution {
-public:
-    int lastRemaining(int n, int m) {
-        int f = 0;
-        for (int i = 2; i <= n; ++i) {
-            f = (f + m) % i;
-        }
-        return f;
-    }
-};
-```
-
-### **Go**
-
 ```go
 func lastRemaining(n int, m int) int {
 	var f func(n, m int) int
@@ -157,18 +109,6 @@ func lastRemaining(n int, m int) int {
 	return f(n, m)
 }
 ```
-
-```go
-func lastRemaining(n int, m int) int {
-	f := 0
-	for i := 2; i <= n; i++ {
-		f = (f + m) % i
-	}
-	return f
-}
-```
-
-### **JavaScript**
 
 ```js
 /**
@@ -185,8 +125,6 @@ var lastRemaining = function (n, m) {
 };
 ```
 
-### **C#**
-
 ```cs
 public class Solution {
     public int LastRemaining(int n, int m) {
@@ -199,10 +137,56 @@ public class Solution {
 }
 ```
 
-### **...**
+<!-- tabs:end -->
 
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def lastRemaining(self, n: int, m: int) -> int:
+        f = 0
+        for i in range(2, n + 1):
+            f = (f + m) % i
+        return f
 ```
 
+```java
+class Solution {
+    public int lastRemaining(int n, int m) {
+        int f = 0;
+        for (int i = 2; i <= n; ++i) {
+            f = (f + m) % i;
+        }
+        return f;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int lastRemaining(int n, int m) {
+        int f = 0;
+        for (int i = 2; i <= n; ++i) {
+            f = (f + m) % i;
+        }
+        return f;
+    }
+};
+```
+
+```go
+func lastRemaining(n int, m int) int {
+	f := 0
+	for i := 2; i <= n; i++ {
+		f = (f + m) % i
+	}
+	return f
+}
 ```
 
 <!-- tabs:end -->
+
+<!-- end -->

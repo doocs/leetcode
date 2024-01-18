@@ -29,9 +29,20 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Sorting + Backtracking
 
-### **Python3**
+We can first sort the string by characters, which allows us to put duplicate characters together and makes it easier for us to remove duplicates.
+
+Then, we design a function $dfs(i)$, which means that we need to fill in the character at the $i$-th position. The specific implementation of the function is as follows:
+
+-   If $i = n$, it means that we have finished filling in, add the current permutation to the answer array, and then return.
+-   Otherwise, we enumerate the character $s[j]$ at the $i$-th position, where the range of $j$ is $[0, n - 1]$. We need to ensure that $s[j]$ has not been used and is different from the previously enumerated characters, so as to ensure that the current permutation is not repeated. If the conditions are met, we can fill in $s[j]$, and continue to recursively fill in the next position, that is, call $dfs(i + 1)$. After the recursive call ends, we need to mark $s[j]$ as unused for later enumeration.
+
+In the main function, we first sort the string, then call $dfs(0)$, that is, start filling from the $0$-th position, and finally return the answer array.
+
+The time complexity is $O(n \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$. $n!$ enumerations need to be performed, and each enumeration requires $O(n)$ time to determine whether it is repeated. In addition, we need a marker array to mark whether each position has been used, so the space complexity is $O(n)$.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -56,8 +67,6 @@ class Solution:
         dfs(0)
         return ans
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -95,8 +104,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -129,8 +136,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func permutation(S string) (ans []string) {
 	cs := []byte(S)
@@ -160,8 +165,6 @@ func permutation(S string) (ans []string) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function permutation(S: string): string[] {
     const cs: string[] = S.split('').sort();
@@ -189,8 +192,6 @@ function permutation(S: string): string[] {
     return ans;
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -224,10 +225,6 @@ var permutation = function (S) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

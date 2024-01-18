@@ -41,9 +41,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：滑动窗口**
+### 方法一：滑动窗口
 
 我们可以维护一个长度为 $k$ 的滑动窗口，窗口内的元素之和为 $s$，每次判断 $\frac{s}{k}$ 是否大于等于 $threshold$，如果大于等于，则满足条件的子数组个数加一。
 
@@ -52,10 +50,6 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -68,10 +62,6 @@ class Solution:
             ans += int(s / k >= threshold)
         return ans
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -90,8 +80,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -106,8 +94,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
@@ -128,8 +114,6 @@ func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function numOfSubarrays(arr: number[], k: number, threshold: number): number {
     let s = arr.slice(0, k).reduce((acc, cur) => acc + cur, 0);
@@ -142,10 +126,6 @@ function numOfSubarrays(arr: number[], k: number, threshold: number): number {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

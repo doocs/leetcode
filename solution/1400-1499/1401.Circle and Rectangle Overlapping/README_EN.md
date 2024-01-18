@@ -43,9 +43,25 @@
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1: Mathematics
 
-### **Python3**
+For a point $(x, y)$, its shortest distance to the center of the circle $(xCenter, yCenter)$ is $\sqrt{(x - xCenter)^2 + (y - yCenter)^2}$. If this distance is less than or equal to the radius $radius$, then this point is within the circle (including the boundary).
+
+For points within the rectangle (including the boundary), their x-coordinates $x$ satisfy $x_1 \leq x \leq x_2$, and their y-coordinates $y$ satisfy $y_1 \leq y \leq y_2$. To determine whether the circle and rectangle overlap, we need to find a point $(x, y)$ within the rectangle such that $a = |x - xCenter|$ and $b = |y - yCenter|$ are minimized. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.
+
+Therefore, the problem is transformed into finding the minimum value of $a = |x - xCenter|$ when $x \in [x_1, x_2]$, and the minimum value of $b = |y - yCenter|$ when $y \in [y_1, y_2]$.
+
+For $x \in [x_1, x_2]$:
+
+-   If $x_1 \leq xCenter \leq x_2$, then the minimum value of $|x - xCenter|$ is $0$;
+-   If $xCenter < x_1$, then the minimum value of $|x - xCenter|$ is $x_1 - xCenter$;
+-   If $xCenter > x_2$, then the minimum value of $|x - xCenter|$ is $xCenter - x_2$.
+
+Similarly, we can find the minimum value of $|y - yCenter|$ when $y \in [y_1, y_2]$. We can use a function $f(i, j, k)$ to handle the above situations.
+
+That is, $a = f(x_1, x_2, xCenter)$, $b = f(y_1, y_2, yCenter)$. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.
+
+<!-- tabs:start -->
 
 ```python
 class Solution:
@@ -69,8 +85,6 @@ class Solution:
         return a * a + b * b <= radius * radius
 ```
 
-### **Java**
-
 ```java
 class Solution {
     public boolean checkOverlap(
@@ -89,8 +103,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -108,8 +120,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, y2 int) bool {
 	f := func(i, j, k int) int {
@@ -126,8 +136,6 @@ func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, 
 	return a*a+b*b <= radius*radius
 }
 ```
-
-### **TypeScript**
 
 ```ts
 function checkOverlap(
@@ -151,10 +159,6 @@ function checkOverlap(
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

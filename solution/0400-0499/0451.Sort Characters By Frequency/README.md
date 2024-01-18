@@ -50,9 +50,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-**方法一：哈希表 + 排序**
+### 方法一：哈希表 + 排序
 
 我们用哈希表 $cnt$ 统计字符串 $s$ 中每个字符出现的次数，然后将 $cnt$ 中的键值对按照出现次数降序排序，最后按照排序后的顺序拼接字符串即可。
 
@@ -60,20 +58,12 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
 class Solution:
     def frequencySort(self, s: str) -> str:
         cnt = Counter(s)
         return ''.join(c * v for c, v in sorted(cnt.items(), key=lambda x: -x[1]))
 ```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Solution {
@@ -94,8 +84,6 @@ class Solution {
     }
 }
 ```
-
-### **C++**
 
 ```cpp
 class Solution {
@@ -121,8 +109,6 @@ public:
 };
 ```
 
-### **Go**
-
 ```go
 func frequencySort(s string) string {
 	cnt := map[byte]int{}
@@ -142,8 +128,6 @@ func frequencySort(s string) string {
 }
 ```
 
-### **TypeScript**
-
 ```ts
 function frequencySort(s: string): string {
     const cnt: Map<string, number> = new Map();
@@ -158,8 +142,6 @@ function frequencySort(s: string): string {
     return ans.join('');
 }
 ```
-
-### **Rust**
 
 ```rust
 use std::collections::HashMap;
@@ -177,8 +159,6 @@ impl Solution {
     }
 }
 ```
-
-### **PHP**
 
 ```php
 class Solution {
@@ -200,10 +180,6 @@ class Solution {
 }
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

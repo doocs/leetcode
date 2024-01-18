@@ -19,6 +19,3 @@ proc longestPalindrome(s: string): string =
         mx = j - i + 1
 
   result = s[start ..< start+mx]
-
-# Driver Code
-# echo(longestPalindrome("adbdaba"))

@@ -47,9 +47,9 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 
 ## Solutions
 
-<!-- tabs:start -->
+### Solution 1
 
-### **Python3**
+<!-- tabs:start -->
 
 ```python
 class TimeMap:
@@ -72,8 +72,6 @@ class TimeMap:
 # obj.set(key,value,timestamp)
 # param_2 = obj.get(key,timestamp)
 ```
-
-### **Java**
 
 ```java
 class TimeMap {
@@ -104,8 +102,6 @@ class TimeMap {
  */
 ```
 
-### **C++**
-
 ```cpp
 class TimeMap {
 public:
@@ -134,8 +130,6 @@ private:
  * string param_2 = obj->get(key,timestamp);
  */
 ```
-
-### **Go**
 
 ```go
 type TimeMap struct {
@@ -172,10 +166,6 @@ type pair struct {
  */
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->

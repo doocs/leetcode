@@ -28,7 +28,7 @@
 
 ## Solutions
 
-**Solution 1: Hash Table**
+### Solution 1: Hash Table
 
 We simultaneously traverse both strings, count the number of corresponding characters that are the same, and accumulate them in $x$. Then we record the characters and their frequencies in both strings in hash tables $cnt1$ and $cnt2$, respectively.
 
@@ -38,8 +38,6 @@ The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C=4$ f
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ```python
 class Solution:
     def masterMind(self, solution: str, guess: str) -> List[int]:
@@ -47,8 +45,6 @@ class Solution:
         y = sum((Counter(solution) & Counter(guess)).values())
         return [x, y - x]
 ```
-
-### **Java**
 
 ```java
 class Solution {
@@ -70,8 +66,6 @@ class Solution {
 }
 ```
 
-### **C++**
-
 ```cpp
 class Solution {
 public:
@@ -89,8 +83,6 @@ public:
     }
 };
 ```
-
-### **Go**
 
 ```go
 func masterMind(solution string, guess string) []int {
@@ -111,8 +103,6 @@ func masterMind(solution string, guess string) []int {
 	return []int{x, y - x}
 }
 ```
-
-### **JavaScript**
 
 ```js
 /**
@@ -139,10 +129,6 @@ var masterMind = function (solution, guess) {
 };
 ```
 
-### **...**
-
-```
-
-```
-
 <!-- tabs:end -->
+
+<!-- end -->
