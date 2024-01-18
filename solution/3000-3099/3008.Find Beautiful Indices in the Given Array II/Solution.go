@@ -1,6 +1,5 @@
 func beautifulIndices(s string, a string, b string, k int) []int {
     
-    
     s_len := len(s)
     a_len := len(a)
     b_len := len(b)
