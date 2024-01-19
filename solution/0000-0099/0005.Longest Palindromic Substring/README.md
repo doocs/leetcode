@@ -411,14 +411,12 @@ impl Solution {
 ```
 
 ```php
-class Solution
-{
+class Solution {
     /**
      * @param string $s
      * @return string
      */
-    function longestPalindrome($s)
-    {
+    function longestPalindrome($s) {
         $start = 0;
         $maxLength = 0;
 
@@ -437,8 +435,7 @@ class Solution
         return substr($s, $start, $maxLength);
     }
 
-    function expandFromCenter($s, $left, $right)
-    {
+    function expandFromCenter($s, $left, $right) {
         while ($left >= 0 && $right < strlen($s) && $s[$left] === $s[$right]) {
             $left--;
             $right++;

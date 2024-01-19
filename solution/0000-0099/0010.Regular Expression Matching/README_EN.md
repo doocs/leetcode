@@ -449,16 +449,14 @@ public class Solution {
 ```
 
 ```php
-class Solution
-{
+class Solution {
     /**
      * @param string $s
      * @param string $p
      * @return boolean
      */
 
-    function isMatch($s, $p)
-    {
+    function isMatch($s, $p) {
         $m = strlen($s);
         $n = strlen($p);
 

@@ -412,16 +412,14 @@ var convert = function (s, numRows) {
 ```
 
 ```php
-class Solution
-{
+class Solution {
     /**
      * @param string $s
      * @param int $numRows
      * @return string
      */
 
-    function convert($s, $numRows)
-    {
+    function convert($s, $numRows) {
         if ($numRows == 1 || strlen($s) <= $numRows) {
             return $s;
         }
