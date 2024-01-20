@@ -1,19 +1,17 @@
-class Solution
-{
+class Solution {
     /**
      * @param int $x
      * @return int
      */
 
-    function reverse($x)
-    {
+    function reverse($x) {
         $isNegative = $x < 0;
         $x = abs($x);
 
         $reversed = 0;
 
         while ($x > 0) {
-            $reversed = $reversed * 10 + $x % 10;
+            $reversed = $reversed * 10 + ($x % 10);
             $x = (int) ($x / 10);
         }
 
