@@ -20,7 +20,7 @@
 该表包含 user_id, spend,和 transaction_date。
 </pre>
 
-<p>编写一个查询，找到每个用户的 <strong>第三笔交易</strong> （如果他们有至少三笔交易），其中 <strong>前两笔交易</strong> 的花费&nbsp;<strong>低于&nbsp;第三笔交易</strong>的花费。</p>
+<p>编写一个查询，找到符合要求的用户的 <strong>第三笔交易</strong> （如果他们有至少三笔交易），并且满足&nbsp;<strong>前两笔交易</strong> 的花费&nbsp;<strong>低于&nbsp;第三笔交易</strong>的花费。</p>
 
 <p>返回&nbsp;<em>按 <strong>升序</strong>&nbsp;<code>user_id</code>&nbsp;排序的结果表。</em></p>
 

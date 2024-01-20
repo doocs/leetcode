@@ -15,17 +15,17 @@
 | customer_id   | int     |
 | invoice       | int     |
 +---------------+---------+
-order_id is the primary key for this table.
+order_id is the column with unique values for this table.
 This table contains information about the orders made by customer_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the number of <strong>unique orders</strong> and the number of <strong>unique customers</strong> with invoices <strong>&gt; $20</strong> for each <strong>different month</strong>.</p>
+<p>Write a solution to find the number of <strong>unique orders</strong> and the number of <strong>unique customers</strong> with invoices <strong>&gt; $20</strong> for each <strong>different month</strong>.</p>
 
 <p>Return the result table sorted in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -57,11 +57,11 @@ Orders table:
 | 2021-01 | 1           | 1              |
 +---------+-------------+----------------+
 <strong>Explanation:</strong> 
-In September 2020 we have two orders from 2 different customers with invoices &gt; 20.
-In October 2020 we have two orders from 1 customer, and only one of the two orders has invoice &gt; 20.
-In November 2020 we have two orders from 2 different customers but invoices &lt; 20, so we don&#39;t include that month.
-In December 2020 we have two orders from 1 customer both with invoices &gt; 20.
-In January 2021 we have two orders from 2 different customers, but only one of them with invoice &gt; 20.
+In September 2020 we have two orders from 2 different customers with invoices &gt; $20.
+In October 2020 we have two orders from 1 customer, and only one of the two orders has invoice &gt; $20.
+In November 2020 we have two orders from 2 different customers but invoices &lt; $20, so we don&#39;t include that month.
+In December 2020 we have two orders from 1 customer both with invoices &gt; $20.
+In January 2021 we have two orders from 2 different customers, but only one of them with invoice &gt; $20.
 </pre>
 
 ## Solutions

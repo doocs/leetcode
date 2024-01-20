@@ -26,7 +26,7 @@
 <strong>Explanation:</strong>
 Based on your income, you have 3 dollars in the 1<sup>st</sup> tax bracket, 4 dollars in the 2<sup>nd</sup> tax bracket, and 3 dollars in the 3<sup>rd</sup> tax bracket.
 The tax rate for the three tax brackets is 50%, 10%, and 25%, respectively.
-In total, you pay 3 * 50% + 4 * 10% + 3 * 25% = 2.65 in taxes.
+In total, you pay $3 * 50% + $4 * 10% + $3 * 25% = $2.65 in taxes.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -37,7 +37,7 @@ In total, you pay 3 * 50% + 4 * 10% + 3 * 25% = 2.65 in taxes.
 <strong>Explanation:</strong>
 Based on your income, you have 1 dollar in the 1<sup>st</sup> tax bracket and 1 dollar in the 2<sup>nd</sup> tax bracket.
 The tax rate for the two tax brackets is 0% and 25%, respectively.
-In total, you pay 1 * 0% + 1 * 25% = 0.25 in taxes.
+In total, you pay $1 * 0% + $1 * 25% = $0.25 in taxes.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -46,7 +46,7 @@ In total, you pay 1 * 0% + 1 * 25% = 0.25 in taxes.
 <strong>Input:</strong> brackets = [[2,50]], income = 0
 <strong>Output:</strong> 0.00000
 <strong>Explanation:</strong>
-You have no income to tax, so you have to pay a total of 0 in taxes.
+You have no income to tax, so you have to pay a total of $0 in taxes.
 </pre>
 
 <p>&nbsp;</p>

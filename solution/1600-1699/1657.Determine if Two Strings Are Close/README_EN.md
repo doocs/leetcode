@@ -8,6 +8,7 @@
 
 <ul>
 	<li>Operation 1: Swap any two <strong>existing</strong> characters.
+
     <ul>
     	<li>For example, <code>a<u>b</u>cd<u>e</u> -&gt; a<u>e</u>cd<u>b</u></code></li>
     </ul>
@@ -17,6 +18,7 @@
     	<li>For example, <code><u>aa</u>c<u>abb</u> -&gt; <u>bb</u>c<u>baa</u></code> (all <code>a</code>&#39;s turn into <code>b</code>&#39;s, and all <code>b</code>&#39;s turn into <code>a</code>&#39;s)</li>
     </ul>
     </li>
+
 </ul>
 
 <p>You can use the operations on either string as many times as necessary.</p>

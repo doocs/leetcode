@@ -12,6 +12,7 @@
 
 <ul>
 	<li>如果 <code>batteryPercentages[i]</code> <strong>大于</strong> <code>0</code>：
+
     <ul>
     	<li><strong>增加</strong> 已测试设备的计数。</li>
     	<li>将下标在 <code>[i + 1, n - 1]</code> 的所有设备的电池百分比减少 <code>1</code>，确保它们的电池百分比<strong> 不会低于</strong> <code>0</code> ，即 <code>batteryPercentages[j] = max(0, batteryPercentages[j] - 1)</code>。</li>
@@ -19,6 +20,7 @@
     </ul>
     </li>
     <li>否则，移动到下一个设备而不执行任何测试。</li>
+
 </ul>
 
 <p>返回一个整数，表示按顺序执行测试操作后 <strong>已测试设备</strong> 的数量。</p>

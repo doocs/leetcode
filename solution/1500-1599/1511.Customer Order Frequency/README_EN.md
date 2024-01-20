@@ -14,7 +14,7 @@
 | name          | varchar |
 | country       | varchar |
 +---------------+---------+
-customer_id is the primary key for this table.
+customer_id is the column with unique values for this table.
 This table contains information about the customers in the company.
 </pre>
 
@@ -30,7 +30,7 @@ This table contains information about the customers in the company.
 | description   | varchar |
 | price         | int     |
 +---------------+---------+
-product_id is the primary key for this table.
+product_id is the column with unique values for this table.
 This table contains information on the products in the company.
 price is the product cost.
 </pre>
@@ -49,7 +49,7 @@ price is the product cost.
 | order_date    | date    |
 | quantity      | int     |
 +---------------+---------+
-order_id is the primary key for this table.
+order_id is the column with unique values for this table.
 This table contains information on customer orders.
 customer_id is the id of the customer who bought &quot;quantity&quot; products with id &quot;product_id&quot;.
 Order_date is the date in format (&#39;YYYY-MM-DD&#39;) when the order was shipped.
@@ -57,11 +57,11 @@ Order_date is the date in format (&#39;YYYY-MM-DD&#39;) when the order was shipp
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <code>customer_id</code> and <code>customer_name</code> of customers who have spent at least <code>100</code> in each month of <strong>June and July 2020</strong>.</p>
+<p>Write a solution to report the <code>customer_id</code> and <code>customer_name</code> of customers who have spent at least <code>$100</code> in each month of <strong>June and July 2020</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -105,9 +105,9 @@ Orders table:
 | 1            | Winston    |
 +--------------+------------+
 <strong>Explanation:</strong> 
-Winston spent 300 (300 * 1) in June and 100 ( 10 * 1 + 45 * 2) in July 2020.
-Jonathan spent 600 (300 * 2) in June and 20 ( 2 * 10) in July 2020.
-Moustafa spent 110 (10 * 2 + 45 * 2) in June and 0 in July 2020.
+Winston spent $300 (300 * 1) in June and $100 ( 10 * 1 + 45 * 2) in July 2020.
+Jonathan spent $600 (300 * 2) in June and $20 ( 2 * 10) in July 2020.
+Moustafa spent $110 (10 * 2 + 45 * 2) in June and $0 in July 2020.
 </pre>
 
 ## Solutions

@@ -6,7 +6,15 @@
 
 <p>Given a function <code>fn</code>, an array of arguments&nbsp;<code>args</code>, and&nbsp;an interval time <code>t</code>, return a cancel function <code>cancelFn</code>.</p>
 
+<p>After a delay of&nbsp;<code>cancelTimeMs</code>, the returned cancel function&nbsp;<code>cancelFn</code>&nbsp;will be invoked.</p>
+
+<pre>
+setTimeout(cancelFn, cancelTimeMs)
+</pre>
+
 <p>The function <code>fn</code> should be called with <code>args</code> immediately and then called again every&nbsp;<code>t</code> milliseconds&nbsp;until&nbsp;<code>cancelFn</code>&nbsp;is called at <code>cancelTimeMs</code> ms.</p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

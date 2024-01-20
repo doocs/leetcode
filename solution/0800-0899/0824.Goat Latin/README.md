@@ -12,6 +12,7 @@
 
 <ul>
 	<li>如果单词以元音开头（<code>'a'</code>, <code>'e'</code>, <code>'i'</code>, <code>'o'</code>, <code>'u'</code>），在单词后添加<code>"ma"</code>。
+
     <ul>
     	<li>例如，单词 <code>"apple"</code> 变为 <code>"applema"</code> 。</li>
     </ul>
@@ -26,6 +27,7 @@
     	<li>例如，在第一个单词后添加 <code>"a"</code> ，在第二个单词后添加 <code>"aa"</code> ，以此类推。</li>
     </ul>
     </li>
+
 </ul>
 
 <p>返回将 <code>sentence</code> 转换为山羊拉丁文后的句子。</p>

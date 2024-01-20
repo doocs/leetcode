@@ -10,6 +10,7 @@
 
 <ul>
 	<li>If <code>batteryPercentages[i]</code> is <strong>greater</strong> than <code>0</code>:
+
     <ul>
     	<li><strong>Increment</strong> the count of tested devices.</li>
     	<li><strong>Decrease</strong> the battery percentage of all devices with indices <code>j</code> in the range <code>[i + 1, n - 1]</code> by <code>1</code>, ensuring their battery percentage <strong>never goes below</strong> <code>0</code>, i.e, <code>batteryPercentages[j] = max(0, batteryPercentages[j] - 1)</code>.</li>
@@ -17,6 +18,7 @@
     </ul>
     </li>
     <li>Otherwise, move to the next device without performing any test.</li>
+
 </ul>
 
 <p>Return <em>an integer denoting the number of devices that will be tested after performing the test operations in order.</em></p>

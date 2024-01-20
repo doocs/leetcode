@@ -8,6 +8,7 @@
 
 <ul>
 	<li>When you get an instruction <code>&#39;A&#39;</code>, your car does the following:
+
     <ul>
     	<li><code>position += speed</code></li>
     	<li><code>speed *= 2</code></li>
@@ -19,6 +20,7 @@
     	<li>otherwise <code>speed = 1</code></li>
     </ul>
     Your position stays the same.</li>
+
 </ul>
 
 <p>For example, after commands <code>&quot;AAR&quot;</code>, your car goes to positions <code>0 --&gt; 1 --&gt; 3 --&gt; 3</code>, and your speed goes to <code>1 --&gt; 2 --&gt; 4 --&gt; -1</code>.</p>

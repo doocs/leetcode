@@ -6,16 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个整数 <code>n</code>，返回 <strong>下标从 1 开始</strong> 的数组 <code>nums = [1, 2, ..., n]</code>的 <strong>排列数</strong>，使其满足 <strong>自整除</strong> 条件。</p>
+<p>给定一个整数 <code>n</code>，返回 <strong>下标从 1 开始</strong> 的数组 <code>nums = [1, 2, ..., n]</code>的 <strong>可能的排列组合数量</strong>，使其满足 <strong>自整除</strong> 条件。</p>
 
-<p>如果对于每个 <code>1 &lt;= i &lt;= n</code>，<strong>至少</strong> 满足以下条件之一，数组 <code>nums</code> 就是 <strong>自整除</strong> 的：</p>
+<p>如果对于每个 <code>1 &lt;= i &lt;= n</code>，满足 <code>gcd(a[i], i) == 1</code>，数组 <code>nums</code> 就是 <strong>自整除</strong> 的。</p>
 
-<ul>
-	<li><code>nums[i] % i == 0</code></li>
-	<li><code>i % nums[i] == 0</code></li>
-</ul>
-
-<p>数组的 <strong>排列</strong> 是对数组元素的重新排列的数量，例如，下面是数组 <code>[1, 2, 3]</code>&nbsp;的所有排列：</p>
+<p>数组的 <strong>排列</strong>&nbsp;是对数组元素的重新排列组合，例如，下面是数组 <code>[1, 2, 3]</code>&nbsp;的所有排列组合：</p>
 
 <ul>
 	<li><code>[1, 2, 3]</code></li>
@@ -40,10 +35,10 @@
 
 <pre>
 <b>输入：</b>n = 2
-<b>输出：</b>2
-<b>解释：</b>数组 [1,2] 有 2 个排列，都是自整除的：
-nums = [1,2]：这是自整除的，因为 nums[1] % 1 == 0 和 nums[2] % 2 == 0。
-nums = [2,1]：这是自整除的，因为 nums[1] % 1 == 0 和 2 % nums[2] == 0。
+<b>输出：1</b>
+<b>解释：</b>数组 [1,2] 有 2 个排列，但只有其中一个是自整除的：
+nums = [1,2]：这不是自整除的，因为 gcd(nums[2], 2) != 1。
+nums = [2,1]：这是自整除的，因为 gcd(nums[1], 1) == 1 并且 gcd(nums[2], 2) == 1。
 </pre>
 
 <p><b>示例 3：</b></p>
@@ -60,7 +55,7 @@ nums = [2,1]：这是自整除的，因为 nums[1] % 1 == 0 和 2 % nums[2] == 0
 <p><b>提示：</b></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 15</code></li>
+	<li><code>1 &lt;= n &lt;= 12</code></li>
 </ul>
 
 ## 解法
