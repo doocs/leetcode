@@ -79,8 +79,6 @@ $$
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组的长度。
 
-我们注意到，状态 $f[i][j]$ 只与 $f[i-1][j]$ 和 $f[i-1][j-1]$ 有关，因此我们可以优化掉第一维，将空间复杂度降低到 $O(n)$。
-
 <!-- tabs:start -->
 
 ```python
@@ -238,7 +236,7 @@ function minimumTime(nums1: number[], nums2: number[], x: number): number {
 
 <!-- tabs:end -->
 
-### 方法二
+我们注意到，状态 $f[i][j]$ 只与 $f[i-1][j]$ 和 $f[i-1][j-1]$ 有关，因此我们可以优化掉第一维，将空间复杂度降低到 $O(n)$。
 
 <!-- tabs:start -->
 

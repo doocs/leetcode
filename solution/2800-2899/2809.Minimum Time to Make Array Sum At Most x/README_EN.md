@@ -76,8 +76,6 @@ Finally, we enumerate $j$ and find the smallest $j$ that satisfies $s_1 + s_2 \t
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array.
 
-We notice that the state $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][j-1]$, so we can optimize the first dimension and reduce the space complexity to $O(n)$.
-
 <!-- tabs:start -->
 
 ```python
@@ -235,7 +233,7 @@ function minimumTime(nums1: number[], nums2: number[], x: number): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+We notice that the state $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][j-1]$, so we can optimize the first dimension and reduce the space complexity to $O(n)$.
 
 <!-- tabs:start -->
 
