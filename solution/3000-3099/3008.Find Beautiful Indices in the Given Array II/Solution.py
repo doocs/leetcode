@@ -39,9 +39,11 @@ class Solution:
                 if abs(resb[j] - resa[i]) <= k:
                     res.append(resa[i])
                     break
-                elif j+1 < len(resb) and abs(resb[j+1] - resa[i]) < abs(resb[j] - resa[i]):
-                    j+=1
+                elif j + 1 < len(resb) and abs(resb[j + 1] - resa[i]) < abs(
+                    resb[j] - resa[i]
+                ):
+                    j += 1
                 else:
                     break
-            i+=1
+            i += 1
         return res
