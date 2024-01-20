@@ -247,7 +247,7 @@
 | 2854 | [滚动平均步数](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
 | 2893 | [计算每个区间内的订单](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)                                                     | `数据库` | 中等 | 🔒   |
 | 2922 | [市场分析 III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)                                                                                   | `数据库` | 中等 | 🔒   |
-| 2978 | [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)                                                                          | `数据库` | 中等 | 🔒   |
+| 2978 | [对称坐标](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)                                                                                       | `数据库` | 中等 | 🔒   |
 | 2984 | [找到每座城市的高峰通话时间](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)                                           | `数据库` | 中等 | 🔒   |
 | 2985 | [计算订单平均商品数量](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)                                                                     | `数据库` | 简单 | 🔒   |
 | 2986 | [找到第三笔交易](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)                                                                              | `数据库` | 中等 | 🔒   |
