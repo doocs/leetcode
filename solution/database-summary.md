@@ -237,7 +237,7 @@
     -   [2854.滚动平均步数](/database-solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)
     -   [2893.计算每个区间内的订单](/database-solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
     -   [2922.市场分析 III](/database-solution/2900-2999/2922.Market%20Analysis%20III/README.md)
-    -   [2978.Symmetric Coordinates](/database-solution/2900-2999/2978.Symmetric%20Coordinates/README.md)
+    -   [2978.对称坐标](/database-solution/2900-2999/2978.Symmetric%20Coordinates/README.md)
     -   [2984.找到每座城市的高峰通话时间](/database-solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)
     -   [2985.计算订单平均商品数量](/database-solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)
     -   [2986.找到第三笔交易](/database-solution/2900-2999/2986.Find%20Third%20Transaction/README.md)

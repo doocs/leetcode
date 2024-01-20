@@ -24,7 +24,7 @@
     -   [2649.嵌套数组生成器](/javascript-solution/2600-2699/2649.Nested%20Array%20Generator/README.md)
     -   [2650.设计可取消函数](/javascript-solution/2600-2699/2650.Design%20Cancellable%20Function/README.md)
     -   [2665.计数器 II](/javascript-solution/2600-2699/2665.Counter%20II/README.md)
-    -   [2666.只允许一次函数调用](/javascript-solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)
+    -   [2666.只允许一次函数调用 44](/javascript-solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)
     -   [2667.创建 Hello World 函数](/javascript-solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md)
     -   [2675.将对象数组转换为矩阵](/javascript-solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)
     -   [2676.节流](/javascript-solution/2600-2699/2676.Throttle/README.md)

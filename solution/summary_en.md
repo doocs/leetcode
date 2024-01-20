@@ -2818,6 +2818,7 @@
   - [2762.Continuous Subarrays](/solution/2700-2799/2762.Continuous%20Subarrays/README_EN.md)
   - [2763.Sum of Imbalance Numbers of All Subarrays](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README_EN.md)
   - [2764.Is Array a Preorder of Some ‌Binary Tree](/solution/2700-2799/2764.Is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README_EN.md)
+  - [2764.is Array a Preorder of Some ‌Binary Tree](/solution/2700-2799/2764.is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README_EN.md)
   - [2765.Longest Alternating Subarray](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README_EN.md)
   - [2766.Relocate Marbles](/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md)
   - [2767.Partition String Into Minimum Beautiful Substrings](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md)
@@ -3068,3 +3069,4 @@
   - [3006.Find Beautiful Indices in the Given Array I](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md)
   - [3007.Maximum Number That Sum of the Prices Is Less Than or Equal to K](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
   - [3008.Find Beautiful Indices in the Given Array II](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md)
+  - [3009.Maximum Number of Intersections on the Chart](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README_EN.md)
