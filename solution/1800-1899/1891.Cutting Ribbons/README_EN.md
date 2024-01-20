@@ -8,6 +8,7 @@
 
 <ul>
 	<li>For example, if you have a ribbon of length <code>4</code>, you can:
+
     <ul>
     	<li>Keep the ribbon of length <code>4</code>,</li>
     	<li>Cut it into one ribbon of length <code>3</code> and one ribbon of length <code>1</code>,</li>
@@ -16,6 +17,7 @@
     	<li>Cut it into four ribbons of length <code>1</code>.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>Your goal is to obtain <code>k</code> ribbons of all the <strong>same positive integer length</strong>. You are allowed to throw away any excess ribbon as a result of cutting.</p>

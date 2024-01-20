@@ -14,7 +14,7 @@
 +---------------+---------+
 | business_id   | int     |
 | event_type    | varchar |
-| occurences    | int     | 
+| occurrences   | int     | 
 +---------------+---------+
 (business_id, event_type) 是这个表的主键（具有唯一值的列的组合）。
 表中的每一行记录了某种类型的事件在某些业务中多次发生的信息。
@@ -22,9 +22,9 @@
 
 <p>&nbsp;</p>
 
-<p><strong>平均活动</strong> 是指有特定 <code>event_type</code> 的具有该事件的所有公司的 <code>occurences</code>&nbsp;的均值。</p>
+<p><strong>平均活动</strong> 是指有特定 <code>event_type</code> 的具有该事件的所有公司的 <code>occurrences</code>&nbsp;的均值。</p>
 
-<p><strong>活跃业务</strong> 是指具有&nbsp;<strong>多个</strong> <code>event_type</code>&nbsp;的业务，它们的 <code>occurences</code> <strong>严格大于</strong> 该事件的平均活动次数。</p>
+<p><strong>活跃业务</strong> 是指具有&nbsp;<strong>多个</strong> <code>event_type</code>&nbsp;的业务，它们的 <code>occurrences</code> <strong>严格大于</strong> 该事件的平均活动次数。</p>
 
 <p>写一个解决方案，找到所有 <strong>活跃业务</strong>。</p>
 
@@ -39,17 +39,17 @@
 <pre>
 <strong>输入：</strong>
 Events table:
-+-------------+------------+------------+
-| business_id | event_type | occurences |
-+-------------+------------+------------+
-| 1           | reviews    | 7          |
-| 3           | reviews    | 3          |
-| 1           | ads        | 11         |
-| 2           | ads        | 7          |
-| 3           | ads        | 6          |
-| 1           | page views | 3          |
-| 2           | page views | 12         |
-+-------------+------------+------------+
++-------------+------------+-------------+
+| business_id | event_type | occurrences |
++-------------+------------+-------------+
+| 1           | reviews    | 7           |
+| 3           | reviews    | 3           |
+| 1           | ads        | 11          |
+| 2           | ads        | 7           |
+| 3           | ads        | 6           |
+| 1           | page views | 3           |
+| 2           | page views | 12          |
++-------------+------------+-------------+
 <strong>输出：</strong>
 +-------------+
 | business_id |

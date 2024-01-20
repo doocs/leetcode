@@ -12,11 +12,13 @@
 
 <ul>
 	<li>The median of an array is the <strong>middle </strong>element after sorting the array in <strong>ascending </strong>order. If the array is of even length, the median is the <strong>left </strong>middle element.
+
     <ul>
     	<li>For example, the median of <code>[2,3,1,4]</code> is <code>2</code>, and the median of <code>[8,4,3,5,1]</code> is <code>4</code>.</li>
     </ul>
     </li>
     <li>A subarray is a contiguous part of an array.</li>
+
 </ul>
 
 <p>&nbsp;</p>

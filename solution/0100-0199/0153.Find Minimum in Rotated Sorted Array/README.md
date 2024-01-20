@@ -34,7 +34,7 @@
 <pre>
 <strong>输入：</strong>nums = [4,5,6,7,0,1,2]
 <strong>输出：</strong>0
-<strong>解释：</strong>原数组为 [0,1,2,4,5,6,7] ，旋转 4 次得到输入数组。
+<strong>解释：</strong>原数组为 [0,1,2,4,5,6,7] ，旋转 3 次得到输入数组。
 </pre>
 
 <p><strong>示例 3：</strong></p>

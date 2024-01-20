@@ -10,6 +10,7 @@
 
 <ul>
 	<li>In <code>1</code> second, you can either:
+
     <ul>
     	<li>move vertically by one&nbsp;unit,</li>
     	<li>move horizontally by one unit, or</li>
@@ -18,6 +19,7 @@
     </li>
     <li>You have to visit the points in the same order as they appear in the array.</li>
     <li>You are allowed to pass through points that appear later in the order, but these do not count as visits.</li>
+
 </ul>
 
 <p>&nbsp;</p>

@@ -10,6 +10,7 @@
 
 <ul>
 	<li>If a word begins with a vowel (<code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, or <code>&#39;u&#39;</code>), append <code>&quot;ma&quot;</code> to the end of the word.
+
     <ul>
     	<li>For example, the word <code>&quot;apple&quot;</code> becomes <code>&quot;applema&quot;</code>.</li>
     </ul>
@@ -24,6 +25,7 @@
     	<li>For example, the first word gets <code>&quot;a&quot;</code> added to the end, the second word gets <code>&quot;aa&quot;</code> added to the end, and so on.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>Return<em> the final sentence representing the conversion from sentence to Goat Latin</em>.</p>

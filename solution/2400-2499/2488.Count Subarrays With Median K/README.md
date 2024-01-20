@@ -14,11 +14,13 @@
 
 <ul>
 	<li>数组的中位数是按 <strong>递增</strong> 顺序排列后位于 <strong>中间</strong> 的那个元素，如果数组长度为偶数，则中位数是位于中间靠 <strong>左</strong> 的那个元素。
+
     <ul>
     	<li>例如，<code>[2,3,1,4]</code> 的中位数是 <code>2</code> ，<code>[8,4,3,5,1]</code> 的中位数是 <code>4</code> 。</li>
     </ul>
     </li>
     <li>子数组是数组中的一个连续部分。</li>
+
 </ul>
 
 <p>&nbsp;</p>

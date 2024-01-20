@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个表示交易的数组 <code>transactions</code> ，其中 <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> 表示 <code>ID = from<sub>i</sub></code> 的人给&nbsp;<code>ID = to<sub>i</sub></code> 的人共计 <code>amount<sub>i</sub> </code> 。</p>
+<p>给你一个表示交易的数组 <code>transactions</code> ，其中 <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> 表示 <code>ID = from<sub>i</sub></code> 的人给&nbsp;<code>ID = to<sub>i</sub></code> 的人共计 <code>amount<sub>i</sub> $</code> 。</p>
 
 <p>请你计算并返回还清所有债务的最小交易笔数。</p>
 
@@ -18,9 +18,9 @@
 <strong>输入：</strong>transactions = [[0,1,10],[2,0,5]]
 <strong>输出：</strong>2
 <strong>解释：</strong>
-#0 给 #1 10 。
-#2 给 #0 5 。
-需要进行两笔交易。一种结清债务的方式是 #1 给 #0 和 #2 各 5 。</pre>
+#0 给 #1 $10 。
+#2 给 #0 $5 。
+需要进行两笔交易。一种结清债务的方式是 #1 给 #0 和 #2 各 $5 。</pre>
 
 <p><strong class="example">示例 2：</strong></p>
 
@@ -28,11 +28,11 @@
 <strong>输入：</strong>transactions = [[0,1,10],[1,0,1],[1,2,5],[2,0,5]]
 <strong>输出：</strong>1
 <strong>解释：</strong>
-#0 给 #1 10 。
-#1 给 #0 1 。
-#1 给 #2 5 。
-#2 给 #0 5 。
-因此，#1 只需要给 #0 4 ，所有的债务即可还清。
+#0 给 #1 $10 。
+#1 给 #0 $1 。
+#1 给 #2 $5 。
+#2 给 #0 $5 。
+因此，#1 只需要给 #0 $4 ，所有的债务即可还清。
 </pre>
 
 <p>&nbsp;</p>

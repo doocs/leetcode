@@ -14,12 +14,14 @@
 
 <ul>
 	<li>选定目标方格 <code>next</code> ，目标方格的编号符合范围&nbsp;<code>[curr + 1, min(curr + 6, n<sup>2</sup>)]</code> 。
+
     <ul>
     	<li>该选择模拟了掷 <strong>六面体骰子</strong> 的情景，无论棋盘大小如何，玩家最多只能有 6 个目的地。</li>
     </ul>
     </li>
     <li>传送玩家：如果目标方格 <code>next</code> 处存在蛇或梯子，那么玩家会传送到蛇或梯子的目的地。否则，玩家传送到目标方格 <code>next</code> 。&nbsp;</li>
     <li>当玩家到达编号 <code>n<sup>2</sup></code> 的方格时，游戏结束。</li>
+
 </ul>
 
 <p><code>r</code> 行 <code>c</code> 列的棋盘，按前述方法编号，棋盘格中可能存在 “蛇” 或 “梯子”；如果 <code>board[r][c] != -1</code>，那个蛇或梯子的目的地将会是 <code>board[r][c]</code>。编号为 <code>1</code> 和 <code>n<sup>2</sup></code> 的方格上没有蛇或梯子。</p>

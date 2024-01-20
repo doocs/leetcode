@@ -16,7 +16,7 @@
 | name          | varchar |
 | country       | varchar |
 +---------------+---------+
-customer_id 是该表主键.
+customer_id 是该表具有唯一值的列.
 该表包含公司消费者的信息.
 </pre>
 
@@ -32,9 +32,9 @@ customer_id 是该表主键.
 | description   | varchar |
 | price         | int     |
 +---------------+---------+
-product_id 是该表主键.
+product_id 是该表具有唯一值的列.
 该表包含公司产品的信息.
-price 是本产品的花销.</pre>
+price 是该产品所需的花销.</pre>
 
 <p>&nbsp;</p>
 
@@ -50,26 +50,26 @@ price 是本产品的花销.</pre>
 | order_date    | date    |
 | quantity      | int     |
 +---------------+---------+
-order_id 是该表主键.
+order_id 是该表具有唯一值的列.
 该表包含消费者下单的信息.
-customer_id 是买了数量为"quantity", id为"product_id"产品的消费者的 id.
+customer_id 是买了数量为 "quantity", id 为 "product_id" 产品的消费者的 id.
 Order_date 是订单发货的日期, 格式为('YYYY-MM-DD').</pre>
 
 <p>&nbsp;</p>
 
-<p>写一个 SQL 查询，报告在&nbsp;<strong>2020 年 6 月和 7 月&nbsp;</strong>每个月至少花费 100 的客户的 customer_id 和 customer_name 。</p>
+<p>写一个解决方案，报告在&nbsp;<strong>2020 年 6 月和 7 月&nbsp;</strong>每个月至少花费 <code>$100</code> 的客户的 <code>customer_id</code> 和 <code>customer_name</code> 。</p>
 
-<p>以<strong>任意顺序</strong>返回结果表.</p>
+<p>以&nbsp;<strong>任意顺序&nbsp;</strong>返回结果表.</p>
 
-<p>查询结果格式如下例所示。</p>
+<p>结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<code><strong>输入：</strong>
-Customers table:</code>
+<strong>输入：</strong>
+<code>Customers table:</code>
 +--------------+-----------+-------------+
 | customer_id  | name &nbsp;    | country &nbsp; &nbsp; |
 +--------------+-----------+-------------+
@@ -77,7 +77,6 @@ Customers table:</code>
 | 2          &nbsp; | Jonathan  | Peru       &nbsp;|
 | 3          &nbsp; | Moustafa &nbsp;| Egypt      &nbsp;|
 +--------------+-----------+-------------+
-
 <code>Product table:</code>
 +--------------+-------------+-------------+
 | product_id   | description | price   &nbsp; &nbsp; |
@@ -87,7 +86,6 @@ Customers table:</code>
 | 30         &nbsp; | LC Book    &nbsp;| 45         &nbsp;|
 | 40           | LC Keychain&nbsp;| 2         &nbsp; |
 +--------------+-------------+-------------+
-
 <code>Orders table:</code>
 +--------------+-------------+-------------+-------------+-----------+
 | order_id     | customer_id | product_id  | order_date  | quantity  |
@@ -101,17 +99,16 @@ Customers table:</code>
 | 7    &nbsp;       | 3        &nbsp;  | 30         &nbsp;| 2020-06-25  | 2         |
 | 9          &nbsp; | 3           | 30         &nbsp;| 2020-05-08  | 3         |
 +--------------+-------------+-------------+-------------+-----------+
-
 <strong>输出：</strong>
 +--------------+------------+
 | customer_id  | name       |  
 +--------------+------------+
 | 1            | Winston    |
 +--------------+------------+ 
-解释：
-Winston 在2020年6月花费了300(300 * 1), 在7月花费了100(10 * 1 + 45 * 2).
-Jonathan 在2020年6月花费了600(300 * 2), 在7月花费了20(2 * 10).
-Moustafa 在2020年6月花费了110 (10 * 2 + 45 * 2), 在7月花费了0.</pre>
+<strong>解释：</strong>
+Winston 在 2020 年 6 月花费了 $300(300 * 1), 在 7 月花费了 $100(10 * 1 + 45 * 2).
+Jonathan 在 2020 年 6 月花费了 $600(300 * 2), 在 7 月花费了 $20(2 * 10).
+Moustafa 在 2020 年 6 月花费了 $110 (10 * 2 + 45 * 2), 在 7 月花费了 $0.</pre>
 
 ## 解法
 

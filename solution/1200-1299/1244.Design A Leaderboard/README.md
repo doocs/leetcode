@@ -12,6 +12,7 @@
 
 <ol>
 	<li><code>addScore(playerId, score)</code>：
+
     <ul>
     	<li>假如参赛者已经在排行榜上，就给他的当前得分增加 <code>score</code> 点分值并更新排行。</li>
     	<li>假如该参赛者不在排行榜上，就把他添加到榜单上，并且将分数设置为 <code>score</code>。</li>
@@ -19,6 +20,7 @@
     </li>
     <li><code>top(K)</code>：返回前 <code>K</code> 名参赛者的 <strong>得分总和</strong>。</li>
     <li><code>reset(playerId)</code>：将指定参赛者的成绩清零（换句话说，将其从排行榜中删除）。题目保证在调用此函数前，该参赛者已有成绩，并且在榜单上。</li>
+
 </ol>
 
 <p>请注意，在初始状态下，排行榜是空的。</p>

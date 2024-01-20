@@ -8,6 +8,7 @@
 
 <ul>
 	<li><code>int query(int a, int b, int c, int d)</code>: where <code>0 &lt;= a &lt; b &lt; c &lt; d &lt; ArrayReader.length()</code>. The function returns the distribution of the value of the 4 elements and returns:
+
     <ul>
     	<li><strong>4 </strong>: if the values of the 4 elements are the same (0 or 1).</li>
     	<li><strong>2</strong> : if three elements have a value equal to 0 and one element has value equal to 1 or vice versa.</li>
@@ -15,6 +16,7 @@
     </ul>
     </li>
     <li><code>int length()</code>: Returns the size of the array.</li>
+
 </ul>
 
 <p>You are allowed to call <code>query()</code> <b>2 * n times</b> at most where n is equal to <code>ArrayReader.length()</code>.</p>

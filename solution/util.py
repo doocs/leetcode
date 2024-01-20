@@ -4,8 +4,6 @@ import re
 from typing import Tuple, List
 from urllib.parse import quote, unquote
 
-from config import skip_lc_problems
-
 
 def load_template(template_name: str) -> str:
     with open("./template.md", "r", encoding="utf-8") as f:
@@ -290,8 +288,6 @@ def refresh(result):
     for question in result:
         front_question_id = question["frontend_question_id"]
         print(front_question_id)
-        if int(front_question_id) in skip_lc_problems:
-            continue
         title = question["title_cn"]
         title_en = question["title_en"]
 

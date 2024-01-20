@@ -8,6 +8,7 @@
 
 <ul>
 	<li>Remove substring <code>&quot;ab&quot;</code> and gain <code>x</code> points.
+
     <ul>
     	<li>For example, when removing <code>&quot;ab&quot;</code> from <code>&quot;c<u>ab</u>xbae&quot;</code> it becomes <code>&quot;cxbae&quot;</code>.</li>
     </ul>
@@ -17,6 +18,7 @@
     	<li>For example, when removing <code>&quot;ba&quot;</code> from <code>&quot;cabx<u>ba</u>e&quot;</code> it becomes <code>&quot;cabxe&quot;</code>.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>Return <em>the maximum points you can gain after applying the above operations on</em> <code>s</code>.</p>

@@ -12,6 +12,7 @@
 
 <ul>
 	<li><code>&lt;IntegerPart&gt;</code>&nbsp;
+
     <ul>
     	<li>例：&nbsp;<code>0</code>&nbsp;,<code>12</code>&nbsp;和&nbsp;<code>123</code>&nbsp;</li>
     </ul>
@@ -26,6 +27,7 @@
     	<li>例： <code>0.1(6)</code> ， <code>1.(9)</code>， <code>123.00(1212)</code></li>
     </ul>
     </li>
+
 </ul>
 
 <p>十进制展开的重复部分通常在一对圆括号内表示。例如：</p>

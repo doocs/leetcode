@@ -20,7 +20,7 @@
 <pre>
 <strong>Input:</strong> maxTime = 30, edges = [[0,1,10],[1,2,10],[2,5,10],[0,3,1],[3,4,10],[4,5,15]], passingFees = [5,1,2,20,20,3]
 <strong>Output:</strong> 11
-<strong>Explanation:</strong> The path to take is 0 -&gt; 1 -&gt; 2 -&gt; 5, which takes 30 minutes and has 11 worth of passing fees.
+<strong>Explanation:</strong> The path to take is 0 -&gt; 1 -&gt; 2 -&gt; 5, which takes 30 minutes and has $11 worth of passing fees.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -30,7 +30,7 @@
 <pre>
 <strong>Input:</strong> maxTime = 29, edges = [[0,1,10],[1,2,10],[2,5,10],[0,3,1],[3,4,10],[4,5,15]], passingFees = [5,1,2,20,20,3]
 <strong>Output:</strong> 48
-<strong>Explanation:</strong> The path to take is 0 -&gt; 3 -&gt; 4 -&gt; 5, which takes 26 minutes and has 48 worth of passing fees.
+<strong>Explanation:</strong> The path to take is 0 -&gt; 3 -&gt; 4 -&gt; 5, which takes 26 minutes and has $48 worth of passing fees.
 You cannot take path 0 -&gt; 1 -&gt; 2 -&gt; 5 since it would take too long.
 </pre>
 

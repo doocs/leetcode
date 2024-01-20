@@ -86,10 +86,10 @@ Transactions table:
 | 4          | Luis       | 800        | No                    |
 +------------+------------+------------+-----------------------+
 <strong>Explanation:</strong> 
-Moustafa paid 400 on &quot;2020-08-01&quot; and received 200 on &quot;2020-08-03&quot;, credit (100 -400 +200) = -100
-Jonathan received 500 on &quot;2020-08-02&quot; and paid 200 on &quot;2020-08-08&quot;, credit (200 +500 -200) = 500
-Winston received 400 on &quot;2020-08-01&quot; and paid 500 on &quot;2020-08-03&quot;, credit (10000 +400 -500) = 9990
-Luis did not received any transfer, credit = 800
+Moustafa paid $400 on &quot;2020-08-01&quot; and received $200 on &quot;2020-08-03&quot;, credit (100 -400 +200) = -$100
+Jonathan received $500 on &quot;2020-08-02&quot; and paid $200 on &quot;2020-08-08&quot;, credit (200 +500 -200) = $500
+Winston received $400 on &quot;2020-08-01&quot; and paid $500 on &quot;2020-08-03&quot;, credit (10000 +400 -500) = $9990
+Luis did not received any transfer, credit = $800
 </pre>
 
 ## Solutions

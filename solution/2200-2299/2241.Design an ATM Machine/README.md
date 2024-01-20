@@ -11,16 +11,16 @@
 <p>取款时，机器会优先取 <b>较大</b>&nbsp;数额的钱。</p>
 
 <ul>
-	<li>比方说，你想取&nbsp;<code>300</code>&nbsp;，并且机器里有&nbsp;<code>2</code>&nbsp;张 <code>50</code>&nbsp;的钞票，<code>1</code>&nbsp;张&nbsp;<code>100</code>&nbsp;的钞票和<code>1</code>&nbsp;张&nbsp;<code>200</code>&nbsp;的钞票，那么机器会取出&nbsp;<code>100</code> 和&nbsp;<code>200</code>&nbsp;的钞票。</li>
-	<li>但是，如果你想取&nbsp;<code>600</code>&nbsp;，机器里有&nbsp;<code>3</code>&nbsp;张&nbsp;<code>200</code>&nbsp;的钞票和<code>1</code>&nbsp;张&nbsp;<code>500</code>&nbsp;的钞票，那么取款请求会被拒绝，因为机器会先取出&nbsp;<code>500</code>&nbsp;的钞票，然后无法取出剩余的&nbsp;<code>100</code>&nbsp;。注意，因为有&nbsp;<code>500</code>&nbsp;钞票的存在，机器&nbsp;<strong>不能</strong>&nbsp;取&nbsp;<code>200</code>&nbsp;的钞票。</li>
+	<li>比方说，你想取&nbsp;<code>$300</code>&nbsp;，并且机器里有&nbsp;<code>2</code>&nbsp;张 <code>$50</code>&nbsp;的钞票，<code>1</code>&nbsp;张&nbsp;<code>$100</code>&nbsp;的钞票和<code>1</code>&nbsp;张&nbsp;<code>$200</code>&nbsp;的钞票，那么机器会取出&nbsp;<code>$100</code> 和&nbsp;<code>$200</code>&nbsp;的钞票。</li>
+	<li>但是，如果你想取&nbsp;<code>$600</code>&nbsp;，机器里有&nbsp;<code>3</code>&nbsp;张&nbsp;<code>$200</code>&nbsp;的钞票和<code>1</code>&nbsp;张&nbsp;<code>$500</code>&nbsp;的钞票，那么取款请求会被拒绝，因为机器会先取出&nbsp;<code>$500</code>&nbsp;的钞票，然后无法取出剩余的&nbsp;<code>$100</code>&nbsp;。注意，因为有&nbsp;<code>$500</code>&nbsp;钞票的存在，机器&nbsp;<strong>不能</strong>&nbsp;取&nbsp;<code>$200</code>&nbsp;的钞票。</li>
 </ul>
 
 <p>请你实现 ATM 类：</p>
 
 <ul>
 	<li><code>ATM()</code>&nbsp;初始化 ATM 对象。</li>
-	<li><code>void deposit(int[] banknotesCount)</code>&nbsp;分别存入&nbsp;<code>20</code>&nbsp;，<code>50</code>，<code>100</code>，<code>200</code>&nbsp;和&nbsp;<code>500</code>&nbsp;钞票的数目。</li>
-	<li><code>int[] withdraw(int amount)</code>&nbsp;返回一个长度为&nbsp;<code>5</code>&nbsp;的数组，分别表示&nbsp;<code>20</code>&nbsp;，<code>50</code>，<code>100</code>&nbsp;，<code>200</code>&nbsp;和&nbsp;<code>500</code>&nbsp;钞票的数目，并且更新 ATM 机里取款后钞票的剩余数量。如果无法取出指定数额的钱，请返回&nbsp;<code>[-1]</code>&nbsp;（这种情况下 <strong>不</strong>&nbsp;取出任何钞票）。</li>
+	<li><code>void deposit(int[] banknotesCount)</code>&nbsp;分别存入&nbsp;<code>$20</code>&nbsp;，<code>$50</code>，<code>$100</code>，<code>$200</code>&nbsp;和&nbsp;<code>$500</code>&nbsp;钞票的数目。</li>
+	<li><code>int[] withdraw(int amount)</code>&nbsp;返回一个长度为&nbsp;<code>5</code>&nbsp;的数组，分别表示&nbsp;<code>$20</code>&nbsp;，<code>$50</code>，<code>$100</code>&nbsp;，<code>$200</code>&nbsp;和&nbsp;<code>$500</code>&nbsp;钞票的数目，并且更新 ATM 机里取款后钞票的剩余数量。如果无法取出指定数额的钱，请返回&nbsp;<code>[-1]</code>&nbsp;（这种情况下 <strong>不</strong>&nbsp;取出任何钞票）。</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -36,13 +36,13 @@
 
 <strong>解释：</strong>
 ATM atm = new ATM();
-atm.deposit([0,0,1,2,1]); // 存入 1 张 100 ，2 张 200 和 1 张 500 的钞票。
-atm.withdraw(600);        // 返回 [0,0,1,0,1] 。机器返回 1 张 100 和 1 张 500 的钞票。机器里剩余钞票的数量为 [0,0,0,2,0] 。
-atm.deposit([0,1,0,1,1]); // 存入 1 张 50 ，1 张 200 和 1 张 500 的钞票。
+atm.deposit([0,0,1,2,1]); // 存入 1 张 $100 ，2 张 $200 和 1 张 $500 的钞票。
+atm.withdraw(600);        // 返回 [0,0,1,0,1] 。机器返回 1 张 $100 和 1 张 $500 的钞票。机器里剩余钞票的数量为 [0,0,0,2,0] 。
+atm.deposit([0,1,0,1,1]); // 存入 1 张 $50 ，1 张 $200 和 1 张 $500 的钞票。
                           // 机器中剩余钞票数量为 [0,1,0,3,1] 。
-atm.withdraw(600);        // 返回 [-1] 。机器会尝试取出 500 的钞票，然后无法得到剩余的 100 ，所以取款请求会被拒绝。
+atm.withdraw(600);        // 返回 [-1] 。机器会尝试取出 $500 的钞票，然后无法得到剩余的 $100 ，所以取款请求会被拒绝。
                           // 由于请求被拒绝，机器中钞票的数量不会发生改变。
-atm.withdraw(550);        // 返回 [0,1,0,0,1] ，机器会返回 1 张 50 的钞票和 1 张 500 的钞票。</pre>
+atm.withdraw(550);        // 返回 [0,1,0,0,1] ，机器会返回 1 张 $50 的钞票和 1 张 $500 的钞票。</pre>
 
 <p>&nbsp;</p>
 

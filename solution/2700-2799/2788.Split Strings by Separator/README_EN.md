@@ -33,12 +33,12 @@ Hence, the resulting array is [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> words = [&quot;&#36;easy&#36;&quot;,&quot;&#36;problem&#36;&quot;], separator = &quot;&#36;&quot;
+<strong>Input:</strong> words = [&quot;$easy$&quot;,&quot;$problem$&quot;], separator = &quot;$&quot;
 <strong>Output:</strong> [&quot;easy&quot;,&quot;problem&quot;]
 <strong>Explanation:</strong> In this example we split as follows: 
 
-&quot;&#36;easy&#36;&quot; splits into &quot;easy&quot; (excluding empty strings)
-&quot;&#36;problem&#36;&quot; splits into &quot;problem&quot; (excluding empty strings)
+&quot;$easy$&quot; splits into &quot;easy&quot; (excluding empty strings)
+&quot;$problem$&quot; splits into &quot;problem&quot; (excluding empty strings)
 
 Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 </pre>
@@ -56,8 +56,8 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 100</code></li>
 	<li><code>1 &lt;= words[i].length &lt;= 20</code></li>
-	<li>characters in <code>words[i]</code> are either lowercase English letters or characters from the string <code>&quot;.,|&#36;#@&quot;</code> (excluding the quotes)</li>
-	<li><code>separator</code> is a character from the string <code>&quot;.,|&#36;#@&quot;</code> (excluding the quotes)</li>
+	<li>characters in <code>words[i]</code> are either lowercase English letters or characters from the string <code>&quot;.,|$#@&quot;</code> (excluding the quotes)</li>
+	<li><code>separator</code> is a character from the string <code>&quot;.,|$#@&quot;</code> (excluding the quotes)</li>
 </ul>
 
 ## Solutions

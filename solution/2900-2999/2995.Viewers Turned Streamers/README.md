@@ -23,7 +23,7 @@ session_type 是一个 ENUM (枚举) 类型，包含(Viewer, Streamer)两个类�
 这张表包含 user id, session start, session end, session id 和 session type。
 </pre>
 
-<p>编写一个解决方案，找到&nbsp;<strong>首次会话&nbsp;</strong>为 <strong>观众</strong> 的用户的&nbsp;<strong>会话&nbsp;</strong>数量。</p>
+<p>编写一个解决方案，找到 <strong>首次会话</strong> 为 <strong>观众身份</strong> 的用户，其 <strong>主播会话</strong> 数量。</p>
 
 <p>按照会话数量和 <code>user_id</code> <strong>降序</strong> 排序返回结果表。</p>
 
