@@ -1,9 +1,9 @@
 public class Solution {
     public void computeLPS(String pattern, int[] lps) {
         int M = pattern.length();
-        int len = 0; 
+        int len = 0;
 
-        lps[0] = 0; 
+        lps[0] = 0;
 
         int i = 1;
         while (i < M) {
@@ -40,7 +40,8 @@ public class Solution {
             }
 
             if (j == M) {
-                result.add(i - j); // Pattern found at index i-j+1 (If you have to return 1 Based indexing, that's why added + 1)
+                result.add(i - j); // Pattern found at index i-j+1 (If you have to return 1 Based
+                                   // indexing, that's why added + 1)
                 j = lps[j - 1];
             } else if (i < N && pat.charAt(j) != txt.charAt(i)) {
                 if (j != 0) {
@@ -53,7 +54,7 @@ public class Solution {
 
         return result;
     }
-    
+
     private int lowerBound(List<Integer> list, int target) {
         int left = 0, right = list.size() - 1, result = list.size();
 
@@ -70,7 +71,7 @@ public class Solution {
 
         return result;
     }
-    
+
     public List<Integer> beautifulIndices(String s, String a, String b, int k) {
         int n = s.length();
 
@@ -82,11 +83,13 @@ public class Solution {
         for (int i : i_indices) {
 
             int left_limit = Math.max(0, i - k); // To avoid out of bound -> I used max(0, i-k)
-            int right_limit = Math.min(n - 1, i + k); // To avoid out of bound -> I used min(n-1, i+k)
+            int right_limit
+                = Math.min(n - 1, i + k); // To avoid out of bound -> I used min(n-1, i+k)
 
             int lowerBoundIndex = lowerBound(j_indices, left_limit);
 
-            if (lowerBoundIndex < j_indices.size() && j_indices.get(lowerBoundIndex) <= right_limit) {
+            if (lowerBoundIndex < j_indices.size()
+                && j_indices.get(lowerBoundIndex) <= right_limit) {
                 result.add(i);
             }
         }
