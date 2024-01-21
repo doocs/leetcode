@@ -25,6 +25,20 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 381
+
+- [3014. Minimum Number of Pushes to Type Word I](/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README_EN.md)
+- [3015. Count the Number of Houses at a Certain Distance I](/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README_EN.md)
+- [3016. Minimum Number of Pushes to Type Word II](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README_EN.md)
+- [3017. Count the Number of Houses at a Certain Distance II](/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README_EN.md)
+
+#### Biweekly Contest 122
+
+- [3010. Divide an Array Into Subarrays With Minimum Cost I](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README_EN.md)
+- [3011. Find if Array Can Be Sorted](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md)
+- [3012. Minimize Length of Array Using Operations](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md)
+- [3013. Divide an Array Into Subarrays With Minimum Cost II](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md)
+
 #### Weekly Contest 380
 
 - [3005. Count Elements With Maximum Frequency](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md)

@@ -3020,6 +3020,14 @@
 |  3007  |  [价值和小于等于 K 的最大数字](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README.md)  |  `位运算`,`二分查找`,`动态规划`  |  中等  |  第 380 场周赛  |
 |  3008  |  [找出数组中的美丽下标 II](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md)  |  `双指针`,`字符串`,`二分查找`,`字符串匹配`,`哈希函数`,`滚动哈希`  |  困难  |  第 380 场周赛  |
 |  3009  |  [折线图上的最大交点数量](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README.md)  |    |  困难  |  🔒  |
+|  3010  |  [将数组分成最小总代价的子数组 I](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README.md)  |    |  简单  |  第 122 场双周赛  |
+|  3011  |  [判断一个数组是否可以变为有序](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md)  |    |  中等  |  第 122 场双周赛  |
+|  3012  |  [通过操作使数组长度最小](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README.md)  |    |  中等  |  第 122 场双周赛  |
+|  3013  |  [将数组分成最小总代价的子数组 II](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README.md)  |    |  困难  |  第 122 场双周赛  |
+|  3014  |  [输入单词需要的最少按键次数 I](/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README.md)  |    |  简单  |  第 381 场周赛  |
+|  3015  |  [按距离统计房屋对数目 I](/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README.md)  |    |  中等  |  第 381 场周赛  |
+|  3016  |  [输入单词需要的最少按键次数 II](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README.md)  |    |  中等  |  第 381 场周赛  |
+|  3017  |  [按距离统计房屋对数目 II](/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README.md)  |    |  困难  |  第 381 场周赛  |
 
 ## 版权
 

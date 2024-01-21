@@ -3018,6 +3018,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3007  |  [Maximum Number That Sum of the Prices Is Less Than or Equal to K](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |  `Bit Manipulation`,`Binary Search`,`Dynamic Programming`  |  Medium  |  Weekly Contest 380  |
 |  3008  |  [Find Beautiful Indices in the Given Array II](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md)  |  `Two Pointers`,`String`,`Binary Search`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 380  |
 |  3009  |  [Maximum Number of Intersections on the Chart](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README_EN.md)  |    |  Hard  |  🔒  |
+|  3010  |  [Divide an Array Into Subarrays With Minimum Cost I](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 122  |
+|  3011  |  [Find if Array Can Be Sorted](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md)  |    |  Medium  |  Biweekly Contest 122  |
+|  3012  |  [Minimize Length of Array Using Operations](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md)  |    |  Medium  |  Biweekly Contest 122  |
+|  3013  |  [Divide an Array Into Subarrays With Minimum Cost II](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 122  |
+|  3014  |  [Minimum Number of Pushes to Type Word I](/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 381  |
+|  3015  |  [Count the Number of Houses at a Certain Distance I](/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 381  |
+|  3016  |  [Minimum Number of Pushes to Type Word II](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 381  |
+|  3017  |  [Count the Number of Houses at a Certain Distance II](/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 381  |
 
 ## Copyright
 
