@@ -52,24 +52,138 @@ Note that there may be other sequences of operations which also sort the array.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We can use two pointers to divide the array $nums$ into several subarrays, each with the same number of 1s in the binary representation of its elements. For each subarray, we only need to focus on its maximum and minimum values. If the minimum value is smaller than the maximum value of the previous subarray, then it is impossible to make the array sorted by swapping.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def canSortArray(self, nums: List[int]) -> bool:
+        pre_mx = -inf
+        i, n = 0, len(nums)
+        while i < n:
+            j = i + 1
+            cnt = nums[i].bit_count()
+            mi = mx = nums[i]
+            while j < n and nums[j].bit_count() == cnt:
+                mi = min(mi, nums[j])
+                mx = max(mx, nums[j])
+                j += 1
+            if pre_mx > mi:
+                return False
+            pre_mx = mx
+            i = j
+        return True
 ```
 
 ```java
-
+class Solution {
+    public boolean canSortArray(int[] nums) {
+        int preMx = -300;
+        int i = 0, n = nums.length;
+        while (i < n) {
+            int j = i + 1;
+            int cnt = Integer.bitCount(nums[i]);
+            int mi = nums[i], mx = nums[i];
+            while (j < n && Integer.bitCount(nums[j]) == cnt) {
+                mi = Math.min(mi, nums[j]);
+                mx = Math.max(mx, nums[j]);
+                j++;
+            }
+            if (preMx > mi) {
+                return false;
+            }
+            preMx = mx;
+            i = j;
+        }
+        return true;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    bool canSortArray(vector<int>& nums) {
+        int preMx = -300;
+        int i = 0, n = nums.size();
+        while (i < n) {
+            int j = i + 1;
+            int cnt = __builtin_popcount(nums[i]);
+            int mi = nums[i], mx = nums[i];
+            while (j < n && __builtin_popcount(nums[j]) == cnt) {
+                mi = min(mi, nums[j]);
+                mx = max(mx, nums[j]);
+                j++;
+            }
+            if (preMx > mi) {
+                return false;
+            }
+            preMx = mx;
+            i = j;
+        }
+        return true;
+    }
+};
 ```
 
 ```go
+func canSortArray(nums []int) bool {
+	preMx := -300
+	i, n := 0, len(nums)
+	for i < n {
+		j := i + 1
+		cnt := bits.OnesCount(uint(nums[i]))
+		mi, mx := nums[i], nums[i]
+		for j < n && bits.OnesCount(uint(nums[j])) == cnt {
+			mi = min(mi, nums[j])
+			mx = max(mx, nums[j])
+			j++
+		}
+		if preMx > mi {
+			return false
+		}
+		preMx = mx
+		i = j
+	}
+	return true
+}
+```
 
+```ts
+function canSortArray(nums: number[]): boolean {
+    let preMx = -300;
+    const n = nums.length;
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        const cnt = bitCount(nums[i]);
+        let [mi, mx] = [nums[i], nums[i]];
+        while (j < n && bitCount(nums[j]) === cnt) {
+            mi = Math.min(mi, nums[j]);
+            mx = Math.max(mx, nums[j]);
+            j++;
+        }
+        if (preMx > mi) {
+            return false;
+        }
+        preMx = mx;
+        i = j;
+    }
+    return true;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
 ```
 
 <!-- tabs:end -->
