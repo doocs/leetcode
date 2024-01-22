@@ -74,24 +74,92 @@ nums 的长度无法进一步减小，所以答案为 1 。
 
 ## 解法
 
-### 方法一
+### 方法一：分情况讨论
+
+我们不妨记数组 $nums$ 的最小的元素为 $mi$。
+
+如果 $mi$ 只出现一次，那么我们将 $mi$ 与数组 $nums$ 的其他元素进行操作，可以将其他元素全部消去，最终剩下 $mi$ 一个元素，答案为 $1$。
+
+如果 $mi$ 出现多次，我们判断数组 $nums$ 中的元素是否都是 $mi$ 的倍数。如果不是，即存在至少一个元素 $x$，使得 $0 \lt x \bmod mi \lt mi$，说明我们可以通过操作，构造出一个小于 $mi$ 的元素，那么这个小于 $mi$ 的元素与其他元素进行操作，可以将其他元素全部消去，最终剩下这个小于 $mi$ 的元素，答案为 $1$；如果都是 $mi$ 的倍数，我们可以先借助 $mi$，将所有大于 $mi$ 的元素消去，最终剩下的元素都是 $mi$，个数为 $cnt$，两两配对，每两个元素进行一次操作，最终剩下 $\lceil cnt / 2 \rceil$ 个元素，答案为 $\lceil cnt / 2 \rceil$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumArrayLength(self, nums: List[int]) -> int:
+        mi = min(nums)
+        if any(x % mi for x in nums):
+            return 1
+        return (nums.count(mi) + 1) // 2
 ```
 
 ```java
-
+class Solution {
+    public int minimumArrayLength(int[] nums) {
+        int mi = Arrays.stream(nums).min().getAsInt();
+        int cnt = 0;
+        for (int x : nums) {
+            if (x % mi != 0) {
+                return 1;
+            }
+            if (x == mi) {
+                ++cnt;
+            }
+        }
+        return (cnt + 1) / 2;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumArrayLength(vector<int>& nums) {
+        int mi = *min_element(nums.begin(), nums.end());
+        int cnt = 0;
+        for (int x : nums) {
+            if (x % mi) {
+                return 1;
+            }
+            cnt += x == mi;
+        }
+        return (cnt + 1) / 2;
+    }
+};
 ```
 
 ```go
+func minimumArrayLength(nums []int) int {
+	mi := slices.Min(nums)
+	cnt := 0
+	for _, x := range nums {
+		if x%mi != 0 {
+			return 1
+		}
+		if x == mi {
+			cnt++
+		}
+	}
+	return (cnt + 1) / 2
+}
+```
 
+```ts
+function minimumArrayLength(nums: number[]): number {
+    const mi = Math.min(...nums);
+    let cnt = 0;
+    for (const x of nums) {
+        if (x % mi) {
+            return 1;
+        }
+        if (x === mi) {
+            ++cnt;
+        }
+    }
+    return (cnt + 1) >> 1;
+}
 ```
 
 <!-- tabs:end -->
