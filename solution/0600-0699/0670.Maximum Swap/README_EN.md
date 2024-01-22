@@ -34,7 +34,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy Algorithm
+
+First, we convert the number into a string $s$. Then, we traverse the string $s$ from right to left, using an array or hash table $d$ to record the position of the maximum number to the right of each number (it can be the position of the number itself).
+
+Next, we traverse $d$ from left to right. If $s[i] < s[d[i]]$, we swap them and exit the traversal process.
+
+Finally, we convert the string $s$ back into a number, which is the answer.
+
+The time complexity is $O(\log M)$, and the space complexity is $O(\log M)$. Here, $M$ is the range of the number $num$.
 
 <!-- tabs:start -->
 
