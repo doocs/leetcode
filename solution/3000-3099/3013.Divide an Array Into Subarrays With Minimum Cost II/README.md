@@ -63,11 +63,83 @@
 <!-- tabs:start -->
 
 ```python
+from sortedcontainers import SortedList
+class Solution:
+    def minimumCost(self, nums: List[int], k: int, dist: int) -> int:
+        n=len(nums)
 
+        sl = SortedList()
+        y = nums[0]
+        ans = float("inf")
+        i = 1
+        running_sum = 0
+
+        for j in range(1, n):
+            pos = bisect.bisect_left(sl, nums[j])
+            sl.add(nums[j])
+            
+            if pos < k - 1:
+                running_sum += nums[j]
+                if len(sl) > k - 1:
+                    running_sum -= sl[k-1]
+
+            while j - i > dist:
+                removed_pos = sl.index(nums[i])
+                removed_element = nums[i]
+                sl.remove(removed_element)
+                
+                if removed_pos < k - 1:
+                    running_sum -= removed_element
+                    if len(sl) >= k - 1:
+                        running_sum += sl[k-2]
+                i += 1
+
+            if j - i + 1 >= k - 1:
+                ans = min(ans, running_sum)
+
+        return ans + y
 ```
 
 ```java
-
+class Solution {
+    public long minimumCost(int[] nums, int k, int dist) {
+        long result = Long.MAX_VALUE, sum = 0l;
+        int n = nums.length;
+        TreeSet<Integer> set1 = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
+        TreeSet<Integer> set2 = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
+        for(int i=1;i<n;i++)
+        {
+            set1.add(i);
+            sum+=nums[i];
+            if(set1.size()>=k)
+            {
+                int x=set1.pollLast();
+                sum-=nums[x];
+                set2.add(x);
+            }
+            if(i-dist>0)
+            {
+                result=Math.min(result,sum);
+                int temp=i-dist;
+                if(set1.contains(temp))
+                {
+                    set1.remove(temp);
+                    sum-=nums[temp];
+                    if(set2.size()>0)
+                    {
+                        int y=set2.pollFirst();
+                        sum+=nums[y];
+                        set1.add(y);
+                    }
+                }
+                else{
+                    set2.remove(i-dist);
+                }
+            }
+        }
+        return result+nums[0];
+    }
+}
 ```
 
 ```cpp
