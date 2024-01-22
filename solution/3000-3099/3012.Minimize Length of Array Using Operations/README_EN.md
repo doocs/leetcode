@@ -70,24 +70,92 @@ It can be shown that 1 is the minimum achievable length.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Case Discussion
+
+Let's denote the smallest element in the array $nums$ as $mi$.
+
+If $mi$ appears only once, we can perform operations with $mi$ and the other elements in the array $nums$ to eliminate all other elements, leaving only $mi$. The answer is $1$.
+
+If $mi$ appears multiple times, we need to check whether all elements in the array $nums$ are multiples of $mi$. If not, there exists at least one element $x$ such that $0 < x \bmod mi < mi$. This means we can construct an element smaller than $mi$ through operations. This smaller element can eliminate all other elements through operations, leaving only this smaller element. The answer is $1$. If all elements are multiples of $mi$, we can first use $mi$ to eliminate all elements larger than $mi$. The remaining elements are all $mi$, with a count of $cnt$. Pair them up, and perform an operation for each pair. Finally, there will be $\lceil cnt / 2 \rceil$ elements left, so the answer is $\lceil cnt / 2 \rceil$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumArrayLength(self, nums: List[int]) -> int:
+        mi = min(nums)
+        if any(x % mi for x in nums):
+            return 1
+        return (nums.count(mi) + 1) // 2
 ```
 
 ```java
-
+class Solution {
+    public int minimumArrayLength(int[] nums) {
+        int mi = Arrays.stream(nums).min().getAsInt();
+        int cnt = 0;
+        for (int x : nums) {
+            if (x % mi != 0) {
+                return 1;
+            }
+            if (x == mi) {
+                ++cnt;
+            }
+        }
+        return (cnt + 1) / 2;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumArrayLength(vector<int>& nums) {
+        int mi = *min_element(nums.begin(), nums.end());
+        int cnt = 0;
+        for (int x : nums) {
+            if (x % mi) {
+                return 1;
+            }
+            cnt += x == mi;
+        }
+        return (cnt + 1) / 2;
+    }
+};
 ```
 
 ```go
+func minimumArrayLength(nums []int) int {
+	mi := slices.Min(nums)
+	cnt := 0
+	for _, x := range nums {
+		if x%mi != 0 {
+			return 1
+		}
+		if x == mi {
+			cnt++
+		}
+	}
+	return (cnt + 1) / 2
+}
+```
 
+```ts
+function minimumArrayLength(nums: number[]): number {
+    const mi = Math.min(...nums);
+    let cnt = 0;
+    for (const x of nums) {
+        if (x % mi) {
+            return 1;
+        }
+        if (x === mi) {
+            ++cnt;
+        }
+    }
+    return (cnt + 1) >> 1;
+}
 ```
 
 <!-- tabs:end -->
