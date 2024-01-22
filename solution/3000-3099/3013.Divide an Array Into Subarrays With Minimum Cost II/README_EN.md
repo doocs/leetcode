@@ -73,7 +73,7 @@ class Solution:
         for j in range(1, n):
             pos = bisect.bisect_left(sl, nums[j])
             sl.add(nums[j])
-            
+
             if pos < k - 1:
                 running_sum += nums[j]
                 if len(sl) > k - 1:
@@ -83,7 +83,7 @@ class Solution:
                 removed_pos = sl.index(nums[i])
                 removed_element = nums[i]
                 sl.remove(removed_element)
-                
+
                 if removed_pos < k - 1:
                     running_sum -= removed_element
                     if len(sl) >= k - 1:
@@ -165,7 +165,7 @@ public:
                 sum -= nums[i - sz];
                 sml.erase(sml.find(nums[i - sz]));
             }
-            
+
             while(sml.size() > k-1){
                 sum -= *sml.rbegin();
                 big.insert(*sml.rbegin());
