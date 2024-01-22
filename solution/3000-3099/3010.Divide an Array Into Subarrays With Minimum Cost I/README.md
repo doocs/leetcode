@@ -56,24 +56,87 @@
 
 ## 解法
 
-### 方法一
+### 方法一：遍历找最小值和次小值
+
+我们记数组 $nums$ 的第一个元素为 $a$，其余元素中最小的元素为 $b$，次小的元素为 $c$，那么答案就是 $a+b+c$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumCost(self, nums: List[int]) -> int:
+        a, b, c = nums[0], inf, inf
+        for x in nums[1:]:
+            if x < b:
+                c, b = b, x
+            elif x < c:
+                c = x
+        return a + b + c
 ```
 
 ```java
-
+class Solution {
+    public int minimumCost(int[] nums) {
+        int a = nums[0], b = 100, c = 100;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] < b) {
+                c = b;
+                b = nums[i];
+            } else if (nums[i] < c) {
+                c = nums[i];
+            }
+        }
+        return a + b + c;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumCost(vector<int>& nums) {
+        int a = nums[0], b = 100, c = 100;
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] < b) {
+                c = b;
+                b = nums[i];
+            } else if (nums[i] < c) {
+                c = nums[i];
+            }
+        }
+        return a + b + c;
+    }
+};
 ```
 
 ```go
+func minimumCost(nums []int) int {
+	a, b, c := nums[0], 100, 100
+	for _, x := range nums[1:] {
+		if x < b {
+			b, c = x, b
+		} else if x < c {
+			c = x
+		}
+	}
+	return a + b + c
+}
+```
 
+```ts
+function minimumCost(nums: number[]): number {
+    let [a, b, c] = [nums[0], 100, 100];
+    for (const x of nums.slice(1)) {
+        if (x < b) {
+            [b, c] = [x, b];
+        } else if (x < c) {
+            c = x;
+        }
+    }
+    return a + b + c;
+}
 ```
 
 <!-- tabs:end -->

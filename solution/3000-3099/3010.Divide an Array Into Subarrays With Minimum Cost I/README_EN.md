@@ -52,24 +52,87 @@ It can be shown that 12 is the minimum cost achievable.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Traverse to Find the Smallest and Second Smallest Values
+
+We set the first element of the array $nums$ as $a$, the smallest element among the remaining elements as $b$, and the second smallest element as $c$. The answer is $a+b+c$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumCost(self, nums: List[int]) -> int:
+        a, b, c = nums[0], inf, inf
+        for x in nums[1:]:
+            if x < b:
+                c, b = b, x
+            elif x < c:
+                c = x
+        return a + b + c
 ```
 
 ```java
-
+class Solution {
+    public int minimumCost(int[] nums) {
+        int a = nums[0], b = 100, c = 100;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] < b) {
+                c = b;
+                b = nums[i];
+            } else if (nums[i] < c) {
+                c = nums[i];
+            }
+        }
+        return a + b + c;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumCost(vector<int>& nums) {
+        int a = nums[0], b = 100, c = 100;
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] < b) {
+                c = b;
+                b = nums[i];
+            } else if (nums[i] < c) {
+                c = nums[i];
+            }
+        }
+        return a + b + c;
+    }
+};
 ```
 
 ```go
+func minimumCost(nums []int) int {
+	a, b, c := nums[0], 100, 100
+	for _, x := range nums[1:] {
+		if x < b {
+			b, c = x, b
+		} else if x < c {
+			c = x
+		}
+	}
+	return a + b + c
+}
+```
 
+```ts
+function minimumCost(nums: number[]): number {
+    let [a, b, c] = [nums[0], 100, 100];
+    for (const x of nums.slice(1)) {
+        if (x < b) {
+            [b, c] = [x, b];
+        } else if (x < c) {
+            c = x;
+        }
+    }
+    return a + b + c;
+}
 ```
 
 <!-- tabs:end -->
