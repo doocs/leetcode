@@ -29,7 +29,6 @@ class Solution:
 
         for i in range(  n ):
             bfs( i )
-
         
         return ans
 
