@@ -10,6 +10,7 @@ copyright: Copyright &copy; 2024 Doocs
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - announce.dismiss
     - content.code.annotate
