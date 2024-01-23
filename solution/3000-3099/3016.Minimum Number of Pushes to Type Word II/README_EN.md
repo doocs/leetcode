@@ -73,24 +73,86 @@ It can be shown that no other mapping can provide a lower cost.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy Algorithm + Sorting
+
+We use a hash table or array $cnt$ to count the number of occurrences of each letter in the string $word$. Next, we sort the letters in descending order of their counts, and then group every $8$ letters together, assigning each group to the $8$ keys.
+
+The time complexity is $O(n + |\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $word$, and $\Sigma$ is the set of letters that appear in the string $word$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumPushes(self, word: str) -> int:
+        cnt = Counter(word)
+        ans = 0
+        for i, x in enumerate(sorted(cnt.values(), reverse=True)):
+            ans += (i // 8 + 1) * x
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minimumPushes(String word) {
+        int[] cnt = new int[26];
+        for (int i = 0; i < word.length(); ++i) {
+            ++cnt[word.charAt(i) - 'a'];
+        }
+        Arrays.sort(cnt);
+        int ans = 0;
+        for (int i = 0; i < 26; ++i) {
+            ans += (i / 8 + 1) * cnt[26 - i - 1];
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumPushes(string word) {
+        vector<int> cnt(26);
+        for (char& c : word) {
+            ++cnt[c - 'a'];
+        }
+        sort(cnt.rbegin(), cnt.rend());
+        int ans = 0;
+        for (int i = 0; i < 26; ++i) {
+            ans += (i / 8 + 1) * cnt[i];
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minimumPushes(word string) (ans int) {
+	cnt := make([]int, 26)
+	for _, c := range word {
+		cnt[c-'a']++
+	}
+	sort.Ints(cnt)
+	for i := 0; i < 26; i++ {
+		ans += (i/8 + 1) * cnt[26-i-1]
+	}
+	return
+}
+```
 
+```ts
+function minimumPushes(word: string): number {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of word) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    cnt.sort((a, b) => b - a);
+    let ans = 0;
+    for (let i = 0; i < 26; ++i) {
+        ans += (((i / 8) | 0) + 1) * cnt[i];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
