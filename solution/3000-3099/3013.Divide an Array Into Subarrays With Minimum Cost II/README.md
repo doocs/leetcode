@@ -64,9 +64,11 @@
 
 ```python
 from sortedcontainers import SortedList
+
+
 class Solution:
     def minimumCost(self, nums: List[int], k: int, dist: int) -> int:
-        n=len(nums)
+        n = len(nums)
 
         sl = SortedList()
         y = nums[0]
@@ -81,7 +83,7 @@ class Solution:
             if pos < k - 1:
                 running_sum += nums[j]
                 if len(sl) > k - 1:
-                    running_sum -= sl[k-1]
+                    running_sum -= sl[k - 1]
 
             while j - i > dist:
                 removed_pos = sl.index(nums[i])
@@ -91,7 +93,7 @@ class Solution:
                 if removed_pos < k - 1:
                     running_sum -= removed_element
                     if len(sl) >= k - 1:
-                        running_sum += sl[k-2]
+                        running_sum += sl[k - 2]
                 i += 1
 
             if j - i + 1 >= k - 1:
@@ -103,41 +105,37 @@ class Solution:
 ```java
 class Solution {
     public long minimumCost(int[] nums, int k, int dist) {
-        long result = Long.MAX_VALUE, sum = 0l;
+        long result = Long.MAX_VALUE, sum = 0L;
         int n = nums.length;
-        TreeSet<Integer> set1 = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
-        TreeSet<Integer> set2 = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
-        for(int i=1;i<n;i++)
-        {
+        TreeSet<Integer> set1
+            = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
+        TreeSet<Integer> set2
+            = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
+        for (int i = 1; i < n; i++) {
             set1.add(i);
-            sum+=nums[i];
-            if(set1.size()>=k)
-            {
-                int x=set1.pollLast();
-                sum-=nums[x];
+            sum += nums[i];
+            if (set1.size() >= k) {
+                int x = set1.pollLast();
+                sum -= nums[x];
                 set2.add(x);
             }
-            if(i-dist>0)
-            {
-                result=Math.min(result,sum);
-                int temp=i-dist;
-                if(set1.contains(temp))
-                {
+            if (i - dist > 0) {
+                result = Math.min(result, sum);
+                int temp = i - dist;
+                if (set1.contains(temp)) {
                     set1.remove(temp);
-                    sum-=nums[temp];
-                    if(set2.size()>0)
-                    {
-                        int y=set2.pollFirst();
-                        sum+=nums[y];
+                    sum -= nums[temp];
+                    if (set2.size() > 0) {
+                        int y = set2.pollFirst();
+                        sum += nums[y];
                         set1.add(y);
                     }
-                }
-                else{
-                    set2.remove(i-dist);
+                } else {
+                    set2.remove(i - dist);
                 }
             }
         }
-        return result+nums[0];
+        return result + nums[0];
     }
 }
 ```
@@ -149,38 +147,37 @@ public:
         multiset<int> sml, big;
         int sz = dist + 1;
         long long sum = 0, ans = 0;
-        for(int i = 1; i <= sz; i++){
+        for (int i = 1; i <= sz; i++) {
             sml.insert(nums[i]);
             sum += nums[i];
         }
-        while(sml.size() > k-1){
+        while (sml.size() > k - 1) {
             big.insert(*sml.rbegin());
             sum -= *sml.rbegin();
             sml.erase(sml.find(*sml.rbegin()));
         }
         ans = sum;
-        for(int i = sz+1; i < nums.size(); i++){
+        for (int i = sz + 1; i < nums.size(); i++) {
             sum += nums[i];
             sml.insert(nums[i]);
-            if(big.find(nums[i - sz]) != big.end()){
+            if (big.find(nums[i - sz]) != big.end()) {
                 big.erase(big.find(nums[i - sz]));
-            }
-            else{
+            } else {
                 sum -= nums[i - sz];
                 sml.erase(sml.find(nums[i - sz]));
             }
 
-            while(sml.size() > k-1){
+            while (sml.size() > k - 1) {
                 sum -= *sml.rbegin();
                 big.insert(*sml.rbegin());
                 sml.erase(sml.find(*sml.rbegin()));
             }
-            while(sml.size() < k-1){
+            while (sml.size() < k - 1) {
                 sum += *big.begin();
                 sml.insert(*big.begin());
                 big.erase(big.begin());
             }
-            while(!sml.empty() && !big.empty() && *sml.rbegin() > *big.begin()){
+            while (!sml.empty() && !big.empty() && *sml.rbegin() > *big.begin()) {
                 sum -= *sml.rbegin() - *big.begin();
                 sml.insert(*big.begin());
                 big.insert(*sml.rbegin());
@@ -197,18 +194,8 @@ public:
 
 ```go
 func minimumCost(nums []int, k int, dist int) int64 {
-	res := nums[0] + mins((windowTopKSum(nums[1:], dist+1, k-1, true))...)
+	res := nums[0] + slices.Min(windowTopKSum(nums[1:], dist+1, k-1, true))
 	return int64(res)
-}
-
-func mins(nums ...int) int {
-	res := nums[0]
-	for _, num := range nums {
-		if num < res {
-			res = num
-		}
-	}
-	return res
 }
 
 func windowTopKSum(nums []int, windowSize, k int, min bool) []int {
