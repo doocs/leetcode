@@ -2,8 +2,10 @@ class Solution {
     public long minimumCost(int[] nums, int k, int dist) {
         long result = Long.MAX_VALUE, sum = 0L;
         int n = nums.length;
-        TreeSet<Integer> set1 = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
-        TreeSet<Integer> set2 = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
+        TreeSet<Integer> set1
+            = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
+        TreeSet<Integer> set2
+            = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
         for (int i = 1; i < n; i++) {
             set1.add(i);
             sum += nums[i];
