@@ -165,6 +165,13 @@ for dir in dirs:
             if not os.path.exists(docs_dir):
                 os.makedirs(docs_dir)
             new_path = os.path.join(docs_dir, f"{num}.md")
+            # 开启评论
+            """
+            ---
+            comments: true
+            ---
+            """
+            content = '---\ncomments: true\n---\n\n' + content
             with open(new_path, "w", encoding="utf-8") as f:
                 f.write(content)
 
