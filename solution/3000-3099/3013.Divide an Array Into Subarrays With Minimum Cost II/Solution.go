@@ -1,16 +1,6 @@
 func minimumCost(nums []int, k int, dist int) int64 {
-	res := nums[0] + mins((windowTopKSum(nums[1:], dist+1, k-1, true))...)
+	res := nums[0] + slices.Min(windowTopKSum(nums[1:], dist+1, k-1, true))
 	return int64(res)
-}
-
-func mins(nums ...int) int {
-	res := nums[0]
-	for _, num := range nums {
-		if num < res {
-			res = num
-		}
-	}
-	return res
 }
 
 func windowTopKSum(nums []int, windowSize, k int, min bool) []int {
