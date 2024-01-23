@@ -77,24 +77,86 @@
 
 ## 解法
 
-### 方法一
+### 方法一：贪心 + 排序
+
+我们用一个哈希表或数组 $cnt$ 统计字符串 $word$ 中每个字母出现的次数。接下来，按照字母出现的次数从大到小排序，然后每 $8$ 个字母一组，将每组中的字母分配到 $8$ 个按键上。
+
+时间复杂度 $O(n + |\Sigma| \times \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $word$ 的长度，而 $\Sigma$ 是字符串 $word$ 中出现的字母集合。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumPushes(self, word: str) -> int:
+        cnt = Counter(word)
+        ans = 0
+        for i, x in enumerate(sorted(cnt.values(), reverse=True)):
+            ans += (i // 8 + 1) * x
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minimumPushes(String word) {
+        int[] cnt = new int[26];
+        for (int i = 0; i < word.length(); ++i) {
+            ++cnt[word.charAt(i) - 'a'];
+        }
+        Arrays.sort(cnt);
+        int ans = 0;
+        for (int i = 0; i < 26; ++i) {
+            ans += (i / 8 + 1) * cnt[26 - i - 1];
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumPushes(string word) {
+        vector<int> cnt(26);
+        for (char& c : word) {
+            ++cnt[c - 'a'];
+        }
+        sort(cnt.rbegin(), cnt.rend());
+        int ans = 0;
+        for (int i = 0; i < 26; ++i) {
+            ans += (i / 8 + 1) * cnt[i];
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minimumPushes(word string) (ans int) {
+	cnt := make([]int, 26)
+	for _, c := range word {
+		cnt[c-'a']++
+	}
+	sort.Ints(cnt)
+	for i := 0; i < 26; i++ {
+		ans += (i/8 + 1) * cnt[26-i-1]
+	}
+	return
+}
+```
 
+```ts
+function minimumPushes(word: string): number {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of word) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    cnt.sort((a, b) => b - a);
+    let ans = 0;
+    for (let i = 0; i < 26; ++i) {
+        ans += (((i / 8) | 0) + 1) * cnt[i];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
