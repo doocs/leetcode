@@ -65,24 +65,82 @@
 
 ## 解法
 
-### 方法一
+### 方法一：贪心
+
+我们注意到，字符串 $word$ 中的所有字母都是不同的，因此，我们贪心地将字母均匀地分配到 $8$ 个按键上，即可使得按键次数最少。
+
+时间复杂度 $O(n / 8)$，其中 $n$ 是字符串 $word$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumPushes(self, word: str) -> int:
+        n = len(word)
+        ans, k = 0, 1
+        for _ in range(n // 8):
+            ans += k * 8
+            k += 1
+        ans += k * (n % 8)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minimumPushes(String word) {
+        int n = word.length();
+        int ans = 0, k = 1;
+        for (int i = 0; i < n / 8; ++i) {
+            ans += k * 8;
+            ++k;
+        }
+        ans += k * (n % 8);
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumPushes(string word) {
+        int n = word.size();
+        int ans = 0, k = 1;
+        for (int i = 0; i < n / 8; ++i) {
+            ans += k * 8;
+            ++k;
+        }
+        ans += k * (n % 8);
+        return ans;
+    }
+};
 ```
 
 ```go
+func minimumPushes(word string) (ans int) {
+	n := len(word)
+	k := 1
+	for i := 0; i < n/8; i++ {
+		ans += k * 8
+		k++
+	}
+	ans += k * (n % 8)
+	return
+}
+```
 
+```ts
+function minimumPushes(word: string): number {
+    const n = word.length;
+    let ans = 0;
+    let k = 1;
+    for (let i = 0; i < ((n / 8) | 0); ++i) {
+        ans += k * 8;
+        ++k;
+    }
+    ans += k * (n % 8);
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
