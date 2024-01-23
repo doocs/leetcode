@@ -72,19 +72,124 @@
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
+        adj = collections.defaultdict( list )
+        for i in range( 1 , n ):
+            adj[i-1].append( i )
+            adj[i].append( i-1 )
+        if x != y :
+            x-=1 
+            y-=1 
+            adj[x].append( y )
+            adj[y].append( x )
+        ans = [ 0 ]*n
+        def bfs( start ):
+            arr = [ inf ]*n
+            q =  [ ( 0 , start ) ] 
+            heapq.heapify( q )
+            while q : 
+                size = len( q )
+                while size :
+                    size -=1 
+                    dist , node = heapq.heappop( q )
+                    if arr[ node ] <= dist : continue 
+                    arr[node] = dist 
+                    for child in adj[ node ] : 
+                        heapq.heappush( q , ( dist+1 , child ))
+            for i in arr :
+                if i != 0 and i!= inf :
+                    ans[i-1] +=1
 
+        for i in range(  n ):
+            bfs( i )
+        
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int[] countOfPairs(int n, int x, int y) {
+        int[][] grid = new int[n + 1][n + 1];
+        for (int[] row : grid) {
+            Arrays.fill(row, 100000);
+        }
+        for (int j = 1; j < n; j++) {
+            grid[j][j + 1] = 1;
+            grid[j + 1][j] = 1;
+        }
+        grid[x][y] = 1;
+        grid[y][x] = 1;
+        for (int via = 1; via <= n; via++) {
+            for (int i = 1; i <= n; i++) {
+                for (int j = 1; j <= n; j++) {
+                    grid[i][j] = Math.min(grid[i][j], grid[i][via] + grid[via][j]);
+                }
+            }
+        }
+        int[] result = new int[n];
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i != j) {
+                    int val = grid[i][j];
+                    result[val - 1]++;
+                }
+            }
+        }
+        return result;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countOfPairs(int n, int x, int y) {
+        vector<int> result(n);
+        for(int i = 0; i < n; i++){
+            result[i] = (n - i - 1) * 2;
+        }
+        if(x > y) swap(x, y);
+        if((y-x) <= 1){
+            return result;
+        }
+        int end = (x+y) / 2 - 1;
+        int start = (x+y)/2 + 1;
+        for(int i = 1; i <= end; i++){
+            for(int j = start; j <= n; j++){
+                int dist_old = j - i;
+                int dist_new = abs(x - i) + 1 + abs(y - j);
+                if(dist_old > dist_new){
+                    result[dist_new-1] += 2;
+                    result[dist_old-1] -= 2;
+                }
+            }
+        }
+        return result;
+    }
+};
 ```
 
 ```go
-
+func countOfPairs(n int, x int, y int) []int {
+    if x > y { x,y = y,x }
+    res := make([]int, n)    
+    for i := 1; i <= n; i++ {
+        for j := i+1; j <= n; j++ {
+            v := min(j-i, 1+abs(i-x)+abs(j-y))
+            res[v-1] += 2
+        }
+    }
+    return res
+}
+func min(a,b int) int {
+    if a < b { return a }
+    return b
+}
+func abs(a int) int {
+    if a < 0 { return -a }
+    return a
+}
 ```
 
 <!-- tabs:end -->
