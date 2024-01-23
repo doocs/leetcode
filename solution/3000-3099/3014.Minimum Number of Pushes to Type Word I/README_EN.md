@@ -61,24 +61,82 @@ It can be shown that no other mapping can provide a lower cost.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy Algorithm
+
+We notice that all the letters in the string $word$ are different. Therefore, we can greedily distribute the letters evenly across the $8$ keys to minimize the number of key presses.
+
+The time complexity is $O(n / 8)$, where $n$ is the length of the string $word$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumPushes(self, word: str) -> int:
+        n = len(word)
+        ans, k = 0, 1
+        for _ in range(n // 8):
+            ans += k * 8
+            k += 1
+        ans += k * (n % 8)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minimumPushes(String word) {
+        int n = word.length();
+        int ans = 0, k = 1;
+        for (int i = 0; i < n / 8; ++i) {
+            ans += k * 8;
+            ++k;
+        }
+        ans += k * (n % 8);
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumPushes(string word) {
+        int n = word.size();
+        int ans = 0, k = 1;
+        for (int i = 0; i < n / 8; ++i) {
+            ans += k * 8;
+            ++k;
+        }
+        ans += k * (n % 8);
+        return ans;
+    }
+};
 ```
 
 ```go
+func minimumPushes(word string) (ans int) {
+	n := len(word)
+	k := 1
+	for i := 0; i < n/8; i++ {
+		ans += k * 8
+		k++
+	}
+	ans += k * (n % 8)
+	return
+}
+```
 
+```ts
+function minimumPushes(word: string): number {
+    const n = word.length;
+    let ans = 0;
+    let k = 1;
+    for (let i = 0; i < ((n / 8) | 0); ++i) {
+        ans += k * 8;
+        ++k;
+    }
+    ans += k * (n % 8);
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
