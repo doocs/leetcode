@@ -1,5 +1,6 @@
 class Solution:
     def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
+        #print()
         if abs(x - y) <= 1:
             return [2 * x for x in reversed(range(n))]
         cycle_len = abs(x - y) + 1
@@ -11,8 +12,10 @@ class Solution:
         if not cycle_len & 1:
             res2[-1] = cycle_len
         res2[0] -= 2
+        
         for i in range(len(res2)):
             res[i] += res2[i]
+        
         if x > y:
             x, y = y, x
         tail1 = x - 1
