@@ -20,8 +20,8 @@
 
 ## 站点
 
--   Vercel: https://doocs-leetcode.vercel.app
 -   GitHub Pages: https://doocs.github.io/leetcode
+-   Gitee Pages: https://doocs.gitee.io/leetcode
 
 ## 算法全解
 
