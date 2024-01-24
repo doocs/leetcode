@@ -171,29 +171,6 @@ impl Solution {
 }
 ```
 
-```js
-/**
- * @param {number} x
- * @return {boolean}
- */
-var isPalindrome = function (x) {
-    if (x < 0 || (x > 0 && x % 10 === 0)) {
-        return false;
-    }
-    let y = 0;
-    for (; y < x; x = ~~(x / 10)) {
-        y = y * 10 + (x % 10);
-    }
-    return x === y || x === ~~(y / 10);
-};
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
 ```rust
 impl Solution {
     pub fn is_palindrome(mut x: i32) -> bool {
@@ -209,6 +186,23 @@ impl Solution {
         x == y || x == y / 10
     }
 }
+```
+
+```js
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function (x) {
+    if (x < 0 || (x > 0 && x % 10 === 0)) {
+        return false;
+    }
+    let y = 0;
+    for (; y < x; x = ~~(x / 10)) {
+        y = y * 10 + (x % 10);
+    }
+    return x === y || x === ~~(y / 10);
+};
 ```
 
 ```php

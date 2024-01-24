@@ -86,6 +86,23 @@ class Solution {
     public long maximumSum(List<Integer> nums) {
         long ans = 0;
         int n = nums.size();
+        for (int k = 1; k <= n; ++k) {
+            long t = 0;
+            for (int j = 1; k * j * j <= n; ++j) {
+                t += nums.get(k * j * j - 1);
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public long maximumSum(List<Integer> nums) {
+        long ans = 0;
+        int n = nums.size();
         boolean[] used = new boolean[n + 1];
         int bound = (int) Math.floor(Math.sqrt(n));
         int[] squares = new int[bound + 1];
@@ -151,29 +168,6 @@ function maximumSum(nums: number[]): number {
         ans = Math.max(ans, t);
     }
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public long maximumSum(List<Integer> nums) {
-        long ans = 0;
-        int n = nums.size();
-        for (int k = 1; k <= n; ++k) {
-            long t = 0;
-            for (int j = 1; k * j * j <= n; ++j) {
-                t += nums.get(k * j * j - 1);
-            }
-            ans = Math.max(ans, t);
-        }
-        return ans;
-    }
 }
 ```
 
