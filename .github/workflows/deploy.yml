@@ -62,4 +62,4 @@ jobs:
             gitee-username: yanglbme
             gitee-password: ${{ secrets.GITEE_PASSWORD }}
             gitee-repo: doocs/leetcode
-            branch: main
+            branch: gh-pages

@@ -176,36 +176,6 @@ def generate_question_readme(result):
             )
 
 
-def generate_summary(result):
-    """generate summary files"""
-    summary_cn = summary_en = ""
-    m = {int(item["frontend_question_id"]): item for item in result}
-    for file in sorted(os.listdir("./"), key=lambda x: x.lower()):
-        if os.path.isdir("./" + file) and file != "__pycache__":
-            summary_cn += f"\n- {file}\n"
-            summary_en += f"\n- {file}\n"
-            for sub in sorted(os.listdir("./" + file), key=lambda x: x.lower()):
-                sub = sub.replace("`", " ")
-                enc = quote(sub)
-                if not sub[:4].isdigit():
-                    continue
-                data = m.get(int(sub[:4]))
-                sub_cn = sub
-                if data:
-                    sub_cn = sub[:5] + data["title_cn"]
-
-                summary_cn += f"  - [{sub_cn}](/solution/{file}/{enc}/README.md)\n"
-                summary_en += f"  - [{sub}](/solution/{file}/{enc}/README_EN.md)\n"
-
-    # generate summary.md
-    with open("./summary.md", "w", encoding="utf-8") as f:
-        f.write(summary_cn)
-
-    # generate summary_en.md
-    with open("./summary_en.md", "w", encoding="utf-8") as f:
-        f.write(summary_en)
-
-
 def generate_category_summary(result, category=""):
     """generate category summary files"""
     summary_cn = (
