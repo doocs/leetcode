@@ -126,6 +126,18 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 }
 ```
 
+```ts
+/**
+ Do not return anything, modify nums1 in-place instead.
+ */
+function merge(nums1: number[], m: number, nums2: number[], n: number): void {
+    nums1.length = m;
+    nums2.length = n;
+    nums1.push(...nums2);
+    nums1.sort((a, b) => a - b);
+}
+```
+
 ```rust
 impl Solution {
     pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
@@ -188,24 +200,6 @@ class Solution {
         }
         asort($nums1);
     }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```ts
-/**
- Do not return anything, modify nums1 in-place instead.
- */
-function merge(nums1: number[], m: number, nums2: number[], n: number): void {
-    nums1.length = m;
-    nums2.length = n;
-    nums1.push(...nums2);
-    nums1.sort((a, b) => a - b);
 }
 ```
 

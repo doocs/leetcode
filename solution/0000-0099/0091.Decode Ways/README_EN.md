@@ -182,7 +182,7 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+We notice that the state $f[i]$ is only related to the states $f[i-1]$ and $f[i-2]$, and is irrelevant to other states. Therefore, we can use two variables to replace these two states, reducing the original space complexity from $O(n)$ to $O(1)$.
 
 <!-- tabs:start -->
 
