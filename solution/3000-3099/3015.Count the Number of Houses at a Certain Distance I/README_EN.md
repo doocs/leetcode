@@ -63,24 +63,105 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate each pair of points $(i, j)$. The shortest distance from $i$ to $j$ is $min(|i - j|, |i - x| + 1 + |j - y|, |i - y| + 1 + |j - x|)$. We add $2$ to the count of this distance because both $(i, j)$ and $(j, i)$ are valid pairs of points.
+
+The time complexity is $O(n^2)$, where $n$ is the $n$ given in the problem. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countOfPairs(self, n: int, x: int, y: int) -> List[int]:
+        x, y = x - 1, y - 1
+        ans = [0] * n
+        for i in range(n):
+            for j in range(i + 1, n):
+                a = j - i
+                b = abs(i - x) + 1 + abs(j - y)
+                c = abs(i - y) + 1 + abs(j - x)
+                ans[min(a, b, c) - 1] += 2
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int[] countOfPairs(int n, int x, int y) {
+        int[] ans = new int[n];
+        x--;
+        y--;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                int a = j - i;
+                int b = Math.abs(i - x) + 1 + Math.abs(j - y);
+                int c = Math.abs(i - y) + 1 + Math.abs(j - x);
+                ans[Math.min(a, Math.min(b, c)) - 1] += 2;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countOfPairs(int n, int x, int y) {
+        vector<int> ans(n);
+        x--;
+        y--;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                int a = j - i;
+                int b = abs(x - i) + abs(y - j) + 1;
+                int c = abs(y - i) + abs(x - j) + 1;
+                ans[min({a, b, c}) - 1] += 2;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func countOfPairs(n int, x int, y int) []int {
+	ans := make([]int, n)
+	x, y = x-1, y-1
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			a := j - i
+			b := abs(x-i) + abs(y-j) + 1
+			c := abs(x-j) + abs(y-i) + 1
+			ans[min(a, min(b, c))-1] += 2
+		}
+	}
+	return ans
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+```ts
+function countOfPairs(n: number, x: number, y: number): number[] {
+    const ans: number[] = Array(n).fill(0);
+    x--;
+    y--;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            const a = j - i;
+            const b = Math.abs(x - i) + Math.abs(y - j) + 1;
+            const c = Math.abs(y - i) + Math.abs(x - j) + 1;
+            ans[Math.min(a, b, c) - 1] += 2;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
