@@ -13,8 +13,7 @@ class Solution {
             ++diff[Math.min(Math.abs(i - x), Math.abs(i - y) + 1)];
             ++diff[Math.min(Math.abs(i - y), Math.abs(i - x) + 1)];
             --diff[Math.min(Math.abs(i - 0), Math.abs(i - y) + 1 + Math.abs(x - 0))];
-            --diff[Math.min(Math.abs(i - (n - 1)),
-                            Math.abs(i - x) + 1 + Math.abs(y - (n - 1)))];
+            --diff[Math.min(Math.abs(i - (n - 1)), Math.abs(i - x) + 1 + Math.abs(y - (n - 1)))];
             --diff[Math.max(x - i, 0) + Math.max(i - y, 0) + ((y - x) + 0) / 2];
             --diff[Math.max(x - i, 0) + Math.max(i - y, 0) + ((y - x) + 1) / 2];
         }
