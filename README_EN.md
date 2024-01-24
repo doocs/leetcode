@@ -20,8 +20,8 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
 
 ## Sites
 
--   Vercel: https://doocs-leetcode.vercel.app
 -   GitHub Pages: https://doocs.github.io/leetcode
+-   Gitee Pages: https://doocs.gitee.io/leetcode
 
 ## Solutions
 
