@@ -171,11 +171,6 @@ public:
 ```
 
 ```go
-import (
-	"fmt"
-	"math"
-)
-
 func countOfPairs(n int, x int, y int) []int64 {
 	if x > y {
 		x, y = y, x
@@ -194,21 +189,8 @@ func countOfPairs(n int, x int, y int) []int64 {
 	for i := 1; i < n; i++ {
 		A[i] += A[i-1]
 	}
+
 	return A
-}
-
-func min(a, b int64) int64 {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 
