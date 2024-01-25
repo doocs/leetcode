@@ -88,8 +88,9 @@ class Solution:
         tail1 = x - 1
         tail2 = n - y
         for tail in (tail1, tail2):
-            if not tail: continue
-            i_mx = (tail + (cycle_len >> 1))
+            if not tail:
+                continue
+            i_mx = tail + (cycle_len >> 1)
             val_mx = 4 * min((cycle_len - 3) >> 1, tail)
             i_mx2 = i_mx - (1 - (cycle_len & 1))
             res3 = [val_mx] * i_mx
@@ -103,7 +104,7 @@ class Solution:
             for i in range(1, tail + 1):
                 res3[i] += 2
             if not cycle_len & 1:
-                mn = (cycle_len >> 1)
+                mn = cycle_len >> 1
                 for i in range(mn, mn + tail):
                     res3[i] += 2
             for i in range(len(res3)):
