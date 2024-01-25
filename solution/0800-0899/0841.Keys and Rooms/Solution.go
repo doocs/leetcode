@@ -1,15 +1,18 @@
 func canVisitAllRooms(rooms [][]int) bool {
-	vis := make(map[int]bool)
-	var dfs func(u int)
-	dfs = func(u int) {
-		if vis[u] {
+	n := len(rooms)
+	cnt := 0
+	vis := make([]bool, n)
+	var dfs func(int)
+	dfs = func(i int) {
+		if vis[i] {
 			return
 		}
-		vis[u] = true
-		for _, v := range rooms[u] {
-			dfs(v)
+		vis[i] = true
+		cnt++
+		for _, j := range rooms[i] {
+			dfs(j)
 		}
 	}
 	dfs(0)
-	return len(vis) == len(rooms)
+	return cnt == n
 }

@@ -1,21 +1,23 @@
 class Solution {
-    private List<List<Integer>> rooms;
-    private Set<Integer> vis;
+    private int cnt;
+    private boolean[] vis;
+    private List<List<Integer>> g;
 
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
-        vis = new HashSet<>();
-        this.rooms = rooms;
+        g = rooms;
+        vis = new boolean[g.size()];
         dfs(0);
-        return vis.size() == rooms.size();
+        return cnt == g.size();
     }
 
-    private void dfs(int u) {
-        if (vis.contains(u)) {
+    private void dfs(int i) {
+        if (vis[i]) {
             return;
         }
-        vis.add(u);
-        for (int v : rooms.get(u)) {
-            dfs(v);
+        vis[i] = true;
+        ++cnt;
+        for (int j : g.get(i)) {
+            dfs(j);
         }
     }
 }
