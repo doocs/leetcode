@@ -56,7 +56,7 @@
 
 相似题目：
 
--   [1073. 负二进制数相加](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
+-   [1073. 负二进制数相加](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
 
 <!-- tabs:start -->
 

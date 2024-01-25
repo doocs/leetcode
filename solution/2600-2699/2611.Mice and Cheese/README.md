@@ -65,7 +65,7 @@
 
 相似题目：
 
--   [1029. 两地调度](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
+-   [1029. 两地调度](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
 
 <!-- tabs:start -->
 

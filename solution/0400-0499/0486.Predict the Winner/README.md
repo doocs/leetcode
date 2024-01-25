@@ -205,7 +205,7 @@ impl Solution {
 
 相似题目：
 
--   [877. 石子游戏](/solution/0800-0899/0877.Stone%20Game/README.md)
+-   [877. 石子游戏](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0877.Stone%20Game/README.md)
 
 <!-- tabs:start -->
 

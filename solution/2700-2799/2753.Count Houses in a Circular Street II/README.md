@@ -64,7 +64,7 @@
 
 相似题目：
 
--   [2728. 计算一个环形街道上的房屋数量](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)
+-   [2728. 计算一个环形街道上的房屋数量](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)
 
 <!-- tabs:start -->
 

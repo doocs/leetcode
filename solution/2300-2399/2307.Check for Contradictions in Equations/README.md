@@ -65,7 +65,7 @@ a = 3, b = 1 和 c = 2.
 
 相似题目：
 
--   [399. 除法求值](/solution/0300-0399/0399.Evaluate%20Division/README.md)
+-   [399. 除法求值](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0399.Evaluate%20Division/README.md)
 
 <!-- tabs:start -->
 

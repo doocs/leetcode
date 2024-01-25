@@ -71,9 +71,11 @@
 
 正向遍历 $arr$，利用并查集动态维护每组 $1$ 的长度。
 
-时间复杂度 $O(nlogn)$。
+时间复杂度 $O(n \times \log n)$。
 
-相似题目：[2334. 元素值大于变化阈值的子数组](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
+相似题目：
+
+-   [2334. 元素值大于变化阈值的子数组](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
 
 <!-- tabs:start -->
 

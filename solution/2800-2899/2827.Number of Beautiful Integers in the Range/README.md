@@ -86,7 +86,7 @@
 
 相似题目：
 
--   [2719. 统计整数数目](/solution/2700-2799/2719.Count%20of%20Integers/README.md)
+-   [2719. 统计整数数目](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README.md)
 
 <!-- tabs:start -->
 

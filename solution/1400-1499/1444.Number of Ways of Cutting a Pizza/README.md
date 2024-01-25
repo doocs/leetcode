@@ -70,7 +70,9 @@ $$
 
 时间复杂度 $O(m \times n \times k \times (m + n))$，空间复杂度 $O(m \times n \times k)$。其中 $m$, $n$ 分别是矩形的行数和列数。
 
-相似题目：[2312. 卖木头块](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)
+相似题目：
+
+-   [2312. 卖木头块](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)
 
 <!-- tabs:start -->
 

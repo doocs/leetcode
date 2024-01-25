@@ -189,7 +189,9 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 
 时间复杂度 $O(mn(m+n))$。
 
-相似题目：[1444. 切披萨的方案数](/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md)
+相似题目：
+
+-   [1444. 切披萨的方案数](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md)
 
 <!-- tabs:start -->
 

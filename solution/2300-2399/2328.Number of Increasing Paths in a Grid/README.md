@@ -66,7 +66,9 @@
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格图的行数和列数。
 
-相似题目：[329. 矩阵中的最长递增路径](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)。
+相似题目：
+
+-   [329. 矩阵中的最长递增路径](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)。
 
 <!-- tabs:start -->
 

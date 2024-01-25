@@ -56,7 +56,9 @@
 
 时间复杂度 $O(n\log n)$，其中 $n$ 是字符串 `s` 的长度。
 
-相似题目：[767. 重构字符串](/solution/0700-0799/0767.Reorganize%20String/README.md)
+相似题目：
+
+-   [767. 重构字符串](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0767.Reorganize%20String/README.md)
 
 <!-- tabs:start -->
 

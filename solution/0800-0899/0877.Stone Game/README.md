@@ -182,7 +182,7 @@ function stoneGame(piles: number[]): boolean {
 
 相似题目：
 
--   [486. 预测赢家](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
+-   [486. 预测赢家](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
 
 <!-- tabs:start -->
 

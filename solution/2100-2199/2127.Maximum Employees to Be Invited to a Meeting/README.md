@@ -85,7 +85,9 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `favorite` 的长度。
 
-相似题目：[2360. 图中的最长环](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
+相似题目：
+
+-   [2360. 图中的最长环](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
 
 <!-- tabs:start -->
 

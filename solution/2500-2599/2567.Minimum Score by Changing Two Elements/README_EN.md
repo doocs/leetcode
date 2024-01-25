@@ -63,7 +63,7 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. H
 
 Similar problems:
 
--[1509. Minimum Difference Between Largest and Smallest Value in Three Moves](/solution/1500-1599/1509.Minimum%20Difference%20Between%20Largest%20and%20Smallest%20Value%20in%20Three%20Moves/README_EN.md)
+-[1509. Minimum Difference Between Largest and Smallest Value in Three Moves](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1509.Minimum%20Difference%20Between%20Largest%20and%20Smallest%20Value%20in%20Three%20Moves/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -78,7 +78,7 @@ $$
 
 相似题目：
 
--   [279. 完全平方数](/solution/0200-0299/0279.Perfect%20Squares/README.md)
+-   [279. 完全平方数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0279.Perfect%20Squares/README.md)
 
 <!-- tabs:start -->
 

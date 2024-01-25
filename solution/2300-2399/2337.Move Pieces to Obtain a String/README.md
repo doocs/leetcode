@@ -70,7 +70,9 @@
 
 时间复杂度 $O(n)$，其中 $n$ 表示字符串 `start` 或 `target` 的长度。
 
-相似题目：[777. 在 LR 字符串中交换相邻字符](/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
+相似题目：
+
+-   [777. 在 LR 字符串中交换相邻字符](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
 
 <!-- tabs:start -->
 

@@ -80,7 +80,7 @@ The original problem requires that the same number appear at most once. We can e
 
 Similar problems:
 
--   [80. Remove Duplicates from Sorted Array II](/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)
+-   [80. Remove Duplicates from Sorted Array II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -26,7 +26,7 @@
 
 相似题目：
 
--   [42. 接雨水](/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
+-   [42. 接雨水](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 
 <!-- tabs:start -->
 

@@ -90,7 +90,7 @@
 
 相似题目：
 
--   [834. 树中距离之和](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
+-   [834. 树中距离之和](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
 
 <!-- tabs:start -->
 

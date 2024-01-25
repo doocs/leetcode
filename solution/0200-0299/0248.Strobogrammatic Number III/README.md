@@ -59,7 +59,9 @@
 
 时间复杂度为 $O(2^{n+2}\times \log n)$。
 
-相似题目：[247. 中心对称数 II](/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md)
+相似题目：
+
+-   [247. 中心对称数 II](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md)
 
 <!-- tabs:start -->
 

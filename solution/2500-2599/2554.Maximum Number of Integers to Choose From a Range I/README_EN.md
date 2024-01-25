@@ -213,7 +213,7 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 Similar problems:
 
--   [2557. Maximum Number of Integers to Choose From a Range II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
+-   [2557. Maximum Number of Integers to Choose From a Range II](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
 
 <!-- tabs:start -->
 

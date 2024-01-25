@@ -88,7 +88,9 @@
 
 时间复杂度 $O(n \times 2^m \times \log {2^m})$。
 
-相似题目：[1755. 最接近目标值的子序列和](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
+相似题目：
+
+-   [1755. 最接近目标值的子序列和](https://github.com/doocs/leetcode/blob/main/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
 
 <!-- tabs:start -->
 

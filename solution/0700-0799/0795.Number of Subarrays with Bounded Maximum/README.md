@@ -133,7 +133,9 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
-相似题目：[907. 子数组的最小值之和](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
+相似题目：
+
+-   [907. 子数组的最小值之和](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
 
 <!-- tabs:start -->
 
