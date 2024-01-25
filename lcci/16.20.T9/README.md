@@ -7,7 +7,7 @@
 <!-- 这里写题目描述 -->
 
 <p>在老式手机上，用户通过数字键盘输入，手机将提供与这些数字相匹配的单词列表。每个数字映射到0至4个字母。给定一个数字序列，实现一个算法来返回匹配单词的列表。你会得到一张含有有效单词的列表。映射如下图所示：</p>
-![](./images/17_telephone_keypad.png)
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/16.20.T9/images/17_telephone_keypad.png)
 <p><strong>示例 1:</strong></p>
 <pre><strong>输入:</strong> num = &quot;8733&quot;, words = [&quot;tree&quot;, &quot;used&quot;]
 <strong>输出:</strong> [&quot;tree&quot;, &quot;used&quot;]

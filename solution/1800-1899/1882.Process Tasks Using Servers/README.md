@@ -70,7 +70,9 @@
 -   若当前有空闲服务器，那么在空闲队列 `idle` 中取出权重最小的服务器，将其加入使用中的队列 `busy` 中；
 -   若当前没有空闲服务器，那么在使用队列 `busy` 中找出最早结束时间且权重最小的服务器，重新加入使用中的队列 `busy` 中。
 
-相似题目：[2402. 会议室 III](/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
+相似题目：
+
+-   [2402. 会议室 III](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
 
 <!-- tabs:start -->
 

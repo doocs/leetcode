@@ -42,7 +42,7 @@
 
 ### 方法一：递归
 
-思路同 [105. 从前序与中序遍历序列构造二叉树](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)。
+思路同 [105. 从前序与中序遍历序列构造二叉树](https://github.com/doocs/leetcode/blob/main/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 

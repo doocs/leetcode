@@ -64,7 +64,7 @@ The time complexity is $O(\log M \times |\Sigma|^2)$, and the space complexity i
 
 Similar problems:
 
--   [2719. Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
+-   [2719. Count of Integers](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
 
 <!-- tabs:start -->
 

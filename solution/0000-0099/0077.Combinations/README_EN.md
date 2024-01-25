@@ -54,9 +54,9 @@ The time complexity is $(C_n^k \times k)$, and the space complexity is $O(k)$. H
 
 Similar problems:
 
--   [39. Combination Sum](/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
--   [40. Combination Sum II](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
--   [216. Combination Sum III](/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md)
+-   [39. Combination Sum](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
+-   [40. Combination Sum II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
+-   [216. Combination Sum III](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md)
 
 <!-- tabs:start -->
 

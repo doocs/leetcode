@@ -62,8 +62,8 @@
 
 相似题目：
 
--   [1513. 仅含 1 的子串数](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)
--   [2348. 全 0 子数组的数目](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
+-   [1513. 仅含 1 的子串数](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)
+-   [2348. 全 0 子数组的数目](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
 
 <!-- tabs:start -->
 

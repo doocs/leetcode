@@ -164,7 +164,7 @@ int maxChunksToSorted(int* arr, int arrSize) {
 
 根据题目，我们可以发现，从左到右，每个分块都有一个最大值，并且这些分块的最大值呈单调递增。我们可以用一个栈来存储这些分块的最大值。最后得到的栈的大小，也就是题目所求的最多能完成排序的块。
 
-以上这种解法，不仅可以解决本题，也可以解决 [768. 最多能完成排序的块 II](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README.md) 这道困难题。大家可以自行尝试。
+以上这种解法，不仅可以解决本题，也可以解决 [768. 最多能完成排序的块 II](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README.md) 这道困难题。大家可以自行尝试。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 

@@ -188,7 +188,9 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `nums` 的长度。
 
-相似题目：[1004. 最大连续 1 的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
+相似题目：
+
+-   [1004. 最大连续 1 的个数 III](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
 
 以下是滑动窗口的优化版本。
 

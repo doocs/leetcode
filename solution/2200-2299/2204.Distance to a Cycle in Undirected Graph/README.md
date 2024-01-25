@@ -81,7 +81,7 @@
 
 相似题目：
 
--   [2603. 收集树中金币](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
+-   [2603. 收集树中金币](https://github.com/doocs/leetcode/blob/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
 
 <!-- tabs:start -->
 

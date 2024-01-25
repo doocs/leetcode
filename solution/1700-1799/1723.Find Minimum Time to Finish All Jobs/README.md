@@ -45,7 +45,7 @@
 
 ### 方法一：DFS + 剪枝
 
-本题与 [2305. 公平分发饼干](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md) 基本一致，不同的地方仅在于 $k$ 值的大小。
+本题与 [2305. 公平分发饼干](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md) 基本一致，不同的地方仅在于 $k$ 值的大小。
 
 剪枝优化：优化分配花费时间较大的工作，因此可以先对 $jobs$ 按照降序排列。
 

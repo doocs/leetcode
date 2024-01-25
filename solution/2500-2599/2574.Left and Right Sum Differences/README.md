@@ -63,8 +63,8 @@
 
 相似题目：
 
--   [0724. 寻找数组的中心下标](/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
--   [1991. 找到数组的中间位置](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md)
+-   [0724. 寻找数组的中心下标](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
+-   [1991. 找到数组的中间位置](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md)
 
 <!-- tabs:start -->
 

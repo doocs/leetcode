@@ -47,7 +47,9 @@ XRLXXRRLX
 
 时间复杂度 $O(n)$，其中 $n$ 表示字符串 `start` 或 `end` 的长度。
 
-相似题目：[2337. 移动片段得到字符串](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md)
+相似题目：
+
+-   [2337. 移动片段得到字符串](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md)
 
 <!-- tabs:start -->
 

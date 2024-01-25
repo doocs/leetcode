@@ -40,7 +40,7 @@
 
 相似题目：
 
--   [81. 搜索旋转排序数组 II](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
+-   [81. 搜索旋转排序数组 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
 

@@ -79,7 +79,7 @@ The original problem requires that the same number appears at most $2$ times. We
 
 Similar problems:
 
--   [26. Remove Duplicates from Sorted Array](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
+-   [26. Remove Duplicates from Sorted Array](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
 
 <!-- tabs:start -->
 

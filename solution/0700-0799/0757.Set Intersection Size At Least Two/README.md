@@ -59,7 +59,9 @@
 
 ### 方法一：排序 + 贪心
 
-相似题目： [452. 用最少数量的箭引爆气球](/solution/0400-0499/0452.Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons/README.md)
+相似题目：
+
+-   [452. 用最少数量的箭引爆气球](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0452.Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons/README.md)
 
 <!-- tabs:start -->
 

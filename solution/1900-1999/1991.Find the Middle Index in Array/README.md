@@ -82,8 +82,8 @@
 
 相似题目：
 
--   [0724. 寻找数组的中心下标](/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
--   [2574. 左右元素和的差值](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README.md)
+-   [0724. 寻找数组的中心下标](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
+-   [2574. 左右元素和的差值](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README.md)
 
 <!-- tabs:start -->
 

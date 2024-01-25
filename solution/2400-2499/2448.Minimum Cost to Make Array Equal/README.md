@@ -239,8 +239,8 @@ impl Solution {
 
 相似题目：
 
--   [296. 最佳的碰头地点](/solution/0200-0299/0296.Best%20Meeting%20Point/README.md)
--   [462. 最少移动次数使数组元素相等 II](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
+-   [296. 最佳的碰头地点](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0296.Best%20Meeting%20Point/README.md)
+-   [462. 最少移动次数使数组元素相等 II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
 
 <!-- tabs:start -->
 

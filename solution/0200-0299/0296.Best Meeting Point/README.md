@@ -56,8 +56,8 @@
 
 相似题目：
 
--   [462. 最少移动次数使数组元素相等 II](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
--   [2448. 使数组相等的最小开销](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
+-   [462. 最少移动次数使数组元素相等 II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
+-   [2448. 使数组相等的最小开销](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)
 
 <!-- tabs:start -->
 

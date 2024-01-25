@@ -64,7 +64,7 @@ $$
 
 相似题目：
 
--   [1143. 最长公共子序列](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
+-   [1143. 最长公共子序列](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
 
 <!-- tabs:start -->
 

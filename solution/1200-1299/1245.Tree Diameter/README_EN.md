@@ -59,7 +59,7 @@ Therefore, the theorem holds.
 
 Similar problems:
 
--   [1522. Diameter of N-Ary Tree](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
+-   [1522. Diameter of N-Ary Tree](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
 
 <!-- tabs:start -->
 
