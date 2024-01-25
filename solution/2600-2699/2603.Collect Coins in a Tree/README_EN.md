@@ -66,7 +66,7 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 Similar problems:
 
--   [2204. Distance to a Cycle in Undirected Graph](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md)
+-   [2204. Distance to a Cycle in Undirected Graph](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md)
 
 <!-- tabs:start -->
 

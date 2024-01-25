@@ -61,8 +61,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is 
 
 Similar problems:
 
--   [0724. Find Pivot Index](/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
--   [1991. Find the Middle Index in Array](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)
+-   [0724. Find Pivot Index](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
+-   [1991. Find the Middle Index in Array](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -60,8 +60,8 @@
 
 相似题目：
 
--   [413. 等差数列划分](/solution/0400-0499/0413.Arithmetic%20Slices/README.md)
--   [1513. 仅含 1 的子串数](/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)
+-   [413. 等差数列划分](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0413.Arithmetic%20Slices/README.md)
+-   [1513. 仅含 1 的子串数](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README.md)
 
 <!-- tabs:start -->
 

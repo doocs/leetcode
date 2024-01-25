@@ -214,7 +214,7 @@ int maxCount(int* banned, int bannedSize, int n, int maxSum) {
 
 相似题目：
 
--   [2557. 从一个范围内选择最多整数 II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
+-   [2557. 从一个范围内选择最多整数 II](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
 
 <!-- tabs:start -->
 

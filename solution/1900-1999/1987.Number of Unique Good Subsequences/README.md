@@ -69,7 +69,7 @@
 
 相似题目：
 
--   [940. 不同的子序列 II](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
+-   [940. 不同的子序列 II](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
 
 <!-- tabs:start -->
 

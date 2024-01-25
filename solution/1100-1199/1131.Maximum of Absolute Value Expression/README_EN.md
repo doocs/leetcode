@@ -50,7 +50,7 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 Similar problems:
 
--   [1330. Reverse Subarray To Maximize Array Value](/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README_EN.md)
+-   [1330. Reverse Subarray To Maximize Array Value](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README_EN.md)
 
 <!-- tabs:start -->
 

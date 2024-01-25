@@ -72,7 +72,7 @@
 
 相似题目：
 
--   [2204. 无向图中到环的距离](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md)
+-   [2204. 无向图中到环的距离](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md)
 
 <!-- tabs:start -->
 

@@ -65,7 +65,7 @@
 
 相似题目：
 
--   [1994. 好子集的数目](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README.md)
+-   [1994. 好子集的数目](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README.md)
 
 <!-- tabs:start -->
 

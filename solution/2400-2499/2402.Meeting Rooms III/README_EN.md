@@ -79,7 +79,7 @@ The time complexity is $O(m \times \log m)$, where $m$ is the number of meetings
 
 Similar problems:
 
--   [1882. Process Tasks Using Servers](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
+-   [1882. Process Tasks Using Servers](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
 
 <!-- tabs:start -->
 

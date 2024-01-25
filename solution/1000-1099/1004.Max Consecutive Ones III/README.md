@@ -44,7 +44,9 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
-相似题目：[487. 最大连续 1 的个数 II](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
+相似题目：
+
+-   [487. 最大连续 1 的个数 II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
 
 以下是滑动窗口的优化版本。
 
@@ -56,7 +58,9 @@
 -   `r++` 每次都会执行，`l++` 只有资源 `k < 0` 时才触发，因此 `r - l` 的值只会单调递增（或保持不变）
 -   移动左端点时，如果当前元素是 0，说明可以释放一个资源，k 加 1
 
-相似题目： [2024. 考试的最大困扰度](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
+相似题目：
+
+-   [2024. 考试的最大困扰度](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
 
 <!-- tabs:start -->
 

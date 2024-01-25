@@ -81,7 +81,7 @@
 
 相似题目：
 
--   [1882. 使用服务器处理任务](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
+-   [1882. 使用服务器处理任务](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
 
 <!-- tabs:start -->
 

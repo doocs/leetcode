@@ -58,7 +58,9 @@
 
 时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 是工人数。
 
-相似题目：[1383. 最大的团队表现值](/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md)
+相似题目：
+
+-   [1383. 最大的团队表现值](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md)
 
 <!-- tabs:start -->
 

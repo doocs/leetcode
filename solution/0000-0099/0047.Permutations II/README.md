@@ -53,7 +53,7 @@
 
 相似题目：
 
--   [46. 全排列](/solution/0000-0099/0046.Permutations/README.md)
+-   [46. 全排列](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0046.Permutations/README.md)
 
 <!-- tabs:start -->
 

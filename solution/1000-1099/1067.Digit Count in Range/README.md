@@ -65,7 +65,9 @@ $$
 
 时间复杂度 $O(\log m + \log n)$。其中 $m$, $n$ 分别为题目中的 `low` 和 `high`。
 
-相似题目：[233. 数字 1 的个数](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
+相似题目：
+
+-   [233. 数字 1 的个数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
 
 <!-- tabs:start -->
 

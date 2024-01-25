@@ -288,9 +288,9 @@ public class Solution {
 
 相似题目：
 
--   [39. 组合总和](/solution/0000-0099/0039.Combination%20Sum/README.md)
--   [40. 组合总和 II](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
--   [77. 组合](/solution/0000-0099/0077.Combinations/README.md)
+-   [39. 组合总和](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README.md)
+-   [40. 组合总和 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
+-   [77. 组合](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0077.Combinations/README.md)
 
 <!-- tabs:start -->
 

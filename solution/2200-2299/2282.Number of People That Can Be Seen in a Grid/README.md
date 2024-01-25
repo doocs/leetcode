@@ -75,7 +75,7 @@
 
 相似题目：
 
--   [1944. 队列中可以看到的人数](/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README.md)
+-   [1944. 队列中可以看到的人数](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README.md)
 
 <!-- tabs:start -->
 

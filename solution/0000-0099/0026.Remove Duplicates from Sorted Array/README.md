@@ -81,7 +81,7 @@ for (int i = 0; i &lt; k; i++) {
 
 相似题目：
 
--   [80. 删除有序数组中的重复项 II](/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README.md)
+-   [80. 删除有序数组中的重复项 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
 

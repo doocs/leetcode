@@ -54,7 +54,7 @@ The time complexity is $O(10 \times n \times max\_sum)$, and the space complexit
 
 Similar problems:
 
--   [2801. Count Stepping Numbers in Range](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)
+-   [2801. Count Stepping Numbers in Range](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)
 
 <!-- tabs:start -->
 

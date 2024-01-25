@@ -47,7 +47,32 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting
+
+By observing, we find that `()` is the only structure that contributes to the score, and the outer parentheses just add some multipliers to this structure. So, we only need to focus on `()`.
+
+We use $d$ to maintain the current depth of parentheses. For each `(`, we increase the depth by one, and for each `)`, we decrease the depth by one. When we encounter `()`, we add $2^d$ to the answer.
+
+Let's take `(()(()))` as an example. We first find the two closed parentheses `()` inside, and then add the corresponding $2^d$ to the score. In fact, we are calculating the score of `(()) + ((()))`.
+
+```bash
+( ( ) ( ( ) ) )
+  ^ ^   ^ ^
+
+( ( ) ) + ( ( ( ) ) )
+  ^ ^         ^ ^
+```
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
+
+Related problems about parentheses:
+
+-   [678. Valid Parenthesis String](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
+-   [1021. Remove Outermost Parentheses](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README.md)
+-   [1096. Brace Expansion II](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1096.Brace%20Expansion%20II/README.md)
+-   [1249. Minimum Remove to Make Valid Parentheses](https://github.com/doocs/leetcode/blob/main/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README.md)
+-   [1541. Minimum Insertions to Balance a Parentheses String](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1541.Minimum%20Insertions%20to%20Balance%20a%20Parentheses%20String/README.md)
+-   [2116. Check if a Parentheses String Can Be Valid](https://github.com/doocs/leetcode/blob/main/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
 
 <!-- tabs:start -->
 

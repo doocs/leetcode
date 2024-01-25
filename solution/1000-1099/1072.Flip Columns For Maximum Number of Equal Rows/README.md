@@ -73,7 +73,7 @@
 
 相似题目：
 
--   [2128. 通过翻转行或列来去除所有的 1](/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README.md)
+-   [2128. 通过翻转行或列来去除所有的 1](https://github.com/doocs/leetcode/blob/main/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README.md)
 
 <!-- tabs:start -->
 

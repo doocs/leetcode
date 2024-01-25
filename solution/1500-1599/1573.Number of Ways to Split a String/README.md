@@ -72,7 +72,7 @@
 
 相似题目：
 
--   [927. 三等分](/solution/0900-0999/0927.Three%20Equal%20Parts/README.md)
+-   [927. 三等分](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0927.Three%20Equal%20Parts/README.md)
 
 <!-- tabs:start -->
 

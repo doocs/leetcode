@@ -76,9 +76,9 @@
 
 相似题目：
 
--   [45. 跳跃游戏 II](/solution/0000-0099/0045.Jump%20Game%20II/README.md)
--   [55. 跳跃游戏](/solution/0000-0099/0055.Jump%20Game/README.md)
--   [1024. 视频拼接](/solution/1000-1099/1024.Video%20Stitching/README.md)
+-   [45. 跳跃游戏 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README.md)
+-   [55. 跳跃游戏](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README.md)
+-   [1024. 视频拼接](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1024.Video%20Stitching/README.md)
 
 <!-- tabs:start -->
 

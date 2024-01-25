@@ -79,7 +79,9 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
-相似题目：[678. 有效的括号字符串](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
+相似题目：
+
+-   [678. 有效的括号字符串](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
 
 <!-- tabs:start -->
 

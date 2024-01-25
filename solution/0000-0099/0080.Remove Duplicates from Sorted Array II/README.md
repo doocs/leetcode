@@ -80,7 +80,7 @@ for (int i = 0; i &lt; len; i++) {
 
 相似题目：
 
--   [26. 删除有序数组中的重复项](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
+-   [26. 删除有序数组中的重复项](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
 
 <!-- tabs:start -->
 

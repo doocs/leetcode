@@ -51,7 +51,9 @@
 
 时间复杂度为 $O(2^{n+2})$。
 
-相似题目：[248. 中心对称数 III](/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README.md)
+相似题目：
+
+-   [248. 中心对称数 III](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README.md)
 
 <!-- tabs:start -->
 

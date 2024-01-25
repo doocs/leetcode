@@ -67,7 +67,7 @@
 
 相似题目：
 
--   [1017. 负二进制转换](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
+-   [1017. 负二进制转换](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
 
 <!-- tabs:start -->
 

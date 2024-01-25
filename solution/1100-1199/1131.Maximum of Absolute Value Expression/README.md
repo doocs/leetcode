@@ -51,7 +51,7 @@ $$
 
 相似题目：
 
--   [1330. 翻转子数组得到最大的数组值](/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README.md)
+-   [1330. 翻转子数组得到最大的数组值](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README.md)
 
 <!-- tabs:start -->
 

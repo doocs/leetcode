@@ -70,7 +70,7 @@
 
 相似题目：
 
--   [1072. 按列翻转得到最大值等行数](/solution/1000-1099/1072.Flip%20Columns%20For%20Maximum%20Number%20of%20Equal%20Rows/README.md)
+-   [1072. 按列翻转得到最大值等行数](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1072.Flip%20Columns%20For%20Maximum%20Number%20of%20Equal%20Rows/README.md)
 
 <!-- tabs:start -->
 

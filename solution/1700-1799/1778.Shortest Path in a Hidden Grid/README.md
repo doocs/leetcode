@@ -98,7 +98,7 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 
 相似题目：
 
--   [1810. 隐藏网格下的最小消耗路径](/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README.md)
+-   [1810. 隐藏网格下的最小消耗路径](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README.md)
 
 <!-- tabs:start -->
 

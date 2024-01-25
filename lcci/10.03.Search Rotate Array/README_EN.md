@@ -46,7 +46,7 @@ The time complexity is approximately $O(\log n)$, and the space complexity is $O
 
 Similar problems:
 
--   [81. Search in Rotated Sorted Array II](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
+-   [81. Search in Rotated Sorted Array II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
 
