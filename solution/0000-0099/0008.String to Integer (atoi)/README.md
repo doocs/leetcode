@@ -98,7 +98,7 @@
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。我们只需要依次处理所有字符。空间复杂度 $O(1)$。
 
-同[面试题 67. 把字符串转换成整数](/lcof/面试题67.%20把字符串转换成整数/README.md)。
+同[面试题 67. 把字符串转换成整数](https://github.com/doocs/leetcode/blob/main/lcof/面试题67.%20把字符串转换成整数/README.md)。
 
 <!-- tabs:start -->
 

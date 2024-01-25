@@ -41,7 +41,7 @@
 
 ### 方法一：动态规划
 
-类似[1143. 最长公共子序列](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)。
+类似[1143. 最长公共子序列](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)。
 
 定义 `dp[i][j]` 表示使得 `word1[0:i-1]` 和 `word1[0:j-1]` 两个字符串相同所需执行的删除操作次数。
 

@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 <p>设想有个机器人坐在一个网格的左上角，网格 r 行 c 列。机器人只能向下或向右移动，但不能走到一些被禁止的网格（有障碍物）。设计一种算法，寻找机器人从左上角移动到右下角的路径。</p>
-![](./images/robot_maze.png)
+![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/08.02.Robot%20in%20a%20Grid/images/robot_maze.png)
 <p>网格中的障碍物和空位置分别用 <code>1</code> 和 <code>0</code> 来表示。</p>
 <p>返回一条可行的路径，路径由经过的网格的行号和列号组成。左上角为 0 行 0 列。</p>
 <p><strong>示例&nbsp;1:</strong></p>
