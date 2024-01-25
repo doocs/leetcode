@@ -46,19 +46,25 @@ Since we were able to visit every room, we return true.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Depth-First Search (DFS)
+
+We can use the Depth-First Search (DFS) method to traverse the entire graph, count the number of reachable nodes, and use an array `vis` to mark whether the current node has been visited to prevent repeated visits.
+
+Finally, we count the number of visited nodes. If it is the same as the total number of nodes, it means that all nodes can be visited; otherwise, there are nodes that cannot be reached.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$, where $n$ is the number of nodes, and $m$ is the number of edges.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
-        def dfs(u):
-            if u in vis:
+        def dfs(i: int):
+            if i in vis:
                 return
-            vis.add(u)
-            for v in rooms[u]:
-                dfs(v)
+            vis.add(i)
+            for j in rooms[i]:
+                dfs(j)
 
         vis = set()
         dfs(0)
@@ -67,23 +73,25 @@ class Solution:
 
 ```java
 class Solution {
-    private List<List<Integer>> rooms;
-    private Set<Integer> vis;
+    private int cnt;
+    private boolean[] vis;
+    private List<List<Integer>> g;
 
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
-        vis = new HashSet<>();
-        this.rooms = rooms;
+        g = rooms;
+        vis = new boolean[g.size()];
         dfs(0);
-        return vis.size() == rooms.size();
+        return cnt == g.size();
     }
 
-    private void dfs(int u) {
-        if (vis.contains(u)) {
+    private void dfs(int i) {
+        if (vis[i]) {
             return;
         }
-        vis.add(u);
-        for (int v : rooms.get(u)) {
-            dfs(v);
+        vis[i] = true;
+        ++cnt;
+        for (int j : g.get(i)) {
+            dfs(j);
         }
     }
 }
@@ -92,55 +100,63 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> rooms;
-    unordered_set<int> vis;
-
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
-        vis.clear();
-        this->rooms = rooms;
+        int n = rooms.size();
+        int cnt = 0;
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
+        function<void(int)> dfs = [&](int i) {
+            if (vis[i]) {
+                return;
+            }
+            vis[i] = true;
+            ++cnt;
+            for (int j : rooms[i]) {
+                dfs(j);
+            }
+        };
         dfs(0);
-        return vis.size() == rooms.size();
-    }
-
-    void dfs(int u) {
-        if (vis.count(u)) return;
-        vis.insert(u);
-        for (int v : rooms[u]) dfs(v);
+        return cnt == n;
     }
 };
 ```
 
 ```go
 func canVisitAllRooms(rooms [][]int) bool {
-	vis := make(map[int]bool)
-	var dfs func(u int)
-	dfs = func(u int) {
-		if vis[u] {
+	n := len(rooms)
+	cnt := 0
+	vis := make([]bool, n)
+	var dfs func(int)
+	dfs = func(i int) {
+		if vis[i] {
 			return
 		}
-		vis[u] = true
-		for _, v := range rooms[u] {
-			dfs(v)
+		vis[i] = true
+		cnt++
+		for _, j := range rooms[i] {
+			dfs(j)
 		}
 	}
 	dfs(0)
-	return len(vis) == len(rooms)
+	return cnt == n
 }
 ```
 
 ```ts
 function canVisitAllRooms(rooms: number[][]): boolean {
     const n = rooms.length;
-    const isOpen = new Array(n).fill(false);
+    const vis: boolean[] = Array(n).fill(false);
     const dfs = (i: number) => {
-        if (isOpen[i]) {
+        if (vis[i]) {
             return;
         }
-        isOpen[i] = true;
-        rooms[i].forEach(k => dfs(k));
+        vis[i] = true;
+        for (const j of rooms[i]) {
+            dfs(j);
+        }
     };
     dfs(0);
-    return isOpen.every(v => v);
+    return vis.every(v => v);
 }
 ```
 
@@ -160,29 +176,6 @@ impl Solution {
         }
         is_open.iter().all(|&v| v)
     }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```ts
-function canVisitAllRooms(rooms: number[][]): boolean {
-    const n = rooms.length;
-    const isOpen = new Array(n).fill(false);
-    const keys = [0];
-    while (keys.length !== 0) {
-        const i = keys.pop();
-        if (isOpen[i]) {
-            continue;
-        }
-        isOpen[i] = true;
-        keys.push(...rooms[i]);
-    }
-    return isOpen.every(v => v);
 }
 ```
 

@@ -1,18 +1,21 @@
 class Solution {
 public:
-    vector<vector<int>> rooms;
-    unordered_set<int> vis;
-
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
-        vis.clear();
-        this->rooms = rooms;
+        int n = rooms.size();
+        int cnt = 0;
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
+        function<void(int)> dfs = [&](int i) {
+            if (vis[i]) {
+                return;
+            }
+            vis[i] = true;
+            ++cnt;
+            for (int j : rooms[i]) {
+                dfs(j);
+            }
+        };
         dfs(0);
-        return vis.size() == rooms.size();
-    }
-
-    void dfs(int u) {
-        if (vis.count(u)) return;
-        vis.insert(u);
-        for (int v : rooms[u]) dfs(v);
+        return cnt == n;
     }
 };

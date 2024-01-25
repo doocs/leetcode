@@ -1,11 +1,11 @@
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
-        def dfs(u):
-            if u in vis:
+        def dfs(i: int):
+            if i in vis:
                 return
-            vis.add(u)
-            for v in rooms[u]:
-                dfs(v)
+            vis.add(i)
+            for j in rooms[i]:
+                dfs(j)
 
         vis = set()
         dfs(0)
