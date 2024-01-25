@@ -3026,6 +3026,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3015  |  [Count the Number of Houses at a Certain Distance I](/solution/3000-3099/3015.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 381  |
 |  3016  |  [Minimum Number of Pushes to Type Word II](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 381  |
 |  3017  |  [Count the Number of Houses at a Certain Distance II](/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 381  |
+|  3018  |  [Maximum Number of Removal Queries That Can Be Processed I](/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
