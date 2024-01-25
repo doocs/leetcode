@@ -149,11 +149,12 @@ for dir in dirs:
                     break
                 j = content.find(end)
                 codes = content[i + len(start) : j].strip()
-                res = re.findall(r"```(.+?)\n(.+?)\n```", codes, re.DOTALL)
+                res = re.findall(r"```(.*?)\n(.*?)\n```", codes, re.S)
                 result = []
                 if res:
                     for lang, code in res:
                         name = mapping.get(lang)
+                        code = code or ''
                         # 需要将 code 缩进 4 个空格
                         code = code.replace("\n", "\n    ")
                         code_snippet = (
