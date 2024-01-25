@@ -33,7 +33,7 @@
 
 时间复杂度 $O(n)$。
 
-同 [897. 递增顺序查找树](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)。
+同 [897. 递增顺序查找树](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)。
 
 <!-- tabs:start -->
 

@@ -190,7 +190,7 @@ int hammingWeight(uint32_t n) {
 
 `x -= (x & -x)` 可以消除二进制形式的最后一位 1。
 
-同 [剑指 Offer 15. 二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
+同 [剑指 Offer 15. 二进制中 1 的个数](https://github.com/doocs/leetcode/blob/main/lcof/面试题15.%20二进制中1的个数/README.md)
 
 <!-- tabs:start -->
 

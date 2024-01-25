@@ -83,7 +83,7 @@ interface FontInfo {
 
 时间复杂度 $O(m\log n)$。其中 $m$, $n$ 为文本 `text` 的长度以及字体大小 `fonts` 个数。
 
-关于二分查找，见[整数二分算法模板 2](/basic/searching/BinarySearch/README.md)。
+关于二分查找，见[整数二分算法模板 2](https://github.com/doocs/leetcode/blob/main/basic/searching/BinarySearch/README.md)。
 
 <!-- tabs:start -->
 
