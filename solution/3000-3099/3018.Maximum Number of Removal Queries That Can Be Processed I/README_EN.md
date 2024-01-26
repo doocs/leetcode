@@ -75,24 +75,171 @@ It can be shown that we can&#39;t process more than 2 queries.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the maximum number of queries we can handle when the numbers in the interval $[i, j]$ have not been deleted yet.
+
+Consider $f[i][j]$:
+
+-   If $i > 0$, the value of $f[i][j]$ can be transferred from $f[i - 1][j]$. If $nums[i - 1] \ge queries[f[i - 1][j]]$, we can choose to delete $nums[i - 1]$. Therefore, we have $f[i][j] = f[i - 1][j] + (nums[i - 1] \ge queries[f[i - 1][j]])$.
+-   If $j + 1 < n$, the value of $f[i][j]$ can be transferred from $f[i][j + 1]$. If $nums[j + 1] \ge queries[f[i][j + 1]]$, we can choose to delete $nums[j + 1]$. Therefore, we have $f[i][j] = f[i][j + 1] + (nums[j + 1] \ge queries[f[i][j + 1]])$.
+-   If $f[i][j] = m$, we can directly return $m$.
+
+The final answer is $\max\limits_{0 \le i < n} f[i][i] + (nums[i] \ge queries[f[i][i]])$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maximumProcessableQueries(self, nums: List[int], queries: List[int]) -> int:
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        m = len(queries)
+        for i in range(n):
+            for j in range(n - 1, i - 1, -1):
+                if i:
+                    f[i][j] = max(
+                        f[i][j], f[i - 1][j] + (nums[i - 1] >= queries[f[i - 1][j]])
+                    )
+                if j + 1 < n:
+                    f[i][j] = max(
+                        f[i][j], f[i][j + 1] + (nums[j + 1] >= queries[f[i][j + 1]])
+                    )
+                if f[i][j] == m:
+                    return m
+        return max(f[i][i] + (nums[i] >= queries[f[i][i]]) for i in range(n))
 ```
 
 ```java
-
+class Solution {
+    public int maximumProcessableQueries(int[] nums, int[] queries) {
+        int n = nums.length;
+        int[][] f = new int[n][n];
+        int m = queries.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = n - 1; j >= i; --j) {
+                if (i > 0) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j] + (nums[i - 1] >= queries[f[i - 1][j]] ? 1 : 0));
+                }
+                if (j + 1 < n) {
+                    f[i][j] = Math.max(f[i][j], f[i][j + 1] + (nums[j + 1] >= queries[f[i][j + 1]] ? 1 : 0));
+                }
+                if (f[i][j] == m) {
+                    return m;
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = Math.max(ans, f[i][i] + (nums[i] >= queries[f[i][i]] ? 1 : 0));
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maximumProcessableQueries(vector<int>& nums, vector<int>& queries) {
+        int n = nums.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        int m = queries.size();
+        for (int i = 0; i < n; ++i) {
+            for (int j = n - 1; j >= i; --j) {
+                if (i > 0) {
+                    f[i][j] = max(f[i][j], f[i - 1][j] + (nums[i - 1] >= queries[f[i - 1][j]] ? 1 : 0));
+                }
+                if (j + 1 < n) {
+                    f[i][j] = max(f[i][j], f[i][j + 1] + (nums[j + 1] >= queries[f[i][j + 1]] ? 1 : 0));
+                }
+                if (f[i][j] == m) {
+                    return m;
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = max(ans, f[i][i] + (nums[i] >= queries[f[i][i]] ? 1 : 0));
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maximumProcessableQueries(nums []int, queries []int) (ans int) {
+	n := len(nums)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	m := len(queries)
+	for i := 0; i < n; i++ {
+		for j := n - 1; j >= i; j-- {
+			if i > 0 {
+				t := 0
+				if nums[i-1] >= queries[f[i-1][j]] {
+					t = 1
+				}
+				f[i][j] = max(f[i][j], f[i-1][j]+t)
+			}
+			if j+1 < n {
+				t := 0
+				if nums[j+1] >= queries[f[i][j+1]] {
+					t = 1
+				}
+				f[i][j] = max(f[i][j], f[i][j+1]+t)
+			}
+			if f[i][j] == m {
+				return m
+			}
+		}
+	}
+	for i := 0; i < n; i++ {
+		t := 0
+		if nums[i] >= queries[f[i][i]] {
+			t = 1
+		}
+		ans = max(ans, f[i][i]+t)
+	}
+	return
+}
+```
 
+```ts
+function maximumProcessableQueries(nums: number[], queries: number[]): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
+    const m = queries.length;
+    for (let i = 0; i < n; ++i) {
+        for (let j = n - 1; j >= i; --j) {
+            if (i > 0) {
+                f[i][j] = Math.max(
+                    f[i][j],
+                    f[i - 1][j] + (nums[i - 1] >= queries[f[i - 1][j]] ? 1 : 0),
+                );
+            }
+            if (j + 1 < n) {
+                f[i][j] = Math.max(
+                    f[i][j],
+                    f[i][j + 1] + (nums[j + 1] >= queries[f[i][j + 1]] ? 1 : 0),
+                );
+            }
+            if (f[i][j] == m) {
+                return m;
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans = Math.max(ans, f[i][i] + (nums[i] >= queries[f[i][i]] ? 1 : 0));
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
