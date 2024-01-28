@@ -51,19 +51,62 @@
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countKeyChanges(self, s: str) -> int:
+        n = len(s)
+        count = 0
+        s = s.lower()
+        for i in range(n - 1):
+            if s[i] != s[i + 1]:
+                count += 1
+        return count
 ```
 
 ```java
-
+class Solution {
+    public int countKeyChanges(String s) {
+        int n = s.length();
+        int count = 0;
+        String lowerCaseString = s.toLowerCase();
+        for (int i = 0; i < n - 1; i++) {
+            if (lowerCaseString.charAt(i) != lowerCaseString.charAt(i + 1)) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int countKeyChanges(string s) {
+        int n = s.size();
+        int c = 0;
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        for (int i = 0; i < n - 1; i++) {
+            if (s[i] != s[i + 1]) {
+                c++;
+            }
+        }
+        return c;
+    }
+};
 ```
 
 ```go
-
+func countKeyChanges(s string) int {
+    n := len(s)
+	count := 0
+	s = strings.ToLower(s)
+	for i := 0; i < n-1; i++ {
+		if s[i] != s[i+1] {
+			count++
+		}
+	}
+	return count
+}
 ```
 
 <!-- tabs:end -->
