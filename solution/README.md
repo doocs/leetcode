@@ -3029,6 +3029,10 @@
 |  3016  |  [输入单词需要的最少按键次数 II](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README.md)  |    |  中等  |  第 381 场周赛  |
 |  3017  |  [按距离统计房屋对数目 II](/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README.md)  |    |  困难  |  第 381 场周赛  |
 |  3018  |  [Maximum Number of Removal Queries That Can Be Processed I](/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README.md)  |    |  困难  |  🔒  |
+|  3019  |  [按键变更的次数](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md)  |    |  简单  |  第 382 场周赛  |
+|  3020  |  [子集中元素的最大数量](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md)  |    |  中等  |  第 382 场周赛  |
+|  3021  |  [Alice 和 Bob 玩鲜花游戏](/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README.md)  |    |  中等  |  第 382 场周赛  |
+|  3022  |  [给定操作次数内使剩余元素的或值最小](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README.md)  |    |  困难  |  第 382 场周赛  |
 
 ## 版权
 
