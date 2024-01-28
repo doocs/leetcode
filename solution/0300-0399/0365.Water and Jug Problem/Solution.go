@@ -1,17 +1,22 @@
-func canMeasureWater(jug1Capacity int, jug2Capacity int, targetCapacity int) bool {
-	if jug1Capacity+jug2Capacity < targetCapacity {
-		return false
-	}
-	if jug1Capacity == 0 || jug2Capacity == 0 {
-		return targetCapacity == 0 || jug1Capacity+jug2Capacity == targetCapacity
-	}
-
-	var gcd func(a, b int) int
-	gcd = func(a, b int) int {
-		if b == 0 {
-			return a
+func canMeasureWater(x int, y int, z int) bool {
+	type pair struct{ x, y int }
+	vis := map[pair]bool{}
+	var dfs func(int, int) bool
+	dfs = func(i, j int) bool {
+		st := pair{i, j}
+		if vis[st] {
+			return false
 		}
-		return gcd(b, a%b)
+		vis[st] = true
+		if i == z || j == z || i+j == z {
+			return true
+		}
+		if dfs(x, j) || dfs(i, y) || dfs(0, j) || dfs(i, 0) {
+			return true
+		}
+		a := min(i, y-j)
+		b := min(j, x-i)
+		return dfs(i-a, j+a) || dfs(i+b, j-b)
 	}
-	return targetCapacity%gcd(jug1Capacity, jug2Capacity) == 0
+	return dfs(0, 0)
 }

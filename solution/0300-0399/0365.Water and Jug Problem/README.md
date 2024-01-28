@@ -51,86 +51,74 @@
 
 ## 解法
 
-### 方法一
+### 方法一：DFS
+
+我们不妨记 $jug1Capacity$ 为 $x$, $jug2Capacity$ 为 $y$, $targetCapacity$ 为 $z$。
+
+接下来，我们设计一个函数 $dfs(i, j)$，表示当前 $jug1$ 中有 $i$ 升水，$jug2$ 中有 $j$ 升水，是否可以得到 $z$ 升水。
+
+函数 $dfs(i, j)$ 的执行过程如下：
+
+-   如果 $(i, j)$ 已经被访问过，返回 $false$。
+-   如果 $i = z$ 或者 $j = z$ 或者 $i + j = z$，返回 $true$。
+-   如果我们给 $jug1$ 倒满水，或者给 $jug2$ 倒满水，或者将 $jug1$ 清空，或者将 $jug2$ 清空，可以得到 $z$ 升水，返回 $true$。
+-   如果我们将 $jug1$ 中的水倒入 $jug2$，或者将 $jug2$ 中的水倒入 $jug1$，可以得到 $z$ 升水，返回 $true$。
+
+答案即为 $dfs(0, 0)$。
+
+时间复杂度 $O(x + y)$，空间复杂度 $O(x + y)$。其中 $x$ 和 $y$ 分别为 $jug1Capacity$ 和 $jug2Capacity$ 的大小。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
-    def canMeasureWater(
-        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
-    ) -> bool:
-        stk, seen = [], set()
-        stk.append([0, 0])
-
-        def get_hash(nums):
-            return nums[0] * 10000006 + nums[1]
-
-        while stk:
-            if get_hash(stk[-1]) in seen:
-                stk.pop()
-                continue
-            seen.add(get_hash(stk[-1]))
-            cur = stk.pop()
-            cur1, cur2 = cur[0], cur[1]
-            if (
-                cur1 == targetCapacity
-                or cur2 == targetCapacity
-                or cur1 + cur2 == targetCapacity
-            ):
+    def canMeasureWater(self, x: int, y: int, z: int) -> bool:
+        def dfs(i: int, j: int) -> bool:
+            if (i, j) in vis:
+                return False
+            vis.add((i, j))
+            if i == z or j == z or i + j == z:
                 return True
-            stk.append([jug1Capacity, cur2])
-            stk.append([0, cur2])
-            stk.append([cur1, jug2Capacity])
-            stk.append([cur1, 0])
-            if cur1 + cur2 > jug1Capacity:
-                stk.append([jug1Capacity, cur2 - jug1Capacity + cur1])
-            else:
-                stk.append([cur1 + cur2, 0])
-            if cur1 + cur2 > jug2Capacity:
-                stk.append([cur1 - jug2Capacity + cur2, jug2Capacity])
-            else:
-                stk.append([0, cur1 + cur2])
-        return False
+            if dfs(x, j) or dfs(i, y) or dfs(0, j) or dfs(i, 0):
+                return True
+            a = min(i, y - j)
+            b = min(j, x - i)
+            return dfs(i - a, j + a) or dfs(i + b, j - b)
+
+        vis = set()
+        return dfs(0, 0)
 ```
 
 ```java
 class Solution {
+    private Set<Long> vis = new HashSet<>();
+    private int x, y, z;
+
     public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
-        Deque<int[]> stk = new ArrayDeque<>();
-        stk.add(new int[] {0, 0});
-        Set<Long> seen = new HashSet<>();
-        while (!stk.isEmpty()) {
-            if (seen.contains(hash(stk.peek()))) {
-                stk.pop();
-                continue;
-            }
-            int[] cur = stk.pop();
-            seen.add(hash(cur));
-            int cur1 = cur[0], cur2 = cur[1];
-            if (cur1 == targetCapacity || cur2 == targetCapacity || cur1 + cur2 == targetCapacity) {
-                return true;
-            }
-            stk.offer(new int[] {jug1Capacity, cur2});
-            stk.offer(new int[] {0, cur2});
-            stk.offer(new int[] {cur1, jug1Capacity});
-            stk.offer(new int[] {cur2, 0});
-            if (cur1 + cur2 > jug1Capacity) {
-                stk.offer(new int[] {jug1Capacity, cur2 - jug1Capacity + cur1});
-            } else {
-                stk.offer(new int[] {cur1 + cur2, 0});
-            }
-            if (cur1 + cur2 > jug2Capacity) {
-                stk.offer(new int[] {cur1 - jug2Capacity + cur2, jug2Capacity});
-            } else {
-                stk.offer(new int[] {0, cur1 + cur2});
-            }
-        }
-        return false;
+        x = jug1Capacity;
+        y = jug2Capacity;
+        z = targetCapacity;
+        return dfs(0, 0);
     }
 
-    public long hash(int[] nums) {
-        return nums[0] * 10000006L + nums[1];
+    private boolean dfs(int i, int j) {
+        long st = f(i, j);
+        if (!vis.add(st)) {
+            return false;
+        }
+        if (i == z || j == z || i + j == z) {
+            return true;
+        }
+        if (dfs(x, j) || dfs(i, y) || dfs(0, j) || dfs(i, 0)) {
+            return true;
+        }
+        int a = Math.min(i, y - j);
+        int b = Math.min(j, x - i);
+        return dfs(i - a, j + a) || dfs(i + b, j - b);
+    }
+
+    private long f(int i, int j) {
+        return i * 1000000L + j;
     }
 }
 ```
@@ -138,100 +126,59 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    bool canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
-        if (jug1Capacity + jug2Capacity < targetCapacity) return false;
-        if (jug1Capacity == 0 || jug2Capacity == 0)
-            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
-        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
-    }
-
-    int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
+    bool canMeasureWater(int x, int y, int z) {
+        using pii = pair<int, int>;
+        stack<pii> stk;
+        stk.emplace(0, 0);
+        auto hash_function = [](const pii& o) { return hash<int>()(o.first) ^ hash<int>()(o.second); };
+        unordered_set<pii, decltype(hash_function)> vis(0, hash_function);
+        while (stk.size()) {
+            auto st = stk.top();
+            stk.pop();
+            if (vis.count(st)) {
+                continue;
+            }
+            vis.emplace(st);
+            auto [i, j] = st;
+            if (i == z || j == z || i + j == z) {
+                return true;
+            }
+            stk.emplace(x, j);
+            stk.emplace(i, y);
+            stk.emplace(0, j);
+            stk.emplace(i, 0);
+            int a = min(i, y - j);
+            int b = min(j, x - i);
+            stk.emplace(i - a, j + a);
+            stk.emplace(i + b, j - b);
+        }
+        return false;
     }
 };
 ```
 
 ```go
-func canMeasureWater(jug1Capacity int, jug2Capacity int, targetCapacity int) bool {
-	if jug1Capacity+jug2Capacity < targetCapacity {
-		return false
-	}
-	if jug1Capacity == 0 || jug2Capacity == 0 {
-		return targetCapacity == 0 || jug1Capacity+jug2Capacity == targetCapacity
-	}
-
-	var gcd func(a, b int) int
-	gcd = func(a, b int) int {
-		if b == 0 {
-			return a
+func canMeasureWater(x int, y int, z int) bool {
+	type pair struct{ x, y int }
+	vis := map[pair]bool{}
+	var dfs func(int, int) bool
+	dfs = func(i, j int) bool {
+		st := pair{i, j}
+		if vis[st] {
+			return false
 		}
-		return gcd(b, a%b)
+		vis[st] = true
+		if i == z || j == z || i+j == z {
+			return true
+		}
+		if dfs(x, j) || dfs(i, y) || dfs(0, j) || dfs(i, 0) {
+			return true
+		}
+		a := min(i, y-j)
+		b := min(j, x-i)
+		return dfs(i-a, j+a) || dfs(i+b, j-b)
 	}
-	return targetCapacity%gcd(jug1Capacity, jug2Capacity) == 0
-}
-```
-
-```cs
-using System;
-
-public class Solution {
-    public bool CanMeasureWater(int x, int y, int z) {
-        if (x == 0 || y == 0) return z == x || z == y;
-        var gcd = GetGcd(x, y);
-        return z >= 0 && z <= x + y && z % gcd == 0;
-    }
-
-    private int GetGcd(int x, int y)
-    {
-        while (x > 0)
-        {
-            var quotient = x / y;
-            var reminder = x % y;
-            if (reminder == 0)
-            {
-                return y;
-            }
-            x = y;
-            y = reminder;
-        }
-        throw new Exception("Invalid x or y");
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def canMeasureWater(
-        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
-    ) -> bool:
-        if jug1Capacity + jug2Capacity < targetCapacity:
-            return False
-        if jug1Capacity == 0 or jug2Capacity == 0:
-            return targetCapacity == 0 or jug1Capacity + jug2Capacity == targetCapacity
-        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0
-```
-
-```java
-class Solution {
-    public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
-        if (jug1Capacity + jug2Capacity < targetCapacity) {
-            return false;
-        }
-        if (jug1Capacity == 0 || jug2Capacity == 0) {
-            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
-        }
-        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
-    }
-
-    private int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
+	return dfs(0, 0)
 }
 ```
 
