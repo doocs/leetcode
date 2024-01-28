@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 382 场周赛(2024-01-28 10:30, 90 分钟) 参赛人数 3134
+
+- [3019. 按键变更的次数](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md)
+- [3020. 子集中元素的最大数量](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md)
+- [3021. Alice 和 Bob 玩鲜花游戏](/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README.md)
+- [3022. 给定操作次数内使剩余元素的或值最小](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README.md)
+
 #### 第 381 场周赛(2024-01-21 10:30, 90 分钟) 参赛人数 3737
 
 - [3014. 输入单词需要的最少按键次数 I](/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README.md)
