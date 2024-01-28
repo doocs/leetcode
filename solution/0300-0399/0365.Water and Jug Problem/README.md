@@ -130,7 +130,7 @@ public:
         using pii = pair<int, int>;
         stack<pii> stk;
         stk.emplace(0, 0);
-        auto hash_function = [](const pii& o) {return hash<int>()(o.first) ^ hash<int>()(o.second);};
+        auto hash_function = [](const pii& o) { return hash<int>()(o.first) ^ hash<int>()(o.second); };
         unordered_set<pii, decltype(hash_function)> vis(0, hash_function);
         while (stk.size()) {
             auto st = stk.top();
