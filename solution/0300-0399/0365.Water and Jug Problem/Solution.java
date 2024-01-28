@@ -1,38 +1,31 @@
 class Solution {
+    private Set<Long> vis = new HashSet<>();
+    private int x, y, z;
+
     public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
-        Deque<int[]> stk = new ArrayDeque<>();
-        stk.add(new int[] {0, 0});
-        Set<Long> seen = new HashSet<>();
-        while (!stk.isEmpty()) {
-            if (seen.contains(hash(stk.peek()))) {
-                stk.pop();
-                continue;
-            }
-            int[] cur = stk.pop();
-            seen.add(hash(cur));
-            int cur1 = cur[0], cur2 = cur[1];
-            if (cur1 == targetCapacity || cur2 == targetCapacity || cur1 + cur2 == targetCapacity) {
-                return true;
-            }
-            stk.offer(new int[] {jug1Capacity, cur2});
-            stk.offer(new int[] {0, cur2});
-            stk.offer(new int[] {cur1, jug1Capacity});
-            stk.offer(new int[] {cur2, 0});
-            if (cur1 + cur2 > jug1Capacity) {
-                stk.offer(new int[] {jug1Capacity, cur2 - jug1Capacity + cur1});
-            } else {
-                stk.offer(new int[] {cur1 + cur2, 0});
-            }
-            if (cur1 + cur2 > jug2Capacity) {
-                stk.offer(new int[] {cur1 - jug2Capacity + cur2, jug2Capacity});
-            } else {
-                stk.offer(new int[] {0, cur1 + cur2});
-            }
-        }
-        return false;
+        x = jug1Capacity;
+        y = jug2Capacity;
+        z = targetCapacity;
+        return dfs(0, 0);
     }
 
-    public long hash(int[] nums) {
-        return nums[0] * 10000006L + nums[1];
+    private boolean dfs(int i, int j) {
+        long st = f(i, j);
+        if (!vis.add(st)) {
+            return false;
+        }
+        if (i == z || j == z || i + j == z) {
+            return true;
+        }
+        if (dfs(x, j) || dfs(i, y) || dfs(0, j) || dfs(i, 0)) {
+            return true;
+        }
+        int a = Math.min(i, y - j);
+        int b = Math.min(j, x - i);
+        return dfs(i - a, j + a) || dfs(i + b, j - b);
+    }
+
+    private long f(int i, int j) {
+        return i * 1000000L + j;
     }
 }
