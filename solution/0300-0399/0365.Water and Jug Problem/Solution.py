@@ -1,36 +1,16 @@
 class Solution:
-    def canMeasureWater(
-        self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int
-    ) -> bool:
-        stk, seen = [], set()
-        stk.append([0, 0])
-
-        def get_hash(nums):
-            return nums[0] * 10000006 + nums[1]
-
-        while stk:
-            if get_hash(stk[-1]) in seen:
-                stk.pop()
-                continue
-            seen.add(get_hash(stk[-1]))
-            cur = stk.pop()
-            cur1, cur2 = cur[0], cur[1]
-            if (
-                cur1 == targetCapacity
-                or cur2 == targetCapacity
-                or cur1 + cur2 == targetCapacity
-            ):
+    def canMeasureWater(self, x: int, y: int, z: int) -> bool:
+        def dfs(i: int, j: int) -> bool:
+            if (i, j) in vis:
+                return False
+            vis.add((i, j))
+            if i == z or j == z or i + j == z:
                 return True
-            stk.append([jug1Capacity, cur2])
-            stk.append([0, cur2])
-            stk.append([cur1, jug2Capacity])
-            stk.append([cur1, 0])
-            if cur1 + cur2 > jug1Capacity:
-                stk.append([jug1Capacity, cur2 - jug1Capacity + cur1])
-            else:
-                stk.append([cur1 + cur2, 0])
-            if cur1 + cur2 > jug2Capacity:
-                stk.append([cur1 - jug2Capacity + cur2, jug2Capacity])
-            else:
-                stk.append([0, cur1 + cur2])
-        return False
+            if dfs(x, j) or dfs(i, y) or dfs(0, j) or dfs(i, 0):
+                return True
+            a = min(i, y - j)
+            b = min(j, x - i)
+            return dfs(i - a, j + a) or dfs(i + b, j - b)
+
+        vis = set()
+        return dfs(0, 0)
