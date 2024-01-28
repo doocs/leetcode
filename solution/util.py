@@ -30,7 +30,7 @@ category_readme_cn = load_template("category_readme_template")
 category_readme_en = load_template("category_readme_template_en")
 
 category_dict = {
-    "Database": "数据库",
+    'Database': '数据库',
 }
 
 
