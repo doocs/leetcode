@@ -67,7 +67,7 @@ class Solution {
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
         int max = 0;
-       
+
         for (Map.Entry<Integer, Integer> i : map.entrySet()) {
             System.out.println(i.getValue());
             if (i.getValue() >= 2 && i.getKey() != 1) {
