@@ -46,28 +46,30 @@
 
 ## 解法
 
-### 方法一
+### 方法一：一次遍历
+
+我们可以遍历字符串，每次判断当前字符的小写形式是否与前一个字符的小写形式相同，如果不同则说明发生了按键变更，将答案加一即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def countKeyChanges(self, s: str) -> int:
-        return sum(s.lower()[i] != s.lower()[i-1] for i in range(1, len(s)))
+        return sum(a.lower() != b.lower() for a, b in pairwise(s))
 ```
 
 ```java
 class Solution {
     public int countKeyChanges(String s) {
-        int n = s.length();
-        int count = 0;
-        String lowerCaseString = s.toLowerCase();
-        for (int i = 0; i < n - 1; i++) {
-            if (lowerCaseString.charAt(i) != lowerCaseString.charAt(i + 1)) {
-                count++;
+        int ans = 0;
+        for (int i = 1; i < s.length(); ++i) {
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(i - 1))) {
+                ++ans;
             }
         }
-        return count;
+        return ans;
     }
 }
 ```
@@ -76,30 +78,38 @@ class Solution {
 class Solution {
 public:
     int countKeyChanges(string s) {
-        int n = s.size();
-        int c = 0;
         transform(s.begin(), s.end(), s.begin(), ::tolower);
-        for (int i = 0; i < n - 1; i++) {
-            if (s[i] != s[i + 1]) {
-                c++;
-            }
+        int ans = 0;
+        for (int i = 1; i < s.size(); ++i) {
+            ans += s[i] != s[i - 1];
         }
-        return c;
+        return ans;
     }
 };
 ```
 
 ```go
-func countKeyChanges(s string) int {
-	n := len(s)
-	count := 0
+func countKeyChanges(s string) (ans int) {
 	s = strings.ToLower(s)
-	for i := 0; i < n-1; i++ {
-		if s[i] != s[i+1] {
-			count++
+	for i, c := range s[1:] {
+		if byte(c) != s[i] {
+			ans++
 		}
 	}
-	return count
+	return
+}
+```
+
+```ts
+function countKeyChanges(s: string): number {
+    s = s.toLowerCase();
+    let ans = 0;
+    for (let i = 1; i < s.length; ++i) {
+        if (s[i] !== s[i - 1]) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

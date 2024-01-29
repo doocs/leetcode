@@ -1,14 +1,11 @@
 class Solution {
 public:
     int countKeyChanges(string s) {
-        int n = s.size();
-        int c = 0;
         transform(s.begin(), s.end(), s.begin(), ::tolower);
-        for (int i = 0; i < n - 1; i++) {
-            if (s[i] != s[i + 1]) {
-                c++;
-            }
+        int ans = 0;
+        for (int i = 1; i < s.size(); ++i) {
+            ans += s[i] != s[i - 1];
         }
-        return c;
+        return ans;
     }
 };

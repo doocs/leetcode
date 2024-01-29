@@ -1,13 +1,11 @@
 class Solution {
     public int countKeyChanges(String s) {
-        int n = s.length();
-        int count = 0;
-        String lowerCaseString = s.toLowerCase();
-        for (int i = 0; i < n - 1; i++) {
-            if (lowerCaseString.charAt(i) != lowerCaseString.charAt(i + 1)) {
-                count++;
+        int ans = 0;
+        for (int i = 1; i < s.length(); ++i) {
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(i - 1))) {
+                ++ans;
             }
         }
-        return count;
+        return ans;
     }
 }
