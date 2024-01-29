@@ -11,7 +11,7 @@ func solve(board [][]byte) {
 		}
 		return p[x]
 	}
-	dirs := []int{-1, 0, 1, 0, -1}
+	dirs := [5]int{-1, 0, 1, 0, -1}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
 			if board[i][j] == 'O' {
