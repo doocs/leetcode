@@ -55,19 +55,49 @@
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def flowerGame(self, n: int, m: int) -> int:
+        count = (n + 1) // 2
+        tol = (m + 1) // 2
+        ecount = n // 2
+        etol = m // 2
+        return count * etol + ecount * tol
 
 ```
 
 ```java
-
+class Solution {
+    public long flowerGame(int n, int m) {
+        long count = (n + 1) / 2;
+        long tol = (m + 1) / 2;
+        long ecount = n / 2;
+        long etol = m / 2;
+        return (count * etol + ecount * tol);
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long flowerGame(int n, int m) {
+        long long count = (n + 1) / 2;
+        long long tol = (m + 1) / 2;
+        long long ecount = n / 2;
+        long long etol = m / 2;
+        return (count * etol + ecount * tol);
+    }
+};
 ```
 
 ```go
-
+func flowerGame(n int, m int) int64 {
+    count := int64((n + 1) / 2)
+    tol := int64((m + 1) / 2)
+    ecount := int64(n / 2)
+    etol := int64(m / 2)
+    return count*etol + ecount*tol
+}
 ```
 
 <!-- tabs:end -->
