@@ -124,7 +124,7 @@ public:
             for (auto it : nums) {
                 if (val == 0) {
                     val = test & it;
-                }else {
+                } else {
                     val &= test & it;
                 }
                 if (val) {
@@ -133,7 +133,7 @@ public:
             }
             if (cnt > k) {
                 rans += (1 << i);
-            }else{
+            } else{
                 ans += (1 << i);
             }
         }
