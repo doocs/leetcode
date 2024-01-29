@@ -32,7 +32,7 @@ loan_id 是这张表具有唯一值的列。
 
 <pre>
 <b>输入：</b>
-Sessions table:
+Loans table:
 +---------+---------+-----------+
 | loan_id | user_id | loan_type |
 +---------+---------+-----------+

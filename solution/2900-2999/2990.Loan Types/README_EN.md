@@ -29,7 +29,7 @@ This table contains loan_id, user_id, and loan_type.
 
 <pre>
 <strong>Input:</strong>
-Sessions table:
+Loans table:
 +---------+---------+-----------+
 | loan_id | user_id | loan_type |
 +---------+---------+-----------+
