@@ -10,6 +10,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: jpetrucciani/black-check@master
+    - uses: jpetrucciani/black-check@23.12.1
       with:
         black_flags: '-S'
