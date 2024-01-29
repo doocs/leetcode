@@ -133,7 +133,7 @@ public:
             }
             if (cnt > k) {
                 rans += (1 << i);
-            } else{
+            } else {
                 ans += (1 << i);
             }
         }
