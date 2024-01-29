@@ -14,7 +14,7 @@ class Solution:
                 if val:
                     cnt += 1
             if cnt > k:
-                rans += (1 << i)
+                rans += 1 << i
             else:
-                ans += (1 << i)
+                ans += 1 << i
         return rans
