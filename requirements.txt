@@ -1,4 +1,4 @@
-black==23.3.0
+black==23.12.1
 Requests==2.31.0
 sortedcontainers==2.4.0
 urllib3==1.26.18
