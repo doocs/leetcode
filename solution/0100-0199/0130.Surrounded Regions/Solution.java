@@ -1,4 +1,5 @@
 class Solution {
+    private final int[] dirs = {-1, 0, 1, 0, -1};
     private char[][] board;
     private int m;
     private int n;
@@ -8,11 +9,12 @@ class Solution {
         n = board[0].length;
         this.board = board;
         for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if ((i == 0 || i == m - 1 || j == 0 || j == n - 1) && board[i][j] == 'O') {
-                    dfs(i, j);
-                }
-            }
+            dfs(i, 0);
+            dfs(i, n - 1);
+        }
+        for (int j = 0; j < n; ++j) {
+            dfs(0, j);
+            dfs(m - 1, j);
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
@@ -26,14 +28,12 @@ class Solution {
     }
 
     private void dfs(int i, int j) {
+        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != 'O') {
+            return;
+        }
         board[i][j] = '.';
-        int[] dirs = {-1, 0, 1, 0, -1};
         for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k];
-            int y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] == 'O') {
-                dfs(x, y);
-            }
+            dfs(i + dirs[k], j + dirs[k + 1]);
         }
     }
 }
