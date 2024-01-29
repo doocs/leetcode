@@ -54,7 +54,6 @@
 
 <!-- tabs:start -->
 
-
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
