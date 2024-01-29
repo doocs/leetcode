@@ -1,11 +1,9 @@
-func countKeyChanges(s string) int {
-	n := len(s)
-	count := 0
+func countKeyChanges(s string) (ans int) {
 	s = strings.ToLower(s)
-	for i := 0; i < n-1; i++ {
-		if s[i] != s[i+1] {
-			count++
+	for i, c := range s[1:] {
+		if byte(c) != s[i] {
+			ans++
 		}
 	}
-	return count
+	return
 }
