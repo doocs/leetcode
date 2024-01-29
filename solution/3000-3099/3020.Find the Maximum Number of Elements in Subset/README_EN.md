@@ -41,54 +41,51 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We use a hash table $cnt$ to record the occurrence count of each element in the array $nums$. For each element $x$, we can keep squaring it until its count in the hash table $cnt$ is less than $2$. At this point, we check if the count of $x$ in the hash table $cnt$ is $1$. If it is, it means that $x$ can still be included in the subset. Otherwise, we need to remove an element from the subset to ensure the subset count is odd. Then we update the answer and continue to enumerate the next element.
+
+Note that we need to handle the case of $x = 1$ specially.
+
+The time complexity is $O(n \times \log \log M)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def maximumLength(self, nums: List[int]) -> int:
-        d = {}
-        for num in sorted(nums)[::-1]:
-            if num**2 in d and num in d and num != 1:
-                d[num] = d[num**2] + 2
-            else:
-                d[num] = 1
-        ones = nums.count(1)
-        return max(max(d.values()), ones - (ones % 2 == 0))
-
+        cnt = Counter(nums)
+        ans = cnt[1] - (cnt[1] % 2 ^ 1)
+        del cnt[1]
+        for x in cnt:
+            t = 0
+            while cnt[x] > 1:
+                x = x * x
+                t += 2
+            t += 1 if cnt[x] else -1
+            ans = max(ans, t)
+        return ans
 ```
 
 ```java
 class Solution {
     public int maximumLength(int[] nums) {
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        for (int i : nums) {
-            map.put(i, map.getOrDefault(i, 0) + 1);
+        Map<Long, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge((long) x, 1, Integer::sum);
         }
-        int max = 0;
-
-        for (Map.Entry<Integer, Integer> i : map.entrySet()) {
-            System.out.println(i.getValue());
-            if (i.getValue() >= 2 && i.getKey() != 1) {
-                int x = i.getKey();
-                int c = 2;
-                while (map.containsKey(x * x)) {
-                    if (map.get(x * x) == 1) {
-                        max = Math.max(max, c + 1);
-                        break;
-                    } else if (map.get(x * x) >= 2) {
-                        max = Math.max(max, c + 1);
-                        x = x * x;
-                    }
-                    c += 2;
-                }
+        Integer t = cnt.remove(1L);
+        int ans = t == null ? 0 : t - (t % 2 ^ 1);
+        for (long x : cnt.keySet()) {
+            t = 0;
+            while (cnt.getOrDefault(x, 0) > 1) {
+                x = x * x;
+                t += 2;
             }
+            t += cnt.getOrDefault(x, -1);
+            ans = Math.max(ans, t);
         }
-        if (map.containsKey(1) && map.get(1) - 1 > max) {
-            return (map.get(1) % 2 != 0) ? map.get(1) : map.get(1) - 1;
-        }
-        return max == 0 ? 1 : max;
+        return ans;
     }
 }
 ```
@@ -97,29 +94,21 @@ class Solution {
 class Solution {
 public:
     int maximumLength(vector<int>& nums) {
-        long long ans = 0;
-        map<int, int> freq;
-        for (auto n : nums) {
-            freq[n]++;
+        unordered_map<long long, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
         }
-        for (auto [k, f] : freq) {
-            long long t = k, count = 0;
-            if (t == 1) {
-                count += freq[t];
-                freq[t] = 0;
+        int ans = cnt[1] - (cnt[1] % 2 ^ 1);
+        cnt.erase(1);
+        for (auto [v, _] : cnt) {
+            int t = 0;
+            long long x = v;
+            while (cnt.count(x) && cnt[x] > 1) {
+                x = x * x;
+                t += 2;
             }
-            while (t < INT_MAX && freq[t] > 0) {
-                count += 2;
-                if (freq[t] == 1) {
-                    break;
-                }
-                freq[t] = 0;
-                t = t * t;
-            }
-            if (count % 2 == 0) {
-                count--;
-            }
-            ans = max(ans, count);
+            t += cnt.count(x) ? 1 : -1;
+            ans = max(ans, t);
         }
         return ans;
     }
@@ -127,60 +116,48 @@ public:
 ```
 
 ```go
-func minExp(x, c int) (int, int) {
-	d := math.Sqrt(float64(x))
-	if d < 2 || float64(int(d)) < d {
-		return x, c
+func maximumLength(nums []int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	return minExp(int(d), c+1)
-}
-func maximumLength(nums []int) int {
-	m := make(map[int][]int)
-	for i := range nums {
-		base, c := minExp(nums[i], 1)
-		m[base] = append(m[base], c)
-	}
-	max := 1
-	for _, v := range m {
-		v := matchPattern(v)
-		max = Max(max, v)
-	}
-	_, ok := m[1]
-	if ok {
-		if len(m[1])%2 > 0 {
-			max = Max(max, len(m[1]))
+	ans = cnt[1] - (cnt[1]%2 ^ 1)
+	delete(cnt, 1)
+	for x := range cnt {
+		t := 0
+		for cnt[x] > 1 {
+			x = x * x
+			t += 2
+		}
+		if cnt[x] > 0 {
+			t += 1
 		} else {
-			max = Max(max, len(m[1])-1)
+			t -= 1
 		}
+		ans = max(ans, t)
 	}
-	return max
+	return
 }
-func Max(i, j int) int {
-	if i > j {
-		return i
-	}
-	return j
-}
-func matchPattern(arr []int) int {
-	sort.Slice(arr, func(i, j int) bool { return arr[i] < arr[j] })
-	start := arr[0]
-	bin := 2
-	for i := range arr {
-		if bin == 0 {
-			start++
-			bin = 2
-		}
-		if arr[i] == start {
-			bin--
-		}
-	}
-	if bin == 1 {
-		return 2*(start-arr[0]) + 1
-	} else if bin == 0 {
-		return 2*(start-arr[0]) + 1
-	} else {
-		return 2*(start-arr[0]) - 1
-	}
+```
+
+```ts
+function maximumLength(nums: number[]): number {
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+    let ans = cnt.has(1) ? cnt.get(1)! - (cnt.get(1)! % 2 ^ 1) : 0;
+    cnt.delete(1);
+    for (let [x, _] of cnt) {
+        let t = 0;
+        while (cnt.has(x) && cnt.get(x)! > 1) {
+            x = x * x;
+            t += 2;
+        }
+        t += cnt.has(x) ? 1 : -1;
+        ans = Math.max(ans, t);
+    }
+    return ans;
 }
 ```
 

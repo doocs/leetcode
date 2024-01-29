@@ -1,10 +1,13 @@
 class Solution:
     def maximumLength(self, nums: List[int]) -> int:
-        d = {}
-        for num in sorted(nums)[::-1]:
-            if num**2 in d and num in d and num != 1:
-                d[num] = d[num**2] + 2
-            else:
-                d[num] = 1
-        ones = nums.count(1)
-        return max(max(d.values()), ones - (ones % 2 == 0))
+        cnt = Counter(nums)
+        ans = cnt[1] - (cnt[1] % 2 ^ 1)
+        del cnt[1]
+        for x in cnt:
+            t = 0
+            while cnt[x] > 1:
+                x = x * x
+                t += 2
+            t += 1 if cnt[x] else -1
+            ans = max(ans, t)
+        return ans
