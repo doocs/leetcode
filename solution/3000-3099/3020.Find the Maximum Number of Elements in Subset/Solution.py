@@ -8,3 +8,4 @@ class Solution:
                 d[num] = 1
         ones = nums.count(1)
         return max(max(d.values()), ones - (ones % 2 == 0))
+        
