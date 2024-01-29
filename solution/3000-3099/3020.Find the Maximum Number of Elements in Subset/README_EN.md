@@ -67,7 +67,7 @@ class Solution {
             map.put(i,map.getOrDefault(i,0)+1);
         }
         int max = 0;
-       
+
         for(Map.Entry<Integer,Integer> i : map.entrySet()){
             System.out.println(i.getValue());
             if(i.getValue() >= 2 && i.getKey() != 1){
@@ -150,9 +150,9 @@ func maximumLength(nums []int) int {
     }
     _, ok := m[1]; if ok{
         if len(m[1]) %2 > 0{
-            max = Max(max, len(m[1]))    
+            max = Max(max, len(m[1]))
         }else{
-            max = Max(max, len(m[1])-1)    
+            max = Max(max, len(m[1])-1)
         }
     }
     return max
