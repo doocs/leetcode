@@ -40,7 +40,7 @@ videoSharingPlatform.remove(0);              // Remove the video associated with
 videoSharingPlatform.upload(&quot;789&quot;);          // Since the video associated with videoId 0 was deleted,
                                              // 0 is the smallest available <code>videoId</code>, so return 0.
 videoSharingPlatform.watch(1, 0, 5);         // The video associated with videoId 1 is &quot;456&quot;.
-                                             // The video from minute 0 to min(5, 3 - 1) = 2 is &quot;456&quot;, so return &quot;453&quot;.
+                                             // The video from minute 0 to min(5, 3 - 1) = 2 is &quot;456&quot;, so return &quot;456&quot;.
 videoSharingPlatform.watch(1, 0, 1);         // The video associated with videoId 1 is &quot;456&quot;.
                                              // The video from minute 0 to min(1, 3 - 1) = 1 is &quot;45&quot;, so return &quot;45&quot;.
 videoSharingPlatform.like(1);                // Increase the number of likes on the video associated with videoId 1.

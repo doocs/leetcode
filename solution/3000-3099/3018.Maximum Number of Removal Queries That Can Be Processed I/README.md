@@ -1,4 +1,4 @@
-# [3018. Maximum Number of Removal Queries That Can Be Processed I](https://leetcode.cn/problems/maximum-number-of-removal-queries-that-can-be-processed-i)
+# [3018. 可处理的最大删除操作数 I](https://leetcode.cn/problems/maximum-number-of-removal-queries-that-can-be-processed-i)
 
 [English Version](/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README_EN.md)
 
@@ -6,68 +6,70 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> array <code>nums</code> and a <strong>0-indexed</strong> array <code>queries</code>.</p>
+<p>给定一个下标&nbsp;<strong>从&nbsp;0 开始</strong>&nbsp;的数组&nbsp;<code>nums</code> 和一个下标&nbsp;<strong>从</strong>&nbsp;<strong>0 开始&nbsp;</strong>的数组&nbsp;<code>queries</code>。</p>
 
-<p>You can do the following operation at the beginning <strong>at most once</strong>:</p>
-
-<ul>
-	<li>Replace <code>nums</code> with a <span data-keyword="subsequence-array">subsequence</span> of <code>nums</code>.</li>
-</ul>
-
-<p>We start processing queries in the given order; for each query, we do the following:</p>
+<p>你可以在开始时执行以下操作 <strong>最多一次</strong>：</p>
 
 <ul>
-	<li>If the first <strong>and</strong> the last element of <code>nums</code> is <strong>less than</strong> <code>queries[i]</code>, the processing of queries <strong>ends</strong>.</li>
-	<li>Otherwise, we choose either the first <strong>or</strong> the last element of <code>nums</code> if it is <strong>greater than or equal to</strong> <code>queries[i]</code>, and we <strong>remove</strong> the chosen element from <code>nums</code>.</li>
+	<li>用&nbsp;<code>nums</code>&nbsp;的子序列替换&nbsp;<code>nums</code>。</li>
 </ul>
 
-<p>Return <em>the <strong>maximum</strong> number of queries that can be processed by doing the operation optimally.</em></p>
+<p>我们以给定的顺序开始处理查询；对于每个查询，我们执行以下操作：</p>
+
+<ul>
+	<li>如果&nbsp;<code>nums</code> 的第一个 <strong>和</strong> 最后一个元素 <strong>小于</strong>&nbsp;<code>queries[i]</code>，则查询处理 <strong>结束</strong>。</li>
+	<li>否则，如果&nbsp;<code>nums</code> 的第一个 <strong>或</strong> 最后一个元素 <strong>大于或等于</strong> <code>queries[i]</code>，则选择它，并从&nbsp;<code>nums</code> 中 <strong>删除</strong> 选定的元素。</li>
+</ul>
+
+<p>返回通过以最佳方式执行该操作可以处理的&nbsp;<strong>最大&nbsp;</strong>查询数。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,2,3,4,5], queries = [1,2,3,4,6]
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> We don&#39;t do any operation and process the queries as follows:
-1- We choose and remove nums[0] since 1 &lt;= 1, then nums becomes [2,3,4,5].
-2- We choose and remove nums[0] since 2 &lt;= 2, then nums becomes [3,4,5].
-3- We choose and remove nums[0] since 3 &lt;= 3, then nums becomes [4,5].
-4- We choose and remove nums[0] since 4 &lt;= 4, then nums becomes [5].
-5- We can not choose any elements from nums since they are not greater than or equal to 5.
-Hence, the answer is 4.
-It can be shown that we can&#39;t process more than 4 queries.
+<strong>输入：</strong>nums = [1,2,3,4,5], queries = [1,2,3,4,6]
+<strong>输出：</strong>4
+<strong>解释：</strong>我们不执行任何操作，并按如下方式处理查询：
+1- 我们选择并移除 nums[0]，因为 1 &lt;= 1，那么 nums 就变成 [2,3,4,5]。
+2- 我们选择并移除 nums[0]，因为 2 &lt;= 2，那么 nums 就变成 [3,4,5]。
+3- 我们选择并移除 nums[0]，因为 3 &lt;= 3，那么 nums 就变成 [4,5]。
+4- 我们选择并移除 nums[0]，因为 4 &lt;= 4，那么 nums 就变成 [5]。
+5- 我们不能从 nums 中选择任何元素，因为它们不大于或等于 5。
+因此，答案为 4。
+可以看出，我们不能处理超过 4 个查询。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [2,3,2], queries = [2,2,3]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> We don&#39;t do any operation and process the queries as follows:
-1- We choose and remove nums[0] since 2 &lt;= 2, then nums becomes [3,2].
-2- We choose and remove nums[1] since 2 &lt;= 2, then nums becomes [3].
-3- We choose and remove nums[0] since 3 &lt;= 3, then nums becomes [].
-Hence, the answer is 3.
-It can be shown that we can&#39;t process more than 3 queries.
+<strong>输入：</strong>nums = [2,3,2], queries = [2,2,3]
+<b>输出：</b>3
+<strong>解释：</strong>我们不做任何操作，按如下方式处理查询：
+1- 我们选择并移除 nums[0]，因为 2 &lt;= 2，那么 nums 就变成 [3,2]。
+2- 我们选择并移除 nums[1]，因为 2 &lt;= 2，那么 nums 就变成 [3]。
+3- 我们选择并移除 nums[0]，因为 3 &lt;= 3，那么 nums 就变成 []。
+因此，答案为 3。
+可以看出，我们不能处理超过 3 个查询。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [3,4,3], queries = [4,3,2]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> First we replace nums with the subsequence of nums [4,3].
-Then we can process the queries as follows:
-1- We choose and remove nums[0] since 4 &lt;= 4, then nums becomes [3].
-2- We choose and remove nums[0] since 3 &lt;= 3, then nums becomes [].
-3- We can not process any more queries since nums is empty.
-Hence, the answer is 2.
-It can be shown that we can&#39;t process more than 2 queries.
+<strong>输入：</strong>nums = [3,4,3], queries = [4,3,2]
+<strong>输出：</strong>2
+<strong>解释：</strong>首先，我们用 nums 的子序列 [4,3] 替换 nums。
+然后，我们可以按如下方式处理查询：
+1- 我们选择并移除 nums[0]，因为 4 &lt;= 4，那么 nums 就变成 [3]。
+2- 我们选择并移除 nums[0]，因为 3 &lt;= 3，那么 nums 就变成 []。
+3- 我们无法处理更多查询，因为 nums 为空。
+因此，答案为 2。
+可以看出，我们不能处理超过 2 个查询。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
