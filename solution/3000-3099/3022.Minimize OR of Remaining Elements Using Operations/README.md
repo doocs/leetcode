@@ -65,19 +65,113 @@
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minOrAfterOperations(self, nums: List[int], k: int) -> int:
+        ans = 0
+        rans = 0
+        for i in range(29, -1, -1):
+            test = ans + (1 << i)
+            cnt = 0
+            val = 0
+            for num in nums:
+                if val == 0:
+                    val = test & num
+                else:
+                    val &= test & num
+                if val:
+                    cnt += 1
+            if cnt > k:
+                rans += 1 << i
+            else:
+                ans += 1 << i
+        return rans
 ```
 
 ```java
-
+class Solution {
+    public int minOrAfterOperations(int[] nums, int k) {
+        int ans = 0, rans = 0;
+        for (int i = 29; i >= 0; i--) {
+            int test = ans + (1 << i);
+            int cnt = 0;
+            int val = 0;
+            for (int num : nums) {
+                if (val == 0) {
+                    val = test & num;
+                } else {
+                    val &= test & num;
+                }
+                if (val != 0) {
+                    cnt++;
+                }
+            }
+            if (cnt > k) {
+                rans += (1 << i);
+            } else {
+                ans += (1 << i);
+            }
+        }
+        return rans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minOrAfterOperations(vector<int>& nums, int k) {
+        int ans = 0, rans = 0;
+        for (int i = 29; i >= 0; i--) {
+            int test = ans + (1 << i);
+            int cnt = 0;
+            int val = 0;
+            for (auto it : nums) {
+                if (val == 0) {
+                    val = test & it;
+                } else {
+                    val &= test & it;
+                }
+                if (val) {
+                    cnt++;
+                }
+            }
+            if (cnt > k) {
+                rans += (1 << i);
+            } else {
+                ans += (1 << i);
+            }
+        }
+        return rans;
+    }
+};
 ```
 
 ```go
-
+func minOrAfterOperations(nums []int, k int) int {
+    ans := 0
+    rans := 0
+    for i := 29; i >= 0; i-- {
+        test := ans + (1 << i)
+        cnt := 0
+        val := 0
+        for _, num := range nums {
+            if val == 0 {
+                val = test & num
+            } else {
+                val &= test & num
+            }
+            if val != 0 {
+                cnt++
+            }
+        }
+        if cnt > k {
+            rans += (1 << i)
+        } else {
+            ans += (1 << i)
+        }
+    }
+    return rans
+}
 ```
 
 <!-- tabs:end -->
