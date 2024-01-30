@@ -1,7 +1,5 @@
 func flowerGame(n int, m int) int64 {
-    count := int64((n + 1) / 2)
-    tol := int64((m + 1) / 2)
-    ecount := int64(n / 2)
-    etol := int64(m / 2)
-    return count*etol + ecount*tol
+	a1, b1 := (n+1)/2, (m+1)/2
+	a2, b2 := n/2, m/2
+	return int64(a1*b2 + a2*b1)
 }

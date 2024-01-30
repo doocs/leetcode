@@ -1,7 +1,7 @@
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
-        count = (n + 1) // 2
-        tol = (m + 1) // 2
-        ecount = n // 2
-        etol = m // 2
-        return count * etol + ecount * tol
+        a1 = (n + 1) // 2
+        b1 = (m + 1) // 2
+        a2 = n // 2
+        b2 = m // 2
+        return a1 * b2 + a2 * b1

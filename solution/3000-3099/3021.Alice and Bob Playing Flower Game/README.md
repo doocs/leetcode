@@ -54,29 +54,44 @@
 
 ## 解法
 
-### 方法一
+### 方法一：数学
+
+根据题目描述，每一次行动，玩家都会选择顺时针或者逆时针方向，然后摘一朵鲜花。由于 Alice 先行动，因此当 $x + y$ 为奇数时，Alice 一定会赢得游戏。
+
+因此，鲜花数目 $x$ 和 $y$ 满足以下条件：
+
+1. $x + y$ 为奇数；
+2. $1 \le x \le n$；
+3. $1 \le y \le m$。
+
+若 $x$ 为奇数，$y$ 一定为偶数。此时 $x$ 的取值个数为 $\lceil \frac{n}{2} \rceil$，$y$ 的取值个数为 $\lfloor \frac{m}{2} \rfloor$，因此满足条件的数对个数为 $\lceil \frac{n}{2} \rceil \times \lfloor \frac{m}{2} \rfloor$。
+
+若 $x$ 为偶数，$y$ 一定为奇数。此时 $x$ 的取值个数为 $\lfloor \frac{n}{2} \rfloor$，$y$ 的取值个数为 $\lceil \frac{m}{2} \rceil$，因此满足条件的数对个数为 $\lfloor \frac{n}{2} \rfloor \times \lceil \frac{m}{2} \rceil$。
+
+因此，满足条件的数对个数为 $\lceil \frac{n}{2} \rceil \times \lfloor \frac{m}{2} \rfloor + \lfloor \frac{n}{2} \rfloor \times \lceil \frac{m}{2} \rceil$，即 $\lfloor \frac{n + 1}{2} \rfloor \times \lfloor \frac{m}{2} \rfloor + \lfloor \frac{n}{2} \rfloor \times \lfloor \frac{m + 1}{2} \rfloor$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
-        count = (n + 1) // 2
-        tol = (m + 1) // 2
-        ecount = n // 2
-        etol = m // 2
-        return count * etol + ecount * tol
-
+        a1 = (n + 1) // 2
+        b1 = (m + 1) // 2
+        a2 = n // 2
+        b2 = m // 2
+        return a1 * b2 + a2 * b1
 ```
 
 ```java
 class Solution {
     public long flowerGame(int n, int m) {
-        long count = (n + 1) / 2;
-        long tol = (m + 1) / 2;
-        long ecount = n / 2;
-        long etol = m / 2;
-        return (count * etol + ecount * tol);
+        long a1 = (n + 1) / 2;
+        long b1 = (m + 1) / 2;
+        long a2 = n / 2;
+        long b2 = m / 2;
+        return a1 * b2 + a2 * b1;
     }
 }
 ```
@@ -85,22 +100,83 @@ class Solution {
 class Solution {
 public:
     long long flowerGame(int n, int m) {
-        long long count = (n + 1) / 2;
-        long long tol = (m + 1) / 2;
-        long long ecount = n / 2;
-        long long etol = m / 2;
-        return (count * etol + ecount * tol);
+        long long a1 = (n + 1) / 2;
+        long long b1 = (m + 1) / 2;
+        long long a2 = n / 2;
+        long long b2 = m / 2;
+        return a1 * b2 + a2 * b1;
     }
 };
 ```
 
 ```go
 func flowerGame(n int, m int) int64 {
-    count := int64((n + 1) / 2)
-    tol := int64((m + 1) / 2)
-    ecount := int64(n / 2)
-    etol := int64(m / 2)
-    return count*etol + ecount*tol
+	a1, b1 := (n+1)/2, (m+1)/2
+	a2, b2 := n/2, m/2
+	return int64(a1*b2 + a2*b1)
+}
+```
+
+```ts
+function flowerGame(n: number, m: number): number {
+    const [a1, b1] = [(n + 1) >> 1, (m + 1) >> 1];
+    const [a2, b2] = [n >> 1, m >> 1];
+    return a1 * b2 + a2 * b1;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：数学（优化）
+
+方法一得出的结果为 $\lfloor \frac{n + 1}{2} \rfloor \times \lfloor \frac{m}{2} \rfloor + \lfloor \frac{n}{2} \rfloor \times \lfloor \frac{m + 1}{2} \rfloor$。
+
+如果 $n$ 和 $m$ 都是奇数，那么结果为 $\frac{n + 1}{2} \times \frac{m - 1}{2} + \frac{n - 1}{2} \times \frac{m + 1}{2}$，即 $\frac{n \times m - 1}{2}$。
+
+如果 $n$ 和 $m$ 都是偶数，那么结果为 $\frac{n}{2} \times \frac{m}{2} + \frac{n}{2} \times \frac{m}{2}$，即 $\frac{n \times m}{2}$。
+
+如果 $n$ 是奇数，且 $m$ 是偶数，那么结果为 $\frac{n + 1}{2} \times \frac{m}{2} + \frac{n - 1}{2} \times \frac{m}{2}$，即 $\frac{n \times m}{2}$。
+
+如果 $n$ 是偶数，且 $m$ 是奇数，那么结果为 $\frac{n}{2} \times \frac{m - 1}{2} + \frac{n}{2} \times \frac{m + 1}{2}$，即 $\frac{n \times m}{2}$。
+
+上面四种情况可以合并为 $\lfloor \frac{n \times m}{2} \rfloor$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def flowerGame(self, n: int, m: int) -> int:
+        return (n * m) // 2
+```
+
+```java
+class Solution {
+    public long flowerGame(int n, int m) {
+        return ((long) n * m) / 2;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    long long flowerGame(int n, int m) {
+        return ((long long) n * m) / 2;
+    }
+};
+```
+
+```go
+func flowerGame(n int, m int) int64 {
+	return int64((n * m) / 2)
+}
+```
+
+```ts
+function flowerGame(n: number, m: number): number {
+    return Number(((BigInt(n) * BigInt(m)) / 2n) | 0n);
 }
 ```
 
