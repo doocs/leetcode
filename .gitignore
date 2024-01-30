@@ -14,13 +14,3 @@
 /solution/__pycache__
 /solution/.env
 *.iml
-
-site
-/docs/lc
-/docs/lcof
-/docs/lcci
-/docs/lcof2
-/docs/lcp
-/docs/lcs
-/docs-en/lc
-/docs-en/lcci
