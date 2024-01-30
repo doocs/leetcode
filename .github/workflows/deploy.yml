@@ -14,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: docs
+          path: mkdocs
+      - run: mv mkdocs/* .
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
