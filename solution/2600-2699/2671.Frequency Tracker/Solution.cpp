@@ -4,22 +4,17 @@ public:
     }
 
     void add(int number) {
-        int f = cnt[number];
-        if (f > 0) {
-            freq[f]--;
-        }
+        freq[cnt[number]]--;
         cnt[number]++;
-        freq[f + 1]++;
+        freq[cnt[number]]++;
     }
 
     void deleteOne(int number) {
-        int f = cnt[number];
-        if (f == 0) {
-            return;
+        if (cnt[number]) {
+            freq[cnt[number]]--;
+            cnt[number]--;
+            freq[cnt[number]]++;
         }
-        freq[f]--;
-        cnt[number]--;
-        freq[f - 1]++;
     }
 
     bool hasFrequency(int frequency) {
