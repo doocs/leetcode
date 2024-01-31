@@ -6,22 +6,17 @@ class FrequencyTracker {
     }
 
     public void add(int number) {
-        int f = cnt.getOrDefault(number, 0);
-        if (freq.getOrDefault(f, 0) > 0) {
-            freq.merge(f, -1, Integer::sum);
-        }
+        freq.merge(cnt.getOrDefault(number, 0), -1, Integer::sum);
         cnt.merge(number, 1, Integer::sum);
-        freq.merge(f + 1, 1, Integer::sum);
+        freq.merge(cnt.get(number), 1, Integer::sum);
     }
 
     public void deleteOne(int number) {
-        int f = cnt.getOrDefault(number, 0);
-        if (f == 0) {
-            return;
+        if (cnt.getOrDefault(number, 0) > 0) {
+            freq.merge(cnt.get(number), -1, Integer::sum);
+            cnt.merge(number, -1, Integer::sum);
+            freq.merge(cnt.get(number), 1, Integer::sum);
         }
-        freq.merge(f, -1, Integer::sum);
-        cnt.merge(number, -1, Integer::sum);
-        freq.merge(f - 1, 1, Integer::sum);
     }
 
     public boolean hasFrequency(int frequency) {

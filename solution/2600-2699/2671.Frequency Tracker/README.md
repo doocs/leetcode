@@ -79,7 +79,17 @@ frequencyTracker.hasFrequency(1); // 返回 true ，因为 3 出现 1 次
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表
+
+我们定义两个哈希表，其中 $cnt$ 用于记录每个数字出现的次数，而 $freq$ 用于记录每个出现次数的数字的个数。
+
+对于 `add` 操作，我们直接将哈希表 $freq$ 中 $cnt[number]$ 对应的值减一，然后将 $cnt[number]$ 加一，再将 $freq[cnt[number]]$ 对应的值加一。
+
+对于 `deleteOne` 操作，我们首先判断 $cnt[number]$ 是否大于零，如果大于零，我们将哈希表 $freq$ 中 $cnt[number]$ 对应的值减一，然后将 $cnt[number]$ 减一，再将 $freq[cnt[number]]$ 对应的值加一。
+
+对于 `hasFrequency` 操作，我们直接返回 $freq[frequency]$ 是否大于零。
+
+时间复杂度方面，由于我们使用了哈希表，因此每个操作的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$，其中 $n$ 为不同的数字的个数。
 
 <!-- tabs:start -->
 
@@ -90,17 +100,15 @@ class FrequencyTracker:
         self.freq = defaultdict(int)
 
     def add(self, number: int) -> None:
-        if self.freq[self.cnt[number]] > 0:
-            self.freq[self.cnt[number]] -= 1
+        self.freq[self.cnt[number]] -= 1
         self.cnt[number] += 1
         self.freq[self.cnt[number]] += 1
 
     def deleteOne(self, number: int) -> None:
-        if self.cnt[number] == 0:
-            return
-        self.freq[self.cnt[number]] -= 1
-        self.cnt[number] -= 1
-        self.freq[self.cnt[number]] += 1
+        if self.cnt[number]:
+            self.freq[self.cnt[number]] -= 1
+            self.cnt[number] -= 1
+            self.freq[self.cnt[number]] += 1
 
     def hasFrequency(self, frequency: int) -> bool:
         return self.freq[frequency] > 0
@@ -122,22 +130,17 @@ class FrequencyTracker {
     }
 
     public void add(int number) {
-        int f = cnt.getOrDefault(number, 0);
-        if (freq.getOrDefault(f, 0) > 0) {
-            freq.merge(f, -1, Integer::sum);
-        }
+        freq.merge(cnt.getOrDefault(number, 0), -1, Integer::sum);
         cnt.merge(number, 1, Integer::sum);
-        freq.merge(f + 1, 1, Integer::sum);
+        freq.merge(cnt.get(number), 1, Integer::sum);
     }
 
     public void deleteOne(int number) {
-        int f = cnt.getOrDefault(number, 0);
-        if (f == 0) {
-            return;
+        if (cnt.getOrDefault(number, 0) > 0) {
+            freq.merge(cnt.get(number), -1, Integer::sum);
+            cnt.merge(number, -1, Integer::sum);
+            freq.merge(cnt.get(number), 1, Integer::sum);
         }
-        freq.merge(f, -1, Integer::sum);
-        cnt.merge(number, -1, Integer::sum);
-        freq.merge(f - 1, 1, Integer::sum);
     }
 
     public boolean hasFrequency(int frequency) {
@@ -161,22 +164,17 @@ public:
     }
 
     void add(int number) {
-        int f = cnt[number];
-        if (f > 0) {
-            freq[f]--;
-        }
+        freq[cnt[number]]--;
         cnt[number]++;
-        freq[f + 1]++;
+        freq[cnt[number]]++;
     }
 
     void deleteOne(int number) {
-        int f = cnt[number];
-        if (f == 0) {
-            return;
+        if (cnt[number]) {
+            freq[cnt[number]]--;
+            cnt[number]--;
+            freq[cnt[number]]++;
         }
-        freq[f]--;
-        cnt[number]--;
-        freq[f - 1]++;
     }
 
     bool hasFrequency(int frequency) {
@@ -208,22 +206,17 @@ func Constructor() FrequencyTracker {
 }
 
 func (this *FrequencyTracker) Add(number int) {
-	f := this.cnt[number]
-	if f > 0 {
-		this.freq[f]--
-	}
+	this.freq[this.cnt[number]]--
 	this.cnt[number]++
-	this.freq[f+1]++
+	this.freq[this.cnt[number]]++
 }
 
 func (this *FrequencyTracker) DeleteOne(number int) {
-	f := this.cnt[number]
-	if f == 0 {
-		return
+	if this.cnt[number] > 0 {
+		this.freq[this.cnt[number]]--
+		this.cnt[number]--
+		this.freq[this.cnt[number]]++
 	}
-	this.freq[f]--
-	this.cnt[number]--
-	this.freq[f-1]++
 }
 
 func (this *FrequencyTracker) HasFrequency(frequency int) bool {
@@ -251,21 +244,18 @@ class FrequencyTracker {
 
     add(number: number): void {
         const f = this.cnt.get(number) || 0;
-        if (f > 0) {
-            this.freq.set(f, (this.freq.get(f) || 0) - 1);
-        }
+        this.freq.set(f, (this.freq.get(f) || 0) - 1);
         this.cnt.set(number, f + 1);
         this.freq.set(f + 1, (this.freq.get(f + 1) || 0) + 1);
     }
 
     deleteOne(number: number): void {
         const f = this.cnt.get(number) || 0;
-        if (f === 0) {
-            return;
+        if (f > 0) {
+            this.freq.set(f, (this.freq.get(f) || 0) - 1);
+            this.cnt.set(number, f - 1);
+            this.freq.set(f - 1, (this.freq.get(f - 1) || 0) + 1);
         }
-        this.freq.set(f, (this.freq.get(f) || 0) - 1);
-        this.cnt.set(number, f - 1);
-        this.freq.set(f - 1, (this.freq.get(f - 1) || 0) + 1);
     }
 
     hasFrequency(frequency: number): boolean {

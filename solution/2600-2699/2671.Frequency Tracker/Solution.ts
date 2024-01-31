@@ -9,21 +9,18 @@ class FrequencyTracker {
 
     add(number: number): void {
         const f = this.cnt.get(number) || 0;
-        if (f > 0) {
-            this.freq.set(f, (this.freq.get(f) || 0) - 1);
-        }
+        this.freq.set(f, (this.freq.get(f) || 0) - 1);
         this.cnt.set(number, f + 1);
         this.freq.set(f + 1, (this.freq.get(f + 1) || 0) + 1);
     }
 
     deleteOne(number: number): void {
         const f = this.cnt.get(number) || 0;
-        if (f === 0) {
-            return;
+        if (f > 0) {
+            this.freq.set(f, (this.freq.get(f) || 0) - 1);
+            this.cnt.set(number, f - 1);
+            this.freq.set(f - 1, (this.freq.get(f - 1) || 0) + 1);
         }
-        this.freq.set(f, (this.freq.get(f) || 0) - 1);
-        this.cnt.set(number, f - 1);
-        this.freq.set(f - 1, (this.freq.get(f - 1) || 0) + 1);
     }
 
     hasFrequency(frequency: number): boolean {
