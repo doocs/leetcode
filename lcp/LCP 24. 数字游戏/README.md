@@ -154,7 +154,6 @@ class MedianFinder {
     }
 }
 
-
 class Solution {
     public int[] numsGame(int[] nums) {
         int n = nums.length;
