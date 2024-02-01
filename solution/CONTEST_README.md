@@ -1047,7 +1047,7 @@
 #### 第 74 场双周赛(2022-03-19 22:30, 90 分钟) 参赛人数 5442
 
 - [2206. 将数组划分成相等数对](/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README.md)
-- [2207. 字符串中最多数目的子字符串](/solution/2200-2299/2207.Maximize%20Number%20of%20Subsequences%20in%20a%20String/README.md)
+- [2207. 字符串中最多数目的子序列](/solution/2200-2299/2207.Maximize%20Number%20of%20Subsequences%20in%20a%20String/README.md)
 - [2208. 将数组和减半的最少操作次数](/solution/2200-2299/2208.Minimum%20Operations%20to%20Halve%20Array%20Sum/README.md)
 - [2209. 用地毯覆盖后的最少白色砖块](/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README.md)
 
