@@ -31,4 +31,143 @@
 
 ## 解法
 
+### 方法一：贪心 + 优先队列（小根堆）
+
+我们定义以下数据结构或变量，其中：
+
+-   优先队列（小根堆） $q$：存储当前所有怪物房间的血量减少值，堆顶元素为血量减少值最大的怪物房间（也即是最小的负数）。
+-   血量 $blood$：存储当前的血量，初始时 $blood = 1$。
+-   操作次数 $ans$：存储已经进行的操作次数，初始时 $ans = 0$。
+-   临时变量 $v$：存储当前待减少的血量，初始时 $v = 0$。
+
+我们按照房间编号升序遍历所有房间，对于当前遍历到的房间 $x$，如果 $x$ 为怪物房间，我们就将 $x$ 的血量减少值加入 $q$。然后，我们更新当前的血量 $blood$，即 $blood = blood + x$。如果此时 $blood \le 0$，说明当前的血量不足以通过当前房间，因此我们需要调整访问顺序，此时我们可以贪心地将 $q$ 中血量减少值最大的房间调整至访问顺序的末尾，即把它累加到临时变量 $v$ 上，然后将 $blood$ 增加对应的值，并将该房间从 $q$ 中弹出。
+
+遍历结束后，我们需要更新当前的血量 $blood$，即 $blood = blood + v$。如果此时 $blood \le 0$，说明无法访问完所有房间，返回 $-1$。否则，返回 $ans$。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 为房间的数量。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def magicTower(self, nums: List[int]) -> int:
+        q = []
+        blood = 1
+        ans = v = 0
+        for x in nums:
+            if x < 0:
+                heappush(q, x)
+            blood += x
+            if blood <= 0:
+                ans += 1
+                v += q[0]
+                blood -= heappop(q)
+        blood += v
+        return -1 if blood <= 0 else ans
+```
+
+```java
+class Solution {
+    public int magicTower(int[] nums) {
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+        long blood = 1, v = 0;
+        int ans = 0;
+        for (int x : nums) {
+            if (x < 0) {
+                q.offer(x);
+            }
+            blood += x;
+            if (blood <= 0) {
+                ++ans;
+                v += q.peek();
+                blood -= q.poll();
+            }
+        }
+        blood += v;
+        return blood <= 0 ? -1 : ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int magicTower(vector<int>& nums) {
+        priority_queue<int, vector<int>, greater<int>> q;
+        int64_t blood = 1, v = 0;
+        int ans = 0;
+        for (int x : nums) {
+            if (x < 0) {
+                q.push(x);
+            }
+            blood += x;
+            if (blood <= 0) {
+                ++ans;
+                v += q.top();
+                blood -= q.top();
+                q.pop();
+            }
+        }
+        blood += v;
+        return blood <= 0 ? -1 : ans;
+    }
+};
+```
+
+```go
+func magicTower(nums []int) (ans int) {
+	q := hp{}
+	blood, v := 1, 0
+	for _, x := range nums {
+		if x < 0 {
+			heap.Push(&q, x)
+		}
+		blood += x
+		if blood <= 0 {
+			ans++
+			t := heap.Pop(&q).(int)
+			v += t
+			blood -= t
+		}
+	}
+	if blood+v <= 0 {
+		return -1
+	}
+	return ans
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+```ts
+function magicTower(nums: number[]): number {
+    const q = new MinPriorityQueue();
+    let [ans, blood, v] = [0, 1, 0];
+    for (const x of nums) {
+        if (x < 0) {
+            q.enqueue(x);
+        }
+        blood += x;
+        if (blood <= 0) {
+            ++ans;
+            const t = q.dequeue().element;
+            blood -= t;
+            v += t;
+        }
+    }
+    return blood + v <= 0 ? -1 : ans;
+}
+```
+
+<!-- tabs:end -->
+
 <!-- end -->
