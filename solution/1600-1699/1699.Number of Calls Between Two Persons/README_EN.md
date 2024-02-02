@@ -77,12 +77,6 @@ FROM Calls
 GROUP BY 1, 2;
 ```
 
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
 ```sql
 # Write your MySQL query statement below
 SELECT

@@ -79,12 +79,6 @@ FROM Calls
 GROUP BY 1, 2;
 ```
 
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
 ```sql
 # Write your MySQL query statement below
 SELECT

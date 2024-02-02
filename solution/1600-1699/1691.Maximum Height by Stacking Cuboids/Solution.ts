@@ -1,8 +1,4 @@
-/**
- * @param {number[][]} cuboids
- * @return {number}
- */
-var maxHeight = function (cuboids) {
+function maxHeight(cuboids: number[][]): number {
     for (const c of cuboids) {
         c.sort((a, b) => a - b);
     }
@@ -25,4 +21,4 @@ var maxHeight = function (cuboids) {
         f[i] += cuboids[i][2];
     }
     return Math.max(...f);
-};
+}
