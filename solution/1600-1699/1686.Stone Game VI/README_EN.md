@@ -66,19 +66,21 @@ Bob wins.
 
 ### Solution 1: Greedy + Sorting
 
-The optimal strategy for picking stones is to maximize one's own score while making the opponent lose as much as possible. Therefore, we create an array `arr`, where `arr[i] = aliceValues[i] + bobValues[i]`, and then sort `arr` in descending order. Then, we take stones from `arr`, taking two stones each time, one for Alice and one for Bob, until there are no stones left in `arr`. Finally, we compare the scores of Alice and Bob, and the person with the higher score wins.
+The optimal strategy for picking stones is to maximize one's own score while making the opponent lose as much as possible. Therefore, we create an array $vals$, where $vals[i] = (aliceValues[i] + bobValues[i], i)$ represents the total value and index of the $i$-th stone. Then we sort $vals$ in descending order by total value.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the arrays `aliceValues` and `bobValues`.
+Next, we let Alice and Bob pick stones alternately according to the order of $vals$. Alice picks the stones at even positions in $vals$, and Bob picks the stones at odd positions in $vals$. Finally, we compare the scores of Alice and Bob and return the corresponding result.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays `aliceValues` and `bobValues`.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def stoneGameVI(self, aliceValues: List[int], bobValues: List[int]) -> int:
-        arr = [(a + b, i) for i, (a, b) in enumerate(zip(aliceValues, bobValues))]
-        arr.sort(reverse=True)
-        a = sum(aliceValues[v[1]] for i, v in enumerate(arr) if i % 2 == 0)
-        b = sum(bobValues[v[1]] for i, v in enumerate(arr) if i % 2 == 1)
+        vals = [(a + b, i) for i, (a, b) in enumerate(zip(aliceValues, bobValues))]
+        vals.sort(reverse=True)
+        a = sum(aliceValues[i] for _, i in vals[::2])
+        b = sum(bobValues[i] for _, i in vals[1::2])
         if a > b:
             return 1
         if a < b:
@@ -90,18 +92,18 @@ class Solution:
 class Solution {
     public int stoneGameVI(int[] aliceValues, int[] bobValues) {
         int n = aliceValues.length;
-        int[][] arr = new int[n][2];
+        int[][] vals = new int[n][0];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[] {aliceValues[i] + bobValues[i], i};
+            vals[i] = new int[] {aliceValues[i] + bobValues[i], i};
         }
-        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        Arrays.sort(vals, (a, b) -> b[0] - a[0]);
         int a = 0, b = 0;
-        for (int i = 0; i < n; ++i) {
-            int j = arr[i][1];
-            if (i % 2 == 0) {
-                a += aliceValues[j];
+        for (int k = 0; k < n; ++k) {
+            int i = vals[k][1];
+            if (k % 2 == 0) {
+                a += aliceValues[i];
             } else {
-                b += bobValues[j];
+                b += bobValues[i];
             }
         }
         if (a == b) {
@@ -116,22 +118,24 @@ class Solution {
 class Solution {
 public:
     int stoneGameVI(vector<int>& aliceValues, vector<int>& bobValues) {
+        vector<pair<int, int>> vals;
         int n = aliceValues.size();
-        vector<pair<int, int>> arr(n);
         for (int i = 0; i < n; ++i) {
-            arr[i] = {aliceValues[i] + bobValues[i], i};
+            vals.emplace_back(aliceValues[i] + bobValues[i], i);
         }
-        sort(arr.rbegin(), arr.rend());
+        sort(vals.rbegin(), vals.rend());
         int a = 0, b = 0;
-        for (int i = 0; i < n; ++i) {
-            int j = arr[i].second;
-            if (i % 2 == 0) {
-                a += aliceValues[j];
+        for (int k = 0; k < n; ++k) {
+            int i = vals[k].second;
+            if (k % 2 == 0) {
+                a += aliceValues[i];
             } else {
-                b += bobValues[j];
+                b += bobValues[i];
             }
         }
-        if (a == b) return 0;
+        if (a == b) {
+            return 0;
+        }
         return a > b ? 1 : -1;
     }
 };
@@ -139,27 +143,51 @@ public:
 
 ```go
 func stoneGameVI(aliceValues []int, bobValues []int) int {
-	arr := make([][]int, len(aliceValues))
+	vals := make([][2]int, len(aliceValues))
 	for i, a := range aliceValues {
-		b := bobValues[i]
-		arr[i] = []int{a + b, i}
+		vals[i] = [2]int{a + bobValues[i], i}
 	}
-	sort.Slice(arr, func(i, j int) bool { return arr[i][0] > arr[j][0] })
+	slices.SortFunc(vals, func(a, b [2]int) int { return b[0] - a[0] })
 	a, b := 0, 0
-	for i, v := range arr {
-		if i%2 == 0 {
-			a += aliceValues[v[1]]
+	for k, v := range vals {
+		i := v[1]
+		if k%2 == 0 {
+			a += aliceValues[i]
 		} else {
-			b += bobValues[v[1]]
+			b += bobValues[i]
 		}
-	}
-	if a == b {
-		return 0
 	}
 	if a > b {
 		return 1
 	}
-	return -1
+	if a < b {
+		return -1
+	}
+	return 0
+}
+```
+
+```ts
+function stoneGameVI(aliceValues: number[], bobValues: number[]): number {
+    const n = aliceValues.length;
+    const vals: number[][] = [];
+    for (let i = 0; i < n; ++i) {
+        vals.push([aliceValues[i] + bobValues[i], i]);
+    }
+    vals.sort((a, b) => b[0] - a[0]);
+    let [a, b] = [0, 0];
+    for (let k = 0; k < n; ++k) {
+        const i = vals[k][1];
+        if (k % 2 == 0) {
+            a += aliceValues[i];
+        } else {
+            b += bobValues[i];
+        }
+    }
+    if (a === b) {
+        return 0;
+    }
+    return a > b ? 1 : -1;
 }
 ```
 

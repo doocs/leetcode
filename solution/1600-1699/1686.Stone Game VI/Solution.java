@@ -1,18 +1,18 @@
 class Solution {
     public int stoneGameVI(int[] aliceValues, int[] bobValues) {
         int n = aliceValues.length;
-        int[][] arr = new int[n][2];
+        int[][] vals = new int[n][0];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[] {aliceValues[i] + bobValues[i], i};
+            vals[i] = new int[] {aliceValues[i] + bobValues[i], i};
         }
-        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        Arrays.sort(vals, (a, b) -> b[0] - a[0]);
         int a = 0, b = 0;
-        for (int i = 0; i < n; ++i) {
-            int j = arr[i][1];
-            if (i % 2 == 0) {
-                a += aliceValues[j];
+        for (int k = 0; k < n; ++k) {
+            int i = vals[k][1];
+            if (k % 2 == 0) {
+                a += aliceValues[i];
             } else {
-                b += bobValues[j];
+                b += bobValues[i];
             }
         }
         if (a == b) {
