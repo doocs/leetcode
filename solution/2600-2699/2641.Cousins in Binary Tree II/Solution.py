@@ -6,30 +6,29 @@
 #         self.right = right
 class Solution:
     def replaceValueInTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        def dfs1(root, d):
+        def dfs1(root: Optional[TreeNode], depth: int):
             if root is None:
                 return
-            if len(s) <= d:
+            if len(s) <= depth:
                 s.append(0)
-            s[d] += root.val
-            dfs1(root.left, d + 1)
-            dfs1(root.right, d + 1)
+            s[depth] += root.val
+            dfs1(root.left, depth + 1)
+            dfs1(root.right, depth + 1)
 
-        def dfs2(root, d):
-            if root is None:
-                return
-            t = (root.left.val if root.left else 0) + (
+        def dfs2(root: Optional[TreeNode], depth: int):
+            sub = (root.left.val if root.left else 0) + (
                 root.right.val if root.right else 0
             )
+            depth += 1
             if root.left:
-                root.left.val = s[d] - t
+                root.left.val = s[depth] - sub
+                dfs2(root.left, depth)
             if root.right:
-                root.right.val = s[d] - t
-            dfs2(root.left, d + 1)
-            dfs2(root.right, d + 1)
+                root.right.val = s[depth] - sub
+                dfs2(root.right, depth)
 
         s = []
         dfs1(root, 0)
         root.val = 0
-        dfs2(root, 1)
+        dfs2(root, 0)
         return root
