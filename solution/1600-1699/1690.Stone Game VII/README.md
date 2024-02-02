@@ -69,7 +69,7 @@
 class Solution:
     def stoneGameVII(self, stones: List[int]) -> int:
         @cache
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> int:
             if i > j:
                 return 0
             a = s[j + 1] - s[i + 1] - dfs(i + 1, j)
@@ -165,6 +165,143 @@ func stoneGameVII(stones []int) int {
 }
 ```
 
+```ts
+function stoneGameVII(stones: number[]): number {
+    const n = stones.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + stones[i];
+    }
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const dfs = (i: number, j: number): number => {
+        if (i > j) {
+            return 0;
+        }
+        if (f[i][j]) {
+            return f[i][j];
+        }
+        const a = s[j + 1] - s[i + 1] - dfs(i + 1, j);
+        const b = s[j] - s[i] - dfs(i, j - 1);
+        return (f[i][j] = Math.max(a, b));
+    };
+    return dfs(0, n - 1);
+}
+```
+
 <!-- tabs:end -->
+
+### 方法二：动态规划
+
+我们可以将方法一中的记忆化搜索转换为动态规划，定义 $f[i][j]$ 表示当剩下的石子为 $stones[i], stones[i + 1], \dots, stones[j]$ 时，先手与后手的得分差值。那么答案即为 $f[0][n - 1]$。
+
+状态转移方程如下：
+
+$$
+f[i][j] = \max(s[j + 1] - s[i + 1] - f[i + 1][j], s[j] - s[i] - f[i][j - 1])
+$$
+
+在计算 $f[i][j]$ 时，我们需要保证 $f[i + 1][j]$ 和 $f[i][j - 1]$ 已经被计算出来，因此我们需要按照从大到小的顺序枚举 $i$，从小到大的顺序枚举 $j$。
+
+最后，答案即为 $f[0][n - 1]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为石子的数量。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def stoneGameVII(self, stones: List[int]) -> int:
+        s = list(accumulate(stones, initial=0))
+        n = len(stones)
+        f = [[0] * n for _ in range(n)]
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                a = s[j + 1] - s[i + 1] - f[i + 1][j]
+                b = s[j] - s[i] - f[i][j - 1]
+                f[i][j] = max(a, b)
+        return f[0][-1]
+```
+
+```java
+class Solution {
+    public int stoneGameVII(int[] stones) {
+        int n = stones.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + stones[i];
+        }
+        int[][] f = new int[n][n];
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                int a = s[j + 1] - s[i + 1] - f[i + 1][j];
+                int b = s[j] - s[i] - f[i][j - 1];
+                f[i][j] = Math.max(a, b);
+            }
+        }
+        return f[0][n - 1];
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int stoneGameVII(vector<int>& stones) {
+        int n = stones.size();
+        int s[n + 1];
+        memset(s, 0, sizeof(s));
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + stones[i];
+        }
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                int a = s[j + 1] - s[i + 1] - f[i + 1][j];
+                int b = s[j] - s[i] - f[i][j - 1];
+                f[i][j] = max(a, b);
+            }
+        }
+        return f[0][n - 1];
+    }
+};
+```
+
+```go
+func stoneGameVII(stones []int) int {
+	n := len(stones)
+	s := make([]int, n+1)
+	for i, x := range stones {
+		s[i+1] = s[i] + x
+	}
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = max(s[j+1]-s[i+1]-f[i+1][j], s[j]-s[i]-f[i][j-1])
+		}
+	}
+	return f[0][n-1]
+}
+```
+
+```ts
+function stoneGameVII(stones: number[]): number {
+    const n = stones.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + stones[i];
+    }
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = n - 2; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            f[i][j] = Math.max(s[j + 1] - s[i + 1] - f[i + 1][j], s[j] - s[i] - f[i][j - 1]);
+        }
+    }
+    return f[0][n - 1];
+}
+```
 
 <!-- end -->
