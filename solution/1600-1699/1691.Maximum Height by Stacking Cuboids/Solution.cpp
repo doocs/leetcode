@@ -1,7 +1,9 @@
 class Solution {
 public:
     int maxHeight(vector<vector<int>>& cuboids) {
-        for (auto& c : cuboids) sort(c.begin(), c.end());
+        for (auto& c : cuboids) {
+            sort(c.begin(), c.end());
+        }
         sort(cuboids.begin(), cuboids.end());
         int n = cuboids.size();
         vector<int> f(n);
