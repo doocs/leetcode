@@ -9,22 +9,22 @@ class Solution:
         root.val = 0
         q = [root]
         while q:
+            t = []
             s = 0
-            p = q
-            q = []
-            for node in p:
+            for node in q:
                 if node.left:
-                    q.append(node.left)
+                    t.append(node.left)
                     s += node.left.val
                 if node.right:
-                    q.append(node.right)
+                    t.append(node.right)
                     s += node.right.val
-            for node in p:
-                t = (node.left.val if node.left else 0) + (
+            for node in q:
+                sub = (node.left.val if node.left else 0) + (
                     node.right.val if node.right else 0
                 )
                 if node.left:
-                    node.left.val = s - t
+                    node.left.val = s - sub
                 if node.right:
-                    node.right.val = s - t
+                    node.right.val = s - sub
+            q = t
         return root

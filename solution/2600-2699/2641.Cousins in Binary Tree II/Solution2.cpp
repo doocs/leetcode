@@ -13,31 +13,30 @@ class Solution {
 public:
     TreeNode* replaceValueInTree(TreeNode* root) {
         root->val = 0;
-        vector<TreeNode*> q;
-        q.emplace_back(root);
+        vector<TreeNode*> q = {root};
         while (!q.empty()) {
-            vector<TreeNode*> p = q;
-            q.clear();
+            vector<TreeNode*> t;
             int s = 0;
-            for (TreeNode* node : p) {
+            for (TreeNode* node : q) {
                 if (node->left) {
-                    q.emplace_back(node->left);
+                    t.emplace_back(node->left);
                     s += node->left->val;
                 }
                 if (node->right) {
-                    q.emplace_back(node->right);
+                    t.emplace_back(node->right);
                     s += node->right->val;
                 }
             }
-            for (TreeNode* node : p) {
-                int t = (node->left ? node->left->val : 0) + (node->right ? node->right->val : 0);
+            for (TreeNode* node : q) {
+                int sub = (node->left ? node->left->val : 0) + (node->right ? node->right->val : 0);
                 if (node->left) {
-                    node->left->val = s - t;
+                    node->left->val = s - sub;
                 }
                 if (node->right) {
-                    node->right->val = s - t;
+                    node->right->val = s - sub;
                 }
             }
+            q = move(t);
         }
         return root;
     }

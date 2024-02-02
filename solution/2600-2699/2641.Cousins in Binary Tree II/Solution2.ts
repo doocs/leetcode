@@ -14,30 +14,30 @@
 
 function replaceValueInTree(root: TreeNode | null): TreeNode | null {
     root.val = 0;
-    let q: TreeNode[] = [root];
-    while (q.length) {
-        const p: TreeNode[] = q;
-        q = [];
-        let s: number = 0;
-        for (const { left, right } of p) {
+    const q: TreeNode[] = [root];
+    while (q.length > 0) {
+        const t: TreeNode[] = [];
+        let s = 0;
+        for (const { left, right } of q) {
             if (left) {
-                q.push(left);
+                t.push(left);
                 s += left.val;
             }
             if (right) {
-                q.push(right);
+                t.push(right);
                 s += right.val;
             }
         }
-        for (const { left, right } of p) {
-            const t: number = (left?.val ?? 0) + (right?.val ?? 0);
+        for (const { left, right } of q) {
+            const sub = (left?.val || 0) + (right?.val || 0);
             if (left) {
-                left.val = s - t;
+                left.val = s - sub;
             }
             if (right) {
-                right.val = s - t;
+                right.val = s - sub;
             }
         }
+        q.splice(0, q.length, ...t);
     }
     return root;
 }

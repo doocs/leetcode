@@ -19,35 +19,34 @@ class Solution {
     public TreeNode replaceValueInTree(TreeNode root) {
         dfs1(root, 0);
         root.val = 0;
-        dfs2(root, 1);
+        dfs2(root, 0);
         return root;
     }
 
-    private void dfs1(TreeNode root, int d) {
+    private void dfs1(TreeNode root, int depth) {
         if (root == null) {
             return;
         }
-        if (s.size() <= d) {
+        if (s.size() <= depth) {
             s.add(0);
         }
-        s.set(d, s.get(d) + root.val);
-        dfs1(root.left, d + 1);
-        dfs1(root.right, d + 1);
+        s.set(depth, s.get(depth) + root.val);
+        dfs1(root.left, depth + 1);
+        dfs1(root.right, depth + 1);
     }
 
-    private void dfs2(TreeNode root, int d) {
-        if (root == null) {
-            return;
-        }
+    private void dfs2(TreeNode root, int depth) {
         int l = root.left == null ? 0 : root.left.val;
         int r = root.right == null ? 0 : root.right.val;
+        int sub = l + r;
+        ++depth;
         if (root.left != null) {
-            root.left.val = s.get(d) - l - r;
+            root.left.val = s.get(depth) - sub;
+            dfs2(root.left, depth);
         }
         if (root.right != null) {
-            root.right.val = s.get(d) - l - r;
+            root.right.val = s.get(depth) - sub;
+            dfs2(root.right, depth);
         }
-        dfs2(root.left, d + 1);
-        dfs2(root.right, d + 1);
     }
 }
