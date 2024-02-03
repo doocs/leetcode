@@ -20,7 +20,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：快慢指针
+
+我们定义两个指针 `slow` 和 `fast`，初始时都指向链表头节点 `head`。然后 `fast` 指针先向前移动 $k$ 步，然后 `slow` 和 `fast` 指针同时向前移动，直到 `fast` 指针指向链表末尾。此时 `slow` 指针指向的节点就是倒数第 $k$ 个节点。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -38,7 +42,8 @@ class Solution:
         for _ in range(k):
             fast = fast.next
         while fast:
-            slow, fast = slow.next, fast.next
+            slow = slow.next
+            fast = fast.next
         return slow.val
 ```
 
@@ -80,7 +85,7 @@ public:
     int kthToLast(ListNode* head, int k) {
         ListNode* fast = head;
         ListNode* slow = head;
-        while (k-- > 0) {
+        while (k--) {
             fast = fast->next;
         }
         while (fast) {
@@ -93,9 +98,16 @@ public:
 ```
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func kthToLast(head *ListNode, k int) int {
 	slow, fast := head, head
-	for i := 0; i < k; i++ {
+	for ; k > 0; k-- {
 		fast = fast.Next
 	}
 	for fast != nil {
@@ -103,6 +115,32 @@ func kthToLast(head *ListNode, k int) int {
 		fast = fast.Next
 	}
 	return slow.Val
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function kthToLast(head: ListNode | null, k: number): number {
+    let [slow, fast] = [head, head];
+    while (k--) {
+        fast = fast.next;
+    }
+    while (fast !== null) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    return slow.val;
 }
 ```
 
@@ -153,14 +191,13 @@ impl Solution {
  * @return {number}
  */
 var kthToLast = function (head, k) {
-    let fast = head,
-        slow = head;
-    for (let i = 0; i < k; i++) {
+    let [slow, fast] = [head, head];
+    while (k--) {
         fast = fast.next;
     }
-    while (fast != null) {
-        fast = fast.next;
+    while (fast !== null) {
         slow = slow.next;
+        fast = fast.next;
     }
     return slow.val;
 };
