@@ -11,17 +11,18 @@
  */
 
 function partition(head: ListNode | null, x: number): ListNode | null {
-    if (head == null) {
-        return head;
-    }
-    let cur = head;
-    while (cur.next != null) {
-        let node = cur.next;
-        if (node.val < x) {
-            [head, node.next, cur.next] = [node, head, node.next];
+    const [left, right] = [new ListNode(), new ListNode()];
+    let [p1, p2] = [left, right];
+    for (; head; head = head.next) {
+        if (head.val < x) {
+            p1.next = head;
+            p1 = p1.next;
         } else {
-            cur = cur.next;
+            p2.next = head;
+            p2 = p2.next;
         }
     }
-    return head;
+    p1.next = right.next;
+    p2.next = null;
+    return left.next;
 }

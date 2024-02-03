@@ -7,16 +7,16 @@
 
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
-        l1, l2 = ListNode(0), ListNode(0)
-        cur1, cur2 = l1, l2
+        left, right = ListNode(0), ListNode(0)
+        p1, p2 = left, right
         while head:
             if head.val < x:
-                cur1.next = head
-                cur1 = cur1.next
+                p1.next = head
+                p1 = p1.next
             else:
-                cur2.next = head
-                cur2 = cur2.next
+                p2.next = head
+                p2 = p2.next
             head = head.next
-        cur1.next = l2.next
-        cur2.next = None
-        return l1.next
+        p1.next = right.next
+        p2.next = None
+        return left.next

@@ -20,7 +20,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Node Assignment
+
+We can replace the value of the current node with the value of the next node, and then delete the next node. This way, we can achieve the purpose of deleting the current node.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -34,10 +38,6 @@
 
 class Solution:
     def deleteNode(self, node):
-        """
-        :type node: ListNode
-        :rtype: void Do not return anything, modify node in-place instead.
-        """
         node.val = node.next.val
         node.next = node.next.next
 ```
