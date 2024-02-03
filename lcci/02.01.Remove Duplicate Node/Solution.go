@@ -1,15 +1,19 @@
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func removeDuplicateNodes(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-	vis := map[int]bool{head.Val: true}
-	p := head
-	for p.Next != nil {
-		if vis[p.Next.Val] {
-			p.Next = p.Next.Next
+	vis := map[int]bool{}
+	pre := &ListNode{0, head}
+	for pre.Next != nil {
+		if vis[pre.Next.Val] {
+			pre.Next = pre.Next.Next
 		} else {
-			vis[p.Next.Val] = true
-			p = p.Next
+			vis[pre.Next.Val] = true
+			pre = pre.Next
 		}
 	}
 	return head

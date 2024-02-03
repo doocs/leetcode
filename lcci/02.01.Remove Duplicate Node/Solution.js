@@ -10,19 +10,15 @@
  * @return {ListNode}
  */
 var removeDuplicateNodes = function (head) {
-    if (head == null || head.next == null) return head;
-    const cache = new Set([]);
-    cache.add(head.val);
-    let cur = head,
-        fast = head.next;
-    while (fast !== null) {
-        if (!cache.has(fast.val)) {
-            cur.next = fast;
-            cur = cur.next;
-            cache.add(fast.val);
+    const vis = new Set();
+    let pre = new ListNode(0, head);
+    while (pre.next) {
+        if (vis.has(pre.next.val)) {
+            pre.next = pre.next.next;
+        } else {
+            vis.add(pre.next.val);
+            pre = pre.next;
         }
-        fast = fast.next;
     }
-    cur.next = null;
     return head;
 };

@@ -17,23 +17,20 @@
 use std::collections::HashSet;
 
 impl Solution {
-    pub fn remove_duplicate_nodes(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        match head {
-            None => head,
-            Some(mut head) => {
-                let mut set = HashSet::new();
-                set.insert(head.val);
-                let mut pre = &mut head;
-                while let Some(cur) = &pre.next {
-                    if set.contains(&cur.val) {
-                        pre.next = pre.next.take().unwrap().next;
-                    } else {
-                        set.insert(cur.val);
-                        pre = pre.next.as_mut().unwrap();
-                    }
-                }
-                Some(head)
+    pub fn remove_duplicate_nodes(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut vis = HashSet::new();
+        let mut pre = ListNode::new(0);
+        pre.next = head;
+        let mut cur = &mut pre;
+        while let Some(node) = cur.next.take() {
+            if vis.contains(&node.val) {
+                cur.next = node.next;
+            } else {
+                vis.insert(node.val);
+                cur.next = Some(node);
+                cur = cur.next.as_mut().unwrap();
             }
         }
+        pre.next
     }
 }

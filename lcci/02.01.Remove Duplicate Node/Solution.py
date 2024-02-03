@@ -7,16 +7,12 @@
 
 class Solution:
     def removeDuplicateNodes(self, head: ListNode) -> ListNode:
-        if head is None or head.next is None:
-            return head
-        cache = set()
-        cache.add(head.val)
-        cur, p = head, head.next
-        while p:
-            if p.val not in cache:
-                cur.next = p
-                cur = cur.next
-                cache.add(p.val)
-            p = p.next
-        cur.next = None
+        vis = set()
+        pre = ListNode(0, head)
+        while pre.next:
+            if pre.next.val in vis:
+                pre.next = pre.next.next
+            else:
+                vis.add(pre.next.val)
+                pre = pre.next
         return head

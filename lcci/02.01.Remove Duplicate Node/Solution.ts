@@ -11,17 +11,14 @@
  */
 
 function removeDuplicateNodes(head: ListNode | null): ListNode | null {
-    if (head == null) {
-        return head;
-    }
-    const set = new Set<number>([head.val]);
-    let cur = head;
-    while (cur.next != null) {
-        if (set.has(cur.next.val)) {
-            cur.next = cur.next.next;
+    const vis: Set<number> = new Set();
+    let pre: ListNode = new ListNode(0, head);
+    while (pre.next) {
+        if (vis.has(pre.next.val)) {
+            pre.next = pre.next.next;
         } else {
-            set.add(cur.next.val);
-            cur = cur.next;
+            vis.add(pre.next.val);
+            pre = pre.next;
         }
     }
     return head;
