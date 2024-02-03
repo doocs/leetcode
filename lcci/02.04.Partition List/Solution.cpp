@@ -3,30 +3,27 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode* l1 = new ListNode();
-        ListNode* l2 = new ListNode();
-        ListNode* cur1 = l1;
-        ListNode* cur2 = l2;
-        while (head != nullptr) {
+        ListNode* left = new ListNode(0);
+        ListNode* right = new ListNode(0);
+        ListNode* p1 = left;
+        ListNode* p2 = right;
+        for (; head; head = head->next) {
             if (head->val < x) {
-                cur1->next = head;
-                cur1 = cur1->next;
+                p1->next = head;
+                p1 = p1->next;
             } else {
-                cur2->next = head;
-                cur2 = cur2->next;
+                p2->next = head;
+                p2 = p2->next;
             }
-            head = head->next;
         }
-        cur1->next = l2->next;
-        cur2->next = nullptr;
-        return l1->next;
+        p1->next = right->next;
+        p2->next = nullptr;
+        return left->next;
     }
 };
