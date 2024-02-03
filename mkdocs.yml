@@ -60,7 +60,6 @@ theme:
         name: Switch to system preference
 
 plugins:
-  - info
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
