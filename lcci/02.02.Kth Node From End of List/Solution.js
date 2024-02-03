@@ -11,14 +11,13 @@
  * @return {number}
  */
 var kthToLast = function (head, k) {
-    let fast = head,
-        slow = head;
-    for (let i = 0; i < k; i++) {
+    let [slow, fast] = [head, head];
+    while (k--) {
         fast = fast.next;
     }
-    while (fast != null) {
-        fast = fast.next;
+    while (fast !== null) {
         slow = slow.next;
+        fast = fast.next;
     }
     return slow.val;
 };
