@@ -50,7 +50,13 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation + Statistics
+
+For each friendship, if the sets of languages known by the two people do not intersect, then a language needs to be taught so that the two people can communicate with each other. We put these people into a hash set $s$.
+
+Then in this set $s$, we count the number of people who know each language, and get the maximum number, which we denote as $mx$. So the answer is `len(s) - mx`.
+
+The time complexity is $O(m^2 \times k)$. Here, $m$ is the number of languages, and $k$ is the number of friendships.
 
 <!-- tabs:start -->
 

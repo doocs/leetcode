@@ -47,7 +47,17 @@ The largest submatrix of 1s, in bold, has an area of 3.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Preprocessing + Sorting
+
+Since the matrix is rearranged by columns according to the problem, we can first preprocess each column of the matrix.
+
+For each element with a value of $1$, we update its value to the maximum consecutive number of $1$s above it, that is, $matrix[i][j] = matrix[i-1][j] + 1$.
+
+Next, we can sort each row of the updated matrix. Then traverse each row, calculate the area of the largest sub-matrix full of $1$s with this row as the bottom edge. The specific calculation logic is as follows:
+
+For a row of the matrix, we denote the value of the $k$-th largest element as $val_k$, where $k \geq 1$, then there are at least $k$ elements in this row that are not less than $val_k$, forming a sub-matrix full of $1$s with an area of $val_k \times k$. Traverse each element of this row from large to small, take the maximum value of $val_k \times k$, and update the answer.
+
+The time complexity is $O(m \times n \times \log n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

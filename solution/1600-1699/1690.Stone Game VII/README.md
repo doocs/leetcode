@@ -304,4 +304,6 @@ function stoneGameVII(stones: number[]): number {
 }
 ```
 
+<!-- tabs:end -->
+
 <!-- end -->
