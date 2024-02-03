@@ -34,7 +34,17 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表
+
+我们创建一个哈希表 $vis$，用于记录已经访问过的节点的值。
+
+然后我们创建一个虚拟节点 $pre$，使得 $pre.next = head$。
+
+接下来我们遍历链表，如果当前节点的值已经在哈希表中，我们就将当前节点删除，即 $pre.next = pre.next.next$；否则，我们将当前节点的值加入哈希表中，并将 $pre$ 指向下一个节点。
+
+遍历结束后，我们返回链表的头节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
 
@@ -48,18 +58,14 @@
 
 class Solution:
     def removeDuplicateNodes(self, head: ListNode) -> ListNode:
-        if head is None or head.next is None:
-            return head
-        cache = set()
-        cache.add(head.val)
-        cur, p = head, head.next
-        while p:
-            if p.val not in cache:
-                cur.next = p
-                cur = cur.next
-                cache.add(p.val)
-            p = p.next
-        cur.next = None
+        vis = set()
+        pre = ListNode(0, head)
+        while pre.next:
+            if pre.next.val in vis:
+                pre.next = pre.next.next
+            else:
+                vis.add(pre.next.val)
+                pre = pre.next
         return head
 ```
 
@@ -74,20 +80,15 @@ class Solution:
  */
 class Solution {
     public ListNode removeDuplicateNodes(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        Set<Integer> s = new HashSet<>();
-        s.add(head.val);
-        ListNode cur = head;
-        for (ListNode p = head.next; p != null; p = p.next) {
-            if (!s.contains(p.val)) {
-                cur.next = p;
-                cur = cur.next;
-                s.add(p.val);
+        Set<Integer> vis = new HashSet<>();
+        ListNode pre = new ListNode(0, head);
+        while (pre.next != null) {
+            if (vis.add(pre.next.val)) {
+                pre = pre.next;
+            } else {
+                pre.next = pre.next.next;
             }
         }
-        cur.next = null;
         return head;
     }
 }
@@ -105,37 +106,38 @@ class Solution {
 class Solution {
 public:
     ListNode* removeDuplicateNodes(ListNode* head) {
-        if (head == nullptr || head->next == nullptr) {
-            return head;
-        }
-        unordered_set<int> cache = {head->val};
-        ListNode* cur = head;
-        for (ListNode* p = head->next; p != nullptr; p = p->next) {
-            if (!cache.count(p->val)) {
-                cur->next = p;
-                cur = cur->next;
-                cache.insert(p->val);
+        unordered_set<int> vis;
+        ListNode* pre = new ListNode(0, head);
+        while (pre->next) {
+            if (vis.count(pre->next->val)) {
+                pre->next = pre->next->next;
+            } else {
+                vis.insert(pre->next->val);
+                pre = pre->next;
             }
         }
-        cur->next = nullptr;
         return head;
     }
 };
 ```
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func removeDuplicateNodes(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-	vis := map[int]bool{head.Val: true}
-	p := head
-	for p.Next != nil {
-		if vis[p.Next.Val] {
-			p.Next = p.Next.Next
+	vis := map[int]bool{}
+	pre := &ListNode{0, head}
+	for pre.Next != nil {
+		if vis[pre.Next.Val] {
+			pre.Next = pre.Next.Next
 		} else {
-			vis[p.Next.Val] = true
-			p = p.Next
+			vis[pre.Next.Val] = true
+			pre = pre.Next
 		}
 	}
 	return head
@@ -156,17 +158,14 @@ func removeDuplicateNodes(head *ListNode) *ListNode {
  */
 
 function removeDuplicateNodes(head: ListNode | null): ListNode | null {
-    if (head == null) {
-        return head;
-    }
-    const set = new Set<number>([head.val]);
-    let cur = head;
-    while (cur.next != null) {
-        if (set.has(cur.next.val)) {
-            cur.next = cur.next.next;
+    const vis: Set<number> = new Set();
+    let pre: ListNode = new ListNode(0, head);
+    while (pre.next) {
+        if (vis.has(pre.next.val)) {
+            pre.next = pre.next.next;
         } else {
-            set.add(cur.next.val);
-            cur = cur.next;
+            vis.add(pre.next.val);
+            pre = pre.next;
         }
     }
     return head;
@@ -193,24 +192,21 @@ function removeDuplicateNodes(head: ListNode | null): ListNode | null {
 use std::collections::HashSet;
 
 impl Solution {
-    pub fn remove_duplicate_nodes(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        match head {
-            None => head,
-            Some(mut head) => {
-                let mut set = HashSet::new();
-                set.insert(head.val);
-                let mut pre = &mut head;
-                while let Some(cur) = &pre.next {
-                    if set.contains(&cur.val) {
-                        pre.next = pre.next.take().unwrap().next;
-                    } else {
-                        set.insert(cur.val);
-                        pre = pre.next.as_mut().unwrap();
-                    }
-                }
-                Some(head)
+    pub fn remove_duplicate_nodes(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut vis = HashSet::new();
+        let mut pre = ListNode::new(0);
+        pre.next = head;
+        let mut cur = &mut pre;
+        while let Some(node) = cur.next.take() {
+            if vis.contains(&node.val) {
+                cur.next = node.next;
+            } else {
+                vis.insert(node.val);
+                cur.next = Some(node);
+                cur = cur.next.as_mut().unwrap();
             }
         }
+        pre.next
     }
 }
 ```
@@ -228,20 +224,16 @@ impl Solution {
  * @return {ListNode}
  */
 var removeDuplicateNodes = function (head) {
-    if (head == null || head.next == null) return head;
-    const cache = new Set([]);
-    cache.add(head.val);
-    let cur = head,
-        fast = head.next;
-    while (fast !== null) {
-        if (!cache.has(fast.val)) {
-            cur.next = fast;
-            cur = cur.next;
-            cache.add(fast.val);
+    const vis = new Set();
+    let pre = new ListNode(0, head);
+    while (pre.next) {
+        if (vis.has(pre.next.val)) {
+            pre.next = pre.next.next;
+        } else {
+            vis.add(pre.next.val);
+            pre = pre.next;
         }
-        fast = fast.next;
     }
-    cur.next = null;
     return head;
 };
 ```
