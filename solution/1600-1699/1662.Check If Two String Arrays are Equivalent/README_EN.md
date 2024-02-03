@@ -45,7 +45,11 @@ The strings are the same, so return true.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: String Concatenation
+
+Concatenate the strings in the two arrays into two strings, then compare whether the two strings are equal.
+
+The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the total length of the strings in the arrays.
 
 <!-- tabs:start -->
 
@@ -118,7 +122,17 @@ bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Si
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Direct Traversal
+
+In Solution 1, we concatenated the strings in the two arrays into two new strings, which has additional space overhead. We can also directly traverse the two arrays and compare the characters one by one.
+
+We use two pointers $i$ and $j$ to point to the two string arrays, and another two pointers $x$ and $y$ to point to the corresponding characters in the strings. Initially, $i = j = x = y = 0$.
+
+Each time we compare $word1[i][x]$ and $word2[j][y]$. If they are not equal, we directly return `false`. Otherwise, we increment $x$ and $y$ by $1$. If $x$ or $y$ exceeds the length of the corresponding string, we increment the corresponding string pointer $i$ or $j$ by $1$, and then reset $x$ and $y$ to $0$.
+
+If both string arrays are traversed, we return `true`, otherwise, we return `false`.
+
+The time complexity is $O(m)$, and the space complexity is $O(1)$. Here, $m$ is the total length of the strings in the arrays.
 
 <!-- tabs:start -->
 

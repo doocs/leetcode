@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>你正在玩一款电子游戏，在游戏中你需要保护城市免受怪物侵袭。给定一个 <strong>下标从 0 开始</strong> 且大小为 <code>n</code> 的整数数组 <code>dist</code> ，其中 <code>dist[i]</code> 是第 <code>i</code> 个怪物与城市的 <strong>初始距离</strong>（单位：米）。</p>
+<p>你正在玩一款电子游戏，在游戏中你需要保护城市免受怪物侵袭。给定一个 <strong>下标从 0 开始</strong> 且大小为 <code>n</code> 的整数数组 <code>dist</code> ，其中 <code>dist[i]</code> 是第 <code>i</code> 个怪物与城市的 <strong>初始距离</strong>（单位：千米）。</p>
 
 <p>怪物以 <strong>恒定</strong> 的速度走向城市。每个怪物的速度都以一个长度为 <code>n</code> 的整数数组 <code>speed</code> 表示，其中 <code>speed[i]</code> 是第 <code>i</code> 个怪物的速度（单位：千米/分）。</p>
 

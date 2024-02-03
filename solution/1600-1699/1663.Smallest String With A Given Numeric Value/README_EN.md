@@ -38,7 +38,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy
+
+First, we initialize each character of the string to `'a'`, leaving a remaining value of $d=k-n$.
+
+Then, we traverse the string from back to front. In each iteration, we greedily replace the current character with the character `'z'` that can minimize the remaining number, until the remaining number does not exceed $25$. Finally, we add the remaining number to the position we have traversed.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

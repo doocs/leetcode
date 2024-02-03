@@ -50,7 +50,11 @@ The 2nd customer is the richest with a wealth of 10.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Summation
+
+We traverse `accounts` and find the maximum sum of each row.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

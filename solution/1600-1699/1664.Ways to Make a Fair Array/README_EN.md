@@ -58,7 +58,21 @@ There is 1 index that you can remove to make nums fair.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration + Prefix Sum
+
+First, we preprocess to get the sum $s_1$ of the elements at even indices and the sum $s_2$ of the elements at odd indices in the array `nums`.
+
+Then, we enumerate each element $v$ in the array `nums` from front to back, using variables $t_1$ and $t_2$ to record the sum of the elements at even indices and the sum of the elements at odd indices that have been traversed, respectively.
+
+We observe that for the current element $v$ being traversed, if it is removed, the sum of the elements at odd and even indices after this element will be swapped. At this point, we first determine whether the index $i$ of the current position is odd or even.
+
+-   If it is an even index, after deleting the element, the sum of the elements at odd indices in the array is $t_2 + s_1 - t_1 - v$, and the sum of the elements at even indices is $t_1 + s_2 - t_2$. If these two sums are equal, it is a balanced array, and the answer is incremented by one.
+
+-   If it is an odd index, after deleting the element, the sum of the elements at even indices in the array is $t_1 + s_2 - t_2 - v$, and the sum of the elements at odd indices is $t_2 + s_1 - t_1$. If these two sums are equal, it is a balanced array, and the answer is incremented by one.
+
+Then we update $t_1$ and $t_2$ and continue to traverse the next element. After traversing the array, we can get the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

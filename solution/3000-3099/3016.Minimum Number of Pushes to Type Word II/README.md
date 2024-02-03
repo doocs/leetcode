@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个字符串 <code>word</code>，由 <strong>不同 </strong>小写英文字母组成。</p>
+<p>给你一个字符串 <code>word</code>，由小写英文字母组成。</p>
 
 <p>电话键盘上的按键与 <strong>不同 </strong>小写英文字母集合相映射，可以通过按压按键来组成单词。例如，按键 <code>2</code> 对应 <code>["a","b","c"]</code>，我们需要按一次键来输入 <code>"a"</code>，按两次键来输入 <code>"b"</code>，按三次键来输入 <code>"c"</code><em>。</em></p>
 

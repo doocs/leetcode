@@ -55,7 +55,25 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We define an answer array `ans` of length `n`, initially all elements are `0`. According to the problem, if `k` is `0`, return `ans` directly.
+
+Otherwise, we traverse each position `i`:
+
+-   If `k` is a positive number, then the value at position `i` is the sum of the values at the `k` positions after position `i`, that is:
+
+$$
+ans[i] = \sum_{j=i+1}^{i+k} code[j \bmod n]
+$$
+
+-   If `k` is a negative number, then the value at position `i` is the sum of the values at the `|k|` positions before position `i`, that is:
+
+$$
+ans[i] = \sum_{j=i+k}^{i-1} code[(j+n) \bmod n]
+$$
+
+The time complexity is $O(n \times |k|)$, ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -183,7 +201,17 @@ function decrypt(code: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Prefix Sum
+
+In Solution 1, for each position $i$, we need to traverse $k$ positions, which involves a lot of repeated calculations. We can optimize this by using prefix sums.
+
+We duplicate the `code` array (this can be achieved without actually duplicating the array, but by cyclically traversing with modulo operation), resulting in an array of twice the length. We then calculate the prefix sum of this array, resulting in a prefix sum array $s$ of length $2 \times n + 1$.
+
+If $k$ is a positive number, then the value at position $i$ is the sum of the values at the $k$ positions after position $i$, i.e., $ans[i] = s[i + k + 1] - s[i + 1]$.
+
+If $k$ is a negative number, then the value at position $i$ is the sum of the values at the $|k|$ positions before position $i$, i.e., $ans[i] = s[i + n] - s[i + k + n]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the `code` array.
 
 <!-- tabs:start -->
 
