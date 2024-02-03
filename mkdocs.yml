@@ -60,6 +60,7 @@ theme:
         name: Switch to system preference
 
 plugins:
+  - info
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
@@ -67,6 +68,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 
 extra_javascript:
   - javascripts/katex.js 
@@ -77,6 +83,7 @@ extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/yanglbme
