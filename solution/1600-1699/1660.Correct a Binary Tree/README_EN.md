@@ -56,7 +56,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS
+
+We design a function `dfs(root)` to handle the subtree with `root` as the root. If `root` is `null` or `root.right` has been visited, `root` is an invalid node, so we return `null`. Otherwise, we recursively process `root.right` and `root.left`, and return `root`.
+
+Finally, we return `dfs(root)`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

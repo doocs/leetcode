@@ -73,7 +73,9 @@ class Solution {
 public:
     int minPartitions(string n) {
         int ans = 0;
-        for (char& c : n) ans = max(ans, c - '0');
+        for (char& c : n) {
+            ans = max(ans, c - '0');
+        }
         return ans;
     }
 };
@@ -92,9 +94,7 @@ func minPartitions(n string) (ans int) {
 
 ```ts
 function minPartitions(n: string): number {
-    let nums = n.split('').map(d => parseInt(d));
-    let ans = Math.max(...nums);
-    return ans;
+    return Math.max(...n.split('').map(d => parseInt(d)));
 }
 ```
 

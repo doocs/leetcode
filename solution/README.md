@@ -1908,7 +1908,7 @@
 |  1895  |  [最大的幻方](/solution/1800-1899/1895.Largest%20Magic%20Square/README.md)  |  `数组`,`矩阵`,`前缀和`  |  中等  |  第 54 场双周赛  |
 |  1896  |  [反转表达式值的最少操作次数](/solution/1800-1899/1896.Minimum%20Cost%20to%20Change%20the%20Final%20Value%20of%20Expression/README.md)  |  `栈`,`数学`,`字符串`,`动态规划`  |  困难  |  第 54 场双周赛  |
 |  1897  |  [重新分配字符使所有字符串都相等](/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README.md)  |  `哈希表`,`字符串`,`计数`  |  简单  |  第 245 场周赛  |
-|  1898  |  [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)  |  `数组`,`字符串`,`二分查找`  |  中等  |  第 245 场周赛  |
+|  1898  |  [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)  |  `数组`,`双指针`,`字符串`,`二分查找`  |  中等  |  第 245 场周赛  |
 |  1899  |  [合并若干三元组以形成目标三元组](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README.md)  |  `贪心`,`数组`  |  中等  |  第 245 场周赛  |
 |  1900  |  [最佳运动员的比拼回合](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README.md)  |  `记忆化搜索`,`动态规划`  |  困难  |  第 245 场周赛  |
 |  1901  |  [寻找峰值 II](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README.md)  |  `数组`,`二分查找`,`矩阵`  |  中等  |    |
@@ -3033,7 +3033,7 @@
 |  3020  |  [子集中元素的最大数量](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md)  |  `数组`,`哈希表`,`枚举`  |  中等  |  第 382 场周赛  |
 |  3021  |  [Alice 和 Bob 玩鲜花游戏](/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README.md)  |  `数学`  |  中等  |  第 382 场周赛  |
 |  3022  |  [给定操作次数内使剩余元素的或值最小](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README.md)  |  `贪心`,`位运算`,`数组`  |  困难  |  第 382 场周赛  |
-|  3023  |  [Find Pattern in Infinite Stream I](/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README.md)  |    |  中等  |  🔒  |
+|  3023  |  [在无限流中寻找模式 I](/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

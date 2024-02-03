@@ -43,7 +43,17 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Prefix Sum
+
+We can transform the problem into finding the maximum length of a continuous subarray in the middle, such that the sum of the subarray is $x = sum(nums) - x$.
+
+Define a hash table `vis`, where `vis[s]` represents the smallest index with a prefix sum of $s$.
+
+Traverse the array `nums`. For each element $nums[i]$, we first add $nums[i]$ to the prefix sum $s$. If $s$ does not exist in the hash table, we add it to the hash table, and its value is the current index $i$. Then we check whether $s - x$ exists in the hash table. If it does, it means that there exists an index $j$ such that the sum of $nums[j + 1,..i]$ is $x$. At this time, we update the minimum value of the answer, that is, $ans = min(ans, n - (i - j))$.
+
+At the end of the traversal, if no subarray meets the condition, return $-1$, otherwise return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 
@@ -218,7 +228,15 @@ int minOperations(int* nums, int numsSize, int x) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Two Pointers
+
+Similar to Solution 1, we need to find a subarray such that the sum of the subarray is $x = sum(nums) - x$.
+
+Define two pointers $j$ and $i$, initially $i = j = 0$. Then we move the pointer $i$ to the right, add $nums[i]$ to the prefix sum $s$. If $s > x$, then we move the pointer $j$ to the right in a loop, and subtract $nums[j]$ from the prefix sum $s$, until $s \le x$. If $s = x$, we can update the minimum value of the answer, that is, $ans = min(ans, n - (i - j + 1))$. Continue to move the pointer $i$ to the right, and repeat the above process.
+
+Finally, if no subarray meets the condition, return $-1$, otherwise return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
 

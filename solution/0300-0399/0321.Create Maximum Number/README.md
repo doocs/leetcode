@@ -14,7 +14,8 @@
 
 <p><strong>示例&nbsp;1:</strong></p>
 
-<pre><strong>输入:</strong>
+<pre>
+<strong>输入:</strong>
 nums1 = <code>[3, 4, 6, 5]</code>
 nums2 = <code>[9, 1, 2, 5, 8, 3]</code>
 k = <code>5</code>
@@ -23,7 +24,8 @@ k = <code>5</code>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入:</strong>
+<pre>
+<strong>输入:</strong>
 nums1 = <code>[6, 7]</code>
 nums2 = <code>[6, 0, 4]</code>
 k = <code>5</code>
@@ -32,12 +34,24 @@ k = <code>5</code>
 
 <p><strong>示例 3:</strong></p>
 
-<pre><strong>输入:</strong>
+<pre>
+<strong>输入:</strong>
 nums1 = <code>[3, 9]</code>
 nums2 = <code>[8, 9]</code>
 k = <code>3</code>
 <strong>输出:</strong>
-<code>[9, 8, 9]</code></pre>
+<code>[9, 8, 9]</code>
+</pre>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>m == nums1.length</code></li>
+	<li><code>n == nums2.length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 500</code></li>
+	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 9</code></li>
+	<li><code>1 &lt;= k &lt;= m + n</code></li>
+</ul>
 
 ## 解法
 
