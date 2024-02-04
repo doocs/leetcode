@@ -50,24 +50,99 @@ nums[1] + nums[2] = 4 + 5 = 9 ，大于 nums[0] = 3 。
 
 ## 解法
 
-### 方法一
+### 方法一：排序 + 分类讨论
+
+我们先对数组进行排序，然后根据三角形的定义进行分类讨论即可。
+
+-   如果最小的两个数之和小于等于最大的数，那么无法构成三角形，返回 "none"。
+-   如果最小的数等于最大的数，那么是等边三角形，返回 "equilateral"。
+-   如果最小的数等于中间的数或者中间的数等于最大的数，那么是等腰三角形，返回 "isosceles"。
+-   否则，返回 "scalene"。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def triangleType(self, nums: List[int]) -> str:
+        nums.sort()
+        if nums[0] + nums[1] <= nums[2]:
+            return "none"
+        if nums[0] == nums[2]:
+            return "equilateral"
+        if nums[0] == nums[1] or nums[1] == nums[2]:
+            return "isosceles"
+        return "scalene"
 ```
 
 ```java
-
+class Solution {
+    public String triangleType(int[] nums) {
+        Arrays.sort(nums);
+        if (nums[0] + nums[1] <= nums[2]) {
+            return "none";
+        }
+        if (nums[0] == nums[2]) {
+            return "equilateral";
+        }
+        if (nums[0] == nums[1] || nums[1] == nums[2]) {
+            return "isosceles";
+        }
+        return "scalene";
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    string triangleType(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        if (nums[0] + nums[1] <= nums[2]) {
+            return "none";
+        }
+        if (nums[0] == nums[2]) {
+            return "equilateral";
+        }
+        if (nums[0] == nums[1] || nums[1] == nums[2]) {
+            return "isosceles";
+        }
+        return "scalene";
+    }
+};
 ```
 
 ```go
+func triangleType(nums []int) string {
+	sort.Ints(nums)
+	if nums[0]+nums[1] <= nums[2] {
+		return "none"
+	}
+	if nums[0] == nums[2] {
+		return "equilateral"
+	}
+	if nums[0] == nums[1] || nums[1] == nums[2] {
+		return "isosceles"
+	}
+	return "scalene"
+}
+```
 
+```ts
+function triangleType(nums: number[]): string {
+    nums.sort((a, b) => a - b);
+    if (nums[0] + nums[1] <= nums[2]) {
+        return 'none';
+    }
+    if (nums[0] === nums[2]) {
+        return 'equilateral';
+    }
+    if (nums[0] === nums[1] || nums[1] === nums[2]) {
+        return 'isosceles';
+    }
+    return 'scalene';
+}
 ```
 
 <!-- tabs:end -->
