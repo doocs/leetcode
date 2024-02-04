@@ -63,24 +63,119 @@ Note that it does not matter if the fence encloses any area, the first and secon
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting and Classification
+
+First, we sort the array. Then, we can classify the results based on the properties of a triangle.
+
+-   If the sum of the two smaller numbers is less than or equal to the largest number, it cannot form a triangle. Return "Invalid".
+-   If the three numbers are equal, it is an equilateral triangle. Return "Equilateral".
+-   If two numbers are equal, it is an isosceles triangle. Return "Isosceles".
+-   If none of the above conditions are met, it is a scalene triangle. Return "Scalene".
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def numberOfPairs(self, points: List[List[int]]) -> int:
+        points.sort(key=lambda x: (x[0], -x[1]))
+        ans = 0
+        for i, (_, y1) in enumerate(points):
+            max_y = -inf
+            for _, y2 in points[i + 1 :]:
+                if max_y < y2 <= y1:
+                    max_y = y2
+                    ans += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int numberOfPairs(int[][] points) {
+        Arrays.sort(points, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+        int ans = 0;
+        int n = points.length;
+        final int inf = 1 << 30;
+        for (int i = 0; i < n; ++i) {
+            int y1 = points[i][1];
+            int maxY = -inf;
+            for (int j = i + 1; j < n; ++j) {
+                int y2 = points[j][1];
+                if (maxY < y2 && y2 <= y1) {
+                    maxY = y2;
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfPairs(vector<vector<int>>& points) {
+        sort(points.begin(), points.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[0] < b[0] || (a[0] == b[0] && b[1] < a[1]);
+        });
+        int n = points.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int y1 = points[i][1];
+            int maxY = INT_MIN;
+            for (int j = i + 1; j < n; ++j) {
+                int y2 = points[j][1];
+                if (maxY < y2 && y2 <= y1) {
+                    maxY = y2;
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func numberOfPairs(points [][]int) (ans int) {
+	sort.Slice(points, func(i, j int) bool {
+		return points[i][0] < points[j][0] || points[i][0] == points[j][0] && points[j][1] < points[i][1]
+	})
+	for i, p1 := range points {
+		y1 := p1[1]
+		maxY := math.MinInt32
+		for _, p2 := range points[i+1:] {
+			y2 := p2[1]
+			if maxY < y2 && y2 <= y1 {
+				maxY = y2
+				ans++
+			}
+		}
+	}
+	return
+}
+```
 
+```ts
+function numberOfPairs(points: number[][]): number {
+    points.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
+    const n = points.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const [_, y1] = points[i];
+        let maxY = -Infinity;
+        for (let j = i + 1; j < n; ++j) {
+            const [_, y2] = points[j];
+            if (maxY < y2 && y2 <= y1) {
+                maxY = y2;
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

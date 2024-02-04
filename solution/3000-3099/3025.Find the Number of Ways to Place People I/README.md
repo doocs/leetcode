@@ -73,24 +73,120 @@
 
 ## 解法
 
-### 方法一
+### 方法一：排序 + 枚举
+
+我们不妨考虑枚举矩形左上角的点 $(x_1, y_1)$，那么根据题目，右下角的点 $(x_2, y_2)$ 随着 $x$ 的增大，纵坐标 $y$ 也会要严格增大，才符合题意。
+
+因此，我们对所有点按照 $x$ 坐标升序排序，如果 $x$ 坐标相同，按照 $y$ 坐标降序排序。
+
+然后我们枚举左上角的点 $(x_1, y_1)$，并且维护一个最大的 $y_2$，记为 $maxY$，表示所有右下角的点的纵坐标的最大值。然后我们枚举右下角的点 $(x_2, y_2)$，如果 $y_2$ 大于 $maxY$ 并且小于等于 $y_1$，那么我们就找到了一个合法的方案，将答案加一，然后更新 $maxY$ 为 $y_2$。
+
+枚举完所有的点对后，我们就得到了答案。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(\log n)$。其中 $n$ 是点的数量。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def numberOfPairs(self, points: List[List[int]]) -> int:
+        points.sort(key=lambda x: (x[0], -x[1]))
+        ans = 0
+        for i, (_, y1) in enumerate(points):
+            max_y = -inf
+            for _, y2 in points[i + 1 :]:
+                if max_y < y2 <= y1:
+                    max_y = y2
+                    ans += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int numberOfPairs(int[][] points) {
+        Arrays.sort(points, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+        int ans = 0;
+        int n = points.length;
+        final int inf = 1 << 30;
+        for (int i = 0; i < n; ++i) {
+            int y1 = points[i][1];
+            int maxY = -inf;
+            for (int j = i + 1; j < n; ++j) {
+                int y2 = points[j][1];
+                if (maxY < y2 && y2 <= y1) {
+                    maxY = y2;
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfPairs(vector<vector<int>>& points) {
+        sort(points.begin(), points.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[0] < b[0] || (a[0] == b[0] && b[1] < a[1]);
+        });
+        int n = points.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int y1 = points[i][1];
+            int maxY = INT_MIN;
+            for (int j = i + 1; j < n; ++j) {
+                int y2 = points[j][1];
+                if (maxY < y2 && y2 <= y1) {
+                    maxY = y2;
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func numberOfPairs(points [][]int) (ans int) {
+	sort.Slice(points, func(i, j int) bool {
+		return points[i][0] < points[j][0] || points[i][0] == points[j][0] && points[j][1] < points[i][1]
+	})
+	for i, p1 := range points {
+		y1 := p1[1]
+		maxY := math.MinInt32
+		for _, p2 := range points[i+1:] {
+			y2 := p2[1]
+			if maxY < y2 && y2 <= y1 {
+				maxY = y2
+				ans++
+			}
+		}
+	}
+	return
+}
+```
 
+```ts
+function numberOfPairs(points: number[][]): number {
+    points.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
+    const n = points.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const [_, y1] = points[i];
+        let maxY = -Infinity;
+        for (let j = i + 1; j < n; ++j) {
+            const [_, y2] = points[j];
+            if (maxY < y2 && y2 <= y1) {
+                maxY = y2;
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
