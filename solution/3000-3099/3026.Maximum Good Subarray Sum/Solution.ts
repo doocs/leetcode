@@ -14,12 +14,11 @@ function maximumSubarraySum(nums: number[], k: number): number {
         if (t !== undefined) {
             r = Math.max(r, s - t);
         }
-        if (i + 1 === n)
-            break;
+        if (i + 1 === n) break;
         t = p.get(nums[i + 1]);
         if (t === undefined || t > s) {
             p.set(nums[i + 1], s);
         }
     }
     return r === Number.MIN_SAFE_INTEGER ? 0 : r;
-};
+}
