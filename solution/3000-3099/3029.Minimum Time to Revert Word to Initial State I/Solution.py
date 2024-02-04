@@ -5,6 +5,6 @@ class Solution:
             re = i * k
             if re >= n:
                 return i
-            if word[re:] == word[:n - re]:
+            if word[re:] == word[: n - re]:
                 return i
         return 0
