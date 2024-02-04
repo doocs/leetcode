@@ -1,18 +1,14 @@
 class Solution:
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
-        p = {}
-        r = float('-inf')
-        p[nums[0]] = 0
-        s = 0
-        n = len(nums)
-        for i in range(n):
-            s += nums[i]
-            if nums[i] - k in p:
-                r = max(r, s - p[nums[i] - k])
-            if nums[i] + k in p:
-                r = max(r, s - p[nums[i] + k])
-            if i + 1 == n:
-                break
-            if nums[i + 1] not in p or p[nums[i + 1]] > s:
+        ans = -inf
+        p = {nums[0]: 0}
+        s, n = 0, len(nums)
+        for i, x in enumerate(nums):
+            s += x
+            if x - k in p:
+                ans = max(ans, s - p[x - k])
+            if x + k in p:
+                ans = max(ans, s - p[x + k])
+            if i + 1 < n and (nums[i + 1] not in p or p[nums[i + 1]] > s):
                 p[nums[i + 1]] = s
-        return r if r != float('-inf') else 0
+        return 0 if ans == -inf else ans

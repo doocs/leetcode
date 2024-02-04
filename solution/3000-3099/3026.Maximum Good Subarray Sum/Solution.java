@@ -1,23 +1,22 @@
 class Solution {
     public long maximumSubarraySum(int[] nums, int k) {
-        HashMap<Integer, Long> p = new HashMap<>();
-        long r = Long.MIN_VALUE;
+        Map<Integer, Long> p = new HashMap<>();
         p.put(nums[0], 0L);
         long s = 0;
         int n = nums.length;
-        for (int i = 0;; ++i) {
+        long ans = Long.MIN_VALUE;
+        for (int i = 0; i < n; ++i) {
             s += nums[i];
             if (p.containsKey(nums[i] - k)) {
-                r = Math.max(r, s - p.get(nums[i] - k));
+                ans = Math.max(ans, s - p.get(nums[i] - k));
             }
             if (p.containsKey(nums[i] + k)) {
-                r = Math.max(r, s - p.get(nums[i] + k));
+                ans = Math.max(ans, s - p.get(nums[i] + k));
             }
-            if (i + 1 == n) break;
-            if (!p.containsKey(nums[i + 1]) || p.get(nums[i + 1]) > s) {
+            if (i + 1 < n && (!p.containsKey(nums[i + 1]) || p.get(nums[i + 1]) > s)) {
                 p.put(nums[i + 1], s);
             }
         }
-        return r == Long.MIN_VALUE ? 0 : r;
+        return ans == Long.MIN_VALUE ? 0 : ans;
     }
 }
