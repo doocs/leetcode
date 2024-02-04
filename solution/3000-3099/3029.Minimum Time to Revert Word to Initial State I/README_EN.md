@@ -63,19 +63,118 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def minimumTimeToInitialState(self, word: str, k: int) -> int:
+        n = len(word)
+        for i in range(1, 10001):
+            re = i * k
+            if re >= n:
+                return i
+            if word[re:] == word[:n - re]:
+                return i
+        return 0
 
 ```
 
 ```java
-
+class Solution {
+    public int minimumTimeToInitialState(String word, int k) {
+        int n = word.length();
+        for (int i = 1; i <= 10000; i++) {
+            int re = i * k;
+            if (re >= n) {
+                return i;
+            }
+            String str = word.substring(re);
+            boolean flag = true;
+            for (int j = 0; j < str.length(); j++) {
+                if (str.charAt(j) != word.charAt(j)) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                return i;
+            }
+        }
+        return 0;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumTimeToInitialState(string word, int k) {
+        int n = word.length();
+        for (int i = 1; i <= 10000; i++) {
+            int re = i * k;
+            if (re >= n) {
+                return i;
+            }
+            string str = word.substr(re);
+            bool flag = true;
+            for (int j = 0; j < str.length(); j++) {
+                if (str[j] != word[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                return i;
+            }
+        }
+        return 0;
+    }
+};
 ```
 
 ```go
+func minimumTimeToInitialState(word string, k int) int {
+	n := len(word)
+	for i := 1; i <= 10000; i++ {
+		re := i * k
+		if re >= n {
+			return i
+		}
+		str := word[re:]
+		flag := true
+		for j := 0; j < len(str); j++ {
+			if str[j] != word[j] {
+				flag = false
+				break
+			}
+		}
+		if flag {
+			return i
+		}
+	}
+	return 0
+}
+```
 
+```ts
+function minimumTimeToInitialState(word: string, k: number): number {
+    const n = word.length;
+    for (let i = 1; i <= 10000; i++) {
+        const re = i * k;
+        if (re >= n) {
+            return i;
+        }
+        const str = word.substring(re);
+        let flag = true;
+        for (let j = 0; j < str.length; j++) {
+            if (str[j] !== word[j]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            return i;
+        }
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
