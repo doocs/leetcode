@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 123 场双周赛(2024-02-03 22:30, 90 分钟) 参赛人数 2209
+
+- [3024. 三角形类型 II](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README.md)
+- [3025. 人员站位的方案数 I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README.md)
+- [3026. 最大好子数组和](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)
+- [3027. 人员站位的方案数 II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README.md)
+
 #### 第 382 场周赛(2024-01-28 10:30, 90 分钟) 参赛人数 3134
 
 - [3019. 按键变更的次数](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md)
