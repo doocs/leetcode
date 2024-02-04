@@ -57,24 +57,71 @@ The ant never returned to the boundary, so the answer is 0.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+Based on the problem description, we only need to calculate how many zeros are in all prefix sums of `nums`.
+
+The time complexity is $O(n)$, where $n$ is the length of `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def returnToBoundaryCount(self, nums: List[int]) -> int:
+        return sum(s == 0 for s in accumulate(nums))
 ```
 
 ```java
-
+class Solution {
+    public int returnToBoundaryCount(int[] nums) {
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x;
+            if (s == 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int returnToBoundaryCount(vector<int>& nums) {
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x;
+            ans += s == 0;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func returnToBoundaryCount(nums []int) (ans int) {
+	s := 0
+	for _, x := range nums {
+		s += x
+		if s == 0 {
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function returnToBoundaryCount(nums: number[]): number {
+    let [ans, s] = [0, 0];
+    for (const x of nums) {
+        s += x;
+        ans += s === 0 ? 1 : 0;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

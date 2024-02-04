@@ -61,24 +61,71 @@
 
 ## 解法
 
-### 方法一
+### 方法一：前缀和
+
+根据题目描述，我们只需要计算 $nums$ 的所有前缀和中有多少个 $0$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def returnToBoundaryCount(self, nums: List[int]) -> int:
+        return sum(s == 0 for s in accumulate(nums))
 ```
 
 ```java
-
+class Solution {
+    public int returnToBoundaryCount(int[] nums) {
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x;
+            if (s == 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int returnToBoundaryCount(vector<int>& nums) {
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x;
+            ans += s == 0;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func returnToBoundaryCount(nums []int) (ans int) {
+	s := 0
+	for _, x := range nums {
+		s += x
+		if s == 0 {
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function returnToBoundaryCount(nums: number[]): number {
+    let [ans, s] = [0, 0];
+    for (const x of nums) {
+        s += x;
+        ans += s === 0 ? 1 : 0;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
