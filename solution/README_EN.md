@@ -3036,6 +3036,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3025  |  [Find the Number of Ways to Place People I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 123  |
 |  3026  |  [Maximum Good Subarray Sum](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)  |    |  Medium  |  Biweekly Contest 123  |
 |  3027  |  [Find the Number of Ways to Place People II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 123  |
+|  3028  |  [Ant on the Boundary](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README_EN.md)  |    |  Easy  |  Weekly Contest 383  |
+|  3029  |  [Minimum Time to Revert Word to Initial State I](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 383  |
+|  3030  |  [Find the Grid of Region Average](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md)  |    |  Medium  |  Weekly Contest 383  |
+|  3031  |  [Minimum Time to Revert Word to Initial State II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 383  |
 
 ## Copyright
 

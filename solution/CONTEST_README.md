@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 383 场周赛(2024-02-04 10:30, 90 分钟) 参赛人数 2691
+
+- [3028. 边界上的蚂蚁](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README.md)
+- [3029. 将单词恢复初始状态所需的最短时间 I](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README.md)
+- [3030. 找出网格的区域平均强度](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README.md)
+- [3031. 将单词恢复初始状态所需的最短时间 II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README.md)
+
 #### 第 123 场双周赛(2024-02-03 22:30, 90 分钟) 参赛人数 2209
 
 - [3024. 三角形类型 II](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README.md)

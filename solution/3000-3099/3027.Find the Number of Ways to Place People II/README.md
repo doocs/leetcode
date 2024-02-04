@@ -35,7 +35,7 @@
 
 <p><strong class="example">示例 2：</strong></p>
 
-<p><strong class="example"><a href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images//1706880313-YelabI-example2.jpeg"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images//1706880313-YelabI-example2.jpeg" style="width: 900px; height: 250px;" /></a></strong></p>
+<p><strong class="example"><a href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images/1706880313-YelabI-example2.jpeg"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images/1706880313-YelabI-example2.jpeg" style="width: 900px; height: 250px;" /></a></strong></p>
 
 <pre>
 <b>输入：</b>points = [[6,2],[4,4],[2,6]]
@@ -48,7 +48,7 @@
 
 <p><strong class="example">示例 3：</strong></p>
 
-<p><strong class="example"><a href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images//1706880311-mtPGYC-example3.jpeg"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images//1706880311-mtPGYC-example3.jpeg" style="width: 911px; height: 250px;" /></a></strong></p>
+<p><strong class="example"><a href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images/1706880311-mtPGYC-example3.jpeg"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images/1706880311-mtPGYC-example3.jpeg" style="width: 911px; height: 250px;" /></a></strong></p>
 
 <pre>
 <b>输入：</b>points = [[3,1],[1,3],[1,1]]
