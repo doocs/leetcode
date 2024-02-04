@@ -1,12 +1,11 @@
-func generatePossibleNextMoves(currentState string) []string {
-	ans := []string{}
-	cs := []byte(currentState)
-	for i, c := range cs[1:] {
-		if c == '+' && cs[i] == '+' {
-			cs[i], cs[i+1] = '-', '-'
-			ans = append(ans, string(cs))
-			cs[i], cs[i+1] = '+', '+'
+func generatePossibleNextMoves(currentState string) (ans []string) {
+	s := []byte(currentState)
+	for i := 0; i < len(s)-1; i++ {
+		if s[i] == '+' && s[i+1] == '+' {
+			s[i], s[i+1] = '-', '-'
+			ans = append(ans, string(s))
+			s[i], s[i+1] = '+', '+'
 		}
 	}
-	return ans
+	return
 }
