@@ -3038,6 +3038,10 @@
 |  3025  |  [人员站位的方案数 I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README.md)  |    |  中等  |  第 123 场双周赛  |
 |  3026  |  [最大好子数组和](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)  |    |  中等  |  第 123 场双周赛  |
 |  3027  |  [人员站位的方案数 II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README.md)  |    |  困难  |  第 123 场双周赛  |
+|  3028  |  [边界上的蚂蚁](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README.md)  |    |  简单  |  第 383 场周赛  |
+|  3029  |  [将单词恢复初始状态所需的最短时间 I](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README.md)  |    |  中等  |  第 383 场周赛  |
+|  3030  |  [找出网格的区域平均强度](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README.md)  |    |  中等  |  第 383 场周赛  |
+|  3031  |  [将单词恢复初始状态所需的最短时间 II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README.md)  |    |  困难  |  第 383 场周赛  |
 
 ## 版权
 

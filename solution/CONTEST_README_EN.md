@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 383
+
+- [3028. Ant on the Boundary](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README_EN.md)
+- [3029. Minimum Time to Revert Word to Initial State I](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README_EN.md)
+- [3030. Find the Grid of Region Average](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md)
+- [3031. Minimum Time to Revert Word to Initial State II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md)
+
 #### Biweekly Contest 123
 
 - [3024. Type of Triangle II](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README_EN.md)
