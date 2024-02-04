@@ -91,8 +91,7 @@ class Solution {
             if (p.containsKey(nums[i] + k)) {
                 r = Math.max(r, s - p.get(nums[i] + k));
             }
-            if (i + 1 == n)
-            break;
+            if (i + 1 == n) break;
             if (!p.containsKey(nums[i + 1]) || p.get(nums[i + 1]) > s) {
                 p.put(nums[i + 1], s);
             }
@@ -122,7 +121,7 @@ public:
                 r = max(r, s - t->second);
             }
             if (i + 1 == n)
-            break;
+            	break;
             t = p.find(nums[i + 1]);
             if (t == p.end() || t->second > s) {
                 p[nums[i + 1]] = s;
