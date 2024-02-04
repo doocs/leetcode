@@ -35,7 +35,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Traversal + Simulation
+
+We traverse the string. If the current character and the next character are both `+`, we change these two characters to `-`, add the result to the result array, and then change these two characters back to `+`.
+
+After the traversal ends, we return the result array.
+
+The time complexity is $O(n^2)$, where $n$ is the length of the string. Ignoring the space complexity of the result array, the space complexity is $O(n)$ or $O(1)$.
 
 <!-- tabs:start -->
 
@@ -44,8 +50,8 @@ class Solution:
     def generatePossibleNextMoves(self, currentState: str) -> List[str]:
         s = list(currentState)
         ans = []
-        for i, c in enumerate(s[:-1]):
-            if c == "+" and s[i + 1] == "+":
+        for i, (a, b) in enumerate(pairwise(s)):
+            if a == b == "+":
                 s[i] = s[i + 1] = "-"
                 ans.append("".join(s))
                 s[i] = s[i + 1] = "+"
@@ -55,15 +61,15 @@ class Solution:
 ```java
 class Solution {
     public List<String> generatePossibleNextMoves(String currentState) {
-        char[] cs = currentState.toCharArray();
         List<String> ans = new ArrayList<>();
-        for (int i = 0; i < cs.length - 1; ++i) {
-            if (cs[i] == '+' && cs[i + 1] == '+') {
-                cs[i] = '-';
-                cs[i + 1] = '-';
-                ans.add(String.valueOf(cs));
-                cs[i] = '+';
-                cs[i + 1] = '+';
+        char[] s = currentState.toCharArray();
+        for (int i = 0; i < s.length - 1; ++i) {
+            if (s[i] == '+' && s[i + 1] == '+') {
+                s[i] = '-';
+                s[i + 1] = '-';
+                ans.add(new String(s));
+                s[i] = '+';
+                s[i + 1] = '+';
             }
         }
         return ans;
@@ -74,15 +80,13 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> generatePossibleNextMoves(string currentState) {
+    vector<string> generatePossibleNextMoves(string s) {
         vector<string> ans;
-        for (int i = 0; i < currentState.size() - 1; ++i) {
-            if (currentState[i] == '+' && currentState[i + 1] == '+') {
-                currentState[i] = '-';
-                currentState[i + 1] = '-';
-                ans.push_back(currentState);
-                currentState[i] = '+';
-                currentState[i + 1] = '+';
+        for (int i = 0; i < s.size() - 1; ++i) {
+            if (s[i] == '+' && s[i + 1] == '+') {
+                s[i] = s[i + 1] = '-';
+                ans.emplace_back(s);
+                s[i] = s[i + 1] = '+';
             }
         }
         return ans;
@@ -91,17 +95,31 @@ public:
 ```
 
 ```go
-func generatePossibleNextMoves(currentState string) []string {
-	ans := []string{}
-	cs := []byte(currentState)
-	for i, c := range cs[1:] {
-		if c == '+' && cs[i] == '+' {
-			cs[i], cs[i+1] = '-', '-'
-			ans = append(ans, string(cs))
-			cs[i], cs[i+1] = '+', '+'
+func generatePossibleNextMoves(currentState string) (ans []string) {
+	s := []byte(currentState)
+	for i := 0; i < len(s)-1; i++ {
+		if s[i] == '+' && s[i+1] == '+' {
+			s[i], s[i+1] = '-', '-'
+			ans = append(ans, string(s))
+			s[i], s[i+1] = '+', '+'
 		}
 	}
-	return ans
+	return
+}
+```
+
+```ts
+function generatePossibleNextMoves(currentState: string): string[] {
+    const s = currentState.split('');
+    const ans: string[] = [];
+    for (let i = 0; i < s.length - 1; ++i) {
+        if (s[i] === '+' && s[i + 1] === '+') {
+            s[i] = s[i + 1] = '-';
+            ans.push(s.join(''));
+            s[i] = s[i + 1] = '+';
+        }
+    }
+    return ans;
 }
 ```
 
