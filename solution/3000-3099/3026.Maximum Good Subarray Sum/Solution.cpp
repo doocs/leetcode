@@ -17,7 +17,7 @@ public:
                 r = max(r, s - t->second);
             }
             if (i + 1 == n)
-            break;
+                break;
             t = p.find(nums[i + 1]);
             if (t == p.end() || t->second > s) {
                 p[nums[i + 1]] = s;
