@@ -58,7 +58,15 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+Let's assume that if we can restore `word` to its initial state with only one operation, it means that `word[k:]` is a prefix of `word`, i.e., `word[k:] == word[:n-k]`.
+
+If there are multiple operations, let's assume $i$ is the number of operations, then it means that `word[k*i:]` is a prefix of `word`, i.e., `word[k*i:] == word[:n-k*i]`.
+
+Therefore, we can enumerate the number of operations and check whether `word[k*i:]` is a prefix of `word`. If it is, then return $i$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of `word`.
 
 <!-- tabs:start -->
 
@@ -66,38 +74,22 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 class Solution:
     def minimumTimeToInitialState(self, word: str, k: int) -> int:
         n = len(word)
-        for i in range(1, 10001):
-            re = i * k
-            if re >= n:
-                return i
-            if word[re:] == word[:n - re]:
-                return i
-        return 0
-
+        for i in range(k, n, k):
+            if word[i:] == word[:-i]:
+                return i // k
+        return (n + k - 1) // k
 ```
 
 ```java
 class Solution {
     public int minimumTimeToInitialState(String word, int k) {
         int n = word.length();
-        for (int i = 1; i <= 10000; i++) {
-            int re = i * k;
-            if (re >= n) {
-                return i;
-            }
-            String str = word.substring(re);
-            boolean flag = true;
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(j) != word.charAt(j)) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                return i;
+        for (int i = k; i < n; i += k) {
+            if (word.substring(i).equals(word.substring(0, n - i))) {
+                return i / k;
             }
         }
-        return 0;
+        return (n + k - 1) / k;
     }
 }
 ```
@@ -106,25 +98,13 @@ class Solution {
 class Solution {
 public:
     int minimumTimeToInitialState(string word, int k) {
-        int n = word.length();
-        for (int i = 1; i <= 10000; i++) {
-            int re = i * k;
-            if (re >= n) {
-                return i;
-            }
-            string str = word.substr(re);
-            bool flag = true;
-            for (int j = 0; j < str.length(); j++) {
-                if (str[j] != word[j]) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                return i;
+        int n = word.size();
+        for (int i = k; i < n; i += k) {
+            if (word.substr(i) == word.substr(0, n - i)) {
+                return i / k;
             }
         }
-        return 0;
+        return (n + k - 1) / k;
     }
 };
 ```
@@ -132,48 +112,172 @@ public:
 ```go
 func minimumTimeToInitialState(word string, k int) int {
 	n := len(word)
-	for i := 1; i <= 10000; i++ {
-		re := i * k
-		if re >= n {
-			return i
-		}
-		str := word[re:]
-		flag := true
-		for j := 0; j < len(str); j++ {
-			if str[j] != word[j] {
-				flag = false
-				break
-			}
-		}
-		if flag {
-			return i
+	for i := k; i < n; i += k {
+		if word[i:] == word[:n-i] {
+			return i / k
 		}
 	}
-	return 0
+	return (n + k - 1) / k
 }
 ```
 
 ```ts
 function minimumTimeToInitialState(word: string, k: number): number {
     const n = word.length;
-    for (let i = 1; i <= 10000; i++) {
-        const re = i * k;
-        if (re >= n) {
-            return i;
-        }
-        const str = word.substring(re);
-        let flag = true;
-        for (let j = 0; j < str.length; j++) {
-            if (str[j] !== word[j]) {
-                flag = false;
-                break;
-            }
-        }
-        if (flag) {
-            return i;
+    for (let i = k; i < n; i += k) {
+        if (word.slice(i) === word.slice(0, -i)) {
+            return Math.floor(i / k);
         }
     }
-    return 0;
+    return Math.floor((n + k - 1) / k);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Enumeration + String Hash
+
+Based on Solution 1, we can also use string hashing to determine whether two strings are equal.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of `word`.
+
+<!-- tabs:start -->
+
+```python
+class Hashing:
+    __slots__ = ["mod", "h", "p"]
+
+    def __init__(self, s: str, base: int, mod: int):
+        self.mod = mod
+        self.h = [0] * (len(s) + 1)
+        self.p = [1] * (len(s) + 1)
+        for i in range(1, len(s) + 1):
+            self.h[i] = (self.h[i - 1] * base + ord(s[i - 1])) % mod
+            self.p[i] = (self.p[i - 1] * base) % mod
+
+    def query(self, l: int, r: int) -> int:
+        return (self.h[r] - self.h[l - 1] * self.p[r - l + 1]) % self.mod
+
+
+class Solution:
+    def minimumTimeToInitialState(self, word: str, k: int) -> int:
+        hashing = Hashing(word, 13331, 998244353)
+        n = len(word)
+        for i in range(k, n, k):
+            if hashing.query(1, n - i) == hashing.query(i + 1, n):
+                return i // k
+        return (n + k - 1) // k
+```
+
+```java
+class Hashing {
+    private final long[] p;
+    private final long[] h;
+    private final long mod;
+
+    public Hashing(String word, long base, int mod) {
+        int n = word.length();
+        p = new long[n + 1];
+        h = new long[n + 1];
+        p[0] = 1;
+        this.mod = mod;
+        for (int i = 1; i <= n; i++) {
+            p[i] = p[i - 1] * base % mod;
+            h[i] = (h[i - 1] * base + word.charAt(i - 1) - 'a') % mod;
+        }
+    }
+
+    public long query(int l, int r) {
+        return (h[r] - h[l - 1] * p[r - l + 1] % mod + mod) % mod;
+    }
+}
+
+class Solution {
+    public int minimumTimeToInitialState(String word, int k) {
+        Hashing hashing = new Hashing(word, 13331, 998244353);
+        int n = word.length();
+        for (int i = k; i < n; i += k) {
+            if (hashing.query(1, n - i) == hashing.query(i + 1, n)) {
+                return i / k;
+            }
+        }
+        return (n + k - 1) / k;
+    }
+}
+```
+
+```cpp
+class Hashing {
+private:
+    vector<long long> p;
+    vector<long long> h;
+    long long mod;
+
+public:
+    Hashing(string word, long long base, int mod) {
+        int n = word.size();
+        p.resize(n + 1);
+        h.resize(n + 1);
+        p[0] = 1;
+        this->mod = mod;
+        for (int i = 1; i <= n; i++) {
+            p[i] = (p[i - 1] * base) % mod;
+            h[i] = (h[i - 1] * base + word[i - 1] - 'a') % mod;
+        }
+    }
+
+    long long query(int l, int r) {
+        return (h[r] - h[l - 1] * p[r - l + 1] % mod + mod) % mod;
+    }
+};
+
+class Solution {
+public:
+    int minimumTimeToInitialState(string word, int k) {
+        Hashing hashing(word, 13331, 998244353);
+        int n = word.size();
+        for (int i = k; i < n; i += k) {
+            if (hashing.query(1, n - i) == hashing.query(i + 1, n)) {
+                return i / k;
+            }
+        }
+        return (n + k - 1) / k;
+    }
+};
+```
+
+```go
+type Hashing struct {
+	p   []int64
+	h   []int64
+	mod int64
+}
+
+func NewHashing(word string, base int64, mod int64) *Hashing {
+	n := len(word)
+	p := make([]int64, n+1)
+	h := make([]int64, n+1)
+	p[0] = 1
+	for i := 1; i <= n; i++ {
+		p[i] = (p[i-1] * base) % mod
+		h[i] = (h[i-1]*base + int64(word[i-1]-'a')) % mod
+	}
+	return &Hashing{p, h, mod}
+}
+
+func (hashing *Hashing) Query(l, r int) int64 {
+	return (hashing.h[r] - hashing.h[l-1]*hashing.p[r-l+1]%hashing.mod + hashing.mod) % hashing.mod
+}
+
+func minimumTimeToInitialState(word string, k int) int {
+	hashing := NewHashing(word, 13331, 998244353)
+	n := len(word)
+	for i := k; i < n; i += k {
+		if hashing.Query(1, n-i) == hashing.Query(i+1, n) {
+			return i / k
+		}
+	}
+	return (n + k - 1) / k
 }
 ```
 

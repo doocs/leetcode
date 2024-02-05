@@ -1,10 +1,7 @@
 class Solution:
     def minimumTimeToInitialState(self, word: str, k: int) -> int:
         n = len(word)
-        for i in range(1, 10001):
-            re = i * k
-            if re >= n:
-                return i
-            if word[re:] == word[: n - re]:
-                return i
-        return 0
+        for i in range(k, n, k):
+            if word[i:] == word[:-i]:
+                return i // k
+        return (n + k - 1) // k
