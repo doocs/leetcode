@@ -58,19 +58,249 @@ Please note that the rounded-down values are used when calculating the average o
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def resultGrid(self, image: List[List[int]], threshold: int) -> List[List[int]]:
+        n, m = len(image), len(image[0])
+        ans = [[0] * m for _ in range(n)]
+        ct = [[0] * m for _ in range(n)]
+
+        for i in range(n - 2):
+            for j in range(m - 2):
+                region = True
+                for k in range(3):
+                    for l in range(2):
+                        region &= abs(image[i + k][j + l] - image[i + k][j + l + 1]) <= threshold
+                for k in range(2):
+                    for l in range(3):
+                        region &= abs(image[i + k][j + l] - image[i + k + 1][j + l]) <= threshold
+
+                if region:
+                    tot = 0
+                    for k in range(3):
+                        for l in range(3):
+                            tot += image[i + k][j + l]
+                    for k in range(3):
+                        for l in range(3):
+                            ct[i + k][j + l] += 1
+                            ans[i + k][j + l] += tot // 9
+
+        for i in range(n):
+            for j in range(m):
+                if ct[i][j] == 0:
+                    ans[i][j] = image[i][j]
+                else:
+                    ans[i][j] //= ct[i][j]
+
+        return ans
 
 ```
 
 ```java
+class Solution {
+    public int[][] resultGrid(int[][] image, int threshold) {
+        int n = image.length;
+        int m = image[0].length;
+        int[][] ans = new int[n][m];
+        int[][] ct = new int[n][m];
+        for (int i = 0; i + 2 < n; ++i) {
+            for (int j = 0; j + 2 < m; ++j) {
+                boolean region = true;
+                for (int k = 0; k < 3; ++k) {
+                    for (int l = 0; l < 2; ++l) {
+                        region &= Math.abs(image[i + k][j + l] - image[i + k][j + l + 1]) <= threshold;
+                    }
+                }
+                for (int k = 0; k < 2; ++k) {
+                    for (int l = 0; l < 3; ++l) {
+                        region &= Math.abs(image[i + k][j + l] - image[i + k + 1][j + l]) <= threshold;
+                    }
+                }
+                if (region) {
+                    int tot = 0;
+                    for (int k = 0; k < 3; ++k) {
+                        for (int l = 0; l < 3; ++l) {
+                            tot += image[i + k][j + l];
+                        }
+                    }
+                    for (int k = 0; k < 3; ++k) {
+                        for (int l = 0; l < 3; ++l) {
+                            ct[i + k][j + l]++;
+                            ans[i + k][j + l] += tot / 9;
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                if (ct[i][j] == 0) {
+                    ans[i][j] = image[i][j];
+                } else {
+                    ans[i][j] /= ct[i][j];
+                }
+            }
+        }
+        return ans;
+    }
+}
 
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> resultGrid(vector<vector<int>>& image, int threshold) {
+        int n = image.size(), m = image[0].size();
+        vector<vector<int>> ans(n, vector<int>(m));
+        vector<vector<int>> ct(n, vector<int>(m));
+        for (int i = 0; i + 2 < n; ++i) {
+            for (int j = 0; j + 2 < m; ++j) {
+                bool region = true;
+                for (int k = 0; k < 3; ++k) {
+                    for (int l = 0; l < 2; ++l) {
+                        region &= abs(image[i + k][j + l] - image[i + k][j + l + 1]) <= threshold;
+                    }
+                }
+                for (int k = 0; k < 2; ++k) {
+                    for (int l = 0; l < 3; ++l) {
+                        region &= abs(image[i + k][j + l] - image[i + k + 1][j + l]) <= threshold;
+                    }
+                }
+                if (region) {
+                    int tot = 0;
+                    for (int k = 0; k < 3; ++k) {
+                        for (int l = 0; l < 3; ++l) {
+                            tot += image[i + k][j + l];
+                        }
+                    }
+                    for (int k = 0; k < 3; ++k) {
+                        for (int l = 0; l < 3; ++l) {
+                            ct[i + k][j + l]++;
+                            ans[i + k][j + l] += tot / 9;
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                if (ct[i][j] == 0) {
+                    ans[i][j] = image[i][j];
+                } else {
+                    ans[i][j] /= ct[i][j];
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func resultGrid(image [][]int, threshold int) [][]int {
+    n := len(image)
+    m := len(image[0])
+    ans := make([][]int, n)
+    ct := make([][]int, n)
+    for i := range ans {
+        ans[i] = make([]int, m)
+        ct[i] = make([]int, m)
+    }
+    for i := 0; i+2 < n; i++ {
+        for j := 0; j+2 < m; j++ {
+            region := true
+            for k := 0; k < 3; k++ {
+                for l := 0; l < 2; l++ {
+                    region = region && abs(image[i+k][j+l]-image[i+k][j+l+1]) <= threshold
+                }
+            }
+            for k := 0; k < 2; k++ {
+                for l := 0; l < 3; l++ {
+                    region = region && abs(image[i+k][j+l]-image[i+k+1][j+l]) <= threshold
+                }
+            }
+            if region {
+                tot := 0
+                for k := 0; k < 3; k++ {
+                    for l := 0; l < 3; l++ {
+                        tot += image[i+k][j+l]
+                    }
+                }
+                for k := 0; k < 3; k++ {
+                    for l := 0; l < 3; l++ {
+                        ct[i+k][j+l]++
+                        ans[i+k][j+l] += tot / 9
+                    }
+                }
+            }
+        }
+    }
+    for i := 0; i < n; i++ {
+        for j := 0; j < m; j++ {
+            if ct[i][j] == 0 {
+                ans[i][j] = image[i][j]
+            } else {
+                ans[i][j] /= ct[i][j]
+            }
+        }
+    }
+    return ans
+}
+func abs(x int) int {
+    if x < 0 {
+        return -x
+    }
+    return x
+}
+```
 
+```ts
+function resultGrid(image: number[][], threshold: number): number[][] {
+    const n: number = image.length;
+    const m: number = image[0].length;
+    const ans: number[][] = new Array(n).fill(0).map(() => new Array(m).fill(0));
+    const ct: number[][] = new Array(n).fill(0).map(() => new Array(m).fill(0));
+    for (let i = 0; i + 2 < n; ++i) {
+        for (let j = 0; j + 2 < m; ++j) {
+            let region: boolean = true;
+            for (let k = 0; k < 3; ++k) {
+                for (let l = 0; l < 2; ++l) {
+                    region &&= Math.abs(image[i + k][j + l] - image[i + k][j + l + 1]) <= threshold;
+                }
+            }
+            for (let k = 0; k < 2; ++k) {
+                for (let l = 0; l < 3; ++l) {
+                    region &&= Math.abs(image[i + k][j + l] - image[i + k + 1][j + l]) <= threshold;
+                }
+            }
+            if (region) {
+                let tot: number = 0;
+
+                for (let k = 0; k < 3; ++k) {
+                    for (let l = 0; l < 3; ++l) {
+                        tot += image[i + k][j + l];
+                    }
+                }
+                for (let k = 0; k < 3; ++k) {
+                    for (let l = 0; l < 3; ++l) {
+                        ct[i + k][j + l]++;
+                        ans[i + k][j + l] += Math.floor(tot / 9);
+                    }
+                }
+            }
+        }
+    }
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < m; ++j) {
+            if (ct[i][j] === 0) {
+                ans[i][j] = image[i][j];
+            } else {
+                ans[i][j] = Math.floor(ans[i][j] / ct[i][j]);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
