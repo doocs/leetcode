@@ -1,23 +1,11 @@
 class Solution {
     public int minimumTimeToInitialState(String word, int k) {
         int n = word.length();
-        for (int i = 1; i <= 10000; i++) {
-            int re = i * k;
-            if (re >= n) {
-                return i;
-            }
-            String str = word.substring(re);
-            boolean flag = true;
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(j) != word.charAt(j)) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                return i;
+        for (int i = k; i < n; i += k) {
+            if (word.substring(i).equals(word.substring(0, n - i))) {
+                return i / k;
             }
         }
-        return 0;
+        return (n + k - 1) / k;
     }
 }
