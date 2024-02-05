@@ -63,16 +63,21 @@ class Solution:
         n, m = len(image), len(image[0])
         ans = [[0] * m for _ in range(n)]
         ct = [[0] * m for _ in range(n)]
-
         for i in range(n - 2):
             for j in range(m - 2):
                 region = True
                 for k in range(3):
                     for l in range(2):
-                        region &= abs(image[i + k][j + l] - image[i + k][j + l + 1]) <= threshold
+                        region &= (
+                            abs(image[i + k][j + l] - image[i + k][j + l + 1])
+                            <= threshold
+                        )
                 for k in range(2):
                     for l in range(3):
-                        region &= abs(image[i + k][j + l] - image[i + k + 1][j + l]) <= threshold
+                        region &= (
+                            abs(image[i + k][j + l] - image[i + k + 1][j + l])
+                            <= threshold
+                        )
 
                 if region:
                     tot = 0
@@ -92,7 +97,6 @@ class Solution:
                     ans[i][j] //= ct[i][j]
 
         return ans
-
 ```
 
 ```java
@@ -143,7 +147,6 @@ class Solution {
         return ans;
     }
 }
-
 ```
 
 ```cpp
@@ -198,59 +201,59 @@ public:
 
 ```go
 func resultGrid(image [][]int, threshold int) [][]int {
-    n := len(image)
-    m := len(image[0])
-    ans := make([][]int, n)
-    ct := make([][]int, n)
-    for i := range ans {
-        ans[i] = make([]int, m)
-        ct[i] = make([]int, m)
-    }
-    for i := 0; i+2 < n; i++ {
-        for j := 0; j+2 < m; j++ {
-            region := true
-            for k := 0; k < 3; k++ {
-                for l := 0; l < 2; l++ {
-                    region = region && abs(image[i+k][j+l]-image[i+k][j+l+1]) <= threshold
-                }
-            }
-            for k := 0; k < 2; k++ {
-                for l := 0; l < 3; l++ {
-                    region = region && abs(image[i+k][j+l]-image[i+k+1][j+l]) <= threshold
-                }
-            }
-            if region {
-                tot := 0
-                for k := 0; k < 3; k++ {
-                    for l := 0; l < 3; l++ {
-                        tot += image[i+k][j+l]
-                    }
-                }
-                for k := 0; k < 3; k++ {
-                    for l := 0; l < 3; l++ {
-                        ct[i+k][j+l]++
-                        ans[i+k][j+l] += tot / 9
-                    }
-                }
-            }
-        }
-    }
-    for i := 0; i < n; i++ {
-        for j := 0; j < m; j++ {
-            if ct[i][j] == 0 {
-                ans[i][j] = image[i][j]
-            } else {
-                ans[i][j] /= ct[i][j]
-            }
-        }
-    }
-    return ans
+	n := len(image)
+	m := len(image[0])
+	ans := make([][]int, n)
+	ct := make([][]int, n)
+	for i := range ans {
+		ans[i] = make([]int, m)
+		ct[i] = make([]int, m)
+	}
+	for i := 0; i+2 < n; i++ {
+		for j := 0; j+2 < m; j++ {
+			region := true
+			for k := 0; k < 3; k++ {
+				for l := 0; l < 2; l++ {
+					region = region && abs(image[i+k][j+l]-image[i+k][j+l+1]) <= threshold
+				}
+			}
+			for k := 0; k < 2; k++ {
+				for l := 0; l < 3; l++ {
+					region = region && abs(image[i+k][j+l]-image[i+k+1][j+l]) <= threshold
+				}
+			}
+			if region {
+				tot := 0
+				for k := 0; k < 3; k++ {
+					for l := 0; l < 3; l++ {
+						tot += image[i+k][j+l]
+					}
+				}
+				for k := 0; k < 3; k++ {
+					for l := 0; l < 3; l++ {
+						ct[i+k][j+l]++
+						ans[i+k][j+l] += tot / 9
+					}
+				}
+			}
+		}
+	}
+	for i := 0; i < n; i++ {
+		for j := 0; j < m; j++ {
+			if ct[i][j] == 0 {
+				ans[i][j] = image[i][j]
+			} else {
+				ans[i][j] /= ct[i][j]
+			}
+		}
+	}
+	return ans
 }
 func abs(x int) int {
-    if x < 0 {
-        return -x
-    }
-    return x
+	if x < 0 {
+		return -x
+	}
+	return x
 }
 ```
 
