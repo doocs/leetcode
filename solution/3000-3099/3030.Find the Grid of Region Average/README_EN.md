@@ -111,12 +111,14 @@ class Solution {
                 boolean region = true;
                 for (int k = 0; k < 3; ++k) {
                     for (int l = 0; l < 2; ++l) {
-                        region &= Math.abs(image[i + k][j + l] - image[i + k][j + l + 1]) <= threshold;
+                        region
+                            &= Math.abs(image[i + k][j + l] - image[i + k][j + l + 1]) <= threshold;
                     }
                 }
                 for (int k = 0; k < 2; ++k) {
                     for (int l = 0; l < 3; ++l) {
-                        region &= Math.abs(image[i + k][j + l] - image[i + k + 1][j + l]) <= threshold;
+                        region
+                            &= Math.abs(image[i + k][j + l] - image[i + k + 1][j + l]) <= threshold;
                     }
                 }
                 if (region) {
