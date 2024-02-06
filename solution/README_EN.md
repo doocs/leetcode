@@ -3012,7 +3012,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3001  |  [Minimum Moves to Capture The Queen](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)  |  `Array`,`Enumeration`  |  Medium  |  Weekly Contest 379  |
 |  3002  |  [Maximum Size of a Set After Removals](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Medium  |  Weekly Contest 379  |
 |  3003  |  [Maximize the Number of Partitions After Operations](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)  |  `Bit Manipulation`,`String`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Weekly Contest 379  |
-|  3004  |  [Maximum Subtree of the Same Color](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`  |  Medium  |  🔒  |
+|  3004  |  [Maximum Subtree of the Same Color](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Medium  |  🔒  |
 |  3005  |  [Count Elements With Maximum Frequency](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Easy  |  Weekly Contest 380  |
 |  3006  |  [Find Beautiful Indices in the Given Array I](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md)  |  `Two Pointers`,`String`,`Binary Search`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Medium  |  Weekly Contest 380  |
 |  3007  |  [Maximum Number That Sum of the Prices Is Less Than or Equal to K](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |  `Bit Manipulation`,`Binary Search`,`Dynamic Programming`  |  Medium  |  Weekly Contest 380  |
@@ -3031,15 +3031,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3020  |  [Find the Maximum Number of Elements in Subset](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`  |  Medium  |  Weekly Contest 382  |
 |  3021  |  [Alice and Bob Playing Flower Game](/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 382  |
 |  3022  |  [Minimize OR of Remaining Elements Using Operations](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`  |  Hard  |  Weekly Contest 382  |
-|  3023  |  [Find Pattern in Infinite Stream I](/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README_EN.md)  |    |  Medium  |  🔒  |
-|  3024  |  [Type of Triangle II](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README_EN.md)  |    |  Easy  |  Biweekly Contest 123  |
-|  3025  |  [Find the Number of Ways to Place People I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 123  |
-|  3026  |  [Maximum Good Subarray Sum](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)  |    |  Medium  |  Biweekly Contest 123  |
-|  3027  |  [Find the Number of Ways to Place People II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 123  |
-|  3028  |  [Ant on the Boundary](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README_EN.md)  |    |  Easy  |  Weekly Contest 383  |
-|  3029  |  [Minimum Time to Revert Word to Initial State I](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 383  |
-|  3030  |  [Find the Grid of Region Average](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md)  |    |  Medium  |  Weekly Contest 383  |
-|  3031  |  [Minimum Time to Revert Word to Initial State II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 383  |
+|  3023  |  [Find Pattern in Infinite Stream I](/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README_EN.md)  |  `Array`,`String`,`String Matching`,`Sliding Window`  |  Medium  |  🔒  |
+|  3024  |  [Type of Triangle II](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README_EN.md)  |  `Array`,`Math`,`Sorting`  |  Easy  |  Biweekly Contest 123  |
+|  3025  |  [Find the Number of Ways to Place People I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README_EN.md)  |  `Geometry`,`Array`,`Math`,`Enumeration`,`Sorting`  |  Medium  |  Biweekly Contest 123  |
+|  3026  |  [Maximum Good Subarray Sum](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Biweekly Contest 123  |
+|  3027  |  [Find the Number of Ways to Place People II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md)  |  `Geometry`,`Array`,`Math`,`Enumeration`,`Sorting`  |  Hard  |  Biweekly Contest 123  |
+|  3028  |  [Ant on the Boundary](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README_EN.md)  |  `Array`,`Prefix Sum`,`Simulation`  |  Easy  |  Weekly Contest 383  |
+|  3029  |  [Minimum Time to Revert Word to Initial State I](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README_EN.md)  |  `String`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Medium  |  Weekly Contest 383  |
+|  3030  |  [Find the Grid of Region Average](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md)  |  `Array`,`Matrix`  |  Medium  |  Weekly Contest 383  |
+|  3031  |  [Minimum Time to Revert Word to Initial State II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md)  |  `String`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 383  |
 
 ## Copyright
 
