@@ -7,13 +7,13 @@
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        dummy = cur = ListNode(0)
-        carry = 0
+        dummy = ListNode()
+        carry, curr = 0, dummy
         while l1 or l2 or carry:
-            carry += (0 if not l1 else l1.val) + (0 if not l2 else l2.val)
-            cur.next = ListNode(carry % 10)
-            cur = cur.next
-            carry //= 10
-            l1 = None if not l1 else l1.next
-            l2 = None if not l2 else l2.next
+            s = (l1.val if l1 else 0) + (l2.val if l2 else 0) + carry
+            carry, val = divmod(s, 10)
+            curr.next = ListNode(val)
+            curr = curr.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
         return dummy.next

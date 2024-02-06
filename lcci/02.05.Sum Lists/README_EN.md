@@ -32,7 +32,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We traverse two linked lists $l_1$ and $l_2$ simultaneously, and use a variable $carry$ to indicate whether there is a carry-over currently.
+
+During each traversal, we take out the current digit of the corresponding linked list, calculate the sum of them and the carry-over $carry$, then update the value of the carry-over, and finally add the value of the current digit to the answer linked list. The traversal ends when both linked lists have been traversed and the carry-over is $0$.
+
+Finally, we return the head node of the answer linked list.
+
+The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of the two linked lists respectively. We need to traverse all positions of the two linked lists, and it only takes $O(1)$ time to process each position. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -46,15 +54,15 @@
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        dummy = cur = ListNode(0)
-        carry = 0
+        dummy = ListNode()
+        carry, curr = 0, dummy
         while l1 or l2 or carry:
-            carry += (0 if not l1 else l1.val) + (0 if not l2 else l2.val)
-            cur.next = ListNode(carry % 10)
-            cur = cur.next
-            carry //= 10
-            l1 = None if not l1 else l1.next
-            l2 = None if not l2 else l2.next
+            s = (l1.val if l1 else 0) + (l2.val if l2 else 0) + carry
+            carry, val = divmod(s, 10)
+            curr.next = ListNode(val)
+            curr = curr.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
         return dummy.next
 ```
 
@@ -69,8 +77,8 @@ class Solution:
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
         int carry = 0;
-        ListNode dummy = new ListNode(-1);
         ListNode cur = dummy;
         while (l1 != null || l2 != null || carry != 0) {
             int s = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;

@@ -29,7 +29,15 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们同时遍历两个链表 $l_1$ 和 $l_2$，并使用变量 $carry$ 表示当前是否有进位。
+
+每次遍历时，我们取出对应链表的当前位，计算它们与进位 $carry$ 的和，然后更新进位的值，最后将当前位的值加入答案链表。如果两个链表都遍历完了，并且进位为 $0$ 时，遍历结束。
+
+最后我们返回答案链表的头节点即可。
+
+时间复杂度 $O(\max(m, n))$，其中 $m$ 和 $n$ 分别为两个链表的长度。我们需要遍历两个链表的全部位置，而处理每个位置只需要 $O(1)$ 的时间。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -43,15 +51,15 @@
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        dummy = cur = ListNode(0)
-        carry = 0
+        dummy = ListNode()
+        carry, curr = 0, dummy
         while l1 or l2 or carry:
-            carry += (0 if not l1 else l1.val) + (0 if not l2 else l2.val)
-            cur.next = ListNode(carry % 10)
-            cur = cur.next
-            carry //= 10
-            l1 = None if not l1 else l1.next
-            l2 = None if not l2 else l2.next
+            s = (l1.val if l1 else 0) + (l2.val if l2 else 0) + carry
+            carry, val = divmod(s, 10)
+            curr.next = ListNode(val)
+            curr = curr.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
         return dummy.next
 ```
 
@@ -66,8 +74,8 @@ class Solution:
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
         int carry = 0;
-        ListNode dummy = new ListNode(-1);
         ListNode cur = dummy;
         while (l1 != null || l2 != null || carry != 0) {
             int s = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
