@@ -7,22 +7,21 @@
  * }
  */
 func isCousins(root *TreeNode, x int, y int) bool {
-	var p1, p2 *TreeNode
 	var d1, d2 int
-	var dfs func(*TreeNode, *TreeNode, int)
-	dfs = func(root *TreeNode, fa *TreeNode, d int) {
+	var p1, p2 *TreeNode
+	var dfs func(root, parent *TreeNode, depth int)
+	dfs = func(root, parent *TreeNode, depth int) {
 		if root == nil {
 			return
 		}
 		if root.Val == x {
-			p1, d1 = fa, d
+			d1, p1 = depth, parent
+		} else if root.Val == y {
+			d2, p2 = depth, parent
 		}
-		if root.Val == y {
-			p2, d2 = fa, d
-		}
-		dfs(root.Left, root, d+1)
-		dfs(root.Right, root, d+1)
+		dfs(root.Left, root, depth+1)
+		dfs(root.Right, root, depth+1)
 	}
 	dfs(root, nil, 0)
-	return p1 != p2 && d1 == d2
+	return d1 == d2 && p1 != p2
 }
