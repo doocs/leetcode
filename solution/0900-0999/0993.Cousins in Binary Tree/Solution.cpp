@@ -15,7 +15,7 @@ public:
         queue<pair<TreeNode*, TreeNode*>> q;
         q.push({root, nullptr});
         int d1 = 0, d2 = 0;
-        TreeNode* p1 = nullptr, *p2 = nullptr;
+        TreeNode *p1 = nullptr, *p2 = nullptr;
         for (int depth = 0; q.size(); ++depth) {
             for (int n = q.size(); n; --n) {
                 auto [node, parent] = q.front();
