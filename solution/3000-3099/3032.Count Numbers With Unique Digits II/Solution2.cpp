@@ -14,7 +14,7 @@ public:
     int numberCount(int a, int b) {
         int res = 0;
         for (int i = a; i <= b; ++i) {
-            if (isvalid(I)) {
+            if (isvalid(i)) {
                 ++res;
             }
         }
