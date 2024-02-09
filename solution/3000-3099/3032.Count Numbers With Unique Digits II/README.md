@@ -257,7 +257,7 @@ function numberCount(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-### 方法2
+### 方法 2
 
 <!-- tabs:start -->
 
