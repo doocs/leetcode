@@ -40,24 +40,217 @@ Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: State Compression + Digit DP
+
+The problem asks to count how many numbers in the range $[a, b]$ have unique digits. We can solve this problem using state compression and digit DP.
+
+We can use a function $f(n)$ to count how many numbers in the range $[1, n]$ have unique digits. Then the answer is $f(b) - f(a - 1)$.
+
+In addition, we can use a binary number to record the digits that have appeared in the number. For example, if the digits $1, 3, 5$ have appeared in the number, we can use $10101$ to represent this state.
+
+Next, we use memoization search to implement digit DP. We search from the starting point to the bottom layer to get the number of schemes, return the answer layer by layer and accumulate it, and finally get the final answer from the search starting point.
+
+The basic steps are as follows:
+
+1. We convert the number $n$ into a string $num$, where $num[0]$ is the highest digit and $num[len - 1]$ is the lowest digit.
+2. Based on the problem information, we design a function $dfs(pos, mask, limit)$, where $pos$ represents the current processing position, $mask$ represents the digits that have appeared in the current number, and $limit$ represents whether there is a limit at the current position. If $limit$ is true, then the digit at the current position cannot exceed $num[pos]$.
+
+The answer is $dfs(0, 0, true)$.
+
+The time complexity is $O(m \times 2^{10} \times 10)$, and the space complexity is $O(m \times 2^{10})$. Where $m$ is the number of digits in $b$.
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def numberCount(self, a: int, b: int) -> int:
+        @cache
+        def dfs(pos: int, mask: int, limit: bool) -> int:
+            if pos >= len(num):
+                return 1 if mask else 0
+            up = int(num[pos]) if limit else 9
+            ans = 0
+            for i in range(up + 1):
+                if mask >> i & 1:
+                    continue
+                nxt = 0 if mask == 0 and i == 0 else mask | 1 << i
+                ans += dfs(pos + 1, nxt, limit and i == up)
+            return ans
 
+        num = str(a - 1)
+        x = dfs(0, 0, True)
+        dfs.cache_clear()
+        num = str(b)
+        y = dfs(0, 0, True)
+        return y - x
 ```
 
 ```java
+class Solution {
+    private String num;
+    private Integer[][] f;
 
+    public int numberCount(int a, int b) {
+        num = String.valueOf(a - 1);
+        f = new Integer[num.length()][1 << 10];
+        int x = dfs(0, 0, true);
+        num = String.valueOf(b);
+        f = new Integer[num.length()][1 << 10];
+        int y = dfs(0, 0, true);
+        return y - x;
+    }
+
+    private int dfs(int pos, int mask, boolean limit) {
+        if (pos >= num.length()) {
+            return mask > 0 ? 1 : 0;
+        }
+        if (!limit && f[pos][mask] != null) {
+            return f[pos][mask];
+        }
+        int up = limit ? num.charAt(pos) - '0' : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if ((mask >> i & 1) == 1) {
+                continue;
+            }
+            int nxt = mask == 0 && i == 0 ? 0 : mask | 1 << i;
+            ans += dfs(pos + 1, nxt, limit && i == up);
+        }
+        if (!limit) {
+            f[pos][mask] = ans;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
+class Solution {
+public:
+    int numberCount(int a, int b) {
+        string num = to_string(b);
+        int f[num.size()][1 << 10];
+        memset(f, -1, sizeof(f));
+        function<int(int, int, bool)> dfs = [&](int pos, int mask, bool limit) {
+            if (pos >= num.size()) {
+                return mask ? 1 : 0;
+            }
+            if (!limit && f[pos][mask] != -1) {
+                return f[pos][mask];
+            }
+            int up = limit ? num[pos] - '0' : 9;
+            int ans = 0;
+            for (int i = 0; i <= up; ++i) {
+                if (mask >> i & 1) {
+                    continue;
+                }
+                int nxt = mask == 0 && i == 0 ? 0 : mask | 1 << i;
+                ans += dfs(pos + 1, nxt, limit && i == up);
+            }
+            if (!limit) {
+                f[pos][mask] = ans;
+            }
+            return ans;
+        };
 
+        int y = dfs(0, 0, true);
+        num = to_string(a - 1);
+        memset(f, -1, sizeof(f));
+        int x = dfs(0, 0, true);
+        return y - x;
+    }
+};
 ```
 
 ```go
+func numberCount(a int, b int) int {
+	num := strconv.Itoa(b)
+	f := make([][1 << 10]int, len(num))
+	for i := range f {
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(pos, mask int, limit bool) int
+	dfs = func(pos, mask int, limit bool) int {
+		if pos >= len(num) {
+			if mask != 0 {
+				return 1
+			}
+			return 0
+		}
+		if !limit && f[pos][mask] != -1 {
+			return f[pos][mask]
+		}
+		up := 9
+		if limit {
+			up = int(num[pos] - '0')
+		}
+		ans := 0
+		for i := 0; i <= up; i++ {
+			if mask>>i&1 == 1 {
+				continue
+			}
+			nxt := mask | 1<<i
+			if mask == 0 && i == 0 {
+				nxt = 0
+			}
+			ans += dfs(pos+1, nxt, limit && i == up)
+		}
+		if !limit {
+			f[pos][mask] = ans
+		}
+		return ans
+	}
+	y := dfs(0, 0, true)
+	num = strconv.Itoa(a - 1)
+	for i := range f {
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	x := dfs(0, 0, true)
+	return y - x
+}
+```
 
+```ts
+function numberCount(a: number, b: number): number {
+    let num: string = b.toString();
+    const f: number[][] = Array(num.length)
+        .fill(0)
+        .map(() => Array(1 << 10).fill(-1));
+    const dfs: (pos: number, mask: number, limit: boolean) => number = (pos, mask, limit) => {
+        if (pos >= num.length) {
+            return mask ? 1 : 0;
+        }
+        if (!limit && f[pos][mask] !== -1) {
+            return f[pos][mask];
+        }
+        const up: number = limit ? +num[pos] : 9;
+        let ans: number = 0;
+        for (let i = 0; i <= up; i++) {
+            if ((mask >> i) & 1) {
+                continue;
+            }
+            let nxt: number = mask | (1 << i);
+            if (mask === 0 && i === 0) {
+                nxt = 0;
+            }
+            ans += dfs(pos + 1, nxt, limit && i === up);
+        }
+        if (!limit) {
+            f[pos][mask] = ans;
+        }
+        return ans;
+    };
+
+    const y: number = dfs(0, 0, true);
+    num = (a - 1).toString();
+    f.forEach(v => v.fill(-1));
+    const x: number = dfs(0, 0, true);
+    return y - x;
+}
 ```
 
 <!-- tabs:end -->
