@@ -255,4 +255,107 @@ function numberCount(a: number, b: number): number {
 
 <!-- tabs:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def numberCount(self, a: int, b: int) -> int:
+        return sum(len(set(str(num))) == len(str(num)) for num in range(a, b + 1))
+```
+
+```java
+class Solution {
+    public int numberCount(int a, int b) {
+        int res = 0;
+        for (int i = a; i <= b; ++i) {
+            if (isValid(i)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+    private boolean isValid(int n) {
+        boolean[] present = new boolean[10];
+        Arrays.fill(present, false);
+        while (n > 0) {
+            int dig = n % 10;
+            if (present[dig]) {
+                return false;
+            }
+            present[dig] = true;
+            n /= 10;
+        }
+        return true;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    bool isvalid(int n) {
+        vector<bool> present(10, false);
+        while (n) {
+        const int dig = n % 10;
+        if (present[dig])
+            return false;
+        present[dig] = true;
+        n /= 10;
+        }
+        return true;
+    }
+    int numberCount(int a, int b) {
+        int res = 0;
+        for (int i = a; i <= b; ++i)
+        if (isvalid(i)){
+            ++res;
+        }
+        return res;
+    }
+};
+```
+
+```go
+func numberCount(a int, b int) int {
+	count := 0
+	for num := a; num <= b; num++ {
+		if hasUniqueDigits(num) {
+			count++
+		}
+	}
+	return count
+}
+func hasUniqueDigits(num int) bool {
+	digits := strconv.Itoa(num)
+	seen := make(map[rune]bool)
+	for _, digit := range digits {
+		if seen[digit] {
+			return false
+		}
+		seen[digit] = true
+	}
+	return true
+}
+```
+
+```ts
+function numberCount(a: number, b: number): number {
+    let count: number = 0;
+    for (let num = a; num <= b; num++) {
+        if (hasUniqueDigits(num)) {
+            count++;
+        }
+    }
+    return count;
+}
+function hasUniqueDigits(num: number): boolean {
+    const digits: Set<string> = new Set(num.toString().split(''));
+    return digits.size === num.toString().length;
+}
+```
+
+<!-- tabs:end -->
+
 <!-- end -->
