@@ -3040,6 +3040,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3029  |  [Minimum Time to Revert Word to Initial State I](/solution/3000-3099/3029.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20I/README_EN.md)  |  `String`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Medium  |  Weekly Contest 383  |
 |  3030  |  [Find the Grid of Region Average](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md)  |  `Array`,`Matrix`  |  Medium  |  Weekly Contest 383  |
 |  3031  |  [Minimum Time to Revert Word to Initial State II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md)  |  `String`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 383  |
+|  3032  |  [Count Numbers With Unique Digits II](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 
