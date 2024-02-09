@@ -17,19 +17,10 @@ function lowestCommonAncestor(
     p: TreeNode | null,
     q: TreeNode | null,
 ): TreeNode | null {
-    const find = (root: TreeNode | null) => {
-        if (root == null || root == p || root == q) {
-            return root;
-        }
-        const left = find(root.left);
-        const right = find(root.right);
-        if (left != null && right != null) {
-            return root;
-        }
-        if (left != null) {
-            return left;
-        }
-        return right;
-    };
-    return find(root);
+    if (!root || root === p || root === q) {
+        return root;
+    }
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+    return left && right ? root : left || right;
 }

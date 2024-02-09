@@ -45,7 +45,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Recursion
+
+We recursively traverse the binary tree:
+
+If the current node is null or equals to $p$ or $q$, then we return the current node;
+
+Otherwise, we recursively traverse the left and right subtrees, and record the returned results as $left$ and $right$. If both $left$ and $right$ are not null, it means that $p$ and $q$ are in the left and right subtrees respectively, so the current node is the nearest common ancestor; If only one of $left$ and $right$ is not null, we return the one that is not null.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -60,9 +68,9 @@
 
 class Solution:
     def lowestCommonAncestor(
-        self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode'
-    ) -> 'TreeNode':
-        if root is None or root == p or root == q:
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
+        if root in (None, p, q):
             return root
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
@@ -81,12 +89,15 @@ class Solution:
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null || root == p || root == q) return root;
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
-        if (left == null) return right;
-        if (right == null) return left;
-        return root;
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        var left = lowestCommonAncestor(root.left, p, q);
+        var right = lowestCommonAncestor(root.right, p, q);
+        if (left != null && right != null) {
+            return root;
+        }
+        return left == null ? right : left;
     }
 }
 ```
@@ -104,10 +115,14 @@ class Solution {
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if (!root || root == p || root == q) return root;
-        TreeNode* left = lowestCommonAncestor(root->left, p, q);
-        TreeNode* right = lowestCommonAncestor(root->right, p, q);
-        if (left && right) return root;
+        if (root == nullptr || root == p || root == q) {
+            return root;
+        }
+        auto left = lowestCommonAncestor(root->left, p, q);
+        auto right = lowestCommonAncestor(root->right, p, q);
+        if (left && right) {
+            return root;
+        }
         return left ? left : right;
     }
 };
@@ -128,13 +143,13 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	}
 	left := lowestCommonAncestor(root.Left, p, q)
 	right := lowestCommonAncestor(root.Right, p, q)
-	if left == nil {
-		return right
+	if left != nil && right != nil {
+		return root
 	}
-	if right == nil {
+	if left != nil {
 		return left
 	}
-	return root
+	return right
 }
 ```
 
@@ -158,21 +173,12 @@ function lowestCommonAncestor(
     p: TreeNode | null,
     q: TreeNode | null,
 ): TreeNode | null {
-    const find = (root: TreeNode | null) => {
-        if (root == null || root == p || root == q) {
-            return root;
-        }
-        const left = find(root.left);
-        const right = find(root.right);
-        if (left != null && right != null) {
-            return root;
-        }
-        if (left != null) {
-            return left;
-        }
-        return right;
-    };
-    return find(root);
+    if (!root || root === p || root === q) {
+        return root;
+    }
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+    return left && right ? root : left || right;
 }
 ```
 
@@ -198,31 +204,31 @@ function lowestCommonAncestor(
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    fn find(
-        root: &Option<Rc<RefCell<TreeNode>>>,
-        p: &Option<Rc<RefCell<TreeNode>>>,
-        q: &Option<Rc<RefCell<TreeNode>>>
-    ) -> Option<Rc<RefCell<TreeNode>>> {
-        if root.is_none() || root == p || root == q {
-            return root.clone();
-        }
-        let node = root.as_ref().unwrap().borrow();
-        let left = Self::find(&node.left, p, q);
-        let right = Self::find(&node.right, p, q);
-        match (left.is_some(), right.is_some()) {
-            (true, false) => left,
-            (false, true) => right,
-            (false, false) => None,
-            (true, true) => root.clone(),
-        }
-    }
-
     pub fn lowest_common_ancestor(
         root: Option<Rc<RefCell<TreeNode>>>,
         p: Option<Rc<RefCell<TreeNode>>>,
         q: Option<Rc<RefCell<TreeNode>>>
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        Self::find(&root, &p, &q)
+        if root.is_none() || root == p || root == q {
+            return root;
+        }
+        let left = Self::lowest_common_ancestor(
+            root.as_ref().unwrap().borrow().left.clone(),
+            p.clone(),
+            q.clone()
+        );
+        let right = Self::lowest_common_ancestor(
+            root.as_ref().unwrap().borrow().right.clone(),
+            p.clone(),
+            q.clone()
+        );
+        if left.is_some() && right.is_some() {
+            return root;
+        }
+        if left.is_none() {
+            return right;
+        }
+        return left;
     }
 }
 ```
@@ -242,12 +248,12 @@ impl Solution {
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function (root, p, q) {
-    if (!root || root == p || root == q) return root;
+    if (!root || root === p || root === q) {
+        return root;
+    }
     const left = lowestCommonAncestor(root.left, p, q);
     const right = lowestCommonAncestor(root.right, p, q);
-    if (!left) return right;
-    if (!right) return left;
-    return root;
+    return left && right ? root : left || right;
 };
 ```
 
