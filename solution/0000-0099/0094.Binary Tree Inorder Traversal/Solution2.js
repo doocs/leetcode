@@ -11,8 +11,8 @@
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-    let ans = [],
-        stk = [];
+    const stk = [];
+    const ans = [];
     while (root || stk.length > 0) {
         if (root) {
             stk.push(root);

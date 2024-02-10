@@ -13,8 +13,15 @@
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) {
-        return [];
-    }
-    return [...inorderTraversal(root.left), root.val, ...inorderTraversal(root.right)];
+    const ans: number[] = [];
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        ans.push(root.val);
+        dfs(root.right);
+    };
+    dfs(root);
+    return ans;
 }

@@ -20,20 +20,20 @@ use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
     pub fn inorder_traversal(mut root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = vec![];
-        let mut stack = vec![];
-        while root.is_some() || !stack.is_empty() {
+        let mut ans = vec![];
+        let mut stk = vec![];
+        while root.is_some() || !stk.is_empty() {
             if root.is_some() {
                 let next = root.as_mut().unwrap().borrow_mut().left.take();
-                stack.push(root);
+                stk.push(root);
                 root = next;
             } else {
-                let mut node = stack.pop().unwrap();
+                let mut node = stk.pop().unwrap();
                 let mut node = node.as_mut().unwrap().borrow_mut();
-                res.push(node.val);
+                ans.push(node.val);
                 root = node.right.take();
             }
         }
-        res
+        ans
     }
 }
