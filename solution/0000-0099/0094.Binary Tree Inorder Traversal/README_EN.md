@@ -88,10 +88,9 @@ class Solution:
  * }
  */
 class Solution {
-    private List<Integer> ans;
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        ans = new ArrayList<>();
         dfs(root);
         return ans;
     }
@@ -123,25 +122,15 @@ class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> ans;
-        while (root) {
-            if (!root->left) {
-                ans.push_back(root->val);
-                root = root->right;
-            } else {
-                TreeNode* prev = root->left;
-                while (prev->right && prev->right != root) {
-                    prev = prev->right;
-                }
-                if (!prev->right) {
-                    prev->right = root;
-                    root = root->left;
-                } else {
-                    ans.push_back(root->val);
-                    prev->right = nullptr;
-                    root = root->right;
-                }
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return;
             }
-        }
+            dfs(root->left);
+            ans.push_back(root->val);
+            dfs(root->right);
+        };
+        dfs(root);
         return ans;
     }
 };
@@ -156,28 +145,18 @@ public:
  *     Right *TreeNode
  * }
  */
-func inorderTraversal(root *TreeNode) []int {
-	var ans []int
-	for root != nil {
-		if root.Left == nil {
-			ans = append(ans, root.Val)
-			root = root.Right
-		} else {
-			prev := root.Left
-			for prev.Right != nil && prev.Right != root {
-				prev = prev.Right
-			}
-			if prev.Right == nil {
-				prev.Right = root
-				root = root.Left
-			} else {
-				ans = append(ans, root.Val)
-				prev.Right = nil
-				root = root.Right
-			}
+func inorderTraversal(root *TreeNode) (ans []int) {
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
 		}
+		dfs(root.Left)
+		ans = append(ans, root.Val)
+		dfs(root.Right)
 	}
-	return ans
+	dfs(root)
+	return
 }
 ```
 
@@ -197,10 +176,17 @@ func inorderTraversal(root *TreeNode) []int {
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) {
-        return [];
-    }
-    return [...inorderTraversal(root.left), root.val, ...inorderTraversal(root.right)];
+    const ans: number[] = [];
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        ans.push(root.val);
+        dfs(root.right);
+    };
+    dfs(root);
+    return ans;
 }
 ```
 
@@ -226,20 +212,20 @@ function inorderTraversal(root: TreeNode | null): number[] {
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, ans: &mut Vec<i32>) {
         if root.is_none() {
             return;
         }
         let node = root.as_ref().unwrap().borrow();
-        Self::dfs(&node.left, res);
-        res.push(node.val);
-        Self::dfs(&node.right, res);
+        Self::dfs(&node.left, ans);
+        ans.push(node.val);
+        Self::dfs(&node.right, ans);
     }
 
     pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = vec![];
-        Self::dfs(&root, &mut res);
-        res
+        let mut ans = vec![];
+        Self::dfs(&root, &mut ans);
+        ans
     }
 }
 ```
@@ -258,13 +244,15 @@ impl Solution {
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-    let ans = [];
-    function dfs(root) {
-        if (!root) return;
+    const ans = [];
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
         dfs(root.left);
         ans.push(root.val);
         dfs(root.right);
-    }
+    };
     dfs(root);
     return ans;
 };
@@ -341,6 +329,65 @@ class Solution {
 }
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        stack<TreeNode*> stk;
+        while (root || stk.size()) {
+            if (root) {
+                stk.push(root);
+                root = root->left;
+            } else {
+                root = stk.top();
+                stk.pop();
+                ans.push_back(root->val);
+                root = root->right;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func inorderTraversal(root *TreeNode) (ans []int) {
+	stk := []*TreeNode{}
+	for root != nil || len(stk) > 0 {
+		if root != nil {
+			stk = append(stk, root)
+			root = root.Left
+		} else {
+			root = stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			ans = append(ans, root.Val)
+			root = root.Right
+		}
+	}
+	return
+}
+```
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -357,19 +404,19 @@ class Solution {
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
-    const res = [];
-    const stack = [];
-    while (root != null || stack.length != 0) {
-        if (root != null) {
-            stack.push(root);
+    const stk: TreeNode[] = [];
+    const ans: number[] = [];
+    while (root || stk.length > 0) {
+        if (root) {
+            stk.push(root);
             root = root.left;
         } else {
-            const { val, right } = stack.pop();
-            res.push(val);
-            root = right;
+            root = stk.pop();
+            ans.push(root.val);
+            root = root.right;
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -396,21 +443,21 @@ use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
     pub fn inorder_traversal(mut root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = vec![];
-        let mut stack = vec![];
-        while root.is_some() || !stack.is_empty() {
+        let mut ans = vec![];
+        let mut stk = vec![];
+        while root.is_some() || !stk.is_empty() {
             if root.is_some() {
                 let next = root.as_mut().unwrap().borrow_mut().left.take();
-                stack.push(root);
+                stk.push(root);
                 root = next;
             } else {
-                let mut node = stack.pop().unwrap();
+                let mut node = stk.pop().unwrap();
                 let mut node = node.as_mut().unwrap().borrow_mut();
-                res.push(node.val);
+                ans.push(node.val);
                 root = node.right.take();
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -429,8 +476,8 @@ impl Solution {
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-    let ans = [],
-        stk = [];
+    const stk = [];
+    const ans = [];
     while (root || stk.length > 0) {
         if (root) {
             stk.push(root);
@@ -534,6 +581,79 @@ class Solution {
 }
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        while (root) {
+            if (!root->left) {
+                ans.push_back(root->val);
+                root = root->right;
+            } else {
+                TreeNode* prev = root->left;
+                while (prev->right && prev->right != root) {
+                    prev = prev->right;
+                }
+                if (!prev->right) {
+                    prev->right = root;
+                    root = root->left;
+                } else {
+                    ans.push_back(root->val);
+                    prev->right = nullptr;
+                    root = root->right;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func inorderTraversal(root *TreeNode) (ans []int) {
+	for root != nil {
+		if root.Left == nil {
+			ans = append(ans, root.Val)
+			root = root.Right
+		} else {
+			prev := root.Left
+			for prev.Right != nil && prev.Right != root {
+				prev = prev.Right
+			}
+			if prev.Right == nil {
+				prev.Right = root
+				root = root.Left
+			} else {
+				ans = append(ans, root.Val)
+				prev.Right = nil
+				root = root.Right
+			}
+		}
+	}
+	return
+}
+```
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -550,28 +670,27 @@ class Solution {
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
-    const res = [];
-    while (root != null) {
-        const { val, left, right } = root;
-        if (left == null) {
-            res.push(val);
-            root = right;
+    const ans: number[] = [];
+    while (root) {
+        if (!root.left) {
+            ans.push(root.val);
+            root = root.right;
         } else {
-            let mostRight = left;
-            while (mostRight.right != null && mostRight.right != root) {
-                mostRight = mostRight.right;
+            let prev = root.left;
+            while (prev.right && prev.right != root) {
+                prev = prev.right;
             }
-            if (mostRight.right == root) {
-                res.push(val);
-                mostRight.right = null;
-                root = right;
+            if (!prev.right) {
+                prev.right = root;
+                root = root.left;
             } else {
-                mostRight.right = root;
-                root = left;
+                ans.push(root.val);
+                prev.right = null;
+                root = root.right;
             }
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -589,7 +708,7 @@ function inorderTraversal(root: TreeNode | null): number[] {
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-    let ans = [];
+    const ans = [];
     while (root) {
         if (!root.left) {
             ans.push(root.val);
