@@ -11,7 +11,6 @@ class Solution:
                 return
             dfs(root.left)
             dfs(root.right)
-            nonlocal ans
             ans.append(root.val)
 
         ans = []

@@ -46,7 +46,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：递归
+
+我们先递归左右子树，然后再访问根节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数，空间复杂度主要取决于递归调用的栈空间。
 
 <!-- tabs:start -->
 
@@ -64,7 +68,6 @@ class Solution:
                 return
             dfs(root.left)
             dfs(root.right)
-            nonlocal ans
             ans.append(root.val)
 
         ans = []
@@ -89,10 +92,9 @@ class Solution:
  * }
  */
 class Solution {
-    private List<Integer> ans;
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> postorderTraversal(TreeNode root) {
-        ans = new ArrayList<>();
         dfs(root);
         return ans;
     }
@@ -124,26 +126,15 @@ class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
         vector<int> ans;
-        while (root) {
-            if (!root->right) {
-                ans.push_back(root->val);
-                root = root->left;
-            } else {
-                TreeNode* next = root->right;
-                while (next->left && next->left != root) {
-                    next = next->left;
-                }
-                if (!next->left) {
-                    ans.push_back(root->val);
-                    next->left = root;
-                    root = root->right;
-                } else {
-                    next->left = nullptr;
-                    root = root->left;
-                }
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return;
             }
-        }
-        reverse(ans.begin(), ans.end());
+            dfs(root->left);
+            dfs(root->right);
+            ans.push_back(root->val);
+        };
+        dfs(root);
         return ans;
     }
 };
@@ -158,28 +149,18 @@ public:
  *     Right *TreeNode
  * }
  */
-func postorderTraversal(root *TreeNode) []int {
-	var ans []int
-	for root != nil {
-		if root.Right == nil {
-			ans = append([]int{root.Val}, ans...)
-			root = root.Left
-		} else {
-			next := root.Right
-			for next.Left != nil && next.Left != root {
-				next = next.Left
-			}
-			if next.Left == nil {
-				ans = append([]int{root.Val}, ans...)
-				next.Left = root
-				root = root.Right
-			} else {
-				next.Left = nil
-				root = root.Left
-			}
+func postorderTraversal(root *TreeNode) (ans []int) {
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
 		}
+		dfs(root.Left)
+		dfs(root.Right)
+		ans = append(ans, root.Val)
 	}
-	return ans
+	dfs(root)
+	return
 }
 ```
 
@@ -199,25 +180,16 @@ func postorderTraversal(root *TreeNode) []int {
  */
 
 function postorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) return [];
-    let stack = [];
-    let ans = [];
-    let prev = null;
-    while (root || stack.length) {
-        while (root) {
-            stack.push(root);
-            root = root.left;
+    const ans: number[] = [];
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
         }
-        root = stack.pop();
-        if (!root.right || root.right == prev) {
-            ans.push(root.val);
-            prev = root;
-            root = null;
-        } else {
-            stack.push(root);
-            root = root.right;
-        }
-    }
+        dfs(root.left);
+        dfs(root.right);
+        ans.push(root.val);
+    };
+    dfs(root);
     return ans;
 }
 ```
@@ -244,27 +216,40 @@ function postorderTraversal(root: TreeNode | null): number[] {
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, ans: &mut Vec<i32>) {
         if root.is_none() {
             return;
         }
         let node = root.as_ref().unwrap().borrow();
-        Self::dfs(&node.left, res);
-        Self::dfs(&node.right, res);
-        res.push(node.val);
+        Self::dfs(&node.left, ans);
+        Self::dfs(&node.right, ans);
+        ans.push(node.val);
     }
 
     pub fn postorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = vec![];
-        Self::dfs(&root, &mut res);
-        res
+        let mut ans = vec![];
+        Self::dfs(&root, &mut ans);
+        ans
     }
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：栈实现后序遍历
+
+先序遍历的顺序是：根、左、右，如果我们改变左右孩子的顺序，就能将顺序变成：根、右、左。最后再将结果反转一下，就得到了后序遍历的结果。
+
+因此，栈实现非递归遍历的思路如下：
+
+1. 定义一个栈 $stk$，先将根节点压入栈
+1. 若栈不为空，每次从栈中弹出一个节点
+1. 处理该节点
+1. 先把节点左孩子压入栈，接着把节点右孩子压入栈（如果有孩子节点）
+1. 重复 2-4
+1. 将结果反转，得到后序遍历的结果
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数，空间复杂度主要取决于栈空间。
 
 <!-- tabs:start -->
 
@@ -330,6 +315,76 @@ class Solution {
 }
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        if (!root) {
+            return ans;
+        }
+        stack<TreeNode*> stk;
+        stk.push(root);
+        while (stk.size()) {
+            auto node = stk.top();
+            stk.pop();
+            ans.push_back(node->val);
+            if (node->left) {
+                stk.push(node->left);
+            }
+            if (node->right) {
+                stk.push(node->right);
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func postorderTraversal(root *TreeNode) (ans []int) {
+	if root == nil {
+		return
+	}
+	stk := []*TreeNode{root}
+	for len(stk) > 0 {
+		node := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		ans = append(ans, node.Val)
+		if node.Left != nil {
+			stk = append(stk, node.Left)
+		}
+		if node.Right != nil {
+			stk = append(stk, node.Right)
+		}
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return
+}
+```
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -346,63 +401,40 @@ class Solution {
  */
 
 function postorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) {
-        return [];
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    const { val, left, right } = root;
-    return [...postorderTraversal(left), ...postorderTraversal(right), val];
-}
-```
-
-```rust
-// Definition for a binary tree node.
-// #[derive(Debug, PartialEq, Eq)]
-// pub struct TreeNode {
-//   pub val: i32,
-//   pub left: Option<Rc<RefCell<TreeNode>>>,
-//   pub right: Option<Rc<RefCell<TreeNode>>>,
-// }
-//
-// impl TreeNode {
-//   #[inline]
-//   pub fn new(val: i32) -> Self {
-//     TreeNode {
-//       val,
-//       left: None,
-//       right: None
-//     }
-//   }
-// }
-use std::rc::Rc;
-use std::cell::RefCell;
-impl Solution {
-    pub fn postorder_traversal(mut root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = vec![];
-        let mut stack = vec![];
-        while root.is_some() || !stack.is_empty() {
-            if root.is_some() {
-                let next = root.as_mut().unwrap().borrow_mut().left.take();
-                stack.push(root);
-                root = next;
-            } else {
-                root = stack.pop().unwrap();
-                let next = root.as_mut().unwrap().borrow_mut().right.take();
-                if next.is_some() {
-                    stack.push(root);
-                } else {
-                    res.push(root.as_ref().unwrap().borrow().val);
-                }
-                root = next;
-            }
-        }
-        res
+    const stk: TreeNode[] = [root];
+    while (stk.length) {
+        const { left, right, val } = stk.pop();
+        ans.push(val);
+        left && stk.push(left);
+        right && stk.push(right);
     }
+    ans.reverse();
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法三
+### 方法三：Morris 实现后序遍历
+
+Morris 遍历无需使用栈，空间复杂度为 $O(1)$。核心思想是：
+
+遍历二叉树节点，
+
+1. 若当前节点 `root` 的右子树为空，将当前节点值添加至结果列表 $ans$ 中，并将当前节点更新为 `root.left`
+1. 若当前节点 `root` 的右子树不为空，找到右子树的最左节点 `next`（也即是 `root` 节点在中序遍历下的后继节点）：
+    - 若后继节点 `next` 的左子树为空，将当前节点值添加至结果列表 $ans$ 中，然后将后继节点的左子树指向当前节点 `root`，并将当前节点更新为 `root.right`。
+    - 若后继节点 `next` 的左子树不为空，将后继节点左子树指向空（即解除 `next` 与 `root` 的指向关系），并将当前节点更新为 `root.left`。
+1. 循环以上步骤，直至二叉树节点为空，遍历结束。
+1. 最后返回结果列表的逆序即可。
+
+> Morris 后序遍历跟 Morris 前序遍历思路一致，只是将前序的“根左右”变为“根右左”，最后逆序结果即可变成“左右根”。
+
+时间复杂度 $O(n)$，其中 $n$ 是二叉树的节点数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -477,6 +509,80 @@ class Solution {
 }
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        while (root) {
+            if (!root->right) {
+                ans.push_back(root->val);
+                root = root->left;
+            } else {
+                TreeNode* next = root->right;
+                while (next->left && next->left != root) {
+                    next = next->left;
+                }
+                if (next->left != root) {
+                    ans.push_back(root->val);
+                    next->left = root;
+                    root = root->right;
+                } else {
+                    next->left = nullptr;
+                    root = root->left;
+                }
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func postorderTraversal(root *TreeNode) (ans []int) {
+	for root != nil {
+		if root.Right == nil {
+			ans = append([]int{root.Val}, ans...)
+			root = root.Left
+		} else {
+			next := root.Right
+			for next.Left != nil && next.Left != root {
+				next = next.Left
+			}
+			if next.Left == nil {
+				ans = append([]int{root.Val}, ans...)
+				next.Left = root
+				root = root.Right
+			} else {
+				next.Left = nil
+				root = root.Left
+			}
+		}
+	}
+	return
+}
+```
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -493,19 +599,19 @@ class Solution {
  */
 
 function postorderTraversal(root: TreeNode | null): number[] {
-    const res = [];
-    while (root != null) {
+    const ans: number[] = [];
+    while (root !== null) {
         const { val, left, right } = root;
-        if (right == null) {
-            res.push(val);
+        if (right === null) {
+            ans.push(val);
             root = left;
         } else {
             let next = right;
-            while (next.left != null && next.left != root) {
+            while (next.left !== null && next.left !== root) {
                 next = next.left;
             }
-            if (next.left == null) {
-                res.push(val);
+            if (next.left === null) {
+                ans.push(val);
                 next.left = root;
                 root = right;
             } else {
@@ -514,7 +620,7 @@ function postorderTraversal(root: TreeNode | null): number[] {
             }
         }
     }
-    return res.reverse();
+    return ans.reverse();
 }
 ```
 

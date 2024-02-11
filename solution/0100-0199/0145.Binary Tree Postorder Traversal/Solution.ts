@@ -13,24 +13,15 @@
  */
 
 function postorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) return [];
-    let stack = [];
-    let ans = [];
-    let prev = null;
-    while (root || stack.length) {
-        while (root) {
-            stack.push(root);
-            root = root.left;
+    const ans: number[] = [];
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
         }
-        root = stack.pop();
-        if (!root.right || root.right == prev) {
-            ans.push(root.val);
-            prev = root;
-            root = null;
-        } else {
-            stack.push(root);
-            root = root.right;
-        }
-    }
+        dfs(root.left);
+        dfs(root.right);
+        ans.push(root.val);
+    };
+    dfs(root);
     return ans;
 }

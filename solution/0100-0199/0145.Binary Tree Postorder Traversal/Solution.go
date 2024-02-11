@@ -6,26 +6,16 @@
  *     Right *TreeNode
  * }
  */
-func postorderTraversal(root *TreeNode) []int {
-	var ans []int
-	for root != nil {
-		if root.Right == nil {
-			ans = append([]int{root.Val}, ans...)
-			root = root.Left
-		} else {
-			next := root.Right
-			for next.Left != nil && next.Left != root {
-				next = next.Left
-			}
-			if next.Left == nil {
-				ans = append([]int{root.Val}, ans...)
-				next.Left = root
-				root = root.Right
-			} else {
-				next.Left = nil
-				root = root.Left
-			}
+func postorderTraversal(root *TreeNode) (ans []int) {
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
 		}
+		dfs(root.Left)
+		dfs(root.Right)
+		ans = append(ans, root.Val)
 	}
-	return ans
+	dfs(root)
+	return
 }
