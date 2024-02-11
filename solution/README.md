@@ -3043,6 +3043,10 @@
 |  3030  |  [找出网格的区域平均强度](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README.md)  |  `数组`,`矩阵`  |  中等  |  第 383 场周赛  |
 |  3031  |  [将单词恢复初始状态所需的最短时间 II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README.md)  |  `字符串`,`字符串匹配`,`哈希函数`,`滚动哈希`  |  困难  |  第 383 场周赛  |
 |  3032  |  [Count Numbers With Unique Digits II](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README.md)  |    |  简单  |  🔒  |
+|  3033  |  [修改矩阵](/solution/3000-3099/3033.Modify%20the%20Matrix/README.md)  |    |  简单  |  第 384 场周赛  |
+|  3034  |  [匹配模式数组的子数组数目 I](/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README.md)  |    |  中等  |  第 384 场周赛  |
+|  3035  |  [回文字符串的最大数量](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md)  |    |  中等  |  第 384 场周赛  |
+|  3036  |  [匹配模式数组的子数组数目 II](/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README.md)  |    |  困难  |  第 384 场周赛  |
 
 ## 版权
 
