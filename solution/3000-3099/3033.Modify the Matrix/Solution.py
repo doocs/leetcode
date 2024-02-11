@@ -6,9 +6,7 @@ class Solution:
             max_val = float('-inf')
             for j in range(rows):
                 max_val = max(max_val, matrix[j][i])
-            
             for j in range(rows):
                 if matrix[j][i] == -1:
                     matrix[j][i] = max_val
-        
         return matrix
