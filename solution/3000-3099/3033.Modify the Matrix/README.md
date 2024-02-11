@@ -44,38 +44,38 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们可以根据题目描述，遍历每一列，找到每一列的最大值，然后再遍历每一列，将值为 -1 的元素替换为该列的最大值。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def modifiedMatrix(self, matrix: List[List[int]]) -> List[List[int]]:
-        rows = len(matrix)
-        cols = len(matrix[0])
-        for i in range(cols):
-            max_val = float('-inf')
-            for j in range(rows):
-                max_val = max(max_val, matrix[j][i])
-            for j in range(rows):
-                if matrix[j][i] == -1:
-                    matrix[j][i] = max_val
+        m, n = len(matrix), len(matrix[0])
+        for j in range(n):
+            mx = max(matrix[i][j] for i in range(m))
+            for i in range(m):
+                if matrix[i][j] == -1:
+                    matrix[i][j] = mx
         return matrix
 ```
 
 ```java
 class Solution {
     public int[][] modifiedMatrix(int[][] matrix) {
-        int r = matrix.length;
-        int c = matrix[0].length;
-        for (int i = 0; i < c; i++) {
-            int maxs = Integer.MIN_VALUE;
-            for (int j = 0; j < r; j++) {
-                maxs = Math.max(maxs, matrix[j][i]);
+        int m = matrix.length, n = matrix[0].length;
+        for (int j = 0; j < n; ++j) {
+            int mx = -1;
+            for (int i = 0; i < m; ++i) {
+                mx = Math.max(mx, matrix[i][j]);
             }
-            for (int j = 0; j < r; j++) {
-                if (matrix[j][i] == -1) {
-                    matrix[j][i] = maxs;
+            for (int i = 0; i < m; ++i) {
+                if (matrix[i][j] == -1) {
+                    matrix[i][j] = mx;
                 }
             }
         }
@@ -88,16 +88,15 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> modifiedMatrix(vector<vector<int>>& matrix) {
-        int r = matrix.size();
-        int c = matrix[0].size();
-        for (int i = 0; i < c; i++) {
-            int maxs = INT_MIN;
-            for (int j = 0; j < r; j++) {
-                maxs = max(maxs, matrix[j][i]);
+        int m = matrix.size(), n = matrix[0].size();
+        for (int j = 0; j < n; ++j) {
+            int mx = -1;
+            for (int i = 0; i < m; ++i) {
+                mx = max(mx, matrix[i][j]);
             }
-            for (int j = 0; j < r; j++) {
-                if (matrix[j][i] == -1) {
-                    matrix[j][i] = maxs;
+            for (int i = 0; i < m; ++i) {
+                if (matrix[i][j] == -1) {
+                    matrix[i][j] = mx;
                 }
             }
         }
@@ -108,18 +107,15 @@ public:
 
 ```go
 func modifiedMatrix(matrix [][]int) [][]int {
-	r := len(matrix)
-	c := len(matrix[0])
-	for i := 0; i < c; i++ {
-		maxs := math.MinInt32
-		for j := 0; j < r; j++ {
-			if matrix[j][i] > maxs {
-				maxs = matrix[j][i]
-			}
+	m, n := len(matrix), len(matrix[0])
+	for j := 0; j < n; j++ {
+		mx := -1
+		for i := 0; i < m; i++ {
+			mx = max(mx, matrix[i][j])
 		}
-		for j := 0; j < r; j++ {
-			if matrix[j][i] == -1 {
-				matrix[j][i] = maxs
+		for i := 0; i < m; i++ {
+			if matrix[i][j] == -1 {
+				matrix[i][j] = mx
 			}
 		}
 	}
@@ -129,20 +125,39 @@ func modifiedMatrix(matrix [][]int) [][]int {
 
 ```ts
 function modifiedMatrix(matrix: number[][]): number[][] {
-    const rows = matrix.length;
-    const cols = matrix[0].length;
-    for (let i = 0; i < cols; i++) {
-        let maxVal = Number.MIN_SAFE_INTEGER;
-        for (let j = 0; j < rows; j++) {
-            maxVal = Math.max(maxVal, matrix[j][i]);
+    const [m, n] = [matrix.length, matrix[0].length];
+    for (let j = 0; j < n; ++j) {
+        let mx = -1;
+        for (let i = 0; i < m; ++i) {
+            mx = Math.max(mx, matrix[i][j]);
         }
-        for (let j = 0; j < rows; j++) {
-            if (matrix[j][i] === -1) {
-                matrix[j][i] = maxVal;
+        for (let i = 0; i < m; ++i) {
+            if (matrix[i][j] === -1) {
+                matrix[i][j] = mx;
             }
         }
     }
     return matrix;
+}
+```
+
+```cs
+public class Solution {
+    public int[][] ModifiedMatrix(int[][] matrix) {
+        int m = matrix.Length, n = matrix[0].Length;
+        for (int j = 0; j < n; ++j) {
+            int mx = -1;
+            for (int i = 0; i < m; ++i) {
+                mx = Math.Max(mx, matrix[i][j]);
+            }
+            for (int i = 0; i < m; ++i) {
+                if (matrix[i][j] == -1) {
+                    matrix[i][j] = mx;
+                }
+            }
+        }
+        return matrix;
+    }
 }
 ```
 
