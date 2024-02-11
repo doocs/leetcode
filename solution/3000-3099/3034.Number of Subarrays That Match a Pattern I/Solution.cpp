@@ -8,8 +8,8 @@ public:
             bool flag = true;
             for (int j = 0; j < m; j++) {
                 if ((pattern[j] == 1 && nums[i + j + 1] <= nums[i + j]) || (pattern[j] == 0 && nums[i + j + 1] != nums[i + j]) || (pattern[j] == -1 && nums[i + j + 1] >= nums[i + j])) {
-                        flag = false;
-                        break;
+                    flag = false;
+                    break;
                 }
             }
             if (flag) {
