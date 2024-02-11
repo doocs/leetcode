@@ -9,7 +9,6 @@ class Solution:
         def dfs(root):
             if root is None:
                 return
-            nonlocal ans
             ans.append(root.val)
             dfs(root.left)
             dfs(root.right)

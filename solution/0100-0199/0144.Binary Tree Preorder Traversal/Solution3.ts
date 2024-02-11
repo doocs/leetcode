@@ -14,14 +14,25 @@
 
 function preorderTraversal(root: TreeNode | null): number[] {
     const ans: number[] = [];
-    const dfs = (root: TreeNode | null) => {
-        if (!root) {
-            return;
+    while (root) {
+        const { left, right, val } = root;
+        if (!left) {
+            ans.push(val);
+            root = right;
+        } else {
+            let prev = left;
+            while (prev.right && prev.right != root) {
+                prev = prev.right;
+            }
+            if (!prev.right) {
+                ans.push(val);
+                prev.right = root;
+                root = root.left;
+            } else {
+                prev.right = null;
+                root = root.right;
+            }
         }
-        ans.push(root.val);
-        dfs(root.left);
-        dfs(root.right);
-    };
-    dfs(root);
+    }
     return ans;
 }

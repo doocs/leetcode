@@ -67,7 +67,6 @@ class Solution:
             if root is None:
                 return
             dfs(root.left)
-            nonlocal ans
             ans.append(root.val)
             dfs(root.right)
 
