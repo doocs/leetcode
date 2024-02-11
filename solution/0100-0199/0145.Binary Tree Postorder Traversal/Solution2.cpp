@@ -13,15 +13,23 @@ class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
         vector<int> ans;
-        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
-            if (!root) {
-                return;
+        if (!root) {
+            return ans;
+        }
+        stack<TreeNode*> stk;
+        stk.push(root);
+        while (stk.size()) {
+            auto node = stk.top();
+            stk.pop();
+            ans.push_back(node->val);
+            if (node->left) {
+                stk.push(node->left);
             }
-            dfs(root->left);
-            dfs(root->right);
-            ans.push_back(root->val);
-        };
-        dfs(root);
+            if (node->right) {
+                stk.push(node->right);
+            }
+        }
+        reverse(ans.begin(), ans.end());
         return ans;
     }
 };
