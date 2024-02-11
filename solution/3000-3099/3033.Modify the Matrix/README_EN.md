@@ -45,19 +45,101 @@
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def modifiedMatrix(self, matrix: List[List[int]]) -> List[List[int]]:
+        rows = len(matrix)
+        cols = len(matrix[0])
+        for i in range(cols):
+            max_val = float('-inf')
+            for j in range(rows):
+                max_val = max(max_val, matrix[j][i])
+            for j in range(rows):
+                if matrix[j][i] == -1:
+                    matrix[j][i] = max_val
+        return matrix
 ```
 
 ```java
-
+class Solution {
+    public int[][] modifiedMatrix(int[][] matrix) {
+        int r = matrix.length;
+        int c = matrix[0].length;
+        for (int i = 0; i < c; i++) {
+            int maxs = Integer.MIN_VALUE;
+            for (int j = 0; j < r; j++) {
+                maxs = Math.max(maxs, matrix[j][i]);
+            }
+            for (int j = 0; j < r; j++) {
+                if (matrix[j][i] == -1) {
+                    matrix[j][i] = maxs;
+                }
+            }
+        }
+        return matrix;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> modifiedMatrix(vector<vector<int>>& matrix) {
+        int r = matrix.size();
+        int c = matrix[0].size();
+        for (int i = 0; i < c; i++) {
+            int maxs = INT_MIN;
+            for (int j = 0; j < r; j++) {
+                maxs = max(maxs, matrix[j][i]);
+            }
+            for (int j = 0; j < r; j++) {
+                if (matrix[j][i] == -1) {
+                    matrix[j][i] = maxs;
+                }
+            }
+        }
+        return matrix;
+    }
+};
 ```
 
 ```go
+func modifiedMatrix(matrix [][]int) [][]int {
+	r := len(matrix)
+	c := len(matrix[0])
+	for i := 0; i < c; i++ {
+		maxs := math.MinInt32
+		for j := 0; j < r; j++ {
+			if matrix[j][i] > maxs {
+				maxs = matrix[j][i]
+			}
+		}
+		for j := 0; j < r; j++ {
+			if matrix[j][i] == -1 {
+				matrix[j][i] = maxs
+			}
+		}
+	}
+	return matrix
+}
+```
 
+```ts
+function modifiedMatrix(matrix: number[][]): number[][] {
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    for (let i = 0; i < cols; i++) {
+        let maxVal = Number.MIN_SAFE_INTEGER;
+        for (let j = 0; j < rows; j++) {
+            maxVal = Math.max(maxVal, matrix[j][i]);
+        }
+        for (let j = 0; j < rows; j++) {
+            if (matrix[j][i] === -1) {
+                matrix[j][i] = maxVal;
+            }
+        }
+    }
+    return matrix;
+}
 ```
 
 <!-- tabs:end -->
