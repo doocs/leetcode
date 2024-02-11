@@ -1,5 +1,5 @@
 func modifiedMatrix(matrix [][]int) [][]int {
-  r := len(matrix)
+	r := len(matrix)
 	c := len(matrix[0])
 	for i := 0; i < c; i++ {
 		maxs := math.MinInt32
