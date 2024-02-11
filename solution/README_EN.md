@@ -3041,6 +3041,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3030  |  [Find the Grid of Region Average](/solution/3000-3099/3030.Find%20the%20Grid%20of%20Region%20Average/README_EN.md)  |  `Array`,`Matrix`  |  Medium  |  Weekly Contest 383  |
 |  3031  |  [Minimum Time to Revert Word to Initial State II](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README_EN.md)  |  `String`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 383  |
 |  3032  |  [Count Numbers With Unique Digits II](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README_EN.md)  |    |  Easy  |  🔒  |
+|  3033  |  [Modify the Matrix](/solution/3000-3099/3033.Modify%20the%20Matrix/README_EN.md)  |    |  Easy  |  Weekly Contest 384  |
+|  3034  |  [Number of Subarrays That Match a Pattern I](/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 384  |
+|  3035  |  [Maximum Palindromes After Operations](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README_EN.md)  |    |  Medium  |  Weekly Contest 384  |
+|  3036  |  [Number of Subarrays That Match a Pattern II](/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 384  |
 
 ## Copyright
 

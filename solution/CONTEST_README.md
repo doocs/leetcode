@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 384 场周赛(2024-02-11 10:30, 90 分钟) 参赛人数 1652
+
+- [3033. 修改矩阵](/solution/3000-3099/3033.Modify%20the%20Matrix/README.md)
+- [3034. 匹配模式数组的子数组数目 I](/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README.md)
+- [3035. 回文字符串的最大数量](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md)
+- [3036. 匹配模式数组的子数组数目 II](/solution/3000-3099/3036.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20II/README.md)
+
 #### 第 383 场周赛(2024-02-04 10:30, 90 分钟) 参赛人数 2691
 
 - [3028. 边界上的蚂蚁](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README.md)
