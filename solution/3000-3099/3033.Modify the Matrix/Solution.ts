@@ -1,14 +1,13 @@
 function modifiedMatrix(matrix: number[][]): number[][] {
-    const rows = matrix.length;
-    const cols = matrix[0].length;
-    for (let i = 0; i < cols; i++) {
-        let maxVal = Number.MIN_SAFE_INTEGER;
-        for (let j = 0; j < rows; j++) {
-            maxVal = Math.max(maxVal, matrix[j][i]);
+    const [m, n] = [matrix.length, matrix[0].length];
+    for (let j = 0; j < n; ++j) {
+        let mx = -1;
+        for (let i = 0; i < m; ++i) {
+            mx = Math.max(mx, matrix[i][j]);
         }
-        for (let j = 0; j < rows; j++) {
-            if (matrix[j][i] === -1) {
-                matrix[j][i] = maxVal;
+        for (let i = 0; i < m; ++i) {
+            if (matrix[i][j] === -1) {
+                matrix[i][j] = mx;
             }
         }
     }
