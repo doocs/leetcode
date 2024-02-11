@@ -101,26 +101,24 @@ class Solution {
 class Solution {
 public:
     int countMatchingSubarrays(vector<int>& nums, vector<int>& pattern) {
-        assert(nums.size() >= 2 && nums.size() <= 100);
-        for (int x : nums) {
-            assert(x >= 1 && x <= 1000000000);
-        }
-        const int m = pattern.size();
-        assert(m >= 1 && m < nums.size());
-        for (int x : pattern) {
-            assert(abs(x) <= 1);
-        }
-        int r = 0;
-        for (int i = 0; i + m < nums.size(); ++i) {
-            bool mark = true;
-            for (int k = 0; mark && k < m; ++k) {
-                mark = (pattern[k] == 1 && nums[i + k + 1] > nums[i + k])
-                    || (pattern[k] == 0 && nums[i + k + 1] == nums[i + k])
-                    || (pattern[k] == -1 && nums[i + k + 1] < nums[i + k]); 
+        int n = nums.size();
+        int m = pattern.size();
+        int c = 0;
+        for (int i = 0; i <= n - m - 1; i++) {
+            bool flag = true;
+            for (int j = 0; j < m; j++) {
+                if ((pattern[j] == 1 && nums[i + j + 1] <= nums[i + j]) ||
+                    (pattern[j] == 0 && nums[i + j + 1] != nums[i + j]) ||
+                    (pattern[j] == -1 && nums[i + j + 1] >= nums[i + j])) {
+                        flag = false;
+                        break;
+                }
             }
-            r += mark;
+            if (flag) {
+                c++;
+            }
         }
-        return r;
+        return c;
     }
 };
 ```
