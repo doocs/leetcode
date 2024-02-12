@@ -71,19 +71,121 @@ words 中有一个回文 "a" 。
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxPalindromesAfterOperations(self, words: List[str]) -> int:
+        s = mask = 0
+        for w in words:
+            s += len(w)
+            for c in w:
+                mask ^= 1 << (ord(c) - ord("a"))
+        s -= mask.bit_count()
+        words.sort(key=len)
+        ans = 0
+        for w in words:
+            s -= len(w) // 2 * 2
+            if s < 0:
+                break
+            ans += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maxPalindromesAfterOperations(String[] words) {
+        int s = 0, mask = 0;
+        for (var w : words) {
+            s += w.length();
+            for (var c : w.toCharArray()) {
+                mask ^= 1 << (c - 'a');
+            }
+        }
+        s -= Integer.bitCount(mask);
+        Arrays.sort(words, (a, b) -> a.length() - b.length());
+        int ans = 0;
+        for (var w : words) {
+            s -= w.length() / 2 * 2;
+            if (s < 0) {
+                break;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxPalindromesAfterOperations(vector<string>& words) {
+        int s = 0, mask = 0;
+        for (const auto& w : words) {
+            s += w.length();
+            for (char c : w) {
+                mask ^= 1 << (c - 'a');
+            }
+        }
+        s -= __builtin_popcount(mask);
+        sort(words.begin(), words.end(), [](const string& a, const string& b) { return a.length() < b.length(); });
+        int ans = 0;
+        for (const auto& w : words) {
+            s -= w.length() / 2 * 2;
+            if (s < 0) {
+                break;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maxPalindromesAfterOperations(words []string) (ans int) {
+	var s, mask int
+	for _, w := range words {
+		s += len(w)
+		for _, c := range w {
+			mask ^= 1 << (c - 'a')
+		}
+	}
+	s -= bits.OnesCount(uint(mask))
+	sort.Slice(words, func(i, j int) bool {
+		return len(words[i]) < len(words[j])
+	})
+	for _, w := range words {
+		s -= len(w) / 2 * 2
+		if s < 0 {
+			break
+		}
+		ans++
+	}
+	return
+}
+```
 
+```ts
+function maxPalindromesAfterOperations(words: string[]): number {
+    let s: number = 0;
+    let mask: number = 0;
+    for (const w of words) {
+        s += w.length;
+        for (const c of w) {
+            mask ^= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+        }
+    }
+    s -= (mask.toString(2).match(/1/g) || []).length;
+    words.sort((a, b) => a.length - b.length);
+    let ans: number = 0;
+    for (const w of words) {
+        s -= Math.floor(w.length / 2) * 2;
+        if (s < 0) {
+            break;
+        }
+        ans++;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
