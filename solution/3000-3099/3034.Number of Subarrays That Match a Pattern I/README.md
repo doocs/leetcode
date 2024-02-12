@@ -56,19 +56,121 @@
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countMatchingSubarrays(self, nums: List[int], pattern: List[int]) -> int:
+        n = len(nums)
+        m = len(pattern)
+        count = 0
+        for i in range(n - m):
+            flag = True
+            for j in range(m):
+                if (
+                    (pattern[j] == 1 and nums[i + j + 1] <= nums[i + j])
+                    or (pattern[j] == 0 and nums[i + j + 1] != nums[i + j])
+                    or (pattern[j] == -1 and nums[i + j + 1] >= nums[i + j])
+                ):
+                    flag = False
+                    break
+            if flag:
+                count += 1
+        return count
 ```
 
 ```java
-
+class Solution {
+    public int countMatchingSubarrays(int[] nums, int[] pattern) {
+        int n = nums.length;
+        int m = pattern.length;
+        int count = 0;
+        for (int i = 0; i <= n - m - 1; i++) {
+            boolean flag = true;
+            for (int j = 0; j < m; j++) {
+                if ((pattern[j] == 1 && nums[i + j + 1] <= nums[i + j]) ||
+                    (pattern[j] == 0 && nums[i + j + 1] != nums[i + j]) ||
+                    (pattern[j] == -1 && nums[i + j + 1] >= nums[i + j])) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int countMatchingSubarrays(vector<int>& nums, vector<int>& pattern) {
+        int n = nums.size();
+        int m = pattern.size();
+        int c = 0;
+        for (int i = 0; i <= n - m - 1; i++) {
+            bool flag = true;
+            for (int j = 0; j < m; j++) {
+                if ((pattern[j] == 1 && nums[i + j + 1] <= nums[i + j]) || (pattern[j] == 0 && nums[i + j + 1] != nums[i + j]) || (pattern[j] == -1 && nums[i + j + 1] >= nums[i + j])) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                c++;
+            }
+        }
+        return c;
+    }
+};
 ```
 
 ```go
+func countMatchingSubarrays(nums []int, pattern []int) int {
+	n := len(nums)
+	m := len(pattern)
+	count := 0
+	for i := 0; i <= n-m-1; i++ {
+		flag := true
+		for j := 0; j < m; j++ {
+			if (pattern[j] == 1 && nums[i+j+1] <= nums[i+j]) ||
+				(pattern[j] == 0 && nums[i+j+1] != nums[i+j]) ||
+				(pattern[j] == -1 && nums[i+j+1] >= nums[i+j]) {
+				flag = false
+				break
+			}
+		}
+		if flag {
+			count++
+		}
+	}
+	return count
+}
+```
 
+```ts
+function countMatchingSubarrays(nums: number[], pattern: number[]): number {
+    const n: number = nums.length;
+    const m: number = pattern.length;
+    let count: number = 0;
+    for (let i = 0; i <= n - m - 1; i++) {
+        let flag: boolean = true;
+        for (let j = 0; j < m; j++) {
+            if (
+                (pattern[j] === 1 && nums[i + j + 1] <= nums[i + j]) ||
+                (pattern[j] === 0 && nums[i + j + 1] !== nums[i + j]) ||
+                (pattern[j] === -1 && nums[i + j + 1] >= nums[i + j])
+            ) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            count++;
+        }
+    }
+    return count;
+}
 ```
 
 <!-- tabs:end -->
