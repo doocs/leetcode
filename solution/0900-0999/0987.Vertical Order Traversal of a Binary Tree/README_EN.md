@@ -59,7 +59,13 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS + Sorting
+
+We design a function $dfs(root, i, j)$, where $i$ and $j$ represent the row and column of the current node. We can record the row and column information of the nodes through depth-first search, store it in an array or list $nodes$, and then sort $nodes$ in the order of column, row, and value.
+
+Next, we traverse $nodes$, putting the values of nodes in the same column into the same list, and finally return these lists.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -71,60 +77,157 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 #         self.left = left
 #         self.right = right
 class Solution:
-    def verticalTraversal(self, root: TreeNode) -> List[List[int]]:
-        def dfs(root, i, j):
+    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+        def dfs(root: Optional[TreeNode], i: int, j: int):
             if root is None:
                 return
-            nodes.append((i, j, root.val))
+            nodes.append((j, i, root.val))
             dfs(root.left, i + 1, j - 1)
             dfs(root.right, i + 1, j + 1)
 
         nodes = []
         dfs(root, 0, 0)
-        nodes.sort(key=lambda x: (x[1], x[0], x[2]))
+        nodes.sort()
         ans = []
         prev = -2000
-        for i, j, v in nodes:
+        for j, _, val in nodes:
             if prev != j:
                 ans.append([])
                 prev = j
-            ans[-1].append(v)
+            ans[-1].append(val)
         return ans
 ```
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
+    private List<int[]> nodes = new ArrayList<>();
+
     public List<List<Integer>> verticalTraversal(TreeNode root) {
-        List<int[]> list = new ArrayList<>();
-        dfs(root, 0, 0, list);
-        list.sort(new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                if (o1[0] != o2[0]) return Integer.compare(o1[0], o2[0]);
-                if (o1[1] != o2[1]) return Integer.compare(o2[1], o1[1]);
-                return Integer.compare(o1[2], o2[2]);
+        dfs(root, 0, 0);
+        Collections.sort(nodes, (a, b) -> {
+            if (a[0] != b[0]) {
+                return Integer.compare(a[0], b[0]);
             }
+            if (a[1] != b[1]) {
+                return Integer.compare(a[1], b[1]);
+            }
+            return Integer.compare(a[2], b[2]);
         });
-        List<List<Integer>> res = new ArrayList<>();
-        int preX = 1;
-        for (int[] cur : list) {
-            if (preX != cur[0]) {
-                res.add(new ArrayList<>());
-                preX = cur[0];
+        List<List<Integer>> ans = new ArrayList<>();
+        int prev = -2000;
+        for (int[] node : nodes) {
+            int j = node[0], val = node[2];
+            if (prev != j) {
+                ans.add(new ArrayList<>());
+                prev = j;
             }
-            res.get(res.size() - 1).add(cur[2]);
+            ans.get(ans.size() - 1).add(val);
         }
-        return res;
+
+        return ans;
     }
 
-    private void dfs(TreeNode root, int x, int y, List<int[]> list) {
+    private void dfs(TreeNode root, int i, int j) {
         if (root == null) {
             return;
         }
-        list.add(new int[] {x, y, root.val});
-        dfs(root.left, x - 1, y - 1, list);
-        dfs(root.right, x + 1, y - 1, list);
+        nodes.add(new int[] {j, i, root.val});
+        dfs(root.left, i + 1, j - 1);
+        dfs(root.right, i + 1, j + 1);
     }
+}
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> verticalTraversal(TreeNode* root) {
+        vector<tuple<int, int, int>> nodes;
+        function<void(TreeNode*, int, int)> dfs = [&](TreeNode* root, int i, int j) {
+            if (!root) {
+                return;
+            }
+            nodes.emplace_back(j, i, root->val);
+            dfs(root->left, i + 1, j - 1);
+            dfs(root->right, i + 1, j + 1);
+        };
+        dfs(root, 0, 0);
+        sort(nodes.begin(), nodes.end());
+        vector<vector<int>> ans;
+        int prev = -2000;
+        for (auto [j, _, val] : nodes) {
+            if (j != prev) {
+                prev = j;
+                ans.emplace_back();
+            }
+            ans.back().push_back(val);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func verticalTraversal(root *TreeNode) (ans [][]int) {
+	nodes := [][3]int{}
+	var dfs func(*TreeNode, int, int)
+	dfs = func(root *TreeNode, i, j int) {
+		if root == nil {
+			return
+		}
+		nodes = append(nodes, [3]int{j, i, root.Val})
+		dfs(root.Left, i+1, j-1)
+		dfs(root.Right, i+1, j+1)
+	}
+	dfs(root, 0, 0)
+	sort.Slice(nodes, func(i, j int) bool {
+		a, b := nodes[i], nodes[j]
+		return a[0] < b[0] || a[0] == b[0] && (a[1] < b[1] || a[1] == b[1] && a[2] < b[2])
+	})
+	prev := -2000
+	for _, node := range nodes {
+		j, val := node[0], node[2]
+		if j != prev {
+			ans = append(ans, nil)
+			prev = j
+		}
+		ans[len(ans)-1] = append(ans[len(ans)-1], val)
+	}
+	return
 }
 ```
 
@@ -144,40 +247,27 @@ class Solution {
  */
 
 function verticalTraversal(root: TreeNode | null): number[][] {
-    let solution = [];
-    dfs(root, 0, 0, solution);
-    // 优先依据i=2排序， 然后依据i=1排序
-    solution.sort(compare);
-    let ans = [];
-    let pre = Number.MIN_SAFE_INTEGER;
-    for (let node of solution) {
-        const [val, , idx] = node;
-        if (idx != pre) {
-            ans.push([]);
-            pre = idx;
+    const nodes: [number, number, number][] = [];
+    const dfs = (root: TreeNode | null, i: number, j: number) => {
+        if (!root) {
+            return;
         }
-        ans[ans.length - 1].push(val);
+        nodes.push([j, i, root.val]);
+        dfs(root.left, i + 1, j - 1);
+        dfs(root.right, i + 1, j + 1);
+    };
+    dfs(root, 0, 0);
+    nodes.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2]);
+    const ans: number[][] = [];
+    let prev = -2000;
+    for (const [j, _, val] of nodes) {
+        if (j !== prev) {
+            prev = j;
+            ans.push([]);
+        }
+        ans.at(-1)!.push(val);
     }
     return ans;
-}
-
-function compare(a: Array<number>, b: Array<number>) {
-    const [a0, a1, a2] = a,
-        [b0, b1, b2] = b;
-    if (a2 == b2) {
-        if (a1 == b1) {
-            return a0 - b0;
-        }
-        return a1 - b1;
-    }
-    return a2 - b2;
-}
-
-function dfs(root: TreeNode | null, depth: number, idx: number, solution: Array<Array<number>>) {
-    if (!root) return;
-    solution.push([root.val, depth, idx]);
-    dfs(root.left, depth + 1, idx - 1, solution);
-    dfs(root.right, depth + 1, idx + 1, solution);
 }
 ```
 
