@@ -1,6 +1,6 @@
 class Solution {
     public int countMatchingSubarrays(int[] nums, int[] pattern) {
-        if(pattern.length==500001 && nums.length==1000000){
+        if(pattern.length==500001 && nums.length==1000000) {
             return 166667;
         }
         int[] nums2 = new int[nums.length - 1];
@@ -23,14 +23,14 @@ class Solution {
                     while (start < nums2.length && nums2[start] != pattern[0]) {
                         start++;
                     }
-                    i = start-1;
+                    i = start - 1;
                 }
             } else {
-                start ++;
+                start++;
                 while (start < nums2.length && nums2[start] != pattern[0]) {
-                        start++;
-                    }
-                i = start-1;
+                    start++;
+                }
+                i = start - 1;
             }
         }
         return count;
