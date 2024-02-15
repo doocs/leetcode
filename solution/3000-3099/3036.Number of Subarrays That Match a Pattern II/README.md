@@ -179,7 +179,7 @@ public:
 
 ```go
 func countMatchingSubarrays(nums []int, pattern []int) int {
-  N := len(pattern)
+	N := len(pattern)
 	ps := make([]int, N+1)
 	ps[0], ps[1] = -1, 0
 	for i, p := 2, 0; i <= N; i++ {
