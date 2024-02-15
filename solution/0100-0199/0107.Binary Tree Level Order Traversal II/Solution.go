@@ -6,15 +6,14 @@
  *     Right *TreeNode
  * }
  */
-func levelOrderBottom(root *TreeNode) [][]int {
-	ans := [][]int{}
+func levelOrderBottom(root *TreeNode) (ans [][]int) {
 	if root == nil {
-		return ans
+		return
 	}
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		var t []int
-		for i := len(q); i > 0; i-- {
+		t := []int{}
+		for n := len(q); n > 0; n-- {
 			node := q[0]
 			q = q[1:]
 			t = append(t, node.Val)
@@ -25,7 +24,10 @@ func levelOrderBottom(root *TreeNode) [][]int {
 				q = append(q, node.Right)
 			}
 		}
-		ans = append([][]int{t}, ans...)
+		ans = append(ans, t)
 	}
-	return ans
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return
 }
