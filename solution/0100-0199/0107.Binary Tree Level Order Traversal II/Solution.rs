@@ -18,37 +18,29 @@
 // }
 use std::{ rc::Rc, cell::RefCell, collections::VecDeque };
 impl Solution {
-    #[allow(dead_code)]
     pub fn level_order_bottom(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
-        if root.is_none() {
-            return vec![];
-        }
-        let mut ret_vec = Vec::new();
-        let mut q = VecDeque::new();
-
-        q.push_back(root);
-
-        while !q.is_empty() {
-            let mut cur_vec = Vec::new();
-            let mut next_q = VecDeque::new();
+        let mut ans = Vec::new();
+        if let Some(root_node) = root {
+            let mut q = VecDeque::new();
+            q.push_back(root_node);
             while !q.is_empty() {
-                let cur_front = q.front().unwrap().clone();
-                q.pop_front();
-                cur_vec.push(cur_front.as_ref().unwrap().borrow().val);
-                let left = cur_front.as_ref().unwrap().borrow().left.clone();
-                let right = cur_front.as_ref().unwrap().borrow().right.clone();
-                if !left.is_none() {
-                    next_q.push_back(left);
+                let mut t = Vec::new();
+                for _ in 0..q.len() {
+                    if let Some(node) = q.pop_front() {
+                        let node_ref = node.borrow();
+                        t.push(node_ref.val);
+                        if let Some(ref left) = node_ref.left {
+                            q.push_back(Rc::clone(left));
+                        }
+                        if let Some(ref right) = node_ref.right {
+                            q.push_back(Rc::clone(right));
+                        }
+                    }
                 }
-                if !right.is_none() {
-                    next_q.push_back(right);
-                }
+                ans.push(t);
             }
-            ret_vec.push(cur_vec);
-            q = next_q;
         }
-
-        ret_vec.reverse();
-        ret_vec
+        ans.reverse();
+        ans
     }
 }
