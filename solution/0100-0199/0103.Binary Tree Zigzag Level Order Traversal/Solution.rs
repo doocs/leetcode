@@ -21,33 +21,32 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 impl Solution {
     pub fn zigzag_level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        if root.is_none() {
-            return res;
-        }
-        let mut is_desc = false;
-        let mut q = VecDeque::new();
-        q.push_back(root);
-        while !q.is_empty() {
-            let mut arr = vec![];
-            for _ in 0..q.len() {
-                if let Some(node) = q.pop_front().unwrap() {
-                    let mut node = node.borrow_mut();
-                    arr.push(node.val);
-                    if node.left.is_some() {
-                        q.push_back(node.left.take());
-                    }
-                    if node.right.is_some() {
-                        q.push_back(node.right.take());
+        let mut ans = Vec::new();
+        let mut left = true;
+        if let Some(root_node) = root {
+            let mut q = VecDeque::new();
+            q.push_back(root_node);
+            while !q.is_empty() {
+                let mut t = Vec::new();
+                for _ in 0..q.len() {
+                    if let Some(node) = q.pop_front() {
+                        let node_ref = node.borrow();
+                        t.push(node_ref.val);
+                        if let Some(ref left) = node_ref.left {
+                            q.push_back(Rc::clone(left));
+                        }
+                        if let Some(ref right) = node_ref.right {
+                            q.push_back(Rc::clone(right));
+                        }
                     }
                 }
+                if !left {
+                    t.reverse();
+                }
+                ans.push(t);
+                left = !left;
             }
-            if is_desc {
-                arr.reverse();
-            }
-            is_desc = !is_desc;
-            res.push(arr);
         }
-        res
+        ans
     }
 }
