@@ -13,21 +13,23 @@
  */
 
 function zigzagLevelOrder(root: TreeNode | null): number[][] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[][] = [];
+    if (!root) {
+        return ans;
     }
-    let isDesc = false;
-    const queue = [root];
-    while (queue.length !== 0) {
-        const arr = queue.slice().map(() => {
-            const { val, left, right } = queue.shift();
-            left && queue.push(left);
-            right && queue.push(right);
-            return val;
-        });
-        res.push(isDesc ? arr.reverse() : arr);
-        isDesc = !isDesc;
+    const q: TreeNode[] = [root];
+    let left: number = 1;
+    while (q.length) {
+        const t: number[] = [];
+        const qq: TreeNode[] = [];
+        for (const { val, left, right } of q) {
+            t.push(val);
+            left && qq.push(left);
+            right && qq.push(right);
+        }
+        ans.push(left ? t : t.reverse());
+        q.splice(0, q.length, ...qq);
+        left ^= 1;
     }
-    return res;
+    return ans;
 }

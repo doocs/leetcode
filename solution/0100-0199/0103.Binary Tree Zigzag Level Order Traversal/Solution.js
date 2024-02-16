@@ -19,20 +19,14 @@ var zigzagLevelOrder = function (root) {
     let left = 1;
     while (q.length) {
         const t = [];
-        for (let n = q.length; n; --n) {
-            const node = q.shift();
-            t.push(node.val);
-            if (node.left) {
-                q.push(node.left);
-            }
-            if (node.right) {
-                q.push(node.right);
-            }
+        const qq = [];
+        for (const { val, left, right } of q) {
+            t.push(val);
+            left && qq.push(left);
+            right && qq.push(right);
         }
-        if (!left) {
-            t.reverse();
-        }
-        ans.push(t);
+        ans.push(left ? t : t.reverse());
+        q.splice(0, q.length, ...qq);
         left ^= 1;
     }
     return ans;
