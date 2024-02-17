@@ -60,6 +60,202 @@ class Node:
 
 
 class Solution:
+    def preorder(self, root: "Node") -> List[int]:
+        def dfs(root):
+            if root is None:
+                return
+            ans.append(root.val)
+            for child in root.children:
+                dfs(child)
+
+        ans = []
+        dfs(root)
+        return ans
+```
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    private List<Integer> ans = new ArrayList<>();
+
+    public List<Integer> preorder(Node root) {
+        dfs(root);
+        return ans;
+    }
+
+    private void dfs(Node root) {
+        if (root == null) {
+            return;
+        }
+        ans.add(root.val);
+        for (Node child : root.children) {
+            dfs(child);
+        }
+    }
+}
+```
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> preorder(Node* root) {
+        vector<int> ans;
+        function<void(Node*)> dfs = [&](Node* root) {
+            if (!root) {
+                return;
+            }
+            ans.push_back(root->val);
+            for (auto& child : root->children) {
+                dfs(child);
+            }
+        };
+        dfs(root);
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func preorder(root *Node) (ans []int) {
+	var dfs func(*Node)
+	dfs = func(root *Node) {
+		if root == nil {
+			return
+		}
+		ans = append(ans, root.Val)
+		for _, child := range root.Children {
+			dfs(child)
+		}
+	}
+	dfs(root)
+	return
+}
+```
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const ans: number[] = [];
+    const dfs = (root: Node | null) => {
+        if (!root) {
+            return;
+        }
+        ans.push(root.val);
+        for (const child of root.children) {
+            dfs(child);
+        }
+    };
+    dfs(root);
+    return ans;
+}
+```
+
+```c
+/**
+ * Definition for a Node.
+ * struct Node {
+ *     int val;
+ *     int numChildren;
+ *     struct Node** children;
+ * };
+ */
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+void dfs(struct Node* root, int* ans, int* i) {
+    if (!root) {
+        return;
+    }
+    ans[(*i)++] = root->val;
+    for (int j = 0; j < root->numChildren; j++) {
+        dfs(root->children[j], ans, i);
+    }
+}
+
+int* preorder(struct Node* root, int* returnSize) {
+    int* ans = malloc(sizeof(int) * 10000);
+    *returnSize = 0;
+    dfs(root, ans, returnSize);
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
     def preorder(self, root: 'Node') -> List[int]:
         ans = []
         if root is None:
@@ -210,73 +406,6 @@ function preorder(root: Node | null): number[] {
         }
     }
     return res;
-}
-```
-
-```c
-/**
- * Definition for a Node.
- * struct Node {
- *     int val;
- *     int numChildren;
- *     struct Node** children;
- * };
- */
-
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-
-void dfs(struct Node* root, int* ans, int* i) {
-    if (!root) {
-        return;
-    }
-    ans[(*i)++] = root->val;
-    for (int j = 0; j < root->numChildren; j++) {
-        dfs(root->children[j], ans, i);
-    }
-}
-
-int* preorder(struct Node* root, int* returnSize) {
-    int* ans = malloc(sizeof(int) * 10000);
-    *returnSize = 0;
-    dfs(root, ans, returnSize);
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for node.
- * class Node {
- *     val: number
- *     children: Node[]
- *     constructor(val?: number) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.children = []
- *     }
- * }
- */
-
-function preorder(root: Node | null): number[] {
-    const ans = [];
-    const dfs = (root: Node | null) => {
-        if (root == null) {
-            return;
-        }
-        ans.push(root.val);
-        for (const node of root.children) {
-            dfs(node);
-        }
-    };
-    dfs(root);
-    return ans;
 }
 ```
 
