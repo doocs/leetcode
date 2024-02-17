@@ -22,15 +22,19 @@ class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
         vector<vector<int>> ans;
-        if (!root) return ans;
+        if (!root) {
+            return ans;
+        }
         queue<Node*> q{{root}};
         while (!q.empty()) {
             vector<int> t;
-            for (int n = q.size(); n > 0; --n) {
+            for (int n = q.size(); n; --n) {
                 root = q.front();
                 q.pop();
                 t.push_back(root->val);
-                for (auto& child : root->children) q.push(child);
+                for (auto& child : root->children) {
+                    q.push(child);
+                }
             }
             ans.push_back(t);
         }
