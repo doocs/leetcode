@@ -20,7 +20,7 @@ class Node {
 class Solution {
     private List<List<Integer>> ans = new ArrayList<>();
 
-    public List<List<Integer>> levelOrder(Node root) {    
+    public List<List<Integer>> levelOrder(Node root) {
         dfs(root, 0);
         return ans;
     }
