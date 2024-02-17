@@ -43,9 +43,19 @@
 
 ### 方法一：BFS
 
-借助队列，逐层遍历。
+我们首先判断根节点是否为空，若为空则直接返回空列表。
 
-时间复杂度 $O(n)$。
+否则，我们创建一个队列 $q$，初始时将根节点加入队列。
+
+当队列不为空时，我们循环以下操作：
+
+1. 创建一个空列表 $t$，用于存放当前层的节点值。
+2. 对于队列中的每个节点，将其值加入 $t$ 中，并将其子节点加入队列。
+3. 将 $t$ 加入结果列表 $ans$。
+
+最后返回结果列表 $ans$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 N 叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -142,15 +152,19 @@ class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
         vector<vector<int>> ans;
-        if (!root) return ans;
+        if (!root) {
+            return ans;
+        }
         queue<Node*> q{{root}};
         while (!q.empty()) {
             vector<int> t;
-            for (int n = q.size(); n > 0; --n) {
+            for (int n = q.size(); n; --n) {
                 root = q.front();
                 q.pop();
                 t.push_back(root->val);
-                for (auto& child : root->children) q.push(child);
+                for (auto& child : root->children) {
+                    q.push(child);
+                }
             }
             ans.push_back(t);
         }
@@ -168,10 +182,9 @@ public:
  * }
  */
 
-func levelOrder(root *Node) [][]int {
-	var ans [][]int
+func levelOrder(root *Node) (ans [][]int) {
 	if root == nil {
-		return ans
+		return
 	}
 	q := []*Node{root}
 	for len(q) > 0 {
@@ -186,7 +199,7 @@ func levelOrder(root *Node) [][]int {
 		}
 		ans = append(ans, t)
 	}
-	return ans
+	return
 }
 ```
 
@@ -204,22 +217,22 @@ func levelOrder(root *Node) [][]int {
  */
 
 function levelOrder(root: Node | null): number[][] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[][] = [];
+    if (!root) {
+        return ans;
     }
-    const queue = [root];
-    while (queue.length !== 0) {
-        const n = queue.length;
-        const vals = [];
-        for (let i = 0; i < n; i++) {
-            const { val, children } = queue.shift();
-            vals.push(val);
-            queue.push(...children);
+    const q: Node[] = [root];
+    while (q.length) {
+        const qq: Node[] = [];
+        const t: number[] = [];
+        for (const { val, children } of q) {
+            qq.push(...children);
+            t.push(val);
         }
-        res.push(vals);
+        ans.push(t);
+        q.splice(0, q.length, ...qq);
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -227,11 +240,19 @@ function levelOrder(root: Node | null): number[][] {
 
 ### 方法二：DFS
 
-按深度遍历。
+我们可以使用深度优先搜索的方法，遍历整棵树。
 
-假设当前深度为 i，遍历到的节点为 root。若结果列表 `ans[i]` 不存在，则创建一个空列表放入 ans 中，然后将 `root.val` 放入 `ans[i]`。接着往下一层遍历（root 的子节点）。
+我们定义一个辅助函数 $dfs(root, i)$，其中 $root$ 表示当前节点，而 $i$ 表示当前层数。
 
-时间复杂度 $O(n)$。
+在 $dfs$ 函数中，我们首先判断 $root$ 是否为空，若为空则直接返回。
+
+否则，我们判断 $ans$ 的长度是否小于等于 $i$，若是则说明当前层还没有加入到 $ans$ 中，我们需要先加入一个空列表。然后将 $root$ 的值加入 $ans[i]$ 中。
+
+接着，我们遍历 $root$ 的所有子节点，对于每个子节点，我们调用 $dfs(child, i + 1)$。
+
+在主函数中，我们调用 $dfs(root, 0)$，并返回 $ans$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 N 叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -282,13 +303,14 @@ class Node {
 */
 
 class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+
     public List<List<Integer>> levelOrder(Node root) {
-        List<List<Integer>> ans = new ArrayList<>();
-        dfs(root, 0, ans);
+        dfs(root, 0);
         return ans;
     }
 
-    private void dfs(Node root, int i, List<List<Integer>> ans) {
+    private void dfs(Node root, int i) {
         if (root == null) {
             return;
         }
@@ -297,7 +319,7 @@ class Solution {
         }
         ans.get(i++).add(root.val);
         for (Node child : root.children) {
-            dfs(child, i, ans);
+            dfs(child, i);
         }
     }
 }
@@ -328,15 +350,20 @@ class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
         vector<vector<int>> ans;
-        dfs(root, 0, ans);
+        function<void(Node*, int i)> dfs = [&](Node* root, int i) {
+            if (!root) {
+                return;
+            }
+            if (ans.size() <= i) {
+                ans.push_back({});
+            }
+            ans[i++].push_back(root->val);
+            for (auto& child : root->children) {
+                dfs(child, i);
+            }
+        };
+        dfs(root, 0);
         return ans;
-    }
-
-    void dfs(Node* root, int i, vector<vector<int>>& ans) {
-        if (!root) return;
-        if (ans.size() <= i) ans.push_back({});
-        ans[i++].push_back(root->val);
-        for (Node* child : root->children) dfs(child, i, ans);
     }
 };
 ```
@@ -350,8 +377,7 @@ public:
  * }
  */
 
-func levelOrder(root *Node) [][]int {
-	var ans [][]int
+func levelOrder(root *Node) (ans [][]int) {
 	var dfs func(root *Node, i int)
 	dfs = func(root *Node, i int) {
 		if root == nil {
@@ -366,7 +392,7 @@ func levelOrder(root *Node) [][]int {
 		}
 	}
 	dfs(root, 0)
-	return ans
+	return
 }
 ```
 
@@ -384,20 +410,20 @@ func levelOrder(root *Node) [][]int {
  */
 
 function levelOrder(root: Node | null): number[][] {
-    const res = [];
-    const dfs = (root: Node | null, depth: number) => {
-        if (root == null) {
+    const ans: number[][] = [];
+    const dfs = (root: Node | null, i: number) => {
+        if (root === null) {
             return;
         }
-        if (res.length <= depth) {
-            res.push([]);
+        if (ans.length <= i) {
+            ans.push([]);
         }
         const { val, children } = root;
-        res[depth].push(val);
-        children.forEach(node => dfs(node, depth + 1));
+        ans[i++].push(val);
+        children.forEach(node => dfs(node, i));
     };
     dfs(root, 0);
-    return res;
+    return ans;
 }
 ```
 

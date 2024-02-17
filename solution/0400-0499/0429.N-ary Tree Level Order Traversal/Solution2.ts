@@ -11,18 +11,18 @@
  */
 
 function levelOrder(root: Node | null): number[][] {
-    const res = [];
-    const dfs = (root: Node | null, depth: number) => {
-        if (root == null) {
+    const ans: number[][] = [];
+    const dfs = (root: Node | null, i: number) => {
+        if (root === null) {
             return;
         }
-        if (res.length <= depth) {
-            res.push([]);
+        if (ans.length <= i) {
+            ans.push([]);
         }
         const { val, children } = root;
-        res[depth].push(val);
-        children.forEach(node => dfs(node, depth + 1));
+        ans[i++].push(val);
+        children.forEach(node => dfs(node, i));
     };
     dfs(root, 0);
-    return res;
+    return ans;
 }

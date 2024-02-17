@@ -6,8 +6,7 @@
  * }
  */
 
-func levelOrder(root *Node) [][]int {
-	var ans [][]int
+func levelOrder(root *Node) (ans [][]int) {
 	var dfs func(root *Node, i int)
 	dfs = func(root *Node, i int) {
 		if root == nil {
@@ -22,5 +21,5 @@ func levelOrder(root *Node) [][]int {
 		}
 	}
 	dfs(root, 0)
-	return ans
+	return
 }

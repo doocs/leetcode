@@ -22,14 +22,19 @@ class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
         vector<vector<int>> ans;
-        dfs(root, 0, ans);
+        function<void(Node*, int i)> dfs = [&](Node* root, int i) {
+            if (!root) {
+                return;
+            }
+            if (ans.size() <= i) {
+                ans.push_back({});
+            }
+            ans[i++].push_back(root->val);
+            for (auto& child : root->children) {
+                dfs(child, i);
+            }
+        };
+        dfs(root, 0);
         return ans;
-    }
-
-    void dfs(Node* root, int i, vector<vector<int>>& ans) {
-        if (!root) return;
-        if (ans.size() <= i) ans.push_back({});
-        ans[i++].push_back(root->val);
-        for (Node* child : root->children) dfs(child, i, ans);
     }
 };

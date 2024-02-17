@@ -11,20 +11,20 @@
  */
 
 function levelOrder(root: Node | null): number[][] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[][] = [];
+    if (!root) {
+        return ans;
     }
-    const queue = [root];
-    while (queue.length !== 0) {
-        const n = queue.length;
-        const vals = [];
-        for (let i = 0; i < n; i++) {
-            const { val, children } = queue.shift();
-            vals.push(val);
-            queue.push(...children);
+    const q: Node[] = [root];
+    while (q.length) {
+        const qq: Node[] = [];
+        const t: number[] = [];
+        for (const { val, children } of q) {
+            qq.push(...children);
+            t.push(val);
         }
-        res.push(vals);
+        ans.push(t);
+        q.splice(0, q.length, ...qq);
     }
-    return res;
+    return ans;
 }
