@@ -6,10 +6,9 @@
  * }
  */
 
-func levelOrder(root *Node) [][]int {
-	var ans [][]int
+func levelOrder(root *Node) (ans [][]int) {
 	if root == nil {
-		return ans
+		return
 	}
 	q := []*Node{root}
 	for len(q) > 0 {
@@ -24,5 +23,5 @@ func levelOrder(root *Node) [][]int {
 		}
 		ans = append(ans, t)
 	}
-	return ans
+	return
 }
