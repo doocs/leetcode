@@ -27,14 +27,6 @@
 <strong>Explanation:</strong> The first 2 pairs are returned from the sequence: [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums1 = [1,2], nums2 = [3], k = 3
-<strong>Output:</strong> [[1,3],[2,3]]
-<strong>Explanation:</strong> All possible pairs are returned from the sequence: [1,3],[2,3]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

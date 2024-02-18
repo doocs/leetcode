@@ -1,4 +1,4 @@
-# [3032. Count Numbers With Unique Digits II](https://leetcode.cn/problems/count-numbers-with-unique-digits-ii)
+# [3032. 统计各位数字都不同的数字个数 II](https://leetcode.cn/problems/count-numbers-with-unique-digits-ii)
 
 [English Version](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README_EN.md)
 
@@ -6,35 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, return <em>the count of numbers having&nbsp;<strong>unique</strong> digits in the range</em> <code>[a, b]</code> <em>(<strong>inclusive</strong>).</em>
+给你两个 <strong>正整数</strong> <code>a</code> 和 <code>b</code> ，返回 <strong>闭区间</strong> <code>[a, b]</code> 内各位数字都不同的数字个数。
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> a = 1, b = 20
-<strong>Output:</strong> 19
-<strong>Explanation:</strong> All the numbers in the range [1, 20] have unique digits except 11. Hence, the answer is 19.
+<strong>输入：</strong>a = 1, b = 20
+<strong>输出：</strong>19
+<strong>解释：</strong>除 11 以外，区间 [1, 20] 内的所有数字的各位数字都不同。因此，答案为 19 。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> a = 9, b = 19
-<strong>Output:</strong> 10
-<strong>Explanation:</strong> All the numbers in the range [9, 19] have unique digits except 11. Hence, the answer is 10. 
+<strong>输入：</strong>a = 9, b = 19
+<strong>输出：</strong>10
+<strong>解释：</strong>除 11 以外，区间 [1, 20] 内的所有数字的各位数字都不同。因此，答案为 10 。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> a = 80, b = 120
-<strong>Output:</strong> 27
-<strong>Explanation:</strong> There are 41 numbers in the range [80, 120], 27 of which have unique digits.
+<strong>输入：</strong>a = 80, b = 120
+<strong>输出：</strong>27
+<strong>解释：</strong>区间 [80, 120] 内共有 41 个整数，其中 27 个数字的各位数字都不同。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= a &lt;= b &lt;= 1000</code></li>

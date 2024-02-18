@@ -45,7 +45,213 @@
 
 ## 解法
 
-### 方法一
+### 方法一：递归
+
+我们可以递归地遍历整棵树。对于每个节点，先将节点的值加入答案，然后对该节点的每个子节点递归地调用函数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
+<!-- tabs:start -->
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def preorder(self, root: "Node") -> List[int]:
+        def dfs(root):
+            if root is None:
+                return
+            ans.append(root.val)
+            for child in root.children:
+                dfs(child)
+
+        ans = []
+        dfs(root)
+        return ans
+```
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    private List<Integer> ans = new ArrayList<>();
+
+    public List<Integer> preorder(Node root) {
+        dfs(root);
+        return ans;
+    }
+
+    private void dfs(Node root) {
+        if (root == null) {
+            return;
+        }
+        ans.add(root.val);
+        for (Node child : root.children) {
+            dfs(child);
+        }
+    }
+}
+```
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> preorder(Node* root) {
+        vector<int> ans;
+        function<void(Node*)> dfs = [&](Node* root) {
+            if (!root) {
+                return;
+            }
+            ans.push_back(root->val);
+            for (auto& child : root->children) {
+                dfs(child);
+            }
+        };
+        dfs(root);
+        return ans;
+    }
+};
+```
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func preorder(root *Node) (ans []int) {
+	var dfs func(*Node)
+	dfs = func(root *Node) {
+		if root == nil {
+			return
+		}
+		ans = append(ans, root.Val)
+		for _, child := range root.Children {
+			dfs(child)
+		}
+	}
+	dfs(root)
+	return
+}
+```
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function preorder(root: Node | null): number[] {
+    const ans: number[] = [];
+    const dfs = (root: Node | null) => {
+        if (!root) {
+            return;
+        }
+        ans.push(root.val);
+        for (const child of root.children) {
+            dfs(child);
+        }
+    };
+    dfs(root);
+    return ans;
+}
+```
+
+```c
+/**
+ * Definition for a Node.
+ * struct Node {
+ *     int val;
+ *     int numChildren;
+ *     struct Node** children;
+ * };
+ */
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+void dfs(struct Node* root, int* ans, int* i) {
+    if (!root) {
+        return;
+    }
+    ans[(*i)++] = root->val;
+    for (int j = 0; j < root->numChildren; j++) {
+        dfs(root->children[j], ans, i);
+    }
+}
+
+int* preorder(struct Node* root, int* returnSize) {
+    int* ans = malloc(sizeof(int) * 10000);
+    *returnSize = 0;
+    dfs(root, ans, returnSize);
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：迭代（栈实现）
+
+我们也可以用迭代的方法来解决这个问题。
+
+我们使用一个栈来帮助我们得到前序遍历，我们首先把根节点入栈，因为前序遍历是根节点、左子树、右子树，栈的特点是先进后出，所以我们先把节点的值加入答案，然后对该节点的每个子节点按照从右到左的顺序依次入栈。循环直到栈为空。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
@@ -196,86 +402,18 @@ func preorder(root *Node) []int {
  */
 
 function preorder(root: Node | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
-    }
-    const stack = [root];
-    while (stack.length !== 0) {
-        const { val, children } = stack.pop();
-        res.push(val);
-        const n = children.length;
-        for (let i = n - 1; i >= 0; i--) {
-            stack.push(children[i]);
-        }
-    }
-    return res;
-}
-```
-
-```c
-/**
- * Definition for a Node.
- * struct Node {
- *     int val;
- *     int numChildren;
- *     struct Node** children;
- * };
- */
-
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-
-void dfs(struct Node* root, int* ans, int* i) {
+    const ans: number[] = [];
     if (!root) {
-        return;
+        return ans;
     }
-    ans[(*i)++] = root->val;
-    for (int j = 0; j < root->numChildren; j++) {
-        dfs(root->children[j], ans, i);
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        for (let i = children.length - 1; i >= 0; i--) {
+            stk.push(children[i]);
+        }
     }
-}
-
-int* preorder(struct Node* root, int* returnSize) {
-    int* ans = malloc(sizeof(int) * 10000);
-    *returnSize = 0;
-    dfs(root, ans, returnSize);
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for node.
- * class Node {
- *     val: number
- *     children: Node[]
- *     constructor(val?: number) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.children = []
- *     }
- * }
- */
-
-function preorder(root: Node | null): number[] {
-    const ans = [];
-    const dfs = (root: Node | null) => {
-        if (root == null) {
-            return;
-        }
-        ans.push(root.val);
-        for (const node of root.children) {
-            dfs(node);
-        }
-    };
-    dfs(root);
     return ans;
 }
 ```

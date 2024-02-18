@@ -18,21 +18,20 @@ class Node {
 */
 
 class Solution {
+    private List<Integer> ans = new ArrayList<>();
+
     public List<Integer> preorder(Node root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        List<Integer> ans = new ArrayList<>();
-        Deque<Node> stk = new ArrayDeque<>();
-        stk.push(root);
-        while (!stk.isEmpty()) {
-            Node node = stk.pop();
-            ans.add(node.val);
-            List<Node> children = node.children;
-            for (int i = children.size() - 1; i >= 0; --i) {
-                stk.push(children.get(i));
-            }
-        }
+        dfs(root);
         return ans;
+    }
+
+    private void dfs(Node root) {
+        if (root == null) {
+            return;
+        }
+        ans.add(root.val);
+        for (Node child : root.children) {
+            dfs(child);
+        }
     }
 }

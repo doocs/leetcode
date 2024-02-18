@@ -28,7 +28,7 @@
 <pre>
 <strong>Input:</strong> nums = [1,3,2,4]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> We can select the subset {1}, which can be placed in the array as [1] which follows the pattern. Hence the answer is 1. Note that we could have also selected the subsets {2}, {4}, or {3}, there may be multiple subsets which provide the same answer. 
+<strong>Explanation:</strong> We can select the subset {1}, which can be placed in the array as [1] which follows the pattern. Hence the answer is 1. Note that we could have also selected the subsets {2}, {3}, or {4}, there may be multiple subsets which provide the same answer. 
 </pre>
 
 <p>&nbsp;</p>
