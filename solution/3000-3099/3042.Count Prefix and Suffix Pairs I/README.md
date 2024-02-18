@@ -62,7 +62,11 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举所有的下标对 $(i, j)$，其中 $i \lt j$，然后判断 `words[i]` 是否是 `words[j]` 的前缀和后缀，若是则计数加一。
+
+时间复杂度 $O(n^2 \times m)$，其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
 
 <!-- tabs:start -->
 
@@ -145,7 +149,7 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：字典树
 
 <!-- tabs:start -->
 
