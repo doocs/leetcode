@@ -22,6 +22,16 @@
 
 ## 往期竞赛
 
+#### 第 385 场周赛(2024-02-18 10:30, 90 分钟) 参赛人数 2352
+
+
+#### 第 124 场双周赛(2024-02-17 22:30, 90 分钟) 参赛人数 1861
+
+- [3038. 相同分数的最大操作数目 I](/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README.md)
+- [3039. 进行操作使字符串为空](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md)
+- [3040. 相同分数的最大操作数目 II](/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README.md)
+- [3041. 修改数组后最大化数组中的连续元素数目](/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README.md)
+
 #### 第 384 场周赛(2024-02-11 10:30, 90 分钟) 参赛人数 1652
 
 - [3033. 修改矩阵](/solution/3000-3099/3033.Modify%20the%20Matrix/README.md)
@@ -38,7 +48,6 @@
 
 #### 第 123 场双周赛(2024-02-03 22:30, 90 分钟) 参赛人数 2209
 
-- [3024. 三角形类型 II](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README.md)
 - [3025. 人员站位的方案数 I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README.md)
 - [3026. 最大好子数组和](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)
 - [3027. 人员站位的方案数 II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README.md)
