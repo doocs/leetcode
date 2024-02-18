@@ -1123,6 +1123,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1112  |  [Highest Grade For Each Student](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1113  |  [Reported Posts](/solution/1100-1199/1113.Reported%20Posts/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  1114  |  [Print in Order](/solution/1100-1199/1114.Print%20in%20Order/README_EN.md)  |  `Concurrency`  |  Easy  |    |
+|  1115  |  [Print FooBar Alternately](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md)  |  `Concurrency`  |  Medium  |    |
+|  1116  |  [Print Zero Even Odd](/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README_EN.md)  |  `Concurrency`  |  Medium  |    |
 |  1117  |  [Building H2O](/solution/1100-1199/1117.Building%20H2O/README_EN.md)  |  `Concurrency`  |  Medium  |    |
 |  1118  |  [Number of Days in a Month](/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README_EN.md)  |  `Math`  |  Easy  |  Biweekly Contest 4  |
 |  1119  |  [Remove Vowels from a String](/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README_EN.md)  |  `String`  |  Easy  |  Biweekly Contest 4  |
@@ -3047,6 +3049,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3039  |  [Apply Operations to Make String Empty](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README_EN.md)  |    |  Medium  |  Biweekly Contest 124  |
 |  3040  |  [Maximum Number of Operations With the Same Score II](/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 124  |
 |  3041  |  [Maximize Consecutive Elements in an Array After Modification](/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README_EN.md)  |    |  Hard  |  Biweekly Contest 124  |
+|  3042  |  [Count Prefix and Suffix Pairs I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 385  |
+|  3043  |  [Find the Length of the Longest Common Prefix](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README_EN.md)  |    |  Medium  |  Weekly Contest 385  |
+|  3044  |  [Most Frequent Prime](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)  |    |  Medium  |  Weekly Contest 385  |
+|  3045  |  [Count Prefix and Suffix Pairs II](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 385  |
 
 ## Copyright
 

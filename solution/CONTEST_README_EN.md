@@ -27,6 +27,10 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 #### Weekly Contest 385
 
+- [3042. Count Prefix and Suffix Pairs I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md)
+- [3043. Find the Length of the Longest Common Prefix](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README_EN.md)
+- [3044. Most Frequent Prime](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)
+- [3045. Count Prefix and Suffix Pairs II](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README_EN.md)
 
 #### Biweekly Contest 124
 
