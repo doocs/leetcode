@@ -53,11 +53,11 @@ item_id is the primary key (column with unique values) of this table.
 
 <p>&nbsp;</p>
 
-<p>Write a solution&nbsp;to find for each user, the join date and the number of orders they made as a buyer in <code>2019</code>.</p>
+<p>Write a solution to find for each user whether the brand of the second item (by date) they sold is their favorite brand. If a user sold less than two items, report the answer for that user as no. It is guaranteed that no seller sells more than one item in a day.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The&nbsp;result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

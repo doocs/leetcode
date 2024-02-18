@@ -30,7 +30,7 @@ This table contains id, country, points, and winery.
 
 <pre>
 <strong>Input:</strong> 
-Sessions table:
+Wineries table:
 +-----+-----------+--------+-----------------+
 | id  | country   | points | winery          | 
 +-----+-----------+--------+-----------------+

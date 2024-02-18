@@ -58,7 +58,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= word.length &lt;= 10<sup>5</sup> </code></li>
+	<li><code>1 &lt;= word.length &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= k &lt;= word.length</code></li>
 	<li><code>word</code>仅由小写英文字母组成。</li>
 </ul>

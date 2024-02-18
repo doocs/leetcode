@@ -25,6 +25,16 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 385
+
+
+#### Biweekly Contest 124
+
+- [3038. Maximum Number of Operations With the Same Score I](/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README_EN.md)
+- [3039. Apply Operations to Make String Empty](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README_EN.md)
+- [3040. Maximum Number of Operations With the Same Score II](/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README_EN.md)
+- [3041. Maximize Consecutive Elements in an Array After Modification](/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README_EN.md)
+
 #### Weekly Contest 384
 
 - [3033. Modify the Matrix](/solution/3000-3099/3033.Modify%20the%20Matrix/README_EN.md)
@@ -41,7 +51,6 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 #### Biweekly Contest 123
 
-- [3024. Type of Triangle II](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README_EN.md)
 - [3025. Find the Number of Ways to Place People I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README_EN.md)
 - [3026. Maximum Good Subarray Sum](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)
 - [3027. Find the Number of Ways to Place People II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md)

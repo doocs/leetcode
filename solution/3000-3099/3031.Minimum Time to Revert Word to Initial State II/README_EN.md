@@ -51,7 +51,7 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= word.length &lt;= 10<sup>5</sup> </code></li>
+	<li><code>1 &lt;= word.length &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= k &lt;= word.length</code></li>
 	<li><code>word</code> consists only of lowercase English letters.</li>
 </ul>

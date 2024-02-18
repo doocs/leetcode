@@ -9,7 +9,7 @@
 <p>The <strong>K-or</strong> of <code>nums</code> is a non-negative integer that satisfies the following:</p>
 
 <ul>
-	<li>The <code>i<sup>th</sup></code> bit is set in the K-or <strong>if and only if</strong> there are at least <code>k</code> elements of nums in which bit <code>i</code> is set.</li>
+	<li>The <code>i<sup>th</sup></code> bit is set in the K-or <strong>if and only if</strong> there are at least <code>k</code> elements of <code>nums</code> in which bit <code>i</code> is set.</li>
 </ul>
 
 <p>Return <em>the <strong> K-or</strong> of</em> <code>nums</code>.</p>
