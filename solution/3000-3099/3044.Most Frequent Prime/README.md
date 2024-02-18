@@ -75,24 +75,231 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表 + 枚举
+
+我们可以使用哈希表来统计每个大于 10 的素数出现的次数。
+
+对于每个单元格，我们可以从它出发，沿着 8 个方向之一生成数字，然后判断生成的数字是否是大于 $10$ 的素数，如果是的话，就将它加入到哈希表中。
+
+最后，我们遍历哈希表，找到出现频率最高的素数，如果有多个出现频率最高的素数，那么返回其中最大的那个。
+
+时间复杂度 $O(m \times n \times \max(m, n) \times {10}^{\frac{\max(m, n)}{2}})$，空间复杂度 $O(m \times n \times \max(m, n))$。其中 $m$ 和 $n$ 分别是 `mat` 的行数和列数。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def mostFrequentPrime(self, mat: List[List[int]]) -> int:
+        def is_prime(x: int) -> int:
+            return all(x % i != 0 for i in range(2, isqrt(x) + 1))
 
+        m, n = len(mat), len(mat[0])
+        cnt = Counter()
+        for i in range(m):
+            for j in range(n):
+                for a in range(-1, 2):
+                    for b in range(-1, 2):
+                        if a == 0 and b == 0:
+                            continue
+                        x, y, v = i + a, j + b, mat[i][j]
+                        while 0 <= x < m and 0 <= y < n:
+                            v = v * 10 + mat[x][y]
+                            if is_prime(v):
+                                cnt[v] += 1
+                            x, y = x + a, y + b
+        ans, mx = -1, 0
+        for v, x in cnt.items():
+            if mx < x:
+                mx = x
+                ans = v
+            elif mx == x:
+                ans = max(ans, v)
+        return ans
 ```
 
 ```java
+class Solution {
+    public int mostFrequentPrime(int[][] mat) {
+        int m = mat.length, n = mat[0].length;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int a = -1; a <= 1; ++a) {
+                    for (int b = -1; b <= 1; ++b) {
+                        if (a == 0 && b == 0) {
+                            continue;
+                        }
+                        int x = i + a, y = j + b, v = mat[i][j];
+                        while (x >= 0 && x < m && y >= 0 && y < n) {
+                            v = v * 10 + mat[x][y];
+                            if (isPrime(v)) {
+                                cnt.merge(v, 1, Integer::sum);
+                            }
+                            x += a;
+                            y += b;
+                        }
+                    }
+                }
+            }
+        }
+        int ans = -1, mx = 0;
+        for (var e : cnt.entrySet()) {
+            int v = e.getKey(), x = e.getValue();
+            if (mx < x || (mx == x && ans < v)) {
+                mx = x;
+                ans = v;
+            }
+        }
+        return ans;
+    }
 
+    private boolean isPrime(int n) {
+        for (int i = 2; i <= n / i; ++i) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ```cpp
+class Solution {
+public:
+    int mostFrequentPrime(vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+        unordered_map<int, int> cnt;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int a = -1; a <= 1; ++a) {
+                    for (int b = -1; b <= 1; ++b) {
+                        if (a == 0 && b == 0) {
+                            continue;
+                        }
+                        int x = i + a, y = j + b, v = mat[i][j];
+                        while (x >= 0 && x < m && y >= 0 && y < n) {
+                            v = v * 10 + mat[x][y];
+                            if (isPrime(v)) {
+                                cnt[v]++;
+                            }
+                            x += a;
+                            y += b;
+                        }
+                    }
+                }
+            }
+        }
+        int ans = -1, mx = 0;
+        for (auto& [v, x] : cnt) {
+            if (mx < x || (mx == x && ans < v)) {
+                mx = x;
+                ans = v;
+            }
+        }
+        return ans;
+    }
 
+private:
+    bool isPrime(int n) {
+        for (int i = 2; i <= n / i; ++i) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ```go
+func mostFrequentPrime(mat [][]int) int {
+	m, n := len(mat), len(mat[0])
+	cnt := make(map[int]int)
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for a := -1; a <= 1; a++ {
+				for b := -1; b <= 1; b++ {
+					if a == 0 && b == 0 {
+						continue
+					}
+					x, y, v := i+a, j+b, mat[i][j]
+					for x >= 0 && x < m && y >= 0 && y < n {
+						v = v*10 + mat[x][y]
+						if isPrime(v) {
+							cnt[v]++
+						}
+						x += a
+						y += b
+					}
+				}
+			}
+		}
+	}
+	ans, mx := -1, 0
+	for v, x := range cnt {
+		if mx < x || (mx == x && ans < v) {
+			mx = x
+			ans = v
+		}
+	}
+	return ans
+}
 
+func isPrime(n int) bool {
+	for i := 2; i <= n/i; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```ts
+function mostFrequentPrime(mat: number[][]): number {
+    const m: number = mat.length;
+    const n: number = mat[0].length;
+    const cnt: Map<number, number> = new Map();
+    const isPrime = (x: number): boolean => {
+        for (let i = 2; i <= x / i; ++i) {
+            if (x % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let a = -1; a <= 1; ++a) {
+                for (let b = -1; b <= 1; ++b) {
+                    if (a === 0 && b === 0) {
+                        continue;
+                    }
+                    let [x, y, v] = [i + a, j + b, mat[i][j]];
+                    while (x >= 0 && x < m && y >= 0 && y < n) {
+                        v = v * 10 + mat[x][y];
+                        if (isPrime(v)) {
+                            cnt.set(v, (cnt.get(v) || 0) + 1);
+                        }
+                        x += a;
+                        y += b;
+                    }
+                }
+            }
+        }
+    }
+
+    let [ans, mx] = [-1, 0];
+    cnt.forEach((x, v) => {
+        if (mx < x || (mx === x && ans < v)) {
+            mx = x;
+            ans = v;
+        }
+    });
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

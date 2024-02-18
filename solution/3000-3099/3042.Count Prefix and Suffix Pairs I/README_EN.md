@@ -58,7 +58,11 @@ Therefore, the answer is 0.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate all index pairs $(i, j)$, where $i < j$, and then determine whether `words[i]` is a prefix or suffix of `words[j]`. If it is, we increment the count.
+
+The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the length of `words` and the maximum length of the strings, respectively.
 
 <!-- tabs:start -->
 
