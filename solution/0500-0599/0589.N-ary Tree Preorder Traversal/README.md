@@ -45,7 +45,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：递归
+
+我们可以递归地遍历整棵树。对于每个节点，先将节点的值加入答案，然后对该节点的每个子节点递归地调用函数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
@@ -241,7 +245,13 @@ int* preorder(struct Node* root, int* returnSize) {
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：迭代（栈实现）
+
+我们也可以用迭代的方法来解决这个问题。
+
+我们使用一个栈来帮助我们得到前序遍历，我们首先把根节点入栈，因为前序遍历是根节点、左子树、右子树，栈的特点是先进后出，所以我们先把节点的值加入答案，然后对该节点的每个子节点按照从右到左的顺序依次入栈。循环直到栈为空。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
@@ -392,20 +402,19 @@ func preorder(root *Node) []int {
  */
 
 function preorder(root: Node | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    const stack = [root];
-    while (stack.length !== 0) {
-        const { val, children } = stack.pop();
-        res.push(val);
-        const n = children.length;
-        for (let i = n - 1; i >= 0; i--) {
-            stack.push(children[i]);
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        for (let i = children.length - 1; i >= 0; i--) {
+            stk.push(children[i]);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
