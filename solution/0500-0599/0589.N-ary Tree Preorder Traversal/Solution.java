@@ -22,7 +22,7 @@ class Solution {
 
     public List<Integer> preorder(Node root) {
         dfs(root);
-        return ans;    
+        return ans;
     }
 
     private void dfs(Node root) {
