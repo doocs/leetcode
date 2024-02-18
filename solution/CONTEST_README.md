@@ -24,6 +24,10 @@
 
 #### 第 385 场周赛(2024-02-18 10:30, 90 分钟) 参赛人数 2352
 
+- [3042. 统计前后缀下标对 I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md)
+- [3043. 最长公共前缀的长度](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md)
+- [3044. 出现频率最高的素数](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
+- [3045. 统计前后缀下标对 II](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README.md)
 
 #### 第 124 场双周赛(2024-02-17 22:30, 90 分钟) 参赛人数 1861
 
