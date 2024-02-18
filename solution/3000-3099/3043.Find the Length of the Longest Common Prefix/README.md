@@ -50,24 +50,117 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表
+
+我们可以使用哈希表来存储 `arr1` 中的所有数字的前缀，然后遍历 `arr2` 中的所有数字 $x$，对于每个数字 $x$，我们从最高位开始逐渐减小，判断是否存在于哈希表中，如果存在，那么我们就找到了一个公共前缀，此时更新答案即可。
+
+时间复杂度 $O(m \times \log M + n \times \log N)$，空间复杂度 $O(m \times \log M)$。其中 $m$ 和 $n$ 分别是 `arr1` 和 `arr2` 的长度，而 $M$ 和 $N$ 分别是 `arr1` 和 `arr2` 中的最大值。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def longestCommonPrefix(self, arr1: List[int], arr2: List[int]) -> int:
+        s = set()
+        for x in arr1:
+            while x:
+                s.add(x)
+                x //= 10
+        ans = 0
+        for x in arr2:
+            while x:
+                if x in s:
+                    ans = max(ans, len(str(x)))
+                    break
+                x //= 10
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int longestCommonPrefix(int[] arr1, int[] arr2) {
+        Set<Integer> s = new HashSet<>();
+        for (int x : arr1) {
+            for (; x > 0; x /= 10) {
+                s.add(x);
+            }
+        }
+        int ans = 0;
+        for (int x : arr2) {
+            for (; x > 0; x /= 10) {
+                if (s.contains(x)) {
+                    ans = Math.max(ans, String.valueOf(x).length());
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int longestCommonPrefix(vector<int>& arr1, vector<int>& arr2) {
+        unordered_set<int> s;
+        for (int x : arr1) {
+            for (; x; x /= 10) {
+                s.insert(x);
+            }
+        }
+        int ans = 0;
+        for (int x : arr2) {
+            for (; x; x /= 10) {
+                if (s.count(x)) {
+                    ans = max(ans, (int) log10(x) + 1);
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
+	s := map[int]bool{}
+	for _, x := range arr1 {
+		for ; x > 0; x /= 10 {
+			s[x] = true
+		}
+	}
+	for _, x := range arr2 {
+		for ; x > 0; x /= 10 {
+			if s[x] {
+				ans = max(ans, int(math.Log10(float64(x)))+1)
+				break
+			}
+		}
+	}
+	return
+}
+```
 
+```ts
+function longestCommonPrefix(arr1: number[], arr2: number[]): number {
+    const s: Set<number> = new Set<number>();
+    for (let x of arr1) {
+        for (; x; x = (x / 10) | 0) {
+            s.add(x % 10);
+        }
+    }
+    let ans: number = 0;
+    for (let x of arr2) {
+        for (; x; x = (x / 10) | 0) {
+            if (s.has(x % 10)) {
+                ans = Math.max(ans, Math.floor(Math.log10(x)) + 1);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
