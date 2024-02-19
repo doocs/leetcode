@@ -18,11 +18,9 @@ class Node {
 */
 
 class Solution {
-
-    private List<Integer> ans;
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> postorder(Node root) {
-        ans = new ArrayList<>();
         dfs(root);
         return ans;
     }
