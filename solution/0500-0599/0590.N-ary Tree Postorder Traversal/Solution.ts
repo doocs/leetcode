@@ -11,16 +11,16 @@
  */
 
 function postorder(root: Node | null): number[] {
-    const res = [];
+    const ans: number[] = [];
     const dfs = (root: Node | null) => {
-        if (root == null) {
+        if (!root) {
             return;
         }
-        for (const node of root.children) {
-            dfs(node);
+        for (const child of root.children) {
+            dfs(child);
         }
-        res.push(root.val);
+        ans.push(root.val);
     };
     dfs(root);
-    return res;
+    return ans;
 }

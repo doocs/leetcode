@@ -6,9 +6,8 @@
  * }
  */
 
-func postorder(root *Node) []int {
-	var ans []int
-	var dfs func(root *Node)
+func postorder(root *Node) (ans []int) {
+	var dfs func(*Node)
 	dfs = func(root *Node) {
 		if root == nil {
 			return
@@ -19,5 +18,5 @@ func postorder(root *Node) []int {
 		ans = append(ans, root.Val)
 	}
 	dfs(root)
-	return ans
+	return
 }

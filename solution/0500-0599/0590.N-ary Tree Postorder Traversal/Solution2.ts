@@ -11,21 +11,15 @@
  */
 
 function postorder(root: Node | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    const stack = [root];
-    while (stack.length !== 0) {
-        const target = stack[stack.length - 1];
-        if (target.children == null) {
-            res.push(stack.pop().val);
-        } else {
-            for (let i = target.children.length - 1; i >= 0; i--) {
-                stack.push(target.children[i]);
-            }
-            target.children = null;
-        }
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        stk.push(...children);
     }
-    return res;
+    return ans.reverse();
 }
