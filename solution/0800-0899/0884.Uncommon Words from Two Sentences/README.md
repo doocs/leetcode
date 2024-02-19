@@ -66,10 +66,10 @@ class Solution {
     public String[] uncommonFromSentences(String s1, String s2) {
         Map<String, Integer> cnt = new HashMap<>();
         for (String s : s1.split(" ")) {
-            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+            cnt.merge(s, 1, Integer::sum);
         }
         for (String s : s2.split(" ")) {
-            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+            cnt.merge(s, 1, Integer::sum);
         }
         List<String> ans = new ArrayList<>();
         for (var e : cnt.entrySet()) {
