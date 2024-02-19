@@ -30,7 +30,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+According to the problem description, as long as a word appears once, it meets the requirements of the problem. Therefore, we use a hash table `cnt` to record all words and their occurrence counts.
+
+Then we traverse the hash table, and take out all strings that appear only once.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of strings `s1` and `s2`, respectively.
 
 <!-- tabs:start -->
 
@@ -46,10 +52,10 @@ class Solution {
     public String[] uncommonFromSentences(String s1, String s2) {
         Map<String, Integer> cnt = new HashMap<>();
         for (String s : s1.split(" ")) {
-            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+            cnt.merge(s, 1, Integer::sum);
         }
         for (String s : s2.split(" ")) {
-            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
+            cnt.merge(s, 1, Integer::sum);
         }
         List<String> ans = new ArrayList<>();
         for (var e : cnt.entrySet()) {

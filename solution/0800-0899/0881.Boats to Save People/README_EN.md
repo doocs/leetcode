@@ -43,7 +43,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy + Two Pointers
+
+After sorting, use two pointers to point to the beginning and end of the array respectively. Each time, compare the sum of the elements pointed to by the two pointers with `limit`. If it is less than or equal to `limit`, then both pointers move one step towards the middle. Otherwise, only the right pointer moves. Accumulate the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `people`.
 
 <!-- tabs:start -->
 
@@ -105,6 +109,20 @@ func numRescueBoats(people []int, limit int) int {
 		ans++
 	}
 	return ans
+}
+```
+
+```ts
+function numRescueBoats(people: number[], limit: number): number {
+    people.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = 0, j = people.length - 1; i <= j; --j) {
+        if (people[i] + people[j] <= limit) {
+            ++i;
+        }
+        ++ans;
+    }
+    return ans;
 }
 ```
 

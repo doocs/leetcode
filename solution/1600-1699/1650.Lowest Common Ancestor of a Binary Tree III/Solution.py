@@ -10,9 +10,13 @@ class Node:
 
 
 class Solution:
-    def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
-        a, b = p, q
-        while a != b:
-            a = a.parent if a.parent else q
-            b = b.parent if b.parent else p
-        return a
+    def lowestCommonAncestor(self, p: "Node", q: "Node") -> "Node":
+        vis = set()
+        node = p
+        while node:
+            vis.add(node)
+            node = node.parent
+        node = q
+        while node not in vis:
+            node = node.parent
+        return node

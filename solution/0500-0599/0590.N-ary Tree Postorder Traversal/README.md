@@ -46,7 +46,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：递归
+
+我们可以递归地遍历整棵树。对于每个节点，先对该节点的每个子节点递归地调用函数，然后将节点的值加入答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
@@ -95,11 +99,9 @@ class Node {
 */
 
 class Solution {
-
-    private List<Integer> ans;
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> postorder(Node root) {
-        ans = new ArrayList<>();
         dfs(root);
         return ans;
     }
@@ -141,14 +143,17 @@ class Solution {
 public:
     vector<int> postorder(Node* root) {
         vector<int> ans;
-        dfs(root, ans);
+        function<void(Node*)> dfs = [&](Node* root) {
+            if (!root) {
+                return;
+            }
+            for (auto& child : root->children) {
+                dfs(child);
+            }
+            ans.push_back(root->val);
+        };
+        dfs(root);
         return ans;
-    }
-
-    void dfs(Node* root, vector<int>& ans) {
-        if (!root) return;
-        for (auto& child : root->children) dfs(child, ans);
-        ans.push_back(root->val);
     }
 };
 ```
@@ -162,9 +167,8 @@ public:
  * }
  */
 
-func postorder(root *Node) []int {
-	var ans []int
-	var dfs func(root *Node)
+func postorder(root *Node) (ans []int) {
+	var dfs func(*Node)
 	dfs = func(root *Node) {
 		if root == nil {
 			return
@@ -175,7 +179,7 @@ func postorder(root *Node) []int {
 		ans = append(ans, root.Val)
 	}
 	dfs(root)
-	return ans
+	return
 }
 ```
 
@@ -193,24 +197,30 @@ func postorder(root *Node) []int {
  */
 
 function postorder(root: Node | null): number[] {
-    const res = [];
+    const ans: number[] = [];
     const dfs = (root: Node | null) => {
-        if (root == null) {
+        if (!root) {
             return;
         }
-        for (const node of root.children) {
-            dfs(node);
+        for (const child of root.children) {
+            dfs(child);
         }
-        res.push(root.val);
+        ans.push(root.val);
     };
     dfs(root);
-    return res;
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：迭代（栈实现）
+
+我们也可以用迭代的方法来解决这个问题。
+
+我们使用一个栈来帮助我们得到后序遍历，我们首先把根节点入栈，因为后序遍历是左子树、右子树、根节点，栈的特点是先进后出，所以我们先把节点的值加入答案，然后对该节点的每个子节点按照从左到右的顺序依次入栈，这样可以得到根节点、右子树、左子树的遍历结果。最后把答案反转即可得到后序遍历的结果。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
@@ -303,13 +313,17 @@ class Solution {
 public:
     vector<int> postorder(Node* root) {
         vector<int> ans;
-        if (!root) return ans;
+        if (!root) {
+            return ans;
+        }
         stack<Node*> stk{{root}};
         while (!stk.empty()) {
             root = stk.top();
             ans.push_back(root->val);
             stk.pop();
-            for (Node* child : root->children) stk.push(child);
+            for (Node* child : root->children) {
+                stk.push(child);
+            }
         }
         reverse(ans.begin(), ans.end());
         return ans;
@@ -358,23 +372,17 @@ func postorder(root *Node) []int {
  */
 
 function postorder(root: Node | null): number[] {
-    const res = [];
-    if (root == null) {
-        return res;
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    const stack = [root];
-    while (stack.length !== 0) {
-        const target = stack[stack.length - 1];
-        if (target.children == null) {
-            res.push(stack.pop().val);
-        } else {
-            for (let i = target.children.length - 1; i >= 0; i--) {
-                stack.push(target.children[i]);
-            }
-            target.children = null;
-        }
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        stk.push(...children);
     }
-    return res;
+    return ans.reverse();
 }
 ```
 

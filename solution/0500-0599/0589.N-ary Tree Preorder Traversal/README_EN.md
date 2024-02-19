@@ -365,10 +365,9 @@ public:
  * }
  */
 
-func preorder(root *Node) []int {
-	var ans []int
+func preorder(root *Node) (ans []int) {
 	if root == nil {
-		return ans
+		return
 	}
 	stk := []*Node{root}
 	for len(stk) > 0 {
@@ -380,7 +379,7 @@ func preorder(root *Node) []int {
 			stk = append(stk, children[i])
 		}
 	}
-	return ans
+	return
 }
 ```
 
