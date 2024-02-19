@@ -129,7 +129,7 @@ public:
 
 class Solution {
 public:
-    Node* lowestCommonAncestor(Node* p, Node * q) {
+    Node* lowestCommonAncestor(Node* p, Node* q) {
         unordered_set<Node*> vis;
         for (Node* node = p; node; node = node->parent) {
             vis.insert(node);
