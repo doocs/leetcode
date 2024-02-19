@@ -12,12 +12,14 @@ public:
 class Solution {
 public:
     Node* lowestCommonAncestor(Node* p, Node* q) {
-        Node* a = p;
-        Node* b = q;
-        while (a != b) {
-            a = a->parent ? a->parent : q;
-            b = b->parent ? b->parent : p;
+        unordered_set<Node*> vis;
+        for (Node* node = p; node; node = node->parent) {
+            vis.insert(node);
         }
-        return a;
+        for (Node* node = q;; node = node->parent) {
+            if (vis.count(node)) {
+                return node;
+            }
+        }
     }
 };

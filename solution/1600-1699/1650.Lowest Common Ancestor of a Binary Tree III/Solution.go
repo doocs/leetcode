@@ -8,19 +8,14 @@
  * }
  */
 
-func lowestCommonAncestor(p *Node, q *Node) *Node {
-	a, b := p, q
-	for a != b {
-		if a.Parent != nil {
-			a = a.Parent
-		} else {
-			a = q
-		}
-		if b.Parent != nil {
-			b = b.Parent
-		} else {
-			b = p
+ func lowestCommonAncestor(p *Node, q *Node) *Node {
+	vis := map[*Node]bool{}
+	for node := p; node != nil; node = node.Parent {
+		vis[node] = true
+	}
+	for node := q; ; node = node.Parent {
+		if vis[node] {
+			return node
 		}
 	}
-	return a
 }
