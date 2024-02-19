@@ -52,19 +52,64 @@ We are unable to perform any more operations as the score of the next operation 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxOperations(self, nums: List[int]) -> int:
+        s = nums[0] + nums[1]
+        ans, n = 0, len(nums)
+        for i in range(0, n, 2):
+            if i + 1 == n or nums[i] + nums[i + 1] != s:
+                break
+            ans += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maxOperations(int[] nums) {
+        int s = nums[0] + nums[1];
+        int ans = 0, n = nums.length;
+        for (int i = 0; i + 1 < n && nums[i] + nums[i + 1] == s; i += 2) {
+            ++ans;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxOperations(vector<int>& nums) {
+        int s = nums[0] + nums[1];
+        int ans = 0, n = nums.size();
+        for (int i = 0; i + 1 < n && nums[i] + nums[i + 1] == s; i += 2) {
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maxOperations(nums []int) (ans int) {
+	s, n := nums[0]+nums[1], len(nums)
+	for i := 0; i+1 < n && nums[i]+nums[i+1] == s; i += 2 {
+		ans++
+	}
+	return
+}
+```
 
+```ts
+function maxOperations(nums: number[]): number {
+    const s = nums[0] + nums[1];
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i + 1 < n && nums[i] + nums[i + 1] === s; i += 2) {
+        ++ans;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
