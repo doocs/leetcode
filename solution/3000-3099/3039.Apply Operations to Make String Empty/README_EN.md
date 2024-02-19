@@ -56,19 +56,104 @@ The string just before the last operation is &quot;abcd&quot;.
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def lastNonEmptyString(self, s: str) -> str:
+        cnt = Counter(s)
+        mx = cnt.most_common(1)[0][1]
+        last = {c: i for i, c in enumerate(s)}
+        return "".join(c for i, c in enumerate(s) if cnt[c] == mx and last[c] == i)
 ```
 
 ```java
-
+class Solution {
+    public String lastNonEmptyString(String s) {
+        int[] cnt = new int[26];
+        int[] last = new int[26];
+        int n = s.length();
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            int c = s.charAt(i) - 'a';
+            mx = Math.max(mx, ++cnt[c]);
+            last[c] = i;
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n; ++i) {
+            int c = s.charAt(i) - 'a';
+            if (cnt[c] == mx && last[c] == i) {
+                ans.append(s.charAt(i));
+            }
+        }
+        return ans.toString();
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    string lastNonEmptyString(string s) {
+        int cnt[26]{};
+        int last[26]{};
+        int n = s.size();
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            int c = s[i] - 'a';
+            mx = max(mx, ++cnt[c]);
+            last[c] = i;
+        }
+        string ans;
+        for (int i = 0; i < n; ++i) {
+            int c = s[i] - 'a';
+            if (cnt[c] == mx && last[c] == i) {
+                ans.push_back(s[i]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func lastNonEmptyString(s string) string {
+	cnt := [26]int{}
+	last := [26]int{}
+	mx := 0
+	for i, c := range s {
+		c -= 'a'
+		cnt[c]++
+		last[c] = i
+		mx = max(mx, cnt[c])
+	}
+	ans := []rune{}
+	for i, c := range s {
+		if cnt[c-'a'] == mx && last[c-'a'] == i {
+			ans = append(ans, c)
+		}
+	}
+	return string(ans)
+}
+```
 
+```ts
+function lastNonEmptyString(s: string): string {
+    const cnt: number[] = Array(26).fill(0);
+    const last: number[] = Array(26).fill(0);
+    const n = s.length;
+    let mx = 0;
+    for (let i = 0; i < n; ++i) {
+        const c = s.charCodeAt(i) - 97;
+        mx = Math.max(mx, ++cnt[c]);
+        last[c] = i;
+    }
+    const ans: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        const c = s.charCodeAt(i) - 97;
+        if (cnt[c] === mx && last[c] === i) {
+            ans.push(String.fromCharCode(c + 97));
+        }
+    }
+    return ans.join('');
+}
 ```
 
 <!-- tabs:end -->
