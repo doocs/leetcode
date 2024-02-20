@@ -202,21 +202,18 @@ public class Solution {
 ```
 
 ```php
-class Solution
-{
+class Solution {
     /**
      * @param int[] $height
      * @return int
      */
 
-    function maxArea($height)
-    {
+    function maxArea($height) {
         $left = 0;
         $right = count($height) - 1;
         $maxArea = 0;
 
         while ($left < $right) {
-
             $area = min($height[$left], $height[$right]) * ($right - $left);
 
             $maxArea = max($maxArea, $area);
