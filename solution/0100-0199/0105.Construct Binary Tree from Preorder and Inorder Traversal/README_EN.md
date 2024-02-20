@@ -36,19 +36,22 @@
 
 ## Solutions
 
-### Solution 1: Recursion
+### Solution 1: Hash Table + Recursion
 
-The first node $preorder[0]$ in the preorder sequence is the root node. We find the position $i$ of the root node in the inorder sequence, which divides the inorder sequence into the left subtree $inorder[0..i]$ and the right subtree $inorder[i+1..]$.
+The first node $preorder[0]$ in the pre-order sequence is the root node. We find the position $k$ of the root node in the in-order sequence, which can divide the in-order sequence into the left subtree $inorder[0..k]$ and the right subtree $inorder[k+1..]$.
 
-Through the intervals of the left and right subtrees, we can calculate the number of nodes in the left and right subtrees, assumed to be $m$ and $n$ respectively. Then in the preorder nodes, the $m$ nodes following the root node are the left subtree, and the $n$ nodes after that are the right subtree.
+Through the intervals of the left and right subtrees, we can calculate the number of nodes in the left and right subtrees, assumed to be $a$ and $b$. Then in the pre-order nodes, the $a$ nodes after the root node are the left subtree, and the $b$ nodes after that are the right subtree.
 
-We can solve this recursively.
+Therefore, we design a function $dfs(i, j, n)$, where $i$ and $j$ represent the starting positions of the pre-order sequence and the in-order sequence, respectively, and $n$ represents the number of nodes. The return value of the function is the binary tree constructed with $preorder[i..i+n-1]$ as the pre-order sequence and $inorder[j..j+n-1]$ as the in-order sequence.
 
-> Preorder traversal: traverse the root node first, then traverse the left and right subtrees; Inorder traversal: traverse the left subtree first, then traverse the root node, and finally traverse the right subtree.
+The execution process of the function $dfs(i, j, n)$ is as follows:
+
+-   If $n \leq 0$, it means there are no nodes, return a null node.
+-   Take out the first node $v = preorder[i]$ of the pre-order sequence as the root node, and then use the hash table $d$ to find the position $k$ of the root node in the in-order sequence. Then the number of nodes in the left subtree is $k - j$, and the number of nodes in the right subtree is $n - k + j - 1$.
+-   Recursively construct the left subtree $l = dfs(i + 1, j, k - j)$ and the right subtree $r = dfs(i + 1 + k - j, k + 1, n - k + j - 1)$.
+-   Finally, return the binary tree with $v$ as the root node and $l$ and $r$ as the left and right subtrees, respectively.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
-
-If the node values given in the problem have duplicates, then we only need to record all the positions where each node value appears, and then recursively construct the tree.
 
 <!-- tabs:start -->
 
@@ -61,7 +64,7 @@ If the node values given in the problem have duplicates, then we only need to re
 #         self.right = right
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        def dfs(i: int, j: int, n: int):
+        def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
             if n <= 0:
                 return None
             v = preorder[i]
@@ -92,13 +95,11 @@ class Solution:
  */
 class Solution {
     private int[] preorder;
-    private int[] inorder;
     private Map<Integer, Integer> d = new HashMap<>();
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         int n = preorder.length;
         this.preorder = preorder;
-        this.inorder = inorder;
         for (int i = 0; i < n; ++i) {
             d.put(inorder[i], i);
         }
@@ -304,7 +305,7 @@ var buildTree = function (preorder, inorder) {
 
 <!-- tabs:end -->
 
-### Solution 2
+If the node values given in the problem have duplicates, then we only need to record all the positions where each node value appears, and then recursively construct the tree.
 
 <!-- tabs:start -->
 
