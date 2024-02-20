@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

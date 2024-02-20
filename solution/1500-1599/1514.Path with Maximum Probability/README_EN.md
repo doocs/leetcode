@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README.md)
 
+<!-- tags:Graph,Array,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an undirected weighted graph of&nbsp;<code>n</code>&nbsp;nodes (0-indexed), represented by an edge list where&nbsp;<code>edges[i] = [a, b]</code>&nbsp;is an undirected edge connecting the nodes&nbsp;<code>a</code>&nbsp;and&nbsp;<code>b</code>&nbsp;with a probability of success of traversing that edge&nbsp;<code>succProb[i]</code>.</p>

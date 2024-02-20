@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Products</code></p>

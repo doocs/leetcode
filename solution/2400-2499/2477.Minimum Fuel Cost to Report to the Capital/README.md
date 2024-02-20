@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2477.Minimum%20Fuel%20Cost%20to%20Report%20to%20the%20Capital/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

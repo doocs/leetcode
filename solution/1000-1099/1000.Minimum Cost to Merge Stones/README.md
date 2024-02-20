@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md)
 
+<!-- tags:数组,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

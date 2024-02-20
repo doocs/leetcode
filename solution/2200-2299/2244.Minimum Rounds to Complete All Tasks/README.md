@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

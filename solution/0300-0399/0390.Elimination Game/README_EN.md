@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0390.Elimination%20Game/README.md)
 
+<!-- tags:Recursion,Math -->
+
 ## Description
 
 <p>You have a list <code>arr</code> of all integers in the range <code>[1, n]</code> sorted in a strictly increasing order. Apply the following algorithm on <code>arr</code>:</p>

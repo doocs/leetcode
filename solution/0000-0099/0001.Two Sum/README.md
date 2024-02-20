@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0001.Two%20Sum/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

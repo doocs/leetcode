@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1943.Describe%20the%20Painting/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

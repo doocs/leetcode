@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README.md)
 
+<!-- tags:Greedy,Design,Array -->
+
 ## Description
 
 <p>There is an ATM machine that stores banknotes of <code>5</code> denominations: <code>20</code>, <code>50</code>, <code>100</code>, <code>200</code>, and <code>500</code> dollars. Initially the ATM is empty. The user can use the machine to deposit or withdraw any amount of money.</p>

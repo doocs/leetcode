@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)
 
+<!-- tags:Stack,Greedy,String,Monotonic Stack -->
+
 ## Description
 
 <p>Given string num representing a non-negative integer <code>num</code>, and an integer <code>k</code>, return <em>the smallest possible integer after removing</em> <code>k</code> <em>digits from</em> <code>num</code>.</p>

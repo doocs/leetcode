@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md)
 
+<!-- tags:广度优先搜索,并查集,数组,二分查找,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

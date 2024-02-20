@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 Write a function&nbsp;<code>argumentsLength</code> that returns the count of arguments passed to it.

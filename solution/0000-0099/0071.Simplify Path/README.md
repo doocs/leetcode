@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0071.Simplify%20Path/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

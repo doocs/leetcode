@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2138.Divide%20a%20String%20Into%20Groups%20of%20Size%20k/README.md)
 
+<!-- tags:String,Simulation -->
+
 ## Description
 
 <p>A string <code>s</code> can be partitioned into groups of size <code>k</code> using the following procedure:</p>

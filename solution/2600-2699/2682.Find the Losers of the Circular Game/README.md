@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md)
 
+<!-- tags:数组,哈希表,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

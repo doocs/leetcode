@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0212.Word%20Search%20II/README.md)
 
+<!-- tags:Trie,Array,String,Backtracking,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> <code>board</code>&nbsp;of characters and a list of strings <code>words</code>, return <em>all words on the board</em>.</p>

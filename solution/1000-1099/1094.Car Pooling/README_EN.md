@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1094.Car%20Pooling/README.md)
 
+<!-- tags:Array,Prefix Sum,Sorting,Simulation,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There is a car with <code>capacity</code> empty seats. The vehicle only drives east (i.e., it cannot turn around and drive west).</p>

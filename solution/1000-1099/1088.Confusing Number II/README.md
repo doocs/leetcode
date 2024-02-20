@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1088.Confusing%20Number%20II/README_EN.md)
 
+<!-- tags:数学,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

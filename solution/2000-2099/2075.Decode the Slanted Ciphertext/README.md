@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md)
 
+<!-- tags:字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

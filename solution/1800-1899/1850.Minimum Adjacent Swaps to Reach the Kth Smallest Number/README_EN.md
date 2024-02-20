@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README.md)
 
+<!-- tags:Greedy,Two Pointers,String -->
+
 ## Description
 
 <p>You are given a string <code>num</code>, representing a large integer, and an integer <code>k</code>.</p>

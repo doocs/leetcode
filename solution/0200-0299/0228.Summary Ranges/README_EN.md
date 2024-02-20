@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0228.Summary%20Ranges/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given a <strong>sorted unique</strong> integer array <code>nums</code>.</p>

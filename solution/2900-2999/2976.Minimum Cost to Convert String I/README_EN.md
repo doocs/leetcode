@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md)
 
+<!-- tags:Graph,Array,String,Shortest Path -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>source</code> and <code>target</code>, both of length <code>n</code> and consisting of <strong>lowercase</strong> English letters. You are also given two <strong>0-indexed</strong> character arrays <code>original</code> and <code>changed</code>, and an integer array <code>cost</code>, where <code>cost[i]</code> represents the cost of changing the character <code>original[i]</code> to the character <code>changed[i]</code>.</p>

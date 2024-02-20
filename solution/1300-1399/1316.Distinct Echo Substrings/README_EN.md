@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README.md)
 
+<!-- tags:Trie,String,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>Return the number of <strong>distinct</strong> non-empty substrings of <code>text</code>&nbsp;that can be written as the concatenation of some string with itself (i.e. it can be written as <code>a + a</code>&nbsp;where <code>a</code> is some string).</p>

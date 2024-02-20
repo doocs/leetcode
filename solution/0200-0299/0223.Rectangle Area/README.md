@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0223.Rectangle%20Area/README_EN.md)
 
+<!-- tags:几何,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

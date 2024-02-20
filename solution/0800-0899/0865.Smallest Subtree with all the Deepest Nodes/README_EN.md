@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, the depth of each node is <strong>the shortest distance to the root</strong>.</p>

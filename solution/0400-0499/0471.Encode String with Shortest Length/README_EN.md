@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>s</code>, encode the string such that its encoded length is the shortest.</p>

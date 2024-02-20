@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

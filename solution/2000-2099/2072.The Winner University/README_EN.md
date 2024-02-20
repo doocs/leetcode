@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2072.The%20Winner%20University/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>NewYork</code></p>

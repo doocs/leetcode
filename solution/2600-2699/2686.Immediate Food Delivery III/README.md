@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

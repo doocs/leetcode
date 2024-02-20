@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README_EN.md)
 
+<!-- tags:哈希表,数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

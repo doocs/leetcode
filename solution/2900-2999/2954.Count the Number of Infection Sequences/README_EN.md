@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)
 
+<!-- tags:Array,Math,Combinatorics -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> and a <strong>0-indexed</strong><strong> </strong>integer array <code>sick</code> which is <strong>sorted</strong> in <strong>increasing</strong> order.</p>

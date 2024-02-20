@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0544.Output%20Contest%20Matches/README.md)
 
+<!-- tags:Recursion,String,Simulation -->
+
 ## Description
 
 <p>During the NBA playoffs, we always set the rather strong team to play with the rather weak team, like making&nbsp;the rank <code>1</code> team play with the rank <code>n<sup>th</sup></code> team, which is a good strategy to make the contest more interesting.</p>

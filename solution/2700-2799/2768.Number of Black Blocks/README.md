@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md)
 
+<!-- tags:数组,哈希表,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

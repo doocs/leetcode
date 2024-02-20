@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0134.Gas%20Station/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>There are <code>n</code> gas stations along a circular route, where the amount of gas at the <code>i<sup>th</sup></code> station is <code>gas[i]</code>.</p>

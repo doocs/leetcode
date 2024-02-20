@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>Given an array of integers&nbsp;<code>nums</code>, you start with an initial <strong>positive</strong> value <em>startValue</em><em>.</em></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README.md)
 
+<!-- tags:Stack,Tree,String,Binary Tree -->
+
 ## Description
 
 <p>One way to serialize a binary tree is to use <strong>preorder traversal</strong>. When we encounter a non-null node, we record the node&#39;s value. If it is a null node, we record using a sentinel value such as <code>&#39;#&#39;</code>.</p>

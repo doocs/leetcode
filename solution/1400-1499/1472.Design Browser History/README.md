@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1472.Design%20Browser%20History/README_EN.md)
 
+<!-- tags:栈,设计,数组,链表,数据流,双向链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

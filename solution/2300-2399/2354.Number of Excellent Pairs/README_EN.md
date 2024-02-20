@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,Binary Search -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> positive integer array <code>nums</code> and a positive integer <code>k</code>.</p>

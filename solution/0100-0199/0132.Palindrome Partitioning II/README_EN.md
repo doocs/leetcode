@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0132.Palindrome%20Partitioning%20II/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>s</code>, partition <code>s</code> such that every <span data-keyword="substring-nonempty">substring</span> of the partition is a <span data-keyword="palindrome-string">palindrome</span>.</p>

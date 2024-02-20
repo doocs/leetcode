@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2680.Maximum%20OR/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>. In an operation, you can choose an element and multiply it by <code>2</code>.</p>

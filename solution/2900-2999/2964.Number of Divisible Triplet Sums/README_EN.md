@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 Given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>d</code>, return <em>the number of triplets</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>(nums[i] + nums[j] + nums[k]) % d == 0</code>.

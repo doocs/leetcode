@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0685.Redundant%20Connection%20II/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
+
 ## Description
 
 <p>In this problem, a rooted tree is a <b>directed</b> graph such that, there is exactly one node (the root) for which all other nodes are descendants of this node, plus every node has exactly one parent, except for the root node which has no parents.</p>

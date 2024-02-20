@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0275.H-Index%20II/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

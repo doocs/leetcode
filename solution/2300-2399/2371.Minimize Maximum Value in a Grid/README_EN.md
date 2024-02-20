@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README.md)
 
+<!-- tags:Union Find,Graph,Topological Sort,Array,Matrix,Sorting -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> containing <strong>distinct</strong> positive integers.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>Given two strings <code>str1</code> and <code>str2</code> of the same length, determine whether you can transform <code>str1</code> into <code>str2</code> by doing <strong>zero or more</strong> <em>conversions</em>.</p>

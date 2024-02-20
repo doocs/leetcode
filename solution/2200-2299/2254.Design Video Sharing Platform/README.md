@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md)
 
+<!-- tags:栈,设计,哈希表,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2295.Replace%20Elements%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> that consists of <code>n</code> <strong>distinct</strong> positive integers. Apply <code>m</code> operations to this array, where in the <code>i<sup>th</sup></code> operation you replace the number <code>operations[i][0]</code> with <code>operations[i][1]</code>.</p>

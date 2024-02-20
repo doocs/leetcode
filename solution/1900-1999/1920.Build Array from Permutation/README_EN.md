@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>Given a <strong>zero-based permutation</strong> <code>nums</code> (<strong>0-indexed</strong>), build an array <code>ans</code> of the <strong>same length</strong> where <code>ans[i] = nums[nums[i]]</code> for each <code>0 &lt;= i &lt; nums.length</code> and return it.</p>

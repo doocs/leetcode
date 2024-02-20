@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README_EN.md)
 
+<!-- tags:数组,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

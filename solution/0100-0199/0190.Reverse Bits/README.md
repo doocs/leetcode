@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0190.Reverse%20Bits/README_EN.md)
 
+<!-- tags:位运算,分治 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

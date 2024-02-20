@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

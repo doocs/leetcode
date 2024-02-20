@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>There is a malfunctioning keyboard where some letter keys do not work. All other keys on the keyboard work properly.</p>

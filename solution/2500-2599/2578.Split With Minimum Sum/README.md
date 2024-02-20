@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README_EN.md)
 
+<!-- tags:贪心,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

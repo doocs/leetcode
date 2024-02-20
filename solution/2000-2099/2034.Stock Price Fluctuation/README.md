@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md)
 
+<!-- tags:设计,哈希表,数据流,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

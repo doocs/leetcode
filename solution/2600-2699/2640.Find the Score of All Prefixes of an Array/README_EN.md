@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>We define the <strong>conversion array</strong> <code>conver</code> of an array <code>arr</code> as follows:</p>

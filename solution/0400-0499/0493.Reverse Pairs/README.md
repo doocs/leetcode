@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md)
 
+<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

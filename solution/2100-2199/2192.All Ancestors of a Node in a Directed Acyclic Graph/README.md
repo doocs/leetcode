@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README.md)
 
+<!-- tags:Tree,Depth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code>&nbsp;of a binary tree, return all <strong>duplicate subtrees</strong>.</p>

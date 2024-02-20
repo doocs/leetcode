@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README_EN.md)
 
+<!-- tags:位运算,哈希表,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

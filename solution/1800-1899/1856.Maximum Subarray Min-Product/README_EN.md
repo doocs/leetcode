@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)
 
+<!-- tags:Stack,Array,Prefix Sum,Monotonic Stack -->
+
 ## Description
 
 <p>The <strong>min-product</strong> of an array is equal to the <strong>minimum value</strong> in the array <strong>multiplied by</strong> the array&#39;s <strong>sum</strong>.</p>

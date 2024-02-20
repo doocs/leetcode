@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README_EN.md)
 
+<!-- tags:数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

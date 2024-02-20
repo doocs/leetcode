@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md)
 
+<!-- tags:Array,Math,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two positive <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, both of length <code>n</code>.</p>

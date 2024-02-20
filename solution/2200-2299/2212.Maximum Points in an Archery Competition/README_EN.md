@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md)
 
+<!-- tags:Bit Manipulation,Array,Backtracking,Enumeration -->
+
 ## Description
 
 <p>Alice and Bob are opponents in an archery competition. The competition has set the following rules:</p>

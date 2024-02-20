@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

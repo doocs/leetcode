@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, an integer <code>modulo</code>, and an integer <code>k</code>.</p>

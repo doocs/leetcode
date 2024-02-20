@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,前缀和,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

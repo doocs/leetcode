@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1816.Truncate%20Sentence/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

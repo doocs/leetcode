@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0335.Self%20Crossing/README_EN.md)
 
+<!-- tags:几何,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

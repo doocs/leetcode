@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

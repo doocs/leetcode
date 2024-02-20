@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1542.Find%20Longest%20Awesome%20Substring/README.md)
 
+<!-- tags:Bit Manipulation,Hash Table,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code>. An <strong>awesome</strong> substring is a non-empty substring of <code>s</code> such that we can make any number of swaps in order to make it a palindrome.</p>

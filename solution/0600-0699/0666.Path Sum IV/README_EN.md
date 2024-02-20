@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0666.Path%20Sum%20IV/README.md)
 
+<!-- tags:Tree,Depth-First Search,Array,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>If the depth of a tree is smaller than <code>5</code>, then this tree can be represented by an array of three-digit integers. For each integer in this array:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Graph,Dynamic Programming -->
+
 ## Description
 
 <p>There is an undirected connected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1136.Parallel%20Courses/README_EN.md)
 
+<!-- tags:图,拓扑排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

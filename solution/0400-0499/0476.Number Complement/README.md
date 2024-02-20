@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0476.Number%20Complement/README_EN.md)
 
+<!-- tags:位运算 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

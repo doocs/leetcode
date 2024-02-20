@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2523.Closest%20Prime%20Numbers%20in%20Range/README.md)
 
+<!-- tags:Math,Number Theory -->
+
 ## Description
 
 <p>Given two positive integers <code>left</code> and <code>right</code>, find the two integers <code>num1</code> and <code>num2</code> such that:</p>

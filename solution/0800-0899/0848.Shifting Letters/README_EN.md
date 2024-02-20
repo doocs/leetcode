@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0848.Shifting%20Letters/README.md)
 
+<!-- tags:Array,String,Prefix Sum -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of lowercase English letters and an integer array <code>shifts</code> of the same length.</p>

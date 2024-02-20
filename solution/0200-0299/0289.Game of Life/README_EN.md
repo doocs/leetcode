@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0289.Game%20of%20Life/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>According to&nbsp;<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">Wikipedia&#39;s article</a>: &quot;The <b>Game of Life</b>, also known simply as <b>Life</b>, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.&quot;</p>

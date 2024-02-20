@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)
 
+<!-- tags:Stack,Array,Matrix,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> <strong>0-indexed</strong> 2D array of positive integers <code>heights</code> where <code>heights[i][j]</code> is the height of the person standing at position <code>(i, j)</code>.</p>

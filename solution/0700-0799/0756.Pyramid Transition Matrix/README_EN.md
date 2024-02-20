@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README.md)
 
+<!-- tags:Bit Manipulation,Depth-First Search,Breadth-First Search -->
+
 ## Description
 
 <p>You are stacking blocks to form a pyramid. Each block has a color, which is represented by a single letter. Each row of blocks contains <strong>one less block</strong> than the row beneath it and is centered on top.</p>

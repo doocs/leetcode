@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md)
 
+<!-- tags:数学,枚举,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

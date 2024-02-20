@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. We call a subset of <code>nums</code> <strong>good</strong> if its product can be represented as a product of one or more <strong>distinct prime</strong> numbers.</p>

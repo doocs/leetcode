@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0249.Group%20Shifted%20Strings/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>We can shift a string by shifting each of its letters to its successive letter.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README_EN.md)
 
+<!-- tags:几何,数组,数学,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0759.Employee%20Free%20Time/README.md)
 
+<!-- tags:Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>We are given a list <code>schedule</code> of employees, which represents the working time for each employee.</p>

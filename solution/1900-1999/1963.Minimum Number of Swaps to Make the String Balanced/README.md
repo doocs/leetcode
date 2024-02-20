@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1963.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20String%20Balanced/README_EN.md)
 
+<!-- tags:栈,贪心,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

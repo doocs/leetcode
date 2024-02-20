@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given a positive integer <strong>0-indexed</strong>&nbsp;array <code>nums</code>.</p>

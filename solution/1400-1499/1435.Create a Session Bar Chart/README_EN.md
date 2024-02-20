@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Sessions</code></p>

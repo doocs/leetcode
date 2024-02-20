@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Users</font></code></p>

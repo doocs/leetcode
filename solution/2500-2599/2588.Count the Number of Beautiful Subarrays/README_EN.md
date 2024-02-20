@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation, you can:</p>

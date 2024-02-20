@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1549.The%20Most%20Recent%20Orders%20for%20Each%20Product/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Customers</code></p>

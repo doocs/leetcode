@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

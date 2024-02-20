@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1257.Smallest%20Common%20Region/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>

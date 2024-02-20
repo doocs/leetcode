@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given an integer array&nbsp;<code>nums</code>. You can choose <strong>exactly one</strong> index (<strong>0-indexed</strong>) and remove the element. Notice that the index of the elements may change after the removal.</p>

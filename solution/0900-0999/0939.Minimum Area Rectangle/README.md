@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README_EN.md)
 
+<!-- tags:几何,数组,哈希表,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

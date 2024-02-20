@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2041.Accepted%20Candidates%20From%20the%20Interviews/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Candidates</code></p>

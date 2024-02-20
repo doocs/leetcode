@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1387.Sort%20Integers%20by%20The%20Power%20Value/README.md)
 
+<!-- tags:Memoization,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>The power of an integer <code>x</code> is defined as the number of steps needed to transform <code>x</code> into <code>1</code> using the following steps:</p>

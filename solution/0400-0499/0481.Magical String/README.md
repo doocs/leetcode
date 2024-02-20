@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0481.Magical%20String/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

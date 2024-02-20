@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, <em>determine if it is a valid binary search tree (BST)</em>.</p>

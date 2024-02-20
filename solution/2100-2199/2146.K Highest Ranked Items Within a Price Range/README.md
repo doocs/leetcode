@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2146.K%20Highest%20Ranked%20Items%20Within%20a%20Price%20Range/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,矩阵,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

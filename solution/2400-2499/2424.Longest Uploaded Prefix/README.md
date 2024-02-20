@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)
 
+<!-- tags:并查集,设计,树状数组,线段树,二分查找,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

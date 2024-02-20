@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2466.Count%20Ways%20To%20Build%20Good%20Strings/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>Given the integers <code>zero</code>, <code>one</code>, <code>low</code>, and <code>high</code>, we can construct a string by starting with an empty string, and then at each step perform either of the following:</p>

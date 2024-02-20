@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README.md)
 
+<!-- tags:Breadth-First Search -->
+
 ## Description
 
 <p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code> to <code>+infinity</code>, you have a <strong>knight</strong> at square <code>[0, 0]</code>.</p>

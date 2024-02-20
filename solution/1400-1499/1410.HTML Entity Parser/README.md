@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1410.HTML%20Entity%20Parser/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

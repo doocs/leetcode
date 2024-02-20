@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md)
 
+<!-- tags:Array,Math,Matrix,Number Theory -->
+
 ## Description
 
 <p>You are given a 0-indexed two-dimensional integer array <code>nums</code>.</p>

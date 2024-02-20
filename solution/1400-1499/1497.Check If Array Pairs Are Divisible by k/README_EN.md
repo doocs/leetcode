@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1497.Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k/README.md)
 
+<!-- tags:Array,Hash Table,Counting -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code> of even length <code>n</code> and an integer <code>k</code>.</p>

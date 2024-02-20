@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0867.Transpose%20Matrix/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>Given a 2D integer array <code>matrix</code>, return <em>the <strong>transpose</strong> of</em> <code>matrix</code>.</p>

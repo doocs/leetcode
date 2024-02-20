@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2659.Make%20Array%20Empty/README.md)
 
+<!-- tags:Greedy,Binary Indexed Tree,Segment Tree,Array,Binary Search,Ordered Set,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> containing <strong>distinct</strong> numbers, and you can perform the following operations <strong>until the array is empty</strong>:</p>

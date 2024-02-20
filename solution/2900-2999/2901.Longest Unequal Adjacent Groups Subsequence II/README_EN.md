@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README.md)
 
+<!-- tags:Array,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>, a <strong>0-indexed</strong> string array <code>words</code>, and a <strong>0-indexed</strong> array <code>groups</code>, both arrays having length <code>n</code>.</p>

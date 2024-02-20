@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md)
 
+<!-- tags:Array,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.<br />

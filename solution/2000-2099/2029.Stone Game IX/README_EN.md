@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2029.Stone%20Game%20IX/README.md)
 
+<!-- tags:Greedy,Array,Math,Counting,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob continue their games with stones. There is a row of n stones, and each stone has an associated value. You are given an integer array <code>stones</code>, where <code>stones[i]</code> is the <strong>value</strong> of the <code>i<sup>th</sup></code> stone.</p>

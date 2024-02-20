@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0975.Odd%20Even%20Jump/README.md)
 
+<!-- tags:Stack,Array,Dynamic Programming,Ordered Set,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code>. From some starting index, you can make a series of jumps. The (1<sup>st</sup>, 3<sup>rd</sup>, 5<sup>th</sup>, ...) jumps in the series are called <strong>odd-numbered jumps</strong>, and the (2<sup>nd</sup>, 4<sup>th</sup>, 6<sup>th</sup>, ...) jumps in the series are called <strong>even-numbered jumps</strong>. Note that the <strong>jumps</strong> are numbered, not the indices.</p>

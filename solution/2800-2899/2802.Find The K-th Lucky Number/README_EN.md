@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README.md)
 
+<!-- tags:Bit Manipulation,Math,String -->
+
 ## Description
 
 <p>We know that <code>4</code> and <code>7</code> are <strong>lucky</strong> digits. Also, a number is called <strong>lucky</strong>&nbsp;if it contains <strong>only</strong> lucky digits.</p>

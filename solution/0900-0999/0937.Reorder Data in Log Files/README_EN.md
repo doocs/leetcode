@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README.md)
 
+<!-- tags:Array,String,Sorting -->
+
 ## Description
 
 <p>You are given an array of <code>logs</code>. Each log is a space-delimited string of words, where the first word is the <strong>identifier</strong>.</p>

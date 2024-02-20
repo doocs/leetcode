@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2392.Build%20a%20Matrix%20With%20Conditions/README.md)
 
+<!-- tags:Graph,Topological Sort,Array,Matrix -->
+
 ## Description
 
 <p>You are given a <strong>positive</strong> integer <code>k</code>. You are also given:</p>

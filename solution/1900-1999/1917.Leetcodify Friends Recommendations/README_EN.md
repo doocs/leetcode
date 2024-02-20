@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Listens</code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)
 
+<!-- tags:广度优先搜索,记忆化搜索,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

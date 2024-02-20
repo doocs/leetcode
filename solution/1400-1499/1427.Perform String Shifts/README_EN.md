@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1427.Perform%20String%20Shifts/README.md)
 
+<!-- tags:Array,Math,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> containing lowercase English letters, and a matrix <code>shift</code>, where <code>shift[i] = [direction<sub>i</sub>, amount<sub>i</sub>]</code>:</p>

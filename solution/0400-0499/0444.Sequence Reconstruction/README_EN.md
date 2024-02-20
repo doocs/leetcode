@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0444.Sequence%20Reconstruction/README.md)
 
+<!-- tags:Graph,Topological Sort,Array -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code> where <code>nums</code> is a permutation of the integers in the range <code>[1, n]</code>. You are also given a 2D integer array <code>sequences</code> where <code>sequences[i]</code> is a subsequence of <code>nums</code>.</p>

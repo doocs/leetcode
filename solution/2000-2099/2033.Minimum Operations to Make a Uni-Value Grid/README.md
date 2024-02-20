@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2033.Minimum%20Operations%20to%20Make%20a%20Uni-Value%20Grid/README_EN.md)
 
+<!-- tags:数组,数学,矩阵,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

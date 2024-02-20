@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md)
 
+<!-- tags:Design,Hash Table -->
+
 ## Description
 
 <p>There is an authentication system that works with authentication tokens. For each session, the user will receive a new authentication token that will expire <code>timeToLive</code> seconds after the <code>currentTime</code>. If the token is renewed, the expiry time will be <b>extended</b> to expire <code>timeToLive</code> seconds after the (potentially different) <code>currentTime</code>.</p>

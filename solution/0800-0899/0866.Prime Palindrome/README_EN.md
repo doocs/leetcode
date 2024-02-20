@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given an integer n, return <em>the smallest <strong>prime palindrome</strong> greater than or equal to </em><code>n</code>.</p>

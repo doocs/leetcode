@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2154.Keep%20Multiplying%20Found%20Values%20by%20Two/README_EN.md)
 
+<!-- tags:数组,哈希表,排序,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

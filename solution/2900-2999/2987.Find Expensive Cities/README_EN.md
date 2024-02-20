@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Listings</code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md)
 
+<!-- tags:数组,回溯,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

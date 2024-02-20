@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Game Theory,Prefix Sum -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice starting first</strong>.</p>

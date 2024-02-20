@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README_EN.md)
 
+<!-- tags:栈,贪心,字符串,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

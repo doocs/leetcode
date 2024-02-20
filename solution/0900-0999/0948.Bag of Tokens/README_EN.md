@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0948.Bag%20of%20Tokens/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>You have an initial <strong>power</strong> of <code>power</code>, an initial <strong>score</strong> of <code>0</code>, and a bag of <code>tokens</code> where <code>tokens[i]</code> is the value of the <code>i<sup>th</sup></code> token (0-indexed).</p>

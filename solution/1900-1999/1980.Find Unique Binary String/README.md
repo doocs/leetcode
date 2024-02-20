@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

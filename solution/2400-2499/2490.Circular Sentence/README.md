@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2490.Circular%20Sentence/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

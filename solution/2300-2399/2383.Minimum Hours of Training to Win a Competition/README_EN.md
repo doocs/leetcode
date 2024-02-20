@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are entering a competition, and are given two <strong>positive</strong> integers <code>initialEnergy</code> and <code>initialExperience</code> denoting your initial energy and initial experience respectively.</p>

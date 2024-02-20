@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README_EN.md)
 
+<!-- tags:树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

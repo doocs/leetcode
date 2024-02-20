@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README_EN.md)
 
+<!-- tags:栈,树,深度优先搜索,链表,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

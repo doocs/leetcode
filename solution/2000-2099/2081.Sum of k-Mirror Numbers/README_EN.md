@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)
 
+<!-- tags:Math,Enumeration -->
+
 ## Description
 
 <p>A <strong>k-mirror number</strong> is a <strong>positive</strong> integer <strong>without leading zeros</strong> that reads the same both forward and backward in base-10 <strong>as well as</strong> in base-k.</p>

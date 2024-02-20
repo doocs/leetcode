@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, replace the value of each node in the tree with the <strong>sum of all its cousins&#39; values</strong>.</p>

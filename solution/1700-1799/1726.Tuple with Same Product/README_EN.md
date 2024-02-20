@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README.md)
 
+<!-- tags:Array,Hash Table,Counting -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of <strong>distinct</strong> positive integers, return <em>the number of tuples </em><code>(a, b, c, d)</code><em> such that </em><code>a * b = c * d</code><em> where </em><code>a</code><em>, </em><code>b</code><em>, </em><code>c</code><em>, and </em><code>d</code><em> are elements of </em><code>nums</code><em>, and </em><code>a != b != c != d</code><em>.</em></p>

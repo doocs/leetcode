@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1913.Maximum%20Product%20Difference%20Between%20Two%20Pairs/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>The <strong>product difference</strong> between two pairs <code>(a, b)</code> and <code>(c, d)</code> is defined as <code>(a * b) - (c * d)</code>.</p>

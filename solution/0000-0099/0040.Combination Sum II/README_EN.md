@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
 
+<!-- tags:Array,Backtracking -->
+
 ## Description
 
 <p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code>&nbsp;where the candidate numbers sum to <code>target</code>.</p>

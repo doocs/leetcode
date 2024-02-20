@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that consists of lower case English letters and brackets.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README.md)
 
+<!-- tags:Hash Table,String,Counting,Prefix Sum -->
+
 ## Description
 
 <p>Each character of the English alphabet has been mapped to a digit as shown below.</p>

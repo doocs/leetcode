@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. A perfectly straight street is represented by a number line ranging from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>lights</code> representing the street lamp(s) on the street. Each <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code> indicates that there is a street lamp at position <code>position<sub>i</sub></code> that lights up the area from <code>[max(0, position<sub>i</sub> - range<sub>i</sub>), min(n - 1, position<sub>i</sub> + range<sub>i</sub>)]</code> (<strong>inclusive</strong>).</p>

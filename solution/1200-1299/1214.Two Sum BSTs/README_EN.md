@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1214.Two%20Sum%20BSTs/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Two Pointers,Binary Search,Binary Tree -->
+
 ## Description
 
 <p>Given the roots of two binary search trees, <code>root1</code> and <code>root2</code>, return <code>true</code> if and only if there is a node in the first tree and a node in the second tree whose values sum up to a given integer <code>target</code>.</p>

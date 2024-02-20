@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md)
 
+<!-- tags:Stack,Queue,Array,Simulation -->
+
 ## Description
 
 <p>The school cafeteria offers circular and square sandwiches at lunch break, referred to by numbers <code>0</code> and <code>1</code> respectively. All students stand in a queue. Each student either prefers square or circular sandwiches.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1123.Lowest%20Common%20Ancestor%20of%20Deepest%20Leaves/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

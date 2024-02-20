@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code> representing an English Dictionary, return <em>the longest word in</em> <code>words</code> <em>that can be built one character at a time by other words in</em> <code>words</code>.</p>

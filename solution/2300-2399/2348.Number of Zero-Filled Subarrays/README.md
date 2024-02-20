@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

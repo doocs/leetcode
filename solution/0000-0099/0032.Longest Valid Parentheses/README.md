@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README_EN.md)
 
+<!-- tags:栈,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

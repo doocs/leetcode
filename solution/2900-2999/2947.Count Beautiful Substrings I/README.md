@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README_EN.md)
 
+<!-- tags:字符串,枚举,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

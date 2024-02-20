@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README_EN.md)
 
+<!-- tags:数学,双指针,二分查找,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

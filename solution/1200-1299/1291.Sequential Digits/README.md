@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1291.Sequential%20Digits/README_EN.md)
 
+<!-- tags:枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

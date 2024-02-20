@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1122.Relative%20Sort%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,计数排序,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README_EN.md)
 
+<!-- tags:哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

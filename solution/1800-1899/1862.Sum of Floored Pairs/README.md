@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README_EN.md)
 
+<!-- tags:数组,数学,二分查找,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

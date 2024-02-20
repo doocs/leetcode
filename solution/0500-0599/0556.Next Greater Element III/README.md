@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0556.Next%20Greater%20Element%20III/README_EN.md)
 
+<!-- tags:数学,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

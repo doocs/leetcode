@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README.md)
 
+<!-- tags:Array,Hash Table,Divide and Conquer,Bucket Sort,Counting,Quickselect,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k</code> <em>most frequent elements</em>. You may return the answer in <strong>any order</strong>.</p>

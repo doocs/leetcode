@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0518.Coin%20Change%20II/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>amount</code> representing a total amount of money.</p>

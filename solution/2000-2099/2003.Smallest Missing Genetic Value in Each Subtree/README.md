@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2003.Smallest%20Missing%20Genetic%20Value%20in%20Each%20Subtree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,并查集,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

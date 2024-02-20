@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/README_EN.md)
 
+<!-- tags:链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

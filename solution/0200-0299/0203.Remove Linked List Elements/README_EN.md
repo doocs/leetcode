@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README.md)
 
+<!-- tags:Recursion,Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list and an integer <code>val</code>, remove all the nodes of the linked list that has <code>Node.val == val</code>, and return <em>the new head</em>.</p>

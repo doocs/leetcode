@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0611.Valid%20Triangle%20Number/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle</em>.</p>

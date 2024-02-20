@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/README.md)
 
+<!-- tags:Graph,Array,Matrix -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> binary matrix <code>grid</code>. In one operation, you can flip any <code>1</code> in <code>grid</code> to be <code>0</code>.</p>

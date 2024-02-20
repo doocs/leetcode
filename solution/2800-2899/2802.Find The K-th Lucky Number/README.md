@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README_EN.md)
 
+<!-- tags:位运算,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

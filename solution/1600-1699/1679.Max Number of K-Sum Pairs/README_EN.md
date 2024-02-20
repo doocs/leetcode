@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>

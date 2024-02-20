@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0877.Stone%20Game/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob play a game with piles of stones. There are an <strong>even</strong> number of piles arranged in a row, and each pile has a <strong>positive</strong> integer number of stones <code>piles[i]</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README_EN.md)
 
+<!-- tags:设计,字典树,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0502.IPO/README_EN.md)
 
+<!-- tags:贪心,数组,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

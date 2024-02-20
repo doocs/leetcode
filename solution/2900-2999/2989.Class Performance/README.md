@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2989.Class%20Performance/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

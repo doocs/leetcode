@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0027.Remove%20Element/README.md)
 
+<!-- tags:Array,Two Pointers -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>val</code>, remove all occurrences of <code>val</code> in <code>nums</code> <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a>. The order of the elements may be changed. Then return <em>the number of elements in </em><code>nums</code><em> which are not equal to </em><code>val</code>.</p>

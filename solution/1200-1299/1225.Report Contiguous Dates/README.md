@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

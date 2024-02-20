@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/README_EN.md)
 
+<!-- tags:贪心,数组,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

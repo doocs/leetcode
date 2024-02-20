@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0110.Balanced%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given a binary tree, determine if it is <span data-keyword="height-balanced"><strong>height-balanced</strong></span>.</p>

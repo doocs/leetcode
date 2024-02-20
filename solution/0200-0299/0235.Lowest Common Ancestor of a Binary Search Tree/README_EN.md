@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.</p>

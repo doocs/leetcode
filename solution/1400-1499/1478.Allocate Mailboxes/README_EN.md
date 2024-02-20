@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1478.Allocate%20Mailboxes/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given the array <code>houses</code> where <code>houses[i]</code> is the location of the <code>i<sup>th</sup></code> house along a street and an integer <code>k</code>, allocate <code>k</code> mailboxes in the street.</p>

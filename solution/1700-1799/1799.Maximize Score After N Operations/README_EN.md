@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Backtracking,Bitmask,Number Theory -->
+
 ## Description
 
 <p>You are given <code>nums</code>, an array of positive integers of size <code>2 * n</code>. You must perform <code>n</code> operations on this array.</p>

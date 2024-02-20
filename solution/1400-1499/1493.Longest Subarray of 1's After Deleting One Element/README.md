@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1493.Longest%20Subarray%20of%201%27s%20After%20Deleting%20One%20Element/README_EN.md)
 
+<!-- tags:数组,动态规划,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

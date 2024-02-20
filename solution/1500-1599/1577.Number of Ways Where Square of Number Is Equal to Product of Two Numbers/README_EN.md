@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1577.Number%20of%20Ways%20Where%20Square%20of%20Number%20Is%20Equal%20to%20Product%20of%20Two%20Numbers/README.md)
 
+<!-- tags:Array,Hash Table,Math,Two Pointers -->
+
 ## Description
 
 <p>Given two arrays of integers <code>nums1</code> and <code>nums2</code>, return the number of triplets formed (type 1 and type 2) under the following rules:</p>

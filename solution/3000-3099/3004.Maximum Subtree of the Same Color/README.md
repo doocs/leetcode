@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)
 
+<!-- tags:树,深度优先搜索,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

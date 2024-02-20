@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0663.Equal%20Tree%20Partition/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <code>true</code><em> if you can partition the tree into two trees with equal sums of values after removing exactly one edge on the original tree</em>.</p>

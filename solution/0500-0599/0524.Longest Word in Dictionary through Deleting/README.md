@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README_EN.md)
 
+<!-- tags:数组,双指针,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

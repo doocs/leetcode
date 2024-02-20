@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0740.Delete%20and%20Earn/README.md)
 
+<!-- tags:Array,Hash Table,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. You want to maximize the number of points you get by performing the following operation any number of times:</p>

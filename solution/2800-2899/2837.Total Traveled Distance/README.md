@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2837.Total%20Traveled%20Distance/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

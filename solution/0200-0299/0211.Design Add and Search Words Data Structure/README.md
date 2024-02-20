@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0211.Design%20Add%20and%20Search%20Words%20Data%20Structure/README_EN.md)
 
+<!-- tags:深度优先搜索,设计,字典树,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

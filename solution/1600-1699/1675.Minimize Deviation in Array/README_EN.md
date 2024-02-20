@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README.md)
 
+<!-- tags:Greedy,Array,Ordered Set,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers.</p>

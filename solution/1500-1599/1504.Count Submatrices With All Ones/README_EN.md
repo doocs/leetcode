@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1504.Count%20Submatrices%20With%20All%20Ones/README.md)
 
+<!-- tags:Stack,Array,Dynamic Programming,Matrix,Monotonic Stack -->
+
 ## Description
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, <em>return the number of <strong>submatrices</strong> that have all ones</em>.</p>

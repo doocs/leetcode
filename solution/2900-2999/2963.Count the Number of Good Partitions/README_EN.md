@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README.md)
 
+<!-- tags:Array,Hash Table,Math,Combinatorics -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <strong>positive</strong> integers.</p>

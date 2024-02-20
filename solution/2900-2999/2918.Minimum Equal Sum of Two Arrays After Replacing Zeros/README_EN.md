@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2918.Minimum%20Equal%20Sum%20of%20Two%20Arrays%20After%20Replacing%20Zeros/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are given two arrays <code>nums1</code> and <code>nums2</code> consisting of positive integers.</p>

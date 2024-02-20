@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
 
+<!-- tags:贪心,数组,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

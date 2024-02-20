@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README_EN.md)
 
+<!-- tags:几何,数组,数学,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

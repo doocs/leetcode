@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0945.Minimum%20Increment%20to%20Make%20Array%20Unique/README.md)
 
+<!-- tags:Greedy,Array,Counting,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. In one move, you can pick an index <code>i</code> where <code>0 &lt;= i &lt; nums.length</code> and increment <code>nums[i]</code> by <code>1</code>.</p>

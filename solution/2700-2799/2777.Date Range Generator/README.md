@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2777.Date%20Range%20Generator/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

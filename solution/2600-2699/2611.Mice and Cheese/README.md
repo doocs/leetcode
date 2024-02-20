@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md)
 
+<!-- tags:贪心,数组,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

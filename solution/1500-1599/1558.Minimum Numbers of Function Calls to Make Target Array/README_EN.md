@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Array -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. You have an integer array <code>arr</code> of the same length with all values set to <code>0</code> initially. You also have the following <code>modify</code> function:</p>

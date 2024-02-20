@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Tree,Binary Search Tree,Array,Divide and Conquer,Binary Tree -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> where the elements are sorted in <strong>ascending order</strong>, convert <em>it to a </em><span data-keyword="height-balanced"><strong><em>height-balanced</em></strong></span> <em>binary search tree</em>.</p>

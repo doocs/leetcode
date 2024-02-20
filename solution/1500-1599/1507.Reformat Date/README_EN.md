@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1507.Reformat%20Date/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given a <code>date</code> string in the form&nbsp;<code>Day Month Year</code>, where:</p>

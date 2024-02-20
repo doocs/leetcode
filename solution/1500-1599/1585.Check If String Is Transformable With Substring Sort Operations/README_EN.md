@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1585.Check%20If%20String%20Is%20Transformable%20With%20Substring%20Sort%20Operations/README.md)
 
+<!-- tags:Greedy,String,Sorting -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, transform string <code>s</code> into string <code>t</code> using the following operation any number of times:</p>

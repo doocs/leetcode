@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README_EN.md)
 
+<!-- tags:贪心,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

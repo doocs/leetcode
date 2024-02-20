@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md)
 
+<!-- tags:图,设计,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

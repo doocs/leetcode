@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README.md)
 
+<!-- tags:Design,Binary Indexed Tree,Segment Tree,Array,Binary Search -->
+
 ## Description
 
 <p>Design a data structure that efficiently finds the <strong>majority element</strong> of a given subarray.</p>

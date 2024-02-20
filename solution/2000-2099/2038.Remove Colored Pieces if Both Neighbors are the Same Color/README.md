@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2038.Remove%20Colored%20Pieces%20if%20Both%20Neighbors%20are%20the%20Same%20Color/README_EN.md)
 
+<!-- tags:贪心,数学,字符串,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

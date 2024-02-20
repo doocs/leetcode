@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md)
 
+<!-- tags:树,深度优先搜索,哈希表,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

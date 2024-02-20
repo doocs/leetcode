@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

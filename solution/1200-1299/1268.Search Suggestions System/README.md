@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md)
 
+<!-- tags:字典树,数组,字符串,二分查找,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

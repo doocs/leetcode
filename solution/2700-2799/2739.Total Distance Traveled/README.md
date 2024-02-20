@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

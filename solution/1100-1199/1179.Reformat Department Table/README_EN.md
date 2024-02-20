@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1179.Reformat%20Department%20Table/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Department</code></p>

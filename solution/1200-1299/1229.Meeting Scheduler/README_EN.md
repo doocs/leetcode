@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1229.Meeting%20Scheduler/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given the availability time slots arrays <code>slots1</code> and <code>slots2</code> of two people and a meeting duration <code>duration</code>, return the <strong>earliest time slot</strong> that works for both of them and is of duration <code>duration</code>.</p>

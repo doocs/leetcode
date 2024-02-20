@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README_EN.md)
 
+<!-- tags:设计,树状数组,线段树,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

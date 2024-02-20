@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0012.Integer%20to%20Roman/README.md)
 
+<!-- tags:Hash Table,Math,String -->
+
 ## Description
 
 <p>Roman numerals are represented by seven different symbols:&nbsp;<code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>

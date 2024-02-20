@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md)
 
+<!-- tags:字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

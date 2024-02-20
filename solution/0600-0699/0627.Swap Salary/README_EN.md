@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0627.Swap%20Salary/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Salary</code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2540.Minimum%20Common%20Value/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

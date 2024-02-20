@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

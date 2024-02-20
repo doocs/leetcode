@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1591.Strange%20Printer%20II/README_EN.md)
 
+<!-- tags:图,拓扑排序,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

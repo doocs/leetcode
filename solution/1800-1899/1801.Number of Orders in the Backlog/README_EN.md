@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README.md)
 
+<!-- tags:Array,Simulation,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>orders</code>, where each <code>orders[i] = [price<sub>i</sub>, amount<sub>i</sub>, orderType<sub>i</sub>]</code> denotes that <code>amount<sub>i</sub></code><sub> </sub>orders have been placed of type <code>orderType<sub>i</sub></code> at the price <code>price<sub>i</sub></code>. The <code>orderType<sub>i</sub></code> is:</p>

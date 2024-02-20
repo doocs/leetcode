@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md)
 
+<!-- tags:数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

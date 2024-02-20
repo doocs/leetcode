@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README_EN.md)
 
+<!-- tags:数组,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

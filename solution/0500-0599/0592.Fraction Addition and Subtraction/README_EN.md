@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
 
+<!-- tags:Math,String,Simulation -->
+
 ## Description
 
 <p>Given a string <code>expression</code> representing an expression of fraction addition and subtraction, return the calculation result in string format.</p>

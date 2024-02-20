@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

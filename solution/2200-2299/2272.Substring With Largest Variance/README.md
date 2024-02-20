@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

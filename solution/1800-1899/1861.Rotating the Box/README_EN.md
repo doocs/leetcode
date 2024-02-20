@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1861.Rotating%20the%20Box/README.md)
 
+<!-- tags:Array,Two Pointers,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> matrix of characters <code>box</code> representing a side-view of a box. Each cell of the box is one of the following:</p>

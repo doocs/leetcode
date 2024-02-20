@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are playing a game that has <code>n</code> levels numbered from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>damage</code> where <code>damage[i]</code> is the amount of health you will lose to complete the <code>i<sup>th</sup></code> level.</p>

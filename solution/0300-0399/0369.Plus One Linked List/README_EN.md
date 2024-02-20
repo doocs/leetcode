@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README.md)
 
+<!-- tags:Linked List,Math -->
+
 ## Description
 
 <p>Given a non-negative integer represented as a linked list of digits, <em>plus one to the integer</em>.</p>

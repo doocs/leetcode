@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README_EN.md)
 
+<!-- tags:线段树,队列,数组,动态规划,前缀和,单调队列,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

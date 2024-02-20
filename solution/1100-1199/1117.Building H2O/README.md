@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1117.Building%20H2O/README_EN.md)
 
+<!-- tags:多线程 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

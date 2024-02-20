@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md)
 
+<!-- tags:并查集,图,数组,最小生成树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md)
 
+<!-- tags:Array,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given <code>n</code> <code>cuboids</code> where the dimensions of the <code>i<sup>th</sup></code> cuboid is <code>cuboids[i] = [width<sub>i</sub>, length<sub>i</sub>, height<sub>i</sub>]</code> (<strong>0-indexed</strong>). Choose a <strong>subset</strong> of <code>cuboids</code> and place them on each other.</p>

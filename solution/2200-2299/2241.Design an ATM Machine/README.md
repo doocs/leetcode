@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README_EN.md)
 
+<!-- tags:贪心,设计,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

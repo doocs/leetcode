@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README.md)
 
+<!-- tags:Array,Math,Prefix Sum -->
+
 ## Description
 
 <p>Given an array of positive integers <code>arr</code>, return <em>the sum of all possible <strong>odd-length subarrays</strong> of </em><code>arr</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0370.Range%20Addition/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

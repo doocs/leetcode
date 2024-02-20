@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README.md)
 
+<!-- tags:Math,Enumeration -->
+
 ## Description
 
 <p>Given three integers, <code>k</code>, <code>digit1</code>, and <code>digit2</code>, you want to find the <strong>smallest</strong> integer that is:</p>

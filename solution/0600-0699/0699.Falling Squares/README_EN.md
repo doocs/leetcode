@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0699.Falling%20Squares/README.md)
 
+<!-- tags:Segment Tree,Array,Ordered Set -->
+
 ## Description
 
 <p>There are several squares being dropped onto the X-axis of a 2D plane.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README.md)
 
+<!-- tags:Bit Manipulation,Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> grid <code>grid</code> where:</p>

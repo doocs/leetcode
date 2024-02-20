@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0425.Word%20Squares/README_EN.md)
 
+<!-- tags:字典树,数组,字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

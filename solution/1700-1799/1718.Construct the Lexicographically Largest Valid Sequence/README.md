@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README_EN.md)
 
+<!-- tags:数组,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

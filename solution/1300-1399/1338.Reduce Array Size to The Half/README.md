@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1338.Reduce%20Array%20Size%20to%20The%20Half/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

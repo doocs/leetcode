@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>Given two integers <code>a</code> and <code>b</code>, return <strong>any</strong> string <code>s</code> such that:</p>

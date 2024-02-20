@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1126.Active%20Businesses/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

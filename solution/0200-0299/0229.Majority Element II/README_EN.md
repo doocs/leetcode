@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0229.Majority%20Element%20II/README.md)
 
+<!-- tags:Array,Hash Table,Counting,Sorting -->
+
 ## Description
 
 <p>Given an integer array of size <code>n</code>, find all elements that appear more than <code>&lfloor; n/3 &rfloor;</code> times.</p>

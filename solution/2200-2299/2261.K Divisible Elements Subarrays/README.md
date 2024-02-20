@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2261.K%20Divisible%20Elements%20Subarrays/README_EN.md)
 
+<!-- tags:字典树,数组,哈希表,枚举,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

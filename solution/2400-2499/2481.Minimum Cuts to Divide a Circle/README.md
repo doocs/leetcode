@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README_EN.md)
 
+<!-- tags:几何,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

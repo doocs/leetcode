@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0266.Palindrome%20Permutation/README.md)
 
+<!-- tags:Bit Manipulation,Hash Table,String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <code>true</code> <em>if a permutation of the string could form a </em><span data-keyword="palindrome-string"><em><strong>palindrome</strong></em></span><em> and </em><code>false</code><em> otherwise</em>.</p>

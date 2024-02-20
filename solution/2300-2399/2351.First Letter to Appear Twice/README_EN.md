@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README.md)
 
+<!-- tags:Bit Manipulation,Hash Table,String,Counting -->
+
 ## Description
 
 <p>Given a string <code>s</code> consisting of lowercase English letters, return <em>the first letter to appear <strong>twice</strong></em>.</p>

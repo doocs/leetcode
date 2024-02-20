@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README.md)
 
+<!-- tags:Breadth-First Search,Graph,Array,Matrix,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code>. Each cell has one of two values:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0389.Find%20the%20Difference/README_EN.md)
 
+<!-- tags:位运算,哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

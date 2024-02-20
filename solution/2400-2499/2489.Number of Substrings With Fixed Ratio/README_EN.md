@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2489.Number%20of%20Substrings%20With%20Fixed%20Ratio/README.md)
 
+<!-- tags:Hash Table,Math,String,Prefix Sum -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code>, and two integers <code>num1</code> and <code>num2</code>. <code>num1</code> and <code>num2</code> are coprime numbers.</p>

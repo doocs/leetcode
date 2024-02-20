@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README_EN.md)
 
+<!-- tags:栈,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

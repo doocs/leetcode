@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1919.Leetcodify%20Similar%20Friends/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

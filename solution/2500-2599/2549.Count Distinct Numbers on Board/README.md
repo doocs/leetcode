@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

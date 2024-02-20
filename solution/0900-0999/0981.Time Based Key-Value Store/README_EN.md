@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README.md)
 
+<!-- tags:Design,Hash Table,String,Binary Search -->
+
 ## Description
 
 <p>Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key&#39;s value at a certain timestamp.</p>

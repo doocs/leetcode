@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

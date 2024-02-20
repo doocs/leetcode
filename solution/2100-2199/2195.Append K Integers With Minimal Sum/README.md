@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2195.Append%20K%20Integers%20With%20Minimal%20Sum/README_EN.md)
 
+<!-- tags:贪心,数组,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

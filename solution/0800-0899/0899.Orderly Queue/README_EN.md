@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0899.Orderly%20Queue/README.md)
 
+<!-- tags:Math,String,Sorting -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>. You can choose one of the first <code>k</code> letters of <code>s</code> and append it at the end of the string.</p>

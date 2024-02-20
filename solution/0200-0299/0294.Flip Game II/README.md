@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0294.Flip%20Game%20II/README_EN.md)
 
+<!-- tags:记忆化搜索,数学,动态规划,回溯,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

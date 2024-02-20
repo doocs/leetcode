@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Tree,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> node of a binary search tree (BST) and a <code>value</code> to insert into the tree. Return <em>the root node of the BST after the insertion</em>. It is <strong>guaranteed</strong> that the new value does not exist in the original BST.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README.md)
 
+<!-- tags:Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>. You can choose any <strong>subsequence</strong> of the array and sum all of its elements together.</p>

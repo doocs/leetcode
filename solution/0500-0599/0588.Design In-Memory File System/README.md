@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0588.Design%20In-Memory%20File%20System/README_EN.md)
 
+<!-- tags:设计,字典树,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

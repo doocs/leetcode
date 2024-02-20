@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README_EN.md)
 
+<!-- tags:树,深度优先搜索,字符串,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

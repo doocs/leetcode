@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, half of the integers in <code>nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</p>

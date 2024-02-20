@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the total number of subarrays whose sum equals to</em> <code>k</code>.</p>

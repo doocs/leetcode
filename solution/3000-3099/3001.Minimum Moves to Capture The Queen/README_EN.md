@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)
 
+<!-- tags:Array,Enumeration -->
+
 ## Description
 
 <p>There is a <strong>1-indexed</strong> <code>8 x 8</code> chessboard containing <code>3</code> pieces.</p>

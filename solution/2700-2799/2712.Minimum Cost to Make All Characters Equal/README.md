@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)
 
+<!-- tags:贪心,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

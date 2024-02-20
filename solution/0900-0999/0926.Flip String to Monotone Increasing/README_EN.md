@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>A binary string is monotone increasing if it consists of some number of <code>0</code>&#39;s (possibly none), followed by some number of <code>1</code>&#39;s (also possibly none).</p>

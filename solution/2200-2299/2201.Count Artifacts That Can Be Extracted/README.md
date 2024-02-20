@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2201.Count%20Artifacts%20That%20Can%20Be%20Extracted/README_EN.md)
 
+<!-- tags:数组,哈希表,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1127.User%20Purchase%20Platform/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Spending</code></p>

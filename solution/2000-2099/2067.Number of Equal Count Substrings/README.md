@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md)
 
+<!-- tags:字符串,计数,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

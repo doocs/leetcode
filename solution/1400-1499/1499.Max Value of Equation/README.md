@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md)
 
+<!-- tags:队列,数组,滑动窗口,单调队列,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

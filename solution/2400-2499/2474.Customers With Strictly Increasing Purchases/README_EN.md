@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2474.Customers%20With%20Strictly%20Increasing%20Purchases/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Orders</code></p>

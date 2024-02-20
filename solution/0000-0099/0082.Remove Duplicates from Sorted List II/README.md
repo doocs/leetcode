@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README_EN.md)
 
+<!-- tags:链表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

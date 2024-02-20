@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README_EN.md)
 
+<!-- tags:树,深度优先搜索,字符串,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

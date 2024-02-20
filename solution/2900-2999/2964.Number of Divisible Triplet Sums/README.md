@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0254.Factor%20Combinations/README.md)
 
+<!-- tags:Backtracking -->
+
 ## Description
 
 <p>Numbers can be regarded as the product of their factors.</p>

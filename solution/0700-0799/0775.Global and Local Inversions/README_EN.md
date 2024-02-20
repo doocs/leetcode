@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code> which represents a permutation of all the integers in the range <code>[0, n - 1]</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1962.Remove%20Stones%20to%20Minimize%20the%20Total/README_EN.md)
 
+<!-- tags:贪心,数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

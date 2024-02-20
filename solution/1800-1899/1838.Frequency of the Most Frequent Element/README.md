@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md)
 
+<!-- tags:贪心,数组,二分查找,前缀和,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

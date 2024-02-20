@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0575.Distribute%20Candies/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Alice has <code>n</code> candies, where the <code>i<sup>th</sup></code> candy is of type <code>candyType[i]</code>. Alice noticed that she started to gain weight, so she visited a doctor.</p>

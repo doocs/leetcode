@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)
 
+<!-- tags:广度优先搜索,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

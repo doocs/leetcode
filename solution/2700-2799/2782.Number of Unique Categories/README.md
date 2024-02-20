@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md)
 
+<!-- tags:并查集,计数,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

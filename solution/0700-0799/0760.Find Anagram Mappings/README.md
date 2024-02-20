@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

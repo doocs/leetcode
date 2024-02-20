@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2138.Divide%20a%20String%20Into%20Groups%20of%20Size%20k/README_EN.md)
 
+<!-- tags:字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

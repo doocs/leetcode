@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given the logs for users&#39; actions on LeetCode, and an integer <code>k</code>. The logs are represented by a 2D integer array <code>logs</code> where each <code>logs[i] = [ID<sub>i</sub>, time<sub>i</sub>]</code> indicates that the user with <code>ID<sub>i</sub></code> performed an action at the minute <code>time<sub>i</sub></code>.</p>

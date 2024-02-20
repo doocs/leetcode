@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2514.Count%20Anagrams/README.md)
 
+<!-- tags:Hash Table,Math,String,Combinatorics,Counting -->
+
 ## Description
 
 <p>You are given a string <code>s</code> containing one or more words. Every consecutive pair of words is separated by a single space <code>&#39; &#39;</code>.</p>

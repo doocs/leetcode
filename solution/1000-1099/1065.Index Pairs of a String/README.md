@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README_EN.md)
 
+<!-- tags:字典树,数组,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

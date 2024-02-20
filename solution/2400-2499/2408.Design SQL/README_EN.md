@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2408.Design%20SQL/README.md)
 
+<!-- tags:Design,Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given <code>n</code> tables represented with two arrays <code>names</code> and <code>columns</code>, where <code>names[i]</code> is the name of the <code>i<sup>th</sup></code> table and <code>columns[i]</code> is the number of columns of the <code>i<sup>th</sup></code> table.</p>

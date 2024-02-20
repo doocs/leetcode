@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,图,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

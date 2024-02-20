@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README_EN.md)
 
+<!-- tags:字符串,动态规划,后缀数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

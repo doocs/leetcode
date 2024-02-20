@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>A <strong>sentence</strong> is a string of single-space separated words where each word consists only of lowercase letters.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2139.Minimum%20Moves%20to%20Reach%20Target%20Score/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are playing a game with integers. You start with the integer <code>1</code> and you want to reach the integer <code>target</code>.</p>

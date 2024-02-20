@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1421.NPV%20Queries/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>NPV</code></p>

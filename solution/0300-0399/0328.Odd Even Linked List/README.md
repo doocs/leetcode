@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
 
+<!-- tags:链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

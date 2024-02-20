@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

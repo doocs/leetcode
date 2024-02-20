@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README.md)
 
+<!-- tags:Greedy,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. In one operation, you can:</p>

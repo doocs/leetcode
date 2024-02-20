@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0869.Reordered%20Power%20of%202/README.md)
 
+<!-- tags:Hash Table,Math,Counting,Enumeration,Sorting -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. We reorder the digits in any order (including the original order) such that the leading digit is not zero.</p>

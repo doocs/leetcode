@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md)
 
+<!-- tags:数组,哈希表,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

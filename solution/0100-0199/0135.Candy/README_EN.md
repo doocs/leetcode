@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0135.Candy/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>There are <code>n</code> children standing in a line. Each child is assigned a rating value given in the integer array <code>ratings</code>.</p>

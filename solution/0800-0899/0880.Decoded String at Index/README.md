@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0880.Decoded%20String%20at%20Index/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

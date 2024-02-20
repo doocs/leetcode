@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>DailySales</code></p>

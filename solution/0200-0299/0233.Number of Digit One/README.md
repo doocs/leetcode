@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
 
+<!-- tags:递归,数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

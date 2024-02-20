@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
 
+<!-- tags:数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

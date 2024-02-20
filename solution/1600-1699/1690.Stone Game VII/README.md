@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1690.Stone%20Game%20VII/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

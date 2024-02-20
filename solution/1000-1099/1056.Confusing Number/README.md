@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1056.Confusing%20Number/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

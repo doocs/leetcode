@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0262.Trips%20and%20Users/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Trips</code></p>

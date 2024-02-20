@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README_EN.md)
 
+<!-- tags:链表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

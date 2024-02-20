@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1650.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20III/README.md)
 
+<!-- tags:Tree,Hash Table,Two Pointers,Binary Tree -->
+
 ## Description
 
 <p>Given two nodes of a&nbsp;binary tree <code>p</code> and <code>q</code>, return <em>their&nbsp;lowest common ancestor (LCA)</em>.</p>

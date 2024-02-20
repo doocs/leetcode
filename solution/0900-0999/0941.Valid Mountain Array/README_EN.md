@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>, return <em><code>true</code> if and only if it is a valid mountain array</em>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1082.Sales%20Analysis%20I/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

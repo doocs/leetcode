@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
 
+<!-- tags:数组,数学,字符串,二分查找,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

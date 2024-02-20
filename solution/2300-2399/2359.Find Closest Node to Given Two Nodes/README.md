@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README_EN.md)
 
+<!-- tags:深度优先搜索,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

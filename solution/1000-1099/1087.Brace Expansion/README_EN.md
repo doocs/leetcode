@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1087.Brace%20Expansion/README.md)
 
+<!-- tags:Breadth-First Search,String,Backtracking -->
+
 ## Description
 
 <p>You are given a string <code>s</code> representing a list of words. Each letter in the word has one or more options.</p>

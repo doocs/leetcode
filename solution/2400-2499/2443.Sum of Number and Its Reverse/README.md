@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md)
 
+<!-- tags:数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

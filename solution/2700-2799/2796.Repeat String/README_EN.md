@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2796.Repeat%20String/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write code that enhances all strings such that you can call the&nbsp;<code>string.replicate(x)</code>&nbsp;method on any string and it will return repeated string <code>x</code> times.</p>

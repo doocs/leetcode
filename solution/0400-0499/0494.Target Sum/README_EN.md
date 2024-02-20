@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0494.Target%20Sum/README.md)
 
+<!-- tags:Array,Dynamic Programming,Backtracking -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>target</code>.</p>

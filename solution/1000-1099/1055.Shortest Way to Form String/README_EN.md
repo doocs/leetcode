@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README.md)
 
+<!-- tags:Greedy,Two Pointers,String -->
+
 ## Description
 
 <p>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;<u>a</u>b<u>c</u>d<u>e</u>&quot;</code> while <code>&quot;aec&quot;</code> is not).</p>

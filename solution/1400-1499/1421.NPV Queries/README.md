@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1421.NPV%20Queries/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

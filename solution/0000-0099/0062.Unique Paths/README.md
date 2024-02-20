@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0062.Unique%20Paths/README_EN.md)
 
+<!-- tags:数学,动态规划,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

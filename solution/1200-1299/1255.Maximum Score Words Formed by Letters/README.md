@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README_EN.md)
 
+<!-- tags:位运算,数组,字符串,动态规划,回溯,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

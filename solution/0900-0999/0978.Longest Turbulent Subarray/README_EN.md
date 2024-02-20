@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README.md)
 
+<!-- tags:Array,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code>, return <em>the length of a maximum size turbulent subarray of</em> <code>arr</code>.</p>

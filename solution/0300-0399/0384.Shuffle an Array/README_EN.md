@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0384.Shuffle%20an%20Array/README.md)
 
+<!-- tags:Array,Math,Randomized -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, design an algorithm to randomly shuffle the array. All permutations of the array should be <strong>equally likely</strong> as a result of the shuffling.</p>

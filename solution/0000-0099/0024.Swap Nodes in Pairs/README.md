@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
 
+<!-- tags:递归,链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

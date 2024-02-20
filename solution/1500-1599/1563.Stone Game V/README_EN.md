@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1563.Stone%20Game%20V/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>There are several stones <strong>arranged in a row</strong>, and each stone has an associated value which is an integer given in the array <code>stoneValue</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2754.Bind%20Function%20to%20Context/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

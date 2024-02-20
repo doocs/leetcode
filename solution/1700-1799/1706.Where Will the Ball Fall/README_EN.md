@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>You have a 2-D <code>grid</code> of size <code>m x n</code> representing a box, and you have <code>n</code> balls. The box is open on the top and bottom sides.</p>

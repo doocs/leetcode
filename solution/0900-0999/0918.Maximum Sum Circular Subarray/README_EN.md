@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README.md)
 
+<!-- tags:Queue,Array,Divide and Conquer,Dynamic Programming,Monotonic Queue -->
+
 ## Description
 
 <p>Given a <strong>circular integer array</strong> <code>nums</code> of length <code>n</code>, return <em>the maximum possible sum of a non-empty <strong>subarray</strong> of </em><code>nums</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
 
+<!-- tags:String,Dynamic Programming,String Matching,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can:</p>

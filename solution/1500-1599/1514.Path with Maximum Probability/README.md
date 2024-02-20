@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/README_EN.md)
 
+<!-- tags:图,数组,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

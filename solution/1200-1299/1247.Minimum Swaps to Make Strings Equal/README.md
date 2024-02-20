@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README_EN.md)
 
+<!-- tags:贪心,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

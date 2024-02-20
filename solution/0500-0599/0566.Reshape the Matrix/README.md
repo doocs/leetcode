@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0566.Reshape%20the%20Matrix/README_EN.md)
 
+<!-- tags:数组,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

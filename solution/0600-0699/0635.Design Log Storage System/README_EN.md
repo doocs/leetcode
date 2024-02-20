@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README.md)
 
+<!-- tags:Design,Hash Table,String,Ordered Set -->
+
 ## Description
 
 <p>You are given several logs, where each log contains a unique ID and timestamp. Timestamp is a string that has the following format: <code>Year:Month:Day:Hour:Minute:Second</code>, for example, <code>2017:01:01:23:59:59</code>. All domains are zero-padded decimal numbers.</p>

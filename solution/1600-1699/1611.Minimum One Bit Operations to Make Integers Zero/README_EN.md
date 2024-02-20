@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README.md)
 
+<!-- tags:Bit Manipulation,Memoization,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, you must transform it into <code>0</code> using the following operations any number of times:</p>

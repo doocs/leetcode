@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README.md)
 
+<!-- tags:Stack,Array,Monotonic Stack -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of <b>distinct </b>integers.</p>

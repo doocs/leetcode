@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>RequestAccepted</code></p>

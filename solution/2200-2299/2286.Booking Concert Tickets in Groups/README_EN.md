@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2286.Booking%20Concert%20Tickets%20in%20Groups/README.md)
 
+<!-- tags:Design,Binary Indexed Tree,Segment Tree,Binary Search -->
+
 ## Description
 
 <p>A concert hall has <code>n</code> rows numbered from <code>0</code> to <code>n - 1</code>, each with <code>m</code> seats, numbered from <code>0</code> to <code>m - 1</code>. You need to design a ticketing system that can allocate seats in the following cases:</p>

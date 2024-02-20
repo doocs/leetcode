@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

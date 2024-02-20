@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1395.Count%20Number%20of%20Teams/README_EN.md)
 
+<!-- tags:树状数组,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

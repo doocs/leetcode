@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2129.Capitalize%20the%20Title/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

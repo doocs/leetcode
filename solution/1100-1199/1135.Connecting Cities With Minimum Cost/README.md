@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README_EN.md)
 
+<!-- tags:并查集,图,最小生成树,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

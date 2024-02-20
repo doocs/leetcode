@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0318.Maximum%20Product%20of%20Word%20Lengths/README.md)
 
+<!-- tags:Bit Manipulation,Array,String -->
+
 ## Description
 
 <p>Given a string array <code>words</code>, return <em>the maximum value of</em> <code>length(word[i]) * length(word[j])</code> <em>where the two words do not share common letters</em>. If no such two words exist, return <code>0</code>.</p>

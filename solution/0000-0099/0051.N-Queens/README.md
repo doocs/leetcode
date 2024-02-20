@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0051.N-Queens/README_EN.md)
 
+<!-- tags:数组,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

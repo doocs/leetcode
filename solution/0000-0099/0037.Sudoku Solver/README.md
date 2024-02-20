@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)
 
+<!-- tags:数组,哈希表,回溯,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

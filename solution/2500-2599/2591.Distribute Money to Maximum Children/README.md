@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md)
 
+<!-- tags:贪心,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>The <strong>beauty</strong> of a string is the difference in frequencies between the most frequent and least frequent characters.</p>

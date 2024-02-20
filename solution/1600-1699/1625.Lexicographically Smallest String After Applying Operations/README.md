@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md)
 
+<!-- tags:广度优先搜索,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

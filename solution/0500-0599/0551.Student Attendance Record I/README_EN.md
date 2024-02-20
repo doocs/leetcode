@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> representing an attendance record for a student where each character signifies whether the student was absent, late, or present on that day. The record only contains the following three characters:</p>

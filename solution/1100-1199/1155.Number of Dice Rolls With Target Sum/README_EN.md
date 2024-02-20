@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>You have <code>n</code> dice, and each dice has <code>k</code> faces numbered from <code>1</code> to <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)
 
+<!-- tags:树,深度优先搜索,动态规划,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

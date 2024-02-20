@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>You are given a binary string <code>binary</code> consisting of only <code>0</code>&#39;s or <code>1</code>&#39;s. You can apply each of the following operations any number of times:</p>

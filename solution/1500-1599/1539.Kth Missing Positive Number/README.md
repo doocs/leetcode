@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2159.Order%20Two%20Columns%20Independently/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Data</code></p>

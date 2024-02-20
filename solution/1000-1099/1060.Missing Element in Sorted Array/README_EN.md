@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> which is sorted in <strong>ascending order</strong> and all of its elements are <strong>unique</strong> and given also an integer <code>k</code>, return the <code>k<sup>th</sup></code> missing number starting from the leftmost number of the array.</p>

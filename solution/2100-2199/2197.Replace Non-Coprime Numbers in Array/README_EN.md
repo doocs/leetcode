@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README.md)
 
+<!-- tags:Stack,Array,Math,Number Theory -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code>. Perform the following steps:</p>

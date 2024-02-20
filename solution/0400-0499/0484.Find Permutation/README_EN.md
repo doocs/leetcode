@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0484.Find%20Permutation/README.md)
 
+<!-- tags:Stack,Greedy,Array,String -->
+
 ## Description
 
 <p>A permutation <code>perm</code> of <code>n</code>&nbsp;integers of all the integers in the range <code>[1, n]</code> can be represented as a string <code>s</code> of length <code>n - 1</code> where:</p>

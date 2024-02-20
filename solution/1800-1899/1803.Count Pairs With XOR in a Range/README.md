@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1803.Count%20Pairs%20With%20XOR%20in%20a%20Range/README_EN.md)
 
+<!-- tags:位运算,字典树,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

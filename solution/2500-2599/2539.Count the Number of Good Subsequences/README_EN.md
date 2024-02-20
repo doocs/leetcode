@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README.md)
 
+<!-- tags:Hash Table,Math,String,Combinatorics,Counting -->
+
 ## Description
 
 <p>A <strong>subsequence</strong> of a string is&nbsp;good if it is not empty and the frequency of each one of its characters is the same.</p>

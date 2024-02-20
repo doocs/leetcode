@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md)
 
+<!-- tags:设计,计数,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

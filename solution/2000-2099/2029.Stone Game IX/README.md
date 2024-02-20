@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md)
 
+<!-- tags:贪心,数组,数学,计数,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

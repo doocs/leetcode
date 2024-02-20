@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

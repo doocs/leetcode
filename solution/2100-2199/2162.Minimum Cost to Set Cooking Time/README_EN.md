@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2162.Minimum%20Cost%20to%20Set%20Cooking%20Time/README.md)
 
+<!-- tags:Math,Enumeration -->
+
 ## Description
 
 <p>A generic microwave supports cooking times for:</p>

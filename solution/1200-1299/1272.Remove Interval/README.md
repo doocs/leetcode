@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1272.Remove%20Interval/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

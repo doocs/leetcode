@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md)
 
+<!-- tags:回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

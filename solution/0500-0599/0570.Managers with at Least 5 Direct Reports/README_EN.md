@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0570.Managers%20with%20at%20Least%205%20Direct%20Reports/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employee</code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2290.Minimum%20Obstacle%20Removal%20to%20Reach%20Corner/README_EN.md)
 
+<!-- tags:广度优先搜索,图,数组,矩阵,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

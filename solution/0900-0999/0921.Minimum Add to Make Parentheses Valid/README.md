@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README_EN.md)
 
+<!-- tags:栈,贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

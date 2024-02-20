@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README.md)
 
+<!-- tags:Linked List,Math,Number Theory -->
+
 ## Description
 
 <p>Given the head of a linked list <code>head</code>, in which each node contains an integer value.</p>

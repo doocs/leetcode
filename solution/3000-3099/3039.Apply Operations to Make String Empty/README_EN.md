@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>You are given a string <code>s</code>.</p>

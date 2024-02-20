@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

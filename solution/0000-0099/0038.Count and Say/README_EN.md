@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0038.Count%20and%20Say/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>The <strong>count-and-say</strong> sequence is a sequence of digit strings defined by the recursive formula:</p>

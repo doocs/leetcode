@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Logins</code></p>

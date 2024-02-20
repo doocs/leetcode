@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

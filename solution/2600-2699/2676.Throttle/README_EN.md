@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2676.Throttle/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function <code>fn</code> and&nbsp;a time in milliseconds <code>t</code>, return&nbsp;a <strong>throttled</strong> version of that function.</p>

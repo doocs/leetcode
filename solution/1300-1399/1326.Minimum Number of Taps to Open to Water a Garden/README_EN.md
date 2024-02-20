@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming -->
+
 ## Description
 
 <p>There is a one-dimensional garden on the x-axis. The garden starts at the point <code>0</code> and ends at the point <code>n</code>. (i.e., the&nbsp;length of the garden is <code>n</code>).</p>

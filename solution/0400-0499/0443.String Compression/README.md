@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0443.String%20Compression/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

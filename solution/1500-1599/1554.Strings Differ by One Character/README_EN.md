@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README.md)
 
+<!-- tags:Hash Table,String,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>Given a list of strings <code>dict</code> where all the strings are of the same length.</p>

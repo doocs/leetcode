@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README.md)
 
+<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
+
 ## Description
 
 <p>A <strong>path</strong> in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence <strong>at most once</strong>. Note that the path does not need to pass through the root.</p>

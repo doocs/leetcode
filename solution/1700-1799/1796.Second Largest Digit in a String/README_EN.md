@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>Given an alphanumeric string <code>s</code>, return <em>the <strong>second largest</strong> numerical digit that appears in </em><code>s</code><em>, or </em><code>-1</code><em> if it does not exist</em>.</p>

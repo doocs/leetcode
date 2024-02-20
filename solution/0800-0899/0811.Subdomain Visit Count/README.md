@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

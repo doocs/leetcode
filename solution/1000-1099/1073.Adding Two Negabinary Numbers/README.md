@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

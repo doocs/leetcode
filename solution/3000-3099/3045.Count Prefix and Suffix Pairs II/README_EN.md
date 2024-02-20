@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>

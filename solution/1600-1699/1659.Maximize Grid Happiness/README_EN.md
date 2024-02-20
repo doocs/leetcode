@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README.md)
 
+<!-- tags:Bit Manipulation,Memoization,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given four integers, <code>m</code>, <code>n</code>, <code>introvertsCount</code>, and <code>extrovertsCount</code>. You have an <code>m x n</code> grid, and there are two types of people: introverts and extroverts. There are <code>introvertsCount</code> introverts and <code>extrovertsCount</code> extroverts.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
 
+<!-- tags:队列,数组,分治,动态规划,单调队列 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

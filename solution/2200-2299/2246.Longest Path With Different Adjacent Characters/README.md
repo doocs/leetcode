@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2246.Longest%20Path%20With%20Different%20Adjacent%20Characters/README_EN.md)
 
+<!-- tags:树,深度优先搜索,图,拓扑排序,数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

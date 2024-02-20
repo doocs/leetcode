@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

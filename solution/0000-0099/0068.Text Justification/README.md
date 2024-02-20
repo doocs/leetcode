@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0068.Text%20Justification/README_EN.md)
 
+<!-- tags:数组,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

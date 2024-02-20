@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2623.Memoize/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function <code>fn</code>, return a&nbsp;<strong>memoized</strong>&nbsp;version of that function.</p>

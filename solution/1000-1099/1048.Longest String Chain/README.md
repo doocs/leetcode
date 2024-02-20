@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1048.Longest%20String%20Chain/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

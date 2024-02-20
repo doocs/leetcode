@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

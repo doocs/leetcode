@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1066.Campus%20Bikes%20II/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>On a campus represented as a 2D grid, there are <code>n</code> workers and <code>m</code> bikes, with <code>n &lt;= m</code>. Each worker and bike is a 2D coordinate on this grid.</p>

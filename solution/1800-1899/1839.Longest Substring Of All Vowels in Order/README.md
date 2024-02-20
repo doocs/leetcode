@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README_EN.md)
 
+<!-- tags:字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

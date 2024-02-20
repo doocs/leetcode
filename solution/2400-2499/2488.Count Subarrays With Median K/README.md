@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2488.Count%20Subarrays%20With%20Median%20K/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

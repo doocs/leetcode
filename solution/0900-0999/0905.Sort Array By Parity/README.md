@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README_EN.md)
 
+<!-- tags:数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

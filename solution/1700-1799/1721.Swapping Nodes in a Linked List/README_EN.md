@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README.md)
 
+<!-- tags:Linked List,Two Pointers -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list, and an integer <code>k</code>.</p>

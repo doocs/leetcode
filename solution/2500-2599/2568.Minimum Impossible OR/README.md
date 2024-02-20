@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md)
 
+<!-- tags:位运算,脑筋急转弯,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

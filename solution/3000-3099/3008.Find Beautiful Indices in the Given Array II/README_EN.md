@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md)
 
+<!-- tags:Two Pointers,String,Binary Search,String Matching,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>, a string <code>a</code>, a string <code>b</code>, and an integer <code>k</code>.</p>

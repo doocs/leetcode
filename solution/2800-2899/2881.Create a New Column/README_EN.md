@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2881.Create%20a%20New%20Column/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

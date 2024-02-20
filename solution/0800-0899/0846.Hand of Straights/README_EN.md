@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0846.Hand%20of%20Straights/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size <code>groupSize</code>, and consists of <code>groupSize</code> consecutive cards.</p>

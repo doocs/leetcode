@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README_EN.md)
 
+<!-- tags:队列,数组,动态规划,滑动窗口,单调队列,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

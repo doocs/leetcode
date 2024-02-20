@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2107.Number%20of%20Unique%20Flavors%20After%20Sharing%20K%20Candies/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

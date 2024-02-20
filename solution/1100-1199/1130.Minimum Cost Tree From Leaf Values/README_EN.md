@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README.md)
 
+<!-- tags:Stack,Greedy,Array,Dynamic Programming,Monotonic Stack -->
+
 ## Description
 
 <p>Given an array <code>arr</code> of positive integers, consider all binary trees such that:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1672.Richest%20Customer%20Wealth/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

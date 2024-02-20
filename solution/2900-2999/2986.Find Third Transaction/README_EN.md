@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Transactions</code></p>

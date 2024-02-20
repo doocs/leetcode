@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2408.Design%20SQL/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

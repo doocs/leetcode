@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README.md)
 
+<!-- tags:Array,Hash Table,String,String Matching -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>sub</code>. You are also given a 2D character array <code>mappings</code> where <code>mappings[i] = [old<sub>i</sub>, new<sub>i</sub>]</code> indicates that you may perform the following operation <strong>any</strong> number of times:</p>

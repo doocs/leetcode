@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1427.Perform%20String%20Shifts/README_EN.md)
 
+<!-- tags:数组,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

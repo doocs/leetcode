@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README_EN.md)
 
+<!-- tags:广度优先搜索,并查集,数组,双指针,矩阵,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1927.Sum%20Game/README_EN.md)
 
+<!-- tags:贪心,数学,字符串,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

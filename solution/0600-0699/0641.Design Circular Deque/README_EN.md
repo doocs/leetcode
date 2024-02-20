@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0641.Design%20Circular%20Deque/README.md)
 
+<!-- tags:Design,Queue,Array,Linked List -->
+
 ## Description
 
 <p>Design your implementation of the circular double-ended queue (deque).</p>

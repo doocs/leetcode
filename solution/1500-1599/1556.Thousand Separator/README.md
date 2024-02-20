@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1556.Thousand%20Separator/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

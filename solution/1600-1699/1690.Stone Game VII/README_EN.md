@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1690.Stone%20Game%20VII/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice starting first</strong>.</p>

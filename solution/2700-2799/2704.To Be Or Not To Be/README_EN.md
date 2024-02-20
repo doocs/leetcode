@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a function&nbsp;<code>expect</code> that helps developers test their code. It should take in any value&nbsp;<code>val</code>&nbsp;and return an object with the following two functions.</p>

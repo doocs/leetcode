@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given a set of <strong>distinct</strong> positive integers <code>nums</code>, return the largest subset <code>answer</code> such that every pair <code>(answer[i], answer[j])</code> of elements in this subset satisfies:</p>

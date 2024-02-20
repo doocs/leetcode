@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1945.Sum%20of%20Digits%20of%20String%20After%20Convert/README_EN.md)
 
+<!-- tags:字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

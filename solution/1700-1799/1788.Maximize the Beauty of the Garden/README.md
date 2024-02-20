@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1788.Maximize%20the%20Beauty%20of%20the%20Garden/README_EN.md)
 
+<!-- tags:贪心,数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

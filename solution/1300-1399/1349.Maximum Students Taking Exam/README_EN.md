@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask,Matrix -->
+
 ## Description
 
 <p>Given a <code>m&nbsp;* n</code>&nbsp;matrix <code>seats</code>&nbsp;&nbsp;that represent seats distributions&nbsp;in a classroom.&nbsp;If a seat&nbsp;is&nbsp;broken, it is denoted by <code>&#39;#&#39;</code> character otherwise it is denoted by a <code>&#39;.&#39;</code> character.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md)
 
+<!-- tags:多线程 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

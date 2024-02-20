@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0569.Median%20Employee%20Salary/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

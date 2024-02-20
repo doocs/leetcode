@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1205.Monthly%20Transactions%20II/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Transactions</code></p>

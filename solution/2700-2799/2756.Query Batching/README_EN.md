@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2756.Query%20Batching/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Batching multiple small queries into a single large query can be a useful optimization. Write a class&nbsp;<code>QueryBatcher</code>&nbsp;that implements this functionality.</p>

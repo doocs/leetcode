@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

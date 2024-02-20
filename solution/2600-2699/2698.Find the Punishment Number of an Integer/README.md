@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README_EN.md)
 
+<!-- tags:数学,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

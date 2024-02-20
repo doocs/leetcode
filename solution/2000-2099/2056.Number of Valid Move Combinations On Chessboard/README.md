@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2056.Number%20of%20Valid%20Move%20Combinations%20On%20Chessboard/README_EN.md)
 
+<!-- tags:数组,字符串,回溯,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

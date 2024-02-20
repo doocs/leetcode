@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0690.Employee%20Importance/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array,Hash Table -->
+
 ## Description
 
 <p>You have a data structure of employee information, including the employee&#39;s unique ID, importance value, and direct subordinates&#39; IDs.</p>

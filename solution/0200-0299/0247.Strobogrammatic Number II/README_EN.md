@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md)
 
+<!-- tags:Recursion,Array,String -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return all the <strong>strobogrammatic numbers</strong> that are of length <code>n</code>. You may return the answer in <strong>any order</strong>.</p>

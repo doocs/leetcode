@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1216.Valid%20Palindrome%20III/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

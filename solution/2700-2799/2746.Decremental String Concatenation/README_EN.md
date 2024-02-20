@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md)
 
+<!-- tags:Array,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> containing <code>n</code> strings.</p>

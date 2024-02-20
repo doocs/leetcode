@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

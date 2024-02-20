@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1501.Countries%20You%20Can%20Safely%20Invest%20In/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table <code>Person</code>:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md)
 
+<!-- tags:贪心,树,数组,动态规划,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

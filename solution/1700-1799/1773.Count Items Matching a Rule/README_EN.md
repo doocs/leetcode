@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given an array <code>items</code>, where each <code>items[i] = [type<sub>i</sub>, color<sub>i</sub>, name<sub>i</sub>]</code> describes the type, color, and name of the <code>i<sup>th</sup></code> item. You are also given a rule represented by two strings, <code>ruleKey</code> and <code>ruleValue</code>.</p>

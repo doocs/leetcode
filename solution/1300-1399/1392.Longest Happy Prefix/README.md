@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1392.Longest%20Happy%20Prefix/README_EN.md)
 
+<!-- tags:字符串,字符串匹配,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

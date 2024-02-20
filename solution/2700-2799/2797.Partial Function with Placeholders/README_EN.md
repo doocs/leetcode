@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function <code>fn</code>&nbsp;and an array <code>args</code>, return a function <code>partialFn</code>.&nbsp;</p>

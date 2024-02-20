@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
 
+<!-- tags:Greedy,Queue,Array,Binary Search,Prefix Sum,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>stations</code> of length <code>n</code>, where <code>stations[i]</code> represents the number of power stations in the <code>i<sup>th</sup></code> city.</p>

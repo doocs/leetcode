@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
 
+<!-- tags:Linked List,Divide and Conquer,Heap (Priority Queue),Merge Sort -->
+
 ## Description
 
 <p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>

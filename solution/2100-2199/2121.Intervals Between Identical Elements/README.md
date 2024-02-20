@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

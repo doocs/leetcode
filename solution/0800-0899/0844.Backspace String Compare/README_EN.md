@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0844.Backspace%20String%20Compare/README.md)
 
+<!-- tags:Stack,Two Pointers,String,Simulation -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> <em>if they are equal when both are typed into empty text editors</em>. <code>&#39;#&#39;</code> means a backspace character.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>A die simulator generates a random number from <code>1</code> to <code>6</code> for each roll. You introduced a constraint to the generator such that it cannot roll the number <code>i</code> more than <code>rollMax[i]</code> (<strong>1-indexed</strong>) consecutive times.</p>

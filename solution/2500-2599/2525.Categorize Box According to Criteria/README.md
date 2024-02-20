@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

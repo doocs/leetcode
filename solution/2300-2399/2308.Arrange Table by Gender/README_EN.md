@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Genders</code></p>

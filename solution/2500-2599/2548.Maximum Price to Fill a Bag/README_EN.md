@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>items</code> where <code>items[i] = [price<sub>i</sub>, weight<sub>i</sub>]</code> denotes the price and weight of the <code>i<sup>th</sup></code> item, respectively.</p>

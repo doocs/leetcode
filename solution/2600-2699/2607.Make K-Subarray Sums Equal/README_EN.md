@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md)
 
+<!-- tags:Array,Math,Number Theory,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>arr</code> and an integer <code>k</code>. The array <code>arr</code> is circular. In other words, the first element of the array is the next element of the last element, and the last element of the array is the previous element of the first element.</p>

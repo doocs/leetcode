@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0278.First%20Bad%20Version/README_EN.md)
 
+<!-- tags:二分查找,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

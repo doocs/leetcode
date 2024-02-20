@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0478.Generate%20Random%20Point%20in%20a%20Circle/README_EN.md)
 
+<!-- tags:几何,数学,拒绝采样,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

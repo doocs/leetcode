@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md)
 
+<!-- tags:数组,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

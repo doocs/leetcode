@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README_EN.md)
 
+<!-- tags:队列,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README.md)
 
+<!-- tags:Bit Manipulation,Tree,Depth-First Search,Array -->
+
 ## Description
 
 <p>There is an undirected connected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>

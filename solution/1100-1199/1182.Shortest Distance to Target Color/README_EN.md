@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README.md)
 
+<!-- tags:Array,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array <code>colors</code>, in which there are three colors: <code>1</code>, <code>2</code> and&nbsp;<code>3</code>.</p>

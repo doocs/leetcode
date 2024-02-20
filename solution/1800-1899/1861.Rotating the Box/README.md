@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1861.Rotating%20the%20Box/README_EN.md)
 
+<!-- tags:数组,双指针,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

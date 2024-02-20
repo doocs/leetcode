@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)
 
+<!-- tags:队列,动态规划,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

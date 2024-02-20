@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, return a new&nbsp;array <code>joinedArray</code>. All the objects in each&nbsp;of the two inputs arrays will contain an&nbsp;<code>id</code>&nbsp;field that has an integer value.&nbsp;<code>joinedArray</code>&nbsp;is an array formed by merging&nbsp;<code>arr1</code> and <code>arr2</code> based on&nbsp;their <code>id</code>&nbsp;key. The length of&nbsp;<code>joinedArray</code> should be the length of unique values of <code>id</code>. The returned array should be sorted in&nbsp;<strong>ascending</strong>&nbsp;order based on the <code>id</code>&nbsp;key.</p>

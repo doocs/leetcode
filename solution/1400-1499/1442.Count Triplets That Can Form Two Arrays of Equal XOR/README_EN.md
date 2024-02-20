@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,Math,Prefix Sum -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>.</p>

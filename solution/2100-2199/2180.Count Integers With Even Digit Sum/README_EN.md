@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2180.Count%20Integers%20With%20Even%20Digit%20Sum/README.md)
 
+<!-- tags:Math,Simulation -->
+
 ## Description
 
 <p>Given a positive integer <code>num</code>, return <em>the number of positive integers <strong>less than or equal to</strong></em> <code>num</code> <em>whose digit sums are <strong>even</strong></em>.</p>

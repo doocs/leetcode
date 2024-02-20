@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1541.Minimum%20Insertions%20to%20Balance%20a%20Parentheses%20String/README_EN.md)
 
+<!-- tags:栈,贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

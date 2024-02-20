@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README.md)
 
+<!-- tags:Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> grid <code>grid</code> of values <code>0</code>, <code>1</code>, or <code>2</code>, where:</p>

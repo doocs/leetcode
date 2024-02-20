@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

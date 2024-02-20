@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1317.Convert%20Integer%20to%20the%20Sum%20of%20Two%20No-Zero%20Integers/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p><strong>No-Zero integer</strong> is a positive integer that <strong>does not contain any <code>0</code></strong> in its decimal representation.</p>

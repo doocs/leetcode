@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function <code>fn</code>, an array of&nbsp;arguments&nbsp;<code>args</code>, and a timeout&nbsp;<code>t</code>&nbsp;in milliseconds, return a cancel function <code>cancelFn</code>.</p>

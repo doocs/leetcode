@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1677.Product%27s%20Worth%20Over%20Invoices/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Product</code></p>

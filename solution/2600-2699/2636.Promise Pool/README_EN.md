@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2636.Promise%20Pool/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an array&nbsp;of asynchronous functions&nbsp;<code>functions</code>&nbsp;and a <strong>pool limit</strong>&nbsp;<code>n</code>, return an asynchronous function&nbsp;<code>promisePool</code>. It should return&nbsp;a promise that resolves when all the input&nbsp;functions resolve.</p>

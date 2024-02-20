@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2189.Number%20of%20Ways%20to%20Build%20House%20of%20Cards/README_EN.md)
 
+<!-- tags:数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README_EN.md)
 
+<!-- tags:数组,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

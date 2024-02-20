@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README.md)
 
+<!-- tags:Hash Table,String,Sliding Window -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return the maximum number of occurrences of <strong>any</strong> substring under the following rules:</p>

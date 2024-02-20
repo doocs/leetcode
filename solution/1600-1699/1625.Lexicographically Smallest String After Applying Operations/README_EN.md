@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README.md)
 
+<!-- tags:Breadth-First Search,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of <strong>even length</strong> consisting of digits from <code>0</code> to <code>9</code>, and two integers <code>a</code> and <code>b</code>.</p>

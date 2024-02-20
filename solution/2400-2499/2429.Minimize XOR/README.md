@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)
 
+<!-- tags:贪心,位运算 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

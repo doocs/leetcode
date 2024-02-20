@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> matrix of <strong>distinct </strong>numbers, return <em>all <strong>lucky numbers</strong> in the matrix in <strong>any </strong>order</em>.</p>

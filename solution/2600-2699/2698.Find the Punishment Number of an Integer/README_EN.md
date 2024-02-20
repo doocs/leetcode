@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)
 
+<!-- tags:Math,Backtracking -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, return <em>the <strong>punishment number</strong></em> of <code>n</code>.</p>

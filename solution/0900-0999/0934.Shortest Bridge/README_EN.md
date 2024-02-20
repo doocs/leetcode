@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0934.Shortest%20Bridge/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> binary matrix <code>grid</code> where <code>1</code> represents land and <code>0</code> represents water.</p>

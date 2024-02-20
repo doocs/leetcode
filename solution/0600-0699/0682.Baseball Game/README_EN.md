@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0682.Baseball%20Game/README.md)
 
+<!-- tags:Stack,Array,Simulation -->
+
 ## Description
 
 <p>You are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0753.Cracking%20the%20Safe/README_EN.md)
 
+<!-- tags:深度优先搜索,图,欧拉回路 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

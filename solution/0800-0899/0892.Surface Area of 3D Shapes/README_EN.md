@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)
 
+<!-- tags:Geometry,Array,Math,Matrix -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> <code>grid</code> where you have placed some <code>1 x 1 x 1</code> cubes. Each value <code>v = grid[i][j]</code> represents a tower of <code>v</code> cubes placed on top of cell <code>(i, j)</code>.</p>

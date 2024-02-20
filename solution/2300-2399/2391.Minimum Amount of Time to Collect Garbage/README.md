@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2391.Minimum%20Amount%20of%20Time%20to%20Collect%20Garbage/README_EN.md)
 
+<!-- tags:数组,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

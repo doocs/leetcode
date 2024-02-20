@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting,Sliding Window -->
+
 ## Description
 
 <p>The <strong>frequency</strong> of an element is the number of times it occurs in an array.</p>

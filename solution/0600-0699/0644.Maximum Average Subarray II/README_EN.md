@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README.md)
 
+<!-- tags:Array,Binary Search,Prefix Sum -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.</p>

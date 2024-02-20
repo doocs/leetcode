@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md)
 
+<!-- tags:位运算,树,深度优先搜索,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

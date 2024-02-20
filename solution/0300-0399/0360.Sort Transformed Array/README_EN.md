@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0360.Sort%20Transformed%20Array/README.md)
 
+<!-- tags:Array,Math,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given a <strong>sorted</strong> integer array <code>nums</code> and three integers <code>a</code>, <code>b</code> and <code>c</code>, apply a quadratic function of the form <code>f(x) = ax<sup>2</sup> + bx + c</code> to each element <code>nums[i]</code> in the array, and return <em>the array in a sorted order</em>.</p>

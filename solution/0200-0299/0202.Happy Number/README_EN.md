@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0202.Happy%20Number/README.md)
 
+<!-- tags:Hash Table,Math,Two Pointers -->
+
 ## Description
 
 <p>Write an algorithm to determine if a number <code>n</code> is happy.</p>

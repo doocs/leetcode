@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2235.Add%20Two%20Integers/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

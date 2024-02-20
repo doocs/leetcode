@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0324.Wiggle%20Sort%20II/README_EN.md)
 
+<!-- tags:数组,分治,快速选择,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

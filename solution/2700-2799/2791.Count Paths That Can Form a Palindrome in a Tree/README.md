@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README_EN.md)
 
+<!-- tags:位运算,树,深度优先搜索,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

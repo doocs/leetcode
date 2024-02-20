@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Flights</code></p>

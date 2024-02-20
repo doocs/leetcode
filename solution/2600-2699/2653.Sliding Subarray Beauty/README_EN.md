@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md)
 
+<!-- tags:Array,Hash Table,Sliding Window -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> containing <code>n</code> integers, find the <strong>beauty</strong> of each subarray of size <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0422.Valid%20Word%20Square/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

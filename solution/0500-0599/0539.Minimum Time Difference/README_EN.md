@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0539.Minimum%20Time%20Difference/README.md)
 
+<!-- tags:Array,Math,String,Sorting -->
+
 ## Description
 
 Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> format, return <em>the minimum <b>minutes</b> difference between any two time-points in the list</em>.

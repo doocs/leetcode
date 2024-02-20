@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1385.Find%20the%20Distance%20Value%20Between%20Two%20Arrays/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>Given two integer arrays <code>arr1</code> and <code>arr2</code>, and the integer <code>d</code>, <em>return the distance value between the two arrays</em>.</p>

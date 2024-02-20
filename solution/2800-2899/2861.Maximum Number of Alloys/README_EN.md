@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are the owner of a company that creates alloys using various types of metals. There are <code>n</code> different types of metals available, and you have access to <code>k</code> machines that can be used to create alloys. Each machine requires a specific amount of each metal type to create an alloy.</p>

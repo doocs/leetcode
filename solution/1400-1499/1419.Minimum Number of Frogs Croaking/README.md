@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README_EN.md)
 
+<!-- tags:字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

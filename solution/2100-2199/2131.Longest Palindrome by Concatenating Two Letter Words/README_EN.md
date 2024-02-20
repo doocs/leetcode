@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2131.Longest%20Palindrome%20by%20Concatenating%20Two%20Letter%20Words/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are given an array of strings <code>words</code>. Each element of <code>words</code> consists of <strong>two</strong> lowercase English letters.</p>

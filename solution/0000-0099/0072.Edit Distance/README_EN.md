@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0072.Edit%20Distance/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of operations required to convert <code>word1</code> to <code>word2</code></em>.</p>

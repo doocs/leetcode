@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README_EN.md)
 
+<!-- tags:数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

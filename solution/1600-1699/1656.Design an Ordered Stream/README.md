@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,数据流 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

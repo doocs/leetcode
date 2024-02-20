@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an object or an array&nbsp;<code>obj</code> and a function <code>fn</code>, return a filtered object or array&nbsp;<code>filteredObject</code>.&nbsp;</p>

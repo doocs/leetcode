@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2822.Inversion%20of%20Object/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an object or an array&nbsp;<code>obj</code>, return an inverted object or array&nbsp;<code>invertedObj</code>.</p>

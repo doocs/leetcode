@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1811.Find%20Interview%20Candidates/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Contests</code></p>

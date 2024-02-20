@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README.md)
 
+<!-- tags:Reservoir Sampling,Linked List,Math,Randomized -->
+
 ## Description
 
 <p>Given a singly linked list, return a random node&#39;s value from the linked list. Each node must have the <strong>same probability</strong> of being chosen.</p>

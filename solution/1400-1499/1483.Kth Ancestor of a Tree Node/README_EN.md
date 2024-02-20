@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Design,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a tree with <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> in the form of a parent array <code>parent</code> where <code>parent[i]</code> is the parent of <code>i<sup>th</sup></code> node. The root of the tree is node <code>0</code>. Find the <code>k<sup>th</sup></code> ancestor of a given node.</p>

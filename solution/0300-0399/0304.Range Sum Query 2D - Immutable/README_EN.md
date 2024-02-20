@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README.md)
 
+<!-- tags:Design,Array,Matrix,Prefix Sum -->
+
 ## Description
 
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following type:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README_EN.md)
 
+<!-- tags:数组,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

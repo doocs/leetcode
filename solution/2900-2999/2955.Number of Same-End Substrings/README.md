@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,计数,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

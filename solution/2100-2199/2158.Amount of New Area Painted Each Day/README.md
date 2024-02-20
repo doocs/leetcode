@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2158.Amount%20of%20New%20Area%20Painted%20Each%20Day/README_EN.md)
 
+<!-- tags:线段树,数组,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

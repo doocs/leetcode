@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0324.Wiggle%20Sort%20II/README.md)
 
+<!-- tags:Array,Divide and Conquer,Quickselect,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, reorder it such that <code>nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]...</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given a string array <code>words</code> and a string <code>s</code>, where <code>words[i]</code> and <code>s</code> comprise only of <strong>lowercase English letters</strong>.</p>

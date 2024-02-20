@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1276.Number%20of%20Burgers%20with%20No%20Waste%20of%20Ingredients/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given two integers <code>tomatoSlices</code> and <code>cheeseSlices</code>. The ingredients of different burgers are as follows:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2284.Sender%20With%20Largest%20Word%20Count/README.md)
 
+<!-- tags:Array,Hash Table,String,Counting -->
+
 ## Description
 
 <p>You have a chat log of <code>n</code> messages. You are given two string arrays <code>messages</code> and <code>senders</code> where <code>messages[i]</code> is a <strong>message</strong> sent by <code>senders[i]</code>.</p>

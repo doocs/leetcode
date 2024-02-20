@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2207.Maximize%20Number%20of%20Subsequences%20in%20a%20String/README_EN.md)
 
+<!-- tags:贪心,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

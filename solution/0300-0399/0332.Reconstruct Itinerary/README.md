@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0332.Reconstruct%20Itinerary/README_EN.md)
 
+<!-- tags:深度优先搜索,图,欧拉回路 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

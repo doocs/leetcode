@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1585.Check%20If%20String%20Is%20Transformable%20With%20Substring%20Sort%20Operations/README_EN.md)
 
+<!-- tags:贪心,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

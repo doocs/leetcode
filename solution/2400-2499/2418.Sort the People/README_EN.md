@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2418.Sort%20the%20People/README.md)
 
+<!-- tags:Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>You are given an array of strings <code>names</code>, and an array <code>heights</code> that consists of <strong>distinct</strong> positive integers. Both arrays are of length <code>n</code>.</p>

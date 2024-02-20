@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md)
 
+<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>

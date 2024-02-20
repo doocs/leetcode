@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README_EN.md)
 
+<!-- tags:栈,树,二叉搜索树,递归,数组,二叉树,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

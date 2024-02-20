@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md)
 
+<!-- tags:Graph,Design,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There is a <strong>directed weighted</strong> graph that consists of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>. The edges of the graph are initially represented by the given array <code>edges</code> where <code>edges[i] = [from<sub>i</sub>, to<sub>i</sub>, edgeCost<sub>i</sub>]</code> meaning that there is an edge from <code>from<sub>i</sub></code> to <code>to<sub>i</sub></code> with the cost <code>edgeCost<sub>i</sub></code>.</p>

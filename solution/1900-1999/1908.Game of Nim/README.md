@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1908.Game%20of%20Nim/README_EN.md)
 
+<!-- tags:位运算,脑筋急转弯,数组,数学,动态规划,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

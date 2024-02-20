@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1734.Decode%20XORed%20Permutation/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>There is an integer array <code>perm</code> that is a permutation of the first <code>n</code> positive integers, where <code>n</code> is always <strong>odd</strong>.</p>

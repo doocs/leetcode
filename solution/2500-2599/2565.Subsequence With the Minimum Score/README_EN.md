@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md)
 
+<!-- tags:Two Pointers,String,Binary Search -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>

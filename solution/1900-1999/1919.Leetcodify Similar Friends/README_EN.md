@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1919.Leetcodify%20Similar%20Friends/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Listens</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Rides</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a binary string <code>binary</code>. A <strong>subsequence</strong> of <code>binary</code> is considered <strong>good</strong> if it is <strong>not empty</strong> and has <strong>no leading zeros</strong> (with the exception of <code>&quot;0&quot;</code>).</p>

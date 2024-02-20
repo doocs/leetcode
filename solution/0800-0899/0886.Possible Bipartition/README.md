@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0886.Possible%20Bipartition/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

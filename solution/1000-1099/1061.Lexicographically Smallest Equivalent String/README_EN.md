@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1061.Lexicographically%20Smallest%20Equivalent%20String/README.md)
 
+<!-- tags:Union Find,String -->
+
 ## Description
 
 <p>You are given two strings of the same length <code>s1</code> and <code>s2</code> and a string <code>baseStr</code>.</p>

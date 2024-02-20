@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README.md)
 
+<!-- tags:Stack,Design,Array -->
+
 ## Description
 
 <p>Design a stack that supports increment operations on its elements.</p>

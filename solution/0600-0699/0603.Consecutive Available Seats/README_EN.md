@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Cinema</code></p>

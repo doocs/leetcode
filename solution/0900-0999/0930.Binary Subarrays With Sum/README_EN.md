@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum,Sliding Window -->
+
 ## Description
 
 <p>Given a binary array <code>nums</code> and an integer <code>goal</code>, return <em>the number of non-empty <strong>subarrays</strong> with a sum</em> <code>goal</code>.</p>

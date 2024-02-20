@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README_EN.md)
 
+<!-- tags:位运算,线段树,数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

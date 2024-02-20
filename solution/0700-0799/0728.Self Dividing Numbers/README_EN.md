@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>A <strong>self-dividing number</strong> is a number that is divisible by every digit it contains.</p>

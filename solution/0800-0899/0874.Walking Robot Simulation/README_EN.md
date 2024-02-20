@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0874.Walking%20Robot%20Simulation/README.md)
 
+<!-- tags:Array,Hash Table,Simulation -->
+
 ## Description
 
 <p>A robot on an infinite XY-plane starts at point <code>(0, 0)</code> facing north. The robot can receive a sequence of these three possible types of <code>commands</code>:</p>

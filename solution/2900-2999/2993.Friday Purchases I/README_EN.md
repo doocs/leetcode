@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Purchases</code></p>

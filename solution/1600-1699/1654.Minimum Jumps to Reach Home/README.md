@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

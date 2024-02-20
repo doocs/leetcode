@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of integers, return <em>the length of the longest arithmetic subsequence in</em> <code>nums</code>.</p>

@@ -1,6 +1,8 @@
-# [3024. 三角形类型 II](https://leetcode.cn/problems/type-of-triangle-ii)
+# [3024. 三角形类型](https://leetcode.cn/problems/type-of-triangle)
 
-[English Version](/solution/3000-3099/3024.Type%20of%20Triangle%20II/README_EN.md)
+[English Version](/solution/3000-3099/3024.Type%20of%20Triangle/README_EN.md)
+
+<!-- tags:数组,数学,排序 -->
 
 ## 题目描述
 
@@ -32,14 +34,11 @@
 <b>输入：</b>nums = [3,4,5]
 <b>输出：</b>"scalene"
 <b>解释：</b>
-nums[0] + nums[1] = 3 + 4 = 7 ，大于 nums[2] = 5<code>&nbsp;。</code>
+nums[0] + nums[1] = 3 + 4 = 7 ，大于 nums[2] = 5 <span style="text-wrap: wrap;">。</span>
 nums[0] + nums[2] = 3 + 5 = 8 ，大于 nums[1] = 4 。
 nums[1] + nums[2] = 4 + 5 = 9 ，大于 nums[0] = 3 。
-由于任意两边纸盒都大于第三边，所以可以构成一个三角形。
-因为三条边的长度互不相等，所以返回 "scalene" 。
+由于任意两边之和都大于第三边，所以可以构成一个三角形，因为三条边的长度互不相等，所以返回 "scalene"。
 </pre>
-
-<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 

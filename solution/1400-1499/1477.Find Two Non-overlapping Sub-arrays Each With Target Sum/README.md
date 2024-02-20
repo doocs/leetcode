@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,动态规划,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

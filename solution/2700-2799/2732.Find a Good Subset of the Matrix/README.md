@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md)
 
+<!-- tags:贪心,位运算,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

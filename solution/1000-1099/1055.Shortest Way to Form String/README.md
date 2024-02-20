@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README_EN.md)
 
+<!-- tags:贪心,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

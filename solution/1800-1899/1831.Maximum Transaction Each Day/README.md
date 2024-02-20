@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0970.Powerful%20Integers/README_EN.md)
 
+<!-- tags:哈希表,数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

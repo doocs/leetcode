@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README_EN.md)
 
+<!-- tags:树,分治 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

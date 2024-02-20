@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/README.md)
 
+<!-- tags:Tree,Math,Dynamic Programming,Binary Tree,Game Theory -->
+
 ## Description
 
 <p>A <strong>Fibonacci</strong> tree is a binary tree created using the order function <code>order(n)</code>:</p>

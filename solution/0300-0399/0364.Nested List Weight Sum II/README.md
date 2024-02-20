@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README_EN.md)
 
+<!-- tags:栈,深度优先搜索,广度优先搜索 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

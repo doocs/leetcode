@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2160.Minimum%20Sum%20of%20Four%20Digit%20Number%20After%20Splitting%20Digits/README_EN.md)
 
+<!-- tags:贪心,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

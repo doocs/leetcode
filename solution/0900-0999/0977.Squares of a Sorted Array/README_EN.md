@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> sorted in <strong>non-decreasing</strong> order, return <em>an array of <strong>the squares of each number</strong> sorted in non-decreasing order</em>.</p>

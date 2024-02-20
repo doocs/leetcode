@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2345.Finding%20the%20Number%20of%20Visible%20Mountains/README_EN.md)
 
+<!-- tags:栈,数组,排序,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

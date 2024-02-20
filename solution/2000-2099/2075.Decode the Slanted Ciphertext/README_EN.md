@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md)
 
+<!-- tags:String,Simulation -->
+
 ## Description
 
 <p>A string <code>originalText</code> is encoded using a <strong>slanted transposition cipher</strong> to a string <code>encodedText</code> with the help of a matrix having a <strong>fixed number of rows</strong> <code>rows</code>.</p>

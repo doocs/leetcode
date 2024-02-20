@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README.md)
 
+<!-- tags:Array,Math,Two Pointers,Sorting -->
+
 ## Description
 
 <p>There are some stones in different positions on the X-axis. You are given an integer array <code>stones</code>, the positions of the stones.</p>

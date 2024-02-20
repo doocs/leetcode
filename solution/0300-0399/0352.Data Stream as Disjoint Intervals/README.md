@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md)
 
+<!-- tags:设计,二分查找,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

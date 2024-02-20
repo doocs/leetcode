@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md)
 
+<!-- tags:String,Sorting -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> string <code>s</code>, <strong>permute</strong> <code>s</code> to get a new string <code>t</code> such that:</p>

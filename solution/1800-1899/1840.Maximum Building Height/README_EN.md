@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1840.Maximum%20Building%20Height/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You want to build <code>n</code> new buildings in a city. The new buildings will be built in a line and are labeled from <code>1</code> to <code>n</code>.</p>

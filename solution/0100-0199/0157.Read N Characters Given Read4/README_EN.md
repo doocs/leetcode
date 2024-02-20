@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md)
 
+<!-- tags:Array,Interactive,Simulation -->
+
 ## Description
 
 <p>Given a <code>file</code> and assume that you can only read the file using a given method <code>read4</code>, implement a method to read <code>n</code> characters.</p>

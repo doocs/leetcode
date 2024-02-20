@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2151.Maximum%20Good%20People%20Based%20on%20Statements/README.md)
 
+<!-- tags:Bit Manipulation,Array,Backtracking,Enumeration -->
+
 ## Description
 
 <p>There are two types of persons:</p>

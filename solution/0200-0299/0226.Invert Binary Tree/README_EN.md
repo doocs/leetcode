@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0226.Invert%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, invert the tree, and return <em>its root</em>.</p>

@@ -159,6 +159,7 @@ def generate_question_readme(result):
                     item["title_cn"],
                     item["url_cn"],
                     item["relative_path_en"],
+                    ','.join(item['tags_cn']),
                     item["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
                 )
             )
@@ -171,6 +172,7 @@ def generate_question_readme(result):
                     item["title_en"],
                     item["url_en"],
                     item["relative_path_cn"],
+                    ','.join(item['tags_en']),
                     item["content_en"],
                 )
             )
@@ -179,7 +181,9 @@ def generate_question_readme(result):
 def generate_category_summary(result, category=""):
     """generate category summary files"""
     summary_cn = (
-        "- " + category_dict.get(category, category) + "专项练习\n\n" if category else ""
+        "- " + category_dict.get(category, category) + "专项练习\n\n"
+        if category
+        else ""
     )
     summary_en = "- " + category + " Practice\n\n" if category else ""
     category = category.lower() if category else ""
@@ -260,6 +264,8 @@ def refresh(result):
         print(front_question_id)
         title = question["title_cn"]
         title_en = question["title_en"]
+        tags = ",".join(question["tags_cn"])
+        tags_en = ",".join(question["tags_en"])
 
         path_cn = unquote(str(question["relative_path_cn"]).replace("/solution", "."))
         path_en = unquote(str(question["relative_path_en"]).replace("/solution", "."))
@@ -277,8 +283,34 @@ def refresh(result):
         j = en_content.index("]")
         en_content = en_content.replace(en_content[i + 2 : j], title_en)
 
+        # update tags
+        match = re.search(r'<!-- tags:(.*?) -->', cn_content)
+        if match:
+            # If tags exist, update them
+            cn_content = re.sub(
+                r'<!-- tags:(.*?) -->', f'<!-- tags:{tags} -->', cn_content
+            )
+        else:
+            # If tags do not exist, insert them before "题目描述"
+            cn_content = cn_content.replace(
+                "## 题目描述", f'<!-- tags:{tags} -->\n\n## 题目描述'
+            )
+        match = re.search(r'<!-- tags:(.*?) -->', en_content)
+        if match:
+            # If tags exist, update them
+            en_content = re.sub(
+                r'<!-- tags:(.*?) -->', f'<!-- tags:{tags_en} -->', en_content
+            )
+        else:
+            # If tags do not exist, insert them before "Description"
+            en_content = en_content.replace(
+                "## Description", f'<!-- tags:{tags_en} -->\n\n## Description'
+            )
+
         # update question content
-        old_content = re.search("<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S).group(1)
+        old_content = re.search(
+            "<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S
+        ).group(1)
         if question.get("content_cn"):
             cn_content = cn_content.replace(
                 old_content, "\n\n" + question["content_cn"] + "\n\n"

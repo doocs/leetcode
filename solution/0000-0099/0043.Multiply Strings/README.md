@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0043.Multiply%20Strings/README_EN.md)
 
+<!-- tags:数学,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

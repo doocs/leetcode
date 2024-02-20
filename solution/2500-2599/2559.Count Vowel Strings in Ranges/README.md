@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)
 
+<!-- tags:数组,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

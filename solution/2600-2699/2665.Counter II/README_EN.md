@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2665.Counter%20II/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a function&nbsp;<code>createCounter</code>. It should accept an initial integer&nbsp;<code>init</code>. It should return an object with three functions.</p>

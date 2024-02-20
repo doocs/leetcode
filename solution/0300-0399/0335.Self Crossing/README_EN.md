@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0335.Self%20Crossing/README.md)
 
+<!-- tags:Geometry,Array,Math -->
+
 ## Description
 
 <p>You are given an array of integers <code>distance</code>.</p>

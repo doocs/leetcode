@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0049.Group%20Anagrams/README.md)
 
+<!-- tags:Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>Given an array of strings <code>strs</code>, group <strong>the anagrams</strong> together. You can return the answer in <strong>any order</strong>.</p>

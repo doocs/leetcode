@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

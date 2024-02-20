@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0400.Nth%20Digit/README_EN.md)
 
+<!-- tags:数学,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

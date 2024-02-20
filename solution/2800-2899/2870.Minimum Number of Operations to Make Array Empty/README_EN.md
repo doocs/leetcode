@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of positive integers.</p>

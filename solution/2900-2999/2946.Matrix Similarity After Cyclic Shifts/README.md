@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README_EN.md)
 
+<!-- tags:数组,数学,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README.md)
 
+<!-- tags:Bit Manipulation,Array,Counting,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code>. Sort the integers in the array&nbsp;in ascending order by the number of <code>1</code>&#39;s&nbsp;in their binary representation and in case of two or more integers have the same number of <code>1</code>&#39;s you have to sort them in ascending order.</p>

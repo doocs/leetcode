@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README_EN.md)
 
+<!-- tags:数组,哈希表,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

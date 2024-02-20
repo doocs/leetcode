@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README.md)
 
+<!-- tags:String,Counting,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters, and an integer <code>count</code>. A <strong>substring</strong> of <code>s</code> is said to be an <strong>equal count substring</strong> if, for each <strong>unique</strong> letter in the substring, it appears exactly <code>count</code> times in the substring.</p>

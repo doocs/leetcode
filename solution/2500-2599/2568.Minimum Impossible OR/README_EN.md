@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md)
 
+<!-- tags:Bit Manipulation,Brainteaser,Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong>&nbsp;integer array <code>nums</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming -->
+
 ## Description
 
 <p>There is a <strong>3 lane road</strong> of length <code>n</code> that consists of <code>n + 1</code> <strong>points</strong> labeled from <code>0</code> to <code>n</code>. A frog <strong>starts</strong> at point <code>0</code> in the <strong>second </strong>lane<strong> </strong>and wants to jump to point <code>n</code>. However, there could be obstacles along the way.</p>

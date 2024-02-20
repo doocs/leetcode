@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md)
 
+<!-- tags:设计,树状数组,线段树,数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

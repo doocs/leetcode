@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, find a <span data-keyword="subarray-nonempty">subarray</span> that has the largest product, and return <em>the product</em>.</p>

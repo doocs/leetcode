@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md)
 
+<!-- tags:递归,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

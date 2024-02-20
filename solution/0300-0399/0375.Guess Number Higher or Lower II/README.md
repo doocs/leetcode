@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README_EN.md)
 
+<!-- tags:数学,动态规划,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README.md)
 
+<!-- tags:Array,Enumeration,Matrix -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>8 x 8</code> grid <code>board</code>, where <code>board[r][c]</code> represents the cell <code>(r, c)</code> on a game board. On the board, free cells are represented by <code>&#39;.&#39;</code>, white cells are represented by <code>&#39;W&#39;</code>, and black cells are represented by <code>&#39;B&#39;</code>.</p>

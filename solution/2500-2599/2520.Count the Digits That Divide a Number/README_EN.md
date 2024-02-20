@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2520.Count%20the%20Digits%20That%20Divide%20a%20Number/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>the number of digits in <code>num</code> that divide </em><code>num</code>.</p>

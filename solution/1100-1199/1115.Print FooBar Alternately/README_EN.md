@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README.md)
 
+<!-- tags:Concurrency -->
+
 ## Description
 
 <p>Suppose you are given the following code:</p>

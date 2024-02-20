@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README.md)
 
+<!-- tags:Breadth-First Search,Graph,Prefix Sum -->
+
 ## Description
 
 <p>You are given three <strong>positive</strong> integers <code>n</code>, <code>x</code>, and <code>y</code>.</p>

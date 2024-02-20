@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
 
+<!-- tags:Stack,Array,Dynamic Programming,Monotonic Stack -->
+
 ## Description
 
 <p>Given an array of integers arr, find the sum of <code>min(b)</code>, where <code>b</code> ranges over every (contiguous) subarray of <code>arr</code>. Since the answer may be large, return the answer <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>

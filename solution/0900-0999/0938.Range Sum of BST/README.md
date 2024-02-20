@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0938.Range%20Sum%20of%20BST/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

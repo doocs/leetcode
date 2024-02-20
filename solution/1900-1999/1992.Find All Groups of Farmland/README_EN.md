@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> binary matrix <code>land</code> where a <code>0</code> represents a hectare of forested land and a <code>1</code> represents a hectare of farmland.</p>

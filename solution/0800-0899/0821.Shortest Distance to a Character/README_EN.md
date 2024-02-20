@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README.md)
 
+<!-- tags:Array,Two Pointers,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> and a character <code>c</code> that occurs in <code>s</code>, return <em>an array of integers </em><code>answer</code><em> where </em><code>answer.length == s.length</code><em> and </em><code>answer[i]</code><em> is the <strong>distance</strong> from index </em><code>i</code><em> to the <strong>closest</strong> occurrence of character </em><code>c</code><em> in </em><code>s</code>.</p>

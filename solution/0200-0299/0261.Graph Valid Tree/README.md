@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0261.Graph%20Valid%20Tree/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README.md)
 
+<!-- tags:Math,Number Theory -->
+
 ## Description
 
 Given a <strong>positive</strong> integer <code>n</code>, return <em>the smallest positive integer that is a multiple of <strong>both</strong> </em><code>2</code><em> and </em><code>n</code>.

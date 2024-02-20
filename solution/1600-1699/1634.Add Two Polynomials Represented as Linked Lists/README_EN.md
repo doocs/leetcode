@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/README.md)
 
+<!-- tags:Linked List,Math,Two Pointers -->
+
 ## Description
 
 <p>A polynomial linked list is a special type of linked list where every node represents a term in a polynomial expression.</p>

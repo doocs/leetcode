@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md)
 
+<!-- tags:栈,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

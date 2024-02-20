@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1429.First%20Unique%20Number/README.md)
 
+<!-- tags:Design,Queue,Array,Hash Table,Data Stream -->
+
 ## Description
 
 <p>You have a queue of integers, you need to retrieve the first unique integer in the queue.</p>

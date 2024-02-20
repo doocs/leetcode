@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md)
 
+<!-- tags:线段树,数组,有序集合,扫描线 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

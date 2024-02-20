@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

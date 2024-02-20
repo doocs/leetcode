@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README_EN.md)
 
+<!-- tags:贪心,数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

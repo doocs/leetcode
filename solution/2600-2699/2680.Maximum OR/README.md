@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)
 
+<!-- tags:贪心,位运算,数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

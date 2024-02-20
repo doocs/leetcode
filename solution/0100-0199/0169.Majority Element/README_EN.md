@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0169.Majority%20Element/README.md)
 
+<!-- tags:Array,Hash Table,Divide and Conquer,Counting,Sorting -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of size <code>n</code>, return <em>the majority element</em>.</p>

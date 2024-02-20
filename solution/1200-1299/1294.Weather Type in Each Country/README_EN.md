@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Countries</code></p>

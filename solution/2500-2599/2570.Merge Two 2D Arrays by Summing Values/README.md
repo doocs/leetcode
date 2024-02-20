@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

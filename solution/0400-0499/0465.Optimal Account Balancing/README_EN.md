@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>You are given an array of transactions <code>transactions</code> where <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> indicates that the person with <code>ID = from<sub>i</sub></code> gave <code>amount<sub>i</sub> $</code> to the person with <code>ID = to<sub>i</sub></code>.</p>

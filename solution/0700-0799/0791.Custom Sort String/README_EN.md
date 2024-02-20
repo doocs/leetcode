@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0791.Custom%20Sort%20String/README.md)
 
+<!-- tags:Hash Table,String,Sorting -->
+
 ## Description
 
 <p>You are given two strings order and s. All the characters of <code>order</code> are <strong>unique</strong> and were sorted in some custom order previously.</p>

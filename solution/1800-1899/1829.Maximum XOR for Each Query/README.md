@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md)
 
+<!-- tags:位运算,数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

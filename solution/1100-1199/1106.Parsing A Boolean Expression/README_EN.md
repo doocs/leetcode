@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README.md)
 
+<!-- tags:Stack,Recursion,String -->
+
 ## Description
 
 <p>A <strong>boolean expression</strong> is an expression that evaluates to either <code>true</code> or <code>false</code>. It can be in one of the following shapes:</p>

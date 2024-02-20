@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1737.Change%20Minimum%20Characters%20to%20Satisfy%20One%20of%20Three%20Conditions/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

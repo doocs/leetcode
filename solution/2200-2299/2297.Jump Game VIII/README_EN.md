@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2297.Jump%20Game%20VIII/README.md)
 
+<!-- tags:Stack,Graph,Array,Dynamic Programming,Shortest Path,Monotonic Stack -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>. You are initially standing at index <code>0</code>. You can jump from index <code>i</code> to index <code>j</code> where <code>i &lt; j</code> if:</p>

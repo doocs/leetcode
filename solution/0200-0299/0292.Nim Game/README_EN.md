@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0292.Nim%20Game/README.md)
 
+<!-- tags:Brainteaser,Math,Game Theory -->
+
 ## Description
 
 <p>You are playing the following Nim Game with your friend:</p>

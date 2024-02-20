@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1666.Change%20the%20Root%20of%20a%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree and a <code>leaf</code> node, reroot the tree so that the <code>leaf</code> is the new root.</p>

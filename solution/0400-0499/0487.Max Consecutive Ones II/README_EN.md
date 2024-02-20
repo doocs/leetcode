@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
 
+<!-- tags:Array,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array if you can flip at most one</em> <code>0</code>.</p>

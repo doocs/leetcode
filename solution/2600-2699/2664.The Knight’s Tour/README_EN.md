@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md)
 
+<!-- tags:Array,Backtracking,Matrix -->
+
 ## Description
 
 <p>Given two positive integers <code>m</code> and <code>n</code> which are the height and width of a <strong>0-indexed</strong> 2D-array <code>board</code>, a pair of positive integers <code>(r, c)</code> which is the starting position of the knight on the board.</p>

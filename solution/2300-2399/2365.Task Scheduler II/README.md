@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2365.Task%20Scheduler%20II/README_EN.md)
 
+<!-- tags:数组,哈希表,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

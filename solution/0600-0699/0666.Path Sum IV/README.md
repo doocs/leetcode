@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0666.Path%20Sum%20IV/README_EN.md)
 
+<!-- tags:树,深度优先搜索,数组,哈希表,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

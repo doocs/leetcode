@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1676.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20IV/README_EN.md)
 
+<!-- tags:树,深度优先搜索,哈希表,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

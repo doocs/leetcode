@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>Given a <code>m x n</code> binary matrix <code>mat</code>, find the <strong>0-indexed</strong> position of the row that contains the <strong>maximum</strong> count of <strong>ones,</strong> and the number of ones in that row.</p>

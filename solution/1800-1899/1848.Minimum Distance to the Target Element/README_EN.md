@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> <strong>(0-indexed)</strong> and two integers <code>target</code> and <code>start</code>, find an index <code>i</code> such that <code>nums[i] == target</code> and <code>abs(i - start)</code> is <strong>minimized</strong>. Note that&nbsp;<code>abs(x)</code>&nbsp;is the absolute value of <code>x</code>.</p>

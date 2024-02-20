@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0038.Count%20and%20Say/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

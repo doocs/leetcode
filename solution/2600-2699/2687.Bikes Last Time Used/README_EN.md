@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Bikes</font></code></p>

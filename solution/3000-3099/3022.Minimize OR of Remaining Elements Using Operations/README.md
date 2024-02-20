@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README_EN.md)
 
+<!-- tags:贪心,位运算,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

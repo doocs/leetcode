@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0421.Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Trie,Array,Hash Table -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the maximum result of </em><code>nums[i] XOR nums[j]</code>, where <code>0 &lt;= i &lt;= j &lt; n</code>.</p>

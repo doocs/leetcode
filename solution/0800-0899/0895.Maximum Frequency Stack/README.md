@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README_EN.md)
 
+<!-- tags:栈,设计,哈希表,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

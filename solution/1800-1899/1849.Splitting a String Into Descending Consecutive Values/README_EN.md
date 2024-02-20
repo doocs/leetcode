@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README.md)
 
+<!-- tags:String,Backtracking -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that consists of only digits.</p>

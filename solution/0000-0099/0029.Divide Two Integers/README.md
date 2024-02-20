@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md)
 
+<!-- tags:位运算,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

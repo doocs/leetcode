@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>You have <code>n</code> processors each having <code>4</code> cores and <code>n * 4</code> tasks that need to be executed such that each core should perform only <strong>one</strong> task.</p>

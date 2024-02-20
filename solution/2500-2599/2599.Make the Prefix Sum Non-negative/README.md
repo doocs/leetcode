@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README_EN.md)
 
+<!-- tags:贪心,数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

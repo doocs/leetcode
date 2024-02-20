@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

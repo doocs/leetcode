@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md)
 
+<!-- tags:Greedy,Array,Math,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> having length <code>n</code>.</p>

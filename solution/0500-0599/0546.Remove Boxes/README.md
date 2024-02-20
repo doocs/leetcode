@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0546.Remove%20Boxes/README_EN.md)
 
+<!-- tags:记忆化搜索,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

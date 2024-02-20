@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README.md)
 
+<!-- tags:Array,Hash Table,Matrix -->
+
 ## Description
 
 <p>Given two <a href="https://en.wikipedia.org/wiki/Sparse_matrix" target="_blank">sparse matrices</a> <code>mat1</code> of size <code>m x k</code> and <code>mat2</code> of size <code>k x n</code>, return the result of <code>mat1 x mat2</code>. You may assume that multiplication is always possible.</p>

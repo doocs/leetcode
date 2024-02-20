@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README_EN.md)
 
+<!-- tags:字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

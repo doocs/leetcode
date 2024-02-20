@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0264.Ugly%20Number%20II/README_EN.md)
 
+<!-- tags:哈希表,数学,动态规划,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

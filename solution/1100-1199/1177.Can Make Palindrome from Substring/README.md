@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

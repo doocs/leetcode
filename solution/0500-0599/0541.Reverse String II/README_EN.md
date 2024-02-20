@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0541.Reverse%20String%20II/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> and an integer <code>k</code>, reverse the first <code>k</code> characters for every <code>2k</code> characters counting from the start of the string.</p>

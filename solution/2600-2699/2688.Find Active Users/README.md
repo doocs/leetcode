@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

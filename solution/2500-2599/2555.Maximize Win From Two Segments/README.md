@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2555.Maximize%20Win%20From%20Two%20Segments/README_EN.md)
 
+<!-- tags:数组,二分查找,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

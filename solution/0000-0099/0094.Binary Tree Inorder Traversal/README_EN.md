@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the inorder traversal of its nodes&#39; values</em>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md)
 
+<!-- tags:位运算,脑筋急转弯,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

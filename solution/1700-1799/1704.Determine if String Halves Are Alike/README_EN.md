@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README.md)
 
+<!-- tags:String,Counting -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of even length. Split this string into two halves of equal lengths, and let <code>a</code> be the first half and <code>b</code> be the second half.</p>

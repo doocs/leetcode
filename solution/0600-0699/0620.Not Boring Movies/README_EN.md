@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Cinema</code></p>

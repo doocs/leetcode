@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md)
 
+<!-- tags:贪心,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

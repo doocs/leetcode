@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1144.Decrease%20Elements%20To%20Make%20Array%20Zigzag/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of integers, a <em>move</em>&nbsp;consists of choosing any element and <strong>decreasing it by 1</strong>.</p>

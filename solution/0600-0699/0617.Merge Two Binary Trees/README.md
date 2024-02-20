@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

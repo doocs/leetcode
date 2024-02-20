@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0290.Word%20Pattern/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>Given a <code>pattern</code> and a string <code>s</code>, find if <code>s</code>&nbsp;follows the same pattern.</p>

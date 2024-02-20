@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>You are given a string <code>s</code>, and an array of pairs of indices in the string&nbsp;<code>pairs</code>&nbsp;where&nbsp;<code>pairs[i] =&nbsp;[a, b]</code>&nbsp;indicates 2 indices(0-indexed) of the string.</p>

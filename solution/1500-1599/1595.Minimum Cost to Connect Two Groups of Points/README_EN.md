@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask,Matrix -->
+
 ## Description
 
 <p>You are given two groups of points where the first group has <code>size<sub>1</sub></code> points, the second group has <code>size<sub>2</sub></code> points, and <code>size<sub>1</sub> &gt;= size<sub>2</sub></code>.</p>

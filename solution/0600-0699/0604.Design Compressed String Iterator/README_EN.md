@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0604.Design%20Compressed%20String%20Iterator/README.md)
 
+<!-- tags:Design,Array,String,Iterator -->
+
 ## Description
 
 <p>Design and implement a data structure for a compressed string iterator. The given compressed string will be in the form of each letter followed by a positive integer representing the number of this letter existing in the original uncompressed string.</p>

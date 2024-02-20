@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README.md)
 
+<!-- tags:Queue,Array,Simulation -->
+
 ## Description
 
 <p>There are <code>n</code> people in a line queuing to buy tickets, where the <code>0<sup>th</sup></code> person is at the <strong>front</strong> of the line and the <code>(n - 1)<sup>th</sup></code> person is at the <strong>back</strong> of the line.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0585.Investments%20in%202016/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Insurance</code></p>

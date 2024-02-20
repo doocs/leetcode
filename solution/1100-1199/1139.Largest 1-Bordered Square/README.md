@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1139.Largest%201-Bordered%20Square/README_EN.md)
 
+<!-- tags:数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

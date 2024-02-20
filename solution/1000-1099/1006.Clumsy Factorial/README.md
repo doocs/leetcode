@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)
 
+<!-- tags:栈,数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

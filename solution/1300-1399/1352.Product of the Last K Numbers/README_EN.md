@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README.md)
 
+<!-- tags:Design,Queue,Array,Math,Data Stream -->
+
 ## Description
 
 <p>Design an algorithm that accepts a stream of integers and retrieves the product of the last <code>k</code> integers of the stream.</p>

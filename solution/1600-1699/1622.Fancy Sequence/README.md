@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1622.Fancy%20Sequence/README_EN.md)
 
+<!-- tags:设计,线段树,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

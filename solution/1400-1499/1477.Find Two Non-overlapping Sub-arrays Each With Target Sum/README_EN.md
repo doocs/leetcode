@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>You are given an array of integers <code>arr</code> and an integer <code>target</code>.</p>

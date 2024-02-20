@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

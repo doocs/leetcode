@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0279.Perfect%20Squares/README.md)
 
+<!-- tags:Breadth-First Search,Math,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the least number of perfect square numbers that sum to</em> <code>n</code>.</p>

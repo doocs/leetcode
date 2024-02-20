@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)
 
+<!-- tags:Array,Enumeration -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>mountain</code>. Your task is to find all the <strong>peaks</strong> in the <code>mountain</code> array.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md)
 
+<!-- tags:树,深度优先搜索 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

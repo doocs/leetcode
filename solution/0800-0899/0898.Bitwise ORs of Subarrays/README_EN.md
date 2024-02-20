@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code>, return <em>the number of distinct bitwise ORs of all the non-empty subarrays of</em> <code>arr</code>.</p>

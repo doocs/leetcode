@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1786.Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node/README_EN.md)
 
+<!-- tags:图,拓扑排序,动态规划,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

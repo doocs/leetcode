@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README.md)
 
+<!-- tags:Breadth-First Search,Array,Dynamic Programming -->
+
 ## Description
 
 <p>A certain bug&#39;s home is on the x-axis at position <code>x</code>. Help them get there from position <code>0</code>.</p>

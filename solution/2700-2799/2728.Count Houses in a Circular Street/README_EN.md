@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)
 
+<!-- tags:Array,Interactive -->
+
 ## Description
 
 <p>You are given an object <code>street</code> of class <code>Street</code> that represents a circular street and a positive integer <code>k</code> which represents a maximum bound for the number of houses in that street (in other words, the number of houses is less than or equal to <code>k</code>). Houses&#39; doors could be open or closed initially.</p>

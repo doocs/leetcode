@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)
 
+<!-- tags:Array,Hash Table,Ordered Set -->
+
 ## Description
 
 <p>The <strong>imbalance number</strong> of a <strong>0-indexed</strong> integer array <code>arr</code> of length <code>n</code> is defined as the number of indices in <code>sarr = sorted(arr)</code> such that:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search -->
+
 ## Description
 
 <p>Given the <code>root</code> of an n-ary tree, return <em>the postorder traversal of its nodes&#39; values</em>.</p>

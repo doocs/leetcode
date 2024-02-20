@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)
 
+<!-- tags:String,String Matching -->
+
 ## Description
 
 <p>Given two strings <code>a</code> and <code>b</code>, return <em>the minimum number of times you should repeat string </em><code>a</code><em> so that string</em> <code>b</code> <em>is a substring of it</em>. If it is impossible for <code>b</code>​​​​​​ to be a substring of <code>a</code> after repeating it, return <code>-1</code>.</p>

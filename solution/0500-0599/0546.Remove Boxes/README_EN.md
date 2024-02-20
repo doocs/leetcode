@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0546.Remove%20Boxes/README.md)
 
+<!-- tags:Memoization,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given several <code>boxes</code> with different colors represented by different positive numbers.</p>

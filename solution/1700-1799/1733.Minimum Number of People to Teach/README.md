@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

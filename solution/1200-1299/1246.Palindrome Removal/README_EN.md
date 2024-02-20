@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1246.Palindrome%20Removal/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code>.</p>

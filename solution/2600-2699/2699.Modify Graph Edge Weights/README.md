@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README_EN.md)
 
+<!-- tags:图,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1103.Distribute%20Candies%20to%20People/README.md)
 
+<!-- tags:Math,Simulation -->
+
 ## Description
 
 <p>We distribute some&nbsp;number of <code>candies</code>, to a row of <strong><code>n =&nbsp;num_people</code></strong>&nbsp;people in the following way:</p>

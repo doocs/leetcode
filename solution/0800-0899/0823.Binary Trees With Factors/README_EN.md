@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README.md)
 
+<!-- tags:Array,Hash Table,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given an array of unique integers, <code>arr</code>, where each integer <code>arr[i]</code> is strictly greater than <code>1</code>.</p>

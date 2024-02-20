@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0927.Three%20Equal%20Parts/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You are given an array <code>arr</code> which consists of only zeros and ones, divide the array into <strong>three non-empty parts</strong> such that all of these parts represent the same binary value.</p>

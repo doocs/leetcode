@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0751.IP%20to%20CIDR/README_EN.md)
 
+<!-- tags:位运算,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2130.Maximum%20Twin%20Sum%20of%20a%20Linked%20List/README_EN.md)
 
+<!-- tags:栈,链表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

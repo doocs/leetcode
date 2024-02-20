@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README.md)
 
+<!-- tags:Array,Hash Table,Math,Sliding Window -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>

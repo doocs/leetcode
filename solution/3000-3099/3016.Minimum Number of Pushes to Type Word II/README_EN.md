@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README.md)
 
+<!-- tags:Greedy,Hash Table,String,Counting,Sorting -->
+
 ## Description
 
 <p>You are given a string <code>word</code> containing lowercase English letters.</p>

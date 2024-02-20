@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You are given a binary array <code>nums</code>.</p>

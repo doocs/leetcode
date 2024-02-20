@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0274.H-Index/README_EN.md)
 
+<!-- tags:数组,计数排序,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0394.Decode%20String/README.md)
 
+<!-- tags:Stack,Recursion,String -->
+
 ## Description
 
 <p>Given an encoded string, return its decoded string.</p>

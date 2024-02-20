@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README_EN.md)
 
+<!-- tags:栈,树,字符串,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

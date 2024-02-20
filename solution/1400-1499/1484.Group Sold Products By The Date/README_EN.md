@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table <code>Activities</code>:</p>

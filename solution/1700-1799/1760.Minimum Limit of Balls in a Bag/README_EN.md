@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> where the <code>i<sup>th</sup></code> bag contains <code>nums[i]</code> balls. You are also given an integer <code>maxOperations</code>.</p>

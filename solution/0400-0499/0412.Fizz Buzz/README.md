@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0412.Fizz%20Buzz/README_EN.md)
 
+<!-- tags:数学,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

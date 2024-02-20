@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0735.Asteroid%20Collision/README_EN.md)
 
+<!-- tags:栈,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3019.Number%20of%20Changing%20Keys/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed </strong>string <code>s</code> typed by a user. Changing a key is defined as using a key different from the last used key. For example, <code>s = &quot;ab&quot;</code> has a change of a key while <code>s = &quot;bBBb&quot;</code> does not have any.</p>

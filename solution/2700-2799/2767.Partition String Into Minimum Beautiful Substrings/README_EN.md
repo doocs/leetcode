@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md)
 
+<!-- tags:Hash Table,String,Dynamic Programming,Backtracking -->
+
 ## Description
 
 <p>Given a binary string <code>s</code>, partition the string into one or more <strong>substrings</strong> such that each substring is <strong>beautiful</strong>.</p>

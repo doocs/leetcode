@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>str1</code> and <code>str2</code>.</p>

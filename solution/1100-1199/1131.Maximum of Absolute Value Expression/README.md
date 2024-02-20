@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

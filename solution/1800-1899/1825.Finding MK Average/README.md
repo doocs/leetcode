@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md)
 
+<!-- tags:设计,队列,数据流,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

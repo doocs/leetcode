@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md)
 
+<!-- tags:设计,队列,数组,数学,数据流 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

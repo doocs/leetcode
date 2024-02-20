@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0282.Expression%20Add%20Operators/README.md)
 
+<!-- tags:Math,String,Backtracking -->
+
 ## Description
 
 <p>Given a string <code>num</code> that contains only digits and an integer <code>target</code>, return <em><strong>all possibilities</strong> to insert the binary operators </em><code>&#39;+&#39;</code><em>, </em><code>&#39;-&#39;</code><em>, and/or </em><code>&#39;*&#39;</code><em> between the digits of </em><code>num</code><em> so that the resultant expression evaluates to the </em><code>target</code><em> value</em>.</p>

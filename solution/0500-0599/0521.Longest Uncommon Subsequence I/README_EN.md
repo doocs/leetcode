@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given two strings <code>a</code> and <code>b</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between </em><code>a</code> <em>and</em> <code>b</code>. <em>If no such uncommon subsequence exists, return</em> <code>-1</code><em>.</em></p>

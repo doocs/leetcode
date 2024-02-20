@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1468.Calculate%20Salaries/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table <code>Salaries</code>:</p>

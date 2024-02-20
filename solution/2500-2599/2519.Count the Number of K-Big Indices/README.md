@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README_EN.md)
 
+<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

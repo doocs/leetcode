@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0681.Next%20Closest%20Time/README.md)
 
+<!-- tags:String,Enumeration -->
+
 ## Description
 
 <p>Given a <code>time</code> represented in the format <code>&quot;HH:MM&quot;</code>, form the next closest time by reusing the current digits. There is no limit on how many times a digit can be reused.</p>

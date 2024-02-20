@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

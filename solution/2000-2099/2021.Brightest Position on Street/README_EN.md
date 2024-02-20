@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README.md)
 
+<!-- tags:Array,Ordered Set,Prefix Sum -->
+
 ## Description
 
 <p>A perfectly straight street is represented by a number line. The street has street lamp(s) on it and is represented by a 2D integer array <code>lights</code>. Each <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code> indicates that there is a street lamp at position <code>position<sub>i</sub></code> that lights up the area from <code>[position<sub>i</sub> - range<sub>i</sub>, position<sub>i</sub> + range<sub>i</sub>]</code> (<strong>inclusive</strong>).</p>

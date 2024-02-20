@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md)
 
+<!-- tags:位运算,字典树,数组,哈希表,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

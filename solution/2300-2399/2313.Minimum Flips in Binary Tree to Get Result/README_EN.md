@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README.md)
 
+<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> with the following properties:</p>

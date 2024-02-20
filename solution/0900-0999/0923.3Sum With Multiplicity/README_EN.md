@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,Counting,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code>, and an integer <code>target</code>, return the number of tuples <code>i, j, k</code> such that <code>i &lt; j &lt; k</code> and <code>arr[i] + arr[j] + arr[k] == target</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0829.Consecutive%20Numbers%20Sum/README_EN.md)
 
+<!-- tags:数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

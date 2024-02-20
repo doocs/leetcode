@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序,记忆化搜索,数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

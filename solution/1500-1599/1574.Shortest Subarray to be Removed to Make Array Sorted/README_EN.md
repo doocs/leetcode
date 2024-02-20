@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README.md)
 
+<!-- tags:Stack,Array,Two Pointers,Binary Search,Monotonic Stack -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code>, remove a subarray (can be empty) from <code>arr</code> such that the remaining elements in <code>arr</code> are <strong>non-decreasing</strong>.</p>

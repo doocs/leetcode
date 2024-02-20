@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README.md)
 
+<!-- tags:Array,Math,Number Theory -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong>&nbsp;array <code>nums</code> consisiting of <strong>positive</strong> integers. You can do the following operation on the array <strong>any</strong> number of times:</p>

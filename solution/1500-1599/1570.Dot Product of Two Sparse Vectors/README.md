@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

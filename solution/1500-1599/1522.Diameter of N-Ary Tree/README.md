@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

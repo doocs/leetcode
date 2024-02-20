@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given two arrays <code>keysArr</code> and <code>valuesArr</code>, return a new object <code>obj</code>. Each key-value pair in&nbsp;<code>obj</code>&nbsp;should come from&nbsp;<code>keysArr[i]</code>&nbsp;and&nbsp;<code>valuesArr[i]</code>.</p>

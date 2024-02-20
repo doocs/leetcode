@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README.md)
 
+<!-- tags:Array,Binary Search,Counting -->
+
 ## Description
 
 <p>Given an array <code>nums</code> sorted in <strong>non-decreasing</strong> order, return <em>the maximum between the number of positive integers and the number of negative integers.</em></p>

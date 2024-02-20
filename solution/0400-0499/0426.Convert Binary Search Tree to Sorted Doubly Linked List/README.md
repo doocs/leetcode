@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md)
 
+<!-- tags:栈,树,深度优先搜索,二叉搜索树,链表,二叉树,双向链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

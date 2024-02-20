@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1464.Maximum%20Product%20of%20Two%20Elements%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 Given the array of integers <code>nums</code>, you will choose two different indices <code>i</code> and <code>j</code> of that array. <em>Return the maximum value of</em> <code>(nums[i]-1)\*(nums[j]-1)</code>.

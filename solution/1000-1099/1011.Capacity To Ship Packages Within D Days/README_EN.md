@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1011.Capacity%20To%20Ship%20Packages%20Within%20D%20Days/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>A conveyor belt has packages that must be shipped from one port to another within <code>days</code> days.</p>

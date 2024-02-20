@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2671.Frequency%20Tracker/README.md)
 
+<!-- tags:Design,Hash Table -->
+
 ## Description
 
 <p>Design a data structure that keeps track of the values in it and answers some queries regarding their frequencies.</p>

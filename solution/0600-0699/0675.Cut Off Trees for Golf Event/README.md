@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,矩阵,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

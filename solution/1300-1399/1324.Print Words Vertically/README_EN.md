@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1324.Print%20Words%20Vertically/README.md)
 
+<!-- tags:Array,String,Simulation -->
+
 ## Description
 
 <p>Given a string <code>s</code>.&nbsp;Return&nbsp;all the words vertically in the same order in which they appear in <code>s</code>.<br />

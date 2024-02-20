@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

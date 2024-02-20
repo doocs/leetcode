@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README_EN.md)
 
+<!-- tags:数组,交互,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1473.Paint%20House%20III/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>There is a row of <code>m</code> houses in a small city, each house must be painted with one of the <code>n</code> colors (labeled from <code>1</code> to <code>n</code>), some houses that have been painted last summer should not be painted again.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Greedy,Tree,Depth-First Search,Binary Search Tree,Divide and Conquer,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary search tree, return <em>a <strong>balanced</strong> binary search tree with the same node values</em>. If there is more than one answer, return <strong>any of them</strong>.</p>

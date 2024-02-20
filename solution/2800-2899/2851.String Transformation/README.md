@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2851.String%20Transformation/README_EN.md)
 
+<!-- tags:数学,字符串,动态规划,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

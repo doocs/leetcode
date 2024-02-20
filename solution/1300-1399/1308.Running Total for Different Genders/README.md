@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Elements</code></p>

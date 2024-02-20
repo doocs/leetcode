@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)
 
+<!-- tags:记忆化搜索,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

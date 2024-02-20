@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README.md)
 
+<!-- tags:Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <code>true</code> <em>if </em><code>nums</code><em> is <strong>consecutive</strong>, otherwise return </em><code>false</code><em>.</em></p>

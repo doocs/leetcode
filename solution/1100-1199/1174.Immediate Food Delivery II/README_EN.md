@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Delivery</code></p>

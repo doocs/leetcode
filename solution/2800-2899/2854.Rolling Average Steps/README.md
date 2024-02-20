@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

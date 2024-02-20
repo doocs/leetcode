@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>You are given a square <code>board</code>&nbsp;of characters. You can move on the board starting at the bottom right square marked with the character&nbsp;<code>&#39;S&#39;</code>.</p>

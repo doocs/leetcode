@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3009.Maximum%20Number%20of%20Intersections%20on%20the%20Chart/README_EN.md)
 
+<!-- tags:树状数组,几何,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

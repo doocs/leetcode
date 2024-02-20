@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README.md)
 
+<!-- tags:Design,Array,Hash Table -->
+
 ## Description
 
 <p>There is a supermarket that is frequented by many customers. The products sold at the supermarket are represented as two parallel integer arrays <code>products</code> and <code>prices</code>, where the <code>i<sup>th</sup></code> product has an ID of <code>products[i]</code> and a price of <code>prices[i]</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README.md)
 
+<!-- tags:Design,Segment Tree,Ordered Set -->
+
 ## Description
 
 <p>Given an <strong>empty</strong> set of intervals, implement a data structure that can:</p>

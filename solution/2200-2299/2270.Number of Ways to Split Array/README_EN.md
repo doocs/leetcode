@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2270.Number%20of%20Ways%20to%20Split%20Array/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2400.Number%20of%20Ways%20to%20Reach%20a%20Position%20After%20Exactly%20k%20Steps/README.md)
 
+<!-- tags:Math,Dynamic Programming,Combinatorics -->
+
 ## Description
 
 <p>You are given two <strong>positive</strong> integers <code>startPos</code> and <code>endPos</code>. Initially, you are standing at position <code>startPos</code> on an <strong>infinite</strong> number line. With one step, you can move either one position to the left, or one position to the right.</p>

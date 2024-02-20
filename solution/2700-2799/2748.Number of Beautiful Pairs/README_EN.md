@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md)
 
+<!-- tags:Array,Math,Number Theory -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed </strong>integer array <code>nums</code>. A pair of indices <code>i</code>, <code>j</code> where <code>0 &lt;=&nbsp;i &lt; j &lt; nums.length</code> is called beautiful if the <strong>first digit</strong> of <code>nums[i]</code> and the <strong>last digit</strong> of <code>nums[j]</code> are <strong>coprime</strong>.</p>

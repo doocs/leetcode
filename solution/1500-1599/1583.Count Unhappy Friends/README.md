@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

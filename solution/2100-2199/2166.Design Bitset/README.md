@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2166.Design%20Bitset/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

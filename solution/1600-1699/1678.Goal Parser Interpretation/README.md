@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

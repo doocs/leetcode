@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md)
 
+<!-- tags:Stack,Design,Queue -->
+
 ## Description
 
 <p>Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (<code>push</code>, <code>top</code>, <code>pop</code>, and <code>empty</code>).</p>

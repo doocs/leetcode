@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Orders</code></p>

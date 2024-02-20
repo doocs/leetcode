@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

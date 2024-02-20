@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2412.Minimum%20Money%20Required%20Before%20Transactions/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

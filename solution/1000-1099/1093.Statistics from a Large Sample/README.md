@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README_EN.md)
 
+<!-- tags:数组,数学,概率与统计 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

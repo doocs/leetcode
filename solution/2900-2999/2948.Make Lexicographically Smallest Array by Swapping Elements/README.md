@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README_EN.md)
 
+<!-- tags:并查集,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

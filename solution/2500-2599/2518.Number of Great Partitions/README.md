@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

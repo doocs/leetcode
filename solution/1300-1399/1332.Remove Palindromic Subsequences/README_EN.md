@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting <strong>only</strong> of letters <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>. In a single step you can remove one <strong>palindromic subsequence</strong> from <code>s</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README.md)
 
+<!-- tags:Math,Sorting -->
+
 ## Description
 
 <p>You are given an integer <code>num.</code> <strong>Rearrange</strong> the digits of <code>num</code> such that its value is <strong>minimized</strong> and it does not contain <strong>any</strong> leading zeros.</p>

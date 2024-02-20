@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md)
 
+<!-- tags:数组,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

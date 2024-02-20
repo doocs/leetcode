@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README.md)
 
+<!-- tags:Array,Math,Probability and Statistics -->
+
 ## Description
 
 <p>You are given a large sample of integers in the range <code>[0, 255]</code>. Since the sample is so large, it is represented by an array <code>count</code>&nbsp;where <code>count[k]</code> is the <strong>number of times</strong> that <code>k</code> appears in the sample.</p>

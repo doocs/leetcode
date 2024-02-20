@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Two Pointers,Binary Search,Counting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <strong>sorted</strong> array of integers <code>nums</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README.md)
 
+<!-- tags:String,Binary Search -->
+
 ## Description
 
 <p>You are given a string, <code>message</code>, and a positive integer, <code>limit</code>.</p>

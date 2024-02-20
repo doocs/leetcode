@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README.md)
 
+<!-- tags:Breadth-First Search,Union Find,Graph -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code> representing the number of nodes in an <strong>undirected</strong> graph. The nodes are labeled from <code>1</code> to <code>n</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0800.Similar%20RGB%20Color/README.md)
 
+<!-- tags:Math,String,Enumeration -->
+
 ## Description
 
 <p>The red-green-blue color <code>&quot;#AABBCC&quot;</code> can be written as <code>&quot;#ABC&quot;</code> in shorthand.</p>

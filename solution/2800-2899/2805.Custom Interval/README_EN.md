@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2805.Custom%20Interval/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p><strong>Function&nbsp;</strong><code>customInterval</code></p>

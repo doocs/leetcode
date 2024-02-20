@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README.md)
 
+<!-- tags:Array,Hash Table,Counting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the most frequent even element</em>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2453.Destroy%20Sequential%20Targets/README.md)
 
+<!-- tags:Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of positive integers, representing targets on a number line. You are also given an integer <code>space</code>.</p>

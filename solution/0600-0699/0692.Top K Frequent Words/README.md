@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)
 
+<!-- tags:字典树,哈希表,字符串,桶排序,计数,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

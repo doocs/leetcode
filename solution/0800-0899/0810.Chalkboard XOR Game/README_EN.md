@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README.md)
 
+<!-- tags:Bit Manipulation,Brainteaser,Array,Math,Game Theory -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code> represents the numbers written on a chalkboard.</p>

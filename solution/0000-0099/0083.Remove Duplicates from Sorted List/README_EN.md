@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a sorted linked list, <em>delete all duplicates such that each element appears only once</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>

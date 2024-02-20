@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1455.Check%20If%20a%20Word%20Occurs%20As%20a%20Prefix%20of%20Any%20Word%20in%20a%20Sentence/README_EN.md)
 
+<!-- tags:双指针,字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

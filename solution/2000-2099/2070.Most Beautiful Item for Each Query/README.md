@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README_EN.md)
 
+<!-- tags:数组,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

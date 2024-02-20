@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)
 
+<!-- tags:数组,双指针,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

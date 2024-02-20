@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README.md)
 
+<!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
+
 ## Description
 
 <p>Design a data structure to store the strings&#39; count with the ability to return the strings with minimum and maximum counts.</p>

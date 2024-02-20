@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README.md)
 
+<!-- tags:Recursion,Math -->
+
 ## Description
 
 <p>You are given a positive integer <code>primeFactors</code>. You are asked to construct a positive integer <code>n</code> that satisfies the following conditions:</p>

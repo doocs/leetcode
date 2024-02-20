@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)
 
+<!-- tags:Hash Table,String,Backtracking,Counting -->
+
 ## Description
 
 <p>You have <code>n</code>&nbsp;&nbsp;<code>tiles</code>, where each tile has one letter <code>tiles[i]</code> printed on it.</p>

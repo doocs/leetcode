@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0474.Ones%20and%20Zeroes/README_EN.md)
 
+<!-- tags:数组,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

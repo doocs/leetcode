@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2692.Make%20Object%20Immutable/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a function that takes an object&nbsp;<code>obj</code> and returns a new&nbsp;<strong>immutable</strong>&nbsp;version of this object.</p>

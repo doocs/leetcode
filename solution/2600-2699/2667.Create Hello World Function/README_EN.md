@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 Write a function&nbsp;<code>createHelloWorld</code>.&nbsp;It should return a new function that always returns&nbsp;<code>&quot;Hello World&quot;</code>.

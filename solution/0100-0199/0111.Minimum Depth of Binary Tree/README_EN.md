@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given a binary tree, find its minimum depth.</p>

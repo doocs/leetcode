@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1877.Minimize%20Maximum%20Pair%20Sum%20in%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

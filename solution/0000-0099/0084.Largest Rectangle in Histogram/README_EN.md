@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README.md)
 
+<!-- tags:Stack,Array,Monotonic Stack -->
+
 ## Description
 
 <p>Given an array of integers <code>heights</code> representing the histogram&#39;s bar height where the width of each bar is <code>1</code>, return <em>the area of the largest rectangle in the histogram</em>.</p>

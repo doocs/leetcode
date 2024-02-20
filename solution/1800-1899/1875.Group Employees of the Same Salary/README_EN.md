@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

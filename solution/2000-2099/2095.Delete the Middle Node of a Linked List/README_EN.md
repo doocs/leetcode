@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README.md)
 
+<!-- tags:Linked List,Two Pointers -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list. <strong>Delete</strong> the <strong>middle node</strong>, and return <em>the</em> <code>head</code> <em>of the modified linked list</em>.</p>

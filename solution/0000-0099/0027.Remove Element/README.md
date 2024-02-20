@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
 
+<!-- tags:数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

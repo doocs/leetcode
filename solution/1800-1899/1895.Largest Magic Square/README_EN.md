@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1895.Largest%20Magic%20Square/README.md)
 
+<!-- tags:Array,Matrix,Prefix Sum -->
+
 ## Description
 
 <p>A <code>k x k</code> <strong>magic square</strong> is a <code>k x k</code> grid filled with integers such that every row sum, every column sum, and both diagonal sums are <strong>all equal</strong>. The integers in the magic square <strong>do not have to be distinct</strong>. Every <code>1 x 1</code> grid is trivially a <strong>magic square</strong>.</p>

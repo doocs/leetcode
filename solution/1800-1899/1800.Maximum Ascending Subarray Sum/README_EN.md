@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1800.Maximum%20Ascending%20Subarray%20Sum/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given an array of positive integers <code>nums</code>, return the <em>maximum possible sum of an <strong>ascending</strong> subarray in </em><code>nums</code>.</p>

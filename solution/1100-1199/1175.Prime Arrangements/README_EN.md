@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1175.Prime%20Arrangements/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Return the number of permutations of 1 to <code>n</code> so that prime numbers are at prime indices (1-indexed.)</p>

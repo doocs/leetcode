@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README.md)
 
+<!-- tags:Array,Math,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>word</code> of length <code>n</code>&nbsp;consisting of digits, and a positive integer&nbsp;<code>m</code>.</p>

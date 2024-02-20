@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2399.Check%20Distances%20Between%20Same%20Letters/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters, where each letter in <code>s</code> appears <strong>exactly</strong> <strong>twice</strong>. You are also given a <strong>0-indexed</strong> integer array <code>distance</code> of length <code>26</code>.</p>

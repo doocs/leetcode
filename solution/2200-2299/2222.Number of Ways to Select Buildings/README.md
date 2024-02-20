@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2222.Number%20of%20Ways%20to%20Select%20Buildings/README_EN.md)
 
+<!-- tags:字符串,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

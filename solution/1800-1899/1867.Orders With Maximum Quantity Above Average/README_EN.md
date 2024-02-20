@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1867.Orders%20With%20Maximum%20Quantity%20Above%20Average/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>OrdersDetails</code></p>

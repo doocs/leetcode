@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.</p>

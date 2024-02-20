@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0709.To%20Lower%20Case/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the string after replacing every uppercase letter with the same lowercase letter</em>.</p>

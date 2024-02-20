@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
 
+<!-- tags:Array,Binary Search,Simulation -->
+
 ## Description
 
 <p>Given an array <code>arr</code> that represents a permutation of numbers from <code>1</code> to <code>n</code>.</p>

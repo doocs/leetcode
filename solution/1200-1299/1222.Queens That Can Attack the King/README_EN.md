@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>On a <strong>0-indexed</strong> <code>8 x 8</code> chessboard, there can be multiple black queens and one white king.</p>

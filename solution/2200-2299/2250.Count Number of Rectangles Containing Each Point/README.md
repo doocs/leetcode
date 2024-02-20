@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md)
 
+<!-- tags:树状数组,数组,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

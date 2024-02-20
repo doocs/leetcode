@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README.md)
 
+<!-- tags:Greedy,String,Enumeration -->
+
 ## Description
 
 <p>You are given a string <code>number</code> representing a <strong>positive integer</strong> and a character <code>digit</code>.</p>

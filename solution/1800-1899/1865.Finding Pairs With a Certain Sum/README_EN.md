@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md)
 
+<!-- tags:Design,Array,Hash Table -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>. You are tasked to implement a data structure that supports queries of two types:</p>

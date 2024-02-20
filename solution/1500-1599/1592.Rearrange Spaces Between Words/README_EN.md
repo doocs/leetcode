@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a string <code>text</code> of words that are placed among some number of spaces. Each word consists of one or more lowercase English letters and are separated by at least one space. It&#39;s guaranteed that <code>text</code> <strong>contains at least one word</strong>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README.md)
 
+<!-- tags:Geometry,Array,Math,Sorting,Sliding Window -->
+
 ## Description
 
 <p>You are given an array <code>points</code>, an integer <code>angle</code>, and your <code>location</code>, where <code>location = [pos<sub>x</sub>, pos<sub>y</sub>]</code> and <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> both denote <strong>integral coordinates</strong> on the X-Y plane.</p>

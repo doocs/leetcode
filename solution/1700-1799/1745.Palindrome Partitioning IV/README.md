@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

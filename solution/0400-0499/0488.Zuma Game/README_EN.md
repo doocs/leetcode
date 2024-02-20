@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0488.Zuma%20Game/README.md)
 
+<!-- tags:Stack,Breadth-First Search,Memoization,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are playing a variation of the game Zuma.</p>

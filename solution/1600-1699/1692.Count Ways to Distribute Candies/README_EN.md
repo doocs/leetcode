@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1692.Count%20Ways%20to%20Distribute%20Candies/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>There are <code>n</code> <strong>unique</strong> candies (labeled <code>1</code> through <code>n</code>) and <code>k</code> bags. You are asked to distribute <strong>all</strong> the candies into the bags such that every bag has <strong>at least</strong> one candy.</p>

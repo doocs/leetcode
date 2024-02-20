@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0058.Length%20of%20Last%20Word/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given a string <code>s</code> consisting of words and spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>

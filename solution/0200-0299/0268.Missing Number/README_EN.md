@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0268.Missing%20Number/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,Math,Binary Search,Sorting -->
+
 ## Description
 
 <p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>

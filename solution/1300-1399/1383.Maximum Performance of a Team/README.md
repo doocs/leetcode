@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README_EN.md)
 
+<!-- tags:贪心,数组,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README.md)
 
+<!-- tags:Array,Hash Table,Counting,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>matches</code> where <code>matches[i] = [winner<sub>i</sub>, loser<sub>i</sub>]</code> indicates that the player <code>winner<sub>i</sub></code> defeated player <code>loser<sub>i</sub></code> in a match.</p>

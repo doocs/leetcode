@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md)
 
+<!-- tags:Graph,Topological Sort,Memoization,Hash Table,Dynamic Programming,Counting -->
+
 ## Description
 
 <p>There is a <strong>directed graph</strong> of <code>n</code> colored nodes and <code>m</code> edges. The nodes are numbered from <code>0</code> to <code>n - 1</code>.</p>

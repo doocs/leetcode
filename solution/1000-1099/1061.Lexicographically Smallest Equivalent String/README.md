@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1061.Lexicographically%20Smallest%20Equivalent%20String/README_EN.md)
 
+<!-- tags:并查集,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

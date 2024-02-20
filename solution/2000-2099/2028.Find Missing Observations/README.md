@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2028.Find%20Missing%20Observations/README_EN.md)
 
+<!-- tags:数组,数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

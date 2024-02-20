@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README_EN.md)
 
+<!-- tags:位运算,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

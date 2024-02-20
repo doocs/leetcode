@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README_EN.md)
 
+<!-- tags:设计,队列,哈希表,计数,数据流 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

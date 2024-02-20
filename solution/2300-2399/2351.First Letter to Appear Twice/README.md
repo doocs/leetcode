@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md)
 
+<!-- tags:位运算,哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

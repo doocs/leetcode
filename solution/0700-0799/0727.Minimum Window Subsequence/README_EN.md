@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README.md)
 
+<!-- tags:String,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>Given strings <code>s1</code> and <code>s2</code>, return <em>the minimum contiguous&nbsp;substring part of </em><code>s1</code><em>, so that </em><code>s2</code><em> is a subsequence of the part</em>.</p>

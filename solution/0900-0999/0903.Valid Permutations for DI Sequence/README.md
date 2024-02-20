@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)
 
+<!-- tags:字符串,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

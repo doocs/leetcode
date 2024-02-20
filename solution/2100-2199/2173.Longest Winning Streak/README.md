@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2173.Longest%20Winning%20Streak/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

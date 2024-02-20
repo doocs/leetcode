@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of <code>n</code> integers, and an integer <code>k</code>.</p>

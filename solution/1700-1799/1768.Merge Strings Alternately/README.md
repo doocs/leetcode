@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1768.Merge%20Strings%20Alternately/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README.md)
 
+<!-- tags:Array,Math,Number Theory -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>, return <em>the <strong>number of pairs</strong></em> <code>(i, j)</code> <em>such that:</em></p>

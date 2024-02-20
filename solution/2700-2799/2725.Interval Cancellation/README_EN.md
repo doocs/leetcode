@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2725.Interval%20Cancellation/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function <code>fn</code>, an array of arguments&nbsp;<code>args</code>, and&nbsp;an interval time <code>t</code>, return a cancel function <code>cancelFn</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,二分查找,矩阵,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

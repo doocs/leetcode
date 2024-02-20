@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2719.Count%20of%20Integers/README.md)
 
+<!-- tags:Math,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two numeric strings <code>num1</code> and <code>num2</code> and two integers <code>max_sum</code> and <code>min_sum</code>. We denote an integer <code>x</code> to be <em>good</em> if:</p>

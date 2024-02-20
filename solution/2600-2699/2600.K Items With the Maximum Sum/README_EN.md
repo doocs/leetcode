@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>There is a bag that consists of items, each item&nbsp;has a number <code>1</code>, <code>0</code>, or <code>-1</code> written on it.</p>

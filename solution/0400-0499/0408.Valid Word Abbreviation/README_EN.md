@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>A string can be <strong>abbreviated</strong> by replacing any number of <strong>non-adjacent</strong>, <strong>non-empty</strong> substrings with their lengths. The lengths <strong>should not</strong> have leading zeros.</p>

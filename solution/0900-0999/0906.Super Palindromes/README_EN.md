@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0906.Super%20Palindromes/README.md)
 
+<!-- tags:Math,Enumeration -->
+
 ## Description
 
 <p>Let&#39;s say a positive integer is a <strong>super-palindrome</strong> if it is a palindrome, and it is also the square of a palindrome.</p>

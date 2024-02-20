@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)
 
+<!-- tags:Tree,Array,Hash Table,Divide and Conquer,Binary Tree -->
+
 ## Description
 
 <p>Given two integer arrays <code>preorder</code> and <code>inorder</code> where <code>preorder</code> is the preorder traversal of a binary tree and <code>inorder</code> is the inorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Counting -->
+
 ## Description
 
 <p>Given three integer arrays <code>arr1</code>, <code>arr2</code> and <code>arr3</code>&nbsp;<strong>sorted</strong> in <strong>strictly increasing</strong> order, return a sorted array of <strong>only</strong>&nbsp;the&nbsp;integers that appeared in <strong>all</strong> three arrays.</p>

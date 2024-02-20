@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README.md)
 
+<!-- tags:Array,Enumeration -->
+
 ## Description
 
 <p>Given an array of positive integers <code>arr</code>, find a pattern of length <code>m</code> that is repeated <code>k</code> or more times.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2803.Factorial%20Generator/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

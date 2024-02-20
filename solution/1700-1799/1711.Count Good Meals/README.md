@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1711.Count%20Good%20Meals/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

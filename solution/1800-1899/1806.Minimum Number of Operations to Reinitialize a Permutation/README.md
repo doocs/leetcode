@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README_EN.md)
 
+<!-- tags:数组,数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0696.Count%20Binary%20Substrings/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>Given a binary string <code>s</code>, return the number of non-empty substrings that have the same number of <code>0</code>&#39;s and <code>1</code>&#39;s, and all the <code>0</code>&#39;s and all the <code>1</code>&#39;s in these substrings are grouped consecutively.</p>

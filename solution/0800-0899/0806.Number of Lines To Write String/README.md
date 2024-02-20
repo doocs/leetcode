@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

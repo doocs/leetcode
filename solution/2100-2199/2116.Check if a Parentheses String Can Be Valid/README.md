@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README_EN.md)
 
+<!-- tags:栈,贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

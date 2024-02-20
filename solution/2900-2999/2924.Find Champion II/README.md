@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md)
 
+<!-- tags:图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

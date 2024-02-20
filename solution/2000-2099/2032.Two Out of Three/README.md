@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2032.Two%20Out%20of%20Three/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

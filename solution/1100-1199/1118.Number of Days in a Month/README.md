@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

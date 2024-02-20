@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2535.Difference%20Between%20Element%20Sum%20and%20Digit%20Sum%20of%20an%20Array/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You are given a positive integer array <code>nums</code>.</p>

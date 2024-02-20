@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md)
 
+<!-- tags:递归,链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README.md)
 
+<!-- tags:Design,Array,Hash Table,String -->
+
 ## Description
 
 <p>The <strong>abbreviation</strong> of a word is a concatenation of its first letter, the number of characters between the first and last letter, and its last letter. If a word has only two characters, then it is an <strong>abbreviation</strong> of itself.</p>

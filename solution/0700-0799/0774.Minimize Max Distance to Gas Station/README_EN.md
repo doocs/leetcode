@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0774.Minimize%20Max%20Distance%20to%20Gas%20Station/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are given an integer array <code>stations</code> that represents the positions of the gas stations on the <strong>x-axis</strong>. You are also given an integer <code>k</code>.</p>

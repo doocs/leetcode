@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Weather</code></p>

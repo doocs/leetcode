@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README.md)
 
+<!-- tags:Hash Table,String,Bucket Sort,Counting,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given a string <code>s</code>, sort it in <strong>decreasing order</strong> based on the <strong>frequency</strong> of the characters. The <strong>frequency</strong> of a character is the number of times it appears in the string.</p>

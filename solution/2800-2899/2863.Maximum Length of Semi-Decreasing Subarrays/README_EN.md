@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README.md)
 
+<!-- tags:Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>.</p>

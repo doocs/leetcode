@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0679.24%20Game/README_EN.md)
 
+<!-- tags:数组,数学,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README_EN.md)
 
+<!-- tags:图,数组,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

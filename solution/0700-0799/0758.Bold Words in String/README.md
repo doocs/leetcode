@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0758.Bold%20Words%20in%20String/README_EN.md)
 
+<!-- tags:字典树,数组,哈希表,字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

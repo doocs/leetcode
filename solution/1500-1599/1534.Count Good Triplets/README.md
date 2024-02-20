@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md)
 
+<!-- tags:数组,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

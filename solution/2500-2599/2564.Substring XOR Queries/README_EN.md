@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given a <strong>binary string</strong> <code>s</code>, and a <strong>2D</strong> integer array <code>queries</code> where <code>queries[i] = [first<sub>i</sub>, second<sub>i</sub>]</code>.</p>

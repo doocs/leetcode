@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README.md)
 
+<!-- tags:Concurrency -->
+
 ## Description
 
 <p>Implement a thread-safe bounded blocking queue that has the following methods:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README.md)
 
+<!-- tags:Graph -->
+
 ## Description
 
 <p>There is an undirected <strong>star</strong> graph consisting of <code>n</code> nodes labeled from <code>1</code> to <code>n</code>. A star graph is a graph where there is one <strong>center</strong> node and <strong>exactly</strong> <code>n - 1</code> edges that connect the center node with every other node.</p>

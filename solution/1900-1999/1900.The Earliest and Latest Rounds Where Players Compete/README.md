@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md)
 
+<!-- tags:记忆化搜索,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

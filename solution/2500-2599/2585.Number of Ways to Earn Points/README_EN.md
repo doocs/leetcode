@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>There is a test that has <code>n</code> types of questions. You are given an integer <code>target</code> and a <strong>0-indexed</strong> 2D integer array <code>types</code> where <code>types[i] = [count<sub>i</sub>, marks<sub>i</sub>]</code> indicates that there are <code>count<sub>i</sub></code> questions of the <code>i<sup>th</sup></code> type, and each one of them is worth <code>marks<sub>i</sub></code> points.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0776.Split%20BST/README_EN.md)
 
+<!-- tags:树,二叉搜索树,递归,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README_EN.md)
 
+<!-- tags:位运算,数组,双指针,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

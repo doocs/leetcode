@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0492.Construct%20the%20Rectangle/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

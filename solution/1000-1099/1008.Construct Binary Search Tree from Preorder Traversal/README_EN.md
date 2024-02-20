@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README.md)
 
+<!-- tags:Stack,Tree,Binary Search Tree,Array,Binary Tree,Monotonic Stack -->
+
 ## Description
 
 <p>Given an array of integers preorder, which represents the <strong>preorder traversal</strong> of a BST (i.e., <strong>binary search tree</strong>), construct the tree and return <em>its root</em>.</p>

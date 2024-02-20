@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1170.Compare%20Strings%20by%20Frequency%20of%20the%20Smallest%20Character/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

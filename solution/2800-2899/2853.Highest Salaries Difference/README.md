@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

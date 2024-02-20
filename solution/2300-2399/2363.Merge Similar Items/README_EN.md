@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2363.Merge%20Similar%20Items/README.md)
 
+<!-- tags:Array,Hash Table,Ordered Set,Sorting -->
+
 ## Description
 
 <p>You are given two 2D integer arrays, <code>items1</code> and <code>items2</code>, representing two sets of items. Each array <code>items</code> has the following properties:</p>

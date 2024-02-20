@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README.md)
 
+<!-- tags:Breadth-First Search,Graph,Array -->
+
 ## Description
 
 <p>You have <code>n</code> boxes labeled from <code>0</code> to <code>n - 1</code>. You are given four arrays: <code>status</code>, <code>candies</code>, <code>keys</code>, and <code>containedBoxes</code> where:</p>

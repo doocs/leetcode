@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README.md)
 
+<!-- tags:Array,String,String Matching -->
+
 ## Description
 
 <p>Given an array of string <code>words</code>, return <em>all strings in </em><code>words</code><em> that is a <strong>substring</strong> of another word</em>. You can return the answer in <strong>any order</strong>.</p>

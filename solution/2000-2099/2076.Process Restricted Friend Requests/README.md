@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README_EN.md)
 
+<!-- tags:并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

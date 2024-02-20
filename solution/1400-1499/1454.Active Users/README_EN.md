@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1454.Active%20Users/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Accounts</code></p>

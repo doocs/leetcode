@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>An attendance record for a student can be represented as a string where each character signifies whether the student was absent, late, or present on that day. The record only contains the following three characters:</p>

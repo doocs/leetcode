@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0776.Split%20BST/README.md)
 
+<!-- tags:Tree,Binary Search Tree,Recursion,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary search tree (BST) and an integer <code>target</code>, split the tree into two subtrees where one subtree has nodes that are all smaller or equal to the target value, while the other subtree has all nodes that are greater than the target value. It Is not necessarily the case that the tree contains a node with the value <code>target</code>.</p>

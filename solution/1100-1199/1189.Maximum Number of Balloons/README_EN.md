@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>Given a string <code>text</code>, you want to use the characters of <code>text</code> to form as many instances of the word <strong>&quot;balloon&quot;</strong> as possible.</p>

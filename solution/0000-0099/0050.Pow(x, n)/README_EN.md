@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README.md)
 
+<!-- tags:Recursion,Math -->
+
 ## Description
 
 <p>Implement <a href="http://www.cplusplus.com/reference/valarray/pow/" target="_blank">pow(x, n)</a>, which calculates <code>x</code> raised to the power <code>n</code> (i.e., <code>x<sup>n</sup></code>).</p>

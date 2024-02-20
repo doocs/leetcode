@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1323.Maximum%2069%20Number/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given a positive integer <code>num</code> consisting only of digits <code>6</code> and <code>9</code>.</p>

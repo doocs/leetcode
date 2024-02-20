@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>A <strong>value-equal</strong> string is a string where <strong>all</strong> characters are the same.</p>

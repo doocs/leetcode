@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>, return <em>the number of subarrays with an <strong>odd</strong> sum</em>.</p>

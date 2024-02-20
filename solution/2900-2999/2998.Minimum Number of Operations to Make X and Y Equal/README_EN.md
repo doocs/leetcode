@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)
 
+<!-- tags:Breadth-First Search,Memoization,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two positive integers <code>x</code> and <code>y</code>.</p>

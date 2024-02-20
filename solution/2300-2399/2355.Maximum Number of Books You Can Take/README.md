@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README_EN.md)
 
+<!-- tags:栈,数组,动态规划,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

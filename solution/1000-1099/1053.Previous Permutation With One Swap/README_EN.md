@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>Given an array of positive integers <code>arr</code> (not necessarily distinct), return <em>the </em><span data-keyword="lexicographically-smaller-array"><em>lexicographically</em></span><em> largest permutation that is smaller than</em> <code>arr</code>, that can be <strong>made with exactly one swap</strong>. If it cannot be done, then return the same array.</p>

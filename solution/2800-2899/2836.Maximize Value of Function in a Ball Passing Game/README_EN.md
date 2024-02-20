@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>receiver</code> of length <code>n</code> and an integer <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given an integer <code>num</code>. You know that Bob will sneakily <strong>remap</strong> one of the <code>10</code> possible digits (<code>0</code> to <code>9</code>) to another digit.</p>

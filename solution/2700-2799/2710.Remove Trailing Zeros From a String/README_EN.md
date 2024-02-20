@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given a <strong>positive</strong> integer <code>num</code> represented as a string, return <em>the integer </em><code>num</code><em> without trailing zeros as a string</em>.</p>

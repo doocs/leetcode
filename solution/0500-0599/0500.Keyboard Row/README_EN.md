@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0500.Keyboard%20Row/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code>, return <em>the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below</em>.</p>

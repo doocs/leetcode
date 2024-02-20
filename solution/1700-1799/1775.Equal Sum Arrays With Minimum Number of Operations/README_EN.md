@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1775.Equal%20Sum%20Arrays%20With%20Minimum%20Number%20of%20Operations/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given two arrays of integers <code>nums1</code> and <code><font face="monospace">nums2</font></code>, possibly of different lengths. The values in the arrays are between <code>1</code> and <code>6</code>, inclusive.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. Consider an equilateral triangle of side length <code>n</code>, broken up into <code>n<sup>2</sup></code> unit equilateral triangles. The triangle has <code>n</code> <strong>1-indexed</strong> rows where the <code>i<sup>th</sup></code> row has <code>2i - 1</code> unit equilateral triangles.</p>

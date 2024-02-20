@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README_EN.md)
 
+<!-- tags:脑筋急转弯,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1683.Invalid%20Tweets/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Tweets</code></p>

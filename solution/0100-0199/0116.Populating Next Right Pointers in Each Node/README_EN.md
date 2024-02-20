@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Linked List,Binary Tree -->
+
 ## Description
 
 <p>You are given a <strong>perfect binary tree</strong> where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:</p>

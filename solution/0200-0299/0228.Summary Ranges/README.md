@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0228.Summary%20Ranges/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

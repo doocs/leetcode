@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search,Sorting,Sliding Window,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given a <strong>sorted</strong> integer array <code>arr</code>, two integers <code>k</code> and <code>x</code>, return the <code>k</code> closest integers to <code>x</code> in the array. The result should also be sorted in ascending order.</p>

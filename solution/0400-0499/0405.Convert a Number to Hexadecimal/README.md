@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README_EN.md)
 
+<!-- tags:位运算,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md)
 
+<!-- tags:数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

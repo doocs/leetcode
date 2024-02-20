@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given two integers,&nbsp;<code>n</code> and <code>k</code>.</p>

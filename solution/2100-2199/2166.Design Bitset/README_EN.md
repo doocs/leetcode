@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2166.Design%20Bitset/README.md)
 
+<!-- tags:Design,Array,Hash Table,String -->
+
 ## Description
 
 <p>A <strong>Bitset</strong> is a data structure that compactly stores bits.</p>

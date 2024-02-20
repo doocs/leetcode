@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0286.Walls%20and%20Gates/README.md)
 
+<!-- tags:Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> grid <code>rooms</code>&nbsp;initialized with these three possible values.</p>

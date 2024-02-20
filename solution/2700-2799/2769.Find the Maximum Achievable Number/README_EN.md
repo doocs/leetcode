@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>You are given two integers, <code>num</code> and <code>t</code>.</p>

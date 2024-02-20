@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Products</code></p>

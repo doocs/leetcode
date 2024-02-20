@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

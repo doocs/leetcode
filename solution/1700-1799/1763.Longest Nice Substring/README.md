@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md)
 
+<!-- tags:位运算,哈希表,字符串,分治,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

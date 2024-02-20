@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>You are given an integer array <code>jobs</code>, where <code>jobs[i]</code> is the amount of time it takes to complete the <code>i<sup>th</sup></code> job.</p>
