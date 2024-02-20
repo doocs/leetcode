@@ -13,15 +13,20 @@
  */
 
 function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
-    const n = postorder.length;
-    if (n == 0) {
-        return null;
+    const n = inorder.length;
+    const d: Record<number, number> = {};
+    for (let i = 0; i < n; i++) {
+        d[inorder[i]] = i;
     }
-    const val = postorder[n - 1];
-    const index = inorder.indexOf(val);
-    return new TreeNode(
-        val,
-        buildTree(inorder.slice(0, index), postorder.slice(0, index)),
-        buildTree(inorder.slice(index + 1), postorder.slice(index, n - 1)),
-    );
+    const dfs = (i: number, j: number, n: number): TreeNode | null => {
+        if (n <= 0) {
+            return null;
+        }
+        const v = postorder[j + n - 1];
+        const k = d[v];
+        const l = dfs(i, j, k - i);
+        const r = dfs(k + 1, j + k - i, n - 1 - (k - i));
+        return new TreeNode(v, l, r);
+    };
+    return dfs(0, 0, n);
 }
