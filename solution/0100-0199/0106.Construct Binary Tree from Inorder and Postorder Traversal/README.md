@@ -94,11 +94,9 @@ class Solution:
  */
 class Solution {
     private Map<Integer, Integer> d = new HashMap<>();
-    private int[] inorder;
     private int[] postorder;
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        this.inorder = inorder;
         this.postorder = postorder;
         int n = inorder.length;
         for (int i = 0; i < n; ++i) {
