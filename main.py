@@ -221,8 +221,12 @@ config += "\n"
 config += "  - 程序员面试金典:\n"
 config += "\n".join(navdata_cn["lcci"])
 config += "\n"
+config += "  - 专项训练: tags.md\n"
+config += "\n"
 en_config += "  - Cracking the Coding Interview:\n"
 en_config += "\n".join(navdata_en["lcci"])
+en_config += "\n"
+en_config += "  - Focused Training: tags.md\n"
 en_config += "\n"
 
 with open("mkdocs.yml", "w", encoding="utf-8") as f:
