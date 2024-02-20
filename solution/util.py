@@ -159,7 +159,7 @@ def generate_question_readme(result):
                     item["title_cn"],
                     item["url_cn"],
                     item["relative_path_en"],
-                    ','.join(item['tags_cn']),
+                    ",".join(item["tags_cn"]),
                     item["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
                 )
             )
@@ -172,7 +172,7 @@ def generate_question_readme(result):
                     item["title_en"],
                     item["url_en"],
                     item["relative_path_cn"],
-                    ','.join(item['tags_en']),
+                    ",".join(item["tags_en"]),
                     item["content_en"],
                 )
             )
@@ -284,27 +284,27 @@ def refresh(result):
         en_content = en_content.replace(en_content[i + 2 : j], title_en)
 
         # update tags
-        match = re.search(r'<!-- tags:(.*?) -->', cn_content)
+        match = re.search(r"<!-- tags:(.*?) -->", cn_content)
         if match:
             # If tags exist, update them
             cn_content = re.sub(
-                r'<!-- tags:(.*?) -->', f'<!-- tags:{tags} -->', cn_content
+                r"<!-- tags:(.*?) -->", f"<!-- tags:{tags} -->", cn_content
             )
         else:
             # If tags do not exist, insert them before "题目描述"
             cn_content = cn_content.replace(
-                "## 题目描述", f'<!-- tags:{tags} -->\n\n## 题目描述'
+                "## 题目描述", f"<!-- tags:{tags} -->\n\n## 题目描述"
             )
-        match = re.search(r'<!-- tags:(.*?) -->', en_content)
+        match = re.search(r"<!-- tags:(.*?) -->", en_content)
         if match:
             # If tags exist, update them
             en_content = re.sub(
-                r'<!-- tags:(.*?) -->', f'<!-- tags:{tags_en} -->', en_content
+                r"<!-- tags:(.*?) -->", f"<!-- tags:{tags_en} -->", en_content
             )
         else:
             # If tags do not exist, insert them before "Description"
             en_content = en_content.replace(
-                "## Description", f'<!-- tags:{tags_en} -->\n\n## Description'
+                "## Description", f"<!-- tags:{tags_en} -->\n\n## Description"
             )
 
         # update question content
