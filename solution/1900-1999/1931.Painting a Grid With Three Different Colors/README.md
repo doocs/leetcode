@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1931.Painting%20a%20Grid%20With%20Three%20Different%20Colors/README_EN.md)
 
+<!-- tags:动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

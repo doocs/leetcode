@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

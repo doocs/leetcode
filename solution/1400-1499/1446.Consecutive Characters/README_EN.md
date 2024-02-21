@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1446.Consecutive%20Characters/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>The <strong>power</strong> of the string is the maximum length of a non-empty substring that contains only one unique character.</p>

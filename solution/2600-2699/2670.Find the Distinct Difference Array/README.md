@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

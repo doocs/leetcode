@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2178.Maximum%20Split%20of%20Positive%20Even%20Integers/README.md)
 
+<!-- tags:Greedy,Math,Backtracking -->
+
 ## Description
 
 <p>You are given an integer <code>finalSum</code>. Split it into a sum of a <strong>maximum</strong> number of <strong>unique</strong> positive even integers.</p>

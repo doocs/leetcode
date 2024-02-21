@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2223.Sum%20of%20Scores%20of%20Built%20Strings/README_EN.md)
 
+<!-- tags:字符串,二分查找,字符串匹配,后缀数组,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

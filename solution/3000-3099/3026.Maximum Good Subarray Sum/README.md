@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

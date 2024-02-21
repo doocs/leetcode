@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md)
 
+<!-- tags:Union Find,Graph -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> indicating the number of people in a network. Each person is labeled from <code>0</code> to <code>n - 1</code>.</p>

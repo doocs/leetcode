@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2632.Curry/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function&nbsp;<code>fn</code>,&nbsp;return&nbsp;a&nbsp;<strong>curried</strong>&nbsp;version of that function.</p>

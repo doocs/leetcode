@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README_EN.md)
 
+<!-- tags:动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

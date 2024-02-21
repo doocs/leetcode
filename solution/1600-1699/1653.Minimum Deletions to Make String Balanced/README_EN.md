@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md)
 
+<!-- tags:Stack,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting only of characters <code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>​​​​.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two non-negative integer arrays <code>price</code> and <code>tastiness</code>, both arrays have the same length <code>n</code>. You are also given two non-negative integers <code>maxAmount</code> and <code>maxCoupons</code>.</p>

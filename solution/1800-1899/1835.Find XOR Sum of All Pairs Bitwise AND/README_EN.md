@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math -->
+
 ## Description
 
 <p>The <strong>XOR sum</strong> of a list is the bitwise <code>XOR</code> of all its elements. If the list only contains one element, then its <strong>XOR sum</strong> will be equal to this element.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>In combinatorial mathematics, a <strong>derangement</strong> is a permutation of the elements of a set, such that no element appears in its original position.</p>

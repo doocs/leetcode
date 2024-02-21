@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md)
 
+<!-- tags:数学,动态规划,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

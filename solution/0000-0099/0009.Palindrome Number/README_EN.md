@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0009.Palindrome%20Number/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given an integer <code>x</code>, return <code>true</code><em> if </em><code>x</code><em> is a </em><span data-keyword="palindrome-integer"><em><strong>palindrome</strong></em></span><em>, and </em><code>false</code><em> otherwise</em>.</p>

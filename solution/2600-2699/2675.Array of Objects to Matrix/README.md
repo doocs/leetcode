@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

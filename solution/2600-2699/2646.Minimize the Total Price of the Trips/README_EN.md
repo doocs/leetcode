@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)
 
+<!-- tags:Tree,Depth-First Search,Graph,Array,Dynamic Programming -->
+
 ## Description
 
 <p>There exists an undirected and unrooted tree with <code>n</code> nodes indexed from <code>0</code> to <code>n - 1</code>. You are given the integer <code>n</code> and a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>

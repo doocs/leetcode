@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1807.Evaluate%20the%20Bracket%20Pairs%20of%20a%20String/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that contains some bracket pairs, with each pair containing a <strong>non-empty</strong> key.</p>

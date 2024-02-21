@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1317.Convert%20Integer%20to%20the%20Sum%20of%20Two%20No-Zero%20Integers/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

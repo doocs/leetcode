@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1622.Fancy%20Sequence/README.md)
 
+<!-- tags:Design,Segment Tree,Math -->
+
 ## Description
 
 <p>Write an API that generates fancy sequences using the <code>append</code>, <code>addAll</code>, and <code>multAll</code> operations.</p>

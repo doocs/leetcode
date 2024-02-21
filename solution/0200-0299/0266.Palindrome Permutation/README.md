@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0266.Palindrome%20Permutation/README_EN.md)
 
+<!-- tags:位运算,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README_EN.md)
 
+<!-- tags:栈,数组,双指针,二分查找,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

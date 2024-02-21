@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0348.Design%20Tic-Tac-Toe/README.md)
 
+<!-- tags:Design,Array,Hash Table,Matrix,Simulation -->
+
 ## Description
 
 <p>Assume the following rules are for the tic-tac-toe game on an <code>n x n</code> board between two players:</p>

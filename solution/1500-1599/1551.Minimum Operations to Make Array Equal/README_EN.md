@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>You have an array <code>arr</code> of length <code>n</code> where <code>arr[i] = (2 * i) + 1</code> for all valid values of <code>i</code> (i.e.,&nbsp;<code>0 &lt;= i &lt; n</code>).</p>

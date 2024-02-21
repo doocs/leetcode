@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

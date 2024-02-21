@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1072.Flip%20Columns%20For%20Maximum%20Number%20of%20Equal%20Rows/README_EN.md)
 
+<!-- tags:数组,哈希表,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

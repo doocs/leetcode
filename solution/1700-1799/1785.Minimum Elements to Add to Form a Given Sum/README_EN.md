@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and two integers <code>limit</code> and <code>goal</code>. The array <code>nums</code> has an interesting property that <code>abs(nums[i]) &lt;= limit</code>.</p>

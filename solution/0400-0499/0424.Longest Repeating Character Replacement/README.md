@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README_EN.md)
 
+<!-- tags:哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0312.Burst%20Balloons/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given <code>n</code> balloons, indexed from <code>0</code> to <code>n - 1</code>. Each balloon is painted with a number on it represented by an array <code>nums</code>. You are asked to burst all the balloons.</p>

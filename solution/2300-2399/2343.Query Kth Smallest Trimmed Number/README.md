@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README_EN.md)
 
+<!-- tags:数组,字符串,分治,快速选择,基数排序,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

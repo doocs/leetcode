@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README.md)
 
+<!-- tags:Stack,Array,Monotonic Stack -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the number of non-empty <strong>subarrays</strong> with the leftmost element of the subarray&nbsp;not larger than other elements in the subarray</em>.</p>

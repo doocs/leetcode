@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

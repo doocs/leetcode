@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

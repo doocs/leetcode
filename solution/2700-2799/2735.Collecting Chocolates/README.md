@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2735.Collecting%20Chocolates/README_EN.md)
 
+<!-- tags:数组,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

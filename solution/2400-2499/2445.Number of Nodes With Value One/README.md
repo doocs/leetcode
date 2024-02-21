@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

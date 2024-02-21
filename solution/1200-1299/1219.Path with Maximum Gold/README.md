@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md)
 
+<!-- tags:数组,回溯,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

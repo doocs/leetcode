@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

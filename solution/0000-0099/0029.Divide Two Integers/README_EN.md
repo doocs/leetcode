@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0029.Divide%20Two%20Integers/README.md)
 
+<!-- tags:Bit Manipulation,Math -->
+
 ## Description
 
 <p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers <strong>without</strong> using multiplication, division, and mod operator.</p>

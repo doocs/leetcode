@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2384.Largest%20Palindromic%20Number/README_EN.md)
 
+<!-- tags:贪心,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

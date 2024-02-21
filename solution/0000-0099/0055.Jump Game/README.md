@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0055.Jump%20Game/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

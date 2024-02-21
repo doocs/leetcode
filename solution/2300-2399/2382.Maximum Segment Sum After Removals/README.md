@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README_EN.md)
 
+<!-- tags:并查集,数组,有序集合,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

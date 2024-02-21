@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README.md)
 
+<!-- tags:Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>Given an <code>n x n</code> binary matrix <code>grid</code>, return <em>the length of the shortest <strong>clear path</strong> in the matrix</em>. If there is no clear path, return <code>-1</code>.</p>

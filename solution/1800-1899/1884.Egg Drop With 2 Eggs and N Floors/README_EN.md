@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1884.Egg%20Drop%20With%202%20Eggs%20and%20N%20Floors/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are given <strong>two identical</strong> eggs and you have access to a building with <code>n</code> floors labeled from <code>1</code> to <code>n</code>.</p>

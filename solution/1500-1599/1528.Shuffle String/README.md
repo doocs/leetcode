@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1528.Shuffle%20String/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

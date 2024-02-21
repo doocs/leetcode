@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README_EN.md)
 
+<!-- tags:数组,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

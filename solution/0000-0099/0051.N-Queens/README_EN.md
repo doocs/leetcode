@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0051.N-Queens/README.md)
 
+<!-- tags:Array,Backtracking -->
+
 ## Description
 
 <p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>

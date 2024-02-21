@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0791.Custom%20Sort%20String/README_EN.md)
 
+<!-- tags:哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

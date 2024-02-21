@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>

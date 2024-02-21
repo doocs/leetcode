@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README_EN.md)
 
+<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

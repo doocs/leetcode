@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1780.Check%20if%20Number%20is%20a%20Sum%20of%20Powers%20of%20Three/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

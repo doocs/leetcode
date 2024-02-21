@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README.md)
 
+<!-- tags:Graph,Shortest Path -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> denoting the number of nodes of a <strong>weighted directed</strong> graph. The nodes are numbered from <code>0</code> to <code>n - 1</code>.</p>

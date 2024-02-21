@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

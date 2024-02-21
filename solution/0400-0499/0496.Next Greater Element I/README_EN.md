@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md)
 
+<!-- tags:Stack,Array,Hash Table,Monotonic Stack -->
+
 ## Description
 
 <p>The <strong>next greater element</strong> of some element <code>x</code> in an array is the <strong>first greater</strong> element that is <strong>to the right</strong> of <code>x</code> in the same array.</p>

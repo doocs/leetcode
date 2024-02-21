@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given two arrays <code>nums1</code>&nbsp;and <code><font face="monospace">nums2</font></code><font face="monospace">.</font></p>

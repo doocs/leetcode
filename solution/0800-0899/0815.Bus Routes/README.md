@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0815.Bus%20Routes/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

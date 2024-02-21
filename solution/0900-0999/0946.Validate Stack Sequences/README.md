@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md)
 
+<!-- tags:栈,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

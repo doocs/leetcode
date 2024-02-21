@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

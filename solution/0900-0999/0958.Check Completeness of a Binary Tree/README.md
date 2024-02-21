@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/README_EN.md)
 
+<!-- tags:树,广度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

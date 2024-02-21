@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

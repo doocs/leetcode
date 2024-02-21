@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0313.Super%20Ugly%20Number/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming -->
+
 ## Description
 
 <p>A <strong>super ugly number</strong> is a positive integer whose prime factors are in the array <code>primes</code>.</p>

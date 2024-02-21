@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0887.Super%20Egg%20Drop/README.md)
 
+<!-- tags:Math,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given <code>k</code> identical eggs and you have access to a building with <code>n</code> floors labeled from <code>1</code> to <code>n</code>.</p>

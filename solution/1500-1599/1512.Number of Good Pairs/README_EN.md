@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1512.Number%20of%20Good%20Pairs/README.md)
 
+<!-- tags:Array,Hash Table,Math,Counting -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, return <em>the number of <strong>good pairs</strong></em>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1703.Minimum%20Adjacent%20Swaps%20for%20K%20Consecutive%20Ones/README.md)
 
+<!-- tags:Greedy,Array,Prefix Sum,Sliding Window -->
+
 ## Description
 
 <p>You are given an integer array, <code>nums</code>, and an integer <code>k</code>. <code>nums</code> comprises of only <code>0</code>&#39;s and <code>1</code>&#39;s. In one move, you can choose two <strong>adjacent</strong> indices and swap their values.</p>

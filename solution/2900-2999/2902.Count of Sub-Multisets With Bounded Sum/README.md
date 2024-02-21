@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README_EN.md)
 
+<!-- tags:数组,哈希表,动态规划,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

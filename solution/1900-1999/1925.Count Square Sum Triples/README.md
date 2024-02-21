@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README_EN.md)
 
+<!-- tags:数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

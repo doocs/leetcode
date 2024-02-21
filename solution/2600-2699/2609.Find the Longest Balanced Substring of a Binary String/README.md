@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

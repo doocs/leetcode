@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1480.Running%20Sum%20of%201d%20Array/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>Given an array <code>nums</code>. We define a running sum of an array as&nbsp;<code>runningSum[i] = sum(nums[0]&hellip;nums[i])</code>.</p>

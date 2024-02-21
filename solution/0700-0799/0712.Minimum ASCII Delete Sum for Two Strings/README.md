@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

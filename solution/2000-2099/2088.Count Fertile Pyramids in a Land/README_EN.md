@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>A farmer has a <strong>rectangular grid</strong> of land with <code>m</code> rows and <code>n</code> columns that can be divided into unit cells. Each cell is either <strong>fertile</strong> (represented by a <code>1</code>) or <strong>barren</strong> (represented by a <code>0</code>). All cells outside the grid are considered barren.</p>

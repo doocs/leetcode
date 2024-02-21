@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1720.Decode%20XORed%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>There is a <strong>hidden</strong> integer array <code>arr</code> that consists of <code>n</code> non-negative integers.</p>

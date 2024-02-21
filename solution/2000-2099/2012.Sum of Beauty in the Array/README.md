@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

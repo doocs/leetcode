@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>candies</code>. Each element in the array denotes a pile of candies of size <code>candies[i]</code>. You can divide each pile into any number of <strong>sub piles</strong>, but you <strong>cannot</strong> merge two piles together.</p>

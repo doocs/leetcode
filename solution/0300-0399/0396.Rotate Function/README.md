@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0396.Rotate%20Function/README_EN.md)
 
+<!-- tags:数组,数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

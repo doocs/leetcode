@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README_EN.md)
 
+<!-- tags:树,数学,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

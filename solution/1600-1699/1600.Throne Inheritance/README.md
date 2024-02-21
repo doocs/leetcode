@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md)
 
+<!-- tags:树,深度优先搜索,设计,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

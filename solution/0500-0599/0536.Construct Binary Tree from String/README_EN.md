@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README.md)
 
+<!-- tags:Tree,Depth-First Search,String,Binary Tree -->
+
 ## Description
 
 <p>You need to construct a binary tree from a string consisting of parenthesis and integers.</p>

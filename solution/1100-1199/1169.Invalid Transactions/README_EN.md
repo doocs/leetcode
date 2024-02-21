@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1169.Invalid%20Transactions/README.md)
 
+<!-- tags:Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>A transaction is possibly invalid if:</p>

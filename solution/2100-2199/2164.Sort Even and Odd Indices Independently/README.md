@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

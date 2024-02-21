@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

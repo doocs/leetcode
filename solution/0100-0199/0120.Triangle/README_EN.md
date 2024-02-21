@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0120.Triangle/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given a <code>triangle</code> array, return <em>the minimum path sum from top to bottom</em>.</p>

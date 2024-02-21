@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

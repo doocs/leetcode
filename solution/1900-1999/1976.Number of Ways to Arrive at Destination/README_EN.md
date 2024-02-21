@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README.md)
 
+<!-- tags:Graph,Topological Sort,Dynamic Programming,Shortest Path -->
+
 ## Description
 
 <p>You are in a city that consists of <code>n</code> intersections numbered from <code>0</code> to <code>n - 1</code> with <strong>bi-directional</strong> roads between some intersections. The inputs are generated such that you can reach any intersection from any other intersection and that there is at most one road between any two intersections.</p>

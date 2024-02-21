@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>word1</code> and <code>word2</code>.</p>

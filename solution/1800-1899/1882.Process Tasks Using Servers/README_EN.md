@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
 
+<!-- tags:Array,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>servers</code> and <code>tasks</code> of lengths <code>n</code>​​​​​​ and <code>m</code>​​​​​​ respectively. <code>servers[i]</code> is the <strong>weight</strong> of the <code>i<sup>​​​​​​th</sup></code>​​​​ server, and <code>tasks[j]</code> is the <strong>time needed</strong> to process the <code>j<sup>​​​​​​th</sup></code>​​​​ task <strong>in seconds</strong>.</p>

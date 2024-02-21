@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2549.Count%20Distinct%20Numbers%20on%20Board/README.md)
 
+<!-- tags:Array,Hash Table,Math,Simulation -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>, that is initially placed on a board. Every day, for <code>10<sup>9</sup></code> days, you perform the following procedure:</p>

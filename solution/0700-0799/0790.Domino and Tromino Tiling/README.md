@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README_EN.md)
 
+<!-- tags:动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

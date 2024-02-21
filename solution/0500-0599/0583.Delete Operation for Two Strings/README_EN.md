@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of <strong>steps</strong> required to make</em> <code>word1</code> <em>and</em> <code>word2</code> <em>the same</em>.</p>

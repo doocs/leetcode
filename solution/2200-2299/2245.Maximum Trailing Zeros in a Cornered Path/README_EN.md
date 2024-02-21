@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README.md)
 
+<!-- tags:Array,Matrix,Prefix Sum -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>grid</code> of size <code>m x n</code>, where each cell contains a positive integer.</p>

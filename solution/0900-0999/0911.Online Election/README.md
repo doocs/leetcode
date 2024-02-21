@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0911.Online%20Election/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md)
 
+<!-- tags:数组,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

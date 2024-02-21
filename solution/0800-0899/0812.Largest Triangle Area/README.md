@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0812.Largest%20Triangle%20Area/README_EN.md)
 
+<!-- tags:几何,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

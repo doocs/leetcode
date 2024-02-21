@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1025.Divisor%20Game/README.md)
 
+<!-- tags:Brainteaser,Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>

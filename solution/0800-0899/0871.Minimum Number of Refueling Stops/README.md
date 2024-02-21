@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

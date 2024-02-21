@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0504.Base%207/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>a string of its <strong>base 7</strong> representation</em>.</p>

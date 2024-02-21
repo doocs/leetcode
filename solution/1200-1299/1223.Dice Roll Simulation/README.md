@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

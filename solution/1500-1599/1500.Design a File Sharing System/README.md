@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md)
 
+<!-- tags:设计,哈希表,数据流,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

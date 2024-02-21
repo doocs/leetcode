@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2751.Robot%20Collisions/README_EN.md)
 
+<!-- tags:栈,数组,排序,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

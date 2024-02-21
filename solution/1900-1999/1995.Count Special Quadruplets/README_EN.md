@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1995.Count%20Special%20Quadruplets/README.md)
 
+<!-- tags:Array,Enumeration -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, return <em>the number of <strong>distinct</strong> quadruplets</em> <code>(a, b, c, d)</code> <em>such that:</em></p>

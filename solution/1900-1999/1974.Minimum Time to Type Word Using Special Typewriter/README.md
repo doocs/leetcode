@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1974.Minimum%20Time%20to%20Type%20Word%20Using%20Special%20Typewriter/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

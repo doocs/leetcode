@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0211.Design%20Add%20and%20Search%20Words%20Data%20Structure/README.md)
 
+<!-- tags:Depth-First Search,Design,Trie,String -->
+
 ## Description
 
 <p>Design a data structure that supports adding new words and finding if a string matches any previously added string.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

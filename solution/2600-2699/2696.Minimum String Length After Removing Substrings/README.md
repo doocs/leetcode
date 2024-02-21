@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README_EN.md)
 
+<!-- tags:栈,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README.md)
 
+<!-- tags:Greedy,Array,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. You can apply the following operation any number of times:</p>

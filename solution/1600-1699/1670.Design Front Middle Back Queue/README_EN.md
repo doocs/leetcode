@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README.md)
 
+<!-- tags:Design,Queue,Array,Linked List,Data Stream -->
+
 ## Description
 
 <p>Design a queue that supports <code>push</code> and <code>pop</code> operations in the front, middle, and back.</p>

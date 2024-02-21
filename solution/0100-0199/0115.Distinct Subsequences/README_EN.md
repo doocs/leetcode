@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0115.Distinct%20Subsequences/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given two strings s and t, return <i>the number of distinct</i> <b><i>subsequences</i></b><i> of </i>s<i> which equals </i>t.</p>

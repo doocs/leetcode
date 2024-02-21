@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>A <strong>pangram</strong> is a sentence where every letter of the English alphabet appears at least once.</p>

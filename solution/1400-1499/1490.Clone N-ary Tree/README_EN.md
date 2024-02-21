@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1490.Clone%20N-ary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table -->
+
 ## Description
 
 <p>Given a <code>root</code> of an N-ary tree, return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the tree.</p>

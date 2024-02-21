@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1964.Find%20the%20Longest%20Valid%20Obstacle%20Course%20at%20Each%20Position/README.md)
 
+<!-- tags:Binary Indexed Tree,Array,Binary Search -->
+
 ## Description
 
 <p>You want to build some obstacle courses. You are given a <strong>0-indexed</strong> integer array <code>obstacles</code> of length <code>n</code>, where <code>obstacles[i]</code> describes the height of the <code>i<sup>th</sup></code> obstacle.</p>

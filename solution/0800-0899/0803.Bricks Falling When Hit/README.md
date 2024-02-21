@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md)
 
+<!-- tags:并查集,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

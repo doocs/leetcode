@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Union Find,Graph,Array,Hash Table -->
+
 ## Description
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> edges.</p>

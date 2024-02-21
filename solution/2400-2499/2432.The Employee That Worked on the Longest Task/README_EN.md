@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2432.The%20Employee%20That%20Worked%20on%20the%20Longest%20Task/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>There are <code>n</code> employees, each with a unique id from <code>0</code> to <code>n - 1</code>.</p>

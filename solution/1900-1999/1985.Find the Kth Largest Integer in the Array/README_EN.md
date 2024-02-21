@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README.md)
 
+<!-- tags:Array,String,Divide and Conquer,Quickselect,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array of strings <code>nums</code> and an integer <code>k</code>. Each string in <code>nums</code> represents an integer without leading zeros.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2534.Time%20Taken%20to%20Cross%20the%20Door/README.md)
 
+<!-- tags:Queue,Array,Simulation -->
+
 ## Description
 
 <p>There are <code>n</code> persons numbered from <code>0</code> to <code>n - 1</code> and a door. Each person can enter or exit through the door once, taking one second.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

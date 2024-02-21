@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Orders</code></p>

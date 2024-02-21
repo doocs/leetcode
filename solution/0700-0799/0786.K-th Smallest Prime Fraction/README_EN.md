@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md)
 
+<!-- tags:Array,Binary Search,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a sorted integer array <code>arr</code> containing <code>1</code> and <strong>prime</strong> numbers, where all the integers of <code>arr</code> are unique. You are also given an integer <code>k</code>.</p>

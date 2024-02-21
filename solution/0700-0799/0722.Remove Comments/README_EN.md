@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0722.Remove%20Comments/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>Given a C++ program, remove comments from it. The program source is an array of strings <code>source</code> where <code>source[i]</code> is the <code>i<sup>th</sup></code> line of the source code. This represents the result of splitting the original source code string by the newline character <code>&#39;\n&#39;</code>.</p>

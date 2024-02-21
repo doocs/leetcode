@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

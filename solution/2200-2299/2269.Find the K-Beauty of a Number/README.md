@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README_EN.md)
 
+<!-- tags:数学,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

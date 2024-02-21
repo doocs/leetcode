@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
 
+<!-- tags:Recursion,Array,Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. Two players are playing a game with this array: player 1 and player 2.</p>

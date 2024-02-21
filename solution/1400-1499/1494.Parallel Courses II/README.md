@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1494.Parallel%20Courses%20II/README_EN.md)
 
+<!-- tags:位运算,图,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

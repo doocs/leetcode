@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1487.Making%20File%20Names%20Unique/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

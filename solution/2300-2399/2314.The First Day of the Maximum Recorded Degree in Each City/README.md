@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are given a <strong>strictly increasing</strong> integer array <code>rungs</code> that represents the <strong>height</strong> of rungs on a ladder. You are currently on the <strong>floor</strong> at height <code>0</code>, and you want to reach the last rung.</p>

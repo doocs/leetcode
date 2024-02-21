@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming,Heap (Priority Queue) -->
+
 ## Description
 
 <p>A car travels from a starting position to a destination which is <code>target</code> miles east of the starting position.</p>

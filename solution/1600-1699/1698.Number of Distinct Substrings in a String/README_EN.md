@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1698.Number%20of%20Distinct%20Substrings%20in%20a%20String/README.md)
 
+<!-- tags:Trie,String,Suffix Array,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the number of <strong>distinct</strong> substrings of</em>&nbsp;<code>s</code>.</p>

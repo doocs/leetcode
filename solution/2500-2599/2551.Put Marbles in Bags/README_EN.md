@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md)
 
+<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have <code>k</code> bags. You are given a <strong>0-indexed</strong> integer array <code>weights</code> where <code>weights[i]</code> is the weight of the <code>i<sup>th</sup></code> marble. You are also given the integer <code>k.</code></p>

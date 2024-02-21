@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0125.Valid%20Palindrome/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>A phrase is a <strong>palindrome</strong> if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.</p>

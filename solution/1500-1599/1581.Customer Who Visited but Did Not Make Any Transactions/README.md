@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

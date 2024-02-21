@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README_EN.md)
 
+<!-- tags:数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

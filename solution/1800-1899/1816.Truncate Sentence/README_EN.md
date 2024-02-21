@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1816.Truncate%20Sentence/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>A <strong>sentence</strong> is a list of words that are separated by a single space with no leading or trailing spaces. Each of the words consists of <strong>only</strong> uppercase and lowercase English letters (no punctuation).</p>

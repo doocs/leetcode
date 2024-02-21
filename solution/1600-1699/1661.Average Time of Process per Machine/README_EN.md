@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Activity</code></p>

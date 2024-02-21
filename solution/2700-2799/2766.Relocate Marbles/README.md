@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md)
 
+<!-- tags:数组,哈希表,排序,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

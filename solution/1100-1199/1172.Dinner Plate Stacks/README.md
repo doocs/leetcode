@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md)
 
+<!-- tags:栈,设计,哈希表,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

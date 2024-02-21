@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README.md)
 
+<!-- tags:Binary Indexed Tree,Segment Tree,Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer array&nbsp;<code>nums</code>, return <em>the number of longest increasing subsequences.</em></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/README_EN.md)
 
+<!-- tags:数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

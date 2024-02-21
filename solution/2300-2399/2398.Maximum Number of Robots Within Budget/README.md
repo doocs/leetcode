@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README_EN.md)
 
+<!-- tags:队列,数组,二分查找,前缀和,滑动窗口,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

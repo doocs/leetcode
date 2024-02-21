@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2150.Find%20All%20Lonely%20Numbers%20in%20the%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

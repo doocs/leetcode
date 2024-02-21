@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1984.Minimum%20Difference%20Between%20Highest%20and%20Lowest%20of%20K%20Scores/README_EN.md)
 
+<!-- tags:数组,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

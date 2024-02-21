@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README_EN.md)
 
+<!-- tags:数组,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

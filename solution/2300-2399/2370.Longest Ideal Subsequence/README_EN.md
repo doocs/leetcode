@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)
 
+<!-- tags:Hash Table,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of lowercase letters and an integer <code>k</code>. We call a string <code>t</code> <strong>ideal</strong> if the following conditions are satisfied:</p>

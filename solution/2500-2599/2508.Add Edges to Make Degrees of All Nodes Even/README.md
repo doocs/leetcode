@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2508.Add%20Edges%20to%20Make%20Degrees%20of%20All%20Nodes%20Even/README_EN.md)
 
+<!-- tags:图,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

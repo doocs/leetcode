@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README_EN.md)
 
+<!-- tags:树,深度优先搜索,哈希表,二分查找,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

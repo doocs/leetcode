@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given a string <code>allowed</code> consisting of <strong>distinct</strong> characters and an array of strings <code>words</code>. A string is <strong>consistent </strong>if all characters in the string appear in the string <code>allowed</code>.</p>

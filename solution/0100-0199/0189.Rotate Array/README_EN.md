@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0189.Rotate%20Array/README.md)
 
+<!-- tags:Array,Math,Two Pointers -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, rotate the array to the right by <code>k</code> steps, where <code>k</code> is non-negative.</p>

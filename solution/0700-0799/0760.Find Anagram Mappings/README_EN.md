@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> where <code>nums2</code> is <strong>an anagram</strong> of <code>nums1</code>. Both arrays may contain duplicates.</p>

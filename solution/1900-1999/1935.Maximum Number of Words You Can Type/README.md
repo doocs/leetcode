@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

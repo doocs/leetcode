@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README_EN.md)
 
+<!-- tags:数组,分治,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

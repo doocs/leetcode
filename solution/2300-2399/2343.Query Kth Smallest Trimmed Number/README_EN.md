@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2343.Query%20Kth%20Smallest%20Trimmed%20Number/README.md)
 
+<!-- tags:Array,String,Divide and Conquer,Quickselect,Radix Sort,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>nums</code>, where each string is of <strong>equal length</strong> and consists of only digits.</p>

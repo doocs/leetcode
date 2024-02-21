@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0131.Palindrome%20Partitioning/README_EN.md)
 
+<!-- tags:字符串,动态规划,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

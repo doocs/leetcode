@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README_EN.md)
 
+<!-- tags:贪心,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

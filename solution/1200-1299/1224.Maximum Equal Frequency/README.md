@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

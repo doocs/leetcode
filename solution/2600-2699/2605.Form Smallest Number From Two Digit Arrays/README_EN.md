@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md)
 
+<!-- tags:Array,Hash Table,Enumeration -->
+
 ## Description
 
 Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>nums2</code>, return <em>the <strong>smallest</strong> number that contains <strong>at least</strong> one digit from each array</em>.

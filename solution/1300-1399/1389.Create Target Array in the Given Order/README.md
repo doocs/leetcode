@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

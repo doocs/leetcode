@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0159.Longest%20Substring%20with%20At%20Most%20Two%20Distinct%20Characters/README_EN.md)
 
+<!-- tags:哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

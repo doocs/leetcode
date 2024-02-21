@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1770.Maximum%20Score%20from%20Performing%20Multiplication%20Operations/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

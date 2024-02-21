@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md)
 
+<!-- tags:String,Sorting -->
+
 ## Description
 
 <p>A <strong>sentence</strong> is a list of words that are separated by a single space with no leading or trailing spaces. Each word consists of lowercase and uppercase English letters.</p>

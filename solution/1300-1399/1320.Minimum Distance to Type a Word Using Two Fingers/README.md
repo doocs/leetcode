@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1320.Minimum%20Distance%20to%20Type%20a%20Word%20Using%20Two%20Fingers/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

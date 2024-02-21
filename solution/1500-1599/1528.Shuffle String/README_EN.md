@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1528.Shuffle%20String/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an integer array <code>indices</code> of the <strong>same length</strong>. The string <code>s</code> will be shuffled such that the character at the <code>i<sup>th</sup></code> position moves to <code>indices[i]</code> in the shuffled string.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

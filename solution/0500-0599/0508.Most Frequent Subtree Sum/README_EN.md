@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README.md)
 
+<!-- tags:Tree,Depth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return the most frequent <strong>subtree sum</strong>. If there is a tie, return all the values with the highest frequency in any order.</p>

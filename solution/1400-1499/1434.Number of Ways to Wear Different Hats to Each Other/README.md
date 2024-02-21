@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1434.Number%20of%20Ways%20to%20Wear%20Different%20Hats%20to%20Each%20Other/README_EN.md)
 
+<!-- tags:位运算,数组,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

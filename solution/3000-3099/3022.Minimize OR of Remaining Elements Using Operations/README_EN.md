@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>

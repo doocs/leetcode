@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0751.IP%20to%20CIDR/README.md)
 
+<!-- tags:Bit Manipulation,String -->
+
 ## Description
 
 <p>An <strong>IP address</strong> is a formatted 32-bit unsigned integer where each group of 8 bits is printed as a decimal number and the dot character <code>&#39;.&#39;</code> splits the groups.</p>

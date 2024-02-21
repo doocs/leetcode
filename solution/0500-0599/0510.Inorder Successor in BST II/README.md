@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README_EN.md)
 
+<!-- tags:树,二叉搜索树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

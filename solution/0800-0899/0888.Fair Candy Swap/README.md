@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0888.Fair%20Candy%20Swap/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

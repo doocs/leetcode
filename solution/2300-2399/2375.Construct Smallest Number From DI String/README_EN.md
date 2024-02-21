@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md)
 
+<!-- tags:Stack,Greedy,String,Backtracking -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>pattern</code> of length <code>n</code> consisting of the characters <code>&#39;I&#39;</code> meaning <strong>increasing</strong> and <code>&#39;D&#39;</code> meaning <strong>decreasing</strong>.</p>

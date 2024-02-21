@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

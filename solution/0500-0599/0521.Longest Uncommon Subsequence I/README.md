@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

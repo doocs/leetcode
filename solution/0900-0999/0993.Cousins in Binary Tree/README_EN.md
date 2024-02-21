@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree with unique values and the values of two different nodes of the tree <code>x</code> and <code>y</code>, return <code>true</code> <em>if the nodes corresponding to the values </em><code>x</code><em> and </em><code>y</code><em> in the tree are <strong>cousins</strong>, or </em><code>false</code><em> otherwise.</em></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0836.Rectangle%20Overlap/README_EN.md)
 
+<!-- tags:几何,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

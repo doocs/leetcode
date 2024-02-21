@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2536.Increment%20Submatrices%20by%20One/README_EN.md)
 
+<!-- tags:数组,矩阵,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

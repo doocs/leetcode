@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employee</code></p>

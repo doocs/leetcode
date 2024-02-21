@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README.md)
 
+<!-- tags:Array,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>,&nbsp;which contains <strong>distinct</strong> elements and an integer <code>k</code>.</p>

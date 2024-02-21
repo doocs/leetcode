@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0839.Similar%20String%20Groups/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1070.Product%20Sales%20Analysis%20III/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Sales</code></p>

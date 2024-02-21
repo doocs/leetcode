@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1695.Maximum%20Erasure%20Value/README.md)
 
+<!-- tags:Array,Hash Table,Sliding Window -->
+
 ## Description
 
 <p>You are given an array of positive integers <code>nums</code> and want to erase a subarray containing&nbsp;<strong>unique elements</strong>. The <strong>score</strong> you get by erasing the subarray is equal to the <strong>sum</strong> of its elements.</p>

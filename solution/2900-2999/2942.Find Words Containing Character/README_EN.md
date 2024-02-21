@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code> and a character <code>x</code>.</p>

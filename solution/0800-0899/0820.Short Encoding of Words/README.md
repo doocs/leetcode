@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README_EN.md)
 
+<!-- tags:字典树,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

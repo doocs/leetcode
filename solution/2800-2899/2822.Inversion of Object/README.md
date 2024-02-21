@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2822.Inversion%20of%20Object/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

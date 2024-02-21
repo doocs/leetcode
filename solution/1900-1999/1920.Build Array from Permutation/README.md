@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1920.Build%20Array%20from%20Permutation/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

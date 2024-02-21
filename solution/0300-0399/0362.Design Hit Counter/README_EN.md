@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0362.Design%20Hit%20Counter/README.md)
 
+<!-- tags:Design,Queue,Array,Binary Search,Data Stream -->
+
 ## Description
 
 <p>Design a hit counter which counts the number of hits received in the past <code>5</code> minutes (i.e., the past <code>300</code> seconds).</p>

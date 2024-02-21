@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given positive integers <code>n</code> and <code>target</code>.</p>

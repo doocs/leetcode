@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README.md)
 
+<!-- tags:Backtracking -->
+
 ## Description
 
 <p>Given a rectangle of size <code>n</code> x <code>m</code>, return <em>the minimum number of integer-sided squares that tile the rectangle</em>.</p>

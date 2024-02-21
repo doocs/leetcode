@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1343.Number%20of%20Sub-arrays%20of%20Size%20K%20and%20Average%20Greater%20than%20or%20Equal%20to%20Threshold/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

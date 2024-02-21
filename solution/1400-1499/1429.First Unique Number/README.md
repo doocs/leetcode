@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1429.First%20Unique%20Number/README_EN.md)
 
+<!-- tags:设计,队列,数组,哈希表,数据流 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

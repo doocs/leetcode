@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0577.Employee%20Bonus/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employee</code></p>

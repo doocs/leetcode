@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1432.Max%20Difference%20You%20Can%20Get%20From%20Changing%20an%20Integer/README_EN.md)
 
+<!-- tags:贪心,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

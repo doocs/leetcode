@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md)
 
+<!-- tags:Bit Manipulation,Array,Two Pointers,Binary Search -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> containing&nbsp;<code>n + 1</code> integers where each integer is in the range <code>[1, n]</code> inclusive.</p>

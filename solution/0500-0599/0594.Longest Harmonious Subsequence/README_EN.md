@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README.md)
 
+<!-- tags:Array,Hash Table,Counting,Sorting,Sliding Window -->
+
 ## Description
 
 <p>We define a harmonious array as an array where the difference between its maximum value and its minimum value is <b>exactly</b> <code>1</code>.</p>

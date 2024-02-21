@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md)
 
+<!-- tags:哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0383.Ransom%20Note/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

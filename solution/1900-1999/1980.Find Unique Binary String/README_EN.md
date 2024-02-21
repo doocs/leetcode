@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README.md)
 
+<!-- tags:Array,Hash Table,String,Backtracking -->
+
 ## Description
 
 <p>Given an array of strings <code>nums</code> containing <code>n</code> <strong>unique</strong> binary strings each of length <code>n</code>, return <em>a binary string of length </em><code>n</code><em> that <strong>does not appear</strong> in </em><code>nums</code><em>. If there are multiple answers, you may return <strong>any</strong> of them</em>.</p>

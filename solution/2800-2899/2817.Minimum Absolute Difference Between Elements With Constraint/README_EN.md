@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md)
 
+<!-- tags:Array,Binary Search,Ordered Set -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>x</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0665.Non-decreasing%20Array/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given an array <code>nums</code> with <code>n</code> integers, your task is to check if it could become non-decreasing by modifying <strong>at most one element</strong>.</p>

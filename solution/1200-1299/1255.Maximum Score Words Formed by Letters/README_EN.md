@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README.md)
 
+<!-- tags:Bit Manipulation,Array,String,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>Given a list of <code>words</code>, list of&nbsp; single&nbsp;<code>letters</code> (might be repeating)&nbsp;and <code>score</code>&nbsp;of every character.</p>

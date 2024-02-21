@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/README_EN.md)
 
+<!-- tags:链表,数学,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

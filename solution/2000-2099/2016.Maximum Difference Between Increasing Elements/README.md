@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2016.Maximum%20Difference%20Between%20Increasing%20Elements/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

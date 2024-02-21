@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>&#39;s in the array</em>.</p>

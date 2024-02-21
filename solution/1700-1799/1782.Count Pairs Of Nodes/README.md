@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md)
 
+<!-- tags:图,数组,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

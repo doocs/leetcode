@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2402.Meeting%20Rooms%20III/README_EN.md)
 
+<!-- tags:数组,哈希表,排序,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the <strong>maximum possible sum </strong>of elements of the array such that it is divisible by three</em>.</p>

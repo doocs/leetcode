@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0722.Remove%20Comments/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

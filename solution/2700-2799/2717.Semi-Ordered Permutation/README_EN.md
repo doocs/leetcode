@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> permutation of <code>n</code> integers <code>nums</code>.</p>

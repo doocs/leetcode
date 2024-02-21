@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Calls</code></p>

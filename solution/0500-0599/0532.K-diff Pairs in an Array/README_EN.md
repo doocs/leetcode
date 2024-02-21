@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of <b>unique</b> k-diff pairs in the array</em>.</p>

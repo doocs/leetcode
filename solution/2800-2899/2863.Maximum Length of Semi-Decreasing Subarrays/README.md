@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README_EN.md)
 
+<!-- tags:数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

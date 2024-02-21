@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

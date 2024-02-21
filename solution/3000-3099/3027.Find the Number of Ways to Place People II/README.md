@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md)
 
+<!-- tags:几何,数组,数学,枚举,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

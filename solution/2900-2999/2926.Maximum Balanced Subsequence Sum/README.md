@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)
 
+<!-- tags:树状数组,线段树,数组,二分查找,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

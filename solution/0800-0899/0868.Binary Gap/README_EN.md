@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0868.Binary%20Gap/README.md)
 
+<!-- tags:Bit Manipulation -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, find and return <em>the <strong>longest distance</strong> between any two <strong>adjacent</strong> </em><code>1</code><em>&#39;s in the binary representation of </em><code>n</code><em>. If there are no two adjacent </em><code>1</code><em>&#39;s, return </em><code>0</code><em>.</em></p>

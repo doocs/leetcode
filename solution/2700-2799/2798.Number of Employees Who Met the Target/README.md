@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

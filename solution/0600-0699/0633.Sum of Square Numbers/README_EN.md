@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README.md)
 
+<!-- tags:Math,Two Pointers,Binary Search -->
+
 ## Description
 
 <p>Given a non-negative integer <code>c</code>, decide whether there&#39;re two integers <code>a</code> and <code>b</code> such that <code>a<sup>2</sup> + b<sup>2</sup> = c</code>.</p>

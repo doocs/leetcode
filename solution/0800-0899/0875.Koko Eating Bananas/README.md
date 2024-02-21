@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0875.Koko%20Eating%20Bananas/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

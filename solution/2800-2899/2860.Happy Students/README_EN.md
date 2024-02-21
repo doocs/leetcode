@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2860.Happy%20Students/README.md)
 
+<!-- tags:Array,Enumeration,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> where <code>n</code> is the total number of students in the class. The class teacher tries to select a group of students so that all the students remain happy.</p>

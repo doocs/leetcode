@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README.md)
 
+<!-- tags:Array,Binary Search,Prefix Sum,Sorting -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>

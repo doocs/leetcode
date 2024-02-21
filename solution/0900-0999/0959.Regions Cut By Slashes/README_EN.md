@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Hash Table,Matrix -->
+
 ## Description
 
 <p>An <code>n x n</code> grid is composed of <code>1 x 1</code> squares where each <code>1 x 1</code> square consists of a <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or blank space <code>&#39; &#39;</code>. These characters divide the square into contiguous regions.</p>

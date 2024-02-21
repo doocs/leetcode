@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/README_EN.md)
 
+<!-- tags:树,数学,动态规划,二叉树,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

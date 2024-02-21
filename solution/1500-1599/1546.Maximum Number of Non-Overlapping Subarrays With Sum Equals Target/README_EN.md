@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1546.Maximum%20Number%20of%20Non-Overlapping%20Subarrays%20With%20Sum%20Equals%20Target/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>Given an array <code>nums</code> and an integer <code>target</code>, return <em>the maximum number of <strong>non-empty</strong> <strong>non-overlapping</strong> subarrays such that the sum of values in each subarray is equal to</em> <code>target</code>.</p>

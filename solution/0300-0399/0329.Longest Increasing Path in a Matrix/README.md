@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序,记忆化搜索,数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

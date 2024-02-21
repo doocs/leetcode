@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1926.Nearest%20Exit%20from%20Entrance%20in%20Maze/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

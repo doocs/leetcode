@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

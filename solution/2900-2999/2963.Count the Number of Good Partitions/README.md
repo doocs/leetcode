@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

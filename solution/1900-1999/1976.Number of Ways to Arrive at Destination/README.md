@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md)
 
+<!-- tags:图,拓扑排序,动态规划,最短路 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

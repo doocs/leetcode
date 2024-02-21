@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md)
 
+<!-- tags:数组,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0464.Can%20I%20Win/README.md)
 
+<!-- tags:Bit Manipulation,Memoization,Math,Dynamic Programming,Bitmask,Game Theory -->
+
 ## Description
 
 <p>In the &quot;100 game&quot; two players take turns adding, to a running total, any integer from <code>1</code> to <code>10</code>. The player who first causes the running total to <strong>reach or exceed</strong> 100 wins.</p>

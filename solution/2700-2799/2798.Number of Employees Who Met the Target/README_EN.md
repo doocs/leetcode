@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>There are <code>n</code> employees in a company, numbered from <code>0</code> to <code>n - 1</code>. Each employee <code>i</code> has worked for <code>hours[i]</code> hours in the company.</p>

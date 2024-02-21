@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. In one operation, you can replace <strong>any</strong> element in <code>nums</code> with <strong>any</strong> integer.</p>

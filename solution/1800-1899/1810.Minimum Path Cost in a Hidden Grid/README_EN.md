@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Interactive,Heap (Priority Queue) -->
+
 ## Description
 
 <p>This is an <strong>interactive problem</strong>.</p>

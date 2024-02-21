@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

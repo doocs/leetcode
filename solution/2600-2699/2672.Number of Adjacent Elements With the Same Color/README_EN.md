@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2672.Number%20of%20Adjacent%20Elements%20With%20the%20Same%20Color/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>There is a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code>. Initially, all elements are <strong>uncolored </strong>(has a value of <code>0</code>).</p>

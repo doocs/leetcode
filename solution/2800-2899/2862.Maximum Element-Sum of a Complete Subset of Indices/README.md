@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)
 
+<!-- tags:数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

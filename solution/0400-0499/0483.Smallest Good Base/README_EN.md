@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0483.Smallest%20Good%20Base/README.md)
 
+<!-- tags:Math,Binary Search -->
+
 ## Description
 
 <p>Given an integer <code>n</code> represented as a string, return <em>the smallest <strong>good base</strong> of</em> <code>n</code>.</p>

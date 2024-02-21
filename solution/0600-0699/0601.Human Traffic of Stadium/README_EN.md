@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Stadium</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an <strong>even</strong> number of people <code>numPeople</code> that stand around a circle and each person shakes hands with someone else so that there are <code>numPeople / 2</code> handshakes total.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README_EN.md)
 
+<!-- tags:并查集,数组,数学,数论,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

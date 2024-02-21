@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, modify the array in the following way:</p>

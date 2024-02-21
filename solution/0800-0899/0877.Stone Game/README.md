@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0877.Stone%20Game/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0242.Valid%20Anagram/README.md)
 
+<!-- tags:Hash Table,String,Sorting -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> <em>if</em> <code>t</code> <em>is an anagram of</em> <code>s</code><em>, and</em> <code>false</code> <em>otherwise</em>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0674.Longest%20Continuous%20Increasing%20Subsequence/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

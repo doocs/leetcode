@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1328.Break%20a%20Palindrome/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

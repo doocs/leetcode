@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md)
 
+<!-- tags:贪心,哈希表,字符串,计数,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

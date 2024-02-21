@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2364.Count%20Number%20of%20Bad%20Pairs/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

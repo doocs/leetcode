@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

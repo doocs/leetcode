@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1490.Clone%20N-ary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

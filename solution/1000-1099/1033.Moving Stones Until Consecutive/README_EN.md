@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README.md)
 
+<!-- tags:Brainteaser,Math -->
+
 ## Description
 
 <p>There are three stones in different positions on the X-axis. You are given three integers <code>a</code>, <code>b</code>, and <code>c</code>, the positions of the stones.</p>

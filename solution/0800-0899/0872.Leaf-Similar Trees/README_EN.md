@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0872.Leaf-Similar%20Trees/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Consider all the leaves of a binary tree, from&nbsp;left to right order, the values of those&nbsp;leaves form a <strong>leaf value sequence</strong><em>.</em></p>

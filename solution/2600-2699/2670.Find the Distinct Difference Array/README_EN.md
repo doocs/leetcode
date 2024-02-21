@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/README_EN.md)
 
+<!-- tags:位运算 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

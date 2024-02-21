@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

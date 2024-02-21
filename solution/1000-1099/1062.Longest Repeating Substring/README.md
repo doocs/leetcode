@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README_EN.md)
 
+<!-- tags:字符串,二分查找,动态规划,后缀数组,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

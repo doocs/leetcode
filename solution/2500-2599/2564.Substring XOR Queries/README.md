@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

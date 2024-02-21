@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README.md)
 
+<!-- tags:Bit Manipulation,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer <code>k</code> and an integer <code>x</code>.</p>

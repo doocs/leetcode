@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1803.Count%20Pairs%20With%20XOR%20in%20a%20Range/README.md)
 
+<!-- tags:Bit Manipulation,Trie,Array -->
+
 ## Description
 
 <p>Given a <strong>(0-indexed)</strong> integer array <code>nums</code> and two integers <code>low</code> and <code>high</code>, return <em>the number of <strong>nice pairs</strong></em>.</p>

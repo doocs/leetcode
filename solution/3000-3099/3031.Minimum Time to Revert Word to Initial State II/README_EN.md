@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3031.Minimum%20Time%20to%20Revert%20Word%20to%20Initial%20State%20II/README.md)
 
+<!-- tags:String,String Matching,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>word</code> and an integer <code>k</code>.</p>

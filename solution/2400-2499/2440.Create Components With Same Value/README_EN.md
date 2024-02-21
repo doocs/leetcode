@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README.md)
 
+<!-- tags:Tree,Depth-First Search,Array,Math,Enumeration -->
+
 ## Description
 
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md)
 
+<!-- tags:Stack,Greedy,String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>word</code> to which you can insert letters &quot;a&quot;, &quot;b&quot; or &quot;c&quot; anywhere and any number of times, return <em>the minimum number of letters that must be inserted so that <code>word</code> becomes <strong>valid</strong>.</em></p>

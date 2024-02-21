@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README_EN.md)
 
+<!-- tags:数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

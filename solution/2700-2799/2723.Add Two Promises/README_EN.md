@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 Given two promises <code>promise1</code> and <code>promise2</code>, return a new promise. <code>promise1</code> and <code>promise2</code>&nbsp;will both resolve with a number. The returned promise should resolve with the sum of the two numbers.

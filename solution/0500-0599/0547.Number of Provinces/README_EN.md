@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0547.Number%20of%20Provinces/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
+
 ## Description
 
 <p>There are <code>n</code> cities. Some of them are connected, while some are not. If city <code>a</code> is connected directly with city <code>b</code>, and city <code>b</code> is connected directly with city <code>c</code>, then city <code>a</code> is connected indirectly with city <code>c</code>.</p>

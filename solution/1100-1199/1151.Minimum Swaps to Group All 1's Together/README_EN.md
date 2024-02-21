@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>Given a&nbsp;binary array <code>data</code>, return&nbsp;the minimum number of swaps required to group all <code>1</code>&rsquo;s present in the array together in <strong>any place</strong> in the array.</p>

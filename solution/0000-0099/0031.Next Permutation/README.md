@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0031.Next%20Permutation/README_EN.md)
 
+<!-- tags:数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

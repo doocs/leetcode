@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

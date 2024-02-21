@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

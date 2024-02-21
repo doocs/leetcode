@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0469.Convex%20Polygon/README_EN.md)
 
+<!-- tags:几何,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

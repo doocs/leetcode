@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README_EN.md)
 
+<!-- tags:数组,哈希表,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

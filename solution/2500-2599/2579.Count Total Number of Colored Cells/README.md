@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

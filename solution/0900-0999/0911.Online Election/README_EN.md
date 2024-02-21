@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0911.Online%20Election/README.md)
 
+<!-- tags:Design,Array,Hash Table,Binary Search -->
+
 ## Description
 
 <p>You are given two integer arrays <code>persons</code> and <code>times</code>. In an election, the <code>i<sup>th</sup></code> vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>

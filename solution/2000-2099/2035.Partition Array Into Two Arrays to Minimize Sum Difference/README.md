@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README_EN.md)
 
+<!-- tags:位运算,数组,双指针,二分查找,动态规划,状态压缩,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

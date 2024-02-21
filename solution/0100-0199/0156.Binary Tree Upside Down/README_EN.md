@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, turn the tree upside down and return <em>the new root</em>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0244.Shortest%20Word%20Distance%20II/README.md)
 
+<!-- tags:Design,Array,Hash Table,Two Pointers,String -->
+
 ## Description
 
 <p>Design a data structure that will be initialized with a string array, and then it should answer queries of the shortest distance between two different strings from the array.</p>

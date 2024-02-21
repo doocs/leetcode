@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0593.Valid%20Square/README_EN.md)
 
+<!-- tags:几何,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

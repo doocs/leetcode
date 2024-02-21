@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1783.Grand%20Slam%20Titles/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Players</code></p>

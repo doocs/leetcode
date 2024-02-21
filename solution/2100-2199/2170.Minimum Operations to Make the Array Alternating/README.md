@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

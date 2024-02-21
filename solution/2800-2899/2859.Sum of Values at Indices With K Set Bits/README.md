@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)
 
+<!-- tags:位运算,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

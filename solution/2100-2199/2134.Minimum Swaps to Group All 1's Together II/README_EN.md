@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2134.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together%20II/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>A <strong>swap</strong> is defined as taking two <strong>distinct</strong> positions in an array and swapping the values in them.</p>

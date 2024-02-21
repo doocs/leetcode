@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

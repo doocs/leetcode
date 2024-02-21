@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>A peak element is an element that is strictly greater than its neighbors.</p>

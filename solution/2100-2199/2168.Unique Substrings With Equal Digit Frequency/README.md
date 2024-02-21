@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2168.Unique%20Substrings%20With%20Equal%20Digit%20Frequency/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

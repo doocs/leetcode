@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README_EN.md)
 
+<!-- tags:数组,二分查找,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

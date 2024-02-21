@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README_EN.md)
 
+<!-- tags:数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

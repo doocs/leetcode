@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

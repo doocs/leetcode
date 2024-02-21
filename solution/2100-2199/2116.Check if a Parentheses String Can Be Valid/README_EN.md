@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2116.Check%20if%20a%20Parentheses%20String%20Can%20Be%20Valid/README.md)
 
+<!-- tags:Stack,Greedy,String -->
+
 ## Description
 
 <p>A parentheses string is a <strong>non-empty</strong> string consisting only of <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>. It is valid if <strong>any</strong> of the following conditions is <strong>true</strong>:</p>

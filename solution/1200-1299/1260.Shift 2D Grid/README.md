@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1260.Shift%202D%20Grid/README_EN.md)
 
+<!-- tags:数组,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

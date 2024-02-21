@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0204.Count%20Primes/README.md)
 
+<!-- tags:Array,Math,Enumeration,Number Theory -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the number of prime numbers that are strictly less than</em> <code>n</code>.</p>

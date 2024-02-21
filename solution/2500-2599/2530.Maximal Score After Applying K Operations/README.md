@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README_EN.md)
 
+<!-- tags:贪心,数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

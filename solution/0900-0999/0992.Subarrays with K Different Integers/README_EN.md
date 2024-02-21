@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README.md)
 
+<!-- tags:Array,Hash Table,Counting,Sliding Window -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of <strong>good subarrays</strong> of </em><code>nums</code>.</p>

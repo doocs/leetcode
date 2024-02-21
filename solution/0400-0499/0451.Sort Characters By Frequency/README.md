@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README_EN.md)
 
+<!-- tags:哈希表,字符串,桶排序,计数,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

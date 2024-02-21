@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>FriendRequest</code></p>

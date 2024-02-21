@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README_EN.md)
 
+<!-- tags:链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

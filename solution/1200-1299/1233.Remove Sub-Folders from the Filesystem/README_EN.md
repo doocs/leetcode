@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README.md)
 
+<!-- tags:Depth-First Search,Trie,Array,String -->
+
 ## Description
 
 <p>Given a list of folders <code>folder</code>, return <em>the folders after removing all <strong>sub-folders</strong> in those folders</em>. You may return the answer in <strong>any order</strong>.</p>

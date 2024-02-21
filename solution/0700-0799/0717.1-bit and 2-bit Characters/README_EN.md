@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>We have two special characters:</p>

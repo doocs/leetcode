@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1286.Iterator%20for%20Combination/README_EN.md)
 
+<!-- tags:设计,字符串,回溯,迭代器 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README.md)
 
+<!-- tags:Design,Array,Hash Table,Math,Randomized -->
+
 ## Description
 
 <p>Implement the <code>RandomizedSet</code> class:</p>

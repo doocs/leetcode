@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

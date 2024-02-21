@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

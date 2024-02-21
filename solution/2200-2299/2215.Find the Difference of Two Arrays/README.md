@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

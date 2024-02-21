@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of integers.</p>

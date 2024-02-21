@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1409.Queries%20on%20a%20Permutation%20With%20Key/README_EN.md)
 
+<!-- tags:树状数组,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

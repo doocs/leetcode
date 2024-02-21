@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README.md)
 
+<!-- tags:String,Backtracking -->
+
 ## Description
 
 <p>A <strong>happy string</strong> is a string that:</p>

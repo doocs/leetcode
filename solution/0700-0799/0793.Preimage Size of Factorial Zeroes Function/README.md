@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0793.Preimage%20Size%20of%20Factorial%20Zeroes%20Function/README_EN.md)
 
+<!-- tags:数学,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

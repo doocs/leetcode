@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README.md)
 
+<!-- tags:Array,Hash Table,Math,Counting,Number Theory -->
+
 ## Description
 
 <p>You are given an integer array <code>deck</code> where <code>deck[i]</code> represents the number written on the <code>i<sup>th</sup></code> card.</p>

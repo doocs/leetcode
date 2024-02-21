@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

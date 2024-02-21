@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1270.All%20People%20Report%20to%20the%20Given%20Manager/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

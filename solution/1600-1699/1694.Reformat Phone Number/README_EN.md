@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1694.Reformat%20Phone%20Number/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a phone number as a string <code>number</code>. <code>number</code> consists of digits, spaces <code>&#39; &#39;</code>, and/or dashes <code>&#39;-&#39;</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
 
+<!-- tags:数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

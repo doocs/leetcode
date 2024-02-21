@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md)
 
+<!-- tags:数组,数学,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

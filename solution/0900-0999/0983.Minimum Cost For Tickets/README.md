@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

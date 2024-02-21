@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README_EN.md)
 
+<!-- tags:数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2365.Task%20Scheduler%20II/README.md)
 
+<!-- tags:Array,Hash Table,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>tasks</code>, representing tasks that need to be completed <strong>in order</strong>, where <code>tasks[i]</code> represents the <strong>type</strong> of the <code>i<sup>th</sup></code> task.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2288.Apply%20Discount%20to%20Prices/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. A <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n + 1</code> is generated in the following way:</p>

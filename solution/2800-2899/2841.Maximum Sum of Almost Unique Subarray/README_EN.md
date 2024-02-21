@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README.md)
 
+<!-- tags:Array,Hash Table,Sliding Window -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and two positive integers <code>m</code> and <code>k</code>.</p>

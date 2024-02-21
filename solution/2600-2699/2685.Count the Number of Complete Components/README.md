@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

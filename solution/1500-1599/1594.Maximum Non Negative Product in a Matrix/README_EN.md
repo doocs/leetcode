@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1594.Maximum%20Non%20Negative%20Product%20in%20a%20Matrix/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>You are given a <code>m x n</code> matrix <code>grid</code>. Initially, you are located at the top-left corner <code>(0, 0)</code>, and in each step, you can only <strong>move right or down</strong> in the matrix.</p>

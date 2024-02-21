@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1315.Sum%20of%20Nodes%20with%20Even-Valued%20Grandparent/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the sum of values of nodes with an <strong>even-valued grandparent</strong></em>. If there are no nodes with an <strong>even-valued grandparent</strong>, return <code>0</code>.</p>

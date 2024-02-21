@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1482.Minimum%20Number%20of%20Days%20to%20Make%20m%20Bouquets/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

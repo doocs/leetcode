@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1621.Number%20of%20Sets%20of%20K%20Non-Overlapping%20Line%20Segments/README_EN.md)
 
+<!-- tags:数学,动态规划,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

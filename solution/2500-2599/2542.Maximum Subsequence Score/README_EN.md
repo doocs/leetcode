@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2542.Maximum%20Subsequence%20Score/README.md)
 
+<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of equal length <code>n</code> and a positive integer <code>k</code>. You must choose a <strong>subsequence</strong> of indices from <code>nums1</code> of length <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

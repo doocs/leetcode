@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1256.Encode%20Number/README.md)
 
+<!-- tags:Bit Manipulation,Math,String -->
+
 ## Description
 
 <p>Given a non-negative integer <code>num</code>, Return its <em>encoding</em> string.</p>

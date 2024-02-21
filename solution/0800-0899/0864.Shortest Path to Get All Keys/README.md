@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md)
 
+<!-- tags:位运算,广度优先搜索,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

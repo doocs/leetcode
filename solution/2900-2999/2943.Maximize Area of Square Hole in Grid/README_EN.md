@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>There is a grid with <code>n + 2</code> <strong>horizontal</strong> bars and <code>m + 2</code> <strong>vertical</strong> bars, and initially containing <code>1 x 1</code> unit cells.</p>

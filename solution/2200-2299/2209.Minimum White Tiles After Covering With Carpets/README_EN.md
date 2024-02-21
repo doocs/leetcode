@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README.md)
 
+<!-- tags:String,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed binary</strong> string <code>floor</code>, which represents the colors of tiles on a floor:</p>

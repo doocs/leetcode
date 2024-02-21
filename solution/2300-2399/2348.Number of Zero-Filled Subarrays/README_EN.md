@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the number of <strong>subarrays</strong> filled with </em><code>0</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1459.Rectangles%20Area/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Points</code></p>

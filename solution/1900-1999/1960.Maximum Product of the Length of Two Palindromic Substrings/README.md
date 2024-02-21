@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1960.Maximum%20Product%20of%20the%20Length%20of%20Two%20Palindromic%20Substrings/README_EN.md)
 
+<!-- tags:字符串,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

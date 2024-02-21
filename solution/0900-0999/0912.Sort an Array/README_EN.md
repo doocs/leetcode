@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0912.Sort%20an%20Array/README.md)
 
+<!-- tags:Array,Divide and Conquer,Bucket Sort,Counting Sort,Radix Sort,Sorting,Heap (Priority Queue),Merge Sort -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, sort the array in ascending order and return it.</p>

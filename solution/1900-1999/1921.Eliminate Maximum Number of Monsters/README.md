@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md)
 
+<!-- tags:数组,排序,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

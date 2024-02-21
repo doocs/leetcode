@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> containing <strong>distinct</strong> <strong>positive</strong> integers, find and return <strong>any</strong> number from the array that is neither the <strong>minimum</strong> nor the <strong>maximum</strong> value in the array, or <strong><code>-1</code></strong> if there is no such number.</p>

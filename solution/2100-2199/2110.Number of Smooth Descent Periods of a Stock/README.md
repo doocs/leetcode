@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README_EN.md)
 
+<!-- tags:数组,数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README_EN.md)
 
+<!-- tags:栈,树,设计,二叉搜索树,二叉树,迭代器 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

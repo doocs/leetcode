@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Products</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1708.Largest%20Subarray%20Length%20K/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>An array <code>A</code> is larger than some array <code>B</code> if for the first index <code>i</code> where <code>A[i] != B[i]</code>, <code>A[i] &gt; B[i]</code>.</p>

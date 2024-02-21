@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code><font face="monospace">player1</font></code> and <code>player2</code>, that represent the number of pins that player 1 and player 2 hit in a bowling game, respectively.</p>

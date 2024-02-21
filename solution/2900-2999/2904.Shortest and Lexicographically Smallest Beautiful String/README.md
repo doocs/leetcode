@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2904.Shortest%20and%20Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)
 
+<!-- tags:字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README.md)
 
+<!-- tags:Array,Math,Number Theory -->
+
 ## Description
 
 <p>Given an array <code>nums</code> of&nbsp;positive integers. Your task is to select some subset of <code>nums</code>, multiply each element by an integer and add all these numbers.&nbsp;The array is said to be&nbsp;<strong>good&nbsp;</strong>if you can obtain a sum of&nbsp;<code>1</code>&nbsp;from the array by any possible subset and multiplicand.</p>

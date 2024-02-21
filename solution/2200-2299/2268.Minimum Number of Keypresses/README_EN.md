@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README.md)
 
+<!-- tags:Greedy,Hash Table,String,Counting,Sorting -->
+
 ## Description
 
 <p>You have a keypad with <code>9</code> buttons, numbered from <code>1</code> to <code>9</code>, each mapped to lowercase English letters. You can choose which characters each button is matched to as long as:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README.md)
 
+<!-- tags:Tree,Depth-First Search,Hash Table,Binary Search,Binary Tree -->
+
 ## Description
 
 <p>You are given <code>n</code> <strong>BST (binary search tree) root nodes</strong> for <code>n</code> separate BSTs stored in an array <code>trees</code> (<strong>0-indexed</strong>). Each BST in <code>trees</code> has <strong>at most 3 nodes</strong>, and no two roots have the same value. In one operation, you can:</p>

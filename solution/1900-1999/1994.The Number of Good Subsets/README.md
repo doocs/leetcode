@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
 
+<!-- tags:位运算,数组,数学,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

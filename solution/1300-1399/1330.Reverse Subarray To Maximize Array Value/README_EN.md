@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README.md)
 
+<!-- tags:Greedy,Array,Math -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. The <em>value</em> of this array is defined as the sum of <code>|nums[i] - nums[i + 1]|</code> for all <code>0 &lt;= i &lt; nums.length - 1</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2914.Minimum%20Number%20of%20Changes%20to%20Make%20Binary%20String%20Beautiful/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> binary string <code>s</code> having an even length.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

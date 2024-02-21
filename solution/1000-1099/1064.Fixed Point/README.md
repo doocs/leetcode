@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1064.Fixed%20Point/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

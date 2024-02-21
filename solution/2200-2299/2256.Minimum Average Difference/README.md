@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2256.Minimum%20Average%20Difference/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

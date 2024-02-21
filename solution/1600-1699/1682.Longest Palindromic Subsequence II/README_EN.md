@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>A subsequence of a string <code>s</code> is considered a <strong>good palindromic subsequence</strong> if:</p>

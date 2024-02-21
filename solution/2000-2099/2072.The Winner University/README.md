@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2072.The%20Winner%20University/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

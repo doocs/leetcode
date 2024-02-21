@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Design,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given a binary tree with the following rules:</p>

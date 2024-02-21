@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README.md)
 
+<!-- tags:Queue,Array,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array of integers&nbsp;<code>nums</code>, there is a sliding window of size <code>k</code> which is moving from the very left of the array to the very right. You can only see the <code>k</code> numbers in the window. Each time the sliding window moves right by one position.</p>

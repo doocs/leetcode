@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1918.Kth%20Smallest%20Subarray%20Sum/README_EN.md)
 
+<!-- tags:数组,二分查找,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

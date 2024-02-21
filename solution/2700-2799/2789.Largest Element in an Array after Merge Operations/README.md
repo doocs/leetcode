@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

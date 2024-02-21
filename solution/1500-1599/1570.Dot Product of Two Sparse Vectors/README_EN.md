@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README.md)
 
+<!-- tags:Design,Array,Hash Table,Two Pointers -->
+
 ## Description
 
 <p>Given two sparse vectors, compute their dot product.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README.md)
 
+<!-- tags:Recursion,String,Simulation -->
+
 ## Description
 
 <p>Given two positive integers <code>n</code> and <code>k</code>, the binary string <code>S<sub>n</sub></code> is formed as follows:</p>

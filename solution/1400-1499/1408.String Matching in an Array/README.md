@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1408.String%20Matching%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组,字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

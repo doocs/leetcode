@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README_EN.md)
 
+<!-- tags:数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

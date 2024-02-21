@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2060.Check%20if%20an%20Original%20String%20Exists%20Given%20Two%20Encoded%20Strings/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>An original string, consisting of lowercase English letters, can be encoded by the following steps:</p>

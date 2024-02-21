@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, and an integer <code>k</code>.</p>

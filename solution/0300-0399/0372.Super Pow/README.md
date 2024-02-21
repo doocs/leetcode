@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0372.Super%20Pow/README_EN.md)
 
+<!-- tags:数学,分治 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README_EN.md)
 
+<!-- tags:数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

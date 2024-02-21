@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Transactions</code></p>

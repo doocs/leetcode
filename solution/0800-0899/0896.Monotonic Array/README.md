@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0896.Monotonic%20Array/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

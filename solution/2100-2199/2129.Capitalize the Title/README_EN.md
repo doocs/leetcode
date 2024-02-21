@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2129.Capitalize%20the%20Title/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a string <code>title</code> consisting of one or more words separated by a single space, where each word consists of English letters. <strong>Capitalize</strong> the string by changing the capitalization of each word such that:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given a year <code>year</code> and a month <code>month</code>, return <em>the number of days of that month</em>.</p>

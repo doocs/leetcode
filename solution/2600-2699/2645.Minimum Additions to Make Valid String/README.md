@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md)
 
+<!-- tags:栈,贪心,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

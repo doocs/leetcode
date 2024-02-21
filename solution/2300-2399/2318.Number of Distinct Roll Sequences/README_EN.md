@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md)
 
+<!-- tags:Memoization,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. You roll a fair 6-sided dice <code>n</code> times. Determine the total number of <strong>distinct</strong> sequences of rolls possible such that the following conditions are satisfied:</p>

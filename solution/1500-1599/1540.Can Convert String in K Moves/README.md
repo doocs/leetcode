@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

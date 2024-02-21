@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0799.Champagne%20Tower/README_EN.md)
 
+<!-- tags:动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

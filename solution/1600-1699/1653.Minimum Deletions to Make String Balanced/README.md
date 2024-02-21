@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README_EN.md)
 
+<!-- tags:栈,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1946.Largest%20Number%20After%20Mutating%20Substring/README.md)
 
+<!-- tags:Greedy,Array,String -->
+
 ## Description
 
 <p>You are given a string <code>num</code>, which represents a large integer. You are also given a <strong>0-indexed</strong> integer array <code>change</code> of length <code>10</code> that maps each digit <code>0-9</code> to another digit. More formally, digit <code>d</code> maps to digit <code>change[d]</code>.</p>

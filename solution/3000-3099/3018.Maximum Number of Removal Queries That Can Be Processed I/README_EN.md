@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> and a <strong>0-indexed</strong> array <code>queries</code>.</p>

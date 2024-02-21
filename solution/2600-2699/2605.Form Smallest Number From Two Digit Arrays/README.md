@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md)
 
+<!-- tags:数组,哈希表,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

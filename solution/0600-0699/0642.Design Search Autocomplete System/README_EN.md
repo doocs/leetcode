@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README.md)
 
+<!-- tags:Design,Trie,String,Data Stream -->
+
 ## Description
 
 <p>Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character <code>&#39;#&#39;</code>).</p>

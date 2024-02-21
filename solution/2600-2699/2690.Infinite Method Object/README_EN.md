@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a function that&nbsp;returns an&nbsp;<strong>infinite-method</strong><strong>&nbsp;object</strong>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Probability and Statistics -->
+
 ## Description
 
 <p>You have some coins.&nbsp; The <code>i</code>-th&nbsp;coin has a probability&nbsp;<code>prob[i]</code> of facing heads when tossed.</p>

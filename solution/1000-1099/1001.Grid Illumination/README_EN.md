@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1001.Grid%20Illumination/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>There is a 2D <code>grid</code> of size <code>n x n</code> where each cell of this grid has a lamp that is initially <strong>turned off</strong>.</p>

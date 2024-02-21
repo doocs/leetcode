@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

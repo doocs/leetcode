@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,String,Sorting -->
+
 ## Description
 
 <p>Given an array of strings <code>strs</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between them</em>. If the longest uncommon subsequence does not exist, return <code>-1</code>.</p>

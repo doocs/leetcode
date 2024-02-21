@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0190.Reverse%20Bits/README.md)
 
+<!-- tags:Bit Manipulation,Divide and Conquer -->
+
 ## Description
 
 <p>Reverse bits of a given 32 bits unsigned integer.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README_EN.md)
 
+<!-- tags:数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

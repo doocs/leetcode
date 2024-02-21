@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

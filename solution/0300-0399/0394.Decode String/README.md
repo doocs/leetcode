@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0394.Decode%20String/README_EN.md)
 
+<!-- tags:栈,递归,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

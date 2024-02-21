@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README_EN.md)
 
+<!-- tags:数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

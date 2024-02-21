@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

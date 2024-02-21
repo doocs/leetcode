@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

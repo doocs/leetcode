@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0460.LFU%20Cache/README.md)
 
+<!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
+
 ## Description
 
 <p>Design and implement a data structure for a <a href="https://en.wikipedia.org/wiki/Least_frequently_used" target="_blank">Least Frequently Used (LFU)</a> cache.</p>

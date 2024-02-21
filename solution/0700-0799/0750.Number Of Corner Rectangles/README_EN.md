@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> integer matrix <code>grid</code> where each entry is only <code>0</code> or <code>1</code>, return <em>the number of <strong>corner rectangles</strong></em>.</p>

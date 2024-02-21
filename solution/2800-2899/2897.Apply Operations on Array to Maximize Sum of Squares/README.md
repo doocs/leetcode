@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README_EN.md)
 
+<!-- tags:贪心,位运算,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

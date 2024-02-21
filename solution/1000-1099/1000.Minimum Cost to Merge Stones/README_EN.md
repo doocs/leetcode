@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md)
 
+<!-- tags:Array,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>There are <code>n</code> piles of <code>stones</code> arranged in a row. The <code>i<sup>th</sup></code> pile has <code>stones[i]</code> stones.</p>

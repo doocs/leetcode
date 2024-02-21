@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2438.Range%20Product%20Queries%20of%20Powers/README_EN.md)
 
+<!-- tags:位运算,数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

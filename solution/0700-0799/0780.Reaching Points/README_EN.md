@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0780.Reaching%20Points/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given four integers <code>sx</code>, <code>sy</code>, <code>tx</code>, and <code>ty</code>, return <code>true</code><em> if it is possible to convert the point </em><code>(sx, sy)</code><em> to the point </em><code>(tx, ty)</code> <em>through some operations</em><em>, or </em><code>false</code><em> otherwise</em>.</p>

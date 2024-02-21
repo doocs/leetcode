@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1459.Rectangles%20Area/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

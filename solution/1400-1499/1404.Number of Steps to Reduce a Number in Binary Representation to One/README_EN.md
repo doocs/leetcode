@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1404.Number%20of%20Steps%20to%20Reduce%20a%20Number%20in%20Binary%20Representation%20to%20One/README.md)
 
+<!-- tags:Bit Manipulation,String -->
+
 ## Description
 
 <p>Given the binary representation of an integer as a string <code>s</code>, return <em>the number of steps to reduce it to </em><code>1</code><em> under the following rules</em>:</p>

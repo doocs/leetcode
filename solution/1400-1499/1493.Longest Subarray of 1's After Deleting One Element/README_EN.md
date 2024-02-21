@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1493.Longest%20Subarray%20of%201%27s%20After%20Deleting%20One%20Element/README.md)
 
+<!-- tags:Array,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>Given a binary array <code>nums</code>, you should delete one element from it.</p>

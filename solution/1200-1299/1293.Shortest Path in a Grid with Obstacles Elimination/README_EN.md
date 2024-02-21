@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README.md)
 
+<!-- tags:Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> where each cell is either <code>0</code> (empty) or <code>1</code> (obstacle). You can move up, down, left, or right from and to an empty cell in <strong>one step</strong>.</p>

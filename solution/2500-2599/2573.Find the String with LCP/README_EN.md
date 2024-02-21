@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md)
 
+<!-- tags:Greedy,Union Find,Array,String,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>We define the <code>lcp</code> matrix of any <strong>0-indexed</strong> string <code>word</code> of <code>n</code> lowercase English letters as an <code>n x n</code> grid such that:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README_EN.md)
 
+<!-- tags:贪心,数组,矩阵,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

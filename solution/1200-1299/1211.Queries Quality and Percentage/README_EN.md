@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1211.Queries%20Quality%20and%20Percentage/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Queries</code></p>

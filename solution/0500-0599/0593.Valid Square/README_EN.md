@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0593.Valid%20Square/README.md)
 
+<!-- tags:Geometry,Math -->
+
 ## Description
 
 <p>Given the coordinates of four points in 2D space <code>p1</code>, <code>p2</code>, <code>p3</code> and <code>p4</code>, return <code>true</code> <em>if the four points construct a square</em>.</p>

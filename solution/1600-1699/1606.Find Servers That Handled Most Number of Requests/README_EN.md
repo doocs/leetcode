@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README.md)
 
+<!-- tags:Greedy,Array,Ordered Set,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have <code>k</code> servers numbered from <code>0</code> to <code>k-1</code> that are being used to handle multiple requests simultaneously. Each server has infinite computational capacity but <strong>cannot handle more than one request at a time</strong>. The requests are assigned to servers according to a specific algorithm:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

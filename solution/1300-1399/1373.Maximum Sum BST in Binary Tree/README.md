@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉搜索树,动态规划,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

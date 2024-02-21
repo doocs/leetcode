@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2577.Minimum%20Time%20to%20Visit%20a%20Cell%20In%20a%20Grid/README_EN.md)
 
+<!-- tags:广度优先搜索,图,数组,矩阵,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

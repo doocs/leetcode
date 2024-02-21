@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README_EN.md)
 
+<!-- tags:栈,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

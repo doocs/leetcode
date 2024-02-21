@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0486.Predict%20the%20Winner/README_EN.md)
 
+<!-- tags:递归,数组,数学,动态规划,博弈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

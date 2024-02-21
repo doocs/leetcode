@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README_EN.md)
 
+<!-- tags:数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

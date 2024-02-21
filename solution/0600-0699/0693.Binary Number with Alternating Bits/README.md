@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README_EN.md)
 
+<!-- tags:位运算 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

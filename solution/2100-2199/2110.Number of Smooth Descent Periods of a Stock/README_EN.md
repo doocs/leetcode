@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer array <code>prices</code> representing the daily price history of a stock, where <code>prices[i]</code> is the stock price on the <code>i<sup>th</sup></code> day.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md)
 
+<!-- tags:Array,Math,Enumeration,Number Theory -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>. We say that two integers <code>x</code> and <code>y</code> form a prime number pair if:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README_EN.md)
 
+<!-- tags:字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

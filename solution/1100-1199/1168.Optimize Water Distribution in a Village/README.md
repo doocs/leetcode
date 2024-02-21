@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README_EN.md)
 
+<!-- tags:并查集,图,最小生成树,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

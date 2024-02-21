@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0908.Smallest%20Range%20I/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md)
 
+<!-- tags:数学,字符串,动态规划,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

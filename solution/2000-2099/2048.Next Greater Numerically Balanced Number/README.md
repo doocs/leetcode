@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README_EN.md)
 
+<!-- tags:数学,回溯,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

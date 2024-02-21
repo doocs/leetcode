@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)
 
+<!-- tags:Array,Binary Search,Divide and Conquer -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of integers, <code>nums</code>. The following property holds for <code>nums</code>:</p>

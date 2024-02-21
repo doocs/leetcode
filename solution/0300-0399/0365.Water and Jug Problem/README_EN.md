@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Math -->
+
 ## Description
 
 <p>You are given two jugs with capacities <code>jug1Capacity</code> and <code>jug2Capacity</code> liters. There is an infinite amount of water supply available. Determine whether it is possible to measure exactly <code>targetCapacity</code> liters using these two jugs.</p>

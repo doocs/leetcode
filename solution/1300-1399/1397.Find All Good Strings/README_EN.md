@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1397.Find%20All%20Good%20Strings/README.md)
 
+<!-- tags:String,Dynamic Programming,String Matching -->
+
 ## Description
 
 <p>Given the strings <code>s1</code> and <code>s2</code> of size <code>n</code> and the string <code>evil</code>, return <em>the number of <strong>good</strong> strings</em>.</p>

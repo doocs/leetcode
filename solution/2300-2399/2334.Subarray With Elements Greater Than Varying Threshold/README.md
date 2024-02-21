@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README_EN.md)
 
+<!-- tags:栈,并查集,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

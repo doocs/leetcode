@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function <code>fn</code>, return a new function that is identical to the original function except that it ensures&nbsp;<code>fn</code>&nbsp;is&nbsp;called at most once.</p>

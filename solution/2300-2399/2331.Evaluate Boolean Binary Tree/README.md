@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

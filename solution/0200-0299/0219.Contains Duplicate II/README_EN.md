@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0219.Contains%20Duplicate%20II/README.md)
 
+<!-- tags:Array,Hash Table,Sliding Window -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> <em>if there are two <strong>distinct indices</strong> </em><code>i</code><em> and </em><code>j</code><em> in the array such that </em><code>nums[i] == nums[j]</code><em> and </em><code>abs(i - j) &lt;= k</code>.</p>

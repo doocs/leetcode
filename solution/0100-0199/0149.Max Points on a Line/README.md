@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README_EN.md)
 
+<!-- tags:几何,数组,哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

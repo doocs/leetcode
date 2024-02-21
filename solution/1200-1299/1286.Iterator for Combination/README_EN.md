@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1286.Iterator%20for%20Combination/README.md)
 
+<!-- tags:Design,String,Backtracking,Iterator -->
+
 ## Description
 
 <p>Design the <code>CombinationIterator</code> class:</p>

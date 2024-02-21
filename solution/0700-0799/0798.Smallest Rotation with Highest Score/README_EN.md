@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0798.Smallest%20Rotation%20with%20Highest%20Score/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given an array <code>nums</code>. You can rotate it by a non-negative integer <code>k</code> so that the array becomes <code>[nums[k], nums[k + 1], ... nums[nums.length - 1], nums[0], nums[1], ..., nums[k-1]]</code>. Afterward, any entries that are less than or equal to their index are worth one point.</p>

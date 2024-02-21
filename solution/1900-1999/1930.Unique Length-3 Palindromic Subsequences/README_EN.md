@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README.md)
 
+<!-- tags:Bit Manipulation,Hash Table,String,Prefix Sum -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the number of <strong>unique palindromes of length three</strong> that are a <strong>subsequence</strong> of </em><code>s</code>.</p>

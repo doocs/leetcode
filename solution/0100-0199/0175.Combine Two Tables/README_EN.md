@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Person</code></p>

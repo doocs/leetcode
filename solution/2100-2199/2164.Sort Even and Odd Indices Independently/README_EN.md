@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. Rearrange the values of <code>nums</code> according to the following rules:</p>

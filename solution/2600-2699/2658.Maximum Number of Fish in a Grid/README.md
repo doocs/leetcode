@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

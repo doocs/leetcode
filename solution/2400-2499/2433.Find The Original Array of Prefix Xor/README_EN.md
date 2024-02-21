@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2433.Find%20The%20Original%20Array%20of%20Prefix%20Xor/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>You are given an <strong>integer</strong> array <code>pref</code> of size <code>n</code>. Find and return <em>the array </em><code>arr</code><em> of size </em><code>n</code><em> that satisfies</em>:</p>

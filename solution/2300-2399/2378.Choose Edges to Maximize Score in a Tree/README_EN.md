@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>weighted</strong> tree consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>.</p>

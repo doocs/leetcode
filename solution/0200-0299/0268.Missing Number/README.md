@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0268.Missing%20Number/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,数学,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)
 
+<!-- tags:Design,Queue,Hash Table,Counting,Data Stream -->
+
 ## Description
 
 <p>For a stream of integers, implement a data structure that checks if the last <code>k</code> integers parsed in the stream are <strong>equal</strong> to <code>value</code>.</p>

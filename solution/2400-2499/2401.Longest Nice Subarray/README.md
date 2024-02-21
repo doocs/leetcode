@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md)
 
+<!-- tags:位运算,数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

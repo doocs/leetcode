@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/README.md)
 
+<!-- tags:Greedy,Array,Math,Binary Search,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have an <code>inventory</code> of different colored balls, and there is a customer that wants <code>orders</code> balls of <strong>any</strong> color.</p>

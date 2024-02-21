@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Interactive -->
+
 ## Description
 
 <p>This is an <strong>interactive problem</strong>.</p>

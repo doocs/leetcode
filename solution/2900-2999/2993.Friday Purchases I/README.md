@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <strong>circular</strong> string array <code>words</code> and a string <code>target</code>. A <strong>circular array</strong> means that the array&#39;s end connects to the array&#39;s beginning.</p>

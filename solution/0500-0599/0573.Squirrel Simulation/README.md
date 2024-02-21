@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0573.Squirrel%20Simulation/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

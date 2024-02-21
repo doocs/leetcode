@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer <code>rowIndex</code>, return the <code>rowIndex<sup>th</sup></code> (<strong>0-indexed</strong>) row of the <strong>Pascal&#39;s triangle</strong>.</p>

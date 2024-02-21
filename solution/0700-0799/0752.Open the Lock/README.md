@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

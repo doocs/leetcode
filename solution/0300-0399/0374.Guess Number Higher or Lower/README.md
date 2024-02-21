@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README_EN.md)
 
+<!-- tags:二分查找,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

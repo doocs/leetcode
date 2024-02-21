@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a function that converts an array of objects&nbsp;<code>arr</code> into a matrix <code>m</code>.</p>

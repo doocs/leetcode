@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0078.Subsets/README.md)
 
+<!-- tags:Bit Manipulation,Array,Backtracking -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of <strong>unique</strong> elements, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span> <em>(the power set)</em>.</p>

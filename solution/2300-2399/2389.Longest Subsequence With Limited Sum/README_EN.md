@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2389.Longest%20Subsequence%20With%20Limited%20Sum/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Prefix Sum,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code>, and an integer array <code>queries</code> of length <code>m</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md)
 
+<!-- tags:字符串,动态规划,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

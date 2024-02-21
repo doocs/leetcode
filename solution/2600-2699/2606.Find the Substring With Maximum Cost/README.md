@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

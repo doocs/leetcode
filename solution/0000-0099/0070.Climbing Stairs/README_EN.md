@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0070.Climbing%20Stairs/README.md)
 
+<!-- tags:Memoization,Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are climbing a staircase. It takes <code>n</code> steps to reach the top.</p>

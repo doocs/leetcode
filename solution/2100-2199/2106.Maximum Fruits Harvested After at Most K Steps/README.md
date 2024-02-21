@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2106.Maximum%20Fruits%20Harvested%20After%20at%20Most%20K%20Steps/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

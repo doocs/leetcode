@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

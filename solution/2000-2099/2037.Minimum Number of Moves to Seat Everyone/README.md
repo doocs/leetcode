@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

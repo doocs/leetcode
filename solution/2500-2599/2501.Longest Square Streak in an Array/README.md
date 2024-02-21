@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0415.Add%20Strings/README.md)
 
+<!-- tags:Math,String,Simulation -->
+
 ## Description
 
 <p>Given two non-negative integers, <code>num1</code> and <code>num2</code> represented as string, return <em>the sum of</em> <code>num1</code> <em>and</em> <code>num2</code> <em>as a string</em>.</p>

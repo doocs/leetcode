@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

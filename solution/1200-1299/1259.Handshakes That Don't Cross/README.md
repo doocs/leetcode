@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README_EN.md)
 
+<!-- tags:数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

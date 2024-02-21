@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

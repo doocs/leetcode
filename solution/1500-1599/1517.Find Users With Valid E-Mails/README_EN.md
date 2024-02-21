@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Users</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2777.Date%20Range%20Generator/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a start date <code>start</code>, an end date <code>end</code>, and a positive integer&nbsp;<code>step</code>, return a generator object that yields&nbsp;dates in the range from <code>start</code> to <code>end</code>&nbsp;inclusive. All dates&nbsp;are in the string format&nbsp;<code>YYYY-MM-DD</code>. The value of&nbsp;<code>step</code>&nbsp;indicates the number of days between consecutive yielded values.</p>

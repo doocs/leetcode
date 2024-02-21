@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

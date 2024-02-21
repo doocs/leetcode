@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)
 
+<!-- tags:Math,Dynamic Programming,Combinatorics,Number Theory -->
+
 ## Description
 
 <p>You are given two integers <code>n</code> and <code>maxValue</code>, which are used to describe an <strong>ideal</strong> array.</p>

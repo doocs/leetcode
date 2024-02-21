@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2913.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20I/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

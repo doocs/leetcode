@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README_EN.md)
 
+<!-- tags:几何,数组,数学,二分查找,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

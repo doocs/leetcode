@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary search tree (BST), where the values of <strong>exactly</strong> two nodes of the tree were swapped by mistake. <em>Recover the tree without changing its structure</em>.</p>

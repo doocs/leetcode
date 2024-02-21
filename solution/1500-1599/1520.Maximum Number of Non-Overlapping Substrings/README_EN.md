@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> of lowercase letters, you need to find the maximum number of <strong>non-empty</strong> substrings of <code>s</code> that meet the following conditions:</p>

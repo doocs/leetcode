@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README.md)
 
+<!-- tags:String,Dynamic Programming,Suffix Array -->
+
 ## Description
 
 <p>You wrote down many <strong>positive</strong> integers in a string called <code>num</code>. However, you realized that you forgot to add commas to seperate the different numbers. You remember that the list of integers was <strong>non-decreasing</strong> and that <strong>no</strong> integer had leading zeros.</p>

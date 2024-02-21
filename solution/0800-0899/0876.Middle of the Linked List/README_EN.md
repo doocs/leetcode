@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README.md)
 
+<!-- tags:Linked List,Two Pointers -->
+
 ## Description
 
 <p>Given the <code>head</code> of a singly linked list, return <em>the middle node of the linked list</em>.</p>

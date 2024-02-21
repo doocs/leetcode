@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README.md)
 
+<!-- tags:Graph,Dynamic Programming -->
+
 ## Description
 
 <p>We have <code>n</code> cities and <code>m</code> bi-directional <code>roads</code> where <code>roads[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> connects city <code>a<sub>i</sub></code> with city <code>b<sub>i</sub></code>. Each city has a name consisting of exactly three upper-case English letters given in the string array <code>names</code>. Starting at any city <code>x</code>, you can reach any city <code>y</code> where <code>y != x</code> (i.e., the cities and the roads are forming an undirected connected graph).</p>

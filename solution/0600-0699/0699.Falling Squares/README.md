@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0699.Falling%20Squares/README_EN.md)
 
+<!-- tags:线段树,数组,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

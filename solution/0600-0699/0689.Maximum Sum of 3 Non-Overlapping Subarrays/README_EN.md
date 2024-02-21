@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, find three non-overlapping subarrays of length <code>k</code> with maximum sum and return them.</p>

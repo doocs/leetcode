@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README_EN.md)
 
+<!-- tags:并查集,图,数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

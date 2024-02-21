@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find the <strong>leftmost</strong> <code>middleIndex</code> (i.e., the smallest amongst all the possible ones).</p>

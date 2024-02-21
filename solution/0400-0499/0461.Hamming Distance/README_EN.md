@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0461.Hamming%20Distance/README.md)
 
+<!-- tags:Bit Manipulation -->
+
 ## Description
 
 <p>The <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank">Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>

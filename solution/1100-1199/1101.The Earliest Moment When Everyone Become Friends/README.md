@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README_EN.md)
 
+<!-- tags:并查集,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

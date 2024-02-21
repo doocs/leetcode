@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2759.Convert%20JSON%20String%20to%20Object/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a string <code>str</code>, return parsed JSON&nbsp;<code>parsedStr</code>.&nbsp;You may assume the <code>str</code>&nbsp;is a valid JSON string hence it only includes strings, numbers, arrays, objects, booleans, and null. <code>str</code>&nbsp;will not include invisible characters and escape characters.&nbsp;</p>

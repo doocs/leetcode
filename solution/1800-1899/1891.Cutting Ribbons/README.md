@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

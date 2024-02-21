@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

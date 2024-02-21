@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md)
 
+<!-- tags:栈,树,深度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

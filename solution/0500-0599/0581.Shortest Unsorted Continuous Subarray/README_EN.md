@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README.md)
 
+<!-- tags:Stack,Greedy,Array,Two Pointers,Sorting,Monotonic Stack -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, you need to find one <b>continuous subarray</b> such that if you only sort this subarray in non-decreasing order, then the whole array will be sorted in non-decreasing order.</p>

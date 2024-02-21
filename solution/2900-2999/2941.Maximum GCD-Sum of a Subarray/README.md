@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README_EN.md)
 
+<!-- tags:数组,数学,二分查找,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

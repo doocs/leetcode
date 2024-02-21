@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数组,二分查找,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

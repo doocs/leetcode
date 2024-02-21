@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)
 
+<!-- tags:栈,树状数组,线段树,数组,二分查找,单调栈,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

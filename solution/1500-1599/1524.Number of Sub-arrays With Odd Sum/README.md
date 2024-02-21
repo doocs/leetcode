@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

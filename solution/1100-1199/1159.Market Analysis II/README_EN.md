@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1159.Market%20Analysis%20II/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Users</code></p>

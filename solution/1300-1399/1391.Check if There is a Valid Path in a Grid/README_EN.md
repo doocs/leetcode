@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1391.Check%20if%20There%20is%20a%20Valid%20Path%20in%20a%20Grid/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> <code>grid</code>. Each cell of <code>grid</code> represents a street. The street of <code>grid[i][j]</code> can be:</p>

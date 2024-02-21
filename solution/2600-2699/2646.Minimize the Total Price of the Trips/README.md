@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)
 
+<!-- tags:树,深度优先搜索,图,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

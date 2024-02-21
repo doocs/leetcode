@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README_EN.md)
 
+<!-- tags:贪心,数组,数学,动态规划,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

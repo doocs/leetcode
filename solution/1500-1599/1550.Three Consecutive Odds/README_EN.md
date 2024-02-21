@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there are three consecutive odd numbers in the array. Otherwise, return&nbsp;<code>false</code>.

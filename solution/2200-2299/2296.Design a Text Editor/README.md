@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2296.Design%20a%20Text%20Editor/README_EN.md)
 
+<!-- tags:栈,设计,链表,字符串,双向链表,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

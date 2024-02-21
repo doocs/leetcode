@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1089.Duplicate%20Zeros/README_EN.md)
 
+<!-- tags:数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

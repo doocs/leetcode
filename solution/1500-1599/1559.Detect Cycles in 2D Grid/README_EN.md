@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
+
 ## Description
 
 <p>Given a 2D array of characters <code>grid</code> of size <code>m x n</code>, you need to find if there exists any cycle consisting of the <strong>same value</strong> in <code>grid</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/README_EN.md)
 
+<!-- tags:链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

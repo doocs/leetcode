@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0385.Mini%20Parser/README_EN.md)
 
+<!-- tags:栈,深度优先搜索,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

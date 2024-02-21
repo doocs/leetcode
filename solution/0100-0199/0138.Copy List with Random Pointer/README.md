@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README_EN.md)
 
+<!-- tags:哈希表,链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

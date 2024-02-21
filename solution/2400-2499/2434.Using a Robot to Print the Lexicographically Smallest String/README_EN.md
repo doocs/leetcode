@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2434.Using%20a%20Robot%20to%20Print%20the%20Lexicographically%20Smallest%20String/README.md)
 
+<!-- tags:Stack,Greedy,Hash Table,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and a robot that currently holds an empty string <code>t</code>. Apply one of the following operations until <code>s</code> and <code>t</code> <strong>are both empty</strong>:</p>

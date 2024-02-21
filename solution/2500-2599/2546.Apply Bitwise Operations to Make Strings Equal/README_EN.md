@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README.md)
 
+<!-- tags:Bit Manipulation,String -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed binary</strong> strings <code>s</code> and <code>target</code> of the same length <code>n</code>. You can do the following operation on <code>s</code> <strong>any</strong> number of times:</p>

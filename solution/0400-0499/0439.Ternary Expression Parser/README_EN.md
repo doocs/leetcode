@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0439.Ternary%20Expression%20Parser/README.md)
 
+<!-- tags:Stack,Recursion,String -->
+
 ## Description
 
 <p>Given a string <code>expression</code> representing arbitrarily nested ternary expressions, evaluate the expression, and return <em>the result of it</em>.</p>

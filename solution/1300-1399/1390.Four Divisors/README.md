@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1390.Four%20Divisors/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

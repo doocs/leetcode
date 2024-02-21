@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0859.Buddy%20Strings/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>goal</code>, return <code>true</code><em> if you can swap two letters in </em><code>s</code><em> so the result is equal to </em><code>goal</code><em>, otherwise, return </em><code>false</code><em>.</em></p>

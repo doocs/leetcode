@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1269.Number%20of%20Ways%20to%20Stay%20in%20the%20Same%20Place%20After%20Some%20Steps/README_EN.md)
 
+<!-- tags:动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

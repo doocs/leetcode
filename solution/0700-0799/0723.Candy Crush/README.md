@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0723.Candy%20Crush/README_EN.md)
 
+<!-- tags:数组,双指针,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

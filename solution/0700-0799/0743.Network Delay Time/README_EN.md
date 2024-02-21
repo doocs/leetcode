@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0743.Network%20Delay%20Time/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a network of <code>n</code> nodes, labeled from <code>1</code> to <code>n</code>. You are also given <code>times</code>, a list of travel times as directed edges <code>times[i] = (u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>)</code>, where <code>u<sub>i</sub></code> is the source node, <code>v<sub>i</sub></code> is the target node, and <code>w<sub>i</sub></code> is the time it takes for a signal to travel from source to target.</p>

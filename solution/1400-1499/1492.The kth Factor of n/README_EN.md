@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README.md)
 
+<!-- tags:Math,Number Theory -->
+
 ## Description
 
 <p>You are given two positive integers <code>n</code> and <code>k</code>. A factor of an integer <code>n</code> is defined as an integer <code>i</code> where <code>n % i == 0</code>.</p>

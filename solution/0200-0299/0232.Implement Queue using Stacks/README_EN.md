@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
 
+<!-- tags:Stack,Design,Queue -->
+
 ## Description
 
 <p>Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (<code>push</code>, <code>peek</code>, <code>pop</code>, and <code>empty</code>).</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1703.Minimum%20Adjacent%20Swaps%20for%20K%20Consecutive%20Ones/README_EN.md)
 
+<!-- tags:贪心,数组,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0456.132%20Pattern/README_EN.md)
 
+<!-- tags:栈,数组,二分查找,有序集合,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

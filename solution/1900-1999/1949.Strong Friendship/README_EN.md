@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1949.Strong%20Friendship/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Friendship</code></p>

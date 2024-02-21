@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README_EN.md)
 
+<!-- tags:数组,哈希表,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

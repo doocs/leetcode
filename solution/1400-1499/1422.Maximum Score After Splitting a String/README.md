@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1422.Maximum%20Score%20After%20Splitting%20a%20String/README_EN.md)
 
+<!-- tags:字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

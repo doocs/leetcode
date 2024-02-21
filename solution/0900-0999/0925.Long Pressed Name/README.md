@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0925.Long%20Pressed%20Name/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

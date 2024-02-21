@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting,Sliding Window,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have <code>k</code> lists of sorted integers in <strong>non-decreasing&nbsp;order</strong>. Find the <b>smallest</b> range that includes at least one number from each of the <code>k</code> lists.</p>

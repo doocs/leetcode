@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md)
 
+<!-- tags:深度优先搜索,图,双连通分量 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

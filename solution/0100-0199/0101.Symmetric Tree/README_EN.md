@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, <em>check whether it is a mirror of itself</em> (i.e., symmetric around its center).</p>

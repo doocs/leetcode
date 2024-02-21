@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0212.Word%20Search%20II/README_EN.md)
 
+<!-- tags:字典树,数组,字符串,回溯,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

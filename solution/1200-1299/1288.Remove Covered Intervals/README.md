@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1288.Remove%20Covered%20Intervals/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

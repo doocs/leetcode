@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)
 
+<!-- tags:数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

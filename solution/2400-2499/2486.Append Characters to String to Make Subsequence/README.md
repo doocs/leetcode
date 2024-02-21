@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2486.Append%20Characters%20to%20String%20to%20Make%20Subsequence/README_EN.md)
 
+<!-- tags:贪心,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

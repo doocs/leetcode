@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md)
 
+<!-- tags:广度优先搜索,并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> consisting of <code>2 * n</code> integers.</p>

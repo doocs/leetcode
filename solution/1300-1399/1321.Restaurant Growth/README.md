@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1321.Restaurant%20Growth/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

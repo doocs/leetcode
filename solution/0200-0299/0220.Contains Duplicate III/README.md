@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0220.Contains%20Duplicate%20III/README_EN.md)
 
+<!-- tags:数组,桶排序,有序集合,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

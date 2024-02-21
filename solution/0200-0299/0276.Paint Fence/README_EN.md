@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0276.Paint%20Fence/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>You are painting a fence of <code>n</code> posts with <code>k</code> different colors. You must paint the posts following these rules:</p>

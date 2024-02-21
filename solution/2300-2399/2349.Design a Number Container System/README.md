@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2349.Design%20a%20Number%20Container%20System/README_EN.md)
 
+<!-- tags:设计,哈希表,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

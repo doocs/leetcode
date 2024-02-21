@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2281.Sum%20of%20Total%20Strength%20of%20Wizards/README_EN.md)
 
+<!-- tags:栈,数组,前缀和,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

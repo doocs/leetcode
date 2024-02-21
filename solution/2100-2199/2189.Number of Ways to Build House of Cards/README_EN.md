@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2189.Number%20of%20Ways%20to%20Build%20House%20of%20Cards/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the number of playing cards you have. A <strong>house of cards</strong> meets the following conditions:</p>

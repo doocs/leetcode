@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)
 
+<!-- tags:Bit Manipulation,String,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and an integer <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0165.Compare%20Version%20Numbers/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>Given two version numbers,&nbsp;<code>version1</code> and <code>version2</code>, compare them.</p>

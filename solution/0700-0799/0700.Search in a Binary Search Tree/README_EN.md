@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Tree,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>

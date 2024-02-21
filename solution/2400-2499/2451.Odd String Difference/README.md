@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2451.Odd%20String%20Difference/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

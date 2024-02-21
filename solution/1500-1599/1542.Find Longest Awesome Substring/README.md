@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1542.Find%20Longest%20Awesome%20Substring/README_EN.md)
 
+<!-- tags:位运算,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

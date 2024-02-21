@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

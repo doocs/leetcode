@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2554.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20I/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

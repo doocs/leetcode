@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README_EN.md)
 
+<!-- tags:设计,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

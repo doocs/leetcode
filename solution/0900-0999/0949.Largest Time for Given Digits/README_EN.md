@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README.md)
 
+<!-- tags:Array,String,Enumeration -->
+
 ## Description
 
 <p>Given an array <code>arr</code> of 4 digits, find the latest 24-hour time that can be made using each digit <strong>exactly once</strong>.</p>

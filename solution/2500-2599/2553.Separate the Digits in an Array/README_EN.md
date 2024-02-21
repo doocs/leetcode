@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>Given an array of positive integers <code>nums</code>, return <em>an array </em><code>answer</code><em> that consists of the digits of each integer in </em><code>nums</code><em> after separating them in <strong>the same order</strong> they appear in </em><code>nums</code>.</p>

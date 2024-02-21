@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0060.Permutation%20Sequence/README.md)
 
+<!-- tags:Recursion,Math -->
+
 ## Description
 
 <p>The set <code>[1, 2, 3, ...,&nbsp;n]</code> contains a total of <code>n!</code> unique permutations.</p>

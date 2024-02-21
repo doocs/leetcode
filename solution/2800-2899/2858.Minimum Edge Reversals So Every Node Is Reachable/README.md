@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

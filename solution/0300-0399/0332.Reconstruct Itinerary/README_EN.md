@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md)
 
+<!-- tags:Depth-First Search,Graph,Eulerian Circuit -->
+
 ## Description
 
 <p>You are given a list of airline <code>tickets</code> where <code>tickets[i] = [from<sub>i</sub>, to<sub>i</sub>]</code> represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.</p>

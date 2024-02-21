@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

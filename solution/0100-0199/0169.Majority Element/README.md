@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0169.Majority%20Element/README_EN.md)
 
+<!-- tags:数组,哈希表,分治,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md)
 
+<!-- tags:Queue,Dynamic Programming,Simulation -->
+
 ## Description
 
 <p>On day <code>1</code>, one person discovers a secret.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> and a positive integer <code>k</code>, check whether it is possible to divide this array into sets of <code>k</code> consecutive numbers.</p>

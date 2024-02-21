@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README_EN.md)
 
+<!-- tags:栈,数组,链表,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

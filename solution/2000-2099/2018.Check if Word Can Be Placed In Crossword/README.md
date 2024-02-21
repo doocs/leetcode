@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2018.Check%20if%20Word%20Can%20Be%20Placed%20In%20Crossword/README_EN.md)
 
+<!-- tags:数组,枚举,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

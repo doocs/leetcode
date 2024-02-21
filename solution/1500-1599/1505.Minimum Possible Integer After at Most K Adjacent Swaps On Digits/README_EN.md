@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1505.Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits/README.md)
 
+<!-- tags:Greedy,Binary Indexed Tree,Segment Tree,String -->
+
 ## Description
 
 <p>You are given a string <code>num</code> representing <strong>the digits</strong> of a very large integer and an integer <code>k</code>. You are allowed to swap any two adjacent digits of the integer <strong>at most</strong> <code>k</code> times.</p>

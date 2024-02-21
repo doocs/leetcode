@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1813.Sentence%20Similarity%20III/README.md)
 
+<!-- tags:Array,Two Pointers,String -->
+
 ## Description
 
 <p>A sentence is a list of words that are separated by a single space with no leading or trailing spaces. For example, <code>&quot;Hello World&quot;</code>, <code>&quot;HELLO&quot;</code>, <code>&quot;hello world hello world&quot;</code> are all sentences. Words consist of <strong>only</strong> uppercase and lowercase English letters.</p>

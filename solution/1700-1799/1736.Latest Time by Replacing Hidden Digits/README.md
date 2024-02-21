@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

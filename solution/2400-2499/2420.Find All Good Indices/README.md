@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)
 
+<!-- tags:数组,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

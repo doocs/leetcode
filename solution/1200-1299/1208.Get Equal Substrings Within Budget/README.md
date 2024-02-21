@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README_EN.md)
 
+<!-- tags:字符串,二分查找,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

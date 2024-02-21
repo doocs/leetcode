@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2215.Find%20the%20Difference%20of%20Two%20Arrays/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, return <em>a list</em> <code>answer</code> <em>of size</em> <code>2</code> <em>where:</em></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0420.Strong%20Password%20Checker/README_EN.md)
 
+<!-- tags:贪心,字符串,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

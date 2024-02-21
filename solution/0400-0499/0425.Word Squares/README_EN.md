@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0425.Word%20Squares/README.md)
 
+<!-- tags:Trie,Array,String,Backtracking -->
+
 ## Description
 
 <p>Given an array of <strong>unique</strong> strings <code>words</code>, return <em>all the </em><strong><a href="https://en.wikipedia.org/wiki/Word_square" target="_blank">word squares</a></strong><em> you can build from </em><code>words</code>. The same word from <code>words</code> can be used <strong>multiple times</strong>. You can return the answer in <strong>any order</strong>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README.md)
 
+<!-- tags:Bit Manipulation,Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given an array <code>arr</code> of positive integers. You are also given the array <code>queries</code> where <code>queries[i] = [left<sub>i, </sub>right<sub>i</sub>]</code>.</p>

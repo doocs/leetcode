@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2260.Minimum%20Consecutive%20Cards%20to%20Pick%20Up/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

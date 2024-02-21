@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,数学,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0071.Simplify%20Path/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>Given a string <code>path</code>, which is an <strong>absolute path</strong> (starting with a slash <code>&#39;/&#39;</code>) to a file or directory in a Unix-style file system, convert it to the simplified <strong>canonical path</strong>.</p>

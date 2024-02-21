@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0490.The%20Maze/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1022.Sum%20of%20Root%20To%20Leaf%20Binary%20Numbers/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

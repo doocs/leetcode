@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

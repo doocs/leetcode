@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1037.Valid%20Boomerang/README.md)
 
+<!-- tags:Geometry,Array,Math -->
+
 ## Description
 
 <p>Given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on the <strong>X-Y</strong> plane, return <code>true</code> <em>if these points are a <strong>boomerang</strong></em>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README_EN.md)
 
+<!-- tags:栈,链表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

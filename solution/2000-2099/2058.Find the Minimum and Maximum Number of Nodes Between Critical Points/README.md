@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/README_EN.md)
 
+<!-- tags:链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

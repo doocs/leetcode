@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0818.Race%20Car/README_EN.md)
 
+<!-- tags:动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

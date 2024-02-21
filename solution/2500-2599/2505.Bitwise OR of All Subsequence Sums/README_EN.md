@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2505.Bitwise%20OR%20of%20All%20Subsequence%20Sums/README.md)
 
+<!-- tags:Bit Manipulation,Brainteaser,Array,Math -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the value of the bitwise </em><strong>OR</strong><em> of the sum of all possible <strong>subsequences</strong> in the array</em>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>An integer array <code>original</code> is transformed into a <strong>doubled</strong> array <code>changed</code> by appending <strong>twice the value</strong> of every element in <code>original</code>, and then randomly <strong>shuffling</strong> the resulting array.</p>

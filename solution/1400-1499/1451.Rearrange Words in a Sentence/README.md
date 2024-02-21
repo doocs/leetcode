@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README_EN.md)
 
+<!-- tags:字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

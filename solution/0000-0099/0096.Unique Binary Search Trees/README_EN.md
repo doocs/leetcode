@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README.md)
 
+<!-- tags:Tree,Binary Search Tree,Math,Dynamic Programming,Binary Tree -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the number of structurally unique <strong>BST&#39;</strong>s (binary search trees) which has exactly </em><code>n</code><em> nodes of unique values from</em> <code>1</code> <em>to</em> <code>n</code>.</p>

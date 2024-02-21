@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README_EN.md)
 
+<!-- tags:字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

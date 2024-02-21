@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0991.Broken%20Calculator/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>There is a broken calculator that has the integer <code>startValue</code> on its display initially. In one operation, you can:</p>

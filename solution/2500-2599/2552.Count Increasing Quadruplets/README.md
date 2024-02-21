@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2552.Count%20Increasing%20Quadruplets/README_EN.md)
 
+<!-- tags:树状数组,数组,动态规划,枚举,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

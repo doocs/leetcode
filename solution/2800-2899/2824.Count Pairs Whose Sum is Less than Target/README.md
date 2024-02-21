@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2824.Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

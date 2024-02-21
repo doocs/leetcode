@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)
 
+<!-- tags:栈,数组,前缀和,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

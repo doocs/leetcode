@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md)
 
+<!-- tags:Memoization,Array,Binary Search,Dynamic Programming,Matrix,Sorting -->
+
 ## Description
 
 <p>Given a <strong>1-indexed</strong>&nbsp;<code>m x n</code> integer matrix <code>mat</code>, you can select any cell in the matrix as your <strong>starting cell</strong>.</p>

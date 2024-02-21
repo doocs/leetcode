@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md)
 
+<!-- tags:设计,哈希表,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

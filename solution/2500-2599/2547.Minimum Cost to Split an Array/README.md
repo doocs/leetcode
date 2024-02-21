@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2547.Minimum%20Cost%20to%20Split%20an%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,动态规划,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README.md)
 
+<!-- tags:Design,Hash Table,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have a set which contains all positive integers <code>[1, 2, 3, 4, 5, ...]</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of length <code>n</code>, return <code>true</code> if there is a triplet <code>(i, j, k)</code> which satisfies the following conditions:</p>

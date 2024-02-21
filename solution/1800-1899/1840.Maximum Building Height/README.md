@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

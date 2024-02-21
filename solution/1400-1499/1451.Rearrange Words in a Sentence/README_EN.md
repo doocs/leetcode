@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1451.Rearrange%20Words%20in%20a%20Sentence/README.md)
 
+<!-- tags:String,Sorting -->
+
 ## Description
 
 <p>Given a sentence&nbsp;<code>text</code> (A&nbsp;<em>sentence</em>&nbsp;is a string of space-separated words) in the following format:</p>

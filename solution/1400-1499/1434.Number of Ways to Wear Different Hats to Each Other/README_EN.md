@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1434.Number%20of%20Ways%20to%20Wear%20Different%20Hats%20to%20Each%20Other/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>There are <code>n</code> people and <code>40</code> types of hats labeled from <code>1</code> to <code>40</code>.</p>

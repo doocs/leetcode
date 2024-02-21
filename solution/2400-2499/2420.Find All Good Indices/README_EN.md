@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md)
 
+<!-- tags:Array,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> and a positive integer <code>k</code>.</p>

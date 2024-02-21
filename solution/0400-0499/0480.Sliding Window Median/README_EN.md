@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
 
+<!-- tags:Array,Hash Table,Sliding Window,Heap (Priority Queue) -->
+
 ## Description
 
 <p>The <strong>median</strong> is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle values.</p>

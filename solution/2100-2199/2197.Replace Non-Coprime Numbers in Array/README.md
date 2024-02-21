@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2197.Replace%20Non-Coprime%20Numbers%20in%20Array/README_EN.md)
 
+<!-- tags:栈,数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

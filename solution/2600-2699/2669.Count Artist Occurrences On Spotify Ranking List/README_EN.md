@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Spotify</font></code></p>

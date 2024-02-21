@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Point</code></p>

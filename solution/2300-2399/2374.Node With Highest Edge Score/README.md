@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md)
 
+<!-- tags:图,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

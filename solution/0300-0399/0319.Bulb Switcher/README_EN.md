@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0319.Bulb%20Switcher/README.md)
 
+<!-- tags:Brainteaser,Math -->
+
 ## Description
 
 <p>There are <code>n</code> bulbs that are initially off. You first turn on all the bulbs, then&nbsp;you turn off every second bulb.</p>

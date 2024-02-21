@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0550.Game%20Play%20Analysis%20IV/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

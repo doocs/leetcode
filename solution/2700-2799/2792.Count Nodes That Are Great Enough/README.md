@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README_EN.md)
 
+<!-- tags:树,深度优先搜索,分治,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

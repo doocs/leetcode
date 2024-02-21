@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1639.Number%20of%20Ways%20to%20Form%20a%20Target%20String%20Given%20a%20Dictionary/README_EN.md)
 
+<!-- tags:数组,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

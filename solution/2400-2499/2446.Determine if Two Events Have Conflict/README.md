@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

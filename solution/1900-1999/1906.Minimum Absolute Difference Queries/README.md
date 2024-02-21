@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0403.Frog%20Jump/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>A frog is crossing a river. The river is divided into some number of units, and at each unit, there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>

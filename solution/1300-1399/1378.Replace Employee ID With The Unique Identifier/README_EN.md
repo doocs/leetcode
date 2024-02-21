@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README.md)
 
+<!-- tags:Bit Manipulation,Brainteaser,Array -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of size <code>n</code>.</p>

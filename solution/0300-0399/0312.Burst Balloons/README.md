@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0312.Burst%20Balloons/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

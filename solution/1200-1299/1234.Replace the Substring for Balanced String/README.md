@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README_EN.md)
 
+<!-- tags:字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

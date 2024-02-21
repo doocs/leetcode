@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1244.Design%20A%20Leaderboard/README.md)
 
+<!-- tags:Design,Hash Table,Sorting -->
+
 ## Description
 
 <p>Design a Leaderboard class, which has 3 functions:</p>

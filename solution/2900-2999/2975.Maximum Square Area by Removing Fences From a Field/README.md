@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md)
 
+<!-- tags:数组,哈希表,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README_EN.md)
 
+<!-- tags:图,拓扑排序,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

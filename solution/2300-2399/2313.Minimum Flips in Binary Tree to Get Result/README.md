@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md)
 
+<!-- tags:树,深度优先搜索,动态规划,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>Given an array <code>arr</code> of integers, check if there exist two indices <code>i</code> and <code>j</code> such that :</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README.md)
 
+<!-- tags:Bit Manipulation,Array,Math,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>An array is <strong>squareful</strong> if the sum of every pair of adjacent elements is a <strong>perfect square</strong>.</p>

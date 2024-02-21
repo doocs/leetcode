@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%25%20In%20Sorted%20Array/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given an integer array <strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.</p>

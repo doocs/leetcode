@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md)
 
+<!-- tags:String,Binary Search,Suffix Array,Sliding Window,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>Given a string <code>s</code>, consider all <em>duplicated substrings</em>: (contiguous) substrings of s that occur 2 or more times.&nbsp;The occurrences&nbsp;may overlap.</p>

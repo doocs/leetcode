@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

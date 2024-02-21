@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README.md)
 
+<!-- tags:Stack,Depth-First Search,String -->
+
 ## Description
 
 <p>Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture:</p>

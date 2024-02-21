@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

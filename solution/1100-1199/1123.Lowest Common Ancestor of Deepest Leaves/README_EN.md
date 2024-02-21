@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1123.Lowest%20Common%20Ancestor%20of%20Deepest%20Leaves/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the lowest common ancestor of its deepest leaves</em>.</p>

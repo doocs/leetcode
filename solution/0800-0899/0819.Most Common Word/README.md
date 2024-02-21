@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list and two integers <code>m</code> and <code>n</code>.</p>

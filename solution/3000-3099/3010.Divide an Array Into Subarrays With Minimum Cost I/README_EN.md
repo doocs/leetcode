@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README.md)
 
+<!-- tags:Array,Enumeration,Sorting -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code> of length <code>n</code>.</p>

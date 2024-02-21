@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README_EN.md)
 
+<!-- tags:数组,哈希表,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

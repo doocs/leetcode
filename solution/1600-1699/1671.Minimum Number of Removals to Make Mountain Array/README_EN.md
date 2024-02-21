@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>

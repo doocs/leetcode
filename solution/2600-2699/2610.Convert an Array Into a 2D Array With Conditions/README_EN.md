@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. You need to create a 2D array from <code>nums</code> satisfying the following conditions:</p>

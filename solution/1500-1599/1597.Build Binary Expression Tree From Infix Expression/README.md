@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/README_EN.md)
 
+<!-- tags:栈,树,字符串,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

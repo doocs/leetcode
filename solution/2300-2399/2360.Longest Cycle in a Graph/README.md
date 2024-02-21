@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README_EN.md)
 
+<!-- tags:深度优先搜索,图,拓扑排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

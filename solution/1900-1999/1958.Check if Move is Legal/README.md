@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md)
 
+<!-- tags:数组,枚举,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

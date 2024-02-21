@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README_EN.md)
 
+<!-- tags:双指针,字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

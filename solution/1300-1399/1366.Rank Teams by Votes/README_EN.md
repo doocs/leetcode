@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md)
 
+<!-- tags:Array,Hash Table,String,Counting,Sorting -->
+
 ## Description
 
 <p>In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition.</p>

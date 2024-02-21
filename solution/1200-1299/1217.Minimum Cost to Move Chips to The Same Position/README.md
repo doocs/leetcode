@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README_EN.md)
 
+<!-- tags:贪心,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

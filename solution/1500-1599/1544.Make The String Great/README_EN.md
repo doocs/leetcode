@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1544.Make%20The%20String%20Great/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> of lower and upper case English letters.</p>

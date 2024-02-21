@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a <strong>circular</strong> array <code>arr</code> and an integer&nbsp;<code>startIndex</code>, return a generator object&nbsp;<code>gen</code> that yields values from <code>arr</code>. The first time <code>gen.next()</code> is called on the generator, it should should yield&nbsp;<code>arr[startIndex]</code>. Each subsequent time&nbsp;<code>gen.next()</code>&nbsp;is called, an integer <code>jump</code>&nbsp;will be passed into the function (Ex: <code>gen.next(-3)</code>).</p>

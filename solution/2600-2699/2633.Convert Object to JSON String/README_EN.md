@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a value, return a valid JSON string of that value. The value can be a string, number, array, object, boolean, or null.&nbsp;The returned string should not include extra spaces. The order of keys should be the same as the order returned by&nbsp;<code>Object.keys()</code>.</p>

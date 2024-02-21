@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README_EN.md)
 
+<!-- tags:字典树,数组,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

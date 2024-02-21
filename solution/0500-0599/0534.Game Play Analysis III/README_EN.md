@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Activity</code></p>

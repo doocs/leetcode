@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of size <code>n</code> and a positive integer <code>k</code>.</p>

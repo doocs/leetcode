@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md)
 
+<!-- tags:脑筋急转弯,数组,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

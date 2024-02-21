@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1771.Maximize%20Palindrome%20Length%20From%20Subsequences/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two strings, <code>word1</code> and <code>word2</code>. You want to construct a string in the following manner:</p>

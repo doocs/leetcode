@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1338.Reduce%20Array%20Size%20to%20The%20Half/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an integer array <code>arr</code>. You can choose a set of integers and remove all the occurrences of these integers in the array.</p>

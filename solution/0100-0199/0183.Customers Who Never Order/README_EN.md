@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Customers</code></p>

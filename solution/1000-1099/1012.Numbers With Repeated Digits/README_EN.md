@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the number of positive integers in the range </em><code>[1, n]</code><em> that have <strong>at least one</strong> repeated digit</em>.</p>

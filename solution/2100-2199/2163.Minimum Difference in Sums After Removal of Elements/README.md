@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README_EN.md)
 
+<!-- tags:数组,动态规划,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

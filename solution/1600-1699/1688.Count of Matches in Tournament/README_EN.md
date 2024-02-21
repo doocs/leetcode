@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md)
 
+<!-- tags:Math,Simulation -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>, the number of teams in a tournament that has strange rules:</p>

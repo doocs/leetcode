@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1405.Longest%20Happy%20String/README.md)
 
+<!-- tags:Greedy,String,Heap (Priority Queue) -->
+
 ## Description
 
 <p>A string <code>s</code> is called <strong>happy</strong> if it satisfies the following conditions:</p>

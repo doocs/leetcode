@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README.md)
 
+<!-- tags:Stack,Array,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of size <code>n</code>. You are asked to solve <code>n</code> queries for each integer <code>i</code> in the range <code>0 &lt;= i &lt; n</code>.</p>

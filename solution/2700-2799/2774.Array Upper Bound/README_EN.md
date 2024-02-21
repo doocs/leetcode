@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2774.Array%20Upper%20Bound/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write code that enhances all arrays such that you can call the <code>upperBound()</code>&nbsp;method on any array and it will return the last index of a given <code>target</code> number.&nbsp;<code>nums</code>&nbsp;is a sorted ascending array of numbers that may contain duplicates. If the <code>target</code> number is not found in the array, return <code>-1</code>.</p>

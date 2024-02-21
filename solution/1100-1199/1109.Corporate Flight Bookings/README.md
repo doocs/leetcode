@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Scores</code></p>

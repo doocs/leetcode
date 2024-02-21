@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

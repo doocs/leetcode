@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1769.Minimum%20Number%20of%20Operations%20to%20Move%20All%20Balls%20to%20Each%20Box/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

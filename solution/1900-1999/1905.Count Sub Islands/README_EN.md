@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1905.Count%20Sub%20Islands/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
+
 ## Description
 
 <p>You are given two <code>m x n</code> binary matrices <code>grid1</code> and <code>grid2</code> containing only <code>0</code>&#39;s (representing water) and <code>1</code>&#39;s (representing land). An <strong>island</strong> is a group of <code>1</code>&#39;s connected <strong>4-directionally</strong> (horizontal or vertical). Any cells outside of the grid are considered water cells.</p>

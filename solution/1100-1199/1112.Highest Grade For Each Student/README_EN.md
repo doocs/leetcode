@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Enrollments</code></p>

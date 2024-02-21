@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0844.Backspace%20String%20Compare/README_EN.md)
 
+<!-- tags:栈,双指针,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README.md)
 
+<!-- tags:Greedy,Array,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an integer array <code>heights</code> representing the heights of buildings, some <code>bricks</code>, and some <code>ladders</code>.</p>

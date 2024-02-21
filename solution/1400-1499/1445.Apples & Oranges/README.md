@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1445.Apples%20%26%20Oranges/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README_EN.md)
 
+<!-- tags:栈,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

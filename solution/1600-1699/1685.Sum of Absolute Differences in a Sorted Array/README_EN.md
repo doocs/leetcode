@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Math,Prefix Sum -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> sorted in <strong>non-decreasing</strong> order.</p>

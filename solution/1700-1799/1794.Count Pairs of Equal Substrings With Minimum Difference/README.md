@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README_EN.md)
 
+<!-- tags:贪心,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

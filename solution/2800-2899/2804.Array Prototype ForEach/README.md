@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

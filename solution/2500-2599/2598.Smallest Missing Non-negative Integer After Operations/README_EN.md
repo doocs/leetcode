@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Math -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>value</code>.</p>

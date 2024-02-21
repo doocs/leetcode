@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README_EN.md)
 
+<!-- tags:字符串,动态规划,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

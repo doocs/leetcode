@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
 
+<!-- tags:数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

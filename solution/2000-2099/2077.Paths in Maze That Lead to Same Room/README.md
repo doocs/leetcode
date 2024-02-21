@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2077.Paths%20in%20Maze%20That%20Lead%20to%20Same%20Room/README_EN.md)
 
+<!-- tags:图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

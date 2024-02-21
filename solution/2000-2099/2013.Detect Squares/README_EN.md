@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2013.Detect%20Squares/README.md)
 
+<!-- tags:Design,Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given a stream of points on the X-Y plane. Design an algorithm that:</p>

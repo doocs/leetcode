@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README.md)
 
+<!-- tags:Union Find,Array,Math,Number Theory -->
+
 ## Description
 
 <p>We have <code>n</code> cities labeled from <code>1</code> to <code>n</code>. Two different cities with labels <code>x</code> and <code>y</code> are directly connected by a bidirectional road if and only if <code>x</code> and <code>y</code> share a common divisor <strong>strictly greater</strong> than some <code>threshold</code>. More formally, cities with labels <code>x</code> and <code>y</code> have a road between them if there exists an integer <code>z</code> such that all of the following are true:</p>

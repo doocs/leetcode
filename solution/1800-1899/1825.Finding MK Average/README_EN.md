@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1825.Finding%20MK%20Average/README.md)
 
+<!-- tags:Design,Queue,Data Stream,Ordered Set,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two integers, <code>m</code> and <code>k</code>, and a stream of integers. You are tasked to implement a data structure that calculates the <strong>MKAverage</strong> for the stream.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

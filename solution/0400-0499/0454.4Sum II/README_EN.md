@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0454.4Sum%20II/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Given four integer arrays <code>nums1</code>, <code>nums2</code>, <code>nums3</code>, and <code>nums4</code> all of length <code>n</code>, return the number of tuples <code>(i, j, k, l)</code> such that:</p>

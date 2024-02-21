@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1445.Apples%20%26%20Oranges/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Sales</code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README_EN.md)
 
+<!-- tags:数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

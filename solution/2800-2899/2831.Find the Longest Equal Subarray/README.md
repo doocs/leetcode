@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

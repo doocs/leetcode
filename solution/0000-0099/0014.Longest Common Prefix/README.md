@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)
 
+<!-- tags:字典树,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

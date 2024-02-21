@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2913.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20I/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed </strong>integer array <code>nums</code>.</p>

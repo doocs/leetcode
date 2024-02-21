@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Transactions</code></p>

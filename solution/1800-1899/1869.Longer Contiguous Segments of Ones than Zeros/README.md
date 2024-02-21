@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1869.Longer%20Contiguous%20Segments%20of%20Ones%20than%20Zeros/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

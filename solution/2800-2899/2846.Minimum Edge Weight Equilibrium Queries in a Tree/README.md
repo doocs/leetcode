@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md)
 
+<!-- tags:树,图,数组,强连通分量 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

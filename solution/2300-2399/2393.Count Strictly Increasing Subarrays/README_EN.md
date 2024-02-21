@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2393.Count%20Strictly%20Increasing%20Subarrays/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>

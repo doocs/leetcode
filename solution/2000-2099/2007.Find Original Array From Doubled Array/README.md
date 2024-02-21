@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2007.Find%20Original%20Array%20From%20Doubled%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

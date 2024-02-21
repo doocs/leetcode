@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2502.Design%20Memory%20Allocator/README.md)
 
+<!-- tags:Design,Array,Hash Table,Simulation -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> representing the size of a <strong>0-indexed</strong> memory array. All memory units are initially free.</p>

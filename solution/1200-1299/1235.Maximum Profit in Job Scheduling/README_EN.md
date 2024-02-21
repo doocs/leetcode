@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md)
 
+<!-- tags:Array,Binary Search,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>We have <code>n</code> jobs, where every job is scheduled to be done from <code>startTime[i]</code> to <code>endTime[i]</code>, obtaining a profit of <code>profit[i]</code>.</p>

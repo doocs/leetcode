@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3018.Maximum%20Number%20of%20Removal%20Queries%20That%20Can%20Be%20Processed%20I/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

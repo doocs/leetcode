@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
 
+<!-- tags:栈,设计 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

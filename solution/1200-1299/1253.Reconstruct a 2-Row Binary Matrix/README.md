@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1253.Reconstruct%20a%202-Row%20Binary%20Matrix/README_EN.md)
 
+<!-- tags:贪心,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

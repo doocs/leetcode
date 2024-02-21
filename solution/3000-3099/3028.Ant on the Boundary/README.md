@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README_EN.md)
 
+<!-- tags:数组,前缀和,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

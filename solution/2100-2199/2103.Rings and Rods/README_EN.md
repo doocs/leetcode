@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2103.Rings%20and%20Rods/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>There are <code>n</code> rings and each ring is either red, green, or blue. The rings are distributed <strong>across ten rods</strong> labeled from <code>0</code> to <code>9</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Prefix Sum,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>intervals</code> where <code>intervals[i] = [left<sub>i</sub>, right<sub>i</sub>]</code> represents the <strong>inclusive</strong> interval <code>[left<sub>i</sub>, right<sub>i</sub>]</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README_EN.md)
 
+<!-- tags:哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

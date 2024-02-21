@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0291.Word%20Pattern%20II/README.md)
 
+<!-- tags:Hash Table,String,Backtracking -->
+
 ## Description
 
 <p>Given a <code>pattern</code> and a string <code>s</code>, return <code>true</code><em> if </em><code>s</code><em> <strong>matches</strong> the </em><code>pattern</code><em>.</em></p>

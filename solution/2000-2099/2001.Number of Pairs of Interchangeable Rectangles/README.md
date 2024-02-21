@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,计数,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

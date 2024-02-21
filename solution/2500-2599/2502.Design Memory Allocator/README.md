@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2502.Design%20Memory%20Allocator/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

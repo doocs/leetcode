@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README_EN.md)
 
+<!-- tags:位运算,数组,数学,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

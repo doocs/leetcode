@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0796.Rotate%20String/README.md)
 
+<!-- tags:String,String Matching -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>goal</code>, return <code>true</code> <em>if and only if</em> <code>s</code> <em>can become</em> <code>goal</code> <em>after some number of <strong>shifts</strong> on</em> <code>s</code>.</p>

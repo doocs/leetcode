@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1393.Capital%20GainLoss/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Stocks</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1741.Find%20Total%20Time%20Spent%20by%20Each%20Employee/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

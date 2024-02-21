@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,哈希表,哈希函数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

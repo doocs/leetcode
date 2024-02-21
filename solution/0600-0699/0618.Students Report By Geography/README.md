@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

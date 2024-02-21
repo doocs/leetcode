@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Orders</font></code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README_EN.md)
 
+<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md)
 
+<!-- tags:Greedy,Array,Matrix,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m * n</code> integer matrix <code>values</code>, representing the values of <code>m * n</code> different items in <code>m</code> different shops. Each shop has <code>n</code> items where the <code>j<sup>th</sup></code> item in the <code>i<sup>th</sup></code> shop has a value of <code>values[i][j]</code>. Additionally, the items in the <code>i<sup>th</sup></code> shop are sorted in non-increasing order of value. That is, <code>values[i][j] &gt;= values[i][j + 1]</code> for all <code>0 &lt;= j &lt; n - 1</code>.</p>

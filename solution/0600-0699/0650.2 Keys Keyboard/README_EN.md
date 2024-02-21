@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0650.2%20Keys%20Keyboard/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>There is only one character <code>&#39;A&#39;</code> on the screen of a notepad. You can perform one of two operations on this notepad for each step:</p>

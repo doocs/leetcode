@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2511.Maximum%20Enemy%20Forts%20That%20Can%20Be%20Captured/README_EN.md)
 
+<!-- tags:数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

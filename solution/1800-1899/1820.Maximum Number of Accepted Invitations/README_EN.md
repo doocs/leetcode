@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1820.Maximum%20Number%20of%20Accepted%20Invitations/README.md)
 
+<!-- tags:Array,Backtracking,Matrix -->
+
 ## Description
 
 <p>There are <code>m</code> boys and <code>n</code> girls in a class attending an upcoming party.</p>

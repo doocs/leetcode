@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

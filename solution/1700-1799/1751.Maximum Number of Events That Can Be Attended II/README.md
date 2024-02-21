@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README_EN.md)
 
+<!-- tags:数组,二分查找,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

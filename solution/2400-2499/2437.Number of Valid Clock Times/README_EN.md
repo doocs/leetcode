@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README.md)
 
+<!-- tags:String,Enumeration -->
+
 ## Description
 
 <p>You are given a string of length <code>5</code> called <code>time</code>, representing the current time on a digital clock in the format <code>&quot;hh:mm&quot;</code>. The <strong>earliest</strong> possible time is <code>&quot;00:00&quot;</code> and the <strong>latest</strong> possible time is <code>&quot;23:59&quot;</code>.</p>

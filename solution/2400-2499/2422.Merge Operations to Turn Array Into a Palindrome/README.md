@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)
 
+<!-- tags:贪心,数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

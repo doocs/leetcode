@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

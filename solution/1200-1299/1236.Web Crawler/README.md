@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1236.Web%20Crawler/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,字符串,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2055.Plates%20Between%20Candles/README_EN.md)
 
+<!-- tags:数组,字符串,二分查找,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

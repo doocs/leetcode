@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>details</code>. Each element of <code>details</code> provides information about a given passenger compressed into a string of length <code>15</code>. The system is such that:</p>

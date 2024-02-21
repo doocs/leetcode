@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README_EN.md)
 
+<!-- tags:位运算,数组,字符串,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

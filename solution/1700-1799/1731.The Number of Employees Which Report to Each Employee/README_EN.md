@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1731.The%20Number%20of%20Employees%20Which%20Report%20to%20Each%20Employee/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

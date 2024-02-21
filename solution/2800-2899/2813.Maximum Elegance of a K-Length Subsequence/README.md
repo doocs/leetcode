@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

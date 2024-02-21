@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0356.Line%20Reflection/README.md)
 
+<!-- tags:Array,Hash Table,Math -->
+
 ## Description
 
 <p>Given <code>n</code> points on a 2D plane, find if there is such a line parallel to the y-axis that reflects the given points symmetrically.</p>

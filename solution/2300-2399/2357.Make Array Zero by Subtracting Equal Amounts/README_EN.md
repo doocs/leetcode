@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting,Simulation,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a non-negative integer array <code>nums</code>. In one operation, you must:</p>

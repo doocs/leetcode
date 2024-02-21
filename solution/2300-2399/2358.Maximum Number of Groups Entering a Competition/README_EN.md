@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md)
 
+<!-- tags:Greedy,Array,Math,Binary Search -->
+
 ## Description
 
 <p>You are given a positive integer array <code>grades</code> which represents the grades of students in a university. You would like to enter <strong>all</strong> these students into a competition in <strong>ordered</strong> non-empty groups, such that the ordering meets the following conditions:</p>

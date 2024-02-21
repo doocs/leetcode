@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
 
+<!-- tags:数组,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

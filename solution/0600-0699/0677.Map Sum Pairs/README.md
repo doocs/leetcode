@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md)
 
+<!-- tags:设计,字典树,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README_EN.md)
 
+<!-- tags:贪心,数组,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

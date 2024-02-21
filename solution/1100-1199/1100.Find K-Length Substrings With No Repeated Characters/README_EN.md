@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md)
 
+<!-- tags:Hash Table,String,Sliding Window -->
+
 ## Description
 
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the number of substrings in </em><code>s</code><em> of length </em><code>k</code><em> with no repeated characters</em>.</p>

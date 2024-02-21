@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. You have to find the <strong>maximum</strong> sum of a pair of numbers from <code>nums</code> such that the maximum <strong>digit </strong>in both numbers are equal.</p>

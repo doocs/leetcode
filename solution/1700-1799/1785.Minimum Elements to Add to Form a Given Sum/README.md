@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

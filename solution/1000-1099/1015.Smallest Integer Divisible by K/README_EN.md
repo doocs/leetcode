@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README.md)
 
+<!-- tags:Hash Table,Math -->
+
 ## Description
 
 <p>Given a positive integer <code>k</code>, you need to find the <strong>length</strong> of the <strong>smallest</strong> positive integer <code>n</code> such that <code>n</code> is divisible by <code>k</code>, and <code>n</code> only contains the digit <code>1</code>.</p>

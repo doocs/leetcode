@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Counting,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>In a warehouse, there is a row of barcodes, where the <code>i<sup>th</sup></code> barcode is <code>barcodes[i]</code>.</p>

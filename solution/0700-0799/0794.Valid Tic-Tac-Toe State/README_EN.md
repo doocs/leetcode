@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>Given a Tic-Tac-Toe board as a string array <code>board</code>, return <code>true</code> if and only if it is possible to reach this board position during the course of a valid tic-tac-toe game.</p>

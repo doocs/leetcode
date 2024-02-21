@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2118.Build%20the%20Equation/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README_EN.md)
 
+<!-- tags:数组,数学,数论,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

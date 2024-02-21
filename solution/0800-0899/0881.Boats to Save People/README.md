@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1342.Number%20of%20Steps%20to%20Reduce%20a%20Number%20to%20Zero/README.md)
 
+<!-- tags:Bit Manipulation,Math -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, return <em>the number of steps to reduce it to zero</em>.</p>

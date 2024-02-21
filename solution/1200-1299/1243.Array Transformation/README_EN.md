@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1243.Array%20Transformation/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>Given an initial array <code>arr</code>, every day you produce a new array using the array of the previous day.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0683.K%20Empty%20Slots/README.md)
 
+<!-- tags:Binary Indexed Tree,Array,Ordered Set,Sliding Window -->
+
 ## Description
 
 <p>You have <code>n</code> bulbs in a row numbered from <code>1</code> to <code>n</code>. Initially, all the bulbs are turned off. We turn on <strong>exactly one</strong> bulb every day until all bulbs are on after <code>n</code> days.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README_EN.md)
 
+<!-- tags:数学,字符串,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

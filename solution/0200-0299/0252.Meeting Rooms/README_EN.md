@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0252.Meeting%20Rooms/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>Given an array of meeting time <code>intervals</code>&nbsp;where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, determine if a person could attend all meetings.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README_EN.md)
 
+<!-- tags:数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

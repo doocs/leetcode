@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given an integer array <code>power</code> where <code>power[i]</code> is the power of the <code>i<sup>th</sup></code> monster.</p>

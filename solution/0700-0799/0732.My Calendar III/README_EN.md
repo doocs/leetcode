@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0732.My%20Calendar%20III/README.md)
 
+<!-- tags:Design,Segment Tree,Binary Search,Ordered Set -->
+
 ## Description
 
 <p>A <code>k</code>-booking happens when <code>k</code> events have some non-empty intersection (i.e., there is some time that is common to all <code>k</code> events.)</p>

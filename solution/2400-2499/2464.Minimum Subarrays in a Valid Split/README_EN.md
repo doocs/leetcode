@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Number Theory -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>.</p>

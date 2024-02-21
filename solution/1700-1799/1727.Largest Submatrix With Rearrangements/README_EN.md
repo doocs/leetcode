@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README.md)
 
+<!-- tags:Greedy,Array,Matrix,Sorting -->
+
 ## Description
 
 <p>You are given a binary matrix <code>matrix</code> of size <code>m x n</code>, and you are allowed to rearrange the <strong>columns</strong> of the <code>matrix</code> in any order.</p>

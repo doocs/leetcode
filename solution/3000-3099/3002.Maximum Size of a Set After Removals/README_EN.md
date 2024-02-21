@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)
 
+<!-- tags:Greedy,Array,Hash Table -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of even length <code>n</code>.</p>

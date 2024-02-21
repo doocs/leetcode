@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0353.Design%20Snake%20Game/README.md)
 
+<!-- tags:Design,Queue,Array,Hash Table,Simulation -->
+
 ## Description
 
 <p>Design a <a href="https://en.wikipedia.org/wiki/Snake_(video_game)" target="_blank">Snake game</a> that is played on a device with screen size <code>height x width</code>. <a href="http://patorjk.com/games/snake/" target="_blank">Play the game online</a> if you are not familiar with the game.</p>

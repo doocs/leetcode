@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
 
+<!-- tags:Reservoir Sampling,Hash Table,Math,Randomized -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> with possible <strong>duplicates</strong>, randomly output the index of a given <code>target</code> number. You can assume that the given target number must exist in the array.</p>

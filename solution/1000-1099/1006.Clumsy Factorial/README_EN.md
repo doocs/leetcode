@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1006.Clumsy%20Factorial/README.md)
 
+<!-- tags:Stack,Math,Simulation -->
+
 ## Description
 
 <p>The <strong>factorial</strong> of a positive integer <code>n</code> is the product of all positive integers less than or equal to <code>n</code>.</p>

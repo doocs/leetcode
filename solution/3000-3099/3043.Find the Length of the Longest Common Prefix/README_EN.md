@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>You are given two arrays with <strong>positive</strong> integers <code>arr1</code> and <code>arr2</code>.</p>

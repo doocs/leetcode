@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1470.Shuffle%20the%20Array/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

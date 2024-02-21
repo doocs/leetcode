@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1593.Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings/README.md)
 
+<!-- tags:Hash Table,String,Backtracking -->
+
 ## Description
 
 <p>Given a string&nbsp;<code>s</code><var>,</var>&nbsp;return <em>the maximum&nbsp;number of unique substrings that the given string can be split into</em>.</p>

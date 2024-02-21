@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2200.Find%20All%20K-Distant%20Indices%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

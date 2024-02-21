@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1133.Largest%20Unique%20Number/README.md)
 
+<!-- tags:Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <em>the largest integer that only occurs once</em>. If no integer occurs once, return <code>-1</code>.</p>

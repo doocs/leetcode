@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

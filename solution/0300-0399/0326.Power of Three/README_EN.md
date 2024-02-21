@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0326.Power%20of%20Three/README.md)
 
+<!-- tags:Recursion,Math -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em><code>true</code> if it is a power of three. Otherwise, return <code>false</code></em>.</p>

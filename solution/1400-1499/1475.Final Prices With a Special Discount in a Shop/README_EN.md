@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1475.Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop/README.md)
 
+<!-- tags:Stack,Array,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an integer array <code>prices</code> where <code>prices[i]</code> is the price of the <code>i<sup>th</sup></code> item in a shop.</p>

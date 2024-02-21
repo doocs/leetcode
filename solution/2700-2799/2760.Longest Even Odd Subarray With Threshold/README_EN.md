@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>threshold</code>.</p>

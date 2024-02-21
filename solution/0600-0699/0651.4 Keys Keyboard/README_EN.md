@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0651.4%20Keys%20Keyboard/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>Imagine you have a special keyboard with the following keys:</p>

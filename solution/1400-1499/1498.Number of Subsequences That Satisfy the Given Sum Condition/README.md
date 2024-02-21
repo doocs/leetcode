@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1498.Number%20of%20Subsequences%20That%20Satisfy%20the%20Given%20Sum%20Condition/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

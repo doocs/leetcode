@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0409.Longest%20Palindrome/README_EN.md)
 
+<!-- tags:贪心,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

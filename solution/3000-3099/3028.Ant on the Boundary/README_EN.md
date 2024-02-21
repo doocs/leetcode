@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3028.Ant%20on%20the%20Boundary/README.md)
 
+<!-- tags:Array,Prefix Sum,Simulation -->
+
 ## Description
 
 <p>An ant is on a boundary. It sometimes goes <strong>left</strong> and sometimes <strong>right</strong>.</p>

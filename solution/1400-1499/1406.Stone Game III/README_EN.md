@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1406.Stone%20Game%20III/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob continue their games with piles of stones. There are several stones <strong>arranged in a row</strong>, and each stone has an associated value which is an integer given in the array <code>stoneValue</code>.</p>

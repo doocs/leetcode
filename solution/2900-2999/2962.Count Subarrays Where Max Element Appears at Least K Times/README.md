@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2962.Count%20Subarrays%20Where%20Max%20Element%20Appears%20at%20Least%20K%20Times/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2394.Employees%20With%20Deductions/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

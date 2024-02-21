@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Hash Table,Hash Function -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code>. An island is a group of <code>1</code>&#39;s (representing land) connected <strong>4-directionally</strong> (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>

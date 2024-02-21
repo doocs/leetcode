@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0621.Task%20Scheduler/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Counting,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given a characters array <code>tasks</code>, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.</p>

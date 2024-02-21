@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2319.Check%20if%20Matrix%20Is%20X-Matrix/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>A square matrix is said to be an <strong>X-Matrix</strong> if <strong>both</strong> of the following conditions hold:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2459.Sort%20Array%20by%20Moving%20Items%20to%20Empty%20Space/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

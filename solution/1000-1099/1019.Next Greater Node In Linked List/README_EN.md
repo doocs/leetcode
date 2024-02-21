@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README.md)
 
+<!-- tags:Stack,Array,Linked List,Monotonic Stack -->
+
 ## Description
 
 <p>You are given the <code>head</code> of a linked list with <code>n</code> nodes.</p>

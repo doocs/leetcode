@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0478.Generate%20Random%20Point%20in%20a%20Circle/README.md)
 
+<!-- tags:Geometry,Math,Rejection Sampling,Randomized -->
+
 ## Description
 
 <p>Given the radius and the position of the center of a circle, implement the function <code>randPoint</code> which generates a uniform random point inside the circle.</p>

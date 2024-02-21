@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> matrix <code>grid</code> consisting of <strong>positive</strong> integers.</p>

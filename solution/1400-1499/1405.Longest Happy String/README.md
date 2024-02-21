@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1405.Longest%20Happy%20String/README_EN.md)
 
+<!-- tags:贪心,字符串,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README.md)
 
+<!-- tags:Breadth-First Search,Graph,Array,Matrix,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given an <code>m x n</code> grid. Each cell of the grid has a sign pointing to the next cell you should visit if you are currently in this cell. The sign of <code>grid[i][j]</code> can be:</p>

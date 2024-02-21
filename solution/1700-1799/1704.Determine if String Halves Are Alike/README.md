@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README_EN.md)
 
+<!-- tags:字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

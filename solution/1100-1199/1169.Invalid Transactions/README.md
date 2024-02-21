@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1169.Invalid%20Transactions/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

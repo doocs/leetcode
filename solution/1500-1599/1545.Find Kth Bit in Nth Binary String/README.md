@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README_EN.md)
 
+<!-- tags:递归,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

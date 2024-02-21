@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md)
 
+<!-- tags:Array,Hash Table,Enumeration,Sorting -->
+
 ## Description
 
 <p>Alice had a <strong>0-indexed</strong> array <code>arr</code> consisting of <code>n</code> <strong>positive</strong> integers. She chose an arbitrary <strong>positive integer</strong> <code>k</code> and created two new <strong>0-indexed</strong> integer arrays <code>lower</code> and <code>higher</code> in the following manner:</p>

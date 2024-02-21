@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>It is a sweltering summer day, and a boy wants to buy some ice cream bars.</p>

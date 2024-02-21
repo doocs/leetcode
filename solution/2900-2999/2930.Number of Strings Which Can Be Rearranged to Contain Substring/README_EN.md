@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md)
 
+<!-- tags:Math,Dynamic Programming,Combinatorics -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1877.Minimize%20Maximum%20Pair%20Sum%20in%20Array/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>The <strong>pair sum</strong> of a pair <code>(a,b)</code> is equal to <code>a + b</code>. The <strong>maximum pair sum</strong> is the largest <strong>pair sum</strong> in a list of pairs.</p>

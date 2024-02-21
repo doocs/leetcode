@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README_EN.md)
 
+<!-- tags:数组,双指针,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

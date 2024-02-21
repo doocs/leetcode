@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2213.Longest%20Substring%20of%20One%20Repeating%20Character/README.md)
 
+<!-- tags:Segment Tree,Array,String,Ordered Set -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>. You are also given a <strong>0-indexed</strong> string <code>queryCharacters</code> of length <code>k</code> and a <strong>0-indexed</strong> array of integer <strong>indices</strong> <code>queryIndices</code> of length <code>k</code>, both of which are used to describe <code>k</code> queries.</p>

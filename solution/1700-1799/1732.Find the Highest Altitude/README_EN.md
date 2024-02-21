@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>There is a biker going on a road trip. The road trip consists of <code>n + 1</code> points at different altitudes. The biker starts his trip on point <code>0</code> with altitude equal <code>0</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0549.Binary%20Tree%20Longest%20Consecutive%20Sequence%20II/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the length of the longest consecutive path in the tree</em>.</p>

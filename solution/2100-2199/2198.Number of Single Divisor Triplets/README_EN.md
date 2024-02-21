@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>nums</code>. A triplet of three <strong>distinct</strong> indices <code>(i, j, k)</code> is called a <strong>single divisor triplet</strong> of <code>nums</code> if <code>nums[i] + nums[j] + nums[k]</code> is divisible by <strong>exactly one</strong> of <code>nums[i]</code>, <code>nums[j]</code>, or <code>nums[k]</code>.</p>

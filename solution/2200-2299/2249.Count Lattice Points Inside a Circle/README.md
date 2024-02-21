@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README_EN.md)
 
+<!-- tags:几何,数组,哈希表,数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

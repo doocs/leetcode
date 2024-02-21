@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0086.Partition%20List/README.md)
 
+<!-- tags:Linked List,Two Pointers -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list and a value <code>x</code>, partition it such that all nodes <strong>less than</strong> <code>x</code> come before nodes <strong>greater than or equal</strong> to <code>x</code>.</p>

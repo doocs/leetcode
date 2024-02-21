@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1355.Activity%20Participants/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Friends</code></p>

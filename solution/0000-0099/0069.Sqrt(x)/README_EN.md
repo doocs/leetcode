@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0069.Sqrt%28x%29/README.md)
 
+<!-- tags:Math,Binary Search -->
+
 ## Description
 
 <p>Given a non-negative integer <code>x</code>, return <em>the square root of </em><code>x</code><em> rounded down to the nearest integer</em>. The returned integer should be <strong>non-negative</strong> as well.</p>

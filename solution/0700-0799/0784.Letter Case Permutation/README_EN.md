@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0784.Letter%20Case%20Permutation/README.md)
 
+<!-- tags:Bit Manipulation,String,Backtracking -->
+
 ## Description
 
 <p>Given a string <code>s</code>, you&nbsp;can transform every letter individually to be lowercase or uppercase to create another string.</p>

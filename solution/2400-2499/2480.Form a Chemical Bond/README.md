@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

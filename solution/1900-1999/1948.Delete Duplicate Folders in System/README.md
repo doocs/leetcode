@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README_EN.md)
 
+<!-- tags:字典树,数组,哈希表,字符串,哈希函数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

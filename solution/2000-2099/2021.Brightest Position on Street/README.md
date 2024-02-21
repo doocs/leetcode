@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README_EN.md)
 
+<!-- tags:数组,有序集合,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

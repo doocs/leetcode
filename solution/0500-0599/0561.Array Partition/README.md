@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0561.Array%20Partition/README_EN.md)
 
+<!-- tags:贪心,数组,计数排序,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

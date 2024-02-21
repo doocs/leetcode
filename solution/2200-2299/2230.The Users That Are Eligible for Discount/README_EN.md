@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Purchases</code></p>

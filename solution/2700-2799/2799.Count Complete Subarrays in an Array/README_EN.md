@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table,Sliding Window -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0765.Couples%20Holding%20Hands/README.md)
 
+<!-- tags:Greedy,Depth-First Search,Breadth-First Search,Union Find,Graph -->
+
 ## Description
 
 <p>There are <code>n</code> couples sitting in <code>2n</code> seats arranged in a row and want to hold hands.</p>

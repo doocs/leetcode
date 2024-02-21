@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2136.Earliest%20Possible%20Day%20of%20Full%20Bloom/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0067.Add%20Binary/README.md)
 
+<!-- tags:Bit Manipulation,Math,String,Simulation -->
+
 ## Description
 
 <p>Given two binary strings <code>a</code> and <code>b</code>, return <em>their sum as a binary string</em>.</p>

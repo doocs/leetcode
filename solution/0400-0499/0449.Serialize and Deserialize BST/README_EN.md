@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Design,Binary Search Tree,String,Binary Tree -->
+
 ## Description
 
 <p>Serialization is converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>

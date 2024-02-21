@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README_EN.md)
 
+<!-- tags:数组,二分查找,有序集合,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

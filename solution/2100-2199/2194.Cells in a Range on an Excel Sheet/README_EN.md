@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2194.Cells%20in%20a%20Range%20on%20an%20Excel%20Sheet/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>A cell <code>(r, c)</code> of an excel sheet is represented as a string <code>&quot;&lt;col&gt;&lt;row&gt;&quot;</code> where:</p>

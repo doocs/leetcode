@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md)
 
+<!-- tags:栈,贪心,字符串,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>You are given a list of&nbsp;<code>preferences</code>&nbsp;for&nbsp;<code>n</code>&nbsp;friends, where <code>n</code> is always <strong>even</strong>.</p>

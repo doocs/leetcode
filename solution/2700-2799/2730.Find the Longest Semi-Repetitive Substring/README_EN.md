@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README.md)
 
+<!-- tags:String,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> that consists of digits from <code>0</code> to <code>9</code>.</p>

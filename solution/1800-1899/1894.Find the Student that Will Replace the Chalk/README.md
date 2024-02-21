@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

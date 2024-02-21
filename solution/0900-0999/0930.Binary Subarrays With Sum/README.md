@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

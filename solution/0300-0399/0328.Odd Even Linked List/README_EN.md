@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return <em>the reordered list</em>.</p>

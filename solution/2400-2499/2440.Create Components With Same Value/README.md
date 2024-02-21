@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2440.Create%20Components%20With%20Same%20Value/README_EN.md)
 
+<!-- tags:树,深度优先搜索,数组,数学,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

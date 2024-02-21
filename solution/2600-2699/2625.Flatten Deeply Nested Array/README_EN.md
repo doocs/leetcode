@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a&nbsp;<strong>multi-dimensional</strong> array&nbsp;<code>arr</code>&nbsp;and a depth <code>n</code>, return&nbsp;a&nbsp;<strong>flattened</strong>&nbsp;version of that array.</p>

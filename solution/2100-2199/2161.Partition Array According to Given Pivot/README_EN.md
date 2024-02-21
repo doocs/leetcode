@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README.md)
 
+<!-- tags:Array,Two Pointers,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>pivot</code>. Rearrange <code>nums</code> such that the following conditions are satisfied:</p>

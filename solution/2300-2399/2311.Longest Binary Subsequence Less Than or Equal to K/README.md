@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
 
+<!-- tags:贪心,记忆化搜索,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README.md)
 
+<!-- tags:Tree,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary tree with <strong>unique values</strong>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0386.Lexicographical%20Numbers/README_EN.md)
 
+<!-- tags:深度优先搜索,字典树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>A binary tree is <strong>uni-valued</strong> if every node in the tree has the same value.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README.md)
 
+<!-- tags:Array,Math,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D array <code>variables</code> where <code>variables[i] = [a<sub>i</sub>, b<sub>i</sub>, c<sub>i,</sub> m<sub>i</sub>]</code>, and an integer <code>target</code>.</p>

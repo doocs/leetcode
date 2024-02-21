@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1927.Sum%20Game/README.md)
 
+<!-- tags:Greedy,Math,String,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with <strong>Alice</strong><strong>&nbsp;starting first</strong>.</p>

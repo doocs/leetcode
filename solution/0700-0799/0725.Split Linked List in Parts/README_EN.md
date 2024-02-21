@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a singly linked list and an integer <code>k</code>, split the linked list into <code>k</code> consecutive linked list parts.</p>

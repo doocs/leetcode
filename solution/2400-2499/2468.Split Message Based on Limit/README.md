@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2468.Split%20Message%20Based%20on%20Limit/README_EN.md)
 
+<!-- tags:字符串,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README_EN.md)
 
+<!-- tags:广度优先搜索,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

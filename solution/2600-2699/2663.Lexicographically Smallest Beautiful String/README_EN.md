@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>A string is <strong>beautiful</strong> if:</p>

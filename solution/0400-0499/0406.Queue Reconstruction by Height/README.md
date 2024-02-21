@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README_EN.md)
 
+<!-- tags:树状数组,线段树,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

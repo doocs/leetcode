@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, remove the vowels <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code> from it, and return the new string.</p>

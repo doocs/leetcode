@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0915.Partition%20Array%20into%20Disjoint%20Intervals/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, partition it into two (contiguous) subarrays <code>left</code> and <code>right</code> so that:</p>

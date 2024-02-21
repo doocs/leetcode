@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md)
 
+<!-- tags:Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. We consider an array <strong>good </strong>if it is a permutation of an array <code>base[n]</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given an integer <code>money</code> denoting the amount of money (in dollars) that you have and another integer <code>children</code> denoting the number of children that you must distribute the money to.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1957.Delete%20Characters%20to%20Make%20Fancy%20String/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>A <strong>fancy string</strong> is a string where no <strong>three</strong> <strong>consecutive</strong> characters are equal.</p>

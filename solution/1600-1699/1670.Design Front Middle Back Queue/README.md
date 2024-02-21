@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md)
 
+<!-- tags:设计,队列,数组,链表,数据流 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

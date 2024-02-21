@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README_EN.md)
 
+<!-- tags:数学,动态规划,组合数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

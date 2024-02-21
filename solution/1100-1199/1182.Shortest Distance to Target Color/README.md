@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md)
 
+<!-- tags:数组,二分查找,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

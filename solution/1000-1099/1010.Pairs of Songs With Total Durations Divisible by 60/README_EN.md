@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1010.Pairs%20of%20Songs%20With%20Total%20Durations%20Divisible%20by%2060/README.md)
 
+<!-- tags:Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given a list of songs where the <code>i<sup>th</sup></code> song has a duration of <code>time[i]</code> seconds.</p>

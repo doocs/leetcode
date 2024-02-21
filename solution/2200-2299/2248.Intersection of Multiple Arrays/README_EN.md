@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README.md)
 
+<!-- tags:Array,Hash Table,Counting,Sorting -->
+
 ## Description
 
 Given a 2D integer array <code>nums</code> where <code>nums[i]</code> is a non-empty array of <strong>distinct</strong> positive integers, return <em>the list of integers that are present in <strong>each array</strong> of</em> <code>nums</code><em> sorted in <strong>ascending order</strong></em>.

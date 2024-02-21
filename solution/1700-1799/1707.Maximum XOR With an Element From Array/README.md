@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README_EN.md)
 
+<!-- tags:位运算,字典树,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

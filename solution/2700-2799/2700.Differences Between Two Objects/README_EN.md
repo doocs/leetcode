@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a function that accepts two deeply nested objects or arrays&nbsp;<code>obj1</code> and&nbsp;<code>obj2</code>&nbsp;and returns a new&nbsp;object representing their differences.</p>

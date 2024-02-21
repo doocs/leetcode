@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0749.Contain%20Virus/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix,Simulation -->
+
 ## Description
 
 <p>A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.</p>

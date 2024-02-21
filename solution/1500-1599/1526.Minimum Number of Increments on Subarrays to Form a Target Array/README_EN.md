@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README.md)
 
+<!-- tags:Stack,Greedy,Array,Dynamic Programming,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an integer array <code>target</code>. You have an integer array <code>initial</code> of the same size as <code>target</code> with all elements initially zeros.</p>

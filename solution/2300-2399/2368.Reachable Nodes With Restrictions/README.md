@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,并查集,图,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

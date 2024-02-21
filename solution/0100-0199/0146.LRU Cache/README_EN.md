@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0146.LRU%20Cache/README.md)
 
+<!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
+
 ## Description
 
 <p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU" target="_blank">Least Recently Used (LRU) cache</a></strong>.</p>

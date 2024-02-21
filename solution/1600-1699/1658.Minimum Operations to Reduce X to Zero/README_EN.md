@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Prefix Sum,Sliding Window -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>x</code>. In one operation, you can either remove the leftmost or the rightmost element from the array <code>nums</code> and subtract its value from <code>x</code>. Note that this <strong>modifies</strong> the array for future operations.</p>

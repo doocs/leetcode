@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md)
 
+<!-- tags:Array,String,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code> and a 2D array of integers <code>queries</code>.</p>

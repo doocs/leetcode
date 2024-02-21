@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

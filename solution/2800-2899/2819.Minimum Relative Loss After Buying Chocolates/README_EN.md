@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README.md)
 
+<!-- tags:Array,Binary Search,Prefix Sum,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>prices</code>, which shows the chocolate prices and a 2D integer array <code>queries</code>, where <code>queries[i] = [k<sub>i</sub>, m<sub>i</sub>]</code>.</p>

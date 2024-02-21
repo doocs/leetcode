@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, collect a tree&#39;s nodes as if you were doing this:</p>

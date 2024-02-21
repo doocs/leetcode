@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0346.Moving%20Average%20from%20Data%20Stream/README_EN.md)
 
+<!-- tags:设计,队列,数组,数据流 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

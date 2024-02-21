@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

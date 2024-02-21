@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README.md)
 
+<!-- tags:String,Dynamic Programming,Simulation -->
+
 ## Description
 
 <p>Given a&nbsp;<code>rows x cols</code> screen and a <code>sentence</code> represented as a list of strings, return <em>the number of&nbsp;times the given sentence can be fitted on the screen</em>.</p>

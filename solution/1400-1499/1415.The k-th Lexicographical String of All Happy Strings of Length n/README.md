@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README_EN.md)
 
+<!-- tags:字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

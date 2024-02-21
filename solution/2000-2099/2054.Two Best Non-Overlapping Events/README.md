@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2054.Two%20Best%20Non-Overlapping%20Events/README_EN.md)
 
+<!-- tags:数组,二分查找,动态规划,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

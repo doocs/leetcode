@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

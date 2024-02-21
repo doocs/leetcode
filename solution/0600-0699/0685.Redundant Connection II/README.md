@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0685.Redundant%20Connection%20II/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

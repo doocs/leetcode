@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README.md)
 
+<!-- tags:Bit Manipulation,Hash Table,String,Prefix Sum -->
+
 ## Description
 
 <p>A <strong>wonderful</strong> string is a string where <strong>at most one</strong> letter appears an <strong>odd</strong> number of times.</p>

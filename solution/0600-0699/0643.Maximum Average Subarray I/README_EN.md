@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0643.Maximum%20Average%20Subarray%20I/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.</p>

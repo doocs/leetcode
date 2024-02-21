@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2287.Rearrange%20Characters%20to%20Make%20Target%20String/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>s</code> and <code>target</code>. You can take some letters from <code>s</code> and rearrange them to form new strings.</p>

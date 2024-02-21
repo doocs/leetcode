@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0386.Lexicographical%20Numbers/README.md)
 
+<!-- tags:Depth-First Search,Trie -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return all the numbers in the range <code>[1, n]</code> sorted in lexicographical order.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0076.Minimum%20Window%20Substring/README_EN.md)
 
+<!-- tags:哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

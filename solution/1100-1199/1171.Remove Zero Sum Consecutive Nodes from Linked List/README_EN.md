@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1171.Remove%20Zero%20Sum%20Consecutive%20Nodes%20from%20Linked%20List/README.md)
 
+<!-- tags:Hash Table,Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list, we repeatedly delete consecutive sequences of nodes that sum to <code>0</code> until there are no such sequences.</p>

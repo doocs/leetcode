@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README_EN.md)
 
+<!-- tags:树状数组,线段树,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

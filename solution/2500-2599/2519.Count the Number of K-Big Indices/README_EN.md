@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2519.Count%20the%20Number%20of%20K-Big%20Indices/README.md)
 
+<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a positive integer <code>k</code>.</p>

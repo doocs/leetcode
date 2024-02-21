@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given two strings <code>s1</code> and <code>s2</code>, both of length <code>4</code>, consisting of <strong>lowercase</strong> English letters.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md)
 
+<!-- tags:Greedy,Graph,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> denoting the number of cities in a country. The cities are numbered from <code>0</code> to <code>n - 1</code>.</p>

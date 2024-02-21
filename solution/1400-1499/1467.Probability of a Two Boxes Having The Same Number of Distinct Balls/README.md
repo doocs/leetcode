@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,回溯,组合数学,概率与统计 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

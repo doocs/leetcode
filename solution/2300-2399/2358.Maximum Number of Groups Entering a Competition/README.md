@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README_EN.md)
 
+<!-- tags:贪心,数组,数学,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>LogInfo</code></p>

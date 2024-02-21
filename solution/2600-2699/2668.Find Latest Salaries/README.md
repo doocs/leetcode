@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2668.Find%20Latest%20Salaries/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

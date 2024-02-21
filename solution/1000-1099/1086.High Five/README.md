@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1086.High%20Five/README_EN.md)
 
+<!-- tags:数组,哈希表,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

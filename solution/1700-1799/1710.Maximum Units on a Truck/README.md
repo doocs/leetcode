@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

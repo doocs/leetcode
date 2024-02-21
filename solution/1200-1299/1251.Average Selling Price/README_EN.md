@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1251.Average%20Selling%20Price/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Prices</code></p>

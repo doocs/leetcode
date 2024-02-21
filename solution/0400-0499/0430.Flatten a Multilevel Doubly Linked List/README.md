@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/README_EN.md)
 
+<!-- tags:深度优先搜索,链表,双向链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

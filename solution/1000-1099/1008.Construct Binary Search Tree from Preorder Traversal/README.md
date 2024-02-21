@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README_EN.md)
 
+<!-- tags:栈,树,二叉搜索树,数组,二叉树,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

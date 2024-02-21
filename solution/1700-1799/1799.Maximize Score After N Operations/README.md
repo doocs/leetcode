@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README_EN.md)
 
+<!-- tags:位运算,数组,数学,动态规划,回溯,状态压缩,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

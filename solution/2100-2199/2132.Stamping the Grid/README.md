@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md)
 
+<!-- tags:贪心,数组,矩阵,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

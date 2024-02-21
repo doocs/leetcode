@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code> representing the number of nodes of a <strong>Directed Acyclic Graph</strong> (DAG). The nodes are numbered from <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>).</p>

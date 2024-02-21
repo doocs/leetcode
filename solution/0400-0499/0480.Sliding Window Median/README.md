@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0480.Sliding%20Window%20Median/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

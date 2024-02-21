@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1593.Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings/README_EN.md)
 
+<!-- tags:哈希表,字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

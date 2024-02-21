@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README.md)
 
+<!-- tags:Greedy,Two Pointers,String -->
+
 ## Description
 
 <p>You are given two strings <code>word1</code> and <code>word2</code>. You want to construct a string <code>merge</code> in the following way: while either <code>word1</code> or <code>word2</code> are non-empty, choose <strong>one</strong> of the following options:</p>

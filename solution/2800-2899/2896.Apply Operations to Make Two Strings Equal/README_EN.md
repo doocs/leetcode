@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> binary strings <code>s1</code> and <code>s2</code>, both of length <code>n</code>, and a positive integer <code>x</code>.</p>

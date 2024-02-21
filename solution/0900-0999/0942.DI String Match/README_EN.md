@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0942.DI%20String%20Match/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,String -->
+
 ## Description
 
 <p>A permutation <code>perm</code> of <code>n + 1</code> integers of all the integers in the range <code>[0, n]</code> can be represented as a string <code>s</code> of length <code>n</code> where:</p>

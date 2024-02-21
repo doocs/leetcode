@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README_EN.md)
 
+<!-- tags:深度优先搜索,并查集,图,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

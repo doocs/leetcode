@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return <code>true</code> <em>if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or </em><code>false</code><em> otherwise</em>.</p>

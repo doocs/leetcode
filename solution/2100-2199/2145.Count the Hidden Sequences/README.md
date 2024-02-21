@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2145.Count%20the%20Hidden%20Sequences/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

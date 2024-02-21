@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README.md)
 
+<!-- tags:Greedy,Array,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There is a special kind of apple tree that grows apples every day for <code>n</code> days. On the <code>i<sup>th</sup></code> day, the tree grows <code>apples[i]</code> apples that will rot after <code>days[i]</code> days, that is on day <code>i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code>apples[i] == 0</code> and <code>days[i] == 0</code>.</p>

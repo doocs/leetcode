@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README.md)
 
+<!-- tags:Array,Enumeration -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A subarray <code>s</code> of length <code>m</code> is called <strong>alternating</strong> if:</p>

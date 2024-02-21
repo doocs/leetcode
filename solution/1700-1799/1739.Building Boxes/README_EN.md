@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1739.Building%20Boxes/README.md)
 
+<!-- tags:Greedy,Math,Binary Search -->
+
 ## Description
 
 <p>You have a cubic storeroom where the width, length, and height of the room are all equal to <code>n</code> units. You are asked to place <code>n</code> boxes in this room where each box is a cube of unit side length. There are however some rules to placing the boxes:</p>

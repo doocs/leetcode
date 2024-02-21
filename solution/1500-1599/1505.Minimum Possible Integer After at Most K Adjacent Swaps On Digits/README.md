@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1505.Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits/README_EN.md)
 
+<!-- tags:贪心,树状数组,线段树,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

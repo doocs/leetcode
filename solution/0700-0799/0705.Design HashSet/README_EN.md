@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0705.Design%20HashSet/README.md)
 
+<!-- tags:Design,Array,Hash Table,Linked List,Hash Function -->
+
 ## Description
 
 <p>Design a HashSet without using any built-in hash table libraries.</p>

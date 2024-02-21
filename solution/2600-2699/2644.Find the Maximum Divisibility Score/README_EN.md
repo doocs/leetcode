@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums</code> and <code>divisors</code>.</p>

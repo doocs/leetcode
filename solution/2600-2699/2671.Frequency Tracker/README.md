@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2671.Frequency%20Tracker/README_EN.md)
 
+<!-- tags:设计,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

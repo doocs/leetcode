@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2534.Time%20Taken%20to%20Cross%20the%20Door/README_EN.md)
 
+<!-- tags:队列,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

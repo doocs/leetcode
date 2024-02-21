@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,枚举,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README.md)
 
+<!-- tags:Greedy,Array,Hash Table -->
+
 ## Description
 
 <p>You are given an integer array <code>rolls</code> of length <code>n</code> and an integer <code>k</code>. You roll a <code>k</code> sided dice numbered from <code>1</code> to <code>k</code>, <code>n</code> times, where the result of the <code>i<sup>th</sup></code> roll is <code>rolls[i]</code>.</p>

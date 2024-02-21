@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README_EN.md)
 
+<!-- tags:贪心,数组,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

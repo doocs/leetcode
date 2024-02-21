@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>arr</code> consisting of <code>n</code> positive integers, and a positive integer <code>k</code>.</p>

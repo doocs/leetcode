@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)
 
+<!-- tags:数组,哈希表,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

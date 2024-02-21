@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README.md)
 
+<!-- tags:Binary Search,Interactive -->
+
 ## Description
 
 <p>We are playing the Guess Game. The game is as follows:</p>

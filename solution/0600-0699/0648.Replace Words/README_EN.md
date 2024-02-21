@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0648.Replace%20Words/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String -->
+
 ## Description
 
 <p>In English, we have a concept called <strong>root</strong>, which can be followed by some other word to form another longer word - let&#39;s call this word <strong>successor</strong>. For example, when the <strong>root</strong> <code>&quot;an&quot;</code> is followed by the <strong>successor</strong> word <code>&quot;other&quot;</code>, we can form a new word <code>&quot;another&quot;</code>.</p>

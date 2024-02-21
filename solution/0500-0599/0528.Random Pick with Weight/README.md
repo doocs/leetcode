@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md)
 
+<!-- tags:数组,数学,二分查找,前缀和,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

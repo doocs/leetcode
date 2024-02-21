@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Schools</code></p>

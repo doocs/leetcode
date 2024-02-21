@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README.md)
 
+<!-- tags:Math,Backtracking,Enumeration -->
+
 ## Description
 
 <p>An integer <code>x</code> is <strong>numerically balanced</strong> if for every digit <code>d</code> in the number <code>x</code>, there are <strong>exactly</strong> <code>d</code> occurrences of that digit in <code>x</code>.</p>

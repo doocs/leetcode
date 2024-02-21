@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, you can perform the following operation on the array any number of times:</p>

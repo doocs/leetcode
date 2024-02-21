@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

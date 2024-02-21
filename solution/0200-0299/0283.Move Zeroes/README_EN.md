@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0283.Move%20Zeroes/README.md)
 
+<!-- tags:Array,Two Pointers -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, move all <code>0</code>&#39;s to the end of it while maintaining the relative order of the non-zero elements.</p>

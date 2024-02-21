@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README_EN.md)
 
+<!-- tags:数组,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

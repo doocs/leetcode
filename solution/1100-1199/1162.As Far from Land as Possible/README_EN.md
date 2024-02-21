@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README.md)
 
+<!-- tags:Breadth-First Search,Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>Given an <code>n x n</code> <code>grid</code>&nbsp;containing only values <code>0</code> and <code>1</code>, where&nbsp;<code>0</code> represents water&nbsp;and <code>1</code> represents land, find a water cell such that its distance to the nearest land cell is maximized, and return the distance.&nbsp;If no land or water exists in the grid, return <code>-1</code>.</p>

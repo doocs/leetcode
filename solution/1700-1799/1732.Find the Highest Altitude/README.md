@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README_EN.md)
 
+<!-- tags:数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

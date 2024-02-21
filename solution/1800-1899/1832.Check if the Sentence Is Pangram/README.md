@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

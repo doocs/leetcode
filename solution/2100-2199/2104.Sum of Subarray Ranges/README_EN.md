@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README.md)
 
+<!-- tags:Stack,Array,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. The <strong>range</strong> of a subarray of <code>nums</code> is the difference between the largest and smallest element in the subarray.</p>

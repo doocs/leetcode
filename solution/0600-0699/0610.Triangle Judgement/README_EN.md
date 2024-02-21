@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0610.Triangle%20Judgement/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Triangle</code></p>

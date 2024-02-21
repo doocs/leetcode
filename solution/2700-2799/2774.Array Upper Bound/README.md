@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2774.Array%20Upper%20Bound/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

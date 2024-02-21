@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2499.Minimum%20Total%20Cost%20to%20Make%20Arrays%20Unequal/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

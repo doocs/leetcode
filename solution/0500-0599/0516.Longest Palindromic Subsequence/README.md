@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

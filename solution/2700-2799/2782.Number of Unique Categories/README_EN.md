@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md)
 
+<!-- tags:Union Find,Counting,Interactive -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> and an object <code>categoryHandler</code> of class <code>CategoryHandler</code>.</p>

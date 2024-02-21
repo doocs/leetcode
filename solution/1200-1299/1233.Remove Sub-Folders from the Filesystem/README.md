@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README_EN.md)
 
+<!-- tags:深度优先搜索,字典树,数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

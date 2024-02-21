@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>

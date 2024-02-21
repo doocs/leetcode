@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README.md)
 
+<!-- tags:Bit Manipulation,Math,Backtracking -->
+
 ## Description
 
 <p>Given 2 integers <code>n</code> and <code>start</code>. Your task is return <strong>any</strong> permutation <code>p</code>&nbsp;of <code>(0,1,2.....,2^n -1) </code>such that :</p>

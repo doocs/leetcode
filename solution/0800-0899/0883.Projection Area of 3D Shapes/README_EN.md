@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README.md)
 
+<!-- tags:Geometry,Array,Math,Matrix -->
+
 ## Description
 
 <p>You are given an <code>n x n</code> <code>grid</code> where we place some <code>1 x 1 x 1</code> cubes that are axis-aligned with the <code>x</code>, <code>y</code>, and <code>z</code> axes.</p>

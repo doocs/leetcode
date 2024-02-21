@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README.md)
 
+<!-- tags:Breadth-First Search,Graph,Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>There are <code>n</code> people, each person has a unique <em>id</em> between <code>0</code> and <code>n-1</code>. Given the arrays <code>watchedVideos</code> and <code>friends</code>, where <code>watchedVideos[i]</code> and <code>friends[i]</code> contain the list of watched videos and the list of friends respectively for the person with <code>id = i</code>.</p>

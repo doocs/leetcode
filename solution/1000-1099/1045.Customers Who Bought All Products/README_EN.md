@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Customer</code></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

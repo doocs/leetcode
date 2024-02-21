@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0284.Peeking%20Iterator/README.md)
 
+<!-- tags:Design,Array,Iterator -->
+
 ## Description
 
 <p>Design an iterator that supports the <code>peek</code> operation on an existing iterator in addition to the <code>hasNext</code> and the <code>next</code> operations.</p>

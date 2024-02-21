@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1205.Monthly%20Transactions%20II/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

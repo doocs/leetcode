@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0788.Rotated%20Digits/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>An integer <code>x</code> is a <strong>good</strong> if after rotating each digit individually by 180 degrees, we get a valid number that is different from <code>x</code>. Each digit must be rotated - we cannot choose to leave it alone.</p>
