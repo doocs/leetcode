@@ -181,9 +181,7 @@ def generate_question_readme(result):
 def generate_category_summary(result, category=""):
     """generate category summary files"""
     summary_cn = (
-        "- " + category_dict.get(category, category) + "专项练习\n\n"
-        if category
-        else ""
+        "- " + category_dict.get(category, category) + "专项练习\n\n" if category else ""
     )
     summary_en = "- " + category + " Practice\n\n" if category else ""
     category = category.lower() if category else ""
@@ -308,9 +306,7 @@ def refresh(result):
             )
 
         # update question content
-        old_content = re.search(
-            "<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S
-        ).group(1)
+        old_content = re.search("<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S).group(1)
         if question.get("content_cn"):
             cn_content = cn_content.replace(
                 old_content, "\n\n" + question["content_cn"] + "\n\n"
