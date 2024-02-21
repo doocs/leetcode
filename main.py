@@ -166,13 +166,24 @@ for dir in dirs:
             if not os.path.exists(docs_dir):
                 os.makedirs(docs_dir)
             new_path = os.path.join(docs_dir, f"{num}.md")
+
+            # 获取 tags
+            match = re.search(r'<!-- tags:(.*?) -->', content)
+            tag_headers = ''
+            if match:
+                tags = match.group(1).split(',')
+                if tags and tags != ['']:
+                    tag_headers = "tags:\n"
+                    tag_headers += "".join([f"  - {tag}\n" for tag in tags])
+                    tag_headers += "\n"
+
             # 开启评论
             """
             ---
             comments: true
             ---
             """
-            content = '---\ncomments: true\n---\n\n' + content
+            content = f'---\ncomments: true\n{tag_headers}---\n\n' + content
             with open(new_path, "w", encoding="utf-8") as f:
                 f.write(content)
 
