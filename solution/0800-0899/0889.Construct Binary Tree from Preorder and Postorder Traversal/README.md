@@ -118,11 +118,9 @@ class Solution:
 class Solution {
     private Map<Integer, Integer> pos = new HashMap<>();
     private int[] preorder;
-    private int[] postorder;
 
     public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
         this.preorder = preorder;
-        this.postorder = postorder;
         for (int i = 0; i < postorder.length; ++i) {
             pos.put(postorder[i], i);
         }
@@ -254,6 +252,206 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
         return root;
     };
     return dfs(0, n - 1, 0, n - 1);
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：递归的另一种写法
+
+我们也可以设计一个递归函数 $dfs(i, j, n)$，其中 $i$ 和 $j$ 表示前序遍历和后序遍历的起点，而 $n$ 表示节点个数。这个函数的功能是根据前序遍历 $[i, i + n - 1]$ 和后序遍历 $[j, j + n - 1]$ 构造出二叉树的根节点。那么答案就是 $dfs(0, 0, n)$，其中 $n$ 是前序遍历的长度。
+
+函数 $dfs(i, j, n)$ 的执行步骤如下：
+
+1. 如果 $n = 0$，说明范围为空，直接返回空节点。
+1. 否则，我们构造一个新的节点 $root$，它的值为前序遍历中的第一个节点的值，也就是 $preorder[i]$。
+1. 如果 $n = 1$，说明 $root$ 没有左子树也没有右子树，直接返回 $root$。
+1. 否则，左子树的根节点的值为 $preorder[i + 1]$，我们在后序遍历中找到 $preorder[i + 1]$ 的位置，记为 $k$。那么左子树的节点个数 $m = k - j + 1$，右子树的节点数为 $n - m - 1$。我们递归地重建左右子树，然后将左右子树的根节点分别作为 $root$ 的左右子节点。最后返回 $root$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点数。
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructFromPrePost(
+        self, preorder: List[int], postorder: List[int]
+    ) -> Optional[TreeNode]:
+        def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
+            if n <= 0:
+                return None
+            root = TreeNode(preorder[i])
+            if n == 1:
+                return root
+            k = pos[preorder[i + 1]]
+            m = k - j + 1
+            root.left = dfs(i + 1, j, m)
+            root.right = dfs(i + m + 1, k + 1, n - m - 1)
+            return root
+
+        pos = {x: i for i, x in enumerate(postorder)}
+        return dfs(0, 0, len(preorder))
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private Map<Integer, Integer> pos = new HashMap<>();
+    private int[] preorder;
+
+    public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
+        this.preorder = preorder;
+        for (int i = 0; i < postorder.length; ++i) {
+            pos.put(postorder[i], i);
+        }
+        return dfs(0, 0, preorder.length);
+    }
+
+    private TreeNode dfs(int i, int j, int n) {
+        if (n <= 0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preorder[i]);
+        if (n == 1) {
+            return root;
+        }
+        int k = pos.get(preorder[i + 1]);
+        int m = k - j + 1;
+        root.left = dfs(i + 1, j, m);
+        root.right = dfs(i + m + 1, k + 1, n - m - 1);
+        return root;
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
+        unordered_map<int, int> pos;
+        int n = postorder.size();
+        for (int i = 0; i < n; ++i) {
+            pos[postorder[i]] = i;
+        }
+        function<TreeNode*(int, int, int)> dfs = [&](int i, int j, int n) -> TreeNode* {
+            if (n <= 0) {
+                return nullptr;
+            }
+            TreeNode* root = new TreeNode(preorder[i]);
+            if (n == 1) {
+                return root;
+            }
+            int k = pos[preorder[i + 1]];
+            int m = k - j + 1;
+            root->left = dfs(i + 1, j, m);
+            root->right = dfs(i + m + 1, k + 1, n - m - 1);
+            return root;
+        };
+        return dfs(0, 0, n);
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
+	pos := map[int]int{}
+	for i, x := range postorder {
+		pos[x] = i
+	}
+	var dfs func(int, int, int) *TreeNode
+	dfs = func(i, j, n int) *TreeNode {
+		if n <= 0 {
+			return nil
+		}
+		root := &TreeNode{Val: preorder[i]}
+		if n == 1 {
+			return root
+		}
+		k := pos[preorder[i+1]]
+		m := k - j + 1
+		root.Left = dfs(i+1, j, m)
+		root.Right = dfs(i+m+1, k+1, n-m-1)
+		return root
+	}
+	return dfs(0, 0, len(preorder))
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode | null {
+    const pos: Map<number, number> = new Map();
+    const n = postorder.length;
+    for (let i = 0; i < n; ++i) {
+        pos.set(postorder[i], i);
+    }
+    const dfs = (i: number, j: number, n: number): TreeNode | null => {
+        if (n <= 0) {
+            return null;
+        }
+        const root = new TreeNode(preorder[i]);
+        if (n === 1) {
+            return root;
+        }
+        const k = pos.get(preorder[i + 1])!;
+        const m = k - j + 1;
+        root.left = dfs(i + 1, j, m);
+        root.right = dfs(i + 1 + m, k + 1, n - 1 - m);
+        return root;
+    };
+    return dfs(0, 0, n);
 }
 ```
 
