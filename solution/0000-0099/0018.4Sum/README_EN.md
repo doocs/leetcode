@@ -341,7 +341,7 @@ class Solution {
      * @param int $target
      * @return int[][]
      */
-    
+
     function fourSum($nums, $target) {
         $result = [];
         $n = count($nums);
