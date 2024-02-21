@@ -245,7 +245,6 @@ impl Solution {
             d.insert(inorder[i], i);
         }
         fn dfs(
-            inorder: &[i32],
             postorder: &[i32],
             d: &HashMap<i32, usize>,
             i: usize,
@@ -255,13 +254,13 @@ impl Solution {
             if n <= 0 {
                 return None;
             }
-            let v = postorder[j + n - 1];
-            let k = *d.get(&v).unwrap();
-            let l = dfs(inorder, postorder, d, i, j, k - i);
-            let r = dfs(inorder, postorder, d, k + 1, j + k - i, n - 1 - (k - i));
-            Some(Rc::new(RefCell::new(TreeNode { val: v, left: l, right: r })))
+            let val = postorder[j + n - 1];
+            let k = *d.get(&val).unwrap();
+            let left = dfs(postorder, d, i, j, k - i);
+            let right = dfs(postorder, d, k + 1, j + k - i, n - 1 - (k - i));
+            Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
         }
-        dfs(&inorder, &postorder, &d, 0, 0, n)
+        dfs(&postorder, &d, 0, 0, n)
     }
 }
 ```
