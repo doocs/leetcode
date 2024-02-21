@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Binary Search -->
+
 ## Description
 
 <p>You are given an array <code>target</code> that consists of <strong>distinct</strong> integers and another integer array <code>arr</code> that <strong>can</strong> have duplicates.</p>

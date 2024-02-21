@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README_EN.md)
 
+<!-- tags:树,并查集,二叉搜索树,记忆化搜索,数组,数学,分治,动态规划,二叉树,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

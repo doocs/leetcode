@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README.md)
 
+<!-- tags:String,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of length <code>n</code> where <code>s[i]</code> is either:</p>

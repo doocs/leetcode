@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given two values&nbsp;<code>o1</code>&nbsp;and <code>o2</code>, return a boolean value indicating whether two values, <code>o1</code> and <code>o2</code>, are <strong>deeply equal</strong>.</p>

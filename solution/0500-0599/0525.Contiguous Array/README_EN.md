@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0525.Contiguous%20Array/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>Given a binary array <code>nums</code>, return <em>the maximum length of a contiguous subarray with an equal number of </em><code>0</code><em> and </em><code>1</code>.</p>

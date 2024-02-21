@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README.md)
 
+<!-- tags:Array,Math,Binary Search,Prefix Sum -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, return the sum of <code>floor(nums[i] / nums[j])</code> for all pairs of indices <code>0 &lt;= i, j &lt; nums.length</code> in the array. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>

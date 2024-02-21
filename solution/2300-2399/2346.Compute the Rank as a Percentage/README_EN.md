@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Students</code></p>

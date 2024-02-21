@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search -->
+
 ## Description
 
 <p>A tree rooted at node 0 is given as follows:</p>

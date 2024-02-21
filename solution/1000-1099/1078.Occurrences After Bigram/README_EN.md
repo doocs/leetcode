@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given two strings <code>first</code> and <code>second</code>, consider occurrences in some text of the form <code>&quot;first second third&quot;</code>, where <code>second</code> comes immediately after <code>first</code>, and <code>third</code> comes immediately after <code>second</code>.</p>

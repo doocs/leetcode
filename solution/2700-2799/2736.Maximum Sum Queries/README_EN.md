@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
 
+<!-- tags:Stack,Binary Indexed Tree,Segment Tree,Array,Binary Search,Sorting,Monotonic Stack -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, each of length <code>n</code>, and a <strong>1-indexed 2D array</strong> <code>queries</code> where <code>queries[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>

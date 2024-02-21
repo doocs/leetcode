@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README_EN.md)
 
+<!-- tags:数学,动态规划,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

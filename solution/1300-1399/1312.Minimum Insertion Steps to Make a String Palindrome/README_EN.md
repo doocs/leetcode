@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>s</code>. In one step you can insert any character at any index of the string.</p>

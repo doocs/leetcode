@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

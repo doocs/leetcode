@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0258.Add%20Digits/README.md)
 
+<!-- tags:Math,Number Theory,Simulation -->
+
 ## Description
 
 <p>Given an integer <code>num</code>, repeatedly add all its digits until the result has only one digit, and return it.</p>

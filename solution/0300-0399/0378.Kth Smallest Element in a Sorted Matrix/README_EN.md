@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0378.Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix/README.md)
 
+<!-- tags:Array,Binary Search,Matrix,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given an <code>n x n</code> <code>matrix</code> where each of the rows and columns is sorted in ascending order, return <em>the</em> <code>k<sup>th</sup></code> <em>smallest element in the matrix</em>.</p>

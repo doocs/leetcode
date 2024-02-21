@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1389.Create%20Target%20Array%20in%20the%20Given%20Order/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>Given two arrays of integers&nbsp;<code>nums</code> and <code>index</code>. Your task is to create <em>target</em> array under the following rules:</p>

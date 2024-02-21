@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README.md)
 
+<!-- tags:Tree,Graph -->
+
 ## Description
 
 <p>You are given an array <code>pairs</code>, where <code>pairs[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>, and:</p>

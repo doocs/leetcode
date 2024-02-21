@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README_EN.md)
 
+<!-- tags:数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

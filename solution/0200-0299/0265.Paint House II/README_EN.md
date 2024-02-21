@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0265.Paint%20House%20II/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>There are a row of <code>n</code> houses, each house can be painted with one of the <code>k</code> colors. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.</p>

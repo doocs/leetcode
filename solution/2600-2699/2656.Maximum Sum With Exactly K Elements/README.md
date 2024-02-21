@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

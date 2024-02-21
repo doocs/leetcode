@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2177.Find%20Three%20Consecutive%20Integers%20That%20Sum%20to%20a%20Given%20Number/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

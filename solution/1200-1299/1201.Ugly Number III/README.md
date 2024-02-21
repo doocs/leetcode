@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md)
 
+<!-- tags:数学,二分查找,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1048.Longest%20String%20Chain/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array of <code>words</code> where each word consists of lowercase English letters.</p>

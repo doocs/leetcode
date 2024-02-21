@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2366.Minimum%20Replacements%20to%20Sort%20the%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

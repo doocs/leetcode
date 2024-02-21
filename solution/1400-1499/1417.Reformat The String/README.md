@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

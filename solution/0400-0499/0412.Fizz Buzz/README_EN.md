@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0412.Fizz%20Buzz/README.md)
 
+<!-- tags:Math,String,Simulation -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>a string array </em><code>answer</code><em> (<strong>1-indexed</strong>) where</em>:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README_EN.md)
 
+<!-- tags:贪心,数组,矩阵,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

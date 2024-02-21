@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README_EN.md)
 
+<!-- tags:数组,二分查找,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

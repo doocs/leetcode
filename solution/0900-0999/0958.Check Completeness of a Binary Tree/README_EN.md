@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, determine if it is a <em>complete binary tree</em>.</p>

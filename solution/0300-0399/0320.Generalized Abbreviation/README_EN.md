@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0320.Generalized%20Abbreviation/README.md)
 
+<!-- tags:Bit Manipulation,String,Backtracking -->
+
 ## Description
 
 <p>A word&#39;s <strong>generalized abbreviation</strong> can be constructed by taking any number of <strong>non-overlapping</strong> and <strong>non-adjacent</strong> <span data-keyword="substring-nonempty">substrings</span> and replacing them with their respective lengths.</p>

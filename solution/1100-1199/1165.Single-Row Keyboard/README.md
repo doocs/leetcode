@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1165.Single-Row%20Keyboard/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

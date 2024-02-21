@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2650.Design%20Cancellable%20Function/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Sometimes you have a long running task, and you may wish to cancel it before it completes. To help with this goal, write a function&nbsp;<code>cancellable</code> that accepts a generator object and returns an array of two values: a <strong>cancel function</strong> and a <strong>promise</strong>.</p>

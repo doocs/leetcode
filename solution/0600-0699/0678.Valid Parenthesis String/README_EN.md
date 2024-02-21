@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
 
+<!-- tags:Stack,Greedy,String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>s</code> containing only three types of characters: <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code> and <code>&#39;*&#39;</code>, return <code>true</code> <em>if</em> <code>s</code> <em>is <strong>valid</strong></em>.</p>

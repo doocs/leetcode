@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

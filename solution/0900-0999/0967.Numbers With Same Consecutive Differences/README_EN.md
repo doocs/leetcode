@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README.md)
 
+<!-- tags:Breadth-First Search,Backtracking -->
+
 ## Description
 
 <p>Given two integers n and k, return <em>an array of all the integers of length </em><code>n</code><em> where the difference between every two consecutive digits is </em><code>k</code>. You may return the answer in <strong>any order</strong>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README_EN.md)
 
+<!-- tags:数组,哈希表,计数,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1154.Day%20of%20the%20Year/README_EN.md)
 
+<!-- tags:数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

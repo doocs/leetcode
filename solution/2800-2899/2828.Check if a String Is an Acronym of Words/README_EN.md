@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code> and a string <code>s</code>, determine if <code>s</code> is an <strong>acronym</strong> of words.</p>

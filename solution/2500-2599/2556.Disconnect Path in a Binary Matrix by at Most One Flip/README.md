@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

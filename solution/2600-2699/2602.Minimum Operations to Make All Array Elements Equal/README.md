@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

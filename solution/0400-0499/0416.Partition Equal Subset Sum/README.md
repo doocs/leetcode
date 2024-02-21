@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

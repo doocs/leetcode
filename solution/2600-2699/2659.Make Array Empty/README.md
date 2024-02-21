@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md)
 
+<!-- tags:贪心,树状数组,线段树,数组,二分查找,有序集合,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

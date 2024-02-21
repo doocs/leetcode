@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2820.Election%20Results/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Votes</font></code></p>

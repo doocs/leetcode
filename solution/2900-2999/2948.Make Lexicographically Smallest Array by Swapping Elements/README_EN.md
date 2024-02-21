@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README.md)
 
+<!-- tags:Union Find,Array,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>positive</strong> integers <code>nums</code> and a <strong>positive</strong> integer <code>limit</code>.</p>

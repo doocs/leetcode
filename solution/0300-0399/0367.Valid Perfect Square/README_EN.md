@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0367.Valid%20Perfect%20Square/README.md)
 
+<!-- tags:Math,Binary Search -->
+
 ## Description
 
 <p>Given a positive integer num, return <code>true</code> <em>if</em> <code>num</code> <em>is a perfect square or</em> <code>false</code> <em>otherwise</em>.</p>

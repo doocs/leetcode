@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0344.Reverse%20String/README_EN.md)
 
+<!-- tags:双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

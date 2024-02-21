@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0262.Trips%20and%20Users/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

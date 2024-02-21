@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README.md)
 
+<!-- tags:Array,String Matching,Sliding Window,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>You are given a binary array <code>pattern</code> and an object <code>stream</code> of class <code>InfiniteStream</code> representing a <strong>0-indexed</strong> infinite stream of bits.</p>

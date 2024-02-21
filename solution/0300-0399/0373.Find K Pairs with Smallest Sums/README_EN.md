@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/README.md)
 
+<!-- tags:Array,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> sorted in <strong>non-decreasing&nbsp;order</strong> and an integer <code>k</code>.</p>

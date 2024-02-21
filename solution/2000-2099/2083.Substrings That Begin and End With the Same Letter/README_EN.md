@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README.md)
 
+<!-- tags:Hash Table,Math,String,Counting,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters. Return <em>the number of <strong>substrings</strong> in </em><code>s</code> <em>that begin and end with the <strong>same</strong> character.</em></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README.md)
 
+<!-- tags:Array,Dynamic Programming,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> consisting of <code>3 * n</code> elements.</p>

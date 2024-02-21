@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1478.Allocate%20Mailboxes/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

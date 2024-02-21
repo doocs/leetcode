@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1056.Confusing%20Number/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>

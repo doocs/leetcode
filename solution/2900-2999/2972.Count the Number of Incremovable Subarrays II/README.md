@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

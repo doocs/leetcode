@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Person</code></p>

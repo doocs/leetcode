@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1134.Armstrong%20Number/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <code>true</code> <em>if and only if it is an <strong>Armstrong number</strong></em>.</p>

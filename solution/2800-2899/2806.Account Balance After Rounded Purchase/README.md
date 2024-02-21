@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

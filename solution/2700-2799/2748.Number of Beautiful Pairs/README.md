@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md)
 
+<!-- tags:数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

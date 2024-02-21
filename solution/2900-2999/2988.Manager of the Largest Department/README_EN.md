@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employees</code></p>

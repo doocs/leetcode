@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

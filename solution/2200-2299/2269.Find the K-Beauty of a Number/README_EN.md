@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2269.Find%20the%20K-Beauty%20of%20a%20Number/README.md)
 
+<!-- tags:Math,String,Sliding Window -->
+
 ## Description
 
 <p>The <strong>k-beauty</strong> of an integer <code>num</code> is defined as the number of <strong>substrings</strong> of <code>num</code> when it is read as a string that meet the following conditions:</p>

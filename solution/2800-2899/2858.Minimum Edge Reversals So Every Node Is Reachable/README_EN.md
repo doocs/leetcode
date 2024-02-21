@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Dynamic Programming -->
+
 ## Description
 
 <p>There is a <strong>simple directed graph</strong> with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. The graph would form a <strong>tree</strong> if its edges were bi-directional.</p>

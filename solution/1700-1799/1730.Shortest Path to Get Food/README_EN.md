@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README.md)
 
+<!-- tags:Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>You are starving and you want to eat food as quickly as possible. You want to find the shortest path to arrive at any food cell.</p>

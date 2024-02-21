@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/README_EN.md)
 
+<!-- tags:广度优先搜索,图,数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

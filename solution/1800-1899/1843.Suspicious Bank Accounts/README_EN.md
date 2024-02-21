@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Accounts</code></p>

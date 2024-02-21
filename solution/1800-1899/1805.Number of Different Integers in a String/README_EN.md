@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>You are given a string <code>word</code> that consists of digits and lowercase English letters.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README_EN.md)
 
+<!-- tags:贪心,数组,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

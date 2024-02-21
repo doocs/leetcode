@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2437.Number%20of%20Valid%20Clock%20Times/README_EN.md)
 
+<!-- tags:字符串,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

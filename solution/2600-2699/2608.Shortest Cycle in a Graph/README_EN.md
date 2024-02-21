@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README.md)
 
+<!-- tags:Breadth-First Search,Graph -->
+
 ## Description
 
 <p>There is a <strong>bi-directional </strong>graph with <code>n</code> vertices, where each vertex is labeled from <code>0</code> to <code>n - 1</code>. The edges in the graph are represented by a given 2D integer array <code>edges</code>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> denotes an edge between vertex <code>u<sub>i</sub></code> and vertex <code>v<sub>i</sub></code>. Every vertex pair is connected by at most one edge, and no vertex has an edge to itself.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>items</code> of length <code>n</code> and an integer <code>k</code>.</p>

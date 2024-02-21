@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2695.Array%20Wrapper/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Create a class&nbsp;<code>ArrayWrapper</code> that accepts&nbsp;an array of integers in its constructor. This class should have two features:</p>

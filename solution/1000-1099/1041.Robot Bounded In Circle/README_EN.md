@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README.md)
 
+<!-- tags:Math,String,Simulation -->
+
 ## Description
 
 <p>On an infinite plane, a robot initially stands at <code>(0, 0)</code> and faces north. Note that:</p>

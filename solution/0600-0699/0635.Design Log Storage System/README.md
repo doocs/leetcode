@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README_EN.md)
 
+<!-- tags:设计,哈希表,字符串,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

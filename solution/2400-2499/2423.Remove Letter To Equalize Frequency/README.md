@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

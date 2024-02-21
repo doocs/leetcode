@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

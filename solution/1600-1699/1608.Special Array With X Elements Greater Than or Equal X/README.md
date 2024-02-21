@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1608.Special%20Array%20With%20X%20Elements%20Greater%20Than%20or%20Equal%20X/README_EN.md)
 
+<!-- tags:数组,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

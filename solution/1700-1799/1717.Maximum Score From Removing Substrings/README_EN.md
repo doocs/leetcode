@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README.md)
 
+<!-- tags:Stack,Greedy,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and two integers <code>x</code> and <code>y</code>. You can perform two types of operations any number of times.</p>

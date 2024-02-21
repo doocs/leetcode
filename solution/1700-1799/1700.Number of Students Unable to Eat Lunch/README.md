@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README_EN.md)
 
+<!-- tags:栈,队列,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1412.Find%20the%20Quiet%20Students%20in%20All%20Exams/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Student</code></p>

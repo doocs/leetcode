@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

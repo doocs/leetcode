@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2264.Largest%203-Same-Digit%20Number%20in%20String/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a string <code>num</code> representing a large integer. An integer is <strong>good</strong> if it meets the following conditions:</p>

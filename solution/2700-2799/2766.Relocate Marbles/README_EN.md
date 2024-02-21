@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2766.Relocate%20Marbles/README.md)
 
+<!-- tags:Array,Hash Table,Sorting,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the initial positions of some marbles. You are also given two <strong>0-indexed </strong>integer arrays <code>moveFrom</code> and <code>moveTo</code> of <strong>equal</strong> length.</p>

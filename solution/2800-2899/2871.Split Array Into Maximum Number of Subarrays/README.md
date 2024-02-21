@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md)
 
+<!-- tags:贪心,位运算,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

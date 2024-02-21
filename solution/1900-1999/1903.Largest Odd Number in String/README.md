@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1903.Largest%20Odd%20Number%20in%20String/README_EN.md)
 
+<!-- tags:贪心,数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2904.Shortest%20and%20Lexicographically%20Smallest%20Beautiful%20String/README.md)
 
+<!-- tags:String,Sliding Window -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code> and a positive integer <code>k</code>.</p>

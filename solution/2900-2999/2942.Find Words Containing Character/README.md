@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

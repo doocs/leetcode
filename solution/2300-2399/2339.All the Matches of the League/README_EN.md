@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Teams</code></p>

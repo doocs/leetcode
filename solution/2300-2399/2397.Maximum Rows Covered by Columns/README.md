@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2397.Maximum%20Rows%20Covered%20by%20Columns/README_EN.md)
 
+<!-- tags:位运算,数组,回溯,枚举,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

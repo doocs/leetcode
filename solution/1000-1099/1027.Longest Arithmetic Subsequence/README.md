@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

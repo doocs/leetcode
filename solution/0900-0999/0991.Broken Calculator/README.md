@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0991.Broken%20Calculator/README_EN.md)
 
+<!-- tags:贪心,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

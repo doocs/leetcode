@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>Given a&nbsp;square&nbsp;matrix&nbsp;<code>mat</code>, return the sum of the matrix diagonals.</p>

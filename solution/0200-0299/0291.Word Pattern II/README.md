@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0291.Word%20Pattern%20II/README_EN.md)
 
+<!-- tags:哈希表,字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

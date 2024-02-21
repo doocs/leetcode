@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md)
 
+<!-- tags:树,数组,哈希表,分治,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

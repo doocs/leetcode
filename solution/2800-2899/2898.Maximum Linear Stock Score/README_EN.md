@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Given a <strong>1-indexed</strong> integer array <code>prices</code>, where <code>prices[i]</code> is the price of a particular stock on the <code>i<sup>th</sup></code> day, your task is to select some of the elements of <code>prices</code> such that your selection is <strong>linear</strong>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README.md)
 
+<!-- tags:Math,String -->
+
 ## Description
 
 <p>Given a string <code>columnTitle</code> that represents the column title as appears in an Excel sheet, return <em>its corresponding column number</em>.</p>

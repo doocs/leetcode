@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2621.Sleep/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given&nbsp;a positive integer <code>millis</code>, write an asynchronous function that sleeps for <code>millis</code>&nbsp;milliseconds. It can resolve any value.</p>

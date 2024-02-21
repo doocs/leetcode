@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>num</code> of length <code>n</code> consisting of digits.</p>

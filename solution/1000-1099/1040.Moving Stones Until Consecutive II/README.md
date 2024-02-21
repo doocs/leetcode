@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README_EN.md)
 
+<!-- tags:数组,数学,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

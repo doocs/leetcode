@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0726.Number%20of%20Atoms/README.md)
 
+<!-- tags:Stack,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>Given a string <code>formula</code> representing a chemical formula, return <em>the count of each atom</em>.</p>

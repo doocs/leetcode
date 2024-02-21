@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2276.Count%20Integers%20in%20Intervals/README_EN.md)
 
+<!-- tags:设计,线段树,有序集合 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

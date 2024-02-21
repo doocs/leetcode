@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1347.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are given two strings of the same length <code>s</code> and <code>t</code>. In one step you can choose <strong>any character</strong> of <code>t</code> and replace it with <strong>another character</strong>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0305.Number%20of%20Islands%20II/README.md)
 
+<!-- tags:Union Find,Array -->
+
 ## Description
 
 <p>You are given an empty 2D binary grid <code>grid</code> of size <code>m x n</code>. The grid represents a map where <code>0</code>&#39;s represent water and <code>1</code>&#39;s represent land. Initially, all the cells of <code>grid</code> are water cells (i.e., all the cells are <code>0</code>&#39;s).</p>

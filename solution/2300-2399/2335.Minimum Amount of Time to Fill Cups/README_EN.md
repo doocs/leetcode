@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README.md)
 
+<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have a water dispenser that can dispense cold, warm, and hot water. Every second, you can either fill up <code>2</code> cups with <strong>different</strong> types of water, or <code>1</code> cup of any type of water.</p>

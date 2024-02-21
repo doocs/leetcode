@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md)
 
+<!-- tags:数组,数学,矩阵,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

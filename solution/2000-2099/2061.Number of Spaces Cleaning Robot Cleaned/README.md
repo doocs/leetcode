@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README_EN.md)
 
+<!-- tags:数组,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

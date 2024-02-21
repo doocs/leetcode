@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0280.Wiggle%20Sort/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code>, reorder it such that <code>nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]...</code>.</p>

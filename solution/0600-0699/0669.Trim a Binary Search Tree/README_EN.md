@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary search tree and the lowest and highest boundaries as <code>low</code> and <code>high</code>, trim the tree so that all its elements lies in <code>[low, high]</code>. Trimming the tree should <strong>not</strong> change the relative structure of the elements that will remain in the tree (i.e., any node&#39;s descendant should remain a descendant). It can be proven that there is a <strong>unique answer</strong>.</p>

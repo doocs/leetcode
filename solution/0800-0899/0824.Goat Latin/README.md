@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0824.Goat%20Latin/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

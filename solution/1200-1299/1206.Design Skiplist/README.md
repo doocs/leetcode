@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
 
+<!-- tags:设计,链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

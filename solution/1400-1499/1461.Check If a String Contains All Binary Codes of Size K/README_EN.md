@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1461.Check%20If%20a%20String%20Contains%20All%20Binary%20Codes%20of%20Size%20K/README.md)
 
+<!-- tags:Bit Manipulation,Hash Table,String,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>Given a binary string <code>s</code> and an integer <code>k</code>, return <code>true</code> <em>if every binary code of length</em> <code>k</code> <em>is a substring of</em> <code>s</code>. Otherwise, return <code>false</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

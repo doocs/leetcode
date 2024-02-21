@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0350.Intersection%20of%20Two%20Arrays%20II/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

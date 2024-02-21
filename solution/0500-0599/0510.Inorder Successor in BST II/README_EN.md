@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README.md)
 
+<!-- tags:Tree,Binary Search Tree,Binary Tree -->
+
 ## Description
 
 <p>Given a <code>node</code> in a binary search tree, return <em>the in-order successor of that node in the BST</em>. If that node has no in-order successor, return <code>null</code>.</p>

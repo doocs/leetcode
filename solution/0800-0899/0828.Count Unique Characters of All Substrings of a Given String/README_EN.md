@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README.md)
 
+<!-- tags:Hash Table,String,Dynamic Programming -->
+
 ## Description
 
 <p>Let&#39;s define a function <code>countUniqueChars(s)</code> that returns the number of unique characters in&nbsp;<code>s</code>.</p>

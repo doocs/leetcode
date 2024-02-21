@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README.md)
 
+<!-- tags:Design,Array,Hash Table,Two Pointers,Data Stream -->
+
 ## Description
 
 <p>Design a data structure that accepts a stream of integers and checks if it has a pair of integers that sum up to a particular value.</p>

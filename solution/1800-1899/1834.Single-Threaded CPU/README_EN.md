@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1834.Single-Threaded%20CPU/README.md)
 
+<!-- tags:Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given <code>n</code>​​​​​​ tasks labeled from <code>0</code> to <code>n - 1</code> represented by a 2D integer array <code>tasks</code>, where <code>tasks[i] = [enqueueTime<sub>i</sub>, processingTime<sub>i</sub>]</code> means that the <code>i<sup>​​​​​​th</sup></code>​​​​ task will be available to process at <code>enqueueTime<sub>i</sub></code> and will take <code>processingTime<sub>i</sub></code><sub> </sub>to finish processing.</p>

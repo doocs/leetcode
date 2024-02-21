@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README.md)
 
+<!-- tags:Math,Number Theory -->
+
 ## Description
 
 <p>There exists an infinitely large grid. You are currently at point <code>(1, 1)</code>, and you need to reach the point <code>(targetX, targetY)</code> using a finite number of steps.</p>

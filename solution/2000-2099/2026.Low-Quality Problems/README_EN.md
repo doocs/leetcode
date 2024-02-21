@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2026.Low-Quality%20Problems/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Problems</code></p>

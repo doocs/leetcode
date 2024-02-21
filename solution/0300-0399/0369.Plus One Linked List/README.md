@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README_EN.md)
 
+<!-- tags:链表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

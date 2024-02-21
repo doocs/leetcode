@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2500.Delete%20Greatest%20Value%20in%20Each%20Row/README_EN.md)
 
+<!-- tags:数组,矩阵,排序,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

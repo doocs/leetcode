@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1766.Tree%20of%20Coprimes/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Math -->
+
 ## Description
 
 <p>There is a tree (i.e.,&nbsp;a connected, undirected graph that has no cycles) consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> edges. Each node has a value associated with it, and the <strong>root</strong> of the tree is node <code>0</code>.</p>

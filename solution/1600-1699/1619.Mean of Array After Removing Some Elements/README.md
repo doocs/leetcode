@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

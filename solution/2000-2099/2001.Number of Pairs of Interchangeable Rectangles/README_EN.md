@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README.md)
 
+<!-- tags:Array,Hash Table,Math,Counting,Number Theory -->
+
 ## Description
 
 <p>You are given <code>n</code> rectangles represented by a <strong>0-indexed</strong> 2D integer array <code>rectangles</code>, where <code>rectangles[i] = [width<sub>i</sub>, height<sub>i</sub>]</code> denotes the width and height of the <code>i<sup>th</sup></code> rectangle.</p>

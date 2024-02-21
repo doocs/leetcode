@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README.md)
 
+<!-- tags:Array,Binary Search,Sorting -->
+
 ## Description
 
 <p>There are <code>n</code> hens and <code>m</code> grains on a line. You are given the initial positions of the hens and the grains in two integer arrays <code>hens</code> and <code>grains</code> of size <code>n</code> and <code>m</code> respectively.</p>

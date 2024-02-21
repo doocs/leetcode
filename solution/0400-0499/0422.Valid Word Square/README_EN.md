@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0422.Valid%20Word%20Square/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code>, return <code>true</code> <em>if it forms a valid <strong>word square</strong></em>.</p>

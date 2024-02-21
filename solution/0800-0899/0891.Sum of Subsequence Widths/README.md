@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README_EN.md)
 
+<!-- tags:数组,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

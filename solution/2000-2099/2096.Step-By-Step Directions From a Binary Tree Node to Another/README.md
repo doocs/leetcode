@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README_EN.md)
 
+<!-- tags:树,深度优先搜索,字符串,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

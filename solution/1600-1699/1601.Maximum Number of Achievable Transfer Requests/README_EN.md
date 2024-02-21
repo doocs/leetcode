@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md)
 
+<!-- tags:Bit Manipulation,Array,Backtracking,Enumeration -->
+
 ## Description
 
 <p>We have <code>n</code> buildings numbered from <code>0</code> to <code>n - 1</code>. Each building has a number of employees. It&#39;s transfer season, and some employees want to change the building they reside in.</p>

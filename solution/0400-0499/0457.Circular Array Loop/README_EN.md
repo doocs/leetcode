@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0457.Circular%20Array%20Loop/README.md)
 
+<!-- tags:Array,Hash Table,Two Pointers -->
+
 ## Description
 
 <p>You are playing a game involving a <strong>circular</strong> array of non-zero integers <code>nums</code>. Each <code>nums[i]</code> denotes the number of indices forward/backward you must move if you are located at index <code>i</code>:</p>

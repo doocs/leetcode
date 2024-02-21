@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README.md)
 
+<!-- tags:Segment Tree,Array -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> arrays <code>nums1</code> and <code>nums2</code> and a 2D array <code>queries</code> of queries. There are three types of queries:</p>

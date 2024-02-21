@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0397.Integer%20Replacement/README_EN.md)
 
+<!-- tags:贪心,位运算,记忆化搜索,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

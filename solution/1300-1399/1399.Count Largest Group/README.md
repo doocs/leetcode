@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1399.Count%20Largest%20Group/README_EN.md)
 
+<!-- tags:哈希表,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

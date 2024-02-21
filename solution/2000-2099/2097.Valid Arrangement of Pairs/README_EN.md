@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README.md)
 
+<!-- tags:Depth-First Search,Graph,Eulerian Circuit -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>pairs</code> where <code>pairs[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>. An arrangement of <code>pairs</code> is <strong>valid</strong> if for every index <code>i</code> where <code>1 &lt;= i &lt; pairs.length</code>, we have <code>end<sub>i-1</sub> == start<sub>i</sub></code>.</p>

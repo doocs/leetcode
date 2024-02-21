@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of positive integers.</p>

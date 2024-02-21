@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1324.Print%20Words%20Vertically/README_EN.md)
 
+<!-- tags:数组,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

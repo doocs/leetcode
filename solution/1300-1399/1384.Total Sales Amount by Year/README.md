@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

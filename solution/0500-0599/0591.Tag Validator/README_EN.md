@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0591.Tag%20Validator/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>Given a string representing a code snippet, implement a tag validator to parse the code and return whether it is valid.</p>

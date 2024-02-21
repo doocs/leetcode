@@ -16,11 +16,9 @@
 class Solution {
     private Map<Integer, Integer> pos = new HashMap<>();
     private int[] preorder;
-    private int[] postorder;
 
     public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
         this.preorder = preorder;
-        this.postorder = postorder;
         for (int i = 0; i < postorder.length; ++i) {
             pos.put(postorder[i], i);
         }

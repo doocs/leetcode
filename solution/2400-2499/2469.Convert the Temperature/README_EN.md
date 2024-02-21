@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2469.Convert%20the%20Temperature/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>You are given a non-negative floating point number rounded to two decimal places <code>celsius</code>, that denotes the <strong>temperature in Celsius</strong>.</p>

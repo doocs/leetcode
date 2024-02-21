@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0192.Word%20Frequency/README.md)
 
+<!-- tags:Shell -->
+
 ## Description
 
 <p>Write a bash script to calculate the <span data-keyword="frequency-textfile">frequency</span> of each word in a text file <code>words.txt</code>.</p>

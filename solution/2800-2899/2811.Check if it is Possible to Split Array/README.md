@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

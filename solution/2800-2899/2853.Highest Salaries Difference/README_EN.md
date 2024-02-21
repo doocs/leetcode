@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Salaries</font></code></p>

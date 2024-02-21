@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>You are given four integers <code>minLength</code>, <code>maxLength</code>, <code>oneGroup</code> and <code>zeroGroup</code>.</p>

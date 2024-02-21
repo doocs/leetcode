@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1281.Subtract%20the%20Product%20and%20Sum%20of%20Digits%20of%20an%20Integer/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 Given an integer number <code>n</code>, return the difference between the product of its digits and the sum of its digits.

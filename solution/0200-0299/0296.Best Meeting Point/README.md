@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
 
+<!-- tags:数组,数学,矩阵,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>Given a string <code>s</code> containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>
@@ -244,6 +246,37 @@ def is_valid(s)
   end
   stack == ''
 end
+```
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @return boolean
+     */
+
+    function isValid($s) {
+        $stack = [];
+        $brackets = [
+            ')' => '(',
+            '}' => '{',
+            ']' => '[',
+        ];
+
+        for ($i = 0; $i < strlen($s); $i++) {
+            $char = $s[$i];
+            if (array_key_exists($char, $brackets)) {
+                if (empty($stack) || $stack[count($stack) - 1] !== $brackets[$char]) {
+                    return false;
+                }
+                array_pop($stack);
+            } else {
+                array_push($stack, $char);
+            }
+        }
+        return empty($stack);
+    }
+}
 ```
 
 <!-- tabs:end -->

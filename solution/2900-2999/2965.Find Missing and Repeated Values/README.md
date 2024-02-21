@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

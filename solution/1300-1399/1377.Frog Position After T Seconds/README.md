@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

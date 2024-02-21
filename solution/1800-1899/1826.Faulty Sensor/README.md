@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1826.Faulty%20Sensor/README_EN.md)
 
+<!-- tags:数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

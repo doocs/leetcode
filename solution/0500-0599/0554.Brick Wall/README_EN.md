@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0554.Brick%20Wall/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>There is a rectangular brick wall in front of you with <code>n</code> rows of bricks. The <code>i<sup>th</sup></code> row has some number of bricks each of the same height (i.e., one unit) but they can be of different widths. The total width of each row is the same.</p>

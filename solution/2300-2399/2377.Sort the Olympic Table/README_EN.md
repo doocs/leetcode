@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Olympic</code></p>

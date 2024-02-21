@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2283.Check%20if%20Number%20Has%20Equal%20Digit%20Count%20and%20Digit%20Value/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

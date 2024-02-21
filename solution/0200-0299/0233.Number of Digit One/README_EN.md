@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
 
+<!-- tags:Recursion,Math,Dynamic Programming -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, count <em>the total number of digit </em><code>1</code><em> appearing in all non-negative integers less than or equal to</em> <code>n</code>.</p>

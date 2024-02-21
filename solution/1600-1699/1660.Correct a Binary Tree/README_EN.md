@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>You have a binary tree with a small defect. There is <strong>exactly one</strong> invalid node where its right child incorrectly points to another node at the <strong>same depth</strong> but to the <b>invalid node&#39;s right</b>.</p>

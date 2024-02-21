@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2885.Rename%20Columns/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <pre>

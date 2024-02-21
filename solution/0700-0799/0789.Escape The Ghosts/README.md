@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0789.Escape%20The%20Ghosts/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

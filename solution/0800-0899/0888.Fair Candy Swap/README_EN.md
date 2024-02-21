@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0888.Fair%20Candy%20Swap/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Sorting -->
+
 ## Description
 
 <p>Alice and Bob have a different total number of candies. You are given two integer arrays <code>aliceSizes</code> and <code>bobSizes</code> where <code>aliceSizes[i]</code> is the number of candies of the <code>i<sup>th</sup></code> box of candy that Alice has and <code>bobSizes[j]</code> is the number of candies of the <code>j<sup>th</sup></code> box of candy that Bob has.</p>

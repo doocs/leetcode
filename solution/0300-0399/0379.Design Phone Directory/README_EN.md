@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0379.Design%20Phone%20Directory/README.md)
 
+<!-- tags:Design,Queue,Array,Hash Table,Linked List -->
+
 ## Description
 
 <p>Design a phone directory that initially has <code>maxNumbers</code> empty slots that can store numbers. The directory should store numbers, check if a certain slot is empty or not, and empty a given slot.</p>

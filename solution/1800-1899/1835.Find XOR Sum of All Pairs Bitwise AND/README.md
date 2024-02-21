@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README_EN.md)
 
+<!-- tags:位运算,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

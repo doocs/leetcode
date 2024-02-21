@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2255.Count%20Prefixes%20of%20a%20Given%20String/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

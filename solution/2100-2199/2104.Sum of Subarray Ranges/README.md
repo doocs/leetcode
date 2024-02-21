@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md)
 
+<!-- tags:栈,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

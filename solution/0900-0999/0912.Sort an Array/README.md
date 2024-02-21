@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0912.Sort%20an%20Array/README_EN.md)
 
+<!-- tags:数组,分治,桶排序,计数排序,基数排序,排序,堆（优先队列）,归并排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

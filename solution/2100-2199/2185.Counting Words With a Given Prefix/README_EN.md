@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README.md)
 
+<!-- tags:Array,String,String Matching -->
+
 ## Description
 
 <p>You are given an array of strings <code>words</code> and a string <code>pref</code>.</p>

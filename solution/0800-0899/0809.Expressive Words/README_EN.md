@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0809.Expressive%20Words/README.md)
 
+<!-- tags:Array,Two Pointers,String -->
+
 ## Description
 
 <p>Sometimes people repeat letters to represent extra feeling. For example:</p>

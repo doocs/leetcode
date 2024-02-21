@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0337.House%20Robber%20III/README.md)
 
+<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
+
 ## Description
 
 <p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called <code>root</code>.</p>

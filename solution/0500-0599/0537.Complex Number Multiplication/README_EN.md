@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README.md)
 
+<!-- tags:Math,String,Simulation -->
+
 ## Description
 
 <p>A <a href="https://en.wikipedia.org/wiki/Complex_number" target="_blank">complex number</a> can be represented as a string on the form <code>&quot;<strong>real</strong>+<strong>imaginary</strong>i&quot;</code> where:</p>

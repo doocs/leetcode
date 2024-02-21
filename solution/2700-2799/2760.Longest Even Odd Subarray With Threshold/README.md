@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

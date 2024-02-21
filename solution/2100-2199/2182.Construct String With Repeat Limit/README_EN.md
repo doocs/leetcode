@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md)
 
+<!-- tags:Greedy,String,Counting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an integer <code>repeatLimit</code>. Construct a new string <code>repeatLimitedString</code> using the characters of <code>s</code> such that no letter appears <strong>more than</strong> <code>repeatLimit</code> times <strong>in a row</strong>. You do <strong>not</strong> have to use all characters from <code>s</code>.</p>

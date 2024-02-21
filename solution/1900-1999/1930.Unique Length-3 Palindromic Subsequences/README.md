@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1930.Unique%20Length-3%20Palindromic%20Subsequences/README_EN.md)
 
+<!-- tags:位运算,哈希表,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

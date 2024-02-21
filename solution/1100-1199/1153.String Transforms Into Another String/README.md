@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)
 
+<!-- tags:哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

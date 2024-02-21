@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

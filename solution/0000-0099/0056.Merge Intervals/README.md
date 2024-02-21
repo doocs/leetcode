@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0056.Merge%20Intervals/README_EN.md)
 
+<!-- tags:数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1305.All%20Elements%20in%20Two%20Binary%20Search%20Trees/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree,Sorting -->
+
 ## Description
 
 <p>Given two binary search trees <code>root1</code> and <code>root2</code>, return <em>a list containing all the integers from both trees sorted in <strong>ascending</strong> order</em>.</p>

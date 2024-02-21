@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2303.Calculate%20Amount%20Paid%20in%20Taxes/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1180.Count%20Substrings%20with%20Only%20One%20Distinct%20Letter/README.md)
 
+<!-- tags:Math,String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the number of substrings that have only <strong>one distinct</strong> letter</em>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

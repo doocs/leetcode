@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0935.Knight%20Dialer/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>The chess knight has a <strong>unique movement</strong>,&nbsp;it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an <strong>L</strong>). The possible movements of chess knight are shown in this diagram:</p>

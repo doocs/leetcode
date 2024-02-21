@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1417.Reformat%20The%20String/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given an alphanumeric string <code>s</code>. (<strong>Alphanumeric string</strong> is a string consisting of lowercase English letters and digits).</p>

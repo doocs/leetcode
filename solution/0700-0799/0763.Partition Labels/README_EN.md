@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0763.Partition%20Labels/README.md)
 
+<!-- tags:Greedy,Hash Table,Two Pointers,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code>. We want to partition the string into as many parts as possible so that each letter appears in at most one part.</p>

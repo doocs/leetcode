@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)
 
+<!-- tags:设计,哈希表,链表,双向链表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

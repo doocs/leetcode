@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README_EN.md)
 
+<!-- tags:数组,数学,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

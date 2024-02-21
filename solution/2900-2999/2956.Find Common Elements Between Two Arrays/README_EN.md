@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2956.Find%20Common%20Elements%20Between%20Two%20Arrays/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of sizes <code>n</code> and <code>m</code>, respectively.</p>

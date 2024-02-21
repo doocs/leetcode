@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)
 
+<!-- tags:队列,数组,动态规划,单调队列,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

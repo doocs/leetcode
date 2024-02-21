@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README_EN.md)
 
+<!-- tags:栈,数组,动态规划,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

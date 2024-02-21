@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Orders</code></p>

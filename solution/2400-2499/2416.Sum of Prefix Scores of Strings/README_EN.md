@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2416.Sum%20of%20Prefix%20Scores%20of%20Strings/README.md)
 
+<!-- tags:Trie,Array,String,Counting -->
+
 ## Description
 
 <p>You are given an array <code>words</code> of size <code>n</code> consisting of <strong>non-empty</strong> strings.</p>

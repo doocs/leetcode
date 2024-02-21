@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README.md)
 
+<!-- tags:Math,String -->
+
 ## Description
 
 <p>Given a string <code>n</code> representing an integer, return <em>the closest integer (not including itself), which is a palindrome</em>. If there is a tie, return <em><strong>the smaller one</strong></em>.</p>

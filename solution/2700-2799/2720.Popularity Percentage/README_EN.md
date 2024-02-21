@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2720.Popularity%20Percentage/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Friends</code></p>

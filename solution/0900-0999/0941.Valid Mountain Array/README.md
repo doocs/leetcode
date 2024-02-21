@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0941.Valid%20Mountain%20Array/README_EN.md)
 
+<!-- tags:数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

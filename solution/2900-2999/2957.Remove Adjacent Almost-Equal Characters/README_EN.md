@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README.md)
 
+<!-- tags:Greedy,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>word</code>.</p>

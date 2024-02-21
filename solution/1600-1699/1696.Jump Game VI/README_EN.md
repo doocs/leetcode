@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1696.Jump%20Game%20VI/README.md)
 
+<!-- tags:Queue,Array,Dynamic Programming,Monotonic Queue,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>

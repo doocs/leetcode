@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2380.Time%20Needed%20to%20Rearrange%20a%20Binary%20String/README.md)
 
+<!-- tags:String,Dynamic Programming,Simulation -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code>. In one second, <strong>all</strong> occurrences of <code>&quot;01&quot;</code> are <strong>simultaneously</strong> replaced with <code>&quot;10&quot;</code>. This process <strong>repeats</strong> until no occurrences of <code>&quot;01&quot;</code> exist.</p>

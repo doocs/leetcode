@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1372.Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary tree.</p>

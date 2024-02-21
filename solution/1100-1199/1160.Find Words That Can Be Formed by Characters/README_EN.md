@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1160.Find%20Words%20That%20Can%20Be%20Formed%20by%20Characters/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given an array of strings <code>words</code> and a string <code>chars</code>.</p>

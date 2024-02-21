@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0649.Dota2%20Senate/README.md)
 
+<!-- tags:Greedy,Queue,String -->
+
 ## Description
 
 <p>In the world of Dota2, there are two parties: the Radiant and the Dire.</p>

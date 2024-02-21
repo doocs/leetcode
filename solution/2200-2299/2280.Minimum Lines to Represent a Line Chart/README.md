@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2280.Minimum%20Lines%20to%20Represent%20a%20Line%20Chart/README_EN.md)
 
+<!-- tags:几何,数组,数学,数论,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

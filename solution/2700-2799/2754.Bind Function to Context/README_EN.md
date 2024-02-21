@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2754.Bind%20Function%20to%20Context/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Enhance all functions to have the&nbsp;<code>bindPolyfill</code>&nbsp;method. When&nbsp;<code>bindPolyfill</code>&nbsp;is called with a passed&nbsp;object <code>obj</code>, that object becomes the&nbsp;<code>this</code>&nbsp;context for the function.</p>

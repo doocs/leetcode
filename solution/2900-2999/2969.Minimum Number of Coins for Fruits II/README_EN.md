@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README.md)
 
+<!-- tags:Queue,Array,Dynamic Programming,Monotonic Queue,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are at a fruit market with different types of exotic fruits on display.</p>

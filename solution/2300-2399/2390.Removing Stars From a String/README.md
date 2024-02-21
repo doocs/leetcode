@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2390.Removing%20Stars%20From%20a%20String/README_EN.md)
 
+<!-- tags:栈,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

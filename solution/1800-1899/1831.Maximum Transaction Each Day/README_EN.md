@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Transactions</code></p>

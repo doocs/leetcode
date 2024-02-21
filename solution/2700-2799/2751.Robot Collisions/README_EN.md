@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2751.Robot%20Collisions/README.md)
 
+<!-- tags:Stack,Array,Sorting,Simulation -->
+
 ## Description
 
 <p>There are <code>n</code> <strong>1-indexed</strong> robots, each having a position on a line, health, and movement direction.</p>

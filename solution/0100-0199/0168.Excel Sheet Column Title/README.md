@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0168.Excel%20Sheet%20Column%20Title/README_EN.md)
 
+<!-- tags:数学,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

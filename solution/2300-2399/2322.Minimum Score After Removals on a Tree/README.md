@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2322.Minimum%20Score%20After%20Removals%20on%20a%20Tree/README_EN.md)
 
+<!-- tags:位运算,树,深度优先搜索,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

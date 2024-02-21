@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2208.Minimum%20Operations%20to%20Halve%20Array%20Sum/README.md)
 
+<!-- tags:Greedy,Array,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of positive integers. In one operation, you can choose <strong>any</strong> number from <code>nums</code> and reduce it to <strong>exactly</strong> half the number. (Note that you may choose this reduced number in future operations.)</p>

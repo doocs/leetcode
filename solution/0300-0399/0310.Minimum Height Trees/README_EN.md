@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0310.Minimum%20Height%20Trees/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
+
 ## Description
 
 <p>A tree is an undirected graph in which any two vertices are connected by&nbsp;<i>exactly</i>&nbsp;one path. In other words, any connected graph without simple cycles is a tree.</p>

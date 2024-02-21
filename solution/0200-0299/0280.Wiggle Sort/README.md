@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0280.Wiggle%20Sort/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

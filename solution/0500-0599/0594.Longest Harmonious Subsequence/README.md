@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README_EN.md)
 
+<!-- tags:数组,哈希表,计数,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

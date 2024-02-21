@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0754.Reach%20a%20Number/README.md)
 
+<!-- tags:Math,Binary Search -->
+
 ## Description
 
 <p>You are standing at position <code>0</code> on an infinite number line. There is a destination at position <code>target</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)
 
+<!-- tags:数组,动态规划,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

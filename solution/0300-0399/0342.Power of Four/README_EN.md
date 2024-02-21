@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0342.Power%20of%20Four/README.md)
 
+<!-- tags:Bit Manipulation,Recursion,Math -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em><code>true</code> if it is a power of four. Otherwise, return <code>false</code></em>.</p>

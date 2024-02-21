@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README_EN.md)
 
+<!-- tags:位运算,递归,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

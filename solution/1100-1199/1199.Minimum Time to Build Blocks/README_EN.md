@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md)
 
+<!-- tags:Greedy,Math,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a list of blocks, where <code>blocks[i] = t</code> means that the&nbsp;<code>i</code>-th block needs&nbsp;<code>t</code>&nbsp;units of time to be built. A block can only be built by exactly one worker.</p>

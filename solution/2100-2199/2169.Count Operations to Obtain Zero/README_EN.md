@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2169.Count%20Operations%20to%20Obtain%20Zero/README.md)
 
+<!-- tags:Math,Simulation -->
+
 ## Description
 
 <p>You are given two <strong>non-negative</strong> integers <code>num1</code> and <code>num2</code>.</p>

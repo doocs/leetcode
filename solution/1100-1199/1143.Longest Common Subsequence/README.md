@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

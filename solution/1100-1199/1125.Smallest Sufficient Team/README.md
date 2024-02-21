@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md)
 
+<!-- tags:位运算,数组,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

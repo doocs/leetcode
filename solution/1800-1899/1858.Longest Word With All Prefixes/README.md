@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)
 
+<!-- tags:深度优先搜索,字典树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

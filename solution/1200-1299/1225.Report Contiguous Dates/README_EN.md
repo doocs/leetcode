@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Failed</code></p>

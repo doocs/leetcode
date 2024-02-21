@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README_EN.md)
 
+<!-- tags:并查集,图,最小生成树,排序,强连通分量 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

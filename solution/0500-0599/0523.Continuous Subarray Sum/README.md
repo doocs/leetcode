@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

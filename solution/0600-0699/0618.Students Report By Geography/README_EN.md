@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Student</code></p>

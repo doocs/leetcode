@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2916.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20II/README.md)
 
+<!-- tags:Binary Indexed Tree,Segment Tree,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed </strong>integer array <code>nums</code>.</p>

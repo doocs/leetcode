@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md)
 
+<!-- tags:Queue,Array,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array <code>points</code> containing the coordinates of points on a 2D plane, sorted by the x-values, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> such that <code>x<sub>i</sub> &lt; x<sub>j</sub></code> for all <code>1 &lt;= i &lt; j &lt;= points.length</code>. You are also given an integer <code>k</code>.</p>

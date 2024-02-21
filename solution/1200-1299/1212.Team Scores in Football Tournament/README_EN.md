@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1212.Team%20Scores%20in%20Football%20Tournament/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Teams</code></p>

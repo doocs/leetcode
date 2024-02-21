@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
 
+<!-- tags:数学,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

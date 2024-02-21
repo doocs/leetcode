@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README.md)
 
+<!-- tags:Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given a positive integer <code>num</code>. You may swap any two digits of <code>num</code> that have the same <strong>parity</strong> (i.e. both odd digits or both even digits).</p>

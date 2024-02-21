@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README_EN.md)
 
+<!-- tags:贪心,数组,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> matrix <code>grid</code> of order <code>n * n</code>. Each cell in this matrix has a value <code>grid[i][j]</code>, which is either a <strong>positive</strong> integer or <code>-1</code> representing a blocked cell.</p>

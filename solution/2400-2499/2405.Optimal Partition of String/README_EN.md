@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2405.Optimal%20Partition%20of%20String/README.md)
 
+<!-- tags:Greedy,Hash Table,String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, partition the string into one or more <strong>substrings</strong> such that the characters in each substring are <strong>unique</strong>. That is, no letter appears in a single substring more than <strong>once</strong>.</p>

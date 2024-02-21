@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table <code>Variables</code>:</p>

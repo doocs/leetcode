@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1990.Count%20the%20Number%20of%20Experiments/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

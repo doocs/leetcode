@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README.md)
 
+<!-- tags:Memoization,Dynamic Programming -->
+
 ## Description
 
 <p>There are <code>n</code> oranges in the kitchen and you decided to eat some of these oranges every day as follows:</p>

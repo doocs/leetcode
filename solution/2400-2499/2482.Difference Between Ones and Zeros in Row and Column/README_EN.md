@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> binary matrix <code>grid</code>.</p>

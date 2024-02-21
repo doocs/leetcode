@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1216.Valid%20Palindrome%20III/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <code>true</code> if <code>s</code> is a <code>k</code><strong>-palindrome</strong>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1836.Remove%20Duplicates%20From%20an%20Unsorted%20Linked%20List/README.md)
 
+<!-- tags:Hash Table,Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list, find all the values that appear <strong>more than once</strong> in the list and delete the nodes that have any of those values.</p>

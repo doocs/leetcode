@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)
 
+<!-- tags:Array,Simulation -->
+
 ## Description
 
 <p>Given an integer array <code>arr</code> of <strong>distinct</strong> integers and an integer <code>k</code>.</p>

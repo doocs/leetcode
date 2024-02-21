@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0660.Remove%209/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Start from integer <code>1</code>, remove any integer that contains <code>9</code> such as <code>9</code>, <code>19</code>, <code>29</code>...</p>

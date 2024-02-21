@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

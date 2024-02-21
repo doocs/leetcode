@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0638.Shopping%20Offers/README_EN.md)
 
+<!-- tags:位运算,记忆化搜索,数组,动态规划,回溯,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

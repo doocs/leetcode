@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

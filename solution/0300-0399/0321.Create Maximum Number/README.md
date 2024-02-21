@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0321.Create%20Maximum%20Number/README_EN.md)
 
+<!-- tags:栈,贪心,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

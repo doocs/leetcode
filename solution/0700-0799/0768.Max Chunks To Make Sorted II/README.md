@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README_EN.md)
 
+<!-- tags:栈,贪心,数组,排序,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

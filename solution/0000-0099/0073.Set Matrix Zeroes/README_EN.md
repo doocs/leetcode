@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README.md)
 
+<!-- tags:Array,Hash Table,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> integer matrix <code>matrix</code>, if an element is <code>0</code>, set its entire row and column to <code>0</code>&#39;s.</p>

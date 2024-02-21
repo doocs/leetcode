@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1146.Snapshot%20Array/README.md)
 
+<!-- tags:Design,Array,Hash Table,Binary Search -->
+
 ## Description
 
 <p>Implement a SnapshotArray that supports the following interface:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README_EN.md)
 
+<!-- tags:树,深度优先搜索,哈希表,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

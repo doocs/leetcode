@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

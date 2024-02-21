@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README_EN.md)
 
+<!-- tags:位运算,数组,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

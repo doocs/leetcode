@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README.md)
 
+<!-- tags:Math,Dynamic Programming,Number Theory -->
+
 ## Description
 
 <p>You are given two <strong>distinct</strong> <strong>prime</strong> numbers <code>primeOne</code> and <code>primeTwo</code>.</p>

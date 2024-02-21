@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README.md)
 
+<!-- tags:Bit Manipulation -->
+
 ## Description
 
 <p>You are given a <strong>positive</strong> integer <code>n</code>.</p>

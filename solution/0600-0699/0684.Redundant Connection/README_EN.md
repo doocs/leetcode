@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0684.Redundant%20Connection/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
+
 ## Description
 
 <p>In this problem, a tree is an <strong>undirected graph</strong> that is connected and has no cycles.</p>

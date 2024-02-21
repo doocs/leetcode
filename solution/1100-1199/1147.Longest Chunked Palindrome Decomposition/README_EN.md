@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README.md)
 
+<!-- tags:Greedy,Two Pointers,String,Dynamic Programming,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>You are given a string <code>text</code>. You should split it to k substrings <code>(subtext<sub>1</sub>, subtext<sub>2</sub>, ..., subtext<sub>k</sub>)</code> such that:</p>

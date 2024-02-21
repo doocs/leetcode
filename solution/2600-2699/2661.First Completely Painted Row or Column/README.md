@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md)
 
+<!-- tags:数组,哈希表,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

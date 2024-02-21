@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0733.Flood%20Fill/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>An image is represented by an <code>m x n</code> integer grid <code>image</code> where <code>image[i][j]</code> represents the pixel value of the image.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0467.Unique%20Substrings%20in%20Wraparound%20String/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>We define the string <code>base</code> to be the infinite wraparound string of <code>&quot;abcdefghijklmnopqrstuvwxyz&quot;</code>, so <code>base</code> will look like this:</p>

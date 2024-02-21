@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md)
 
+<!-- tags:数组,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

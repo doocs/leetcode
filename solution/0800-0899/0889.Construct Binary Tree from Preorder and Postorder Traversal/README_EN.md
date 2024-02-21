@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0889.Construct%20Binary%20Tree%20from%20Preorder%20and%20Postorder%20Traversal/README.md)
 
+<!-- tags:Tree,Array,Hash Table,Divide and Conquer,Binary Tree -->
+
 ## Description
 
 <p>Given two integer arrays, <code>preorder</code> and <code>postorder</code> where <code>preorder</code> is the preorder traversal of a binary tree of <strong>distinct</strong> values and <code>postorder</code> is the postorder traversal of the same tree, reconstruct and return <em>the binary tree</em>.</p>
@@ -110,11 +112,9 @@ class Solution:
 class Solution {
     private Map<Integer, Integer> pos = new HashMap<>();
     private int[] preorder;
-    private int[] postorder;
 
     public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
         this.preorder = preorder;
-        this.postorder = postorder;
         for (int i = 0; i < postorder.length; ++i) {
             pos.put(postorder[i], i);
         }
@@ -246,6 +246,206 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
         return root;
     };
     return dfs(0, n - 1, 0, n - 1);
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Another Recursive Approach
+
+We can design a recursive function $dfs(i, j, n)$, where $i$ and $j$ represent the starting points of the pre-order and post-order traversals, respectively, and $n$ represents the number of nodes. This function constructs the root node of the binary tree based on the pre-order traversal $[i, i + n - 1]$ and post-order traversal $[j, j + n - 1]$. The answer is $dfs(0, 0, n)$, where $n$ is the length of the pre-order traversal.
+
+The execution steps of the function $dfs(i, j, n)$ are as follows:
+
+1. If $n = 0$, the range is empty, so return a null node directly.
+2. Otherwise, we construct a new node $root$, whose value is the value of the first node in the pre-order traversal, which is $preorder[i]$.
+3. If $n = 1$, it means that $root$ has neither a left subtree nor a right subtree, so return $root$ directly.
+4. Otherwise, the value of the root node of the left subtree is $preorder[i + 1]$. We find the position of $preorder[i + 1]$ in the post-order traversal, denoted as $k$. Then the number of nodes in the left subtree is $m = k - j + 1$, and the number of nodes in the right subtree is $n - m - 1$. We recursively rebuild the left and right subtrees, and then make the root nodes of the left and right subtrees the left and right child nodes of $root$, respectively. Finally, return $root$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructFromPrePost(
+        self, preorder: List[int], postorder: List[int]
+    ) -> Optional[TreeNode]:
+        def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
+            if n <= 0:
+                return None
+            root = TreeNode(preorder[i])
+            if n == 1:
+                return root
+            k = pos[preorder[i + 1]]
+            m = k - j + 1
+            root.left = dfs(i + 1, j, m)
+            root.right = dfs(i + m + 1, k + 1, n - m - 1)
+            return root
+
+        pos = {x: i for i, x in enumerate(postorder)}
+        return dfs(0, 0, len(preorder))
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private Map<Integer, Integer> pos = new HashMap<>();
+    private int[] preorder;
+
+    public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
+        this.preorder = preorder;
+        for (int i = 0; i < postorder.length; ++i) {
+            pos.put(postorder[i], i);
+        }
+        return dfs(0, 0, preorder.length);
+    }
+
+    private TreeNode dfs(int i, int j, int n) {
+        if (n <= 0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preorder[i]);
+        if (n == 1) {
+            return root;
+        }
+        int k = pos.get(preorder[i + 1]);
+        int m = k - j + 1;
+        root.left = dfs(i + 1, j, m);
+        root.right = dfs(i + m + 1, k + 1, n - m - 1);
+        return root;
+    }
+}
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
+        unordered_map<int, int> pos;
+        int n = postorder.size();
+        for (int i = 0; i < n; ++i) {
+            pos[postorder[i]] = i;
+        }
+        function<TreeNode*(int, int, int)> dfs = [&](int i, int j, int n) -> TreeNode* {
+            if (n <= 0) {
+                return nullptr;
+            }
+            TreeNode* root = new TreeNode(preorder[i]);
+            if (n == 1) {
+                return root;
+            }
+            int k = pos[preorder[i + 1]];
+            int m = k - j + 1;
+            root->left = dfs(i + 1, j, m);
+            root->right = dfs(i + m + 1, k + 1, n - m - 1);
+            return root;
+        };
+        return dfs(0, 0, n);
+    }
+};
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
+	pos := map[int]int{}
+	for i, x := range postorder {
+		pos[x] = i
+	}
+	var dfs func(int, int, int) *TreeNode
+	dfs = func(i, j, n int) *TreeNode {
+		if n <= 0 {
+			return nil
+		}
+		root := &TreeNode{Val: preorder[i]}
+		if n == 1 {
+			return root
+		}
+		k := pos[preorder[i+1]]
+		m := k - j + 1
+		root.Left = dfs(i+1, j, m)
+		root.Right = dfs(i+m+1, k+1, n-m-1)
+		return root
+	}
+	return dfs(0, 0, len(preorder))
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode | null {
+    const pos: Map<number, number> = new Map();
+    const n = postorder.length;
+    for (let i = 0; i < n; ++i) {
+        pos.set(postorder[i], i);
+    }
+    const dfs = (i: number, j: number, n: number): TreeNode | null => {
+        if (n <= 0) {
+            return null;
+        }
+        const root = new TreeNode(preorder[i]);
+        if (n === 1) {
+            return root;
+        }
+        const k = pos.get(preorder[i + 1])!;
+        const m = k - j + 1;
+        root.left = dfs(i + 1, j, m);
+        root.right = dfs(i + 1 + m, k + 1, n - 1 - m);
+        return root;
+    };
+    return dfs(0, 0, n);
 }
 ```
 

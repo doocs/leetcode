@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1636.Sort%20Array%20by%20Increasing%20Frequency/README.md)
 
+<!-- tags:Array,Hash Table,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, sort the array in <strong>increasing</strong> order based on the frequency of the values. If multiple values have the same frequency, sort them in <strong>decreasing</strong> order.</p>

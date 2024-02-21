@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0824.Goat%20Latin/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a string <code>sentence</code> that consist of words separated by spaces. Each word consists of lowercase and uppercase letters only.</p>

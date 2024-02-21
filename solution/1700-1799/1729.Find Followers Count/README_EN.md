@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1729.Find%20Followers%20Count/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Followers</code></p>

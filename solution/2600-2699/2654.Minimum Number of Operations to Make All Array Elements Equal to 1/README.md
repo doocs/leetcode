@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README_EN.md)
 
+<!-- tags:数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

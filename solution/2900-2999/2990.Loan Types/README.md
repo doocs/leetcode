@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2990.Loan%20Types/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md)
 
+<!-- tags:Queue,Array,Sliding Window,Monotonic Queue -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and two integers <code>minK</code> and <code>maxK</code>.</p>

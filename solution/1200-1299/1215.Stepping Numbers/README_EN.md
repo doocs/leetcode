@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1215.Stepping%20Numbers/README.md)
 
+<!-- tags:Breadth-First Search,Backtracking -->
+
 ## Description
 
 <p>A <strong>stepping number</strong> is an integer such that all of its adjacent digits have an absolute difference of exactly <code>1</code>.</p>

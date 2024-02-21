@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>An integer has <strong>monotone increasing digits</strong> if and only if each pair of adjacent digits <code>x</code> and <code>y</code> satisfy <code>x &lt;= y</code>.</p>

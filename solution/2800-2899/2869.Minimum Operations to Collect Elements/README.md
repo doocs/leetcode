@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

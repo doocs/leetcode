@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)
 
+<!-- tags:Hash Table,String,Sliding Window -->
+
 ## Description
 
 <p>You are given a string <code>word</code> and an integer <code>k</code>.</p>

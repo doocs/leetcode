@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README.md)
 
+<!-- tags:Hash Table,String,Sliding Window -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an array of strings <code>words</code>. All the strings of <code>words</code> are of <strong>the same length</strong>.</p>

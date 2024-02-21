@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2462.Total%20Cost%20to%20Hire%20K%20Workers/README_EN.md)
 
+<!-- tags:数组,双指针,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

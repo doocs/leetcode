@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>questions</code> where <code>questions[i] = [points<sub>i</sub>, brainpower<sub>i</sub>]</code>.</p>

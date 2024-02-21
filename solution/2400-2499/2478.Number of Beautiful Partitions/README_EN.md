@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that consists of the digits <code>&#39;1&#39;</code> to <code>&#39;9&#39;</code> and two integers <code>k</code> and <code>minLength</code>.</p>

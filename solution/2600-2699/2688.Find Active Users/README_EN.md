@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2688.Find%20Active%20Users/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table:<font face="monospace">&nbsp;<code>Users</code></font></p>

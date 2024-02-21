@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

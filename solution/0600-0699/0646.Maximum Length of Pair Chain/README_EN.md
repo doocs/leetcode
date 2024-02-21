@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>You are given an array of <code>n</code> pairs <code>pairs</code> where <code>pairs[i] = [left<sub>i</sub>, right<sub>i</sub>]</code> and <code>left<sub>i</sub> &lt; right<sub>i</sub></code>.</p>

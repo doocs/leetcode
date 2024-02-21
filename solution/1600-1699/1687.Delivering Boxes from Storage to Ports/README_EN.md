@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README.md)
 
+<!-- tags:Segment Tree,Queue,Array,Dynamic Programming,Prefix Sum,Monotonic Queue,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You have the task of delivering some boxes from storage to their ports using only one ship. However, this ship has a <strong>limit</strong> on the <strong>number of boxes</strong> and the <strong>total weight</strong> that it can carry.</p>

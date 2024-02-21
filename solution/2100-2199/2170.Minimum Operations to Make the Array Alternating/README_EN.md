@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <code>n</code> positive integers.</p>

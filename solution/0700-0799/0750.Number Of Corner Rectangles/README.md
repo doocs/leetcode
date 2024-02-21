@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

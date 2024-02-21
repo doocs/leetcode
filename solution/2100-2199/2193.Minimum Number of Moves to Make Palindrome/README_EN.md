@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README.md)
 
+<!-- tags:Greedy,Binary Indexed Tree,Two Pointers,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting only of lowercase English letters.</p>

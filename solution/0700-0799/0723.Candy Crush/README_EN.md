@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0723.Candy%20Crush/README.md)
 
+<!-- tags:Array,Two Pointers,Matrix,Simulation -->
+
 ## Description
 
 <p>This question is about implementing a basic elimination algorithm for Candy Crush.</p>

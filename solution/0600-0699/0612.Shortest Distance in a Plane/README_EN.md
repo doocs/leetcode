@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Point2D</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0393.UTF-8%20Validation/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>Given an integer array <code>data</code> representing the data, return whether it is a valid <strong>UTF-8</strong> encoding (i.e. it translates to a sequence of valid UTF-8 encoded characters).</p>

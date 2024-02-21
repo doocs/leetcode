@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0246.Strobogrammatic%20Number/README_EN.md)
 
+<!-- tags:哈希表,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

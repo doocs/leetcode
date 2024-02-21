@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README_EN.md)
 
+<!-- tags:深度优先搜索,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

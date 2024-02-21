@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0167.Two%20Sum%20II%20-%20Input%20array%20is%20sorted/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README.md)
 
+<!-- tags:Greedy,Array,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a string array <code>words</code> and a <strong>binary</strong> array <code>groups</code> both of length <code>n</code>, where <code>words[i]</code> is associated with <code>groups[i]</code>.</p>

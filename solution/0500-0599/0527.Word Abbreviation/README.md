@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md)
 
+<!-- tags:贪心,字典树,数组,字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

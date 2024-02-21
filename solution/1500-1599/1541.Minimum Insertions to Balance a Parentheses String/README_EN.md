@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1541.Minimum%20Insertions%20to%20Balance%20a%20Parentheses%20String/README.md)
 
+<!-- tags:Stack,Greedy,String -->
+
 ## Description
 
 <p>Given a parentheses string <code>s</code> containing only the characters <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>. A parentheses string is <strong>balanced</strong> if:</p>

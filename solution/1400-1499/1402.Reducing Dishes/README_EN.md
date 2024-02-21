@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1402.Reducing%20Dishes/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>A chef has collected data on the <code>satisfaction</code> level of his <code>n</code> dishes. Chef can cook any dish in 1 unit of time.</p>

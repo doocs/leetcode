@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md)
 
+<!-- tags:字符串,二分查找,后缀数组,滑动窗口,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

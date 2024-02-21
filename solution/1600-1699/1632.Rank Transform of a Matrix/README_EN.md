@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
 
+<!-- tags:Union Find,Graph,Topological Sort,Array,Matrix,Sorting -->
+
 ## Description
 
 <p>Given an <code>m x n</code> <code>matrix</code>, return <em>a new matrix </em><code>answer</code><em> where </em><code>answer[row][col]</code><em> is the </em><em><strong>rank</strong> of </em><code>matrix[row][col]</code>.</p>

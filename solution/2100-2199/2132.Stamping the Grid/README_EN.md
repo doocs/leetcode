@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2132.Stamping%20the%20Grid/README.md)
 
+<!-- tags:Greedy,Array,Matrix,Prefix Sum -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code> where each cell is either <code>0</code> (empty) or <code>1</code> (occupied).</p>

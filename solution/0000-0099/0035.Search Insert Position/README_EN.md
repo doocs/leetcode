@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0035.Search%20Insert%20Position/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>

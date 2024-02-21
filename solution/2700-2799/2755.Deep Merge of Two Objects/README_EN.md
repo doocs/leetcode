@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2755.Deep%20Merge%20of%20Two%20Objects/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given two values&nbsp;<code>obj1</code> and <code>obj2</code>, return a&nbsp;<strong>deepmerged</strong>&nbsp;value.</p>

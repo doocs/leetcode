@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2266.Count%20Number%20of%20Texts/README_EN.md)
 
+<!-- tags:哈希表,数学,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

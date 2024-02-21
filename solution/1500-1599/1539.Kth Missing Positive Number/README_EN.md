@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>Given an array <code>arr</code> of positive integers sorted in a <strong>strictly increasing order</strong>, and an integer <code>k</code>.</p>

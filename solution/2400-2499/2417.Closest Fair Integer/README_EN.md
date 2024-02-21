@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
 
+<!-- tags:Math,Enumeration -->
+
 ## Description
 
 <p>You are given a <strong>positive</strong> integer <code>n</code>.</p>

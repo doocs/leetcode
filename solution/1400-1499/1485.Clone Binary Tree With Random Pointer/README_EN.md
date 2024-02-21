@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
+
 ## Description
 
 <p>A binary tree is given such that each node contains an additional random pointer which could point to any node in the tree or null.</p>

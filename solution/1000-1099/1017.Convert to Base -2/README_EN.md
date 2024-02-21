@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>a binary string representing its representation in base</em> <code>-2</code>.</p>

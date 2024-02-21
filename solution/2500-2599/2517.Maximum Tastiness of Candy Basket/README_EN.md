@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2517.Maximum%20Tastiness%20of%20Candy%20Basket/README.md)
 
+<!-- tags:Array,Binary Search,Sorting -->
+
 ## Description
 
 <p>You are given an array of positive integers <code>price</code> where <code>price[i]</code> denotes the price of the <code>i<sup>th</sup></code> candy and a positive integer <code>k</code>.</p>

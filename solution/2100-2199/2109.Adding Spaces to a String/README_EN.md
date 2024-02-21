@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md)
 
+<!-- tags:Array,Two Pointers,String,Simulation -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and a <strong>0-indexed</strong> integer array <code>spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index.</p>

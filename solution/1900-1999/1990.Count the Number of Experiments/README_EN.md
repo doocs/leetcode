@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1990.Count%20the%20Number%20of%20Experiments/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Experiments</code></p>

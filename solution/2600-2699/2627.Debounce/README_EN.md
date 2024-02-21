@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2627.Debounce/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a function&nbsp;<code>fn</code> and a time in milliseconds&nbsp;<code>t</code>, return&nbsp;a&nbsp;<strong>debounced</strong>&nbsp;version of that function.</p>

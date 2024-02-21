@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md)
 
+<!-- tags:Array,Math,Number Theory,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given two positive integer arrays <code>nums</code> and <code>numsDivide</code>. You can delete any number of elements from <code>nums</code>.</p>

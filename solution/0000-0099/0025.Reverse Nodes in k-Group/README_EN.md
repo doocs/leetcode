@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md)
 
+<!-- tags:Recursion,Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked list, reverse the nodes of the list <code>k</code> at a time, and return <em>the modified list</em>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>mapping</code> which represents the mapping rule of a shuffled decimal system. <code>mapping[i] = j</code> means digit <code>i</code> should be mapped to digit <code>j</code> in this system.</p>

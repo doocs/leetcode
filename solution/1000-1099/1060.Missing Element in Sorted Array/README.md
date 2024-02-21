@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

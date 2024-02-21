@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> and a <strong>0-indexed</strong>&nbsp;<strong>2D array</strong> <code>queries</code> where <code>queries[i] = [type<sub>i</sub>, index<sub>i</sub>, val<sub>i</sub>]</code>.</p>

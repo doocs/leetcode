@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README.md)
 
+<!-- tags:Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>Given a list of <code>phrases</code>, generate a list of&nbsp;Before and After puzzles.</p>

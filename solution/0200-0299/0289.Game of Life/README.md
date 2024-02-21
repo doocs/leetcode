@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0289.Game%20of%20Life/README_EN.md)
 
+<!-- tags:数组,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

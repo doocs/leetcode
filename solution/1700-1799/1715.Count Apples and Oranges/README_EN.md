@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Boxes</code></p>

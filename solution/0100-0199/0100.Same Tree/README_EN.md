@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0100.Same%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the roots of two binary trees <code>p</code> and <code>q</code>, write a function to check if they are the same or not.</p>

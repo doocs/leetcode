@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>positive</strong> integer array <code>nums</code>.</p>

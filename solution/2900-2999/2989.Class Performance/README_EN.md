@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2989.Class%20Performance/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Scores</code></p>

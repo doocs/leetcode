@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README_EN.md)
 
+<!-- tags:队列,数组,排序,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

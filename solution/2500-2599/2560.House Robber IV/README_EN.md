@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2560.House%20Robber%20IV/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he <strong>refuses to steal from adjacent homes</strong>.</p>

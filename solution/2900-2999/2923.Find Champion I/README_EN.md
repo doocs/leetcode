@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2923.Find%20Champion%20I/README.md)
 
+<!-- tags:Array,Matrix -->
+
 ## Description
 
 <p>There are <code>n</code> teams numbered from <code>0</code> to <code>n - 1</code> in a tournament.</p>

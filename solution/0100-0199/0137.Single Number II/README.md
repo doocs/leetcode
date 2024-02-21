@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)
 
+<!-- tags:位运算,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

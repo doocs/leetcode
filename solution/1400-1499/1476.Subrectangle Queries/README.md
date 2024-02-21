@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1476.Subrectangle%20Queries/README_EN.md)
 
+<!-- tags:设计,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

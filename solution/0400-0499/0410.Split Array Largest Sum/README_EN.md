@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, split <code>nums</code> into <code>k</code> non-empty subarrays such that the largest sum of any subarray is <strong>minimized</strong>.</p>

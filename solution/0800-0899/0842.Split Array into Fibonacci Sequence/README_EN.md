@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README.md)
 
+<!-- tags:String,Backtracking -->
+
 ## Description
 
 <p>You are given a string of digits <code>num</code>, such as <code>&quot;123456579&quot;</code>. We can split it into a Fibonacci-like sequence <code>[123, 456, 579]</code>.</p>

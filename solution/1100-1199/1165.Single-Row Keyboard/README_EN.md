@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>There is a special keyboard with <strong>all keys in a single row</strong>.</p>

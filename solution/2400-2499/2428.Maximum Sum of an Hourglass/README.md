@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README_EN.md)
 
+<!-- tags:数组,矩阵,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

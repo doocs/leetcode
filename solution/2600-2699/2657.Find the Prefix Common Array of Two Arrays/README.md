@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

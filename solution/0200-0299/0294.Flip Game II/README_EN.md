@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0294.Flip%20Game%20II/README.md)
 
+<!-- tags:Memoization,Math,Dynamic Programming,Backtracking,Game Theory -->
+
 ## Description
 
 <p>You are playing a Flip Game with your friend.</p>

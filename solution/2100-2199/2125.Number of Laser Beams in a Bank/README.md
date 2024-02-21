@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README_EN.md)
 
+<!-- tags:数组,数学,字符串,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

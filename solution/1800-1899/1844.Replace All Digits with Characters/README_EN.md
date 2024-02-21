@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> that has lowercase English letters in its <strong>even</strong> indices and digits in its <strong>odd</strong> indices.</p>

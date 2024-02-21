@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README_EN.md)
 
+<!-- tags:数组,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

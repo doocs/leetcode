@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2050.Parallel%20Courses%20III/README_EN.md)
 
+<!-- tags:图,拓扑排序,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

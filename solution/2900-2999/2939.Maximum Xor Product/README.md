@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md)
 
+<!-- tags:贪心,位运算,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

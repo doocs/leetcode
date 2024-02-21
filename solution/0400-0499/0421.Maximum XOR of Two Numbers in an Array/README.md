@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0421.Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array/README_EN.md)
 
+<!-- tags:位运算,字典树,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

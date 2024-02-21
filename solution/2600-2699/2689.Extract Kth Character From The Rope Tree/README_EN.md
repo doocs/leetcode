@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary tree and an integer <code>k</code>. Besides the left and right children, every node of this tree has two other properties, a <strong>string</strong> <code>node.val</code> containing only lowercase English letters (possibly empty) and a non-negative integer <code>node.len</code>. There are two types of nodes in this tree:</p>

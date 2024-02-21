@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README.md)
 
+<!-- tags:Brainteaser,Math,Dynamic Programming,Probability and Statistics -->
+
 ## Description
 
 <p><code>n</code> passengers board an airplane with exactly <code>n</code> seats. The first passenger has lost the ticket and picks a seat randomly. But after that, the rest of the passengers will:</p>

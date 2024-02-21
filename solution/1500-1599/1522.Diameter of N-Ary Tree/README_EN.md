@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search -->
+
 ## Description
 
 <p>Given a <code>root</code> of an <code>N-ary tree</code>, you need to compute the length of the diameter of the tree.</p>

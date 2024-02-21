@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1969.Minimum%20Non-Zero%20Product%20of%20the%20Array%20Elements/README_EN.md)
 
+<!-- tags:贪心,递归,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

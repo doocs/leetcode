@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2135.Count%20Words%20Obtained%20After%20Adding%20a%20Letter/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> arrays of strings <code>startWords</code> and <code>targetWords</code>. Each string consists of <strong>lowercase English letters</strong> only.</p>

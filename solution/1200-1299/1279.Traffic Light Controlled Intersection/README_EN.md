@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README.md)
 
+<!-- tags:Concurrency -->
+
 ## Description
 
 <p>There is an intersection of two roads. First road is road A where cars travel&nbsp;from North to South in direction 1 and from South to North in direction 2. Second road is road B where cars travel from West to East in direction 3 and from East to West in direction 4.</p>

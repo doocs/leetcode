@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
 
+<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There are two mice and <code>n</code> different types of cheese, each type of cheese should be eaten by exactly one mouse.</p>

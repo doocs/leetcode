@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0355.Design%20Twitter/README_EN.md)
 
+<!-- tags:设计,哈希表,链表,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

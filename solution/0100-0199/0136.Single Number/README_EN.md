@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0136.Single%20Number/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>Given a <strong>non-empty</strong>&nbsp;array of integers <code>nums</code>, every element appears <em>twice</em> except for one. Find that single one.</p>

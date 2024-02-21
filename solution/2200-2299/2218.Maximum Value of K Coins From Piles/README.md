@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README_EN.md)
 
+<!-- tags:数组,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

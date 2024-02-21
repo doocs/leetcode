@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README_EN.md)
 
+<!-- tags:设计,字典树,数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

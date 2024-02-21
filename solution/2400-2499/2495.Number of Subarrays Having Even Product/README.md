@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README_EN.md)
 
+<!-- tags:数组,数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

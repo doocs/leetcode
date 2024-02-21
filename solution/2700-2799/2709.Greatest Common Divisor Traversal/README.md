@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md)
 
+<!-- tags:并查集,数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

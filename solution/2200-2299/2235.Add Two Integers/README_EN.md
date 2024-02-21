@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2235.Add%20Two%20Integers/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.

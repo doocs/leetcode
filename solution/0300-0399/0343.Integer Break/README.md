@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0343.Integer%20Break/README_EN.md)
 
+<!-- tags:数学,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

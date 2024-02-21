@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Student</code></p>

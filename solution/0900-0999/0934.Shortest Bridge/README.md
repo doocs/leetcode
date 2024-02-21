@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0934.Shortest%20Bridge/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

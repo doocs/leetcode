@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0527.Word%20Abbreviation/README.md)
 
+<!-- tags:Greedy,Trie,Array,String,Sorting -->
+
 ## Description
 
 <p>Given an array of <strong>distinct</strong> strings <code>words</code>, return <em>the minimal possible <strong>abbreviations</strong> for every word</em>.</p>

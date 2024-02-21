@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array of integers <code>stones</code> where <code>stones[i]</code> is the weight of the <code>i<sup>th</sup></code> stone.</p>

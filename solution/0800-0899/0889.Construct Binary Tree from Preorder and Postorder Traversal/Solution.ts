@@ -18,19 +18,19 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
     for (let i = 0; i < n; ++i) {
         pos.set(postorder[i], i);
     }
-    const dfs = (a: number, b: number, c: number, d: number): TreeNode | null => {
-        if (a > b) {
+    const dfs = (i: number, j: number, n: number): TreeNode | null => {
+        if (n <= 0) {
             return null;
         }
-        const root = new TreeNode(preorder[a]);
-        if (a === b) {
+        const root = new TreeNode(preorder[i]);
+        if (n === 1) {
             return root;
         }
-        const i = pos.get(preorder[a + 1])!;
-        const m = i - c + 1;
-        root.left = dfs(a + 1, a + m, c, i);
-        root.right = dfs(a + m + 1, b, i + 1, d - 1);
+        const k = pos.get(preorder[i + 1])!;
+        const m = k - j + 1;
+        root.left = dfs(i + 1, j, m);
+        root.right = dfs(i + 1 + m, k + 1, n - 1 - m);
         return root;
     };
-    return dfs(0, n - 1, 0, n - 1);
+    return dfs(0, 0, n);
 }

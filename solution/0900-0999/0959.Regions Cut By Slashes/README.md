@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1438.Longest%20Continuous%20Subarray%20With%20Absolute%20Diff%20Less%20Than%20or%20Equal%20to%20Limit/README_EN.md)
 
+<!-- tags:队列,数组,有序集合,滑动窗口,单调队列,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

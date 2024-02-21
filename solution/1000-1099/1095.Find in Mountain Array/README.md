@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md)
 
+<!-- tags:数组,二分查找,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

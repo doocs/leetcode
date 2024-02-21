@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0657.Robot%20Return%20to%20Origin/README.md)
 
+<!-- tags:String,Simulation -->
+
 ## Description
 
 <p>There is a robot starting at the position <code>(0, 0)</code>, the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at </strong><code>(0, 0)</code> after it completes its moves.</p>

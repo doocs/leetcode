@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README_EN.md)
 
+<!-- tags:数组,双指针,二分查找,前缀和,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

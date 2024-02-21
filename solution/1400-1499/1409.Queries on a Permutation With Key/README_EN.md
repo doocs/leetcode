@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1409.Queries%20on%20a%20Permutation%20With%20Key/README.md)
 
+<!-- tags:Binary Indexed Tree,Array,Simulation -->
+
 ## Description
 
 <p>Given the array <code>queries</code> of positive integers between <code>1</code> and <code>m</code>, you have to process all <code>queries[i]</code> (from <code>i=0</code> to <code>i=queries.length-1</code>) according to the following rules:</p>

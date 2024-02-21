@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README_EN.md)
 
+<!-- tags:位运算,数组,字符串,动态规划,回溯,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

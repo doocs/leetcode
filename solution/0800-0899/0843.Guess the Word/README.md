@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0843.Guess%20the%20Word/README_EN.md)
 
+<!-- tags:数组,数学,字符串,博弈,交互 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README_EN.md)
 
+<!-- tags:数组,字符串,分治,快速选择,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md)
 
+<!-- tags:数学,动态规划,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

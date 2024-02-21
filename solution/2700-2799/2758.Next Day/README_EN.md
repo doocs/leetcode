@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2758.Next%20Day/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write code that enhances all date objects such that you can call the <code>date.nextDay()</code>&nbsp;method on any date object and it will return&nbsp;the next day in the format <em>YYYY-MM-DD</em> as a string.</p>

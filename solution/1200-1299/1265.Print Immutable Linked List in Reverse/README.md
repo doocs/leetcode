@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README_EN.md)
 
+<!-- tags:栈,递归,链表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

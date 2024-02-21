@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0068.Text%20Justification/README.md)
 
+<!-- tags:Array,String,Simulation -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code> and a width <code>maxWidth</code>, format the text such that each line has exactly <code>maxWidth</code> characters and is fully (left and right) justified.</p>

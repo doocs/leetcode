@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0047.Permutations%20II/README.md)
 
+<!-- tags:Array,Backtracking -->
+
 ## Description
 
 <p>Given a collection of numbers, <code>nums</code>,&nbsp;that might contain duplicates, return <em>all possible unique permutations <strong>in any order</strong>.</em></p>

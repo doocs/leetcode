@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

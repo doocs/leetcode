@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>Given an array of <strong>distinct</strong> integers <code>arr</code>, find all pairs of elements with the minimum absolute difference of any two elements.</p>

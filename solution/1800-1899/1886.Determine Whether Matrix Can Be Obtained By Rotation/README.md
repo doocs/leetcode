@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1886.Determine%20Whether%20Matrix%20Can%20Be%20Obtained%20By%20Rotation/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

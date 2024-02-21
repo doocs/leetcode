@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README.md)
 
+<!-- tags:Array,Binary Search,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> matrix <code>grid</code> containing an <strong>odd</strong> number of integers where each row is sorted in <strong>non-decreasing</strong> order, return <em>the <strong>median</strong> of the matrix</em>.</p>

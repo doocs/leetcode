@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2649.Nested%20Array%20Generator/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given a&nbsp;<strong>multi-dimensional array</strong> of integers, return&nbsp;a generator object which&nbsp;yields integers in the same order as&nbsp;<strong>inorder traversal</strong>.</p>

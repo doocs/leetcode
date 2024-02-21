@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README.md)
 
+<!-- tags:Stack,Greedy,Array,Math,Number Theory,Monotonic Stack -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers and an integer <code>k</code>.</p>

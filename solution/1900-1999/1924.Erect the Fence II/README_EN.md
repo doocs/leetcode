@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README.md)
 
+<!-- tags:Geometry,Array,Math -->
+
 ## Description
 
 <p>You are given a 2D integer array <code>trees</code> where <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of the <code>i<sup>th</sup></code> tree in the garden.</p>

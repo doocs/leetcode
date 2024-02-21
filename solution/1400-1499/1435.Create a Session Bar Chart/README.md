@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

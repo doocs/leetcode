@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2379.Minimum%20Recolors%20to%20Get%20K%20Consecutive%20Black%20Blocks/README_EN.md)
 
+<!-- tags:字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2741.Special%20Permutations/README_EN.md)
 
+<!-- tags:位运算,数组,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

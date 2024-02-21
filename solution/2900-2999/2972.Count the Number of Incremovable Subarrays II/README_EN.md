@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>positive</strong> integers <code>nums</code>.</p>

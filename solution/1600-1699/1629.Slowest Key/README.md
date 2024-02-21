@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1629.Slowest%20Key/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

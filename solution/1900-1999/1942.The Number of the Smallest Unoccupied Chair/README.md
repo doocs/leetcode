@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1942.The%20Number%20of%20the%20Smallest%20Unoccupied%20Chair/README_EN.md)
 
+<!-- tags:数组,哈希表,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

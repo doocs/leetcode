@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Product</code></p>

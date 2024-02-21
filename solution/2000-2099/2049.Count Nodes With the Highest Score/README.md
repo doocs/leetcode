@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README_EN.md)
 
+<!-- tags:树,深度优先搜索,数组,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

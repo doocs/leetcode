@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2243.Calculate%20Digit%20Sum%20of%20a%20String/README_EN.md)
 
+<!-- tags:字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

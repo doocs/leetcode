@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

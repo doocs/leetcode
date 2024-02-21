@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1441.Build%20an%20Array%20With%20Stack%20Operations/README_EN.md)
 
+<!-- tags:栈,数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

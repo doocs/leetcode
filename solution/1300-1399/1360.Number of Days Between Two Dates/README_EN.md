@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README.md)
 
+<!-- tags:Math,String -->
+
 ## Description
 
 <p>Write a program to count the number of days between two dates.</p>

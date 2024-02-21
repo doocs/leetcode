@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md)
 
+<!-- tags:Greedy,Array,Hash Table -->
+
 ## Description
 
 <p>On a social network consisting of <code>m</code> users and some friendships between users, two users can communicate with each other if they know a common language.</p>

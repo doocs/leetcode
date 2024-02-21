@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of lowercase English letters and an array <code>widths</code> denoting <strong>how many pixels wide</strong> each lowercase English letter is. Specifically, <code>widths[0]</code> is the width of <code>&#39;a&#39;</code>, <code>widths[1]</code> is the width of <code>&#39;b&#39;</code>, and so on.</p>

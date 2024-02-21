@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2490.Circular%20Sentence/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>A <strong>sentence</strong> is a list of words that are separated by a<strong> single</strong> space with no leading or trailing spaces.</p>

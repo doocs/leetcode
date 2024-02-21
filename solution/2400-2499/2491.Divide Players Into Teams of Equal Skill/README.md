@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README_EN.md)
 
+<!-- tags:数组,哈希表,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

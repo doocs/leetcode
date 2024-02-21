@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README_EN.md)
 
+<!-- tags:栈,数组,双指针,二分查找,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

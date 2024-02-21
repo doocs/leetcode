@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0974.Subarray%20Sums%20Divisible%20by%20K/README_EN.md)
 
+<!-- tags:数组,哈希表,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

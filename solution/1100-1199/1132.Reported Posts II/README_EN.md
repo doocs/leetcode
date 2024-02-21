@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1132.Reported%20Posts%20II/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Actions</code></p>

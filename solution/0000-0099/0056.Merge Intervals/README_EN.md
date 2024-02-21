@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0056.Merge%20Intervals/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>Given an array&nbsp;of <code>intervals</code>&nbsp;where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, merge all overlapping intervals, and return <em>an array of the non-overlapping intervals that cover all the intervals in the input</em>.</p>

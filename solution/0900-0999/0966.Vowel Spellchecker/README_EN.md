@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0966.Vowel%20Spellchecker/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>Given a <code>wordlist</code>, we want to implement a spellchecker that converts a query word into a correct word.</p>

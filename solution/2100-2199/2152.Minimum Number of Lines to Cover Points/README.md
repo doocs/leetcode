@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README_EN.md)
 
+<!-- tags:位运算,几何,数组,哈希表,数学,动态规划,回溯,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

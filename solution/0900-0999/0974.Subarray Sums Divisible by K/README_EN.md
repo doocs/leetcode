@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0974.Subarray%20Sums%20Divisible%20by%20K/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of non-empty <strong>subarrays</strong> that have a sum divisible by </em><code>k</code>.</p>

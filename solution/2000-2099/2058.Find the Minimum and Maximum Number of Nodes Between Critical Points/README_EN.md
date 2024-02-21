@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2058.Find%20the%20Minimum%20and%20Maximum%20Number%20of%20Nodes%20Between%20Critical%20Points/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>A <strong>critical point</strong> in a linked list is defined as <strong>either</strong> a <strong>local maxima</strong> or a <strong>local minima</strong>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README.md)
 
+<!-- tags:Shell -->
+
 ## Description
 
 <p>Given a text file <code>file.txt</code> that contains a list of phone numbers (one per line), write a one-liner bash script to print all valid phone numbers.</p>

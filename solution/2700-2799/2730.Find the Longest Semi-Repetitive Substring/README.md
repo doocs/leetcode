@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README_EN.md)
 
+<!-- tags:字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

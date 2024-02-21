@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

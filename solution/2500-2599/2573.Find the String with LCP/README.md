@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md)
 
+<!-- tags:贪心,并查集,数组,字符串,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

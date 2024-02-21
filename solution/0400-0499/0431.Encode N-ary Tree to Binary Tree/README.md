@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0431.Encode%20N-ary%20Tree%20to%20Binary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,设计,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

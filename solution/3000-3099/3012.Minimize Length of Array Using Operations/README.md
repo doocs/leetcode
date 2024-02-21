@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README_EN.md)
 
+<!-- tags:贪心,数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

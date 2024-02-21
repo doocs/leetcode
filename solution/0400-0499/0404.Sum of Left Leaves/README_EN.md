@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the sum of all left leaves.</em></p>

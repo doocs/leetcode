@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README_EN.md)
 
+<!-- tags:贪心,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

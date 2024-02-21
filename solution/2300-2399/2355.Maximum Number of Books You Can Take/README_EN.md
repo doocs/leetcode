@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md)
 
+<!-- tags:Stack,Array,Dynamic Programming,Monotonic Stack -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>books</code> of length <code>n</code> where <code>books[i]</code> denotes the number of books on the <code>i<sup>th</sup></code> shelf of a bookshelf.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2631.Group%20By/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.groupBy(fn)</code>&nbsp;method on any array and it will return a <strong>grouped</strong>&nbsp;version of the array.</p>

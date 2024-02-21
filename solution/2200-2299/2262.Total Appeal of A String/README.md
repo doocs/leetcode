@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2262.Total%20Appeal%20of%20A%20String/README_EN.md)
 
+<!-- tags:哈希表,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

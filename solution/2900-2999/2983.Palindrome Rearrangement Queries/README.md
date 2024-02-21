@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md)
 
+<!-- tags:哈希表,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0611.Valid%20Triangle%20Number/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

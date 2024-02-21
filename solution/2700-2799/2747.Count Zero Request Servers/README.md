@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md)
 
+<!-- tags:数组,哈希表,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

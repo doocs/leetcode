@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1072.Flip%20Columns%20For%20Maximum%20Number%20of%20Equal%20Rows/README.md)
 
+<!-- tags:Array,Hash Table,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary matrix <code>matrix</code>.</p>

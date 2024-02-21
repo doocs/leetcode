@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0929.Unique%20Email%20Addresses/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

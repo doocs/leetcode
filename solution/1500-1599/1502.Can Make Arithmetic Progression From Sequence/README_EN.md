@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1502.Can%20Make%20Arithmetic%20Progression%20From%20Sequence/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>A sequence of numbers is called an <strong>arithmetic progression</strong> if the difference between any two consecutive elements is the same.</p>

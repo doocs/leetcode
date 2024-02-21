@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2053.Kth%20Distinct%20String%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table,String,Counting -->
+
 ## Description
 
 <p>A <strong>distinct string</strong> is a string that is present only <strong>once</strong> in an array.</p>

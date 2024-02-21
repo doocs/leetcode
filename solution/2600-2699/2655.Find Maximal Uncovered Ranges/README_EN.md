@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README.md)
 
+<!-- tags:Array,Sorting -->
+
 ## Description
 
 <p>You are given&nbsp;an integer <code>n</code>&nbsp;which is the length of a <strong>0-indexed</strong> array <code>nums</code>, and a <strong>0-indexed</strong> 2D-array <code>ranges</code>, which is a list of sub-ranges of <code>nums</code>&nbsp;(sub-ranges may <strong>overlap</strong>).</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0731.My%20Calendar%20II/README.md)
 
+<!-- tags:Design,Segment Tree,Binary Search,Ordered Set -->
+
 ## Description
 
 <p>You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a <strong>triple booking</strong>.</p>

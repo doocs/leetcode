@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0243.Shortest%20Word%20Distance/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>Given an array of strings <code>wordsDict</code> and two different strings that already exist in the array <code>word1</code> and <code>word2</code>, return <em>the shortest distance between these two words in the list</em>.</p>

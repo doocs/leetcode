@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README.md)
 
+<!-- tags:Array,Sorting,Simulation,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>

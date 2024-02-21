@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0606.Construct%20String%20from%20Binary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,字符串,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

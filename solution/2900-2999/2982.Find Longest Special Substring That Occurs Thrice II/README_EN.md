@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README.md)
 
+<!-- tags:Hash Table,String,Binary Search,Counting,Sliding Window -->
+
 ## Description
 
 <p>You are given a string <code>s</code> that consists of lowercase English letters.</p>

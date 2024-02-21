@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2180.Count%20Integers%20With%20Even%20Digit%20Sum/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

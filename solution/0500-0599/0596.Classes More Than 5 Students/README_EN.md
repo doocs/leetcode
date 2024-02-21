@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Courses</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
 
+<!-- tags:Design,Linked List -->
+
 ## Description
 
 <p>Design your implementation of the linked list. You can choose to use a singly or doubly linked list.<br />

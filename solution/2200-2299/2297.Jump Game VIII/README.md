@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2297.Jump%20Game%20VIII/README_EN.md)
 
+<!-- tags:栈,图,数组,动态规划,最短路,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

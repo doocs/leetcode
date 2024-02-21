@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README_EN.md)
 
+<!-- tags:设计,数据流,有序集合,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0919.Complete%20Binary%20Tree%20Inserter/README.md)
 
+<!-- tags:Tree,Breadth-First Search,Design,Binary Tree -->
+
 ## Description
 
 <p>A <strong>complete binary tree</strong> is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</p>

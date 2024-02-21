@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md)
 
+<!-- tags:Memoization,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array of <strong>distinct</strong> positive integers locations where <code>locations[i]</code> represents the position of city <code>i</code>. You are also given integers <code>start</code>, <code>finish</code> and <code>fuel</code> representing the starting city, ending city, and the initial amount of fuel you have, respectively.</p>

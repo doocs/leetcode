@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code> and a character <code>separator</code>, <strong>split</strong> each string in <code>words</code> by <code>separator</code>.</p>

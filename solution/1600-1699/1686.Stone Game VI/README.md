@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md)
 
+<!-- tags:贪心,数组,数学,博弈,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

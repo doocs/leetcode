@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1918.Kth%20Smallest%20Subarray%20Sum/README.md)
 
+<!-- tags:Array,Binary Search,Sliding Window -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code> <em><strong>smallest subarray sum</strong>.</em></p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,排序,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

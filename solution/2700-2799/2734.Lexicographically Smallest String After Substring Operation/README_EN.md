@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can do the following:</p>

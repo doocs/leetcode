@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1280.Students%20and%20Examinations/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

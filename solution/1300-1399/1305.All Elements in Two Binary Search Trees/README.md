@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1305.All%20Elements%20in%20Two%20Binary%20Search%20Trees/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉搜索树,二叉树,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

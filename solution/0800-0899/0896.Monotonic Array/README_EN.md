@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0896.Monotonic%20Array/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>An array is <strong>monotonic</strong> if it is either monotone increasing or monotone decreasing.</p>

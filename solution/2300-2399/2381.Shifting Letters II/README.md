@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2381.Shifting%20Letters%20II/README_EN.md)
 
+<!-- tags:数组,字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

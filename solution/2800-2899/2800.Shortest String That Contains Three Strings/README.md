@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md)
 
+<!-- tags:贪心,字符串,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

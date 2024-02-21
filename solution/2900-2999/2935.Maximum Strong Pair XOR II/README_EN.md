@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)
 
+<!-- tags:Bit Manipulation,Trie,Array,Hash Table,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A pair of integers <code>x</code> and <code>y</code> is called a <strong>strong</strong> pair if it satisfies the condition:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0878.Nth%20Magical%20Number/README_EN.md)
 
+<!-- tags:数学,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

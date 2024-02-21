@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2321.Maximum%20Score%20Of%20Spliced%20Array/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, both of length <code>n</code>.</p>

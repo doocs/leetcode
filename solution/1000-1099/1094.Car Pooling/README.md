@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1094.Car%20Pooling/README_EN.md)
 
+<!-- tags:数组,前缀和,排序,模拟,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0306.Additive%20Number/README_EN.md)
 
+<!-- tags:字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

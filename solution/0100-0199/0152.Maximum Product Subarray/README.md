@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
 
+<!-- tags:数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

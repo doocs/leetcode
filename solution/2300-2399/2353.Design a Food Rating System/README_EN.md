@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README.md)
 
+<!-- tags:Design,Hash Table,Ordered Set,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Design a food rating system that can do the following:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md)
 
+<!-- tags:Array,Binary Search,Sorting,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> and a <strong>non-negative</strong> integer <code>k</code>.</p>

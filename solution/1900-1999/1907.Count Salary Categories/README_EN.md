@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1907.Count%20Salary%20Categories/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Accounts</code></p>

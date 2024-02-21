@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0761.Special%20Binary%20String/README.md)
 
+<!-- tags:Recursion,String -->
+
 ## Description
 
 <p><strong>Special binary strings</strong> are binary strings with the following two properties:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README_EN.md)
 
+<!-- tags:数组,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

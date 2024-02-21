@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0274.H-Index/README.md)
 
+<!-- tags:Array,Counting Sort,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper, return <em>the researcher&#39;s h-index</em>.</p>

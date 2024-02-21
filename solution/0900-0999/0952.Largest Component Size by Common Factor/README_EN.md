@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README.md)
 
+<!-- tags:Union Find,Array,Hash Table,Math,Number Theory -->
+
 ## Description
 
 <p>You are given an integer array of unique positive integers <code>nums</code>. Consider the following graph:</p>

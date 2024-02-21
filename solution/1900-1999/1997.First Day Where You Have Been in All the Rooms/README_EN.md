@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>There are <code>n</code> rooms you need to visit, labeled from <code>0</code> to <code>n - 1</code>. Each day is labeled, starting from <code>0</code>. You will go in and visit one room a day.</p>

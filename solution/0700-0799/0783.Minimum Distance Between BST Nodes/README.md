@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,二叉搜索树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

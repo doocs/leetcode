@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
 
+<!-- tags:Geometry,Array,Hash Table,Math -->
+
 ## Description
 
 <p>Given an array of <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on the <strong>X-Y</strong> plane, return <em>the maximum number of points that lie on the same straight line</em>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0271.Encode%20and%20Decode%20Strings/README.md)
 
+<!-- tags:Design,Array,String -->
+
 ## Description
 
 <p>Design an algorithm to encode <b>a list of strings</b> to <b>a string</b>. The encoded string is then sent over the network and is decoded back to the original list of strings.</p>

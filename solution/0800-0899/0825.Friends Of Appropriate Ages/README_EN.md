@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>There are <code>n</code> persons on a social media website. You are given an integer array <code>ages</code> where <code>ages[i]</code> is the age of the <code>i<sup>th</sup></code> person.</p>

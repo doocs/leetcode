@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0704.Binary%20Search/README_EN.md)
 
+<!-- tags:数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

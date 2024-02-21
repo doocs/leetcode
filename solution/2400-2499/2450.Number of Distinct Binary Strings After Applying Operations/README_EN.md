@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README.md)
 
+<!-- tags:Math,String -->
+
 ## Description
 
 <p>You are given a <strong>binary</strong> string <code>s</code> and a positive integer <code>k</code>.</p>

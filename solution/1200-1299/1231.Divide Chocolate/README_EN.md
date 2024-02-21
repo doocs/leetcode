@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1231.Divide%20Chocolate/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You have one chocolate bar that consists of some chunks. Each chunk has its own sweetness given by the array&nbsp;<code>sweetness</code>.</p>

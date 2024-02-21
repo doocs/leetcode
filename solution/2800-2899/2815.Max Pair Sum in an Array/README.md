@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

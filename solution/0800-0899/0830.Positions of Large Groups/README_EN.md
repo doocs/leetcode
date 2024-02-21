@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0830.Positions%20of%20Large%20Groups/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>In a string <code><font face="monospace">s</font></code>&nbsp;of lowercase letters, these letters form consecutive groups of the same character.</p>

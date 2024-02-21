@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README_EN.md)
 
+<!-- tags:并查集,数组,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

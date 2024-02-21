@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README.md)
 
+<!-- tags:Stack,Tree,Design,Binary Search Tree,Binary Tree,Iterator -->
+
 ## Description
 
 <p>Implement the <code>BSTIterator</code> class that represents an iterator over the <strong><a href="https://en.wikipedia.org/wiki/Tree_traversal#In-order_(LNR)">in-order traversal</a></strong> of a binary search tree (BST):</p>

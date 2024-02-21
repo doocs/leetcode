@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README_EN.md)
 
+<!-- tags:位运算,数学,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

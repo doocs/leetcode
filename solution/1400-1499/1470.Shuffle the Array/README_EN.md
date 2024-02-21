@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1470.Shuffle%20the%20Array/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>Given the array <code>nums</code> consisting of <code>2n</code> elements in the form <code>[x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>,y<sub>1</sub>,y<sub>2</sub>,...,y<sub>n</sub>]</code>.</p>

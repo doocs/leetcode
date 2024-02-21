@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README_EN.md)
 
+<!-- tags:数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

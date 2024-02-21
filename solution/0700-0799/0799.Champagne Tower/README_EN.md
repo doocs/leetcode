@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0799.Champagne%20Tower/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>We stack glasses in a pyramid, where the <strong>first</strong> row has <code>1</code> glass, the <strong>second</strong> row has <code>2</code> glasses, and so on until the 100<sup>th</sup> row.&nbsp; Each glass holds one cup&nbsp;of champagne.</p>

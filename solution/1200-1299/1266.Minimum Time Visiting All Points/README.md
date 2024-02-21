@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md)
 
+<!-- tags:几何,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

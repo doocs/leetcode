@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

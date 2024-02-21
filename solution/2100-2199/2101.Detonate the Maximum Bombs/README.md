@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,几何,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

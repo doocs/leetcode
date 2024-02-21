@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0843.Guess%20the%20Word/README.md)
 
+<!-- tags:Array,Math,String,Game Theory,Interactive -->
+
 ## Description
 
 <p>You are given an array of unique strings <code>words</code> where <code>words[i]</code> is six letters long. One word of <code>words</code> was chosen as a secret word.</p>

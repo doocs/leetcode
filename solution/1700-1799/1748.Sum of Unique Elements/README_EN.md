@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README.md)
 
+<!-- tags:Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. The unique elements of an array are the elements that appear <strong>exactly once</strong> in the array.</p>

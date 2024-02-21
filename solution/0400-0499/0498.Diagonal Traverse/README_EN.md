@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0498.Diagonal%20Traverse/README.md)
 
+<!-- tags:Array,Matrix,Simulation -->
+
 ## Description
 
 <p>Given an <code>m x n</code> matrix <code>mat</code>, return <em>an array of all the elements of the array in a diagonal order</em>.</p>

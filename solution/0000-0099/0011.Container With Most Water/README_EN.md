@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0011.Container%20With%20Most%20Water/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers -->
+
 ## Description
 
 <p>You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the <code>i<sup>th</sup></code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p>
@@ -195,6 +197,35 @@ public class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param int[] $height
+     * @return int
+     */
+
+    function maxArea($height) {
+        $left = 0;
+        $right = count($height) - 1;
+        $maxArea = 0;
+
+        while ($left < $right) {
+            $area = min($height[$left], $height[$right]) * ($right - $left);
+
+            $maxArea = max($maxArea, $area);
+
+            if ($height[$left] < $height[$right]) {
+                $left++;
+            } else {
+                $right--;
+            }
+        }
+
+        return $maxArea;
     }
 }
 ```

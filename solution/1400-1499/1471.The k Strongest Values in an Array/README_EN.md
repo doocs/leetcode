@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1471.The%20k%20Strongest%20Values%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code> and an integer <code>k</code>.</p>

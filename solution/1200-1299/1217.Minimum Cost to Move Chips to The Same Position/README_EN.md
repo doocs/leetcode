@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README.md)
 
+<!-- tags:Greedy,Array,Math -->
+
 ## Description
 
 <p>We have <code>n</code> chips, where the position of the <code>i<sup>th</sup></code> chip is <code>position[i]</code>.</p>

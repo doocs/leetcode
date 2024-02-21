@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2501.Longest%20Square%20Streak%20in%20an%20Array/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code>. A subsequence of <code>nums</code> is called a <strong>square streak</strong> if:</p>

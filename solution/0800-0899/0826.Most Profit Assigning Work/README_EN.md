@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>You have <code>n</code> jobs and <code>m</code> workers. You are given three arrays: <code>difficulty</code>, <code>profit</code>, and <code>worker</code> where:</p>

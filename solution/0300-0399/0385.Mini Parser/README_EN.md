@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0385.Mini%20Parser/README.md)
 
+<!-- tags:Stack,Depth-First Search,String -->
+
 ## Description
 
 <p>Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return <em>the deserialized</em> <code>NestedInteger</code>.</p>

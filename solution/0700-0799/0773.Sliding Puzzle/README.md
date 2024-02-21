@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

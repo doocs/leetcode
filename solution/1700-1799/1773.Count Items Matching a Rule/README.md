@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README_EN.md)
 
+<!-- tags:数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0065.Valid%20Number/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>A <strong>valid number</strong> can be split up into these components (in order):</p>

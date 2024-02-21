@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1245.Tree%20Diameter/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
+
 ## Description
 
 <p>The <strong>diameter</strong> of a tree is <strong>the number of edges</strong> in the longest path in that tree.</p>

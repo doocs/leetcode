@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2055.Plates%20Between%20Candles/README.md)
 
+<!-- tags:Array,String,Binary Search,Prefix Sum -->
+
 ## Description
 
 <p>There is a long table with a line of plates and candles arranged on top of it. You are given a <strong>0-indexed</strong> string <code>s</code> consisting of characters <code>&#39;*&#39;</code> and <code>&#39;|&#39;</code> only, where a <code>&#39;*&#39;</code> represents a <strong>plate</strong> and a <code>&#39;|&#39;</code> represents a <strong>candle</strong>.</p>

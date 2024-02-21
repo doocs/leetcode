@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2485.Find%20the%20Pivot%20Integer/README_EN.md)
 
+<!-- tags:数学,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

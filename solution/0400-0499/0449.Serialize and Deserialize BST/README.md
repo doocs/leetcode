@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,设计,二叉搜索树,字符串,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

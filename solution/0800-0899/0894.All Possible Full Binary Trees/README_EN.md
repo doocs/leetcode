@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)
 
+<!-- tags:Tree,Recursion,Memoization,Dynamic Programming,Binary Tree -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>a list of all possible <strong>full binary trees</strong> with</em> <code>n</code> <em>nodes</em>. Each node of each tree in the answer must have <code>Node.val == 0</code>.</p>

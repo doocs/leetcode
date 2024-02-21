@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, split the binary tree into two subtrees by removing one edge such that the product of the sums of the subtrees is maximized.</p>

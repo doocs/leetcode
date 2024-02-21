@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1398.Customers%20Who%20Bought%20Products%20A%20and%20B%20but%20Not%20C/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Customers</code></p>

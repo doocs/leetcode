@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md)
 
+<!-- tags:并查集,图,拓扑排序,数组,矩阵,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

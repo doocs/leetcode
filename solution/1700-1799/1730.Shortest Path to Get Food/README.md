@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

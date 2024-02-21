@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

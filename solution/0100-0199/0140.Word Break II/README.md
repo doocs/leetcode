@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0140.Word%20Break%20II/README_EN.md)
 
+<!-- tags:字典树,记忆化搜索,数组,哈希表,字符串,动态规划,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

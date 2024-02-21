@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README_EN.md)
 
+<!-- tags:数组,数学,字符串,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

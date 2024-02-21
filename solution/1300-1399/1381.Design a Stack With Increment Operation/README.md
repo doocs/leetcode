@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README_EN.md)
 
+<!-- tags:栈,设计,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

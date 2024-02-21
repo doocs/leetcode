@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1316.Distinct%20Echo%20Substrings/README_EN.md)
 
+<!-- tags:字典树,字符串,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

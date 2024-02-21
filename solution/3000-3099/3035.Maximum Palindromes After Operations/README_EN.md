@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,String,Counting,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code> having length <code>n</code> and containing <strong>0-indexed</strong> strings.</p>

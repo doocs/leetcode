@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md)
 
+<!-- tags:数组,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

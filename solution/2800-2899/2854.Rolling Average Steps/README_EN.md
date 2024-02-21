@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Steps</font></code></p>

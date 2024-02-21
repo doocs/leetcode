@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README.md)
 
+<!-- tags:Stack,Depth-First Search,Breadth-First Search -->
+
 ## Description
 
 <p>You are given a nested list of integers <code>nestedList</code>. Each element is either an integer or a list whose elements may also be integers or other lists.</p>

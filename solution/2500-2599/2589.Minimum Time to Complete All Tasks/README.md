@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md)
 
+<!-- tags:栈,贪心,数组,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

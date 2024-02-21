@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

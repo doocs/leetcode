@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0453.Minimum%20Moves%20to%20Equal%20Array%20Elements/README.md)
 
+<!-- tags:Array,Math -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> of size <code>n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</p>

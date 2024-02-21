@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0579.Find%20Cumulative%20Salary%20of%20an%20Employee/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employee</code></p>

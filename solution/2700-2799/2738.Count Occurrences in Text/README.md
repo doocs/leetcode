@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

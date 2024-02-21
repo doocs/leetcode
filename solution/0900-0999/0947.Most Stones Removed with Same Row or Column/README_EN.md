@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README.md)
 
+<!-- tags:Depth-First Search,Union Find,Graph,Hash Table -->
+
 ## Description
 
 <p>On a 2D plane, we place <code>n</code> stones at some integer coordinate points. Each coordinate point may have at most one stone.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Sorting -->
+
 ## Description
 
 <p>You have <code>n</code> computers. You are given the integer <code>n</code> and a <strong>0-indexed</strong> integer array <code>batteries</code> where the <code>i<sup>th</sup></code> battery can <strong>run</strong> a computer for <code>batteries[i]</code> minutes. You are interested in running <strong>all</strong> <code>n</code> computers <strong>simultaneously</strong> using the given batteries.</p>

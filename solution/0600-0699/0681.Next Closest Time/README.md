@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0681.Next%20Closest%20Time/README_EN.md)
 
+<!-- tags:字符串,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

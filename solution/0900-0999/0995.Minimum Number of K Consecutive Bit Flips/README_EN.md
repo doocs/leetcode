@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0995.Minimum%20Number%20of%20K%20Consecutive%20Bit%20Flips/README.md)
 
+<!-- tags:Bit Manipulation,Queue,Array,Prefix Sum,Sliding Window -->
+
 ## Description
 
 <p>You are given a binary array <code>nums</code> and an integer <code>k</code>.</p>

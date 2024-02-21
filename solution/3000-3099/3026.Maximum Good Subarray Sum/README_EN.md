@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)
 
+<!-- tags:Array,Hash Table,Prefix Sum -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of length <code>n</code> and a <strong>positive</strong> integer <code>k</code>.</p>

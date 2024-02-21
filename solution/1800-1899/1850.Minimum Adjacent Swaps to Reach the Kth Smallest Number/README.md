@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README_EN.md)
 
+<!-- tags:贪心,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

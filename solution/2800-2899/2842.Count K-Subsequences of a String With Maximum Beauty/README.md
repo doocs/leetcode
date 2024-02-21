@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md)
 
+<!-- tags:贪心,哈希表,数学,字符串,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

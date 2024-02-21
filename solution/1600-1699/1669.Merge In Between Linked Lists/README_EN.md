@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>You are given two linked lists: <code>list1</code> and <code>list2</code> of sizes <code>n</code> and <code>m</code> respectively.</p>

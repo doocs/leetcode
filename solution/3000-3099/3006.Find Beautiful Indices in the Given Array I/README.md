@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md)
 
+<!-- tags:双指针,字符串,二分查找,字符串匹配,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

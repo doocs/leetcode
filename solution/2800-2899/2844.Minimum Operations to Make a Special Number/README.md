@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md)
 
+<!-- tags:贪心,数学,字符串,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

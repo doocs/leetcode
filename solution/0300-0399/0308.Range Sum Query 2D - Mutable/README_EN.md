@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README.md)
 
+<!-- tags:Design,Binary Indexed Tree,Segment Tree,Array,Matrix -->
+
 ## Description
 
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following types:</p>

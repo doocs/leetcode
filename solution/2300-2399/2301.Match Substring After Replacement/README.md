@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2301.Match%20Substring%20After%20Replacement/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1420.Build%20Array%20Where%20You%20Can%20Find%20The%20Maximum%20Exactly%20K%20Comparisons/README_EN.md)
 
+<!-- tags:动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

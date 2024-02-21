@@ -195,6 +195,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [English Version]({})
 
+<!-- tags:{} -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -237,6 +239,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [中文文档]({})
 
+<!-- tags:{} -->
+
 ## Description
 
 {}
@@ -276,6 +280,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 # [{}. {}]({})
 
 [English Version]({})
+
+<!-- tags:{} -->
 
 ## 题目描述
 
@@ -319,6 +325,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [中文文档]({})
 
+<!-- tags:{} -->
+
 ## Description
 
 {}
@@ -359,6 +367,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [English Version]({})
 
+<!-- tags:{} -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -389,6 +399,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 [中文文档]({})
 
+<!-- tags:{} -->
+
 ## Description
 
 {}
@@ -416,6 +428,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 # [{}. {}]({})
 
 [English Version]({})
+
+<!-- tags:{} -->
 
 ## 题目描述
 
@@ -446,6 +460,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 # [{}. {}]({})
 
 [中文文档]({})
+
+<!-- tags:{} -->
 
 ## Description
 

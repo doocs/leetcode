@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README.md)
 
+<!-- tags:Array,Backtracking -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, find a sequence that satisfies all of the following:</p>

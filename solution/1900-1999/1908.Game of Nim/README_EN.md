@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1908.Game%20of%20Nim/README.md)
 
+<!-- tags:Bit Manipulation,Brainteaser,Array,Math,Dynamic Programming,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game with <strong>Alice starting first</strong>.</p>

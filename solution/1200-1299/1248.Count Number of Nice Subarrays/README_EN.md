@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md)
 
+<!-- tags:Array,Hash Table,Math,Sliding Window -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>. A continuous subarray is called <strong>nice</strong> if there are <code>k</code> odd numbers on it.</p>

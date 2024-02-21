@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0009.Palindrome%20Number/README_EN.md)
 
+<!-- tags:数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

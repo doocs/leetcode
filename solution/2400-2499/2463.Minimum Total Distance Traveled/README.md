@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2463.Minimum%20Total%20Distance%20Traveled/README_EN.md)
 
+<!-- tags:数组,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md)
 
+<!-- tags:数组,数学,动态规划,概率与统计 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

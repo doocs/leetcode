@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md)
 
+<!-- tags:Greedy,Math,String -->
+
 ## Description
 
 <p>You are given a <strong>binary</strong> string <code>s</code> that contains at least one <code>&#39;1&#39;</code>.</p>

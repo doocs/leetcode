@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employee</code></p>

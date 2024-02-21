@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
 
+<!-- tags:数学,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

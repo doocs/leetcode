@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README.md)
 
+<!-- tags:Greedy,String,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>You are given a binary string <code>s</code>. You are allowed to perform two types of operations on the string in any sequence:</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md)
 
+<!-- tags:位运算,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

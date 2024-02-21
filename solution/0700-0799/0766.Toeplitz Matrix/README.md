@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0766.Toeplitz%20Matrix/README_EN.md)
 
+<!-- tags:数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of <strong>positive</strong> integers and an integer <code>k</code>.</p>

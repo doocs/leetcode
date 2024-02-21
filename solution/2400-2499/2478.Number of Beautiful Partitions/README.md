@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2478.Number%20of%20Beautiful%20Partitions/README_EN.md)
 
+<!-- tags:字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

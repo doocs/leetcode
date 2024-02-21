@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)
 
+<!-- tags:贪心,数组,双指针,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

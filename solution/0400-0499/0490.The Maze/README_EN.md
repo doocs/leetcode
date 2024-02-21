@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0490.The%20Maze/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
+
 ## Description
 
 <p>There is a ball in a <code>maze</code> with empty spaces (represented as <code>0</code>) and walls (represented as <code>1</code>). The ball can go through the empty spaces by rolling <strong>up, down, left or right</strong>, but it won&#39;t stop rolling until hitting a wall. When the ball stops, it could choose the next direction.</p>

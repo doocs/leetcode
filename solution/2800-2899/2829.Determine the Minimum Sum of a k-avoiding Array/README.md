@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README_EN.md)
 
+<!-- tags:贪心,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

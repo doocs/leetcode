@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README_EN.md)
 
+<!-- tags:树,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

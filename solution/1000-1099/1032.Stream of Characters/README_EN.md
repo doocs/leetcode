@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)
 
+<!-- tags:Design,Trie,Array,String,Data Stream -->
+
 ## Description
 
 <p>Design an algorithm that accepts a stream of characters and checks if a suffix of these characters is a string of a given array of strings <code>words</code>.</p>

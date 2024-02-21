@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1471.The%20k%20Strongest%20Values%20in%20an%20Array/README_EN.md)
 
+<!-- tags:数组,双指针,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

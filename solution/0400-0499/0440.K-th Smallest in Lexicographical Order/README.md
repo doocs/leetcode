@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README_EN.md)
 
+<!-- tags:字典树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2899.Last%20Visited%20Integers/README.md)
 
+<!-- tags:Array,String,Simulation -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> where <code>nums[i]</code> is either a positive integer or <code>-1</code>.</p>

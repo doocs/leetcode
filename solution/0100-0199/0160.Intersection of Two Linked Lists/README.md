@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md)
 
+<!-- tags:哈希表,链表,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

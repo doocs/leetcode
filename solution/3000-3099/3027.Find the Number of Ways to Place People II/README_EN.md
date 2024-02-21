@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README.md)
 
+<!-- tags:Geometry,Array,Math,Enumeration,Sorting -->
+
 ## Description
 
 <p>You are given a 2D array <code>points</code> of size <code>n x 2</code> representing integer coordinates of some points on a 2D-plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>

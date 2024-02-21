@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1334.Find%20the%20City%20With%20the%20Smallest%20Number%20of%20Neighbors%20at%20a%20Threshold%20Distance/README_EN.md)
 
+<!-- tags:图,动态规划,最短路 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

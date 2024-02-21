@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0244.Shortest%20Word%20Distance%20II/README_EN.md)
 
+<!-- tags:设计,数组,哈希表,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0413.Arithmetic%20Slices/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>An integer array is called arithmetic if it consists of <strong>at least three elements</strong> and if the difference between any two consecutive elements is the same.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md)
 
+<!-- tags:设计,线段树,数组,哈希表,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

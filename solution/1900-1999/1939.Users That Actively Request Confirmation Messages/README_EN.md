@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1939.Users%20That%20Actively%20Request%20Confirmation%20Messages/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Signups</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0916.Word%20Subsets/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>You are given two string arrays <code>words1</code> and <code>words2</code>.</p>

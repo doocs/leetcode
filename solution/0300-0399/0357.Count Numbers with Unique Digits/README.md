@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
 
+<!-- tags:数学,动态规划,回溯 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

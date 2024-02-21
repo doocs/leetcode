@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2546.Apply%20Bitwise%20Operations%20to%20Make%20Strings%20Equal/README_EN.md)
 
+<!-- tags:位运算,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

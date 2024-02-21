@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,二分查找,矩阵,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

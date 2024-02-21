@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Hercy wants to save money for his first car. He puts money in the Leetcode&nbsp;bank <strong>every day</strong>.</p>

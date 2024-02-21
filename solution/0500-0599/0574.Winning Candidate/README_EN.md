@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0574.Winning%20Candidate/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Candidate</code></p>

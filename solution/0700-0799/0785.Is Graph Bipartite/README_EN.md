@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
+
 ## Description
 
 <p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, where each node is numbered between <code>0</code> and <code>n - 1</code>. You are given a 2D array <code>graph</code>, where <code>graph[u]</code> is an array of nodes that node <code>u</code> is adjacent to. More formally, for each <code>v</code> in <code>graph[u]</code>, there is an undirected edge between node <code>u</code> and node <code>v</code>. The graph has the following properties:</p>

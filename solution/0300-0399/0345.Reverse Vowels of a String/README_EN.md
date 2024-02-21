@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, reverse only all the vowels in the string and return it.</p>

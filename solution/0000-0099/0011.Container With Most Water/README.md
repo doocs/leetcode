@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0011.Container%20With%20Most%20Water/README_EN.md)
 
+<!-- tags:贪心,数组,双指针 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->
@@ -200,6 +202,35 @@ public class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param int[] $height
+     * @return int
+     */
+
+    function maxArea($height) {
+        $left = 0;
+        $right = count($height) - 1;
+        $maxArea = 0;
+
+        while ($left < $right) {
+            $area = min($height[$left], $height[$right]) * ($right - $left);
+
+            $maxArea = max($maxArea, $area);
+
+            if ($height[$left] < $height[$right]) {
+                $left++;
+            } else {
+                $right--;
+            }
+        }
+
+        return $maxArea;
     }
 }
 ```

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>Given an <code>n x n</code> array of integers <code>matrix</code>, return <em>the <strong>minimum sum</strong> of any <strong>falling path</strong> through</em> <code>matrix</code>.</p>

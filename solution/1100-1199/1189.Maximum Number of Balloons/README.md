@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

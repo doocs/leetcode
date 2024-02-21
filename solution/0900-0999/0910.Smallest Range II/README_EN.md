@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0910.Smallest%20Range%20II/README.md)
 
+<!-- tags:Greedy,Array,Math,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>

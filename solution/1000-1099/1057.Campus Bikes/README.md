@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1057.Campus%20Bikes/README_EN.md)
 
+<!-- tags:贪心,数组,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

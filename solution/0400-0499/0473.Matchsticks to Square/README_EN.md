@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>You are given an integer array <code>matchsticks</code> where <code>matchsticks[i]</code> is the length of the <code>i<sup>th</sup></code> matchstick. You want to use <strong>all the matchsticks</strong> to make one square. You <strong>should not break</strong> any stick, but you can link them up, and each matchstick must be used <strong>exactly one time</strong>.</p>

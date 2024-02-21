@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,图,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

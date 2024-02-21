@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0130.Surrounded%20Regions/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> matrix <code>board</code> containing <code>&#39;X&#39;</code> and <code>&#39;O&#39;</code>, <em>capture all regions that are 4-directionally&nbsp;surrounded by</em> <code>&#39;X&#39;</code>.</p>

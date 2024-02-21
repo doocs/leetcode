@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1729.Find%20Followers%20Count/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

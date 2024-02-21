@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

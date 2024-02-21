@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0969.Pancake%20Sorting/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given an array of integers <code>arr</code>, sort the array by performing a series of <strong>pancake flips</strong>.</p>

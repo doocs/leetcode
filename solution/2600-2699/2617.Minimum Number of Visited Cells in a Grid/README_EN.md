@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README.md)
 
+<!-- tags:Stack,Union Find,Binary Indexed Tree,Segment Tree,Array,Binary Search,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>grid</code>. Your initial position is at the <strong>top-left</strong> cell <code>(0, 0)</code>.</p>

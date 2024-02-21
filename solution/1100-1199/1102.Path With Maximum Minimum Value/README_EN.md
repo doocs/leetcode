@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Binary Search,Matrix,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given an <code>m x n</code> integer matrix <code>grid</code>, return <em>the maximum <strong>score</strong> of a path starting at </em><code>(0, 0)</code><em> and ending at </em><code>(m - 1, n - 1)</code> moving in the 4 cardinal directions.</p>

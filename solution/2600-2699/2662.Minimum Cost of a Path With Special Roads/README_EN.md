@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README.md)
 
+<!-- tags:Graph,Array,Shortest Path,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an array <code>start</code> where <code>start = [startX, startY]</code> represents your initial position <code>(startX, startY)</code> in a 2D space. You are also given the array <code>target</code> where <code>target = [targetX, targetY]</code> represents your target position <code>(targetX, targetY)</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are playing a game of tag with your friends. In tag, people are divided into two teams: people who are &quot;it&quot;, and people who are not &quot;it&quot;. The people who are &quot;it&quot; want to catch as many people as possible who are not &quot;it&quot;.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0182.Duplicate%20Emails/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

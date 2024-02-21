@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0481.Magical%20String/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>A magical string <code>s</code> consists of only <code>&#39;1&#39;</code> and <code>&#39;2&#39;</code> and obeys the following rules:</p>

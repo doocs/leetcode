@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md)
 
+<!-- tags:贪心,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2317.Maximum%20XOR%20After%20Operations/README_EN.md)
 
+<!-- tags:位运算,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

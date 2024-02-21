@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1243.Array%20Transformation/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README.md)
 
+<!-- tags:Greedy,Math -->
+
 ## Description
 
 <p>You are given two positive integers <code>n</code> and <code>target</code>.</p>

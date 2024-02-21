@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0001.Two%20Sum/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>&nbsp;and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.</p>

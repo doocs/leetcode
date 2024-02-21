@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Trie,Array -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> consisting of non-negative integers. You are also given a <code>queries</code> array, where <code>queries[i] = [x<sub>i</sub>, m<sub>i</sub>]</code>.</p>

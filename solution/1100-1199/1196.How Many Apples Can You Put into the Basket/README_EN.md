@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1196.How%20Many%20Apples%20Can%20You%20Put%20into%20the%20Basket/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>You have some apples and a basket that can carry up to <code>5000</code> units of weight.</p>

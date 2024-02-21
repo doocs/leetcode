@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/README.md)
 
+<!-- tags:Array,Binary Search,Interactive,Matrix -->
+
 ## Description
 
 <p>A <strong>row-sorted binary matrix</strong> means that all elements are <code>0</code> or <code>1</code> and each row of the matrix is sorted in non-decreasing order.</p>

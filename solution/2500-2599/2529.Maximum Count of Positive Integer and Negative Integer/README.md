@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README_EN.md)
 
+<!-- tags:数组,二分查找,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

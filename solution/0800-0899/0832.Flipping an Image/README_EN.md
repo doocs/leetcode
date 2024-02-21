@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0832.Flipping%20an%20Image/README.md)
 
+<!-- tags:Bit Manipulation,Array,Two Pointers,Matrix,Simulation -->
+
 ## Description
 
 <p>Given an <code>n x n</code> binary matrix <code>image</code>, flip the image <strong>horizontally</strong>, then invert it, and return <em>the resulting image</em>.</p>

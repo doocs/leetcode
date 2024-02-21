@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0113.Path%20Sum%20II/README_EN.md)
 
+<!-- tags:树,深度优先搜索,回溯,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

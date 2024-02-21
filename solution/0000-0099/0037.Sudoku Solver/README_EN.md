@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0037.Sudoku%20Solver/README.md)
 
+<!-- tags:Array,Hash Table,Backtracking,Matrix -->
+
 ## Description
 
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>

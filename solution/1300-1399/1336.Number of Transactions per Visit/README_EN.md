@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Visits</code></p>

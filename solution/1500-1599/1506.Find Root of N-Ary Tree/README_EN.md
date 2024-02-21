@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1506.Find%20Root%20of%20N-Ary%20Tree/README.md)
 
+<!-- tags:Bit Manipulation,Tree,Depth-First Search,Hash Table -->
+
 ## Description
 
 <p>You are given all the nodes of an <strong><a href="https://leetcode.com/explore/learn/card/n-ary-tree/">N-ary tree</a></strong> as an array of <code>Node</code> objects, where each node has a <strong>unique value</strong>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README_EN.md)
 
+<!-- tags:数组,哈希表,数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

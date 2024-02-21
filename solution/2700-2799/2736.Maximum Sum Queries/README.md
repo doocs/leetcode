@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)
 
+<!-- tags:栈,树状数组,线段树,数组,二分查找,排序,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

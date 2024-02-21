@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0782.Transform%20to%20Chessboard/README_EN.md)
 
+<!-- tags:位运算,数组,数学,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2256.Minimum%20Average%20Difference/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>

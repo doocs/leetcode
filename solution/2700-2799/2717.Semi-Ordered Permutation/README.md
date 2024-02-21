@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

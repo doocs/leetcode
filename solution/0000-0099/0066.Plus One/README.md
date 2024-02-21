@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0066.Plus%20One/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md)
 
+<!-- tags:贪心,数组,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

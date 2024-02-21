@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/README_EN.md)
 
+<!-- tags:图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

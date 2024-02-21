@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README_EN.md)
 
+<!-- tags:位运算,数组,回溯,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

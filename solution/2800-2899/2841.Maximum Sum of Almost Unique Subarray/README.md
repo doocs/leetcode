@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

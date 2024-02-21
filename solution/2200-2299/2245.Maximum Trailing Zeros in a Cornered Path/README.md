@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2245.Maximum%20Trailing%20Zeros%20in%20a%20Cornered%20Path/README_EN.md)
 
+<!-- tags:数组,矩阵,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

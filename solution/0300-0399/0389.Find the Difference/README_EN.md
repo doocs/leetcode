@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0300-0399/0389.Find%20the%20Difference/README.md)
 
+<!-- tags:Bit Manipulation,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>

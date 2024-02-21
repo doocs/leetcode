@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)
 
+<!-- tags:Bit Manipulation,Recursion,Array,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the number of <strong>permutations</strong> of the <strong>1-indexed</strong> array</em> <code>nums = [1, 2, ..., n]</code><em>, such that it&#39;s <strong>self-divisible</strong></em>.</p>

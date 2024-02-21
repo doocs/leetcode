@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting of <code>n</code> characters which are either <code>&#39;X&#39;</code> or <code>&#39;O&#39;</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1482.Minimum%20Number%20of%20Days%20to%20Make%20m%20Bouquets/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>You are given an integer array <code>bloomDay</code>, an integer <code>m</code> and an integer <code>k</code>.</p>

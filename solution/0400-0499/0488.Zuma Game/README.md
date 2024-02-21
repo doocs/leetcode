@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0488.Zuma%20Game/README_EN.md)
 
+<!-- tags:栈,广度优先搜索,记忆化搜索,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

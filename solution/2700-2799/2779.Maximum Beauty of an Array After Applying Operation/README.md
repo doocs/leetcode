@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md)
 
+<!-- tags:数组,二分查找,排序,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

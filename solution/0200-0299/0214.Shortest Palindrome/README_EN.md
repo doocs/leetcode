@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0214.Shortest%20Palindrome/README.md)
 
+<!-- tags:String,String Matching,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>You are given a string <code>s</code>. You can convert <code>s</code> to a <span data-keyword="palindrome-string">palindrome</span> by adding characters in front of it.</p>

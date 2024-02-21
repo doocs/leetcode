@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1701.Average%20Waiting%20Time/README_EN.md)
 
+<!-- tags:数组,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

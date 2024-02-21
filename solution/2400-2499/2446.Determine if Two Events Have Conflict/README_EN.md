@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given two arrays of strings that represent two inclusive events that happened <strong>on the same day</strong>, <code>event1</code> and <code>event2</code>, where:</p>

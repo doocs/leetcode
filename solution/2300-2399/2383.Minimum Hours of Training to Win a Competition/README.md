@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2383.Minimum%20Hours%20of%20Training%20to%20Win%20a%20Competition/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

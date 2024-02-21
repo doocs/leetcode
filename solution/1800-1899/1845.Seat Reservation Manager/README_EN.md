@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README.md)
 
+<!-- tags:Design,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Design a system that manages the reservation state of <code>n</code> seats that are numbered from <code>1</code> to <code>n</code>.</p>

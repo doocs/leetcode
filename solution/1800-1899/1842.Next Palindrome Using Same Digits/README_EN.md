@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1842.Next%20Palindrome%20Using%20Same%20Digits/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>You are given a numeric string <code>num</code>, representing a very large <strong>palindrome</strong>.</p>

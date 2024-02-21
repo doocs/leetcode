@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> and two integers <code>lower</code> and <code>upper</code>, return <em>the number of fair pairs</em>.</p>

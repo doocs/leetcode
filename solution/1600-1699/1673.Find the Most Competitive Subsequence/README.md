@@ -2,6 +2,8 @@
 
 [English Version](/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md)
 
+<!-- tags:栈,贪心,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

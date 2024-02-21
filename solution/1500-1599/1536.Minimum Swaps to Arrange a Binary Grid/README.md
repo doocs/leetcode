@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README_EN.md)
 
+<!-- tags:贪心,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

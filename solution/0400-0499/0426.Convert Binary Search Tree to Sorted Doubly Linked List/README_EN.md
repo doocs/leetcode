@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Linked List,Binary Tree,Doubly-Linked List -->
+
 ## Description
 
 <p>Convert a <strong>Binary Search Tree</strong> to a sorted <strong>Circular Doubly-Linked List</strong> in place.</p>

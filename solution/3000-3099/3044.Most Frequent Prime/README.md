@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

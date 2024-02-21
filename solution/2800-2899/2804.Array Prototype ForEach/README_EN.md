@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write your version of method&nbsp;<code>forEach</code>&nbsp;that enhances all arrays such that you can call the&nbsp;<code>array.forEach(callback, context)</code>&nbsp;method on any array and it will execute <code>callback</code> on each element of the array.&nbsp;Method&nbsp;<code>forEach</code> should not return anything.</p>

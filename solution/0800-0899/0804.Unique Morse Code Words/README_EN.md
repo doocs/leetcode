@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:</p>

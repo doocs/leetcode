@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0571.Find%20Median%20Given%20Frequency%20of%20Numbers/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Numbers</code></p>

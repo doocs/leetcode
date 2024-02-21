@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README.md)
 
+<!-- tags:Array,Hash Table,Dynamic Programming,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of non-negative integers, and two integers <code>l</code> and <code>r</code>.</p>

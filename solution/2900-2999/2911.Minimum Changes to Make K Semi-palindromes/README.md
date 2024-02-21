@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README_EN.md)
 
+<!-- tags:双指针,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

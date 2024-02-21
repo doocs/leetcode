@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Table: <code><font face="monospace">Flights</font></code></p>

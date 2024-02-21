@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>

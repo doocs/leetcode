@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
 
+<!-- tags:Design,Queue,Data Stream -->
+
 ## Description
 
 <p>You have a <code>RecentCounter</code> class which counts the number of recent requests within a certain time frame.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Initially, you have a bank account balance of <code>100</code> dollars.</p>

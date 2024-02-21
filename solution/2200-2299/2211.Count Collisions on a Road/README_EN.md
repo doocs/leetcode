@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2211.Count%20Collisions%20on%20a%20Road/README.md)
 
+<!-- tags:Stack,String,Simulation -->
+
 ## Description
 
 <p>There are <code>n</code> cars on an infinitely long road. The cars are numbered from <code>0</code> to <code>n - 1</code> from left to right and each car is present at a <strong>unique</strong> point.</p>

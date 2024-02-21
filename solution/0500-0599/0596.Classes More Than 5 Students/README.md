@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

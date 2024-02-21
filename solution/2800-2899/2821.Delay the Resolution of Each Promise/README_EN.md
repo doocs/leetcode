@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an array&nbsp;<code>functions</code>&nbsp;and a number <code>ms</code>, return a new&nbsp;array of functions.</p>

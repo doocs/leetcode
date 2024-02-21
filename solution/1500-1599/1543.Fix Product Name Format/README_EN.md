@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Sales</code></p>

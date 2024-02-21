@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1114.Print%20in%20Order/README.md)
 
+<!-- tags:Concurrency -->
+
 ## Description
 
 <p>Suppose we have a class:</p>

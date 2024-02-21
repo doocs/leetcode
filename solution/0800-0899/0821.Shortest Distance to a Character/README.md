@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README_EN.md)
 
+<!-- tags:数组,双指针,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

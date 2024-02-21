@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2429.Minimize%20XOR/README.md)
 
+<!-- tags:Greedy,Bit Manipulation -->
+
 ## Description
 
 <p>Given two positive integers <code>num1</code> and <code>num2</code>, find the positive integer <code>x</code> such that:</p>

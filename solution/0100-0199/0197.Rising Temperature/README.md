@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0197.Rising%20Temperature/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

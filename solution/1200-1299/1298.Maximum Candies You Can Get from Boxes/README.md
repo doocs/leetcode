@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README_EN.md)
 
+<!-- tags:广度优先搜索,图,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

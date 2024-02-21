@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0587.Erect%20the%20Fence/README_EN.md)
 
+<!-- tags:几何,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

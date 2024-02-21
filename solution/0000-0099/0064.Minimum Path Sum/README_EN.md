@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
 
+<!-- tags:Array,Dynamic Programming,Matrix -->
+
 ## Description
 
 <p>Given a <code>m x n</code> <code>grid</code> filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.</p>

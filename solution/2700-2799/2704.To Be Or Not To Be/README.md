@@ -2,6 +2,8 @@
 
 [English Version](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md)
 
+<!-- tags: -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

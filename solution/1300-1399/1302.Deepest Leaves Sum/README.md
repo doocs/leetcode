@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

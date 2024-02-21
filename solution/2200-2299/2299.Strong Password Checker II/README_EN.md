@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2299.Strong%20Password%20Checker%20II/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>A password is said to be <strong>strong</strong> if it satisfies all the following criteria:</p>

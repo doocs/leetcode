@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README.md)
 
+<!-- tags:Union Find,Array,Matrix -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> binary <code>grid</code>, where each <code>1</code> represents a brick and <code>0</code> represents an empty space. A brick is <strong>stable</strong> if:</p>

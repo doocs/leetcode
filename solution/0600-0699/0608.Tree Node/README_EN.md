@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0608.Tree%20Node/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Tree</code></p>

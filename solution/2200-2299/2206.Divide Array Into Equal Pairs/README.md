@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2206.Divide%20Array%20Into%20Equal%20Pairs/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

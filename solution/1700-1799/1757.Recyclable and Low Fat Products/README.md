@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

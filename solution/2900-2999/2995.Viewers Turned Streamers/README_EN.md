@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Sessions</code></p>

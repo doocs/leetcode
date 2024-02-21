@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Sorting -->
+
 ## Description
 
 <p>You are given an integer array <code>banned</code> and two integers <code>n</code> and <code>maxSum</code>. You are choosing some number of integers following the below rules:</p>

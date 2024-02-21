@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README.md)
 
+<!-- tags:Bit Manipulation,Array,Hash Table -->
+
 ## Description
 
 <p>You are given a <strong>2D</strong> integer array <code>coordinates</code> and an integer <code>k</code>, where <code>coordinates[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> are the coordinates of the <code>i<sup>th</sup></code> point in a 2D plane.</p>

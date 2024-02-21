@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1386.Cinema%20Seat%20Allocation/README_EN.md)
 
+<!-- tags:贪心,位运算,数组,哈希表 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

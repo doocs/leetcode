@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README.md)
 
+<!-- tags:Trie,Hash Table,String,Bucket Sort,Counting,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given an array of strings <code>words</code> and an integer <code>k</code>, return <em>the </em><code>k</code><em> most frequent strings</em>.</p>

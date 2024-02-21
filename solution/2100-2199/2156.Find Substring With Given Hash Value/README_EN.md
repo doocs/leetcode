@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README.md)
 
+<!-- tags:String,Sliding Window,Hash Function,Rolling Hash -->
+
 ## Description
 
 <p>The hash of a <strong>0-indexed</strong> string <code>s</code> of length <code>k</code>, given integers <code>p</code> and <code>m</code>, is computed using the following function:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Counting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>tasks</code>, where <code>tasks[i]</code> represents the difficulty level of a task. In each round, you can complete either 2 or 3 tasks of the <strong>same difficulty level</strong>.</p>

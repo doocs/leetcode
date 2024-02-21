@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3020.Find%20the%20Maximum%20Number%20of%20Elements%20in%20Subset/README.md)
 
+<!-- tags:Array,Hash Table,Enumeration -->
+
 ## Description
 
 <p>You are given an array of <strong>positive</strong> integers <code>nums</code>.</p>

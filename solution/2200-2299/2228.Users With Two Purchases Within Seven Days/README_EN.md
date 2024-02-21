@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Purchases</code></p>

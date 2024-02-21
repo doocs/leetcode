@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,字符串,计数,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

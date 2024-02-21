@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)
 
+<!-- tags:数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

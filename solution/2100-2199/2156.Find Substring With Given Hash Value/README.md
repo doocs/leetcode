@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README_EN.md)
 
+<!-- tags:字符串,滑动窗口,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

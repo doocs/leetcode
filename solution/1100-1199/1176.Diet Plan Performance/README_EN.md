@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1176.Diet%20Plan%20Performance/README.md)
 
+<!-- tags:Array,Sliding Window -->
+
 ## Description
 
 <p>A dieter consumes&nbsp;<code>calories[i]</code>&nbsp;calories on the <code>i</code>-th day.&nbsp;</p>

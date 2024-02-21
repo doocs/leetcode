@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md)
 
+<!-- tags:栈,队列,数组,二分查找,动态规划,单调队列,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

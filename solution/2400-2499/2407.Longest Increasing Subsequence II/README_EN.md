@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md)
 
+<!-- tags:Binary Indexed Tree,Segment Tree,Queue,Array,Divide and Conquer,Dynamic Programming,Monotonic Queue -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)
 
+<!-- tags:Linked List -->
+
 ## Description
 
 <p>There is a singly-linked list <code>head</code> and we want to delete a node <code>node</code> in it.</p>

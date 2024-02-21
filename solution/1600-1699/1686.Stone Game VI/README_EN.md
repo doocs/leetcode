@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1686.Stone%20Game%20VI/README.md)
 
+<!-- tags:Greedy,Array,Math,Game Theory,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Alice and Bob take turns playing a game, with Alice starting first.</p>

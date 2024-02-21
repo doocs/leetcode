@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2504.Concatenate%20the%20Name%20and%20the%20Profession/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Person</code></p>

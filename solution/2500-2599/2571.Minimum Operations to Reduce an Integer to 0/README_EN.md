@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>, you can do the following operation <strong>any</strong> number of times:</p>

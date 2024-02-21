@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md)
 
+<!-- tags:贪心,数学,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

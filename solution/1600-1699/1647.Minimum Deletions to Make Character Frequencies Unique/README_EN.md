@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README.md)
 
+<!-- tags:Greedy,Hash Table,String,Sorting -->
+
 ## Description
 
 <p>A string <code>s</code> is called <strong>good</strong> if there are no two different characters in <code>s</code> that have the same <strong>frequency</strong>.</p>

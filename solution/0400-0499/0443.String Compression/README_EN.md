@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0443.String%20Compression/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>Given an array of characters <code>chars</code>, compress it using the following algorithm:</p>

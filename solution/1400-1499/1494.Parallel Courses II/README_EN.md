@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1494.Parallel%20Courses%20II/README.md)
 
+<!-- tags:Bit Manipulation,Graph,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>, which indicates that there are <code>n</code> courses labeled from <code>1</code> to <code>n</code>. You are also given an array <code>relations</code> where <code>relations[i] = [prevCourse<sub>i</sub>, nextCourse<sub>i</sub>]</code>, representing a prerequisite relationship between course <code>prevCourse<sub>i</sub></code> and course <code>nextCourse<sub>i</sub></code>: course <code>prevCourse<sub>i</sub></code> has to be taken before course <code>nextCourse<sub>i</sub></code>. Also, you are given the integer <code>k</code>.</p>

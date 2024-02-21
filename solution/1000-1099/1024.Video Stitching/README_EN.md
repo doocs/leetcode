@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1024.Video%20Stitching/README.md)
 
+<!-- tags:Greedy,Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a series of video clips from a sporting event that lasted <code>time</code> seconds. These video clips can be overlapping with each other and have varying lengths.</p>

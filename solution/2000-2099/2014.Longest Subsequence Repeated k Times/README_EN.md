@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2014.Longest%20Subsequence%20Repeated%20k%20Times/README.md)
 
+<!-- tags:Greedy,String,Backtracking,Counting,Enumeration -->
+
 ## Description
 
 <p>You are given a string <code>s</code> of length <code>n</code>, and an integer <code>k</code>. You are tasked to find the <strong>longest subsequence repeated</strong> <code>k</code> times in string <code>s</code>.</p>

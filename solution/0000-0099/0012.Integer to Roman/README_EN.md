@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0012.Integer%20to%20Roman/README.md)
 
+<!-- tags:Hash Table,Math,String -->
+
 ## Description
 
 <p>Roman numerals are represented by seven different symbols:&nbsp;<code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>
@@ -162,6 +164,44 @@ public class Solution {
             }
         }
         return ans.ToString();
+    }
+}
+```
+
+```php
+class Solution {
+    /**
+     * @param int $num
+     * @return string
+     */
+
+    function intToRoman($num) {
+        $values = [
+            'M' => 1000,
+            'CM' => 900,
+            'D' => 500,
+            'CD' => 400,
+            'C' => 100,
+            'XC' => 90,
+            'L' => 50,
+            'XL' => 40,
+            'X' => 10,
+            'IX' => 9,
+            'V' => 5,
+            'IV' => 4,
+            'I' => 1,
+        ];
+
+        $result = '';
+
+        foreach ($values as $roman => $value) {
+            while ($num >= $value) {
+                $result .= $roman;
+                $num -= $value;
+            }
+        }
+
+        return $result;
     }
 }
 ```

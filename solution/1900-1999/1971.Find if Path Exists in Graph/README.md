@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

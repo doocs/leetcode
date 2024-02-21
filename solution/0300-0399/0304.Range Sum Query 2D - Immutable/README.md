@@ -2,6 +2,8 @@
 
 [English Version](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md)
 
+<!-- tags:设计,数组,矩阵,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

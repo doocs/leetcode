@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

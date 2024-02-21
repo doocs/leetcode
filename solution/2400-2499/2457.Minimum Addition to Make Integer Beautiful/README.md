@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2457.Minimum%20Addition%20to%20Make%20Integer%20Beautiful/README_EN.md)
 
+<!-- tags:贪心,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

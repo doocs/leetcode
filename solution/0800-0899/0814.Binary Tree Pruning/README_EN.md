@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README.md)
 
+<!-- tags:Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a binary tree, return <em>the same tree where every subtree (of the given tree) not containing a </em><code>1</code><em> has been removed</em>.</p>

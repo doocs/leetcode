@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README.md)
 
+<!-- tags:Greedy,Array,Math,Game Theory,Sorting -->
+
 ## Description
 
 <p>There are <code>3n</code> piles of coins of varying size, you and your friends will take piles of coins as follows:</p>

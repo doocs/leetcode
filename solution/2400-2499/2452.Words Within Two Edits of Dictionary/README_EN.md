@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md)
 
+<!-- tags:Array,String -->
+
 ## Description
 
 <p>You are given two string arrays, <code>queries</code> and <code>dictionary</code>. All words in each array comprise of lowercase English letters and have the same length.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <font face="monospace"><code>Coordinates</code></font></p>

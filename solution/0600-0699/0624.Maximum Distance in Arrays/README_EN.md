@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You are given <code>m</code> <code>arrays</code>, where each array is sorted in <strong>ascending order</strong>.</p>

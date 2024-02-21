@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README_EN.md)
 
+<!-- tags:贪心,数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

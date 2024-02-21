@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

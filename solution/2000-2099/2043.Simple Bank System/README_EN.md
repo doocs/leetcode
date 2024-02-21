@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2043.Simple%20Bank%20System/README.md)
 
+<!-- tags:Design,Array,Hash Table,Simulation -->
+
 ## Description
 
 <p>You have been tasked with writing a program for a popular bank that will automate all its incoming transactions (transfer, deposit, and withdraw). The bank has <code>n</code> accounts numbered from <code>1</code> to <code>n</code>. The initial balance of each account is stored in a <strong>0-indexed</strong> integer array <code>balance</code>, with the <code>(i + 1)<sup>th</sup></code> account having an initial balance of <code>balance[i]</code>.</p>

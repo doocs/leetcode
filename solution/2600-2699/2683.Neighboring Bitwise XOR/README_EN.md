@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)
 
+<!-- tags:Bit Manipulation,Array -->
+
 ## Description
 
 <p>A <strong>0-indexed</strong> array <code>derived</code> with length <code>n</code> is derived by computing the <strong>bitwise XOR</strong>&nbsp;(&oplus;) of adjacent values in a <strong>binary array</strong> <code>original</code> of length <code>n</code>.</p>

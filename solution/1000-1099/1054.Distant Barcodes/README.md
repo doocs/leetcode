@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md)
 
+<!-- tags:贪心,数组,哈希表,计数,排序,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

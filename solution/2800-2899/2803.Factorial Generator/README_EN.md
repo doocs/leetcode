@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2803.Factorial%20Generator/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write a generator function that takes an integer <code>n</code> as an argument and returns a generator object which yields the <strong>factorial sequence</strong>.</p>

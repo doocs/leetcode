@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)
 
+<!-- tags:哈希表,数学,字符串,数论,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

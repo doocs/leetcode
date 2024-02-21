@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README_EN.md)
 
+<!-- tags:贪心,数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

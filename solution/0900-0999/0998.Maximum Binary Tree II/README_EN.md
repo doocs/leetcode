@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README.md)
 
+<!-- tags:Tree,Binary Tree -->
+
 ## Description
 
 <p>A <strong>maximum tree</strong> is a tree where every node has a value greater than any other value in its subtree.</p>

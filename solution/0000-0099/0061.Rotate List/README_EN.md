@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0061.Rotate%20List/README.md)
 
+<!-- tags:Linked List,Two Pointers -->
+
 ## Description
 
 <p>Given the <code>head</code> of a linked&nbsp;list, rotate the list to the right by <code>k</code> places.</p>

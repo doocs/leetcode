@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README_EN.md)
 
+<!-- tags:数组,动态规划,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

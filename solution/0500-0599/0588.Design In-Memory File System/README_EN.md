@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0588.Design%20In-Memory%20File%20System/README.md)
 
+<!-- tags:Design,Trie,Hash Table,String -->
+
 ## Description
 
 <p>Design a data structure that simulates an in-memory file system.</p>

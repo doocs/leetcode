@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)
 
+<!-- tags:数组,二分查找,分治 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

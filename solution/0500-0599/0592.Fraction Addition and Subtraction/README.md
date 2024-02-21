@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README_EN.md)
 
+<!-- tags:数学,字符串,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2439.Minimize%20Maximum%20of%20Array/README.md)
 
+<!-- tags:Greedy,Array,Binary Search,Dynamic Programming,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> comprising of <code>n</code> non-negative integers.</p>

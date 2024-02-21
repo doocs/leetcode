@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0626.Exchange%20Seats/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Seat</code></p>

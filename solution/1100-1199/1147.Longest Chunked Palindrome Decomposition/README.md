@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md)
 
+<!-- tags:贪心,双指针,字符串,动态规划,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

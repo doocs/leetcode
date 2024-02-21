@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README_EN.md)
 
+<!-- tags:数组,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

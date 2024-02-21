@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README_EN.md)
 
+<!-- tags:数组,哈希表,二分查找,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

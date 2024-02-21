@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

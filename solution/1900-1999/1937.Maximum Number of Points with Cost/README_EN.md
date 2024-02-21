@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>You are given an <code>m x n</code> integer matrix <code>points</code> (<strong>0-indexed</strong>). Starting with <code>0</code> points, you want to <strong>maximize</strong> the number of points you can get from the matrix.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/README_EN.md)
 
+<!-- tags:栈,贪心,字符串,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

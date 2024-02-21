@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Traffic</code></p>

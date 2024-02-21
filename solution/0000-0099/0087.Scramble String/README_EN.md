@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0087.Scramble%20String/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>We can scramble a string s to get a string t using the following algorithm:</p>

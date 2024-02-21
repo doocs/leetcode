@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,计数,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

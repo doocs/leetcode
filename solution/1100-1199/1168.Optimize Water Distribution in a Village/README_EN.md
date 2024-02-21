@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md)
 
+<!-- tags:Union Find,Graph,Minimum Spanning Tree,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There are <code>n</code> houses in a village. We want to supply water for all the houses by building wells and laying pipes.</p>

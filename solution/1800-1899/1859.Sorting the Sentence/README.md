@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md)
 
+<!-- tags:字符串,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0299.Bulls%20and%20Cows/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are playing the <strong><a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank">Bulls and Cows</a></strong> game with your friend.</p>

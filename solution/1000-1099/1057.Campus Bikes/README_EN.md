@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1057.Campus%20Bikes/README.md)
 
+<!-- tags:Greedy,Array,Sorting -->
+
 ## Description
 
 <p>On a campus represented on the X-Y plane, there are <code>n</code> workers and <code>m</code> bikes, with <code>n &lt;= m</code>.</p>

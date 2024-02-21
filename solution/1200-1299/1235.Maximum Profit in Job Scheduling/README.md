@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
 
+<!-- tags:数组,二分查找,动态规划,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

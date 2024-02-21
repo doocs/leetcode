@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0075.Sort%20Colors/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>Given an array <code>nums</code> with <code>n</code> objects colored red, white, or blue, sort them <strong><a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a> </strong>so that objects of the same color are adjacent, with the colors in the order red, white, and blue.</p>

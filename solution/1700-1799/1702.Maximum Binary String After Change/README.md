@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README_EN.md)
 
+<!-- tags:贪心,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

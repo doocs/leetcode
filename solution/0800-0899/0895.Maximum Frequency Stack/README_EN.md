@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md)
 
+<!-- tags:Stack,Design,Hash Table,Ordered Set -->
+
 ## Description
 
 <p>Design a stack-like data structure to push elements to the stack and pop the most frequent element from the stack.</p>

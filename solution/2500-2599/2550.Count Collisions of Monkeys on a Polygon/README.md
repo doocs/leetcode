@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2550.Count%20Collisions%20of%20Monkeys%20on%20a%20Polygon/README_EN.md)
 
+<!-- tags:递归,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

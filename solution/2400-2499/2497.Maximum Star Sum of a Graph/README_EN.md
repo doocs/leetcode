@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2497.Maximum%20Star%20Sum%20of%20a%20Graph/README.md)
 
+<!-- tags:Greedy,Graph,Array,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>There is an undirected graph consisting of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>vals</code> of length <code>n</code> where <code>vals[i]</code> denotes the value of the <code>i<sup>th</sup></code> node.</p>

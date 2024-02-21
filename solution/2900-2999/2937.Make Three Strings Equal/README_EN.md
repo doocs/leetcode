@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are given three strings <code>s1</code>, <code>s2</code>, and <code>s3</code>. You have to perform the following operation on these three strings <strong>as many times</strong> as you want<!-- notionvc: b5178de7-3318-4129-b7d9-726b47e90621 -->.</p>

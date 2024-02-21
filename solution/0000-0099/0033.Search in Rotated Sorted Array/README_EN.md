@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0033.Search%20in%20Rotated%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>There is an integer array <code>nums</code> sorted in ascending order (with <strong>distinct</strong> values).</p>

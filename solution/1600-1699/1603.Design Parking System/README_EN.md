@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1603.Design%20Parking%20System/README.md)
 
+<!-- tags:Design,Counting,Simulation -->
+
 ## Description
 
 <p>Design a parking system for a parking lot. The parking lot has three kinds of parking spaces: big, medium, and small, with a fixed number of slots for each size.</p>

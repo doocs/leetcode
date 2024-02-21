@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0838.Push%20Dominoes/README_EN.md)
 
+<!-- tags:双指针,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

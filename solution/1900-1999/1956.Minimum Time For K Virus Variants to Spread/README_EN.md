@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README.md)
 
+<!-- tags:Geometry,Array,Math,Binary Search,Enumeration -->
+
 ## Description
 
 <p>There are <code>n</code> <strong>unique</strong> virus variants in an infinite 2D grid. You are given a 2D array <code>points</code>, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a virus originating at <code>(x<sub>i</sub>, y<sub>i</sub>)</code> on day <code>0</code>. Note that it is possible for <strong>multiple </strong>virus variants to originate at the <strong>same</strong> point.</p>

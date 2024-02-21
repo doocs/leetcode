@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README.md)
 
+<!-- tags:Greedy,String -->
+
 ## Description
 
 <p>You are given a string <code>time</code> in the form of <code> hh:mm</code>, where some of the digits in the string are hidden (represented by <code>?</code>).</p>

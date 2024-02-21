@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0400.Nth%20Digit/README.md)
 
+<!-- tags:Math,Binary Search -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return the <code>n<sup>th</sup></code> digit of the infinite integer sequence <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...]</code>.</p>

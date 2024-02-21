@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Orders</code></p>

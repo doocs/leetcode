@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README_EN.md)
 
+<!-- tags:数组,字符串匹配,哈希函数,滚动哈希 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

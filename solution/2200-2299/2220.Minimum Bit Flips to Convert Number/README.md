@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2220.Minimum%20Bit%20Flips%20to%20Convert%20Number/README_EN.md)
 
+<!-- tags:位运算 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

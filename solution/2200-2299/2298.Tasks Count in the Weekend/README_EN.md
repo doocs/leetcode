@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Tasks</code></p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2741.Special%20Permutations/README.md)
 
+<!-- tags:Bit Manipulation,Array,Bitmask -->
+
 ## Description
 
 <p>You are given a&nbsp;<strong>0-indexed</strong>&nbsp;integer array&nbsp;<code>nums</code>&nbsp;containing&nbsp;<code>n</code>&nbsp;<strong>distinct</strong> positive integers. A permutation of&nbsp;<code>nums</code>&nbsp;is called special if:</p>

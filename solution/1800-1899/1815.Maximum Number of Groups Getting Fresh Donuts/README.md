@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README_EN.md)
 
+<!-- tags:位运算,记忆化搜索,数组,动态规划,状态压缩 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README_EN.md)
 
+<!-- tags:字符串,动态规划,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

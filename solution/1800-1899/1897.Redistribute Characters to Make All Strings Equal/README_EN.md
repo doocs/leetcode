@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README.md)
 
+<!-- tags:Hash Table,String,Counting -->
+
 ## Description
 
 <p>You are given an array of strings <code>words</code> (<strong>0-indexed</strong>).</p>

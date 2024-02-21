@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1399.Count%20Largest%20Group/README.md)
 
+<!-- tags:Hash Table,Math -->
+
 ## Description
 
 <p>You are given an integer <code>n</code>.</p>

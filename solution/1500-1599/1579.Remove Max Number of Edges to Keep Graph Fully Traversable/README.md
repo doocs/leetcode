@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/README_EN.md)
 
+<!-- tags:并查集,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

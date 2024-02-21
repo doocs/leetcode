@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1133.Largest%20Unique%20Number/README_EN.md)
 
+<!-- tags:数组,哈希表,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

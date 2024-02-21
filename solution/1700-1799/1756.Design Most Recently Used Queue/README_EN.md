@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README.md)
 
+<!-- tags:Stack,Design,Binary Indexed Tree,Array,Hash Table,Ordered Set -->
+
 ## Description
 
 <p>Design a queue-like data structure that moves the most recently used element to the end of the queue.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README.md)
 
+<!-- tags:Graph,Trie,Array,String,Dynamic Programming,Shortest Path -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> strings <code>source</code> and <code>target</code>, both of length <code>n</code> and consisting of <strong>lowercase</strong> English characters. You are also given two <strong>0-indexed</strong> string arrays <code>original</code> and <code>changed</code>, and an integer array <code>cost</code>, where <code>cost[i]</code> represents the cost of converting the string <code>original[i]</code> to the string <code>changed[i]</code>.</p>

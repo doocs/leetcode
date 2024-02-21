@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2151.Maximum%20Good%20People%20Based%20on%20Statements/README_EN.md)
 
+<!-- tags:位运算,数组,回溯,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

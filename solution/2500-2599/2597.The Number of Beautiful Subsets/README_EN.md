@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md)
 
+<!-- tags:Array,Dynamic Programming,Backtracking,Sorting -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> of positive integers and a <strong>positive</strong> integer <code>k</code>.</p>

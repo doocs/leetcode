@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README_EN.md)
 
+<!-- tags:数组,二分查找,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given an array representing a row of <code>seats</code> where <code>seats[i] = 1</code> represents a person sitting in the <code>i<sup>th</sup></code> seat, and <code>seats[i] = 0</code> represents that the <code>i<sup>th</sup></code> seat is empty <strong>(0-indexed)</strong>.</p>

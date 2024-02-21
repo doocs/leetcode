@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README.md)
 
+<!-- tags:Stack,Greedy,Array,Monotonic Stack -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and a positive integer <code>k</code>, return <em>the most<strong> competitive</strong> subsequence of </em><code>nums</code> <em>of size </em><code>k</code>.</p>

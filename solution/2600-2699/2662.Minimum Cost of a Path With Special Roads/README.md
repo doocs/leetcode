@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md)
 
+<!-- tags:图,数组,最短路,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

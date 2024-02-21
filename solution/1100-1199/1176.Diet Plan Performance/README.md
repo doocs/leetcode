@@ -2,6 +2,8 @@
 
 [English Version](/solution/1100-1199/1176.Diet%20Plan%20Performance/README_EN.md)
 
+<!-- tags:数组,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

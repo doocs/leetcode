@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Departments</code></p>

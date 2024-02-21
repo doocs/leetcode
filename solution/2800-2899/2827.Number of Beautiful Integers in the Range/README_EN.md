@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md)
 
+<!-- tags:Math,Dynamic Programming -->
+
 ## Description
 
 <p>You are given positive integers <code>low</code>, <code>high</code>, and <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README.md)
 
+<!-- tags:Tree,Depth-First Search,String,Binary Tree -->
+
 ## Description
 
 <p>You are given the <code>root</code> of a binary tree where each node has a value in the range <code>[0, 25]</code> representing the letters <code>&#39;a&#39;</code> to <code>&#39;z&#39;</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1306.Jump%20Game%20III/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

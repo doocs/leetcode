@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0469.Convex%20Polygon/README.md)
 
+<!-- tags:Geometry,Math -->
+
 ## Description
 
 <p>You are given an array of points on the <strong>X-Y</strong> plane <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>. The points form a polygon when joined sequentially.</p>

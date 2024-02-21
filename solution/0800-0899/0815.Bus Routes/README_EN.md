@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0815.Bus%20Routes/README.md)
 
+<!-- tags:Breadth-First Search,Array,Hash Table -->
+
 ## Description
 
 <p>You are given an array <code>routes</code> representing bus routes where <code>routes[i]</code> is a bus route that the <code>i<sup>th</sup></code> bus repeats forever.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
 
+<!-- tags:数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

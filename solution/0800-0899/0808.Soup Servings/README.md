@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0808.Soup%20Servings/README_EN.md)
 
+<!-- tags:数学,动态规划,概率与统计 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

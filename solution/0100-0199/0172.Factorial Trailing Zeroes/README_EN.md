@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the number of trailing zeroes in </em><code>n!</code>.</p>

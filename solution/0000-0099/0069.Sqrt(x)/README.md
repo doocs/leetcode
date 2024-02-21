@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0069.Sqrt%28x%29/README_EN.md)
 
+<!-- tags:数学,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

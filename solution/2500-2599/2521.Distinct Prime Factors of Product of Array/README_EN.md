@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2521.Distinct%20Prime%20Factors%20of%20Product%20of%20Array/README.md)
 
+<!-- tags:Array,Hash Table,Math,Number Theory -->
+
 ## Description
 
 <p>Given an array of positive integers <code>nums</code>, return <em>the number of <strong>distinct prime factors</strong> in the product of the elements of</em> <code>nums</code>.</p>

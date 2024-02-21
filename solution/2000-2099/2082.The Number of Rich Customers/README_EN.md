@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Store</code></p>

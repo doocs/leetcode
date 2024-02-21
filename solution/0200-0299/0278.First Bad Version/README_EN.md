@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0278.First%20Bad%20Version/README.md)
 
+<!-- tags:Binary Search,Interactive -->
+
 ## Description
 
 <p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>

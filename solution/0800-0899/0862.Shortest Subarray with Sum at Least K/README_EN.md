@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README.md)
 
+<!-- tags:Queue,Array,Binary Search,Prefix Sum,Sliding Window,Monotonic Queue,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the length of the shortest non-empty <strong>subarray</strong> of </em><code>nums</code><em> with a sum of at least </em><code>k</code>. If there is no such <strong>subarray</strong>, return <code>-1</code>.</p>

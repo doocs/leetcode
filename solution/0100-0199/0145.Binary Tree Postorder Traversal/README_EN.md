@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README.md)
 
+<!-- tags:Stack,Tree,Depth-First Search,Binary Tree -->
+
 ## Description
 
 <p>Given the <code>root</code> of a&nbsp;binary tree, return <em>the postorder traversal of its nodes&#39; values</em>.</p>

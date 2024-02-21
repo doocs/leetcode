@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the shortest string that has both </em><code>str1</code><em> and </em><code>str2</code><em> as <strong>subsequences</strong></em>. If there are multiple valid strings, return <strong>any</strong> of them.</p>

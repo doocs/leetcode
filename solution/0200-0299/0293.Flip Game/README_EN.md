@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0293.Flip%20Game/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>You are playing a Flip Game with your friend.</p>

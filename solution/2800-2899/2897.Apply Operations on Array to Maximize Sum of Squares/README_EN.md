@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README.md)
 
+<!-- tags:Greedy,Bit Manipulation,Array,Hash Table -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>

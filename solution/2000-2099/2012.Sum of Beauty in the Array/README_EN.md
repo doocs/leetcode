@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README.md)
 
+<!-- tags:Array -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. For each index <code>i</code> (<code>1 &lt;= i &lt;= nums.length - 2</code>) the <strong>beauty</strong> of <code>nums[i]</code> equals:</p>

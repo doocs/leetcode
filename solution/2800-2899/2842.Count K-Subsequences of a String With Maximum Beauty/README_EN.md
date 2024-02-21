@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md)
 
+<!-- tags:Greedy,Hash Table,Math,String,Combinatorics -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md)
 
+<!-- tags:Greedy,Array,Math,Binary Search,Sorting -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>usageLimits</code> of length <code>n</code>.</p>

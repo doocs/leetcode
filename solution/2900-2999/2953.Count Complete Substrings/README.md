@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md)
 
+<!-- tags:哈希表,字符串,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

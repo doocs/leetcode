@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README_EN.md)
 
+<!-- tags:贪心,数组,数学,二分查找,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

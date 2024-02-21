@@ -2,6 +2,8 @@
 
 [English Version](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md)
 
+<!-- tags:广度优先搜索,图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

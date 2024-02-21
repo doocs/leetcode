@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0555.Split%20Concatenated%20Strings/README_EN.md)
 
+<!-- tags:贪心,数组,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

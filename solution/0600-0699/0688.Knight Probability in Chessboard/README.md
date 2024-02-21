@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md)
 
+<!-- tags:动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

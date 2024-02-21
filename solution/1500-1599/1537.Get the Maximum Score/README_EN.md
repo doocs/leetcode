@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Dynamic Programming -->
+
 ## Description
 
 <p>You are given two <strong>sorted</strong> arrays of distinct integers <code>nums1</code> and <code>nums2</code>.</p>

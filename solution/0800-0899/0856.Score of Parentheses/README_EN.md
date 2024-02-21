@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0856.Score%20of%20Parentheses/README.md)
 
+<!-- tags:Stack,String -->
+
 ## Description
 
 <p>Given a balanced parentheses string <code>s</code>, return <em>the <strong>score</strong> of the string</em>.</p>

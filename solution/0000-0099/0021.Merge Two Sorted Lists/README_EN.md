@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
 
+<!-- tags:Recursion,Linked List -->
+
 ## Description
 
 <p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.</p>

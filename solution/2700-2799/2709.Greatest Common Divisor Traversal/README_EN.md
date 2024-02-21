@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md)
 
+<!-- tags:Union Find,Array,Math,Number Theory -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, and you are allowed to <strong>traverse</strong> between its indices. You can traverse between index <code>i</code> and index <code>j</code>, <code>i != j</code>, if and only if <code>gcd(nums[i], nums[j]) &gt; 1</code>, where <code>gcd</code> is the <strong>greatest common divisor</strong>.</p>

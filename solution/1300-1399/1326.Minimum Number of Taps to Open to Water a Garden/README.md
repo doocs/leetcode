@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

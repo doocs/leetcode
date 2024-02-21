@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0672.Bulb%20Switcher%20II/README_EN.md)
 
+<!-- tags:位运算,深度优先搜索,广度优先搜索,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

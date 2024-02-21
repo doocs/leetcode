@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0470.Implement%20Rand10%28%29%20Using%20Rand7%28%29/README_EN.md)
 
+<!-- tags:数学,拒绝采样,概率与统计,随机化 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

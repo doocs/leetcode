@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md)
 
+<!-- tags:Dynamic Programming -->
+
 ## Description
 
 <p>Given a positive integer <code>n</code>, return the number of the integers in the range <code>[0, n]</code> whose binary representations <strong>do not</strong> contain consecutive ones.</p>

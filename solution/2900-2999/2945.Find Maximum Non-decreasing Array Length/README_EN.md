@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md)
 
+<!-- tags:Stack,Queue,Array,Binary Search,Dynamic Programming,Monotonic Queue,Monotonic Stack -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>

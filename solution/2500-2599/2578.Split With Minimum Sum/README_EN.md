@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README.md)
 
+<!-- tags:Greedy,Math,Sorting -->
+
 ## Description
 
 <p>Given a positive integer <code>num</code>, split it into two non-negative integers <code>num1</code> and <code>num2</code> such that:</p>

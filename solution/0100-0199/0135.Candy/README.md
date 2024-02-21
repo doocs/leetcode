@@ -2,6 +2,8 @@
 
 [English Version](/solution/0100-0199/0135.Candy/README_EN.md)
 
+<!-- tags:贪心,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

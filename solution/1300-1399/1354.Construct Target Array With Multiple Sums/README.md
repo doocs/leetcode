@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1354.Construct%20Target%20Array%20With%20Multiple%20Sums/README_EN.md)
 
+<!-- tags:数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

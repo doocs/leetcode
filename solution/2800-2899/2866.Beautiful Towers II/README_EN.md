@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md)
 
+<!-- tags:Stack,Array,Monotonic Stack -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> array <code>maxHeights</code> of <code>n</code> integers.</p>

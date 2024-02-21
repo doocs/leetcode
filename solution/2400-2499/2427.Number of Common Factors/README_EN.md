@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)
 
+<!-- tags:Math,Enumeration,Number Theory -->
+
 ## Description
 
 <p>Given two positive integers <code>a</code> and <code>b</code>, return <em>the number of <strong>common</strong> factors of </em><code>a</code><em> and </em><code>b</code>.</p>

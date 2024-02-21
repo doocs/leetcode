@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README_EN.md)
 
+<!-- tags:栈,贪心,数组,双指针,排序,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

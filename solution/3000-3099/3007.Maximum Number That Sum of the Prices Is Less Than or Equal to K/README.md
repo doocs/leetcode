@@ -2,6 +2,8 @@
 
 [English Version](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
 
+<!-- tags:位运算,二分查找,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

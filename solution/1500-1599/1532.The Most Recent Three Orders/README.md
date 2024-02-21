@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

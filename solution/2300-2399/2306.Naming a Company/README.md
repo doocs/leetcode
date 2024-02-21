@@ -2,6 +2,8 @@
 
 [English Version](/solution/2300-2399/2306.Naming%20a%20Company/README_EN.md)
 
+<!-- tags:位运算,数组,哈希表,字符串,枚举 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

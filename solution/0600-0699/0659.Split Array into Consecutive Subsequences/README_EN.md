@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Heap (Priority Queue) -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> that is <strong>sorted in non-decreasing order</strong>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0920.Number%20of%20Music%20Playlists/README.md)
 
+<!-- tags:Math,Dynamic Programming,Combinatorics -->
+
 ## Description
 
 <p>Your music player contains <code>n</code> different songs. You want to listen to <code>goal</code> songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that:</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0736.Parse%20Lisp%20Expression/README.md)
 
+<!-- tags:Stack,Recursion,Hash Table,String -->
+
 ## Description
 
 <p>You are given a string expression representing a Lisp-like expression to return the integer value of.</p>

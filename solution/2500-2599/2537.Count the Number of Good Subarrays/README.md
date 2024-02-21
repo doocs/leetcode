@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

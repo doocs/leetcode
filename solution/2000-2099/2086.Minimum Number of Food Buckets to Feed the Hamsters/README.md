@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2086.Minimum%20Number%20of%20Food%20Buckets%20to%20Feed%20the%20Hamsters/README_EN.md)
 
+<!-- tags:贪心,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

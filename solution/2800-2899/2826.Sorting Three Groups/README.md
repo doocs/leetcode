@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md)
 
+<!-- tags:数组,二分查找,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

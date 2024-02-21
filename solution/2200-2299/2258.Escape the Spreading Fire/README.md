@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md)
 
+<!-- tags:广度优先搜索,数组,二分查找,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

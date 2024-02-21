@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>Given an unsorted integer array <code>nums</code>, return the smallest missing positive integer.</p>

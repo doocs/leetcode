@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
 
+<!-- tags:Recursion,Linked List -->
+
 ## Description
 
 <p>Given the <code>head</code> of a singly linked list, reverse the list, and return <em>the reversed list</em>.</p>

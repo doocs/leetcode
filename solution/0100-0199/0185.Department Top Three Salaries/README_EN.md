@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Employee</code></p>

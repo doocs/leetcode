@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README.md)
 
+<!-- tags:Greedy,Array,Hash Table,Counting,Sorting -->
+
 ## Description
 
 <p>Given an array of integers&nbsp;<code>arr</code>&nbsp;and an integer <code>k</code>.&nbsp;Find the <em>least number of unique integers</em>&nbsp;after removing <strong>exactly</strong> <code>k</code> elements<b>.</b></p>

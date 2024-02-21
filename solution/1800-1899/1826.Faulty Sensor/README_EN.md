@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1826.Faulty%20Sensor/README.md)
 
+<!-- tags:Array,Two Pointers -->
+
 ## Description
 
 <p>An experiment is being conducted in a lab. To ensure accuracy, there are<strong> two </strong>sensors collecting data simultaneously. You are given two arrays <code>sensor1</code> and <code>sensor2</code>, where <code>sensor1[i]</code> and <code>sensor2[i]</code> are the <code>i<sup>th</sup></code> data points collected by the two sensors.</p>

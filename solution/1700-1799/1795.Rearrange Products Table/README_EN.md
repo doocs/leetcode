@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1700-1799/1795.Rearrange%20Products%20Table/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Products</code></p>

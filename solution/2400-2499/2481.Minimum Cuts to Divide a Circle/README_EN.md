@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2400-2499/2481.Minimum%20Cuts%20to%20Divide%20a%20Circle/README.md)
 
+<!-- tags:Geometry,Math -->
+
 ## Description
 
 <p>A <strong>valid cut</strong> in a circle can be:</p>

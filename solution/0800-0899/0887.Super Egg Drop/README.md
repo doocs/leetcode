@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0887.Super%20Egg%20Drop/README_EN.md)
 
+<!-- tags:数学,二分查找,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

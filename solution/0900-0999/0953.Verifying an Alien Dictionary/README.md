@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md)
 
+<!-- tags:数组,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

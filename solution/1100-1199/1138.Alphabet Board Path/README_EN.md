@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1138.Alphabet%20Board%20Path/README.md)
 
+<!-- tags:Hash Table,String -->
+
 ## Description
 
 <p>On an alphabet board, we start at position <code>(0, 0)</code>, corresponding to character&nbsp;<code>board[0][0]</code>.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2382.Maximum%20Segment%20Sum%20After%20Removals/README.md)
 
+<!-- tags:Union Find,Array,Ordered Set,Prefix Sum -->
+
 ## Description
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums</code> and <code>removeQueries</code>, both of length <code>n</code>. For the <code>i<sup>th</sup></code> query, the element in <code>nums</code> at the index <code>removeQueries[i]</code> is removed, splitting <code>nums</code> into different segments.</p>

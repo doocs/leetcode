@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Customer</code></p>

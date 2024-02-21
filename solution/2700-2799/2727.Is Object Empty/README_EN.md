@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2727.Is%20Object%20Empty/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Given an object or an array, return if it is empty.</p>

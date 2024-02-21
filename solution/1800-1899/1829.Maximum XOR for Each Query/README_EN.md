@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md)
 
+<!-- tags:Bit Manipulation,Array,Prefix Sum -->
+
 ## Description
 
 <p>You are given a <strong>sorted</strong> array <code>nums</code> of <code>n</code> non-negative integers and an integer <code>maximumBit</code>. You want to perform the following query <code>n</code> <strong>times</strong>:</p>

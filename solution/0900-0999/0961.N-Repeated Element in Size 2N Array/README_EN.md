@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0900-0999/0961.N-Repeated%20Element%20in%20Size%202N%20Array/README.md)
 
+<!-- tags:Array,Hash Table -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> with the following properties:</p>

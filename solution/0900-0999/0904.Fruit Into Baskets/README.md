@@ -2,6 +2,8 @@
 
 [English Version](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README_EN.md)
 
+<!-- tags:数组,哈希表,滑动窗口 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

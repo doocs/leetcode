@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2624.Snail%20Traversal/README.md)
 
+<!-- tags: -->
+
 ## Description
 
 <p>Write code that enhances all arrays such that you can call the <code>snail(rowsCount, colsCount)</code> method that transforms the 1D&nbsp;array into&nbsp;a 2D array organised in&nbsp;the pattern known as <strong>snail traversal order</strong>. Invalid input values should output an empty array. If&nbsp;<code>rowsCount * colsCount !== nums.length</code>,&nbsp;the input is considered invalid.</p>

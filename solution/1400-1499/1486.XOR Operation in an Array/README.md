@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README_EN.md)
 
+<!-- tags:位运算,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

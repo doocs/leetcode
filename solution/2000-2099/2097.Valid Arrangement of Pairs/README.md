@@ -2,6 +2,8 @@
 
 [English Version](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md)
 
+<!-- tags:深度优先搜索,图,欧拉回路 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

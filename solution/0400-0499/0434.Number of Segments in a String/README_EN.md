@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0434.Number%20of%20Segments%20in%20a%20String/README.md)
 
+<!-- tags:String -->
+
 ## Description
 
 <p>Given a string <code>s</code>, return <em>the number of segments in the string</em>.</p>

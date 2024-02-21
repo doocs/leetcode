@@ -2,6 +2,8 @@
 
 [English Version](/solution/0500-0599/0514.Freedom%20Trail/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,字符串,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

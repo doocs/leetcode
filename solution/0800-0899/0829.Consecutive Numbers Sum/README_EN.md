@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0829.Consecutive%20Numbers%20Sum/README.md)
 
+<!-- tags:Math,Enumeration -->
+
 ## Description
 
 <p>Given an integer <code>n</code>, return <em>the number of ways you can write </em><code>n</code><em> as the sum of consecutive positive integers.</em></p>

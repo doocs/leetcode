@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and a dictionary of words <code>dictionary</code>. You have to break <code>s</code> into one or more <strong>non-overlapping</strong> substrings such that each substring is present in <code>dictionary</code>. There may be some <strong>extra characters</strong> in <code>s</code> which are not present in any of the substrings.</p>

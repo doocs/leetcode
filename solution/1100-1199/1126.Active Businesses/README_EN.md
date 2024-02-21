@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1126.Active%20Businesses/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Events</code></p>

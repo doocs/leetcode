@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
 
+<!-- tags:Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in <strong>non-decreasing order</strong>, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>

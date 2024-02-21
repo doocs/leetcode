@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2305.Fair%20Distribution%20of%20Cookies/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
+
 ## Description
 
 <p>You are given an integer array <code>cookies</code>, where <code>cookies[i]</code> denotes the number of cookies in the <code>i<sup>th</sup></code> bag. You are also given an integer <code>k</code> that denotes the number of children to distribute <strong>all</strong> the bags of cookies to. All the cookies in the same bag must go to the same child and cannot be split up.</p>

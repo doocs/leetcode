@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README.md)
 
+<!-- tags:Array,Math,Counting,Number Theory -->
+
 ## Description
 
 <p>You are given an array <code>nums</code> that consists of positive integers.</p>

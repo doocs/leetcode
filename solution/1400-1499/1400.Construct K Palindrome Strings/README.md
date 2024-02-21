@@ -2,6 +2,8 @@
 
 [English Version](/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README_EN.md)
 
+<!-- tags:贪心,哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

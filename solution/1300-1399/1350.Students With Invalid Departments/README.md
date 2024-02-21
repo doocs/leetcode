@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README_EN.md)
 
+<!-- tags:数据库 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README_EN.md)
 
+<!-- tags:深度优先搜索,设计,字典树,哈希表,字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

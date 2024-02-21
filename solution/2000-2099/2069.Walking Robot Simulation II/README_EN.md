@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README.md)
 
+<!-- tags:Design,Simulation -->
+
 ## Description
 
 <p>A <code>width x height</code> grid is on an XY-plane with the <strong>bottom-left</strong> cell at <code>(0, 0)</code> and the <strong>top-right</strong> cell at <code>(width - 1, height - 1)</code>. The grid is aligned with the four cardinal directions (<code>&quot;North&quot;</code>, <code>&quot;East&quot;</code>, <code>&quot;South&quot;</code>, and <code>&quot;West&quot;</code>). A robot is <strong>initially</strong> at cell <code>(0, 0)</code> facing direction <code>&quot;East&quot;</code>.</p>

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README_EN.md)
 
+<!-- tags:字符串 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

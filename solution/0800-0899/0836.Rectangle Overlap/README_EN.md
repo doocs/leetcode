@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0836.Rectangle%20Overlap/README.md)
 
+<!-- tags:Geometry,Math -->
+
 ## Description
 
 <p>An axis-aligned rectangle is represented as a list <code>[x1, y1, x2, y2]</code>, where <code>(x1, y1)</code> is the coordinate of its bottom-left corner, and <code>(x2, y2)</code> is the coordinate of its top-right corner. Its top and bottom edges are parallel to the X-axis, and its left and right edges are parallel to the Y-axis.</p>

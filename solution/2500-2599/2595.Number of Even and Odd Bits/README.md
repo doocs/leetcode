@@ -2,6 +2,8 @@
 
 [English Version](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README_EN.md)
 
+<!-- tags:位运算 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

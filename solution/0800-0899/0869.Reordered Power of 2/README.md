@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0869.Reordered%20Power%20of%202/README_EN.md)
 
+<!-- tags:哈希表,数学,计数,枚举,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

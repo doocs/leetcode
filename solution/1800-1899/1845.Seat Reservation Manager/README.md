@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README_EN.md)
 
+<!-- tags:设计,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

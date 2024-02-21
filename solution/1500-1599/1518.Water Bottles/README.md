@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1518.Water%20Bottles/README_EN.md)
 
+<!-- tags:数学,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

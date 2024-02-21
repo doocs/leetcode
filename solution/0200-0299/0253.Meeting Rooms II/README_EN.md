@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0200-0299/0253.Meeting%20Rooms%20II/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Prefix Sum,Sorting,Heap (Priority Queue) -->
+
 ## Description
 
 <p>Given an array of meeting time intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, return <em>the minimum number of conference rooms required</em>.</p>

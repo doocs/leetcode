@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md)
 
+<!-- tags:数组,二分查找,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

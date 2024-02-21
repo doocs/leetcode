@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1076.Project%20Employees%20II/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Project</code></p>

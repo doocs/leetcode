@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)
 
+<!-- tags:Array,Hash Table,String -->
+
 ## Description
 
 <p>Given a string array <code>words</code>, return <em>an array of all characters that show up in all strings within the </em><code>words</code><em> (including duplicates)</em>. You may return the answer in <strong>any order</strong>.</p>

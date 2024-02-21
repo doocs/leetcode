@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2413.Smallest%20Even%20Multiple/README_EN.md)
 
+<!-- tags:数学,数论 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

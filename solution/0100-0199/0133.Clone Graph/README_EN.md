@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0133.Clone%20Graph/README.md)
 
+<!-- tags:Depth-First Search,Breadth-First Search,Graph,Hash Table -->
+
 ## Description
 
 <p>Given a reference of a node in a <strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph" target="_blank">connected</a></strong> undirected graph.</p>

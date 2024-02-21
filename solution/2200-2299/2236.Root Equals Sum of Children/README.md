@@ -2,6 +2,8 @@
 
 [English Version](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README_EN.md)
 
+<!-- tags:树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

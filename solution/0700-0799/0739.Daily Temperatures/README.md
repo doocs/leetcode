@@ -2,6 +2,8 @@
 
 [English Version](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
 
+<!-- tags:栈,数组,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

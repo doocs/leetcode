@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters. In one operation, you can change <strong>any</strong> character of <code>s</code> to any <strong>other</strong> character.</p>

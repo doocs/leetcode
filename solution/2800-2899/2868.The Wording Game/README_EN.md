@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2800-2899/2868.The%20Wording%20Game/README.md)
 
+<!-- tags:Array,Math,Two Pointers,String,Game Theory -->
+
 ## Description
 
 <p>Alice and Bob each have a <strong>lexicographically sorted</strong> array of strings named <code>a</code> and <code>b</code> respectively.</p>

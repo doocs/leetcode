@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> of length <code>n</code>.</p>

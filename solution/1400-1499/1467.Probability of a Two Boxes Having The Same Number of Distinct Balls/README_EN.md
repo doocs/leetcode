@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1467.Probability%20of%20a%20Two%20Boxes%20Having%20The%20Same%20Number%20of%20Distinct%20Balls/README.md)
 
+<!-- tags:Array,Math,Dynamic Programming,Backtracking,Combinatorics,Probability and Statistics -->
+
 ## Description
 
 <p>Given <code>2n</code> balls of <code>k</code> distinct colors. You will be given an integer array <code>balls</code> of size <code>k</code> where <code>balls[i]</code> is the number of balls of color <code>i</code>.</p>

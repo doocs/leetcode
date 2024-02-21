@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/README.md)
 
+<!-- tags:Union Find,Graph -->
+
 ## Description
 
 <p>Alice and Bob have an undirected graph of <code>n</code> nodes and three types of edges:</p>

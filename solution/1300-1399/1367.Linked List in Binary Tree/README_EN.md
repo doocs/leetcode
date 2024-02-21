@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Linked List,Binary Tree -->
+
 ## Description
 
 <p>Given a binary tree <code>root</code> and a&nbsp;linked list with&nbsp;<code>head</code>&nbsp;as the first node.&nbsp;</p>

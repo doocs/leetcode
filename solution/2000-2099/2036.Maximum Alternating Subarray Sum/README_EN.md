@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>A <strong>subarray</strong> of a <strong>0-indexed</strong> integer array is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>

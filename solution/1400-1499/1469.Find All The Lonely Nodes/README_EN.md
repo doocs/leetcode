@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/README.md)
 
+<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>In a binary tree, a <strong>lonely</strong> node is a node that is the only child of its parent node. The root of the tree is not lonely because it does not have a parent node.</p>

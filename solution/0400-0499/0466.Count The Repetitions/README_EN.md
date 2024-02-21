@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0466.Count%20The%20Repetitions/README.md)
 
+<!-- tags:String,Dynamic Programming -->
+
 ## Description
 
 <p>We define <code>str = [s, n]</code> as the string <code>str</code> which consists of the string <code>s</code> concatenated <code>n</code> times.</p>

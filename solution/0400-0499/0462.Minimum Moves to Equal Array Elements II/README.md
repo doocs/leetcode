@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md)
 
+<!-- tags:数组,数学,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [English Version](/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README_EN.md)
 
+<!-- tags:图 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1571.Warehouse%20Manager/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Warehouse</code></p>

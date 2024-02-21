@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0500-0599/0517.Super%20Washing%20Machines/README.md)
 
+<!-- tags:Greedy,Array -->
+
 ## Description
 
 <p>You have <code>n</code> super washing machines on a line. Initially, each washing machine has some dresses or is empty.</p>

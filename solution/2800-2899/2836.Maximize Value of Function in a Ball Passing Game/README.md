@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
 
+<!-- tags:位运算,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

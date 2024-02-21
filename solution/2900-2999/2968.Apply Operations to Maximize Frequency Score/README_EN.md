@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README.md)
 
+<!-- tags:Array,Binary Search,Prefix Sum,Sorting,Sliding Window -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>

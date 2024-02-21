@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2086.Minimum%20Number%20of%20Food%20Buckets%20to%20Feed%20the%20Hamsters/README.md)
 
+<!-- tags:Greedy,String,Dynamic Programming -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> string <code>hamsters</code> where <code>hamsters[i]</code> is either:</p>

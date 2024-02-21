@@ -2,6 +2,8 @@
 
 [English Version](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README_EN.md)
 
+<!-- tags:贪心,数组,动态规划 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1609.Even%20Odd%20Tree/README.md)
 
+<!-- tags:Tree,Breadth-First Search,Binary Tree -->
+
 ## Description
 
 <p>A binary tree is named <strong>Even-Odd</strong> if it meets the following conditions:</p>

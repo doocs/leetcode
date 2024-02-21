@@ -2,6 +2,8 @@
 
 [English Version](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README_EN.md)
 
+<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

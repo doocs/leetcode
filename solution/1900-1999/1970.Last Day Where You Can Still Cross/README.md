@@ -2,6 +2,8 @@
 
 [English Version](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README_EN.md)
 
+<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,二分查找,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

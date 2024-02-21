@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2173.Longest%20Winning%20Streak/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Matches</code></p>

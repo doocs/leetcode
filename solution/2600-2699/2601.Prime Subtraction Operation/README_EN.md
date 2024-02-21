@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README.md)
 
+<!-- tags:Greedy,Array,Math,Binary Search,Number Theory -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>

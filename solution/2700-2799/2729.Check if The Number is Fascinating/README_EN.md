@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md)
 
+<!-- tags:Hash Table,Math -->
+
 ## Description
 
 <p>You are given an integer <code>n</code> that consists of exactly <code>3</code> digits.</p>

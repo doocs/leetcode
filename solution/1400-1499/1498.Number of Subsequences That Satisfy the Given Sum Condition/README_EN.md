@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1498.Number%20of%20Subsequences%20That%20Satisfy%20the%20Given%20Sum%20Condition/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>You are given an array of integers <code>nums</code> and an integer <code>target</code>.</p>

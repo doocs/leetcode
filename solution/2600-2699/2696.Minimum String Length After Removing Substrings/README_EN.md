@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md)
 
+<!-- tags:Stack,String,Simulation -->
+
 ## Description
 
 <p>You are given a string <code>s</code> consisting only of <strong>uppercase</strong> English letters.</p>

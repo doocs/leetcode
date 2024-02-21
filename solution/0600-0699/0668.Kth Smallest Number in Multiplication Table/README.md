@@ -2,6 +2,8 @@
 
 [English Version](/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README_EN.md)
 
+<!-- tags:数学,二分查找 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

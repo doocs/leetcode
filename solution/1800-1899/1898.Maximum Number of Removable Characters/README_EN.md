@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)
 
+<!-- tags:Array,Two Pointers,String,Binary Search -->
+
 ## Description
 
 <p>You are given two strings <code>s</code> and <code>p</code> where <code>p</code> is a <strong>subsequence </strong>of <code>s</code>. You are also given a <strong>distinct 0-indexed </strong>integer array <code>removable</code> containing a subset of indices of <code>s</code> (<code>s</code> is also <strong>0-indexed</strong>).</p>

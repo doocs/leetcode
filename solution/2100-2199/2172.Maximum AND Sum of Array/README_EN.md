@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README.md)
 
+<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask -->
+
 ## Description
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code> and an integer <code>numSlots</code> such that <code>2 * numSlots &gt;= n</code>. There are <code>numSlots</code> slots numbered from <code>1</code> to <code>numSlots</code>.</p>

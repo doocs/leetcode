@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1100-1199/1198.Find%20Smallest%20Common%20Element%20in%20All%20Rows/README.md)
 
+<!-- tags:Array,Hash Table,Binary Search,Counting,Matrix -->
+
 ## Description
 
 <p>Given an <code>m x n</code> matrix <code>mat</code> where every row is sorted in <strong>strictly</strong> <strong>increasing</strong> order, return <em>the <strong>smallest common element</strong> in all rows</em>.</p>

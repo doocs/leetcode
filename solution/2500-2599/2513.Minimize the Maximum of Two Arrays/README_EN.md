@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2513.Minimize%20the%20Maximum%20of%20Two%20Arrays/README.md)
 
+<!-- tags:Math,Binary Search,Number Theory -->
+
 ## Description
 
 <p>We have two arrays <code>arr1</code> and <code>arr2</code> which are initially empty. You need to add positive integers to them such that they satisfy all the following conditions:</p>

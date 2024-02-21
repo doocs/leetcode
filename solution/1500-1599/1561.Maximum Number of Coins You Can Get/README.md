@@ -2,6 +2,8 @@
 
 [English Version](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README_EN.md)
 
+<!-- tags:贪心,数组,数学,博弈,排序 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

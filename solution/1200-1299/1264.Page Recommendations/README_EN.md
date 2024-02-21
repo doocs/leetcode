@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1200-1299/1264.Page%20Recommendations/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Friendship</code></p>

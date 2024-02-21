@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2020.Number%20of%20Accounts%20That%20Did%20Not%20Stream/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>Subscriptions</code></p>

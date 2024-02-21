@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
 
+<!-- tags:Array,Prefix Sum -->
+
 ## Description
 
 <p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.</p>

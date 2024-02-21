@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md)
 
+<!-- tags:Tree,Depth-First Search,Array,Binary Tree -->
+
 ## Description
 
 <p>There is a <strong>binary</strong> tree rooted at <code>0</code> consisting of <code>n</code> nodes. The nodes are labeled from <code>0</code> to <code>n - 1</code>. You are given a <strong>0-indexed</strong> integer array <code>parents</code> representing the tree, where <code>parents[i]</code> is the parent of node <code>i</code>. Since node <code>0</code> is the root, <code>parents[0] == -1</code>.</p>

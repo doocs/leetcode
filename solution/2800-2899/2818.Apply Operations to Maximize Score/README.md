@@ -2,6 +2,8 @@
 
 [English Version](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README_EN.md)
 
+<!-- tags:栈,贪心,数组,数学,数论,单调栈 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

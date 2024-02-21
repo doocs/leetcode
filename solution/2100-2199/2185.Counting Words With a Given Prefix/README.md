@@ -2,6 +2,8 @@
 
 [English Version](/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README_EN.md)
 
+<!-- tags:数组,字符串,字符串匹配 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

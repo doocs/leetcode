@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
 
+<!-- tags:Trie,Array,Hash Table,String,String Matching -->
+
 ## Description
 
 <p>You are given a string <code>s</code> and an array of strings <code>words</code>.</p>

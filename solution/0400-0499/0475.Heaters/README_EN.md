@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0400-0499/0475.Heaters/README.md)
 
+<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
+
 ## Description
 
 <p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README.md)
 
+<!-- tags:Bit Manipulation -->
+
 ## Description
 
 <p>Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.</p>

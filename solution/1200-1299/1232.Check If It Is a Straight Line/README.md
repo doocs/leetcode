@@ -2,6 +2,8 @@
 
 [English Version](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README_EN.md)
 
+<!-- tags:几何,数组,数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

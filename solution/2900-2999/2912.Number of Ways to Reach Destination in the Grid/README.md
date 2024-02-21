@@ -2,6 +2,8 @@
 
 [English Version](/solution/2900-2999/2912.Number%20of%20Ways%20to%20Reach%20Destination%20in%20the%20Grid/README_EN.md)
 
+<!-- tags:数学,动态规划,组合数学 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

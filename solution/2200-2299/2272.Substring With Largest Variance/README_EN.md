@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2200-2299/2272.Substring%20With%20Largest%20Variance/README.md)
 
+<!-- tags:Array,Dynamic Programming -->
+
 ## Description
 
 <p>The <strong>variance</strong> of a string is defined as the largest difference between the number of occurrences of <strong>any</strong> <code>2</code> characters present in the string. Note the two characters may or may not be the same.</p>

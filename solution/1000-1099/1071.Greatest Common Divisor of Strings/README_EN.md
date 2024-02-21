@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README.md)
 
+<!-- tags:Math,String -->
+
 ## Description
 
 <p>For two strings <code>s</code> and <code>t</code>, we say &quot;<code>t</code> divides <code>s</code>&quot; if and only if <code>s = t + t + t + ... + t + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).</p>

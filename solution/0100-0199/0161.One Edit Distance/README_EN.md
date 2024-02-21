@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)
 
+<!-- tags:Two Pointers,String -->
+
 ## Description
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if they are both one edit distance apart, otherwise return <code>false</code>.</p>

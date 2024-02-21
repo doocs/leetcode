@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)
 
+<!-- tags:贪心,位运算,数组,矩阵 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

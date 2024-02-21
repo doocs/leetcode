@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README.md)
 
+<!-- tags:Trie,Array,String,Sorting -->
+
 ## Description
 
 <p>Given a string <code>text</code> and an array of strings <code>words</code>, return <em>an array of all index pairs </em><code>[i, j]</code><em> so that the substring </em><code>text[i...j]</code><em> is in <code>words</code></em>.</p>

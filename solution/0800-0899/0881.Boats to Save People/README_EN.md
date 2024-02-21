@@ -2,6 +2,8 @@
 
 [中文文档](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
 
+<!-- tags:Greedy,Array,Two Pointers,Sorting -->
+
 ## Description
 
 <p>You are given an array <code>people</code> where <code>people[i]</code> is the weight of the <code>i<sup>th</sup></code> person, and an <strong>infinite number of boats</strong> where each boat can carry a maximum weight of <code>limit</code>. Each boat carries at most two people at the same time, provided the sum of the weight of those people is at most <code>limit</code>.</p>

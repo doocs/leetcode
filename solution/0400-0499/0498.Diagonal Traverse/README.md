@@ -2,6 +2,8 @@
 
 [English Version](/solution/0400-0499/0498.Diagonal%20Traverse/README_EN.md)
 
+<!-- tags:数组,矩阵,模拟 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

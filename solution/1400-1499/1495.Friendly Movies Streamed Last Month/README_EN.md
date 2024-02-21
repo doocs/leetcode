@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README.md)
 
+<!-- tags:Database -->
+
 ## Description
 
 <p>Table: <code>TVProgram</code></p>

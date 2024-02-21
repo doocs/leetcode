@@ -2,6 +2,8 @@
 
 [English Version](/solution/0200-0299/0299.Bulls%20and%20Cows/README_EN.md)
 
+<!-- tags:哈希表,字符串,计数 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

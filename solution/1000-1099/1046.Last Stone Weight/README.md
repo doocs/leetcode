@@ -2,6 +2,8 @@
 
 [English Version](/solution/1000-1099/1046.Last%20Stone%20Weight/README_EN.md)
 
+<!-- tags:数组,堆（优先队列） -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

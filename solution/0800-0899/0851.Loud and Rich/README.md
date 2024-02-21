@@ -2,6 +2,8 @@
 
 [English Version](/solution/0800-0899/0851.Loud%20and%20Rich/README_EN.md)
 
+<!-- tags:深度优先搜索,图,拓扑排序,数组 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

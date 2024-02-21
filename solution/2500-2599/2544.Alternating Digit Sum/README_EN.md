@@ -2,6 +2,8 @@
 
 [中文文档](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md)
 
+<!-- tags:Math -->
+
 ## Description
 
 <p>You are given a positive integer <code>n</code>. Each digit of <code>n</code> has a sign according to the following rules:</p>

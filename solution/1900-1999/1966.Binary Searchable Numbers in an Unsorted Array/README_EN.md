@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README.md)
 
+<!-- tags:Array,Binary Search -->
+
 ## Description
 
 <p>Consider a function that implements an algorithm <strong>similar</strong> to <a href="https://leetcode.com/explore/learn/card/binary-search/" target="_blank">Binary Search</a>. The function has two input parameters: <code>sequence</code> is a sequence of integers, and <code>target</code> is an integer value. The purpose of the function is to find if the <code>target</code> exists in the <code>sequence</code>.</p>

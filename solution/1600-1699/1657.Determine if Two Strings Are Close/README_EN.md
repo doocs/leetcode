@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README.md)
 
+<!-- tags:Hash Table,String,Counting,Sorting -->
+
 ## Description
 
 <p>Two strings are considered <strong>close</strong> if you can attain one from the other using the following operations:</p>

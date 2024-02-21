@@ -2,6 +2,8 @@
 
 [中文文档](/solution/1500-1599/1518.Water%20Bottles/README.md)
 
+<!-- tags:Math,Simulation -->
+
 ## Description
 
 <p>There are <code>numBottles</code> water bottles that are initially full of water. You can exchange <code>numExchange</code> empty water bottles from the market with one full water bottle.</p>

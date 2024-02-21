@@ -2,6 +2,8 @@
 
 [English Version](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md)
 
+<!-- tags:树,深度优先搜索,广度优先搜索,并查集,图,二叉树 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

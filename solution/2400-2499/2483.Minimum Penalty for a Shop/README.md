@@ -2,6 +2,8 @@
 
 [English Version](/solution/2400-2499/2483.Minimum%20Penalty%20for%20a%20Shop/README_EN.md)
 
+<!-- tags:字符串,前缀和 -->
+
 ## 题目描述
 
 <!-- 这里写题目描述 -->

@@ -2,6 +2,8 @@
 
 [中文文档](/solution/3000-3099/3012.Minimize%20Length%20of%20Array%20Using%20Operations/README.md)
 
+<!-- tags:Greedy,Array,Math,Number Theory -->
+
 ## Description
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>positive</strong> integers.</p>
