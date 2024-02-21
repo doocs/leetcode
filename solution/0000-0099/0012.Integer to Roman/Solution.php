@@ -1,12 +1,10 @@
-class Solution
-{
+class Solution {
     /**
      * @param int $num
      * @return string
      */
 
-    function intToRoman($num)
-    {
+    function intToRoman($num) {
         $values = [
             'M' => 1000,
             'CM' => 900,
