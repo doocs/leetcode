@@ -55,6 +55,7 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 #### Biweekly Contest 123
 
+- [3024. Type of Triangle](/solution/3000-3099/3024.Type%20of%20Triangle/README_EN.md)
 - [3025. Find the Number of Ways to Place People I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README_EN.md)
 - [3026. Maximum Good Subarray Sum](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)
 - [3027. Find the Number of Ways to Place People II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md)
@@ -2136,7 +2137,6 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 - [1413. Minimum Value to Get Positive Step by Step Sum](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README_EN.md)
 - [1414. Find the Minimum Number of Fibonacci Numbers Whose Sum Is K](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README_EN.md)
 - [1415. The k-th Lexicographical String of All Happy Strings of Length n](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README_EN.md)
-- [1416. Restore The Array](/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md)
 
 #### Weekly Contest 184
 

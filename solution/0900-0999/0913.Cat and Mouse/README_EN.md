@@ -14,7 +14,7 @@
 
 <p>During each player&#39;s turn, they <strong>must</strong> travel along one&nbsp;edge of the graph that meets where they are.&nbsp; For example, if the Mouse is at node 1, it <strong>must</strong> travel to any node in <code>graph[1]</code>.</p>
 
-<p>Additionally, it is not allowed for the Cat to travel to the Hole (node 0.)</p>
+<p>Additionally, it is not allowed for the Cat to travel to the Hole (node <code>0</code>).</p>
 
 <p>Then, the game can end in three&nbsp;ways:</p>
 

@@ -8,9 +8,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，数组长度为 <strong>偶数</strong> ，由数目相等的正整数和负整数组成。</p>
+<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，数组长度为 <strong>偶数</strong> ，由数目 <strong>相等</strong> 的正整数和负整数组成。</p>
 
-<p>你需要 <strong>重排</strong> <code>nums</code> 中的元素，使修改后的数组满足下述条件：</p>
+<p>你需要返回满足下述条件的数组&nbsp;<code>nums</code>：</p>
 
 <ol>
 	<li>任意&nbsp;<strong>连续</strong> 的两个整数 <strong>符号相反</strong></li>
@@ -53,6 +53,10 @@ nums 中的正整数是 [3,1,2] ，负整数是 [-2,-5,-4] 。
 	<li><code>1 &lt;= |nums[i]| &lt;= 10<sup>5</sup></code></li>
 	<li><code>nums</code> 由 <strong>相等</strong> 数量的正整数和负整数组成</li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p>不需要原地进行修改。</p>
 
 ## 解法
 

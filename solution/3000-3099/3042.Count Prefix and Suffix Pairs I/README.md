@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:字典树,数组,字符串,字符串匹配,哈希函数,滚动哈希 -->
 
 ## 题目描述
 
@@ -152,6 +152,12 @@ function countPrefixSuffixPairs(words: string[]): number {
 <!-- tabs:end -->
 
 ### 方法二：字典树
+
+我们可以把字符串数组中的每个字符串 $s$ 当作一个字符对的列表，其中每个字符对 $(s[i], s[m - i - 1])$ 表示字符串 $s$ 的前缀和后缀的第 $i$ 个字符对。
+
+我们可以使用字典树来存储所有的字符对，然后对于每个字符串 $s$，我们在字典树中查找所有的字符对 $(s[i], s[m - i - 1])$，并将其计数加到答案中。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
 
 <!-- tabs:start -->
 

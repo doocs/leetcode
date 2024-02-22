@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,模拟 -->
 
 ## 题目描述
 
@@ -53,7 +53,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：遍历
+
+我们先计算前两个元素的和，记为 $s$，然后遍历数组，每次操作取两个元素，如果和不等于 $s$，则停止遍历。最后返回操作次数即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
