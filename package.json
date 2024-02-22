@@ -1,11 +1,6 @@
 {
   "scripts": {
-    "start": "docsify serve --open",
-    "convert": "docsify-pdf-converter",
     "prepare": "husky install"
-  },
-  "dependencies": {
-    "docsify-cli": "^4.4.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
