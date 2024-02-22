@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3040.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:记忆化搜索,数组,动态规划 -->
 
 ## 题目描述
 
@@ -58,24 +58,204 @@
 
 ## 解法
 
-### 方法一
+### 方法一：记忆化搜索
+
+分数 $s$ 的取值有三种情况，分别是 $s = nums[0] + nums[1]$, $s = nums[0] + nums[n-1]$, $s = nums[n-1] + nums[n-2]$。我们可以针对这三种情况，分别进行记忆化搜索。
+
+我们设计一个函数 $dfs(i, j)$，表示在分数为 $s$ 的情况下，从下标 $i$ 到下标 $j$ 的最大操作次数。函数 $dfs(i, j)$ 的执行过程如下：
+
+-   如果 $j - i < 1$，表示区间 $[i, j]$ 的长度小于 $2$，无法进行任何操作，返回 $0$。
+-   如果 $nums[i] + nums[i+1] = s$，表示可以删除下标 $i$ 和下标 $i+1$ 的元素，此时最大操作次数为 $1 + dfs(i+2, j)$。
+-   如果 $nums[i] + nums[j] = s$，表示可以删除下标 $i$ 和下标 $j$ 的元素，此时最大操作次数为 $1 + dfs(i+1, j-1)$。
+-   如果 $nums[j-1] + nums[j] = s$，表示可以删除下标 $j-1$ 和下标 $j$ 的元素，此时最大操作次数为 $1 + dfs(i, j-2)$。
+-   返回以上的最大值即可。
+
+最后，我们分别计算三种情况的最大操作次数，取最大值返回即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def maxOperations(self, nums: List[int]) -> int:
+        @cache
+        def dfs(i: int, j: int, s: int) -> int:
+            if j - i < 1:
+                return 0
+            ans = 0
+            if nums[i] + nums[i + 1] == s:
+                ans = max(ans, 1 + dfs(i + 2, j, s))
+            if nums[i] + nums[j] == s:
+                ans = max(ans, 1 + dfs(i + 1, j - 1, s))
+            if nums[j - 1] + nums[j] == s:
+                ans = max(ans, 1 + dfs(i, j - 2, s))
+            return ans
 
+        n = len(nums)
+        a = dfs(2, n - 1, nums[0] + nums[1])
+        b = dfs(0, n - 3, nums[-1] + nums[-2])
+        c = dfs(1, n - 2, nums[0] + nums[-1])
+        return 1 + max(a, b, c)
 ```
 
 ```java
+class Solution {
+    private Integer[][] f;
+    private int[] nums;
+    private int s;
+    private int n;
 
+    public int maxOperations(int[] nums) {
+        this.nums = nums;
+        n = nums.length;
+        int a = g(2, n - 1, nums[0] + nums[1]);
+        int b = g(0, n - 3, nums[n - 2] + nums[n - 1]);
+        int c = g(1, n - 2, nums[0] + nums[n - 1]);
+        return 1 + Math.max(a, Math.max(b, c));
+    }
+
+    private int g(int i, int j, int s) {
+        f = new Integer[n][n];
+        this.s = s;
+        return dfs(i, j);
+    }
+
+    private int dfs(int i, int j) {
+        if (j - i < 1) {
+            return 0;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = 0;
+        if (nums[i] + nums[i + 1] == s) {
+            ans = Math.max(ans, 1 + dfs(i + 2, j));
+        }
+        if (nums[i] + nums[j] == s) {
+            ans = Math.max(ans, 1 + dfs(i + 1, j - 1));
+        }
+        if (nums[j - 1] + nums[j] == s) {
+            ans = Math.max(ans, 1 + dfs(i, j - 2));
+        }
+        return f[i][j] = ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxOperations(vector<int>& nums) {
+        int n = nums.size();
+        int f[n][n];
+        auto g = [&](int i, int j, int s) -> int {
+            memset(f, -1, sizeof(f));
+            function<int(int, int)> dfs = [&](int i, int j) -> int {
+                if (j - i < 1) {
+                    return 0;
+                }
+                if (f[i][j] != -1) {
+                    return f[i][j];
+                }
+                int ans = 0;
+                if (nums[i] + nums[i + 1] == s) {
+                    ans = max(ans, 1 + dfs(i + 2, j));
+                }
+                if (nums[i] + nums[j] == s) {
+                    ans = max(ans, 1 + dfs(i + 1, j - 1));
+                }
+                if (nums[j - 1] + nums[j] == s) {
+                    ans = max(ans, 1 + dfs(i, j - 2));
+                }
+                return f[i][j] = ans;
+            };
+            return dfs(i, j);
+        };
+        int a = g(2, n - 1, nums[0] + nums[1]);
+        int b = g(0, n - 3, nums[n - 2] + nums[n - 1]);
+        int c = g(1, n - 2, nums[0] + nums[n - 1]);
+        return 1 + max({a, b, c});
+    }
+};
 ```
 
 ```go
+func maxOperations(nums []int) int {
+	n := len(nums)
+	var g func(i, j, s int) int
+	g = func(i, j, s int) int {
+		f := make([][]int, n)
+		for i := range f {
+			f[i] = make([]int, n)
+			for j := range f {
+				f[i][j] = -1
+			}
+		}
+		var dfs func(i, j int) int
+		dfs = func(i, j int) int {
+			if j-i < 1 {
+				return 0
+			}
+			if f[i][j] != -1 {
+				return f[i][j]
+			}
+			ans := 0
+			if nums[i]+nums[i+1] == s {
+				ans = max(ans, 1+dfs(i+2, j))
+			}
 
+			if nums[i]+nums[j] == s {
+				ans = max(ans, 1+dfs(i+1, j-1))
+			}
+
+			if nums[j-1]+nums[j] == s {
+				ans = max(ans, 1+dfs(i, j-2))
+			}
+			f[i][j] = ans
+			return ans
+		}
+		return dfs(i, j)
+	}
+	a := g(2, n-1, nums[0]+nums[1])
+	b := g(0, n-3, nums[n-1]+nums[n-2])
+	c := g(1, n-2, nums[0]+nums[n-1])
+	return 1 + max(a, b, c)
+}
+```
+
+```ts
+function maxOperations(nums: number[]): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(n));
+    const g = (i: number, j: number, s: number): number => {
+        f.forEach(row => row.fill(-1));
+        const dfs = (i: number, j: number): number => {
+            if (j - i < 1) {
+                return 0;
+            }
+            if (f[i][j] !== -1) {
+                return f[i][j];
+            }
+            let ans = 0;
+            if (nums[i] + nums[i + 1] === s) {
+                ans = Math.max(ans, 1 + dfs(i + 2, j));
+            }
+            if (nums[i] + nums[j] === s) {
+                ans = Math.max(ans, 1 + dfs(i + 1, j - 1));
+            }
+            if (nums[j - 1] + nums[j] === s) {
+                ans = Math.max(ans, 1 + dfs(i, j - 2));
+            }
+            return (f[i][j] = ans);
+        };
+        return dfs(i, j);
+    };
+    const a = g(2, n - 1, nums[0] + nums[1]);
+    const b = g(0, n - 3, nums[n - 2] + nums[n - 1]);
+    const c = g(1, n - 2, nums[0] + nums[n - 1]);
+    return 1 + Math.max(a, b, c);
+}
 ```
 
 <!-- tabs:end -->

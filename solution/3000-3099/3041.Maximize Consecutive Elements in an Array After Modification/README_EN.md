@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Dynamic Programming,Sorting -->
 
 ## Description
 
