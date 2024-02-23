@@ -49,52 +49,47 @@ Hence, there are 2 subarrays in nums that match the pattern.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate all subarrays of array `nums` with a length of $m + 1$, and then check whether they match the pattern array `pattern`. If they do, we increment the answer by one.
+
+The time complexity is $O(n \times m)$, where $n$ and $m$ are the lengths of the arrays `nums` and `pattern` respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def countMatchingSubarrays(self, nums: List[int], pattern: List[int]) -> int:
-        n = len(nums)
-        m = len(pattern)
-        count = 0
-        for i in range(n - m):
-            flag = True
-            for j in range(m):
-                if (
-                    (pattern[j] == 1 and nums[i + j + 1] <= nums[i + j])
-                    or (pattern[j] == 0 and nums[i + j + 1] != nums[i + j])
-                    or (pattern[j] == -1 and nums[i + j + 1] >= nums[i + j])
-                ):
-                    flag = False
-                    break
-            if flag:
-                count += 1
-        return count
+        def f(a: int, b: int) -> int:
+            return 0 if a == b else (1 if a < b else -1)
+
+        ans = 0
+        for i in range(len(nums) - len(pattern)):
+            ans += all(
+                f(nums[i + k], nums[i + k + 1]) == p for k, p in enumerate(pattern)
+            )
+        return ans
 ```
 
 ```java
 class Solution {
     public int countMatchingSubarrays(int[] nums, int[] pattern) {
-        int n = nums.length;
-        int m = pattern.length;
-        int count = 0;
-        for (int i = 0; i <= n - m - 1; i++) {
-            boolean flag = true;
-            for (int j = 0; j < m; j++) {
-                if ((pattern[j] == 1 && nums[i + j + 1] <= nums[i + j]) ||
-                    (pattern[j] == 0 && nums[i + j + 1] != nums[i + j]) ||
-                    (pattern[j] == -1 && nums[i + j + 1] >= nums[i + j])) {
-                    flag = false;
-                    break;
+        int n = nums.length, m = pattern.length;
+        int ans = 0;
+        for (int i = 0; i < n - m; ++i) {
+            int ok = 1;
+            for (int k = 0; k < m && ok == 1; ++k) {
+                if (f(nums[i + k], nums[i + k + 1]) != pattern[k]) {
+                    ok = 0;
                 }
             }
-            if (flag) {
-                count++;
-            }
+            ans += ok;
         }
-        return count;
+        return ans;
+    }
+
+    private int f(int a, int b) {
+        return a == b ? 0 : (a < b ? 1 : -1);
     }
 }
 ```
@@ -103,71 +98,89 @@ class Solution {
 class Solution {
 public:
     int countMatchingSubarrays(vector<int>& nums, vector<int>& pattern) {
-        int n = nums.size();
-        int m = pattern.size();
-        int c = 0;
-        for (int i = 0; i <= n - m - 1; i++) {
-            bool flag = true;
-            for (int j = 0; j < m; j++) {
-                if ((pattern[j] == 1 && nums[i + j + 1] <= nums[i + j]) || (pattern[j] == 0 && nums[i + j + 1] != nums[i + j]) || (pattern[j] == -1 && nums[i + j + 1] >= nums[i + j])) {
-                    flag = false;
-                    break;
+        int n = nums.size(), m = pattern.size();
+        int ans = 0;
+        auto f = [](int a, int b) {
+            return a == b ? 0 : (a < b ? 1 : -1);
+        };
+        for (int i = 0; i < n - m; ++i) {
+            int ok = 1;
+            for (int k = 0; k < m && ok == 1; ++k) {
+                if (f(nums[i + k], nums[i + k + 1]) != pattern[k]) {
+                    ok = 0;
                 }
             }
-            if (flag) {
-                c++;
-            }
+            ans += ok;
         }
-        return c;
+        return ans;
     }
 };
 ```
 
 ```go
-func countMatchingSubarrays(nums []int, pattern []int) int {
-	n := len(nums)
-	m := len(pattern)
-	count := 0
-	for i := 0; i <= n-m-1; i++ {
-		flag := true
-		for j := 0; j < m; j++ {
-			if (pattern[j] == 1 && nums[i+j+1] <= nums[i+j]) ||
-				(pattern[j] == 0 && nums[i+j+1] != nums[i+j]) ||
-				(pattern[j] == -1 && nums[i+j+1] >= nums[i+j]) {
-				flag = false
-				break
+func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
+	f := func(a, b int) int {
+		if a == b {
+			return 0
+		}
+		if a < b {
+			return 1
+		}
+		return -1
+	}
+	n, m := len(nums), len(pattern)
+	for i := 0; i < n-m; i++ {
+		ok := 1
+		for k := 0; k < m && ok == 1; k++ {
+			if f(nums[i+k], nums[i+k+1]) != pattern[k] {
+				ok = 0
 			}
 		}
-		if flag {
-			count++
-		}
+		ans += ok
 	}
-	return count
+	return
 }
 ```
 
 ```ts
 function countMatchingSubarrays(nums: number[], pattern: number[]): number {
-    const n: number = nums.length;
-    const m: number = pattern.length;
-    let count: number = 0;
-    for (let i = 0; i <= n - m - 1; i++) {
-        let flag: boolean = true;
-        for (let j = 0; j < m; j++) {
-            if (
-                (pattern[j] === 1 && nums[i + j + 1] <= nums[i + j]) ||
-                (pattern[j] === 0 && nums[i + j + 1] !== nums[i + j]) ||
-                (pattern[j] === -1 && nums[i + j + 1] >= nums[i + j])
-            ) {
-                flag = false;
-                break;
+    const f = (a: number, b: number) => (a === b ? 0 : a < b ? 1 : -1);
+    const n = nums.length;
+    const m = pattern.length;
+    let ans = 0;
+    for (let i = 0; i < n - m; ++i) {
+        let ok = 1;
+        for (let k = 0; k < m && ok; ++k) {
+            if (f(nums[i + k], nums[i + k + 1]) !== pattern[k]) {
+                ok = 0;
             }
         }
-        if (flag) {
-            count++;
-        }
+        ans += ok;
     }
-    return count;
+    return ans;
+}
+```
+
+```cs
+public class Solution {
+    public int CountMatchingSubarrays(int[] nums, int[] pattern) {
+        int n = nums.Length, m = pattern.Length;
+        int ans = 0;
+        for (int i = 0; i < n - m; ++i) {
+            int ok = 1;
+            for (int k = 0; k < m && ok == 1; ++k) {
+                if (f(nums[i + k], nums[i + k + 1]) != pattern[k]) {
+                    ok = 0;
+                }
+            }
+            ans += ok;
+        }
+        return ans;
+    }
+
+    private int f(int a, int b) {
+        return a == b ? 0 : (a < b ? 1 : -1);
+    }
 }
 ```
 
