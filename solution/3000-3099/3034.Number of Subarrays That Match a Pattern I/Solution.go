@@ -1,20 +1,22 @@
-func countMatchingSubarrays(nums []int, pattern []int) int {
-	n := len(nums)
-	m := len(pattern)
-	count := 0
-	for i := 0; i <= n-m-1; i++ {
-		flag := true 
-		for j := 0; j < m; j++ {
-			if (pattern[j] == 1 && nums[i+j+1] <= nums[i+j]) ||
-				(pattern[j] == 0 && nums[i+j+1] != nums[i+j]) ||
-				(pattern[j] == -1 && nums[i+j+1] >= nums[i+j]) {
-				flag = false
-				break
+func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
+	f := func(a, b int) int {
+		if a == b {
+			return 0
+		}
+		if a < b {
+			return 1
+		}
+		return -1
+	}
+	n, m := len(nums), len(pattern)
+	for i := 0; i < n-m; i++ {
+		ok := 1
+		for k := 0; k < m && ok == 1; k++ {
+			if f(nums[i+k], nums[i+k+1]) != pattern[k] {
+				ok = 0
 			}
 		}
-		if flag {
-			count++
-		}
+		ans += ok
 	}
-	return count
+	return
 }

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md)
 
-<!-- tags:Greedy,Math,Heap (Priority Queue) -->
+<!-- tags:Greedy,Array,Math,Heap (Priority Queue) -->
 
 ## Description
 

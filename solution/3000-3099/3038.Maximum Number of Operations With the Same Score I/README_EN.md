@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3038.Maximum%20Number%20of%20Operations%20With%20the%20Same%20Score%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Simulation -->
 
 ## Description
 
@@ -49,7 +49,11 @@ We are unable to perform any more operations as the score of the next operation 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Traversal
+
+First, we calculate the sum of the first two elements, denoted as $s$. Then we traverse the array, taking two elements at a time. If their sum is not equal to $s$, we stop the traversal. Finally, we return the number of operations performed.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
