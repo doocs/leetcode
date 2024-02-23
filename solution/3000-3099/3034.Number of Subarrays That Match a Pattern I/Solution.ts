@@ -1,22 +1,16 @@
 function countMatchingSubarrays(nums: number[], pattern: number[]): number {
-    const n: number = nums.length;
-    const m: number = pattern.length;
-    let count: number = 0;
-    for (let i = 0; i <= n - m - 1; i++) {
-        let flag: boolean = true;
-        for (let j = 0; j < m; j++) {
-            if (
-                (pattern[j] === 1 && nums[i + j + 1] <= nums[i + j]) ||
-                (pattern[j] === 0 && nums[i + j + 1] !== nums[i + j]) ||
-                (pattern[j] === -1 && nums[i + j + 1] >= nums[i + j])
-            ) {
-                flag = false;
-                break;
+    const f = (a: number, b: number) => (a === b ? 0 : a < b ? 1 : -1);
+    const n = nums.length;
+    const m = pattern.length;
+    let ans = 0;
+    for (let i = 0; i < n - m; ++i) {
+        let ok = 1;
+        for (let k = 0; k < m && ok; ++k) {
+            if (f(nums[i + k], nums[i + k + 1]) !== pattern[k]) {
+                ok = 0;
             }
         }
-        if (flag) {
-            count++;
-        }
+        ans += ok;
     }
-    return count;
+    return ans;
 }
