@@ -1,12 +1,12 @@
 # Definition for singly-linked list.
 # class ListNode {
-#     public $val;
-#     public $next;
-#     public function __construct($val = 0, $next = null)
-#     {
-#         $this->val = $val;
-#         $this->next = $next;
-#     }
+#    public $val;
+#    public $next;
+#    public function __construct($val = 0, $next = null)
+#    {
+#        $this->val = $val;
+#        $this->next = $next;
+#    }
 # }
 
 class Solution {
@@ -15,8 +15,7 @@ class Solution {
      * @return ListNode
      */
 
-    function swapPairs($head)
-    {
+    function swapPairs($head) {
         $dummy = new ListNode(0);
         $dummy->next = $head;
         $prev = $dummy;
