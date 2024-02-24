@@ -2,16 +2,11 @@ class Solution {
 public:
     int minIncrements(int n, vector<int>& cost) {
         int ans = 0;
-        function<int(int)> dfs = [&](int i) -> int {
-            if ((i << 1) > n) {
-                return cost[i - 1];
-            }
-            int l = dfs(i << 1);
-            int r = dfs(i << 1 | 1);
-            ans += max(l, r) - min(l, r);
-            return cost[i - 1] + max(l, r);
-        };
-        dfs(1);
+        for (int i = n >> 1; i > 0; --i) {
+            int l = i << 1, r = i << 1 | 1;
+            ans += abs(cost[l - 1] - cost[r - 1]);
+            cost[i - 1] += max(cost[l - 1], cost[r - 1]);
+        }
         return ans;
     }
 };
