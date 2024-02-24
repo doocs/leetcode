@@ -16,8 +16,7 @@ class Solution {
      * @return ListNode
      */
 
-    function mergeTwoLists($list1, $list2)
-    {
+    function mergeTwoLists($list1, $list2) {
         $dummy = new ListNode(0);
         $current = $dummy;
 
