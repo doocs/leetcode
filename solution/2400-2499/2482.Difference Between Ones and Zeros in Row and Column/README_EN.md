@@ -65,7 +65,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can solve this problem by simulating the process as described in the problem statement.
+
+The time complexity is $O(m \times n)$, and if we ignore the space used by the answer, the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 
