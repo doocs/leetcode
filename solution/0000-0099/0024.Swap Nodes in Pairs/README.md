@@ -439,8 +439,7 @@ class Solution {
      * @return ListNode
      */
 
-    function swapPairs($head)
-    {
+    function swapPairs($head) {
         $dummy = new ListNode(0);
         $dummy->next = $head;
         $prev = $dummy;
