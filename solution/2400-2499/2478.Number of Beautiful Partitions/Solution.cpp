@@ -1,7 +1,5 @@
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int beautifulPartitions(string s, int k, int minLength) {
         int n = s.size();
         auto prime = [](char c) {
@@ -11,6 +9,7 @@ public:
         vector<vector<int>> f(n + 1, vector<int>(k + 1));
         vector<vector<int>> g(n + 1, vector<int>(k + 1));
         f[0][0] = g[0][0] = 1;
+        const int mod = 1e9 + 7;
         for (int i = 1; i <= n; ++i) {
             if (i >= minLength && !prime(s[i - 1]) && (i == n || prime(s[i]))) {
                 for (int j = 1; j <= k; ++j) {

@@ -1,6 +1,4 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int beautifulPartitions(String s, int k, int minLength) {
         int n = s.length();
         if (!prime(s.charAt(0)) || prime(s.charAt(n - 1))) {
@@ -10,6 +8,7 @@ class Solution {
         int[][] g = new int[n + 1][k + 1];
         f[0][0] = 1;
         g[0][0] = 1;
+        final int mod = (int) 1e9 + 7;
         for (int i = 1; i <= n; ++i) {
             if (i >= minLength && !prime(s.charAt(i - 1)) && (i == n || prime(s.charAt(i)))) {
                 for (int j = 1; j <= k; ++j) {
@@ -17,7 +16,7 @@ class Solution {
                 }
             }
             for (int j = 0; j <= k; ++j) {
-                g[i][j] = (g[i - 1][j] + f[i][j]) % MOD;
+                g[i][j] = (g[i - 1][j] + f[i][j]) % mod;
             }
         }
         return f[n][k];
