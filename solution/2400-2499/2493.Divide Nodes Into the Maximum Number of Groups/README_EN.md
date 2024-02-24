@@ -57,7 +57,13 @@ It can be shown that no grouping is possible.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS + BFS
+
+Notice that the graph may not be connected, so we can find each connected component through DFS.
+
+Then for each connected component, enumerate each node in the component as the starting point, and use BFS to layer the graph. After the layering is finished, check whether it is valid. If it is valid, update the maximum value of the connected component. If there is no valid layering in a connected component, it means that it is impossible to group under the given conditions, and directly return $-1$. Otherwise, add the maximum value of the connected component to the answer.
+
+The time complexity is $O(n \times (n + m))$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
