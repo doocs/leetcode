@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
+<!-- tags:Binary Indexed Tree,Segment Tree,Array -->
 
 ## Description
 

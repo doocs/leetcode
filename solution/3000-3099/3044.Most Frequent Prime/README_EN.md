@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Hash Table,Math,Counting,Enumeration,Matrix,Number Theory -->
 
 ## Description
 

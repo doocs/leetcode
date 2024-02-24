@@ -22,11 +22,11 @@
 
 ## 往期竞赛
 
-#### 第 385 场周赛(2024-02-18 10:30, 90 分钟) 参赛人数 2352
+#### 第 385 场周赛(2024-02-18 10:30, 90 分钟) 参赛人数 2382
 
 - [3042. 统计前后缀下标对 I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md)
 - [3043. 最长公共前缀的长度](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md)
-- [3044. 出现频率最高的素数](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
+- [3044. 出现频率最高的质数](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)
 - [3045. 统计前后缀下标对 II](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README.md)
 
 #### 第 124 场双周赛(2024-02-17 22:30, 90 分钟) 参赛人数 1861
@@ -52,6 +52,7 @@
 
 #### 第 123 场双周赛(2024-02-03 22:30, 90 分钟) 参赛人数 2209
 
+- [3024. 三角形类型](/solution/3000-3099/3024.Type%20of%20Triangle/README.md)
 - [3025. 人员站位的方案数 I](/solution/3000-3099/3025.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20I/README.md)
 - [3026. 最大好子数组和](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)
 - [3027. 人员站位的方案数 II](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README.md)
@@ -2133,7 +2134,6 @@
 - [1413. 逐步求和得到正数的最小值](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README.md)
 - [1414. 和为 K 的最少斐波那契数字数目](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README.md)
 - [1415. 长度为 n 的开心字符串中字典序第 k 小的字符串](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README.md)
-- [1416. 恢复数组](/solution/1400-1499/1416.Restore%20The%20Array/README.md)
 
 #### 第 184 场周赛(2020-04-12 10:30, 90 分钟) 参赛人数 3847
 
@@ -2944,7 +2944,7 @@
 
 - [0867. 转置矩阵](/solution/0800-0899/0867.Transpose%20Matrix/README.md)
 - [0865. 具有所有最深节点的最小子树](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README.md)
-- [0866. 回文素数](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
+- [0866. 回文质数](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
 - [0864. 获取所有钥匙的最短路径](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README.md)
 
 #### 第 91 场周赛(2018-07-01 09:30, 90 分钟) 参赛人数 578

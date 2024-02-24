@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,String Matching,Sliding Window,Hash Function,Rolling Hash -->
 
 ## Description
 

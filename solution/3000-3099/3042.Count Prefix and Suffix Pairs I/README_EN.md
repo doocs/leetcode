@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Trie,Array,String,String Matching,Hash Function,Rolling Hash -->
 
 ## Description
 
@@ -147,7 +147,13 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Trie
+
+We can treat each string $s$ in the string array as a list of character pairs, where each character pair $(s[i], s[m - i - 1])$ represents the $i$th character pair of the prefix and suffix of string $s$.
+
+We can use a trie to store all the character pairs, and then for each string $s$, we search for all the character pairs $(s[i], s[m - i - 1])$ in the trie, and add their counts to the answer.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of `words` and the maximum length of the strings, respectively.
 
 <!-- tabs:start -->
 

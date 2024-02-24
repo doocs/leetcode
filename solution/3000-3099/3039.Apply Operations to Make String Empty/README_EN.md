@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3039.Apply%20Operations%20to%20Make%20String%20Empty/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Hash Table,Counting,Sorting -->
 
 ## Description
 
@@ -53,7 +53,15 @@ The string just before the last operation is &quot;abcd&quot;.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table or Array
+
+We use a hash table or array $cnt$ to record the occurrence times of each character in string $s$, and use another hash table or array $last$ to record the last occurrence position of each character in string $s$. The maximum occurrence times of characters in string $s$ is denoted as $mx$.
+
+Then we traverse the string $s$. If the occurrence times of the current character equals $mx$ and the position of the current character equals the last occurrence position of this character, then we add the current character to the answer.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of string $s$, and $\Sigma$ is the character set. In this problem, $\Sigma$ is the set of lowercase English letters.
 
 <!-- tabs:start -->
 

@@ -8,13 +8,13 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给出矩阵 <code>matrix</code> 和目标值 <code>target</code>，返回元素总和等于目标值的非空子矩阵的数量。</p>
+<p>给出矩阵&nbsp;<code>matrix</code>&nbsp;和目标值&nbsp;<code>target</code>，返回元素总和等于目标值的非空子矩阵的数量。</p>
 
-<p>子矩阵 <code>x1, y1, x2, y2</code> 是满足 <code>x1 <= x <= x2</code> 且 <code>y1 <= y <= y2</code> 的所有单元 <code>matrix[x][y]</code> 的集合。</p>
+<p>子矩阵&nbsp;<code>x1, y1, x2, y2</code>&nbsp;是满足 <code>x1 &lt;= x &lt;= x2</code>&nbsp;且&nbsp;<code>y1 &lt;= y &lt;= y2</code>&nbsp;的所有单元&nbsp;<code>matrix[x][y]</code>&nbsp;的集合。</p>
 
-<p>如果 <code>(x1, y1, x2, y2)</code> 和 <code>(x1', y1', x2', y2')</code> 两个子矩阵中部分坐标不同（如：<code>x1 != x1'</code>），那么这两个子矩阵也不同。</p>
+<p>如果&nbsp;<code>(x1, y1, x2, y2)</code> 和&nbsp;<code>(x1', y1', x2', y2')</code>&nbsp;两个子矩阵中部分坐标不同（如：<code>x1 != x1'</code>），那么这两个子矩阵也不同。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -41,15 +41,15 @@
 <strong>输出：</strong>0
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong><strong>提示：</strong></strong></p>
 
 <ul>
-	<li><code>1 <= matrix.length <= 100</code></li>
-	<li><code>1 <= matrix[0].length <= 100</code></li>
-	<li><code>-1000 <= matrix[i] <= 1000</code></li>
-	<li><code>-10^8 <= target <= 10^8</code></li>
+	<li><code>1 &lt;= matrix.length &lt;= 100</code></li>
+	<li><code>1 &lt;= matrix[0].length &lt;= 100</code></li>
+	<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
+	<li><code>-10^8 &lt;= target &lt;= 10^8</code></li>
 </ul>
 
 ## 解法
