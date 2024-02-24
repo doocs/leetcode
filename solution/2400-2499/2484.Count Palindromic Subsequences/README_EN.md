@@ -52,7 +52,9 @@ Two of them (both equal to &quot;10301&quot;) are palindromic.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration + Counting
+
+The time complexity is $O(100 \times n)$, and the space complexity is $O(100 \times n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
