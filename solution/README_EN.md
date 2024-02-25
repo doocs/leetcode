@@ -1424,6 +1424,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1413  |  [Minimum Value to Get Positive Step by Step Sum](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README_EN.md)  |  `Array`,`Prefix Sum`  |  Easy  |  Biweekly Contest 24  |
 |  1414  |  [Find the Minimum Number of Fibonacci Numbers Whose Sum Is K](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README_EN.md)  |  `Greedy`,`Math`  |  Medium  |  Biweekly Contest 24  |
 |  1415  |  [The k-th Lexicographical String of All Happy Strings of Length n](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README_EN.md)  |  `String`,`Backtracking`  |  Medium  |  Biweekly Contest 24  |
+|  1416  |  [Restore The Array](/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 24  |
 |  1417  |  [Reformat The String](/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 185  |
 |  1418  |  [Display Table of Food Orders in a Restaurant](/solution/1400-1499/1418.Display%20Table%20of%20Food%20Orders%20in%20a%20Restaurant/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Ordered Set`,`Sorting`  |  Medium  |  Weekly Contest 185  |
 |  1419  |  [Minimum Number of Frogs Croaking](/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README_EN.md)  |  `String`,`Counting`  |  Medium  |  Weekly Contest 185  |
@@ -3053,6 +3054,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3043  |  [Find the Length of the Longest Common Prefix](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README_EN.md)  |  `Trie`,`Array`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 385  |
 |  3044  |  [Most Frequent Prime](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`,`Enumeration`,`Matrix`,`Number Theory`  |  Medium  |  Weekly Contest 385  |
 |  3045  |  [Count Prefix and Suffix Pairs II](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README_EN.md)  |  `Trie`,`Array`,`String`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 385  |
+|  3046  |  [Split the Array](/solution/3000-3099/3046.Split%20the%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 386  |
+|  3047  |  [Find the Largest Area of Square Inside Two Rectangles](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md)  |    |  Medium  |  Weekly Contest 386  |
+|  3048  |  [Earliest Second to Mark Indices I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 386  |
+|  3049  |  [Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 386  |
 
 ## Copyright
 
