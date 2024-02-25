@@ -44,24 +44,72 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting
+
+According to the problem, we need to divide the array into two parts, and the elements in each part are all distinct. Therefore, we can count the occurrence of each element in the array. If an element appears three or more times, it cannot satisfy the problem's requirements. Otherwise, we can divide the array into two parts.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def isPossibleToSplit(self, nums: List[int]) -> bool:
+        return max(Counter(nums).values()) < 3
 ```
 
 ```java
-
+class Solution {
+    public boolean isPossibleToSplit(int[] nums) {
+        int[] cnt = new int[101];
+        for (int x : nums) {
+            if (++cnt[x] >= 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    bool isPossibleToSplit(vector<int>& nums) {
+        int cnt[101]{};
+        for (int x : nums) {
+            if (++cnt[x] >= 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ```go
+func isPossibleToSplit(nums []int) bool {
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
+		if cnt[x] >= 3 {
+			return false
+		}
+	}
+	return true
+}
+```
 
+```ts
+function isPossibleToSplit(nums: number[]): boolean {
+    const cnt: number[] = Array(101).fill(0);
+    for (const x of nums) {
+        if (++cnt[x] >= 3) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->

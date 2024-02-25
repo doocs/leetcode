@@ -48,24 +48,72 @@
 
 ## 解法
 
-### 方法一
+### 方法一：计数
+
+根据题意，我们需要将数组分成两部分，每部分的元素都是互不相同的。因此，我们可以统计数组中每个元素的出现次数，如果某个元素出现的次数大于等于 $3$ 次，那么就无法满足题意。否则，我们可以将数组分成两部分。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def isPossibleToSplit(self, nums: List[int]) -> bool:
+        return max(Counter(nums).values()) < 3
 ```
 
 ```java
-
+class Solution {
+    public boolean isPossibleToSplit(int[] nums) {
+        int[] cnt = new int[101];
+        for (int x : nums) {
+            if (++cnt[x] >= 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    bool isPossibleToSplit(vector<int>& nums) {
+        int cnt[101]{};
+        for (int x : nums) {
+            if (++cnt[x] >= 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ```go
+func isPossibleToSplit(nums []int) bool {
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
+		if cnt[x] >= 3 {
+			return false
+		}
+	}
+	return true
+}
+```
 
+```ts
+function isPossibleToSplit(nums: number[]): boolean {
+    const cnt: number[] = Array(101).fill(0);
+    for (const x of nums) {
+        if (++cnt[x] >= 3) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
