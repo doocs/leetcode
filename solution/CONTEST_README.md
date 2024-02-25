@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 386 场周赛(2024-02-25 10:30, 90 分钟) 参赛人数 2731
+
+- [3046. 分割数组](/solution/3000-3099/3046.Split%20the%20Array/README.md)
+- [3047. 求交集区域内的最大正方形面积](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)
+- [3048. 标记所有下标的最早秒数 I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md)
+- [3049. 标记所有下标的最早秒数 II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md)
+
 #### 第 385 场周赛(2024-02-18 10:30, 90 分钟) 参赛人数 2382
 
 - [3042. 统计前后缀下标对 I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md)
@@ -2134,6 +2141,7 @@
 - [1413. 逐步求和得到正数的最小值](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README.md)
 - [1414. 和为 K 的最少斐波那契数字数目](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README.md)
 - [1415. 长度为 n 的开心字符串中字典序第 k 小的字符串](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README.md)
+- [1416. 恢复数组](/solution/1400-1499/1416.Restore%20The%20Array/README.md)
 
 #### 第 184 场周赛(2020-04-12 10:30, 90 分钟) 参赛人数 3847
 

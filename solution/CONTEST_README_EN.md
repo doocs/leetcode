@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 386
+
+- [3046. Split the Array](/solution/3000-3099/3046.Split%20the%20Array/README_EN.md)
+- [3047. Find the Largest Area of Square Inside Two Rectangles](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md)
+- [3048. Earliest Second to Mark Indices I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)
+- [3049. Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)
+
 #### Weekly Contest 385
 
 - [3042. Count Prefix and Suffix Pairs I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md)
@@ -2137,6 +2144,7 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 - [1413. Minimum Value to Get Positive Step by Step Sum](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README_EN.md)
 - [1414. Find the Minimum Number of Fibonacci Numbers Whose Sum Is K](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README_EN.md)
 - [1415. The k-th Lexicographical String of All Happy Strings of Length n](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README_EN.md)
+- [1416. Restore The Array](/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md)
 
 #### Weekly Contest 184
 
