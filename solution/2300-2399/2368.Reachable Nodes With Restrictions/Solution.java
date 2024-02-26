@@ -1,34 +1,30 @@
 class Solution {
     private List<Integer>[] g;
     private boolean[] vis;
-    private int ans;
 
     public int reachableNodes(int n, int[][] edges, int[] restricted) {
         g = new List[n];
-        Arrays.setAll(g, k -> new ArrayList<>());
         vis = new boolean[n];
-        for (int v : restricted) {
-            vis[v] = true;
-        }
-        for (int[] e : edges) {
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);
             g[b].add(a);
         }
-
-        ans = 0;
-        dfs(0);
-        return ans;
+        for (int i : restricted) {
+            vis[i] = true;
+        }
+        return dfs(0);
     }
 
-    private void dfs(int u) {
-        if (vis[u]) {
-            return;
+    private int dfs(int i) {
+        vis[i] = true;
+        int ans = 1;
+        for (int j : g[i]) {
+            if (!vis[j]) {
+                ans += dfs(j);
+            }
         }
-        ++ans;
-        vis[u] = true;
-        for (int v : g[u]) {
-            dfs(v);
-        }
+        return ans;
     }
 }
