@@ -2,7 +2,7 @@ class Solution {
 public:
     int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k) {
         int n = edges.size() + 1;
-        vector<vector<int>> g(n);
+        vector<int> g[n];
         unordered_map<long long, int> gs;
         auto f = [&](int i, int j) {
             return 1LL * i * n + j;
