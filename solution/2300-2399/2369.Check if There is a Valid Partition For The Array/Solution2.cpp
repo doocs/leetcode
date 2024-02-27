@@ -2,13 +2,14 @@ class Solution {
 public:
     bool validPartition(vector<int>& nums) {
         int n = nums.size();
-        vector<bool> dp(n + 1);
-        dp[0] = true;
-        for (int i = 2; i <= n; ++i) {
-            if (nums[i - 1] == nums[i - 2]) dp[i] = dp[i] || dp[i - 2];
-            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) dp[i] = dp[i] || dp[i - 3];
-            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) dp[i] = dp[i] || dp[i - 3];
+        vector<bool> f(n + 1);
+        f[0] = true;
+        for (int i = 1; i <= n; ++i) {
+            bool a = i - 2 >= 0 && nums[i - 1] == nums[i - 2];
+            bool b = i - 3 >= 0 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3];
+            bool c = i - 3 >= 0 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1;
+            f[i] = (a && f[i - 2]) || ((b || c) && f[i - 3]);
         }
-        return dp[n];
+        return f[n];
     }
 };
