@@ -3058,6 +3058,17 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3047  |  [Find the Largest Area of Square Inside Two Rectangles](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md)  |    |  Medium  |  Weekly Contest 386  |
 |  3048  |  [Earliest Second to Mark Indices I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 386  |
 |  3049  |  [Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 386  |
+|  3050  |  [Pizza Toppings Cost Analysis](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md)  |    |  Medium  |  🔒  |
+|  3051  |  [Find Candidates for Data Scientist Position](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)  |    |  Easy  |  🔒  |
+|  3052  |  [Maximize Items](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)  |    |  Hard  |  🔒  |
+|  3053  |  [Classifying Triangles by Lengths](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md)  |    |  Easy  |  🔒  |
+|  3054  |  [Binary Tree Nodes](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md)  |    |  Medium  |  🔒  |
+|  3055  |  [Top Percentile Fraud](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README_EN.md)  |    |  Medium  |  🔒  |
+|  3056  |  [Snaps Analysis](/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md)  |    |  Medium  |  🔒  |
+|  3057  |  [Employees Project Allocation](/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md)  |    |  Hard  |  🔒  |
+|  3058  |  [Friends With No Mutual Friends](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)  |    |  Medium  |  🔒  |
+|  3059  |  [Find All Unique Email Domains](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)  |    |  Easy  |  🔒  |
+|  3060  |  [User Activities within Time Bounds](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
