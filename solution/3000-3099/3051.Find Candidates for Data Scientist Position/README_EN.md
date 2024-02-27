@@ -63,12 +63,20 @@ The output table is sorted by candidate_id in ascending order.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Conditional Filtering + Grouping Statistics
+
+First, we filter out candidates who have the skills `Python`, `Tableau`, and `PostgreSQL`. Then, we group by `candidate_id` and count the number of skills each candidate has. Finally, we filter out candidates who have these three skills and sort them in ascending order by `candidate_id`.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT candidate_id
+FROM Candidates
+WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
+GROUP BY 1
+HAVING COUNT(1) = 3
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

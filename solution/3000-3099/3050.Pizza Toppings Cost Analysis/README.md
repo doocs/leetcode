@@ -67,12 +67,29 @@ Output table is ordered by the total cost in descending order.</pre>
 
 ## 解法
 
-### 方法一
+### 方法一：窗口函数 + 条件连接
+
+我们先使用窗口函数，按照 `topping_name` 字段对表进行排序，并为每一行添加一个 `rk` 字段，表示当前行的排名。
+
+然后我们使用条件连接，连接三次表 `T`，分别为 `t1`, `t2`, `t3`。连接条件是 `t1.rk < t2.rk` 和 `t2.rk < t3.rk`。然后我们计算三个配料的总价，按照总价降序排序，再按照配料名升序排序。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT *, RANK() OVER (ORDER BY topping_name) AS rk
+        FROM Toppings
+    )
+SELECT
+    CONCAT(t1.topping_name, ',', t2.topping_name, ',', t3.topping_name) AS pizza,
+    t1.cost + t2.cost + t3.cost AS total_cost
+FROM
+    T AS t1
+    JOIN T AS t2 ON t1.rk < t2.rk
+    JOIN T AS t3 ON t2.rk < t3.rk
+ORDER BY 2 DESC, 1 ASC;
 ```
 
 <!-- tabs:end -->

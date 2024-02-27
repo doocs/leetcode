@@ -65,12 +65,29 @@ Output table is ordered by the total cost in descending order.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Window Function + Conditional Join
+
+First, we use a window function to sort the table by the `topping_name` field and add a `rk` field to each row, representing the ranking of the current row.
+
+Then we use conditional join to join the table `T` three times, named as `t1`, `t2`, `t3` respectively. The join conditions are `t1.rk < t2.rk` and `t2.rk < t3.rk`. After that, we calculate the total price of the three toppings, sort by total price in descending order, and then sort by topping name in ascending order.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT *, RANK() OVER (ORDER BY topping_name) AS rk
+        FROM Toppings
+    )
+SELECT
+    CONCAT(t1.topping_name, ',', t2.topping_name, ',', t3.topping_name) AS pizza,
+    t1.cost + t2.cost + t3.cost AS total_cost
+FROM
+    T AS t1
+    JOIN T AS t2 ON t1.rk < t2.rk
+    JOIN T AS t3 ON t2.rk < t3.rk
+ORDER BY 2 DESC, 1 ASC;
 ```
 
 <!-- tabs:end -->
