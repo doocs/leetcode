@@ -3060,6 +3060,17 @@
 |  3047  |  [求交集区域内的最大正方形面积](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)  |    |  中等  |  第 386 场周赛  |
 |  3048  |  [标记所有下标的最早秒数 I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md)  |    |  中等  |  第 386 场周赛  |
 |  3049  |  [标记所有下标的最早秒数 II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md)  |    |  困难  |  第 386 场周赛  |
+|  3050  |  [Pizza Toppings Cost Analysis](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README.md)  |    |  中等  |  🔒  |
+|  3051  |  [Find Candidates for Data Scientist Position](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README.md)  |    |  简单  |  🔒  |
+|  3052  |  [Maximize Items](/solution/3000-3099/3052.Maximize%20Items/README.md)  |    |  困难  |  🔒  |
+|  3053  |  [Classifying Triangles by Lengths](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README.md)  |    |  简单  |  🔒  |
+|  3054  |  [Binary Tree Nodes](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README.md)  |    |  中等  |  🔒  |
+|  3055  |  [Top Percentile Fraud](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README.md)  |    |  中等  |  🔒  |
+|  3056  |  [Snaps Analysis](/solution/3000-3099/3056.Snaps%20Analysis/README.md)  |    |  中等  |  🔒  |
+|  3057  |  [Employees Project Allocation](/solution/3000-3099/3057.Employees%20Project%20Allocation/README.md)  |    |  困难  |  🔒  |
+|  3058  |  [Friends With No Mutual Friends](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README.md)  |    |  中等  |  🔒  |
+|  3059  |  [Find All Unique Email Domains](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md)  |    |  简单  |  🔒  |
+|  3060  |  [User Activities within Time Bounds](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
