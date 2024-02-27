@@ -12,21 +12,14 @@ func validPartition(nums []int) bool {
 		if f[i] != -1 {
 			return f[i] == 1
 		}
-		res := false
+		a := i+1 < n && nums[i] == nums[i+1]
+		b := i+2 < n && nums[i] == nums[i+1] && nums[i+1] == nums[i+2]
+		c := i+2 < n && nums[i+1]-nums[i] == 1 && nums[i+2]-nums[i+1] == 1
 		f[i] = 0
-		if i < n-1 && nums[i] == nums[i+1] {
-			res = res || dfs(i+2)
-		}
-		if i < n-2 && nums[i] == nums[i+1] && nums[i+1] == nums[i+2] {
-			res = res || dfs(i+3)
-		}
-		if i < n-2 && nums[i+1]-nums[i] == 1 && nums[i+2]-nums[i+1] == 1 {
-			res = res || dfs(i+3)
-		}
-		if res {
+		if a && dfs(i+2) || b && dfs(i+3) || c && dfs(i+3) {
 			f[i] = 1
 		}
-		return res
+		return f[i] == 1
 	}
 	return dfs(0)
 }
