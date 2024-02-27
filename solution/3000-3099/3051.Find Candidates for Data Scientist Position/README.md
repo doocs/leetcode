@@ -65,12 +65,20 @@ The output table is sorted by candidate_id in ascending order.
 
 ## 解法
 
-### 方法一
+### 方法一：条件筛选 + 分组统计
+
+我们首先筛选出具备 `Python`, `Tableau`, `PostgreSQL` 这三个技能的候选人，然后按照 `candidate_id` 进行分组统计，统计每个候选人具备的技能数量，最后筛选出具备这三个技能的候选人，并且按照 `candidate_id` 进行升序排序。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT candidate_id
+FROM Candidates
+WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
+GROUP BY 1
+HAVING COUNT(1) = 3
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
