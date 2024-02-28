@@ -70,12 +70,37 @@ Output table is ordered by item count in descending order.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Join Query + Union All
+
+First, we calculate the total area of all items of type `prime_eligible` and record it in the `s` field of table `T`.
+
+Next, we calculate the number of items of type `prime_eligible` and `not_prime` respectively. For items of type `prime_eligible`, the number of portions we can store is $\lfloor \frac{500000}{s} \rfloor$. For items of type `not_prime`, the number of portions we can store is $\lfloor \frac{500000 \mod s}{\sum \text{s1}} \rfloor$. Where $\sum \text{s1}$ is the total area of all items of type `not_prime`. Multiplying by the number of items of type `prime_eligible` and `not_prime` respectively gives us our result.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT SUM(square_footage) AS s
+        FROM Inventory
+        WHERE item_type = 'prime_eligible'
+    )
+SELECT
+    'prime_eligible' AS item_type,
+    COUNT(1) * FLOOR(500000 / s) AS item_count
+FROM
+    Inventory
+    JOIN T
+WHERE item_type = 'prime_eligible'
+UNION ALL
+SELECT
+    'not_prime',
+    IFNULL(COUNT(1) * FLOOR(IF(s = 0, 500000, 500000 % s) / SUM(square_footage)), 0)
+FROM
+    Inventory
+    JOIN T
+WHERE item_type = 'not_prime';
 ```
 
 <!-- tabs:end -->
