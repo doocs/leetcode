@@ -96,12 +96,22 @@ All percentages in output table rounded to the two decimal places.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Equi-Join + Group By Summation
+
+We can perform an equi-join to connect the `Activities` table and the `Age` table based on `user_id`. Then, group by `age_bucket` and finally calculate the percentage of sends and opens for each age group.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    age_bucket,
+    ROUND(100 * SUM(IF(activity_type = 'send', time_spent, 0)) / SUM(time_spent), 2) AS send_perc,
+    ROUND(100 * SUM(IF(activity_type = 'open', time_spent, 0)) / SUM(time_spent), 2) AS open_perc
+FROM
+    Activities
+    JOIN Age USING (user_id)
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
