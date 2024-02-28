@@ -89,10 +89,11 @@ Hence, the answer is -1.
 ```java
 
 ```
+
 class Solution {
-  public int earliestSecondToMarkIndices(int[] nums, int[] changeIndices) {
-    int l = 0;
-    int r = changeIndices.length + 1;
+public int earliestSecondToMarkIndices(int[] nums, int[] changeIndices) {
+int l = 0;
+int r = changeIndices.length + 1;
 
     while (l < r) {
       final int m = (l + r) / 2;
@@ -103,15 +104,16 @@ class Solution {
     }
 
     return l <= changeIndices.length ? l : -1;
-  }
 
-  // Returns true if all indices of `nums` can be marked within `second`.
-  private boolean canMark(int[] nums, int[] changeIndices, int second) {
-    int numMarked = 0;
-    int decrement = 0;
-    // indexToLastSecond[i] := the last second to mark the index i
-    int[] indexToLastSecond = new int[nums.length];
-    Arrays.fill(indexToLastSecond, -1);
+}
+
+// Returns true if all indices of `nums` can be marked within `second`.
+private boolean canMark(int[] nums, int[] changeIndices, int second) {
+int numMarked = 0;
+int decrement = 0;
+// indexToLastSecond[i] := the last second to mark the index i
+int[] indexToLastSecond = new int[nums.length];
+Arrays.fill(indexToLastSecond, -1);
 
     for (int i = 0; i < second; ++i)
       indexToLastSecond[changeIndices[i] - 1] = i;
@@ -132,8 +134,10 @@ class Solution {
     }
 
     return numMarked == nums.length;
-  }
+
 }
+}
+
 ```cpp
 
 ```
