@@ -98,12 +98,22 @@ All percentages in output table rounded to the two decimal places.
 
 ## 解法
 
-### 方法一
+### 方法一：等值连接 + 分组求和
+
+我们可以通过等值连接，将 `Activities` 表和 `Age` 表按照 `user_id` 进行连接，然后再按照 `age_bucket` 进行分组，最后计算每个年龄段的发送和打开的百分比。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    age_bucket,
+    ROUND(100 * SUM(IF(activity_type = 'send', time_spent, 0)) / SUM(time_spent), 2) AS send_perc,
+    ROUND(100 * SUM(IF(activity_type = 'open', time_spent, 0)) / SUM(time_spent), 2) AS open_perc
+FROM
+    Activities
+    JOIN Age USING (user_id)
+GROUP BY age_bucket;
 ```
 
 <!-- tabs:end -->
