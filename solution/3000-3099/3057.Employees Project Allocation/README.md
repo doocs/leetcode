@@ -83,12 +83,35 @@ Result table orderd by employee_id, project_id in ascending order.
 
 ## 解法
 
-### 方法一
+### 方法一：分组统计 + 等值连接
+
+我们先根据 `employee_id` 连接 `Project` 表和 `Employees` 表，然后再根据 `team` 分组统计每个团队的平均工作量，记录在临时表 `T` 中。
+
+然后，我们再次连接 `Project` 表和 `Employees` 表，同时连接 `T` 表，找出工作量大于团队平均工作量的员工，并且按照 `employee_id` 和 `project_id` 排序。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT team, AVG(workload) AS avg_workload
+        FROM
+            Project
+            JOIN Employees USING (employee_id)
+        GROUP BY 1
+    )
+SELECT
+    employee_id,
+    project_id,
+    name AS employee_name,
+    workload AS project_workload
+FROM
+    Project
+    JOIN Employees USING (employee_id)
+    JOIN T USING (team)
+WHERE workload > avg_workload
+ORDER BY 1, 2;
 ```
 
 <!-- tabs:end -->

@@ -68,12 +68,29 @@ Output table is ordered by user_id in increasing order.
 
 ## 解法
 
-### 方法一
+### 方法一：窗口函数 + 时间函数
+
+我们先使用 `LAG` 窗口函数，找到每个用户相同类型的会话的上一个会话的结束时间，记为 `prev_session_end`。然后我们使用 `TIMESTAMPDIFF` 函数计算当前会话的开始时间与上一个会话的结束时间的时间差，如果时间差小于等于 12 小时，那么这个用户就符合题目要求。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            user_id,
+            session_start,
+            LAG(session_end) OVER (
+                PARTITION BY user_id, session_type
+                ORDER BY session_end
+            ) AS prev_session_end
+        FROM Sessions
+    )
+SELECT DISTINCT
+    user_id
+FROM T
+WHERE TIMESTAMPDIFF(HOUR, prev_session_end, session_start) <= 12;
 ```
 
 <!-- tabs:end -->
