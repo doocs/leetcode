@@ -62,12 +62,32 @@ Output table is ordered by user_id1 in ascending order.</pre>
 
 ## 解法
 
-### 方法一
+### 方法一：子查询
+
+我们先把所有的朋友关系都列出来，记录在 `T` 表中。然后再找出没有共同朋友的朋友对。
+
+接下来，我们可以使用子查询来找出没有共同朋友的朋友对，即这个朋友对不属于其他某个人的朋友。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT user_id1, user_id2 FROM Friends
+        UNION ALL
+        SELECT user_id2, user_id1 FROM Friends
+    )
+SELECT user_id1, user_id2
+FROM Friends
+WHERE
+    (user_id1, user_id2) NOT IN (
+        SELECT t1.user_id1, t2.user_id1
+        FROM
+            T AS t1
+            JOIN T AS t2 ON t1.user_id2 = t2.user_id2
+    )
+ORDER BY 1, 2;
 ```
 
 <!-- tabs:end -->

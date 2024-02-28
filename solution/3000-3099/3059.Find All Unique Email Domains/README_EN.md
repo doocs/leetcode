@@ -55,12 +55,19 @@ Output table is ordered by email_domains in ascending order.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Using `SUBSTRING_INDEX` Function + Grouping Statistics
+
+First, we filter out all emails ending with `.com`, then use the `SUBSTRING_INDEX` function to extract the domain name of the email. Finally, we use `GROUP BY` to count the number of each domain.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT SUBSTRING_INDEX(email, '@', -1) AS email_domain, COUNT(1) AS count
+FROM Emails
+WHERE email LIKE '%.com'
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

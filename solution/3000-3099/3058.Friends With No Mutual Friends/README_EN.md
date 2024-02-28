@@ -60,12 +60,32 @@ Output table is ordered by user_id1 in ascending order.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Subquery
+
+First, we list all the friend relationships and record them in table `T`. Then we find the pairs of friends who do not have common friends.
+
+Next, we can use a subquery to find pairs of friends who do not have common friends, i.e., this pair of friends does not belong to any other person's friends.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT user_id1, user_id2 FROM Friends
+        UNION ALL
+        SELECT user_id2, user_id1 FROM Friends
+    )
+SELECT user_id1, user_id2
+FROM Friends
+WHERE
+    (user_id1, user_id2) NOT IN (
+        SELECT t1.user_id1, t2.user_id1
+        FROM
+            T AS t1
+            JOIN T AS t2 ON t1.user_id2 = t2.user_id2
+    )
+ORDER BY 1, 2;
 ```
 
 <!-- tabs:end -->
