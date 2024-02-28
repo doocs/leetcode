@@ -6,4 +6,4 @@ SELECT
 FROM
     Activities
     JOIN Age USING (user_id)
-GROUP BY age_bucket;
+GROUP BY 1;
