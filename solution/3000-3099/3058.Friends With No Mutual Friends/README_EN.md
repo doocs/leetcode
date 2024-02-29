@@ -60,12 +60,58 @@ Output table is ordered by user_id1 in ascending order.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Subquery
+
+First, we list all the friend relationships and record them in table `T`. Then we find the pairs of friends who do not have common friends.
+
+Next, we can use a subquery to find pairs of friends who do not have common friends, i.e., this pair of friends does not belong to any other person's friends.
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT user_id1, user_id2 FROM Friends
+        UNION ALL
+        SELECT user_id2, user_id1 FROM Friends
+    )
+SELECT user_id1, user_id2
+FROM Friends
+WHERE
+    (user_id1, user_id2) NOT IN (
+        SELECT t1.user_id1, t2.user_id1
+        FROM
+            T AS t1
+            JOIN T AS t2 ON t1.user_id2 = t2.user_id2
+    )
+ORDER BY 1, 2;
+```
 
+```python
+import pandas as pd
+
+
+def friends_with_no_mutual_friends(friends: pd.DataFrame) -> pd.DataFrame:
+    cp = friends.copy()
+    t = cp[["user_id1", "user_id2"]].copy()
+    t = pd.concat(
+        [
+            t,
+            cp[["user_id2", "user_id1"]].rename(
+                columns={"user_id2": "user_id1", "user_id1": "user_id2"}
+            ),
+        ]
+    )
+    merged = t.merge(t, left_on="user_id2", right_on="user_id2")
+    ans = cp[
+        ~cp.apply(
+            lambda x: (x["user_id1"], x["user_id2"])
+            in zip(merged["user_id1_x"], merged["user_id1_y"]),
+            axis=1,
+        )
+    ]
+    return ans.sort_values(by=["user_id1", "user_id2"])
 ```
 
 <!-- tabs:end -->

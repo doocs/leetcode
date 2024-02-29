@@ -64,12 +64,33 @@ Triangles table:
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Using CASE WHEN Statement
+
+We can use the `CASE WHEN` statement to determine the type of the triangle.
+
+First, we need to determine whether the three sides can form a triangle. If not, we return `Not A Triangle`.
+
+Then, we check if the lengths of the three sides are equal. If they are, we return `Equilateral`.
+
+Next, we check if there are two sides with equal length. If there are, we return `Isosceles`.
+
+Otherwise, it means that the lengths of the three sides are all different, so we return `Scalene`.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    CASE
+        WHEN A + B <= C
+        OR A + C <= B
+        OR B + C <= A THEN 'Not A Triangle'
+        WHEN A = B
+        AND B = c THEN 'Equilateral'
+        WHEN (A = B) + (B = C) + (A = C) = 1 THEN 'Isosceles'
+        ELSE 'Scalene'
+    END AS triangle_type
+FROM Triangles;
 ```
 
 <!-- tabs:end -->

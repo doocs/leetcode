@@ -57,12 +57,34 @@ Output table is ordered by email_domains in ascending order.
 
 ## 解法
 
-### 方法一
+### 方法一：使用 `SUBSTRING_INDEX` 函数 + 分组统计
+
+我们先筛选出所有以 `.com` 结尾的邮箱，然后使用 `SUBSTRING_INDEX` 函数提取出邮箱的域名，最后使用 `GROUP BY` 统计每个域名的个数。
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+SELECT SUBSTRING_INDEX(email, '@', -1) AS email_domain, COUNT(1) AS count
+FROM Emails
+WHERE email LIKE '%.com'
+GROUP BY 1
+ORDER BY 1;
+```
 
+```python
+import pandas as pd
+
+
+def find_unique_email_domains(emails: pd.DataFrame) -> pd.DataFrame:
+    emails["email_domain"] = emails["email"].str.split("@").str[-1]
+    emails = emails[emails["email"].str.contains(".com")]
+    return (
+        emails.groupby("email_domain")
+        .size()
+        .reset_index(name="count")
+        .sort_values(by="email_domain")
+    )
 ```
 
 <!-- tabs:end -->

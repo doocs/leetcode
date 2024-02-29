@@ -260,3 +260,4 @@
     -   [3058.Friends With No Mutual Friends](/database-solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)
     -   [3059.Find All Unique Email Domains](/database-solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)
     -   [3060.User Activities within Time Bounds](/database-solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)
+    -   [3061.Calculate Trapping Rain Water](/database-solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)

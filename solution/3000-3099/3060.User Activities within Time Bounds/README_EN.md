@@ -66,12 +66,45 @@ Output table is ordered by user_id in increasing order.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Window Function + Time Function
+
+First, we use the `LAG` window function to find the end time of the previous session of the same type for each user, denoted as `prev_session_end`. Then we use the `TIMESTAMPDIFF` function to calculate the time difference between the start time of the current session and the end time of the previous session. If the time difference is less than or equal to 12 hours, then this user meets the requirements of the problem.
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            user_id,
+            session_start,
+            LAG(session_end) OVER (
+                PARTITION BY user_id, session_type
+                ORDER BY session_end
+            ) AS prev_session_end
+        FROM Sessions
+    )
+SELECT DISTINCT
+    user_id
+FROM T
+WHERE TIMESTAMPDIFF(HOUR, prev_session_end, session_start) <= 12;
+```
 
+```python
+import pandas as pd
+
+
+def user_activities(sessions: pd.DataFrame) -> pd.DataFrame:
+    sessions = sessions.sort_values(by=["user_id", "session_start"])
+    sessions["prev_session_end"] = sessions.groupby(["user_id", "session_type"])[
+        "session_end"
+    ].shift(1)
+    sessions_filtered = sessions[
+        sessions["session_start"] - sessions["prev_session_end"]
+        <= pd.Timedelta(hours=12)
+    ]
+    return pd.DataFrame({"user_id": sessions_filtered["user_id"].unique()})
 ```
 
 <!-- tabs:end -->

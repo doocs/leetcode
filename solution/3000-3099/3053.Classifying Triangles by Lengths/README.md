@@ -66,12 +66,33 @@ Triangles table:
 
 ## 解法
 
-### 方法一
+### 方法一：使用 CASE WHEN 语句
+
+我们可以使用 `CASE WHEN` 语句来判断三角形的类型。
+
+首先，我们需要判断三个边是否能够构成一个三角形。如果不能，我们返回 `Not A Triangle`。
+
+然后，我们判断三个边的长度是否相等。如果相等，我们返回 `Equilateral`。
+
+接着，我们判断是否有两个边的长度相等。如果有，我们返回 `Isosceles`。
+
+否则，说明三个边的长度都不相等，我们返回 `Scalene`。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    CASE
+        WHEN A + B <= C
+        OR A + C <= B
+        OR B + C <= A THEN 'Not A Triangle'
+        WHEN A = B
+        AND B = c THEN 'Equilateral'
+        WHEN (A = B) + (B = C) + (A = C) = 1 THEN 'Isosceles'
+        ELSE 'Scalene'
+    END AS triangle_type
+FROM Triangles;
 ```
 
 <!-- tabs:end -->

@@ -70,12 +70,23 @@ Tree table:
 
 ## 解法
 
-### 方法一
+### 方法一：左连接
+
+如果一个节点的父节点为空，则它是根节点；如果一个节点不是任何节点的父节点，则它是叶子节点；否则它是内部节点。
+
+因此，我们使用左连接来连接两次 `Tree` 表，连接条件是 `t1.N = t2.P`。那么如果 `t1.P` 为空，则 `t1.N` 是根节点；如果 `t2.P` 为空，则 `t1.N` 是叶子节点；否则 `t1.N` 是内部节点。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT DISTINCT
+    t1.N AS N,
+    IF(t1.P IS NULL, 'Root', IF(t2.P IS NULL, 'Leaf', 'Inner')) AS Type
+FROM
+    Tree AS t1
+    LEFT JOIN Tree AS t2 ON t1.N = t2.p
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

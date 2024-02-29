@@ -68,12 +68,23 @@ Tree table:
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Left Join
+
+If a node's parent is null, then it is a root node; if a node is not the parent of any node, then it is a leaf node; otherwise, it is an internal node.
+
+Therefore, we use left join to join the `Tree` table twice, with the join condition being `t1.N = t2.P`. If `t1.P` is null, then `t1.N` is a root node; if `t2.P` is null, then `t1.N` is a leaf node; otherwise, `t1.N` is an internal node.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT DISTINCT
+    t1.N AS N,
+    IF(t1.P IS NULL, 'Root', IF(t2.P IS NULL, 'Leaf', 'Inner')) AS Type
+FROM
+    Tree AS t1
+    LEFT JOIN Tree AS t2 ON t1.N = t2.p
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

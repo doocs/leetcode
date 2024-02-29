@@ -81,12 +81,53 @@ Result table orderd by employee_id, project_id in ascending order.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Grouping Statistics + Equi-Join
+
+First, we join the `Project` table and the `Employees` table based on `employee_id`, then group by `team` to calculate the average workload of each team, and record it in the temporary table `T`.
+
+Then, we join the `Project` table and the `Employees` table again, and also join the `T` table, to find employees whose workload is greater than the average workload of the team. Finally, we sort by `employee_id` and `project_id`.
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT team, AVG(workload) AS avg_workload
+        FROM
+            Project
+            JOIN Employees USING (employee_id)
+        GROUP BY 1
+    )
+SELECT
+    employee_id,
+    project_id,
+    name AS employee_name,
+    workload AS project_workload
+FROM
+    Project
+    JOIN Employees USING (employee_id)
+    JOIN T USING (team)
+WHERE workload > avg_workload
+ORDER BY 1, 2;
+```
 
+```python
+import pandas as pd
+
+
+def employees_with_above_avg_workload(
+    project: pd.DataFrame, employees: pd.DataFrame
+) -> pd.DataFrame:
+    merged_df = pd.merge(project, employees, on="employee_id")
+    avg_workload_per_team = merged_df.groupby("team")["workload"].mean().reset_index()
+    merged_df = pd.merge(
+        merged_df, avg_workload_per_team, on="team", suffixes=("", "_avg")
+    )
+    ans = merged_df[merged_df["workload"] > merged_df["workload_avg"]]
+    ans = ans[["employee_id", "project_id", "name", "workload"]]
+    ans = ans.rename(columns={"name": "employee_name", "workload": "project_workload"})
+    return ans.sort_values(by=["employee_id", "project_id"])
 ```
 
 <!-- tabs:end -->

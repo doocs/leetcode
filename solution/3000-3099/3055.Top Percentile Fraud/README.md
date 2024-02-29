@@ -73,12 +73,28 @@ Output table is ordered by state in ascending order, fraud score in descending o
 
 ## 解法
 
-### 方法一
+### 方法一：使用窗口函数
+
+我们可以使用 `RANK()` 窗口函数来计算每个州的欺诈分数的排名，然后筛选出排名为 1 的记录，并且按照题目要求排序。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            RANK() OVER (
+                PARTITION BY state
+                ORDER BY fraud_score DESC
+            ) AS rk
+        FROM Fraud
+    )
+SELECT policy_id, state, fraud_score
+FROM T
+WHERE rk = 1
+ORDER BY 2, 3 DESC, 1;
 ```
 
 <!-- tabs:end -->

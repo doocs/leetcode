@@ -71,12 +71,28 @@ Output table is ordered by state in ascending order, fraud score in descending o
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Using Window Function
+
+We can use the `RANK()` window function to calculate the ranking of fraud scores for each state, then filter out the records with a rank of 1, and sort them as required by the problem.
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            RANK() OVER (
+                PARTITION BY state
+                ORDER BY fraud_score DESC
+            ) AS rk
+        FROM Fraud
+    )
+SELECT policy_id, state, fraud_score
+FROM T
+WHERE rk = 1
+ORDER BY 2, 3 DESC, 1;
 ```
 
 <!-- tabs:end -->

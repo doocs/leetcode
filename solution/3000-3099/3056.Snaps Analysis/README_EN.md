@@ -96,12 +96,46 @@ All percentages in output table rounded to the two decimal places.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Equi-Join + Group By Summation
+
+We can perform an equi-join to connect the `Activities` table and the `Age` table based on `user_id`. Then, group by `age_bucket` and finally calculate the percentage of sends and opens for each age group.
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+SELECT
+    age_bucket,
+    ROUND(100 * SUM(IF(activity_type = 'send', time_spent, 0)) / SUM(time_spent), 2) AS send_perc,
+    ROUND(100 * SUM(IF(activity_type = 'open', time_spent, 0)) / SUM(time_spent), 2) AS open_perc
+FROM
+    Activities
+    JOIN Age USING (user_id)
+GROUP BY 1;
+```
 
+```python
+import pandas as pd
+
+
+def snap_analysis(activities: pd.DataFrame, age: pd.DataFrame) -> pd.DataFrame:
+    merged_df = pd.merge(activities, age, on="user_id")
+    total_time_per_age_activity = (
+        merged_df.groupby(["age_bucket", "activity_type"])["time_spent"]
+        .sum()
+        .reset_index()
+    )
+    pivot_df = total_time_per_age_activity.pivot(
+        index="age_bucket", columns="activity_type", values="time_spent"
+    ).reset_index()
+    pivot_df = pivot_df.fillna(0)
+    pivot_df["send_perc"] = round(
+        100 * pivot_df["send"] / (pivot_df["send"] + pivot_df["open"]), 2
+    )
+    pivot_df["open_perc"] = round(
+        100 * pivot_df["open"] / (pivot_df["send"] + pivot_df["open"]), 2
+    )
+    return pivot_df[["age_bucket", "send_perc", "open_perc"]]
 ```
 
 <!-- tabs:end -->

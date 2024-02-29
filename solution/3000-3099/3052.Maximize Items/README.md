@@ -72,12 +72,37 @@ Output table is ordered by item count in descending order.</pre>
 
 ## 解法
 
-### 方法一
+### 方法一：连接查询 + 合并
+
+我们先计算出所有 prime_eligible 类型的物品的总面积，记录在 `T` 表的 `s` 字段中。
+
+接下来，我们分别计算 prime_eligible 和 not_prime 类型的物品的数量。对于 prime_eligible 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000}{s} \rfloor$，对于 not_prime 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000 \mod s}{\sum \text{s1}} \rfloor$。其中 $\sum \text{s1}$ 是所有 not_prime 类型的物品的总面积。再分别乘上 prime_eligible 和 not_prime 类型的物品的数量，就是我们的结果。
 
 <!-- tabs:start -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT SUM(square_footage) AS s
+        FROM Inventory
+        WHERE item_type = 'prime_eligible'
+    )
+SELECT
+    'prime_eligible' AS item_type,
+    COUNT(1) * FLOOR(500000 / s) AS item_count
+FROM
+    Inventory
+    JOIN T
+WHERE item_type = 'prime_eligible'
+UNION ALL
+SELECT
+    'not_prime',
+    IFNULL(COUNT(1) * FLOOR(IF(s = 0, 500000, 500000 % s) / SUM(square_footage)), 0)
+FROM
+    Inventory
+    JOIN T
+WHERE item_type = 'not_prime';
 ```
 
 <!-- tabs:end -->
