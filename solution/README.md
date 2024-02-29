@@ -3071,6 +3071,10 @@
 |  3058  |  [Friends With No Mutual Friends](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README.md)  |    |  中等  |  🔒  |
 |  3059  |  [Find All Unique Email Domains](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md)  |    |  简单  |  🔒  |
 |  3060  |  [User Activities within Time Bounds](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md)  |    |  困难  |  🔒  |
+|  3061  |  [Calculate Trapping Rain Water](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)  |    |  困难  |  🔒  |
+|  3062  |  [Winner of the Linked List Game](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md)  |    |  简单  |  🔒  |
+|  3063  |  [Linked List Frequency](/solution/3000-3099/3063.Linked%20List%20Frequency/README.md)  |    |  中等  |  🔒  |
+|  3064  |  [Guess the Number Using Bitwise Questions I](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
