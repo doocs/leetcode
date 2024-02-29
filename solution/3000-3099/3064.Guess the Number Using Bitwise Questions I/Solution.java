@@ -1,4 +1,4 @@
-/** 
+/**
  * Definition of commonSetBits API (defined in the parent class Problem).
  * int commonSetBits(int num);
  */
