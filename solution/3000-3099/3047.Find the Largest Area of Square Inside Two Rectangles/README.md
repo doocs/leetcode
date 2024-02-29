@@ -61,24 +61,127 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举两个矩形，其中矩形 $1$ 的左下角和右上角坐标分别为 $(x_1, y_1)$ 和 $(x_2, y_2)$，矩形 $2$ 的左下角和右上角坐标分别为 $(x_3, y_3)$ 和 $(x_4, y_4)$。
+
+如果矩形 $1$ 和矩形 $2$ 有交集，那么交集的坐标分别为：
+
+-   左下角横坐标是两个矩形左下角横坐标的最大值，即 $\max(x_1, x_3)$；
+-   左下角纵坐标是两个矩形左下角纵坐标的最大值，即 $\max(y_1, y_3)$；
+-   右上角横坐标是两个矩形右上角横坐标的最小值，即 $\min(x_2, x_4)$；
+-   右上角纵坐标是两个矩形右上角纵坐标的最小值，即 $\min(y_2, y_4)$。
+
+那么交集的宽和高分别为 $w = \min(x_2, x_4) - \max(x_1, x_3)$ 和 $h = \min(y_2, y_4) - \max(y_1, y_3)$。我们取两者的最小值作为边长，即 $e = \min(w, h)$，如果 $e > 0$，那么我们就可以得到一个正方形，其面积为 $e^2$，我们取所有正方形的最大面积即可。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是矩形的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def largestSquareArea(
+        self, bottomLeft: List[List[int]], topRight: List[List[int]]
+    ) -> int:
+        ans = 0
+        for ((x1, y1), (x2, y2)), ((x3, y3), (x4, y4)) in combinations(
+            zip(bottomLeft, topRight), 2
+        ):
+            w = min(x2, x4) - max(x1, x3)
+            h = min(y2, y4) - max(y1, y3)
+            e = min(w, h)
+            if e > 0:
+                ans = max(ans, e * e)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public long largestSquareArea(int[][] bottomLeft, int[][] topRight) {
+        long ans = 0;
+        for (int i = 0; i < bottomLeft.length; ++i) {
+            int x1 = bottomLeft[i][0], y1 = bottomLeft[i][1];
+            int x2 = topRight[i][0], y2 = topRight[i][1];
+            for (int j = i + 1; j < bottomLeft.length; ++j) {
+                int x3 = bottomLeft[j][0], y3 = bottomLeft[j][1];
+                int x4 = topRight[j][0], y4 = topRight[j][1];
+                int w = Math.min(x2, x4) - Math.max(x1, x3);
+                int h = Math.min(y2, y4) - Math.max(y1, y3);
+                int e = Math.min(w, h);
+                if (e > 0) {
+                    ans = Math.max(ans, 1L * e * e);
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long largestSquareArea(vector<vector<int>>& bottomLeft, vector<vector<int>>& topRight) {
+        long long ans = 0;
+        for (int i = 0; i < bottomLeft.size(); ++i) {
+            int x1 = bottomLeft[i][0], y1 = bottomLeft[i][1];
+            int x2 = topRight[i][0], y2 = topRight[i][1];
+            for (int j = i + 1; j < bottomLeft.size(); ++j) {
+                int x3 = bottomLeft[j][0], y3 = bottomLeft[j][1];
+                int x4 = topRight[j][0], y4 = topRight[j][1];
+                int w = min(x2, x4) - max(x1, x3);
+                int h = min(y2, y4) - max(y1, y3);
+                int e = min(w, h);
+                if (e > 0) {
+                    ans = max(ans, 1LL * e * e);
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func largestSquareArea(bottomLeft [][]int, topRight [][]int) (ans int64) {
+	for i, b1 := range bottomLeft {
+		t1 := topRight[i]
+		x1, y1 := b1[0], b1[1]
+		x2, y2 := t1[0], t1[1]
+		for j := i + 1; j < len(bottomLeft); j++ {
+			x3, y3 := bottomLeft[j][0], bottomLeft[j][1]
+			x4, y4 := topRight[j][0], topRight[j][1]
+			w := min(x2, x4) - max(x1, x3)
+			h := min(y2, y4) - max(y1, y3)
+			e := min(w, h)
+			if e > 0 {
+				ans = max(ans, int64(e)*int64(e))
+			}
+		}
+	}
+	return
+}
+```
 
+```ts
+function largestSquareArea(bottomLeft: number[][], topRight: number[][]): number {
+    let ans = 0;
+    for (let i = 0; i < bottomLeft.length; ++i) {
+        const [x1, y1] = bottomLeft[i];
+        const [x2, y2] = topRight[i];
+        for (let j = i + 1; j < bottomLeft.length; ++j) {
+            const [x3, y3] = bottomLeft[j];
+            const [x4, y4] = topRight[j];
+            const w = Math.min(x2, x4) - Math.max(x1, x3);
+            const h = Math.min(y2, y4) - Math.max(y1, y3);
+            const e = Math.min(w, h);
+            if (e > 0) {
+                ans = Math.max(ans, e * e);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
