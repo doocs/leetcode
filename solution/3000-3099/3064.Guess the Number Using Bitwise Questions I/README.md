@@ -46,24 +46,94 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举 $2$ 的幂次方，然后调用 `commonSetBits` 方法，如果返回值大于 $0$，则说明 $n$ 的二进制表示中的对应位是 $1$。
+
+时间复杂度 $O(\log n)$，本题中 $n \le 2^{30}$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
+# Definition of commonSetBits API.
+# def commonSetBits(num: int) -> int:
 
+
+class Solution:
+    def findNumber(self) -> int:
+        return sum(1 << i for i in range(32) if commonSetBits(1 << i))
 ```
 
 ```java
+/**
+ * Definition of commonSetBits API (defined in the parent class Problem).
+ * int commonSetBits(int num);
+ */
 
+public class Solution extends Problem {
+    public int findNumber() {
+        int n = 0;
+        for (int i = 0; i < 32; ++i) {
+            if (commonSetBits(1 << i) > 0) {
+                n |= 1 << i;
+            }
+        }
+        return n;
+    }
+}
 ```
 
 ```cpp
+/**
+ * Definition of commonSetBits API.
+ * int commonSetBits(int num);
+ */
 
+class Solution {
+public:
+    int findNumber() {
+        int n = 0;
+        for (int i = 0; i < 32; ++i) {
+            if (commonSetBits(1 << i)) {
+                n |= 1 << i;
+            }
+        }
+        return n;
+    }
+};
 ```
 
 ```go
+/**
+ * Definition of commonSetBits API.
+ * func commonSetBits(num int) int;
+ */
 
+func findNumber() (n int) {
+	for i := 0; i < 32; i++ {
+		if commonSetBits(1<<i) > 0 {
+			n |= 1 << i
+		}
+	}
+	return
+}
+```
+
+```ts
+/**
+ * Definition of commonSetBits API.
+ * var commonSetBits = function(num: number): number {}
+ */
+
+function findNumber(): number {
+    let n = 0;
+    for (let i = 0; i < 32; ++i) {
+        if (commonSetBits(1 << i)) {
+            n |= 1 << i;
+        }
+    }
+    return n;
+}
 ```
 
 <!-- tabs:end -->
