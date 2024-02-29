@@ -54,7 +54,7 @@ Heights table:
 | 6                   | 
 +---------------------+
 <strong>Explanation:</strong> 
-<img src="https://assets.leetcode.com/uploads/2024/02/26/trapping_rain_water.png" style="width:500px; height:200px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/images/trapping_rain_water.png" style="width:500px; height:200px;" />
 
 The elevation map depicted above (in the black section) is graphically represented with the x-axis denoting the id and the y-axis representing the heights [0,1,0,2,1,0,1,3,2,1,2,1]. In this scenario, 6 units of rainwater are trapped within the blue section.
 </pre>
