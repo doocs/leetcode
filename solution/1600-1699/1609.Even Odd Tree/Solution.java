@@ -19,7 +19,7 @@ class Solution {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            int prev = even ? 0 : 1000000;
+            int prev = even ? 0 : 1000001;
             for (int n = q.size(); n > 0; --n) {
                 root = q.pollFirst();
                 if (even && (root.val % 2 == 0 || prev >= root.val)) {

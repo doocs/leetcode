@@ -44,24 +44,94 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate the powers of 2, and then call the `commonSetBits` method. If the return value is greater than 0, it means that the corresponding bit in the binary representation of `n` is 1.
+
+The time complexity is $O(\log n)$, where $n \le 2^{30}$ in this problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
+# Definition of commonSetBits API.
+# def commonSetBits(num: int) -> int:
 
+
+class Solution:
+    def findNumber(self) -> int:
+        return sum(1 << i for i in range(32) if commonSetBits(1 << i))
 ```
 
 ```java
+/**
+ * Definition of commonSetBits API (defined in the parent class Problem).
+ * int commonSetBits(int num);
+ */
 
+public class Solution extends Problem {
+    public int findNumber() {
+        int n = 0;
+        for (int i = 0; i < 32; ++i) {
+            if (commonSetBits(1 << i) > 0) {
+                n |= 1 << i;
+            }
+        }
+        return n;
+    }
+}
 ```
 
 ```cpp
+/**
+ * Definition of commonSetBits API.
+ * int commonSetBits(int num);
+ */
 
+class Solution {
+public:
+    int findNumber() {
+        int n = 0;
+        for (int i = 0; i < 32; ++i) {
+            if (commonSetBits(1 << i)) {
+                n |= 1 << i;
+            }
+        }
+        return n;
+    }
+};
 ```
 
 ```go
+/**
+ * Definition of commonSetBits API.
+ * func commonSetBits(num int) int;
+ */
 
+func findNumber() (n int) {
+	for i := 0; i < 32; i++ {
+		if commonSetBits(1<<i) > 0 {
+			n |= 1 << i
+		}
+	}
+	return
+}
+```
+
+```ts
+/**
+ * Definition of commonSetBits API.
+ * var commonSetBits = function(num: number): number {}
+ */
+
+function findNumber(): number {
+    let n = 0;
+    for (let i = 0; i < 32; ++i) {
+        if (commonSetBits(1 << i)) {
+            n |= 1 << i;
+        }
+    }
+    return n;
+}
 ```
 
 <!-- tabs:end -->

@@ -51,24 +51,130 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table `cnt` to record the occurrence times of each element value in the linked list, then traverse the values of the hash table to construct a new linked list.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def frequenciesOfElements(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        cnt = Counter()
+        while head:
+            cnt[head.val] += 1
+            head = head.next
+        dummy = ListNode()
+        for val in cnt.values():
+            dummy.next = ListNode(val, dummy.next)
+        return dummy.next
 ```
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode frequenciesOfElements(ListNode head) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (; head != null; head = head.next) {
+            cnt.merge(head.val, 1, Integer::sum);
+        }
+        ListNode dummy = new ListNode();
+        for (int val : cnt.values()) {
+            dummy.next = new ListNode(val, dummy.next);
+        }
+        return dummy.next;
+    }
+}
 ```
 
 ```cpp
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* frequenciesOfElements(ListNode* head) {
+        unordered_map<int, int> cnt;
+        for (; head; head = head->next) {
+            cnt[head->val]++;
+        }
+        ListNode* dummy = new ListNode();
+        for (auto& [_, val] : cnt) {
+            dummy->next = new ListNode(val, dummy->next);
+        }
+        return dummy->next;
+    }
+};
 ```
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func frequenciesOfElements(head *ListNode) *ListNode {
+	cnt := map[int]int{}
+	for ; head != nil; head = head.Next {
+		cnt[head.Val]++
+	}
+	dummy := &ListNode{}
+	for _, val := range cnt {
+		dummy.Next = &ListNode{val, dummy.Next}
+	}
+	return dummy.Next
+}
+```
 
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function frequenciesOfElements(head: ListNode | null): ListNode | null {
+    const cnt: Map<number, number> = new Map();
+    for (; head; head = head.next) {
+        cnt.set(head.val, (cnt.get(head.val) || 0) + 1);
+    }
+    const dummy = new ListNode();
+    for (const val of cnt.values()) {
+        dummy.next = new ListNode(val, dummy.next);
+    }
+    return dummy.next;
+}
 ```
 
 <!-- tabs:end -->

@@ -56,19 +56,42 @@ Heights table:
 | 6                   | 
 +---------------------+
 <strong>Explanation:</strong> 
-<img src="https://assets.leetcode.com/uploads/2024/02/26/trapping_rain_water.png" style="width:500px; height:200px;" />
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/images/trapping_rain_water.png" style="width:500px; height:200px;" />
 
 The elevation map depicted above (in the black section) is graphically represented with the x-axis denoting the id and the y-axis representing the heights [0,1,0,2,1,0,1,3,2,1,2,1]. In this scenario, 6 units of rainwater are trapped within the blue section.
 </pre>
 
 ## 解法
 
-### 方法一
+### 方法一：窗口函数 + 求和
+
+我们使用窗口函数 `MAX(height) OVER (ORDER BY id)` 来计算每个位置及其左边的最大高度，使用 `MAX(height) OVER (ORDER BY id DESC)` 来计算每个位置及其右边的最大高度，分别记为 `l` 和 `r`。那么每个位置上的蓄水量就是 `min(l, r) - height`，最后求和即可。
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            MAX(height) OVER (ORDER BY id) AS l,
+            MAX(height) OVER (ORDER BY id DESC) AS r
+        FROM Heights
+    )
+SELECT SUM(LEAST(l, r) - height) AS total_trapped_water
+FROM T;
+```
 
+```python
+import pandas as pd
+
+
+def calculate_trapped_rain_water(heights: pd.DataFrame) -> pd.DataFrame:
+    heights["l"] = heights["height"].cummax()
+    heights["r"] = heights["height"][::-1].cummax()[::-1]
+    heights["trapped_water"] = heights[["l", "r"]].min(axis=1) - heights["height"]
+    return pd.DataFrame({"total_trapped_water": [heights["trapped_water"].sum()]})
 ```
 
 <!-- tabs:end -->

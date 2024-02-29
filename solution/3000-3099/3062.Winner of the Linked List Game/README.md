@@ -87,24 +87,156 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+遍历链表，每次取出两个节点，比较它们的值，然后根据比较结果更新奇数和偶数的得分。最后比较奇数和偶数的得分，返回结果。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def gameResult(self, head: Optional[ListNode]) -> str:
+        odd = even = 0
+        while head:
+            a = head.val
+            b = head.next.val
+            odd += a < b
+            even += a > b
+            head = head.next.next
+        if odd > even:
+            return "Odd"
+        if odd < even:
+            return "Even"
+        return "Tie"
 ```
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public String gameResult(ListNode head) {
+        int odd = 0, even = 0;
+        for (; head != null; head = head.next.next) {
+            int a = head.val;
+            int b = head.next.val;
+            odd += a < b ? 1 : 0;
+            even += a > b ? 1 : 0;
+        }
+        if (odd > even) {
+            return "Odd";
+        }
+        if (odd < even) {
+            return "Even";
+        }
+        return "Tie";
+    }
+}
 ```
 
 ```cpp
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    string gameResult(ListNode* head) {
+        int odd = 0, even = 0;
+        for (; head != nullptr; head = head->next->next) {
+            int a = head->val;
+            int b = head->next->val;
+            odd += a < b;
+            even += a > b;
+        }
+        if (odd > even) {
+            return "Odd";
+        }
+        if (odd < even) {
+            return "Even";
+        }
+        return "Tie";
+    }
+};
 ```
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func gameResult(head *ListNode) string {
+	var odd, even int
+	for ; head != nil; head = head.Next.Next {
+		a, b := head.Val, head.Next.Val
+		if a < b {
+			odd++
+		}
+		if a > b {
+			even++
+		}
+	}
+	if odd > even {
+		return "Odd"
+	}
+	if odd < even {
+		return "Even"
+	}
+	return "Tie"
+}
+```
 
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function gameResult(head: ListNode | null): string {
+    let [odd, even] = [0, 0];
+    for (; head; head = head.next.next) {
+        const [a, b] = [head.val, head.next.val];
+        odd += a < b ? 1 : 0;
+        even += a > b ? 1 : 0;
+    }
+    if (odd > even) {
+        return 'Odd';
+    }
+    if (odd < even) {
+        return 'Even';
+    }
+    return 'Tie';
+}
 ```
 
 <!-- tabs:end -->
