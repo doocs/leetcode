@@ -25,7 +25,7 @@ class Solution {
             return true;
         }
         boolean even = i % 2 == 0;
-        int prev = d.getOrDefault(i, even ? 0 : 1000000);
+        int prev = d.getOrDefault(i, even ? 0 : 1000001);
         if (even && (root.val % 2 == 0 || prev >= root.val)) {
             return false;
         }
