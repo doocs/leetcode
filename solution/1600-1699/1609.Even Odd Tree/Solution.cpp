@@ -15,15 +15,23 @@ public:
         int even = 1;
         queue<TreeNode*> q{{root}};
         while (!q.empty()) {
-            int prev = even ? 0 : 1e6;
+            int prev = even ? 0 : 1e7;
             for (int n = q.size(); n; --n) {
                 root = q.front();
                 q.pop();
-                if (even && (root->val % 2 == 0 || prev >= root->val)) return false;
-                if (!even && (root->val % 2 == 1 || prev <= root->val)) return false;
+                if (even && (root->val % 2 == 0 || prev >= root->val)) {
+                    return false;
+                }
+                if (!even && (root->val % 2 == 1 || prev <= root->val)) {
+                    return false;
+                }
                 prev = root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
             even ^= 1;
         }
