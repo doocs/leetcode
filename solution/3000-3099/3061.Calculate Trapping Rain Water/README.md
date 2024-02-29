@@ -63,12 +63,35 @@ The elevation map depicted above (in the black section) is graphically represent
 
 ## 解法
 
-### 方法一
+### 方法一：窗口函数 + 求和
+
+我们使用窗口函数 `MAX(height) OVER (ORDER BY id)` 来计算每个位置及其左边的最大高度，使用 `MAX(height) OVER (ORDER BY id DESC)` 来计算每个位置及其右边的最大高度，分别记为 `l` 和 `r`。那么每个位置上的蓄水量就是 `min(l, r) - height`，最后求和即可。
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            MAX(height) OVER (ORDER BY id) AS l,
+            MAX(height) OVER (ORDER BY id DESC) AS r
+        FROM Heights
+    )
+SELECT SUM(LEAST(l, r) - height) AS total_trapped_water
+FROM T;
+```
 
+```python
+import pandas as pd
+
+
+def calculate_trapped_rain_water(heights: pd.DataFrame) -> pd.DataFrame:
+    heights["l"] = heights["height"].cummax()
+    heights["r"] = heights["height"][::-1].cummax()[::-1]
+    heights["trapped_water"] = heights[["l", "r"]].min(axis=1) - heights["height"]
+    return pd.DataFrame({"total_trapped_water": [heights["trapped_water"].sum()]})
 ```
 
 <!-- tabs:end -->

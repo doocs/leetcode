@@ -61,12 +61,35 @@ The elevation map depicted above (in the black section) is graphically represent
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Window Function + Summation
+
+We use the window function `MAX(height) OVER (ORDER BY id)` to calculate the maximum height for each position and its left side, and use `MAX(height) OVER (ORDER BY id DESC)` to calculate the maximum height for each position and its right side, denoted as `l` and `r` respectively. Then, the amount of water stored at each position is `min(l, r) - height`. Finally, we sum them up.
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            MAX(height) OVER (ORDER BY id) AS l,
+            MAX(height) OVER (ORDER BY id DESC) AS r
+        FROM Heights
+    )
+SELECT SUM(LEAST(l, r) - height) AS total_trapped_water
+FROM T;
+```
 
+```python
+import pandas as pd
+
+
+def calculate_trapped_rain_water(heights: pd.DataFrame) -> pd.DataFrame:
+    heights["l"] = heights["height"].cummax()
+    heights["r"] = heights["height"][::-1].cummax()[::-1]
+    heights["trapped_water"] = heights[["l", "r"]].min(axis=1) - heights["height"]
+    return pd.DataFrame({"total_trapped_water": [heights["trapped_water"].sum()]})
 ```
 
 <!-- tabs:end -->
