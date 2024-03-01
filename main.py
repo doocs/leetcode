@@ -158,7 +158,7 @@ for dir in dirs:
                         # 需要将 code 缩进 4 个空格
                         code = code.replace("\n", "\n    ")
                         code_snippet = (
-                            f'=== "{name}"\n\n    ```{lang}\n    {code}\n    ```\n'
+                            f'=== "{name}"\n\n    ```{lang} linenums="1"\n    {code}\n    ```\n'
                         )
                         result.append(code_snippet)
                 content = content[:i] + "\n".join(result) + content[j + len(end) :]

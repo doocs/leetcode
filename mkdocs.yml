@@ -64,6 +64,7 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - tags:
       tags_file: tags.md
+  - offline
 
 markdown_extensions:
   - pymdownx.superfences
@@ -74,6 +75,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - attr_list
+  - md_in_html
 
 extra_javascript:
   - javascripts/katex.js 

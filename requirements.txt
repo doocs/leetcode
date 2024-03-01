@@ -3,5 +3,5 @@ Requests==2.31.0
 sortedcontainers==2.4.0
 urllib3==1.26.18
 mkdocs-git-committers-plugin-2==2.2.3
-mkdocs-material==9.5.7
+mkdocs-material==9.5.12
 jieba==0.42.1
