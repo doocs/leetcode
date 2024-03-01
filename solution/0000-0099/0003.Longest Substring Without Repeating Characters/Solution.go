@@ -1,7 +1,6 @@
-func lengthOfLongestSubstring(s string) int {
-	ss := map[byte]bool{}
-	i, ans := 0, 0
-	for j := 0; j < len(s); j++ {
+func lengthOfLongestSubstring(s string) (ans int) {
+	ss := [128]bool{}
+	for i, j := 0, 0; j < len(s); j++ {
 		for ss[s[j]] {
 			ss[s[i]] = false
 			i++
@@ -9,5 +8,5 @@ func lengthOfLongestSubstring(s string) int {
 		ss[s[j]] = true
 		ans = max(ans, j-i+1)
 	}
-	return ans
+	return
 }
