@@ -66,7 +66,15 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Simulation
+
+We can use a hash table $day$ to record the next time each task can be executed. Initially, all values in $day$ are $0$. We use a variable $ans$ to record the current time.
+
+We iterate through the array $tasks$. For each task $task$, we increment the current time $ans$ by one, indicating that one day has passed since the last task execution. If $day[task] > ans$ at this time, it means that task $task$ can only be executed on the $day[task]$ day. Therefore, we update the current time $ans = \max(ans, day[task])$. Then we update the value of $day[task]$ to $ans + space + 1$, indicating that the next time task $task$ can be executed is at $ans + space + 1$.
+
+After the iteration, we return $ans$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $tasks$.
 
 <!-- tabs:start -->
 
