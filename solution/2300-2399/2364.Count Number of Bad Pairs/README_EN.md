@@ -42,7 +42,17 @@ There are a total of 5 bad pairs, so we return 5.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Equation Transformation + Hash Table
+
+From the problem description, we know that for any $i < j$, if $j - i \neq nums[j] - nums[i]$, then $(i, j)$ is a bad pair.
+
+We can transform the equation to $i - nums[i] \neq j - nums[j]$. This inspires us to use a hash table $cnt$ to count the occurrences of $i - nums[i]$.
+
+We iterate through the array. For the current element $nums[i]$, we add $i - cnt[i - nums[i]]$ to the answer, then increment the count of $i - nums[i]$ by $1$.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
