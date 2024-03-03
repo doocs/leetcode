@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 387
+
+- [3069. Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
+- [3070. Count Submatrices with Top-Left Element and Sum Less Than k](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)
+- [3071. Minimum Operations to Write the Letter Y on a Grid](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md)
+- [3072. Distribute Elements Into Two Arrays II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md)
+
 #### Biweekly Contest 125
 
 - [3065. Minimum Operations to Exceed Threshold Value I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md)

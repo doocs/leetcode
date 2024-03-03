@@ -3077,6 +3077,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3066  |  [Minimum Operations to Exceed Threshold Value II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 125  |
 |  3067  |  [Count Pairs of Connectable Servers in a Weighted Tree Network](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README_EN.md)  |    |  Medium  |  Biweekly Contest 125  |
 |  3068  |  [Find the Maximum Sum of Node Values](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md)  |    |  Hard  |  Biweekly Contest 125  |
+|  3069  |  [Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 387  |
+|  3070  |  [Count Submatrices with Top-Left Element and Sum Less Than k](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)  |    |  Medium  |  Weekly Contest 387  |
+|  3071  |  [Minimum Operations to Write the Letter Y on a Grid](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 387  |
+|  3072  |  [Distribute Elements Into Two Arrays II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 387  |
 
 ## Copyright
 

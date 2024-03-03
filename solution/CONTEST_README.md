@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 387 场周赛(2024-03-03 10:30, 90 分钟) 参赛人数 3694
+
+- [3069. 将元素分配到两个数组中 I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md)
+- [3070. 元素和小于等于 k 的子矩阵的数目](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md)
+- [3071. 在矩阵上写出字母 Y 所需的最少操作次数](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)
+- [3072. 将元素分配到两个数组中 II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md)
+
 #### 第 125 场双周赛(2024-03-02 22:30, 90 分钟) 参赛人数 2599
 
 - [3065. 超过阈值的最少操作数 I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md)
