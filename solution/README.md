@@ -3056,10 +3056,10 @@
 |  3043  |  [最长公共前缀的长度](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README.md)  |  `字典树`,`数组`,`哈希表`,`字符串`  |  中等  |  第 385 场周赛  |
 |  3044  |  [出现频率最高的质数](/solution/3000-3099/3044.Most%20Frequent%20Prime/README.md)  |  `数组`,`哈希表`,`数学`,`计数`,`枚举`,`矩阵`,`数论`  |  中等  |  第 385 场周赛  |
 |  3045  |  [统计前后缀下标对 II](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README.md)  |  `字典树`,`数组`,`字符串`,`字符串匹配`,`哈希函数`,`滚动哈希`  |  困难  |  第 385 场周赛  |
-|  3046  |  [分割数组](/solution/3000-3099/3046.Split%20the%20Array/README.md)  |    |  简单  |  第 386 场周赛  |
-|  3047  |  [求交集区域内的最大正方形面积](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)  |    |  中等  |  第 386 场周赛  |
-|  3048  |  [标记所有下标的最早秒数 I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md)  |    |  中等  |  第 386 场周赛  |
-|  3049  |  [标记所有下标的最早秒数 II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md)  |    |  困难  |  第 386 场周赛  |
+|  3046  |  [分割数组](/solution/3000-3099/3046.Split%20the%20Array/README.md)  |  `数组`,`哈希表`,`计数`  |  简单  |  第 386 场周赛  |
+|  3047  |  [求交集区域内的最大正方形面积](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)  |  `几何`,`数组`,`数学`  |  中等  |  第 386 场周赛  |
+|  3048  |  [标记所有下标的最早秒数 I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md)  |  `数组`,`二分查找`  |  中等  |  第 386 场周赛  |
+|  3049  |  [标记所有下标的最早秒数 II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md)  |  `贪心`,`数组`,`二分查找`  |  困难  |  第 386 场周赛  |
 |  3050  |  [Pizza Toppings Cost Analysis](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README.md)  |    |  中等  |  🔒  |
 |  3051  |  [Find Candidates for Data Scientist Position](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README.md)  |    |  简单  |  🔒  |
 |  3052  |  [Maximize Items](/solution/3000-3099/3052.Maximize%20Items/README.md)  |    |  困难  |  🔒  |
@@ -3075,6 +3075,14 @@
 |  3062  |  [Winner of the Linked List Game](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md)  |    |  简单  |  🔒  |
 |  3063  |  [Linked List Frequency](/solution/3000-3099/3063.Linked%20List%20Frequency/README.md)  |    |  中等  |  🔒  |
 |  3064  |  [Guess the Number Using Bitwise Questions I](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README.md)  |    |  中等  |  🔒  |
+|  3065  |  [超过阈值的最少操作数 I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md)  |    |  简单  |  第 125 场双周赛  |
+|  3066  |  [超过阈值的最少操作数 II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README.md)  |    |  中等  |  第 125 场双周赛  |
+|  3067  |  [在带权树网络中统计可连接服务器对数目](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README.md)  |    |  中等  |  第 125 场双周赛  |
+|  3068  |  [最大节点价值之和](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md)  |    |  困难  |  第 125 场双周赛  |
+|  3069  |  [将元素分配到两个数组中 I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md)  |    |  简单  |  第 387 场周赛  |
+|  3070  |  [元素和小于等于 k 的子矩阵的数目](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md)  |    |  中等  |  第 387 场周赛  |
+|  3071  |  [在矩阵上写出字母 Y 所需的最少操作次数](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)  |    |  中等  |  第 387 场周赛  |
+|  3072  |  [将元素分配到两个数组中 II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md)  |    |  困难  |  第 387 场周赛  |
 
 ## 版权
 
