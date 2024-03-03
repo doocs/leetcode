@@ -3079,6 +3079,10 @@
 |  3066  |  [超过阈值的最少操作数 II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README.md)  |    |  中等  |  第 125 场双周赛  |
 |  3067  |  [在带权树网络中统计可连接服务器对数目](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README.md)  |    |  中等  |  第 125 场双周赛  |
 |  3068  |  [最大节点价值之和](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md)  |    |  困难  |  第 125 场双周赛  |
+|  3069  |  [将元素分配到两个数组中 I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md)  |    |  简单  |  第 387 场周赛  |
+|  3070  |  [元素和小于等于 k 的子矩阵的数目](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md)  |    |  中等  |  第 387 场周赛  |
+|  3071  |  [在矩阵上写出字母 Y 所需的最少操作次数](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)  |    |  中等  |  第 387 场周赛  |
+|  3072  |  [将元素分配到两个数组中 II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md)  |    |  困难  |  第 387 场周赛  |
 
 ## 版权
 
