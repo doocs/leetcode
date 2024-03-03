@@ -3054,10 +3054,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3043  |  [Find the Length of the Longest Common Prefix](/solution/3000-3099/3043.Find%20the%20Length%20of%20the%20Longest%20Common%20Prefix/README_EN.md)  |  `Trie`,`Array`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 385  |
 |  3044  |  [Most Frequent Prime](/solution/3000-3099/3044.Most%20Frequent%20Prime/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`,`Enumeration`,`Matrix`,`Number Theory`  |  Medium  |  Weekly Contest 385  |
 |  3045  |  [Count Prefix and Suffix Pairs II](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README_EN.md)  |  `Trie`,`Array`,`String`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 385  |
-|  3046  |  [Split the Array](/solution/3000-3099/3046.Split%20the%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 386  |
-|  3047  |  [Find the Largest Area of Square Inside Two Rectangles](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md)  |    |  Medium  |  Weekly Contest 386  |
-|  3048  |  [Earliest Second to Mark Indices I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 386  |
-|  3049  |  [Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 386  |
+|  3046  |  [Split the Array](/solution/3000-3099/3046.Split%20the%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Easy  |  Weekly Contest 386  |
+|  3047  |  [Find the Largest Area of Square Inside Two Rectangles](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md)  |  `Geometry`,`Array`,`Math`  |  Medium  |  Weekly Contest 386  |
+|  3048  |  [Earliest Second to Mark Indices I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 386  |
+|  3049  |  [Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 386  |
 |  3050  |  [Pizza Toppings Cost Analysis](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md)  |    |  Medium  |  🔒  |
 |  3051  |  [Find Candidates for Data Scientist Position](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)  |    |  Easy  |  🔒  |
 |  3052  |  [Maximize Items](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)  |    |  Hard  |  🔒  |
@@ -3073,6 +3073,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3062  |  [Winner of the Linked List Game](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md)  |    |  Easy  |  🔒  |
 |  3063  |  [Linked List Frequency](/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md)  |    |  Medium  |  🔒  |
 |  3064  |  [Guess the Number Using Bitwise Questions I](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README_EN.md)  |    |  Medium  |  🔒  |
+|  3065  |  [Minimum Operations to Exceed Threshold Value I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 125  |
+|  3066  |  [Minimum Operations to Exceed Threshold Value II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 125  |
+|  3067  |  [Count Pairs of Connectable Servers in a Weighted Tree Network](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README_EN.md)  |    |  Medium  |  Biweekly Contest 125  |
+|  3068  |  [Find the Maximum Sum of Node Values](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md)  |    |  Hard  |  Biweekly Contest 125  |
 
 ## Copyright
 

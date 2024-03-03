@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 125 场双周赛(2024-03-02 22:30, 90 分钟) 参赛人数 2599
+
+- [3065. 超过阈值的最少操作数 I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md)
+- [3066. 超过阈值的最少操作数 II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README.md)
+- [3067. 在带权树网络中统计可连接服务器对数目](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README.md)
+- [3068. 最大节点价值之和](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md)
+
 #### 第 386 场周赛(2024-02-25 10:30, 90 分钟) 参赛人数 2731
 
 - [3046. 分割数组](/solution/3000-3099/3046.Split%20the%20Array/README.md)
