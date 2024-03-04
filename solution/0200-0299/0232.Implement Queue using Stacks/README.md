@@ -71,7 +71,7 @@ myQueue.empty(); // return false
 
 ### 方法一：双栈
 
-使用两个栈，其中栈 `stk1`用于入队，另一个栈 `stk2` 用于出队。
+我们使用两个栈，其中栈 `stk1`用于入队，另一个栈 `stk2` 用于出队。
 
 入队时，直接将元素入栈 `stk1`。时间复杂度 $O(1)$。
 
@@ -282,7 +282,7 @@ class MyQueue {
 
     peek(): number {
         this.move();
-        return this.stk2[this.stk2.length - 1];
+        return this.stk2.at(-1);
     }
 
     empty(): boolean {
@@ -292,7 +292,7 @@ class MyQueue {
     move(): void {
         if (!this.stk2.length) {
             while (this.stk1.length) {
-                this.stk2.push(this.stk1.pop());
+                this.stk2.push(this.stk1.pop()!);
             }
         }
     }
