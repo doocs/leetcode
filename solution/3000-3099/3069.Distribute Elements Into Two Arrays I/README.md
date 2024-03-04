@@ -57,24 +57,103 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们创建两个数组 `arr1` 和 `arr2`，分别存放 `nums` 中的元素，初始时 `arr1` 中只有 `nums[0]`，`arr2` 中只有 `nums[1]`。
+
+然后遍历 `nums` 下标从 $2$ 开始的元素，如果 `arr1` 的最后一个元素大于 `arr2` 的最后一个元素，就将当前元素追加到 `arr1`，否则追加到 `arr2`。
+
+最后将 `arr2` 中的元素追加到 `arr1` 中，返回 `arr1`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def resultArray(self, nums: List[int]) -> List[int]:
+        arr1 = [nums[0]]
+        arr2 = [nums[1]]
+        for x in nums[2:]:
+            if arr1[-1] > arr2[-1]:
+                arr1.append(x)
+            else:
+                arr2.append(x)
+        return arr1 + arr2
 ```
 
 ```java
-
+class Solution {
+    public int[] resultArray(int[] nums) {
+        int n = nums.length;
+        int[] arr1 = new int[n];
+        int[] arr2 = new int[n];
+        arr1[0] = nums[0];
+        arr2[0] = nums[1];
+        int i = 0, j = 0;
+        for (int k = 2; k < n; ++k) {
+            if (arr1[i] > arr2[j]) {
+                arr1[++i] = nums[k];
+            } else {
+                arr2[++j] = nums[k];
+            }
+        }
+        for (int k = 0; k <= j; ++k) {
+            arr1[++i] = arr2[k];
+        }
+        return arr1;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> resultArray(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> arr1 = {nums[0]};
+        vector<int> arr2 = {nums[1]};
+        for (int k = 2; k < n; ++k) {
+            if (arr1.back() > arr2.back()) {
+                arr1.push_back(nums[k]);
+            } else {
+                arr2.push_back(nums[k]);
+            }
+        }
+        arr1.insert(arr1.end(), arr2.begin(), arr2.end());
+        return arr1;
+    }
+};
 ```
 
 ```go
+func resultArray(nums []int) []int {
+	arr1 := []int{nums[0]}
+	arr2 := []int{nums[1]}
+	for _, x := range nums[2:] {
+		if arr1[len(arr1)-1] > arr2[len(arr2)-1] {
+			arr1 = append(arr1, x)
+		} else {
+			arr2 = append(arr2, x)
+		}
+	}
+	return append(arr1, arr2...)
+}
+```
 
+```ts
+function resultArray(nums: number[]): number[] {
+    const arr1: number[] = [nums[0]];
+    const arr2: number[] = [nums[1]];
+    for (const x of nums.slice(2)) {
+        if (arr1.at(-1)! > arr2.at(-1)!) {
+            arr1.push(x);
+        } else {
+            arr2.push(x);
+        }
+    }
+    return arr1.concat(arr2);
+}
 ```
 
 <!-- tabs:end -->

@@ -39,24 +39,106 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two-Dimensional Prefix Sum
+
+The problem is actually asking for the number of prefix submatrices in a two-dimensional matrix whose sum is less than or equal to $k$.
+
+The calculation formula for the two-dimensional prefix sum is:
+
+$$
+s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + x
+$$
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countSubmatrices(self, grid: List[List[int]], k: int) -> int:
+        s = [[0] * (len(grid[0]) + 1) for _ in range(len(grid) + 1)]
+        ans = 0
+        for i, row in enumerate(grid, 1):
+            for j, x in enumerate(row, 1):
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + x
+                ans += s[i][j] <= k
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int countSubmatrices(int[][] grid, int k) {
+        int m = grid.length, n = grid[0].length;
+        int[][] s = new int[m + 1][n + 1];
+        int ans = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + grid[i - 1][j - 1];
+                if (s[i][j] <= k) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int countSubmatrices(vector<vector<int>>& grid, int k) {
+        int m = grid.size(), n = grid[0].size();
+        int s[m + 1][n + 1];
+        memset(s, 0, sizeof(s));
+        int ans = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + grid[i - 1][j - 1];
+                if (s[i][j] <= k) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func countSubmatrices(grid [][]int, k int) (ans int) {
+	s := make([][]int, len(grid)+1)
+	for i := range s {
+		s[i] = make([]int, len(grid[0])+1)
+	}
+	for i, row := range grid {
+		for j, x := range row {
+			s[i+1][j+1] = s[i+1][j] + s[i][j+1] - s[i][j] + x
+			if s[i+1][j+1] <= k {
+				ans++
+			}
+		}
+	}
+	return
+}
+```
 
+```ts
+function countSubmatrices(grid: number[][], k: number): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const s: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    let ans: number = 0;
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + grid[i - 1][j - 1];
+            if (s[i][j] <= k) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

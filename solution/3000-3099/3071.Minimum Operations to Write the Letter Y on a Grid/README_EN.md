@@ -56,24 +56,153 @@ It can be shown that 12 is the minimum number of operations needed to write Y on
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting
+
+We use two arrays of length 3, `cnt1` and `cnt2`, to record the counts of cell values that belong to `Y` and do not belong to `Y`, respectively. Then we enumerate `i` and `j`, which represent the values of cells that belong to `Y` and do not belong to `Y`, respectively, to calculate the minimum number of operations.
+
+The time complexity is $O(n^2)$, where $n$ is the size of the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumOperationsToWriteY(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        cnt1 = Counter()
+        cnt2 = Counter()
+        for i, row in enumerate(grid):
+            for j, x in enumerate(row):
+                a = i == j and i <= n // 2
+                b = i + j == n - 1 and i <= n // 2
+                c = j == n // 2 and i >= n // 2
+                if a or b or c:
+                    cnt1[x] += 1
+                else:
+                    cnt2[x] += 1
+        return min(
+            n * n - cnt1[i] - cnt2[j] for i in range(3) for j in range(3) if i != j
+        )
 ```
 
 ```java
-
+class Solution {
+    public int minimumOperationsToWriteY(int[][] grid) {
+        int n = grid.length;
+        int[] cnt1 = new int[3];
+        int[] cnt2 = new int[3];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                boolean a = i == j && i <= n / 2;
+                boolean b = i + j == n - 1 && i <= n / 2;
+                boolean c = j == n / 2 && i >= n / 2;
+                if (a || b || c) {
+                    ++cnt1[grid[i][j]];
+                } else {
+                    ++cnt2[grid[i][j]];
+                }
+            }
+        }
+        int ans = n * n;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (i != j) {
+                    ans = Math.min(ans, n * n - cnt1[i] - cnt2[j]);
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumOperationsToWriteY(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int cnt1[3]{};
+        int cnt2[3]{};
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                bool a = i == j && i <= n / 2;
+                bool b = i + j == n - 1 && i <= n / 2;
+                bool c = j == n / 2 && i >= n / 2;
+                if (a || b || c) {
+                    ++cnt1[grid[i][j]];
+                } else {
+                    ++cnt2[grid[i][j]];
+                }
+            }
+        }
+        int ans = n * n;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (i != j) {
+                    ans = min(ans, n * n - cnt1[i] - cnt2[j]);
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minimumOperationsToWriteY(grid [][]int) int {
+	n := len(grid)
+	cnt1 := [3]int{}
+	cnt2 := [3]int{}
+	for i, row := range grid {
+		for j, x := range row {
+			a := i == j && i <= n/2
+			b := i+j == n-1 && i <= n/2
+			c := j == n/2 && i >= n/2
+			if a || b || c {
+				cnt1[x]++
+			} else {
+				cnt2[x]++
+			}
+		}
+	}
+	ans := n * n
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			if i != j {
+				ans = min(ans, n*n-cnt1[i]-cnt2[j])
+			}
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function minimumOperationsToWriteY(grid: number[][]): number {
+    const n = grid.length;
+    const cnt1: number[] = Array(3).fill(0);
+    const cnt2: number[] = Array(3).fill(0);
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            const a = i === j && i <= n >> 1;
+            const b = i + j === n - 1 && i <= n >> 1;
+            const c = j === n >> 1 && i >= n >> 1;
+            if (a || b || c) {
+                ++cnt1[grid[i][j]];
+            } else {
+                ++cnt2[grid[i][j]];
+            }
+        }
+    }
+    let ans = n * n;
+    for (let i = 0; i < 3; ++i) {
+        for (let j = 0; j < 3; ++j) {
+            if (i !== j) {
+                ans = Math.min(ans, n * n - cnt1[i] - cnt2[j]);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
