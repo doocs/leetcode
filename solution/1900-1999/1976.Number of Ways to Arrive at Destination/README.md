@@ -54,71 +54,73 @@
 
 ### 方法一：朴素 Dijkstra 算法
 
-在求最短路的过程中顺便记录到达某个点最短路径的方案数。松弛优化时，如果发现有更优的路径，则方案数也赋值最优路径的前驱的方案数。如果发现与最优的路径长度相同，则累加当前前驱的方案数。
+我们定义以下几个数组，其中：
 
-由于图有可能非常稠密，所以采用朴素的 Dijkstra 算法。
+-   `g` 表示图的邻接矩阵，`g[i][j]` 表示点 `i` 到点 `j` 的最短路径长度，初始时全部为 $\infty$，而 `g[0][0]` 为 $0$；然后我们遍历 `roads`，将 `g[u][v]` 和 `g[v][u]` 更新为 `t`；
+-   `dist[i]` 表示从起点到点 `i` 的最短路径长度，初始时全部为 $\infty$，而 `dist[0]` 为 $0$；
+-   `f[i]` 表示从起点到点 `i` 的最短路径的条数，初始时全部为 $0$，而 `f[0]` 为 $1$；
+-   `vis[i]` 表示点 `i` 是否已经被访问过，初始时全部为 `False`。
 
-时间复杂度 $O(n^2)$。
+然后，我们使用朴素 Dijkstra 算法求出从起点到终点的最短路径长度，过程中同时记录下每个点的最短路径的条数。
 
-> 注意：最短路的长度可能会超过 32 位整数的范围。
+最后，我们返回 `f[n - 1]` 即可。由于答案可能很大，我们需要对 $10^9 + 7$ 取模。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为点的个数。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def countPaths(self, n: int, roads: List[List[int]]) -> int:
-        INF = inf
-        MOD = 10**9 + 7
-        g = [[INF] * n for _ in range(n)]
+        g = [[inf] * n for _ in range(n)]
         for u, v, t in roads:
-            g[u][v] = t
-            g[v][u] = t
+            g[u][v] = g[v][u] = t
         g[0][0] = 0
-        dist = [INF] * n
-        w = [0] * n
+        dist = [inf] * n
         dist[0] = 0
-        w[0] = 1
+        f = [0] * n
+        f[0] = 1
         vis = [False] * n
         for _ in range(n):
             t = -1
-            for i in range(n):
-                if not vis[i] and (t == -1 or dist[i] < dist[t]):
-                    t = i
+            for j in range(n):
+                if not vis[j] and (t == -1 or dist[j] < dist[t]):
+                    t = j
             vis[t] = True
-            for i in range(n):
-                if i == t:
+            for j in range(n):
+                if j == t:
                     continue
-                ne = dist[t] + g[t][i]
-                if dist[i] > ne:
-                    dist[i] = ne
-                    w[i] = w[t]
-                elif dist[i] == ne:
-                    w[i] += w[t]
-        return w[-1] % MOD
+                ne = dist[t] + g[t][j]
+                if dist[j] > ne:
+                    dist[j] = ne
+                    f[j] = f[t]
+                elif dist[j] == ne:
+                    f[j] += f[t]
+        mod = 10**9 + 7
+        return f[-1] % mod
 ```
 
 ```java
 class Solution {
-    private static final long INF = Long.MAX_VALUE / 2;
-    private static final int MOD = (int) 1e9 + 7;
-
     public int countPaths(int n, int[][] roads) {
+        final long inf = Long.MAX_VALUE / 2;
+        final int mod = (int) 1e9 + 7;
         long[][] g = new long[n][n];
-        long[] dist = new long[n];
-        long[] w = new long[n];
-        boolean[] vis = new boolean[n];
-        for (int i = 0; i < n; ++i) {
-            Arrays.fill(g[i], INF);
-            Arrays.fill(dist, INF);
+        for (var e : g) {
+            Arrays.fill(e, inf);
         }
-        for (int[] r : roads) {
+        for (var r : roads) {
             int u = r[0], v = r[1], t = r[2];
             g[u][v] = t;
             g[v][u] = t;
         }
         g[0][0] = 0;
+        long[] dist = new long[n];
+        Arrays.fill(dist, inf);
         dist[0] = 0;
-        w[0] = 1;
+        long[] f = new long[n];
+        f[0] = 1;
+        boolean[] vis = new boolean[n];
         for (int i = 0; i < n; ++i) {
             int t = -1;
             for (int j = 0; j < n; ++j) {
@@ -134,55 +136,67 @@ class Solution {
                 long ne = dist[t] + g[t][j];
                 if (dist[j] > ne) {
                     dist[j] = ne;
-                    w[j] = w[t];
+                    f[j] = f[t];
                 } else if (dist[j] == ne) {
-                    w[j] = (w[j] + w[t]) % MOD;
+                    f[j] = (f[j] + f[t]) % mod;
                 }
             }
         }
-        return (int) w[n - 1];
+        return (int) f[n - 1];
     }
 }
 ```
 
 ```cpp
-typedef long long ll;
-
 class Solution {
 public:
-    const ll INF = LLONG_MAX / 2;
-    const int MOD = 1e9 + 7;
-
     int countPaths(int n, vector<vector<int>>& roads) {
-        vector<vector<ll>> g(n, vector<ll>(n, INF));
-        vector<ll> dist(n, INF);
-        vector<ll> w(n);
-        vector<bool> vis(n);
+        const long long inf = LLONG_MAX / 2;
+        const int mod = 1e9 + 7;
+
+        vector<vector<long long>> g(n, vector<long long>(n, inf));
+        for (auto& e : g) {
+            fill(e.begin(), e.end(), inf);
+        }
+
         for (auto& r : roads) {
             int u = r[0], v = r[1], t = r[2];
             g[u][v] = t;
             g[v][u] = t;
         }
+
         g[0][0] = 0;
+
+        vector<long long> dist(n, inf);
+        fill(dist.begin(), dist.end(), inf);
         dist[0] = 0;
-        w[0] = 1;
+
+        vector<long long> f(n);
+        f[0] = 1;
+
+        vector<bool> vis(n);
         for (int i = 0; i < n; ++i) {
             int t = -1;
             for (int j = 0; j < n; ++j) {
-                if (!vis[j] && (t == -1 || dist[t] > dist[j])) t = j;
+                if (!vis[j] && (t == -1 || dist[j] < dist[t])) {
+                    t = j;
+                }
             }
             vis[t] = true;
             for (int j = 0; j < n; ++j) {
-                if (t == j) continue;
-                ll ne = dist[t] + g[t][j];
+                if (j == t) {
+                    continue;
+                }
+                long long ne = dist[t] + g[t][j];
                 if (dist[j] > ne) {
                     dist[j] = ne;
-                    w[j] = w[t];
-                } else if (dist[j] == ne)
-                    w[j] = (w[j] + w[t]) % MOD;
+                    f[j] = f[t];
+                } else if (dist[j] == ne) {
+                    f[j] = (f[j] + f[t]) % mod;
+                }
             }
         }
-        return w[n - 1];
+        return (int) f[n - 1];
     }
 };
 ```
@@ -190,29 +204,34 @@ public:
 ```go
 func countPaths(n int, roads [][]int) int {
 	const inf = math.MaxInt64 / 2
-	const mod = int(1e9) + 7
+	const mod = int(1e9 + 7)
+
 	g := make([][]int, n)
 	dist := make([]int, n)
-	w := make([]int, n)
-	vis := make([]bool, n)
 	for i := range g {
 		g[i] = make([]int, n)
-		dist[i] = inf
 		for j := range g[i] {
 			g[i][j] = inf
+			dist[i] = inf
 		}
 	}
+
 	for _, r := range roads {
 		u, v, t := r[0], r[1], r[2]
-		g[u][v], g[v][u] = t, t
+		g[u][v] = t
+		g[v][u] = t
 	}
+
+	f := make([]int, n)
+	vis := make([]bool, n)
+	f[0] = 1
 	g[0][0] = 0
 	dist[0] = 0
-	w[0] = 1
+
 	for i := 0; i < n; i++ {
 		t := -1
 		for j := 0; j < n; j++ {
-			if !vis[j] && (t == -1 || dist[t] > dist[j]) {
+			if !vis[j] && (t == -1 || dist[j] < dist[t]) {
 				t = j
 			}
 		}
@@ -224,13 +243,55 @@ func countPaths(n int, roads [][]int) int {
 			ne := dist[t] + g[t][j]
 			if dist[j] > ne {
 				dist[j] = ne
-				w[j] = w[t]
+				f[j] = f[t]
 			} else if dist[j] == ne {
-				w[j] = (w[j] + w[t]) % mod
+				f[j] = (f[j] + f[t]) % mod
 			}
 		}
 	}
-	return w[n-1]
+	return f[n-1]
+}
+```
+
+```ts
+function countPaths(n: number, roads: number[][]): number {
+    const mod: number = 1e9 + 7;
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(Infinity));
+    for (const [u, v, t] of roads) {
+        g[u][v] = t;
+        g[v][u] = t;
+    }
+    g[0][0] = 0;
+
+    const dist: number[] = Array(n).fill(Infinity);
+    dist[0] = 0;
+
+    const f: number[] = Array(n).fill(0);
+    f[0] = 1;
+
+    const vis: boolean[] = Array(n).fill(false);
+    for (let i = 0; i < n; ++i) {
+        let t: number = -1;
+        for (let j = 0; j < n; ++j) {
+            if (!vis[j] && (t === -1 || dist[j] < dist[t])) {
+                t = j;
+            }
+        }
+        vis[t] = true;
+        for (let j = 0; j < n; ++j) {
+            if (j === t) {
+                continue;
+            }
+            const ne: number = dist[t] + g[t][j];
+            if (dist[j] > ne) {
+                dist[j] = ne;
+                f[j] = f[t];
+            } else if (dist[j] === ne) {
+                f[j] = (f[j] + f[t]) % mod;
+            }
+        }
+    }
+    return f[n - 1];
 }
 ```
 

@@ -1,24 +1,23 @@
 class Solution {
-    private static final long INF = Long.MAX_VALUE / 2;
-    private static final int MOD = (int) 1e9 + 7;
-
     public int countPaths(int n, int[][] roads) {
+        final long inf = Long.MAX_VALUE / 2;
+        final int mod = (int) 1e9 + 7;
         long[][] g = new long[n][n];
-        long[] dist = new long[n];
-        long[] w = new long[n];
-        boolean[] vis = new boolean[n];
-        for (int i = 0; i < n; ++i) {
-            Arrays.fill(g[i], INF);
-            Arrays.fill(dist, INF);
+        for (var e : g) {
+            Arrays.fill(e, inf);
         }
-        for (int[] r : roads) {
+        for (var r : roads) {
             int u = r[0], v = r[1], t = r[2];
             g[u][v] = t;
             g[v][u] = t;
         }
         g[0][0] = 0;
+        long[] dist = new long[n];
+        Arrays.fill(dist, inf);
         dist[0] = 0;
-        w[0] = 1;
+        long[] f = new long[n];
+        f[0] = 1;
+        boolean[] vis = new boolean[n];
         for (int i = 0; i < n; ++i) {
             int t = -1;
             for (int j = 0; j < n; ++j) {
@@ -34,12 +33,12 @@ class Solution {
                 long ne = dist[t] + g[t][j];
                 if (dist[j] > ne) {
                     dist[j] = ne;
-                    w[j] = w[t];
+                    f[j] = f[t];
                 } else if (dist[j] == ne) {
-                    w[j] = (w[j] + w[t]) % MOD;
+                    f[j] = (f[j] + f[t]) % mod;
                 }
             }
         }
-        return (int) w[n - 1];
+        return (int) f[n - 1];
     }
 }
