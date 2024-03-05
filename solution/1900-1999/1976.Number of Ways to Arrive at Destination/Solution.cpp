@@ -3,27 +3,27 @@ public:
     int countPaths(int n, vector<vector<int>>& roads) {
         const long long inf = LLONG_MAX / 2;
         const int mod = 1e9 + 7;
-        
+
         vector<vector<long long>> g(n, vector<long long>(n, inf));
         for (auto& e : g) {
             fill(e.begin(), e.end(), inf);
         }
-        
+
         for (auto& r : roads) {
             int u = r[0], v = r[1], t = r[2];
             g[u][v] = t;
             g[v][u] = t;
         }
-        
+
         g[0][0] = 0;
-        
+
         vector<long long> dist(n, inf);
         fill(dist.begin(), dist.end(), inf);
         dist[0] = 0;
-        
+
         vector<long long> f(n);
         f[0] = 1;
-        
+
         vector<bool> vis(n);
         for (int i = 0; i < n; ++i) {
             int t = -1;
