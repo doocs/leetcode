@@ -52,24 +52,64 @@ It can be shown that 3 is the minimum number of operations needed so that all el
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Traversal and Counting
+
+We only need to traverse the array once, counting the number of elements less than $k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        return sum(x < k for x in nums)
 ```
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int ans = 0;
+        for (int x : nums) {
+            if (x < k) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        int ans = 0;
+        for (int x : nums) {
+            if (x < k) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minOperations(nums []int, k int) (ans int) {
+	for _, x := range nums {
+		if x < k {
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function minOperations(nums: number[], k: number): number {
+    return nums.filter(x => x < k).length;
+}
 ```
 
 <!-- tabs:end -->
