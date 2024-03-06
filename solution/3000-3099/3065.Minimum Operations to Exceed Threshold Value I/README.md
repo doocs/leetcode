@@ -56,24 +56,64 @@
 
 ## 解法
 
-### 方法一
+### 方法一：遍历计数
+
+我们只需要遍历一遍数组，统计小于 $k$ 的元素个数即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        return sum(x < k for x in nums)
 ```
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int ans = 0;
+        for (int x : nums) {
+            if (x < k) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        int ans = 0;
+        for (int x : nums) {
+            if (x < k) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minOperations(nums []int, k int) (ans int) {
+	for _, x := range nums {
+		if x < k {
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function minOperations(nums: number[], k: number): number {
+    return nums.filter(x => x < k).length;
+}
 ```
 
 <!-- tabs:end -->
