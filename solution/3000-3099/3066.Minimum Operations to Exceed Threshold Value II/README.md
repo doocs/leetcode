@@ -60,24 +60,107 @@
 
 ## 解法
 
-### 方法一
+### 方法一：优先队列（小根堆）
+
+我们可以使用优先队列（小根堆）来模拟这个过程。
+
+具体地，我们先将数组中的元素加入优先队列 $pq$ 中。然后我们不断地从优先队列中取出两个最小的元素 $x$ 和 $y$，将 $\min(x, y) \times 2 + \max(x, y)$ 放回优先队列中。每次操作后，我们将操作次数加一。当队列中的元素个数小于 $2$ 或者队列中的最小元素大于等于 $k$ 时，我们停止操作。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        heapify(nums)
+        ans = 0
+        while len(nums) > 1 and nums[0] < k:
+            x, y = heappop(nums), heappop(nums)
+            heappush(nums, min(x, y) * 2 + max(x, y))
+            ans += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        PriorityQueue<Long> pq = new PriorityQueue<>();
+        for (int x : nums) {
+            pq.offer((long) x);
+        }
+        int ans = 0;
+        for (; pq.size() > 1 && pq.peek() < k; ++ans) {
+            long x = pq.poll(), y = pq.poll();
+            pq.offer(Math.min(x, y) * 2 + Math.max(x, y));
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        using ll = long long;
+        priority_queue<ll, vector<ll>, greater<ll>> pq;
+        for (int x : nums) {
+            pq.push(x);
+        }
+        int ans = 0;
+        for (; pq.size() > 1 && pq.top() < k; ++ans) {
+            ll x = pq.top();
+            pq.pop();
+            ll y = pq.top();
+            pq.pop();
+            pq.push(min(x, y) * 2 + max(x, y));
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minOperations(nums []int, k int) (ans int) {
+	pq := &hp{nums}
+	heap.Init(pq)
+	for ; pq.Len() > 1 && pq.IntSlice[0] < k; ans++ {
+		x, y := heap.Pop(pq).(int), heap.Pop(pq).(int)
+		heap.Push(pq, min(x, y)*2+max(x, y))
+	}
+	return
+}
 
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Pop() interface{} {
+	old := h.IntSlice
+	n := len(old)
+	x := old[n-1]
+	h.IntSlice = old[0 : n-1]
+	return x
+}
+func (h *hp) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+```
+
+```ts
+function minOperations(nums: number[], k: number): number {
+    const pq = new MinPriorityQueue();
+    for (const x of nums) {
+        pq.enqueue(x);
+    }
+    let ans = 0;
+    for (; pq.size() > 1 && pq.front().element < k; ++ans) {
+        const x = pq.dequeue().element;
+        const y = pq.dequeue().element;
+        pq.enqueue(Math.min(x, y) * 2 + Math.max(x, y));
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
