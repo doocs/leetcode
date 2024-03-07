@@ -1,22 +1,22 @@
 function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
-    let res = 0;
-    const vis = new Array(n).fill(false);
-    const map = new Map<number, number[]>();
-    for (const [start, end] of edges) {
-        map.set(start, [...(map.get(start) ?? []), end]);
-        map.set(end, [...(map.get(end) ?? []), start]);
+    const vis: boolean[] = Array(n).fill(false);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
     }
-    const dfs = (cur: number) => {
-        if (restricted.includes(cur) || vis[cur]) {
-            return;
+    for (const i of restricted) {
+        vis[i] = true;
+    }
+    const dfs = (i: number): number => {
+        vis[i] = true;
+        let ans = 1;
+        for (const j of g[i]) {
+            if (!vis[j]) {
+                ans += dfs(j);
+            }
         }
-        res++;
-        vis[cur] = true;
-        for (const item of map.get(cur) ?? []) {
-            dfs(item);
-        }
+        return ans;
     };
-    dfs(0);
-
-    return res;
+    return dfs(0);
 }

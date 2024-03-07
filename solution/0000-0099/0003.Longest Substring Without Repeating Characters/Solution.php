@@ -4,21 +4,15 @@ class Solution {
      * @return Integer
      */
     function lengthOfLongestSubstring($s) {
-        $max = 0;
-        for ($i = 0; $i < strlen($s); $i++) {
-            $chars = [];
-            $sub = '';
-            for ($j = $i; $j < strlen($s); $j++) {
-                if (in_array($s[$j], $chars)) {
-                    break;
-                }
-                $sub .= $s[$j];
-                $chars[] = $s[$j];
+        $ans = 0;
+        $ss = [];
+        for ($i = 0, $j = 0; $j < strlen($s); ++$j) {
+            while (in_array($s[$j], $ss)) {
+                unset($ss[array_search($s[$i++], $ss)]);
             }
-            if (strlen($sub) > $max) {
-                $max = strlen($sub);
-            }
+            $ss[] = $s[$j];
+            $ans = max($ans, $j - $i + 1);
         }
-        return $max;
+        return $ans;
     }
 }

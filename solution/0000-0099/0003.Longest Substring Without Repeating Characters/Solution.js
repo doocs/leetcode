@@ -3,10 +3,9 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-    const ss = new Set();
-    let i = 0;
     let ans = 0;
-    for (let j = 0; j < s.length; ++j) {
+    const ss = new Set();
+    for (let i = 0, j = 0; j < s.length; ++j) {
         while (ss.has(s[j])) {
             ss.delete(s[i++]);
         }

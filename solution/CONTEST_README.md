@@ -22,6 +22,27 @@
 
 ## 往期竞赛
 
+#### 第 387 场周赛(2024-03-03 10:30, 90 分钟) 参赛人数 3694
+
+- [3069. 将元素分配到两个数组中 I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md)
+- [3070. 元素和小于等于 k 的子矩阵的数目](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md)
+- [3071. 在矩阵上写出字母 Y 所需的最少操作次数](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)
+- [3072. 将元素分配到两个数组中 II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md)
+
+#### 第 125 场双周赛(2024-03-02 22:30, 90 分钟) 参赛人数 2599
+
+- [3065. 超过阈值的最少操作数 I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md)
+- [3066. 超过阈值的最少操作数 II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README.md)
+- [3067. 在带权树网络中统计可连接服务器对数目](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README.md)
+- [3068. 最大节点价值之和](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README.md)
+
+#### 第 386 场周赛(2024-02-25 10:30, 90 分钟) 参赛人数 2731
+
+- [3046. 分割数组](/solution/3000-3099/3046.Split%20the%20Array/README.md)
+- [3047. 求交集区域内的最大正方形面积](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)
+- [3048. 标记所有下标的最早秒数 I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md)
+- [3049. 标记所有下标的最早秒数 II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md)
+
 #### 第 385 场周赛(2024-02-18 10:30, 90 分钟) 参赛人数 2382
 
 - [3042. 统计前后缀下标对 I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README.md)
@@ -2134,6 +2155,7 @@
 - [1413. 逐步求和得到正数的最小值](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README.md)
 - [1414. 和为 K 的最少斐波那契数字数目](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README.md)
 - [1415. 长度为 n 的开心字符串中字典序第 k 小的字符串](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README.md)
+- [1416. 恢复数组](/solution/1400-1499/1416.Restore%20The%20Array/README.md)
 
 #### 第 184 场周赛(2020-04-12 10:30, 90 分钟) 参赛人数 3847
 

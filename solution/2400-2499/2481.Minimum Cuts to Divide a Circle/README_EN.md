@@ -47,7 +47,22 @@ Also note that the first cut will not divide the circle into distinct parts.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Case Discussion
+
+-   When $n=1$, no cutting is needed, so the number of cuts is $0$;
+-   When $n$ is odd, there is no collinear situation, and at least $n$ cuts are needed;
+-   When $n$ is even, they can be collinear in pairs, and at least $\frac{n}{2}$ cuts are needed.
+
+In summary, we can get:
+
+$$
+\text{ans} = \begin{cases}
+n, & n \gt 1 \text{ and } n \text{ is odd} \\
+\frac{n}{2}, & n \text{ is even} \\
+\end{cases}
+$$
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

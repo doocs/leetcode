@@ -10,7 +10,7 @@ func isEvenOddTree(root *TreeNode) bool {
 	even := true
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		var prev int = 1e6
+		var prev int = 1e7
 		if even {
 			prev = 0
 		}

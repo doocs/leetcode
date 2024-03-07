@@ -60,7 +60,11 @@ Node values in level 2 must be in strictly increasing order, so the tree is not 
 
 ## Solutions
 
-### Solution 1
+### Solution 1: BFS
+
+BFS traverses level by level. Each level is judged by its parity. The node values at each level are either all even or all odd, and they are strictly increasing or decreasing.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -114,7 +118,7 @@ class Solution {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            int prev = even ? 0 : 1000000;
+            int prev = even ? 0 : 1000001;
             for (int n = q.size(); n > 0; --n) {
                 root = q.pollFirst();
                 if (even && (root.val % 2 == 0 || prev >= root.val)) {
@@ -156,15 +160,23 @@ public:
         int even = 1;
         queue<TreeNode*> q{{root}};
         while (!q.empty()) {
-            int prev = even ? 0 : 1e6;
+            int prev = even ? 0 : 1e7;
             for (int n = q.size(); n; --n) {
                 root = q.front();
                 q.pop();
-                if (even && (root->val % 2 == 0 || prev >= root->val)) return false;
-                if (!even && (root->val % 2 == 1 || prev <= root->val)) return false;
+                if (even && (root->val % 2 == 0 || prev >= root->val)) {
+                    return false;
+                }
+                if (!even && (root->val % 2 == 1 || prev <= root->val)) {
+                    return false;
+                }
                 prev = root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
             even ^= 1;
         }
@@ -186,7 +198,7 @@ func isEvenOddTree(root *TreeNode) bool {
 	even := true
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		var prev int = 1e6
+		var prev int = 1e7
 		if even {
 			prev = 0
 		}
@@ -215,7 +227,11 @@ func isEvenOddTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: DFS
+
+DFS performs a pre-order traversal of the binary tree, and similarly judges whether it meets the conditions based on the parity of the layer where the node is located. During the traversal, a hash table is used to record the node value that was most recently visited at each layer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -272,7 +288,7 @@ class Solution {
             return true;
         }
         boolean even = i % 2 == 0;
-        int prev = d.getOrDefault(i, even ? 0 : 1000000);
+        int prev = d.getOrDefault(i, even ? 0 : 1000001);
         if (even && (root.val % 2 == 0 || prev >= root.val)) {
             return false;
         }
@@ -306,11 +322,17 @@ public:
     }
 
     bool dfs(TreeNode* root, int i) {
-        if (!root) return true;
+        if (!root) {
+            return true;
+        }
         int even = i % 2 == 0;
-        int prev = d.count(i) ? d[i] : (even ? 0 : 1e6);
-        if (even && (root->val % 2 == 0 || prev >= root->val)) return false;
-        if (!even && (root->val % 2 == 1 || prev <= root->val)) return false;
+        int prev = d.count(i) ? d[i] : (even ? 0 : 1e7);
+        if (even && (root->val % 2 == 0 || prev >= root->val)) {
+            return false;
+        }
+        if (!even && (root->val % 2 == 1 || prev <= root->val)) {
+            return false;
+        }
         d[i] = root->val;
         return dfs(root->left, i + 1) && dfs(root->right, i + 1);
     }
@@ -339,7 +361,7 @@ func isEvenOddTree(root *TreeNode) bool {
 			if even {
 				prev = 0
 			} else {
-				prev = 1000000
+				prev = 10000000
 			}
 		}
 		if even && (root.Val%2 == 0 || prev >= root.Val) {

@@ -18,7 +18,7 @@ class MyQueue {
 
     peek(): number {
         this.move();
-        return this.stk2[this.stk2.length - 1];
+        return this.stk2.at(-1);
     }
 
     empty(): boolean {
@@ -28,7 +28,7 @@ class MyQueue {
     move(): void {
         if (!this.stk2.length) {
             while (this.stk1.length) {
-                this.stk2.push(this.stk1.pop());
+                this.stk2.push(this.stk1.pop()!);
             }
         }
     }

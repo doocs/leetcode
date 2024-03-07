@@ -54,7 +54,11 @@ It can be shown that no other path has less score.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: DFS
+
+According to the problem description, each edge can be passed multiple times, and it is guaranteed that node $1$ and node $n$ are in the same connected component. Therefore, the problem is actually looking for the smallest edge in the connected component where node $1$ is located. We can use DFS, start searching from node $1$, and find the smallest edge.
+
+The time complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -246,7 +250,11 @@ var minScore = function (n, roads) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: BFS
+
+We can also use BFS to solve this problem.
+
+The time complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

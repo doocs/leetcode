@@ -1,26 +1,24 @@
 func reachableNodes(n int, edges [][]int, restricted []int) int {
 	g := make([][]int, n)
+	vis := make([]bool, n)
 	for _, e := range edges {
 		a, b := e[0], e[1]
 		g[a] = append(g[a], b)
 		g[b] = append(g[b], a)
 	}
-	vis := make([]bool, n)
-	for _, v := range restricted {
-		vis[v] = true
+	for _, i := range restricted {
+		vis[i] = true
 	}
-	ans := 0
-	var dfs func(u int)
-	dfs = func(u int) {
-		if vis[u] {
-			return
+	var dfs func(int) int
+	dfs = func(i int) (ans int) {
+		vis[i] = true
+		ans = 1
+		for _, j := range g[i] {
+			if !vis[j] {
+				ans += dfs(j)
+			}
 		}
-		vis[u] = true
-		ans++
-		for _, v := range g[u] {
-			dfs(v)
-		}
+		return
 	}
-	dfs(0)
-	return ans
+	return dfs(0)
 }

@@ -2,23 +2,13 @@ class Solution:
     def reachableNodes(
         self, n: int, edges: List[List[int]], restricted: List[int]
     ) -> int:
+        def dfs(i: int) -> int:
+            vis.add(i)
+            return 1 + sum(j not in vis and dfs(j) for j in g[i])
+
         g = defaultdict(list)
-        vis = [False] * n
-        for v in restricted:
-            vis[v] = True
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
-
-        def dfs(u):
-            nonlocal ans
-            if vis[u]:
-                return
-            ans += 1
-            vis[u] = True
-            for v in g[u]:
-                dfs(v)
-
-        ans = 0
-        dfs(0)
-        return ans
+        vis = set(restricted)
+        return dfs(0)

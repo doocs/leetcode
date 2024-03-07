@@ -63,7 +63,33 @@ Note that the expressCost is paid again to transfer back to the express route.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the minimum cost from station $0$ to station $i$ when arriving at station $i$ by the regular route, and $g[i]$ as the minimum cost from station $0$ to station $i$ when arriving at station $i$ by the express route. Initially, $f[0]=0, g[0]=\infty$.
+
+Next, we consider how to transition the states of $f[i]$ and $g[i]$.
+
+If we arrive at station $i$ by the regular route, we can either come from station $i-1$ by the regular route or switch from the express route at station $i-1$ to the regular route. Therefore, we can get the state transition equation:
+
+$$
+f[i]=\min\{f[i-1]+a_i, g[i-1]+a_i\}
+$$
+
+where $a_i$ represents the cost of taking the regular route from station $i-1$ to station $i$.
+
+If we arrive at station $i$ by the express route, we can either switch from the regular route at station $i-1$ to the express route or continue on the express route from station $i-1$. Therefore, we can get the state transition equation:
+
+$$
+g[i]=\min\{f[i-1]+expressCost+b_i, g[i-1]+b_i\}
+$$
+
+where $b_i$ represents the cost of taking the express route from station $i-1$ to station $i$.
+
+We denote the answer array as $cost$, where $cost[i]$ represents the minimum cost from station $0$ to station $i$. Since we can reach station $i$ from any route, we have $cost[i]=\min\{f[i], g[i]\}$.
+
+Finally, we return $cost$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of stations.
 
 <!-- tabs:start -->
 
@@ -161,7 +187,7 @@ function minimumCosts(regular: number[], express: number[], expressCost: number)
 
 <!-- tabs:end -->
 
-### Solution 2
+We notice that in the state transition equations of $f[i]$ and $g[i]$, we only need to use $f[i-1]$ and $g[i-1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i-1]$ and $g[i-1]$ respectively. This allows us to optimize the space complexity to $O(1)$.
 
 <!-- tabs:start -->
 

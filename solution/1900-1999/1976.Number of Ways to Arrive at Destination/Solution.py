@@ -1,30 +1,28 @@
 class Solution:
     def countPaths(self, n: int, roads: List[List[int]]) -> int:
-        INF = inf
-        MOD = 10**9 + 7
-        g = [[INF] * n for _ in range(n)]
+        g = [[inf] * n for _ in range(n)]
         for u, v, t in roads:
-            g[u][v] = t
-            g[v][u] = t
+            g[u][v] = g[v][u] = t
         g[0][0] = 0
-        dist = [INF] * n
-        w = [0] * n
+        dist = [inf] * n
         dist[0] = 0
-        w[0] = 1
+        f = [0] * n
+        f[0] = 1
         vis = [False] * n
         for _ in range(n):
             t = -1
-            for i in range(n):
-                if not vis[i] and (t == -1 or dist[i] < dist[t]):
-                    t = i
+            for j in range(n):
+                if not vis[j] and (t == -1 or dist[j] < dist[t]):
+                    t = j
             vis[t] = True
-            for i in range(n):
-                if i == t:
+            for j in range(n):
+                if j == t:
                     continue
-                ne = dist[t] + g[t][i]
-                if dist[i] > ne:
-                    dist[i] = ne
-                    w[i] = w[t]
-                elif dist[i] == ne:
-                    w[i] += w[t]
-        return w[-1] % MOD
+                ne = dist[t] + g[t][j]
+                if dist[j] > ne:
+                    dist[j] = ne
+                    f[j] = f[t]
+                elif dist[j] == ne:
+                    f[j] += f[t]
+        mod = 10**9 + 7
+        return f[-1] % mod

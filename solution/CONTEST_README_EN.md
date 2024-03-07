@@ -25,6 +25,27 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 387
+
+- [3069. Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
+- [3070. Count Submatrices with Top-Left Element and Sum Less Than k](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)
+- [3071. Minimum Operations to Write the Letter Y on a Grid](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md)
+- [3072. Distribute Elements Into Two Arrays II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md)
+
+#### Biweekly Contest 125
+
+- [3065. Minimum Operations to Exceed Threshold Value I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md)
+- [3066. Minimum Operations to Exceed Threshold Value II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md)
+- [3067. Count Pairs of Connectable Servers in a Weighted Tree Network](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README_EN.md)
+- [3068. Find the Maximum Sum of Node Values](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md)
+
+#### Weekly Contest 386
+
+- [3046. Split the Array](/solution/3000-3099/3046.Split%20the%20Array/README_EN.md)
+- [3047. Find the Largest Area of Square Inside Two Rectangles](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md)
+- [3048. Earliest Second to Mark Indices I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)
+- [3049. Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)
+
 #### Weekly Contest 385
 
 - [3042. Count Prefix and Suffix Pairs I](/solution/3000-3099/3042.Count%20Prefix%20and%20Suffix%20Pairs%20I/README_EN.md)
@@ -2137,6 +2158,7 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 - [1413. Minimum Value to Get Positive Step by Step Sum](/solution/1400-1499/1413.Minimum%20Value%20to%20Get%20Positive%20Step%20by%20Step%20Sum/README_EN.md)
 - [1414. Find the Minimum Number of Fibonacci Numbers Whose Sum Is K](/solution/1400-1499/1414.Find%20the%20Minimum%20Number%20of%20Fibonacci%20Numbers%20Whose%20Sum%20Is%20K/README_EN.md)
 - [1415. The k-th Lexicographical String of All Happy Strings of Length n](/solution/1400-1499/1415.The%20k-th%20Lexicographical%20String%20of%20All%20Happy%20Strings%20of%20Length%20n/README_EN.md)
+- [1416. Restore The Array](/solution/1400-1499/1416.Restore%20The%20Array/README_EN.md)
 
 #### Weekly Contest 184
 

@@ -52,9 +52,31 @@
 
 ### 方法一：记忆化搜索
 
-$dfs(i)$ 表示从数组从下标 $i$ 开始到结尾，是否至少存在一个有效的划分。
+我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始是否存在一种有效划分。那么答案就是 $dfs(0)$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+函数 $dfs(i)$ 的执行过程如下：
+
+-   如果 $i \ge n$，返回 $true$。
+-   如果 $i$ 和 $i+1$ 下标的元素相等，那么可以选择将 $i$ 和 $i+1$ 作为一个子数组，递归调用 $dfs(i+2)$。
+-   如果 $i$, $i+1$ 和 $i+2$ 下标的元素相等，那么可以选择将 $i$, $i+1$ 和 $i+2$ 作为一个子数组，递归调用 $dfs(i+3)$。
+-   如果 $i$, $i+1$ 和 $i+2$ 下标的元素依次递增 $1$，那么可以选择将 $i$, $i+1$ 和 $i+2$ 作为一个子数组，递归调用 $dfs(i+3)$。
+-   如果上述情况都不满足，返回 $false$，否则返回 $true$。
+
+即：
+
+$$
+dfs(i) = \text{OR}
+\begin{cases}
+true,&i \ge n\\
+dfs(i+2),&i+1 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
+dfs(i+3),&i+2 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
+dfs(i+3),&i+2 < n\ \text{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \text{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
+\end{cases}
+$$
+
+为了避免重复计算，我们使用记忆化搜索的方法。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -62,21 +84,17 @@ $dfs(i)$ 表示从数组从下标 $i$ 开始到结尾，是否至少存在一个
 class Solution:
     def validPartition(self, nums: List[int]) -> bool:
         @cache
-        def dfs(i):
-            if i == n:
+        def dfs(i: int) -> bool:
+            if i >= n:
                 return True
-            res = False
-            if i < n - 1 and nums[i] == nums[i + 1]:
-                res = res or dfs(i + 2)
-            if i < n - 2 and nums[i] == nums[i + 1] and nums[i + 1] == nums[i + 2]:
-                res = res or dfs(i + 3)
-            if (
-                i < n - 2
+            a = i + 1 < n and nums[i] == nums[i + 1]
+            b = i + 2 < n and nums[i] == nums[i + 1] == nums[i + 2]
+            c = (
+                i + 2 < n
                 and nums[i + 1] - nums[i] == 1
                 and nums[i + 2] - nums[i + 1] == 1
-            ):
-                res = res or dfs(i + 3)
-            return res
+            )
+            return (a and dfs(i + 2)) or ((b or c) and dfs(i + 3))
 
         n = len(nums)
         return dfs(0)
@@ -85,36 +103,27 @@ class Solution:
 ```java
 class Solution {
     private int n;
-    private int[] f;
     private int[] nums;
+    private Boolean[] f;
 
     public boolean validPartition(int[] nums) {
-        this.nums = nums;
         n = nums.length;
-        f = new int[n];
-        Arrays.fill(f, -1);
+        this.nums = nums;
+        f = new Boolean[n];
         return dfs(0);
     }
 
     private boolean dfs(int i) {
-        if (i == n) {
+        if (i >= n) {
             return true;
         }
-        if (f[i] != -1) {
-            return f[i] == 1;
+        if (f[i] != null) {
+            return f[i];
         }
-        boolean res = false;
-        if (i < n - 1 && nums[i] == nums[i + 1]) {
-            res = res || dfs(i + 2);
-        }
-        if (i < n - 2 && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2]) {
-            res = res || dfs(i + 3);
-        }
-        if (i < n - 2 && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1) {
-            res = res || dfs(i + 3);
-        }
-        f[i] = res ? 1 : 0;
-        return res;
+        boolean a = i + 1 < n && nums[i] == nums[i + 1];
+        boolean b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+        boolean c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+        return f[i] = ((a && dfs(i + 2)) || ((b || c) && dfs(i + 3)));
     }
 }
 ```
@@ -122,10 +131,6 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> f;
-    vector<int> nums;
-    int n;
-
     bool validPartition(vector<int>& nums) {
         n = nums.size();
         this->nums = nums;
@@ -133,15 +138,23 @@ public:
         return dfs(0);
     }
 
+private:
+    int n;
+    vector<int> f;
+    vector<int> nums;
+
     bool dfs(int i) {
-        if (i == n) return true;
-        if (f[i] != -1) return f[i] == 1;
-        bool res = false;
-        if (i < n - 1 && nums[i] == nums[i + 1]) res = res || dfs(i + 2);
-        if (i < n - 2 && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2]) res = res || dfs(i + 3);
-        if (i < n - 2 && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1) res = res || dfs(i + 3);
-        f[i] = res ? 1 : 0;
-        return res;
+        if (i >= n) {
+            return true;
+        }
+        if (f[i] != -1) {
+            return f[i] == 1;
+        }
+        bool a = i + 1 < n && nums[i] == nums[i + 1];
+        bool b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+        bool c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+        f[i] = ((a && dfs(i + 2)) || ((b || c) && dfs(i + 3))) ? 1 : 0;
+        return f[i] == 1;
     }
 };
 ```
@@ -161,21 +174,14 @@ func validPartition(nums []int) bool {
 		if f[i] != -1 {
 			return f[i] == 1
 		}
-		res := false
+		a := i+1 < n && nums[i] == nums[i+1]
+		b := i+2 < n && nums[i] == nums[i+1] && nums[i+1] == nums[i+2]
+		c := i+2 < n && nums[i+1]-nums[i] == 1 && nums[i+2]-nums[i+1] == 1
 		f[i] = 0
-		if i < n-1 && nums[i] == nums[i+1] {
-			res = res || dfs(i+2)
-		}
-		if i < n-2 && nums[i] == nums[i+1] && nums[i+1] == nums[i+2] {
-			res = res || dfs(i+3)
-		}
-		if i < n-2 && nums[i+1]-nums[i] == 1 && nums[i+2]-nums[i+1] == 1 {
-			res = res || dfs(i+3)
-		}
-		if res {
+		if a && dfs(i+2) || b && dfs(i+3) || c && dfs(i+3) {
 			f[i] = 1
 		}
-		return res
+		return f[i] == 1
 	}
 	return dfs(0)
 }
@@ -184,31 +190,21 @@ func validPartition(nums []int) bool {
 ```ts
 function validPartition(nums: number[]): boolean {
     const n = nums.length;
-    const vis = new Array(n).fill(false);
-    const queue = [0];
-    while (queue.length !== 0) {
-        const i = queue.shift() ?? 0;
-
-        if (i === n) {
+    const f: number[] = Array(n).fill(-1);
+    const dfs = (i: number): boolean => {
+        if (i >= n) {
             return true;
         }
-
-        if (!vis[i + 2] && i + 2 <= n && nums[i] === nums[i + 1]) {
-            queue.push(i + 2);
-            vis[i + 2] = true;
+        if (f[i] !== -1) {
+            return f[i] === 1;
         }
-
-        if (
-            !vis[i + 3] &&
-            i + 3 <= n &&
-            ((nums[i] === nums[i + 1] && nums[i + 1] === nums[i + 2]) ||
-                (nums[i] === nums[i + 1] - 1 && nums[i + 1] === nums[i + 2] - 1))
-        ) {
-            queue.push(i + 3);
-            vis[i + 3] = true;
-        }
-    }
-    return false;
+        const a = i + 1 < n && nums[i] == nums[i + 1];
+        const b = i + 2 < n && nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2];
+        const c = i + 2 < n && nums[i + 1] - nums[i] == 1 && nums[i + 2] - nums[i + 1] == 1;
+        f[i] = (a && dfs(i + 2)) || ((b || c) && dfs(i + 3)) ? 1 : 0;
+        return f[i] == 1;
+    };
+    return dfs(0);
 }
 ```
 
@@ -216,22 +212,23 @@ function validPartition(nums: number[]): boolean {
 
 ### 方法二：动态规划
 
-设 $dp[i]$ 表示数组前 $i$ 个元素是否至少存在一个有效的划分。初始时 $dp[0]=true$, $dp[1]=false$。
+我们可以将方法一中的记忆化搜索转换为动态规划。
 
-根据题意，当 $i \ge 2$ 时，有
+设 $f[i]$ 表示数组的前 $i$ 个元素是否存在一种有效划分，初始时 $f[0] = true$，答案就是 $f[n]$。
+
+状态转移方程如下：
 
 $$
-dp[i] = \text{OR}
+f[i] = \text{OR}
 \begin{cases}
-dp[i-2]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2],&i>1\\
-dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3],&i>2\\
-dp[i-3]\ \text{AND}\ \textit{nums}[i-1] = \textit{nums}[i-2]+1 = \textit{nums}[i-3]+2,&i>2
+true,&i = 0\\
+f[i-2],&i-2 \ge 0\ \text{and}\ \textit{nums}[i-1] = \textit{nums}[i-2]\\
+f[i-3],&i-3 \ge 0\ \text{and}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3]\\
+f[i-3],&i-3 \ge 0\ \text{and}\ \textit{nums}[i-1] - \textit{nums}[i-2] = 1\ \text{and}\ \textit{nums}[i-2] - \textit{nums}[i-3] = 1
 \end{cases}
 $$
 
-答案为 $dp[n]$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -239,40 +236,29 @@ $$
 class Solution:
     def validPartition(self, nums: List[int]) -> bool:
         n = len(nums)
-        dp = [False] * (n + 1)
-        dp[0] = True
-        for i in range(2, n + 1):
-            if nums[i - 1] == nums[i - 2]:
-                dp[i] = dp[i] or dp[i - 2]
-            if i > 2 and nums[i - 1] == nums[i - 2] == nums[i - 3]:
-                dp[i] = dp[i] or dp[i - 3]
-            if (
-                i > 2
-                and nums[i - 1] - nums[i - 2] == 1
-                and nums[i - 2] - nums[i - 3] == 1
-            ):
-                dp[i] = dp[i] or dp[i - 3]
-        return dp[-1]
+        f = [True] + [False] * n
+        for i, x in enumerate(nums, 1):
+            a = i - 2 >= 0 and nums[i - 2] == x
+            b = i - 3 >= 0 and nums[i - 3] == nums[i - 2] == x
+            c = i - 3 >= 0 and x - nums[i - 2] == 1 and nums[i - 2] - nums[i - 3] == 1
+            f[i] = (a and f[i - 2]) or ((b or c) and f[i - 3])
+        return f[n]
 ```
 
 ```java
 class Solution {
     public boolean validPartition(int[] nums) {
         int n = nums.length;
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
-        for (int i = 2; i <= n; ++i) {
-            if (nums[i - 1] == nums[i - 2]) {
-                dp[i] = dp[i] || dp[i - 2];
-            }
-            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) {
-                dp[i] = dp[i] || dp[i - 3];
-            }
-            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) {
-                dp[i] = dp[i] || dp[i - 3];
-            }
+        boolean[] f = new boolean[n + 1];
+        f[0] = true;
+        for (int i = 1; i <= n; ++i) {
+            boolean a = i - 2 >= 0 && nums[i - 1] == nums[i - 2];
+            boolean b = i - 3 >= 0 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3];
+            boolean c
+                = i - 3 >= 0 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1;
+            f[i] = (a && f[i - 2]) || ((b || c) && f[i - 3]);
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -282,14 +268,15 @@ class Solution {
 public:
     bool validPartition(vector<int>& nums) {
         int n = nums.size();
-        vector<bool> dp(n + 1);
-        dp[0] = true;
-        for (int i = 2; i <= n; ++i) {
-            if (nums[i - 1] == nums[i - 2]) dp[i] = dp[i] || dp[i - 2];
-            if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) dp[i] = dp[i] || dp[i - 3];
-            if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) dp[i] = dp[i] || dp[i - 3];
+        vector<bool> f(n + 1);
+        f[0] = true;
+        for (int i = 1; i <= n; ++i) {
+            bool a = i - 2 >= 0 && nums[i - 1] == nums[i - 2];
+            bool b = i - 3 >= 0 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3];
+            bool c = i - 3 >= 0 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1;
+            f[i] = (a && f[i - 2]) || ((b || c) && f[i - 3]);
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
@@ -297,40 +284,31 @@ public:
 ```go
 func validPartition(nums []int) bool {
 	n := len(nums)
-	dp := make([]bool, n+1)
-	dp[0] = true
-	for i := 2; i <= n; i++ {
-		if nums[i-1] == nums[i-2] {
-			dp[i] = dp[i] || dp[i-2]
-		}
-		if i > 2 && nums[i-1] == nums[i-2] && nums[i-2] == nums[i-3] {
-			dp[i] = dp[i] || dp[i-3]
-		}
-		if i > 2 && nums[i-1]-nums[i-2] == 1 && nums[i-2]-nums[i-3] == 1 {
-			dp[i] = dp[i] || dp[i-3]
-		}
+	f := make([]bool, n+1)
+	f[0] = true
+	for i := 1; i <= n; i++ {
+		x := nums[i-1]
+		a := i-2 >= 0 && nums[i-2] == x
+		b := i-3 >= 0 && nums[i-3] == nums[i-2] && nums[i-2] == x
+		c := i-3 >= 0 && x-nums[i-2] == 1 && nums[i-2]-nums[i-3] == 1
+		f[i] = (a && f[i-2]) || ((b || c) && f[i-3])
 	}
-	return dp[n]
+	return f[n]
 }
 ```
 
 ```ts
 function validPartition(nums: number[]): boolean {
     const n = nums.length;
-    const dp = new Array(n + 1).fill(false);
-    dp[0] = true;
-    for (let i = 2; i <= n; ++i) {
-        if (nums[i - 1] == nums[i - 2]) {
-            dp[i] = dp[i] || dp[i - 2];
-        }
-        if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) {
-            dp[i] = dp[i] || dp[i - 3];
-        }
-        if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) {
-            dp[i] = dp[i] || dp[i - 3];
-        }
+    const f: boolean[] = Array(n + 1).fill(false);
+    f[0] = true;
+    for (let i = 1; i <= n; ++i) {
+        const a = i - 2 >= 0 && nums[i - 1] === nums[i - 2];
+        const b = i - 3 >= 0 && nums[i - 1] === nums[i - 2] && nums[i - 2] === nums[i - 3];
+        const c = i - 3 >= 0 && nums[i - 1] - nums[i - 2] === 1 && nums[i - 2] - nums[i - 3] === 1;
+        f[i] = (a && f[i - 2]) || ((b || c) && f[i - 3]);
     }
-    return dp[n];
+    return f[n];
 }
 ```
 

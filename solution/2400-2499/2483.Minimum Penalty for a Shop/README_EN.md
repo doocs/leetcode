@@ -64,7 +64,13 @@ Closing the shop at 2<sup>nd</sup> or 4<sup>th</sup> hour gives a minimum penalt
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Prefix Sum + Enumeration
+
+First, we calculate how many customers arrive in the first $i$ hours and record it in the prefix sum array $s$.
+
+Then we enumerate the closing time $j$ of the shop, calculate the cost, and take the earliest closing time with the smallest cost.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $customers$.
 
 <!-- tabs:start -->
 

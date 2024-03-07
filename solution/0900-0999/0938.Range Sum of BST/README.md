@@ -39,7 +39,19 @@
 
 ## 解法
 
-### 方法一
+### 方法一：DFS
+
+我们设计一个函数 $dfs(root)$，表示求以 $root$ 为根的子树中，值位于范围 $[low, high]$ 之间的所有结点的值的和。那么答案就是 $dfs(root)$。
+
+函数 $dfs(root)$ 的执行逻辑如下：
+
+-   如果 $root$ 为空，返回 $0$。
+-   如果 $root$ 的值 $x$ 在范围 $[low, high]$ 之间，那么函数 $dfs(root)$ 的初始答案就是 $x$，否则为 $0$。
+-   如果 $x > low$，说明 $root$ 的左子树中可能有值在范围 $[low, high]$ 之间的结点，所以我们需要递归调用 $dfs(root.left)$，并将结果加到答案上。
+-   如果 $x < high$，说明 $root$ 的右子树中可能有值在范围 $[low, high]$ 之间的结点，所以我们需要递归调用 $dfs(root.right)$，并将结果加到答案上。
+-   最后返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的结点个数。
 
 <!-- tabs:start -->
 
@@ -51,22 +63,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rangeSumBST(self, root: TreeNode, low: int, high: int) -> int:
-        def search(node):
-            if not node:
-                return
-            if low <= node.val <= high:
-                self.ans += node.val
-                search(node.left)
-                search(node.right)
-            elif node.val < low:
-                search(node.right)
-            elif node.val > high:
-                search(node.left)
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        def dfs(root: Optional[TreeNode]) -> int:
+            if root is None:
+                return 0
+            x = root.val
+            ans = x if low <= x <= high else 0
+            if x > low:
+                ans += dfs(root.left)
+            if x < high:
+                ans += dfs(root.right)
+            return ans
 
-        self.ans = 0
-        search(root)
-        return self.ans
+        return dfs(root)
 ```
 
 ```java
@@ -87,17 +96,22 @@ class Solution:
  */
 class Solution {
     public int rangeSumBST(TreeNode root, int low, int high) {
+        return dfs(root, low, high);
+    }
+
+    private int dfs(TreeNode root, int low, int high) {
         if (root == null) {
             return 0;
         }
-        if (low <= root.val && root.val <= high) {
-            return root.val + rangeSumBST(root.left, low, high)
-                + rangeSumBST(root.right, low, high);
-        } else if (root.val < low) {
-            return rangeSumBST(root.right, low, high);
-        } else {
-            return rangeSumBST(root.left, low, high);
+        int x = root.val;
+        int ans = low <= x && x <= high ? x : 0;
+        if (x > low) {
+            ans += dfs(root.left, low, high);
         }
+        if (x < high) {
+            ans += dfs(root.right, low, high);
+        }
+        return ans;
     }
 }
 ```
@@ -117,14 +131,21 @@ class Solution {
 class Solution {
 public:
     int rangeSumBST(TreeNode* root, int low, int high) {
-        if (root == nullptr) return 0;
-        if (low <= root->val && root->val <= high) {
-            return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
-        } else if (root->val < low) {
-            return rangeSumBST(root->right, low, high);
-        } else {
-            return rangeSumBST(root->left, low, high);
-        }
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return 0;
+            }
+            int x = root->val;
+            int ans = low <= x && x <= high ? x : 0;
+            if (x > low) {
+                ans += dfs(root->left);
+            }
+            if (x < high) {
+                ans += dfs(root->right);
+            }
+            return ans;
+        };
+        return dfs(root);
     }
 };
 ```
@@ -139,16 +160,94 @@ public:
  * }
  */
 func rangeSumBST(root *TreeNode, low int, high int) int {
-	if root == nil {
-		return 0
+	var dfs func(*TreeNode) int
+	dfs = func(root *TreeNode) (ans int) {
+		if root == nil {
+			return 0
+		}
+		x := root.Val
+		if low <= x && x <= high {
+			ans += x
+		}
+		if x > low {
+			ans += dfs(root.Left)
+		}
+		if x < high {
+			ans += dfs(root.Right)
+		}
+		return
 	}
-	if low <= root.Val && root.Val <= high {
-		return root.Val + rangeSumBST(root.Left, low, high) + rangeSumBST(root.Right, low, high)
-	} else if root.Val < low {
-		return rangeSumBST(root.Right, low, high)
-	} else {
-		return rangeSumBST(root.Left, low, high)
-	}
+	return dfs(root)
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function rangeSumBST(root: TreeNode | null, low: number, high: number): number {
+    const dfs = (root: TreeNode | null): number => {
+        if (!root) {
+            return 0;
+        }
+        const { val, left, right } = root;
+        let ans = low <= val && val <= high ? val : 0;
+        if (val > low) {
+            ans += dfs(left);
+        }
+        if (val < high) {
+            ans += dfs(right);
+        }
+        return ans;
+    };
+    return dfs(root);
+}
+```
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int RangeSumBST(TreeNode root, int low, int high) {
+        return dfs(root, low, high);
+    }
+
+    private int dfs(TreeNode root, int low, int high) {
+        if (root == null) {
+            return 0;
+        }
+        int x = root.val;
+        int ans = low <= x && x <= high ? x : 0;
+        if (x > low) {
+            ans += dfs(root.left, low, high);
+        }
+        if (x < high) {
+            ans += dfs(root.right, low, high);
+        }
+        return ans;
+    }
 }
 ```
 
