@@ -63,24 +63,186 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举 + DFS
+
+我们先根据题目给定的边构建出一个邻接表 $g$，其中 $g[a]$ 表示节点 $a$ 的所有邻居节点以及对应的边权。
+
+然后，我们可以枚举每一个节点 $a$ 作为连接的中间节点，通过深度优先搜索计算出从 $a$ 的邻居节点 $b$ 出发的，且到节点 $a$ 的距离可以被 $signalSpeed$ 整除的节点数 $t$。那么，节点 $a$ 的可连接节点对数目增加了 $s \times t$，其中 $s$ 表示节点 $a$ 的邻居节点 $b$ 出发的，且到节点 $a$ 的距离不可以被 $signalSpeed$ 整除的累计节点数。然后我们更新 $s$ 为 $s + t$。
+
+枚举完所有节点 $a$ 之后，我们就可以得到所有节点的可连接节点对数目。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 表示节点数。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def countPairsOfConnectableServers(
+        self, edges: List[List[int]], signalSpeed: int
+    ) -> List[int]:
+        def dfs(a: int, fa: int, ws: int) -> int:
+            cnt = 0 if ws % signalSpeed else 1
+            for b, w in g[a]:
+                if b != fa:
+                    cnt += dfs(b, a, ws + w)
+            return cnt
 
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for a, b, w in edges:
+            g[a].append((b, w))
+            g[b].append((a, w))
+        ans = [0] * n
+        for a in range(n):
+            s = 0
+            for b, w in g[a]:
+                t = dfs(b, a, w)
+                ans[a] += s * t
+                s += t
+        return ans
 ```
 
 ```java
+class Solution {
+    private int signalSpeed;
+    private List<int[]>[] g;
 
+    public int[] countPairsOfConnectableServers(int[][] edges, int signalSpeed) {
+        int n = edges.length + 1;
+        g = new List[n];
+        this.signalSpeed = signalSpeed;
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
+        }
+        int[] ans = new int[n];
+        for (int a = 0; a < n; ++a) {
+            int s = 0;
+            for (var e : g[a]) {
+                int b = e[0], w = e[1];
+                int t = dfs(b, a, w);
+                ans[a] += s * t;
+                s += t;
+            }
+        }
+        return ans;
+    }
+
+    private int dfs(int a, int fa, int ws) {
+        int cnt = ws % signalSpeed == 0 ? 1 : 0;
+        for (var e : g[a]) {
+            int b = e[0], w = e[1];
+            if (b != fa) {
+                cnt += dfs(b, a, ws + w);
+            }
+        }
+        return cnt;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countPairsOfConnectableServers(vector<vector<int>>& edges, int signalSpeed) {
+        int n = edges.size() + 1;
+        vector<pair<int, int>> g[n];
+        for (auto& e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].emplace_back(b, w);
+            g[b].emplace_back(a, w);
+        }
+        function<int(int, int, int)> dfs = [&](int a, int fa, int ws) {
+            int cnt = ws % signalSpeed == 0;
+            for (auto& [b, w] : g[a]) {
+                if (b != fa) {
+                    cnt += dfs(b, a, ws + w);
+                }
+            }
+            return cnt;
+        };
+        vector<int> ans(n);
+        for (int a = 0; a < n; ++a) {
+            int s = 0;
+            for (auto& [b, w] : g[a]) {
+                int t = dfs(b, a, w);
+                ans[a] += s * t;
+                s += t;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func countPairsOfConnectableServers(edges [][]int, signalSpeed int) []int {
+	n := len(edges) + 1
+	type pair struct{ x, w int }
+	g := make([][]pair, n)
+	for _, e := range edges {
+		a, b, w := e[0], e[1], e[2]
+		g[a] = append(g[a], pair{b, w})
+		g[b] = append(g[b], pair{a, w})
+	}
+	var dfs func(a, fa, ws int) int
+	dfs = func(a, fa, ws int) int {
+		cnt := 0
+		if ws%signalSpeed == 0 {
+			cnt++
+		}
+		for _, e := range g[a] {
+			b, w := e.x, e.w
+			if b != fa {
+				cnt += dfs(b, a, ws+w)
+			}
+		}
+		return cnt
+	}
+	ans := make([]int, n)
+	for a := 0; a < n; a++ {
+		s := 0
+		for _, e := range g[a] {
+			b, w := e.x, e.w
+			t := dfs(b, a, w)
+			ans[a] += s * t
+			s += t
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function countPairsOfConnectableServers(edges: number[][], signalSpeed: number): number[] {
+    const n = edges.length + 1;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b, w] of edges) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
+    }
+    const dfs = (a: number, fa: number, ws: number): number => {
+        let cnt = ws % signalSpeed === 0 ? 1 : 0;
+        for (const [b, w] of g[a]) {
+            if (b != fa) {
+                cnt += dfs(b, a, ws + w);
+            }
+        }
+        return cnt;
+    };
+    const ans: number[] = Array(n).fill(0);
+    for (let a = 0; a < n; ++a) {
+        let s = 0;
+        for (const [b, w] of g[a]) {
+            const t = dfs(b, a, w);
+            ans[a] += s * t;
+            s += t;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
