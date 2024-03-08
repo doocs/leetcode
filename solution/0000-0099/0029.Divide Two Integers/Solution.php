@@ -1,4 +1,3 @@
-<?php
 class Solution {
     /**
      * @param integer $a
