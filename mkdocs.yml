@@ -9,6 +9,7 @@ repo_url: https://github.com/doocs/leetcode
 copyright: Copyright &copy; 2024 <a href="https://github.com/doocs">Doocs</a>
 
 theme:
+  favicon: favicon.ico
   name: material
   custom_dir: overrides
   features:

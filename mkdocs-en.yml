@@ -4,6 +4,7 @@ site_description: LeetCode solutions in any programming language
 site_dir: site/en
 docs_dir: docs-en
 theme:
+  favicon: favicon.ico
   language: en
   font:
     text: Roboto
