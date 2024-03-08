@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 class Solution {
     public int earliestSecondToMarkIndices(int[] nums, int[] changeIndices) {
         int l = 0;
