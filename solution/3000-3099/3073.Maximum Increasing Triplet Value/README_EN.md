@@ -52,7 +52,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Suffix Maximum + Ordered Set
+
+We can consider enumerating $nums[j]$. Then, we need to find the largest $nums[i]$ on the left of $j$ such that $nums[i] < nums[j]$, and find the largest $nums[k]$ on the right of $j$ such that $nums[k] > nums[j]$.
+
+Therefore, we can preprocess an array $right$, where $right[i]$ represents the maximum value to the right of $nums[i]$. Then, we can use an ordered set to maintain the values on the left of $nums[j]$, so that we can find the largest $nums[i]$ less than $nums[j]$ in $O(\log n)$ time.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
