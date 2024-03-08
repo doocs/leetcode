@@ -3057,30 +3057,31 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3046  |  [Split the Array](/solution/3000-3099/3046.Split%20the%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Easy  |  Weekly Contest 386  |
 |  3047  |  [Find the Largest Area of Square Inside Two Rectangles](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README_EN.md)  |  `Geometry`,`Array`,`Math`  |  Medium  |  Weekly Contest 386  |
 |  3048  |  [Earliest Second to Mark Indices I](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 386  |
-|  3049  |  [Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 386  |
-|  3050  |  [Pizza Toppings Cost Analysis](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md)  |    |  Medium  |  🔒  |
-|  3051  |  [Find Candidates for Data Scientist Position](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)  |    |  Easy  |  🔒  |
-|  3052  |  [Maximize Items](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)  |    |  Hard  |  🔒  |
-|  3053  |  [Classifying Triangles by Lengths](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md)  |    |  Easy  |  🔒  |
-|  3054  |  [Binary Tree Nodes](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md)  |    |  Medium  |  🔒  |
-|  3055  |  [Top Percentile Fraud](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README_EN.md)  |    |  Medium  |  🔒  |
-|  3056  |  [Snaps Analysis](/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md)  |    |  Medium  |  🔒  |
-|  3057  |  [Employees Project Allocation](/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md)  |    |  Hard  |  🔒  |
-|  3058  |  [Friends With No Mutual Friends](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)  |    |  Medium  |  🔒  |
-|  3059  |  [Find All Unique Email Domains](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)  |    |  Easy  |  🔒  |
-|  3060  |  [User Activities within Time Bounds](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)  |    |  Hard  |  🔒  |
-|  3061  |  [Calculate Trapping Rain Water](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)  |    |  Hard  |  🔒  |
-|  3062  |  [Winner of the Linked List Game](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md)  |    |  Easy  |  🔒  |
-|  3063  |  [Linked List Frequency](/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md)  |    |  Medium  |  🔒  |
-|  3064  |  [Guess the Number Using Bitwise Questions I](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README_EN.md)  |    |  Medium  |  🔒  |
-|  3065  |  [Minimum Operations to Exceed Threshold Value I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 125  |
-|  3066  |  [Minimum Operations to Exceed Threshold Value II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 125  |
-|  3067  |  [Count Pairs of Connectable Servers in a Weighted Tree Network](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README_EN.md)  |    |  Medium  |  Biweekly Contest 125  |
-|  3068  |  [Find the Maximum Sum of Node Values](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md)  |    |  Hard  |  Biweekly Contest 125  |
-|  3069  |  [Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 387  |
-|  3070  |  [Count Submatrices with Top-Left Element and Sum Less Than k](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)  |    |  Medium  |  Weekly Contest 387  |
-|  3071  |  [Minimum Operations to Write the Letter Y on a Grid](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 387  |
-|  3072  |  [Distribute Elements Into Two Arrays II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 387  |
+|  3049  |  [Earliest Second to Mark Indices II](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 386  |
+|  3050  |  [Pizza Toppings Cost Analysis](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3051  |  [Find Candidates for Data Scientist Position](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  3052  |  [Maximize Items](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  3053  |  [Classifying Triangles by Lengths](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  3054  |  [Binary Tree Nodes](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3055  |  [Top Percentile Fraud](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3056  |  [Snaps Analysis](/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3057  |  [Employees Project Allocation](/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  3058  |  [Friends With No Mutual Friends](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3059  |  [Find All Unique Email Domains](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  3060  |  [User Activities within Time Bounds](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  3061  |  [Calculate Trapping Rain Water](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  3062  |  [Winner of the Linked List Game](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md)  |  `Linked List`  |  Easy  |  🔒  |
+|  3063  |  [Linked List Frequency](/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md)  |  `Hash Table`,`Linked List`,`Counting`  |  Medium  |  🔒  |
+|  3064  |  [Guess the Number Using Bitwise Questions I](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README_EN.md)  |  `Bit Manipulation`,`Interactive`  |  Medium  |  🔒  |
+|  3065  |  [Minimum Operations to Exceed Threshold Value I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md)  |  `Array`  |  Easy  |  Biweekly Contest 125  |
+|  3066  |  [Minimum Operations to Exceed Threshold Value II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md)  |  `Array`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 125  |
+|  3067  |  [Count Pairs of Connectable Servers in a Weighted Tree Network](/solution/3000-3099/3067.Count%20Pairs%20of%20Connectable%20Servers%20in%20a%20Weighted%20Tree%20Network/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`  |  Medium  |  Biweekly Contest 125  |
+|  3068  |  [Find the Maximum Sum of Node Values](/solution/3000-3099/3068.Find%20the%20Maximum%20Sum%20of%20Node%20Values/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Tree`,`Array`,`Dynamic Programming`,`Sorting`  |  Hard  |  Biweekly Contest 125  |
+|  3069  |  [Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Weekly Contest 387  |
+|  3070  |  [Count Submatrices with Top-Left Element and Sum Less Than k](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)  |  `Array`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 387  |
+|  3071  |  [Minimum Operations to Write the Letter Y on a Grid](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Matrix`  |  Medium  |  Weekly Contest 387  |
+|  3072  |  [Distribute Elements Into Two Arrays II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Simulation`  |  Hard  |  Weekly Contest 387  |
+|  3073  |  [Maximum Increasing Triplet Value](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
