@@ -65,9 +65,13 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 
 We can greedily construct the array `nums` starting from $x = 1$, choosing $x$ each time and excluding $target - x$.
 
-If $x <= \left\lfloor \frac{target}{2} \right\rfloor$, then the numbers we can choose are $1, 2, \cdots, n$, so the sum of the array is $\left\lfloor \frac{n(n+1)}{2} \right\rfloor$.
+Let's denote $m = \left\lfloor \frac{target}{2} \right\rfloor$.
 
-If $x > \left\lfloor \frac{target}{2} \right\rfloor$, then the numbers we can choose are $1, 2, \cdots, \left\lfloor \frac{target}{2} \right\rfloor$, a total of $\left\lfloor \frac{target}{2} \right\rfloor$ numbers, and $n - \left\lfloor \frac{target}{2} \right\rfloor$ numbers starting from $target$, so the sum of the array is $\left\lfloor \frac{\left\lfloor \frac{target}{2} \right\rfloor \left(\left\lfloor \frac{target}{2} \right\rfloor + 1\right)}{2} \right\rfloor + \left\lfloor \frac{target + target + n - \left\lfloor \frac{target}{2} \right\rfloor - 1}{2} \right\rfloor$.
+If $x <= m$, then the numbers we can choose are $1, 2, \cdots, n$, so the sum of the array is $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$.
+
+If $x > m$, then the numbers we can choose are $1, 2, \cdots, m$, a total of $m$ numbers, and $n - m$ numbers starting from $target$, so the sum of the array is $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(target + target + n - m - 1)(n-m)}{2} \right\rfloor$.
+
+Note that we need to take the modulus of $10^9 + 7$ for the result.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
@@ -135,6 +139,21 @@ function minimumPossibleSum(n: number, target: number): number {
         return (((1 + n) * n) / 2) % mod;
     }
     return (((1 + m) * m) / 2 + ((target + target + n - m - 1) * (n - m)) / 2) % mod;
+}
+```
+
+```cs
+public class Solution {
+    public int MinimumPossibleSum(int n, int target) {
+        const int mod = (int) 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (int) ((1L + n) * n / 2 % mod);
+        }
+        long a = (1L + m) * m / 2 % mod;
+        long b = ((1L * target + target + n - m - 1) * (n - m) / 2) % mod;
+        return (int) ((a + b) % mod);
+    }
 }
 ```
 
