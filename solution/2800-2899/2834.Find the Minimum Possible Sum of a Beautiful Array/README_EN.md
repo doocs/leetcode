@@ -61,44 +61,39 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 
 ## Solutions
 
-### Solution 1: Greedy + Hash Table
+### Solution 1: Greedy + Mathematics
 
-We start from the positive integer $i=1$, and judge whether $i$ can be added to the array in turn. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $target-i$ as visited, indicating that $target-i$ cannot be added to the array. The loop continues until the length of the array is $n$.
+We can greedily construct the array `nums` starting from $x = 1$, choosing $x$ each time and excluding $target - x$.
 
-The time complexity is $O(n + target)$, and the space complexity is $O(n + target)$. Here, $n$ is the length of the array.
+If $x <= \left\lfloor \frac{target}{2} \right\rfloor$, then the numbers we can choose are $1, 2, \cdots, n$, so the sum of the array is $\left\lfloor \frac{n(n+1)}{2} \right\rfloor$.
+
+If $x > \left\lfloor \frac{target}{2} \right\rfloor$, then the numbers we can choose are $1, 2, \cdots, \left\lfloor \frac{target}{2} \right\rfloor$, a total of $\left\lfloor \frac{target}{2} \right\rfloor$ numbers, and $n - \left\lfloor \frac{target}{2} \right\rfloor$ numbers starting from $target$, so the sum of the array is $\left\lfloor \frac{\left\lfloor \frac{target}{2} \right\rfloor \left(\left\lfloor \frac{target}{2} \right\rfloor + 1\right)}{2} \right\rfloor + \left\lfloor \frac{target + target + n - \left\lfloor \frac{target}{2} \right\rfloor - 1}{2} \right\rfloor$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minimumPossibleSum(self, n: int, target: int) -> int:
-        vis = set()
-        ans = 0
-        i = 1
-        for _ in range(n):
-            while i in vis:
-                i += 1
-            ans += i
-            vis.add(target - i)
-            i += 1
-        return ans
+        mod = 10**9 + 7
+        m = target // 2
+        if n <= m:
+            return ((1 + n) * n // 2) % mod
+        return ((1 + m) * m // 2 + (target + target + n - m - 1) * (n - m) // 2) % mod
 ```
 
 ```java
 class Solution {
-    public long minimumPossibleSum(int n, int target) {
-        boolean[] vis = new boolean[n + target];
-        long ans = 0;
-        for (int i = 1; n > 0; --n, ++i) {
-            while (vis[i]) {
-                ++i;
-            }
-            ans += i;
-            if (target >= i) {
-                vis[target - i] = true;
-            }
+    public int minimumPossibleSum(int n, int target) {
+        final int mod = (int) 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (int) ((1L + n) * n / 2 % mod);
         }
-        return ans;
+        long a = (1L + m) * m / 2 % mod;
+        long b = ((1L * target + target + n - m - 1) * (n - m) / 2) % mod;
+        return (int) ((a + b) % mod);
     }
 }
 ```
@@ -106,54 +101,40 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    long long minimumPossibleSum(int n, int target) {
-        bool vis[n + target];
-        memset(vis, false, sizeof(vis));
-        long long ans = 0;
-        for (int i = 1; n; ++i, --n) {
-            while (vis[i]) {
-                ++i;
-            }
-            ans += i;
-            if (target >= i) {
-                vis[target - i] = true;
-            }
+    int minimumPossibleSum(int n, int target) {
+        const int mod = 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (1LL + n) * n / 2 % mod;
         }
-        return ans;
+        long long a = (1LL + m) * m / 2 % mod;
+        long long b = (1LL * target + target + n - m - 1) * (n - m) / 2 % mod;
+        return (a + b) % mod;
     }
 };
 ```
 
 ```go
-func minimumPossibleSum(n int, target int) (ans int64) {
-	vis := make([]bool, n+target)
-	for i := 1; n > 0; i, n = i+1, n-1 {
-		for vis[i] {
-			i++
-		}
-		ans += int64(i)
-		if target >= i {
-			vis[target-i] = true
-		}
+func minimumPossibleSum(n int, target int) int {
+	const mod int = 1e9 + 7
+	m := target / 2
+	if n <= m {
+		return (n + 1) * n / 2 % mod
 	}
-	return
+	a := (m + 1) * m / 2 % mod
+	b := (target + target + n - m - 1) * (n - m) / 2 % mod
+	return (a + b) % mod
 }
 ```
 
 ```ts
 function minimumPossibleSum(n: number, target: number): number {
-    const vis: boolean[] = Array(n + target).fill(false);
-    let ans = 0;
-    for (let i = 1; n; ++i, --n) {
-        while (vis[i]) {
-            ++i;
-        }
-        ans += i;
-        if (target >= i) {
-            vis[target - i] = true;
-        }
+    const mod = 10 ** 9 + 7;
+    const m = target >> 1;
+    if (n <= m) {
+        return (((1 + n) * n) / 2) % mod;
     }
-    return ans;
+    return (((1 + m) * m) / 2 + ((target + target + n - m - 1) * (n - m)) / 2) % mod;
 }
 ```
 

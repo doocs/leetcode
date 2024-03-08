@@ -1,12 +1,7 @@
 class Solution:
     def minimumPossibleSum(self, n: int, target: int) -> int:
-        vis = set()
-        ans = 0
-        i = 1
-        for _ in range(n):
-            while i in vis:
-                i += 1
-            ans += i
-            vis.add(target - i)
-            i += 1
-        return ans
+        mod = 10**9 + 7
+        m = target // 2
+        if n <= m:
+            return ((1 + n) * n // 2) % mod
+        return ((1 + m) * m // 2 + (target + target + n - m - 1) * (n - m) // 2) % mod
