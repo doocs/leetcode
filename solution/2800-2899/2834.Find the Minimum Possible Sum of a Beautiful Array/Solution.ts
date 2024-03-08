@@ -1,14 +1,8 @@
 function minimumPossibleSum(n: number, target: number): number {
-    const vis: boolean[] = Array(n + target).fill(false);
-    let ans = 0;
-    for (let i = 1; n; ++i, --n) {
-        while (vis[i]) {
-            ++i;
-        }
-        ans += i;
-        if (target >= i) {
-            vis[target - i] = true;
-        }
+    const mod = 10 ** 9 + 7;
+    const m = target >> 1;
+    if (n <= m) {
+        return (((1 + n) * n) / 2) % mod;
     }
-    return ans;
+    return (((1 + m) * m) / 2 + ((target + target + n - m - 1) * (n - m)) / 2) % mod;
 }

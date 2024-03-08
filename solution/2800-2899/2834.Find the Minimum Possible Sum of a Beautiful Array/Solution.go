@@ -1,13 +1,10 @@
-func minimumPossibleSum(n int, target int) (ans int64) {
-	vis := make([]bool, n+target)
-	for i := 1; n > 0; i, n = i+1, n-1 {
-		for vis[i] {
-			i++
-		}
-		ans += int64(i)
-		if target >= i {
-			vis[target-i] = true
-		}
+func minimumPossibleSum(n int, target int) int {
+	const mod int = 1e9 + 7
+	m := target / 2
+	if n <= m {
+		return (n + 1) * n / 2 % mod
 	}
-	return
+	a := (m + 1) * m / 2 % mod
+	b := (target + target + n - m - 1) * (n - m) / 2 % mod
+	return (a + b) % mod
 }
