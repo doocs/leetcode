@@ -133,9 +133,7 @@ class Solution {
                 ++decrement;
             }
         }
-
         return numMarked == nums.length;
-
     }
 }
 ```
