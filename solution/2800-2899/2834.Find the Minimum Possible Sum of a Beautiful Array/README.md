@@ -68,9 +68,13 @@ nums = [1,3,4] 是美丽数组。
 
 我们可以贪心地从 $x = 1$ 开始构造数组 $nums$，每次选择 $x$，并且排除 $target - x$。
 
-如果 $x <= \left\lfloor \frac{target}{2} \right\rfloor$，那么我们可以选择的数字分别为 $1, 2, \cdots, n$，因此，数组的和为 $\left\lfloor \frac{n(n+1)}{2} \right\rfloor$。
+我们不妨记 $m = \left\lfloor \frac{target}{2} \right\rfloor$。
 
-如果 $x > \left\lfloor \frac{target}{2} \right\rfloor$，那么我们可以选择的数字分别为 $1, 2, \cdots, \left\lfloor \frac{target}{2} \right\rfloor$，共 $\left\lfloor \frac{target}{2} \right\rfloor$ 个数，以及从 $target$ 开始的 $n - \left\lfloor \frac{target}{2} \right\rfloor$ 个数字，因此，数组的和为 $\left\lfloor \frac{\left\lfloor \frac{target}{2} \right\rfloor \left(\left\lfloor \frac{target}{2} \right\rfloor + 1\right)}{2} \right\rfloor + \left\lfloor \frac{target + target + n - \left\lfloor \frac{target}{2} \right\rfloor - 1}{2} \right\rfloor$。
+如果 $x <= m$，那么我们可以选择的数有 $1, 2, \cdots, n$，所以数组的和为 $\left\lfloor \frac{(1+n)n}{2} \right\rfloor$。
+
+如果 $x > m$，那么我们可以选择的数有 $1, 2, \cdots, m$，共 $m$ 个数，以及 $n - m$ 个从 $target$ 开始的数，所以数组的和为 $\left\lfloor \frac{(1+m)m}{2} \right\rfloor + \left\lfloor \frac{(target + target + n - m - 1)(n-m)}{2} \right\rfloor$。
+
+注意，我们需要对结果取模 $10^9 + 7$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -138,6 +142,21 @@ function minimumPossibleSum(n: number, target: number): number {
         return (((1 + n) * n) / 2) % mod;
     }
     return (((1 + m) * m) / 2 + ((target + target + n - m - 1) * (n - m)) / 2) % mod;
+}
+```
+
+```cs
+public class Solution {
+    public int MinimumPossibleSum(int n, int target) {
+        const int mod = (int) 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (int) ((1L + n) * n / 2 % mod);
+        }
+        long a = (1L + m) * m / 2 % mod;
+        long b = ((1L * target + target + n - m - 1) * (n - m) / 2) % mod;
+        return (int) ((a + b) % mod);
+    }
 }
 ```
 
