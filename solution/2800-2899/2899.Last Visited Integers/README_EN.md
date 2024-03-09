@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2800-2899/2899.Last%20Visited%20Integers/README.md)
 
-<!-- tags:Array,String,Simulation -->
+<!-- tags:Array,Simulation -->
 
 ## Description
 

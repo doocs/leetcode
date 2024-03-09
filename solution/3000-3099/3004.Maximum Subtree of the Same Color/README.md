@@ -14,7 +14,7 @@
 
 <p>我们希望找到一个节点 <code>v</code>，使得 <code>v</code> 的子树中的每个节点具有 <strong>相同</strong> 的颜色。</p>
 
-<p>返回&nbsp;<em>具有 <strong>尽可能多</strong> 节点 且 符合上述要求的子树大小。</em></p>
+<p>返回&nbsp;<em>具有 <strong>尽可能多</strong> 节点 且 符合上述要求的<span data-keyword="subtree">子树</span>大小。</em></p>
 
 <p>&nbsp;</p>
 

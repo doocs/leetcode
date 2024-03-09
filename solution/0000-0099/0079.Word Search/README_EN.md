@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0000-0099/0079.Word%20Search/README.md)
 
-<!-- tags:Array,Backtracking,Matrix -->
+<!-- tags:Array,String,Backtracking,Matrix -->
 
 ## Description
 

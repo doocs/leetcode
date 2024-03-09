@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,模拟,堆（优先队列） -->
 
 ## 题目描述
 

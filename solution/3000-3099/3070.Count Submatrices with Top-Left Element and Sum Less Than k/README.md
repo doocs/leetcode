@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,矩阵,前缀和 -->
 
 ## 题目描述
 
@@ -10,7 +10,7 @@
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数矩阵 <code>grid</code> 和一个整数 <code>k</code>。</p>
 
-<p>返回包含 <code>grid</code> 左上角元素、元素和小于或等于 <code>k</code> 的 <strong>子矩阵 </strong>的<span data-keyword="submatrix">数目</span>。</p>
+<p>返回包含 <code>grid</code> 左上角元素、元素和小于或等于 <code>k</code> 的 <strong><span data-keyword="submatrix">子矩阵</span></strong>的数目。</p>
 
 <p>&nbsp;</p>
 

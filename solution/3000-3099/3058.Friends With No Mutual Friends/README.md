@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数据库 -->
 
 ## 题目描述
 

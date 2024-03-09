@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个数组 <code><em>nums</em></code> 和一个目标值 <code><em>k</em></code>，找到和等于<em> <code>k</code> </em>的最长连续子数组长度。如果不存在任意一个符合要求的子数组，则返回 <code>0</code>。</p>
+<p>给定一个数组 <code><em>nums</em></code> 和一个目标值 <code><em>k</em></code>，找到和等于<em> <code>k</code> </em>的最长连续<span data-keyword="subarray">子数组</span>长度。如果不存在任意一个符合要求的子数组，则返回 <code>0</code>。</p>
 
 <p>&nbsp;</p>
 

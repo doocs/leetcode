@@ -8,13 +8,14 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二叉树，统计该二叉树数值相同的子树个数。</p>
+<p>给定一个二叉树，统计该二叉树数值相同的<span data-keyword="subtree">子树</span>个数。</p>
 
 <p>同值子树是指该子树的所有节点都拥有相同的数值。</p>
 
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入: </strong>root = [5,1,5,5,5,null,5]
+<pre>
+<strong>输入: </strong>root = [5,1,5,5,5,null,5]
 
               5
              / \

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README.md)
 
-<!-- tags: -->
+<!-- tags:Database -->
 
 ## Description
 

@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,数组,二分查找,堆（优先队列） -->
 
 ## 题目描述
 

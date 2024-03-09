@@ -8,11 +8,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数数组 <code>nums</code>&nbsp;，请你找出数组中乘积最大的非空连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
+<p>给你一个整数数组 <code>nums</code>&nbsp;，请你找出数组中乘积最大的非空连续<span data-keyword="subarray-nonempty">子数组</span>（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
 
 <p>测试用例的答案是一个&nbsp;<strong>32-位</strong> 整数。</p>
-
-<p><strong>子数组</strong> 是数组的连续子序列。</p>
 
 <p>&nbsp;</p>
 

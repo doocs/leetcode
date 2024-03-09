@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数据库 -->
 
 ## 题目描述
 
