@@ -1,7 +1,7 @@
-black==23.12.1
+black==24.2.0
 Requests==2.31.0
 sortedcontainers==2.4.0
 urllib3==1.26.18
 mkdocs-git-committers-plugin-2==2.2.3
-mkdocs-material==9.5.12
+mkdocs-material==9.5.13
 jieba==0.42.1
