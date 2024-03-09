@@ -1,5 +1,4 @@
 class Solution {
-
     /**
      * @param String $s
      * @param String[] $words
