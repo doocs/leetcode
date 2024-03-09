@@ -307,7 +307,6 @@ public class Solution {
 
 ```php
 class Solution {
-
     /**
      * @param String $s
      * @param String[] $words
