@@ -5,12 +5,6 @@
 .cache
 /node_modules
 /solution/result.json
-/solution/contest.json
-/solution/contest_list.json
-/solution/raw.json
-/lcof/lcof.json
-/lcof/lcof_list.json
-/lcci/lcci.json
 /solution/__pycache__
 /solution/.env
 *.iml
