@@ -20,8 +20,7 @@ jobs:
           ref: docs
           path: mkdocs
       - run: |
-          mv mkdocs/* .
-          mv -f mkdocs/requirements.txt .
+          mv -f mkdocs/* .
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
