@@ -43,7 +43,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Mathematical Analysis
+
+We find that if a number $n$ can be expressed as the sum of several "different" powers of three, then in the ternary representation of $n$, each digit can only be $0$ or $1$.
+
+Therefore, we convert $n$ to ternary and then check whether each digit is $0$ or $1$. If not, then $n$ cannot be expressed as the sum of several powers of three, and we directly return `false`; otherwise, $n$ can be expressed as the sum of several powers of three, and we return `true`.
+
+The time complexity is $O(\log_3 n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
