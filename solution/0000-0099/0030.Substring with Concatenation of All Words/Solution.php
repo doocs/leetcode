@@ -1,34 +1,54 @@
 class Solution {
-    /**
-     * @param string $s
-     * @param string[] $words
-     * @return integer[]
-     */
 
+    /**
+     * @param String $s
+     * @param String[] $words
+     * @return Integer[]
+     */
     function findSubstring($s, $words) {
-        $wordLength = strlen($words[0]);
-        $totalLength = count($words) * $wordLength;
-        $wordFreq = array_count_values($words);
-        $result = [];
-        for ($i = 0; $i <= strlen($s) - $totalLength; $i++) {
-            $seen = [];
-            $j = 0;
-            while ($j < $totalLength) {
-                $word = substr($s, $i + $j, $wordLength);
-                if (isset($wordFreq[$word])) {
-                    $seen[$word] = isset($seen[$word]) ? $seen[$word] + 1 : 1;
-                    if ($seen[$word] > $wordFreq[$word]) {
-                        break;
-                    }
-                    $j += $wordLength;
-                } else {
-                    break;
-                }
-            }
-            if ($j === $totalLength) {
-                $result[] = $i;
+        $cnt = [];
+        foreach ($words as $w) {
+            if (!isset($cnt[$w])) {
+                $cnt[$w] = 1;
+            } else {
+                $cnt[$w]++;
             }
         }
-        return $result;
+        $m = strlen($s);
+        $n = count($words);
+        $k = strlen($words[0]);
+        $ans = [];
+        for ($i = 0; $i < $k; ++$i) {
+            $cnt1 = [];
+            $l = $i;
+            $r = $i;
+            $t = 0;
+            while ($r + $k <= $m) {
+                $w = substr($s, $r, $k);
+                $r += $k;
+                if (!array_key_exists($w, $cnt)) {
+                    $cnt1 = [];
+                    $l = $r;
+                    $t = 0;
+                    continue;
+                }
+                if (!isset($cnt1[$w])) {
+                    $cnt1[$w] = 1;
+                } else {
+                    $cnt1[$w]++;
+                }
+                ++$t;
+                while ($cnt1[$w] > $cnt[$w]) {
+                    $remove = substr($s, $l, $k);
+                    $l += $k;
+                    $cnt1[$remove]--;
+                    $t--;
+                }
+                if ($t == $n) {
+                    $ans[] = $l;
+                }
+            }
+        }
+        return $ans;
     }
 }
