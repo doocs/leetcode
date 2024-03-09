@@ -163,7 +163,6 @@ nav:
   - 剑指 Offer（专项突破）:\n{lcof2}
   - 程序员面试金典:\n{lcci}
   - 专项训练: tags.md
-  - 竞赛: contest.md
 
 """
 
@@ -178,7 +177,6 @@ nav:
   - LeetCode:\n{lc}
   - Cracking the Coding Interview:\n{lcci}
   - Focused Training: tags.md
-  - Contest: contest.md
 
 """
 
