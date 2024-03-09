@@ -22,7 +22,7 @@ loan_id 是这张表具有唯一值的列。
 该表包含 loan_id, user_id,和 loan_type。
 </pre>
 
-<p>编写一个解决方案，找出所有具有至少一种 <strong>再融资</strong> 贷款类型和至少一种 <strong>抵押</strong> 贷款类型的&nbsp;<strong>不同的</strong>&nbsp;<code>user_id</code>。</p>
+<p>编写一个解决方案，找出所有具有同时具有&nbsp;<strong>Refinance</strong> 贷款类型和&nbsp;<strong>Mortgage</strong>&nbsp;贷款类型的&nbsp;<code>user_id</code>（需去重）。</p>
 
 <p>按 <em><strong>升序</strong> 返回结果表中的 </em><code>user_id</code>。</p>
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README.md)
 
-<!-- tags: -->
+<!-- tags:Database -->
 
 ## Description
 

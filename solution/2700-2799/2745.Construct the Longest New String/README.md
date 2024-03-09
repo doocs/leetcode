@@ -2,7 +2,7 @@
 
 [English Version](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README_EN.md)
 
-<!-- tags:贪心,脑筋急转弯,数学 -->
+<!-- tags:贪心,脑筋急转弯,数学,动态规划 -->
 
 ## 题目描述
 

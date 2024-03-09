@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Bit Manipulation,Interactive -->
 
 ## Description
 

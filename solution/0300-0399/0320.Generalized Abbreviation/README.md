@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>单词的 <strong>广义缩写词</strong> 可以通过下述步骤构造：先取任意数量的 <strong>不重叠、不相邻</strong> 的子字符串，再用它们各自的长度进行替换。</p>
+<p>单词的 <strong>广义缩写词</strong> 可以通过下述步骤构造：先取任意数量的 <strong>不重叠、不相邻</strong> 的<span data-keyword="substring-nonempty">子字符串</span>，再用它们各自的长度进行替换。</p>
 
 <ul>
 	<li>例如，<code>"abcde"</code> 可以缩写为：

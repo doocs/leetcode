@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md)
 
-<!-- tags: -->
+<!-- tags:Linked List -->
 
 ## Description
 

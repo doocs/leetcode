@@ -8,15 +8,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
+<p>给定一个二叉树，判断它是否是 <span data-keyword="height-balanced">平衡二叉树</span> &nbsp;</p>
 
-<p>本题中，一棵高度平衡二叉树定义为：</p>
-
-<blockquote>
-<p>一个二叉树<em>每个节点 </em>的左右两个子树的高度差的绝对值不超过 1 。</p>
-</blockquote>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0110.Balanced%20Binary%20Tree/images/balance_1.jpg" style="width: 342px; height: 221px;" />
@@ -39,13 +33,13 @@
 <strong>输出：</strong>true
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li>树中的节点数在范围 <code>[0, 5000]</code> 内</li>
-	<li><code>-10<sup>4</sup> <= Node.val <= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## 解法

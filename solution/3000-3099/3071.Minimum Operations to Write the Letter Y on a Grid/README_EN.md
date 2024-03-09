@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Hash Table,Counting,Matrix -->
 
 ## Description
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/README.md)
 
-<!-- tags: -->
+<!-- tags:Geometry,Array,Math -->
 
 ## Description
 

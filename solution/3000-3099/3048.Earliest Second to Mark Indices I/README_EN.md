@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3048.Earliest%20Second%20to%20Mark%20Indices%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Binary Search -->
 
 ## Description
 

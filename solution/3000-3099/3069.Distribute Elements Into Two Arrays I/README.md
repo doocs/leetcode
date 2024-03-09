@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,模拟 -->
 
 ## 题目描述
 

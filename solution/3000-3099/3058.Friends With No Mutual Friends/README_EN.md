@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README.md)
 
-<!-- tags: -->
+<!-- tags:Database -->
 
 ## Description
 
