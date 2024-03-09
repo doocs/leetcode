@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3046.Split%20the%20Array/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Hash Table,Counting -->
 
 ## Description
 

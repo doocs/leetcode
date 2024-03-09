@@ -8,9 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个整数数组 <code>nums</code>，返回<em>具有偶数乘积的 </em><code>nums</code><em> 子数组的数目</em>。</p>
-
-<p><strong>子数组&nbsp;</strong>是数组中连续的非空元素序列。</p>
+<p>给定一个整数数组 <code>nums</code>，返回<em>具有偶数乘积的 </em><code>nums</code><em> <span data-keyword="subarray">子数组</span>的数目</em>。</p>
 
 <p>&nbsp;</p>
 

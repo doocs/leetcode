@@ -8,9 +8,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个只包含 <code>'('</code> 和 <code>')'</code> 的字符串，找出最长有效（格式正确且连续）括号子串的长度。</p>
+<p>给你一个只包含 <code>'('</code>&nbsp;和 <code>')'</code>&nbsp;的字符串，找出最长有效（格式正确且连续）括号<span data-keyword="substring">子串</span>的长度。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <div class="original__bRMd">
 <div>
@@ -37,12 +37,12 @@
 <strong>输出：</strong>0
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= s.length <= 3 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s[i]</code> 为 <code>'('</code> 或 <code>')'</code></li>
 </ul>
 </div>

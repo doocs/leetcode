@@ -13,17 +13,17 @@
 <p>你可以在开始时执行以下操作 <strong>最多一次</strong>：</p>
 
 <ul>
-	<li>用&nbsp;<code>nums</code>&nbsp;的子序列替换&nbsp;<code>nums</code>。</li>
+	<li>用&nbsp;<code>nums</code>&nbsp;的 <span data-keyword="subsequence-array">子序列</span> 替换&nbsp;<code>nums</code>。</li>
 </ul>
 
-<p>我们以给定的顺序开始处理查询；对于每个查询，我们执行以下操作：</p>
+<p>我们以给定的<code>queries</code>顺序处理查询；对于<code>queries[i]</code>，我们执行以下操作：</p>
 
 <ul>
 	<li>如果&nbsp;<code>nums</code> 的第一个 <strong>和</strong> 最后一个元素 <strong>小于</strong>&nbsp;<code>queries[i]</code>，则查询处理 <strong>结束</strong>。</li>
-	<li>否则，如果&nbsp;<code>nums</code> 的第一个 <strong>或</strong> 最后一个元素 <strong>大于或等于</strong> <code>queries[i]</code>，则选择它，并从&nbsp;<code>nums</code> 中 <strong>删除</strong> 选定的元素。</li>
+	<li>否则，从&nbsp;<code>nums</code>&nbsp;选择第一个 <strong>或</strong> 最后一个元素，要求其<strong>大于或等于</strong> <code>queries[i]</code>，然后将其从&nbsp;<code>nums</code> 中 <strong>删除</strong>。</li>
 </ul>
 
-<p>返回通过以最佳方式执行该操作可以处理的&nbsp;<strong>最大&nbsp;</strong>查询数。</p>
+<p>返回通过以最佳方式执行该操作可以处理的&nbsp;<strong>最多&nbsp;</strong>次数。</p>
 
 <p>&nbsp;</p>
 

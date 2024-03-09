@@ -30,6 +30,15 @@
 <strong>输出：</strong>3
 </pre>
 
+<p><strong>示例 3 :</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [3,3,3,3,3]
+<strong>输出：</strong>3
+</pre>
+
+<p>&nbsp;</p>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

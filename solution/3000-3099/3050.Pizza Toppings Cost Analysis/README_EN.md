@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README.md)
 
-<!-- tags: -->
+<!-- tags:Database -->
 
 ## Description
 

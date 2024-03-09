@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Simulation -->
 
 ## Description
 

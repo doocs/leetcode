@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3046.Split%20the%20Array/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,哈希表,计数 -->
 
 ## 题目描述
 

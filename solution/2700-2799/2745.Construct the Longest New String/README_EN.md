@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md)
 
-<!-- tags:Greedy,Brainteaser,Math -->
+<!-- tags:Greedy,Brainteaser,Math,Dynamic Programming -->
 
 ## Description
 
