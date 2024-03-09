@@ -59,7 +59,7 @@
 
 每次取出堆顶，并放入两种新情况：一是再选择下一位，二是选择下一位并且不选择本位。
 
-由于数组是从小到大排序，可以证明，这种方式能够不重不漏地按序遍历完所有的子序列和。
+由于数组是从小到大排序，这种方式能够不重不漏地按序遍历完所有的子序列和。
 
 时间复杂度 $O(n \times \log n + k \times \log k)$。其中 $n$ 是数组 `nums` 的长度，而 $k$ 是题目中给定的 $k$。
 
@@ -69,11 +69,11 @@
 class Solution:
     def kSum(self, nums: List[int], k: int) -> int:
         mx = 0
-        for i, v in enumerate(nums):
-            if v > 0:
-                mx += v
+        for i, x in enumerate(nums):
+            if x > 0:
+                mx += x
             else:
-                nums[i] = -v
+                nums[i] = -x
         nums.sort()
         h = [(0, 0)]
         for _ in range(k - 1):
@@ -118,8 +118,6 @@ class Solution {
 ```
 
 ```cpp
-using pli = pair<long long, int>;
-
 class Solution {
 public:
     long long kSum(vector<int>& nums, int k) {
@@ -133,6 +131,7 @@ public:
             }
         }
         sort(nums.begin(), nums.end());
+        using pli = pair<long long, int>;
         priority_queue<pli, vector<pli>, greater<pli>> pq;
         pq.push({0, 0});
         while (--k) {
@@ -155,9 +154,9 @@ public:
 ```go
 func kSum(nums []int, k int) int64 {
 	mx := 0
-	for i, v := range nums {
-		if v > 0 {
-			mx += v
+	for i, x := range nums {
+		if x > 0 {
+			mx += x
 		} else {
 			nums[i] *= -1
 		}
