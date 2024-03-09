@@ -1,5 +1,3 @@
-using pli = pair<long long, int>;
-
 class Solution {
 public:
     long long kSum(vector<int>& nums, int k) {
@@ -13,6 +11,7 @@ public:
             }
         }
         sort(nums.begin(), nums.end());
+        using pli = pair<long long, int>;
         priority_queue<pli, vector<pli>, greater<pli>> pq;
         pq.push({0, 0});
         while (--k) {

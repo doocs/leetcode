@@ -1,8 +1,8 @@
 func kSum(nums []int, k int) int64 {
 	mx := 0
-	for i, v := range nums {
-		if v > 0 {
-			mx += v
+	for i, x := range nums {
+		if x > 0 {
+			mx += x
 		} else {
 			nums[i] *= -1
 		}
