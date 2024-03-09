@@ -2,40 +2,6 @@ import os
 import re
 from collections import defaultdict
 
-# 获取 leetcode 题目，结构如下：
-"""
-- solution
-    - 0000-0099
-        - 0001.Two Sum/README.md
-        - 0002.Add Two Numbers/README.md
-    - 0100-0199
-        - 0100.Same Tree/README.md
-        - 0101.Symmetric Tree/README.md
-- lcof
-    - 面试题03. 数组中重复的数字/README.md
-    - 面试题04. 二维数组中的查找/README.md
-- lcof2
-    - 剑指 Offer II 001. 整数除法/README.md
-    - 剑指 Offer II 002. 二进制加法/README.md
-- lcci
-    - 01.01.Is Unique/README.md
-    - 01.02.Check Permutation/README.md
-"""
-
-# 生成 leetcode 题目导航
-"""
-nav:
-  - LeetCode:
-    - 1. 两数之和: lc/1.md
-    - 2. 两数相加: lc/2.md
-    - 100. 相同的树: lc/100.md
-  - 剑指 Offer:
-    - 面试题3. 数组中重复的数字: lcof/3.md
-  - 剑指 Offer（专项突破）：
-    - 1. 整数除法: lcof2/1.md
-  - 程序员面试金典:
-    - 面试题 01.01. 判定字符是否唯一: lcci/1.1.md
-"""
 
 code_dict = {
     "py": ("Python3", "python"),
@@ -57,12 +23,6 @@ code_dict = {
 }
 
 mapping = {lang: name for name, lang in code_dict.values()}
-
-with open("mkdocs.yml", "r", encoding="utf-8") as f:
-    config = f.read()
-
-with open("mkdocs-en.yml", "r", encoding="utf-8") as f:
-    en_config = f.read()
 
 
 def get_paths(dirs: str, m: int):
@@ -154,12 +114,10 @@ for dir in dirs:
                 if res:
                     for lang, code in res:
                         name = mapping.get(lang)
-                        code = code or ''
+                        code = code or ""
                         # 需要将 code 缩进 4 个空格
                         code = code.replace("\n", "\n    ")
-                        code_snippet = (
-                            f'=== "{name}"\n\n    ```{lang} linenums="1"\n    {code}\n    ```\n'
-                        )
+                        code_snippet = f'=== "{name}"\n\n    ```{lang} linenums="1"\n    {code}\n    ```\n'
                         result.append(code_snippet)
                 content = content[:i] + "\n".join(result) + content[j + len(end) :]
             docs_dir = ("docs-en" if is_en else "docs") + os.sep + target_dir
@@ -168,11 +126,11 @@ for dir in dirs:
             new_path = os.path.join(docs_dir, f"{num}.md")
 
             # 获取 tags
-            match = re.search(r'<!-- tags:(.*?) -->', content)
-            tag_headers = ''
+            match = re.search(r"<!-- tags:(.*?) -->", content)
+            tag_headers = ""
             if match:
-                tags = match.group(1).split(',')
-                if tags and tags != ['']:
+                tags = match.group(1).split(",")
+                if tags and tags != [""]:
                     tag_headers = "tags:\n"
                     tag_headers += "".join([f"  - {tag}\n" for tag in tags])
                     tag_headers += "\n"
@@ -183,65 +141,63 @@ for dir in dirs:
             comments: true
             ---
             """
-            content = f'---\ncomments: true\n{tag_headers}---\n\n' + content
+            content = f"---\ncomments: true\n{tag_headers}---\n\n" + content
             with open(new_path, "w", encoding="utf-8") as f:
                 f.write(content)
 
     navdata_en[dir].sort(key=lambda x: int(x.split(".")[0].split(" ")[-1]))
     navdata_cn[dir].sort(key=lambda x: int(x.split(".")[0].split(" ")[-1]))
 
-if "nav:" in config:
-    config = config[: config.find("nav:")]
-if "nav:" in en_config:
-    en_config = en_config[: en_config.find("nav:")]
 
-"""
+lc, lcci = "\n".join(navdata_cn["solution"]), "\n".join(navdata_cn["lcci"])
+lcof, lcof2 = "\n".join(navdata_cn["lcof"]), "\n".join(navdata_cn["lcof2"])
+
+nav_sections = f"""
+
 nav:
   - 首页:
     - 首页: index.md
     - 参与贡献: intro/contribution.md
-  - LeetCode 全解:
+  - LeetCode 全解:\n{lc}
+  - 剑指 Offer:\n{lcof}
+  - 剑指 Offer（专项突破）:\n{lcof2}
+  - 程序员面试金典:\n{lcci}
+  - 专项训练: tags.md
+
+"""
+
+lc, lcci = "\n".join(navdata_en["solution"]), "\n".join(navdata_en["lcci"])
+
+en_nav_sections = f"""
 
 nav:
   - Home:
     - Home: index.md
     - Contribution: intro/contribution.md
-  - LeetCode:
+  - LeetCode:\n{lc}
+  - Cracking the Coding Interview:\n{lcci}
+  - Focused Training: tags.md
+
 """
 
-config += "\nnav:\n"
-en_config += "\nnav:\n"
-config += "  - 首页:\n"
-config += "    - 首页: index.md\n"
-config += "    - 参与贡献: intro/contribution.md\n"
-config += "  - LeetCode 全解:\n"
-en_config += "  - Home:\n"
-en_config += "    - Home: index.md\n"
-en_config += "    - Contribution: intro/contribution.md\n"
-en_config += "  - LeetCode:\n"
-config += "\n".join(navdata_cn["solution"])
-en_config += "\n".join(navdata_en["solution"])
-config += "\n"
-en_config += "\n"
-config += "  - 剑指 Offer:\n"
-config += "\n".join(navdata_cn["lcof"])
-config += "\n"
-config += "  - 剑指 Offer（专项突破）:\n"
-config += "\n".join(navdata_cn["lcof2"])
-config += "\n"
-config += "  - 程序员面试金典:\n"
-config += "\n".join(navdata_cn["lcci"])
-config += "\n"
-config += "  - 专项训练: tags.md\n"
-config += "\n"
-en_config += "  - Cracking the Coding Interview:\n"
-en_config += "\n".join(navdata_en["lcci"])
-en_config += "\n"
-en_config += "  - Focused Training: tags.md\n"
-en_config += "\n"
+# load mkdocs config
+with open("mkdocs.yml", "r", encoding="utf-8") as f:
+    config = f.read()
+with open("mkdocs-en.yml", "r", encoding="utf-8") as f:
+    en_config = f.read()
 
+# delete old nav config
+if "nav:" in config:
+    config = config[: config.find("nav:")]
+if "nav:" in en_config:
+    en_config = en_config[: en_config.find("nav:")]
+
+# add new nav config
+config += nav_sections
+en_config += en_nav_sections
+
+# write new config
 with open("mkdocs.yml", "w", encoding="utf-8") as f:
     f.write(config)
-
 with open("mkdocs-en.yml", "w", encoding="utf-8") as f:
     f.write(en_config)
