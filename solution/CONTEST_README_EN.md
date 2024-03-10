@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 388
+
+- [3074. Apple Redistribution into Boxes](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md)
+- [3075. Maximize Happiness of Selected Children](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md)
+- [3076. Shortest Uncommon Substring in an Array](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md)
+- [3077. Maximum Strength of K Disjoint Subarrays](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README_EN.md)
+
 #### Weekly Contest 387
 
 - [3069. Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
