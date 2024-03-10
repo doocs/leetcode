@@ -3073,7 +3073,7 @@
 |  3060  |  [User Activities within Time Bounds](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  3061  |  [计算滞留雨水](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  3062  |  [链表游戏的获胜者](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md)  |  `链表`  |  简单  |  🔒  |
-|  3063  |  [链表频率](/solution/3000-3099/3063.Linked%20List%20Frequency/README.md)  |  `哈希表`,`链表`,`计数`  |  中等  |  🔒  |
+|  3063  |  [链表频率](/solution/3000-3099/3063.Linked%20List%20Frequency/README.md)  |  `哈希表`,`链表`,`计数`  |  简单  |  🔒  |
 |  3064  |  [使用按位查询猜测数字 I](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README.md)  |  `位运算`,`交互`  |  中等  |  🔒  |
 |  3065  |  [超过阈值的最少操作数 I](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md)  |  `数组`  |  简单  |  第 125 场双周赛  |
 |  3066  |  [超过阈值的最少操作数 II](/solution/3000-3099/3066.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20II/README.md)  |  `数组`,`模拟`,`堆（优先队列）`  |  中等  |  第 125 场双周赛  |
@@ -3084,6 +3084,10 @@
 |  3071  |  [在矩阵上写出字母 Y 所需的最少操作次数](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)  |  `数组`,`哈希表`,`计数`,`矩阵`  |  中等  |  第 387 场周赛  |
 |  3072  |  [将元素分配到两个数组中 II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md)  |  `树状数组`,`线段树`,`数组`,`模拟`  |  困难  |  第 387 场周赛  |
 |  3073  |  [最大递增三元组](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md)  |    |  中等  |  🔒  |
+|  3074  |  [重新分装苹果](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)  |    |  简单  |  第 388 场周赛  |
+|  3075  |  [幸福值最大化的选择方案](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)  |    |  中等  |  第 388 场周赛  |
+|  3076  |  [数组中的最短非公共子字符串](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)  |    |  中等  |  第 388 场周赛  |
+|  3077  |  [K 个不相交子数组的最大能量值](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)  |    |  困难  |  第 388 场周赛  |
 
 ## 版权
 

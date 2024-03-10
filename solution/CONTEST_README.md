@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 388 场周赛(2024-03-10 10:30, 90 分钟) 参赛人数 4291
+
+- [3074. 重新分装苹果](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)
+- [3075. 幸福值最大化的选择方案](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)
+- [3076. 数组中的最短非公共子字符串](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)
+- [3077. K 个不相交子数组的最大能量值](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)
+
 #### 第 387 场周赛(2024-03-03 10:30, 90 分钟) 参赛人数 3694
 
 - [3069. 将元素分配到两个数组中 I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README.md)
