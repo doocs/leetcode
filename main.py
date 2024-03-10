@@ -11,7 +11,8 @@ def format_contest_md(content: str) -> str:
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
     for title, link in res:
         num = link.split("/")[-2].split('.')[0]
-        content = content.replace(link, f"/leetcode/lc/{num}.md")
+        content = content.replace(link, f"/leetcode/lc/{num}.html")
+    content = f"---\ncomments: true\n---\n\n" + content
     return content
 
 def format_contest_md_en(content: str) -> str:
@@ -22,7 +23,8 @@ def format_contest_md_en(content: str) -> str:
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
     for title, link in res:
         num = link.split("/")[-2].split('.')[0]
-        content = content.replace(link, f"/leetcode/en/lc/{num}.md")
+        content = content.replace(link, f"/leetcode/en/lc/{num}.html")
+    content = f"---\ncomments: true\n---\n\n" + content
     return content
 
 with open("docs/contest.md", "r", encoding="utf-8") as f:
