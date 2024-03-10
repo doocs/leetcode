@@ -3,6 +3,40 @@ import re
 from collections import defaultdict
 
 
+def format_contest_md(content: str) -> str:
+    content = content.replace('[English Version](/solution/CONTEST_README_EN.md)', '')
+    content = content.replace('[中文文档](/solution/CONTEST_README.md)', '')
+    # - [3069. Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
+    # 将如上格式的链接替换为 /leetcode/lc/3069.md，即
+    res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
+    for title, link in res:
+        num = link.split("/")[-2].split('.')[0]
+        content = content.replace(link, f"/leetcode/lc/{num}.md")
+    return content
+
+def format_contest_md_en(content: str) -> str:
+    content = content.replace('[English Version](/solution/CONTEST_README_EN.md)', '')
+    content = content.replace('[中文文档](/solution/CONTEST_README.md)', '')
+    # - [3069. Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
+    # 将如上格式的链接替换为 /leetcode/lc/3069.md，即
+    res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
+    for title, link in res:
+        num = link.split("/")[-2].split('.')[0]
+        content = content.replace(link, f"/leetcode/en/lc/{num}.md")
+    return content
+
+with open("docs/contest.md", "r", encoding="utf-8") as f:
+    contest = f.read()
+    contest = format_contest_md(contest)
+with open("docs/contest.md", "w", encoding="utf-8") as f:
+    f.write(contest)
+
+with open("docs-en/contest.md", "r", encoding="utf-8") as f:
+    contest_en = f.read()
+    contest_en = format_contest_md_en(contest_en)
+with open("docs-en/contest.md", "w", encoding="utf-8") as f:
+    f.write(contest_en)
+
 code_dict = {
     "py": ("Python3", "python"),
     "java": ("Java", "java"),
@@ -163,6 +197,7 @@ nav:
   - 剑指 Offer（专项突破）:\n{lcof2}
   - 程序员面试金典:\n{lcci}
   - 专项训练: tags.md
+  - 竞赛专区: contest.md
 
 """
 
@@ -177,6 +212,7 @@ nav:
   - LeetCode:\n{lc}
   - Cracking the Coding Interview:\n{lcci}
   - Focused Training: tags.md
+  - Contest: contest.md
 
 """
 
