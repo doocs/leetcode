@@ -49,7 +49,11 @@ The only letter that appears twice is &#39;d&#39; so we return &#39;d&#39;.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Array or Hash Table
+
+We traverse the string $s$, using an array or hash table `cnt` to record the occurrence of each letter. When a letter appears twice, we return that letter.
+
+The time complexity is $O(n)$ and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 
@@ -164,7 +168,11 @@ char repeatedCharacter(char* s) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Bit Manipulation
+
+We can also use an integer `mask` to record whether each letter has appeared, where the $i$-th bit of `mask` indicates whether the $i$-th letter has appeared. When a letter appears twice, we return that letter.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

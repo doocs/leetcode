@@ -1,4 +1,8 @@
 class Solution:
     def equalPairs(self, grid: List[List[int]]) -> int:
-        g = [list(col) for col in zip(*grid)]
-        return sum(row == col for row in grid for col in g)
+        n = len(grid)
+        ans = 0
+        for i in range(n):
+            for j in range(n):
+                ans += all(grid[i][k] == grid[k][j] for k in range(n))
+        return ans

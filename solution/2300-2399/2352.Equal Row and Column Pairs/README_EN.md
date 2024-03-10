@@ -42,115 +42,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
 
-<!-- tabs:start -->
+We directly compare each row and column of the matrix $grid$. If they are equal, then it is a pair of equal row-column pairs, and we increment the answer by one.
 
-```python
-class Solution:
-    def equalPairs(self, grid: List[List[int]]) -> int:
-        g = [list(col) for col in zip(*grid)]
-        return sum(row == col for row in grid for col in g)
-```
-
-```java
-class Solution {
-    public int equalPairs(int[][] grid) {
-        int n = grid.length;
-        int[][] g = new int[n][n];
-        for (int j = 0; j < n; ++j) {
-            for (int i = 0; i < n; ++i) {
-                g[i][j] = grid[j][i];
-            }
-        }
-        int ans = 0;
-        for (var row : grid) {
-            for (var col : g) {
-                int ok = 1;
-                for (int i = 0; i < n; ++i) {
-                    if (row[i] != col[i]) {
-                        ok = 0;
-                        break;
-                    }
-                }
-                ans += ok;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    int equalPairs(vector<vector<int>>& grid) {
-        int n = grid.size();
-        vector<vector<int>> g(n, vector<int>(n));
-        for (int j = 0; j < n; ++j) {
-            for (int i = 0; i < n; ++i) {
-                g[i][j] = grid[j][i];
-            }
-        }
-        int ans = 0;
-        for (auto& row : grid) {
-            for (auto& col : g) {
-                ans += row == col;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-```go
-func equalPairs(grid [][]int) (ans int) {
-	n := len(grid)
-	g := make([][]int, n)
-	for i := range g {
-		g[i] = make([]int, n)
-		for j := 0; j < n; j++ {
-			g[i][j] = grid[j][i]
-		}
-	}
-	for _, row := range grid {
-		for _, col := range g {
-			ok := 1
-			for i, v := range row {
-				if v != col[i] {
-					ok = 0
-					break
-				}
-			}
-			ans += ok
-		}
-	}
-	return
-}
-```
-
-```ts
-function equalPairs(grid: number[][]): number {
-    const n = grid.length;
-    const g = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
-    for (let j = 0; j < n; ++j) {
-        for (let i = 0; i < n; ++i) {
-            g[i][j] = grid[j][i];
-        }
-    }
-    let ans = 0;
-    for (const row of grid) {
-        for (const col of g) {
-            ans += Number(row.toString() === col.toString());
-        }
-    }
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
+The time complexity is $O(n^3)$, where $n$ is the number of rows or columns in the matrix $grid$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
