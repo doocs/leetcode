@@ -3,7 +3,10 @@ import re
 from collections import defaultdict
 
 
-def format_contest_md(content: str) -> str:
+for contest_file in ["docs/contest.md", "docs-en/contest.md"]:
+    with open(contest_file, "r", encoding="utf-8") as f:
+        content = f.read()
+
     content = content.replace("[English Version](/solution/CONTEST_README_EN.md)", "")
     content = content.replace("[中文文档](/solution/CONTEST_README.md)", "")
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
@@ -12,32 +15,10 @@ def format_contest_md(content: str) -> str:
         num = int(num)
         content = content.replace(link, f"./lc/{num}.md")
     content = f"---\ncomments: true\n---\n\n" + content
-    return content
 
+    with open(contest_file, "w", encoding="utf-8") as f:
+        f.write(content)
 
-def format_contest_md_en(content: str) -> str:
-    content = content.replace("[English Version](/solution/CONTEST_README_EN.md)", "")
-    content = content.replace("[中文文档](/solution/CONTEST_README.md)", "")
-    res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
-    for _, link in res:
-        num = link.split("/")[-2].split(".")[0]
-        num = int(num)
-        content = content.replace(link, f"./lc/{num}.md")
-    content = f"---\ncomments: true\n---\n\n" + content
-    return content
-
-
-with open("docs/contest.md", "r", encoding="utf-8") as f:
-    contest = f.read()
-    contest = format_contest_md(contest)
-with open("docs/contest.md", "w", encoding="utf-8") as f:
-    f.write(contest)
-
-with open("docs-en/contest.md", "r", encoding="utf-8") as f:
-    contest_en = f.read()
-    contest_en = format_contest_md_en(contest_en)
-with open("docs-en/contest.md", "w", encoding="utf-8") as f:
-    f.write(contest_en)
 
 code_dict = {
     "py": ("Python3", "python"),
