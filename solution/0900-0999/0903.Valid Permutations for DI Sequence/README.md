@@ -73,8 +73,6 @@
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是字符串的长度。
 
-我们可以用前缀和优化时间复杂度，使得时间复杂度降低到 $O(n^2)$。另外，我们也可以用滚动数组优化空间复杂度，使得空间复杂度降低到 $O(n)$。
-
 <!-- tabs:start -->
 
 ```python
@@ -224,7 +222,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### 方法二
+我们可以用前缀和优化时间复杂度，使得时间复杂度降低到 $O(n^2)$。
 
 <!-- tabs:start -->
 
@@ -372,7 +370,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### 方法三
+另外，我们也可以用滚动数组优化空间复杂度，使得空间复杂度降低到 $O(n)$。
 
 <!-- tabs:start -->
 

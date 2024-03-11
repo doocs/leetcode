@@ -68,8 +68,6 @@ The final answer is $\sum_{j=0}^n f[n][j]$.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
 
-We can optimize the time complexity to $O(n^2)$ using prefix sums. Additionally, we can optimize the space complexity to $O(n)$ using a rolling array.
-
 <!-- tabs:start -->
 
 ```python
@@ -219,7 +217,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### Solution 2
+We can optimize the time complexity to $O(n^2)$ using prefix sums.
 
 <!-- tabs:start -->
 
@@ -367,7 +365,7 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### Solution 3
+Additionally, we can optimize the space complexity to $O(n)$ using a rolling array.
 
 <!-- tabs:start -->
 
