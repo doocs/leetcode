@@ -4,28 +4,26 @@ from collections import defaultdict
 
 
 def format_contest_md(content: str) -> str:
-    content = content.replace('[English Version](/solution/CONTEST_README_EN.md)', '')
-    content = content.replace('[中文文档](/solution/CONTEST_README.md)', '')
-    # - [3069. Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
-    # 将如上格式的链接替换为 /leetcode/lc/3069.md，即
+    content = content.replace("[English Version](/solution/CONTEST_README_EN.md)", "")
+    content = content.replace("[中文文档](/solution/CONTEST_README.md)", "")
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
-    for title, link in res:
-        num = link.split("/")[-2].split('.')[0]
-        content = content.replace(link, f"/leetcode/lc/{num}.html")
+    for _, link in res:
+        num = link.split("/")[-2].split(".")[0]
+        content = content.replace(link, f"./lc/{num}.html")
     content = f"---\ncomments: true\n---\n\n" + content
     return content
 
+
 def format_contest_md_en(content: str) -> str:
-    content = content.replace('[English Version](/solution/CONTEST_README_EN.md)', '')
-    content = content.replace('[中文文档](/solution/CONTEST_README.md)', '')
-    # - [3069. Distribute Elements Into Two Arrays I](/solution/3000-3099/3069.Distribute%20Elements%20Into%20Two%20Arrays%20I/README_EN.md)
-    # 将如上格式的链接替换为 /leetcode/lc/3069.md，即
+    content = content.replace("[English Version](/solution/CONTEST_README_EN.md)", "")
+    content = content.replace("[中文文档](/solution/CONTEST_README.md)", "")
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
-    for title, link in res:
-        num = link.split("/")[-2].split('.')[0]
-        content = content.replace(link, f"/leetcode/en/lc/{num}.html")
+    for _, link in res:
+        num = link.split("/")[-2].split(".")[0]
+        content = content.replace(link, f"./lc/{num}.html")
     content = f"---\ncomments: true\n---\n\n" + content
     return content
+
 
 with open("docs/contest.md", "r", encoding="utf-8") as f:
     contest = f.read()
