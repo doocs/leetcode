@@ -48,7 +48,13 @@
 
 ## 解法
 
-### 方法一
+### 方法一：双指针
+
+我们用两个指针 $i$ 和 $j$ 分别指向偶数下标和奇数下标。
+
+当 $i$ 指向偶数下标时，如果 $nums[i]$ 是奇数，那么我们需要找到一个奇数下标 $j$，使得 $nums[j]$ 是偶数，然后交换 $nums[i]$ 和 $nums[j]$。继续遍历，直到 $i$ 指向数组末尾。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -57,8 +63,8 @@ class Solution:
     def sortArrayByParityII(self, nums: List[int]) -> List[int]:
         n, j = len(nums), 1
         for i in range(0, n, 2):
-            if (nums[i] & 1) == 1:
-                while (nums[j] & 1) == 1:
+            if nums[i] % 2:
+                while nums[j] % 2:
                     j += 2
                 nums[i], nums[j] = nums[j], nums[i]
         return nums
@@ -68,8 +74,8 @@ class Solution:
 class Solution {
     public int[] sortArrayByParityII(int[] nums) {
         for (int i = 0, j = 1; i < nums.length; i += 2) {
-            if ((nums[i] & 1) == 1) {
-                while ((nums[j] & 1) == 1) {
+            if (nums[i] % 2 == 1) {
+                while (nums[j] % 2 == 1) {
                     j += 2;
                 }
                 int t = nums[i];
@@ -87,8 +93,8 @@ class Solution {
 public:
     vector<int> sortArrayByParityII(vector<int>& nums) {
         for (int i = 0, j = 1; i < nums.size(); i += 2) {
-            if ((nums[i] & 1) == 1) {
-                while ((nums[j] & 1) == 1) {
+            if (nums[i] % 2) {
+                while (nums[j] % 2) {
                     j += 2;
                 }
                 swap(nums[i], nums[j]);
@@ -102,14 +108,28 @@ public:
 ```go
 func sortArrayByParityII(nums []int) []int {
 	for i, j := 0, 1; i < len(nums); i += 2 {
-		if (nums[i] & 1) == 1 {
-			for (nums[j] & 1) == 1 {
+		if nums[i]%2 == 1 {
+			for nums[j]%2 == 1 {
 				j += 2
 			}
 			nums[i], nums[j] = nums[j], nums[i]
 		}
 	}
 	return nums
+}
+```
+
+```ts
+function sortArrayByParityII(nums: number[]): number[] {
+    for (let i = 0, j = 1; i < nums.length; i += 2) {
+        if (nums[i] % 2) {
+            while (nums[j] % 2) {
+                j += 2;
+            }
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
+    }
+    return nums;
 }
 ```
 
@@ -120,8 +140,8 @@ func sortArrayByParityII(nums []int) []int {
  */
 var sortArrayByParityII = function (nums) {
     for (let i = 0, j = 1; i < nums.length; i += 2) {
-        if ((nums[i] & 1) == 1) {
-            while ((nums[j] & 1) == 1) {
+        if (nums[i] % 2) {
+            while (nums[j] % 2) {
                 j += 2;
             }
             [nums[i], nums[j]] = [nums[j], nums[i]];
