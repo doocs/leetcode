@@ -6,7 +6,7 @@ site_dir: site
 docs_dir: docs
 repo_name: doocs/leetcode
 repo_url: https://github.com/doocs/leetcode
-copyright: Copyright &copy; 2024 <a href="https://github.com/doocs">Doocs</a>
+copyright: Copyright &copy; 2024 <a href="https://github.com/doocs">Doocs</a><br><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
 
 theme:
   favicon: favicon.ico
