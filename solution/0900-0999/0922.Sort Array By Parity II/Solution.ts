@@ -1,8 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var sortArrayByParityII = function (nums) {
+function sortArrayByParityII(nums: number[]): number[] {
     for (let i = 0, j = 1; i < nums.length; i += 2) {
         if (nums[i] % 2) {
             while (nums[j] % 2) {
@@ -12,4 +8,4 @@ var sortArrayByParityII = function (nums) {
         }
     }
     return nums;
-};
+}
