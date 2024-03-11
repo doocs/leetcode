@@ -9,7 +9,7 @@ def format_contest_md(content: str) -> str:
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
     for _, link in res:
         num = link.split("/")[-2].split(".")[0]
-        content = content.replace(link, f"./lc/{num}.html")
+        content = content.replace(link, f"./lc/{num}.md")
     content = f"---\ncomments: true\n---\n\n" + content
     return content
 
@@ -20,7 +20,7 @@ def format_contest_md_en(content: str) -> str:
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
     for _, link in res:
         num = link.split("/")[-2].split(".")[0]
-        content = content.replace(link, f"./lc/{num}.html")
+        content = content.replace(link, f"./lc/{num}.md")
     content = f"---\ncomments: true\n---\n\n" + content
     return content
 
