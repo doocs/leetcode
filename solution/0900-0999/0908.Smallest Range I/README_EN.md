@@ -50,7 +50,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Mathematics
+
+According to the problem description, we can add $k$ to the maximum value in the array and subtract $k$ from the minimum value. This can reduce the difference between the maximum and minimum values in the array.
+
+Therefore, the final answer is $\max(nums) - \min(nums) - 2 \times k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

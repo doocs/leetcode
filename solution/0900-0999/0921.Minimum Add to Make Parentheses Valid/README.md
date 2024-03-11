@@ -124,6 +124,20 @@ func minAddToMakeValid(s string) int {
 }
 ```
 
+```ts
+function minAddToMakeValid(s: string): number {
+    const stk: string[] = [];
+    for (const c of s) {
+        if (c === ')' && stk.length > 0 && stk.at(-1)! === '(') {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.length;
+}
+```
+
 <!-- tabs:end -->
 
 ### 方法二：贪心 + 计数
@@ -139,7 +153,7 @@ func minAddToMakeValid(s string) int {
 
 遍历结束后，将 `cnt` 的值加到 `ans` 中，即为答案。
 
-时间复杂度为 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度为 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -210,6 +224,23 @@ func minAddToMakeValid(s string) int {
 	}
 	ans += cnt
 	return ans
+}
+```
+
+```ts
+function minAddToMakeValid(s: string): number {
+    let [ans, cnt] = [0, 0];
+    for (const c of s) {
+        if (c === '(') {
+            ++cnt;
+        } else if (cnt) {
+            --cnt;
+        } else {
+            ++ans;
+        }
+    }
+    ans += cnt;
+    return ans;
 }
 ```
 
