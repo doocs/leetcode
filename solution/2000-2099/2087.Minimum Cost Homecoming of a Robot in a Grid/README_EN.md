@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README.md)
 
-<!-- tags:Greedy,Array,Matrix -->
+<!-- tags:Greedy,Array -->
 
 ## Description
 

@@ -1,11 +1,11 @@
 class Solution:
     def kSum(self, nums: List[int], k: int) -> int:
         mx = 0
-        for i, v in enumerate(nums):
-            if v > 0:
-                mx += v
+        for i, x in enumerate(nums):
+            if x > 0:
+                mx += x
             else:
-                nums[i] = -v
+                nums[i] = -x
         nums.sort()
         h = [(0, 0)]
         for _ in range(k - 1):

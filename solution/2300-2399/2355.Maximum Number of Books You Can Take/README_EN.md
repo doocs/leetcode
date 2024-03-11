@@ -64,7 +64,11 @@ It can be proven that 13 is the maximum number of books you can take.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We directly compare each row and column of the matrix $grid$. If they are equal, then it is a pair of equal row-column pairs, and we increment the answer by one.
+
+The time complexity is $O(n^3)$, where $n$ is the number of rows or columns in the matrix $grid$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -54,7 +54,15 @@ and two 2s from [2,2,2,2] in 6 ways.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+First, we use an array `cnt` of length $101$ to record the number of occurrences of each element in the array `arr`.
+
+Then, we enumerate the elements in the array `arr` as the second element $b$ of the triplet, and first subtract one $b$ from `cnt`. Then, starting from the beginning of the array `arr`, we enumerate the first element $a$, and the third element $c$ is $target - a - b$. If the value of $c$ is within the range of the array `cnt`, then the answer is increased by $cnt[c]$.
+
+Note the modulo operation of the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(C)$. Where $n$ is the length of the array `arr`; and $C$ is the length of the array `cnt`, in this problem $C = 101$.
 
 <!-- tabs:start -->
 

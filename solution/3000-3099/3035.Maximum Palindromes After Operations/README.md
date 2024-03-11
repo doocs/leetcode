@@ -16,7 +16,7 @@
 	<li>选择整数<code>i</code>、<code>j</code>、<code>x</code>和<code>y</code>，满足<code>0 &lt;= i, j &lt; n</code>，<code>0 &lt;= x &lt; words[i].length</code>，<code>0 &lt;= y &lt; words[j].length</code>，<strong>交换 </strong>字符 <code>words[i][x]</code> 和 <code>words[j][y]</code> 。</li>
 </ul>
 
-<p>返回一个整数，表示在执行一些操作后，<code>words</code> 中可以包含的回文字符串的 <strong>最大 </strong>数量。</p>
+<p>返回一个整数，表示在执行一些操作后，<code>words</code> 中可以包含的<span data-keyword="palindrome-string">回文串</span>的 <strong>最大 </strong>数量。</p>
 
 <p><strong>注意：</strong>在操作过程中，<code>i</code> 和 <code>j</code> 可以相等。</p>
 

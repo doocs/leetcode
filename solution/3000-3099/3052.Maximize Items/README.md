@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数据库 -->
 
 ## 题目描述
 

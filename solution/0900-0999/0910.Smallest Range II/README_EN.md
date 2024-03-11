@@ -50,7 +50,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy + Enumeration
+
+According to the problem requirements, we need to find the minimum difference between the maximum and minimum values in the array. Each element can be increased or decreased by $k$, so we can divide the elements in the array into two parts, one part increased by $k$ and the other part decreased by $k$. Therefore, we should decrease the larger values in the array by $k$ and increase the smaller values by $k$ to ensure the minimum difference between the maximum and minimum values.
+
+Therefore, we can first sort the array, then enumerate each element in the array, divide it into two parts, one part increased by $k$ and the other part decreased by $k$, and calculate the difference between the maximum and minimum values. Finally, take the minimum value among all differences.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

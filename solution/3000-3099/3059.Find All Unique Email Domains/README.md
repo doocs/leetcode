@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数据库 -->
 
 ## 题目描述
 

@@ -2,7 +2,7 @@
 
 [English Version](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README_EN.md)
 
-<!-- tags:贪心,数组,矩阵 -->
+<!-- tags:贪心,数组 -->
 
 ## 题目描述
 

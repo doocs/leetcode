@@ -19,7 +19,10 @@ jobs:
         with:
           ref: docs
           path: mkdocs
-      - run: mv mkdocs/* .
+      - run: |
+          mv -f mkdocs/* .
+          mv solution/CONTEST_README.md docs/contest.md
+          mv solution/CONTEST_README_EN.md docs-en/contest.md
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]

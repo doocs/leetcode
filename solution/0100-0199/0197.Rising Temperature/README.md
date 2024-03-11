@@ -37,8 +37,8 @@ id 是该表具有唯一值的列。
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<code><strong>输入：</strong>
-Weather 表：</code>
+<strong>输入：</strong>
+Weather 表：
 +----+------------+-------------+
 | id | recordDate | Temperature |
 +----+------------+-------------+

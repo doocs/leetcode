@@ -2,7 +2,7 @@
 
 [English Version](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索 -->
+<!-- tags:树,深度优先搜索,广度优先搜索,数组 -->
 
 ## 题目描述
 
