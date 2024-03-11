@@ -96,7 +96,9 @@ public:
         istringstream ss(title);
         string ans;
         while (ss >> title) {
-            if (title.size() > 2) title[0] = toupper(title[0]);
+            if (title.size() > 2) {
+                title[0] = toupper(title[0]);
+            }
             ans += title;
             ans += " ";
         }
@@ -121,26 +123,6 @@ func capitalizeTitle(title string) string {
 
 ```ts
 function capitalizeTitle(title: string): string {
-    const ans: string[] = [];
-    for (const s of title.split(' ')) {
-        if (s.length < 3) {
-            ans.push(s.toLowerCase());
-        } else {
-            ans.push(s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase());
-        }
-    }
-    return ans.join(' ');
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```ts
-function capitalizeTitle(title: string): string {
     return title
         .split(' ')
         .map(s =>
@@ -149,6 +131,22 @@ function capitalizeTitle(title: string): string {
                 : s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase(),
         )
         .join(' ');
+}
+```
+
+```cs
+public class Solution {
+    public string CapitalizeTitle(string title) {
+        List<string> ans = new List<string>();
+        foreach (string s in title.Split(' ')) {
+            if (s.Length < 3) {
+                ans.Add(s.ToLower());
+            } else {
+                ans.Add(char.ToUpper(s[0]) + s.Substring(1).ToLower());
+            }
+        }
+        return string.Join(" ", ans);
+    }
 }
 ```
 
