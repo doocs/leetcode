@@ -1,17 +1,24 @@
-use std::collections::HashMap;
 impl Solution {
     pub fn group_the_people(group_sizes: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        let mut map = HashMap::new();
-        for i in 0..group_sizes.len() {
-            let size = group_sizes[i] as usize;
-            let arr = map.entry(size).or_insert(vec![]);
-            arr.push(i as i32);
-            if arr.len() == size {
-                res.push(arr.clone());
-                arr.clear();
+        let n: usize = group_sizes.len();
+        let mut g: Vec<Vec<usize>> = vec![Vec::new(); n + 1];
+
+        for (i, &size) in group_sizes.iter().enumerate() {
+            g[size as usize].push(i);
+        }
+
+        let mut ans: Vec<Vec<i32>> = Vec::new();
+        for (i, v) in g.into_iter().enumerate() {
+            for j in (0..v.len()).step_by(i.max(1)) {
+                ans.push(
+                    v[j..(j + i).min(v.len())]
+                        .iter()
+                        .map(|&x| x as i32)
+                        .collect()
+                );
             }
         }
-        res
+
+        ans
     }
 }

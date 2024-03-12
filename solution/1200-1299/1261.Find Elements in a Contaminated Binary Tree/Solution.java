@@ -20,7 +20,7 @@ class FindElements {
         root.val = 0;
         dfs(root);
     }
-    
+
     public boolean find(int target) {
         return s.contains(target);
     }
