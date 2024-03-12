@@ -89,7 +89,7 @@ findElements.find(5); // return True
 
 ### 方法一：DFS + 哈希表
 
-我们先通过 DFS 遍历二叉树，将节点值恢复为原来的值，然后再通过哈希表存储所有节点值，这样在查找时就可以直接判断目标值是否存在于哈希表中。
+我们先通过 DFS 遍历二叉树，将节点值恢复为原来的值，并将所有节点值存入哈希表中。然后在查找时，只需要判断哈希表中是否存在目标值即可。
 
 时间复杂度方面，初始化时需要遍历二叉树，时间复杂度为 $O(n)$，查找时只需要判断哈希表中是否存在目标值，时间复杂度为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
@@ -103,9 +103,10 @@ findElements.find(5); // return True
 #         self.left = left
 #         self.right = right
 class FindElements:
+
     def __init__(self, root: Optional[TreeNode]):
-        def dfs(root):
-            self.vis.add(root.val)
+        def dfs(root: Optional[TreeNode]):
+            self.s.add(root.val)
             if root.left:
                 root.left.val = root.val * 2 + 1
                 dfs(root.left)
@@ -114,11 +115,11 @@ class FindElements:
                 dfs(root.right)
 
         root.val = 0
-        self.vis = set()
+        self.s = set()
         dfs(root)
 
     def find(self, target: int) -> bool:
-        return target in self.vis
+        return target in self.s
 
 
 # Your FindElements object will be instantiated and called as such:
@@ -143,15 +144,19 @@ class FindElements:
  * }
  */
 class FindElements {
-    private Set<Integer> vis = new HashSet<>();
+    private Set<Integer> s = new HashSet<>();
 
     public FindElements(TreeNode root) {
         root.val = 0;
         dfs(root);
     }
 
+    public boolean find(int target) {
+        return s.contains(target);
+    }
+
     private void dfs(TreeNode root) {
-        vis.add(root.val);
+        s.add(root.val);
         if (root.left != null) {
             root.left.val = root.val * 2 + 1;
             dfs(root.left);
@@ -160,10 +165,6 @@ class FindElements {
             root.right.val = root.val * 2 + 2;
             dfs(root.right);
         }
-    }
-
-    public boolean find(int target) {
-        return vis.contains(target);
     }
 }
 
@@ -190,26 +191,27 @@ class FindElements {
 public:
     FindElements(TreeNode* root) {
         root->val = 0;
-        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
-            vis.insert(root->val);
-            if (root->left) {
-                root->left->val = root->val * 2 + 1;
-                dfs(root->left);
-            }
-            if (root->right) {
-                root->right->val = root->val * 2 + 2;
-                dfs(root->right);
-            }
-        };
         dfs(root);
     }
 
     bool find(int target) {
-        return vis.count(target);
+        return s.contains(target);
     }
 
 private:
-    unordered_set<int> vis;
+    unordered_set<int> s;
+
+    void dfs(TreeNode* root) {
+        s.insert(root->val);
+        if (root->left) {
+            root->left->val = root->val * 2 + 1;
+            dfs(root->left);
+        }
+        if (root->right) {
+            root->right->val = root->val * 2 + 2;
+            dfs(root->right);
+        }
+    };
 };
 
 /**
@@ -229,15 +231,15 @@ private:
  * }
  */
 type FindElements struct {
-	vis map[int]bool
+	s map[int]bool
 }
 
 func Constructor(root *TreeNode) FindElements {
 	root.Val = 0
-	vis := map[int]bool{}
+	s := map[int]bool{}
 	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
-		vis[root.Val] = true
+		s[root.Val] = true
 		if root.Left != nil {
 			root.Left.Val = root.Val*2 + 1
 			dfs(root.Left)
@@ -248,17 +250,63 @@ func Constructor(root *TreeNode) FindElements {
 		}
 	}
 	dfs(root)
-	return FindElements{vis}
+	return FindElements{s}
 }
 
 func (this *FindElements) Find(target int) bool {
-	return this.vis[target]
+	return this.s[target]
 }
 
 /**
  * Your FindElements object will be instantiated and called as such:
  * obj := Constructor(root);
  * param_1 := obj.Find(target);
+ */
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class FindElements {
+    private s: Set<number> = new Set<number>();
+
+    constructor(root: TreeNode | null) {
+        root.val = 0;
+        const dfs = (root: TreeNode) => {
+            this.s.add(root.val);
+            if (root.left) {
+                root.left.val = root.val * 2 + 1;
+                dfs(root.left);
+            }
+            if (root.right) {
+                root.right.val = root.val * 2 + 2;
+                dfs(root.right);
+            }
+        };
+        dfs(root);
+    }
+
+    find(target: number): boolean {
+        return this.s.has(target);
+    }
+}
+
+/**
+ * Your FindElements object will be instantiated and called as such:
+ * var obj = new FindElements(root)
+ * var param_1 = obj.find(target)
  */
 ```
 
