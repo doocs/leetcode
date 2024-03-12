@@ -15,7 +15,7 @@ public:
         root->val = 0;
         dfs(root);
     }
-    
+
     bool find(int target) {
         return s.contains(target);
     }
