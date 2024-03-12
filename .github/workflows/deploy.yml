@@ -46,7 +46,7 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
           python3 -m pip install "mkdocs-material[imaging]"
-          apt-get install pngquant
+          sudo apt-get install pngquant
 
       - run: |
           python3 main.py
