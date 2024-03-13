@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Dynamic Programming,Prefix Sum -->
 
 ## Description
 
@@ -54,24 +54,150 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+For the $i$th number $nums[i - 1]$, if it is selected and is in the $j$th subarray, then its contribution to the answer is $nums[i - 1] \times (k - j + 1) \times (-1)^{j+1}$. We denote $(-1)^{j+1}$ as $sign$, so its contribution to the answer is $sign \times nums[i - 1] \times (k - j + 1)$.
+
+We define $f[i][j][0]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is not selected. We define $f[i][j][1]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is selected. Initially, $f[0][0][1] = 0$, and the rest of the values are $-\infty$.
+
+When $i > 0$, we consider how $f[i][j]$ transitions.
+
+If the $i$th number is not selected, then the $i-1$th number can either be selected or not selected, so $f[i][j][0] = \max(f[i-1][j][0], f[i-1][j][1])$.
+
+If the $i$th number is selected, if the $i-1$th number and the $i$th number are in the same subarray, then $f[i][j][1] = \max(f[i][j][1], f[i-1][j][1] + sign \times nums[i-1] \times (k - j + 1))$, otherwise $f[i][j][1] = \max(f[i][j][1], \max(f[i-1][j-1][0], f[i-1][j-1][1]) + sign \times nums[i-1] \times (k - j + 1))$.
+
+The final answer is $\max(f[n][k][0], f[n][k][1])$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maximumStrength(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        f = [[[-inf, -inf] for _ in range(k + 1)] for _ in range(n + 1)]
+        f[0][0][0] = 0
+        for i, x in enumerate(nums, 1):
+            for j in range(k + 1):
+                sign = 1 if j & 1 else -1
+                f[i][j][0] = max(f[i - 1][j][0], f[i - 1][j][1])
+                f[i][j][1] = max(f[i][j][1], f[i - 1][j][1] + sign * x * (k - j + 1))
+                if j:
+                    f[i][j][1] = max(
+                        f[i][j][1], max(f[i - 1][j - 1]) + sign * x * (k - j + 1)
+                    )
+        return max(f[n][k])
 ```
 
 ```java
-
+class Solution {
+    public long maximumStrength(int[] nums, int k) {
+        int n = nums.length;
+        long[][][] f = new long[n + 1][k + 1][2];
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= k; j++) {
+                Arrays.fill(f[i][j], Long.MIN_VALUE / 2);
+            }
+        }
+        f[0][0][0] = 0;
+        for (int i = 1; i <= n; i++) {
+            int x = nums[i - 1];
+            for (int j = 0; j <= k; j++) {
+                long sign = (j & 1) == 1 ? 1 : -1;
+                long val = sign * x * (k - j + 1);
+                f[i][j][0] = Math.max(f[i - 1][j][0], f[i - 1][j][1]);
+                f[i][j][1] = Math.max(f[i][j][1], f[i - 1][j][1] + val);
+                if (j > 0) {
+                    long t = Math.max(f[i - 1][j - 1][0], f[i - 1][j - 1][1]) + val;
+                    f[i][j][1] = Math.max(f[i][j][1], t);
+                }
+            }
+        }
+        return Math.max(f[n][k][0], f[n][k][1]);
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumStrength(vector<int>& nums, int k) {
+        int n = nums.size();
+        long long f[n + 1][k + 1][2];
+        memset(f, -0x3f3f3f3f3f3f3f3f, sizeof(f));
+        f[0][0][0] = 0;
+        for (int i = 1; i <= n; i++) {
+            int x = nums[i - 1];
+            for (int j = 0; j <= k; j++) {
+                long long sign = (j & 1) == 1 ? 1 : -1;
+                long long val = sign * x * (k - j + 1);
+                f[i][j][0] = max(f[i - 1][j][0], f[i - 1][j][1]);
+                f[i][j][1] = max(f[i][j][1], f[i - 1][j][1] + val);
+                if (j > 0) {
+                    long long t = max(f[i - 1][j - 1][0], f[i - 1][j - 1][1]) + val;
+                    f[i][j][1] = max(f[i][j][1], t);
+                }
+            }
+        }
+        return max(f[n][k][0], f[n][k][1]);
+    }
+};
 ```
 
 ```go
+func maximumStrength(nums []int, k int) int64 {
+	n := len(nums)
+	f := make([][][]int64, n+1)
+	const inf int64 = math.MinInt64 / 2
+	for i := range f {
+		f[i] = make([][]int64, k+1)
+		for j := range f[i] {
+			f[i][j] = []int64{inf, inf}
+		}
+	}
+	f[0][0][0] = 0
+	for i := 1; i <= n; i++ {
+		x := nums[i-1]
+		for j := 0; j <= k; j++ {
+			sign := int64(-1)
+			if j&1 == 1 {
+				sign = 1
+			}
+			val := sign * int64(x) * int64(k-j+1)
+			f[i][j][0] = max(f[i-1][j][0], f[i-1][j][1])
+			f[i][j][1] = max(f[i][j][1], f[i-1][j][1]+val)
+			if j > 0 {
+				t := max(f[i-1][j-1][0], f[i-1][j-1][1]) + val
+				f[i][j][1] = max(f[i][j][1], t)
+			}
+		}
+	}
+	return max(f[n][k][0], f[n][k][1])
+}
+```
 
+```ts
+function maximumStrength(nums: number[], k: number): number {
+    const n: number = nums.length;
+    const f: number[][][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: k + 1 }, () => [-Infinity, -Infinity]),
+    );
+    f[0][0][0] = 0;
+    for (let i = 1; i <= n; i++) {
+        const x: number = nums[i - 1];
+        for (let j = 0; j <= k; j++) {
+            const sign: number = (j & 1) === 1 ? 1 : -1;
+            const val: number = sign * x * (k - j + 1);
+            f[i][j][0] = Math.max(f[i - 1][j][0], f[i - 1][j][1]);
+            f[i][j][1] = Math.max(f[i][j][1], f[i - 1][j][1] + val);
+            if (j > 0) {
+                f[i][j][1] = Math.max(f[i][j][1], Math.max(...f[i - 1][j - 1]) + val);
+            }
+        }
+    }
+    return Math.max(...f[n][k]);
+}
 ```
 
 <!-- tabs:end -->

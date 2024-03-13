@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 

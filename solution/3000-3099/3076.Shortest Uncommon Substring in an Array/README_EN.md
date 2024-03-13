@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)
 
-<!-- tags: -->
+<!-- tags:Trie,Array,Hash Table,String -->
 
 ## Description
 
