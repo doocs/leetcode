@@ -52,24 +52,145 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+Given the small data scale, we can directly enumerate all substrings of each string and then determine whether it is a substring of other strings.
+
+Specifically, we first enumerate each string `arr[i]`, then enumerate the length $j$ of each substring from small to large, and then enumerate the starting position $l$ of each substring. We can get the current substring as `sub = arr[i][l:l+j]`. Then we determine whether `sub` is a substring of other strings. If it is, we skip the current substring; otherwise, we update the answer.
+
+The time complexity is $O(n^2 \times m^4)$, and the space complexity is $O(m)$. Where $n$ is the length of the string array `arr`, and $m$ is the maximum length of the string. In this problem, $m \le 20$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def shortestSubstrings(self, arr: List[str]) -> List[str]:
+        ans = [""] * len(arr)
+        for i, s in enumerate(arr):
+            m = len(s)
+            for j in range(1, m + 1):
+                for l in range(m - j + 1):
+                    sub = s[l : l + j]
+                    if not ans[i] or ans[i] > sub:
+                        if all(k == i or sub not in t for k, t in enumerate(arr)):
+                            ans[i] = sub
+                if ans[i]:
+                    break
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public String[] shortestSubstrings(String[] arr) {
+        int n = arr.length;
+        String[] ans = new String[n];
+        Arrays.fill(ans, "");
+        for (int i = 0; i < n; ++i) {
+            int m = arr[i].length();
+            for (int j = 1; j <= m && ans[i].isEmpty(); ++j) {
+                for (int l = 0; l <= m - j; ++l) {
+                    String sub = arr[i].substring(l, l + j);
+                    if (ans[i].isEmpty() || sub.compareTo(ans[i]) < 0) {
+                        boolean ok = true;
+                        for (int k = 0; k < n && ok; ++k) {
+                            if (k != i && arr[k].contains(sub)) {
+                                ok = false;
+                            }
+                        }
+                        if (ok) {
+                            ans[i] = sub;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> shortestSubstrings(vector<string>& arr) {
+        int n = arr.size();
+        vector<string> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int m = arr[i].size();
+            for (int j = 1; j <= m && ans[i].empty(); ++j) {
+                for (int l = 0; l <= m - j; ++l) {
+                    string sub = arr[i].substr(l, j);
+                    if (ans[i].empty() || sub < ans[i]) {
+                        bool ok = true;
+                        for (int k = 0; k < n && ok; ++k) {
+                            if (k != i && arr[k].find(sub) != string::npos) {
+                                ok = false;
+                            }
+                        }
+                        if (ok) {
+                            ans[i] = sub;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func shortestSubstrings(arr []string) []string {
+	ans := make([]string, len(arr))
+	for i, s := range arr {
+		m := len(s)
+		for j := 1; j <= m && len(ans[i]) == 0; j++ {
+			for l := 0; l <= m-j; l++ {
+				sub := s[l : l+j]
+				if len(ans[i]) == 0 || ans[i] > sub {
+					ok := true
+					for k, t := range arr {
+						if k != i && strings.Contains(t, sub) {
+							ok = false
+							break
+						}
+					}
+					if ok {
+						ans[i] = sub
+					}
+				}
+			}
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function shortestSubstrings(arr: string[]): string[] {
+    const n: number = arr.length;
+    const ans: string[] = Array(n).fill('');
+    for (let i = 0; i < n; ++i) {
+        const m: number = arr[i].length;
+        for (let j = 1; j <= m && ans[i] === ''; ++j) {
+            for (let l = 0; l <= m - j; ++l) {
+                const sub: string = arr[i].slice(l, l + j);
+                if (ans[i] === '' || sub.localeCompare(ans[i]) < 0) {
+                    let ok: boolean = true;
+                    for (let k = 0; k < n && ok; ++k) {
+                        if (k !== i && arr[k].includes(sub)) {
+                            ok = false;
+                        }
+                    }
+                    if (ok) {
+                        ans[i] = sub;
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
