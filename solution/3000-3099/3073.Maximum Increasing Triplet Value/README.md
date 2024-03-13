@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,有序集合 -->
 
 ## 题目描述
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 
