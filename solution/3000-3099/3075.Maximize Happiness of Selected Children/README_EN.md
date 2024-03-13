@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 
