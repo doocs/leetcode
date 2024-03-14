@@ -5,12 +5,11 @@ class Solution {
         for (int x : nums) {
             ++cnt[x];
         }
-        cnt[n] -= 2;
-        for (int i = 1; i < n; ++i) {
-            cnt[i] -= 1;
+        if (cnt[n] != 2) {
+            return false;
         }
-        for (int x : cnt) {
-            if (x != 0) {
+        for (int i = 1; i < n; ++i) {
+            if (cnt[i] != 1) {
                 return false;
             }
         }

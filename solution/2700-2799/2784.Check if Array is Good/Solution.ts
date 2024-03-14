@@ -1,12 +1,16 @@
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
-    const cnt: number[] = new Array(201).fill(0);
+    const cnt: number[] = Array(201).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
-    cnt[n] -= 2;
-    for (let i = 1; i < n; ++i) {
-        cnt[i]--;
+    if (cnt[n] !== 2) {
+        return false;
     }
-    return cnt.every(x => x >= 0);
+    for (let i = 1; i < n; ++i) {
+        if (cnt[i] !== 1) {
+            return false;
+        }
+    }
+    return true;
 }

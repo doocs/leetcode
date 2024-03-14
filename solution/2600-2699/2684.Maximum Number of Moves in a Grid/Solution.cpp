@@ -2,26 +2,24 @@ class Solution {
 public:
     int maxMoves(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        int dist[m][n];
-        memset(dist, 0, sizeof(dist));
-        int ans = 0;
-        queue<pair<int, int>> q;
+        unordered_set<int> q, t;
         for (int i = 0; i < m; ++i) {
-            q.emplace(i, 0);
+            q.insert(i);
         }
-        int dirs[3][2] = {{-1, 1}, {0, 1}, {1, 1}};
-        while (!q.empty()) {
-            auto [i, j] = q.front();
-            q.pop();
-            for (int k = 0; k < 3; ++k) {
-                int x = i + dirs[k][0], y = j + dirs[k][1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > grid[i][j] && dist[x][y] < dist[i][j] + 1) {
-                    dist[x][y] = dist[i][j] + 1;
-                    ans = max(ans, dist[x][y]);
-                    q.emplace(x, y);
+        for (int j = 0; j < n - 1; ++j) {
+            t.clear();
+            for (int i : q) {
+                for (int k = i - 1; k <= i + 1; ++k) {
+                    if (k >= 0 && k < m && grid[i][j] < grid[k][j + 1]) {
+                        t.insert(k);
+                    }
                 }
             }
+            if (t.empty()) {
+                return j;
+            }
+            q.swap(t);
         }
-        return ans;
+        return n - 1;
     }
 };
