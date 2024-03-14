@@ -44,7 +44,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting
+
+First, we store all the vowels in the string into an array or list $vs$, then we sort $vs$.
+
+Next, we traverse the string $s$, keeping the consonants unchanged. If it is a vowel, we replace it in order with the letters in the $vs$ array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

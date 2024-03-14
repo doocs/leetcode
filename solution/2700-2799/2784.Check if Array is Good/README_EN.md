@@ -55,19 +55,25 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting
+
+We can use a hash table or array $cnt$ to record the number of occurrences of each element in the array $nums$. Then we determine whether the following conditions are met:
+
+1. $cnt[n] = 2$, i.e., the largest element in the array appears twice;
+2. For $1 \leq i \leq n-1$, it holds that $cnt[i] = 1$, i.e., except for the largest element, all other elements appear only once.
+
+If the above two conditions are met, then the array $nums$ is a good array, otherwise it is not.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def isGood(self, nums: List[int]) -> bool:
-        n = len(nums) - 1
         cnt = Counter(nums)
-        cnt[n] -= 2
-        for i in range(1, n):
-            cnt[i] -= 1
-        return all(v == 0 for v in cnt.values())
+        n = len(nums) - 1
+        return cnt[n] == 2 and all(cnt[i] for i in range(1, n))
 ```
 
 ```java
@@ -78,12 +84,11 @@ class Solution {
         for (int x : nums) {
             ++cnt[x];
         }
-        cnt[n] -= 2;
-        for (int i = 1; i < n; ++i) {
-            cnt[i] -= 1;
+        if (cnt[n] != 2) {
+            return false;
         }
-        for (int x : cnt) {
-            if (x != 0) {
+        for (int i = 1; i < n; ++i) {
+            if (cnt[i] != 1) {
                 return false;
             }
         }
@@ -97,16 +102,15 @@ class Solution {
 public:
     bool isGood(vector<int>& nums) {
         int n = nums.size() - 1;
-        vector<int> cnt(201);
+        int cnt[201]{};
         for (int x : nums) {
             ++cnt[x];
         }
-        cnt[n] -= 2;
-        for (int i = 1; i < n; ++i) {
-            --cnt[i];
+        if (cnt[n] != 2) {
+            return false;
         }
-        for (int x : cnt) {
-            if (x) {
+        for (int i = 1; i < n; ++i) {
+            if (cnt[i] != 1) {
                 return false;
             }
         }
@@ -122,12 +126,11 @@ func isGood(nums []int) bool {
 	for _, x := range nums {
 		cnt[x]++
 	}
-	cnt[n] -= 2
-	for i := 1; i < n; i++ {
-		cnt[i]--
+	if cnt[n] != 2 {
+		return false
 	}
-	for _, x := range cnt {
-		if x != 0 {
+	for i := 1; i < n; i++ {
+		if cnt[i] != 1 {
 			return false
 		}
 	}
@@ -138,15 +141,40 @@ func isGood(nums []int) bool {
 ```ts
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
-    const cnt: number[] = new Array(201).fill(0);
+    const cnt: number[] = Array(201).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
-    cnt[n] -= 2;
-    for (let i = 1; i < n; ++i) {
-        cnt[i]--;
+    if (cnt[n] !== 2) {
+        return false;
     }
-    return cnt.every(x => x >= 0);
+    for (let i = 1; i < n; ++i) {
+        if (cnt[i] !== 1) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```cs
+public class Solution {
+    public bool IsGood(int[] nums) {
+        int n = nums.Length - 1;
+        int[] cnt = new int[201];
+        foreach (int x in nums) {
+            ++cnt[x];
+        }
+        if (cnt[n] != 2) {
+            return false;
+        }
+        for (int i = 1; i < n; ++i) {
+            if (cnt[i] != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 ```
 
