@@ -3086,6 +3086,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3075  |  [Maximize Happiness of Selected Children](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 388  |
 |  3076  |  [Shortest Uncommon Substring in an Array](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md)  |  `Trie`,`Array`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 388  |
 |  3077  |  [Maximum Strength of K Disjoint Subarrays](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README_EN.md)  |  `Array`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |  Weekly Contest 388  |
+|  3078  |  [Match Alphanumerical Pattern in Matrix I](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

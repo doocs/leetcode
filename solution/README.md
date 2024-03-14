@@ -3088,6 +3088,7 @@
 |  3075  |  [幸福值最大化的选择方案](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 388 场周赛  |
 |  3076  |  [数组中的最短非公共子字符串](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)  |  `字典树`,`数组`,`哈希表`,`字符串`  |  中等  |  第 388 场周赛  |
 |  3077  |  [K 个不相交子数组的最大能量值](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)  |  `数组`,`动态规划`,`前缀和`  |  困难  |  第 388 场周赛  |
+|  3078  |  [Match Alphanumerical Pattern in Matrix I](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
