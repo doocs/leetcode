@@ -4,12 +4,11 @@ func isGood(nums []int) bool {
 	for _, x := range nums {
 		cnt[x]++
 	}
-	cnt[n] -= 2
-	for i := 1; i < n; i++ {
-		cnt[i]--
+	if cnt[n] != 2 {
+		return false
 	}
-	for _, x := range cnt {
-		if x != 0 {
+	for i := 1; i < n; i++ {
+		if cnt[i] != 1 {
 			return false
 		}
 	}
