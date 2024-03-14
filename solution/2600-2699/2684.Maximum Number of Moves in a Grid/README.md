@@ -54,65 +54,53 @@
 
 ### 方法一：BFS
 
-我们定义一个队列 $q$，初始时将第一列的所有单元格 $(i, 0)$ 加入队列，同时定义一个二维数组 $dist$，其中 $dist[i][j]$ 表示到达单元格 $(i, j)$ 的最大移动次数。初始时，$dist[i][j] = 0$。
+我们定义一个队列 $q$，初始时将第一列的所有行坐标加入队列中。
 
-接下来，我们开始进行广度优先搜索。每次取出队首的单元格 $(i, j)$，并考虑其可以到达的下一层的单元格 $(x, y)$。如果 $x$ 和 $y$ 满足 $0 \leq x < m, 0 \leq y < n$，且 $grid[x][y] \gt grid[i][j]$，并且 $dist[x][y] \lt dist[i][j] + 1$，那么我们就可以从单元格 $(i, j)$ 移动到单元格 $(x, y)$，此时我们将 $dist[x][y]$ 更新为 $dist[i][j] + 1$，并将单元格 $(x, y)$ 加入队列 $q$ 中，然后更新答案 $ans = \max(ans, dist[x][y])$。
+接下来，我们从第一列开始，逐列进行遍历。对于每一列，我们将队列中的所有行坐标依次取出，然后对于每一个行坐标 $i$，我们得到其下一列的所有可能行坐标 $k$，并且满足 $grid[i][j] < grid[k][j + 1]$，将这些行坐标加入到一个新的集合 $t$ 中。如果 $t$ 为空，说明我们无法继续移动，返回当前列数。否则，我们将 $t$ 赋值给 $q$，继续下一列的遍历。
 
-当队列为空时，我们就找到了矩阵中移动的最大次数，返回 $ans$ 即可。
+最后，如果我们遍历完了所有列，说明我们可以移动到最后一列，返回 $n - 1$。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def maxMoves(self, grid: List[List[int]]) -> int:
-        dirs = ((-1, 1), (0, 1), (1, 1))
         m, n = len(grid), len(grid[0])
-        q = deque((i, 0) for i in range(m))
-        dist = [[0] * n for _ in range(m)]
-        ans = 0
-        while q:
-            i, j = q.popleft()
-            for a, b in dirs:
-                x, y = i + a, j + b
-                if (
-                    0 <= x < m
-                    and 0 <= y < n
-                    and grid[x][y] > grid[i][j]
-                    and dist[x][y] < dist[i][j] + 1
-                ):
-                    dist[x][y] = dist[i][j] + 1
-                    ans = max(ans, dist[x][y])
-                    q.append((x, y))
-        return ans
+        q = set(range(m))
+        for j in range(n - 1):
+            t = set()
+            for i in q:
+                for k in range(i - 1, i + 2):
+                    if 0 <= k < m and grid[i][j] < grid[k][j + 1]:
+                        t.add(k)
+            if not t:
+                return j
+            q = t
+        return n - 1
 ```
 
 ```java
 class Solution {
     public int maxMoves(int[][] grid) {
-        int[][] dirs = {{-1, 1}, {0, 1}, {1, 1}};
         int m = grid.length, n = grid[0].length;
-        Deque<int[]> q = new ArrayDeque<>();
-        for (int i = 0; i < m; ++i) {
-            q.offer(new int[] {i, 0});
-        }
-        int[][] dist = new int[m][n];
-        int ans = 0;
-        while (!q.isEmpty()) {
-            var p = q.poll();
-            int i = p[0], j = p[1];
-            for (var dir : dirs) {
-                int x = i + dir[0], y = j + dir[1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > grid[i][j]
-                    && dist[x][y] < dist[i][j] + 1) {
-                    dist[x][y] = dist[i][j] + 1;
-                    ans = Math.max(ans, dist[x][y]);
-                    q.offer(new int[] {x, y});
+        Set<Integer> q = IntStream.range(0, m).boxed().collect(Collectors.toSet());
+        for (int j = 0; j < n - 1; ++j) {
+            Set<Integer> t = new HashSet<>();
+            for (int i : q) {
+                for (int k = i - 1; k <= i + 1; ++k) {
+                    if (k >= 0 && k < m && grid[i][j] < grid[k][j + 1]) {
+                        t.add(k);
+                    }
                 }
             }
+            if (t.isEmpty()) {
+                return j;
+            }
+            q = t;
         }
-        return ans;
+        return n - 1;
     }
 }
 ```
@@ -122,27 +110,25 @@ class Solution {
 public:
     int maxMoves(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        int dist[m][n];
-        memset(dist, 0, sizeof(dist));
-        int ans = 0;
-        queue<pair<int, int>> q;
+        unordered_set<int> q, t;
         for (int i = 0; i < m; ++i) {
-            q.emplace(i, 0);
+            q.insert(i);
         }
-        int dirs[3][2] = {{-1, 1}, {0, 1}, {1, 1}};
-        while (!q.empty()) {
-            auto [i, j] = q.front();
-            q.pop();
-            for (int k = 0; k < 3; ++k) {
-                int x = i + dirs[k][0], y = j + dirs[k][1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > grid[i][j] && dist[x][y] < dist[i][j] + 1) {
-                    dist[x][y] = dist[i][j] + 1;
-                    ans = max(ans, dist[x][y]);
-                    q.emplace(x, y);
+        for (int j = 0; j < n - 1; ++j) {
+            t.clear();
+            for (int i : q) {
+                for (int k = i - 1; k <= i + 1; ++k) {
+                    if (k >= 0 && k < m && grid[i][j] < grid[k][j + 1]) {
+                        t.insert(k);
+                    }
                 }
             }
+            if (t.empty()) {
+                return j;
+            }
+            q.swap(t);
         }
-        return ans;
+        return n - 1;
     }
 };
 ```
@@ -150,27 +136,48 @@ public:
 ```go
 func maxMoves(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
-	dist := make([][]int, m)
-	q := [][2]int{}
-	for i := range dist {
-		dist[i] = make([]int, n)
-		q = append(q, [2]int{i, 0})
+	q := map[int]bool{}
+	for i := range grid {
+		q[i] = true
 	}
-	dirs := [][2]int{{-1, 1}, {0, 1}, {1, 1}}
-	for len(q) > 0 {
-		p := q[0]
-		q = q[1:]
-		i, j := p[0], p[1]
-		for _, dir := range dirs {
-			x, y := i+dir[0], j+dir[1]
-			if 0 <= x && x < m && 0 <= y && y < n && grid[x][y] > grid[i][j] && dist[x][y] < dist[i][j]+1 {
-				dist[x][y] = dist[i][j] + 1
-				ans = max(ans, dist[x][y])
-				q = append(q, [2]int{x, y})
+	for j := 0; j < n-1; j++ {
+		t := map[int]bool{}
+		for i := range q {
+			for k := i - 1; k <= i+1; k++ {
+				if k >= 0 && k < m && grid[i][j] < grid[k][j+1] {
+					t[k] = true
+				}
 			}
 		}
+		if len(t) == 0 {
+			return j
+		}
+		q = t
 	}
-	return
+	return n - 1
+}
+```
+
+```ts
+function maxMoves(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let q = new Set<number>(Array.from({ length: m }, (_, i) => i));
+    for (let j = 0; j < n - 1; ++j) {
+        const t = new Set<number>();
+        for (const i of q) {
+            for (let k = i - 1; k <= i + 1; ++k) {
+                if (k >= 0 && k < m && grid[i][j] < grid[k][j + 1]) {
+                    t.add(k);
+                }
+            }
+        }
+        if (t.size === 0) {
+            return j;
+        }
+        q = t;
+    }
+    return n - 1;
 }
 ```
 
