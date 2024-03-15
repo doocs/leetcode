@@ -1,7 +1,7 @@
 class Solution:
     def sellingWood(self, m: int, n: int, prices: List[List[int]]) -> int:
         @cache
-        def dfs(h, w):
+        def dfs(h: int, w: int) -> int:
             ans = d[h].get(w, 0)
             for i in range(1, h // 2 + 1):
                 ans = max(ans, dfs(i, w) + dfs(h - i, w))
