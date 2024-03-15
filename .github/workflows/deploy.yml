@@ -59,6 +59,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
 
+  sync:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.repository == 'doocs/leetcode'
+    steps:
       - name: Sync to gitee.com
         uses: wearerequired/git-mirror-action@master
         env:
