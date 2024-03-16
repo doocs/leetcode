@@ -68,7 +68,7 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 
 我们定义一个变量 $s$ 表示当前 $nums$ 的前缀和，用一个哈希表 $d$ 保存每个前缀和第一次出现的位置。初始时 $s = 0$, $d[0] = -1$。
 
-接下来，我们遍历数组 $nums$ 中的每个元素 $x$，计算 $s$ 的值，然后检查哈希表中是否存在 $s$，如果哈希表存在 $s$，那么说明存在一个子数组 $nums[d[s]+1,..i]$，使得子数组的和为 $0$，我们更新答案为 $max(ans, i - d[s])$。否则，我们将 $s$ 的值加入哈希表中，表示 $s$ 第一次出现的位置为 $i$。
+接下来，我们遍历数组 $nums$ 中的每个元素 $x$，计算 $s$ 的值，然后检查哈希表中是否存在 $s$，如果哈希表存在 $s$，那么说明存在一个子数组 $nums[d[s]+1,..i]$，使得子数组的和为 $0$，我们更新答案为 $\max(ans, i - d[s])$。否则，我们将 $s$ 的值加入哈希表中，表示 $s$ 第一次出现的位置为 $i$。
 
 遍历结束，即可得到最终的答案。
 
@@ -145,6 +145,25 @@ func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+```ts
+function widestPairOfIndices(nums1: number[], nums2: number[]): number {
+    const d: Map<number, number> = new Map();
+    d.set(0, -1);
+    const n: number = nums1.length;
+    let s: number = 0;
+    let ans: number = 0;
+    for (let i = 0; i < n; ++i) {
+        s += nums1[i] - nums2[i];
+        if (d.has(s)) {
+            ans = Math.max(ans, i - (d.get(s) as number));
+        } else {
+            d.set(s, i);
+        }
+    }
+    return ans;
 }
 ```
 
