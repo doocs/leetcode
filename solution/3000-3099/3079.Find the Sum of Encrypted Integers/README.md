@@ -45,24 +45,101 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们直接模拟加密的过程，定义一个函数 $encrypt(x)$，将一个整数 $x$ 中每一个数位都用 $x$ 中的最大数位替换。函数的实现如下：
+
+我们可以通过不断地对 $x$ 取模和整除 $10$ 来得到 $x$ 的每一位数，找到最大的数位，记为 $mx$。在循环的过程中，我们还可以用一个变量 $p$ 来记录 $mx$ 的基础底数，即 $p = 1, 11, 111, \cdots$。最后返回 $mx \times p$ 即可。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 是数组的长度，而 $M$ 是数组中元素的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def sumOfEncryptedInt(self, nums: List[int]) -> int:
+        def encrypt(x: int) -> int:
+            mx = p = 0
+            while x:
+                x, v = divmod(x, 10)
+                mx = max(mx, v)
+                p = p * 10 + 1
+            return mx * p
 
+        return sum(encrypt(x) for x in nums)
 ```
 
 ```java
+class Solution {
+    public int sumOfEncryptedInt(int[] nums) {
+        int ans = 0;
+        for (int x : nums) {
+            ans += encrypt(x);
+        }
+        return ans;
+    }
 
+    private int encrypt(int x) {
+        int mx = 0, p = 0;
+        for (; x > 0; x /= 10) {
+            mx = Math.max(mx, x % 10);
+            p = p * 10 + 1;
+        }
+        return mx * p;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int sumOfEncryptedInt(vector<int>& nums) {
+        auto encrypt = [&](int x) {
+            int mx = 0, p = 0;
+            for (; x; x /= 10) {
+                mx = max(mx, x % 10);
+                p = p * 10 + 1;
+            }
+            return mx * p;
+        };
+        int ans = 0;
+        for (int x : nums) {
+            ans += encrypt(x);
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func sumOfEncryptedInt(nums []int) (ans int) {
+	encrypt := func(x int) int {
+		mx, p := 0, 0
+		for ; x > 0; x /= 10 {
+			mx = max(mx, x%10)
+			p = p*10 + 1
+		}
+		return mx * p
+	}
+	for _, x := range nums {
+		ans += encrypt(x)
+	}
+	return
+}
+```
 
+```ts
+function sumOfEncryptedInt(nums: number[]): number {
+    const encrypt = (x: number): number => {
+        let [mx, p] = [0, 0];
+        for (; x > 0; x = Math.floor(x / 10)) {
+            mx = Math.max(mx, x % 10);
+            p = p * 10 + 1;
+        }
+        return mx * p;
+    };
+    return nums.reduce((acc, x) => acc + encrypt(x), 0);
+}
 ```
 
 <!-- tabs:end -->
