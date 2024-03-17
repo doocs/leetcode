@@ -64,24 +64,174 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting + Simulation
+
+First, we calculate the sum $s$ of the array $nums$. We define an array $mark$ to indicate whether the elements in the array have been marked, initializing all elements as unmarked.
+
+Then, we create an array $arr$, where each element is a tuple $(x, i)$, indicating that the $i$-th element in the array has a value of $x$. We sort the array $arr$ by the value of the elements. If the values are equal, we sort them in ascending order of the index.
+
+Next, we traverse the array $queries$. For each query $[index, k]$, we first check whether the element at index $index$ has been marked. If it has not been marked, we mark it and subtract the value of the element at index $index$ from $s$. Then, we traverse the array $arr$. For each element $(x, i)$, if element $i$ has not been marked, we mark it and subtract the value $x$ corresponding to element $i$ from $s$, until $k$ is $0$ or the array $arr$ is fully traversed. Then, we add $s$ to the answer array.
+
+After traversing all the queries, we get the answer array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def unmarkedSumArray(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+        n = len(nums)
+        s = sum(nums)
+        mark = [False] * n
+        arr = sorted((x, i) for i, x in enumerate(nums))
+        j = 0
+        ans = []
+        for index, k in queries:
+            if not mark[index]:
+                mark[index] = True
+                s -= nums[index]
+            while k and j < n:
+                if not mark[arr[j][1]]:
+                    mark[arr[j][1]] = True
+                    s -= arr[j][0]
+                    k -= 1
+                j += 1
+            ans.append(s)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public long[] unmarkedSumArray(int[] nums, int[][] queries) {
+        int n = nums.length;
+        long s = Arrays.stream(nums).asLongStream().sum();
+        boolean[] mark = new boolean[n];
+        int[][] arr = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[]{nums[i], i};
+        }
+        Arrays.sort(arr, (a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        int m = queries.length;
+        long[] ans = new long[m];
+        for (int i = 0, j = 0; i < m; ++i) {
+            int index = queries[i][0], k = queries[i][1];
+            if (!mark[index]) {
+                mark[index] = true;
+                s -= nums[index];
+            }
+            for (; k > 0 && j < n; ++j) {
+                if (!mark[arr[j][1]]) {
+                    mark[arr[j][1]] = true;
+                    s -= arr[j][0];
+                    --k;
+                }
+            }
+            ans[i] = s;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<long long> unmarkedSumArray(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        long long s = accumulate(nums.begin(), nums.end(), 0LL);
+        vector<bool> mark(n);
+        vector<pair<int, int>> arr;
+        for (int i = 0; i < n; ++i) {
+            arr.emplace_back(nums[i], i);
+        }
+        sort(arr.begin(), arr.end());
+        vector<long long> ans;
+        int m = queries.size();
+        for (int i = 0, j = 0; i < m; ++i) {
+            int index = queries[i][0], k = queries[i][1];
+            if (!mark[index]) {
+                mark[index] = true;
+                s -= nums[index];
+            }
+            for (; k && j < n; ++j) {
+                if (!mark[arr[j].second]) {
+                    mark[arr[j].second] = true;
+                    s -= arr[j].first;
+                    --k;
+                }
+            }
+            ans.push_back(s);
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func unmarkedSumArray(nums []int, queries [][]int) []int64 {
+	n := len(nums)
+	var s int64
+	for _, x := range nums {
+		s += int64(x)
+	}
+	mark := make([]bool, n)
+	arr := make([][2]int, 0, n)
+	for i, x := range nums {
+		arr = append(arr, [2]int{x, i})
+	}
+	sort.Slice(arr, func(i, j int) bool {
+		if arr[i][0] == arr[j][0] {
+			return arr[i][1] < arr[j][1]
+		}
+		return arr[i][0] < arr[j][0]
+	})
+	ans := make([]int64, len(queries))
+	j := 0
+	for i, q := range queries {
+		index, k := q[0], q[1]
+		if !mark[index] {
+			mark[index] = true
+			s -= int64(nums[index])
+		}
+		for ; k > 0 && j < n; j++ {
+			if !mark[arr[j][1]] {
+				mark[arr[j][1]] = true
+				s -= int64(arr[j][0])
+				k--
+			}
+		}
+		ans[i] = s
+	}
+	return ans
+}
+```
 
+```ts
+function unmarkedSumArray(nums: number[], queries: number[][]): number[] {
+    const n = nums.length;
+    let s = nums.reduce((acc, x) => acc + x, 0);
+    const mark: boolean[] = Array(n).fill(false);
+    const arr = nums.map((x, i) => [x, i]);
+    arr.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+    let j = 0;
+    const ans: number[] = [];
+    for (let [index, k] of queries) {
+        if (!mark[index]) {
+            mark[index] = true;
+            s -= nums[index];
+        }
+        for (; k && j < n; ++j) {
+            if (!mark[arr[j][1]]) {
+                mark[arr[j][1]] = true;
+                s -= arr[j][0];
+                --k;
+            }
+        }
+        ans.push(s);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
