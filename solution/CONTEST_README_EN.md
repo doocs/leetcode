@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 126
+
+- [3079. Find the Sum of Encrypted Integers](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README_EN.md)
+- [3080. Mark Elements on Array by Performing Queries](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README_EN.md)
+- [3081. Replace Question Marks in String to Minimize Its Value](/solution/3000-3099/3081.Replace%20Question%20Marks%20in%20String%20to%20Minimize%20Its%20Value/README_EN.md)
+- [3082. Find the Sum of the Power of All Subsequences](/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README_EN.md)
+
 #### Weekly Contest 388
 
 - [3074. Apple Redistribution into Boxes](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md)
