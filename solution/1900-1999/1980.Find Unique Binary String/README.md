@@ -57,7 +57,7 @@
 
 然后我们从 $0$ 开始枚举长度为 $n$ 的二进制字符串中 `'1'` 出现的次数 $i$，如果 $mask$ 的第 $i$ 位为 $0$，则说明长度为 $n$ 的二进制字符串中 `'1'` 出现次数为 $i$ 的字符串不存在，我们可以将这个字符串作为答案返回。
 
-时间复杂度 $O(L)$，空间复杂度 $O(1)$。其中 $L$ 为 `nums` 中字符串的总长度。
+时间复杂度 $O(L)$，其中 $L$ 为 `nums` 中字符串的总长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -124,6 +124,21 @@ func findDifferentBinaryString(nums []string) string {
 			return strings.Repeat("1", i) + strings.Repeat("0", len(nums)-i)
 		}
 	}
+}
+```
+
+```ts
+function findDifferentBinaryString(nums: string[]): string {
+    let mask = 0;
+    for (let x of nums) {
+        const cnt = x.split('').filter(c => c === '1').length;
+        mask |= 1 << cnt;
+    }
+    for (let i = 0; ; ++i) {
+        if (((mask >> i) & 1) === 0) {
+            return '1'.repeat(i) + '0'.repeat(nums.length - i);
+        }
+    }
 }
 ```
 
