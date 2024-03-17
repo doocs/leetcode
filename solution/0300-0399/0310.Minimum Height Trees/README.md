@@ -51,7 +51,13 @@
 
 ## 解法
 
-### 方法一
+### 方法一：拓扑排序
+
+如果这棵树只有一个节点，那么这个节点就是最小高度树的根节点，直接返回这个节点即可。
+
+如果这棵树有多个节点，那么一定存在叶子节点。叶子节点是只有一个相邻节点的节点。我们可以利用拓扑排序，从外向内剥离叶子节点，当我们到达最后一层的时候，剩下的节点就是最小高度树的根节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
@@ -60,7 +66,7 @@ class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
         if n == 1:
             return [0]
-        g = defaultdict(list)
+        g = [[] for _ in range(n)]
         degree = [0] * n
         for a, b in edges:
             g[a].append(b)
@@ -85,7 +91,7 @@ class Solution:
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         if (n == 1) {
-            return Collections.singletonList(0);
+            return List.of(0);
         }
         List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
@@ -97,7 +103,7 @@ class Solution {
             ++degree[a];
             ++degree[b];
         }
-        Queue<Integer> q = new LinkedList<>();
+        Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
             if (degree[i] == 1) {
                 q.offer(i);
@@ -125,7 +131,9 @@ class Solution {
 class Solution {
 public:
     vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
-        if (n == 1) return {0};
+        if (n == 1) {
+            return {0};
+        }
         vector<vector<int>> g(n);
         vector<int> degree(n);
         for (auto& e : edges) {
@@ -136,9 +144,11 @@ public:
             ++degree[b];
         }
         queue<int> q;
-        for (int i = 0; i < n; ++i)
-            if (degree[i] == 1)
+        for (int i = 0; i < n; ++i) {
+            if (degree[i] == 1) {
                 q.push(i);
+            }
+        }
         vector<int> ans;
         while (!q.empty()) {
             ans.clear();
@@ -146,9 +156,11 @@ public:
                 int a = q.front();
                 q.pop();
                 ans.push_back(a);
-                for (int b : g[a])
-                    if (--degree[b] == 1)
+                for (int b : g[a]) {
+                    if (--degree[b] == 1) {
                         q.push(b);
+                    }
+                }
             }
         }
         return ans;
@@ -157,7 +169,7 @@ public:
 ```
 
 ```go
-func findMinHeightTrees(n int, edges [][]int) []int {
+func findMinHeightTrees(n int, edges [][]int) (ans []int) {
 	if n == 1 {
 		return []int{0}
 	}
@@ -170,13 +182,12 @@ func findMinHeightTrees(n int, edges [][]int) []int {
 		degree[a]++
 		degree[b]++
 	}
-	var q []int
-	for i := 0; i < n; i++ {
-		if degree[i] == 1 {
+	q := []int{}
+	for i, d := range degree {
+		if d == 1 {
 			q = append(q, i)
 		}
 	}
-	var ans []int
 	for len(q) > 0 {
 		ans = []int{}
 		for i := len(q); i > 0; i-- {
@@ -191,7 +202,44 @@ func findMinHeightTrees(n int, edges [][]int) []int {
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+```ts
+function findMinHeightTrees(n: number, edges: number[][]): number[] {
+    if (n === 1) {
+        return [0];
+    }
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const degree: number[] = Array(n).fill(0);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+        ++degree[a];
+        ++degree[b];
+    }
+    const q: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (degree[i] === 1) {
+            q.push(i);
+        }
+    }
+    const ans: number[] = [];
+    while (q.length > 0) {
+        ans.length = 0;
+        const t: number[] = [];
+        for (const a of q) {
+            ans.push(a);
+            for (const b of g[a]) {
+                if (--degree[b] === 1) {
+                    t.push(b);
+                }
+            }
+        }
+        q.splice(0, q.length, ...t);
+    }
+    return ans;
 }
 ```
 
