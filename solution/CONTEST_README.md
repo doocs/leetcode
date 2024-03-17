@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 389 场周赛(2024-03-17 10:30, 90 分钟) 参赛人数 4561
+
+- [3083. 字符串及其反转中是否存在同一子字符串](/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README.md)
+- [3084. 统计以给定字符开头和结尾的子字符串总数](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md)
+- [3085. 成为 K 特殊字符串需要删除的最少字符数](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md)
+- [3086. 拾起 K 个 1 需要的最少行动次数](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README.md)
+
 #### 第 126 场双周赛(2024-03-16 22:30, 90 分钟) 参赛人数 3234
 
 - [3079. 求出加密整数的和](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README.md)
