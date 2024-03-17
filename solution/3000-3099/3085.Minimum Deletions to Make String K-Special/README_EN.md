@@ -56,24 +56,158 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting + Enumeration
+
+First, we can count the occurrence of each character in the string and put all the counts into an array $nums$. Since the string only contains lowercase letters, the length of the array $nums$ will not exceed $26$.
+
+Next, we can enumerate the minimum frequency $v$ of characters in the $K$ special strings within the range $[0,..n]$, and then use a function $f(v)$ to calculate the minimum number of deletions to adjust the frequency of all characters to $v$. The minimum value of all $f(v)$ is the answer.
+
+The calculation method of function $f(v)$ is as follows:
+
+Traverse each element $x$ in the array $nums$. If $x < v$, it means that we need to delete all characters with a frequency of $x$, and the number of deletions is $x$. If $x > v + k$, it means that we need to adjust all characters with a frequency of $x$ to $v + k$, and the number of deletions is $x - v - k$. The sum of all deletion counts is the value of $f(v)$.
+
+The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def minimumDeletions(self, word: str, k: int) -> int:
+        def f(v: int) -> int:
+            ans = 0
+            for x in nums:
+                if x < v:
+                    ans += x
+                elif x > v + k:
+                    ans += x - v - k
+            return ans
 
+        nums = Counter(word).values()
+        return min(f(v) for v in range(len(word) + 1))
 ```
 
 ```java
+class Solution {
+    private List<Integer> nums = new ArrayList<>();
 
+    public int minimumDeletions(String word, int k) {
+        int[] freq = new int[26];
+        int n = word.length();
+        for (int i = 0; i < n; ++i) {
+            ++freq[word.charAt(i) - 'a'];
+        }
+        for (int v : freq) {
+            if (v > 0) {
+                nums.add(v);
+            }
+        }
+        int ans = n;
+        for (int i = 0; i <= n; ++i) {
+            ans = Math.min(ans, f(i, k));
+        }
+        return ans;
+    }
+
+    private int f(int v, int k) {
+        int ans = 0;
+        for (int x : nums) {
+            if (x < v) {
+                ans += x;
+            } else if (x > v + k) {
+                ans += x - v - k;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumDeletions(string word, int k) {
+        int freq[26]{};
+        for (char& c : word) {
+            ++freq[c - 'a'];
+        }
+        vector<int> nums;
+        for (int v : freq) {
+            if (v) {
+                nums.push_back(v);
+            }
+        }
+        int n = word.size();
+        int ans = n;
+        auto f = [&](int v) {
+            int ans = 0;
+            for (int x : nums) {
+                if (x < v) {
+                    ans += x;
+                } else if (x > v + k) {
+                    ans += x - v - k;
+                }
+            }
+            return ans;
+        };
+        for (int i = 0; i <= n; ++i) {
+            ans = min(ans, f(i));
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minimumDeletions(word string, k int) int {
+	freq := [26]int{}
+	for _, c := range word {
+		freq[c-'a']++
+	}
+	nums := []int{}
+	for _, v := range freq {
+		if v > 0 {
+			nums = append(nums, v)
+		}
+	}
+	f := func(v int) int {
+		ans := 0
+		for _, x := range nums {
+			if x < v {
+				ans += x
+			} else if x > v+k {
+				ans += x - v - k
+			}
+		}
+		return ans
+	}
+	ans := len(word)
+	for i := 0; i <= len(word); i++ {
+		ans = min(ans, f(i))
+	}
+	return ans
+}
+```
 
+```ts
+function minimumDeletions(word: string, k: number): number {
+    const freq: number[] = Array(26).fill(0);
+    for (const ch of word) {
+        ++freq[ch.charCodeAt(0) - 97];
+    }
+    const nums = freq.filter(x => x > 0);
+    const f = (v: number): number => {
+        let ans = 0;
+        for (const x of nums) {
+            if (x < v) {
+                ans += x;
+            } else if (x > v + k) {
+                ans += x - v - k;
+            }
+        }
+        return ans;
+    };
+    return Math.min(...Array.from({ length: word.length + 1 }, (_, i) => f(i)));
+}
 ```
 
 <!-- tabs:end -->

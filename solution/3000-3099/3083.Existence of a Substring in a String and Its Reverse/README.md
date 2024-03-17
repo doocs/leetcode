@@ -55,24 +55,88 @@
 
 ## 解法
 
-### 方法一
+### 方法一：哈希表或数组
+
+我们可以用一个哈希表或者二维数组 $st$ 来存储字符串 $s$ 反转后的所有长度为 $2$ 的子字符串。
+
+然后我们遍历字符串 $s$，对于每一个长度为 $2$ 的子字符串，我们判断它是否在 $st$ 中出现过，是则返回 `true`。否则，遍历结束后返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|^2)$。其中 $n$ 为字符串 $s$ 的长度；而 $\Sigma$ 为字符串 $s$ 的字符集，本题中 $\Sigma$ 为小写英文字母，所以 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def isSubstringPresent(self, s: str) -> bool:
+        st = {(a, b) for a, b in pairwise(s[::-1])}
+        return any((a, b) in st for a, b in pairwise(s))
 ```
 
 ```java
-
+class Solution {
+    public boolean isSubstringPresent(String s) {
+        boolean[][] st = new boolean[26][26];
+        int n = s.length();
+        for (int i = 0; i < n - 1; ++i) {
+            st[s.charAt(i + 1) - 'a'][s.charAt(i) - 'a'] = true;
+        }
+        for (int i = 0; i < n - 1; ++i) {
+            if (st[s.charAt(i) - 'a'][s.charAt(i + 1) - 'a']) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    bool isSubstringPresent(string s) {
+        bool st[26][26]{};
+        int n = s.size();
+        for (int i = 0; i < n - 1; ++i) {
+            st[s[i + 1] - 'a'][s[i] - 'a'] = true;
+        }
+        for (int i = 0; i < n - 1; ++i) {
+            if (st[s[i] - 'a'][s[i + 1] - 'a']) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 ```go
+func isSubstringPresent(s string) bool {
+	st := [26][26]bool{}
+	for i := 0; i < len(s)-1; i++ {
+		st[s[i+1]-'a'][s[i]-'a'] = true
+	}
+	for i := 0; i < len(s)-1; i++ {
+		if st[s[i]-'a'][s[i+1]-'a'] {
+			return true
+		}
+	}
+	return false
+}
+```
 
+```ts
+function isSubstringPresent(s: string): boolean {
+    const st: boolean[][] = Array.from({ length: 26 }, () => Array(26).fill(false));
+    for (let i = 0; i < s.length - 1; ++i) {
+        st[s.charCodeAt(i + 1) - 97][s.charCodeAt(i) - 97] = true;
+    }
+    for (let i = 0; i < s.length - 1; ++i) {
+        if (st[s.charCodeAt(i) - 97][s.charCodeAt(i + 1) - 97]) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->

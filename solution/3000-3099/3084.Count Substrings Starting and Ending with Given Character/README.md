@@ -43,24 +43,56 @@
 
 ## 解法
 
-### 方法一
+### 方法一：数学
+
+我们可以先统计字符串 $s$ 中字符 $c$ 的个数，记为 $cnt$。
+
+每个 $c$ 字符可以单独作为一个子字符串，所以有 $cnt$ 个子字符串满足条件。每个 $c$ 字符可以和其他 $c$ 字符组成一个满足条件的子字符串，所以有 $\frac{cnt \times (cnt - 1)}{2}$ 个子字符串满足条件。
+
+所以答案为 $cnt + \frac{cnt \times (cnt - 1)}{2}$。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countSubstrings(self, s: str, c: str) -> int:
+        cnt = s.count(c)
+        return cnt + cnt * (cnt - 1) // 2
 ```
 
 ```java
-
+class Solution {
+    public long countSubstrings(String s, char c) {
+        long cnt = s.chars().filter(ch -> ch == c).count();
+        return cnt + cnt * (cnt - 1) / 2;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long countSubstrings(string s, char c) {
+        long long cnt = ranges::count(s, c);
+        return cnt + cnt * (cnt - 1) / 2;
+    }
+};
 ```
 
 ```go
+func countSubstrings(s string, c byte) int64 {
+	cnt := int64(strings.Count(s, string(c)))
+	return cnt + cnt*(cnt-1)/2
+}
+```
 
+```ts
+function countSubstrings(s: string, c: string): number {
+    const cnt = s.split('').filter(ch => ch === c).length;
+    return cnt + Math.floor((cnt * (cnt - 1)) / 2);
+}
 ```
 
 <!-- tabs:end -->
