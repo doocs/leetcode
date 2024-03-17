@@ -3093,6 +3093,10 @@
 |  3080  |  [执行操作标记数组中的元素](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README.md)  |    |  中等  |  第 126 场双周赛  |
 |  3081  |  [替换字符串中的问号使分数最小](/solution/3000-3099/3081.Replace%20Question%20Marks%20in%20String%20to%20Minimize%20Its%20Value/README.md)  |    |  中等  |  第 126 场双周赛  |
 |  3082  |  [求出所有子序列的能量和](/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README.md)  |    |  困难  |  第 126 场双周赛  |
+|  3083  |  [字符串及其反转中是否存在同一子字符串](/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README.md)  |    |  简单  |  第 389 场周赛  |
+|  3084  |  [统计以给定字符开头和结尾的子字符串总数](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md)  |    |  中等  |  第 389 场周赛  |
+|  3085  |  [成为 K 特殊字符串需要删除的最少字符数](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md)  |    |  中等  |  第 389 场周赛  |
+|  3086  |  [拾起 K 个 1 需要的最少行动次数](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README.md)  |    |  困难  |  第 389 场周赛  |
 
 ## 版权
 
