@@ -39,24 +39,56 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Mathematics
+
+First, we can count the number of character $c$ in string $s$, denoted as $cnt$.
+
+Each character $c$ can form a substring on its own, so there are $cnt$ substrings that meet the condition. Each character $c$ can form a substring with other $c$ characters, so there are $\frac{cnt \times (cnt - 1)}{2}$ substrings that meet the condition.
+
+Therefore, the answer is $cnt + \frac{cnt \times (cnt - 1)}{2}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countSubstrings(self, s: str, c: str) -> int:
+        cnt = s.count(c)
+        return cnt + cnt * (cnt - 1) // 2
 ```
 
 ```java
-
+class Solution {
+    public long countSubstrings(String s, char c) {
+        long cnt = s.chars().filter(ch -> ch == c).count();
+        return cnt + cnt * (cnt - 1) / 2;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long countSubstrings(string s, char c) {
+        long long cnt = ranges::count(s, c);
+        return cnt + cnt * (cnt - 1) / 2;
+    }
+};
 ```
 
 ```go
+func countSubstrings(s string, c byte) int64 {
+	cnt := int64(strings.Count(s, string(c)))
+	return cnt + cnt*(cnt-1)/2
+}
+```
 
+```ts
+function countSubstrings(s: string, c: string): number {
+    const cnt = s.split('').filter(ch => ch === c).length;
+    return cnt + Math.floor((cnt * (cnt - 1)) / 2);
+}
 ```
 
 <!-- tabs:end -->

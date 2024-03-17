@@ -60,24 +60,136 @@
 
 ## 解法
 
-### 方法一
+### 方法一：计数 + 枚举
+
+我们可以先统计字符串中每个字符的出现次数，将所有次数放入数组 $nums$ 中，由于题目中字符串只包含小写字母，所以数组 $nums$ 的长度不会超过 $26$。
+
+接下来，我们可以枚举在 $[0,..n]$ 的范围内枚举 $K$ 特殊字符串中的字符最小频率 $v$，然后用一个函数 $f(v)$ 来计算将所有字符的频率调整为 $v$ 的最小删除次数，最后取所有 $f(v)$ 的最小值即为答案。
+
+函数 $f(v)$ 的计算方法如下：
+
+遍历数组 $nums$ 中的每个元素 $x$，如果 $x \lt v$，则说明我们需要将出现次数为 $x$ 的字符全部删除，删除次数为 $x$；如果 $x \gt v + k$，则说明我们需要将出现次数为 $x$ 的字符全部调整为 $v + k$，删除次数为 $x - v - k$。累加所有删除次数即为 $f(v)$ 的值。
+
+时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 为字符串长度；而 $|\Sigma|$ 为字符集大小，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def minimumDeletions(self, word: str, k: int) -> int:
+        def f(v: int) -> int:
+            ans = 0
+            for x in nums:
+                if x < v:
+                    ans += x
+                elif x > v + k:
+                    ans += x - v - k
+            return ans
 
+        nums = Counter(word).values()
+        return min(f(v) for v in range(len(word) + 1))
 ```
 
 ```java
+class Solution {
+    private List<Integer> nums = new ArrayList<>();
 
+    public int minimumDeletions(String word, int k) {
+        int[] freq = new int[26];
+        int n = word.length();
+        for (int i = 0; i < n; ++i) {
+            ++freq[word.charAt(i) - 'a'];
+        }
+        for (int v : freq) {
+            if (v > 0) {
+                nums.add(v);
+            }
+        }
+        int ans = n;
+        for (int i = 0; i <= n; ++i) {
+            ans = Math.min(ans, f(i, k));
+        }
+        return ans;
+    }
+
+    private int f(int v, int k) {
+        int ans = 0;
+        for (int x : nums) {
+            if (x < v) {
+                ans += x;
+            } else if (x > v + k) {
+                ans += x - v - k;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumDeletions(string word, int k) {
+        int freq[26]{};
+        for (char& c : word) {
+            ++freq[c - 'a'];
+        }
+        vector<int> nums;
+        for (int v : freq) {
+            if (v) {
+                nums.push_back(v);
+            }
+        }
+        int n = word.size();
+        int ans = n;
+        auto f = [&](int v) {
+            int ans = 0;
+            for (int x : nums) {
+                if (x < v) {
+                    ans += x;
+                } else if (x > v + k) {
+                    ans += x - v - k;
+                }
+            }
+            return ans;
+        };
+        for (int i = 0; i <= n; ++i) {
+            ans = min(ans, f(i));
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
-
+func minimumDeletions(word string, k int) int {
+	freq := [26]int{}
+	for _, c := range word {
+		freq[c-'a']++
+	}
+	nums := []int{}
+	for _, v := range freq {
+		if v > 0 {
+			nums = append(nums, v)
+		}
+	}
+	f := func(v int) int {
+		ans := 0
+		for _, x := range nums {
+			if x < v {
+				ans += x
+			} else if x > v+k {
+				ans += x - v - k
+			}
+		}
+		return ans
+	}
+	ans := len(word)
+	for i := 0; i <= len(word); i++ {
+		ans = min(ans, f(i))
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->

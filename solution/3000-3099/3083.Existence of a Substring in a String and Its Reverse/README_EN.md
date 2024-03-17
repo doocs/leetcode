@@ -51,24 +51,88 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table or Array
+
+We can use a hash table or a two-dimensional array $st$ to store all substrings of length $2$ of the reversed string $s$.
+
+Then we traverse the string $s$. For each substring of length $2$, we check whether it has appeared in $st$. If it has, we return `true`. Otherwise, we return `false` after the traversal.
+
+The time complexity is $O(n)$ and the space complexity is $O(|\Sigma|^2)$. Here, $n$ is the length of the string $s$, and $\Sigma$ is the character set of the string $s$. In this problem, $\Sigma$ consists of lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def isSubstringPresent(self, s: str) -> bool:
+        st = {(a, b) for a, b in pairwise(s[::-1])}
+        return any((a, b) in st for a, b in pairwise(s))
 ```
 
 ```java
-
+class Solution {
+    public boolean isSubstringPresent(String s) {
+        boolean[][] st = new boolean[26][26];
+        int n = s.length();
+        for (int i = 0; i < n - 1; ++i) {
+            st[s.charAt(i + 1) - 'a'][s.charAt(i) - 'a'] = true;
+        }
+        for (int i = 0; i < n - 1; ++i) {
+            if (st[s.charAt(i) - 'a'][s.charAt(i + 1) - 'a']) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    bool isSubstringPresent(string s) {
+        bool st[26][26]{};
+        int n = s.size();
+        for (int i = 0; i < n - 1; ++i) {
+            st[s[i + 1] - 'a'][s[i] - 'a'] = true;
+        }
+        for (int i = 0; i < n - 1; ++i) {
+            if (st[s[i] - 'a'][s[i + 1] - 'a']) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 ```go
+func isSubstringPresent(s string) bool {
+	st := [26][26]bool{}
+	for i := 0; i < len(s)-1; i++ {
+		st[s[i+1]-'a'][s[i]-'a'] = true
+	}
+	for i := 0; i < len(s)-1; i++ {
+		if st[s[i]-'a'][s[i+1]-'a'] {
+			return true
+		}
+	}
+	return false
+}
+```
 
+```ts
+function isSubstringPresent(s: string): boolean {
+    const st: boolean[][] = Array.from({ length: 26 }, () => Array(26).fill(false));
+    for (let i = 0; i < s.length - 1; ++i) {
+        st[s.charCodeAt(i + 1) - 97][s.charCodeAt(i) - 97] = true;
+    }
+    for (let i = 0; i < s.length - 1; ++i) {
+        if (st[s.charCodeAt(i) - 97][s.charCodeAt(i + 1) - 97]) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->
