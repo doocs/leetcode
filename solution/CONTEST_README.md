@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 126 场双周赛(2024-03-16 22:30, 90 分钟) 参赛人数 3234
+
+- [3079. 求出加密整数的和](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README.md)
+- [3080. 执行操作标记数组中的元素](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README.md)
+- [3081. 替换字符串中的问号使分数最小](/solution/3000-3099/3081.Replace%20Question%20Marks%20in%20String%20to%20Minimize%20Its%20Value/README.md)
+- [3082. 求出所有子序列的能量和](/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README.md)
+
 #### 第 388 场周赛(2024-03-10 10:30, 90 分钟) 参赛人数 4291
 
 - [3074. 重新分装苹果](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)
