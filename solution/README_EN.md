@@ -3081,11 +3081,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3070  |  [Count Submatrices with Top-Left Element and Sum Less Than k](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)  |  `Array`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 387  |
 |  3071  |  [Minimum Operations to Write the Letter Y on a Grid](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Matrix`  |  Medium  |  Weekly Contest 387  |
 |  3072  |  [Distribute Elements Into Two Arrays II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Simulation`  |  Hard  |  Weekly Contest 387  |
-|  3073  |  [Maximum Increasing Triplet Value](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md)  |    |  Medium  |  🔒  |
-|  3074  |  [Apple Redistribution into Boxes](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md)  |    |  Easy  |  Weekly Contest 388  |
-|  3075  |  [Maximize Happiness of Selected Children](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md)  |    |  Medium  |  Weekly Contest 388  |
-|  3076  |  [Shortest Uncommon Substring in an Array](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 388  |
-|  3077  |  [Maximum Strength of K Disjoint Subarrays](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 388  |
+|  3073  |  [Maximum Increasing Triplet Value](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README_EN.md)  |  `Array`,`Ordered Set`  |  Medium  |  🔒  |
+|  3074  |  [Apple Redistribution into Boxes](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Easy  |  Weekly Contest 388  |
+|  3075  |  [Maximize Happiness of Selected Children](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 388  |
+|  3076  |  [Shortest Uncommon Substring in an Array](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md)  |  `Trie`,`Array`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 388  |
+|  3077  |  [Maximum Strength of K Disjoint Subarrays](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README_EN.md)  |  `Array`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |  Weekly Contest 388  |
 |  3078  |  [Match Alphanumerical Pattern in Matrix I](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README_EN.md)  |    |  Medium  |  🔒  |
 |  3079  |  [Find the Sum of Encrypted Integers](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README_EN.md)  |    |  Easy  |  Biweekly Contest 126  |
 |  3080  |  [Mark Elements on Array by Performing Queries](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README_EN.md)  |    |  Medium  |  Biweekly Contest 126  |
@@ -3095,6 +3095,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3084  |  [Count Substrings Starting and Ending with Given Character](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README_EN.md)  |    |  Medium  |  Weekly Contest 389  |
 |  3085  |  [Minimum Deletions to Make String K-Special](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README_EN.md)  |    |  Medium  |  Weekly Contest 389  |
 |  3086  |  [Minimum Moves to Pick K Ones](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README_EN.md)  |    |  Hard  |  Weekly Contest 389  |
+|  3087  |  [Find Trending Hashtags](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
