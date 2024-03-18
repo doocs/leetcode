@@ -261,3 +261,4 @@
     -   [3059.Find All Unique Email Domains](/database-solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md)
     -   [3060.User Activities within Time Bounds](/database-solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md)
     -   [3061.计算滞留雨水](/database-solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)
+    -   [3087.Find Trending Hashtags](/database-solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)
