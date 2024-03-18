@@ -14,7 +14,7 @@
 
 <p>返回数组的 <strong>第 k 大和</strong> 。</p>
 
-<p>子序列是一个可以由其他数组删除某些或不删除元素排生而来的数组，且派生过程不改变剩余元素的顺序。</p>
+<p>子序列是一个可以由其他数组删除某些或不删除元素派生而来的数组，且派生过程不改变剩余元素的顺序。</p>
 
 <p><strong>注意：</strong>空子序列的和视作 <code>0</code> 。</p>
 
@@ -22,16 +22,18 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,4,-2], k = 5
+<pre>
+<strong>输入：</strong>nums = [2,4,-2], k = 5
 <strong>输出：</strong>2
 <strong>解释：</strong>所有可能获得的子序列和列出如下，按递减顺序排列：
-- 6、4、4、2、<strong><em>2</em></strong>、0、0、-2
+6、4、4、2、<strong><em>2</em></strong>、0、0、-2
 数组的第 5 大和是 2 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,-2,3,4,-10,12], k = 16
+<pre>
+<strong>输入：</strong>nums = [1,-2,3,4,-10,12], k = 16
 <strong>输出：</strong>10
 <strong>解释：</strong>数组的第 16 大和是 10 。
 </pre>
