@@ -269,6 +269,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3059 | [Find All Unique Email Domains](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)                                                                                 | `Database` | Easy       | 🔒     |
 | 3060 | [User Activities within Time Bounds](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)                                                                       | `Database` | Hard       | 🔒     |
 | 3061 | [Calculate Trapping Rain Water](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)                                                                                   | `Database` | Hard       | 🔒     |
+| 3087 | [Find Trending Hashtags](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md)                                                                                                   |            | Medium     | 🔒     |
 
 ## Copyright
 

@@ -55,7 +55,7 @@
 
 由于题目中的 $n$ 范围较小，我们也可以直接创建一个大小为 $n+1$ 的数组来存放数据，运行效率较高。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $groupSizes$ 的长度。
 
 <!-- tabs:start -->
 
@@ -95,7 +95,9 @@ public:
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
         int n = groupSizes.size();
         vector<vector<int>> g(n + 1);
-        for (int i = 0; i < n; ++i) g[groupSizes[i]].push_back(i);
+        for (int i = 0; i < n; ++i) {
+            g[groupSizes[i]].push_back(i);
+        }
         vector<vector<int>> ans;
         for (int i = 0; i < g.size(); ++i) {
             for (int j = 0; j < g[i].size(); j += i) {
@@ -127,82 +129,49 @@ func groupThePeople(groupSizes []int) [][]int {
 
 ```ts
 function groupThePeople(groupSizes: number[]): number[][] {
-    const res = [];
-    const map = new Map<number, number[]>();
-    const n = groupSizes.length;
-    for (let i = 0; i < n; i++) {
-        const size = groupSizes[i];
-        map.set(size, [...(map.get(size) ?? []), i]);
-        const arr = map.get(size);
-        if (arr.length === size) {
-            res.push(arr);
-            map.set(size, []);
+    const n: number = groupSizes.length;
+    const g: number[][] = Array.from({ length: n + 1 }, () => []);
+
+    for (let i = 0; i < groupSizes.length; i++) {
+        const size: number = groupSizes[i];
+        g[size].push(i);
+    }
+    const ans: number[][] = [];
+    for (let i = 1; i <= n; i++) {
+        const group: number[] = [];
+        for (let j = 0; j < g[i].length; j += i) {
+            group.push(...g[i].slice(j, j + i));
+            ans.push([...group]);
+            group.length = 0;
         }
     }
-    return res;
+    return ans;
 }
 ```
 
 ```rust
-use std::collections::HashMap;
 impl Solution {
     pub fn group_the_people(group_sizes: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        let mut map = HashMap::new();
-        for i in 0..group_sizes.len() {
-            let size = group_sizes[i] as usize;
-            let arr = map.entry(size).or_insert(vec![]);
-            arr.push(i as i32);
-            if arr.len() == size {
-                res.push(arr.clone());
-                arr.clear();
-            }
+        let n: usize = group_sizes.len();
+        let mut g: Vec<Vec<usize>> = vec![Vec::new(); n + 1];
+
+        for (i, &size) in group_sizes.iter().enumerate() {
+            g[size as usize].push(i);
         }
-        res
-    }
-}
-```
 
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
-        g = defaultdict(list)
-        for i, x in enumerate(groupSizes):
-            g[x].append(i)
-        ans = []
-        for x, idx in g.items():
-            t = []
-            for i in idx:
-                t.append(i)
-                if len(t) == x:
-                    ans.append(t)
-                    t = []
-        return ans
-```
-
-```rust
-impl Solution {
-    #[allow(dead_code)]
-    pub fn group_the_people(group_sizes: Vec<i32>) -> Vec<Vec<i32>> {
-        let n = group_sizes.len();
-        let mut g = vec![vec![]; n + 1];
-        let mut ret = vec![];
-
-        for i in 0..n {
-            g[group_sizes[i] as usize].push(i as i32);
-            if g[group_sizes[i] as usize].len() == (group_sizes[i] as usize) {
-                ret.push(g[group_sizes[i] as usize].clone());
-                g[group_sizes[i] as usize].clear();
+        let mut ans: Vec<Vec<i32>> = Vec::new();
+        for (i, v) in g.into_iter().enumerate() {
+            for j in (0..v.len()).step_by(i.max(1)) {
+                ans.push(
+                    v[j..(j + i).min(v.len())]
+                        .iter()
+                        .map(|&x| x as i32)
+                        .collect()
+                );
             }
         }
 
-        ret
+        ans
     }
 }
 ```

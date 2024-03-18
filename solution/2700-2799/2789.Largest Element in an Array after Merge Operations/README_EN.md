@@ -50,7 +50,15 @@ There is only one element in the final array, which is 11.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Merge in Reverse Order
+
+According to the problem description, in order to maximize the maximum element in the merged array, we should merge the elements on the right first, making the elements on the right as large as possible, so as to perform as many merge operations as possible and finally get the maximum element.
+
+Therefore, we can traverse the array from right to left. For each position $i$, where $i \in [0, n - 2]$, if $nums[i] \leq nums[i + 1]$, we update $nums[i]$ to $nums[i] + nums[i + 1]$. Doing so is equivalent to merging $nums[i]$ and $nums[i + 1]$ and deleting $nums[i]$.
+
+In the end, the maximum element in the array is the maximum element in the merged array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

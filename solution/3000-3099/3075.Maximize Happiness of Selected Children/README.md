@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,数组,排序 -->
 
 ## 题目描述
 
@@ -118,6 +118,18 @@ func maximumHappinessSum(happiness []int, k int) (ans int64) {
 		ans += int64(max(x, 0))
 	}
 	return
+}
+```
+
+```ts
+function maximumHappinessSum(happiness: number[], k: number): number {
+    happiness.sort((a, b) => b - a);
+    let ans = 0;
+    for (let i = 0; i < k; ++i) {
+        const x = happiness[i] - i;
+        ans += Math.max(x, 0);
+    }
+    return ans;
 }
 ```
 

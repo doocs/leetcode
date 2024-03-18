@@ -64,12 +64,7 @@ class Solution:
 ```java
 class Solution {
     public String maximumOddBinaryNumber(String s) {
-        int cnt = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '1') {
-                ++cnt;
-            }
-        }
+        int cnt = s.length() - s.replace("1", "").length();
         return "1".repeat(cnt - 1) + "0".repeat(s.length() - cnt) + "1";
     }
 }
@@ -79,16 +74,8 @@ class Solution {
 class Solution {
 public:
     string maximumOddBinaryNumber(string s) {
-        int cnt = count_if(s.begin(), s.end(), [](char c) { return c == '1'; });
-        string ans;
-        for (int i = 1; i < cnt; ++i) {
-            ans.push_back('1');
-        }
-        for (int i = 0; i < s.size() - cnt; ++i) {
-            ans.push_back('0');
-        }
-        ans.push_back('1');
-        return ans;
+        int cnt = count(s.begin(), s.end(), '1');
+        return string(cnt - 1, '1') + string(s.size() - cnt, '0') + '1';
     }
 };
 ```
@@ -102,11 +89,20 @@ func maximumOddBinaryNumber(s string) string {
 
 ```ts
 function maximumOddBinaryNumber(s: string): string {
-    let cnt = 0;
-    for (const c of s) {
-        cnt += c === '1' ? 1 : 0;
-    }
+    const cnt = s.length - s.replace(/1/g, '').length;
     return '1'.repeat(cnt - 1) + '0'.repeat(s.length - cnt) + '1';
+}
+```
+
+```rust
+impl Solution {
+    pub fn maximum_odd_binary_number(s: String) -> String {
+        let cnt = s
+            .chars()
+            .filter(|&c| c == '1')
+            .count();
+        "1".repeat(cnt - 1) + &"0".repeat(s.len() - cnt) + "1"
+    }
 }
 ```
 

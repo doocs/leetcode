@@ -3083,11 +3083,21 @@
 |  3070  |  [元素和小于等于 k 的子矩阵的数目](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md)  |  `数组`,`矩阵`,`前缀和`  |  中等  |  第 387 场周赛  |
 |  3071  |  [在矩阵上写出字母 Y 所需的最少操作次数](/solution/3000-3099/3071.Minimum%20Operations%20to%20Write%20the%20Letter%20Y%20on%20a%20Grid/README.md)  |  `数组`,`哈希表`,`计数`,`矩阵`  |  中等  |  第 387 场周赛  |
 |  3072  |  [将元素分配到两个数组中 II](/solution/3000-3099/3072.Distribute%20Elements%20Into%20Two%20Arrays%20II/README.md)  |  `树状数组`,`线段树`,`数组`,`模拟`  |  困难  |  第 387 场周赛  |
-|  3073  |  [最大递增三元组](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md)  |    |  中等  |  🔒  |
-|  3074  |  [重新分装苹果](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)  |    |  简单  |  第 388 场周赛  |
-|  3075  |  [幸福值最大化的选择方案](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)  |    |  中等  |  第 388 场周赛  |
-|  3076  |  [数组中的最短非公共子字符串](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)  |    |  中等  |  第 388 场周赛  |
-|  3077  |  [K 个不相交子数组的最大能量值](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)  |    |  困难  |  第 388 场周赛  |
+|  3073  |  [最大递增三元组](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md)  |  `数组`,`有序集合`  |  中等  |  🔒  |
+|  3074  |  [重新分装苹果](/solution/3000-3099/3074.Apple%20Redistribution%20into%20Boxes/README.md)  |  `贪心`,`数组`,`排序`  |  简单  |  第 388 场周赛  |
+|  3075  |  [幸福值最大化的选择方案](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 388 场周赛  |
+|  3076  |  [数组中的最短非公共子字符串](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README.md)  |  `字典树`,`数组`,`哈希表`,`字符串`  |  中等  |  第 388 场周赛  |
+|  3077  |  [K 个不相交子数组的最大能量值](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)  |  `数组`,`动态规划`,`前缀和`  |  困难  |  第 388 场周赛  |
+|  3078  |  [Match Alphanumerical Pattern in Matrix I](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README.md)  |    |  中等  |  🔒  |
+|  3079  |  [求出加密整数的和](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README.md)  |    |  简单  |  第 126 场双周赛  |
+|  3080  |  [执行操作标记数组中的元素](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README.md)  |    |  中等  |  第 126 场双周赛  |
+|  3081  |  [替换字符串中的问号使分数最小](/solution/3000-3099/3081.Replace%20Question%20Marks%20in%20String%20to%20Minimize%20Its%20Value/README.md)  |    |  中等  |  第 126 场双周赛  |
+|  3082  |  [求出所有子序列的能量和](/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README.md)  |    |  困难  |  第 126 场双周赛  |
+|  3083  |  [字符串及其反转中是否存在同一子字符串](/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README.md)  |    |  简单  |  第 389 场周赛  |
+|  3084  |  [统计以给定字符开头和结尾的子字符串总数](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md)  |    |  中等  |  第 389 场周赛  |
+|  3085  |  [成为 K 特殊字符串需要删除的最少字符数](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md)  |    |  中等  |  第 389 场周赛  |
+|  3086  |  [拾起 K 个 1 需要的最少行动次数](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README.md)  |    |  困难  |  第 389 场周赛  |
+|  3087  |  [Find Trending Hashtags](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

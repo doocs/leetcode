@@ -88,10 +88,7 @@ public:
 
 ```go
 func distinctIntegers(n int) int {
-	if n == 1 {
-		return 1
-	}
-	return n - 1
+	return max(1, n-1)
 }
 ```
 
@@ -104,11 +101,7 @@ function distinctIntegers(n: number): number {
 ```rust
 impl Solution {
     pub fn distinct_integers(n: i32) -> i32 {
-        if n == 1 {
-            return 1;
-        }
-
-        n - 1
+        (1).max(n - 1)
     }
 }
 ```

@@ -61,7 +61,21 @@ The absolute difference is 1.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming (Grouped Knapsack)
+
+Let $f[i][j]$ represent whether it is possible to select elements from the first $i$ rows with a sum of $j$. Then we have the state transition equation:
+
+$$
+f[i][j] = \begin{cases} 1 & \text{if there exists } x \in row[i] \text{ such that } f[i - 1][j - x] = 1 \\ 0 & \text{otherwise} \end{cases}
+$$
+
+where $row[i]$ represents the set of elements in the $i$-th row.
+
+Since $f[i][j]$ is only related to $f[i - 1][j]$, we can use a rolling array to optimize the space complexity.
+
+Finally, we traverse the $f$ array to find the smallest absolute difference.
+
+The time complexity is $O(m^2 \times n \times C)$ and the space complexity is $O(m \times C)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively, and $C$ is the maximum value of the matrix elements.
 
 <!-- tabs:start -->
 
@@ -72,6 +86,34 @@ class Solution:
         for row in mat:
             f = set(a + b for a in f for b in row)
         return min(abs(v - target) for v in f)
+```
+
+```java
+class Solution {
+    public int minimizeTheDifference(int[][] mat, int target) {
+        boolean[] f = {true};
+        for (var row : mat) {
+            int mx = 0;
+            for (int x : row) {
+                mx = Math.max(mx, x);
+            }
+            boolean[] g = new boolean[f.length + mx];
+            for (int x : row) {
+                for (int j = x; j < f.length + x; ++j) {
+                    g[j] |= f[j - x];
+                }
+            }
+            f = g;
+        }
+        int ans = 1 << 30;
+        for (int j = 0; j < f.length; ++j) {
+            if (f[j]) {
+                ans = Math.min(ans, Math.abs(j - target));
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```java
@@ -150,40 +192,6 @@ func abs(x int) int {
 		return -x
 	}
 	return x
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public int minimizeTheDifference(int[][] mat, int target) {
-        boolean[] f = {true};
-        for (var row : mat) {
-            int mx = 0;
-            for (int x : row) {
-                mx = Math.max(mx, x);
-            }
-            boolean[] g = new boolean[f.length + mx];
-            for (int x : row) {
-                for (int j = x; j < f.length + x; ++j) {
-                    g[j] |= f[j - x];
-                }
-            }
-            f = g;
-        }
-        int ans = 1 << 30;
-        for (int j = 0; j < f.length; ++j) {
-            if (f[j]) {
-                ans = Math.min(ans, Math.abs(j - target));
-            }
-        }
-        return ans;
-    }
 }
 ```
 

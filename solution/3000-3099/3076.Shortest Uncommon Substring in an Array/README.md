@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3076.Shortest%20Uncommon%20Substring%20in%20an%20Array/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:字典树,数组,哈希表,字符串 -->
 
 ## 题目描述
 
@@ -56,24 +56,145 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们注意到数据规模很小，所以可以直接枚举每个字符串的所有子串，然后判断是否是其他字符串的子串。
+
+具体地，我们先枚举每个字符串 `arr[i]`，然后从小到大枚举每个子串的长度 $j$，然后枚举每个子串的起始位置 $l$，可以得到当前子串为 `sub = arr[i][l:l+j]`，然后判断 `sub` 是否是其他字符串的子串，如果是的话，就跳过当前子串，否则更新答案。
+
+时间复杂度 $O(n^2 \times m^4)$，空间复杂度 $O(m)$。其中 $n$ 是字符串数组 `arr` 的长度，而 $m$ 是字符串的最大长度，本题中 $m \le 20$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def shortestSubstrings(self, arr: List[str]) -> List[str]:
+        ans = [""] * len(arr)
+        for i, s in enumerate(arr):
+            m = len(s)
+            for j in range(1, m + 1):
+                for l in range(m - j + 1):
+                    sub = s[l : l + j]
+                    if not ans[i] or ans[i] > sub:
+                        if all(k == i or sub not in t for k, t in enumerate(arr)):
+                            ans[i] = sub
+                if ans[i]:
+                    break
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public String[] shortestSubstrings(String[] arr) {
+        int n = arr.length;
+        String[] ans = new String[n];
+        Arrays.fill(ans, "");
+        for (int i = 0; i < n; ++i) {
+            int m = arr[i].length();
+            for (int j = 1; j <= m && ans[i].isEmpty(); ++j) {
+                for (int l = 0; l <= m - j; ++l) {
+                    String sub = arr[i].substring(l, l + j);
+                    if (ans[i].isEmpty() || sub.compareTo(ans[i]) < 0) {
+                        boolean ok = true;
+                        for (int k = 0; k < n && ok; ++k) {
+                            if (k != i && arr[k].contains(sub)) {
+                                ok = false;
+                            }
+                        }
+                        if (ok) {
+                            ans[i] = sub;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> shortestSubstrings(vector<string>& arr) {
+        int n = arr.size();
+        vector<string> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int m = arr[i].size();
+            for (int j = 1; j <= m && ans[i].empty(); ++j) {
+                for (int l = 0; l <= m - j; ++l) {
+                    string sub = arr[i].substr(l, j);
+                    if (ans[i].empty() || sub < ans[i]) {
+                        bool ok = true;
+                        for (int k = 0; k < n && ok; ++k) {
+                            if (k != i && arr[k].find(sub) != string::npos) {
+                                ok = false;
+                            }
+                        }
+                        if (ok) {
+                            ans[i] = sub;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func shortestSubstrings(arr []string) []string {
+	ans := make([]string, len(arr))
+	for i, s := range arr {
+		m := len(s)
+		for j := 1; j <= m && len(ans[i]) == 0; j++ {
+			for l := 0; l <= m-j; l++ {
+				sub := s[l : l+j]
+				if len(ans[i]) == 0 || ans[i] > sub {
+					ok := true
+					for k, t := range arr {
+						if k != i && strings.Contains(t, sub) {
+							ok = false
+							break
+						}
+					}
+					if ok {
+						ans[i] = sub
+					}
+				}
+			}
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function shortestSubstrings(arr: string[]): string[] {
+    const n: number = arr.length;
+    const ans: string[] = Array(n).fill('');
+    for (let i = 0; i < n; ++i) {
+        const m: number = arr[i].length;
+        for (let j = 1; j <= m && ans[i] === ''; ++j) {
+            for (let l = 0; l <= m - j; ++l) {
+                const sub: string = arr[i].slice(l, l + j);
+                if (ans[i] === '' || sub.localeCompare(ans[i]) < 0) {
+                    let ok: boolean = true;
+                    for (let k = 0; k < n && ok; ++k) {
+                        if (k !== i && arr[k].includes(sub)) {
+                            ok = false;
+                        }
+                    }
+                    if (ok) {
+                        ans[i] = sub;
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
