@@ -15,7 +15,7 @@
 <p>水果超市有如下促销活动：</p>
 
 <ul>
-	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么&nbsp;<code>i</code>&nbsp;后面的那个水果你可以免费获得。</li>
+	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么后面的&nbsp;<code>i</code>&nbsp;个水果你可以免费获得。</li>
 </ul>
 
 <p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以便能免费获得接下来的 <code>j</code>&nbsp;个水果。</p>

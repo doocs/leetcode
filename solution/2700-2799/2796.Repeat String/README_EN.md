@@ -39,7 +39,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= str.length,&nbsp;times &lt;=&nbsp;10<sup>5</sup></code></li>
+	<li><code>1 &lt;= times &lt;=&nbsp;10<sup>5</sup></code></li>
+	<li><code>1 &lt;=&nbsp;str.length &lt;= 1000</code></li>
 </ul>
 
 ## Solutions
