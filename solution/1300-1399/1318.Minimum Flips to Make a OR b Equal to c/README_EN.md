@@ -60,7 +60,11 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+We can enumerate each bit of the binary representation of $a$, $b$, and $c$, denoted as $x$, $y$, and $z$ respectively. If the bitwise OR operation result of $x$ and $y$ is different from $z$, we then check if both $x$ and $y$ are $1$. If so, we need to flip twice, otherwise, we only need to flip once. We accumulate all the required flip times.
+
+The time complexity is $O(\log M)$, where $M$ is the maximum value of the numbers in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -68,10 +72,9 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 class Solution:
     def minFlips(self, a: int, b: int, c: int) -> int:
         ans = 0
-        for i in range(30):
+        for i in range(32):
             x, y, z = a >> i & 1, b >> i & 1, c >> i & 1
-            if x | y != z:
-                ans += 2 if x == 1 and y == 1 else 1
+            ans += x + y if z == 0 else int(x == 0 and y == 0)
         return ans
 ```
 
@@ -79,11 +82,9 @@ class Solution:
 class Solution {
     public int minFlips(int a, int b, int c) {
         int ans = 0;
-        for (int i = 0; i < 30; ++i) {
+        for (int i = 0; i < 32; ++i) {
             int x = a >> i & 1, y = b >> i & 1, z = c >> i & 1;
-            if ((x | y) != z) {
-                ans += x == 1 && y == 1 ? 2 : 1;
-            }
+            ans += z == 0 ? x + y : (x == 0 && y == 0 ? 1 : 0);
         }
         return ans;
     }
@@ -95,11 +96,9 @@ class Solution {
 public:
     int minFlips(int a, int b, int c) {
         int ans = 0;
-        for (int i = 0; i < 30; ++i) {
+        for (int i = 0; i < 32; ++i) {
             int x = a >> i & 1, y = b >> i & 1, z = c >> i & 1;
-            if ((x | y) != z) {
-                ans += x == 1 && y == 1 ? 2 : 1;
-            }
+            ans += z == 0 ? x + y : (x == 0 && y == 0 ? 1 : 0);
         }
         return ans;
     }
@@ -108,17 +107,26 @@ public:
 
 ```go
 func minFlips(a int, b int, c int) (ans int) {
-	for i := 0; i < 30; i++ {
+	for i := 0; i < 32; i++ {
 		x, y, z := a>>i&1, b>>i&1, c>>i&1
-		if (x | y) != z {
-			if x == 1 && y == 1 {
-				ans += 2
-			} else {
-				ans++
-			}
+		if z == 0 {
+			ans += x + y
+		} else if x == 0 && y == 0 {
+			ans++
 		}
 	}
 	return
+}
+```
+
+```ts
+function minFlips(a: number, b: number, c: number): number {
+    let ans = 0;
+    for (let i = 0; i < 32; ++i) {
+        const [x, y, z] = [(a >> i) & 1, (b >> i) & 1, (c >> i) & 1];
+        ans += z === 0 ? x + y : x + y === 0 ? 1 : 0;
+    }
+    return ans;
 }
 ```
 
