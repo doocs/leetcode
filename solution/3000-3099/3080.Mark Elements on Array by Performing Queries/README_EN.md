@@ -57,7 +57,7 @@
 	<li><code>n == nums.length</code></li>
 	<li><code>m == queries.length</code></li>
 	<li><code>1 &lt;= m &lt;= n &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>queries[i].length == 2</code></li>
 	<li><code>0 &lt;= index<sub>i</sub>, k<sub>i</sub> &lt;= n - 1</code></li>
 </ul>
