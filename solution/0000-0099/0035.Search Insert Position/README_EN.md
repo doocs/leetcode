@@ -162,7 +162,11 @@ var searchInsert = function (nums, target) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Binary Search (Built-in Function)
+
+We can also directly use the built-in function for binary search.
+
+The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -170,6 +174,15 @@ var searchInsert = function (nums, target) {
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         return bisect_left(nums, target)
+```
+
+```java
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int i = Arrays.binarySearch(nums, target);
+        return i < 0 ? -i - 1 : i;
+    }
+}
 ```
 
 ```cpp
