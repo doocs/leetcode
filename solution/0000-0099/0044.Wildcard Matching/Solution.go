@@ -1,23 +1,31 @@
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
-	dp := make([][]bool, m+1)
-	for i := range dp {
-		dp[i] = make([]bool, n+1)
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
 	}
-	dp[0][0] = true
-	for j := 1; j <= n; j++ {
-		if p[j-1] == '*' {
-			dp[0][j] = dp[0][j-1]
+	var dfs func(i, j int) bool
+	dfs = func(i, j int) bool {
+		if i >= m {
+			return j >= n || p[j] == '*' && dfs(i, j+1)
 		}
-	}
-	for i := 1; i <= m; i++ {
-		for j := 1; j <= n; j++ {
-			if s[i-1] == p[j-1] || p[j-1] == '?' {
-				dp[i][j] = dp[i-1][j-1]
-			} else if p[j-1] == '*' {
-				dp[i][j] = dp[i-1][j] || dp[i][j-1]
-			}
+		if j >= n {
+			return false
 		}
+		if f[i][j] != 0 {
+			return f[i][j] == 1
+		}
+		f[i][j] = 2
+		ok := false
+		if p[j] == '*' {
+			ok = dfs(i+1, j) || dfs(i+1, j+1) || dfs(i, j+1)
+		} else {
+			ok = (p[j] == '?' || s[i] == p[j]) && dfs(i+1, j+1)
+		}
+		if ok {
+			f[i][j] = 1
+		}
+		return ok
 	}
-	return dp[m][n]
+	return dfs(0, 0)
 }

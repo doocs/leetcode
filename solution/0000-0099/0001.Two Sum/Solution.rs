@@ -2,14 +2,13 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut map = HashMap::new();
-        for (i, item) in nums.iter().enumerate() {
-            if map.contains_key(item) {
-                return vec![i as i32, map[item]];
-            } else {
-                let x = target - nums[i];
-                map.insert(x, i as i32);
+        let mut m = HashMap::new();
+        for (i, &x) in nums.iter().enumerate() {
+            let y = target - x;
+            if let Some(&j) = m.get(&y) {
+                return vec![j as i32, i as i32];
             }
+            m.insert(x, i as i32);
         }
         unreachable!()
     }
