@@ -1,26 +1,21 @@
 class Solution {
     /**
-     * @param int[] $height
-     * @return int
+     * @param Integer[] $height
+     * @return Integer
      */
-
     function maxArea($height) {
-        $left = 0;
-        $right = count($height) - 1;
-        $maxArea = 0;
-
-        while ($left < $right) {
-            $area = min($height[$left], $height[$right]) * ($right - $left);
-
-            $maxArea = max($maxArea, $area);
-
-            if ($height[$left] < $height[$right]) {
-                $left++;
+        $i = 0;
+        $j = count($height) - 1;
+        $ans = 0;
+        while ($i < $j) {
+            $t = min($height[$i], $height[$j]) * ($j - $i);
+            $ans = max($ans, $t);
+            if ($height[$i] < $height[$j]) {
+                ++$i;
             } else {
-                $right--;
+                --$j;
             }
         }
-
-        return $maxArea;
+        return $ans;
     }
 }
