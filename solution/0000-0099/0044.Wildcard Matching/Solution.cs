@@ -1,43 +1,34 @@
-using System.Linq;
-
 public class Solution {
+    private bool?[,] f;
+    private char[] s;
+    private char[] p;
+    private int m;
+    private int n;
+
     public bool IsMatch(string s, string p) {
-        if (p.Count(ch => ch != '*') > s.Length)
-        {
+        this.s = s.ToCharArray();
+        this.p = p.ToCharArray();
+        m = s.Length;
+        n = p.Length;
+        f = new bool?[m, n];
+        return Dfs(0, 0);
+    }
+
+    private bool Dfs(int i, int j) {
+        if (i >= m) {
+            return j >= n || (p[j] == '*' && Dfs(i, j + 1));
+        }
+        if (j >= n) {
             return false;
         }
-        
-        bool[,] f = new bool[s.Length + 1, p.Length + 1];
-        bool[] d = new bool[s.Length + 1]; // d[i] means f[0, j] || f[1, j] || ... || f[i, j]
-        for (var j = 0; j <= p.Length; ++j)
-        {
-            d[0] = j == 0 ? true : d[0] && p[j - 1] == '*';
-            for (var i = 0; i <= s.Length; ++i)
-            {
-                if (j == 0)
-                {
-                    f[i, j] = i == 0;
-                    continue;
-                }
-                
-                if (p[j - 1] == '*')
-                {
-                    if (i > 0)
-                    {
-                        d[i] = f[i, j - 1] || d[i - 1];
-                    }
-                    f[i, j] = d[i];
-                }
-                else if (p[j - 1] == '?')
-                {
-                    f[i, j] = i > 0 && f[i - 1, j - 1];
-                }
-                else
-                {
-                    f[i, j] = i > 0 && f[i - 1, j - 1] && s[i - 1] == p[j - 1];
-                }
-            }
+        if (f[i, j] != null) {
+            return f[i, j].Value;
         }
-        return f[s.Length, p.Length];
+        if (p[j] == '*') {
+            f[i, j] = Dfs(i + 1, j) || Dfs(i + 1, j + 1) || Dfs(i, j + 1);
+        } else {
+            f[i, j] = (p[j] == '?' || s[i] == p[j]) && Dfs(i + 1, j + 1);
+        }
+        return f[i, j].Value;
     }
 }
