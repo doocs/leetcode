@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,哈希表,排序,模拟,堆（优先队列） -->
 
 ## 题目描述
 
