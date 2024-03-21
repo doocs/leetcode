@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3080.Mark%20Elements%20on%20Array%20by%20Performing%20Queries/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Hash Table,Sorting,Simulation,Heap (Priority Queue) -->
 
 ## Description
 

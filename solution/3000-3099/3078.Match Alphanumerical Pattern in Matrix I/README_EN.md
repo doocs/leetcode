@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Hash Table,String,Matrix -->
 
 ## Description
 

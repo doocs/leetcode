@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,Hash Table,String,Counting,Sorting -->
 
 ## Description
 
