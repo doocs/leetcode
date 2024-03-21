@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3082.Find%20the%20Sum%20of%20the%20Power%20of%20All%20Subsequences/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,动态规划 -->
 
 ## 题目描述
 

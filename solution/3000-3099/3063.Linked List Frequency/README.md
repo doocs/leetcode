@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定包含 <code>k</code> 个&nbsp;<strong>不同&nbsp;</strong>元素的链表的&nbsp;<code>head</code>&nbsp;节点，创建一个长度为&nbsp;<code>k</code>&nbsp;的链表，包含给定链表中每个 <strong>不同元素</strong> 以 <strong>任何顺序</strong> 出现的 <span data-keyword="frequency-linkedlist">频率</span>&nbsp;。返回这个链表的头节点。</p>
+<p>给定包含 <code>k</code> 个&nbsp;<strong>不同&nbsp;</strong>元素的链表的&nbsp;<code>head</code>&nbsp;节点，创建一个长度为&nbsp;<code>k</code>&nbsp;的链表，以 <strong>任何顺序</strong> 返回链表中所有 <strong>不同元素</strong> 出现的 <strong>频率</strong>。返回这个链表的头节点。</p>
 
 <p>&nbsp;</p>
 

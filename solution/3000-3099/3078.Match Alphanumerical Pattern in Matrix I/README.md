@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,哈希表,字符串,矩阵 -->
 
 ## 题目描述
 
@@ -15,8 +15,8 @@
 <p>如果我们能用一些数字（每个 <strong>不同</strong> 的字母对应 <strong>不同</strong> 的数字）替换&nbsp;<code>pattern</code>&nbsp;中包含的字母使得结果矩阵与整数矩阵&nbsp;<code>part</code>&nbsp;相同，我们称整数矩阵&nbsp;<code>part</code>&nbsp;与&nbsp;<code>pattern</code>&nbsp;匹配。换句话说，</p>
 
 <ul>
-	<li>矩阵具有相同的维数。</li>
-	<li>如果&nbsp;<code>pattern[r][c]</code>&nbsp;是一个数字，那么&nbsp;<code>part[r][c]</code>&nbsp;一定 <strong>也</strong> 是数字。</li>
+	<li>这两个矩阵具有相同的维数。</li>
+	<li>如果&nbsp;<code>pattern[r][c]</code>&nbsp;是一个数字，那么&nbsp;<code>part[r][c]</code>&nbsp;必须是&nbsp;<strong>相同的</strong> 数字。</li>
 	<li>如果&nbsp;<code>pattern[r][c]</code>&nbsp;是一个字母&nbsp;<code>x</code>：
 	<ul>
 		<li>对于每个&nbsp;<code>pattern[i][j] == x</code>，<code>part[i][j]</code>&nbsp;一定与 <code>part[r][c]</code>&nbsp;<strong>相同</strong>。</li>
@@ -25,7 +25,7 @@
 	</li>
 </ul>
 
-<p>返回一个长度为<em>&nbsp;</em><code>2</code>&nbsp;的数组，包含匹配&nbsp;<code>pattern</code>&nbsp;的&nbsp;<code>board</code>&nbsp;的子矩阵左上角的行号和列号。如果有一个以上这样的子矩阵，返回行号更小的子矩阵。如果依然相同，则返回列号更小的子矩阵。如果没有符合的答案，返回&nbsp;<code>[-1, -1]</code>。</p>
+<p>返回一个长度为<em>&nbsp;</em><code>2</code>&nbsp;的数组，包含匹配&nbsp;<code>pattern</code>&nbsp;的&nbsp;<code>board</code>&nbsp;的子矩阵左上角的行号和列号。如果有多个这样的子矩阵，返回行号更小的子矩阵。如果依然有多个，则返回列号更小的子矩阵。如果没有符合的答案，返回&nbsp;<code>[-1, -1]</code>。</p>
 
 <p>&nbsp;</p>
 

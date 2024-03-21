@@ -21,9 +21,9 @@ tweet_id is the primary key (column with unique values) for this table.
 Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 </pre>
 
-<p>Write a solution to find the <strong>top</strong> <code>3</code> trending <strong>hashtags</strong>&nbsp;in&nbsp;<strong>February</strong> <code>2024</code>.</p>
+<p>Write a solution to find the <strong>top</strong> <code>3</code> trending <strong>hashtags</strong>&nbsp;in&nbsp;<strong>February</strong> <code>2024</code>. Each tweet only contains one hashtag.</p>
 
-<p>Return <em>the result table orderd by count of hashtag, hastag in </em><strong>descending</strong><em> order.</em></p>
+<p>Return <em>the result table orderd by count of hashtag, hashtag in </em><strong>descending</strong><em> order.</em></p>
 
 <p>The result format is in the following example.</p>
 

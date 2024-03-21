@@ -1,4 +1,4 @@
-# [3060. User Activities within Time Bounds](https://leetcode.cn/problems/user-activities-within-time-bounds)
+# [3060. 时间范围内的用户活动](https://leetcode.cn/problems/user-activities-within-time-bounds)
 
 [English Version](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)
 
@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Sessions</code></p>
+<p>表：<code>Sessions</code></p>
 
 <pre>
 +---------------+----------+
@@ -20,23 +20,24 @@
 | session_id    | int      |
 | session_type  | enum     |
 +---------------+----------+
-session_id is column of unique values for this table.
-session_type is an ENUM (category) type of (Viewer, Streamer).
-This table contains user id, session start, session end, session id and session type.
+session_id 是这张表中有不同值的列。
+session_type 是 (Viewer, Streamer) 的一个 ENUM (category) 类型。
+这张表包含 user id, session start, session end, session id 和 session 类型。
 </pre>
 
-<p>Write a solution to find the the <strong>users</strong> who have had <strong>at least one</strong> <strong>consecutive session</strong> of the <strong>same</strong> type (either &#39;<strong>Viewer</strong>&#39; or &#39;<strong>Streamer</strong>&#39;) with a <strong>maximum</strong> gap of <code>12</code> hours <strong>between</strong> sessions.</p>
+<p>编写一个解决方案，以查找 <strong>至少有一个相同</strong> 类型的 <strong>连续会话</strong>（无论是“<strong>Viewer</strong>”还是“<strong>Streamer</strong>”）的 <strong>用户</strong>，会话 <strong>之间</strong> 的 <strong>最大</strong> 间隔为 <code>12</code> 小时。</p>
 
-<p>Return <em>the result table ordered by </em><code>user_id</code><em> in <b>ascending</b> order.</em></p>
+<p>返回结果表，以<em>&nbsp;</em><code>user_id</code><em>&nbsp;<strong>升序</strong> 排序。</em></p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所述。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Sessions table:
+<strong>输入:</strong> 
+Sessions 表:
 +---------+---------------------+---------------------+------------+--------------+
 | user_id | session_start       | session_end         | session_id | session_type | 
 +---------+---------------------+---------------------+------------+--------------+
@@ -52,18 +53,18 @@ Sessions table:
 | 103     | 2023-11-02 20:00:00 | 2023-11-02 23:00:00 | 10         | Viewer       | 
 | 103     | 2023-11-03 09:00:00 | 2023-11-03 10:00:00 | 11         | Viewer       | 
 +---------+---------------------+---------------------+------------+--------------+
-<strong>Output:</strong> 
+<strong>输出:</strong> 
 +---------+
 | user_id |
 +---------+
 | 102     |
 | 103     |
 +---------+
-<strong>Explanation:</strong>
-- User ID 101 will not be included in the final output as they do not have any consecutive sessions of the same session type.
-- User ID 102 will be included in the final output as they had two viewer sessions with session IDs 3 and 4, respectively, and the time gap between them was less than 12 hours.
-- User ID 103 participated in two viewer sessions with a gap of less than 12 hours between them, identified by session IDs 10 and 11. Therefore, user 103 will be included in the final output.
-Output table is ordered by user_id in increasing order.
+<strong>解释:</strong>
+- 用户 ID 101 将不会包含在最终输出中，因为他们没有相同会话类型的连续回话。
+- 用户 ID 102 将会包含在最终输出中，因为他们分别有两个 session ID 为 3 和 4 的 viewer 会话，并且时间间隔在 12 小时内。
+- 用户 ID 103 参与了两次 viewer 会话，间隔不到 12 小时，会话 ID 为 10 和 11。因此，用户 103 将会被包含在最终输出中。
+输出表根据 user_id 升序排列。
 </pre>
 
 ## 解法
