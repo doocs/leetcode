@@ -2,22 +2,25 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
         int m = s.size(), n = p.size();
-        vector<vector<bool>> dp(m + 1, vector<bool>(n + 1));
-        dp[0][0] = true;
-        for (int j = 1; j <= n; ++j) {
-            if (p[j - 1] == '*') {
-                dp[0][j] = dp[0][j - 1];
+        int f[m + 1][n + 1];
+        memset(f, -1, sizeof(f));
+        function<bool(int, int)> dfs = [&](int i, int j) {
+            if (i >= m) {
+                return j >= n || (p[j] == '*' && dfs(i, j + 1));
             }
-        }
-        for (int i = 1; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                if (s[i - 1] == p[j - 1] || p[j - 1] == '?') {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else if (p[j - 1] == '*') {
-                    dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
-                }
+            if (j >= n) {
+                return false;
             }
-        }
-        return dp[m][n];
+            if (f[i][j] != -1) {
+                return f[i][j] == 1;
+            }
+            if (p[j] == '*') {
+                f[i][j] = dfs(i + 1, j) || dfs(i, j + 1) ? 1 : 0;
+            } else {
+                f[i][j] = (p[j] == '?' || s[i] == p[j]) && dfs(i + 1, j + 1) ? 1 : 0;
+            }
+            return f[i][j] == 1;
+        };
+        return dfs(0, 0);
     }
 };

@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,数组,前缀和,滑动窗口 -->
 
 ## 题目描述
 
