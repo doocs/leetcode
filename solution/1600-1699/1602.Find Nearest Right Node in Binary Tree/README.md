@@ -61,7 +61,7 @@
 
 ### 方法一：BFS
 
-BFS 层序遍历，找到 $u$ 所在层的右侧相邻节点。
+我们可以使用广度优先搜索，从根节点开始搜索，当搜索到节点 $u$ 时，返回队列中的下一个节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
@@ -147,9 +147,15 @@ public:
             for (int i = q.size(); i; --i) {
                 root = q.front();
                 q.pop();
-                if (root == u) return i > 1 ? q.front() : nullptr;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root == u) {
+                    return i > 1 ? q.front() : nullptr;
+                }
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
         }
         return nullptr;
@@ -321,28 +327,26 @@ class Solution {
  */
 class Solution {
 public:
-    TreeNode* u;
-    TreeNode* ans;
-    int d = 0;
-
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
-        this->u = u;
+        TreeNode* ans;
+        int d = 0;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int i) {
+            if (!root || ans) {
+                return;
+            }
+            if (d == i) {
+                ans = root;
+                return;
+            }
+            if (root == u) {
+                d = i;
+                return;
+            }
+            dfs(root->left, i + 1);
+            dfs(root->right, i + 1);
+        };
         dfs(root, 1);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int i) {
-        if (!root || ans) return;
-        if (d == i) {
-            ans = root;
-            return;
-        }
-        if (root == u) {
-            d = i;
-            return;
-        }
-        dfs(root->left, i + 1);
-        dfs(root->right, i + 1);
     }
 };
 ```

@@ -51,7 +51,11 @@ x cannot be greater since there are only 2 numbers in nums.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Brute Force Enumeration
+
+We enumerate $x$ in the range of $[1..n]$, and then count the number of elements in the array that are greater than or equal to $x$, denoted as $cnt$. If there exists $cnt$ equal to $x$, return $x$ directly.
+
+The time complexity is $O(n^2)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -149,7 +153,13 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Sorting + Binary Search
+
+We can also sort `nums` first.
+
+Next, we still enumerate $x$, and use binary search to find the first element in `nums` that is greater than or equal to $x$, quickly counting the number of elements in `nums` that are greater than or equal to $x$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

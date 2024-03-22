@@ -37,7 +37,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: BFS
+
+We can use Breadth-First Search, starting from the root node. When we reach node $u$, we return the next node in the queue.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -121,9 +125,15 @@ public:
             for (int i = q.size(); i; --i) {
                 root = q.front();
                 q.pop();
-                if (root == u) return i > 1 ? q.front() : nullptr;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root == u) {
+                    return i > 1 ? q.front() : nullptr;
+                }
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
         }
         return nullptr;
@@ -200,7 +210,11 @@ var findNearestRightNode = function (root, u) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: DFS
+
+DFS performs a pre-order traversal of the binary tree. The first time we search to node $u$, we mark the current depth $d$. The next time we encounter a node at the same level, it is the target node.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -291,28 +305,26 @@ class Solution {
  */
 class Solution {
 public:
-    TreeNode* u;
-    TreeNode* ans;
-    int d = 0;
-
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
-        this->u = u;
+        TreeNode* ans;
+        int d = 0;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int i) {
+            if (!root || ans) {
+                return;
+            }
+            if (d == i) {
+                ans = root;
+                return;
+            }
+            if (root == u) {
+                d = i;
+                return;
+            }
+            dfs(root->left, i + 1);
+            dfs(root->right, i + 1);
+        };
         dfs(root, 1);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int i) {
-        if (!root || ans) return;
-        if (d == i) {
-            ans = root;
-            return;
-        }
-        if (root == u) {
-            d = i;
-            return;
-        }
-        dfs(root->left, i + 1);
-        dfs(root->right, i + 1);
     }
 };
 ```
