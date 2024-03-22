@@ -73,7 +73,11 @@
 
 ### 方法一：拓扑排序
 
-BFS 实现。
+我们可以先遍历每个子序列 `seq`，对于每个相邻的元素 $a$ 和 $b$，我们在 $a$ 和 $b$ 之间建立一条有向边 $a \to b$。同时统计每个节点的入度，最后将所有入度为 $0$ 的节点加入队列中。
+
+当队列中的节点个数等于 $1$ 时，我们取出队首节点 $i$，将 $i$ 从图中删除，并将 $i$ 的所有相邻节点的入度减 $1$。如果减 $1$ 后相邻节点的入度为 $0$，则将这些节点加入队列中。重复上述操作，直到队列的长度不为 $1$。此时判断队列是否为空，如果不为空，说明有多个最短超序列，返回 `false`；如果为空，说明只有一个最短超序列，返回 `true`。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点的个数和边的个数。
 
 <!-- tabs:start -->
 
@@ -82,22 +86,22 @@ class Solution:
     def sequenceReconstruction(
         self, nums: List[int], sequences: List[List[int]]
     ) -> bool:
-        g = defaultdict(list)
-        indeg = [0] * len(nums)
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        indeg = [0] * n
         for seq in sequences:
             for a, b in pairwise(seq):
-                g[a - 1].append(b - 1)
-                indeg[b - 1] += 1
-        q = deque(i for i, v in enumerate(indeg) if v == 0)
-        while q:
-            if len(q) > 1:
-                return False
+                a, b = a - 1, b - 1
+                g[a].append(b)
+                indeg[b] += 1
+        q = deque(i for i, x in enumerate(indeg) if x == 0)
+        while len(q) == 1:
             i = q.popleft()
             for j in g[i]:
                 indeg[j] -= 1
                 if indeg[j] == 0:
                     q.append(j)
-        return True
+        return len(q) == 0
 ```
 
 ```java
@@ -111,7 +115,7 @@ class Solution {
             for (int i = 1; i < seq.size(); ++i) {
                 int a = seq.get(i - 1) - 1, b = seq.get(i) - 1;
                 g[a].add(b);
-                indeg[b]++;
+                ++indeg[b];
             }
         }
         Deque<Integer> q = new ArrayDeque<>();
@@ -120,10 +124,7 @@ class Solution {
                 q.offer(i);
             }
         }
-        while (!q.isEmpty()) {
-            if (q.size() > 1) {
-                return false;
-            }
+        while (q.size() == 1) {
             int i = q.poll();
             for (int j : g[i]) {
                 if (--indeg[j] == 0) {
@@ -131,7 +132,7 @@ class Solution {
                 }
             }
         }
-        return true;
+        return q.isEmpty();
     }
 }
 ```
@@ -141,8 +142,8 @@ class Solution {
 public:
     bool sequenceReconstruction(vector<int>& nums, vector<vector<int>>& sequences) {
         int n = nums.size();
-        vector<vector<int>> g(n);
         vector<int> indeg(n);
+        vector<int> g[n];
         for (auto& seq : sequences) {
             for (int i = 1; i < seq.size(); ++i) {
                 int a = seq[i - 1] - 1, b = seq[i] - 1;
@@ -151,16 +152,21 @@ public:
             }
         }
         queue<int> q;
-        for (int i = 0; i < n; ++i)
-            if (indeg[i] == 0) q.push(i);
-        while (!q.empty()) {
-            if (q.size() > 1) return false;
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                q.push(i);
+            }
+        }
+        while (q.size() == 1) {
             int i = q.front();
             q.pop();
-            for (int j : g[i])
-                if (--indeg[j] == 0) q.push(j);
+            for (int j : g[i]) {
+                if (--indeg[j] == 0) {
+                    q.push(j);
+                }
+            }
         }
-        return true;
+        return q.empty();
     }
 };
 ```
@@ -168,25 +174,23 @@ public:
 ```go
 func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	n := len(nums)
-	g := make([][]int, n)
 	indeg := make([]int, n)
+	g := make([][]int, n)
 	for _, seq := range sequences {
-		for i := 1; i < len(seq); i++ {
-			a, b := seq[i-1]-1, seq[i]-1
+		for i, b := range seq[1:] {
+			a := seq[i] - 1
+			b -= 1
 			g[a] = append(g[a], b)
 			indeg[b]++
 		}
 	}
 	q := []int{}
-	for i, v := range indeg {
-		if v == 0 {
+	for i, x := range indeg {
+		if x == 0 {
 			q = append(q, i)
 		}
 	}
-	for len(q) > 0 {
-		if len(q) > 1 {
-			return false
-		}
+	for len(q) == 1 {
 		i := q[0]
 		q = q[1:]
 		for _, j := range g[i] {
@@ -196,7 +200,32 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 			}
 		}
 	}
-	return true
+	return len(q) == 0
+}
+```
+
+```ts
+function sequenceReconstruction(nums: number[], sequences: number[][]): boolean {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const indeg: number[] = Array(n).fill(0);
+    for (const seq of sequences) {
+        for (let i = 1; i < seq.length; ++i) {
+            const [a, b] = [seq[i - 1] - 1, seq[i] - 1];
+            g[a].push(b);
+            ++indeg[b];
+        }
+    }
+    const q: number[] = indeg.map((v, i) => (v === 0 ? i : -1)).filter(v => v !== -1);
+    while (q.length === 1) {
+        const i = q.pop()!;
+        for (const j of g[i]) {
+            if (--indeg[j] === 0) {
+                q.push(j);
+            }
+        }
+    }
+    return q.length === 0;
 }
 ```
 
