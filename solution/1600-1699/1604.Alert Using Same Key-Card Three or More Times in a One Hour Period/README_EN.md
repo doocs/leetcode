@@ -47,7 +47,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table + Sorting
+
+First, we use a hash table $d$ to record all the clock-in times of each employee.
+
+Then we traverse the hash table. For each employee, we first check whether the number of clock-in times is greater than or equal to 3. If not, we skip this employee. Otherwise, we sort all the clock-in times of this employee in chronological order, and then traverse the sorted clock-in times to check whether the two times at a distance of 2 indices are within the same hour. If so, we add this employee to the answer array.
+
+Finally, we sort the answer array in lexicographical order to get the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of clock-in records.
 
 <!-- tabs:start -->
 
@@ -156,6 +164,38 @@ func alertNames(keyName []string, keyTime []string) (ans []string) {
 	}
 	sort.Strings(ans)
 	return
+}
+```
+
+```ts
+function alertNames(keyName: string[], keyTime: string[]): string[] {
+    const d: { [name: string]: number[] } = {};
+    for (let i = 0; i < keyName.length; ++i) {
+        const name = keyName[i];
+        const t = keyTime[i];
+        const minutes = +t.slice(0, 2) * 60 + +t.slice(3);
+        if (d[name] === undefined) {
+            d[name] = [];
+        }
+        d[name].push(minutes);
+    }
+    const ans: string[] = [];
+    for (const name in d) {
+        if (d.hasOwnProperty(name)) {
+            const ts = d[name];
+            if (ts.length > 2) {
+                ts.sort((a, b) => a - b);
+                for (let i = 0; i < ts.length - 2; ++i) {
+                    if (ts[i + 2] - ts[i] <= 60) {
+                        ans.push(name);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    ans.sort();
+    return ans;
 }
 ```
 
