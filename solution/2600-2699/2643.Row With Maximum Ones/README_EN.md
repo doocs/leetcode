@@ -49,7 +49,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We directly traverse the matrix, count the number of $1$s in each row, and update the maximum value and the corresponding row index. Note that if the number of $1$s in the current row is equal to the maximum value, we need to choose the row with the smaller index.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
