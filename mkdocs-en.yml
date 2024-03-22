@@ -13,12 +13,10 @@ theme:
 
 
 nav:
-  - Home:
-    - Home: index.md
-    - Contribution: intro/contribution.md
+  - Home: index.md
   - LeetCode:
     - 1. Two Sum: lc/1.md
-    - 2. Add Two Numbers: lc/2.md to K: lc/3007.md
+    - 2. Add Two Numbers: lc/2.md
   - Cracking the Coding Interview:
     - 1.1. Is Unique: lcci/1.1.md
     - 1.2. Check Permutation: lcci/1.2.md

@@ -105,9 +105,7 @@ extra:
       lang: zh
 
 nav:
-  - 首页:
-    - 首页: index.md
-    - 参与贡献: intro/contribution.md
+  - 首页: index.md
   - LeetCode 全解:
     - 1. 两数之和: lc/1.md
     - 2. 两数相加: lc/2.md

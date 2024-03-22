@@ -172,9 +172,7 @@ lcof, lcof2 = "\n".join(navdata_cn["lcof"]), "\n".join(navdata_cn["lcof2"])
 nav_sections = f"""
 
 nav:
-  - 首页:
-    - 首页: index.md
-    - 参与贡献: intro/contribution.md
+  - 首页: index.md
   - LeetCode 全解:\n{lc}
   - 剑指 Offer:\n{lcof}
   - 剑指 Offer（专项突破）:\n{lcof2}
@@ -189,9 +187,7 @@ lc, lcci = "\n".join(navdata_en["solution"]), "\n".join(navdata_en["lcci"])
 en_nav_sections = f"""
 
 nav:
-  - Home:
-    - Home: index.md
-    - Contribution: intro/contribution.md
+  - Home: index.md
   - LeetCode:\n{lc}
   - Cracking the Coding Interview:\n{lcci}
   - Focused Training: tags.md
