@@ -1,5 +1,9 @@
 ---
 comments: true
+template: index.html
+hide:
+  - navigation
+  - toc
 ---
 
 <p align="center">
