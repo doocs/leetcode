@@ -17,9 +17,15 @@ public:
             for (int i = q.size(); i; --i) {
                 root = q.front();
                 q.pop();
-                if (root == u) return i > 1 ? q.front() : nullptr;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root == u) {
+                    return i > 1 ? q.front() : nullptr;
+                }
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
         }
         return nullptr;
