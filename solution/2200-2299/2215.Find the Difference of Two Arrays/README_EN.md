@@ -45,7 +45,11 @@ Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+We define two hash tables $s1$ and $s2$ to store the elements in arrays $nums1$ and $nums2$ respectively. Then we traverse each element in $s1$. If this element is not in $s2$, we add it to the first list in the answer. Similarly, we traverse each element in $s2$. If this element is not in $s1$, we add it to the second list in the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -61,8 +65,6 @@ class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         Set<Integer> s1 = convert(nums1);
         Set<Integer> s2 = convert(nums2);
-
-        List<List<Integer>> ans = new ArrayList<>();
         List<Integer> l1 = new ArrayList<>();
         List<Integer> l2 = new ArrayList<>();
         for (int v : s1) {
@@ -75,9 +77,7 @@ class Solution {
                 l2.add(v);
             }
         }
-        ans.add(l1);
-        ans.add(l2);
-        return ans;
+        return List.of(l1, l2);
     }
 
     private Set<Integer> convert(int[] nums) {
@@ -97,12 +97,16 @@ public:
         unordered_set<int> s1(nums1.begin(), nums1.end());
         unordered_set<int> s2(nums2.begin(), nums2.end());
         vector<vector<int>> ans(2);
-        for (int v : s1)
-            if (!s2.count(v))
+        for (int v : s1) {
+            if (!s2.contains(v)) {
                 ans[0].push_back(v);
-        for (int v : s2)
-            if (!s1.count(v))
+            }
+        }
+        for (int v : s2) {
+            if (!s1.contains(v)) {
                 ans[1].push_back(v);
+            }
+        }
         return ans;
     }
 };
@@ -134,10 +138,11 @@ func findDifference(nums1 []int, nums2 []int) [][]int {
 
 ```ts
 function findDifference(nums1: number[], nums2: number[]): number[][] {
-    return [
-        [...new Set<number>(nums1.filter(v => !nums2.includes(v)))],
-        [...new Set<number>(nums2.filter(v => !nums1.includes(v)))],
-    ];
+    const s1: Set<number> = new Set(nums1);
+    const s2: Set<number> = new Set(nums2);
+    nums1.forEach(num => s2.delete(num));
+    nums2.forEach(num => s1.delete(num));
+    return [Array.from(s1), Array.from(s2)];
 }
 ```
 
@@ -170,15 +175,11 @@ impl Solution {
  * @return {number[][]}
  */
 var findDifference = function (nums1, nums2) {
-    let ans1 = new Set(nums1),
-        ans2 = new Set(nums2);
-    for (let num of nums1) {
-        ans2.delete(num);
-    }
-    for (let num of nums2) {
-        ans1.delete(num);
-    }
-    return [Array.from(ans1), Array.from(ans2)];
+    const s1 = new Set(nums1);
+    const s2 = new Set(nums2);
+    nums1.forEach(num => s2.delete(num));
+    nums2.forEach(num => s1.delete(num));
+    return [Array.from(s1), Array.from(s2)];
 };
 ```
 
@@ -190,59 +191,13 @@ class Solution {
      * @return Integer[][]
      */
     function findDifference($nums1, $nums2) {
-        $rs = [[], []];
-        $hashtable1 = array_flip(array_unique($nums1));
-        $hashtable2 = array_flip(array_unique($nums2));
-        for ($m = 0; $m < count($nums1); $m++) {
-            if (!isset($hashtable2[$nums1[$m]])) {
-                $rs[0][$m] = $nums1[$m];
-                $hashtable2[$nums1[$m]] = 1;
-            }
-        }
-        for ($n = 0; $n < count($nums2); $n++) {
-            if (!isset($hashtable1[$nums2[$n]])) {
-                $rs[1][$n] = $nums2[$n];
-                $hashtable1[$nums2[$n]] = 1;
-            }
-        }
-        return $rs;
-    }
-}
-```
+        $s1 = array_flip($nums1);
+        $s2 = array_flip($nums2);
 
-<!-- tabs:end -->
+        $diff1 = array_diff_key($s1, $s2);
+        $diff2 = array_diff_key($s2, $s1);
 
-### Solution 2
-
-<!-- tabs:start -->
-
-```rust
-impl Solution {
-    pub fn find_difference(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<Vec<i32>> {
-        const N: usize = 2001;
-        let to_index = |i| (i as usize) + 1000;
-
-        let mut is_in_nums1 = [false; N];
-        let mut is_in_nums2 = [false; N];
-        let mut res1 = vec![];
-        let mut res2 = vec![];
-        for &num in nums1.iter() {
-            is_in_nums1[to_index(num)] = true;
-        }
-        for &num in nums2.iter() {
-            is_in_nums2[to_index(num)] = true;
-            if !is_in_nums1[to_index(num)] {
-                res2.push(num);
-                is_in_nums1[to_index(num)] = true;
-            }
-        }
-        for &num in nums1.iter() {
-            if !is_in_nums2[to_index(num)] {
-                res1.push(num);
-                is_in_nums2[to_index(num)] = true;
-            }
-        }
-        vec![res1, res2]
+        return [array_keys($diff1), array_keys($diff2)];
     }
 }
 ```
