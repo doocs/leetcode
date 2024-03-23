@@ -78,68 +78,194 @@ Hence, the answer is -1.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+We notice that if we can mark all indices within $t$ seconds, then we can also mark all indices within $t' \geq t$ seconds. Therefore, we can use binary search to find the earliest seconds.
+
+We define the left and right boundaries of binary search as $l = 1$ and $r = m + 1$, where $m$ is the length of the array `changeIndices`. For each $t = \frac{l + r}{2}$, we check whether we can mark all indices within $t$ seconds. If we can, we move the right boundary to $t$, otherwise we move the left boundary to $t + 1$. Finally, we judge whether the left boundary is greater than $m$, if it is, return $-1$, otherwise return the left boundary.
+
+The key to the problem is how to judge whether we can mark all indices within $t$ seconds. We can use an array $last$ to record the latest time each index needs to be marked, use a variable $decrement$ to record the current number of times that can be reduced, and use a variable $marked$ to record the number of indices that have been marked.
+
+We traverse the first $t$ elements of the array `changeIndices`, for each element $i$, if $last[i] = s$, then we need to check whether $decrement$ is greater than or equal to $nums[i - 1]$, if it is, we subtract $nums[i - 1]$ from $decrement$, and add one to $marked$; otherwise, we return `False`. If $last[i] \neq s$, then we can temporarily not mark the index, so we add one to $decrement$. Finally, we check whether $marked$ is equal to $n$, if it is, we return `True`, otherwise return `False`.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of `nums` and `changeIndices` respectively.
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def earliestSecondToMarkIndices(
+        self, nums: List[int], changeIndices: List[int]
+    ) -> int:
+        def check(t: int) -> bool:
+            decrement = 0
+            marked = 0
+            last = {i: s for s, i in enumerate(changeIndices[:t])}
+            for s, i in enumerate(changeIndices[:t]):
+                if last[i] == s:
+                    if decrement < nums[i - 1]:
+                        return False
+                    decrement -= nums[i - 1]
+                    marked += 1
+                else:
+                    decrement += 1
+            return marked == len(nums)
 
+        m = len(changeIndices)
+        l = bisect_left(range(1, m + 2), True, key=check) + 1
+        return -1 if l > m else l
 ```
 
 ```java
 class Solution {
+    private int[] nums;
+    private int[] changeIndices;
+
     public int earliestSecondToMarkIndices(int[] nums, int[] changeIndices) {
-        int l = 0;
-        int r = changeIndices.length + 1;
+        this.nums = nums;
+        this.changeIndices = changeIndices;
+        int m = changeIndices.length;
+        int l = 1, r = m + 1;
         while (l < r) {
-            final int m = (l + r) / 2;
-            if (canMark(nums, changeIndices, m)) {
-                r = m;
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
             } else {
-                l = m + 1;
+                l = mid + 1;
             }
         }
-        return l <= changeIndices.length ? l : -1;
+        return l > m ? -1 : l;
     }
 
-    private boolean canMark(int[] nums, int[] changeIndices, int second) {
-        int numMarked = 0;
-        int decrement = 0;
-        // indexToLastSecond[i] := the last second to mark the index i
-        int[] indexToLastSecond = new int[nums.length];
-        Arrays.fill(indexToLastSecond, -1);
-
-        for (int i = 0; i < second; ++i) {
-            indexToLastSecond[changeIndices[i] - 1] = i;
+    private boolean check(int t) {
+        int[] last = new int[nums.length + 1];
+        for (int s = 0; s < t; ++s) {
+            last[changeIndices[s]] = s;
         }
-
-        for (int i = 0; i < second; ++i) {
-            // Convert to 0-indexed.
-            final int index = changeIndices[i] - 1;
-            if (i == indexToLastSecond[index]) {
-                // Reach the last occurrence of the number.
-                // So, the current second will be used to mark the index.
-                if (nums[index] > decrement) {
-                    // The decrement is less than the number to be marked.
+        int decrement = 0;
+        int marked = 0;
+        for (int s = 0; s < t; ++s) {
+            int i = changeIndices[s];
+            if (last[i] == s) {
+                if (decrement < nums[i - 1]) {
                     return false;
                 }
-                decrement -= nums[index];
-                ++numMarked;
+                decrement -= nums[i - 1];
+                ++marked;
             } else {
                 ++decrement;
             }
         }
-        return numMarked == nums.length;
+        return marked == nums.length;
     }
 }
 ```
 
 ```cpp
+class Solution {
+public:
+    int earliestSecondToMarkIndices(vector<int>& nums, vector<int>& changeIndices) {
+        int n = nums.size();
+        int last[n + 1];
+        auto check = [&](int t) {
+            memset(last, 0, sizeof(last));
+            for (int s = 0; s < t; ++s) {
+                last[changeIndices[s]] = s;
+            }
+            int decrement = 0, marked = 0;
+            for (int s = 0; s < t; ++s) {
+                int i = changeIndices[s];
+                if (last[i] == s) {
+                    if (decrement < nums[i - 1]) {
+                        return false;
+                    }
+                    decrement -= nums[i - 1];
+                    ++marked;
+                } else {
+                    ++decrement;
+                }
+            }
+            return marked == n;
+        };
 
+        int m = changeIndices.size();
+        int l = 1, r = m + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l > m ? -1 : l;
+    }
+};
 ```
 
 ```go
+func earliestSecondToMarkIndices(nums []int, changeIndices []int) int {
+	n, m := len(nums), len(changeIndices)
+	l := sort.Search(m+1, func(t int) bool {
+		last := make([]int, n+1)
+		for s, i := range changeIndices[:t] {
+			last[i] = s
+		}
+		decrement, marked := 0, 0
+		for s, i := range changeIndices[:t] {
+			if last[i] == s {
+				if decrement < nums[i-1] {
+					return false
+				}
+				decrement -= nums[i-1]
+				marked++
+			} else {
+				decrement++
+			}
+		}
+		return marked == n
+	})
+	if l > m {
+		return -1
+	}
+	return l
+}
+```
 
+```ts
+function earliestSecondToMarkIndices(nums: number[], changeIndices: number[]): number {
+    const [n, m] = [nums.length, changeIndices.length];
+    let [l, r] = [1, m + 1];
+    const check = (t: number): boolean => {
+        const last: number[] = Array(n + 1).fill(0);
+        for (let s = 0; s < t; ++s) {
+            last[changeIndices[s]] = s;
+        }
+        let [decrement, marked] = [0, 0];
+        for (let s = 0; s < t; ++s) {
+            const i = changeIndices[s];
+            if (last[i] === s) {
+                if (decrement < nums[i - 1]) {
+                    return false;
+                }
+                decrement -= nums[i - 1];
+                ++marked;
+            } else {
+                ++decrement;
+            }
+        }
+        return marked === n;
+    };
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l > m ? -1 : l;
+}
 ```
 
 <!-- tabs:end -->
