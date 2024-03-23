@@ -82,68 +82,194 @@
 
 ## 解法
 
-### 方法一
+### 方法一：二分查找
+
+我们注意到，如果我们能够在 $t$ 秒内标记所有下标，那么我们也能在 $t' \geq t$ 秒内标记所有下标。因此，我们可以使用二分查找的方法找到最早的秒数。
+
+我们定义二分查找的左右边界分别为 $l = 1$ 和 $r = m + 1$，其中 $m$ 是数组 `changeIndices` 的长度。对于每一个 $t = \frac{l + r}{2}$，我们检查是否能在 $t$ 秒内标记所有下标。如果能，我们将右边界移动到 $t$，否则我们将左边界移动到 $t + 1$。最终，我们判定左边界是否大于 $m$，如果是则返回 $-1$，否则返回左边界。
+
+题目的关键在于如何判断是否能在 $t$ 秒内标记所有下标。我们可以使用一个数组 $last$ 记录每一个下标最晚需要被标记的时间，用一个变量 $decrement$ 记录当前可以减少的次数，用一个变量 $marked$ 记录已经被标记的下标的数量。
+
+我们遍历数组 `changeIndices` 的前 $t$ 个元素，对于每一个元素 $i$，如果 $last[i] = s$，那么我们需要检查 $decrement$ 是否大于等于 $nums[i - 1]$，如果是，我们将 $decrement$ 减去 $nums[i - 1]$，并且将 $marked$ 加一；否则，我们返回 `False`。如果 $last[i] \neq s$，那么我们可以暂时不标记下标，因此将 $decrement$ 加一。最后，我们检查 $marked$ 是否等于 $n$，如果是，我们返回 `True`，否则返回 `False`。
+
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `changeIndices` 的长度。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def earliestSecondToMarkIndices(
+        self, nums: List[int], changeIndices: List[int]
+    ) -> int:
+        def check(t: int) -> bool:
+            decrement = 0
+            marked = 0
+            last = {i: s for s, i in enumerate(changeIndices[:t])}
+            for s, i in enumerate(changeIndices[:t]):
+                if last[i] == s:
+                    if decrement < nums[i - 1]:
+                        return False
+                    decrement -= nums[i - 1]
+                    marked += 1
+                else:
+                    decrement += 1
+            return marked == len(nums)
 
+        m = len(changeIndices)
+        l = bisect_left(range(1, m + 2), True, key=check) + 1
+        return -1 if l > m else l
 ```
 
 ```java
 class Solution {
+    private int[] nums;
+    private int[] changeIndices;
+
     public int earliestSecondToMarkIndices(int[] nums, int[] changeIndices) {
-        int l = 0;
-        int r = changeIndices.length + 1;
+        this.nums = nums;
+        this.changeIndices = changeIndices;
+        int m = changeIndices.length;
+        int l = 1, r = m + 1;
         while (l < r) {
-            final int m = (l + r) / 2;
-            if (canMark(nums, changeIndices, m)) {
-                r = m;
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
             } else {
-                l = m + 1;
+                l = mid + 1;
             }
         }
-        return l <= changeIndices.length ? l : -1;
+        return l > m ? -1 : l;
     }
 
-    private boolean canMark(int[] nums, int[] changeIndices, int second) {
-        int numMarked = 0;
-        int decrement = 0;
-        // indexToLastSecond[i] := the last second to mark the index i
-        int[] indexToLastSecond = new int[nums.length];
-        Arrays.fill(indexToLastSecond, -1);
-
-        for (int i = 0; i < second; ++i) {
-            indexToLastSecond[changeIndices[i] - 1] = i;
+    private boolean check(int t) {
+        int[] last = new int[nums.length + 1];
+        for (int s = 0; s < t; ++s) {
+            last[changeIndices[s]] = s;
         }
-
-        for (int i = 0; i < second; ++i) {
-            // Convert to 0-indexed.
-            final int index = changeIndices[i] - 1;
-            if (i == indexToLastSecond[index]) {
-                // Reach the last occurrence of the number.
-                // So, the current second will be used to mark the index.
-                if (nums[index] > decrement) {
-                    // The decrement is less than the number to be marked.
+        int decrement = 0;
+        int marked = 0;
+        for (int s = 0; s < t; ++s) {
+            int i = changeIndices[s];
+            if (last[i] == s) {
+                if (decrement < nums[i - 1]) {
                     return false;
                 }
-                decrement -= nums[index];
-                ++numMarked;
+                decrement -= nums[i - 1];
+                ++marked;
             } else {
                 ++decrement;
             }
         }
-        return numMarked == nums.length;
+        return marked == nums.length;
     }
 }
 ```
 
 ```cpp
+class Solution {
+public:
+    int earliestSecondToMarkIndices(vector<int>& nums, vector<int>& changeIndices) {
+        int n = nums.size();
+        int last[n + 1];
+        auto check = [&](int t) {
+            memset(last, 0, sizeof(last));
+            for (int s = 0; s < t; ++s) {
+                last[changeIndices[s]] = s;
+            }
+            int decrement = 0, marked = 0;
+            for (int s = 0; s < t; ++s) {
+                int i = changeIndices[s];
+                if (last[i] == s) {
+                    if (decrement < nums[i - 1]) {
+                        return false;
+                    }
+                    decrement -= nums[i - 1];
+                    ++marked;
+                } else {
+                    ++decrement;
+                }
+            }
+            return marked == n;
+        };
 
+        int m = changeIndices.size();
+        int l = 1, r = m + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l > m ? -1 : l;
+    }
+};
 ```
 
 ```go
+func earliestSecondToMarkIndices(nums []int, changeIndices []int) int {
+	n, m := len(nums), len(changeIndices)
+	l := sort.Search(m+1, func(t int) bool {
+		last := make([]int, n+1)
+		for s, i := range changeIndices[:t] {
+			last[i] = s
+		}
+		decrement, marked := 0, 0
+		for s, i := range changeIndices[:t] {
+			if last[i] == s {
+				if decrement < nums[i-1] {
+					return false
+				}
+				decrement -= nums[i-1]
+				marked++
+			} else {
+				decrement++
+			}
+		}
+		return marked == n
+	})
+	if l > m {
+		return -1
+	}
+	return l
+}
+```
 
+```ts
+function earliestSecondToMarkIndices(nums: number[], changeIndices: number[]): number {
+    const [n, m] = [nums.length, changeIndices.length];
+    let [l, r] = [1, m + 1];
+    const check = (t: number): boolean => {
+        const last: number[] = Array(n + 1).fill(0);
+        for (let s = 0; s < t; ++s) {
+            last[changeIndices[s]] = s;
+        }
+        let [decrement, marked] = [0, 0];
+        for (let s = 0; s < t; ++s) {
+            const i = changeIndices[s];
+            if (last[i] === s) {
+                if (decrement < nums[i - 1]) {
+                    return false;
+                }
+                decrement -= nums[i - 1];
+                ++marked;
+            } else {
+                ++decrement;
+            }
+        }
+        return marked === n;
+    };
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l > m ? -1 : l;
+}
 ```
 
 <!-- tabs:end -->
