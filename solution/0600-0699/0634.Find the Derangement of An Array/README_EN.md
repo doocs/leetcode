@@ -35,7 +35,24 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the number of derangement of an array of length $i$. Initially, $f[0] = 1$, $f[1] = 0$. The answer is $f[n]$.
+
+For an array of length $i$, we consider where to place the number $1$. Suppose it is placed in the $j$-th position, where there are $i-1$ choices. Then, the number $j$ has two choices:
+
+-   Placed in the first position, then the remaining $i - 2$ positions have $f[i - 2]$ derangements, so there are a total of $(i - 1) \times f[i - 2]$ derangements;
+-   Not placed in the first position, which is equivalent to the derangement of an array of length $i - 1$, so there are a total of $(i - 1) \times f[i - 1]$ derangements.
+
+In summary, we have the following state transition equation:
+
+$$
+f[i] = (i - 1) \times (f[i - 1] + f[i - 2])
+$$
+
+The final answer is $f[n]$. Note the modulo operation in the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -93,7 +110,9 @@ func findDerangement(n int) int {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that the state transition equation only relates to $f[i - 1]$ and $f[i - 2]$. Therefore, we can use two variables $a$ and $b$ to represent $f[i - 1]$ and $f[i - 2]$ respectively, thereby reducing the space complexity to $O(1)$.
 
 <!-- tabs:start -->
 

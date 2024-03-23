@@ -1,10 +1,11 @@
 function judgeSquareSum(c: number): boolean {
-    let a = 0,
-        b = Math.floor(Math.sqrt(c));
+    let [a, b] = [0, Math.floor(Math.sqrt(c))];
     while (a <= b) {
-        let sum = a ** 2 + b ** 2;
-        if (sum == c) return true;
-        if (sum < c) {
+        const s = a * a + b * b;
+        if (s === c) {
+            return true;
+        }
+        if (s < c) {
             ++a;
         } else {
             --b;
