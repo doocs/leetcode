@@ -3099,6 +3099,11 @@
 |  3086  |  [拾起 K 个 1 需要的最少行动次数](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README.md)  |  `贪心`,`数组`,`前缀和`,`滑动窗口`  |  困难  |  第 389 场周赛  |
 |  3087  |  [查找热门话题标签](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)  |    |  中等  |  🔒  |
 |  3088  |  [使字符串反回文](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README.md)  |    |  困难  |  🔒  |
+|  3089  |  [Find Bursty Behavior](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md)  |    |  中等  |  🔒  |
+|  3090  |  [每个字符最多出现两次的最长子字符串](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README.md)  |    |  简单  |  第 390 场周赛  |
+|  3091  |  [执行操作使数据元素之和大于等于 K](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README.md)  |    |  中等  |  第 390 场周赛  |
+|  3092  |  [最高频率的 ID](/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md)  |    |  中等  |  第 390 场周赛  |
+|  3093  |  [最长公共后缀查询](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md)  |    |  困难  |  第 390 场周赛  |
 
 ## 版权
 
