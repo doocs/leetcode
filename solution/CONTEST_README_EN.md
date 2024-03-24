@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 390
+
+- [3090. Maximum Length Substring With Two Occurrences](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README_EN.md)
+- [3091. Apply Operations to Make Sum of Array Greater Than or Equal to k](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README_EN.md)
+- [3092. Most Frequent IDs](/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md)
+- [3093. Longest Common Suffix Queries](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md)
+
 #### Weekly Contest 389
 
 - [3083. Existence of a Substring in a String and Its Reverse](/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README_EN.md)
