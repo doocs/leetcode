@@ -6,7 +6,7 @@ public:
         int n = nums.size();
         vector<long long> ans(n);
         priority_queue<long long> pq;
-        
+
         for (int i = 0; i < n; ++i) {
             int x = nums[i], f = freq[i];
             lazy[cnt[x]]++;
@@ -18,7 +18,7 @@ public:
             }
             ans[i] = pq.empty() ? 0 : pq.top();
         }
-        
+
         return ans;
     }
 };
