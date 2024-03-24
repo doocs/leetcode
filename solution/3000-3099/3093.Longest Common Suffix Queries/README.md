@@ -68,7 +68,21 @@
 
 ## 解法
 
-### 方法一
+### 方法一：字典树
+
+题目需要我们找到最长公共后缀，我们可以考虑使用字典树。
+
+我们定义字典树的节点结构如下：
+
+-   `children`：一个长度为 26 的数组，用于存储子节点。
+-   `length`：当前节点的最短字符串长度。
+-   `idx`：当前节点的字符串下标。
+
+我们遍历字符串数组 `wordsContainer`，将每个字符串倒序插入字典树中。在插入的过程中，我们更新每个节点的 `length` 和 `idx`。
+
+接下来，我们遍历字符串数组 `wordsQuery`，对于每个字符串，我们从字典树中查找最长公共后缀的字符串下标，在寻找的过程中，如果遇到空节点，说明往后没有公共后缀了，我们可以直接返回当前节点的 `idx`。
+
+时间复杂度 $(L_1 \times |\Sigma| + L_2)$，空间复杂度 $O(L_1 \times |\Sigma|)$，其中 $L_1$ 和 $L_2$ 分别是 `wordsContainer` 和 `wordsQuery` 的字符串长度之和；而 $\Sigma$ 是字符集大小，本题中 $\Sigma = 26$。
 
 <!-- tabs:start -->
 
@@ -76,63 +90,270 @@
 class Trie:
     __slots__ = ("children", "length", "idx")
 
-    def __init__(self, length=inf, idx=inf):
+    def __init__(self):
         self.children = [None] * 26
-        self.length = length
-        self.idx = idx
+        self.length = inf
+        self.idx = inf
 
     def insert(self, w: str, i: int):
         node = self
-        for c in w:
+        if node.length > len(w):
+            node.length = len(w)
+            node.idx = i
+        for c in w[::-1]:
             idx = ord(c) - ord("a")
-            if not node.children[idx]:
+            if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
             if node.length > len(w):
                 node.length = len(w)
                 node.idx = i
-            elif node.length == len(w):
-                node.idx = min(node.idx, i)
 
-    def query(self, w: str):
+    def query(self, w: str) -> int:
         node = self
-        ans = node.idx
-        for c in w:
+        for c in w[::-1]:
             idx = ord(c) - ord("a")
-            if not node.children[idx]:
+            if node.children[idx] is None:
                 break
             node = node.children[idx]
-            ans = node.idx
-        return ans
+        return node.idx
 
 
 class Solution:
     def stringIndices(
         self, wordsContainer: List[str], wordsQuery: List[str]
     ) -> List[int]:
-        k = 0
+        trie = Trie()
         for i, w in enumerate(wordsContainer):
-            if len(w) < len(wordsContainer[k]):
-                k = i
-        trie = Trie(len(wordsContainer[k]), k)
-        for i, w in enumerate(wordsContainer):
-            trie.insert(w[::-1], i)
-        ans = []
-        for i, w in enumerate(wordsQuery):
-            ans.append(trie.query(w[::-1]))
-        return ans
+            trie.insert(w, i)
+        return [trie.query(w) for w in wordsQuery]
 ```
 
 ```java
+class Trie {
+    private final int inf = 1 << 30;
+    private Trie[] children = new Trie[26];
+    private int length = inf;
+    private int idx = inf;
 
+    public void insert(String w, int i) {
+        Trie node = this;
+        if (node.length > w.length()) {
+            node.length = w.length();
+            node.idx = i;
+        }
+        for (int k = w.length() - 1; k >= 0; --k) {
+            int idx = w.charAt(k) - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            if (node.length > w.length()) {
+                node.length = w.length();
+                node.idx = i;
+            }
+        }
+    }
+
+    public int query(String w) {
+        Trie node = this;
+        for (int k = w.length() - 1; k >= 0; --k) {
+            int idx = w.charAt(k) - 'a';
+            if (node.children[idx] == null) {
+                break;
+            }
+            node = node.children[idx];
+        }
+        return node.idx;
+    }
+}
+
+class Solution {
+    public int[] stringIndices(String[] wordsContainer, String[] wordsQuery) {
+        Trie trie = new Trie();
+        for (int i = 0; i < wordsContainer.length; ++i) {
+            trie.insert(wordsContainer[i], i);
+        }
+        int n = wordsQuery.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = trie.query(wordsQuery[i]);
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
+class Trie {
+private:
+    const int inf = 1 << 30;
+    Trie* children[26];
+    int length = inf;
+    int idx = inf;
 
+public:
+    Trie() {
+        for (int i = 0; i < 26; ++i) {
+            children[i] = nullptr;
+        }
+    }
+
+    void insert(string w, int i) {
+        Trie* node = this;
+        if (node->length > w.length()) {
+            node->length = w.length();
+            node->idx = i;
+        }
+        for (int k = w.length() - 1; k >= 0; --k) {
+            int idx = w[k] - 'a';
+            if (node->children[idx] == nullptr) {
+                node->children[idx] = new Trie();
+            }
+            node = node->children[idx];
+            if (node->length > w.length()) {
+                node->length = w.length();
+                node->idx = i;
+            }
+        }
+    }
+
+    int query(string w) {
+        Trie* node = this;
+        for (int k = w.length() - 1; k >= 0; --k) {
+            int idx = w[k] - 'a';
+            if (node->children[idx] == nullptr) {
+                break;
+            }
+            node = node->children[idx];
+        }
+        return node->idx;
+    }
+};
+
+class Solution {
+public:
+    vector<int> stringIndices(vector<string>& wordsContainer, vector<string>& wordsQuery) {
+        Trie* trie = new Trie();
+        for (int i = 0; i < wordsContainer.size(); ++i) {
+            trie->insert(wordsContainer[i], i);
+        }
+        int n = wordsQuery.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = trie->query(wordsQuery[i]);
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+const inf = 1 << 30
 
+type Trie struct {
+	children [26]*Trie
+	length   int
+	idx      int
+}
+
+func newTrie() *Trie {
+	return &Trie{length: inf, idx: inf}
+}
+
+func (t *Trie) insert(w string, i int) {
+	node := t
+	if node.length > len(w) {
+		node.length = len(w)
+		node.idx = i
+	}
+	for k := len(w) - 1; k >= 0; k-- {
+		idx := int(w[k] - 'a')
+		if node.children[idx] == nil {
+			node.children[idx] = newTrie()
+		}
+		node = node.children[idx]
+		if node.length > len(w) {
+			node.length = len(w)
+			node.idx = i
+		}
+	}
+}
+
+func (t *Trie) query(w string) int {
+	node := t
+	for k := len(w) - 1; k >= 0; k-- {
+		idx := int(w[k] - 'a')
+		if node.children[idx] == nil {
+			break
+		}
+		node = node.children[idx]
+	}
+	return node.idx
+}
+
+func stringIndices(wordsContainer []string, wordsQuery []string) (ans []int) {
+	trie := newTrie()
+	for i, w := range wordsContainer {
+		trie.insert(w, i)
+	}
+	for _, w := range wordsQuery {
+		ans = append(ans, trie.query(w))
+	}
+	return
+}
+```
+
+```ts
+class Trie {
+    private children: Trie[] = new Array<Trie>(26);
+    private length: number = Infinity;
+    private idx: number = Infinity;
+
+    public insert(w: string, i: number): void {
+        let node: Trie = this;
+        if (node.length > w.length) {
+            node.length = w.length;
+            node.idx = i;
+        }
+        for (let k: number = w.length - 1; k >= 0; --k) {
+            let idx: number = w.charCodeAt(k) - 'a'.charCodeAt(0);
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            if (node.length > w.length) {
+                node.length = w.length;
+                node.idx = i;
+            }
+        }
+    }
+
+    public query(w: string): number {
+        let node: Trie = this;
+        for (let k: number = w.length - 1; k >= 0; --k) {
+            let idx: number = w.charCodeAt(k) - 'a'.charCodeAt(0);
+            if (node.children[idx] == null) {
+                break;
+            }
+            node = node.children[idx];
+        }
+        return node.idx;
+    }
+}
+
+function stringIndices(wordsContainer: string[], wordsQuery: string[]): number[] {
+    const trie: Trie = new Trie();
+    for (let i: number = 0; i < wordsContainer.length; ++i) {
+        trie.insert(wordsContainer[i], i);
+    }
+    const n: number = wordsQuery.length;
+    const ans: number[] = new Array<number>(n);
+    for (let i: number = 0; i < n; ++i) {
+        ans[i] = trie.query(wordsQuery[i]);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
