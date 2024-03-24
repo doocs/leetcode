@@ -3097,6 +3097,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3086  |  [Minimum Moves to Pick K Ones](/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README_EN.md)  |  `Greedy`,`Array`,`Prefix Sum`,`Sliding Window`  |  Hard  |  Weekly Contest 389  |
 |  3087  |  [Find Trending Hashtags](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md)  |    |  Medium  |  🔒  |
 |  3088  |  [Make String Anti-palindrome](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README_EN.md)  |    |  Hard  |  🔒  |
+|  3089  |  [Find Bursty Behavior](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README_EN.md)  |    |  Medium  |  🔒  |
+|  3090  |  [Maximum Length Substring With Two Occurrences](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README_EN.md)  |    |  Easy  |  Weekly Contest 390  |
+|  3091  |  [Apply Operations to Make Sum of Array Greater Than or Equal to k](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README_EN.md)  |    |  Medium  |  Weekly Contest 390  |
+|  3092  |  [Most Frequent IDs](/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md)  |    |  Medium  |  Weekly Contest 390  |
+|  3093  |  [Longest Common Suffix Queries](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 390  |
 
 ## Copyright
 

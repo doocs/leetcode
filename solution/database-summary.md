@@ -262,3 +262,4 @@
     -   [3060.时间范围内的用户活动](/database-solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md)
     -   [3061.计算滞留雨水](/database-solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)
     -   [3087.查找热门话题标签](/database-solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)
+    -   [3089.Find Bursty Behavior](/database-solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md)
