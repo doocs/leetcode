@@ -262,3 +262,4 @@
     -   [3060.User Activities within Time Bounds](/database-solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)
     -   [3061.Calculate Trapping Rain Water](/database-solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)
     -   [3087.Find Trending Hashtags](/database-solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md)
+    -   [3089.Find Bursty Behavior](/database-solution/3000-3099/3089.Find%20Bursty%20Behavior/README_EN.md)

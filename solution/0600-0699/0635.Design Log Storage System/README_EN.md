@@ -56,7 +56,11 @@ logSystem.retrieve(&quot;2016:01:01:01:01:01&quot;, &quot;2017:01:01:23:00:00&qu
 
 ## Solutions
 
-### Solution 1
+### Solution 1: String Comparison
+
+Store the `id` and `timestamp` of the logs as tuples in an array. Then in the `retrieve()` method, truncate the corresponding parts of `start` and `end` based on `granularity`, and traverse the array, adding the `id` that meets the conditions to the result array.
+
+In terms of time complexity, the time complexity of the `put()` method is $O(1)$, and the time complexity of the `retrieve()` method is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 

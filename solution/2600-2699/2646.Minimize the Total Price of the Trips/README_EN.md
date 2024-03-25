@@ -59,7 +59,16 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
+
+-   If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
+-   If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
+
+Finally, return $ans$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

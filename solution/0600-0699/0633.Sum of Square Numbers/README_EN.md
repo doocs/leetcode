@@ -33,7 +33,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Mathematics + Two Pointers
+
+We can use the two-pointer method to solve this problem. Define two pointers $a$ and $b$, pointing to $0$ and $\sqrt{c}$ respectively. In each step, we calculate the value of $s = a^2 + b^2$, and then compare the size of $s$ and $c$. If $s = c$, we have found two integers $a$ and $b$ such that $a^2 + b^2 = c$. If $s < c$, we increase the value of $a$ by $1$. If $s > c$, we decrease the value of $b$ by $1$. We continue this process until we find the answer, or the value of $a$ is greater than the value of $b$, and return `false`.
+
+The time complexity is $O(\sqrt{c})$, where $c$ is the given non-negative integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -76,14 +80,17 @@ class Solution {
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        long a = 0, b = (long) sqrt(c);
+        long long a = 0, b = sqrt(c);
         while (a <= b) {
-            long s = a * a + b * b;
-            if (s == c) return true;
-            if (s < c)
+            long long s = a * a + b * b;
+            if (s == c) {
+                return true;
+            }
+            if (s < c) {
                 ++a;
-            else
+            } else {
                 --b;
+            }
         }
         return false;
     }
@@ -110,12 +117,13 @@ func judgeSquareSum(c int) bool {
 
 ```ts
 function judgeSquareSum(c: number): boolean {
-    let a = 0,
-        b = Math.floor(Math.sqrt(c));
+    let [a, b] = [0, Math.floor(Math.sqrt(c))];
     while (a <= b) {
-        let sum = a ** 2 + b ** 2;
-        if (sum == c) return true;
-        if (sum < c) {
+        const s = a * a + b * b;
+        if (s === c) {
+            return true;
+        }
+        if (s < c) {
             ++a;
         } else {
             --b;
@@ -127,22 +135,22 @@ function judgeSquareSum(c: number): boolean {
 
 ```rust
 use std::cmp::Ordering;
+
 impl Solution {
     pub fn judge_square_sum(c: i32) -> bool {
-        let c = c as i64;
-        let mut left = 0;
-        let mut right = (c as f64).sqrt() as i64;
-        while left <= right {
-            let num = left * left + right * right;
-            match num.cmp(&c) {
-                Ordering::Less => {
-                    left += 1;
-                }
-                Ordering::Greater => {
-                    right -= 1;
-                }
+        let mut a: i64 = 0;
+        let mut b: i64 = (c as f64).sqrt() as i64;
+        while a <= b {
+            let s = a * a + b * b;
+            match s.cmp(&(c as i64)) {
                 Ordering::Equal => {
                     return true;
+                }
+                Ordering::Less => {
+                    a += 1;
+                }
+                Ordering::Greater => {
+                    b -= 1;
                 }
             }
         }
