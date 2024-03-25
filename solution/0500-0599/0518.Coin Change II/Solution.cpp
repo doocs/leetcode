@@ -2,7 +2,7 @@ class Solution {
 public:
     int change(int amount, vector<int>& coins) {
         int m = coins.size(), n = amount;
-        int f[m + 1][n + 1];
+        unsigned f[m + 1][n + 1];
         memset(f, 0, sizeof(f));
         f[0][0] = 1;
         for (int i = 1; i <= m; ++i) {
