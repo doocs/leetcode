@@ -75,12 +75,73 @@ Each row of this table contains post_id, user_id, and post_date.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Self-Join + Group Count
+
+We can use self-join to connect the `Posts` table with itself. The connection condition is `p1.user_id = p2.user_id` and `p2.post_date` is between `p1.post_date` and 6 days after `p1.post_date`. Then we group the connection results by `p1.user_id` and `p1.post_date` to count the number of posts for each user within 7 days of each day. We save this result in table `P`.
+
+Next, we count the average number of posts per week for each user in February 2024 and save it in table `T`. Note that we need to find records where `post_date` is between `2024-02-01` and `2024-02-28`, group the records by `user_id`, then count the number of posts for each user, and finally divide by `4` to get the average number of posts per week. We save this result in table `T`.
+
+Finally, we connect tables `P` and `T` with the condition `P.user_id = T.user_id`, then group by `user_id` to count the maximum number of posts within 7 days for each user. We then filter out records that meet the condition `max_7day_posts >= avg_weekly_posts * 2` to get the result. Note that we need to sort in ascending order by `user_id`.
 
 <!-- tabs:start -->
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    P AS (
+        SELECT p1.user_id AS user_id, COUNT(1) AS cnt
+        FROM
+            Posts AS p1
+            JOIN Posts AS p2
+                ON p1.user_id = p2.user_id
+                AND p2.post_date BETWEEN p1.post_date AND DATE_ADD(p1.post_date, INTERVAL 6 DAY)
+        GROUP BY p1.user_id, p1.post_date
+    ),
+    T AS (
+        SELECT user_id, COUNT(1) / 4 AS avg_weekly_posts
+        FROM Posts
+        WHERE post_date BETWEEN '2024-02-01' AND '2024-02-28'
+        GROUP BY 1
+    )
+SELECT user_id, MAX(cnt) AS max_7day_posts, avg_weekly_posts
+FROM
+    P
+    JOIN T USING (user_id)
+GROUP BY 1
+HAVING max_7day_posts >= avg_weekly_posts * 2
+ORDER BY 1;
+```
 
+```python
+import pandas as pd
+
+
+def find_bursty_behavior(posts: pd.DataFrame) -> pd.DataFrame:
+    # Calculate the count of posts made by each user within a 7-day window
+    p = posts.merge(posts, on="user_id")
+    p = p[
+        (p["post_date_y"] >= p["post_date_x"])
+        & (p["post_date_y"] <= p["post_date_x"] + pd.Timedelta(days=6))
+    ]
+    p_count = p.groupby(["user_id", "post_date_x"]).size().reset_index(name="cnt")
+
+    # Calculate the average weekly posts for each user in February 2024
+    t = posts[
+        (posts["post_date"] >= "2024-02-01") & (posts["post_date"] <= "2024-02-28")
+    ]
+    t_count = t.groupby("user_id").size().reset_index(name="count")
+    t_count["avg_weekly_posts"] = t_count["count"] / 4
+
+    # Joining the two calculated tables and filtering users meeting the criteria
+    merged_df = p_count.merge(t_count, on="user_id")
+    merged_df = merged_df.groupby("user_id").agg(
+        max_7day_posts=("cnt", "max"), avg_weekly_posts=("avg_weekly_posts", "first")
+    )
+    result_df = merged_df[
+        merged_df["max_7day_posts"] >= merged_df["avg_weekly_posts"] * 2
+    ].reset_index()
+
+    return result_df.sort_values("user_id")
 ```
 
 <!-- tabs:end -->
