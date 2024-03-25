@@ -11,9 +11,12 @@ for contest_file in ["docs/contest.md", "docs-en/contest.md"]:
     content = content.replace("[中文文档](/solution/CONTEST_README.md)", "")
     res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
     for _, link in res:
-        num = link.split("/")[-2].split(".")[0]
-        num = int(num)
-        content = content.replace(link, f"./lc/{num}.md")
+        try:
+            num = link.split("/")[-2].split(".")[0]
+            num = int(num)
+            content = content.replace(link, f"./lc/{num}.md")
+        except:
+            pass
     content = f"---\ncomments: true\n---\n\n" + content
 
     with open(contest_file, "w", encoding="utf-8") as f:
