@@ -54,7 +54,24 @@ It&#39;s impossible to make all three washing machines have the same number of d
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy
+
+If the total number of clothes in the washing machines cannot be divided evenly by the number of washing machines, it is impossible to make the number of clothes in each washing machine equal, so we directly return $-1$.
+
+Otherwise, suppose the total number of clothes in the washing machines is $s$, then the number of clothes in each washing machine will eventually become $k = s / n$.
+
+We define $a_i$ as the difference between the number of clothes in the $i$-th washing machine and $k$, that is, $a_i = \text{machines}[i] - k$. If $a_i > 0$, it means that the $i$-th washing machine has extra clothes and needs to pass them to the adjacent washing machine; if $a_i < 0$, it means that the $i$-th washing machine lacks clothes and needs to get them from the adjacent washing machine.
+
+We define the sum of the differences in the number of clothes in the first $i$ washing machines as $s_i = \sum_{j=0}^{i-1} a_j$. If we regard the first $i$ washing machines as one group and the remaining washing machines as another group. Then if $s_i$ is a positive number, it means that the first group of washing machines has extra clothes and needs to pass them to the second group of washing machines; if $s_i$ is a negative number, it means that the first group of washing machines lacks clothes and needs to get them from the second group of washing machines.
+
+Then there are the following two situations:
+
+1. The maximum number of times clothes need to be moved between the two groups is $\max_{i=0}^{n-1} \lvert s_i \rvert$;
+1. A washing machine in the group has too many clothes and needs to move clothes to both sides, the maximum number of times clothes need to be moved is $\max_{i=0}^{n-1} a_i$.
+
+We take the maximum of the two.
+
+The time complexity is $O(n)$, where $n$ is the number of washing machines. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
