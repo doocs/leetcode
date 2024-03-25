@@ -2,7 +2,7 @@ class Solution {
 public:
     int change(int amount, vector<int>& coins) {
         int n = amount;
-        int f[n + 1];
+        unsigned f[n + 1];
         memset(f, 0, sizeof(f));
         f[0] = 1;
         for (int x : coins) {
