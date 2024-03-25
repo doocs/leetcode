@@ -1,10 +1,17 @@
 func change(amount int, coins []int) int {
-	dp := make([]int, amount+1)
-	dp[0] = 1
-	for _, coin := range coins {
-		for j := coin; j <= amount; j++ {
-			dp[j] += dp[j-coin]
+	m, n := len(coins), amount
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= m; i++ {
+		for j := 0; j <= n; j++ {
+			f[i][j] = f[i-1][j]
+			if j >= coins[i-1] {
+				f[i][j] += f[i][j-coins[i-1]]
+			}
 		}
 	}
-	return dp[amount]
+	return f[m][n]
 }
