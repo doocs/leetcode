@@ -1,6 +1,6 @@
 ---
 comments: true
-template: index.html
+# template: index.html
 hide:
   - navigation
   - toc
