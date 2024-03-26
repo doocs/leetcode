@@ -7,7 +7,7 @@ func Constructor() TwoSum {
 }
 
 func (this *TwoSum) Add(number int) {
-	this.cnt[number]++
+	this.cnt[number] += 1
 }
 
 func (this *TwoSum) Find(value int) bool {
