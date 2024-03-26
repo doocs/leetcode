@@ -1,15 +1,19 @@
 impl Solution {
     pub fn number_of_lines(widths: Vec<i32>, s: String) -> Vec<i32> {
-        let mut count = 1;
-        let mut sum = 0;
-        for c in s.as_bytes() {
-            let width = widths[(c - b'a') as usize];
-            if sum + width > 100 {
-                sum = 0;
-                count += 1;
+        let mut lines = 1;
+        let mut last = 0;
+
+        for c in s.chars() {
+            let idx = ((c as u8) - b'a') as usize;
+            let w = widths[idx];
+            if last + w <= 100 {
+                last += w;
+            } else {
+                lines += 1;
+                last = w;
             }
-            sum += width;
         }
-        vec![count, sum]
+
+        vec![lines, last]
     }
 }

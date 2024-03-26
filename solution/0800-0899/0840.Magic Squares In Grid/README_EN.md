@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)
 
-<!-- tags:Array,Math,Matrix -->
+<!-- tags:Array,Hash Table,Math,Matrix -->
 
 ## Description
 

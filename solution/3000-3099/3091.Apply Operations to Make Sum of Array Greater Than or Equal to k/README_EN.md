@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,Math,Enumeration -->
 
 ## Description
 

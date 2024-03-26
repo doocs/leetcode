@@ -1,4 +1,4 @@
-# [3055. Top Percentile Fraud](https://leetcode.cn/problems/top-percentile-fraud)
+# [3055. 最高欺诈百分位数](https://leetcode.cn/problems/top-percentile-fraud)
 
 [English Version](/solution/3000-3099/3055.Top%20Percentile%20Fraud/README_EN.md)
 

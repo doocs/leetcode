@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,数学,枚举 -->
 
 ## 题目描述
 

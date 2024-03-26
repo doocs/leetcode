@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README.md)
 
-<!-- tags:Stack,Union Find,Binary Indexed Tree,Segment Tree,Array,Binary Search,Dynamic Programming -->
+<!-- tags:Stack,Breadth-First Search,Union Find,Array,Dynamic Programming,Matrix,Monotonic Stack,Heap (Priority Queue) -->
 
 ## Description
 

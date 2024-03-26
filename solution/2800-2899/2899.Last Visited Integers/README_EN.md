@@ -6,9 +6,7 @@
 
 ## Description
 
-<p>Given an integer array <code>nums</code> where <code>nums[i]</code> is either a positive integer or <code>-1</code>.</p>
-
-<p>We need to find for each <code>-1</code> the respective positive integer, which we call the last visited integer.</p>
+<p>Given an integer array <code>nums</code> where <code>nums[i]</code> is either a positive integer or <code>-1</code>. We need to find for each <code>-1</code> the respective positive integer, which we call the last visited integer.</p>
 
 <p>To achieve this goal, let&#39;s define two empty arrays: <code>seen</code> and <code>ans</code>.</p>
 
@@ -24,27 +22,19 @@
 	</li>
 </ul>
 
-<p>Return <em>the array </em><code>ans</code>.</p>
+<p>Return the array<em> </em><code>ans</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<div class="example-block" style="
-    border-color: var(--border-tertiary);
-    border-left-width: 2px;
-    color: var(--text-secondary);
-    font-size: .875rem;
-    line-height: 1.25rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    overflow: visible;
-    padding-left: 1rem;
-">
-<p><strong>Input:</strong> <code>nums = [1,2,-1,-1,-1]</code></p>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,2,-1,-1,-1]</span></p>
 
-<p><strong>Output:</strong> <code>[2,1,-1]</code></p>
+<p><strong>Output:</strong> <span class="example-io">[2,1,-1]</span></p>
 
-<p><strong>Explanation:</strong> Start with <code>seen = []</code> and <code>ans = []</code>.</p>
+<p><strong>Explanation:</strong></p>
+
+<p>Start with <code>seen = []</code> and <code>ans = []</code>.</p>
 
 <ol>
 	<li>Process <code>nums[0]</code>: The first element in nums is <code>1</code>. We prepend it to the front of <code>seen</code>. Now, <code>seen == [1]</code>.</li>
@@ -57,22 +47,14 @@
 
 <p><strong class="example">Example 2:</strong></p>
 
-<div class="example-block" style="
-    border-color: var(--border-tertiary);
-    border-left-width: 2px;
-    color: var(--text-secondary);
-    font-size: .875rem;
-    line-height: 1.25rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    overflow: visible;
-    padding-left: 1rem;
-">
-<p><strong>Input:</strong> <code>nums = [1,-1,2,-1,-1]</code></p>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,-1,2,-1,-1]</span></p>
 
-<p><strong>Output:</strong> <code>[1,2,1]</code></p>
+<p><strong>Output:</strong><span class="example-io"> [1,2,1]</span></p>
 
-<p><strong>Explanation:</strong> Start with <code>seen = []</code> and <code>ans = []</code>.</p>
+<p><strong>Explanation:</strong></p>
+
+<p>Start with <code>seen = []</code> and <code>ans = []</code>.</p>
 
 <ol>
 	<li>Process <code>nums[0]</code>: The first element in nums is <code>1</code>. We prepend it to the front of <code>seen</code>. Now, <code>seen == [1]</code>.</li>

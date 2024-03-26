@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Hash Table,Ordered Set,Heap (Priority Queue) -->
 
 ## Description
 

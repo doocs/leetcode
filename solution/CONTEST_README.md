@@ -18,7 +18,7 @@
 
 ## 赛后估分网站
 
--   https://lccn.lbao.site
+如果你想在比赛结束后估算自己的积分变化，可以访问网站 [LeetCode Contest Rating Predictor](https://lccn.lbao.site/)。
 
 ## 往期竞赛
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0300-0399/0321.Create%20Maximum%20Number/README.md)
 
-<!-- tags:Stack,Greedy,Monotonic Stack -->
+<!-- tags:Stack,Greedy,Array,Two Pointers,Monotonic Stack -->
 
 ## Description
 
