@@ -79,7 +79,9 @@ navdata_en = defaultdict(list)
 for dir in dirs:
     target_dir, m = dirs_mapping[dir]
     for p in sorted(get_paths(dir, m)):
-        print(p)
+        # example:
+        # p = 'solution/0000-0099/0003.Longest Substring Without Repeating Characters/README.md'
+        edit_url = f'https://github.com/doocs/leetcode/edit/main/{p}'
         with open(p, "r", encoding="utf-8") as f:
             content = f.read()
 
@@ -162,7 +164,7 @@ for dir in dirs:
             comments: true
             ---
             """
-            content = f"---\ncomments: true\n{tag_headers}---\n\n" + content
+            content = f"---\ncomments: true\nedit_url: {edit_url}\n{tag_headers}---\n\n" + content
             with open(new_path, "w", encoding="utf-8") as f:
                 f.write(content)
 
