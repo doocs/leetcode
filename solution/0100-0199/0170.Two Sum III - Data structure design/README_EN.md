@@ -46,14 +46,28 @@ twoSum.find(7);  // No two integers sum up to 7, return false
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table `cnt` to store the count of each number.
+
+When the `add` method is called, we increment the count of the number `number`.
+
+When the `find` method is called, we iterate over the hash table `cnt`. For each key `x`, we check if `value - x` is also a key in the hash table `cnt`. If it is, we check if `x` is equal to `value - x`. If they are not equal, it means we have found a pair of numbers whose sum is `value`, and we return `true`. If they are equal, we check if the count of `x` is greater than `1`. If it is, it means we have found a pair of numbers whose sum is `value`, and we return `true`. If it is less than or equal to `1`, it means we have not found a pair of numbers whose sum is `value`, and we continue to iterate over the hash table `cnt`. If we have not found a pair after the iteration, we return `false`.
+
+Time complexity:
+
+-   The time complexity of the `add` method is $O(1)$.
+-   The time complexity of the `find` method is $O(n)$.
+
+Space complexity is $O(n)$, where $n$ is the size of the hash table `cnt`.
 
 <!-- tabs:start -->
 
 ```python
 class TwoSum:
+
     def __init__(self):
-        self.cnt = Counter()
+        self.cnt = defaultdict(int)
 
     def add(self, number: int) -> None:
         self.cnt[number] += 1
@@ -61,9 +75,8 @@ class TwoSum:
     def find(self, value: int) -> bool:
         for x, v in self.cnt.items():
             y = value - x
-            if y in self.cnt:
-                if x != y or v > 1:
-                    return True
+            if y in self.cnt and (x != y or v > 1):
+                return True
         return False
 
 
@@ -88,10 +101,8 @@ class TwoSum {
         for (var e : cnt.entrySet()) {
             int x = e.getKey(), v = e.getValue();
             int y = value - x;
-            if (cnt.containsKey(y)) {
-                if (x != y || v > 1) {
-                    return true;
-                }
+            if (cnt.containsKey(y) && (x != y || v > 1)) {
+                return true;
             }
         }
         return false;
@@ -119,10 +130,8 @@ public:
     bool find(int value) {
         for (auto& [x, v] : cnt) {
             long y = (long) value - x;
-            if (cnt.count(y)) {
-                if (x != y || v > 1) {
-                    return true;
-                }
+            if (cnt.contains(y) && (x != y || v > 1)) {
+                return true;
             }
         }
         return false;
@@ -150,7 +159,7 @@ func Constructor() TwoSum {
 }
 
 func (this *TwoSum) Add(number int) {
-	this.cnt[number]++
+	this.cnt[number] += 1
 }
 
 func (this *TwoSum) Find(value int) bool {
@@ -168,6 +177,34 @@ func (this *TwoSum) Find(value int) bool {
  * obj := Constructor();
  * obj.Add(number);
  * param_2 := obj.Find(value);
+ */
+```
+
+```ts
+class TwoSum {
+    private cnt: Map<number, number> = new Map();
+    constructor() {}
+
+    add(number: number): void {
+        this.cnt.set(number, (this.cnt.get(number) || 0) + 1);
+    }
+
+    find(value: number): boolean {
+        for (const [x, v] of this.cnt) {
+            const y = value - x;
+            if (this.cnt.has(y) && (x !== y || v > 1)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * var obj = new TwoSum()
+ * obj.add(number)
+ * var param_2 = obj.find(value)
  */
 ```
 

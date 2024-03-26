@@ -1,4 +1,4 @@
-# [3059. Find All Unique Email Domains](https://leetcode.cn/problems/find-all-unique-email-domains)
+# [3059. 找到所有不同的邮件域名](https://leetcode.cn/problems/find-all-unique-email-domains)
 
 [English Version](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md)
 
