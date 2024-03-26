@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md)
 
-<!-- tags: -->
+<!-- tags:Database -->
 
 ## Description
 

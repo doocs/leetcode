@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md)
 
-<!-- tags: -->
+<!-- tags:Trie,Array,String -->
 
 ## Description
 

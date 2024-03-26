@@ -1,4 +1,4 @@
-# [3051. Find Candidates for Data Scientist Position](https://leetcode.cn/problems/find-candidates-for-data-scientist-position)
+# [3051. 寻找数据科学家职位的候选人](https://leetcode.cn/problems/find-candidates-for-data-scientist-position)
 
 [English Version](/solution/3000-3099/3051.Find%20Candidates%20for%20Data%20Scientist%20Position/README_EN.md)
 

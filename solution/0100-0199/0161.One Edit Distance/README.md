@@ -50,7 +50,7 @@
 
 记 $m$ 表示字符串 $s$ 的长度，$n$ 表示字符串 $t$ 的长度。我们可以假定 $m$ 恒大于等于 $n$。
 
-若 $m-n\gt1$，直接返回 false；
+若 $m-n \gt 1$，直接返回 false；
 
 否则，遍历 $s$ 和 $t$，若遇到 $s[i]$ 不等于 $t[i]$：
 
@@ -59,7 +59,7 @@
 
 遍历结束，说明遍历过的 $s$ 跟 $t$ 所有字符相等，此时需要满足 $m=n+1$。
 
-时间复杂度 $O(m)$，空间复杂度 $O(1)$。
+时间复杂度 $O(m)$，其中 $m$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -136,6 +136,24 @@ func isOneEditDistance(s string, t string) bool {
 		}
 	}
 	return m == n+1
+}
+```
+
+```ts
+function isOneEditDistance(s: string, t: string): boolean {
+    const [m, n] = [s.length, t.length];
+    if (m < n) {
+        return isOneEditDistance(t, s);
+    }
+    if (m - n > 1) {
+        return false;
+    }
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== t[i]) {
+            return s.slice(i + 1) === t.slice(i + (m === n ? 1 : 0));
+        }
+    }
+    return m === n + 1;
 }
 ```
 

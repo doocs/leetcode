@@ -1,8 +1,8 @@
-# [3089. Find Bursty Behavior](https://leetcode.cn/problems/find-bursty-behavior)
+# [3089. 查找突发行为](https://leetcode.cn/problems/find-bursty-behavior)
 
 [English Version](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数据库 -->
 
 ## 题目描述
 
