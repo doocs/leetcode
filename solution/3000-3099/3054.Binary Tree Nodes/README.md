@@ -1,4 +1,4 @@
-# [3054. Binary Tree Nodes](https://leetcode.cn/problems/binary-tree-nodes)
+# [3054. 二叉树节点](https://leetcode.cn/problems/binary-tree-nodes)
 
 [English Version](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md)
 

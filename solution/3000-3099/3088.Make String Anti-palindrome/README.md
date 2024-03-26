@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,字符串,排序 -->
 
 ## 题目描述
 

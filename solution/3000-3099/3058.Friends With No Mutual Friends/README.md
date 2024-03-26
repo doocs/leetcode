@@ -1,4 +1,4 @@
-# [3058. Friends With No Mutual Friends](https://leetcode.cn/problems/friends-with-no-mutual-friends)
+# [3058. 没有共同朋友的朋友](https://leetcode.cn/problems/friends-with-no-mutual-friends)
 
 [English Version](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)
 
