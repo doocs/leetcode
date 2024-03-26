@@ -1,18 +1,16 @@
 class Solution {
 public:
-    const int MAX_WIDTH = 100;
-
     vector<int> numberOfLines(vector<int>& widths, string s) {
-        int last = 0, row = 1;
+        int lines = 1, last = 0;
         for (char c : s) {
             int w = widths[c - 'a'];
-            if (last + w <= MAX_WIDTH)
+            if (last + w <= 100) {
                 last += w;
-            else {
-                ++row;
+            } else {
+                ++lines;
                 last = w;
             }
         }
-        return {row, last};
+        return {lines, last};
     }
 };

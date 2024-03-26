@@ -50,38 +50,43 @@ S = &quot;bbbcccdddaaa&quot;
 
 ### 方法一：模拟
 
+我们定义两个变量 `lines` 和 `last`，分别表示行数和最后一行的宽度，初始时 `lines = 1`，`last = 0`。
+
+遍历字符串 $s$，对于每个字符 $c$，计算其宽度 $w$，如果 $last + w \leq 100$，则将 $w$ 加到 `last` 上，否则行数 `lines` 加一，并且 `last` 重置为 $w$。
+
+最后返回 `lines` 和 `last` 构成的数组。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def numberOfLines(self, widths: List[int], s: str) -> List[int]:
-        last, row = 0, 1
-        for c in s:
-            w = widths[ord(c) - ord('a')]
+        lines, last = 1, 0
+        for w in map(lambda c: widths[ord(c) - ord("a")], s):
             if last + w <= 100:
                 last += w
             else:
-                row += 1
+                lines += 1
                 last = w
-        return [row, last]
+        return [lines, last]
 ```
 
 ```java
 class Solution {
-    private static final int MAX_WIDTH = 100;
-
     public int[] numberOfLines(int[] widths, String s) {
-        int last = 0, row = 1;
-        for (char c : s.toCharArray()) {
-            int w = widths[c - 'a'];
-            if (last + w <= MAX_WIDTH) {
+        int lines = 1, last = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            int w = widths[s.charAt(i) - 'a'];
+            if (last + w <= 100) {
                 last += w;
             } else {
-                ++row;
+                ++lines;
                 last = w;
             }
         }
-        return new int[] {row, last};
+        return new int[] {lines, last};
     }
 }
 ```
@@ -89,54 +94,72 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int MAX_WIDTH = 100;
-
     vector<int> numberOfLines(vector<int>& widths, string s) {
-        int last = 0, row = 1;
+        int lines = 1, last = 0;
         for (char c : s) {
             int w = widths[c - 'a'];
-            if (last + w <= MAX_WIDTH)
+            if (last + w <= 100) {
                 last += w;
-            else {
-                ++row;
+            } else {
+                ++lines;
                 last = w;
             }
         }
-        return {row, last};
+        return {lines, last};
     }
 };
 ```
 
 ```go
 func numberOfLines(widths []int, s string) []int {
-	last, row := 0, 1
+	lines, last := 1, 0
 	for _, c := range s {
 		w := widths[c-'a']
 		if last+w <= 100 {
 			last += w
 		} else {
-			row++
+			lines++
 			last = w
 		}
 	}
-	return []int{row, last}
+	return []int{lines, last}
+}
+```
+
+```ts
+function numberOfLines(widths: number[], s: string): number[] {
+    let [lines, last] = [1, 0];
+    for (const c of s) {
+        const w = widths[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+        if (last + w <= 100) {
+            last += w;
+        } else {
+            ++lines;
+            last = w;
+        }
+    }
+    return [lines, last];
 }
 ```
 
 ```rust
 impl Solution {
     pub fn number_of_lines(widths: Vec<i32>, s: String) -> Vec<i32> {
-        let mut count = 1;
-        let mut sum = 0;
-        for c in s.as_bytes() {
-            let width = widths[(c - b'a') as usize];
-            if sum + width > 100 {
-                sum = 0;
-                count += 1;
+        let mut lines = 1;
+        let mut last = 0;
+
+        for c in s.chars() {
+            let idx = ((c as u8) - b'a') as usize;
+            let w = widths[idx];
+            if last + w <= 100 {
+                last += w;
+            } else {
+                lines += 1;
+                last = w;
             }
-            sum += width;
         }
-        vec![count, sum]
+
+        vec![lines, last]
     }
 }
 ```
