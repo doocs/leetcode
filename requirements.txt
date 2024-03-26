@@ -4,4 +4,5 @@ sortedcontainers==2.4.0
 urllib3==1.26.18
 mkdocs-git-committers-plugin-2==2.2.3
 mkdocs-material==9.5.13
+mkdocs-glightbox==0.3.7
 jieba==0.42.1
