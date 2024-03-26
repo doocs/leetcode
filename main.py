@@ -79,6 +79,7 @@ navdata_en = defaultdict(list)
 for dir in dirs:
     target_dir, m = dirs_mapping[dir]
     for p in sorted(get_paths(dir, m)):
+        print(p)
         with open(p, "r", encoding="utf-8") as f:
             content = f.read()
 

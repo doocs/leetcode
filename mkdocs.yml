@@ -16,6 +16,7 @@ theme:
     - announce.dismiss
     - content.code.annotate
     - content.code.copy
+    - content.action.edit
     # - content.code.select
     # - content.tabs.link
     - content.tooltips
@@ -78,6 +79,9 @@ plugins:
       caption_position: bottom
       background: white
       shadow: true
+
+hooks:
+  - hooks.py
 
 markdown_extensions:
   - pymdownx.superfences
