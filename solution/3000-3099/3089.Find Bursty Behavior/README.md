@@ -79,7 +79,7 @@ Each row of this table contains post_id, user_id, and post_date.
 
 ### 方法一：自连接 + 分组统计
 
-我们可以使用自连接，将表 `Posts` 与自身连接，连接条件是 `p1.user_id = p2.user_id` 且 `p2.post_date` 在 `p1.post_date` 和 `p1.post_date` 后 `6` 天之间，然后我们将连接结果按照 `p1.user_id` 和 `p1.post_date` 分组，即可统计出每个用户在每天的 7 天内的发帖数量，我们将这个结果保存在表 `P` 中。
+我们可以使用自连接，将表 `Posts` 与自身连接，连接条件是 `p1.user_id = p2.user_id` 且 `p2.post_date` 在 `p1.post_date` 和 `p1.post_date` 后 `6` 天之间，然后我们将连接结果按照 `p1.user_id` 和 `p1.post_id` 分组，即可统计出每个用户在每天的 7 天内的发帖数量，我们将这个结果保存在表 `P` 中。
 
 接着我们统计出每个用户在 2024 年 2 月份的每周平均发帖数量，保存在表 `T` 中。注意，我们需要查找 `post_date` 在 `2024-02-01` 和 `2024-02-28` 之间的记录，将记录按照 `user_id` 分组，然后统计每个用户的发帖数量，最后除以 `4` 即可得到每周平均发帖数量，我们将这个结果保存在表 `T` 中。
 
@@ -97,7 +97,7 @@ WITH
             JOIN Posts AS p2
                 ON p1.user_id = p2.user_id
                 AND p2.post_date BETWEEN p1.post_date AND DATE_ADD(p1.post_date, INTERVAL 6 DAY)
-        GROUP BY p1.user_id, p1.post_date
+        GROUP BY p1.user_id, p1.post_id
     ),
     T AS (
         SELECT user_id, COUNT(1) / 4 AS avg_weekly_posts
@@ -117,26 +117,49 @@ ORDER BY 1;
 ```python
 import pandas as pd
 
+
 def find_bursty_behavior(posts: pd.DataFrame) -> pd.DataFrame:
-    # 计算每个用户在7天窗口内发布的帖子数
-    p = posts.merge(posts, on='user_id')
-    p = p[(p['post_date_y'] >= p['post_date_x']) &
-          (p['post_date_y'] <= p['post_date_x'] + pd.Timedelta(days=6))]
-    p_count = p.groupby(['user_id', 'post_date_x']).size().reset_index(name='cnt')
+    # 子查询 P
+    p1 = pd.merge(
+        posts, posts, on="user_id", suffixes=("_1", "_2")
+    )  # 合并帖子表自身，根据用户ID
+    p1 = p1[
+        p1["post_date_2"].between(
+            p1["post_date_1"], p1["post_date_1"] + pd.Timedelta(days=6)
+        )
+    ]  # 筛选出相邻 7 天内的帖子
+    p1 = (
+        p1.groupby(["user_id", "post_id_1"]).size().reset_index(name="cnt")
+    )  # 统计每个用户在相邻 7 天内的帖子数
 
-    # 计算每个用户在2024年2月期间的平均每周发布的帖子数
-    t = posts[(posts['post_date'] >= '2024-02-01') &
-              (posts['post_date'] <= '2024-02-28')]
-    t_count = t.groupby('user_id').size().reset_index(name='count')
-    t_count['avg_weekly_posts'] = t_count['count'] / 4
+    # 子查询 T
+    t = posts[
+        (posts["post_date"] >= "2024-02-01") & (posts["post_date"] <= "2024-02-28")
+    ]  # 筛选出 2024 年 2 月份的帖子
+    t = (
+        t.groupby("user_id").size().div(4).reset_index(name="avg_weekly_posts")
+    )  # 计算每个用户平均每周的帖子数
 
-    # 合并两个计算出的表，并过滤符合条件的用户
-    merged_df = p_count.merge(t_count, on='user_id')
-    merged_df = merged_df.groupby('user_id').agg(max_7day_posts=('cnt', 'max'),
-                                                 avg_weekly_posts=('avg_weekly_posts', 'first'))
-    result_df = merged_df[merged_df['max_7day_posts'] >= merged_df['avg_weekly_posts'] * 2].reset_index()
+    # 连接 P 和 T
+    merged_df = pd.merge(p1, t, on="user_id", how="inner")  # 内连接 P 和 T
 
-    return result_df.sort_values('user_id')
+    # 过滤
+    filtered_df = merged_df[
+        merged_df["cnt"] >= merged_df["avg_weekly_posts"] * 2
+    ]  # 过滤出满足条件的行
+
+    # 聚合
+    result_df = (
+        filtered_df.groupby("user_id")
+        .agg({"cnt": "max", "avg_weekly_posts": "first"})
+        .reset_index()
+    )  # 对满足条件的行按用户ID聚合
+    result_df.columns = ["user_id", "max_7day_posts", "avg_weekly_posts"]  # 重命名列名
+
+    # 排序
+    result_df.sort_values(by="user_id", inplace=True)  # 按用户ID排序
+
+    return result_df
 ```
 
 <!-- tabs:end -->
