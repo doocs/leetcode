@@ -1,15 +1,9 @@
 from bs4 import BeautifulSoup
 
 
-# https://www.mkdocs.org/dev-guide/plugins/#events
-def on_page_markdown(markdown, page, config, files):
-    page_edit_url = page.meta.get("edit_url")
-    page.edit_url = str(page_edit_url) if page_edit_url else None
-
-
 def on_page_content(html, page, config, files):
     # 修改 tags 页每个 tag 的 id 属性值
-    is_cn_tag_page = page.abs_url == '/leetcode/tags/'
+    is_cn_tag_page = page.abs_url == "/leetcode/tags/"
     if is_cn_tag_page:
         soup = BeautifulSoup(html, "html.parser")
         h2_tags = soup.find_all("h2")
@@ -21,28 +15,28 @@ def on_page_content(html, page, config, files):
         ul_tags = soup.find_all("ul")
         for ul_tag in ul_tags:
             li_tags = ul_tag.find_all("li")
-            li_tags.sort(key=lambda x: int(x.text.split('.')[0].strip()))
+            li_tags.sort(key=lambda x: int(x.text.split(".")[0].strip()))
             ul_tag.clear()
             for li_tag in li_tags:
                 ul_tag.append(li_tag)
         html = str(soup)
-        
+
     return html
 
 
 def on_page_context(context, page, config, nav):
     # 修改每个问题顶部 tags 的跳转链接
-    is_cn_problem_page = (page.edit_url or '').endswith('README.md')
-    has_tag = 'tags' in context
+    is_cn_problem_page = (page.edit_url or "").endswith("README.md")
+    has_tag = "tags" in context
     if is_cn_problem_page and has_tag:
-        for tag in context['tags']:
-            tag['url'] = f'tags/#{tag["name"]}'
+        for tag in context["tags"]:
+            tag["url"] = f'tags/#{tag["name"]}'
     return context
 
 
 def on_post_page(output, page, config):
     # 修改 tags 页的左侧导航链接
-    is_cn_tag_page = page.abs_url == '/leetcode/tags/'
+    is_cn_tag_page = page.abs_url == "/leetcode/tags/"
     if is_cn_tag_page:
         soup = BeautifulSoup(output, "html.parser")
         nav_tag = soup.find("nav", class_="md-nav md-nav--secondary")

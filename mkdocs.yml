@@ -81,7 +81,8 @@ plugins:
       shadow: true
 
 hooks:
-  - hooks.py
+  - hooks/edit_url.py
+  - hooks/tags.py
 
 markdown_extensions:
   - pymdownx.superfences
