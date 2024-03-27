@@ -6,3 +6,4 @@ mkdocs-git-committers-plugin-2==2.3.0
 mkdocs-material==9.5.13
 mkdocs-glightbox==0.3.7
 jieba==0.42.1
+beautifulsoup4==4.12.0
