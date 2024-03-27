@@ -7,6 +7,9 @@ on:
       - docs
   workflow_dispatch:
 
+env:
+  MKDOCS_API_KEYS: ${{ secrets.MKDOCS_API_KEYS }}
+
 permissions:
   contents: write
 
