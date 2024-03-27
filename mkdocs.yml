@@ -83,6 +83,7 @@ plugins:
 hooks:
   - hooks/edit_url.py
   - hooks/tags.py
+  - hooks/committer.py
 
 markdown_extensions:
   - pymdownx.superfences
