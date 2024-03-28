@@ -71,7 +71,7 @@ class CommitterPlugin:
     def on_pre_build(self, config):
         if os.path.exists(self.cache_file):
             with open(self.cache_file, "r") as f:
-                cache = f.read()
+                cache = json.loads(f.read())
                 self.cache_date = cache["cache_date"]
                 self.cache_page_authors = cache["page_authors"]
 
