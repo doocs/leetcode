@@ -63,7 +63,22 @@ Thus, the minimum time needed to complete all the courses is 7 + 5 = 12 months.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Topological Sorting + Dynamic Programming
+
+First, we construct a directed acyclic graph based on the given prerequisite course relationships, perform topological sorting on this graph, and then use dynamic programming to find the minimum time required to complete all courses according to the results of the topological sorting.
+
+We define the following data structures or variables:
+
+-   Adjacency list $g$ stores the directed acyclic graph, and an array $indeg$ stores the in-degree of each node;
+-   Queue $q$ stores all nodes with an in-degree of $0$;
+-   Array $f$ stores the earliest completion time of each node, initially $f[i] = 0$;
+-   Variable $ans$ records the final answer, initially $ans = 0$;
+
+When $q$ is not empty, take out the head node $i$ in turn, traverse each node $j$ in $g[i]$, update $f[j] = \max(f[j], f[i] + time[j])$, update $ans = \max(ans, f[j])$ at the same time, and reduce the in-degree of $j$ by $1$. If the in-degree of $j$ is $0$ at this time, add $j$ to the queue $q$;
+
+Finally, return $ans$.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Where $m$ is the length of the array $relations$.
 
 <!-- tabs:start -->
 

@@ -57,7 +57,7 @@
 
 ### 方法一：排序 + 二分查找
 
-时间复杂度 $O(nlogn)$，其中 $n$ 表示 $events$ 的长度。
+时间复杂度 $O(n \times \log n)$，其中 $n$ 表示 $events$ 的长度。
 
 <!-- tabs:start -->
 
