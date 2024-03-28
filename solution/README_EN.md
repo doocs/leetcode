@@ -3102,6 +3102,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3091  |  [Apply Operations to Make Sum of Array Greater Than or Equal to k](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README_EN.md)  |  `Greedy`,`Math`,`Enumeration`  |  Medium  |  Weekly Contest 390  |
 |  3092  |  [Most Frequent IDs](/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md)  |  `Array`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 390  |
 |  3093  |  [Longest Common Suffix Queries](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md)  |  `Trie`,`Array`,`String`  |  Hard  |  Weekly Contest 390  |
+|  3094  |  [Guess the Number Using Bitwise Questions II](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
