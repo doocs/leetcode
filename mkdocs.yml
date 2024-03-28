@@ -17,6 +17,7 @@ theme:
     - content.code.annotate
     - content.code.copy
     - content.action.edit
+    - content.action.view
     # - content.code.select
     # - content.tabs.link
     - content.tooltips
