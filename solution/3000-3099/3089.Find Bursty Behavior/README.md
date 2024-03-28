@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Posts</code></p>
+<p>表：<code>Posts</code></p>
 
 <pre>
 +-------------+---------+
@@ -18,25 +18,26 @@
 | user_id     | int     |
 | post_date   | date    |
 +-------------+---------+
-post_id is the primary key (column with unique values) for this table.
-Each row of this table contains post_id, user_id, and post_date.
+post_id 是这张表的主键（有不同值的列）。
+这张表的每一行包含 post_id，user_id 和 post_date。
 </pre>
 
-<p>Write a solution to find users who demonstrate <strong>bursty behavior</strong> in their posting patterns during February <code>2024</code>. <strong>Bursty behavior</strong> is defined as <strong>any</strong> period of <strong>7</strong> <strong>consecutive</strong> days where a user&#39;s posting frequency is <strong>at least twice</strong> to their <strong>average</strong> weekly posting frequency for February <code>2024</code>.</p>
+<p>编写一个解决方案来找到在 <code>2024</code> 年 2 月期间在发布模式中表现出 <strong>突发行为</strong> 的用户。<strong>突发行为</strong>&nbsp;指用户在&nbsp;<code>2024</code> 年 2 月 <strong>任何</strong> <strong>连续 7 天</strong> 的时段中发帖频率是其 <strong>平均</strong> 每周发帖频率的 <strong>至少两倍</strong>。</p>
 
-<p><strong>Note:</strong> Only include the dates from February <code>1</code> to February <code>28</code> in your analysis, which means you should count February as having exactly <code>4</code> weeks.</p>
+<p><strong>注意：</strong>&nbsp;在你的统计中只包含 2 月 <code>1</code> 日 到 2 月 <code>28</code> 日，也就是说你应该把 2 月记为正好 <code>4</code> 周。</p>
 
-<p>Return <em>the result table orderd by </em><code>user_id</code><em> in </em><strong>ascending</strong><em> order.</em></p>
+<p>返回结果表，以<em>&nbsp;</em><code>user_id</code><em> </em><strong>升序</strong><em>&nbsp;</em>排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Posts table:</p>
+<p>Posts 表：</p>
 
 <pre class="example-io">
 +---------+---------+------------+
@@ -51,7 +52,7 @@ Each row of this table contains post_id, user_id, and post_date.
 +---------+---------+------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------+----------------+------------------+
@@ -63,16 +64,16 @@ Each row of this table contains post_id, user_id, and post_date.
 +---------+----------------+------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>User 1:</strong> Made only 1 post in February, resulting in an average of 0.25 posts per week and a max of 1 post in any 7-day period.</li>
-	<li><strong>User 2:</strong> Also made just 1 post, with the same average and max 7-day posting frequency as User 1.</li>
-	<li><strong>User 5:</strong> Like Users 1 and 2, User 5 made only 1 post throughout February, leading to the same average and max 7-day posting metrics.</li>
-	<li><strong>User 3:</strong> Although User 3 made more posts than the others (3 posts), they did not reach twice the average weekly posts in their consecutive 7-day window, so they are not listed in the output.</li>
+	<li><strong>用户 1：</strong>2 月份只发布了 1 个帖子，平均每周发布 0.25 个帖子，任何 7 天期间最多发布 1 个帖子。</li>
+	<li><strong>用户 2：</strong>也只发了 1 个帖子，与用户 1 相同的平均和最大 7 天发帖频率。</li>
+	<li><strong>用户 5：</strong>与用户 1 和用户 2 一样，用户 5 在整个 2 月份只发布了 1 篇文章，得到相同的平均和最大 7 天发帖频率。</li>
+	<li><strong>用户 3：</strong>虽然用户 3 发布的帖子比其他用户多（3 篇），但他在连续 7 天期间中没有达到每周平均发帖频率的两倍，因此没有在输出中列出。</li>
 </ul>
 
-<p><b>Note:</b> Output table is ordered by user_id in ascending order.</p>
+<p><b>注意：</b>&nbsp;输出表以 user_id 升序排序。</p>
 </div>
 
 ## 解法
