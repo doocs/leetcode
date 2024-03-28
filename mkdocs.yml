@@ -111,10 +111,12 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/yanglbme
+    - icon: simple/gitee
+      link: https://gitee.com/yanglbme
+    - icon: simple/leetcode
+      link: https://leetcode.cn/u/lcbin/
     - icon: fontawesome/solid/paper-plane
       link: mailto:contact@yanglibin.info
-    - icon: fontawesome/solid/code
-      link: https://leetcode.cn/u/lcbin/
   alternate:
     - name: English
       link: /leetcode/en/
