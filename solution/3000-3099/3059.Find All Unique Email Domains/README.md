@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Emails</code></p>
+<p>表：<code>Emails</code></p>
 
 <pre>
 +-------------+---------+
@@ -17,22 +17,23 @@
 | id          | int     |
 | email       | varchar |
 +-------------+---------+
-id is the primary key (column with unique values) for this table.
-Each row of this table contains an email. The emails will not contain uppercase letters.
+id 是这张表的主键（有不同值的列）。
+这张表的每一行包含一个电子邮件地址。电子邮件地址不包含大写字母。
 </pre>
 
-<p>Write a solution to find all <strong>unique email domains</strong> and count the number of <strong>individuals</strong> associated with each domain. <strong>Consider only</strong> those domains that <strong>end</strong> with <strong>.com</strong>.</p>
+<p>编写一个解决方案来找到所有 <strong>不同的电子邮件域名</strong> 并且计数与每个域名相关联的 <strong>记录</strong>。<strong>只考虑</strong> 以 <strong>.com</strong> <strong>结尾</strong> 的域名。</p>
 
-<p>Return <em>the result table orderd by email domains in </em><strong>ascending</strong><em> order</em>.</p>
+<p>返回结果表以 email_domains <strong>升序</strong> 排列。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Emails table:
+<strong>输入：</strong> 
+Emails 表：
 +-----+-----------------------+
 | id  | email                 |
 +-----+-----------------------+
@@ -43,16 +44,16 @@ Emails table:
 | 320 | jxhbagkpm@example.org |
 | 411 | zxcf@outlook.com      |
 +----+------------------------+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +--------------+-------+
 | email_domain | count |
 +--------------+-------+
 | outlook.com  | 2     |
 | yahoo.com    | 1     |  
 +--------------+-------+
-<strong>Explanation:</strong> 
-- The valid domains ending with &quot;.com&quot; are only &quot;outlook.com&quot; and &quot;yahoo.com&quot;, with respective counts of 2 and 1.
-Output table is ordered by email_domains in ascending order.
+<strong>解释：</strong> 
+- 以“.com”结束的合法域名只有“outlook.com”和“yahoo.com”，数量分别为 2 和 1。
+输出表以 email_domains 升序排列。
 </pre>
 
 ## 解法

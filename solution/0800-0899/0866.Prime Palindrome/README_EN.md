@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
 
-<!-- tags:Math -->
+<!-- tags:Math,Number Theory -->
 
 ## Description
 

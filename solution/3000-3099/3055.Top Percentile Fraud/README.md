@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Fraud</code></p>
+<p>表：<code>Fraud</code></p>
 
 <pre>
 +-------------+---------+
@@ -18,24 +18,25 @@
 | state       | varchar |
 | fraud_score | int     |
 +-------------+---------+
-policy_id is column of unique values for this table.
-This table contains policy id, state, and fraud score.
+policy_id 是这张表中具有不同值的列。
+这张表包含 policy id，state 和 fraud score。
 </pre>
 
-<p>The Leetcode Insurance Corp has developed an ML-driven <strong>predictive model </strong>to detect the <strong>likelihood</strong> of fraudulent claims. Consequently, they allocate their most seasoned claim adjusters to address the top <code>5%</code> of <strong>claims</strong> <strong>flagged</strong> by this model.</p>
+<p>Leetcode 保险公司开发了一个 ML 驱动的 <strong>预测模型</strong> 来检测欺诈索赔的 <strong>可能性</strong>。因此，他们分配了经验最丰富的理赔员来处理前 <code>5%</code> <strong>被标记</strong> 的索赔。</p>
 
-<p>Write a solution to find the top <code>5</code> <strong>percentile</strong> of claims from <strong>each state</strong>.</p>
+<p>编写一个解决方案来找出 <strong>每个州</strong> 索赔的前 <code>5</code> <strong>百分位数</strong>。</p>
 
-<p>Return <em>the result table ordered by </em><code>state</code><em> in <strong>ascending</strong> order, </em><code>fraud_score</code><em> in <strong>descending</strong> order, and </em><code>policy_id</code><em> in <strong>ascending</strong> order.</em></p>
+<p>返回结果表，以&nbsp;<code>state</code>&nbsp;<strong>升序&nbsp;</strong>排序，<code>fraud_score</code>&nbsp;<strong>降序</strong> 排序，<code>policy_id</code>&nbsp;<strong>升序</strong> 排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Fraud table:
+<strong>输入：</strong>
+Fraud 表：
 +-----------+------------+-------------+
 | policy_id | state      | fraud_score | 
 +-----------+------------+-------------+
@@ -54,7 +55,7 @@ Fraud table:
 | 13        | Florida    | 0.88        | 
 | 14        | Florida    | 0.66        | 
 +-----------+------------+-------------+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +-----------+------------+-------------+
 | policy_id | state      | fraud_score |
 +-----------+------------+-------------+
@@ -63,12 +64,12 @@ Fraud table:
 | 4         | New York   | 0.94        | 
 | 7         | Texas      | 0.98        |  
 +-----------+------------+-------------+
-<strong>Explanation</strong>
-- For the state of California, only policy ID 1, with a fraud score of 0.92, falls within the top 5 percentile for this state.
-- For the state of Florida, only policy ID 11, with a fraud score of 0.98, falls within the top 5 percentile for this state. 
-- For the state of New York, only policy ID 4, with a fraud score of 0.94, falls within the top 5 percentile for this state. 
-- For the state of Texas, only policy ID 7, with a fraud score of 0.98, falls within the top 5 percentile for this state. 
-Output table is ordered by state in ascending order, fraud score in descending order, and policy ID in ascending order.
+<strong>解释：</strong>
+- 对于 California 州，只有 ID 为 1 的保单的欺诈分数为 0.92，属于该州的前 5%。
+- 对于 Florida 州，只有 ID 为 11 的保单的欺诈分数为 0.98，属于该州的前 5%。
+- 对于 New York 州，只有 ID 为 4 的保单的欺诈分数为 0.94，属于该州的前 5%。
+- 对于 Texas 州，只有 ID 为 7 的保单的欺诈分数为 0.98，属于该州的前 5%。
+输出表以&nbsp;<code>state</code>&nbsp;升序排序，<code>fraud_score</code>&nbsp;降序排序，<code>policy_id</code>&nbsp;升序排序。
 </pre>
 
 ## 解法
