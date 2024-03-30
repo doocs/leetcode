@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README_EN.md)
 
-<!-- tags:数组,数学 -->
+<!-- tags: -->
 
 ## 题目描述
 

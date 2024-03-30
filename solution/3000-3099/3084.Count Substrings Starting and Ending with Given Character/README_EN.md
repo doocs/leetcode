@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3084.Count%20Substrings%20Starting%20and%20Ending%20with%20Given%20Character/README.md)
 
-<!-- tags:Math,String,Counting -->
+<!-- tags: -->
 
 ## Description
 

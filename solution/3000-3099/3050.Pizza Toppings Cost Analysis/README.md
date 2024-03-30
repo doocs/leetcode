@@ -1,4 +1,4 @@
-# [3050. 披萨配料成本分析](https://leetcode.cn/problems/pizza-toppings-cost-analysis)
+# [3050. Pizza Toppings Cost Analysis](https://leetcode.cn/problems/pizza-toppings-cost-analysis)
 
 [English Version](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md)
 

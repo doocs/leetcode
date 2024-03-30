@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3075.Maximize%20Happiness%20of%20Selected%20Children/README_EN.md)
 
-<!-- tags:贪心,数组,排序 -->
+<!-- tags: -->
 
 ## 题目描述
 

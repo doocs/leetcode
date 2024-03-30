@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md)
 
-<!-- tags:Array,Ordered Set -->
+<!-- tags: -->
 
 ## Description
 

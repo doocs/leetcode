@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3079.Find%20the%20Sum%20of%20Encrypted%20Integers/README.md)
 
-<!-- tags:Array,Math -->
+<!-- tags: -->
 
 ## Description
 

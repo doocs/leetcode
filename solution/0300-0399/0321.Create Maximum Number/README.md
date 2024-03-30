@@ -2,7 +2,7 @@
 
 [English Version](/solution/0300-0399/0321.Create%20Maximum%20Number/README_EN.md)
 
-<!-- tags:栈,贪心,数组,双指针,单调栈 -->
+<!-- tags:栈,贪心,单调栈 -->
 
 ## 题目描述
 

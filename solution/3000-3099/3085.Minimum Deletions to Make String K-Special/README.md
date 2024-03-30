@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3085.Minimum%20Deletions%20to%20Make%20String%20K-Special/README_EN.md)
 
-<!-- tags:贪心,哈希表,字符串,计数,排序 -->
+<!-- tags: -->
 
 ## 题目描述
 

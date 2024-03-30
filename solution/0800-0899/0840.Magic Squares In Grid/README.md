@@ -2,7 +2,7 @@
 
 [English Version](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README_EN.md)
 
-<!-- tags:数组,哈希表,数学,矩阵 -->
+<!-- tags:数组,数学,矩阵 -->
 
 ## 题目描述
 

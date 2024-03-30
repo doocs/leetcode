@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README.md)
 
-<!-- tags:Array,Dynamic Programming,Prefix Sum -->
+<!-- tags: -->
 
 ## Description
 

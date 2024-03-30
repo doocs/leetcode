@@ -8,54 +8,18 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数&nbsp;<code>k</code>&nbsp;和一个整数&nbsp;<code>x</code>&nbsp;。整数&nbsp;<code>num</code>&nbsp;的价值是由它的二进制表示中，从最低有效位开始，<code>x</code>，<code>2x</code>，<code>3x</code>，以此类推，这些位置上&nbsp;<strong>设置位</strong>&nbsp;的数目来计算。下面的表格包含了如何计算价值的例子。</p>
+<p>给你一个整数&nbsp;<code>k</code>&nbsp;和一个整数&nbsp;<code>x</code>&nbsp;。</p>
 
-<table border="1">
-	<tbody>
-		<tr>
-			<th>x</th>
-			<th>num</th>
-			<th>Binary Representation</th>
-			<th>Price</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>13</td>
-			<td><u>0</u><u>0</u><u>0</u><u>0</u><u>0</u><strong><u>1</u></strong><strong><u>1</u></strong><u>0</u><strong><u>1</u></strong></td>
-			<td>3</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>13</td>
-			<td>0<u>0</u>0<u>0</u>0<strong><u>1</u></strong>1<u>0</u>1</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>233</td>
-			<td>0<strong><u>1</u></strong>1<strong><u>1</u></strong>0<strong><u>1</u></strong>0<u>0</u>1</td>
-			<td>3</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>13</td>
-			<td><u>0</u>00<u>0</u>01<strong><u>1</u></strong>01</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>362</td>
-			<td><strong><u>1</u></strong>01<strong><u>1</u></strong>01<u>0</u>10</td>
-			<td>2</td>
-		</tr>
-	</tbody>
-</table>
+<p>令 <code>s</code>&nbsp;为整数&nbsp;<code>num</code>&nbsp;的下标从 <strong>1</strong>&nbsp;开始的二进制表示。我们说一个整数&nbsp;<code>num</code>&nbsp;的 <strong>价值</strong>&nbsp;是满足&nbsp;<code>i % x == 0</code> 且&nbsp;<code><font face="monospace">s[i]</font></code>&nbsp;是 <strong>设置位</strong>&nbsp;的 <code>i</code>&nbsp;的数目。</p>
 
-<p>&nbsp;</p>
+<p>请你返回<strong>&nbsp;最大</strong>&nbsp;整数<em>&nbsp;</em><code>num</code>&nbsp;，满足从 <code>1</code>&nbsp;到 <code>num</code>&nbsp;的所有整数的 <strong>价值</strong>&nbsp;和小于等于 <code>k</code>&nbsp;。</p>
 
-<p><code>num</code>&nbsp;的 <strong>累加价值</strong> 是从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>num</code>&nbsp;的数字的 <strong>总</strong> 价值。如果&nbsp;<code>num</code>&nbsp;的累加价值小于或等于&nbsp;<code>k</code>&nbsp;则被认为是 <strong>廉价</strong> 的。</p>
+<p><b>注意：</b></p>
 
-<p>请你返回<strong>&nbsp;最大</strong>&nbsp;的廉价数字。</p>
+<ul>
+	<li>一个整数二进制表示下 <strong>设置位</strong>&nbsp;是值为 <code>1</code>&nbsp;的数位。</li>
+	<li>一个整数的二进制表示下标从右到左编号，比方说如果&nbsp;<code>s == 11100</code>&nbsp;，那么&nbsp;<code>s[4] == 1</code> 且&nbsp;<code>s[2] == 0</code>&nbsp;。</li>
+</ul>
 
 <p>&nbsp;</p>
 
@@ -64,159 +28,24 @@
 <pre>
 <b>输入：</b>k = 9, x = 1
 <b>输出：</b>6
-<b>解释：</b>由下表所示，6 是最大的廉价数字。
-</pre>
-
-<table border="1">
-	<tbody>
-		<tr>
-			<th>x</th>
-			<th>num</th>
-			<th>Binary Representation</th>
-			<th>Price</th>
-			<th>Accumulated Price</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>1</td>
-			<td><u>0</u><u>0</u><strong><u>1</u></strong></td>
-			<td>1</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>2</td>
-			<td><u>0</u><strong><u>1</u></strong><u>0</u></td>
-			<td>1</td>
-			<td>2</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>3</td>
-			<td><u>0</u><strong><u>1</u></strong><strong><u>1</u></strong></td>
-			<td>2</td>
-			<td>4</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>4</td>
-			<td><strong><u>1</u></strong><u>0</u><u>0</u></td>
-			<td>1</td>
-			<td>5</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>5</td>
-			<td><strong><u>1</u></strong><u>0</u><strong><u>1</u></strong></td>
-			<td>2</td>
-			<td>7</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>6</td>
-			<td><strong><u>1</u></strong><strong><u>1</u></strong><u>0</u></td>
-			<td>2</td>
-			<td>9</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>7</td>
-			<td><strong><u>1</u></strong><strong><u>1</u></strong><strong><u>1</u></strong></td>
-			<td>3</td>
-			<td>12</td>
-		</tr>
-	</tbody>
-</table>
+<b>解释：</b>数字 1 ，2 ，3 ，4 ，5 和 6 二进制表示分别为 "1" ，"10" ，"11" ，"100" ，"101" 和 "110" 。
+由于 x 等于 1 ，每个数字的价值分别为所有设置位的数目。
+这些数字的所有设置位数目总数是 9 ，所以前 6 个数字的价值和为 9 。
+所以答案为 6 。</pre>
 
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <b>输入：</b>k = 7, x = 2
 <b>输出：</b>9
-<b>解释：</b>由下表所示，9 是最大的廉价数字。
-</pre>
-
-<table border="1">
-	<tbody>
-		<tr>
-			<th>x</th>
-			<th>num</th>
-			<th>Binary Representation</th>
-			<th>Price</th>
-			<th>Accumulated Price</th>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>1</td>
-			<td><u>0</u>0<u>0</u>1</td>
-			<td>0</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>2</td>
-			<td><u>0</u>0<strong><u>1</u></strong>0</td>
-			<td>1</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>3</td>
-			<td><u>0</u>0<strong><u>1</u></strong>1</td>
-			<td>1</td>
-			<td>2</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>4</td>
-			<td><u>0</u>1<u>0</u>0</td>
-			<td>0</td>
-			<td>2</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>5</td>
-			<td><u>0</u>1<u>0</u>1</td>
-			<td>0</td>
-			<td>2</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>6</td>
-			<td><u>0</u>1<strong><u>1</u></strong>0</td>
-			<td>1</td>
-			<td>3</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>7</td>
-			<td><u>0</u>1<strong><u>1</u></strong>1</td>
-			<td>1</td>
-			<td>4</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>8</td>
-			<td><strong><u>1</u></strong>0<u>0</u>0</td>
-			<td>1</td>
-			<td>5</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>9</td>
-			<td><strong><u>1</u></strong>0<u>0</u>1</td>
-			<td>1</td>
-			<td>6</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>10</td>
-			<td><strong><u>1</u></strong>0<strong><u>1</u></strong>0</td>
-			<td>2</td>
-			<td>8</td>
-		</tr>
-	</tbody>
-</table>
+<b>解释：</b>由于 x 等于 2 ，我们检查每个数字的偶数位。
+2 和 3 在二进制表示下的第二个数位为设置位，所以它们的价值和为 2 。
+6 和 7 在二进制表示下的第二个数位为设置位，所以它们的价值和为 2 。
+8 和 9 在二进制表示下的第四个数位为设置位但第二个数位不是设置位，所以它们的价值和为 2 。
+数字 1 ，4 和 5 在二进制下偶数位都不是设置位，所以它们的价值和为 0 。
+10 在二进制表示下的第二个数位和第四个数位都是设置位，所以它的价值为 2 。
+前 9 个数字的价值和为 6 。
+前 10 个数字的价值和为 8，超过了 k = 7 ，所以答案为 9 。</pre>
 
 <p>&nbsp;</p>
 

@@ -1,4 +1,4 @@
-# [3053. 根据长度分类三角形](https://leetcode.cn/problems/classifying-triangles-by-lengths)
+# [3053. Classifying Triangles by Lengths](https://leetcode.cn/problems/classifying-triangles-by-lengths)
 
 [English Version](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md)
 

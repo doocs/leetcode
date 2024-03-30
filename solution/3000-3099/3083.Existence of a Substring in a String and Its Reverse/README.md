@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3083.Existence%20of%20a%20Substring%20in%20a%20String%20and%20Its%20Reverse/README_EN.md)
 
-<!-- tags:哈希表,字符串 -->
+<!-- tags: -->
 
 ## 题目描述
 
