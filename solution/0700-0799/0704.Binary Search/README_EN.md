@@ -39,7 +39,18 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+We define the left boundary of the binary search as $left=0$, and the right boundary as $right=n-1$.
+
+In each iteration, we calculate the middle position $mid=(left+right)/2$, and then compare the size of $nums[mid]$ and $target$:
+
+-   If $nums[mid] \geq target$, it means that $target$ is in the interval $[left, mid]$, so we update $right$ to $mid$;
+-   Otherwise, $target$ is in the interval $[mid+1, right]$, so we update $left$ to $mid+1$.
+
+When $left \geq right$, we check if $nums[left]$ equals $target$. If it does, we return $left$, otherwise, we return $-1$.
+
+The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -155,31 +166,19 @@ var search = function (nums, target) {
 };
 ```
 
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```rust
-use std::cmp::Ordering;
-
-impl Solution {
-    fn binary_search(nums: Vec<i32>, target: i32, l: usize, r: usize) -> i32 {
-        if l == r {
-            return if nums[l] == target { l as i32 } else { -1 };
+```cs
+public class Solution {
+    public int Search(int[] nums, int target) {
+        int left = 0, right = nums.Length - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        let mid = (l + r) >> 1;
-        match nums[mid].cmp(&target) {
-            Ordering::Less => Self::binary_search(nums, target, mid + 1, r),
-            Ordering::Greater => Self::binary_search(nums, target, l, mid),
-            Ordering::Equal => mid as i32,
-        }
-    }
-
-    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
-        let r = nums.len() - 1;
-        Self::binary_search(nums, target, 0, r)
+        return nums[left] == target ? left : -1;
     }
 }
 ```
