@@ -57,32 +57,31 @@ topVotedCandidate.q(8); // 返回 1
 
 ## 解法
 
-### 方法一
+### 方法一：二分查找
+
+我们可以在初始化时，记录每个时刻的胜者，然后在查询时，使用二分查找找到小于等于 $t$ 的最大时刻，返回该时刻的胜者。
+
+初始化时，我们使用一个计数器 $
 
 <!-- tabs:start -->
 
 ```python
 class TopVotedCandidate:
+
     def __init__(self, persons: List[int], times: List[int]):
-        mx = cur = 0
-        counter = Counter()
+        cnt = Counter()
         self.times = times
         self.wins = []
-        for i, p in enumerate(persons):
-            counter[p] += 1
-            if counter[p] >= mx:
-                mx, cur = counter[p], p
+        cur = 0
+        for p in persons:
+            cnt[p] += 1
+            if cnt[cur] <= cnt[p]:
+                cur = p
             self.wins.append(cur)
 
     def q(self, t: int) -> int:
-        left, right = 0, len(self.wins) - 1
-        while left < right:
-            mid = (left + right + 1) >> 1
-            if self.times[mid] <= t:
-                left = mid
-            else:
-                right = mid - 1
-        return self.wins[left]
+        i = bisect_right(self.times, t) - 1
+        return self.wins[i]
 
 
 # Your TopVotedCandidate object will be instantiated and called as such:
@@ -93,34 +92,28 @@ class TopVotedCandidate:
 ```java
 class TopVotedCandidate {
     private int[] times;
-    private int[] winPersons;
+    private int[] wins;
 
     public TopVotedCandidate(int[] persons, int[] times) {
-        this.times = times;
-        int mx = -1, curWin = -1;
         int n = persons.length;
-        int[] counter = new int[n + 1];
-        winPersons = new int[n];
+        wins = new int[n];
+        this.times = times;
+        int[] cnt = new int[n];
+        int cur = 0;
         for (int i = 0; i < n; ++i) {
-            if (++counter[persons[i]] >= mx) {
-                mx = counter[persons[i]];
-                curWin = persons[i];
+            int p = persons[i];
+            ++cnt[p];
+            if (cnt[cur] <= cnt[p]) {
+                cur = p;
             }
-            winPersons[i] = curWin;
+            wins[i] = cur;
         }
     }
 
     public int q(int t) {
-        int left = 0, right = winPersons.length - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (times[mid] <= t) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return winPersons[left];
+        int i = Arrays.binarySearch(times, t + 1);
+        i = i < 0 ? -i - 2 : i - 1;
+        return wins[i];
     }
 }
 
@@ -134,19 +127,16 @@ class TopVotedCandidate {
 ```cpp
 class TopVotedCandidate {
 public:
-    vector<int> times;
-    vector<int> wins;
-
     TopVotedCandidate(vector<int>& persons, vector<int>& times) {
         int n = persons.size();
-        wins.resize(n);
-        int mx = 0, cur = 0;
         this->times = times;
-        vector<int> counter(n);
+        wins.resize(n);
+        vector<int> cnt(n);
+        int cur = 0;
         for (int i = 0; i < n; ++i) {
             int p = persons[i];
-            if (++counter[p] >= mx) {
-                mx = counter[p];
+            ++cnt[p];
+            if (cnt[cur] <= cnt[p]) {
                 cur = p;
             }
             wins[i] = cur;
@@ -154,16 +144,13 @@ public:
     }
 
     int q(int t) {
-        int left = 0, right = wins.size() - 1;
-        while (left < right) {
-            int mid = left + right + 1 >> 1;
-            if (times[mid] <= t)
-                left = mid;
-            else
-                right = mid - 1;
-        }
-        return wins[left];
+        int i = upper_bound(times.begin(), times.end(), t) - times.begin() - 1;
+        return wins[i];
     }
+
+private:
+    vector<int> times;
+    vector<int> wins;
 };
 
 /**
@@ -180,13 +167,13 @@ type TopVotedCandidate struct {
 }
 
 func Constructor(persons []int, times []int) TopVotedCandidate {
-	mx, cur, n := 0, 0, len(persons)
-	counter := make([]int, n)
+	n := len(persons)
 	wins := make([]int, n)
+	cnt := make([]int, n)
+	cur := 0
 	for i, p := range persons {
-		counter[p]++
-		if counter[p] >= mx {
-			mx = counter[p]
+		cnt[p]++
+		if cnt[cur] <= cnt[p] {
 			cur = p
 		}
 		wins[i] = cur
@@ -195,22 +182,61 @@ func Constructor(persons []int, times []int) TopVotedCandidate {
 }
 
 func (this *TopVotedCandidate) Q(t int) int {
-	left, right := 0, len(this.wins)-1
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if this.times[mid] <= t {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return this.wins[left]
+	i := sort.SearchInts(this.times, t+1) - 1
+	return this.wins[i]
 }
 
 /**
  * Your TopVotedCandidate object will be instantiated and called as such:
  * obj := Constructor(persons, times);
  * param_1 := obj.Q(t);
+ */
+```
+
+```ts
+class TopVotedCandidate {
+    private times: number[];
+    private wins: number[];
+
+    constructor(persons: number[], times: number[]) {
+        const n = persons.length;
+        this.times = times;
+        this.wins = new Array<number>(n).fill(0);
+        const cnt: Array<number> = new Array<number>(n).fill(0);
+        let cur = 0;
+        for (let i = 0; i < n; ++i) {
+            const p = persons[i];
+            cnt[p]++;
+            if (cnt[cur] <= cnt[p]) {
+                cur = p;
+            }
+            this.wins[i] = cur;
+        }
+    }
+
+    q(t: number): number {
+        const search = (t: number): number => {
+            let l = 0,
+                r = this.times.length;
+            while (l < r) {
+                const mid = (l + r) >> 1;
+                if (this.times[mid] > t) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            return l;
+        };
+        const i = search(t) - 1;
+        return this.wins[i];
+    }
+}
+
+/**
+ * Your TopVotedCandidate object will be instantiated and called as such:
+ * var obj = new TopVotedCandidate(persons, times)
+ * var param_1 = obj.q(t)
  */
 ```
 

@@ -2,7 +2,7 @@
 
 [English Version](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)
 
-<!-- tags:数学 -->
+<!-- tags:数学,数论 -->
 
 ## 题目描述
 

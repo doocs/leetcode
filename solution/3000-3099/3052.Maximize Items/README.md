@@ -1,4 +1,4 @@
-# [3052. Maximize Items](https://leetcode.cn/problems/maximize-items)
+# [3052. 最大化商品](https://leetcode.cn/problems/maximize-items)
 
 [English Version](/solution/3000-3099/3052.Maximize%20Items/README_EN.md)
 
@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <font face="monospace"><code>Inventory</code></font></p>
+<p>表：<font face="monospace"><code>Inventory</code></font></p>
 
 <pre>
 +----------------+---------+ 
@@ -19,31 +19,32 @@
 | item_category  | varchar |
 | square_footage | decimal |
 +----------------+---------+
-item_id is the column of unique values for this table.
-Each row includes item id, item type, item category and sqaure footage.
+item_id 是这张表中有不同值的列。
+每一行包含 item id，item type，item category 和 sqaure footage。
 </pre>
 
-<p>Leetcode warehouse wants to maximize the number of items it can stock in a <code>500,000</code> square feet warehouse. It wants to stock as many <strong>prime</strong> items as possible, and afterwards use the <strong>remaining</strong> square footage to stock the most number of <strong>non-prime</strong> items.</p>
+<p>Leetcode 仓库想要最大化它能够在&nbsp;<code>500,000</code> 平方英尺的仓库中储存的商品数。他想要尽可能多地存储 <strong>主要</strong> 商品，然后用 <strong>剩下</strong> 的空间存储最大数量的 <strong>非主要</strong> 商品。</p>
 
-<p>Write a solution to find the number of <strong>prime</strong> and <strong>non-prime</strong> items that can be <strong>stored</strong> in the <code>500,000</code> square feet warehouse. Output the item type with <code>prime_eligible</code> followed by <code>not_prime</code> and the maximum number of items that can be stocked.</p>
+<p>编写一个解决方案来找到能够在&nbsp;<code>500,000</code>&nbsp;平方英尺的仓库中存储&nbsp;<b>主要</b>&nbsp;和&nbsp;<strong>非主要</strong>&nbsp;商品的数量。输出商品类型&nbsp;<code>prime_eligible</code>&nbsp;和&nbsp;<code>not_prime</code>，以及能储存商品的最大数量。</p>
 
-<p><strong>Note:</strong></p>
+<p><strong>注意：</strong></p>
 
 <ul>
-	<li>Item <strong>count</strong> must be a whole number (integer).</li>
-	<li>If the count for the <strong>not_prime</strong> category is <code>0</code>, you should <strong>output</strong> <code>0</code> for that particular category.</li>
+	<li>商品 <strong>数</strong> 必须是一个整数。</li>
+	<li>如果&nbsp;<strong>not_prime</strong>&nbsp;分类的数量是&nbsp;<code>0</code>，你应当对这部分分类 <strong>输出</strong>&nbsp;<code>0</code>&nbsp;。</li>
 </ul>
 
-<p>Return <em>the result table ordered by item count in <strong>ascending order</strong></em>.</p>
+<p>返回结果表，以商品数 <strong>升序</strong> 排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Inventory table:
+<strong>输入：</strong> 
+Inventory 表：
 +---------+----------------+---------------+----------------+
 | item_id | item_type      | item_category | square_footage | 
 +---------+----------------+---------------+----------------+
@@ -58,17 +59,17 @@ Inventory table:
 | 4256    | prime_eligible | Furniture     | 55.50          |
 | 6325    | prime_eligible | Food          | 13.20          | 
 +---------+----------------+---------------+----------------+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +----------------+-------------+
 | item_type      | item_count  | 
 +----------------+-------------+
 | prime_eligible | 5400        | 
 | not_prime      | 8           | 
 +----------------+-------------+
-<strong>Explanation:</strong> 
-- The prime-eligible category comprises a total of 6 items, amounting to a combined square footage of 555.20 (68 + 325 + 85 + 8.50 + 55.50 + 13.20). It is possible to store 900 combinations of these 6 items, totaling 5400 items and occupying 499,680 square footage.
-- In the not_prime category, there are a total of 4 items with a combined square footage of 128.50. After deducting the storage used by prime-eligible items (500,000 - 499,680 = 320), there is room for 2 combinations of non-prime items, accommodating a total of 8 non-prime items within the available 320 square footage.
-Output table is ordered by item count in descending order.</pre>
+<strong>解释：</strong> 
+- prime-eligible 分类包括总计 6 件商品，总面积为 555.20 (68 + 325 + 85 + 8.50 + 55.50 + 13.20) 平方英尺。可以存放这 6 种物品的 900 件组合，总计 5400 件，占地 499,680 平方英尺。
+- 对于 not_prime 分类，共有 4 件商品，总面积为 128.50 平方英尺。在减去 prime-eligible 商品使用的空间之后 (500,000 - 499,680 = 320)，还有放 2 件 non-prime 商品的空间，在320平方英尺的面积内，共容纳 8 个 non-prime 商品。
+输出表以商品数量降序排序。</pre>
 
 ## 解法
 

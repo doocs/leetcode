@@ -6,45 +6,50 @@
 
 ## Description
 
-<p>Write a function that takes&nbsp;the binary representation of an unsigned integer and returns the number of &#39;1&#39; bits it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank">Hamming weight</a>).</p>
-
-<p><strong>Note:</strong></p>
-
-<ul>
-	<li>Note that in some languages, such as Java, there is no unsigned integer type. In this case, the input will be given as a signed integer type. It should not affect your implementation, as the integer&#39;s internal binary representation is the same, whether it is signed or unsigned.</li>
-	<li>In Java, the compiler represents the signed integers using <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">2&#39;s complement notation</a>. Therefore, in <strong class="example">Example 3</strong>, the input represents the signed integer. <code>-3</code>.</li>
-</ul>
+<p>Write a function that takes the binary representation of a positive integer and returns the number of <span data-keyword="set-bit">set bits</span> it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank">Hamming weight</a>).</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 00000000000000000000000000001011
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The input binary string <strong>00000000000000000000000000001011</strong> has a total of three &#39;1&#39; bits.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 11</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">3</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The input binary string <strong>1011</strong> has a total of three set bits.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 00000000000000000000000010000000
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> The input binary string <strong>00000000000000000000000010000000</strong> has a total of one &#39;1&#39; bit.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 128</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The input binary string <strong>10000000</strong> has a total of one set bit.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 11111111111111111111111111111101
-<strong>Output:</strong> 31
-<strong>Explanation:</strong> The input binary string <strong>11111111111111111111111111111101</strong> has a total of thirty one &#39;1&#39; bits.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 2147483645</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">30</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The input binary string <strong>1111111111111111111111111111101</strong> has a total of thirty set bits.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The input must be a <strong>binary string</strong> of length <code>32</code>.</li>
+	<li><code>1 &lt;= n&nbsp;&lt;= 2<sup>31</sup>&nbsp;- 1</code></li>
 </ul>
 
 <p>&nbsp;</p>

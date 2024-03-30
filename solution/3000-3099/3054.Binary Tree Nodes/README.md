@@ -1,4 +1,4 @@
-# [3054. Binary Tree Nodes](https://leetcode.cn/problems/binary-tree-nodes)
+# [3054. 二叉树节点](https://leetcode.cn/problems/binary-tree-nodes)
 
 [English Version](/solution/3000-3099/3054.Binary%20Tree%20Nodes/README_EN.md)
 
@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <font face="monospace"><code>Tree</code></font></p>
+<p>表：<font face="monospace"><code>Tree</code></font></p>
 
 <pre>
 +-------------+------+ 
@@ -17,28 +17,29 @@
 | N           | int  | 
 | P           | int  |
 +-------------+------+
-N is the column of unique values for this table.
-Each row includes N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
+N 是这张表中具有不同值的列。
+每一行中包含 N 和 P，其中 N 表示二叉树中节点的值，P 是 N 的父亲。
 </pre>
 
-<p>Write a solution to find the node type of the Binary Tree. Output one of the following for each node:</p>
+<p>编写一个解决方案来找到二进制树节点的类型。对于每个节点输出：</p>
 
 <ul>
-	<li><strong>Root</strong>: if the node is the root node.</li>
-	<li><strong>Leaf</strong>: if the node is the leaf node.</li>
-	<li><strong>Inner</strong>: if the node is neither root nor leaf node.</li>
+	<li><strong>Root</strong>：如果节点是根节点。</li>
+	<li><strong>Leaf</strong>：如果节点是叶子节点。</li>
+	<li><strong>Inner</strong>: 如果节点既不是根节点，也不是叶子节点。</li>
 </ul>
 
-<p>Return <em>the result table ordered by node value in <strong>ascending order</strong></em>.</p>
+<p>返回结果表，根据节点值 <strong>升序排序</strong>。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Tree table:
+<strong>输入：</strong>
+Tree 表：
 +---+------+
 | N | P    | 
 +---+------+
@@ -50,7 +51,7 @@ Tree table:
 | 8 | 5    | 
 | 5 | null | 
 +---+------+
-<strong>Output:</strong> 
+<strong>输出：</strong>
 +---+-------+
 | N | Type  | 
 +---+-------+
@@ -62,10 +63,10 @@ Tree table:
 | 8 | Inner |
 | 9 | Leaf  |    
 +---+-------+
-<strong>Explanation:</strong> 
-- Node 5 is the root node since it has no parent node.
-- Nodes 1, 3, 6, and 8 are leaf nodes because they don&#39;t have any child nodes.
-- Nodes 2, 4, and 7 are inner nodes as they serve as parents to some of the nodes in the structure.
+<strong>解释：</strong>
+- 节点 5 是根节点，因为它没有父节点。
+- 节点 1，3，6 和 8 是叶节点，因为它们没有任何子节点。
+- 节点 2，4，7 是内部节点，因为它们充当结构中某些节点的父节点。
 </pre>
 
 ## 解法

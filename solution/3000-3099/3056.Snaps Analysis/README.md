@@ -1,4 +1,4 @@
-# [3056. Snaps Analysis](https://leetcode.cn/problems/snaps-analysis)
+# [3056. 快照分析](https://leetcode.cn/problems/snaps-analysis)
 
 [English Version](/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md)
 
@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Activities</code></p>
+<p>表：<code>Activities</code></p>
 
 <pre>
 +---------------+---------+
@@ -19,12 +19,12 @@
 | activity_type | enum    |
 | time_spent    | decimal |
 +---------------+---------+
-activity_id is column of unique values for this table.
-activity_type is an ENUM (category) type of (&#39;send&#39;, &#39;open&#39;). 
-This table contains activity id, user id, activity type and time spent.
+activity_id 是这张表中值互不相同的列。
+activity_type 是一个 ('send', 'open') 的 ENUM (category)。
+这张表包含 activity id，user id，activity type 和 time spent。
 </pre>
 
-<p>Table: <code>Age</code></p>
+<p>表：<code>Age</code></p>
 
 <pre>
 +-------------+------+
@@ -33,22 +33,23 @@ This table contains activity id, user id, activity type and time spent.
 | user_id     | int  |
 | age_bucket  | enum |
 +-------------+------+
-user_id is the column of unique values for this table.
-age_bucket is an ENUM (category) type of (&#39;21-25&#39;, &#39;26-30&#39;, &#39;31-35&#39;). 
-This table contains user id and age group.</pre>
+user_id 是这张表中有不同值的列。
+age_bucket 是一个 ('21-25', '26-30', '31-35') 的 ENUM (category)。
+这张表包含 user id 和 age 组。</pre>
 
-<p>Write a solution to calculate the <strong>percentage</strong> of the total time spent on <strong>sending</strong> and <strong>opening snaps</strong> for <strong>each age group</strong>. Precentage should be <strong>rounded</strong> to <code>2</code> decimal places.</p>
+<p>编写一个解决方案来计算 <strong>每个年龄组</strong> <strong>发送</strong> 和 <strong>打开快照</strong> 所花费的总时间 <strong>百分比</strong>。百分比应 <strong>四舍五入</strong> 至小数点后 <code>2</code> 位。</p>
 
-<p>Return <em>the result table </em><em>in <strong>any</strong> order.</em></p>
+<p>以 <strong>任何</strong> 顺序返回结果表。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Activities table:
+<strong>输入：</strong> 
+Activities 表：
 +-------------+---------+---------------+------------+
 | activity_id | user_id | activity_type | time_spent |
 +-------------+---------+---------------+------------+
@@ -61,7 +62,7 @@ Activities table:
 | 4251        | 123     | open          | 1.25       | 
 | 1435        | 789     | open          | 5.25       | 
 +-------------+---------+---------------+------------+
-Age table:
+Age 表：
 +---------+------------+
 | user_id | age_bucket | 
 +---------+------------+
@@ -69,7 +70,7 @@ Age table:
 | 789     | 21-25      | 
 | 456     | 26-30      | 
 +---------+------------+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +------------+-----------+-----------+
 | age_bucket | send_perc | open_perc |
 +------------+-----------+-----------+
@@ -77,23 +78,23 @@ Age table:
 | 26-30      | 82.26     | 17.74     |
 | 21-25      | 54.31     | 45.69     |
 +------------+-----------+-----------+
-<strong>Explanation:</strong> 
-For age group 31-35:
-  - There is only one user belonging to this group with the user ID 123.
-  - The total time spent on sending snaps by this user is 3.50, and the time spent on opening snaps is 4.50 + 1.25 = 5.75.
-  - The overall time spent by this user is 3.50 + 5.75 = 9.25.
-  - Therefore, the sending snap percentage will be (3.50 / 9.25) * 100 = 37.84, and the opening snap percentage will be (5.75 / 9.25) * 100 = 62.16.
-For age group 26-30: 
-  - There is only one user belonging to this group with the user ID 456. 
-  - The total time spent on sending snaps by this user is 5.67 + 8.24 = 13.91, and the time spent on opening snaps is 3.00. 
-  - The overall time spent by this user is 13.91 + 3.00 = 16.91. 
-  - Therefore, the sending snap percentage will be (13.91 / 16.91) * 100 = 82.26, and the opening snap percentage will be (3.00 / 16.91) * 100 = 17.74.
-For age group 21-25: 
-  - There is only one user belonging to this group with the user ID 789. 
-  - The total time spent on sending snaps by this user is 6.24, and the time spent on opening snaps is 5.25. 
-  - The overall time spent by this user is 6.24 + 5.25 = 11.49. 
-  - Therefore, the sending snap percentage will be (6.24 / 11.49) * 100 = 54.31, and the opening snap percentage will be (5.25 / 11.49) * 100 = 45.69.
-All percentages in output table rounded to the two decimal places.
+<strong>解释：</strong> 
+对于年龄组 31-35：
+  - 只有一个用户属于该组，用户 ID 为 123。
+  - 该用户花费在发送快照上的总时间为 3.50，并且花费在打开快照上的时间为 4.50 + 1.25 = 5.75。
+  - 用户花费的总时间为 3.50 + 5.75 = 9.25。
+  - 因此，发送快照百分比为 (3.50 / 9.25) * 100 = 37.84，并且打开快照百分比为 (5.75 / 9.25) * 100 = 62.16。
+对于年龄组 26-30：
+  - 只有一个用户属于该组，用户 ID 为 456。
+  - 该用户花费在发送快照上的总时间为 5.67 + 8.24 = 13.91，并且花费在打开快照上的时间为 3.00。
+  - 用户花费的总时间为 13.91 + 3.00 = 16.91。
+  - 因此，发送快照百分比为 (13.91 / 16.91) * 100 = 82.26，并且打开快照百分比为 (3.00 / 16.91) * 100 = 17.74。
+对于年龄组 21-25：
+  - 只有一个用户属于该组，用户 ID 为 789。
+  - 该用户花费在发送快照上的总时间为 6.24，并且花费在打开快照上的时间为 5.25。
+  - 用户花费的总时间为 6.24 + 5.25 = 11.49。
+  - 因此，发送快照百分比为 (6.24 / 11.49) * 100 = 54.31，并且打开快照百分比为 (5.25 / 11.49) * 100 = 45.69。
+输出表中的所有百分比舍入到两位。
 </pre>
 
 ## 解法

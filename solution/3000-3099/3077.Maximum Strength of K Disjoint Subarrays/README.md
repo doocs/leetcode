@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3077.Maximum%20Strength%20of%20K%20Disjoint%20Subarrays/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,动态规划,前缀和 -->
 
 ## 题目描述
 

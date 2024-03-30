@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md)
 
-<!-- tags:Array -->
+<!-- tags:Bit Manipulation,Array -->
 
 ## Description
 
