@@ -15,7 +15,7 @@ public:
             wins[i] = cur;
         }
     }
-    
+
     int q(int t) {
         int i = upper_bound(times.begin(), times.end(), t) - times.begin() - 1;
         return wins[i];

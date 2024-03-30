@@ -17,7 +17,7 @@ class TopVotedCandidate {
             wins[i] = cur;
         }
     }
-    
+
     public int q(int t) {
         int i = Arrays.binarySearch(times, t + 1);
         i = i < 0 ? -i - 2 : i - 1;
