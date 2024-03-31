@@ -82,7 +82,15 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+First, we calculate the sum of the scores that both players can get, denoted as $s$.
+
+Then, we enumerate the number of levels that player 1 can complete, denoted as $i$, in ascending order. We calculate the sum of the scores that player 1 gets, denoted as $t$. If $t > s - t$, then the number of levels that player 1 needs to complete is $i$.
+
+If we have enumerated the first $n - 1$ levels and have not found a satisfying $i$, then we return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
