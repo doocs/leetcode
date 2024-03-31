@@ -3109,6 +3109,10 @@
 |  3096  |  [得到更多分数的最少关卡数目](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)  |    |  中等  |  第 127 场双周赛  |
 |  3097  |  [或值至少为 K 的最短子数组 II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)  |    |  中等  |  第 127 场双周赛  |
 |  3098  |  [求出所有子序列的能量和](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)  |    |  困难  |  第 127 场双周赛  |
+|  3099  |  [哈沙德数](/solution/3000-3099/3099.Harshad%20Number/README.md)  |    |  简单  |  第 391 场周赛  |
+|  3100  |  [换水问题 II](/solution/3100-3199/3100.Water%20Bottles%20II/README.md)  |    |  中等  |  第 391 场周赛  |
+|  3101  |  [交替子数组计数](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)  |    |  中等  |  第 391 场周赛  |
+|  3102  |  [最小化曼哈顿距离](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md)  |    |  困难  |  第 391 场周赛  |
 
 ## 版权
 
