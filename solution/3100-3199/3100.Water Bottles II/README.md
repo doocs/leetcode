@@ -49,24 +49,86 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们可以在一开始就喝掉所有的满水瓶，因此初始时我们喝到的水数量为 `numBottles`。然后我们不断地进行以下操作：
+
+-   如果当前有 `numExchange` 个空水瓶，我们就可以用它们换一瓶满水瓶，换完后，`numExchange` 的值增加 1。然后，我们喝掉这瓶水，喝到的水数量增加 $1$，空水瓶数量增加 $1$。
+-   如果当前没有 `numExchange` 个空水瓶，那么我们就不能再换水了，此时我们就可以停止操作。
+
+我们不断地进行上述操作，直到我们无法再换水为止。最终我们喝到的水的数量就是答案。
+
+时间复杂度 $O(\sqrt{numBottles})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxBottlesDrunk(self, numBottles: int, numExchange: int) -> int:
+        ans = numBottles
+        while numBottles >= numExchange:
+            numBottles -= numExchange
+            numExchange += 1
+            ans += 1
+            numBottles += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maxBottlesDrunk(int numBottles, int numExchange) {
+        int ans = numBottles;
+        while (numBottles >= numExchange) {
+            numBottles -= numExchange;
+            ++numExchange;
+            ++ans;
+            ++numBottles;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxBottlesDrunk(int numBottles, int numExchange) {
+        int ans = numBottles;
+        while (numBottles >= numExchange) {
+            numBottles -= numExchange;
+            ++numExchange;
+            ++ans;
+            ++numBottles;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maxBottlesDrunk(numBottles int, numExchange int) int {
+	ans := numBottles
+	for numBottles >= numExchange {
+		numBottles -= numExchange
+		numExchange++
+		ans++
+		numBottles++
+	}
+	return ans
+}
+```
 
+```ts
+function maxBottlesDrunk(numBottles: number, numExchange: number): number {
+    let ans = numBottles;
+    while (numBottles >= numExchange) {
+        numBottles -= numExchange;
+        ++numExchange;
+        ++ans;
+        ++numBottles;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

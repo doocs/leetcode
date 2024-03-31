@@ -46,24 +46,86 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can drink all the full water bottles at the beginning, so the initial amount of water we drink is `numBottles`. Then we continuously perform the following operations:
+
+-   If we currently have `numExchange` empty water bottles, we can exchange them for a full water bottle, after which the value of `numExchange` increases by 1. Then, we drink this bottle of water, the amount of water we drink increases by $1$, and the number of empty water bottles increases by $1$.
+-   If we currently do not have `numExchange` empty water bottles, then we can no longer exchange for water, at which point we can stop the operation.
+
+We continuously perform the above operations until we can no longer exchange for water. The final amount of water we drink is the answer.
+
+The time complexity is $O(\sqrt{numBottles})$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def maxBottlesDrunk(self, numBottles: int, numExchange: int) -> int:
+        ans = numBottles
+        while numBottles >= numExchange:
+            numBottles -= numExchange
+            numExchange += 1
+            ans += 1
+            numBottles += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int maxBottlesDrunk(int numBottles, int numExchange) {
+        int ans = numBottles;
+        while (numBottles >= numExchange) {
+            numBottles -= numExchange;
+            ++numExchange;
+            ++ans;
+            ++numBottles;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int maxBottlesDrunk(int numBottles, int numExchange) {
+        int ans = numBottles;
+        while (numBottles >= numExchange) {
+            numBottles -= numExchange;
+            ++numExchange;
+            ++ans;
+            ++numBottles;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func maxBottlesDrunk(numBottles int, numExchange int) int {
+	ans := numBottles
+	for numBottles >= numExchange {
+		numBottles -= numExchange
+		numExchange++
+		ans++
+		numBottles++
+	}
+	return ans
+}
+```
 
+```ts
+function maxBottlesDrunk(numBottles: number, numExchange: number): number {
+    let ans = numBottles;
+    while (numBottles >= numExchange) {
+        numBottles -= numExchange;
+        ++numExchange;
+        ++ans;
+        ++numBottles;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

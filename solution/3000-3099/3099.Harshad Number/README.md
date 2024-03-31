@@ -46,24 +46,70 @@
 
 ## 解法
 
-### 方法一
+### 方法一：模拟
+
+我们可以通过模拟的方法，计算出 $x$ 的各个数位上的数字之和，记为 $s$。如果 $x$ 能被 $s$ 整除，则返回 $s$，否则返回 $-1$。
+
+时间复杂度 $O(\log x)$，其中 $x$ 是输入的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def sumOfTheDigitsOfHarshadNumber(self, x: int) -> int:
+        s, y = 0, x
+        while y:
+            s += y % 10
+            y //= 10
+        return s if x % s == 0 else -1
 ```
 
 ```java
-
+class Solution {
+    public int sumOfTheDigitsOfHarshadNumber(int x) {
+        int s = 0;
+        for (int y = x; y > 0; y /= 10) {
+            s += y % 10;
+        }
+        return x % s == 0 ? s : -1;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int sumOfTheDigitsOfHarshadNumber(int x) {
+        int s = 0;
+        for (int y = x; y > 0; y /= 10) {
+            s += y % 10;
+        }
+        return x % s == 0 ? s : -1;
+    }
+};
 ```
 
 ```go
+func sumOfTheDigitsOfHarshadNumber(x int) int {
+	s := 0
+	for y := x; y > 0; y /= 10 {
+		s += y % 10
+	}
+	if x%s == 0 {
+		return s
+	}
+	return -1
+}
+```
 
+```ts
+function sumOfTheDigitsOfHarshadNumber(x: number): number {
+    let s = 0;
+    for (let y = x; y; y = Math.floor(y / 10)) {
+        s += y % 10;
+    }
+    return x % s === 0 ? s : -1;
+}
 ```
 
 <!-- tabs:end -->
