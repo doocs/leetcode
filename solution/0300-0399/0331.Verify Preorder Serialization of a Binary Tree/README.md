@@ -84,17 +84,18 @@ class Solution:
 ```java
 class Solution {
     public boolean isValidSerialization(String preorder) {
-        String[] strs = preorder.split(",");
-        int diff = 1;
-        for (String s : strs) {
-            if (--diff < 0) {
-                return false;
-            }
-            if (!s.equals("#")) {
-                diff += 2;
+        List<String> stk = new ArrayList<>();
+        for (String s : preorder.split(",")) {
+            stk.add(s);
+            while (stk.size() >= 3 && stk.get(stk.size() - 1).equals("#")
+                && stk.get(stk.size() - 2).equals("#") && !stk.get(stk.size() - 3).equals("#")) {
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.add("#");
             }
         }
-        return diff == 0;
+        return stk.size() == 1 && stk.get(0).equals("#");
     }
 }
 ```
@@ -134,28 +135,16 @@ func isValidSerialization(preorder string) bool {
 }
 ```
 
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public boolean isValidSerialization(String preorder) {
-        List<String> stk = new ArrayList<>();
-        for (String s : preorder.split(",")) {
-            stk.add(s);
-            while (stk.size() >= 3 && stk.get(stk.size() - 1).equals("#")
-                && stk.get(stk.size() - 2).equals("#") && !stk.get(stk.size() - 3).equals("#")) {
-                stk.remove(stk.size() - 1);
-                stk.remove(stk.size() - 1);
-                stk.remove(stk.size() - 1);
-                stk.add("#");
-            }
+```ts
+function isValidSerialization(preorder: string): boolean {
+    const stk: string[] = [];
+    for (const s of preorder.split(',')) {
+        stk.push(s);
+        while (stk.length >= 3 && stk.at(-1) === '#' && stk.at(-2) === '#' && stk.at(-3) !== '#') {
+            stk.splice(-3, 3, '#');
         }
-        return stk.size() == 1 && stk.get(0).equals("#");
     }
+    return stk.length === 1 && stk[0] === '#';
 }
 ```
 
