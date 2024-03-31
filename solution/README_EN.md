@@ -3103,6 +3103,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3092  |  [Most Frequent IDs](/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md)  |  `Array`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 390  |
 |  3093  |  [Longest Common Suffix Queries](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md)  |  `Trie`,`Array`,`String`  |  Hard  |  Weekly Contest 390  |
 |  3094  |  [Guess the Number Using Bitwise Questions II](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  3095  |  [Shortest Subarray With OR at Least K I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 127  |
+|  3096  |  [Minimum Levels to Gain More Points](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README_EN.md)  |    |  Medium  |  Biweekly Contest 127  |
+|  3097  |  [Shortest Subarray With OR at Least K II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 127  |
+|  3098  |  [Find the Sum of Subsequence Powers](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README_EN.md)  |    |  Hard  |  Biweekly Contest 127  |
 
 ## Copyright
 

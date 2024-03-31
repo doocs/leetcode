@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 127 场双周赛(2024-03-30 22:30, 90 分钟) 参赛人数 2950
+
+- [3095. 或值至少 K 的最短子数组 I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md)
+- [3096. 得到更多分数的最少关卡数目](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)
+- [3097. 或值至少为 K 的最短子数组 II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)
+- [3098. 求出所有子序列的能量和](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)
+
 #### 第 390 场周赛(2024-03-24 10:30, 90 分钟) 参赛人数 4817
 
 - [3090. 每个字符最多出现两次的最长子字符串](/solution/3000-3099/3090.Maximum%20Length%20Substring%20With%20Two%20Occurrences/README.md)
