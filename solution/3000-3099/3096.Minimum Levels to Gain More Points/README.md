@@ -86,24 +86,104 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们先计算得到两个玩家能得到的分数和，记为 $s$。
+
+然后我们从小到大枚举玩家 $1$ 能完成的关卡数目 $i$，计算玩家 $1$ 得到的分数和 $t$，如果 $t > s - t$，那么玩家 $1$ 需要完成的关卡数目就是 $i$。
+
+如果枚举完前 $n - 1$ 个关卡都没有找到满足条件的 $i$，那么就返回 $-1$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumLevels(self, possible: List[int]) -> int:
+        s = sum(-1 if x == 0 else 1 for x in possible)
+        t = 0
+        for i, x in enumerate(possible[:-1], 1):
+            t += -1 if x == 0 else 1
+            if t > s - t:
+                return i
+        return -1
 ```
 
 ```java
-
+class Solution {
+    public int minimumLevels(int[] possible) {
+        int s = 0;
+        for (int x : possible) {
+            s += x == 0 ? -1 : 1;
+        }
+        int t = 0;
+        for (int i = 1; i < possible.length; ++i) {
+            t += possible[i - 1] == 0 ? -1 : 1;
+            if (t > s - t) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumLevels(vector<int>& possible) {
+        int s = 0;
+        for (int x : possible) {
+            s += x == 0 ? -1 : 1;
+        }
+        int t = 0;
+        for (int i = 1; i < possible.size(); ++i) {
+            t += possible[i - 1] == 0 ? -1 : 1;
+            if (t > s - t) {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 ```go
+func minimumLevels(possible []int) int {
+	s := 0
+	for _, x := range possible {
+		if x == 0 {
+			x = -1
+		}
+		s += x
+	}
+	t := 0
+	for i, x := range possible[:len(possible)-1] {
+		if x == 0 {
+			x = -1
+		}
+		t += x
+		if t > s-t {
+			return i + 1
+		}
+	}
+	return -1
+}
+```
 
+```ts
+function minimumLevels(possible: number[]): number {
+    const s = possible.reduce((acc, x) => acc + (x === 0 ? -1 : 1), 0);
+    let t = 0;
+    for (let i = 1; i < possible.length; ++i) {
+        t += possible[i - 1] === 0 ? -1 : 1;
+        if (t > s - t) {
+            return i;
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->

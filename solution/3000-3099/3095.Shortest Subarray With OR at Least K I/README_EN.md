@@ -60,7 +60,17 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers + Counting
+
+We can observe that if we fix the left endpoint of the subarray, as the right endpoint moves to the right, the bitwise OR value of the subarray will only increase, not decrease. Therefore, we can use the double pointers method to maintain a subarray that meets the conditions.
+
+Specifically, we use two pointers $i$ and $j$ to represent the left and right endpoints of the subarray, respectively. Initially, both pointers are at the first element of the array. We use a variable $s$ to represent the bitwise OR value of the subarray, and initially, the value of $s$ is $0$. We also need to maintain an array $cnt$ of length $32$, which represents the occurrence times of each bit in the binary representation of each element in the subarray.
+
+In each step, we move $j$ to the right by one position, and update $s$ and $cnt$. If the value of $s$ is greater than or equal to $k$, we continuously update the minimum length of the subarray and move $i$ to the right by one position until the value of $s$ is less than $k$. In this process, we also need to update $s$ and $cnt$.
+
+Finally, we return the minimum length. If there is no subarray that meets the conditions, we return $-1$.
+
+The time complexity is $O(n \times \log M)$ and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array and the maximum value of the elements in the array, respectively.
 
 <!-- tabs:start -->
 

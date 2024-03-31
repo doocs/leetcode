@@ -82,24 +82,104 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+First, we calculate the sum of the scores that both players can get, denoted as $s$.
+
+Then, we enumerate the number of levels that player 1 can complete, denoted as $i$, in ascending order. We calculate the sum of the scores that player 1 gets, denoted as $t$. If $t > s - t$, then the number of levels that player 1 needs to complete is $i$.
+
+If we have enumerated the first $n - 1$ levels and have not found a satisfying $i$, then we return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minimumLevels(self, possible: List[int]) -> int:
+        s = sum(-1 if x == 0 else 1 for x in possible)
+        t = 0
+        for i, x in enumerate(possible[:-1], 1):
+            t += -1 if x == 0 else 1
+            if t > s - t:
+                return i
+        return -1
 ```
 
 ```java
-
+class Solution {
+    public int minimumLevels(int[] possible) {
+        int s = 0;
+        for (int x : possible) {
+            s += x == 0 ? -1 : 1;
+        }
+        int t = 0;
+        for (int i = 1; i < possible.length; ++i) {
+            t += possible[i - 1] == 0 ? -1 : 1;
+            if (t > s - t) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumLevels(vector<int>& possible) {
+        int s = 0;
+        for (int x : possible) {
+            s += x == 0 ? -1 : 1;
+        }
+        int t = 0;
+        for (int i = 1; i < possible.size(); ++i) {
+            t += possible[i - 1] == 0 ? -1 : 1;
+            if (t > s - t) {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 ```go
+func minimumLevels(possible []int) int {
+	s := 0
+	for _, x := range possible {
+		if x == 0 {
+			x = -1
+		}
+		s += x
+	}
+	t := 0
+	for i, x := range possible[:len(possible)-1] {
+		if x == 0 {
+			x = -1
+		}
+		t += x
+		if t > s-t {
+			return i + 1
+		}
+	}
+	return -1
+}
+```
 
+```ts
+function minimumLevels(possible: number[]): number {
+    const s = possible.reduce((acc, x) => acc + (x === 0 ? -1 : 1), 0);
+    let t = 0;
+    for (let i = 1; i < possible.length; ++i) {
+        t += possible[i - 1] === 0 ? -1 : 1;
+        if (t > s - t) {
+            return i;
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
