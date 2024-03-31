@@ -3105,6 +3105,10 @@
 |  3092  |  [最高频率的 ID](/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md)  |  `数组`,`哈希表`,`有序集合`,`堆（优先队列）`  |  中等  |  第 390 场周赛  |
 |  3093  |  [最长公共后缀查询](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md)  |  `字典树`,`数组`,`字符串`  |  困难  |  第 390 场周赛  |
 |  3094  |  [Guess the Number Using Bitwise Questions II](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README.md)  |    |  中等  |  🔒  |
+|  3095  |  [或值至少 K 的最短子数组 I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md)  |    |  简单  |  第 127 场双周赛  |
+|  3096  |  [得到更多分数的最少关卡数目](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)  |    |  中等  |  第 127 场双周赛  |
+|  3097  |  [或值至少为 K 的最短子数组 II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)  |    |  中等  |  第 127 场双周赛  |
+|  3098  |  [求出所有子序列的能量和](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)  |    |  困难  |  第 127 场双周赛  |
 
 ## 版权
 
