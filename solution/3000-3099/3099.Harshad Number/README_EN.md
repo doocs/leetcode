@@ -42,24 +42,70 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Simulation
+
+We can calculate the sum of the digits of $x$, denoted as $s$, by simulation. If $x$ can be divided evenly by $s$, then we return $s$, otherwise, we return $-1$.
+
+The time complexity is $O(\log x)$, where $x$ is the input integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def sumOfTheDigitsOfHarshadNumber(self, x: int) -> int:
+        s, y = 0, x
+        while y:
+            s += y % 10
+            y //= 10
+        return s if x % s == 0 else -1
 ```
 
 ```java
-
+class Solution {
+    public int sumOfTheDigitsOfHarshadNumber(int x) {
+        int s = 0;
+        for (int y = x; y > 0; y /= 10) {
+            s += y % 10;
+        }
+        return x % s == 0 ? s : -1;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int sumOfTheDigitsOfHarshadNumber(int x) {
+        int s = 0;
+        for (int y = x; y > 0; y /= 10) {
+            s += y % 10;
+        }
+        return x % s == 0 ? s : -1;
+    }
+};
 ```
 
 ```go
+func sumOfTheDigitsOfHarshadNumber(x int) int {
+	s := 0
+	for y := x; y > 0; y /= 10 {
+		s += y % 10
+	}
+	if x%s == 0 {
+		return s
+	}
+	return -1
+}
+```
 
+```ts
+function sumOfTheDigitsOfHarshadNumber(x: number): number {
+    let s = 0;
+    for (let y = x; y; y = Math.floor(y / 10)) {
+        s += y % 10;
+    }
+    return x % s === 0 ? s : -1;
+}
 ```
 
 <!-- tabs:end -->

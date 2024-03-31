@@ -53,24 +53,84 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举以每个位置结尾的子数组，计算满足条件的子数组的数量，累加所有位置的满足条件的子数组的数量即可。
+
+具体地，我们定义变量 $s$ 表示以元素 $nums[i]$ 结尾的满足条件的子数组的数量，初始时我们将 $s$ 置为 $1$，表示以第一个元素结尾的满足条件的子数组的数量为 $1$。
+
+接下来，我们从第二个元素开始遍历数组，对于每个位置 $i$，我们根据 $nums[i]$ 和 $nums[i-1]$ 的关系更新 $s$ 的值：
+
+-   如果 $nums[i] \neq nums[i-1]$，则 $s$ 的值增加 $1$，即 $s = s + 1$；
+-   如果 $nums[i] = nums[i-1]$，则 $s$ 的值重置为 $1$，即 $s = 1$。
+
+然后，我们将 $s$ 的值累加到答案中，继续遍历数组的下一个位置，直到遍历完整个数组。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def countAlternatingSubarrays(self, nums: List[int]) -> int:
+        ans = s = 1
+        for a, b in pairwise(nums):
+            s = s + 1 if a != b else 1
+            ans += s
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public long countAlternatingSubarrays(int[] nums) {
+        long ans = 1, s = 1;
+        for (int i = 1; i < nums.length; ++i) {
+            s = nums[i] != nums[i - 1] ? s + 1 : 1;
+            ans += s;
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long countAlternatingSubarrays(vector<int>& nums) {
+        long long ans = 1, s = 1;
+        for (int i = 1; i < nums.size(); ++i) {
+            s = nums[i] != nums[i - 1] ? s + 1 : 1;
+            ans += s;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func countAlternatingSubarrays(nums []int) int64 {
+	ans, s := int64(1), int64(1)
+	for i, x := range nums[1:] {
+		if x != nums[i] {
+			s++
+		} else {
+			s = 1
+		}
+		ans += s
+	}
+	return ans
+}
+```
 
+```ts
+function countAlternatingSubarrays(nums: number[]): number {
+    let [ans, s] = [1, 1];
+    for (let i = 1; i < nums.length; ++i) {
+        s = nums[i] !== nums[i - 1] ? s + 1 : 1;
+        ans += s;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
