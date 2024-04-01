@@ -66,24 +66,138 @@
 
 ## 解法
 
-### 方法一
+### 方法一：记忆化搜索
+
+我们设计一个函数 $dfs(i, j, k, mi)$，表示当前处理到第 $i$ 个元素，上一个选取的是第 $j$ 个元素，还需要选取 $k$ 个元素，当前的最小差值为 $mi$ 时，能量和的值。那么答案就是 $dfs(0, n, k, +\infty)$。
+
+函数 $dfs(i, j, k, mi)$ 的执行过程如下：
+
+-   如果 $i \geq n$，表示已经处理完了所有的元素，如果 $k = 0$，返回 $mi$，否则返回 $0$；
+-   否则，我们可以选择不选取第 $i$ 个元素，可以获得的能量和为 $dfs(i + 1, j, k, mi)$；
+-   也可以选择选取第 $i$ 个元素。如果 $j = n$，表示之前没有选取过元素，那么可以获得的能量和为 $dfs(i + 1, i, k - 1, mi)$；否则，可以获得的能量和为 $dfs(i + 1, i, k - 1, \min(mi, \text{nums}[i] - \text{nums}[j]))$。
+-   我们累加上述结果，并对 $10^9 + 7$ 取模后返回。
+
+为了避免重复计算，我们可以使用记忆化搜索的方法，将已经计算过的结果保存起来。
+
+时间复杂度 $O(n^5)$，空间复杂度 $O(n^5)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def sumOfPowers(self, nums: List[int], k: int) -> int:
+        @cache
+        def dfs(i: int, j: int, k: int, mi: int) -> int:
+            if i >= n:
+                return mi if k == 0 else 0
+            ans = dfs(i + 1, j, k, mi)
+            if j == n:
+                ans += dfs(i + 1, i, k - 1, mi)
+            else:
+                ans += dfs(i + 1, i, k - 1, min(mi, nums[i] - nums[j]))
+            ans %= mod
+            return ans
 
+        mod = 10**9 + 7
+        n = len(nums)
+        nums.sort()
+        return dfs(0, n, k, inf)
 ```
 
 ```java
+class Solution {
+    private Map<Long, Integer> f = new HashMap<>();
+    private final int mod = (int) 1e9 + 7;
+    private int[] nums;
 
+    public int sumOfPowers(int[] nums, int k) {
+        Arrays.sort(nums);
+        this.nums = nums;
+        return dfs(0, nums.length, k, Integer.MAX_VALUE);
+    }
+
+    private int dfs(int i, int j, int k, int mi) {
+        if (i >= nums.length) {
+            return k == 0 ? mi : 0;
+        }
+        long key = (1L * mi) << 18 | (i << 12) | (j << 6) | k;
+        if (f.containsKey(key)) {
+            return f.get(key);
+        }
+        int ans = dfs(i + 1, j, k, mi);
+        if (j == nums.length) {
+            ans += dfs(i + 1, i, k - 1, mi);
+        } else {
+            ans += dfs(i + 1, i, k - 1, Math.min(mi, nums[i] - nums[j]));
+        }
+        ans %= mod;
+        f.put(key, ans);
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int sumOfPowers(vector<int>& nums, int k) {
+        unordered_map<long long, int> f;
+        const int mod = 1e9 + 7;
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        function<int(int, int, int, int)> dfs = [&](int i, int j, int k, int mi) {
+            if (i >= n) {
+                return k == 0 ? mi : 0;
+            }
+            long long key = (1LL * mi) << 18 | (i << 12) | (j << 6) | k;
+            if (f.contains(key)) {
+                return f[key];
+            }
+            long long ans = dfs(i + 1, j, k, mi);
+            if (j == n) {
+                ans += dfs(i + 1, i, k - 1, mi);
+            } else {
+                ans += dfs(i + 1, i, k - 1, min(mi, nums[i] - nums[j]));
+            }
+            ans %= mod;
+            f[key] = ans;
+            return f[key];
+        };
+        return dfs(0, n, k, INT_MAX);
+    }
+};
 ```
 
 ```go
-
+func sumOfPowers(nums []int, k int) int {
+	const mod int = 1e9 + 7
+	sort.Ints(nums)
+	n := len(nums)
+	f := map[int]int{}
+	var dfs func(i, j, k, mi int) int
+	dfs = func(i, j, k, mi int) int {
+		if i >= n {
+			if k == 0 {
+				return mi
+			}
+			return 0
+		}
+		key := mi<<18 | (i << 12) | (j << 6) | k
+		if v, ok := f[key]; ok {
+			return v
+		}
+		ans := dfs(i+1, j, k, mi)
+		if j == n {
+			ans += dfs(i+1, i, k-1, mi)
+		} else {
+			ans += dfs(i+1, i, k-1, min(mi, nums[i]-nums[j]))
+		}
+		ans %= mod
+		f[key] = ans
+		return ans
+	}
+	return dfs(0, n, k, math.MaxInt)
+}
 ```
 
 <!-- tabs:end -->
