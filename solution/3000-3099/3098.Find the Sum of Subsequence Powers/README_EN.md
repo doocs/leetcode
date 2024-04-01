@@ -62,24 +62,138 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Memoization Search
+
+We design a function $dfs(i, j, k, mi)$, which represents the energy sum value when we are currently processing the $i$-th element, the last selected element is the $j$-th element, we still need to select $k$ elements, and the current minimum difference is $mi$. The answer is $dfs(0, n, k, +\infty)$.
+
+The execution process of the function $dfs(i, j, k, mi)$ is as follows:
+
+-   If $i \geq n$, it means that all elements have been processed. If $k = 0$, return $mi$, otherwise return $0$;
+-   Otherwise, we can choose not to select the $i$-th element, and the energy sum obtained is $dfs(i + 1, j, k, mi)$;
+-   We can also choose to select the $i$-th element. If $j = n$, it means that no element has been selected before, and the energy sum obtained is $dfs(i + 1, i, k - 1, mi)$; otherwise, the energy sum obtained is $dfs(i + 1, i, k - 1, \min(mi, \text{nums}[i] - \text{nums}[j]))$.
+-   We add up the above results, take the modulus of $10^9 + 7$, and return.
+
+To avoid repeated calculations, we can use the method of memoization search to save the calculated results.
+
+The time complexity is $O(n^5)$, and the space complexity is $O(n^5)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def sumOfPowers(self, nums: List[int], k: int) -> int:
+        @cache
+        def dfs(i: int, j: int, k: int, mi: int) -> int:
+            if i >= n:
+                return mi if k == 0 else 0
+            ans = dfs(i + 1, j, k, mi)
+            if j == n:
+                ans += dfs(i + 1, i, k - 1, mi)
+            else:
+                ans += dfs(i + 1, i, k - 1, min(mi, nums[i] - nums[j]))
+            ans %= mod
+            return ans
 
+        mod = 10**9 + 7
+        n = len(nums)
+        nums.sort()
+        return dfs(0, n, k, inf)
 ```
 
 ```java
+class Solution {
+    private Map<Long, Integer> f = new HashMap<>();
+    private final int mod = (int) 1e9 + 7;
+    private int[] nums;
 
+    public int sumOfPowers(int[] nums, int k) {
+        Arrays.sort(nums);
+        this.nums = nums;
+        return dfs(0, nums.length, k, Integer.MAX_VALUE);
+    }
+
+    private int dfs(int i, int j, int k, int mi) {
+        if (i >= nums.length) {
+            return k == 0 ? mi : 0;
+        }
+        long key = (1L * mi) << 18 | (i << 12) | (j << 6) | k;
+        if (f.containsKey(key)) {
+            return f.get(key);
+        }
+        int ans = dfs(i + 1, j, k, mi);
+        if (j == nums.length) {
+            ans += dfs(i + 1, i, k - 1, mi);
+        } else {
+            ans += dfs(i + 1, i, k - 1, Math.min(mi, nums[i] - nums[j]));
+        }
+        ans %= mod;
+        f.put(key, ans);
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int sumOfPowers(vector<int>& nums, int k) {
+        unordered_map<long long, int> f;
+        const int mod = 1e9 + 7;
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        function<int(int, int, int, int)> dfs = [&](int i, int j, int k, int mi) {
+            if (i >= n) {
+                return k == 0 ? mi : 0;
+            }
+            long long key = (1LL * mi) << 18 | (i << 12) | (j << 6) | k;
+            if (f.contains(key)) {
+                return f[key];
+            }
+            long long ans = dfs(i + 1, j, k, mi);
+            if (j == n) {
+                ans += dfs(i + 1, i, k - 1, mi);
+            } else {
+                ans += dfs(i + 1, i, k - 1, min(mi, nums[i] - nums[j]));
+            }
+            ans %= mod;
+            f[key] = ans;
+            return f[key];
+        };
+        return dfs(0, n, k, INT_MAX);
+    }
+};
 ```
 
 ```go
-
+func sumOfPowers(nums []int, k int) int {
+	const mod int = 1e9 + 7
+	sort.Ints(nums)
+	n := len(nums)
+	f := map[int]int{}
+	var dfs func(i, j, k, mi int) int
+	dfs = func(i, j, k, mi int) int {
+		if i >= n {
+			if k == 0 {
+				return mi
+			}
+			return 0
+		}
+		key := mi<<18 | (i << 12) | (j << 6) | k
+		if v, ok := f[key]; ok {
+			return v
+		}
+		ans := dfs(i+1, j, k, mi)
+		if j == n {
+			ans += dfs(i+1, i, k-1, mi)
+		} else {
+			ans += dfs(i+1, i, k-1, min(mi, nums[i]-nums[j]))
+		}
+		ans %= mod
+		f[key] = ans
+		return ans
+	}
+	return dfs(0, n, k, math.MaxInt)
+}
 ```
 
 <!-- tabs:end -->

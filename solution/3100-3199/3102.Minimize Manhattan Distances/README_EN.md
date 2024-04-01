@@ -50,19 +50,107 @@ It can be seen that 12 is the minimum possible maximum distance between any two 
 <!-- tabs:start -->
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Solution:
+    def minimumDistance(self, points: List[List[int]]) -> int:
+        sl1 = SortedList()
+        sl2 = SortedList()
+        for x, y in points:
+            sl1.add(x + y)
+            sl2.add(x - y)
+        ans = inf
+        for x, y in points:
+            sl1.remove(x + y)
+            sl2.remove(x - y)
+            ans = min(ans, max(sl1[-1] - sl1[0], sl2[-1] - sl2[0]))
+            sl1.add(x + y)
+            sl2.add(x - y)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minimumDistance(int[][] points) {
+        TreeMap<Integer, Integer> tm1 = new TreeMap<>();
+        TreeMap<Integer, Integer> tm2 = new TreeMap<>();
+        for (int[] p : points) {
+            int x = p[0], y = p[1];
+            tm1.merge(x + y, 1, Integer::sum);
+            tm2.merge(x - y, 1, Integer::sum);
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int[] p : points) {
+            int x = p[0], y = p[1];
+            if (tm1.merge(x + y, -1, Integer::sum) == 0) {
+                tm1.remove(x + y);
+            }
+            if (tm2.merge(x - y, -1, Integer::sum) == 0) {
+                tm2.remove(x - y);
+            }
+            ans = Math.min(ans, Math.max(tm1.lastKey() - tm1.firstKey(), tm2.lastKey() - tm2.firstKey()));
+            tm1.merge(x + y, 1, Integer::sum);
+            tm2.merge(x - y, 1, Integer::sum);
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumDistance(vector<vector<int>>& points) {
+        multiset<int> st1;
+        multiset<int> st2;
+        for (auto& p : points) {
+            int x = p[0], y = p[1];
+            st1.insert(x + y);
+            st2.insert(x - y);
+        }
+        int ans = INT_MAX;
+        for (auto& p : points) {
+            int x = p[0], y = p[1];
+            st1.erase(st1.find(x + y));
+            st2.erase(st2.find(x - y));
+            ans = min(ans, max(*st1.rbegin() - *st1.begin(), *st2.rbegin() - *st2.begin()));
+            st1.insert(x + y);
+            st2.insert(x - y);
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
-
+func minimumDistance(points [][]int) int {
+	st1 := redblacktree.New[int, int]()
+	st2 := redblacktree.New[int, int]()
+	merge := func(st *redblacktree.Tree[int, int], x, v int) {
+		c, _ := st.Get(x)
+		if c+v == 0 {
+			st.Remove(x)
+		} else {
+			st.Put(x, c+v)
+		}
+	}
+	for _, p := range points {
+		x, y := p[0], p[1]
+		merge(st1, x+y, 1)
+		merge(st2, x-y, 1)
+	}
+	ans := math.MaxInt
+	for _, p := range points {
+		x, y := p[0], p[1]
+		merge(st1, x+y, -1)
+		merge(st2, x-y, -1)
+		ans = min(ans, max(st1.Right().Key-st1.Left().Key, st2.Right().Key-st2.Left().Key))
+		merge(st1, x+y, 1)
+		merge(st2, x-y, 1)
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->

@@ -49,24 +49,140 @@
 
 ## 解法
 
-### 方法一
+### 方法一：有序集合
+
+对于两个点 $(x_1, y_1)$ 和 $(x_2, y_2)$，它们的曼哈顿距离为 $|x_1 - x_2| + |y_1 - y_2|$。我们可以将其转化为 $\max(x_1 - x_2, x_2 - x_1) + \max(y_1 - y_2, y_2 - y_1)$，即：
+
+$$
+|x_1 - x_2| + |y_1 - y_2| = \max \begin{cases}
+x_1 - x_2 + y_1 - y_2 \\
+x_2 - x_1 + y_2 - y_1 \\
+x_1 - x_2 + y_2 - y_1 \\
+x_2 - x_1 + y_1 - y_2
+\end{cases}
+$$
+
+整理可得：
+
+$$
+|x_1 - x_2| + |y_1 - y_2| = \max \begin{cases}
+(x_1 + y_1) - (x_2 + y_2) \\
+(x_2 + y_2) - (x_1 + y_1) \\
+(x_1 - y_1) - (x_2 - y_2) \\
+(x_2 - y_2) - (x_1 - y_1)
+\end{cases}
+$$
+
+其中，前两项可以表示为 $\max(\max(x_1 + y_1, x_2 + y_2) - \min(x_1 + y_1, x_2 + y_2))$，后两项可以表示为 $\max(\max(x_1 - y_1, x_2 - y_2) - \min(x_1 - y_1, x_2 - y_2))$。
+
+因此，我们可以将所有点按照 $x + y$ 和 $x - y$ 的值分别存入两个有序集合中，然后枚举每个点，移除该点后，更新有序集合中的值，计算最大值和最小值的差值，取最小值即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为点的个数。
 
 <!-- tabs:start -->
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Solution:
+    def minimumDistance(self, points: List[List[int]]) -> int:
+        sl1 = SortedList()
+        sl2 = SortedList()
+        for x, y in points:
+            sl1.add(x + y)
+            sl2.add(x - y)
+        ans = inf
+        for x, y in points:
+            sl1.remove(x + y)
+            sl2.remove(x - y)
+            ans = min(ans, max(sl1[-1] - sl1[0], sl2[-1] - sl2[0]))
+            sl1.add(x + y)
+            sl2.add(x - y)
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minimumDistance(int[][] points) {
+        TreeMap<Integer, Integer> tm1 = new TreeMap<>();
+        TreeMap<Integer, Integer> tm2 = new TreeMap<>();
+        for (int[] p : points) {
+            int x = p[0], y = p[1];
+            tm1.merge(x + y, 1, Integer::sum);
+            tm2.merge(x - y, 1, Integer::sum);
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int[] p : points) {
+            int x = p[0], y = p[1];
+            if (tm1.merge(x + y, -1, Integer::sum) == 0) {
+                tm1.remove(x + y);
+            }
+            if (tm2.merge(x - y, -1, Integer::sum) == 0) {
+                tm2.remove(x - y);
+            }
+            ans = Math.min(ans, Math.max(tm1.lastKey() - tm1.firstKey(), tm2.lastKey() - tm2.firstKey()));
+            tm1.merge(x + y, 1, Integer::sum);
+            tm2.merge(x - y, 1, Integer::sum);
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minimumDistance(vector<vector<int>>& points) {
+        multiset<int> st1;
+        multiset<int> st2;
+        for (auto& p : points) {
+            int x = p[0], y = p[1];
+            st1.insert(x + y);
+            st2.insert(x - y);
+        }
+        int ans = INT_MAX;
+        for (auto& p : points) {
+            int x = p[0], y = p[1];
+            st1.erase(st1.find(x + y));
+            st2.erase(st2.find(x - y));
+            ans = min(ans, max(*st1.rbegin() - *st1.begin(), *st2.rbegin() - *st2.begin()));
+            st1.insert(x + y);
+            st2.insert(x - y);
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
-
+func minimumDistance(points [][]int) int {
+	st1 := redblacktree.New[int, int]()
+	st2 := redblacktree.New[int, int]()
+	merge := func(st *redblacktree.Tree[int, int], x, v int) {
+		c, _ := st.Get(x)
+		if c+v == 0 {
+			st.Remove(x)
+		} else {
+			st.Put(x, c+v)
+		}
+	}
+	for _, p := range points {
+		x, y := p[0], p[1]
+		merge(st1, x+y, 1)
+		merge(st2, x-y, 1)
+	}
+	ans := math.MaxInt
+	for _, p := range points {
+		x, y := p[0], p[1]
+		merge(st1, x+y, -1)
+		merge(st2, x-y, -1)
+		ans = min(ans, max(st1.Right().Key-st1.Left().Key, st2.Right().Key-st2.Left().Key))
+		merge(st1, x+y, 1)
+		merge(st2, x-y, 1)
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
