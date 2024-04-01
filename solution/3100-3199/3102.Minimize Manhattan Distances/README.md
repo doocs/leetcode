@@ -121,7 +121,8 @@ class Solution {
             if (tm2.merge(x - y, -1, Integer::sum) == 0) {
                 tm2.remove(x - y);
             }
-            ans = Math.min(ans, Math.max(tm1.lastKey() - tm1.firstKey(), tm2.lastKey() - tm2.firstKey()));
+            ans = Math.min(
+                ans, Math.max(tm1.lastKey() - tm1.firstKey(), tm2.lastKey() - tm2.firstKey()));
             tm1.merge(x + y, 1, Integer::sum);
             tm2.merge(x - y, 1, Integer::sum);
         }
