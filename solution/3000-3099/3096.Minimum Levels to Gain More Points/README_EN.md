@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Prefix Sum -->
 
 ## Description
 

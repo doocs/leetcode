@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3099.Harshad%20Number/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数学 -->
 
 ## 题目描述
 

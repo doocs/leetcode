@@ -3104,15 +3104,16 @@
 |  3091  |  [执行操作使数据元素之和大于等于 K](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README.md)  |  `贪心`,`数学`,`枚举`  |  中等  |  第 390 场周赛  |
 |  3092  |  [最高频率的 ID](/solution/3000-3099/3092.Most%20Frequent%20IDs/README.md)  |  `数组`,`哈希表`,`有序集合`,`堆（优先队列）`  |  中等  |  第 390 场周赛  |
 |  3093  |  [最长公共后缀查询](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README.md)  |  `字典树`,`数组`,`字符串`  |  困难  |  第 390 场周赛  |
-|  3094  |  [Guess the Number Using Bitwise Questions II](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README.md)  |    |  中等  |  🔒  |
-|  3095  |  [或值至少 K 的最短子数组 I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md)  |    |  简单  |  第 127 场双周赛  |
-|  3096  |  [得到更多分数的最少关卡数目](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)  |    |  中等  |  第 127 场双周赛  |
-|  3097  |  [或值至少为 K 的最短子数组 II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)  |    |  中等  |  第 127 场双周赛  |
-|  3098  |  [求出所有子序列的能量和](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)  |    |  困难  |  第 127 场双周赛  |
-|  3099  |  [哈沙德数](/solution/3000-3099/3099.Harshad%20Number/README.md)  |    |  简单  |  第 391 场周赛  |
-|  3100  |  [换水问题 II](/solution/3100-3199/3100.Water%20Bottles%20II/README.md)  |    |  中等  |  第 391 场周赛  |
-|  3101  |  [交替子数组计数](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)  |    |  中等  |  第 391 场周赛  |
-|  3102  |  [最小化曼哈顿距离](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md)  |    |  困难  |  第 391 场周赛  |
+|  3094  |  [Guess the Number Using Bitwise Questions II](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README.md)  |  `位运算`,`交互`  |  中等  |  🔒  |
+|  3095  |  [或值至少 K 的最短子数组 I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md)  |  `位运算`,`数组`,`滑动窗口`  |  简单  |  第 127 场双周赛  |
+|  3096  |  [得到更多分数的最少关卡数目](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)  |  `数组`,`前缀和`  |  中等  |  第 127 场双周赛  |
+|  3097  |  [或值至少为 K 的最短子数组 II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)  |  `位运算`,`数组`,`滑动窗口`  |  中等  |  第 127 场双周赛  |
+|  3098  |  [求出所有子序列的能量和](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)  |  `数组`,`动态规划`,`排序`  |  困难  |  第 127 场双周赛  |
+|  3099  |  [哈沙德数](/solution/3000-3099/3099.Harshad%20Number/README.md)  |  `数学`  |  简单  |  第 391 场周赛  |
+|  3100  |  [换水问题 II](/solution/3100-3199/3100.Water%20Bottles%20II/README.md)  |  `数学`,`模拟`  |  中等  |  第 391 场周赛  |
+|  3101  |  [交替子数组计数](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)  |  `数组`,`数学`  |  中等  |  第 391 场周赛  |
+|  3102  |  [最小化曼哈顿距离](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md)  |  `数组`,`数学`  |  困难  |  第 391 场周赛  |
+|  3103  |  [Find Trending Hashtags II](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
 
 ## 版权
 

@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:位运算,交互 -->
 
 ## 题目描述
 

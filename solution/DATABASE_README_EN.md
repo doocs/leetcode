@@ -271,6 +271,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3061 | [Calculate Trapping Rain Water](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README_EN.md)                                                                                   | `Database` | Hard       | 🔒     |
 | 3087 | [Find Trending Hashtags](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md)                                                                                                   | `Database` | Medium     | 🔒     |
 | 3089 | [Find Bursty Behavior](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README_EN.md)                                                                                                       | `Database` | Medium     | 🔒     |
+| 3103 | [Find Trending Hashtags II](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README_EN.md)                                                                                           | `Database` | Hard       | 🔒     |
 
 ## Copyright
 

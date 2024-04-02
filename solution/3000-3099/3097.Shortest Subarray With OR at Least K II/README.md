@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:位运算,数组,滑动窗口 -->
 
 ## 题目描述
 
