@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Math -->
 
 ## Description
 

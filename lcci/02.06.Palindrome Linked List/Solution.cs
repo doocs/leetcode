@@ -3,43 +3,36 @@
  * public class ListNode {
  *     public int val;
  *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
+ *     public ListNode(int x) { val = x; }
  * }
  */
 public class Solution {
     public bool IsPalindrome(ListNode head) {
-        if (head == null || head.next == null)
-        {
+        if (head == null) {
             return true;
         }
         ListNode slow = head;
         ListNode fast = head.next;
-        while (fast != null && fast.next != null)
-        {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode cur = slow.next;
+        ListNode p = slow.next;
         slow.next = null;
-        ListNode pre = null;
-        while (cur != null)
-        {
-            ListNode t = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = t;
+        ListNode dummy = new ListNode(0);
+        while (p != null) {
+            ListNode next = p.next;
+            p.next = dummy.next;
+            dummy.next = p;
+            p = next;
         }
-        while (pre != null)
-        {
-            if (pre.val != head.val)
-            {
+        p = dummy.next;
+        while (p != null) {
+            if (head.val != p.val) {
                 return false;
             }
-            pre = pre.next;
             head = head.next;
+            p = p.next;
         }
         return true;
     }

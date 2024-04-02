@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md)
 
-<!-- tags: -->
+<!-- tags:Bit Manipulation,Array,Sliding Window -->
 
 ## Description
 

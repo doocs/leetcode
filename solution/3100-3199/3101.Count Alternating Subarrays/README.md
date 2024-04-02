@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,数学 -->
 
 ## 题目描述
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Dynamic Programming,Sorting -->
 
 ## Description
 

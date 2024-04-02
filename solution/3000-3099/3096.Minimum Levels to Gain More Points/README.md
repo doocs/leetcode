@@ -2,7 +2,7 @@
 
 [English Version](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组,前缀和 -->
 
 ## 题目描述
 

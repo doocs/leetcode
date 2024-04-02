@@ -11,29 +11,31 @@
  */
 
 function isPalindrome(head: ListNode | null): boolean {
-    if (head == null || head.next == null) return true;
-    // 快慢指针定位到中点
-    let slow: ListNode = head,
-        fast: ListNode = head.next;
-    while (fast != null && fast.next != null) {
+    if (!head) {
+        return true;
+    }
+    let slow = head;
+    let fast = head.next;
+    while (fast && fast.next) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    // 翻转链表
-    let cur: ListNode = slow.next;
+    let p = slow.next;
     slow.next = null;
-    let prev: ListNode = null;
-    while (cur != null) {
-        let t: ListNode = cur.next;
-        cur.next = prev;
-        prev = cur;
-        cur = t;
+    const dummy = new ListNode(0);
+    while (p) {
+        const next = p.next;
+        p.next = dummy.next;
+        dummy.next = p;
+        p = next;
     }
-    // 判断回文
-    while (prev != null) {
-        if (prev.val != head.val) return false;
-        prev = prev.next;
+    p = dummy.next;
+    while (p) {
+        if (head.val !== p.val) {
+            return false;
+        }
         head = head.next;
+        p = p.next;
     }
     return true;
 }

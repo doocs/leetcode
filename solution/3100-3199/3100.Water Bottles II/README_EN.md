@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3100.Water%20Bottles%20II/README.md)
 
-<!-- tags: -->
+<!-- tags:Math,Simulation -->
 
 ## Description
 
