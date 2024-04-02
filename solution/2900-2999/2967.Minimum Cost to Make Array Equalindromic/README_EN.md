@@ -68,6 +68,10 @@ Next, we sort the array $nums$ and take the median $x$ of $nums$. We only need t
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $nums$, and $M$ is the length of the palindrome array $ps$.
 
+Similar problems:
+
+-   [906. Super Palindromes](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
+
 <!-- tabs:start -->
 
 ```python
