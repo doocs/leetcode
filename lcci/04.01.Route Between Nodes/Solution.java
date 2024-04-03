@@ -1,24 +1,30 @@
 class Solution {
+    private List<Integer>[] g;
+    private boolean[] vis;
+    private int target;
+
     public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
-        Map<Integer, List<Integer>> g = new HashMap<>();
+        vis = new boolean[n];
+        g = new List[n];
+        this.target = target;
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : graph) {
-            g.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
+            g[e[0]].add(e[1]);
         }
-        Set<Integer> vis = new HashSet<>();
-        vis.add(start);
-        return dfs(start, target, g, vis);
+        return dfs(start);
     }
 
-    private boolean dfs(int u, int target, Map<Integer, List<Integer>> g, Set<Integer> vis) {
-        if (u == target) {
+    private boolean dfs(int i) {
+        if (i == target) {
             return true;
         }
-        for (int v : g.getOrDefault(u, Collections.emptyList())) {
-            if (!vis.contains(v)) {
-                vis.add(v);
-                if (dfs(v, target, g, vis)) {
-                    return true;
-                }
+        if (vis[i]) {
+            return false;
+        }
+        vis[i] = true;
+        for (int j : g[i]) {
+            if (dfs(j)) {
+                return true;
             }
         }
         return false;
