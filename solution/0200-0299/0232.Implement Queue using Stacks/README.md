@@ -309,50 +309,43 @@ class MyQueue {
 ```
 
 ```rust
+use std::collections::VecDeque;
+
 struct MyQueue {
-    in_stack: Vec<i32>,
-    out_stack: Vec<i32>,
+    stk1: Vec<i32>,
+    stk2: Vec<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MyQueue {
     fn new() -> Self {
-        Self {
-            in_stack: vec![],
-            out_stack: vec![],
+        MyQueue {
+            stk1: Vec::new(),
+            stk2: Vec::new(),
         }
     }
 
     fn push(&mut self, x: i32) {
-        self.in_stack.push(x);
+        self.stk1.push(x);
     }
 
     fn pop(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        self.out_stack.pop().unwrap()
+        self.move_elements();
+        self.stk2.pop().unwrap()
     }
 
     fn peek(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        *self.out_stack.last().unwrap()
+        self.move_elements();
+        *self.stk2.last().unwrap()
     }
 
     fn empty(&self) -> bool {
-        self.in_stack.is_empty() && self.out_stack.is_empty()
+        self.stk1.is_empty() && self.stk2.is_empty()
     }
 
-    fn fill_out(&mut self) {
-        let MyQueue { in_stack, out_stack } = self;
-        if out_stack.is_empty() {
-            while !in_stack.is_empty() {
-                out_stack.push(in_stack.pop().unwrap());
+    fn move_elements(&mut self) {
+        if self.stk2.is_empty() {
+            while let Some(element) = self.stk1.pop() {
+                self.stk2.push(element);
             }
         }
     }
