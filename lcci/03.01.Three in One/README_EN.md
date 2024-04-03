@@ -46,28 +46,47 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Array Simulation
+
+We use a variable $cap$ to represent the size of each stack, and use an array $stk$ of length $3 \times \text{cap} + 3$ to simulate three stacks. The first $3 \times \text{cap}$ elements of the array are used to store the elements of the stack, and the last three elements are used to store the number of elements in each stack.
+
+For the `push` operation, we first check whether the stack is full. If it is not full, we push the element into the stack and update the number of elements in the stack.
+
+For the `pop` operation, we first check whether the stack is empty. If it is not empty, we update the number of elements in the stack and return the top element of the stack.
+
+For the `peek` operation, we first check whether the stack is empty. If it is not empty, we return the top element of the stack.
+
+For the `isEmpty` operation, we directly check whether the stack is empty. For stack $i$, we only need to check whether $stk[\text{cap} \times 3 + i]$ is $0$.
+
+In terms of time complexity, the time complexity of each operation is $O(1)$. The space complexity is $O(\text{cap})$, where $\text{cap}$ is the size of the stack.
 
 <!-- tabs:start -->
 
 ```python
 class TripleInOne:
+
     def __init__(self, stackSize: int):
-        self._capacity = stackSize
-        self._s = [[], [], []]
+        self.cap = stackSize
+        self.stk = [0] * (self.cap * 3 + 3)
 
     def push(self, stackNum: int, value: int) -> None:
-        if len(self._s[stackNum]) < self._capacity:
-            self._s[stackNum].append(value)
+        if self.stk[self.cap * 3 + stackNum] < self.cap:
+            self.stk[self.cap * stackNum + self.stk[self.cap * 3 + stackNum]] = value
+            self.stk[self.cap * 3 + stackNum] += 1
 
     def pop(self, stackNum: int) -> int:
-        return -1 if self.isEmpty(stackNum) else self._s[stackNum].pop()
+        if self.isEmpty(stackNum):
+            return -1
+        self.stk[self.cap * 3 + stackNum] -= 1
+        return self.stk[self.cap * stackNum + self.stk[self.cap * 3 + stackNum]]
 
     def peek(self, stackNum: int) -> int:
-        return -1 if self.isEmpty(stackNum) else self._s[stackNum][-1]
+        if self.isEmpty(stackNum):
+            return -1
+        return self.stk[self.cap * stackNum + self.stk[self.cap * 3 + stackNum] - 1]
 
     def isEmpty(self, stackNum: int) -> bool:
-        return len(self._s[stackNum]) == 0
+        return self.stk[self.cap * 3 + stackNum] == 0
 
 
 # Your TripleInOne object will be instantiated and called as such:
@@ -80,18 +99,18 @@ class TripleInOne:
 
 ```java
 class TripleInOne {
-    private int[] s;
-    private int capacity;
+    private int cap;
+    private int[] stk;
 
     public TripleInOne(int stackSize) {
-        s = new int[stackSize * 3 + 3];
-        capacity = stackSize;
+        cap = stackSize;
+        stk = new int[cap * 3 + 3];
     }
 
     public void push(int stackNum, int value) {
-        if (s[stackNum + 3 * capacity] < capacity) {
-            s[s[stackNum + 3 * capacity] * 3 + stackNum] = value;
-            ++s[stackNum + 3 * capacity];
+        if (stk[cap * 3 + stackNum] < cap) {
+            stk[cap * stackNum + stk[cap * 3 + stackNum]] = value;
+            ++stk[cap * 3 + stackNum];
         }
     }
 
@@ -99,16 +118,16 @@ class TripleInOne {
         if (isEmpty(stackNum)) {
             return -1;
         }
-        --s[stackNum + 3 * capacity];
-        return s[s[stackNum + 3 * capacity] * 3 + stackNum];
+        --stk[cap * 3 + stackNum];
+        return stk[cap * stackNum + stk[cap * 3 + stackNum]];
     }
 
     public int peek(int stackNum) {
-        return isEmpty(stackNum) ? -1 : s[(s[stackNum + 3 * capacity] - 1) * 3 + stackNum];
+        return isEmpty(stackNum) ? -1 : stk[cap * stackNum + stk[cap * 3 + stackNum] - 1];
     }
 
     public boolean isEmpty(int stackNum) {
-        return s[stackNum + 3 * capacity] == 0;
+        return stk[cap * 3 + stackNum] == 0;
     }
 }
 
@@ -122,54 +141,86 @@ class TripleInOne {
  */
 ```
 
+```cpp
+class TripleInOne {
+public:
+    TripleInOne(int stackSize) {
+        cap = stackSize;
+        stk.resize(cap * 3 + 3);
+    }
+
+    void push(int stackNum, int value) {
+        if (stk[cap * 3 + stackNum] < cap) {
+            stk[cap * stackNum + stk[cap * 3 + stackNum]] = value;
+            ++stk[cap * 3 + stackNum];
+        }
+    }
+
+    int pop(int stackNum) {
+        if (isEmpty(stackNum)) {
+            return -1;
+        }
+        --stk[cap * 3 + stackNum];
+        return stk[cap * stackNum + stk[cap * 3 + stackNum]];
+    }
+
+    int peek(int stackNum) {
+        return isEmpty(stackNum) ? -1 : stk[cap * stackNum + stk[cap * 3 + stackNum] - 1];
+    }
+
+    bool isEmpty(int stackNum) {
+        return stk[cap * 3 + stackNum] == 0;
+    }
+
+private:
+    int cap;
+    vector<int> stk;
+};
+
+/**
+ * Your TripleInOne object will be instantiated and called as such:
+ * TripleInOne* obj = new TripleInOne(stackSize);
+ * obj->push(stackNum,value);
+ * int param_2 = obj->pop(stackNum);
+ * int param_3 = obj->peek(stackNum);
+ * bool param_4 = obj->isEmpty(stackNum);
+ */
+```
+
 ```go
 type TripleInOne struct {
-	data      []int
-	offset    [3]int
-	stackSize int
+	cap int
+	stk []int
 }
 
 func Constructor(stackSize int) TripleInOne {
-	total := stackSize * 3
-	data := make([]int, total)
-	offset := [3]int{}
-	for i := 0; i < 3; i++ {
-		offset[i] = i * stackSize
-	}
-	return TripleInOne{
-		data:      data,
-		offset:    offset,
-		stackSize: stackSize,
-	}
+	return TripleInOne{stackSize, make([]int, stackSize*3+3)}
 }
 
 func (this *TripleInOne) Push(stackNum int, value int) {
-	i := this.offset[stackNum]
-	if i < (stackNum+1)*this.stackSize {
-		this.data[i] = value
-		this.offset[stackNum]++
+	if this.stk[this.cap*3+stackNum] < this.cap {
+		this.stk[this.cap*stackNum+this.stk[this.cap*3+stackNum]] = value
+		this.stk[this.cap*3+stackNum]++
 	}
 }
 
 func (this *TripleInOne) Pop(stackNum int) int {
-	i := this.offset[stackNum]
-	if i == stackNum*this.stackSize {
+	if this.IsEmpty(stackNum) {
 		return -1
 	}
-	this.offset[stackNum]--
-	return this.data[i-1]
+	this.stk[this.cap*3+stackNum]--
+	return this.stk[this.cap*stackNum+this.stk[this.cap*3+stackNum]]
 }
 
 func (this *TripleInOne) Peek(stackNum int) int {
-	i := this.offset[stackNum]
-	if i == stackNum*this.stackSize {
+	if this.IsEmpty(stackNum) {
 		return -1
 	}
-	return this.data[i-1]
+	return this.stk[this.cap*stackNum+this.stk[this.cap*3+stackNum]-1]
 }
 
 func (this *TripleInOne) IsEmpty(stackNum int) bool {
-	return this.offset[stackNum] == stackNum*this.stackSize
+	return this.stk[this.cap*3+stackNum] == 0
 }
 
 /**
@@ -179,6 +230,53 @@ func (this *TripleInOne) IsEmpty(stackNum int) bool {
  * param_2 := obj.Pop(stackNum);
  * param_3 := obj.Peek(stackNum);
  * param_4 := obj.IsEmpty(stackNum);
+ */
+```
+
+```ts
+class TripleInOne {
+    private cap: number;
+    private stk: number[];
+
+    constructor(stackSize: number) {
+        this.cap = stackSize;
+        this.stk = Array<number>(stackSize * 3 + 3).fill(0);
+    }
+
+    push(stackNum: number, value: number): void {
+        if (this.stk[this.cap * 3 + stackNum] < this.cap) {
+            this.stk[this.cap * stackNum + this.stk[this.cap * 3 + stackNum]] = value;
+            this.stk[this.cap * 3 + stackNum]++;
+        }
+    }
+
+    pop(stackNum: number): number {
+        if (this.isEmpty(stackNum)) {
+            return -1;
+        }
+        this.stk[this.cap * 3 + stackNum]--;
+        return this.stk[this.cap * stackNum + this.stk[this.cap * 3 + stackNum]];
+    }
+
+    peek(stackNum: number): number {
+        if (this.isEmpty(stackNum)) {
+            return -1;
+        }
+        return this.stk[this.cap * stackNum + this.stk[this.cap * 3 + stackNum] - 1];
+    }
+
+    isEmpty(stackNum: number): boolean {
+        return this.stk[this.cap * 3 + stackNum] === 0;
+    }
+}
+
+/**
+ * Your TripleInOne object will be instantiated and called as such:
+ * var obj = new TripleInOne(stackSize)
+ * obj.push(stackNum,value)
+ * var param_2 = obj.pop(stackNum)
+ * var param_3 = obj.peek(stackNum)
+ * var param_4 = obj.isEmpty(stackNum)
  */
 ```
 
