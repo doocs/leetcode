@@ -3,14 +3,12 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) {
+        if (head == null) {
             return true;
         }
         ListNode slow = head;
@@ -19,21 +17,22 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode cur = slow.next;
+        ListNode p = slow.next;
         slow.next = null;
-        ListNode pre = null;
-        while (cur != null) {
-            ListNode t = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = t;
+        ListNode dummy = new ListNode(0);
+        while (p != null) {
+            ListNode next = p.next;
+            p.next = dummy.next;
+            dummy.next = p;
+            p = next;
         }
-        while (pre != null) {
-            if (pre.val != head.val) {
+        p = dummy.next;
+        while (p != null) {
+            if (head.val != p.val) {
                 return false;
             }
-            pre = pre.next;
             head = head.next;
+            p = p.next;
         }
         return true;
     }

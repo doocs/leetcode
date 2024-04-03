@@ -57,7 +57,11 @@ It can be proven that 9 is the minimum value out of all partitions.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting
+
+The problem requires us to minimize the partition value. Therefore, we can sort the array and then take the minimum difference between two adjacent numbers.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 

@@ -273,6 +273,7 @@
 | 3061 | [计算滞留雨水](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)                                                                       | `数据库` | 困难 | 🔒   |
 | 3087 | [查找热门话题标签](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)                                                                            | `数据库` | 中等 | 🔒   |
 | 3089 | [查找突发行为](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md)                                                                                  | `数据库` | 中等 | 🔒   |
+| 3103 | [Find Trending Hashtags II](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README.md)                                                              | `数据库` | 困难 | 🔒   |
 
 ## 版权
 

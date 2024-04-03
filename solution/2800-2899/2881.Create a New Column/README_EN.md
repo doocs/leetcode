@@ -54,7 +54,11 @@ A new column bonus is created by doubling the value in the column salary.</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Direct Calculation
+
+We can directly calculate the double of `salary` and then store the result in the `bonus` column.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
