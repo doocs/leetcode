@@ -1,37 +1,44 @@
 use std::collections::VecDeque;
+
 struct SortedStack {
-    stack: VecDeque<i32>,
+    stk: VecDeque<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl SortedStack {
     fn new() -> Self {
-        Self { stack: VecDeque::new() }
+        SortedStack {
+            stk: VecDeque::new(),
+        }
     }
 
     fn push(&mut self, val: i32) {
-        if self.is_empty() || self.peek() > val {
-            self.stack.push_back(val);
-            return;
+        let mut t = VecDeque::new();
+        while let Some(top) = self.stk.pop_back() {
+            if top < val {
+                t.push_back(top);
+            } else {
+                self.stk.push_back(top);
+                break;
+            }
         }
-        let t = self.stack.pop_back().unwrap();
-        self.push(val);
-        self.stack.push_back(t);
+        self.stk.push_back(val);
+        while let Some(top) = t.pop_back() {
+            self.stk.push_back(top);
+        }
     }
 
     fn pop(&mut self) {
-        self.stack.pop_back();
+        if !self.is_empty() {
+            self.stk.pop_back();
+        }
     }
 
     fn peek(&self) -> i32 {
-        *self.stack.back().unwrap_or(&-1)
+        if self.is_empty() { -1 } else { *self.stk.back().unwrap() }
     }
 
     fn is_empty(&self) -> bool {
-        self.stack.is_empty()
+        self.stk.is_empty()
     }
 }/**
  * Your SortedStack object will be instantiated and called as such:
