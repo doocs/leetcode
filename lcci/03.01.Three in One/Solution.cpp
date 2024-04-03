@@ -4,14 +4,14 @@ public:
         cap = stackSize;
         stk.resize(cap * 3 + 3);
     }
-    
+
     void push(int stackNum, int value) {
         if (stk[cap * 3 + stackNum] < cap) {
             stk[cap * stackNum + stk[cap * 3 + stackNum]] = value;
             ++stk[cap * 3 + stackNum];
         }
     }
-    
+
     int pop(int stackNum) {
         if (isEmpty(stackNum)) {
             return -1;
@@ -19,11 +19,11 @@ public:
         --stk[cap * 3 + stackNum];
         return stk[cap * stackNum + stk[cap * 3 + stackNum]];
     }
-    
+
     int peek(int stackNum) {
         return isEmpty(stackNum) ? -1 : stk[cap * stackNum + stk[cap * 3 + stackNum] - 1];
     }
-    
+
     bool isEmpty(int stackNum) {
         return stk[cap * 3 + stackNum] == 0;
     }
