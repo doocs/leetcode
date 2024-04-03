@@ -1,16 +1,16 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
  * }
  */
 
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var detectCycle = function (head) {
+function detectCycle(head: ListNode | null): ListNode | null {
     let [slow, fast] = [head, head];
     while (fast && fast.next) {
         slow = slow.next;
@@ -25,4 +25,4 @@ var detectCycle = function (head) {
         }
     }
     return null;
-};
+}

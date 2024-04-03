@@ -65,7 +65,25 @@
 
 ## 解法
 
-### 方法一
+### 方法一：快慢指针
+
+我们先利用快慢指针判断链表是否有环，如果有环的话，快慢指针一定会相遇，且相遇的节点一定在环中。
+
+如果没有环，快指针会先到达链表尾部，直接返回 `null` 即可。
+
+如果有环，我们再定义一个答案指针 $ans$ 指向链表头部，然后让 $ans$ 和慢指针一起向前走，每次走一步，直到 $ans$ 和慢指针相遇，相遇的节点即为环的入口节点。
+
+为什么这样能找到环的入口节点呢？
+
+我们不妨假设链表头节点到环入口的距离为 $x$，环入口到相遇节点的距离为 $y$，相遇节点到环入口的距离为 $z$，那么慢指针走过的距离为 $x + y$，快指针走过的距离为 $x + y + k \times (y + z)$，其中 $k$ 是快指针在环中绕了 $k$ 圈。
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20022.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E8%8A%82%E7%82%B9/images/linked-list-cycle-ii.png" /></p>
+
+由于快指针速度是慢指针的 $2$ 倍，因此有 $2 \times (x + y) = x + y + k \times (y + z)$，可以推出 $x + y = k \times (y + z)$，即 $x = (k - 1) \times (y + z) + z$。
+
+也即是说，如果我们定义一个答案指针 $ans$ 指向链表头部，然后 $ans$ 和慢指针一起向前走，那么它们一定会在环入口相遇。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表中节点的数目。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -78,18 +96,17 @@
 
 
 class Solution:
-    def detectCycle(self, head: ListNode) -> ListNode:
-        slow = fast = head
-        has_cycle = False
-        while not has_cycle and fast and fast.next:
-            slow, fast = slow.next, fast.next.next
-            has_cycle = slow == fast
-        if not has_cycle:
-            return None
-        p = head
-        while p != slow:
-            p, slow = p.next, slow.next
-        return p
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        fast = slow = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                ans = head
+                while ans != slow:
+                    ans = ans.next
+                    slow = slow.next
+                return ans
 ```
 
 ```java
@@ -106,22 +123,20 @@ class Solution:
  */
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        ListNode slow = head, fast = head;
-        boolean hasCycle = false;
-        while (!hasCycle && fast != null && fast.next != null) {
+        ListNode fast = head, slow = head;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            hasCycle = slow == fast;
+            if (slow == fast) {
+                ListNode ans = head;
+                while (ans != slow) {
+                    ans = ans.next;
+                    slow = slow.next;
+                }
+                return ans;
+            }
         }
-        if (!hasCycle) {
-            return null;
-        }
-        ListNode p = head;
-        while (p != slow) {
-            p = p.next;
-            slow = slow.next;
-        }
-        return p;
+        return null;
     }
 }
 ```
@@ -138,23 +153,21 @@ public class Solution {
 class Solution {
 public:
     ListNode* detectCycle(ListNode* head) {
-        ListNode* slow = head;
         ListNode* fast = head;
-        bool hasCycle = false;
-        while (!hasCycle && fast && fast->next) {
+        ListNode* slow = head;
+        while (fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
-            hasCycle = slow == fast;
+            if (slow == fast) {
+                ListNode* ans = head;
+                while (ans != slow) {
+                    ans = ans->next;
+                    slow = slow->next;
+                }
+                return ans;
+            }
         }
-        if (!hasCycle) {
-            return nullptr;
-        }
-        ListNode* p = head;
-        while (p != slow) {
-            p = p->next;
-            slow = slow->next;
-        }
-        return p;
+        return nullptr;
     }
 };
 ```
@@ -168,20 +181,51 @@ public:
  * }
  */
 func detectCycle(head *ListNode) *ListNode {
-	slow, fast := head, head
-	hasCycle := false
-	for !hasCycle && fast != nil && fast.Next != nil {
-		slow, fast = slow.Next, fast.Next.Next
-		hasCycle = slow == fast
+	fast, slow := head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			ans := head
+			for ans != slow {
+				ans = ans.Next
+				slow = slow.Next
+			}
+			return ans
+		}
 	}
-	if !hasCycle {
-		return nil
-	}
-	p := head
-	for p != slow {
-		p, slow = p.Next, slow.Next
-	}
-	return p
+	return nil
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function detectCycle(head: ListNode | null): ListNode | null {
+    let [slow, fast] = [head, head];
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) {
+            let ans = head;
+            while (ans !== slow) {
+                ans = ans.next;
+                slow = slow.next;
+            }
+            return ans;
+        }
+    }
+    return null;
 }
 ```
 
@@ -199,26 +243,19 @@ func detectCycle(head *ListNode) *ListNode {
  * @return {ListNode}
  */
 var detectCycle = function (head) {
-    let slow = head;
-    let fast = head;
-    let hasCycle = false;
-    while (!hasCycle && fast && fast.next) {
+    let [slow, fast] = [head, head];
+    while (fast && fast.next) {
         slow = slow.next;
         fast = fast.next.next;
-        hasCycle = slow == fast;
+        if (slow === fast) {
+            let ans = head;
+            while (ans !== slow) {
+                ans = ans.next;
+                slow = slow.next;
+            }
+            return ans;
+        }
     }
-    if (!hasCycle) {
-        return null;
-    }
-    let p = head;
-    while (p != slow) {
-        p = p.next;
-        slow = slow.next;
-    }
-    return p;
+    return null;
 };
 ```
-
-<!-- tabs:end -->
-
-<!-- end -->
