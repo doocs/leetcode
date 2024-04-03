@@ -94,28 +94,33 @@ class CommitterPlugin:
             return []
 
         authors = []
-        r = requests.get(url=path, headers=get_header())
-        self.last_request_return_code = r.status_code
-        if r.status_code == 200:
-            # Get login, url and avatar for each author. Ensure no duplicates.
-            res = r.json()
-            for commit in res:
-                if (
-                    commit["author"]
-                    and commit["author"]["login"]
-                    and commit["author"]["login"]
-                    not in [author["login"] for author in authors]
-                ):
-                    authors.append(
-                        {
-                            "login": commit["author"]["login"],
-                            "name": commit["author"]["login"],
-                            "url": commit["author"]["html_url"],
-                            "avatar": commit["author"]["avatar_url"],
-                        }
-                    )
-            return authors
-        return []
+        print(f"Getting contributors to {path}")
+        for _ in range(5):
+            r = requests.get(url=path, headers=get_header())
+            self.last_request_return_code = r.status_code
+            if r.status_code == 200:
+                # Get login, url and avatar for each author. Ensure no duplicates.
+                res = r.json()
+                for commit in res:
+                    if (
+                        commit["author"]
+                        and commit["author"]["login"]
+                        and commit["author"]["login"]
+                        not in [author["login"] for author in authors]
+                    ):
+                        authors.append(
+                            {
+                                "login": commit["author"]["login"],
+                                "name": commit["author"]["login"],
+                                "url": commit["author"]["html_url"],
+                                "avatar": commit["author"]["avatar_url"],
+                            }
+                        )
+                return authors
+            elif r.status_code in [401, 403]:
+                print("Got a 401 or 403 error, not trying again")
+                return []
+            return []
 
     def list_contributors(self, path: str) -> List[dict]:
         path = path.replace("\\", "/")
