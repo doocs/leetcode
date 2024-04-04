@@ -31,6 +31,16 @@
 
 ### 方法一：DFS
 
+我们先根据给定的图构建一个邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻居节点，用一个哈希表或数组 $vis$ 记录访问过的节点，然后从节点 $start$ 开始深度优先搜索，如果搜索到节点 $target$，则返回 `true`，否则返回 `false`。
+
+深度优先搜索的过程如下：
+
+1. 如果当前节点 $i$ 等于目标节点 $target$，返回 `true`；
+2. 如果当前节点 $i$ 已经访问过，返回 `false`；
+3. 否则，将当前节点 $i$ 标记为已访问，然后遍历节点 $i$ 的所有邻居节点 $j$，递归地搜索节点 $j$。
+
+时间复杂度 $(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数量和边数量。
+
 <!-- tabs:start -->
 
 ```python
@@ -38,45 +48,49 @@ class Solution:
     def findWhetherExistsPath(
         self, n: int, graph: List[List[int]], start: int, target: int
     ) -> bool:
-        def dfs(u):
-            if u == target:
+        def dfs(i: int):
+            if i == target:
                 return True
-            for v in g[u]:
-                if v not in vis:
-                    vis.add(v)
-                    if dfs(v):
-                        return True
-            return False
+            if i in vis:
+                return False
+            vis.add(i)
+            return any(dfs(j) for j in g[i])
 
-        g = defaultdict(list)
-        for u, v in graph:
-            g[u].append(v)
-        vis = {start}
+        g = [[] for _ in range(n)]
+        for a, b in graph:
+            g[a].append(b)
+        vis = set()
         return dfs(start)
 ```
 
 ```java
 class Solution {
+    private List<Integer>[] g;
+    private boolean[] vis;
+    private int target;
+
     public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
-        Map<Integer, List<Integer>> g = new HashMap<>();
+        vis = new boolean[n];
+        g = new List[n];
+        this.target = target;
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : graph) {
-            g.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
+            g[e[0]].add(e[1]);
         }
-        Set<Integer> vis = new HashSet<>();
-        vis.add(start);
-        return dfs(start, target, g, vis);
+        return dfs(start);
     }
 
-    private boolean dfs(int u, int target, Map<Integer, List<Integer>> g, Set<Integer> vis) {
-        if (u == target) {
+    private boolean dfs(int i) {
+        if (i == target) {
             return true;
         }
-        for (int v : g.getOrDefault(u, Collections.emptyList())) {
-            if (!vis.contains(v)) {
-                vis.add(v);
-                if (dfs(v, target, g, vis)) {
-                    return true;
-                }
+        if (vis[i]) {
+            return false;
+        }
+        vis[i] = true;
+        for (int j : g[i]) {
+            if (dfs(j)) {
+                return true;
             }
         }
         return false;
@@ -88,44 +102,50 @@ class Solution {
 class Solution {
 public:
     bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
-        unordered_map<int, vector<int>> g;
-        for (auto& e : graph) g[e[0]].push_back(e[1]);
-        unordered_set<int> vis{{start}};
-        return dfs(start, target, g, vis);
-    }
-
-    bool dfs(int u, int& target, unordered_map<int, vector<int>>& g, unordered_set<int>& vis) {
-        if (u == target) return true;
-        for (int& v : g[u]) {
-            if (!vis.count(v)) {
-                vis.insert(v);
-                if (dfs(v, target, g, vis)) return true;
-            }
+        vector<int> g[n];
+        vector<bool> vis(n);
+        for (auto& e : graph) {
+            g[e[0]].push_back(e[1]);
         }
-        return false;
+        function<bool(int)> dfs = [&](int i) {
+            if (i == target) {
+                return true;
+            }
+            if (vis[i]) {
+                return false;
+            }
+            vis[i] = true;
+            for (int j : g[i]) {
+                if (dfs(j)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        return dfs(start);
     }
 };
 ```
 
 ```go
 func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
-	g := map[int][]int{}
+	g := make([][]int, n)
+	vis := make([]bool, n)
 	for _, e := range graph {
-		u, v := e[0], e[1]
-		g[u] = append(g[u], v)
+		g[e[0]] = append(g[e[0]], e[1])
 	}
-	vis := map[int]bool{start: true}
 	var dfs func(int) bool
-	dfs = func(u int) bool {
-		if u == target {
+	dfs = func(i int) bool {
+		if i == target {
 			return true
 		}
-		for _, v := range g[u] {
-			if !vis[v] {
-				vis[v] = true
-				if dfs(v) {
-					return true
-				}
+		if vis[i] {
+			return false
+		}
+		vis[i] = true
+		for _, j := range g[i] {
+			if dfs(j) {
+				return true
 			}
 		}
 		return false
@@ -134,9 +154,39 @@ func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
 }
 ```
 
+```ts
+function findWhetherExistsPath(
+    n: number,
+    graph: number[][],
+    start: number,
+    target: number,
+): boolean {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const vis: boolean[] = Array.from({ length: n }, () => false);
+    for (const [a, b] of graph) {
+        g[a].push(b);
+    }
+    const dfs = (i: number): boolean => {
+        if (i === target) {
+            return true;
+        }
+        if (vis[i]) {
+            return false;
+        }
+        vis[i] = true;
+        return g[i].some(dfs);
+    };
+    return dfs(start);
+}
+```
+
 <!-- tabs:end -->
 
 ### 方法二：BFS
+
+与方法一类似，我们先根据给定的图构建一个邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有邻居节点，用一个哈希表或数组 $vis$ 记录访问过的节点，然后从节点 $start$ 开始广度优先搜索，如果搜索到节点 $target$，则返回 `true`，否则返回 `false`。
+
+时间复杂度 $(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数量和边数量。
 
 <!-- tabs:start -->
 
@@ -145,42 +195,43 @@ class Solution:
     def findWhetherExistsPath(
         self, n: int, graph: List[List[int]], start: int, target: int
     ) -> bool:
-        g = defaultdict(list)
-        for u, v in graph:
-            g[u].append(v)
-        q = deque([start])
+        g = [[] for _ in range(n)]
+        for a, b in graph:
+            g[a].append(b)
         vis = {start}
+        q = deque([start])
         while q:
-            u = q.popleft()
-            if u == target:
+            i = q.popleft()
+            if i == target:
                 return True
-            for v in g[u]:
-                if v not in vis:
-                    vis.add(v)
-                    q.append(v)
+            for j in g[i]:
+                if j not in vis:
+                    vis.add(j)
+                    q.append(j)
         return False
 ```
 
 ```java
 class Solution {
     public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
-        Map<Integer, List<Integer>> g = new HashMap<>();
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        boolean[] vis = new boolean[n];
         for (int[] e : graph) {
-            g.computeIfAbsent(e[0], k -> new ArrayList<>()).add(e[1]);
+            g[e[0]].add(e[1]);
         }
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(start);
-        Set<Integer> vis = new HashSet<>();
-        vis.add(start);
+        vis[start] = true;
         while (!q.isEmpty()) {
-            int u = q.poll();
-            if (u == target) {
+            int i = q.poll();
+            if (i == target) {
                 return true;
             }
-            for (int v : g.getOrDefault(u, Collections.emptyList())) {
-                if (!vis.contains(v)) {
-                    vis.add(v);
-                    q.offer(v);
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    q.offer(j);
+                    vis[j] = true;
                 }
             }
         }
@@ -193,18 +244,23 @@ class Solution {
 class Solution {
 public:
     bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
-        unordered_map<int, vector<int>> g;
-        for (auto& e : graph) g[e[0]].push_back(e[1]);
+        vector<int> g[n];
+        vector<bool> vis(n);
+        for (auto& e : graph) {
+            g[e[0]].push_back(e[1]);
+        }
         queue<int> q{{start}};
-        unordered_set<int> vis{{start}};
+        vis[start] = true;
         while (!q.empty()) {
-            int u = q.front();
-            if (u == target) return true;
+            int i = q.front();
             q.pop();
-            for (int v : g[u]) {
-                if (!vis.count(v)) {
-                    vis.insert(v);
-                    q.push(v);
+            if (i == target) {
+                return true;
+            }
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    q.push(j);
+                    vis[j] = true;
                 }
             }
         }
@@ -215,27 +271,57 @@ public:
 
 ```go
 func findWhetherExistsPath(n int, graph [][]int, start int, target int) bool {
-	g := map[int][]int{}
+	g := make([][]int, n)
+	vis := make([]bool, n)
 	for _, e := range graph {
-		u, v := e[0], e[1]
-		g[u] = append(g[u], v)
+		g[e[0]] = append(g[e[0]], e[1])
 	}
 	q := []int{start}
-	vis := map[int]bool{start: true}
+	vis[start] = true
 	for len(q) > 0 {
-		u := q[0]
-		if u == target {
+		i := q[0]
+		q = q[1:]
+		if i == target {
 			return true
 		}
-		q = q[1:]
-		for _, v := range g[u] {
-			if !vis[v] {
-				vis[v] = true
-				q = append(q, v)
+		for _, j := range g[i] {
+			if !vis[j] {
+				vis[j] = true
+				q = append(q, j)
 			}
 		}
 	}
 	return false
+}
+```
+
+```ts
+function findWhetherExistsPath(
+    n: number,
+    graph: number[][],
+    start: number,
+    target: number,
+): boolean {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const vis: boolean[] = Array.from({ length: n }, () => false);
+    for (const [a, b] of graph) {
+        g[a].push(b);
+    }
+    const q: number[] = [start];
+    vis[start] = true;
+    while (q.length > 0) {
+        const i = q.pop()!;
+        if (i === target) {
+            return true;
+        }
+        for (const j of g[i]) {
+            if (!vis[j]) {
+                vis[j] = true;
+                q.push(j);
+            }
+        }
+    }
+    return false;
 }
 ```
 

@@ -49,7 +49,11 @@ And it can be shown that there are no special substrings with a length of at lea
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting + Two Pointers
+
+We use two pointers $j$ and $i$ to represent the left and right boundaries of the current substring, and an array $cnt$ of length $26$ to count the occurrence of each character in the current substring. We traverse the string from left to right. Each time we traverse to position $i$, we increase the occurrence of $s[i]$, and then check whether $s[i]$ appears at least twice. If so, we need to decrease the occurrence of $s[j]$ and move $j$ one step to the right, until the occurrence of $s[i]$ does not exceed once. In this way, we get the length of the longest special substring ending with $s[i]$, which is $i - j + 1$, so the number of special substrings ending with $s[i]$ is $i - j + 1$. Finally, we add up the number of special substrings ending at each position to get the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, the character set consists of lowercase English letters, so $C = 26$.
 
 <!-- tabs:start -->
 

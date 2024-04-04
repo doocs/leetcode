@@ -38,7 +38,7 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+	<li><code>2 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>nums.length % 2 == 0</code></li>
 </ul>

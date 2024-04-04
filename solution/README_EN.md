@@ -874,7 +874,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0863  |  [All Nodes Distance K in Binary Tree](/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 91  |
 |  0864  |  [Shortest Path to Get All Keys](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md)  |  `Bit Manipulation`,`Breadth-First Search`,`Array`,`Matrix`  |  Hard  |  Weekly Contest 92  |
 |  0865  |  [Smallest Subtree with all the Deepest Nodes](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Hash Table`,`Binary Tree`  |  Medium  |  Weekly Contest 92  |
-|  0866  |  [Prime Palindrome](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 92  |
+|  0866  |  [Prime Palindrome](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)  |  `Math`,`Number Theory`  |  Medium  |  Weekly Contest 92  |
 |  0867  |  [Transpose Matrix](/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Easy  |  Weekly Contest 92  |
 |  0868  |  [Binary Gap](/solution/0800-0899/0868.Binary%20Gap/README_EN.md)  |  `Bit Manipulation`  |  Easy  |  Weekly Contest 93  |
 |  0869  |  [Reordered Power of 2](/solution/0800-0899/0869.Reordered%20Power%20of%202/README_EN.md)  |  `Hash Table`,`Math`,`Counting`,`Enumeration`,`Sorting`  |  Medium  |  Weekly Contest 93  |
@@ -3102,6 +3102,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3091  |  [Apply Operations to Make Sum of Array Greater Than or Equal to k](/solution/3000-3099/3091.Apply%20Operations%20to%20Make%20Sum%20of%20Array%20Greater%20Than%20or%20Equal%20to%20k/README_EN.md)  |  `Greedy`,`Math`,`Enumeration`  |  Medium  |  Weekly Contest 390  |
 |  3092  |  [Most Frequent IDs](/solution/3000-3099/3092.Most%20Frequent%20IDs/README_EN.md)  |  `Array`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 390  |
 |  3093  |  [Longest Common Suffix Queries](/solution/3000-3099/3093.Longest%20Common%20Suffix%20Queries/README_EN.md)  |  `Trie`,`Array`,`String`  |  Hard  |  Weekly Contest 390  |
+|  3094  |  [Guess the Number Using Bitwise Questions II](/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README_EN.md)  |  `Bit Manipulation`,`Interactive`  |  Medium  |  🔒  |
+|  3095  |  [Shortest Subarray With OR at Least K I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README_EN.md)  |  `Bit Manipulation`,`Array`,`Sliding Window`  |  Easy  |  Biweekly Contest 127  |
+|  3096  |  [Minimum Levels to Gain More Points](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |  Biweekly Contest 127  |
+|  3097  |  [Shortest Subarray With OR at Least K II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README_EN.md)  |  `Bit Manipulation`,`Array`,`Sliding Window`  |  Medium  |  Biweekly Contest 127  |
+|  3098  |  [Find the Sum of Subsequence Powers](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sorting`  |  Hard  |  Biweekly Contest 127  |
+|  3099  |  [Harshad Number](/solution/3000-3099/3099.Harshad%20Number/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 391  |
+|  3100  |  [Water Bottles II](/solution/3100-3199/3100.Water%20Bottles%20II/README_EN.md)  |  `Math`,`Simulation`  |  Medium  |  Weekly Contest 391  |
+|  3101  |  [Count Alternating Subarrays](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README_EN.md)  |  `Array`,`Math`  |  Medium  |  Weekly Contest 391  |
+|  3102  |  [Minimize Manhattan Distances](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README_EN.md)  |  `Array`,`Math`  |  Hard  |  Weekly Contest 391  |
+|  3103  |  [Find Trending Hashtags II](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 
 ## Copyright
 

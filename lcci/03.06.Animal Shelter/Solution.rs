@@ -1,53 +1,47 @@
 use std::collections::VecDeque;
 
 struct AnimalShelf {
-    cats: VecDeque<i32>,
-    dogs: VecDeque<i32>,
+    q: [VecDeque<i32>; 2],
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl AnimalShelf {
     fn new() -> Self {
-        Self {
-            cats: VecDeque::new(),
-            dogs: VecDeque::new(),
+        AnimalShelf {
+            q: [VecDeque::new(), VecDeque::new()],
         }
     }
 
     fn enqueue(&mut self, animal: Vec<i32>) {
-        if animal[1] == 0 {
-            self.cats.push_back(animal[0]);
-        } else {
-            self.dogs.push_back(animal[0]);
-        }
+        self.q[animal[1] as usize].push_back(animal[0]);
     }
 
     fn dequeue_any(&mut self) -> Vec<i32> {
-        match (self.cats.is_empty(), self.dogs.is_empty()) {
-            (true, true) => vec![-1, -1],
-            (true, false) => self.dequeue_dog(),
-            (false, true) => self.dequeue_cat(),
-            (false, false) => {
-                if self.dogs[0] < self.cats[0] { self.dequeue_dog() } else { self.dequeue_cat() }
-            }
+        if
+            self.q[0].is_empty() ||
+            (!self.q[1].is_empty() && self.q[1].front().unwrap() < self.q[0].front().unwrap())
+        {
+            self.dequeue_dog()
+        } else {
+            self.dequeue_cat()
         }
     }
 
     fn dequeue_dog(&mut self) -> Vec<i32> {
-        if self.dogs.is_empty() {
-            return vec![-1, -1];
+        if self.q[1].is_empty() {
+            vec![-1, -1]
+        } else {
+            let dog = self.q[1].pop_front().unwrap();
+            vec![dog, 1]
         }
-        vec![self.dogs.pop_front().unwrap(), 1]
     }
 
     fn dequeue_cat(&mut self) -> Vec<i32> {
-        if self.cats.is_empty() {
-            return vec![-1, -1];
+        if self.q[0].is_empty() {
+            vec![-1, -1]
+        } else {
+            let cat = self.q[0].pop_front().unwrap();
+            vec![cat, 0]
         }
-        vec![self.cats.pop_front().unwrap(), 0]
     }
 }/**
  * Your AnimalShelf object will be instantiated and called as such:

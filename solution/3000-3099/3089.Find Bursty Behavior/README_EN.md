@@ -77,7 +77,7 @@ Each row of this table contains post_id, user_id, and post_date.
 
 ### Solution 1: Self-Join + Group Count
 
-We can use self-join to connect the `Posts` table with itself. The connection condition is `p1.user_id = p2.user_id` and `p2.post_date` is between `p1.post_date` and 6 days after `p1.post_date`. Then we group the connection results by `p1.user_id` and `p1.post_date` to count the number of posts for each user within 7 days of each day. We save this result in table `P`.
+We can use self-join to connect the `Posts` table with itself. The connection condition is `p1.user_id = p2.user_id` and `p2.post_date` is between `p1.post_date` and 6 days after `p1.post_date`. Then we group the connection results by `p1.user_id` and `p1.post_id` to count the number of posts for each user within 7 days of each day. We save this result in table `P`.
 
 Next, we count the average number of posts per week for each user in February 2024 and save it in table `T`. Note that we need to find records where `post_date` is between `2024-02-01` and `2024-02-28`, group the records by `user_id`, then count the number of posts for each user, and finally divide by `4` to get the average number of posts per week. We save this result in table `T`.
 
@@ -95,7 +95,7 @@ WITH
             JOIN Posts AS p2
                 ON p1.user_id = p2.user_id
                 AND p2.post_date BETWEEN p1.post_date AND DATE_ADD(p1.post_date, INTERVAL 6 DAY)
-        GROUP BY p1.user_id, p1.post_date
+        GROUP BY p1.user_id, p1.post_id
     ),
     T AS (
         SELECT user_id, COUNT(1) / 4 AS avg_weekly_posts
@@ -117,31 +117,39 @@ import pandas as pd
 
 
 def find_bursty_behavior(posts: pd.DataFrame) -> pd.DataFrame:
-    # Calculate the count of posts made by each user within a 7-day window
-    p = posts.merge(posts, on="user_id")
-    p = p[
-        (p["post_date_y"] >= p["post_date_x"])
-        & (p["post_date_y"] <= p["post_date_x"] + pd.Timedelta(days=6))
+    # Subquery P
+    p1 = pd.merge(posts, posts, on="user_id", suffixes=("_1", "_2"))
+    p1 = p1[
+        p1["post_date_2"].between(
+            p1["post_date_1"], p1["post_date_1"] + pd.Timedelta(days=6)
+        )
     ]
-    p_count = p.groupby(["user_id", "post_date_x"]).size().reset_index(name="cnt")
+    p1 = p1.groupby(["user_id", "post_id_1"]).size().reset_index(name="cnt")
 
-    # Calculate the average weekly posts for each user in February 2024
+    # Subquery T
     t = posts[
         (posts["post_date"] >= "2024-02-01") & (posts["post_date"] <= "2024-02-28")
     ]
-    t_count = t.groupby("user_id").size().reset_index(name="count")
-    t_count["avg_weekly_posts"] = t_count["count"] / 4
+    t = t.groupby("user_id").size().div(4).reset_index(name="avg_weekly_posts")
 
-    # Joining the two calculated tables and filtering users meeting the criteria
-    merged_df = p_count.merge(t_count, on="user_id")
-    merged_df = merged_df.groupby("user_id").agg(
-        max_7day_posts=("cnt", "max"), avg_weekly_posts=("avg_weekly_posts", "first")
+    # Joining P and T
+    merged_df = pd.merge(p1, t, on="user_id", how="inner")
+
+    # Filtering
+    filtered_df = merged_df[merged_df["cnt"] >= merged_df["avg_weekly_posts"] * 2]
+
+    # Aggregating
+    result_df = (
+        filtered_df.groupby("user_id")
+        .agg({"cnt": "max", "avg_weekly_posts": "first"})
+        .reset_index()
     )
-    result_df = merged_df[
-        merged_df["max_7day_posts"] >= merged_df["avg_weekly_posts"] * 2
-    ].reset_index()
+    result_df.columns = ["user_id", "max_7day_posts", "avg_weekly_posts"]
 
-    return result_df.sort_values("user_id")
+    # Sorting
+    result_df.sort_values(by="user_id", inplace=True)
+
+    return result_df
 ```
 
 <!-- tabs:end -->
