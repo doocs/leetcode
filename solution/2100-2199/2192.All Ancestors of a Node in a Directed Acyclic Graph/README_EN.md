@@ -59,7 +59,13 @@ The above diagram represents the input graph.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: BFS
+
+First, we construct the adjacency list $g$ based on the two-dimensional array $edges$, where $g[i]$ represents all successor nodes of node $i$.
+
+Then, we enumerate node $i$ as the ancestor node from small to large, use BFS to search all successor nodes of node $i$, and add node $i$ to the ancestor list of these successor nodes.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -205,7 +211,7 @@ function getAncestors(n: number, edges: number[][]): number[][] {
         const vis: boolean[] = Array.from({ length: n }, () => false);
         vis[s] = true;
         while (q.length) {
-            const i = q.shift()!;
+            const i = q.pop()!;
             for (const j of g[i]) {
                 if (!vis[j]) {
                     vis[j] = true;
@@ -219,6 +225,50 @@ function getAncestors(n: number, edges: number[][]): number[][] {
         bfs(i);
     }
     return ans;
+}
+```
+
+```cs
+public class Solution {
+    private int n;
+    private List<int>[] g;
+    private IList<IList<int>> ans;
+
+    public IList<IList<int>> GetAncestors(int n, int[][] edges) {
+        g = new List<int>[n];
+        this.n = n;
+        for (int i = 0; i < n; i++) {
+            g[i] = new List<int>();
+        }
+        foreach (var e in edges) {
+            g[e[0]].Add(e[1]);
+        }
+        ans = new List<IList<int>>();
+        for (int i = 0; i < n; ++i) {
+            ans.Add(new List<int>());
+        }
+        for (int i = 0; i < n; ++i) {
+            BFS(i);
+        }
+        return ans;
+    }
+
+    private void BFS(int s) {
+        Queue<int> q = new Queue<int>();
+        q.Enqueue(s);
+        bool[] vis = new bool[n];
+        vis[s] = true;
+        while (q.Count > 0) {
+            int i = q.Dequeue();
+            foreach (int j in g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    q.Enqueue(j);
+                    ans[j].Add(s);
+                }
+            }
+        }
+    }
 }
 ```
 
