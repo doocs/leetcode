@@ -1,17 +1,16 @@
 function countHillValley(nums: number[]): number {
-    const n = nums.length;
-    let res = 0;
-    let prev = nums[0];
-    for (let i = 1; i < n - 1; i++) {
-        const num = nums[i];
-        const next = nums[i + 1];
-        if (num == next) {
+    let ans = 0;
+    for (let i = 1, j = 0; i < nums.length - 1; ++i) {
+        if (nums[i] === nums[i + 1]) {
             continue;
         }
-        if ((num > prev && num > next) || (num < prev && num < next)) {
-            res += 1;
+        if (nums[i] > nums[j] && nums[i] > nums[i + 1]) {
+            ans++;
         }
-        prev = num;
+        if (nums[i] < nums[j] && nums[i] < nums[i + 1]) {
+            ans++;
+        }
+        j = i;
     }
-    return res;
+    return ans;
 }
