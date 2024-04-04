@@ -227,7 +227,6 @@ public class Solution {
 
 ```php
 class Solution {
-
     /**
      * @param integer[] $nums
      * @return void
