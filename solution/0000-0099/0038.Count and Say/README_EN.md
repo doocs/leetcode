@@ -265,13 +265,13 @@ class Solution {
 
     function countAndSay($n) {
         if ($n <= 0) {
-            return "";
+            return '';
         }
 
-        $result = "1";
+        $result = '1';
         for ($i = 2; $i <= $n; $i++) {
             $count = 1;
-            $say = "";
+            $say = '';
             for ($j = 1; $j < strlen($result); $j++) {
                 if ($result[$j] == $result[$j - 1]) {
                     $count++;

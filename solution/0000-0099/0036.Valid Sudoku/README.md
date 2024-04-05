@@ -263,7 +263,11 @@ class Solution {
                 $cell = $board[$row][$column];
 
                 if ($cell != '.') {
-                    if (in_array($cell, $rows[$row]) || in_array($cell, $columns[$column]) || in_array($cell, $boxes[floor($row / 3) * 3 + floor($column / 3)])) {
+                    if (
+                        in_array($cell, $rows[$row]) ||
+                        in_array($cell, $columns[$column]) ||
+                        in_array($cell, $boxes[floor($row / 3) * 3 + floor($column / 3)])
+                    ) {
                         return false;
                     }
 

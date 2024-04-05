@@ -586,7 +586,13 @@ class Solution {
             }
             $currentCombination[] = $num;
 
-            $this->findCombinations($candidates, $target - $num, $i + 1, $currentCombination, $result);
+            $this->findCombinations(
+                $candidates,
+                $target - $num,
+                $i + 1,
+                $currentCombination,
+                $result,
+            );
             array_pop($currentCombination);
         }
     }
