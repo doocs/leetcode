@@ -1,20 +1,26 @@
 class Solution {
 public:
     bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
-        unordered_map<int, vector<int>> g;
-        for (auto& e : graph) g[e[0]].push_back(e[1]);
-        unordered_set<int> vis{{start}};
-        return dfs(start, target, g, vis);
-    }
-
-    bool dfs(int u, int& target, unordered_map<int, vector<int>>& g, unordered_set<int>& vis) {
-        if (u == target) return true;
-        for (int& v : g[u]) {
-            if (!vis.count(v)) {
-                vis.insert(v);
-                if (dfs(v, target, g, vis)) return true;
-            }
+        vector<int> g[n];
+        vector<bool> vis(n);
+        for (auto& e : graph) {
+            g[e[0]].push_back(e[1]);
         }
-        return false;
+        function<bool(int)> dfs = [&](int i) {
+            if (i == target) {
+                return true;
+            }
+            if (vis[i]) {
+                return false;
+            }
+            vis[i] = true;
+            for (int j : g[i]) {
+                if (dfs(j)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        return dfs(start);
     }
 };
