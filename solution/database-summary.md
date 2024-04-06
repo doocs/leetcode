@@ -98,7 +98,6 @@
     -   [1341.电影评分](/database-solution/1300-1399/1341.Movie%20Rating/README.md)
     -   [1350.院系无效的学生](/database-solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README.md)
     -   [1355.活动参与者](/database-solution/1300-1399/1355.Activity%20Participants/README.md)
-    -   [1364.顾客的可信联系人数量](/database-solution/1300-1399/1364.Number%20of%20Trusted%20Contacts%20of%20a%20Customer/README.md)
     -   [1369.获取最近第二次的活动](/database-solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README.md)
     -   [1378.使用唯一标识码替换员工 ID](/database-solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README.md)
     -   [1384.按年度列出销售总额](/database-solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README.md)

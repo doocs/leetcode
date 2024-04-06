@@ -98,7 +98,6 @@
     -   [1341.Movie Rating](/database-solution/1300-1399/1341.Movie%20Rating/README_EN.md)
     -   [1350.Students With Invalid Departments](/database-solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README_EN.md)
     -   [1355.Activity Participants](/database-solution/1300-1399/1355.Activity%20Participants/README_EN.md)
-    -   [1364.Number of Trusted Contacts of a Customer](/database-solution/1300-1399/1364.Number%20of%20Trusted%20Contacts%20of%20a%20Customer/README_EN.md)
     -   [1369.Get the Second Most Recent Activity](/database-solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README_EN.md)
     -   [1378.Replace Employee ID With The Unique Identifier](/database-solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README_EN.md)
     -   [1384.Total Sales Amount by Year](/database-solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README_EN.md)

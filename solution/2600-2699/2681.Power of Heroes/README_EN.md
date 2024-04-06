@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)
 
-<!-- tags:Array,Math,Prefix Sum,Sorting -->
+<!-- tags:Array,Math,Dynamic Programming,Prefix Sum,Sorting -->
 
 ## Description
 

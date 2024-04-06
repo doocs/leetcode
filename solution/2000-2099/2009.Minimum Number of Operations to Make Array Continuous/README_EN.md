@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README.md)
 
-<!-- tags:Array,Binary Search -->
+<!-- tags:Array,Hash Table,Binary Search,Sliding Window -->
 
 ## Description
 
