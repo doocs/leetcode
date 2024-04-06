@@ -2,7 +2,7 @@
 
 [English Version](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)
 
-<!-- tags:数组,数学,前缀和,排序 -->
+<!-- tags:数组,数学,动态规划,前缀和,排序 -->
 
 ## 题目描述
 

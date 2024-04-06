@@ -10,15 +10,14 @@
 
 <p>顾客表：<code>Customers</code></p>
 
-<pre>
-+---------------+---------+
+<pre>+---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | customer_id   | int     |
 | customer_name | varchar |
 | email         | varchar |
 +---------------+---------+
-customer_id 是这张表具有唯一值的列。
+customer_id 是这张表的主键。
 此表的每一行包含了某在线商店顾客的姓名和电子邮件。
 </pre>
 
@@ -26,15 +25,14 @@ customer_id 是这张表具有唯一值的列。
 
 <p>联系方式表：<code>Contacts</code></p>
 
-<pre>
-+---------------+---------+
+<pre>+---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | user_id       | id      |
 | contact_name  | varchar |
 | contact_email | varchar |
 +---------------+---------+
-(user_id, contact_email) 是这张表的主键（具有唯一值的列的组合）。
+(user_id, contact_email) 是这张表的主键。
 此表的每一行表示编号为 user_id 的顾客的某位联系人的姓名和电子邮件。
 此表包含每位顾客的联系人信息，但顾客的联系人不一定存在于顾客表中。
 </pre>
@@ -43,40 +41,33 @@ customer_id 是这张表具有唯一值的列。
 
 <p>发票表：<code>Invoices</code></p>
 
-<pre>
-+--------------+---------+
+<pre>+--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
 | invoice_id   | int     |
 | price        | int     |
 | user_id      | int     |
 +--------------+---------+
-invoice_id 是这张表具有唯一值的列。
+invoice_id 是这张表的主键。
 此表的每一行分别表示编号为 user_id 的顾客拥有有一张编号为 invoice_id、价格为 price 的发票。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>为每张发票 <code>invoice_id</code> 编写一个查询方案以查找以下内容：</p>
+<p>为每张发票 <code>invoice_id</code> 编写一个SQL查询以查找以下内容：</p>
 
 <ul>
 	<li><code>customer_name</code>：与发票相关的顾客名称。</li>
 	<li><code>price</code>：发票的价格。</li>
-	<li><code>contacts_cnt</code>：该顾客的联系人数量</li>
-	<li><code>trusted_contacts_cnt</code>：可信联系人的数量：既是该顾客的联系人又是商店顾客的联系人数量（即：可信联系人的电子邮件存在于 <meta charset="UTF-8" />&nbsp;<code>Customers</code>&nbsp;表中）。</li>
+	<li><code>contacts_cnt</code>：该顾客的联系人数量。</li>
+	<li><code>trusted_contacts_cnt</code>：可信联系人的数量：既是该顾客的联系人又是商店顾客的联系人数量（即：可信联系人的电子邮件存在于客户表中）。</li>
 </ul>
 
-<p>返回结果按照&nbsp;<code>invoice_id</code>&nbsp;<strong>排序</strong>。</p>
+<p>将查询的结果按照&nbsp;<code>invoice_id</code>&nbsp;排序。</p>
 
-<p>结果的格式如下例所示。</p>
+<p>查询结果的格式如下例所示：</p>
 
-<p>&nbsp;</p>
-
-<p><strong>示例 1：</strong></p>
-
-<pre>
-<strong>输入：</strong>
-<code>Customers</code> table:
+<pre><code>Customers</code> table:
 +-------------+---------------+--------------------+
 | customer_id | customer_name | email              |
 +-------------+---------------+--------------------+
@@ -107,7 +98,7 @@ Invoices table:
 | 55         | 500   | 13      |
 | 44         | 60    | 6       |
 +------------+-------+---------+
-<strong>输出：</strong>
+Result table:
 +------------+---------------+-------+--------------+----------------------+
 | invoice_id | customer_name | price | contacts_cnt | trusted_contacts_cnt |
 +------------+---------------+-------+--------------+----------------------+
@@ -118,7 +109,6 @@ Invoices table:
 | 88         | Alice         | 200   | 3            | 2                    |
 | 99         | Bob           | 300   | 2            | 0                    |
 +------------+---------------+-------+--------------+----------------------+
-<strong>解释：</strong>
 Alice 有三位联系人，其中两位(Bob 和 John)是可信联系人。
 Bob 有两位联系人, 他们中的任何一位都不是可信联系人。
 Alex 只有一位联系人(Alice)，并是一位可信联系人。
