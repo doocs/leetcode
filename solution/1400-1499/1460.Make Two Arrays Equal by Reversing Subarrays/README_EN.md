@@ -189,7 +189,7 @@ public:
         for (int& v : target) {
             ++cnt1[v];
         }
-        for (int& v: arr) {
+        for (int& v : arr) {
             ++cnt2[v];
         }
         return cnt1 == cnt2;
