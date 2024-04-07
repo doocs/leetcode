@@ -51,16 +51,20 @@ There are multiple ways to convert arr to target, this is not the only way to do
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sorting
+
+If two arrays are equal after sorting, then they can be made equal by reversing sub-arrays.
+
+Therefore, we only need to sort the two arrays and then check if the sorted arrays are equal.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        target.sort()
-        arr.sort()
-        return target == arr
+        return sorted(target) == sorted(arr)
 ```
 
 ```java
@@ -88,12 +92,7 @@ public:
 func canBeEqual(target []int, arr []int) bool {
 	sort.Ints(target)
 	sort.Ints(arr)
-	for i, v := range target {
-		if v != arr[i] {
-			return false
-		}
-	}
-	return true
+	return reflect.DeepEqual(target, arr)
 }
 ```
 
@@ -101,13 +100,7 @@ func canBeEqual(target []int, arr []int) bool {
 function canBeEqual(target: number[], arr: number[]): boolean {
     target.sort((a, b) => a - b);
     arr.sort((a, b) => a - b);
-    const n = arr.length;
-    for (let i = 0; i < n; i++) {
-        if (target[i] !== arr[i]) {
-            return false;
-        }
-    }
-    return true;
+    return target.join() === arr.join();
 }
 ```
 
@@ -137,14 +130,15 @@ class Solution {
 ```
 
 ```c
+int compare(const void* a, const void* b) {
+    return (*(int*) a - *(int*) b);
+}
+
 bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
-    int count[1001] = {0};
-    for (int i = 0; i < targetSize; i++) {
-        count[target[i]]++;
-        count[arr[i]]--;
-    }
-    for (int i = 0; i < 1001; i++) {
-        if (count[i] != 0) {
+    qsort(target, targetSize, sizeof(int), compare);
+    qsort(arr, arrSize, sizeof(int), compare);
+    for (int i = 0; i < targetSize; ++i) {
+        if (target[i] != arr[i]) {
             return false;
         }
     }
@@ -154,7 +148,13 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Counting
+
+We note that the range of the array elements given in the problem is $1 \sim 1000$. Therefore, we can use two arrays `cnt1` and `cnt2` of length $1001$ to record the number of times each element appears in the arrays `target` and `arr` respectively. Finally, we just need to check if the two arrays are equal.
+
+We can also use only one array `cnt`. We traverse the arrays `target` and `arr`. For `target[i]`, we increment `cnt[target[i]]`, and for `arr[i]`, we decrement `cnt[arr[i]]`. In the end, we check if all elements in the array `cnt` are $0$.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array `arr`, and $M$ is the range of the array elements. In this problem, $M = 1001$.
 
 <!-- tabs:start -->
 
@@ -186,8 +186,12 @@ public:
     bool canBeEqual(vector<int>& target, vector<int>& arr) {
         vector<int> cnt1(1001);
         vector<int> cnt2(1001);
-        for (int& v : target) ++cnt1[v];
-        for (int& v : arr) ++cnt2[v];
+        for (int& v : target) {
+            ++cnt1[v];
+        }
+        for (int& v: arr) {
+            ++cnt2[v];
+        }
         return cnt1 == cnt2;
     }
 };
@@ -203,24 +207,19 @@ func canBeEqual(target []int, arr []int) bool {
 	for _, v := range arr {
 		cnt2[v]++
 	}
-	for i, v := range cnt1 {
-		if v != cnt2[i] {
-			return false
-		}
-	}
-	return true
+	return reflect.DeepEqual(cnt1, cnt2)
 }
 ```
 
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
     const n = target.length;
-    const count = new Array(1001).fill(0);
+    const cnt = Array(1001).fill(0);
     for (let i = 0; i < n; i++) {
-        count[target[i]]++;
-        count[arr[i]]--;
+        cnt[target[i]]++;
+        cnt[arr[i]]--;
     }
-    return count.every(v => v === 0);
+    return cnt.every(v => v === 0);
 }
 ```
 
@@ -228,75 +227,13 @@ function canBeEqual(target: number[], arr: number[]): boolean {
 impl Solution {
     pub fn can_be_equal(mut target: Vec<i32>, mut arr: Vec<i32>) -> bool {
         let n = target.len();
-        let mut count = [0; 1001];
+        let mut cnt = [0; 1001];
         for i in 0..n {
-            count[target[i] as usize] += 1;
-            count[arr[i] as usize] -= 1;
+            cnt[target[i] as usize] += 1;
+            cnt[arr[i] as usize] -= 1;
         }
-        count.iter().all(|v| *v == 0)
+        cnt.iter().all(|v| *v == 0)
     }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        cnt = [0] * 1001
-        for a, b in zip(target, arr):
-            cnt[a] += 1
-            cnt[b] -= 1
-        return all(v == 0 for v in cnt)
-```
-
-```java
-class Solution {
-    public boolean canBeEqual(int[] target, int[] arr) {
-        int[] cnt = new int[1001];
-        for (int v : target) {
-            ++cnt[v];
-        }
-        for (int v : arr) {
-            if (--cnt[v] < 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    bool canBeEqual(vector<int>& target, vector<int>& arr) {
-        vector<int> cnt(1001);
-        for (int& v : target) ++cnt[v];
-        for (int& v : arr)
-            if (--cnt[v] < 0) return false;
-        return true;
-    }
-};
-```
-
-```go
-func canBeEqual(target []int, arr []int) bool {
-	cnt := make([]int, 1001)
-	for _, v := range target {
-		cnt[v]++
-	}
-	for _, v := range arr {
-		cnt[v]--
-		if cnt[v] < 0 {
-			return false
-		}
-	}
-	return true
 }
 ```
 
