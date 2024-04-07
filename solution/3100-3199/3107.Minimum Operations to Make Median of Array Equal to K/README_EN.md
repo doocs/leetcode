@@ -58,24 +58,125 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+First, we sort the array $nums$ and find the position $m$ of the median. The initial number of operations we need is $|nums[m] - k|$.
+
+Next, we discuss in two cases:
+
+-   If $nums[m] > k$, then all elements to the right of $m$ are greater than or equal to $k$. We only need to reduce the elements greater than $k$ on the left of $m$ to $k$.
+-   If $nums[m] \le k$, then all elements to the left of $m$ are less than or equal to $k$. We only need to increase the elements less than $k$ on the right of $m$ to $k$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minOperationsToMakeMedianK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        n = len(nums)
+        m = n >> 1
+        ans = abs(nums[m] - k)
+        if nums[m] > k:
+            for i in range(m - 1, -1, -1):
+                if nums[i] <= k:
+                    break
+                ans += nums[i] - k
+        else:
+            for i in range(m + 1, n):
+                if nums[i] >= k:
+                    break
+                ans += k - nums[i]
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public long minOperationsToMakeMedianK(int[] nums, int k) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int m = n >> 1;
+        long ans = Math.abs(nums[m] - k);
+        if (nums[m] > k) {
+            for (int i = m - 1; i >= 0 && nums[i] > k; --i) {
+                ans += nums[i] - k;
+            }
+        } else {
+            for (int i = m + 1; i < n && nums[i] < k; ++i) {
+                ans += k - nums[i];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long minOperationsToMakeMedianK(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int m = n >> 1;
+        long long ans = abs(nums[m] - k);
+        if (nums[m] > k) {
+            for (int i = m - 1; i >= 0 && nums[i] > k; --i) {
+                ans += nums[i] - k;
+            }
+        } else {
+            for (int i = m + 1; i < n && nums[i] < k; ++i) {
+                ans += k - nums[i];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minOperationsToMakeMedianK(nums []int, k int) (ans int64) {
+	sort.Ints(nums)
+	n := len(nums)
+	m := n >> 1
+	ans = int64(abs(nums[m] - k))
+	if nums[m] > k {
+		for i := m - 1; i >= 0 && nums[i] > k; i-- {
+			ans += int64(nums[i] - k)
+		}
+	} else {
+		for i := m + 1; i < n && nums[i] < k; i++ {
+			ans += int64(k - nums[i])
+		}
+	}
+	return
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+```ts
+function minOperationsToMakeMedianK(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const m = n >> 1;
+    let ans = Math.abs(nums[m] - k);
+    if (nums[m] > k) {
+        for (let i = m - 1; i >= 0 && nums[i] > k; --i) {
+            ans += nums[i] - k;
+        }
+    } else {
+        for (let i = m + 1; i < n && nums[i] < k; ++i) {
+            ans += k - nums[i];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
