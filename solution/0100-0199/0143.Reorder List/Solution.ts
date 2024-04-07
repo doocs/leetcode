@@ -14,19 +14,26 @@
  Do not return anything, modify head in-place instead.
  */
 function reorderList(head: ListNode | null): void {
-    const arr = [];
-    let node = head;
-    while (node.next != null) {
-        arr.push(node);
-        node = node.next;
+    let slow = head;
+    let fast = head;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
     }
-    let l = 0;
-    let r = arr.length - 1;
-    while (l < r) {
-        const start = arr[l];
-        const end = arr[r];
-        [end.next.next, start.next, end.next] = [start.next, end.next, null];
-        l++;
-        r--;
+
+    let next = slow.next;
+    slow.next = null;
+    while (next) {
+        [next.next, slow, next] = [slow, next, next.next];
+    }
+
+    let left = head;
+    let right = slow;
+    while (right.next) {
+        const next = left.next;
+        left.next = right;
+        right = right.next;
+        left.next.next = next;
+        left = left.next.next;
     }
 }
