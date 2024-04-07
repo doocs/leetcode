@@ -125,7 +125,7 @@ public class Solution {
  */
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
+    bool hasCycle(ListNode* head) {
         unordered_set<ListNode*> s;
         for (; head; head = head->next) {
             if (s.contains(head)) {
@@ -253,12 +253,14 @@ public class Solution {
 class Solution {
 public:
     bool hasCycle(ListNode* head) {
-        unordered_set<ListNode*> s;
-        for (; head; head = head->next) {
-            if (s.contains(head)) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) {
                 return true;
             }
-            s.insert(head);
         }
         return false;
     }
