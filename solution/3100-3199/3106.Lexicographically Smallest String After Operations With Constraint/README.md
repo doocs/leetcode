@@ -71,24 +71,104 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们可以遍历字符串 $s$ 的每个位置，对于每个位置，我们枚举所有小于当前字符的字符，计算改变到这个字符的代价 $d$，如果 $d \leq k$，我们就将当前位置的字符改为这个字符，并将 $k$ 减去 $d$，然后结束枚举，继续遍历下一个位置。
+
+遍历结束后，我们就得到了一个满足条件的字符串。
+
+时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度；而 $|\Sigma|$ 是字符集的大小，本题中 $|\Sigma| \leq 26$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def getSmallestString(self, s: str, k: int) -> str:
+        cs = list(s)
+        for i, c1 in enumerate(s):
+            for c2 in ascii_lowercase:
+                if c2 >= c1:
+                    break
+                d = min(ord(c1) - ord(c2), 26 - ord(c1) + ord(c2))
+                if d <= k:
+                    cs[i] = c2
+                    k -= d
+                    break
+        return "".join(cs)
 ```
 
 ```java
-
+class Solution {
+    public String getSmallestString(String s, int k) {
+        char[] cs = s.toCharArray();
+        for (int i = 0; i < cs.length; ++i) {
+            char c1 = cs[i];
+            for (char c2 = 'a'; c2 < c1; ++c2) {
+                int d = Math.min(c1 - c2, 26 - c1 + c2);
+                if (d <= k) {
+                    cs[i] = c2;
+                    k -= d;
+                    break;
+                }
+            }
+        }
+        return new String(cs);
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    string getSmallestString(string s, int k) {
+        for (int i = 0; i < s.size(); ++i) {
+            char c1 = s[i];
+            for (char c2 = 'a'; c2 < c1; ++c2) {
+                int d = min(c1 - c2, 26 - c1 + c2);
+                if (d <= k) {
+                    s[i] = c2;
+                    k -= d;
+                    break;
+                }
+            }
+        }
+        return s;
+    }
+};
 ```
 
 ```go
+func getSmallestString(s string, k int) string {
+	cs := []byte(s)
+	for i, c1 := range cs {
+		for c2 := byte('a'); c2 < c1; c2++ {
+			d := int(min(c1-c2, 26-c1+c2))
+			if d <= k {
+				cs[i] = c2
+				k -= d
+				break
+			}
+		}
+	}
+	return string(cs)
+}
+```
 
+```ts
+function getSmallestString(s: string, k: number): string {
+    const cs: string[] = s.split('');
+    for (let i = 0; i < s.length; ++i) {
+        for (let j = 97; j < s[i].charCodeAt(0); ++j) {
+            const d = Math.min(s[i].charCodeAt(0) - j, 26 - s[i].charCodeAt(0) + j);
+            if (d <= k) {
+                cs[i] = String.fromCharCode(j);
+                k -= d;
+                break;
+            }
+        }
+    }
+    return cs.join('');
+}
 ```
 
 <!-- tabs:end -->
