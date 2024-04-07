@@ -25,6 +25,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 392
+
+- [3105. Longest Strictly Increasing or Strictly Decreasing Subarray](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README_EN.md)
+- [3106. Lexicographically Smallest String After Operations With Constraint](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README_EN.md)
+- [3107. Minimum Operations to Make Median of Array Equal to K](/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README_EN.md)
+- [3108. Minimum Cost Walk in Weighted Graph](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README_EN.md)
+
 #### Weekly Contest 391
 
 - [3099. Harshad Number](/solution/3000-3099/3099.Harshad%20Number/README_EN.md)

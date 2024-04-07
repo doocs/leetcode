@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README.md)
 
-<!-- tags:Bit Manipulation,Array,Divide and Conquer,Matrix,Prefix Sum,Quickselect,Heap (Priority Queue) -->
+<!-- tags:Bit Manipulation,Array,Divide and Conquer,Matrix,Prefix Sum,Quickselect,Sorting,Heap (Priority Queue) -->
 
 ## Description
 
