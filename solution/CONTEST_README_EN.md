@@ -25,6 +25,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 392
+
+- [3105. Longest Strictly Increasing or Strictly Decreasing Subarray](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README_EN.md)
+- [3106. Lexicographically Smallest String After Operations With Constraint](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README_EN.md)
+- [3107. Minimum Operations to Make Median of Array Equal to K](/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README_EN.md)
+- [3108. Minimum Cost Walk in Weighted Graph](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README_EN.md)
+
 #### Weekly Contest 391
 
 - [3099. Harshad Number](/solution/3000-3099/3099.Harshad%20Number/README_EN.md)
@@ -1168,6 +1175,7 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Biweekly Contest 73
 
+- [2190. Most Frequent Number Following Key In an Array](/solution/2100-2199/2190.Most%20Frequent%20Number%20Following%20Key%20In%20an%20Array/README_EN.md)
 - [2191. Sort the Jumbled Numbers](/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README_EN.md)
 - [2192. All Ancestors of a Node in a Directed Acyclic Graph](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README_EN.md)
 - [2193. Minimum Number of Moves to Make Palindrome](/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README_EN.md)
@@ -1947,6 +1955,7 @@ If you want to estimate your score changes after the contest ends, you can visit
 - [1603. Design Parking System](/solution/1600-1699/1603.Design%20Parking%20System/README_EN.md)
 - [1604. Alert Using Same Key-Card Three or More Times in a One Hour Period](/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README_EN.md)
 - [1605. Find Valid Matrix Given Row and Column Sums](/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README_EN.md)
+- [1606. Find Servers That Handled Most Number of Requests](/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README_EN.md)
 
 #### Weekly Contest 208
 
@@ -2960,6 +2969,7 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 - [0892. Surface Area of 3D Shapes](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README_EN.md)
 - [0893. Groups of Special-Equivalent Strings](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README_EN.md)
+- [0894. All Possible Full Binary Trees](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README_EN.md)
 - [0895. Maximum Frequency Stack](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README_EN.md)
 
 #### Weekly Contest 98
