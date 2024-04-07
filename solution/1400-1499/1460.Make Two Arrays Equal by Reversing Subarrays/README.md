@@ -223,7 +223,7 @@ function canBeEqual(target: number[], arr: number[]): boolean {
         cnt[target[i]]++;
         cnt[arr[i]]--;
     }
-    return cnt.every(v => v === 0);
+    return cnt.every(v => !v);
 }
 ```
 
