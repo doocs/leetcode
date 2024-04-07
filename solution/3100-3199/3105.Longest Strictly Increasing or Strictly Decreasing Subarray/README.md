@@ -73,24 +73,125 @@
 
 ## 解法
 
-### 方法一
+### 方法一：两次遍历
+
+我们先进行一次遍历，找出严格递增的最长子数组长度，更新答案。然后再进行一次遍历，找出严格递减的最长子数组长度，再次更新答案。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def longestMonotonicSubarray(self, nums: List[int]) -> int:
+        ans = t = 1
+        for i, x in enumerate(nums[1:]):
+            if nums[i] < x:
+                t += 1
+                ans = max(ans, t)
+            else:
+                t = 1
+        t = 1
+        for i, x in enumerate(nums[1:]):
+            if nums[i] > x:
+                t += 1
+                ans = max(ans, t)
+            else:
+                t = 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int longestMonotonicSubarray(int[] nums) {
+        int ans = 1;
+        for (int i = 1, t = 1; i < nums.length; ++i) {
+            if (nums[i - 1] < nums[i]) {
+                ans = Math.max(ans, ++t);
+            } else {
+                t = 1;
+            }
+        }
+        for (int i = 1, t = 1; i < nums.length; ++i) {
+            if (nums[i - 1] > nums[i]) {
+                ans = Math.max(ans, ++t);
+            } else {
+                t = 1;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int longestMonotonicSubarray(vector<int>& nums) {
+        int ans = 1;
+        for (int i = 1, t = 1; i < nums.size(); ++i) {
+            if (nums[i - 1] < nums[i]) {
+                ans = max(ans, ++t);
+            } else {
+                t = 1;
+            }
+        }
+        for (int i = 1, t = 1; i < nums.size(); ++i) {
+            if (nums[i - 1] > nums[i]) {
+                ans = max(ans, ++t);
+            } else {
+                t = 1;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func longestMonotonicSubarray(nums []int) int {
+	ans := 1
+	t := 1
+	for i, x := range nums[1:] {
+		if nums[i] < x {
+			t++
+			ans = max(ans, t)
+		} else {
+			t = 1
+		}
+	}
+	t = 1
+	for i, x := range nums[1:] {
+		if nums[i] > x {
+			t++
+			ans = max(ans, t)
+		} else {
+			t = 1
+		}
+	}
+	return ans
+}
+```
 
+```ts
+function longestMonotonicSubarray(nums: number[]): number {
+    let ans = 1;
+    for (let i = 1, t = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            ans = Math.max(ans, ++t);
+        } else {
+            t = 1;
+        }
+    }
+    for (let i = 1, t = 1; i < nums.length; ++i) {
+        if (nums[i - 1] > nums[i]) {
+            ans = Math.max(ans, ++t);
+        } else {
+            t = 1;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
