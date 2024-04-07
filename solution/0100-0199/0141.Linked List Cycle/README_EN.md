@@ -114,7 +114,7 @@ public class Solution {
  */
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
+    bool hasCycle(ListNode* head) {
         unordered_set<ListNode*> s;
         for (; head; head = head->next) {
             if (s.contains(head)) {
