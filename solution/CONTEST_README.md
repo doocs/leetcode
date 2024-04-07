@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 392 场周赛(2024-04-07 10:30, 90 分钟) 参赛人数 3193
+
+- [3105. 最长的严格递增或递减子数组](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README.md)
+- [3106. 满足距离约束且字典序最小的字符串](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README.md)
+- [3107. 使数组中位数等于 K 的最少操作数](/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README.md)
+- [3108. 带权图里旅途的最小代价](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md)
+
 #### 第 391 场周赛(2024-03-31 10:30, 90 分钟) 参赛人数 4180
 
 - [3099. 哈沙德数](/solution/3000-3099/3099.Harshad%20Number/README.md)
@@ -1165,6 +1172,7 @@
 
 #### 第 73 场双周赛(2022-03-05 22:30, 90 分钟) 参赛人数 5132
 
+- [2190. 数组中紧跟 key 之后出现最频繁的数字](/solution/2100-2199/2190.Most%20Frequent%20Number%20Following%20Key%20In%20an%20Array/README.md)
 - [2191. 将杂乱无章的数字排序](/solution/2100-2199/2191.Sort%20the%20Jumbled%20Numbers/README.md)
 - [2192. 有向无环图中一个节点的所有祖先](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README.md)
 - [2193. 得到回文串的最少操作次数](/solution/2100-2199/2193.Minimum%20Number%20of%20Moves%20to%20Make%20Palindrome/README.md)
@@ -1944,6 +1952,7 @@
 - [1603. 设计停车系统](/solution/1600-1699/1603.Design%20Parking%20System/README.md)
 - [1604. 警告一小时内使用相同员工卡大于等于三次的人](/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README.md)
 - [1605. 给定行和列的和求可行矩阵](/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README.md)
+- [1606. 找到处理最多请求的服务器](/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README.md)
 
 #### 第 208 场周赛(2020-09-27 10:30, 90 分钟) 参赛人数 3582
 
@@ -2957,6 +2966,7 @@
 
 - [0892. 三维形体的表面积](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)
 - [0893. 特殊等价字符串组](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)
+- [0894. 所有可能的真二叉树](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)
 - [0895. 最大频率栈](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md)
 
 #### 第 98 场周赛(2018-08-19 09:30, 90 分钟) 参赛人数 670
