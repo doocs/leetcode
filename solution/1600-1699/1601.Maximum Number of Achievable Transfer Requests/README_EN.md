@@ -60,7 +60,13 @@ We can achieve all the requests. </pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Enumeration
+
+We note that the length of the room change request list does not exceed $16$. Therefore, we can use the method of binary enumeration to enumerate all room change request lists. Specifically, we can use a binary number of length $16$ to represent a room change request list, where the $i$-th bit being $1$ means the $i$-th room change request is selected, and $0$ means the $i$-th room change request is not selected.
+
+We enumerate all binary numbers in the range of $[1, 2^{m})$, for each binary number $mask$, we first calculate how many $1$s are in its binary representation, denoted as $cnt$. If $cnt$ is larger than the current answer $ans$, then we judge whether $mask$ is a feasible room change request list. If it is, then we update the answer $ans$ with $cnt$. To judge whether $mask$ is a feasible room change request list, we only need to check whether the net inflow of each room is $0$.
+
+The time complexity is $O(2^m \times (m + n))$, and the space complexity is $O(n)$, where $m$ and $n$ are the lengths of the room change request list and the number of rooms, respectively.
 
 <!-- tabs:start -->
 
@@ -190,7 +196,7 @@ function maximumRequests(n: number, requests: number[][]): number {
     const m = requests.length;
     let ans = 0;
     const check = (mask: number): boolean => {
-        const cnt = new Array(n).fill(0);
+        const cnt = Array(n).fill(0);
         for (let i = 0; i < m; ++i) {
             if ((mask >> i) & 1) {
                 const [f, t] = requests[i];
@@ -255,6 +261,54 @@ function bitCount(i) {
     i = i + (i >>> 8);
     i = i + (i >>> 16);
     return i & 0x3f;
+}
+```
+
+```cs
+public class Solution {
+    private int m;
+    private int n;
+    private int[][] requests;
+
+    public int MaximumRequests(int n, int[][] requests) {
+        m = requests.Length;
+        this.n = n;
+        this.requests = requests;
+        int ans = 0;
+        for (int mask = 0; mask < (1 << m); ++mask) {
+            int cnt = CountBits(mask);
+            if (ans < cnt && Check(mask)) {
+                ans = cnt;
+            }
+        }
+        return ans;
+    }
+
+    private bool Check(int mask) {
+        int[] cnt = new int[n];
+        for (int i = 0; i < m; ++i) {
+            if (((mask >> i) & 1) == 1) {
+                int f = requests[i][0], t = requests[i][1];
+                --cnt[f];
+                ++cnt[t];
+            }
+        }
+        foreach (int v in cnt) {
+            if (v != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int CountBits(int n) {
+        int count = 0;
+        while (n > 0) {
+            n -= n & -n;
+            ++count;
+        }
+        return count;
+    }
 }
 ```
 
