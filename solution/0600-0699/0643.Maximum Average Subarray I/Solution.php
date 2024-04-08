@@ -5,15 +5,15 @@ class Solution {
      * @return Float
      */
     function findMaxAverage($nums, $k) {
-        $sum = 0;
+        $s = 0;
         for ($i = 0; $i < $k; $i++) {
-            $sum += $nums[$i];
+            $s += $nums[$i];
         }
-        $max = $sum;
+        $ans = $s;
         for ($j = $k; $j < count($nums); $j++) {
-            $sum = $sum - $nums[$j - $k] + $nums[$j];
-            $max = max($max, $sum);
+            $s = $s - $nums[$j - $k] + $nums[$j];
+            $ans = max($ans, $s);
         }
-        return $max / $k;
+        return $ans / $k;
     }
 }

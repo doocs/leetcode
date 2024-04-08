@@ -49,7 +49,13 @@
 
 ## 解法
 
-### 方法一：排序
+### 方法一：排序 + 滑动窗口
+
+我们可以将学生的分数按照升序排序，然后使用滑动窗口的方法，每次取大小为 $k$ 的窗口，计算窗口内的最大值和最小值的差值，最后取所有窗口的差值的最小值。
+
+为什么是取连续的 $k$ 个学生的分数呢？因为如果不连续，那么最大值和最小值的的差值可能不变，或者变大，但一定不会变小。因此，我们只需要考虑排序后的连续的 $k$ 个学生的分数。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是学生的数量。
 
 <!-- tabs:start -->
 
@@ -79,8 +85,9 @@ public:
     int minimumDifference(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         int ans = 1e5;
-        for (int i = 0; i < nums.size() - k + 1; ++i)
+        for (int i = 0; i < nums.size() - k + 1; ++i) {
             ans = min(ans, nums[i + k - 1] - nums[i]);
+        }
         return ans;
     }
 };
@@ -132,11 +139,11 @@ class Solution {
      */
     function minimumDifference($nums, $k) {
         sort($nums);
-        $rs = 10 ** 5;
+        $ans = 10 ** 5;
         for ($i = 0; $i < count($nums) - $k + 1; $i++) {
-            $rs = min($rs, $nums[$i + $k - 1] - $nums[$i]);
+            $ans = min($ans, $nums[$i + $k - 1] - $nums[$i]);
         }
-        return $rs;
+        return $ans;
     }
 }
 ```
