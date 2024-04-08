@@ -258,8 +258,8 @@ var addTwoNumbers = function (l1, l2) {
 };
 ```
 ```swift
-class Solution {
 /**
+* Definition for singly-linked list.
 *    class ListNode {
 *        var val: Int
 *        var next: ListNode?
@@ -270,6 +270,7 @@ class Solution {
 *    }
 */
 
+class Solution {
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         var carry = 0
         let dummy = ListNode(0)
