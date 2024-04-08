@@ -60,7 +60,11 @@ Therefore, the k-beauty is 2.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can convert $num$ to a string $s$, then enumerate all substrings of $s$ with length $k$, convert them to an integer $t$, and check if $t$ is divisible by $num$. If it is, we increment the answer.
+
+The time complexity is $O(\log num \times k)$, and the space complexity is $O(\log num + k)$.
 
 <!-- tabs:start -->
 
@@ -130,6 +134,126 @@ function divisorSubstrings(num: number, k: number): number {
         if (t !== 0 && num % t === 0) {
             ++ans;
         }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### Solution 2: Sliding Window
+
+We can maintain a sliding window of length $k$. Initially, the window contains the lowest $k$ digits of $num$. Then, for each iteration, we move the window one digit to the right, update the number in the window, and check if the number in the window is divisible by $num$. If it is, we increment the answer.
+
+The time complexity is $O(\log num)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def divisorSubstrings(self, num: int, k: int) -> int:
+        x, p = 0, 1
+        t = num
+        for _ in range(k):
+            t, v = divmod(t, 10)
+            x = p * v + x
+            p *= 10
+        ans = int(x != 0 and num % x == 0)
+        p //= 10
+        while t:
+            x //= 10
+            t, v = divmod(t, 10)
+            x = p * v + x
+            ans += int(x != 0 and num % x == 0)
+        return ans
+```
+
+```java
+class Solution {
+    public int divisorSubstrings(int num, int k) {
+        int x = 0, p = 1;
+        int t = num;
+        for (; k > 0; --k) {
+            int v = t % 10;
+            t /= 10;
+            x = p * v + x;
+            p *= 10;
+        }
+        int ans = x != 0 && num % x == 0 ? 1 : 0;
+        for (p /= 10; t > 0; t /= 10) {
+            x /= 10;
+            int v = t % 10;
+            x = p * v + x;
+            ans += (x != 0 && num % x == 0 ? 1 : 0);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int divisorSubstrings(int num, int k) {
+        int x = 0;
+        long long p = 1;
+        int t = num;
+        for (; k > 0; --k) {
+            int v = t % 10;
+            t /= 10;
+            x = p * v + x;
+            p *= 10;
+        }
+        int ans = x != 0 && num % x == 0 ? 1 : 0;
+        for (p /= 10; t > 0; t /= 10) {
+            x /= 10;
+            int v = t % 10;
+            x = p * v + x;
+            ans += (x != 0 && num % x == 0 ? 1 : 0);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func divisorSubstrings(num int, k int) (ans int) {
+	x, p, t := 0, 1, num
+	for ; k > 0; k-- {
+		v := t % 10
+		t /= 10
+		x = p*v + x
+		p *= 10
+	}
+	if x != 0 && num%x == 0 {
+		ans++
+	}
+	for p /= 10; t > 0; t /= 10 {
+		x /= 10
+		v := t % 10
+		x = p*v + x
+		if x != 0 && num%x == 0 {
+			ans++
+		}
+	}
+	return
+}
+```
+
+```ts
+function divisorSubstrings(num: number, k: number): number {
+    let [x, p, t] = [0, 1, num];
+    for (; k > 0; k--) {
+        const v = t % 10;
+        t = Math.floor(t / 10);
+        x = p * v + x;
+        p *= 10;
+    }
+    let ans = x !== 0 && num % x === 0 ? 1 : 0;
+    for (p = Math.floor(p / 10); t > 0; t = Math.floor(t / 10)) {
+        x = Math.floor(x / 10);
+        x = p * (t % 10) + x;
+        ans += x !== 0 && num % x === 0 ? 1 : 0;
     }
     return ans;
 }
