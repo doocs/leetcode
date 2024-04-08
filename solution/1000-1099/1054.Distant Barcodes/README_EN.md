@@ -28,7 +28,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting + Sorting
+
+First, we use a hash table or array $cnt$ to count the number of occurrences of each number in the array $barcodes$. Then, we sort the numbers in $barcodes$ according to their occurrence times in $cnt$ from large to small. If the occurrence times are the same, we sort them from small to large (to ensure the same numbers are adjacent).
+
+Next, we create an answer array $ans$ of length $n$. We traverse the sorted $barcodes$, and sequentially fill the elements into the even index positions $0, 2, 4, \cdots$ of the answer array. Then, we fill the remaining elements into the odd index positions $1, 3, 5, \cdots$ of the answer array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Where $n$ and $M$ are the length of the array $barcodes$ and the maximum value in the array $barcodes$, respectively.
 
 <!-- tabs:start -->
 
