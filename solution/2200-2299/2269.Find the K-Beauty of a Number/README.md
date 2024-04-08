@@ -149,7 +149,7 @@ function divisorSubstrings(num: number, k: number): number {
 
 我们可以维护一个长度为 $k$ 的滑动窗口，初始时窗口中包含 $num$ 的最低 $k$ 位数字，然后每次向右移动一位，更新窗口中的数字，判断窗口中的数字是否能整除 $num$，如果能则答案加一。
 
-时间复杂度 $O(\log num)$，空间复杂度 $O(1)。
+时间复杂度 $O(\log num)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
