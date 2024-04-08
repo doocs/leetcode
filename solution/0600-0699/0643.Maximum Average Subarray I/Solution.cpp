@@ -7,6 +7,6 @@ public:
             s += nums[i] - nums[i - k];
             ans = max(ans, s);
         }
-        return static_cast<double>(ans) / k;      
+        return static_cast<double>(ans) / k;
     }
 };
