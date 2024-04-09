@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 392 场周赛(2024-04-07 10:30, 90 分钟) 参赛人数 3193
+
+- [3105. 最长的严格递增或递减子数组](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README.md)
+- [3106. 满足距离约束且字典序最小的字符串](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README.md)
+- [3107. 使数组中位数等于 K 的最少操作数](/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README.md)
+- [3108. 带权图里旅途的最小代价](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md)
+
 #### 第 391 场周赛(2024-03-31 10:30, 90 分钟) 参赛人数 4180
 
 - [3099. 哈沙德数](/solution/3000-3099/3099.Harshad%20Number/README.md)

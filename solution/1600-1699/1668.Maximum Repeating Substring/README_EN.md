@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README.md)
 
-<!-- tags:String,String Matching -->
+<!-- tags:String,Dynamic Programming,String Matching -->
 
 ## Description
 

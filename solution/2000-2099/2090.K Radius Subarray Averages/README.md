@@ -69,46 +69,61 @@
 
 ## 解法
 
-### 方法一：前缀和
+### 方法一：滑动窗口（写法一）
 
-我们可以先预处理得到数组 `nums` 的前缀和数组 $s$，其中 $s[i]$ 表示 $nums[i]$ 的前 $i$ 个元素之和。
+半径为 $k$ 的子数组个数为 $k \times 2 + 1$，因此，我们不妨将 $k \times 2 + 1$ 记为 $k$。
 
-接下来，创建一个长度为 $n$ 的答案数组 $ans$，初始时每项元素均为 $-1$。
+我们创建一个长度为 $n$ 的答案数组 $ans$，初始时每项元素均为 $-1$。
 
-然后我们枚举在 $[0,..n-1]$ 范围内枚举所有 $i$，若 $i$ 满足 $i - k \geq 0$ 并且 $i + k \lt n$，我们将 $ans[i]$ 更新为 $\frac{s[i + k + 1] - s[i - k]}{k \times 2 + 1}$。
+接下来，我们首先判断 $k$ 是否大于数组 `nums` 的长度 $n$，如果是，则直接返回答案数组。
+
+否则，我们计算数组 `nums` 的前 $k$ 个元素的和 $s$，并将其除以 $k$ 得到的商赋值给答案数组 $ans$ 的第 $j$ 个元素，其中 $j = k / 2$。
+
+然后，我们从 $k$ 开始遍历数组 `nums`，每次遍历时，我们将 $nums[i]$ 的值加到 $s$ 中，同时减去 $nums[i - k]$ 的值，并且更新 $j = j + 1$，那么我们就得到了以第 $j$ 个元素为中心，半径为 $k$ 的子数组的和 $s$，将其除以 $k$ 得到的商赋值给答案数组 $ans$ 的第 $j$ 个元素。
 
 最后返回答案数组即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 `nums` 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def getAverages(self, nums: List[int], k: int) -> List[int]:
+        k = k << 1 | 1
         n = len(nums)
         ans = [-1] * n
-        s = list(accumulate(nums, initial=0))
-        for i in range(n):
-            if i - k >= 0 and i + k < n:
-                ans[i] = (s[i + k + 1] - s[i - k]) // (k << 1 | 1)
+        if k > n:
+            return ans
+        s = sum(nums[:k])
+        j = k // 2
+        ans[j] = s // k
+        for i in range(k, n):
+            j += 1
+            s += nums[i] - nums[i - k]
+            ans[j] = s // k
         return ans
 ```
 
 ```java
 class Solution {
     public int[] getAverages(int[] nums, int k) {
+        k = k << 1 | 1;
         int n = nums.length;
-        long[] s = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
         int[] ans = new int[n];
         Arrays.fill(ans, -1);
-        for (int i = 0; i < n; ++i) {
-            if (i - k >= 0 && i + k < n) {
-                ans[i] = (int) ((s[i + k + 1] - s[i - k]) / (k << 1 | 1));
-            }
+        if (k > n) {
+            return ans;
+        }
+        long s = 0;
+        for (int i = 0; i < k; ++i) {
+            s += nums[i];
+        }
+        int j = k / 2;
+        ans[j] = (int) (s / k);
+        for (int i = k; i < n; ++i) {
+            s += nums[i] - nums[i - k];
+            ans[++j] = (int) (s / k);
         }
         return ans;
     }
@@ -119,17 +134,18 @@ class Solution {
 class Solution {
 public:
     vector<int> getAverages(vector<int>& nums, int k) {
+        k = k << 1 | 1;
         int n = nums.size();
-        long s[n + 1];
-        s[0] = 0;
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
         vector<int> ans(n, -1);
-        for (int i = 0; i < n; ++i) {
-            if (i - k >= 0 && i + k < n) {
-                ans[i] = (s[i + k + 1] - s[i - k]) / (k << 1 | 1);
-            }
+        if (k > n) {
+            return ans;
+        }
+        long long s = accumulate(nums.begin(), nums.begin() + k, 0LL);
+        int j = k / 2;
+        ans[j] = s / k;
+        for (int i = k; i < n; ++i) {
+            s += nums[i] - nums[i - k];
+            ans[++j] = s / k;
         }
         return ans;
     }
@@ -138,17 +154,25 @@ public:
 
 ```go
 func getAverages(nums []int, k int) []int {
+	k = k<<1 | 1
 	n := len(nums)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + v
-	}
 	ans := make([]int, n)
-	for i := 0; i < n; i++ {
+	for i := range ans {
 		ans[i] = -1
-		if i-k >= 0 && i+k < n {
-			ans[i] = (s[i+k+1] - s[i-k]) / (k<<1 | 1)
-		}
+	}
+	if k > n {
+		return ans
+	}
+	s := 0
+	for _, x := range nums[:k] {
+		s += x
+	}
+	j := k >> 1
+	ans[j] = s / k
+	for i := k; i < n; i++ {
+		s += nums[i] - nums[i-k]
+		j++
+		ans[j] = s / k
 	}
 	return ans
 }
@@ -156,16 +180,18 @@ func getAverages(nums []int, k int) []int {
 
 ```ts
 function getAverages(nums: number[], k: number): number[] {
+    k = (k << 1) | 1;
     const n = nums.length;
-    const s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
+    const ans: number[] = Array(n).fill(-1);
+    if (k > n) {
+        return ans;
     }
-    const ans: number[] = new Array(n).fill(-1);
-    for (let i = 0; i < n; ++i) {
-        if (i - k >= 0 && i + k < n) {
-            ans[i] = Math.floor((s[i + k + 1] - s[i - k]) / ((k << 1) | 1));
-        }
+    let s = nums.slice(0, k).reduce((acc, cur) => acc + cur, 0);
+    let j = k >> 1;
+    ans[j] = Math.floor(s / k);
+    for (let i = k; i < n; ++i) {
+        s += nums[i] - nums[i - k];
+        ans[++j] = Math.floor(s / k);
     }
     return ans;
 }
@@ -173,7 +199,7 @@ function getAverages(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-### 方法二：滑动窗口
+### 方法二：滑动窗口的另一种写法
 
 我们维护一个大小为 $k \times 2 + 1$ 的窗口，记窗口中的所有元素和为 $s$。
 
@@ -183,7 +209,7 @@ function getAverages(nums: number[], k: number): number[] {
 
 最后返回答案数组即可。
 
-时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 `nums` 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

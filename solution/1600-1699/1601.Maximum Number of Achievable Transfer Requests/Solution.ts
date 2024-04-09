@@ -2,7 +2,7 @@ function maximumRequests(n: number, requests: number[][]): number {
     const m = requests.length;
     let ans = 0;
     const check = (mask: number): boolean => {
-        const cnt = new Array(n).fill(0);
+        const cnt = Array(n).fill(0);
         for (let i = 0; i < m; ++i) {
             if ((mask >> i) & 1) {
                 const [f, t] = requests[i];

@@ -2,7 +2,7 @@
 
 [English Version](/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
+<!-- tags:数组,哈希表,二分查找,滑动窗口 -->
 
 ## 题目描述
 

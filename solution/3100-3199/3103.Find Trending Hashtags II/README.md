@@ -1,4 +1,4 @@
-# [3103. Find Trending Hashtags II](https://leetcode.cn/problems/find-trending-hashtags-ii)
+# [3103. 查找热门话题标签 II](https://leetcode.cn/problems/find-trending-hashtags-ii)
 
 [English Version](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README_EN.md)
 
@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Tweets</code></p>
+<p>表：<code>Tweets</code></p>
 
 <pre>
 +-------------+---------+
@@ -19,23 +19,24 @@
 | tweet_date  | date    |
 | tweet       | varchar |
 +-------------+---------+
-tweet_id is the primary key (column with unique values) for this table.
-Each row of this table contains user_id, tweet_id, tweet_date and tweet.
+tweet_id 是这张表的主键 (值互不相同的列)。
+这张表的每一行都包含 user_id, tweet_id, tweet_date 和 tweet。
 </pre>
 
-<p>Write a solution to find the <strong>top</strong> <code>3</code> trending <strong>hashtags</strong> in <strong>February</strong> <code>2024</code>. Every tweet may contain <strong>several</strong> <strong>hashtags</strong>.</p>
+<p>编写一个解决方案来找到&nbsp;<code>2024</code>&nbsp;年 <strong>二月&nbsp;</strong>的 <strong>前</strong>&nbsp;<code>3</code>&nbsp;热门话题 <strong>标签</strong>。每条推文可能含有 <strong>几个标签</strong>。</p>
 
-<p>Return <em>the result table orderd by count of hashtag, hashtag in </em><strong>descending</strong><em> order.</em></p>
+<p>返回结果表，根据标签的数量和标签&nbsp;<strong>降序</strong> 排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Tweets table:</p>
+<p>Tweets 表：</p>
 
 <pre class="example-io">
 +---------+----------+------------------------------------------------------------+------------+
@@ -45,34 +46,34 @@ Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 | 136     | 14       | Another #HappyDay with good vibes! #FeelGood               | 2024-02-03 |
 | 137     | 15       | Productivity peaks! #WorkLife #ProductiveDay               | 2024-02-04 |
 | 138     | 16       | Exploring new tech frontiers. #TechLife #Innovation        | 2024-02-04 |
-| 139     | 17       | Gratitude for today&#39;s moments. #HappyDay #Thankful         | 2024-02-05 |
+| 139     | 17       | Gratitude for today's moments. #HappyDay #Thankful         | 2024-02-05 |
 | 140     | 18       | Innovation drives us. #TechLife #FutureTech                | 2024-02-07 |
-| 141     | 19       | Connecting with nature&#39;s serenity. #Nature #Peaceful       | 2024-02-09 |
+| 141     | 19       | Connecting with nature's serenity. #Nature #Peaceful       | 2024-02-09 |
 +---------+----------+------------------------------------------------------------+------------+
  </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
-+-----------+---------------+
-| hashtag   | hashtag_count |
-+-----------+---------------+
-| #HappyDay | 3             |
-| #TechLife | 2             |
-| #WorkLife | 1             |
-+-----------+---------------+
++-----------+-------+
+| hashtag   | count |
++-----------+-------+
+| #HappyDay | 3     |
+| #TechLife | 2     |
+| #WorkLife | 1     |
++-----------+-------+
 
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>#HappyDay:</strong> Appeared in tweet IDs 13, 14, and 17, with a total count of 3 mentions.</li>
-	<li><strong>#TechLife:</strong> Appeared in tweet IDs 16 and 18, with a total count of 2 mentions.</li>
-	<li><strong>#WorkLife:</strong> Appeared in tweet ID 15, with a total count of 1 mention.</li>
+	<li><strong>#HappyDay：</strong>在 ID 为 13，14，17 的推文中出现，总共提及&nbsp;3 次。</li>
+	<li><strong>#TechLife：</strong>在 ID 为 16，18 的推文中出现，总共提及 2&nbsp;次。</li>
+	<li><strong>#WorkLife：</strong>在 ID 为 15 的推文中出现，总共提及 1&nbsp;次。</li>
 </ul>
 
-<p><b>Note:</b> Output table is sorted in descending order by hashtag_count and hashtag respectively.</p>
+<p><b>注意：</b>输出表分别按 count 和 hashtag 降序排序。</p>
 </div>
 
 ## 解法

@@ -57,46 +57,44 @@ Thus, the minimum number of swaps required is 0.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window
+
+First, we count the number of $1$s in the array, denoted as $k$. The problem is actually asking for a circular subarray of length $k$ that contains the maximum number of $1$s. Therefore, the minimum number of swaps is $k$ minus the maximum number of $1$s in that subarray.
+
+We can solve this problem using a sliding window. First, we count the number of $1$s in the first $k$ elements of the array, denoted as $cnt$. Then, we maintain a sliding window of length $k$. Each time we move the window one position to the right, we update $cnt$ and simultaneously update the maximum $cnt$ value, i.e., $mx = \max(mx, cnt)$. Finally, the answer is $k - mx$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minSwaps(self, nums: List[int]) -> int:
-        cnt = nums.count(1)
+        k = nums.count(1)
+        mx = cnt = sum(nums[:k])
         n = len(nums)
-        s = [0] * ((n << 1) + 1)
-        for i in range(n << 1):
-            s[i + 1] = s[i] + nums[i % n]
-        mx = 0
-        for i in range(n << 1):
-            j = i + cnt - 1
-            if j < (n << 1):
-                mx = max(mx, s[j + 1] - s[i])
-        return cnt - mx
+        for i in range(k, n + k):
+            cnt += nums[i % n]
+            cnt -= nums[(i - k + n) % n]
+            mx = max(mx, cnt)
+        return k - mx
 ```
 
 ```java
 class Solution {
     public int minSwaps(int[] nums) {
-        int cnt = 0;
-        for (int v : nums) {
-            cnt += v;
-        }
+        int k = Arrays.stream(nums).sum();
         int n = nums.length;
-        int[] s = new int[(n << 1) + 1];
-        for (int i = 0; i < (n << 1); ++i) {
-            s[i + 1] = s[i] + nums[i % n];
+        int cnt = 0;
+        for (int i = 0; i < k; ++i) {
+            cnt += nums[i];
         }
-        int mx = 0;
-        for (int i = 0; i < (n << 1); ++i) {
-            int j = i + cnt - 1;
-            if (j < (n << 1)) {
-                mx = Math.max(mx, s[j + 1] - s[i]);
-            }
+        int mx = cnt;
+        for (int i = k; i < n + k; ++i) {
+            cnt += nums[i % n] - nums[(i - k + n) % n];
+            mx = Math.max(mx, cnt);
         }
-        return cnt - mx;
+        return k - mx;
     }
 }
 ```
@@ -105,56 +103,90 @@ class Solution {
 class Solution {
 public:
     int minSwaps(vector<int>& nums) {
-        int cnt = 0;
-        for (int& v : nums) cnt += v;
+        int k = accumulate(nums.begin(), nums.end(), 0);
         int n = nums.size();
-        vector<int> s((n << 1) + 1);
-        for (int i = 0; i < (n << 1); ++i) s[i + 1] = s[i] + nums[i % n];
-        int mx = 0;
-        for (int i = 0; i < (n << 1); ++i) {
-            int j = i + cnt - 1;
-            if (j < (n << 1)) mx = max(mx, s[j + 1] - s[i]);
+        int cnt = accumulate(nums.begin(), nums.begin() + k, 0);
+        int mx = cnt;
+        for (int i = k; i < n + k; ++i) {
+            cnt += nums[i % n] - nums[(i - k + n) % n];
+            mx = max(mx, cnt);
         }
-        return cnt - mx;
+        return k - mx;
     }
 };
 ```
 
 ```go
 func minSwaps(nums []int) int {
+	k := 0
+	for _, x := range nums {
+		k += x
+	}
 	cnt := 0
-	for _, v := range nums {
-		cnt += v
+	for i := 0; i < k; i++ {
+		cnt += nums[i]
 	}
+	mx := cnt
 	n := len(nums)
-	s := make([]int, (n<<1)+1)
-	for i := 0; i < (n << 1); i++ {
-		s[i+1] = s[i] + nums[i%n]
+	for i := k; i < n+k; i++ {
+		cnt += nums[i%n] - nums[(i-k+n)%n]
+		mx = max(mx, cnt)
 	}
-	mx := 0
-	for i := 0; i < (n << 1); i++ {
-		j := i + cnt - 1
-		if j < (n << 1) {
-			mx = max(mx, s[j+1]-s[i])
-		}
-	}
-	return cnt - mx
+	return k - mx
 }
 ```
 
 ```ts
 function minSwaps(nums: number[]): number {
+    const k = nums.reduce((a, b) => a + b, 0);
+    let cnt = nums.slice(0, k).reduce((a, b) => a + b, 0);
+    let mx = cnt;
     const n = nums.length;
-    const m = nums.reduce((a, c) => a + c, 0);
-    let cnt = nums.reduce((a, c, i) => a + (i < m ? c : 0), 0);
-    let ans = cnt;
-    for (let i = m; i < m + n; i++) {
-        let prev = nums[i - m];
-        let post = nums[i % n];
-        cnt += post - prev;
-        ans = Math.max(cnt, ans);
+    for (let i = k; i < n + k; ++i) {
+        cnt += nums[i % n] - nums[(i - k + n) % n];
+        mx = Math.max(mx, cnt);
     }
-    return m - ans;
+    return k - mx;
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_swaps(nums: Vec<i32>) -> i32 {
+        let k: i32 = nums.iter().sum();
+        let n: usize = nums.len();
+        let mut cnt: i32 = 0;
+        for i in 0..k {
+            cnt += nums[i as usize];
+        }
+        let mut mx: i32 = cnt;
+        for i in k..(n as i32) + k {
+            cnt +=
+                nums[(i % (n as i32)) as usize] -
+                nums[((i - k + (n as i32)) % (n as i32)) as usize];
+            mx = mx.max(cnt);
+        }
+        return k - mx;
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int MinSwaps(int[] nums) {
+        int k = nums.Sum();
+        int n = nums.Length;
+        int cnt = 0;
+        for (int i = 0; i < k; ++i) {
+            cnt += nums[i];
+        }
+        int mx = cnt;
+        for (int i = k; i < n + k; ++i) {
+            cnt += nums[i % n] - nums[(i - k + n) % n];
+            mx = Math.Max(mx, cnt);
+        }
+        return k - mx;
+    }
 }
 ```
 

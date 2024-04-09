@@ -52,13 +52,13 @@ Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 <p><strong>Output:</strong></p>
 
 <pre class="example-io">
-+-----------+---------------+
-| hashtag   | hashtag_count |
-+-----------+---------------+
-| #HappyDay | 3             |
-| #TechLife | 2             |
-| #WorkLife | 1             |
-+-----------+---------------+
++-----------+-------+
+| hashtag   | count |
++-----------+-------+
+| #HappyDay | 3     |
+| #TechLife | 2     |
+| #WorkLife | 1     |
++-----------+-------+
 
 </pre>
 
@@ -70,7 +70,7 @@ Each row of this table contains user_id, tweet_id, tweet_date and tweet.
 	<li><strong>#WorkLife:</strong> Appeared in tweet ID 15, with a total count of 1 mention.</li>
 </ul>
 
-<p><b>Note:</b> Output table is sorted in descending order by hashtag_count and hashtag respectively.</p>
+<p><b>Note:</b> Output table is sorted in descending order by count and hashtag respectively.</p>
 </div>
 
 ## Solutions
