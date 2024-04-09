@@ -1,13 +1,11 @@
 function minSwaps(nums: number[]): number {
+    const k = nums.reduce((a, b) => a + b, 0);
+    let cnt = nums.slice(0, k).reduce((a, b) => a + b, 0);
+    let mx = cnt;
     const n = nums.length;
-    const m = nums.reduce((a, c) => a + c, 0);
-    let cnt = nums.reduce((a, c, i) => a + (i < m ? c : 0), 0);
-    let ans = cnt;
-    for (let i = m; i < m + n; i++) {
-        let prev = nums[i - m];
-        let post = nums[i % n];
-        cnt += post - prev;
-        ans = Math.max(cnt, ans);
+    for (let i = k; i < n + k; ++i) {
+        cnt += nums[i % n] - nums[(i - k + n) % n];
+        mx = Math.max(mx, cnt);
     }
-    return m - ans;
+    return k - mx;
 }
