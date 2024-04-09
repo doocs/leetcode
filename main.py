@@ -38,6 +38,7 @@ code_dict = {
     "swift": ("Swift", "swift"),
     "rb": ("Ruby", "rb"),
     "kt": ("Kotlin", "kotlin"),
+    "dart": ("Dart", "dart"),
     "nim": ("Nim", "nim"),
     "sql": ("MySQL", "sql"),
 }
