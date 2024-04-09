@@ -5,11 +5,10 @@ class Solution:
         ans = s if len(cnt) == k else 0
         for i in range(k, len(nums)):
             cnt[nums[i]] += 1
-            s += nums[i]
             cnt[nums[i - k]] -= 1
-            s -= nums[i - k]
             if cnt[nums[i - k]] == 0:
-                del cnt[nums[i - k]]
+                cnt.pop(nums[i - k])
+            s += nums[i] - nums[i - k]
             if len(cnt) == k:
                 ans = max(ans, s)
         return ans
