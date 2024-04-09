@@ -49,7 +49,13 @@
 
 ### 方法一：滑动窗口
 
-定义 $s$ 表示所有不满意的顾客总数，$cs$ 表示顾客总数。
+根据题目描述，我们只需要统计老板不生气时的客户数量 $tot$，再加上一个大小为 `minutes` 的滑动窗口中，老板生气时的客户数量的最大值 $mx$ 即可。
+
+我们定义一个变量 $cnt$ 来记录滑动窗口中老板生气时的客户数量，初始值为前 `minutes` 分钟老板生气时的客户数量。然后我们遍历数组，每次移动滑动窗口时，更新 $cnt$ 的值，同时更新 $mx$ 的值。
+
+最后返回 $tot + mx$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 `customers` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -58,36 +64,32 @@ class Solution:
     def maxSatisfied(
         self, customers: List[int], grumpy: List[int], minutes: int
     ) -> int:
-        s = sum(a * b for a, b in zip(customers, grumpy))
-        cs = sum(customers)
-        t = ans = 0
-        for i, (a, b) in enumerate(zip(customers, grumpy), 1):
-            t += a * b
-            if (j := i - minutes) >= 0:
-                ans = max(ans, cs - (s - t))
-                t -= customers[j] * grumpy[j]
-        return ans
+        mx = cnt = sum(c * g for c, g in zip(customers[:minutes], grumpy))
+        for i in range(minutes, len(customers)):
+            cnt += customers[i] * grumpy[i]
+            cnt -= customers[i - minutes] * grumpy[i - minutes]
+            mx = max(mx, cnt)
+        return sum(c * (g ^ 1) for c, g in zip(customers, grumpy)) + mx
 ```
 
 ```java
 class Solution {
     public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
-        int s = 0, cs = 0;
+        int cnt = 0;
+        int tot = 0;
+        for (int i = 0; i < minutes; ++i) {
+            cnt += customers[i] * grumpy[i];
+            tot += customers[i] * (grumpy[i] ^ 1);
+        }
+        int mx = cnt;
         int n = customers.length;
-        for (int i = 0; i < n; ++i) {
-            s += customers[i] * grumpy[i];
-            cs += customers[i];
+        for (int i = minutes; i < n; ++i) {
+            cnt += customers[i] * grumpy[i];
+            cnt -= customers[i - minutes] * grumpy[i - minutes];
+            mx = Math.max(mx, cnt);
+            tot += customers[i] * (grumpy[i] ^ 1);
         }
-        int t = 0, ans = 0;
-        for (int i = 0; i < n; ++i) {
-            t += customers[i] * grumpy[i];
-            int j = i - minutes + 1;
-            if (j >= 0) {
-                ans = Math.max(ans, cs - (s - t));
-                t -= customers[j] * grumpy[j];
-            }
-        }
-        return ans;
+        return tot + mx;
     }
 }
 ```
@@ -96,76 +98,80 @@ class Solution {
 class Solution {
 public:
     int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int minutes) {
-        int s = 0, cs = 0;
+        int cnt = 0;
+        int tot = 0;
+        for (int i = 0; i < minutes; ++i) {
+            cnt += customers[i] * grumpy[i];
+            tot += customers[i] * (grumpy[i] ^ 1);
+        }
+        int mx = cnt;
         int n = customers.size();
-        for (int i = 0; i < n; ++i) {
-            s += customers[i] * grumpy[i];
-            cs += customers[i];
+        for (int i = minutes; i < n; ++i) {
+            cnt += customers[i] * grumpy[i];
+            cnt -= customers[i - minutes] * grumpy[i - minutes];
+            mx = max(mx, cnt);
+            tot += customers[i] * (grumpy[i] ^ 1);
         }
-        int t = 0, ans = 0;
-        for (int i = 0; i < n; ++i) {
-            t += customers[i] * grumpy[i];
-            int j = i - minutes + 1;
-            if (j >= 0) {
-                ans = max(ans, cs - (s - t));
-                t -= customers[j] * grumpy[j];
-            }
-        }
-        return ans;
+        return tot + mx;
     }
 };
 ```
 
 ```go
 func maxSatisfied(customers []int, grumpy []int, minutes int) int {
-	s, cs := 0, 0
-	for i, c := range customers {
-		s += c * grumpy[i]
-		cs += c
+	var cnt, tot int
+	for i, c := range customers[:minutes] {
+		cnt += c * grumpy[i]
+		tot += c * (grumpy[i] ^ 1)
 	}
-	t, ans := 0, 0
-	for i, c := range customers {
-		t += c * grumpy[i]
-		j := i - minutes + 1
-		if j >= 0 {
-			ans = max(ans, cs-(s-t))
-			t -= customers[j] * grumpy[j]
-		}
+	mx := cnt
+	for i := minutes; i < len(customers); i++ {
+		cnt += customers[i] * grumpy[i]
+		cnt -= customers[i-minutes] * grumpy[i-minutes]
+		mx = max(mx, cnt)
+		tot += customers[i] * (grumpy[i] ^ 1)
 	}
-	return ans
+	return tot + mx
+}
+```
+
+```ts
+function maxSatisfied(customers: number[], grumpy: number[], minutes: number): number {
+    let [cnt, tot] = [0, 0];
+    for (let i = 0; i < minutes; ++i) {
+        cnt += customers[i] * grumpy[i];
+        tot += customers[i] * (grumpy[i] ^ 1);
+    }
+    let mx = cnt;
+    for (let i = minutes; i < customers.length; ++i) {
+        cnt += customers[i] * grumpy[i];
+        cnt -= customers[i - minutes] * grumpy[i - minutes];
+        mx = Math.max(mx, cnt);
+        tot += customers[i] * (grumpy[i] ^ 1);
+    }
+    return tot + mx;
 }
 ```
 
 ```rust
 impl Solution {
     pub fn max_satisfied(customers: Vec<i32>, grumpy: Vec<i32>, minutes: i32) -> i32 {
-        let k = minutes as usize;
+        let mut cnt = 0;
+        let mut tot = 0;
+        let minutes = minutes as usize;
+        for i in 0..minutes {
+            cnt += customers[i] * grumpy[i];
+            tot += customers[i] * (1 - grumpy[i]);
+        }
+        let mut mx = cnt;
         let n = customers.len();
-
-        let mut sum = 0;
-        for i in 0..k {
-            if grumpy[i] == 1 {
-                sum += customers[i];
-            }
+        for i in minutes..n {
+            cnt += customers[i] * grumpy[i];
+            cnt -= customers[i - minutes] * grumpy[i - minutes];
+            mx = mx.max(cnt);
+            tot += customers[i] * (1 - grumpy[i]);
         }
-        let mut max = sum;
-        for i in k..n {
-            if grumpy[i - k] == 1 {
-                sum -= customers[i - k];
-            }
-            if grumpy[i] == 1 {
-                sum += customers[i];
-            }
-            max = max.max(sum);
-        }
-
-        sum = 0;
-        for i in 0..n {
-            if grumpy[i] == 0 {
-                sum += customers[i];
-            }
-        }
-        sum + max
+        tot + mx
     }
 }
 ```

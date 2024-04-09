@@ -10,11 +10,10 @@ class Solution {
         long ans = cnt.size() == k ? s : 0;
         for (int i = k; i < n; ++i) {
             cnt.merge(nums[i], 1, Integer::sum);
-            s += nums[i];
             if (cnt.merge(nums[i - k], -1, Integer::sum) == 0) {
                 cnt.remove(nums[i - k]);
             }
-            s -= nums[i - k];
+            s += nums[i] - nums[i - k];
             if (cnt.size() == k) {
                 ans = Math.max(ans, s);
             }

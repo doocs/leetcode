@@ -6,18 +6,16 @@ public:
         unordered_map<int, ll> cnt;
         ll s = 0;
         for (int i = 0; i < k; ++i) {
-            cnt[nums[i]]++;
+            ++cnt[nums[i]];
             s += nums[i];
         }
         ll ans = cnt.size() == k ? s : 0;
         for (int i = k; i < n; ++i) {
-            cnt[nums[i]]++;
-            s += nums[i];
-            cnt[nums[i - k]]--;
-            s -= nums[i - k];
-            if (cnt[nums[i - k]] == 0) {
+            ++cnt[nums[i]];
+            if (--cnt[nums[i - k]] == 0) {
                 cnt.erase(nums[i - k]);
             }
+            s += nums[i] - nums[i - k];
             if (cnt.size() == k) {
                 ans = max(ans, s);
             }

@@ -1,17 +1,15 @@
 func maxSatisfied(customers []int, grumpy []int, minutes int) int {
-	s, cs := 0, 0
-	for i, c := range customers {
-		s += c * grumpy[i]
-		cs += c
+	var cnt, tot int
+	for i, c := range customers[:minutes] {
+		cnt += c * grumpy[i]
+		tot += c * (grumpy[i] ^ 1)
 	}
-	t, ans := 0, 0
-	for i, c := range customers {
-		t += c * grumpy[i]
-		j := i - minutes + 1
-		if j >= 0 {
-			ans = max(ans, cs-(s-t))
-			t -= customers[j] * grumpy[j]
-		}
+	mx := cnt
+	for i := minutes; i < len(customers); i++ {
+		cnt += customers[i] * grumpy[i]
+		cnt -= customers[i-minutes] * grumpy[i-minutes]
+		mx = max(mx, cnt)
+		tot += customers[i] * (grumpy[i] ^ 1)
 	}
-	return ans
+	return tot + mx
 }
