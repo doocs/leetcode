@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,String -->
 
 ## Description
 

@@ -30,11 +30,11 @@
 <p>总共有&nbsp;<code>5</code>&nbsp;个能量不为 0 的子序列：</p>
 
 <ul>
-	<li>子序列&nbsp;<code>[<em><strong>1</strong></em>,<em><strong>2</strong></em>,<em><strong>3</strong></em>]</code> 有&nbsp;<code>2</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<strong><em>3</em></strong>]</code> 和 <code>[<strong><em>1</em></strong>,<strong><em>2</em></strong>,3]</code>&nbsp;。</li>
-	<li>子序列&nbsp;<code>[<em><strong>1</strong></em>,2,<em><strong>3</strong></em>]</code>&nbsp;有 <code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<strong><em>3</em></strong>]</code>&nbsp;。</li>
-	<li>子序列&nbsp;<code>[1,<em><strong>2</strong></em>,<em><strong>3</strong></em>]</code> 有&nbsp;<code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<strong><em>3</em></strong>]</code>&nbsp;。</li>
-	<li>子序列&nbsp;<code>[<em><strong>1</strong></em>,<em><strong>2</strong></em>,3]</code>&nbsp;有&nbsp;<code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[<strong><em>1</em></strong>,<strong><em>2</em></strong>,3]</code>&nbsp;。</li>
-	<li>子序列&nbsp;<code>[1,2,<em><strong>3</strong></em>]</code>&nbsp;有&nbsp;<code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<strong><em>3</em></strong>]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[<u><em><strong>1</strong></em></u>,<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>]</code> 有&nbsp;<code>2</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<u><strong><em>3</em></strong></u>]</code> 和 <code>[<u><strong><em>1</em></strong></u>,<u><strong><em>2</em></strong></u>,3]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[<u><em><strong>1</strong></em></u>,2,<u><em><strong>3</strong></em></u>]</code>&nbsp;有 <code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<u><strong><em>3</em></strong></u>]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[1,<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>]</code> 有&nbsp;<code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<u><strong><em>3</em></strong></u>]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[<u><em><strong>1</strong></em></u>,<u><em><strong>2</strong></em></u>,3]</code>&nbsp;有&nbsp;<code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[<u><strong><em>1</em></strong></u>,<u><strong><em>2</em></strong></u>,3]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[1,2,<u><em><strong>3</strong></em></u>]</code>&nbsp;有&nbsp;<code>1</code>&nbsp;个和为&nbsp;<code>3</code>&nbsp;的子序列：<code>[1,2,<u><strong><em>3</em></strong></u>]</code>&nbsp;。</li>
 </ul>
 
 <p>所以答案为&nbsp;<code>2 + 1 + 1 + 1 + 1 = 6</code>&nbsp;。</p>
@@ -52,9 +52,9 @@
 <p>总共有&nbsp;<code>3</code>&nbsp;个能量不为 0 的子序列：</p>
 
 <ul>
-	<li>子序列&nbsp;<code>[<em><strong>2</strong></em>,<em><strong>3</strong></em>,<em><strong>3</strong></em>]</code>&nbsp;有 2 个子序列和为&nbsp;<code>5</code>&nbsp;：<code>[<strong><em>2</em></strong>,3,<strong><em>3</em></strong>]</code> 和&nbsp;<code>[<strong><em>2</em></strong>,<strong><em>3</em></strong>,3]</code>&nbsp;。</li>
-	<li>子序列&nbsp;<code>[<em><strong>2</strong></em>,3,<em><strong>3</strong></em>]</code>&nbsp;有 1 个子序列和为&nbsp;<code>5</code>&nbsp;：<code>[<strong><em>2</em></strong>,3,<strong><em>3</em></strong>]</code>&nbsp;。</li>
-	<li>子序列&nbsp;<code>[<em><strong>2</strong></em>,<em><strong>3</strong></em>,3]</code>&nbsp;有 1 个子序列和为 <code>5</code>&nbsp;：<code>[<strong><em>2</em></strong>,<strong><em>3</em></strong>,3]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>,<u><em><strong>3</strong></em></u>]</code>&nbsp;有 2 个子序列和为&nbsp;<code>5</code>&nbsp;：<code>[<u><strong><em>2</em></strong></u>,3,<u><strong><em>3</em></strong></u>]</code> 和&nbsp;<code>[<u><strong><em>2</em></strong></u>,<u><strong><em>3</em></strong></u>,3]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[<u><em><strong>2</strong></em></u>,3,<u><em><strong>3</strong></em></u>]</code>&nbsp;有 1 个子序列和为&nbsp;<code>5</code>&nbsp;：<code>[<u><strong><em>2</em></strong></u>,3,<u><strong><em>3</em></strong></u>]</code>&nbsp;。</li>
+	<li>子序列&nbsp;<code>[<u><em><strong>2</strong></em></u>,<u><em><strong>3</strong></em></u>,3]</code>&nbsp;有 1 个子序列和为 <code>5</code>&nbsp;：<code>[<u><strong><em>2</em></strong></u>,<u><strong><em>3</em></strong></u>,3]</code>&nbsp;。</li>
 </ul>
 
 <p>所以答案为&nbsp;<code>2 + 1 + 1 = 4</code>&nbsp;。</p>
