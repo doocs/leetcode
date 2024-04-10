@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:贪心,字符串 -->
 
 ## 题目描述
 

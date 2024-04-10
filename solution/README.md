@@ -3114,11 +3114,11 @@
 |  3101  |  [交替子数组计数](/solution/3100-3199/3101.Count%20Alternating%20Subarrays/README.md)  |  `数组`,`数学`  |  中等  |  第 391 场周赛  |
 |  3102  |  [最小化曼哈顿距离](/solution/3100-3199/3102.Minimize%20Manhattan%20Distances/README.md)  |  `数组`,`数学`  |  困难  |  第 391 场周赛  |
 |  3103  |  [查找热门话题标签 II](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  3104  |  [Find Longest Self-Contained Substring](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README.md)  |    |  困难  |  🔒  |
-|  3105  |  [最长的严格递增或递减子数组](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README.md)  |    |  简单  |  第 392 场周赛  |
-|  3106  |  [满足距离约束且字典序最小的字符串](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README.md)  |    |  中等  |  第 392 场周赛  |
-|  3107  |  [使数组中位数等于 K 的最少操作数](/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README.md)  |    |  中等  |  第 392 场周赛  |
-|  3108  |  [带权图里旅途的最小代价](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md)  |    |  困难  |  第 392 场周赛  |
+|  3104  |  [Find Longest Self-Contained Substring](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README.md)  |  `哈希表`,`字符串`,`二分查找`,`前缀和`  |  困难  |  🔒  |
+|  3105  |  [最长的严格递增或递减子数组](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README.md)  |  `数组`  |  简单  |  第 392 场周赛  |
+|  3106  |  [满足距离约束且字典序最小的字符串](/solution/3100-3199/3106.Lexicographically%20Smallest%20String%20After%20Operations%20With%20Constraint/README.md)  |  `贪心`,`字符串`  |  中等  |  第 392 场周赛  |
+|  3107  |  [使数组中位数等于 K 的最少操作数](/solution/3100-3199/3107.Minimum%20Operations%20to%20Make%20Median%20of%20Array%20Equal%20to%20K/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 392 场周赛  |
+|  3108  |  [带权图里旅途的最小代价](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README.md)  |  `位运算`,`并查集`,`图`,`数组`  |  困难  |  第 392 场周赛  |
 
 ## 版权
 
