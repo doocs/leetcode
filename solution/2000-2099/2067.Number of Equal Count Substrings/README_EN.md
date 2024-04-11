@@ -59,9 +59,9 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 
 ### Solution 1: Enumeration + Sliding Window
 
-We can enumerate the number of types of letters in the substring $x$ within the range of $[1..26]$, then the length of the substring is $count \times x$.
+We can enumerate the number of types of letters in the substring within the range of $[1..26]$, then the length of the substring is $i \times count$.
 
-Next, we take the current substring length as the size of the window, count the number of types of letters in the window size that are equal to $count$, and record it in $y$. If $x = y$ at this time, it means that the number of letters in the current window are all $count$, then we can increment the answer by one.
+Next, we take the current substring length as the size of the window, count the number of types of letters in the window size that are equal to $count$, and record it in $t$. If $i = t$ at this time, it means that the number of letters in the current window are all $count$, then we can increment the answer by one.
 
 The time complexity is $O(n \times C)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$, and $C$ is the number of types of letters, in this problem $C = 26$.
 
