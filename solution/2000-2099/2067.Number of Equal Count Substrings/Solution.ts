@@ -1,14 +1,9 @@
-/**
- * @param {string} s
- * @param {number} count
- * @return {number}
- */
-var equalCountSubstrings = function (s, count) {
+function equalCountSubstrings(s: string, count: number): number {
     const n = s.length;
     let ans = 0;
     for (let i = 1; i < 27 && i * count <= n; ++i) {
         const k = i * count;
-        const cnt = Array(26).fill(0);
+        const cnt: number[] = Array(26).fill(0);
         let t = 0;
         for (let j = 0; j < n; ++j) {
             const a = s.charCodeAt(j) - 97;
@@ -23,4 +18,4 @@ var equalCountSubstrings = function (s, count) {
         }
     }
     return ans;
-};
+}

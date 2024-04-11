@@ -57,7 +57,13 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration + Sliding Window
+
+We can enumerate the number of types of letters in the substring $x$ within the range of $[1..26]$, then the length of the substring is $count \times x$.
+
+Next, we take the current substring length as the size of the window, count the number of types of letters in the window size that are equal to $count$, and record it in $y$. If $x = y$ at this time, it means that the number of letters in the current window are all $count$, then we can increment the answer by one.
+
+The time complexity is $O(n \times C)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$, and $C$ is the number of types of letters, in this problem $C = 26$.
 
 <!-- tabs:start -->
 
@@ -65,22 +71,21 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 class Solution:
     def equalCountSubstrings(self, s: str, count: int) -> int:
         ans = 0
-        for x in range(1, 27):
-            m = count * x
-            if m > len(s):
+        for i in range(1, 27):
+            k = i * count
+            if k > len(s):
                 break
             cnt = Counter()
-            y = 0
-            for i, c in enumerate(s):
+            t = 0
+            for j, c in enumerate(s):
                 cnt[c] += 1
-                y += cnt[c] == count
-                y -= cnt[c] == count + 1
-                j = i - m
-                if j >= 0:
-                    cnt[s[j]] -= 1
-                    y += cnt[s[j]] == count
-                    y -= cnt[s[j]] == count - 1
-                ans += x == y
+                t += cnt[c] == count
+                t -= cnt[c] == count + 1
+                if j >= k:
+                    cnt[s[j - k]] -= 1
+                    t += cnt[s[j - k]] == count
+                    t -= cnt[s[j - k]] == count - 1
+                ans += i == t
         return ans
 ```
 
@@ -88,34 +93,24 @@ class Solution:
 class Solution {
     public int equalCountSubstrings(String s, int count) {
         int ans = 0;
+        int[] cnt = new int[26];
         int n = s.length();
-        for (int x = 1; x < 27 && count * x <= n; ++x) {
-            int m = count * x;
-            int[] cnt = new int[26];
-            int y = 0;
-            for (int i = 0; i < n; ++i) {
-                int a = s.charAt(i) - 'a';
+        for (int i = 1; i < 27 && i * count <= n; ++i) {
+            int k = i * count;
+            Arrays.fill(cnt, 0);
+            int t = 0;
+            for (int j = 0; j < n; ++j) {
+                int a = s.charAt(j) - 'a';
                 ++cnt[a];
-                if (cnt[a] == count) {
-                    ++y;
-                }
-                if (cnt[a] == count + 1) {
-                    --y;
-                }
-                int j = i - m;
-                if (j >= 0) {
-                    int b = s.charAt(j) - 'a';
+                t += cnt[a] == count ? 1 : 0;
+                t -= cnt[a] == count + 1 ? 1 : 0;
+                if (j - k >= 0) {
+                    int b = s.charAt(j - k) - 'a';
                     --cnt[b];
-                    if (cnt[b] == count) {
-                        ++y;
-                    }
-                    if (cnt[b] == count - 1) {
-                        --y;
-                    }
+                    t += cnt[b] == count ? 1 : 0;
+                    t -= cnt[b] == count - 1 ? 1 : 0;
                 }
-                if (x == y) {
-                    ++ans;
-                }
+                ans += i == t ? 1 : 0;
             }
         }
         return ans;
@@ -130,23 +125,20 @@ public:
         int ans = 0;
         int n = s.size();
         int cnt[26];
-        for (int x = 1; x < 27 && count * x <= n; ++x) {
-            int m = count * x;
-            memset(cnt, 0, sizeof cnt);
-            int y = 0;
-            for (int i = 0; i < n; ++i) {
-                int a = s[i] - 'a';
-                ++cnt[a];
-                y += cnt[a] == count;
-                y -= cnt[a] == count + 1;
-                int j = i - m;
-                if (j >= 0) {
-                    int b = s[j] - 'a';
-                    --cnt[b];
-                    y += cnt[b] == count;
-                    y -= cnt[b] == count - 1;
+        for (int i = 1; i < 27 && i * count <= n; ++i) {
+            int k = i * count;
+            memset(cnt, 0, sizeof(cnt));
+            int t = 0;
+            for (int j = 0; j < n; ++j) {
+                int a = s[j] - 'a';
+                t += ++cnt[a] == count;
+                t -= cnt[a] == count + 1;
+                if (j >= k) {
+                    int b = s[j - k] - 'a';
+                    t += --cnt[b] == count;
+                    t -= cnt[b] == count - 1;
                 }
-                ans += x == y;
+                ans += i == t;
             }
         }
         return ans;
@@ -157,36 +149,57 @@ public:
 ```go
 func equalCountSubstrings(s string, count int) (ans int) {
 	n := len(s)
-	for x := 1; x < 27 && x*count <= n; x++ {
-		m := x * count
-		y := 0
+	for i := 1; i < 27 && i*count <= n; i++ {
+		k := i * count
 		cnt := [26]int{}
-		for i, c := range s {
+		t := 0
+		for j, c := range s {
 			a := c - 'a'
 			cnt[a]++
 			if cnt[a] == count {
-				y++
+				t++
+			} else if cnt[a] == count+1 {
+				t--
 			}
-			if cnt[a] == count+1 {
-				y--
-			}
-			j := i - m
-			if j >= 0 {
-				b := s[j] - 'a'
+			if j >= k {
+				b := s[j-k] - 'a'
 				cnt[b]--
 				if cnt[b] == count {
-					y++
-				}
-				if cnt[b] == count-1 {
-					y--
+					t++
+				} else if cnt[b] == count-1 {
+					t--
 				}
 			}
-			if x == y {
+			if i == t {
 				ans++
 			}
 		}
 	}
 	return
+}
+```
+
+```ts
+function equalCountSubstrings(s: string, count: number): number {
+    const n = s.length;
+    let ans = 0;
+    for (let i = 1; i < 27 && i * count <= n; ++i) {
+        const k = i * count;
+        const cnt: number[] = Array(26).fill(0);
+        let t = 0;
+        for (let j = 0; j < n; ++j) {
+            const a = s.charCodeAt(j) - 97;
+            t += ++cnt[a] === count ? 1 : 0;
+            t -= cnt[a] === count + 1 ? 1 : 0;
+            if (j >= k) {
+                const b = s.charCodeAt(j - k) - 97;
+                t += --cnt[b] === count ? 1 : 0;
+                t -= cnt[b] === count - 1 ? 1 : 0;
+            }
+            ans += i === t ? 1 : 0;
+        }
+    }
+    return ans;
 }
 ```
 
@@ -197,25 +210,22 @@ func equalCountSubstrings(s string, count int) (ans int) {
  * @return {number}
  */
 var equalCountSubstrings = function (s, count) {
-    let ans = 0;
     const n = s.length;
-    for (let x = 1; x <= 26 && x * count <= n; ++x) {
-        const m = x * count;
-        const cnt = new Array(26).fill(0);
-        let y = 0;
-        for (let i = 0; i < n; ++i) {
-            const a = s.charCodeAt(i) - 'a'.charCodeAt(0);
-            ++cnt[a];
-            y += cnt[a] == count;
-            y -= cnt[a] == count + 1;
-            const j = i - m;
-            if (j >= 0) {
-                const b = s.charCodeAt(j) - 'a'.charCodeAt(0);
-                --cnt[b];
-                y += cnt[b] == count;
-                y -= cnt[b] == count - 1;
+    let ans = 0;
+    for (let i = 1; i < 27 && i * count <= n; ++i) {
+        const k = i * count;
+        const cnt = Array(26).fill(0);
+        let t = 0;
+        for (let j = 0; j < n; ++j) {
+            const a = s.charCodeAt(j) - 97;
+            t += ++cnt[a] === count ? 1 : 0;
+            t -= cnt[a] === count + 1 ? 1 : 0;
+            if (j >= k) {
+                const b = s.charCodeAt(j - k) - 97;
+                t += --cnt[b] === count ? 1 : 0;
+                t -= cnt[b] === count - 1 ? 1 : 0;
             }
-            ans += x == y;
+            ans += i === t ? 1 : 0;
         }
     }
     return ans;
