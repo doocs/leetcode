@@ -11,4 +11,4 @@ function removeKdigits(num: string, k: number): string {
         stk.pop();
     }
     return stk.join('').replace(/^0*/g, '') || '0';
-};
+}
