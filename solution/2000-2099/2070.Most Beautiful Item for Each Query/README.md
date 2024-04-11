@@ -60,7 +60,13 @@
 
 ## 解法
 
-### 方法一：排序 + 二分查找
+### 方法一：排序 + 离线查询
+
+对于每一个查询，我们需要找到价格小于等于查询价格的物品中的最大美丽值，我们不妨采用离线查询的方式，先对物品按价格排序，然后对查询按照价格排序。
+
+接下来，我们从小到大遍历查询，对于每一个查询，我们用一个指针 $i$ 指向物品数组，如果物品的价格小于等于查询价格，我们更新当前的最大美丽值，向右移动指针 $i$，直到物品的价格大于查询价格，我们将当前的最大美丽值记录下来，就是当前查询的答案。继续遍历下一个查询，直到所有的查询都处理完。
+
+时间复杂度 $(n \times \log n + m \times \log m)$，空间复杂度 $O(\log n + m)$。其中 $n$ 和 $m$ 分别为物品数组和查询数组的长度。
 
 <!-- tabs:start -->
 
@@ -68,15 +74,14 @@
 class Solution:
     def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
         items.sort()
-        prices = [p for p, _ in items]
-        mx = [items[0][1]]
-        for _, b in items[1:]:
-            mx.append(max(mx[-1], b))
+        n, m = len(items), len(queries)
         ans = [0] * len(queries)
-        for i, q in enumerate(queries):
-            j = bisect_right(prices, q)
-            if j:
-                ans[i] = mx[j - 1]
+        i = mx = 0
+        for q, j in sorted(zip(queries, range(m))):
+            while i < n and items[i][0] <= q:
+                mx = max(mx, items[i][1])
+                i += 1
+            ans[j] = mx
         return ans
 ```
 
@@ -84,24 +89,21 @@ class Solution:
 class Solution {
     public int[] maximumBeauty(int[][] items, int[] queries) {
         Arrays.sort(items, (a, b) -> a[0] - b[0]);
-        for (int i = 1; i < items.length; ++i) {
-            items[i][1] = Math.max(items[i - 1][1], items[i][1]);
+        int n = items.length;
+        int m = queries.length;
+        int[] ans = new int[m];
+        Integer[] idx = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            idx[i] = i;
         }
-        int n = queries.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int left = 0, right = items.length;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (items[mid][0] > queries[i]) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
+        Arrays.sort(idx, (i, j) -> queries[i] - queries[j]);
+        int i = 0, mx = 0;
+        for (int j : idx) {
+            while (i < n && items[i][0] <= queries[j]) {
+                mx = Math.max(mx, items[i][1]);
+                ++i;
             }
-            if (left > 0) {
-                ans[i] = items[left - 1][1];
-            }
+            ans[j] = mx;
         }
         return ans;
     }
@@ -113,19 +115,21 @@ class Solution {
 public:
     vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
         sort(items.begin(), items.end());
-        for (int i = 1; i < items.size(); ++i) items[i][1] = max(items[i - 1][1], items[i][1]);
-        int n = queries.size();
-        vector<int> ans(n);
-        for (int i = 0; i < n; ++i) {
-            int left = 0, right = items.size();
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (items[mid][0] > queries[i])
-                    right = mid;
-                else
-                    left = mid + 1;
+        int n = items.size();
+        int m = queries.size();
+        vector<int> idx(m);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return queries[i] < queries[j];
+        });
+        int mx = 0, i = 0;
+        vector<int> ans(m);
+        for (int j : idx) {
+            while (i < n && items[i][0] <= queries[j]) {
+                mx = max(mx, items[i][1]);
+                ++i;
             }
-            if (left) ans[i] = items[left - 1][1];
+            ans[j] = mx;
         }
         return ans;
     }
@@ -137,26 +141,165 @@ func maximumBeauty(items [][]int, queries []int) []int {
 	sort.Slice(items, func(i, j int) bool {
 		return items[i][0] < items[j][0]
 	})
-	for i := 1; i < len(items); i++ {
-		items[i][1] = max(items[i-1][1], items[i][1])
+	n, m := len(items), len(queries)
+	idx := make([]int, m)
+	for i := range idx {
+		idx[i] = i
 	}
-	n := len(queries)
-	ans := make([]int, n)
-	for i, v := range queries {
-		left, right := 0, len(items)
-		for left < right {
-			mid := (left + right) >> 1
-			if items[mid][0] > v {
-				right = mid
-			} else {
-				left = mid + 1
-			}
+	sort.Slice(idx, func(i, j int) bool { return queries[idx[i]] < queries[idx[j]] })
+	ans := make([]int, m)
+	i, mx := 0, 0
+	for _, j := range idx {
+		for i < n && items[i][0] <= queries[j] {
+			mx = max(mx, items[i][1])
+			i++
 		}
-		if left > 0 {
-			ans[i] = items[left-1][1]
+		ans[j] = mx
+	}
+	return ans
+}
+```
+
+```ts
+function maximumBeauty(items: number[][], queries: number[]): number[] {
+    const n = items.length;
+    const m = queries.length;
+    items.sort((a, b) => a[0] - b[0]);
+    const idx: number[] = Array(m)
+        .fill(0)
+        .map((_, i) => i);
+    idx.sort((i, j) => queries[i] - queries[j]);
+    let [i, mx] = [0, 0];
+    const ans: number[] = Array(m).fill(0);
+    for (const j of idx) {
+        while (i < n && items[i][0] <= queries[j]) {
+            mx = Math.max(mx, items[i][1]);
+            ++i;
+        }
+        ans[j] = mx;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：排序 + 二分查找
+
+我们可以将物品按照价格排序，然后预处理出小于等于每个价格的物品中的最大美丽值，记录在数组 $mx$ 或者原 $items$ 数组中。
+
+对于每一个查询，我们可以使用二分查找找到第一个价格大于查询价格的物品的下标 $j$，然后 $j - 1$ 就是小于等于查询价格且最大美丽值的物品的下标，添加到答案中。
+
+时间复杂度 $O((m + n) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为物品数组和查询数组的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
+        items.sort()
+        prices = [p for p, _ in items]
+        n = len(items)
+        mx = [items[0][1]]
+        for i in range(1, n):
+            mx.append(max(mx[i - 1], items[i][1]))
+        ans = []
+        for q in queries:
+            j = bisect_right(prices, q) - 1
+            ans.append(0 if j < 0 else mx[j])
+        return ans
+```
+
+```java
+class Solution {
+    public int[] maximumBeauty(int[][] items, int[] queries) {
+        Arrays.sort(items, (a, b) -> a[0] - b[0]);
+        int n = items.length;
+        int m = queries.length;
+        int[] prices = new int[n];
+        prices[0] = items[0][0];
+        for (int i = 1; i < n; ++i) {
+            prices[i] = items[i][0];
+            items[i][1] = Math.max(items[i - 1][1], items[i][1]);
+        }
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int j = Arrays.binarySearch(prices, queries[i] + 1);
+            j = j < 0 ? -j - 2 : j - 1;
+            ans[i] = j < 0 ? 0 : items[j][1];
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
+        sort(items.begin(), items.end());
+        int n = items.size();
+        int m = queries.size();
+        vector<int> prices(n, items[0][0]);
+        for (int i = 1; i < n; ++i) {
+            prices[i] = items[i][0];
+            items[i][1] = max(items[i - 1][1], items[i][1]);
+        }
+        vector<int> ans;
+        for (int q : queries) {
+            int j = upper_bound(prices.begin(), prices.end(), q) - prices.begin() - 1;
+            ans.push_back(j < 0 ? 0 : items[j][1]);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func maximumBeauty(items [][]int, queries []int) []int {
+	sort.Slice(items, func(i, j int) bool {
+		return items[i][0] < items[j][0]
+	})
+	n, m := len(items), len(queries)
+	prices := make([]int, n)
+	prices[0] = items[0][0]
+	for i := 1; i < n; i++ {
+		prices[i] = items[i][0]
+		items[i][1] = max(items[i][1], items[i-1][1])
+	}
+	ans := make([]int, m)
+	for i, q := range queries {
+		j := sort.SearchInts(prices, q+1) - 1
+		if j >= 0 {
+			ans[i] = items[j][1]
 		}
 	}
 	return ans
+}
+```
+
+```ts
+function maximumBeauty(items: number[][], queries: number[]): number[] {
+    items.sort((a, b) => a[0] - b[0]);
+    const n = items.length;
+    for (let i = 1; i < n; ++i) {
+        items[i][1] = Math.max(items[i][1], items[i - 1][1]);
+    }
+    const ans: number[] = [];
+    for (const q of queries) {
+        let l = 0,
+            r = n;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (items[mid][0] > q) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        ans.push(--l >= 0 ? items[l][1] : 0);
+    }
+    return ans;
 }
 ```
 
