@@ -22,7 +22,6 @@ class BinaryIndexedTree {
     }
 }
 
-
 class Solution {
     public int getPermutationIndex(int[] perm) {
         final int mod = (int) 1e9 + 7;
