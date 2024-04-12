@@ -37,7 +37,16 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We define a sliding window, the number of $0$s in the window does not exceed $k$. The right boundary of the window keeps moving to the right. When the number of $0$s in the window exceeds $k$, the left boundary of the window moves to the right until the number of $0$s in the window does not exceed $k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [487. Max Consecutive Ones II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
+-   [2024. Maximize the Confusion of an Exam](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
 
 <!-- tabs:start -->
 
@@ -123,43 +132,33 @@ func longestOnes(nums []int, k int) int {
 ```ts
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
-    let l = 0;
-    for (const num of nums) {
-        if (num === 0) {
-            k--;
+    let [ans, cnt, j] = [0, 0, 0];
+    for (let i = 0; i < n; ++i) {
+        cnt += nums[i] ^ 1;
+        while (cnt > k) {
+            cnt -= nums[j++] ^ 1;
         }
-        if (k < 0 && nums[l++] === 0) {
-            k++;
-        }
+        ans = Math.max(ans, i - j + 1);
     }
-    return n - l;
-}
-```
-
-```rust
-impl Solution {
-    pub fn longest_ones(nums: Vec<i32>, mut k: i32) -> i32 {
-        let n = nums.len();
-        let mut l = 0;
-        for num in nums.iter() {
-            if num == &0 {
-                k -= 1;
-            }
-            if k < 0 {
-                if nums[l] == 0 {
-                    k += 1;
-                }
-                l += 1;
-            }
-        }
-        (n - l) as i32
-    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-### Solution 2
+### Solution 2: Sliding Window (Optimized)
+
+Below is the optimized version of the sliding window.
+
+Maintain a monotonically variable-length window. This kind of window often appears in problems seeking the "maximum window": because we are seeking the "maximum", there is no need to shorten the window, so the code lacks the part to shorten the window; from another perspective, the K in this problem is the number of resources, once overdrawn, the window can no longer grow.
+
+-   `l` is the left endpoint of the window, responsible for moving the starting position
+-   `r` is the right endpoint of the window, responsible for expanding the window
+-   `k` is the number of resources, each time a 0 needs to be replaced, `k` decreases by 1, and `r` moves to the right at the same time
+-   `r++` will be executed every time, `l++` is only triggered when the resource `k < 0`, therefore the value of `r - l` will only increase monotonically (or remain unchanged)
+-   When moving the left endpoint, if the current element is 0, it means that a resource can be released, `k` increases by 1
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -232,17 +231,36 @@ func longestOnes(nums []int, k int) int {
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
     let l = 0;
-    let res = k;
-    const count = [0, 0];
-    for (let r = 0; r < n; r++) {
-        count[nums[r]]++;
-        res = Math.max(res, r - l);
-        while (count[0] > k) {
-            count[nums[l]]--;
-            l++;
+    for (const num of nums) {
+        if (num === 0) {
+            k--;
+        }
+        if (k < 0 && nums[l++] === 0) {
+            k++;
         }
     }
-    return Math.max(res, n - l);
+    return n - l;
+}
+```
+
+```rust
+impl Solution {
+    pub fn longest_ones(nums: Vec<i32>, mut k: i32) -> i32 {
+        let n = nums.len();
+        let mut l = 0;
+        for num in nums.iter() {
+            if num == &0 {
+                k -= 1;
+            }
+            if k < 0 {
+                if nums[l] == 0 {
+                    k += 1;
+                }
+                l += 1;
+            }
+        }
+        (n - l) as i32
+    }
 }
 ```
 

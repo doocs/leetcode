@@ -1,15 +1,14 @@
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        def get(c, k):
-            l = r = -1
-            while r < len(answerKey) - 1:
-                r += 1
-                if answerKey[r] == c:
-                    k -= 1
-                if k < 0:
-                    l += 1
-                    if answerKey[l] == c:
-                        k += 1
-            return r - l
+        def f(c: str) -> int:
+            cnt = j = 0
+            ans = 0
+            for i, ch in enumerate(answerKey):
+                cnt += ch == c
+                while cnt > k:
+                    cnt -= answerKey[j] == c
+                    j += 1
+                ans = max(ans, i - j + 1)
+            return ans
 
-        return max(get('T', k), get('F', k))
+        return max(f("T"), f("F"))

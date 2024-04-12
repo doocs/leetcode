@@ -1,23 +1,20 @@
 impl Solution {
     pub fn max_consecutive_answers(answer_key: String, k: i32) -> i32 {
-        let bs = answer_key.as_bytes();
-        let n = bs.len();
-        let get_max_count = |target| {
-            let mut l = 0;
-            let mut u = k;
-            for b in bs.iter() {
-                if b != &target {
-                    u -= 1;
+        let s: Vec<char> = answer_key.chars().collect();
+        let f = |c: char| -> i32 {
+            let mut cnt = 0;
+            let mut j = 0;
+            let mut ans = 0;
+            for i in 0..s.len() {
+                cnt += if s[i] == c { 1 } else { 0 };
+                while cnt > k {
+                    cnt -= if s[j] == c { 1 } else { 0 };
+                    j += 1;
                 }
-                if u < 0 {
-                    if bs[l] != target {
-                        u += 1;
-                    }
-                    l += 1;
-                }
+                ans = ans.max((i - j + 1) as i32);
             }
-            n - l
+            ans
         };
-        get_max_count(b'T').max(get_max_count(b'F')) as i32
+        f('T').max(f('F'))
     }
 }
