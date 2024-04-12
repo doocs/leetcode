@@ -45,8 +45,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 Similar problems:
 
--   [487. Max Consecutive Ones II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
--   [2024. Maximize the Confusion of an Exam](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
+-   [487. Max Consecutive Ones II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)
+-   [2024. Maximize the Confusion of an Exam](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md)
 
 <!-- tabs:start -->
 
