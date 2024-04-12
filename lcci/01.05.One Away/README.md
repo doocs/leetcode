@@ -233,11 +233,11 @@ class Solution {
         if m - n > 1 {
             return false
         }
-        
+
         var cnt = 0
         var firstIndex = first.startIndex
         var secondIndex = second.startIndex
-        
+
         if m == n {
             while secondIndex != second.endIndex {
                 if first[firstIndex] != second[secondIndex] {
