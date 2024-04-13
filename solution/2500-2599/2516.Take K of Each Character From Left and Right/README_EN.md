@@ -42,7 +42,17 @@ It can be proven that 8 is the minimum number of minutes needed.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window
+
+First, we use a hash table or an array of length $3$, denoted as $cnt$, to count the number of each character in string $s$. If any character appears less than $k$ times, it cannot be obtained, so we return $-1$ in advance.
+
+The problem asks us to remove characters from the left and right sides of the string, so that the number of each remaining character is not less than $k$. We can consider the problem in reverse: remove a substring of certain size in the middle, so that in the remaining string on both sides, the number of each character is not less than $k$.
+
+Therefore, we maintain a sliding window, with pointers $j$ and $i$ representing the left and right boundaries of the window, respectively. The string within the window is what we want to remove. Each time we move the right boundary $i$, we add the corresponding character $s[i]$ to the window (i.e., remove one character $s[i]$). If the count of $cnt[s[i]]$ is less than $k$, then we move the left boundary $j$ in a loop until the count of $cnt[s[i]]$ is not less than $k$. The size of the window at this time is $i - j + 1$, and we update the maximum window size.
+
+The final answer is the length of string $s$ minus the size of the maximum window.
+
+The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -52,14 +62,14 @@ class Solution:
         cnt = Counter(s)
         if any(cnt[c] < k for c in "abc"):
             return -1
-        ans = j = 0
+        mx = j = 0
         for i, c in enumerate(s):
             cnt[c] -= 1
             while cnt[c] < k:
                 cnt[s[j]] += 1
                 j += 1
-            ans = max(ans, i - j + 1)
-        return len(s) - ans
+            mx = max(mx, i - j + 1)
+        return len(s) - mx
 ```
 
 ```java
@@ -70,19 +80,21 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             ++cnt[s.charAt(i) - 'a'];
         }
-        if (cnt[0] < k || cnt[1] < k || cnt[2] < k) {
-            return -1;
+        for (int x : cnt) {
+            if (x < k) {
+                return -1;
+            }
         }
-        int ans = 0, j = 0;
+        int mx = 0, j = 0;
         for (int i = 0; i < n; ++i) {
             int c = s.charAt(i) - 'a';
             --cnt[c];
             while (cnt[c] < k) {
                 ++cnt[s.charAt(j++) - 'a'];
             }
-            ans = Math.max(ans, i - j + 1);
+            mx = Math.max(mx, i - j + 1);
         }
-        return n - ans;
+        return n - mx;
     }
 }
 ```
@@ -91,20 +103,26 @@ class Solution {
 class Solution {
 public:
     int takeCharacters(string s, int k) {
-        int cnt[3] = {0};
-        for (char& c : s) ++cnt[c - 'a'];
-        if (cnt[0] < k || cnt[1] < k || cnt[2] < k) return -1;
-        int ans = 0, j = 0;
-        int n = s.size();
+        int cnt[3]{};
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            ++cnt[s[i] - 'a'];
+        }
+        for (int x : cnt) {
+            if (x < k) {
+                return -1;
+            }
+        }
+        int mx = 0, j = 0;
         for (int i = 0; i < n; ++i) {
             int c = s[i] - 'a';
             --cnt[c];
             while (cnt[c] < k) {
                 ++cnt[s[j++] - 'a'];
             }
-            ans = max(ans, i - j + 1);
+            mx = max(mx, i - j + 1);
         }
-        return n - ans;
+        return n - mx;
     }
 };
 ```
@@ -115,70 +133,74 @@ func takeCharacters(s string, k int) int {
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	if cnt[0] < k || cnt[1] < k || cnt[2] < k {
-		return -1
+	for _, x := range cnt {
+		if x < k {
+			return -1
+		}
 	}
-	ans, j := 0, 0
+	mx, j := 0, 0
 	for i, c := range s {
 		c -= 'a'
-		cnt[c]--
-		for cnt[c] < k {
+		for cnt[c]--; cnt[c] < k; j++ {
 			cnt[s[j]-'a']++
-			j++
 		}
-		ans = max(ans, i-j+1)
+		mx = max(mx, i-j+1)
 	}
-	return len(s) - ans
+	return len(s) - mx
 }
 ```
 
 ```ts
 function takeCharacters(s: string, k: number): number {
-    const getIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
-    const count = [0, 0, 0];
+    const idx = (c: string) => c.charCodeAt(0) - 97;
+    const cnt: number[] = Array(3).fill(0);
     for (const c of s) {
-        count[getIndex(c)]++;
+        ++cnt[idx(c)];
     }
-    if (count.some(v => v < k)) {
+    if (cnt.some(v => v < k)) {
         return -1;
     }
     const n = s.length;
-    let ans = 0;
-    for (let i = 0, j = 0; j < n; j++) {
-        count[getIndex(s[j])]--;
-        while (count[getIndex(s[j])] < k) {
-            count[getIndex(s[i])]++;
-            i++;
+    let [mx, j] = [0, 0];
+    for (let i = 0; i < n; ++i) {
+        const c = idx(s[i]);
+        --cnt[c];
+        while (cnt[c] < k) {
+            ++cnt[idx(s[j++])];
         }
-        ans = Math.max(ans, j - i + 1);
+        mx = Math.max(mx, i - j + 1);
     }
-    return n - ans;
+    return n - mx;
 }
 ```
 
 ```rust
+use std::collections::HashMap;
+
 impl Solution {
     pub fn take_characters(s: String, k: i32) -> i32 {
-        let s = s.as_bytes();
-        let mut count = vec![0; 3];
-        for c in s.iter() {
-            count[(c - b'a') as usize] += 1;
+        let mut cnt: HashMap<char, i32> = HashMap::new();
+        for c in s.chars() {
+            *cnt.entry(c).or_insert(0) += 1;
         }
-        if count.iter().any(|v| *v < k) {
+
+        if "abc".chars().any(|c| cnt.get(&c).unwrap_or(&0) < &k) {
             return -1;
         }
-        let n = s.len();
-        let mut ans = 0;
-        let mut i = 0;
-        for j in 0..n {
-            count[(s[j] - b'a') as usize] -= 1;
-            while count[(s[j] - b'a') as usize] < k {
-                count[(s[i] - b'a') as usize] += 1;
-                i += 1;
+
+        let mut mx = 0;
+        let mut j = 0;
+        let mut cs = s.chars().collect::<Vec<char>>();
+        for i in 0..cs.len() {
+            let c = cs[i];
+            *cnt.get_mut(&c).unwrap() -= 1;
+            while cnt.get(&c).unwrap() < &k {
+                *cnt.get_mut(&cs[j]).unwrap() += 1;
+                j += 1;
             }
-            ans = ans.max(j - i + 1);
+            mx = mx.max(i - j + 1);
         }
-        (n - ans) as i32
+        (cs.len() as i32) - (mx as i32)
     }
 }
 ```

@@ -3,18 +3,18 @@ func takeCharacters(s string, k int) int {
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	if cnt[0] < k || cnt[1] < k || cnt[2] < k {
-		return -1
+	for _, x := range cnt {
+		if x < k {
+			return -1
+		}
 	}
-	ans, j := 0, 0
+	mx, j := 0, 0
 	for i, c := range s {
 		c -= 'a'
-		cnt[c]--
-		for cnt[c] < k {
+		for cnt[c]--; cnt[c] < k; j++ {
 			cnt[s[j]-'a']++
-			j++
 		}
-		ans = max(ans, i-j+1)
+		mx = max(mx, i-j+1)
 	}
-	return len(s) - ans
+	return len(s) - mx
 }
