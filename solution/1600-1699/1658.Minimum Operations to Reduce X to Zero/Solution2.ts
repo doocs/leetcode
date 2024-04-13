@@ -1,15 +1,15 @@
 function minOperations(nums: number[], x: number): number {
-    x = nums.reduce((a, b) => a + b, 0) - x;
+    const s = nums.reduce((acc, cur) => acc + cur, -x);
+    let [mx, t] = [-1, 0];
     const n = nums.length;
-    let ans = 1 << 30;
-    for (let i = 0, j = 0, s = 0; i < n; ++i) {
-        s += nums[i];
-        while (j <= i && s > x) {
-            s -= nums[j++];
+    for (let i = 0, j = 0; i < n; ++i) {
+        t += nums[i];
+        while (t > s) {
+            t -= nums[j++];
         }
-        if (s == x) {
-            ans = Math.min(ans, n - (i - j + 1));
+        if (t === s) {
+            mx = Math.max(mx, i - j + 1);
         }
     }
-    return ans == 1 << 30 ? -1 : ans;
+    return ~mx ? n - mx : -1;
 }
