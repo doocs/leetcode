@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md)
 
-<!-- tags:Array,Binary Search,Sorting,Heap (Priority Queue) -->
+<!-- tags:Array,Two Pointers,Binary Search,Sorting,Heap (Priority Queue) -->
 
 ## Description
 

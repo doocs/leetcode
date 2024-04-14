@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0600-0699/0681.Next%20Closest%20Time/README.md)
 
-<!-- tags:String,Enumeration -->
+<!-- tags:Hash Table,String,Backtracking,Enumeration -->
 
 ## Description
 
