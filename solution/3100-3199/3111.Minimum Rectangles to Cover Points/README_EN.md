@@ -134,24 +134,93 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+According to the problem description, we don't need to consider the height of the rectangle, only the width.
+
+We can sort all the points according to the x-coordinate and use a variable $x_1$ to record the current x-coordinate of the lower left corner of the rectangle. Then we traverse all the points. If the x-coordinate $x$ of the current point is greater than $x_1 + w$, it means that the current point cannot be covered by the current rectangle. We need to add a new rectangle and update $x_1$ to the x-coordinate of the current point.
+
+After the traversal, we get the minimum number of rectangles needed.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minRectanglesToCoverPoints(self, points: List[List[int]], w: int) -> int:
+        points.sort()
+        ans, x1 = 0, -inf
+        for x, _ in points:
+            if x1 + w < x:
+                x1 = x
+                ans += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minRectanglesToCoverPoints(int[][] points, int w) {
+        Arrays.sort(points, (a, b) -> a[0] - b[0]);
+        int ans = 0;
+        int x1 = -(1 << 30);
+        for (int[] p : points) {
+            int x = p[0];
+            if (x1 + w < x) {
+                x1 = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minRectanglesToCoverPoints(vector<vector<int>>& points, int w) {
+        sort(points.begin(), points.end());
+        int ans = 0, x1 = -(1 << 30);
+        for (auto& p : points) {
+            int x = p[0];
+            if (x1 + w < x) {
+                x1 = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
+	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
+	x1 := -(1 << 30)
+	for _, p := range points {
+		if x := p[0]; x1+w < x {
+			x1 = x
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function minRectanglesToCoverPoints(points: number[][], w: number): number {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    let x1 = -Infinity;
+    for (const [x, _] of points) {
+        if (x1 + w < x) {
+            x1 = x;
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
