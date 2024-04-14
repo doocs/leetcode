@@ -93,24 +93,93 @@
 
 ## 解法
 
-### 方法一
+### 方法一：贪心 + 排序
+
+根据题目描述，我们不需要考虑矩形的高度，只需要考虑矩形的宽度。
+
+我们可以将所有的点按照横坐标进行排序，用一个变量 $x_1$ 记录当前矩形的左下角的横坐标。然后遍历所有的点，如果当前点的横坐标 $x$ 比 $x_1 + w$ 大，说明当前点不能被当前的矩形覆盖，我们就需要增加一个新的矩形，然后更新 $x_1$ 为当前点的横坐标。
+
+遍历完成后，我们就得到了最少需要多少个矩形。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是点的数量。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def minRectanglesToCoverPoints(self, points: List[List[int]], w: int) -> int:
+        points.sort()
+        ans, x1 = 0, -inf
+        for x, _ in points:
+            if x1 + w < x:
+                x1 = x
+                ans += 1
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public int minRectanglesToCoverPoints(int[][] points, int w) {
+        Arrays.sort(points, (a, b) -> a[0] - b[0]);
+        int ans = 0;
+        int x1 = -(1 << 30);
+        for (int[] p : points) {
+            int x = p[0];
+            if (x1 + w < x) {
+                x1 = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    int minRectanglesToCoverPoints(vector<vector<int>>& points, int w) {
+        sort(points.begin(), points.end());
+        int ans = 0, x1 = -(1 << 30);
+        for (auto& p : points) {
+            int x = p[0];
+            if (x1 + w < x) {
+                x1 = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
+	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
+	x1 := -(1 << 30)
+	for _, p := range points {
+		if x := p[0]; x1+w < x {
+			x1 = x
+			ans++
+		}
+	}
+	return
+}
+```
 
+```ts
+function minRectanglesToCoverPoints(points: number[][], w: number): number {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    let x1 = -Infinity;
+    for (const [x, _] of points) {
+        if (x1 + w < x) {
+            x1 = x;
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
