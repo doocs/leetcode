@@ -2,7 +2,7 @@
 
 [English Version](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README_EN.md)
 
-<!-- tags:字符串,动态规划,模拟 -->
+<!-- tags:数组,字符串,动态规划 -->
 
 ## 题目描述
 
