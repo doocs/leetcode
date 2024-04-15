@@ -153,4 +153,122 @@ function findLatestTime(s: string): string {
 
 <!-- tabs:end -->
 
+### Solution 2: Judge Each Digit
+
+We can judge each digit of $s$ one by one. If it is "?", we determine the value of this digit based on the characters before and after it. Specifically, we have the following rules:
+
+-   If $s[0]$ is "?", then the value of $s[0]$ should be "1" or "0", depending on the value of $s[1]$. If $s[1]$ is "?" or $s[1]$ is less than "2", then the value of $s[0]$ should be "1", otherwise the value of $s[0]$ should be "0".
+-   If $s[1]$ is "?", then the value of $s[1]$ should be "1" or "9", depending on the value of $s[0]$. If $s[0]$ is "1", then the value of $s[1]$ should be "1", otherwise the value of $s[1]$ should be "9".
+-   If $s[3]$ is "?", then the value of $s[3]$ should be "5".
+-   If $s[4]$ is "?", then the value of $s[4]$ should be "9".
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def findLatestTime(self, s: str) -> str:
+        s = list(s)
+        if s[0] == "?":
+            s[0] = "1" if s[1] == "?" or s[1] < "2" else "0"
+        if s[1] == "?":
+            s[1] = "1" if s[0] == "1" else "9"
+        if s[3] == "?":
+            s[3] = "5"
+        if s[4] == "?":
+            s[4] = "9"
+        return "".join(s)
+```
+
+```java
+class Solution {
+    public String findLatestTime(String s) {
+        char[] cs = s.toCharArray();
+        if (cs[0] == '?') {
+            cs[0] = cs[1] == '?' || cs[1] < '2' ? '1' : '0';
+        }
+        if (cs[1] == '?') {
+            cs[1] = cs[0] == '1' ? '1' : '9';
+        }
+        if (cs[3] == '?') {
+            cs[3] = '5';
+        }
+        if (cs[4] == '?') {
+            cs[4] = '9';
+        }
+        return new String(cs);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string findLatestTime(string s) {
+        if (s[0] == '?') {
+            s[0] = s[1] == '?' || s[1] < '2' ? '1' : '0';
+        }
+        if (s[1] == '?') {
+            s[1] = s[0] == '1' ? '1' : '9';
+        }
+        if (s[3] == '?') {
+            s[3] = '5';
+        }
+        if (s[4] == '?') {
+            s[4] = '9';
+        }
+        return s;
+    }
+};
+```
+
+```go
+func findLatestTime(s string) string {
+	cs := []byte(s)
+	if cs[0] == '?' {
+		if cs[1] == '?' || cs[1] < '2' {
+			cs[0] = '1'
+		} else {
+			cs[0] = '0'
+		}
+	}
+	if cs[1] == '?' {
+		if cs[0] == '1' {
+			cs[1] = '1'
+		} else {
+			cs[1] = '9'
+		}
+	}
+	if cs[3] == '?' {
+		cs[3] = '5'
+	}
+	if cs[4] == '?' {
+		cs[4] = '9'
+	}
+	return string(cs)
+}
+```
+
+```ts
+function findLatestTime(s: string): string {
+    const cs = s.split('');
+    if (cs[0] === '?') {
+        cs[0] = cs[1] === '?' || cs[1] < '2' ? '1' : '0';
+    }
+    if (cs[1] === '?') {
+        cs[1] = cs[0] === '1' ? '1' : '9';
+    }
+    if (cs[3] === '?') {
+        cs[3] = '5';
+    }
+    if (cs[4] === '?') {
+        cs[4] = '9';
+    }
+    return cs.join('');
+}
+```
+
+<!-- tabs:end -->
+
 <!-- end -->
