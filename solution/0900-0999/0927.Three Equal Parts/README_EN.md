@@ -42,7 +42,35 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Counting + Three Pointers
+
+We denote the length of the array as $n$, and the number of '1's in the array as $cnt$.
+
+Obviously, $cnt$ must be a multiple of $3$, otherwise the array cannot be divided into three equal parts, and we can return $[-1, -1]$ in advance. If $cnt$ is $0$, it means that all elements in the array are '0', and we can directly return $[0, n - 1]$.
+
+We divide $cnt$ by $3$ to get the number of '1's in each part, and then find the position of the first '1' in each part in the array `arr` (refer to the $find(x)$ function in the following code), denoted as $i$, $j$, $k$ respectively.
+
+```bash
+0 1 1 0 0 0 1 1 0 0 0 0 0 1 1 0 0
+  ^         ^             ^
+  i         j             k
+```
+
+Then we start from $i$, $j$, $k$ and traverse each part at the same time, check whether the corresponding values of the three parts are equal. If they are, continue to traverse until $k$ reaches the end of `arr`.
+
+```bash
+0 1 1 0 0 0 1 1 0 0 0 0 0 1 1 0 0
+          ^         ^             ^
+          i         j             k
+```
+
+At the end of the traversal, if $k=n$, it means that it satisfies the three equal parts, and we return $[i - 1, j]$ as the answer, otherwise return $[-1, -1]$.
+
+The time complexity is $O(n)$, where $n$ is the length of `arr`. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [1573. Number of Ways to Split a String](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -203,3 +231,7 @@ var threeEqualParts = function (arr) {
 <!-- tabs:end -->
 
 <!-- end -->
+
+```
+
+```

@@ -1,21 +1,11 @@
 func minFlipsMonoIncr(s string) int {
-	n := len(s)
-	left, right := make([]int, n+1), make([]int, n+1)
-	ans := math.MaxInt32
-	for i := 1; i <= n; i++ {
-		left[i] = left[i-1]
-		if s[i-1] == '1' {
-			left[i]++
+	tot := strings.Count(s, "0")
+	ans, cur := tot, 0
+	for i, c := range s {
+		if c == '0' {
+			cur++
 		}
-	}
-	for i := n - 1; i >= 0; i-- {
-		right[i] = right[i+1]
-		if s[i] == '0' {
-			right[i]++
-		}
-	}
-	for i := 0; i <= n; i++ {
-		ans = min(ans, left[i]+right[i])
+		ans = min(ans, i+1-cur+tot-cur)
 	}
 	return ans
 }
