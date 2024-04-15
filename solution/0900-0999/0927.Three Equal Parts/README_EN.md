@@ -231,7 +231,3 @@ var threeEqualParts = function (arr) {
 <!-- tabs:end -->
 
 <!-- end -->
-
-```
-
-```
