@@ -1,8 +1,4 @@
-/**
- * @param {string} s
- * @return {number}
- */
-var minFlipsMonoIncr = function (s) {
+function minFlipsMonoIncr(s: string): number {
     let tot = 0;
     for (const c of s) {
         tot += c === '0' ? 1 : 0;
@@ -13,4 +9,4 @@ var minFlipsMonoIncr = function (s) {
         ans = Math.min(ans, i - cur + tot - cur);
     }
     return ans;
-};
+}
