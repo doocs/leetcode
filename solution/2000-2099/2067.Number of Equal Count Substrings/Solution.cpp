@@ -4,23 +4,20 @@ public:
         int ans = 0;
         int n = s.size();
         int cnt[26];
-        for (int x = 1; x < 27 && count * x <= n; ++x) {
-            int m = count * x;
-            memset(cnt, 0, sizeof cnt);
-            int y = 0;
-            for (int i = 0; i < n; ++i) {
-                int a = s[i] - 'a';
-                ++cnt[a];
-                y += cnt[a] == count;
-                y -= cnt[a] == count + 1;
-                int j = i - m;
-                if (j >= 0) {
-                    int b = s[j] - 'a';
-                    --cnt[b];
-                    y += cnt[b] == count;
-                    y -= cnt[b] == count - 1;
+        for (int i = 1; i < 27 && i * count <= n; ++i) {
+            int k = i * count;
+            memset(cnt, 0, sizeof(cnt));
+            int t = 0;
+            for (int j = 0; j < n; ++j) {
+                int a = s[j] - 'a';
+                t += ++cnt[a] == count;
+                t -= cnt[a] == count + 1;
+                if (j >= k) {
+                    int b = s[j - k] - 'a';
+                    t += --cnt[b] == count;
+                    t -= cnt[b] == count - 1;
                 }
-                ans += x == y;
+                ans += i == t;
             }
         }
         return ans;

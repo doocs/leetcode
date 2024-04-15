@@ -45,7 +45,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Greedy
+
+First, we traverse the array from right to left, find the first index $i$ that satisfies $arr[i - 1] > arr[i]$, then $arr[i - 1]$ is the number we need to swap. Next, we traverse the array from right to left again, find the first index $j$ that satisfies $arr[j] < arr[i - 1]$ and $arr[j] \neq arr[j - 1]$. Now, we swap $arr[i - 1]$ and $arr[j]$ and return the array.
+
+If we traverse the entire array and do not find an index $i$ that meets the conditions, it means the array is already the smallest permutation, so we just return the original array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

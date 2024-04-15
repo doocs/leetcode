@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:数组 -->
 
 ## 题目描述
 

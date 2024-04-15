@@ -37,33 +37,40 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We can multiply `threshold` by $k$, so that we can directly compare the sum within the window with `threshold`.
+
+We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$. If $s$ is greater than or equal to `threshold`, we increment the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `arr`. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+        threshold *= k
         s = sum(arr[:k])
-        ans = int(s / k >= threshold)
+        ans = int(s >= threshold)
         for i in range(k, len(arr)):
-            s += arr[i]
-            s -= arr[i - k]
-            ans += int(s / k >= threshold)
+            s += arr[i] - arr[i - k]
+            ans += int(s >= threshold)
         return ans
 ```
 
 ```java
 class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
+        threshold *= k;
         int s = 0;
         for (int i = 0; i < k; ++i) {
             s += arr[i];
         }
-        int ans = s / k >= threshold ? 1 : 0;
+        int ans = s >= threshold ? 1 : 0;
         for (int i = k; i < arr.length; ++i) {
             s += arr[i] - arr[i - k];
-            ans += s / k >= threshold ? 1 : 0;
+            ans += s >= threshold ? 1 : 0;
         }
         return ans;
     }
@@ -74,11 +81,12 @@ class Solution {
 class Solution {
 public:
     int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        threshold *= k;
         int s = accumulate(arr.begin(), arr.begin() + k, 0);
-        int ans = s >= k * threshold;
+        int ans = s >= threshold;
         for (int i = k; i < arr.size(); ++i) {
             s += arr[i] - arr[i - k];
-            ans += s >= k * threshold;
+            ans += s >= threshold;
         }
         return ans;
     }
@@ -87,16 +95,17 @@ public:
 
 ```go
 func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
+	threshold *= k
 	s := 0
 	for _, x := range arr[:k] {
 		s += x
 	}
-	if s/k >= threshold {
+	if s >= threshold {
 		ans++
 	}
 	for i := k; i < len(arr); i++ {
 		s += arr[i] - arr[i-k]
-		if s/k >= threshold {
+		if s >= threshold {
 			ans++
 		}
 	}
@@ -106,11 +115,12 @@ func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
 
 ```ts
 function numOfSubarrays(arr: number[], k: number, threshold: number): number {
+    threshold *= k;
     let s = arr.slice(0, k).reduce((acc, cur) => acc + cur, 0);
-    let ans = s >= k * threshold ? 1 : 0;
+    let ans = s >= threshold ? 1 : 0;
     for (let i = k; i < arr.length; ++i) {
         s += arr[i] - arr[i - k];
-        ans += s >= k * threshold ? 1 : 0;
+        ans += s >= threshold ? 1 : 0;
     }
     return ans;
 }

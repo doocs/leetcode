@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:哈希表,字符串,二分查找,前缀和 -->
 
 ## 题目描述
 
@@ -10,7 +10,7 @@
 
 <p>Given a string <code>s</code>, your task is to find the length of the <strong>longest self-contained</strong> <span data-keyword="substring-nonempty">substring</span> of <code>s</code>.</p>
 
-<p>A substring <code>t</code> of a string <code>s</code> is considered <strong>self-contained </strong>if <code>t != s</code> and for every character in <code>t</code>, it doesn&#39;t exist in the <em>rest</em> of <code>s</code>.</p>
+<p>A substring <code>t</code> of a string <code>s</code> is called <strong>self-contained </strong>if <code>t != s</code> and for every character in <code>t</code>, it doesn&#39;t exist in the <em>rest</em> of <code>s</code>.</p>
 
 <p>Return the length of the <em>longest<strong> </strong>self-contained </em>substring of <code>s</code> if it exists, otherwise, return -1.</p>
 

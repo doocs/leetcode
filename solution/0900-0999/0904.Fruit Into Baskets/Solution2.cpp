@@ -7,7 +7,9 @@ public:
             ++cnt[x];
             if (cnt.size() > 2) {
                 int y = fruits[j++];
-                if (--cnt[y] == 0) cnt.erase(y);
+                if (--cnt[y] == 0) {
+                    cnt.erase(y);
+                }
             }
         }
         return n - j;

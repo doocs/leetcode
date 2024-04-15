@@ -1,13 +1,12 @@
 function longestOnes(nums: number[], k: number): number {
     const n = nums.length;
-    let l = 0;
-    for (const num of nums) {
-        if (num === 0) {
-            k--;
+    let [ans, cnt, j] = [0, 0, 0];
+    for (let i = 0; i < n; ++i) {
+        cnt += nums[i] ^ 1;
+        while (cnt > k) {
+            cnt -= nums[j++] ^ 1;
         }
-        if (k < 0 && nums[l++] === 0) {
-            k++;
-        }
+        ans = Math.max(ans, i - j + 1);
     }
-    return n - l;
+    return ans;
 }

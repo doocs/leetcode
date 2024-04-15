@@ -1,15 +1,17 @@
 class Solution {
 public:
     int maxConsecutiveAnswers(string answerKey, int k) {
-        return max(get('T', k, answerKey), get('F', k, answerKey));
-    }
-
-    int get(char c, int k, string& answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.size()) {
-            if (answerKey[r++] == c) --k;
-            if (k < 0 && answerKey[l++] == c) ++k;
-        }
-        return r - l;
+        auto f = [&](char c) {
+            int ans = 0, cnt = 0;
+            for (int i = 0, j = 0; i < answerKey.size(); ++i) {
+                cnt += answerKey[i] == c;
+                while (cnt > k) {
+                    cnt -= answerKey[j++] == c;
+                }
+                ans = max(ans, i - j + 1);
+            }
+            return ans;
+        };
+        return max(f('T'), f('F'));
     }
 };

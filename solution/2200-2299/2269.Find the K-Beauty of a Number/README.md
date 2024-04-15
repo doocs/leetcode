@@ -64,7 +64,11 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们可以将 $num$ 转换为字符串 $s$，然后枚举 $s$ 的所有长度为 $k$ 的子字符串，将其转换为整数 $t$，判断 $t$ 是否能整除 $num$，如果能则答案加一。
+
+时间复杂度 $O(\log num \times k)$，空间复杂度 $O(\log num + k)$。
 
 <!-- tabs:start -->
 
@@ -134,6 +138,126 @@ function divisorSubstrings(num: number, k: number): number {
         if (t !== 0 && num % t === 0) {
             ++ans;
         }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：滑动窗口
+
+我们可以维护一个长度为 $k$ 的滑动窗口，初始时窗口中包含 $num$ 的最低 $k$ 位数字，然后每次向右移动一位，更新窗口中的数字，判断窗口中的数字是否能整除 $num$，如果能则答案加一。
+
+时间复杂度 $O(\log num)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def divisorSubstrings(self, num: int, k: int) -> int:
+        x, p = 0, 1
+        t = num
+        for _ in range(k):
+            t, v = divmod(t, 10)
+            x = p * v + x
+            p *= 10
+        ans = int(x != 0 and num % x == 0)
+        p //= 10
+        while t:
+            x //= 10
+            t, v = divmod(t, 10)
+            x = p * v + x
+            ans += int(x != 0 and num % x == 0)
+        return ans
+```
+
+```java
+class Solution {
+    public int divisorSubstrings(int num, int k) {
+        int x = 0, p = 1;
+        int t = num;
+        for (; k > 0; --k) {
+            int v = t % 10;
+            t /= 10;
+            x = p * v + x;
+            p *= 10;
+        }
+        int ans = x != 0 && num % x == 0 ? 1 : 0;
+        for (p /= 10; t > 0; t /= 10) {
+            x /= 10;
+            int v = t % 10;
+            x = p * v + x;
+            ans += (x != 0 && num % x == 0 ? 1 : 0);
+        }
+        return ans;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int divisorSubstrings(int num, int k) {
+        int x = 0;
+        long long p = 1;
+        int t = num;
+        for (; k > 0; --k) {
+            int v = t % 10;
+            t /= 10;
+            x = p * v + x;
+            p *= 10;
+        }
+        int ans = x != 0 && num % x == 0 ? 1 : 0;
+        for (p /= 10; t > 0; t /= 10) {
+            x /= 10;
+            int v = t % 10;
+            x = p * v + x;
+            ans += (x != 0 && num % x == 0 ? 1 : 0);
+        }
+        return ans;
+    }
+};
+```
+
+```go
+func divisorSubstrings(num int, k int) (ans int) {
+	x, p, t := 0, 1, num
+	for ; k > 0; k-- {
+		v := t % 10
+		t /= 10
+		x = p*v + x
+		p *= 10
+	}
+	if x != 0 && num%x == 0 {
+		ans++
+	}
+	for p /= 10; t > 0; t /= 10 {
+		x /= 10
+		v := t % 10
+		x = p*v + x
+		if x != 0 && num%x == 0 {
+			ans++
+		}
+	}
+	return
+}
+```
+
+```ts
+function divisorSubstrings(num: number, k: number): number {
+    let [x, p, t] = [0, 1, num];
+    for (; k > 0; k--) {
+        const v = t % 10;
+        t = Math.floor(t / 10);
+        x = p * v + x;
+        p *= 10;
+    }
+    let ans = x !== 0 && num % x === 0 ? 1 : 0;
+    for (p = Math.floor(p / 10); t > 0; t = Math.floor(t / 10)) {
+        x = Math.floor(x / 10);
+        x = p * (t % 10) + x;
+        ans += x !== 0 && num % x === 0 ? 1 : 0;
     }
     return ans;
 }

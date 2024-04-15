@@ -2,7 +2,7 @@
 
 [English Version](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)
 
-<!-- tags:数组,二分查找,排序,堆（优先队列） -->
+<!-- tags:数组,双指针,二分查找,排序,堆（优先队列） -->
 
 ## 题目描述
 

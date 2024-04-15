@@ -49,7 +49,15 @@ Therefore, we return 0.
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We observe that what the problem actually asks for is the minimum number of white blocks in a sliding window of size $k$.
+
+Therefore, we only need to traverse the string $blocks$, use a variable $cnt$ to count the number of white blocks in the current window, and then use a variable $ans$ to maintain the minimum value.
+
+After the traversal ends, we can get the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $blocks$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -36,34 +36,31 @@
 
 ## Solutions
 
-### Solution 1: Two Pointers + Counter
+### Solution 1: Sliding Window + Hash Table
 
-We observe that all characters are lowercase letters, so there are at most $26$ different characters. Therefore, if $k > 26$ or $k > n$, it is impossible to find any substring of length $k$ without repeated characters, and we can directly return $0$.
+We maintain a sliding window of length $k$, and use a hash table $cnt$ to count the occurrences of each character in the window.
 
-Next, we use two pointers $j$ and $i$ to maintain a sliding window, where $j$ is the left endpoint of the sliding window, $i$ is the right endpoint of the sliding window, and a counter $cnt$ is used to count the number of occurrences of each character in the sliding window.
+First, we add the first $k$ characters of the string $s$ to the hash table $cnt$, and check whether the size of $cnt$ is equal to $k$. If it is, it means that all characters in the window are different, and the answer $ans$ is incremented by one.
 
-We traverse the string $s$, each time adding $s[i]$ to the sliding window, i.e., $cnt[s[i]]++$. If at this time $cnt[s[i]] > 1$ or $i - j + 1 > k$, then we loop to remove $s[j]$ from the sliding window, i.e., $cnt[s[j]]--$, and move $j$ to the right. If after moving $j$ to the right, the window size $i - j + 1$ is exactly equal to $k$, it means that the string in the sliding window is a substring that meets the requirements of the problem, and we increment the result by one.
+Next, we start to traverse the string $s$ from $k$. Each time we add $s[i]$ to the hash table $cnt$, and at the same time subtract $s[i-k]$ from the hash table $cnt$ by one. If $cnt[s[i-k]]$ is equal to $0$ after subtraction, we remove $s[i-k]$ from the hash table $cnt$. If the size of the hash table $cnt$ is equal to $k$ at this time, it means that all characters in the window are different, and the answer $ans$ is incremented by one.
 
-After the traversal ends, we can get the number of all substrings that meet the requirements of the problem.
+Finally, return the answer $ans$.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
+The time complexity is $O(n)$, and the space complexity is $O(\min(k, |\Sigma|))$, where $n$ is the length of the string $s$; and $\Sigma$ is the character set, in this problem the character set is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
-        n = len(s)
-        if k > n or k > 26:
-            return 0
-        ans = j = 0
-        cnt = Counter()
-        for i, c in enumerate(s):
-            cnt[c] += 1
-            while cnt[c] > 1 or i - j + 1 > k:
-                cnt[s[j]] -= 1
-                j += 1
-            ans += i - j + 1 == k
+        cnt = Counter(s[:k])
+        ans = int(len(cnt) == k)
+        for i in range(k, len(s)):
+            cnt[s[i]] += 1
+            cnt[s[i - k]] -= 1
+            if cnt[s[i - k]] == 0:
+                cnt.pop(s[i - k])
+            ans += int(len(cnt) == k)
         return ans
 ```
 
@@ -71,17 +68,20 @@ class Solution:
 class Solution {
     public int numKLenSubstrNoRepeats(String s, int k) {
         int n = s.length();
-        if (k > n || k > 26) {
+        if (n < k) {
             return 0;
         }
-        int[] cnt = new int[128];
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            ++cnt[s.charAt(i)];
-            while (cnt[s.charAt(i)] > 1 || i - j + 1 > k) {
-                cnt[s.charAt(j++)]--;
+        Map<Character, Integer> cnt = new HashMap<>(k);
+        for (int i = 0; i < k; ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
+        }
+        int ans = cnt.size() == k ? 1 : 0;
+        for (int i = k; i < n; ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
+            if (cnt.merge(s.charAt(i - k), -1, Integer::sum) == 0) {
+                cnt.remove(s.charAt(i - k));
             }
-            ans += i - j + 1 == k ? 1 : 0;
+            ans += cnt.size() == k ? 1 : 0;
         }
         return ans;
     }
@@ -93,17 +93,20 @@ class Solution {
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
         int n = s.size();
-        if (k > n || k > 26) {
+        if (n < k) {
             return 0;
         }
-        int cnt[128]{};
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
+        unordered_map<char, int> cnt;
+        for (int i = 0; i < k; ++i) {
             ++cnt[s[i]];
-            while (cnt[s[i]] > 1 || i - j + 1 > k) {
-                --cnt[s[j++]];
+        }
+        int ans = cnt.size() == k;
+        for (int i = k; i < n; ++i) {
+            ++cnt[s[i]];
+            if (--cnt[s[i - k]] == 0) {
+                cnt.erase(s[i - k]);
             }
-            ans += i - j + 1 == k;
+            ans += cnt.size() == k;
         }
         return ans;
     }
@@ -112,17 +115,24 @@ public:
 
 ```go
 func numKLenSubstrNoRepeats(s string, k int) (ans int) {
-	if k > len(s) || k > 26 {
-		return 0
+	n := len(s)
+	if n < k {
+		return
 	}
-	cnt := [128]int{}
-	for i, j := 0, 0; i < len(s); i++ {
+	cnt := map[byte]int{}
+	for i := 0; i < k; i++ {
 		cnt[s[i]]++
-		for cnt[s[i]] > 1 || i-j+1 > k {
-			cnt[s[j]]--
-			j++
+	}
+	if len(cnt) == k {
+		ans++
+	}
+	for i := k; i < n; i++ {
+		cnt[s[i]]++
+		cnt[s[i-k]]--
+		if cnt[s[i-k]] == 0 {
+			delete(cnt, s[i-k])
 		}
-		if i-j+1 == k {
+		if len(cnt) == k {
 			ans++
 		}
 	}
@@ -133,7 +143,7 @@ func numKLenSubstrNoRepeats(s string, k int) (ans int) {
 ```ts
 function numKLenSubstrNoRepeats(s: string, k: number): number {
     const n = s.length;
-    if (k > n) {
+    if (n < k) {
         return 0;
     }
     const cnt: Map<string, number> = new Map();
@@ -161,120 +171,34 @@ class Solution {
      * @return Integer
      */
     function numKLenSubstrNoRepeats($s, $k) {
-        $sum = ($k * ($k + 1)) / 2 - $k;
-        $cnt = $tmp = 0;
-        for ($i = 0; $i < strlen($s) - $k + 1; $i++) {
-            $str = substr($s, $i, $k);
-            for ($j = 0; $j < $k; $j++) {
-                $tmp += strpos($str, $str[$j]);
-            }
-            if ($tmp === $sum) {
-                $cnt++;
-            }
-            $tmp = 0;
-        }
-        return $cnt;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
-        n = len(s)
-        if k > n:
-            return 0
-        cnt = Counter(s[:k])
-        ans = int(len(cnt) == k)
-        for i in range(k, n):
-            cnt[s[i]] += 1
-            cnt[s[i - k]] -= 1
-            if cnt[s[i - k]] == 0:
-                cnt.pop(s[i - k])
-            ans += len(cnt) == k
-        return ans
-```
-
-```java
-class Solution {
-    public int numKLenSubstrNoRepeats(String s, int k) {
-        int n = s.length();
-        if (k > n) {
+        $n = strlen($s);
+        if ($n < $k) {
             return 0;
         }
-        Map<Character, Integer> cnt = new HashMap<>(k);
-        for (int i = 0; i < k; ++i) {
-            cnt.merge(s.charAt(i), 1, Integer::sum);
-        }
-        int ans = cnt.size() == k ? 1 : 0;
-        for (int i = k; i < n; ++i) {
-            cnt.merge(s.charAt(i), 1, Integer::sum);
-            if (cnt.merge(s.charAt(i - k), -1, Integer::sum) == 0) {
-                cnt.remove(s.charAt(i - k));
+        $cnt = [];
+        for ($i = 0; $i < $k; ++$i) {
+            if (!isset($cnt[$s[$i]])) {
+                $cnt[$s[$i]] = 1;
+            } else {
+                $cnt[$s[$i]]++;
             }
-            ans += cnt.size() == k ? 1 : 0;
         }
-        return ans;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    int numKLenSubstrNoRepeats(string s, int k) {
-        int n = s.size();
-        if (k > n) {
-            return 0;
-        }
-        unordered_map<char, int> cnt;
-        for (int i = 0; i < k; ++i) {
-            cnt[s[i]]++;
-        }
-        int ans = cnt.size() == k ? 1 : 0;
-        for (int i = k; i < n; ++i) {
-            cnt[s[i]]++;
-            cnt[s[i - k]]--;
-            if (cnt[s[i - k]] == 0) {
-                cnt.erase(s[i - k]);
+        $ans = count($cnt) == $k ? 1 : 0;
+        for ($i = $k; $i < $n; ++$i) {
+            if (!isset($cnt[$s[$i]])) {
+                $cnt[$s[$i]] = 1;
+            } else {
+                $cnt[$s[$i]]++;
             }
-            ans += cnt.size() == k ? 1 : 0;
+            if ($cnt[$s[$i - $k]] - 1 == 0) {
+                unset($cnt[$s[$i - $k]]);
+            } else {
+                $cnt[$s[$i - $k]]--;
+            }
+            $ans += count($cnt) == $k ? 1 : 0;
         }
-        return ans;
+        return $ans;
     }
-};
-```
-
-```go
-func numKLenSubstrNoRepeats(s string, k int) (ans int) {
-	n := len(s)
-	if k > n {
-		return 0
-	}
-	cnt := map[byte]int{}
-	for i := 0; i < k; i++ {
-		cnt[s[i]]++
-	}
-	if len(cnt) == k {
-		ans++
-	}
-	for i := k; i < n; i++ {
-		cnt[s[i]]++
-		cnt[s[i-k]]--
-		if cnt[s[i-k]] == 0 {
-			delete(cnt, s[i-k])
-		}
-		if len(cnt) == k {
-			ans++
-		}
-	}
-	return
 }
 ```
 

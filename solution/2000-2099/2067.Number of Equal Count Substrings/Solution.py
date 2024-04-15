@@ -1,20 +1,19 @@
 class Solution:
     def equalCountSubstrings(self, s: str, count: int) -> int:
         ans = 0
-        for x in range(1, 27):
-            m = count * x
-            if m > len(s):
+        for i in range(1, 27):
+            k = i * count
+            if k > len(s):
                 break
             cnt = Counter()
-            y = 0
-            for i, c in enumerate(s):
+            t = 0
+            for j, c in enumerate(s):
                 cnt[c] += 1
-                y += cnt[c] == count
-                y -= cnt[c] == count + 1
-                j = i - m
-                if j >= 0:
-                    cnt[s[j]] -= 1
-                    y += cnt[s[j]] == count
-                    y -= cnt[s[j]] == count - 1
-                ans += x == y
+                t += cnt[c] == count
+                t -= cnt[c] == count + 1
+                if j >= k:
+                    cnt[s[j - k]] -= 1
+                    t += cnt[s[j - k]] == count
+                    t -= cnt[s[j - k]] == count - 1
+                ans += i == t
         return ans

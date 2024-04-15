@@ -2,17 +2,20 @@ class Solution {
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
         int n = s.size();
-        if (k > n || k > 26) {
+        if (n < k) {
             return 0;
         }
-        int cnt[128]{};
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
+        unordered_map<char, int> cnt;
+        for (int i = 0; i < k; ++i) {
             ++cnt[s[i]];
-            while (cnt[s[i]] > 1 || i - j + 1 > k) {
-                --cnt[s[j++]];
+        }
+        int ans = cnt.size() == k;
+        for (int i = k; i < n; ++i) {
+            ++cnt[s[i]];
+            if (--cnt[s[i - k]] == 0) {
+                cnt.erase(s[i - k]);
             }
-            ans += i - j + 1 == k;
+            ans += cnt.size() == k;
         }
         return ans;
     }

@@ -1,19 +1,19 @@
 func maxConsecutiveAnswers(answerKey string, k int) int {
-	get := func(c byte, k int) int {
-		l, r := -1, -1
-		for r < len(answerKey)-1 {
-			r++
-			if answerKey[r] == c {
-				k--
+	f := func(c byte) int {
+		var ans, cnt, j int
+		for i := range answerKey {
+			if answerKey[i] == c {
+				cnt++
 			}
-			if k < 0 {
-				l++
-				if answerKey[l] == c {
-					k++
+			for cnt > k {
+				if answerKey[j] == c {
+					cnt--
 				}
+				j++
 			}
+			ans = max(ans, i-j+1)
 		}
-		return r - l
+		return ans
 	}
-	return max(get('T', k), get('F', k))
+	return max(f('T'), f('F'))
 }

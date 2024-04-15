@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README.md)
 
-<!-- tags:Array,Prefix Sum -->
+<!-- tags:Array,Hash Table,Prefix Sum -->
 
 ## Description
 

@@ -54,11 +54,184 @@
 
 ## 解法
 
-### 方法一：排序 + 滑动窗口
+### 方法一：排序 + 前缀和 + 二分查找
 
-我们可以先对数组 $nums$ 进行排序，然后枚举每个数作为最高频元素，用滑动窗口维护下标 $l$ 到 $r$ 的数都增加到 $nums[r]$ 的操作次数。如果操作次数大于 $k$，则窗口左端右移，直到操作次数小于等于 $k$。这样，我们就可以求出以每个数为最高频元素的最大频数。
+根据题目描述，我们可以得出三个结论：
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
+1. 经过若干次操作后，数组中最高频元素一定是原数组中的某个元素。为什么呢？我们不妨假设操作的若干个元素分别为 $a_1, a_2, \cdots, a_m$，其中最大值为 $a_m$，这几个元素都变成了同一个值 $x$，其中 $x \geq a_m$，那么也一定可以将这些元素全部变成 $a_m$，这样操作次数不会增加。
+1. 操作的若干个元素一定是排序后的数组的一段连续子数组。
+1. 如果一个频数 $m$ 满足条件，那么所有 $m' \lt m$ 也满足条件。这启发我们可以考虑使用二分查找，找到最大的满足条件的频数。
+
+因此，我们可以对数组 $nums$ 进行排序，然后计算排序后的数组的前缀和数组 $s$，其中 $s[i]$ 表示前 $i$ 个元素的和。
+
+接下来，我们定义二分查找的左边界 $l=1$，右边界 $r=n$。每一次二分查找，我们取中间值 $m=(l+r+1)/2$，然后检查是否存在一个长度为 $m$ 的连续子数组，使得这个子数组中的元素都可以变成数组中的某个元素，且操作次数不超过 $k$。如果存在这样的子数组，那么我们就可以将左边界 $l$ 更新为 $m$，否则将右边界 $r$ 更新为 $m-1$。
+
+最后返回左边界 $l$ 即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+```python
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        def check(m: int) -> bool:
+            for i in range(m, n + 1):
+                if nums[i - 1] * m - (s[i] - s[i - m]) <= k:
+                    return True
+            return False
+
+        n = len(nums)
+        nums.sort()
+        s = list(accumulate(nums, initial=0))
+        l, r = 1, n
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if check(mid):
+                l = mid
+            else:
+                r = mid - 1
+        return l
+```
+
+```java
+class Solution {
+    private int[] nums;
+    private long[] s;
+    private int k;
+
+    public int maxFrequency(int[] nums, int k) {
+        this.k = k;
+        this.nums = nums;
+        Arrays.sort(nums);
+        int n = nums.length;
+        s = new long[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + nums[i - 1];
+        }
+        int l = 1, r = n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+
+    private boolean check(int m) {
+        for (int i = m; i <= nums.length; ++i) {
+            if (1L * nums[i - 1] * m - (s[i] - s[i - m]) <= k) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    int maxFrequency(vector<int>& nums, int k) {
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        long long s[n + 1];
+        s[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + nums[i - 1];
+        }
+        int l = 1, r = n;
+        auto check = [&](int m) {
+            for (int i = m; i <= n; ++i) {
+                if (1LL * nums[i - 1] * m - (s[i] - s[i - m]) <= k) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+```go
+func maxFrequency(nums []int, k int) int {
+	n := len(nums)
+	sort.Ints(nums)
+	s := make([]int, n+1)
+	for i, x := range nums {
+		s[i+1] = s[i] + x
+	}
+	check := func(m int) bool {
+		for i := m; i <= n; i++ {
+			if nums[i-1]*m-(s[i]-s[i-m]) <= k {
+				return true
+			}
+		}
+		return false
+	}
+	l, r := 1, n
+	for l < r {
+		mid := (l + r + 1) >> 1
+		if check(mid) {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return l
+}
+```
+
+```ts
+function maxFrequency(nums: number[], k: number): number {
+    const n = nums.length;
+    nums.sort((a, b) => a - b);
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        s[i] = s[i - 1] + nums[i - 1];
+    }
+    let [l, r] = [1, n];
+    const check = (m: number): boolean => {
+        for (let i = m; i <= n; ++i) {
+            if (nums[i - 1] * m - (s[i] - s[i - m]) <= k) {
+                return true;
+            }
+        }
+        return false;
+    };
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
+}
+```
+
+<!-- tabs:end -->
+
+### 方法二：排序 + 双指针
+
+我们也可以使用双指针来维护一个滑动窗口，窗口内中的元素都可以变成窗口中的最大值，窗口内元素的操作次数为 $s$，且 $s \leq k$。
+
+初始时，我们将左指针 $j$ 指向数组的第一个元素，右指针 $i$ 也指向数组的第一个元素。接下来，我们每一次移动右指针 $i$，将窗口中的元素都变成 $nums[i]$，此时需要增加的操作次数为 $(nums[i] - nums[i - 1]) \times (i - j)$。如果这个操作次数超过了 $k$，那么我们就需要移动左指针 $j$，直到窗口内元素的操作次数不超过 $k$。然后，我们更新答案为窗口的长度的最大值。
+
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -66,15 +239,14 @@
 class Solution:
     def maxFrequency(self, nums: List[int], k: int) -> int:
         nums.sort()
-        l, r, n = 0, 1, len(nums)
-        ans, window = 1, 0
-        while r < n:
-            window += (nums[r] - nums[r - 1]) * (r - l)
-            while window > k:
-                window -= nums[r] - nums[l]
-                l += 1
-            r += 1
-            ans = max(ans, r - l)
+        ans = 1
+        s = j = 0
+        for i in range(1, len(nums)):
+            s += (nums[i] - nums[i - 1]) * (i - j)
+            while s > k:
+                s -= nums[i] - nums[j]
+                j += 1
+            ans = max(ans, i - j + 1)
         return ans
 ```
 
@@ -82,14 +254,14 @@ class Solution:
 class Solution {
     public int maxFrequency(int[] nums, int k) {
         Arrays.sort(nums);
-        int n = nums.length;
-        int ans = 1, window = 0;
-        for (int l = 0, r = 1; r < n; ++r) {
-            window += (nums[r] - nums[r - 1]) * (r - l);
-            while (window > k) {
-                window -= (nums[r] - nums[l++]);
+        int ans = 1;
+        long s = 0;
+        for (int i = 1, j = 0; i < nums.length; ++i) {
+            s += 1L * (nums[i] - nums[i - 1]) * (i - j);
+            while (s > k) {
+                s -= nums[i] - nums[j++];
             }
-            ans = Math.max(ans, r - l + 1);
+            ans = Math.max(ans, i - j + 1);
         }
         return ans;
     }
@@ -101,15 +273,14 @@ class Solution {
 public:
     int maxFrequency(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
-        int n = nums.size();
         int ans = 1;
-        long long window = 0;
-        for (int l = 0, r = 1; r < n; ++r) {
-            window += 1LL * (nums[r] - nums[r - 1]) * (r - l);
-            while (window > k) {
-                window -= (nums[r] - nums[l++]);
+        long long s = 0;
+        for (int i = 1, j = 0; i < nums.size(); ++i) {
+            s += 1LL * (nums[i] - nums[i - 1]) * (i - j);
+            while (s > k) {
+                s -= nums[i] - nums[j++];
             }
-            ans = max(ans, r - l + 1);
+            ans = max(ans, i - j + 1);
         }
         return ans;
     }
@@ -119,14 +290,14 @@ public:
 ```go
 func maxFrequency(nums []int, k int) int {
 	sort.Ints(nums)
-	ans, window := 1, 0
-	for l, r := 0, 1; r < len(nums); r++ {
-		window += (nums[r] - nums[r-1]) * (r - l)
-		for window > k {
-			window -= nums[r] - nums[l]
-			l++
+	ans := 1
+	s := 0
+	for i, j := 1, 0; i < len(nums); i++ {
+		s += (nums[i] - nums[i-1]) * (i - j)
+		for ; s > k; j++ {
+			s -= nums[i] - nums[j]
 		}
-		ans = max(ans, r-l+1)
+		ans = max(ans, i-j+1)
 	}
 	return ans
 }
@@ -136,249 +307,16 @@ func maxFrequency(nums []int, k int) int {
 function maxFrequency(nums: number[], k: number): number {
     nums.sort((a, b) => a - b);
     let ans = 1;
-    let window = 0;
-    const n = nums.length;
-    for (let l = 0, r = 1; r < n; ++r) {
-        window += (nums[r] - nums[r - 1]) * (r - l);
-        while (window > k) {
-            window -= nums[r] - nums[l++];
+    let [s, j] = [0, 0];
+    for (let i = 1; i < nums.length; ++i) {
+        s += (nums[i] - nums[i - 1]) * (i - j);
+        while (s > k) {
+            s -= nums[i] - nums[j++];
         }
-        ans = Math.max(ans, r - l + 1);
+        ans = Math.max(ans, i - j + 1);
     }
     return ans;
 }
-```
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
- */
-var maxFrequency = function (nums, k) {
-    nums.sort((a, b) => a - b);
-    let ans = 1;
-    let window = 0;
-    const n = nums.length;
-    for (let l = 0, r = 1; r < n; ++r) {
-        window += (nums[r] - nums[r - 1]) * (r - l);
-        while (window > k) {
-            window -= nums[r] - nums[l++];
-        }
-        ans = Math.max(ans, r - l + 1);
-    }
-    return ans;
-};
-```
-
-<!-- tabs:end -->
-
-### 方法二：排序 + 前缀和 + 二分查找
-
-我们观察发现，如果一个区间长度 $cnt$ 满足条件，那么区间长度小于 $cnt$ 的也一定满足条件。因此，我们可以使用二分查找的方法，找到最大的且满足条件的区间长度。
-
-在二分查找之前，我们需要对数组 $nums[r]$ 进行排序，然后计算出数组 $nums[r]$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums[r]$ 前 $i$ 个数的和。这样，我们就可以在 $O(1)$ 的时间内求出区间 $[i, j]$ 的和为 $s[j + 1] - s[i]$。
-
-接下来，我们定义二分的左边界 $left=1$, $right=n$。然后二分枚举区间长度 $mid$，如果当前区间长度 $mid$ 满足条件，那么我们就更新二分的左边界为 $mid$，否则更新二分的右边界为 $mid-1$。最后，我们返回二分的左边界即可。
-
-问题转换为如何判断区间长度为 $cnt$ 的区间是否满足条件。我们在 $[0,..n-cnt]$ 范围内枚举左端点 $i$，那么此时区间的右端点 $j = i + cnt - 1$。要把区间内的所有数都增加到 $nums[j]$，需要的操作次数为 $nums[j] \times cnt - (s[j + 1] - s[i])$。如果这个操作次数小于等于 $k$，那么说明区间长度为 $cnt$ 的区间满足条件，返回 `true`。否则枚举结束，返回 `false`。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def maxFrequency(self, nums: List[int], k: int) -> int:
-        def check(cnt):
-            for i in range(n + 1 - cnt):
-                j = i + cnt - 1
-                if nums[j] * cnt - (s[j + 1] - s[i]) <= k:
-                    return True
-            return False
-
-        nums.sort()
-        s = list(accumulate(nums, initial=0))
-        n = len(nums)
-        left, right = 1, n
-        while left < right:
-            mid = (left + right + 1) >> 1
-            if check(mid):
-                left = mid
-            else:
-                right = mid - 1
-        return left
-```
-
-```java
-class Solution {
-    private long[] s;
-    private int[] nums;
-    private int n;
-    private int k;
-
-    public int maxFrequency(int[] nums, int k) {
-        n = nums.length;
-        Arrays.sort(nums);
-        this.nums = nums;
-        this.s = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
-        this.k = k;
-        int left = 1, right = n;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (check(mid)) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left;
-    }
-
-    private boolean check(int cnt) {
-        for (int i = 0; i < n + 1 - cnt; ++i) {
-            int j = i + cnt - 1;
-            if (1L * nums[j] * cnt - (s[j + 1] - s[i]) <= k) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    int maxFrequency(vector<int>& nums, int k) {
-        sort(nums.begin(), nums.end());
-        int n = nums.size();
-        long long s[n + 1];
-        s[0] = 0;
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
-        int left = 1, right = n;
-        auto check = [&](int cnt) {
-            for (int i = 0; i < n + 1 - cnt; ++i) {
-                int j = i + cnt - 1;
-                if (1LL * nums[j] * cnt - (s[j + 1] - s[i]) <= k) {
-                    return true;
-                }
-            }
-            return false;
-        };
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(mid)) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left;
-    }
-};
-```
-
-```go
-func maxFrequency(nums []int, k int) int {
-	sort.Ints(nums)
-	n := len(nums)
-	s := make([]int, n+1)
-	for i, x := range nums {
-		s[i+1] = s[i] + x
-	}
-	left, right := 1, n
-	check := func(cnt int) bool {
-		for i := 0; i < n+1-cnt; i++ {
-			j := i + cnt - 1
-			if nums[j]*cnt-(s[j+1]-s[i]) <= k {
-				return true
-			}
-		}
-		return false
-	}
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if check(mid) {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
-}
-```
-
-```ts
-function maxFrequency(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    const s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
-    }
-    const check = (cnt: number) => {
-        for (let i = 0; i < n + 1 - cnt; ++i) {
-            const j = i + cnt - 1;
-            if (nums[j] * cnt - (s[j + 1] - s[i]) <= k) {
-                return true;
-            }
-        }
-        return false;
-    };
-    let left = 1;
-    let right = n;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-```js
-/**
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
- */
-var maxFrequency = function (nums, k) {
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    const s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
-    }
-    const check = cnt => {
-        for (let i = 0; i < n + 1 - cnt; ++i) {
-            const j = i + cnt - 1;
-            if (nums[j] * cnt - (s[j + 1] - s[i]) <= k) {
-                return true;
-            }
-        }
-        return false;
-    };
-    let left = 1;
-    let right = n;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-};
 ```
 
 <!-- tabs:end -->

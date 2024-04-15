@@ -54,9 +54,148 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Sliding Window + Reverse Traversal
+
+We can maintain a sliding window of length $k$ to calculate the hash value of the substring. Considering that if we traverse the string in the forward order, the calculation of the hash value involves division and modulo operations, which are relatively complicated to handle. Therefore, we can traverse the string in reverse order, so that when calculating the hash value, only multiplication and modulo operations are needed.
+
+First, we calculate the hash value of the last $k$ characters of the string, and then start to traverse the string in reverse order from the end of the string. Each time we calculate the hash value of the current window, if it is equal to the given hash value, we find a substring that meets the conditions and update the starting position of the answer string.
+
+Finally, return the answer string.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+```python
+class Solution:
+    def subStrHash(
+        self, s: str, power: int, modulo: int, k: int, hashValue: int
+    ) -> str:
+        h, n = 0, len(s)
+        p = 1
+        for i in range(n - 1, n - 1 - k, -1):
+            val = ord(s[i]) - ord("a") + 1
+            h = ((h * power) + val) % modulo
+            if i != n - k:
+                p = p * power % modulo
+        j = n - k
+        for i in range(n - 1 - k, -1, -1):
+            pre = ord(s[i + k]) - ord("a") + 1
+            cur = ord(s[i]) - ord("a") + 1
+            h = ((h - pre * p) * power + cur) % modulo
+            if h == hashValue:
+                j = i
+        return s[j : j + k]
+```
+
+```java
+class Solution {
+    public String subStrHash(String s, int power, int modulo, int k, int hashValue) {
+        long h = 0, p = 1;
+        int n = s.length();
+        for (int i = n - 1; i >= n - k; --i) {
+            int val = s.charAt(i) - 'a' + 1;
+            h = ((h * power % modulo) + val) % modulo;
+            if (i != n - k) {
+                p = p * power % modulo;
+            }
+        }
+        int j = n - k;
+        for (int i = n - k - 1; i >= 0; --i) {
+            int pre = s.charAt(i + k) - 'a' + 1;
+            int cur = s.charAt(i) - 'a' + 1;
+            h = ((h - pre * p % modulo + modulo) * power % modulo + cur) % modulo;
+            if (h == hashValue) {
+                j = i;
+            }
+        }
+        return s.substring(j, j + k);
+    }
+}
+```
+
+```cpp
+class Solution {
+public:
+    string subStrHash(string s, int power, int modulo, int k, int hashValue) {
+        long long h = 0, p = 1;
+        int n = s.size();
+        for (int i = n - 1; i >= n - k; --i) {
+            int val = s[i] - 'a' + 1;
+            h = ((h * power % modulo) + val) % modulo;
+            if (i != n - k) {
+                p = p * power % modulo;
+            }
+        }
+        int j = n - k;
+        for (int i = n - k - 1; i >= 0; --i) {
+            int pre = s[i + k] - 'a' + 1;
+            int cur = s[i] - 'a' + 1;
+            h = ((h - pre * p % modulo + modulo) * power % modulo + cur) % modulo;
+            if (h == hashValue) {
+                j = i;
+            }
+        }
+        return s.substr(j, k);
+    }
+};
+```
+
+```go
+func subStrHash(s string, power int, modulo int, k int, hashValue int) string {
+	h, p := 0, 1
+	n := len(s)
+	for i := n - 1; i >= n-k; i-- {
+		val := int(s[i] - 'a' + 1)
+		h = (h*power%modulo + val) % modulo
+		if i != n-k {
+			p = p * power % modulo
+		}
+	}
+	j := n - k
+	for i := n - k - 1; i >= 0; i-- {
+		pre := int(s[i+k] - 'a' + 1)
+		cur := int(s[i] - 'a' + 1)
+		h = ((h-pre*p%modulo+modulo)*power%modulo + cur) % modulo
+		if h == hashValue {
+			j = i
+		}
+	}
+	return s[j : j+k]
+}
+```
+
+```ts
+function subStrHash(
+    s: string,
+    power: number,
+    modulo: number,
+    k: number,
+    hashValue: number,
+): string {
+    let h: bigint = BigInt(0),
+        p: bigint = BigInt(1);
+    const n: number = s.length;
+    const mod = BigInt(modulo);
+    for (let i: number = n - 1; i >= n - k; --i) {
+        const val: bigint = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = (((h * BigInt(power)) % mod) + val) % mod;
+        if (i !== n - k) {
+            p = (p * BigInt(power)) % mod;
+        }
+    }
+    let j: number = n - k;
+    for (let i: number = n - k - 1; i >= 0; --i) {
+        const pre: bigint = BigInt(s.charCodeAt(i + k) - 'a'.charCodeAt(0) + 1);
+        const cur: bigint = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = ((((h - ((pre * p) % mod) + mod) * BigInt(power)) % mod) + cur) % mod;
+        if (Number(h) === hashValue) {
+            j = i;
+        }
+    }
+    return s.substring(j, j + k);
+}
+```
 
 ```js
 /**
@@ -68,34 +207,28 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
  * @return {string}
  */
 var subStrHash = function (s, power, modulo, k, hashValue) {
-    power = BigInt(power);
-    modulo = BigInt(modulo);
-    hashValue = BigInt(hashValue);
+    let h = BigInt(0),
+        p = BigInt(1);
     const n = s.length;
-    let pk = 1n;
-    let ac = 0n;
-    // 倒序滑动窗口
-    for (let i = n - 1; i > n - 1 - k; i--) {
-        ac = (ac * power + getCode(s, i)) % modulo;
-        pk = (pk * power) % modulo;
-    }
-    let ans = -1;
-    if (ac == hashValue) {
-        ans = n - k;
-    }
-    for (let i = n - 1 - k; i >= 0; i--) {
-        let pre = (getCode(s, i + k) * pk) % modulo;
-        ac = (ac * power + getCode(s, i) - pre + modulo) % modulo;
-        if (ac == hashValue) {
-            ans = i;
+    const mod = BigInt(modulo);
+    for (let i = n - 1; i >= n - k; --i) {
+        const val = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = (((h * BigInt(power)) % mod) + val) % mod;
+        if (i !== n - k) {
+            p = (p * BigInt(power)) % mod;
         }
     }
-    return ans == -1 ? '' : s.substring(ans, ans + k);
+    let j = n - k;
+    for (let i = n - k - 1; i >= 0; --i) {
+        const pre = BigInt(s.charCodeAt(i + k) - 'a'.charCodeAt(0) + 1);
+        const cur = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = ((((h - ((pre * p) % mod) + mod) * BigInt(power)) % mod) + cur) % mod;
+        if (Number(h) === hashValue) {
+            j = i;
+        }
+    }
+    return s.substring(j, j + k);
 };
-
-function getCode(str, index) {
-    return BigInt(str.charCodeAt(index) - 'a'.charCodeAt(0) + 1);
-}
 ```
 
 <!-- tabs:end -->

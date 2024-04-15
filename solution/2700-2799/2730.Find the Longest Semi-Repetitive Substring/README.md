@@ -55,7 +55,9 @@
 
 ### 方法一：双指针
 
-我们用双指针维护一个区间 $s[j..i]$，使得区间内最多只有一个相邻字符相等。我们用 $cnt$ 记录区间内相邻字符相等的个数，如果 $cnt \gt 1$，那么我们就需要移动左指针 $j$，直到 $cnt \le 1$。每一次，我们更新答案为 $ans = \max(ans, i - j + 1)$。
+我们用双指针维护一个区间 $s[j..i]$，使得区间内最多只有一个相邻字符相等，初始时 $j = 0$, $i = 1$。初始化答案 $ans = 1$。
+
+我们用 $cnt$ 记录区间内相邻字符相等的个数，如果 $cnt \gt 1$，那么我们就需要移动左指针 $j$，直到 $cnt \le 1$。每一次，我们更新答案为 $ans = \max(ans, i - j + 1)$。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
@@ -64,14 +66,12 @@
 ```python
 class Solution:
     def longestSemiRepetitiveSubstring(self, s: str) -> int:
-        n = len(s)
-        ans = cnt = j = 0
-        for i in range(n):
-            if i and s[i] == s[i - 1]:
-                cnt += 1
+        ans, n = 1, len(s)
+        cnt = j = 0
+        for i in range(1, n):
+            cnt += s[i] == s[i - 1]
             while cnt > 1:
-                if s[j] == s[j + 1]:
-                    cnt -= 1
+                cnt -= s[j] == s[j + 1]
                 j += 1
             ans = max(ans, i - j + 1)
         return ans
@@ -80,17 +80,11 @@ class Solution:
 ```java
 class Solution {
     public int longestSemiRepetitiveSubstring(String s) {
-        int n = s.length();
-        int ans = 0;
-        for (int i = 0, j = 0, cnt = 0; i < n; ++i) {
-            if (i > 0 && s.charAt(i) == s.charAt(i - 1)) {
-                ++cnt;
-            }
-            while (cnt > 1) {
-                if (s.charAt(j) == s.charAt(j + 1)) {
-                    --cnt;
-                }
-                ++j;
+        int ans = 1, n = s.length();
+        for (int i = 1, j = 0, cnt = 0; i < n; ++i) {
+            cnt += s.charAt(i) == s.charAt(i - 1) ? 1 : 0;
+            for (; cnt > 1; ++j) {
+                cnt -= s.charAt(j) == s.charAt(j + 1) ? 1 : 0;
             }
             ans = Math.max(ans, i - j + 1);
         }
@@ -103,17 +97,11 @@ class Solution {
 class Solution {
 public:
     int longestSemiRepetitiveSubstring(string s) {
-        int n = s.size();
-        int ans = 0;
-        for (int i = 0, j = 0, cnt = 0; i < n; ++i) {
-            if (i && s[i] == s[i - 1]) {
-                ++cnt;
-            }
-            while (cnt > 1) {
-                if (s[j] == s[j + 1]) {
-                    --cnt;
-                }
-                ++j;
+        int ans = 1, n = s.size();
+        for (int i = 1, j = 0, cnt = 0; i < n; ++i) {
+            cnt += s[i] == s[i - 1] ? 1 : 0;
+            for (; cnt > 1; ++j) {
+                cnt -= s[j] == s[j + 1] ? 1 : 0;
             }
             ans = max(ans, i - j + 1);
         }
@@ -124,16 +112,15 @@ public:
 
 ```go
 func longestSemiRepetitiveSubstring(s string) (ans int) {
-	n := len(s)
-	for i, j, cnt := 0, 0, 0; i < n; i++ {
-		if i > 0 && s[i] == s[i-1] {
+	ans = 1
+	for i, j, cnt := 1, 0, 0; i < len(s); i++ {
+		if s[i] == s[i-1] {
 			cnt++
 		}
-		for cnt > 1 {
+		for ; cnt > 1; j++ {
 			if s[j] == s[j+1] {
 				cnt--
 			}
-			j++
 		}
 		ans = max(ans, i-j+1)
 	}
@@ -144,16 +131,11 @@ func longestSemiRepetitiveSubstring(s string) (ans int) {
 ```ts
 function longestSemiRepetitiveSubstring(s: string): number {
     const n = s.length;
-    let ans = 0;
-    for (let i = 0, j = 0, cnt = 0; i < n; ++i) {
-        if (i > 0 && s[i] === s[i - 1]) {
-            ++cnt;
-        }
-        while (cnt > 1) {
-            if (s[j] === s[j + 1]) {
-                --cnt;
-            }
-            ++j;
+    let ans = 1;
+    for (let i = 1, j = 0, cnt = 0; i < n; ++i) {
+        cnt += s[i] === s[i - 1] ? 1 : 0;
+        for (; cnt > 1; ++j) {
+            cnt -= s[j] === s[j + 1] ? 1 : 0;
         }
         ans = Math.max(ans, i - j + 1);
     }

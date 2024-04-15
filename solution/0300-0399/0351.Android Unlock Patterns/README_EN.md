@@ -2,7 +2,7 @@
 
 [中文文档](/solution/0300-0399/0351.Android%20Unlock%20Patterns/README.md)
 
-<!-- tags:Dynamic Programming,Backtracking -->
+<!-- tags:Bit Manipulation,Dynamic Programming,Backtracking,Bitmask -->
 
 ## Description
 

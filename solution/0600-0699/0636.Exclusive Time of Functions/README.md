@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>有一个 <strong>单线程</strong> CPU 正在运行一个含有 <code>n</code> 道函数的程序。每道函数都有一个位于  <code>0</code> 和 <code>n-1</code> 之间的唯一标识符。</p>
+<p>有一个 <strong>单线程</strong> CPU 正在运行一个含有 <code>n</code> 道函数的程序。每道函数都有一个位于&nbsp; <code>0</code> 和 <code>n-1</code> 之间的唯一标识符。</p>
 
 <p>函数调用 <strong>存储在一个 <a href="https://baike.baidu.com/item/%E8%B0%83%E7%94%A8%E6%A0%88/22718047?fr=aladdin" target="_blank">调用栈</a> 上</strong> ：当一个函数调用开始时，它的标识符将会推入栈中。而当一个函数调用结束时，它的标识符将会从栈中弹出。标识符位于栈顶的函数是 <strong>当前正在执行的函数</strong> 。每当一个函数开始或者结束时，将会记录一条日志，包括函数标识符、是开始还是结束、以及相应的时间戳。</p>
 
@@ -17,7 +17,7 @@
 <p>函数的 <strong>独占时间</strong> 定义是在这个函数在程序所有函数调用中执行时间的总和，调用其他函数花费的时间不算该函数的独占时间。例如，如果一个函数被调用两次，一次调用执行 <code>2</code> 单位时间，另一次调用执行 <code>1</code> 单位时间，那么该函数的 <strong>独占时间</strong> 为 <code>2 + 1 = 3</code> 。</p>
 
 <p>以数组形式返回每个函数的 <strong>独占时间</strong> ，其中第 <code>i</code> 个下标对应的值表示标识符 <code>i</code> 的函数的独占时间。</p>
- 
+&nbsp;
 
 <p><strong>示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/images/diag1b.png" style="width: 550px; height: 239px;" />
@@ -58,32 +58,18 @@
 函数 0（初始调用）在时间戳 7 的起始恢复执行，执行 1 个单位时间，于时间戳 7 的末尾结束执行。
 所以函数 0 总共执行 2 + 4 + 1 = 7 个单位时间，函数 1 总共执行 1 个单位时间。 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 2, logs = ["0:start:0","0:start:2","0:end:5","1:start:7","1:end:7","0:end:8"]
-<strong>输出：</strong>[8,1]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 1, logs = ["0:start:0","0:end:0"]
-<strong>输出：</strong>[1]
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= n <= 100</code></li>
-	<li><code>1 <= logs.length <= 500</code></li>
-	<li><code>0 <= function_id < n</code></li>
-	<li><code>0 <= timestamp <= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 100</code></li>
+	<li><code>1 &lt;= logs.length &lt;= 500</code></li>
+	<li><code>0 &lt;= function_id &lt; n</code></li>
+	<li><code>0 &lt;= timestamp &lt;= 10<sup>9</sup></code></li>
 	<li>两个开始事件不会在同一时间戳发生</li>
 	<li>两个结束事件不会在同一时间戳发生</li>
-	<li>每道函数都有一个对应 <code>"start"</code> 日志的 <code>"end"</code> 日志</li>
+	<li>每道函数都有一个对应&nbsp;<code>"start"</code> 日志的 <code>"end"</code> 日志</li>
 </ul>
 
 ## 解法

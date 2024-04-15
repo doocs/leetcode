@@ -52,7 +52,7 @@
 <p><b>提示：</b></p>
 
 <ul>
-	<li><code>event1.length == event2.length == 2.</code></li>
+	<li><code>event1.length == event2.length == 2</code></li>
 	<li><code>event1[i].length == event2[i].length == 5</code></li>
 	<li><code>startTime<sub>1</sub> &lt;= endTime<sub>1</sub></code></li>
 	<li><code>startTime<sub>2</sub> &lt;= endTime<sub>2</sub></code></li>

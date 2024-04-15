@@ -1,0 +1,26 @@
+name: PR Labeled
+
+on:
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  issue-labeled:
+    permissions:
+      pull-requests: write # for actions-cool/issues-helper to update PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: supplement
+        if: github.event.label.name == 'supplement'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: "create-comment"
+          token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            @${{ github.event.pull_request.user.login }}, Please add the missing README_EN.md / README.md, please refer to the details for https://github.com/doocs/leetcode/pull/2590/files
+
+            @${{ github.event.pull_request.user.login }}, 请补充缺少的 README_EN.md / README.md, 详情参考 https://github.com/doocs/leetcode/pull/2590/files

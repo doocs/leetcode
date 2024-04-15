@@ -1,21 +1,20 @@
 class Solution {
     public int minOperations(int[] nums, int x) {
-        x = -x;
+        int s = -x;
         for (int v : nums) {
-            x += v;
+            s += v;
         }
         Map<Integer, Integer> vis = new HashMap<>();
         vis.put(0, -1);
+        int mx = -1, t = 0;
         int n = nums.length;
-        int ans = 1 << 30;
-        for (int i = 0, s = 0; i < n; ++i) {
-            s += nums[i];
-            vis.putIfAbsent(s, i);
-            if (vis.containsKey(s - x)) {
-                int j = vis.get(s - x);
-                ans = Math.min(ans, n - (i - j));
+        for (int i = 0; i < n; ++i) {
+            t += nums[i];
+            vis.putIfAbsent(t, i);
+            if (vis.containsKey(t - s)) {
+                mx = Math.max(mx, i - vis.get(t - s));
             }
         }
-        return ans == 1 << 30 ? -1 : ans;
+        return mx == -1 ? -1 : n - mx;
     }
 }

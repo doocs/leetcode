@@ -1,25 +1,18 @@
 func longestSubarray(nums []int, limit int) (ans int) {
-	tm := treemap.NewWithIntComparator()
-	j := 0
-	for i, v := range nums {
-		if x, ok := tm.Get(v); ok {
-			tm.Put(v, x.(int)+1)
+	merge := func(st *redblacktree.Tree[int, int], x, v int) {
+		c, _ := st.Get(x)
+		if c+v == 0 {
+			st.Remove(x)
 		} else {
-			tm.Put(v, 1)
+			st.Put(x, c+v)
 		}
-		for {
-			a, _ := tm.Min()
-			b, _ := tm.Max()
-			if b.(int)-a.(int) > limit {
-				if x, _ := tm.Get(nums[j]); x.(int) == 1 {
-					tm.Remove(nums[j])
-				} else {
-					tm.Put(nums[j], x.(int)-1)
-				}
-				j++
-			} else {
-				break
-			}
+	}
+	st := redblacktree.New[int, int]()
+	j := 0
+	for i, x := range nums {
+		merge(st, x, 1)
+		for ; st.Right().Key-st.Left().Key > limit; j++ {
+			merge(st, nums[j], -1)
 		}
 		ans = max(ans, i-j+1)
 	}
