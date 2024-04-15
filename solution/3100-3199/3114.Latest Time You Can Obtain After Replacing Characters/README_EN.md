@@ -47,24 +47,108 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate all times from large to small, where the hour $h$ ranges from $11$ to $0$, and the minute $m$ ranges from $59$ to $0$. For each time $t$, we check whether each digit of $t$ matches the corresponding digit in $s$ (if the corresponding digit in $s$ is not "?"). If it does, then we have found the answer and return $t$.
+
+The time complexity is $O(h \times m)$, where $h = 12$ and $m = 60$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def findLatestTime(self, s: str) -> str:
+        for h in range(11, -1, -1):
+            for m in range(59, -1, -1):
+                t = f"{h:02d}:{m:02d}"
+                if all(a == b for a, b in zip(s, t) if a != "?"):
+                    return t
 ```
 
 ```java
-
+class Solution {
+    public String findLatestTime(String s) {
+        for (int h = 11;; h--) {
+            for (int m = 59; m >= 0; m--) {
+                String t = String.format("%02d:%02d", h, m);
+                boolean ok = true;
+                for (int i = 0; i < s.length(); i++) {
+                    if (s.charAt(i) != '?' && s.charAt(i) != t.charAt(i)) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok) {
+                    return t;
+                }
+            }
+        }
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    string findLatestTime(string s) {
+        for (int h = 11;; h--) {
+            for (int m = 59; m >= 0; m--) {
+                char t[6];
+                sprintf(t, "%02d:%02d", h, m);
+                bool ok = true;
+                for (int i = 0; i < s.length(); i++) {
+                    if (s[i] != '?' && s[i] != t[i]) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok) {
+                    return t;
+                }
+            }
+        }
+    }
+};
 ```
 
 ```go
+func findLatestTime(s string) string {
+	for h := 11; ; h-- {
+		for m := 59; m >= 0; m-- {
+			t := fmt.Sprintf("%02d:%02d", h, m)
+			ok := true
+			for i := 0; i < len(s); i++ {
+				if s[i] != '?' && s[i] != t[i] {
+					ok = false
+					break
+				}
+			}
+			if ok {
+				return t
+			}
+		}
+	}
+}
+```
 
+```ts
+function findLatestTime(s: string): string {
+    for (let h = 11; ; h--) {
+        for (let m = 59; m >= 0; m--) {
+            const t: string = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+            let ok: boolean = true;
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] !== '?' && s[i] !== t[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                return t;
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
