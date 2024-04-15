@@ -179,7 +179,7 @@ class Solution {
         let n = S.count
         var compressed = ""
         var i = 0
-        
+
         while i < n {
             var j = i
             let currentChar = S[S.index(S.startIndex, offsetBy: i)]
@@ -189,7 +189,7 @@ class Solution {
             compressed += "\(currentChar)\(j - i)"
             i = j
         }
-        
+
         return compressed.count < n ? compressed : S
     }
 }
