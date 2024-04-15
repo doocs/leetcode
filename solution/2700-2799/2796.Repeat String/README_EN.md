@@ -43,6 +43,9 @@
 	<li><code>1 &lt;=&nbsp;str.length &lt;= 1000</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Let&#39;s assume, for the sake of simplifying analysis, that concatenating strings is a constant time operation <code>O(1)</code>. With this assumption in mind, can you write an algorithm with a runtime complexity of <code>O(log n)</code>?
+
 ## Solutions
 
 ### Solution 1

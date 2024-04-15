@@ -71,7 +71,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= edges.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>edges[i] == [u<sub>i</sub>, v<sub>i</sub>, length<sub>i</sub>]</code></li>
 	<li><code>0 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n - 1</code></li>

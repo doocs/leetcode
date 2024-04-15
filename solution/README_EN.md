@@ -3126,6 +3126,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3115  |  [Maximum Prime Difference](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README_EN.md)  |    |  Medium  |  Weekly Contest 393  |
 |  3116  |  [Kth Smallest Amount With Single Denomination Combination](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README_EN.md)  |    |  Hard  |  Weekly Contest 393  |
 |  3117  |  [Minimum Sum of Values by Dividing Array](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 393  |
+|  3118  |  [Friday Purchase III](/solution/3100-3199/3118.Friday%20Purchase%20III/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
