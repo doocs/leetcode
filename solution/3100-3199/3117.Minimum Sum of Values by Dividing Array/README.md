@@ -84,24 +84,198 @@
 
 ## 解法
 
-### 方法一
+### 方法一：记忆化搜索
+
+我们设计一个函数 $dfs(i, j, a)$，表示从第 $i$ 个元素开始，且当前已经划分了 $j$ 个子数组，且当前待划分的子数组的按位与结果为 $a$ 的情况下，所能得到的可能的最小子数组值之和。那么答案就是 $dfs(0, 0, -1)$。
+
+函数 $dfs(i, j, a)$ 的执行过程如下：
+
+-   如果 $n - i < m - j$，那么说明剩下的元素不足以划分出 $m - j$ 个子数组，返回 $+\infty$。
+-   如果 $j = m$，那么说明已经划分出了 $m$ 个子数组，此时判断 $i = n$ 是否成立，如果成立返回 $0$，否则返回 $+\infty$。
+-   否则，我们将 $a$ 与 $nums[i]$ 进行按位与操作，得到新的 $a$。如果 $a < andValues[j]$，那么说明当前待划分的子数组的按位与结果不满足要求，返回 $+\infty$。否则，我们有两种选择：
+    -   不划分当前元素，即 $dfs(i + 1, j, a)$。
+    -   划分当前元素，即 $dfs(i + 1, j + 1, -1) + nums[i]$。
+-   返回上述两种选择的最小值。
+
+为了避免重复计算，我们使用记忆化搜索的方法，将 $dfs(i, j, a)$ 的结果存储在一个哈希表中。
+
+时间复杂度 $O(n \times m \times \log M)$，空间复杂度 $O(n \times m \times \log M)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $andValues$ 的长度；而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \leq 10^5$。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def minimumValueSum(self, nums: List[int], andValues: List[int]) -> int:
+        @cache
+        def dfs(i: int, j: int, a: int) -> int:
+            if n - i < m - j:
+                return inf
+            if j == m:
+                return 0 if i == n else inf
+            a &= nums[i]
+            if a < andValues[j]:
+                return inf
+            ans = dfs(i + 1, j, a)
+            if a == andValues[j]:
+                ans = min(ans, dfs(i + 1, j + 1, -1) + nums[i])
+            return ans
 
+        n, m = len(nums), len(andValues)
+        ans = dfs(0, 0, -1)
+        return ans if ans < inf else -1
 ```
 
 ```java
+class Solution {
+    private int[] nums;
+    private int[] andValues;
+    private final int inf = 1 << 29;
+    private Map<Long, Integer> f = new HashMap<>();
 
+    public int minimumValueSum(int[] nums, int[] andValues) {
+        this.nums = nums;
+        this.andValues = andValues;
+        int ans = dfs(0, 0, -1);
+        return ans >= inf ? -1 : ans;
+    }
+
+    private int dfs(int i, int j, int a) {
+        if (nums.length - i < andValues.length - j) {
+            return inf;
+        }
+        if (j == andValues.length) {
+            return i == nums.length ? 0 : inf;
+        }
+        a &= nums[i];
+        if (a < andValues[j]) {
+            return inf;
+        }
+        long key = (long) i << 36 | (long) j << 32 | a;
+        if (f.containsKey(key)) {
+            return f.get(key);
+        }
+
+        int ans = dfs(i + 1, j, a);
+        if (a == andValues[j]) {
+            ans = Math.min(ans, dfs(i + 1, j + 1, -1) + nums[i]);
+        }
+        f.put(key, ans);
+        return ans;
+    }
+}
 ```
 
 ```cpp
+class Solution {
+public:
+    int minimumValueSum(vector<int>& nums, vector<int>& andValues) {
+        this->nums = nums;
+        this->andValues = andValues;
+        n = nums.size();
+        m = andValues.size();
+        int ans = dfs(0, 0, -1);
+        return ans >= inf ? -1 : ans;
+    }
 
+private:
+    vector<int> nums;
+    vector<int> andValues;
+    int n;
+    int m;
+    const int inf = 1 << 29;
+    unordered_map<long long, int> f;
+
+    int dfs(int i, int j, int a) {
+        if (n - i < m - j) {
+            return inf;
+        }
+        if (j == m) {
+            return i == n ? 0 : inf;
+        }
+        a &= nums[i];
+        if (a < andValues[j]) {
+            return inf;
+        }
+        long long key = (long long) i << 36 | (long long) j << 32 | a;
+        if (f.contains(key)) {
+            return f[key];
+        }
+        int ans = dfs(i + 1, j, a);
+        if (a == andValues[j]) {
+            ans = min(ans, dfs(i + 1, j + 1, -1) + nums[i]);
+        }
+        return f[key] = ans;
+    }
+};
 ```
 
 ```go
+func minimumValueSum(nums []int, andValues []int) int {
+	n, m := len(nums), len(andValues)
+	f := map[int]int{}
+	const inf int = 1 << 29
+	var dfs func(i, j, a int) int
+	dfs = func(i, j, a int) int {
+		if n-i < m-j {
+			return inf
+		}
+		if j == m {
+			if i == n {
+				return 0
+			}
+			return inf
+		}
+		a &= nums[i]
+		if a < andValues[j] {
+			return inf
+		}
+		key := i<<36 | j<<32 | a
+		if v, ok := f[key]; ok {
+			return v
+		}
+		ans := dfs(i+1, j, a)
+		if a == andValues[j] {
+			ans = min(ans, dfs(i+1, j+1, -1)+nums[i])
+		}
+		f[key] = ans
+		return ans
+	}
+	if ans := dfs(0, 0, -1); ans < inf {
+		return ans
+	}
+	return -1
+}
+```
 
+```ts
+function minimumValueSum(nums: number[], andValues: number[]): number {
+    const [n, m] = [nums.length, andValues.length];
+    const f: Map<bigint, number> = new Map();
+    const dfs = (i: number, j: number, a: number): number => {
+        if (n - i < m - j) {
+            return Infinity;
+        }
+        if (j === m) {
+            return i === n ? 0 : Infinity;
+        }
+        a &= nums[i];
+        if (a < andValues[j]) {
+            return Infinity;
+        }
+        const key = (BigInt(i) << 36n) | (BigInt(j) << 32n) | BigInt(a);
+        if (f.has(key)) {
+            return f.get(key)!;
+        }
+        let ans = dfs(i + 1, j, a);
+        if (a === andValues[j]) {
+            ans = Math.min(ans, dfs(i + 1, j + 1, -1) + nums[i]);
+        }
+        f.set(key, ans);
+        return ans;
+    };
+    const ans = dfs(0, 0, -1);
+    return ans >= Infinity ? -1 : ans;
+}
 ```
 
 <!-- tabs:end -->
