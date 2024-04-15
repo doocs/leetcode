@@ -81,24 +81,116 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Monotonic Stack
+
+We consider each element $x$ in the array $nums$ as the boundary element and the maximum value of the subarray.
+
+Each subarray of length $1$ meets the condition, and for subarrays with length greater than $1$, all elements in the subarray cannot be greater than the boundary element $x$. We can implement this with a monotonic stack.
+
+We maintain a stack that decreases monotonically from the bottom to the top. Each element in the monotonic stack is a pair $[x, cnt]$, representing the element $x$ and the count $cnt$ of subarrays with $x$ as the boundary element and the maximum value.
+
+We traverse the array $nums$ from left to right. For each element $x$, we continuously pop the top element of the stack until the stack is empty or the first element of the top element of the stack is greater than or equal to $x$. If the stack is empty, or the first element of the top element of the stack is greater than $x$, it means that we have encountered the first subarray with $x$ as the boundary element and the maximum value, and the length of this subarray is $1$, so we push $[x, 1]$ into the stack. If the first element of the top element of the stack is equal to $x$, it means that we have encountered a subarray with $x$ as the boundary element and the maximum value, and we add $1$ to the second element of the top element of the stack. Then, we add the second element of the top element of the stack to the answer.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def numberOfSubarrays(self, nums: List[int]) -> int:
+        stk = []
+        ans = 0
+        for x in nums:
+            while stk and stk[-1][0] < x:
+                stk.pop()
+            if not stk or stk[-1][0] > x:
+                stk.append([x, 1])
+            else:
+                stk[-1][1] += 1
+            ans += stk[-1][1]
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public long numberOfSubarrays(int[] nums) {
+        Deque<int[]> stk = new ArrayDeque<>();
+        long ans = 0;
+        for (int x : nums) {
+            while (!stk.isEmpty() && stk.peek()[0] < x) {
+                stk.pop();
+            }
+            if (stk.isEmpty() || stk.peek()[0] > x) {
+                stk.push(new int[] {x, 1});
+            } else {
+                stk.peek()[1]++;
+            }
+            ans += stk.peek()[1];
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long numberOfSubarrays(vector<int>& nums) {
+        vector<pair<int, int>> stk;
+        long long ans = 0;
+        for (int x : nums) {
+            while (!stk.empty() && stk.back().first < x) {
+                stk.pop_back();
+            }
+            if (stk.empty() || stk.back().first > x) {
+                stk.push_back(make_pair(x, 1));
+            } else {
+                stk.back().second++;
+            }
+            ans += stk.back().second;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func numberOfSubarrays(nums []int) (ans int64) {
+	stk := [][2]int{}
+	for _, x := range nums {
+		for len(stk) > 0 && stk[len(stk)-1][0] < x {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) == 0 || stk[len(stk)-1][0] > x {
+			stk = append(stk, [2]int{x, 1})
+		} else {
+			stk[len(stk)-1][1]++
+		}
+		ans += int64(stk[len(stk)-1][1])
+	}
+	return
+}
+```
 
+```ts
+function numberOfSubarrays(nums: number[]): number {
+    const stk: number[][] = [];
+    let ans = 0;
+    for (const x of nums) {
+        while (stk.length > 0 && stk.at(-1)![0] < x) {
+            stk.pop();
+        }
+        if (stk.length === 0 || stk.at(-1)![0] > x) {
+            stk.push([x, 1]);
+        } else {
+            stk.at(-1)![1]++;
+        }
+        ans += stk.at(-1)![1];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

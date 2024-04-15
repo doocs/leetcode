@@ -85,24 +85,116 @@
 
 ## 解法
 
-### 方法一
+### 方法一：单调栈
+
+我们考虑以数组 $nums$ 中的每个元素 $x$ 作为子数组的边界元素且最大值的情况。
+
+每个长度为 $1$ 的子数组都满足条件，而对于长度大于 $1$ 的子数组，子数组中的所有元素都不能大于边界元素 $x$，我们可以用单调栈来实现。
+
+我们维护一个从栈底到栈顶单调递减的栈，单调栈的每个元素是一个二元组 $[x, cnt]$，表示元素 $x$ 且以 $x$ 为边界元素且最大值的子数组的个数为 $cnt$。
+
+我们从左到右遍历数组 $nums$，对于每个元素 $x$，我们不断地将栈顶元素弹出，直到栈为空或者栈顶元素的第一个元素大于等于 $x$。如果栈为空，或者栈顶元素的第一个元素大于 $x$，说明当前遇到第一个边界元素为 $x$ 且最大值的子数组，该子数组的长度为 $1$，所以我们将 $[x, 1]$ 入栈。如果栈顶元素的第一个元素等于 $x$，说明当前遇到的边界元素为 $x$ 且最大值的子数组，我们将栈顶元素的第二个元素加 $1$。然后，我们将栈顶元素的第二个元素加到答案中。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def numberOfSubarrays(self, nums: List[int]) -> int:
+        stk = []
+        ans = 0
+        for x in nums:
+            while stk and stk[-1][0] < x:
+                stk.pop()
+            if not stk or stk[-1][0] > x:
+                stk.append([x, 1])
+            else:
+                stk[-1][1] += 1
+            ans += stk[-1][1]
+        return ans
 ```
 
 ```java
-
+class Solution {
+    public long numberOfSubarrays(int[] nums) {
+        Deque<int[]> stk = new ArrayDeque<>();
+        long ans = 0;
+        for (int x : nums) {
+            while (!stk.isEmpty() && stk.peek()[0] < x) {
+                stk.pop();
+            }
+            if (stk.isEmpty() || stk.peek()[0] > x) {
+                stk.push(new int[] {x, 1});
+            } else {
+                stk.peek()[1]++;
+            }
+            ans += stk.peek()[1];
+        }
+        return ans;
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    long long numberOfSubarrays(vector<int>& nums) {
+        vector<pair<int, int>> stk;
+        long long ans = 0;
+        for (int x : nums) {
+            while (!stk.empty() && stk.back().first < x) {
+                stk.pop_back();
+            }
+            if (stk.empty() || stk.back().first > x) {
+                stk.push_back(make_pair(x, 1));
+            } else {
+                stk.back().second++;
+            }
+            ans += stk.back().second;
+        }
+        return ans;
+    }
+};
 ```
 
 ```go
+func numberOfSubarrays(nums []int) (ans int64) {
+	stk := [][2]int{}
+	for _, x := range nums {
+		for len(stk) > 0 && stk[len(stk)-1][0] < x {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) == 0 || stk[len(stk)-1][0] > x {
+			stk = append(stk, [2]int{x, 1})
+		} else {
+			stk[len(stk)-1][1]++
+		}
+		ans += int64(stk[len(stk)-1][1])
+	}
+	return
+}
+```
 
+```ts
+function numberOfSubarrays(nums: number[]): number {
+    const stk: number[][] = [];
+    let ans = 0;
+    for (const x of nums) {
+        while (stk.length > 0 && stk.at(-1)![0] < x) {
+            stk.pop();
+        }
+        if (stk.length === 0 || stk.at(-1)![0] > x) {
+            stk.push([x, 1]);
+        } else {
+            stk.at(-1)![1]++;
+        }
+        ans += stk.at(-1)![1];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

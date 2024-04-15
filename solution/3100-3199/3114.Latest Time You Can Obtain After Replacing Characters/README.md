@@ -51,24 +51,108 @@
 
 ## 解法
 
-### 方法一
+### 方法一：枚举
+
+我们可以从大到小枚举所有的时间，其中小时 $h$ 从 $11$ 到 $0$，分钟 $m$ 从 $59$ 到 $0$。对于每一个时间 $t$，我们检查是否满足 $t$ 的每一位字符都与 $s$ 的对应位置字符相等（如果 $s$ 的对应位置字符不是 "?" 的话）。如果满足，那么我们就找到了答案，返回 $t$。
+
+时间复杂度 $O(h \times m)$，其中 $h = 12$, $m = 60$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
-
+class Solution:
+    def findLatestTime(self, s: str) -> str:
+        for h in range(11, -1, -1):
+            for m in range(59, -1, -1):
+                t = f"{h:02d}:{m:02d}"
+                if all(a == b for a, b in zip(s, t) if a != "?"):
+                    return t
 ```
 
 ```java
-
+class Solution {
+    public String findLatestTime(String s) {
+        for (int h = 11;; h--) {
+            for (int m = 59; m >= 0; m--) {
+                String t = String.format("%02d:%02d", h, m);
+                boolean ok = true;
+                for (int i = 0; i < s.length(); i++) {
+                    if (s.charAt(i) != '?' && s.charAt(i) != t.charAt(i)) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok) {
+                    return t;
+                }
+            }
+        }
+    }
+}
 ```
 
 ```cpp
-
+class Solution {
+public:
+    string findLatestTime(string s) {
+        for (int h = 11;; h--) {
+            for (int m = 59; m >= 0; m--) {
+                char t[6];
+                sprintf(t, "%02d:%02d", h, m);
+                bool ok = true;
+                for (int i = 0; i < s.length(); i++) {
+                    if (s[i] != '?' && s[i] != t[i]) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok) {
+                    return t;
+                }
+            }
+        }
+    }
+};
 ```
 
 ```go
+func findLatestTime(s string) string {
+	for h := 11; ; h-- {
+		for m := 59; m >= 0; m-- {
+			t := fmt.Sprintf("%02d:%02d", h, m)
+			ok := true
+			for i := 0; i < len(s); i++ {
+				if s[i] != '?' && s[i] != t[i] {
+					ok = false
+					break
+				}
+			}
+			if ok {
+				return t
+			}
+		}
+	}
+}
+```
 
+```ts
+function findLatestTime(s: string): string {
+    for (let h = 11; ; h--) {
+        for (let m = 59; m >= 0; m--) {
+            const t: string = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+            let ok: boolean = true;
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] !== '?' && s[i] !== t[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                return t;
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->

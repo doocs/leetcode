@@ -46,24 +46,137 @@
 
 ## 解法
 
-### 方法一
+### 方法一：遍历
+
+根据题目描述，我们需要找出第一个素数所在的下标 $i$，然后找出最后一个素数所在的下标 $j$，将 $j - i$ 作为答案返回即可。
+
+因此，我们可以从左到右遍历数组，找到第一个素数所在的下标 $i$，然后从右到左遍历数组，找到最后一个素数所在的下标 $j$，答案即为 $j - i$。
+
+时间复杂度 $O(n \times \sqrt{M})$，其中 $n$ 和 $M$ 分别是数组 $nums$ 的长度和数组中的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 ```python
+class Solution:
+    def maximumPrimeDifference(self, nums: List[int]) -> int:
+        def is_prime(x: int) -> bool:
+            if x < 2:
+                return False
+            return all(x % i for i in range(2, int(sqrt(x)) + 1))
 
+        for i, x in enumerate(nums):
+            if is_prime(x):
+                for j in range(len(nums) - 1, i - 1, -1):
+                    if is_prime(nums[j]):
+                        return j - i
 ```
 
 ```java
+class Solution {
+    public int maximumPrimeDifference(int[] nums) {
+        for (int i = 0;; ++i) {
+            if (isPrime(nums[i])) {
+                for (int j = nums.length - 1;; --j) {
+                    if (isPrime(nums[j])) {
+                        return j - i;
+                    }
+                }
+            }
+        }
+    }
 
+    private boolean isPrime(int x) {
+        if (x < 2) {
+            return false;
+        }
+        for (int v = 2; v * v <= x; ++v) {
+            if (x % v == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ```cpp
+class Solution {
+public:
+    int maximumPrimeDifference(vector<int>& nums) {
+        for (int i = 0;; ++i) {
+            if (isPrime(nums[i])) {
+                for (int j = nums.size() - 1;; --j) {
+                    if (isPrime(nums[j])) {
+                        return j - i;
+                    }
+                }
+            }
+        }
+    }
 
+    bool isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+        for (int i = 2; i <= n / i; ++i) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ```go
+func maximumPrimeDifference(nums []int) int {
+	for i := 0; ; i++ {
+		if isPrime(nums[i]) {
+			for j := len(nums) - 1; ; j-- {
+				if isPrime(nums[j]) {
+					return j - i
+				}
+			}
+		}
+	}
+}
 
+func isPrime(n int) bool {
+	if n < 2 {
+		return false
+	}
+	for i := 2; i <= n/i; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```ts
+function maximumPrimeDifference(nums: number[]): number {
+    const isPrime = (x: number): boolean => {
+        if (x < 2) {
+            return false;
+        }
+        for (let i = 2; i <= x / i; i++) {
+            if (x % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+    for (let i = 0; ; ++i) {
+        if (isPrime(nums[i])) {
+            for (let j = nums.length - 1; ; --j) {
+                if (isPrime(nums[j])) {
+                    return j - i;
+                }
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
