@@ -50,28 +50,27 @@ arr[i] = 1, arr[j] = arr[k] = 2 出现 12 次：
 
 ## 解法
 
-### 方法一：枚举
+### 方法一：计数 + 枚举
 
-我们先用一个长度为 $101$ 的数组 `cnt` 记录数组 `arr` 中每个元素出现的次数。
+我们可以用一个哈希表或者一个长度为 $101$ 的数组 $cnt$ 统计数组 $arr$ 中每个元素的出现次数。
 
-然后枚举数组 `arr` 中的元素作为三元组的第二个元素 $b$，先让 `cnt` 减去其中一个 $b$。接着从数组 `arr` 的开头开始枚举第一个元素 $a$，那么第三个元素 $c$ 为 $target - a - b$。如果 $c$ 的值在数组 `cnt` 的范围内，那么答案加上 $cnt[c]$。
+然后，我们枚举数组 $arr$ 中的每个元素 $arr[j]$，先将 $cnt[arr[j]]$ 减一，然后再枚举 $arr[j]$ 之前的元素 $arr[i]$，计算 $c = target - arr[i] - arr[j]$，如果 $c$ 在 $[0, 100]$ 的范围内，那么答案就加上 $cnt[c]$，最后返回答案。
 
-注意答案的取模操作。
+注意，这里的答案可能会超过 ${10}^9 + 7$，所以在每次加法操作后都要取模。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(C)$。其中 $n$ 为数组 `arr` 的长度；而 $C$ 为数组 `cnt` 的长度，本题中 $C = 101$。
+时间复杂度 $O(n^2)$，其中 $n$ 为数组 $arr$ 的长度。空间复杂度 $O(C)$，其中 $C$ 为数组 $arr$ 中元素的最大值，本题中 $C = 100$。
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def threeSumMulti(self, arr: List[int], target: int) -> int:
+        mod = 10**9 + 7
         cnt = Counter(arr)
         ans = 0
-        mod = 10**9 + 7
         for j, b in enumerate(arr):
             cnt[b] -= 1
-            for i in range(j):
-                a = arr[i]
+            for a in arr[:j]:
                 c = target - a - b
                 ans = (ans + cnt[c]) % mod
         return ans
@@ -79,26 +78,24 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int threeSumMulti(int[] arr, int target) {
+        final int mod = (int) 1e9 + 7;
         int[] cnt = new int[101];
-        for (int v : arr) {
-            ++cnt[v];
+        for (int x : arr) {
+            ++cnt[x];
         }
-        long ans = 0;
-        for (int j = 0; j < arr.length; ++j) {
-            int b = arr[j];
-            --cnt[b];
+        int n = arr.length;
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            --cnt[arr[j]];
             for (int i = 0; i < j; ++i) {
-                int a = arr[i];
-                int c = target - a - b;
-                if (c >= 0 && c <= 100) {
-                    ans = (ans + cnt[c]) % MOD;
+                int c = target - arr[i] - arr[j];
+                if (c >= 0 && c < cnt.length) {
+                    ans = (ans + cnt[c]) % mod;
                 }
             }
         }
-        return (int) ans;
+        return ans;
     }
 }
 ```
@@ -106,23 +103,20 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int threeSumMulti(vector<int>& arr, int target) {
-        int cnt[101] = {0};
-        for (int& v : arr) {
-            ++cnt[v];
+        const int mod = 1e9 + 7;
+        int cnt[101]{};
+        for (int x : arr) {
+            ++cnt[x];
         }
-        long ans = 0;
-        for (int j = 0; j < arr.size(); ++j) {
-            int b = arr[j];
-            --cnt[b];
+        int n = arr.size();
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            --cnt[arr[j]];
             for (int i = 0; i < j; ++i) {
-                int a = arr[i];
-                int c = target - a - b;
+                int c = target - arr[i] - arr[j];
                 if (c >= 0 && c <= 100) {
-                    ans += cnt[c];
-                    ans %= mod;
+                    ans = (ans + cnt[c]) % mod;
                 }
             }
         }
@@ -132,25 +126,43 @@ public:
 ```
 
 ```go
-func threeSumMulti(arr []int, target int) int {
+func threeSumMulti(arr []int, target int) (ans int) {
 	const mod int = 1e9 + 7
 	cnt := [101]int{}
-	for _, v := range arr {
-		cnt[v]++
+	for _, x := range arr {
+		cnt[x]++
 	}
-	ans := 0
 	for j, b := range arr {
 		cnt[b]--
-		for i := 0; i < j; i++ {
-			a := arr[i]
-			c := target - a - b
-			if c >= 0 && c <= 100 {
-				ans += cnt[c]
-				ans %= mod
+		for _, a := range arr[:j] {
+			if c := target - a - b; c >= 0 && c < len(cnt) {
+				ans = (ans + cnt[c]) % mod
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+```ts
+function threeSumMulti(arr: number[], target: number): number {
+    const mod = 10 ** 9 + 7;
+    const cnt: number[] = Array(101).fill(0);
+    for (const x of arr) {
+        ++cnt[x];
+    }
+    let ans = 0;
+    const n = arr.length;
+    for (let j = 0; j < n; ++j) {
+        --cnt[arr[j]];
+        for (let i = 0; i < j; ++i) {
+            const c = target - arr[i] - arr[j];
+            if (c >= 0 && c < cnt.length) {
+                ans = (ans + cnt[c]) % mod;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
