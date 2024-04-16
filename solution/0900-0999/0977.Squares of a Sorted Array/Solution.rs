@@ -1,20 +1,19 @@
 impl Solution {
     pub fn sorted_squares(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
-        let mut l = 0;
-        let mut r = n - 1;
-        let mut res = vec![0; n];
-        for i in (0..n).rev() {
-            let a = nums[l] * nums[l];
-            let b = nums[r] * nums[r];
-            if a < b {
-                res[i] = b;
-                r -= 1;
+        let mut ans = vec![0; n];
+        let (mut i, mut j) = (0, n - 1);
+        for k in (0..n).rev() {
+            let a = nums[i] * nums[i];
+            let b = nums[j] * nums[j];
+            if a > b {
+                ans[k] = a;
+                i += 1;
             } else {
-                res[i] = a;
-                l += 1;
+                ans[k] = b;
+                j -= 1;
             }
         }
-        res
+        ans
     }
 }
