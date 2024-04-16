@@ -1,6 +1,31 @@
+import json
 import os
 import re
+import requests
 from collections import defaultdict
+
+
+def load_ratings():
+    res = {}
+    if os.path.exists("rating.json"):
+        with open("rating.json", "r", encoding="utf-8") as f:
+            ratings = json.loads(f.read())
+            for item in ratings:
+                res[item["ID"]] = item
+
+    url = "https://zerotrac.github.io/leetcode_problem_rating/data.json"
+    try:
+        resp = requests.get(url)
+        if resp.status_code == 200:
+            ratings = resp.json()
+            for item in ratings:
+                res[item["ID"]] = item
+    except Exception as e:
+        print(f"Failed to fetch ratings: {e}")
+    return res
+
+
+rating_dict = load_ratings()
 
 
 for contest_file in ["docs/contest.md", "docs-en/contest.md"]:
@@ -82,7 +107,7 @@ for dir in dirs:
     for p in sorted(get_paths(dir, m)):
         # example:
         # p = 'solution/0000-0099/0003.Longest Substring Without Repeating Characters/README.md'
-        edit_url = f'https://github.com/doocs/leetcode/edit/main/{p}'
+        edit_url = f"https://github.com/doocs/leetcode/edit/main/{p}"
         with open(p, "r", encoding="utf-8") as f:
             content = f.read()
 
@@ -165,7 +190,10 @@ for dir in dirs:
             comments: true
             ---
             """
-            content = f"---\ncomments: true\nedit_url: {edit_url}\n{tag_headers}---\n\n" + content
+            content = (
+                f"---\ncomments: true\nedit_url: {edit_url}\n{tag_headers}---\n\n"
+                + content
+            )
             with open(new_path, "w", encoding="utf-8") as f:
                 f.write(content)
 

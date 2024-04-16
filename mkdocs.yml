@@ -87,6 +87,7 @@ hooks:
   - hooks/committer.py
 
 markdown_extensions:
+  - admonition
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
