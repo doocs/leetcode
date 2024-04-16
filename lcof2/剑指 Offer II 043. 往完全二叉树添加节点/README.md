@@ -49,7 +49,15 @@
 
 ## 解法
 
-### 方法一
+### 方法一：BFS
+
+我们可以使用一个数组 $tree$ 来存储完全二叉树的所有节点。在初始化时，我们使用一个队列 $q$ 来层序遍历给定的树，并将所有节点存储到数组 $tree$ 中。
+
+在插入节点时，我们可以通过数组 $tree$ 来找到新节点的父节点 $p$。然后我们创建一个新节点 $node$，将其插入到数组 $tree$ 中，并将 $node$ 作为 $p$ 的左子节点或右子节点。最后返回 $p$ 的值。
+
+在获取根节点时，我们直接返回数组 $tree$ 的第一个元素。
+
+时间复杂度方面，初始化时需要 $O(n)$ 的时间，插入节点和获取根节点的时间复杂度均为 $O(1)$。空间复杂度为 $O(n)$。其中 $n$ 为树中节点的数量。
 
 <!-- tabs:start -->
 
@@ -61,7 +69,8 @@
 #         self.left = left
 #         self.right = right
 class CBTInserter:
-    def __init__(self, root: TreeNode):
+
+    def __init__(self, root: Optional[TreeNode]):
         self.tree = []
         q = deque([root])
         while q:
@@ -73,24 +82,23 @@ class CBTInserter:
                 if node.right:
                     q.append(node.right)
 
-    def insert(self, v: int) -> int:
-        pid = (len(self.tree) - 1) >> 1
-        node = TreeNode(v)
+    def insert(self, val: int) -> int:
+        p = self.tree[(len(self.tree) - 1) // 2]
+        node = TreeNode(val)
         self.tree.append(node)
-        p = self.tree[pid]
         if p.left is None:
             p.left = node
         else:
             p.right = node
         return p.val
 
-    def get_root(self) -> TreeNode:
+    def get_root(self) -> Optional[TreeNode]:
         return self.tree[0]
 
 
 # Your CBTInserter object will be instantiated and called as such:
 # obj = CBTInserter(root)
-# param_1 = obj.insert(v)
+# param_1 = obj.insert(val)
 # param_2 = obj.get_root()
 ```
 
@@ -111,29 +119,29 @@ class CBTInserter:
  * }
  */
 class CBTInserter {
-    private List<TreeNode> tree;
+    private List<TreeNode> tree = new ArrayList<>();
 
     public CBTInserter(TreeNode root) {
-        tree = new ArrayList<>();
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            TreeNode node = q.pollFirst();
-            tree.add(node);
-            if (node.left != null) {
-                q.offer(node.left);
-            }
-            if (node.right != null) {
-                q.offer(node.right);
+            for (int i = q.size(); i > 0; --i) {
+                TreeNode node = q.poll();
+                tree.add(node);
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
             }
         }
     }
 
-    public int insert(int v) {
-        int pid = (tree.size() - 1) >> 1;
-        TreeNode node = new TreeNode(v);
+    public int insert(int val) {
+        TreeNode p = tree.get((tree.size() - 1) / 2);
+        TreeNode node = new TreeNode(val);
         tree.add(node);
-        TreeNode p = tree.get(pid);
         if (p.left == null) {
             p.left = node;
         } else {
@@ -150,7 +158,7 @@ class CBTInserter {
 /**
  * Your CBTInserter object will be instantiated and called as such:
  * CBTInserter obj = new CBTInserter(root);
- * int param_1 = obj.insert(v);
+ * int param_1 = obj.insert(val);
  * TreeNode param_2 = obj.get_root();
  */
 ```
@@ -169,40 +177,47 @@ class CBTInserter {
  */
 class CBTInserter {
 public:
-    vector<TreeNode*> tree;
-
     CBTInserter(TreeNode* root) {
         queue<TreeNode*> q{{root}};
-        while (!q.empty()) {
-            auto node = q.front();
-            q.pop();
-            tree.push_back(node);
-            if (node->left) q.push(node->left);
-            if (node->right) q.push(node->right);
+        while (q.size()) {
+            for (int i = q.size(); i; --i) {
+                auto node = q.front();
+                q.pop();
+                tree.push_back(node);
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
+            }
         }
     }
 
-    int insert(int v) {
-        int pid = tree.size() - 1 >> 1;
-        TreeNode* node = new TreeNode(v);
+    int insert(int val) {
+        auto p = tree[(tree.size() - 1) / 2];
+        auto node = new TreeNode(val);
         tree.push_back(node);
-        TreeNode* p = tree[pid];
-        if (!p->left)
+        if (!p->left) {
             p->left = node;
-        else
+        } else {
             p->right = node;
+        }
         return p->val;
     }
 
     TreeNode* get_root() {
         return tree[0];
     }
+
+private:
+    vector<TreeNode*> tree;
 };
 
 /**
  * Your CBTInserter object will be instantiated and called as such:
  * CBTInserter* obj = new CBTInserter(root);
- * int param_1 = obj->insert(v);
+ * int param_1 = obj->insert(val);
  * TreeNode* param_2 = obj->get_root();
  */
 ```
@@ -224,24 +239,25 @@ func Constructor(root *TreeNode) CBTInserter {
 	q := []*TreeNode{root}
 	tree := []*TreeNode{}
 	for len(q) > 0 {
-		node := q[0]
-		tree = append(tree, node)
-		q = q[1:]
-		if node.Left != nil {
-			q = append(q, node.Left)
-		}
-		if node.Right != nil {
-			q = append(q, node.Right)
+		for i := len(q); i > 0; i-- {
+			node := q[0]
+			q = q[1:]
+			tree = append(tree, node)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
 		}
 	}
 	return CBTInserter{tree}
 }
 
-func (this *CBTInserter) Insert(v int) int {
-	pid := (len(this.tree) - 1) >> 1
-	node := &TreeNode{Val: v}
+func (this *CBTInserter) Insert(val int) int {
+	p := this.tree[(len(this.tree)-1)/2]
+	node := &TreeNode{val, nil, nil}
 	this.tree = append(this.tree, node)
-	p := this.tree[pid]
 	if p.Left == nil {
 		p.Left = node
 	} else {
@@ -257,8 +273,67 @@ func (this *CBTInserter) Get_root() *TreeNode {
 /**
  * Your CBTInserter object will be instantiated and called as such:
  * obj := Constructor(root);
- * param_1 := obj.Insert(v);
+ * param_1 := obj.Insert(val);
  * param_2 := obj.Get_root();
+ */
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class CBTInserter {
+    private tree: TreeNode[] = [];
+
+    constructor(root: TreeNode | null) {
+        if (root === null) {
+            return;
+        }
+        const q: TreeNode[] = [root];
+        while (q.length > 0) {
+            const t: TreeNode[] = [];
+            for (const node of q) {
+                this.tree.push(node);
+                node.left !== null && t.push(node.left);
+                node.right !== null && t.push(node.right);
+            }
+            q.splice(0, q.length, ...t);
+        }
+    }
+
+    insert(val: number): number {
+        const p = this.tree[(this.tree.length - 1) >> 1];
+        const node = new TreeNode(val);
+        this.tree.push(node);
+        if (p.left === null) {
+            p.left = node;
+        } else {
+            p.right = node;
+        }
+        return p.val;
+    }
+
+    get_root(): TreeNode | null {
+        return this.tree[0];
+    }
+}
+
+/**
+ * Your CBTInserter object will be instantiated and called as such:
+ * var obj = new CBTInserter(root)
+ * var param_1 = obj.insert(val)
+ * var param_2 = obj.get_root()
  */
 ```
 
@@ -276,29 +351,30 @@ func (this *CBTInserter) Get_root() *TreeNode {
  */
 var CBTInserter = function (root) {
     this.tree = [];
+    if (root === null) {
+        return;
+    }
     const q = [root];
-    while (q.length) {
-        const node = q.shift();
-        this.tree.push(node);
-        if (node.left) {
-            q.push(node.left);
+    while (q.length > 0) {
+        const t = [];
+        for (const node of q) {
+            this.tree.push(node);
+            node.left !== null && t.push(node.left);
+            node.right !== null && t.push(node.right);
         }
-        if (node.right) {
-            q.push(node.right);
-        }
+        q.splice(0, q.length, ...t);
     }
 };
 
 /**
- * @param {number} v
+ * @param {number} val
  * @return {number}
  */
-CBTInserter.prototype.insert = function (v) {
-    const pid = (this.tree.length - 1) >> 1;
-    const node = new TreeNode(v);
+CBTInserter.prototype.insert = function (val) {
+    const p = this.tree[(this.tree.length - 1) >> 1];
+    const node = new TreeNode(val);
     this.tree.push(node);
-    const p = this.tree[pid];
-    if (!p.left) {
+    if (p.left === null) {
         p.left = node;
     } else {
         p.right = node;
@@ -316,7 +392,7 @@ CBTInserter.prototype.get_root = function () {
 /**
  * Your CBTInserter object will be instantiated and called as such:
  * var obj = new CBTInserter(root)
- * var param_1 = obj.insert(v)
+ * var param_1 = obj.insert(val)
  * var param_2 = obj.get_root()
  */
 ```

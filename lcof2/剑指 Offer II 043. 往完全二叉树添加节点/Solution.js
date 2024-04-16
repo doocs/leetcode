@@ -11,29 +11,30 @@
  */
 var CBTInserter = function (root) {
     this.tree = [];
+    if (root === null) {
+        return;
+    }
     const q = [root];
-    while (q.length) {
-        const node = q.shift();
-        this.tree.push(node);
-        if (node.left) {
-            q.push(node.left);
+    while (q.length > 0) {
+        const t = [];
+        for (const node of q) {
+            this.tree.push(node);
+            node.left !== null && t.push(node.left);
+            node.right !== null && t.push(node.right);
         }
-        if (node.right) {
-            q.push(node.right);
-        }
+        q.splice(0, q.length, ...t);
     }
 };
 
 /**
- * @param {number} v
+ * @param {number} val
  * @return {number}
  */
-CBTInserter.prototype.insert = function (v) {
-    const pid = (this.tree.length - 1) >> 1;
-    const node = new TreeNode(v);
+CBTInserter.prototype.insert = function (val) {
+    const p = this.tree[(this.tree.length - 1) >> 1];
+    const node = new TreeNode(val);
     this.tree.push(node);
-    const p = this.tree[pid];
-    if (!p.left) {
+    if (p.left === null) {
         p.left = node;
     } else {
         p.right = node;
@@ -51,6 +52,6 @@ CBTInserter.prototype.get_root = function () {
 /**
  * Your CBTInserter object will be instantiated and called as such:
  * var obj = new CBTInserter(root)
- * var param_1 = obj.insert(v)
+ * var param_1 = obj.insert(val)
  * var param_2 = obj.get_root()
  */
