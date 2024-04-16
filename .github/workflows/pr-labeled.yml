@@ -24,3 +24,15 @@ jobs:
             @${{ github.event.pull_request.user.login }}, Please add the missing README_EN.md / README.md, please refer to the details for https://github.com/doocs/leetcode/pull/2590/files
 
             @${{ github.event.pull_request.user.login }}, 请补充缺少的 README_EN.md / README.md, 详情参考 https://github.com/doocs/leetcode/pull/2590/files
+      
+      - name: invalid
+        if: github.event.label.name == 'invalid'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: "create-comment"
+          token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            @${{ github.event.pull_request.user.login }}, Please refer to the project specifications provided by bot to check your PR. For PRs that have not been modified for a long time, we will close them and you are welcome to resubmit or correct them.
+
+            @${{ github.event.pull_request.user.login }}, 请参考 bot 提供的项目规范检查你的 PR，我们会关闭长时间未修改的 PR，欢迎你重新提交或更正。

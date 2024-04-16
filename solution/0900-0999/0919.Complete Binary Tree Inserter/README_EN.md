@@ -49,7 +49,15 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 
 ## Solutions
 
-### Solution 1
+### Solution 1: BFS
+
+We can use an array $tree$ to store all nodes of the complete binary tree. During initialization, we use a queue $q$ to perform level-order traversal of the given tree and store all nodes into the array $tree$.
+
+When inserting a node, we can find the parent node $p$ of the new node through the array $tree$. Then we create a new node $node$, insert it into the array $tree$, and make $node$ as the left child or right child of $p$. Finally, we return the value of $p$.
+
+When getting the root node, we directly return the first element of the array $tree$.
+
+In terms of time complexity, it takes $O(n)$ time for initialization, and the time complexity for inserting a node and getting the root node are both $O(1)$. The space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -61,7 +69,8 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 #         self.left = left
 #         self.right = right
 class CBTInserter:
-    def __init__(self, root: TreeNode):
+
+    def __init__(self, root: Optional[TreeNode]):
         self.tree = []
         q = deque([root])
         while q:
@@ -74,17 +83,16 @@ class CBTInserter:
                     q.append(node.right)
 
     def insert(self, val: int) -> int:
-        pid = (len(self.tree) - 1) >> 1
+        p = self.tree[(len(self.tree) - 1) // 2]
         node = TreeNode(val)
         self.tree.append(node)
-        p = self.tree[pid]
         if p.left is None:
             p.left = node
         else:
             p.right = node
         return p.val
 
-    def get_root(self) -> TreeNode:
+    def get_root(self) -> Optional[TreeNode]:
         return self.tree[0]
 
 
@@ -111,29 +119,29 @@ class CBTInserter:
  * }
  */
 class CBTInserter {
-    private List<TreeNode> tree;
+    private List<TreeNode> tree = new ArrayList<>();
 
     public CBTInserter(TreeNode root) {
-        tree = new ArrayList<>();
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            TreeNode node = q.pollFirst();
-            tree.add(node);
-            if (node.left != null) {
-                q.offer(node.left);
-            }
-            if (node.right != null) {
-                q.offer(node.right);
+            for (int i = q.size(); i > 0; --i) {
+                TreeNode node = q.poll();
+                tree.add(node);
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
             }
         }
     }
 
     public int insert(int val) {
-        int pid = (tree.size() - 1) >> 1;
+        TreeNode p = tree.get((tree.size() - 1) / 2);
         TreeNode node = new TreeNode(val);
         tree.add(node);
-        TreeNode p = tree.get(pid);
         if (p.left == null) {
             p.left = node;
         } else {
@@ -169,34 +177,41 @@ class CBTInserter {
  */
 class CBTInserter {
 public:
-    vector<TreeNode*> tree;
-
     CBTInserter(TreeNode* root) {
         queue<TreeNode*> q{{root}};
-        while (!q.empty()) {
-            auto node = q.front();
-            q.pop();
-            tree.push_back(node);
-            if (node->left) q.push(node->left);
-            if (node->right) q.push(node->right);
+        while (q.size()) {
+            for (int i = q.size(); i; --i) {
+                auto node = q.front();
+                q.pop();
+                tree.push_back(node);
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
+            }
         }
     }
 
     int insert(int val) {
-        int pid = tree.size() - 1 >> 1;
-        TreeNode* node = new TreeNode(val);
+        auto p = tree[(tree.size() - 1) / 2];
+        auto node = new TreeNode(val);
         tree.push_back(node);
-        TreeNode* p = tree[pid];
-        if (!p->left)
+        if (!p->left) {
             p->left = node;
-        else
+        } else {
             p->right = node;
+        }
         return p->val;
     }
 
     TreeNode* get_root() {
         return tree[0];
     }
+
+private:
+    vector<TreeNode*> tree;
 };
 
 /**
@@ -224,24 +239,25 @@ func Constructor(root *TreeNode) CBTInserter {
 	q := []*TreeNode{root}
 	tree := []*TreeNode{}
 	for len(q) > 0 {
-		node := q[0]
-		tree = append(tree, node)
-		q = q[1:]
-		if node.Left != nil {
-			q = append(q, node.Left)
-		}
-		if node.Right != nil {
-			q = append(q, node.Right)
+		for i := len(q); i > 0; i-- {
+			node := q[0]
+			q = q[1:]
+			tree = append(tree, node)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
 		}
 	}
 	return CBTInserter{tree}
 }
 
 func (this *CBTInserter) Insert(val int) int {
-	pid := (len(this.tree) - 1) >> 1
-	node := &TreeNode{Val: val}
+	p := this.tree[(len(this.tree)-1)/2]
+	node := &TreeNode{val, nil, nil}
 	this.tree = append(this.tree, node)
-	p := this.tree[pid]
 	if p.Left == nil {
 		p.Left = node
 	} else {
@@ -278,44 +294,38 @@ func (this *CBTInserter) Get_root() *TreeNode {
  */
 
 class CBTInserter {
-    private root: TreeNode;
-    private queue: TreeNode[];
+    private tree: TreeNode[] = [];
 
     constructor(root: TreeNode | null) {
-        this.root = root;
-        this.queue = [this.root];
-        while (true) {
-            if (this.queue[0].left == null) {
-                break;
+        if (root === null) {
+            return;
+        }
+        const q: TreeNode[] = [root];
+        while (q.length) {
+            const t: TreeNode[] = [];
+            for (const node of q) {
+                this.tree.push(node);
+                node.left !== null && t.push(node.left);
+                node.right !== null && t.push(node.right);
             }
-            this.queue.push(this.queue[0].left);
-            if (this.queue[0].right == null) {
-                break;
-            }
-            this.queue.push(this.queue[0].right);
-            this.queue.shift();
+            q.splice(0, q.length, ...t);
         }
     }
 
     insert(val: number): number {
-        if (this.queue[0].left != null && this.queue[0].right != null) {
-            this.queue.shift();
+        const p = this.tree[(this.tree.length - 1) >> 1];
+        const node = new TreeNode(val);
+        this.tree.push(node);
+        if (p.left === null) {
+            p.left = node;
+        } else {
+            p.right = node;
         }
-        const newNode = new TreeNode(val);
-        this.queue.push(newNode);
-        if (this.queue[0].left == null) {
-            this.queue[0].left = newNode;
-            return this.queue[0].val;
-        }
-        if (this.queue[0].right == null) {
-            this.queue[0].right = newNode;
-            return this.queue[0].val;
-        }
-        return 0;
+        return p.val;
     }
 
     get_root(): TreeNode | null {
-        return this.root;
+        return this.tree[0];
     }
 }
 
@@ -341,16 +351,18 @@ class CBTInserter {
  */
 var CBTInserter = function (root) {
     this.tree = [];
+    if (root === null) {
+        return;
+    }
     const q = [root];
     while (q.length) {
-        const node = q.shift();
-        this.tree.push(node);
-        if (node.left) {
-            q.push(node.left);
+        const t = [];
+        for (const node of q) {
+            this.tree.push(node);
+            node.left !== null && t.push(node.left);
+            node.right !== null && t.push(node.right);
         }
-        if (node.right) {
-            q.push(node.right);
-        }
+        q.splice(0, q.length, ...t);
     }
 };
 
@@ -359,11 +371,10 @@ var CBTInserter = function (root) {
  * @return {number}
  */
 CBTInserter.prototype.insert = function (val) {
-    const pid = (this.tree.length - 1) >> 1;
+    const p = this.tree[(this.tree.length - 1) >> 1];
     const node = new TreeNode(val);
     this.tree.push(node);
-    const p = this.tree[pid];
-    if (!p.left) {
+    if (p.left === null) {
         p.left = node;
     } else {
         p.right = node;
