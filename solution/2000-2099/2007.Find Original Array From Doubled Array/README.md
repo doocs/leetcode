@@ -84,7 +84,7 @@ class Solution {
     public int[] findOriginalArray(int[] changed) {
         int n = changed.length;
         Arrays.sort(changed);
-        int[] cnt = new int[changed[n - 1]  + 1];
+        int[] cnt = new int[changed[n - 1] + 1];
         for (int x : changed) {
             ++cnt[x];
         }
