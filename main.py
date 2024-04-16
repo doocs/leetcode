@@ -11,7 +11,7 @@ def load_ratings():
         with open("rating.json", "r", encoding="utf-8") as f:
             ratings = json.loads(f.read())
             for item in ratings:
-                res[item["ID"]] = item
+                res[str(item["ID"])] = item
 
     url = "https://zerotrac.github.io/leetcode_problem_rating/data.json"
     try:
@@ -19,7 +19,7 @@ def load_ratings():
         if resp.status_code == 200:
             ratings = resp.json()
             for item in ratings:
-                res[item["ID"]] = item
+                res[str(item["ID"])] = item
     except Exception as e:
         print(f"Failed to fetch ratings: {e}")
     return res
@@ -143,6 +143,10 @@ for dir in dirs:
             elif num.endswith("- I"):
                 num = num[:-3] + ".1"
             num = ".".join([x.strip(" ").lstrip("0") for x in num.split(".")])
+            rat = -1
+            if target_dir == 'lc' and num in rating_dict:
+                rat = int(rating_dict[num]['Rating'])
+                print(f"Rating: {num} {rat}")
             is_en = "README_EN" in p
             if is_en:
                 navdata_en[dir].append(f"    - {num}. {name}: {target_dir}/{num}.md")
