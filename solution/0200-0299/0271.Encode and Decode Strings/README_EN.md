@@ -81,7 +81,13 @@ String[] strs = decoder.decode(msg);
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Encode String Length
+
+During encoding, we convert the length of the string into a fixed 4-digit string, add the string itself, and append it to the result string in sequence.
+
+During decoding, we first take the first four digits of the string to get the length, and then cut the following string according to the length. We cut it in sequence until we get the list of strings.
+
+The time complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -89,11 +95,21 @@ String[] strs = decoder.decode(msg);
 class Codec:
     def encode(self, strs: List[str]) -> str:
         """Encodes a list of strings to a single string."""
-        return chr(257).join(strs)
+        ans = []
+        for s in strs:
+            ans.append('{:4}'.format(len(s)) + s)
+        return ''.join(ans)
 
     def decode(self, s: str) -> List[str]:
         """Decodes a single string to a list of strings."""
-        return s.split(chr(257))
+        ans = []
+        i, n = 0, len(s)
+        while i < n:
+            size = int(s[i : i + 4])
+            i += 4
+            ans.append(s[i : i + size])
+            i += size
+        return ans
 
 
 # Your Codec object will be instantiated and called as such:
@@ -197,38 +213,6 @@ func (codec *Codec) Decode(strs string) []string {
 // Your Codec object will be instantiated and called as such:
 // var codec Codec
 // codec.Decode(codec.Encode(strs));
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Codec:
-    def encode(self, strs: List[str]) -> str:
-        """Encodes a list of strings to a single string."""
-        ans = []
-        for s in strs:
-            ans.append('{:4}'.format(len(s)) + s)
-        return ''.join(ans)
-
-    def decode(self, s: str) -> List[str]:
-        """Decodes a single string to a list of strings."""
-        ans = []
-        i, n = 0, len(s)
-        while i < n:
-            size = int(s[i : i + 4])
-            i += 4
-            ans.append(s[i : i + size])
-            i += size
-        return ans
-
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.decode(codec.encode(strs))
 ```
 
 <!-- tabs:end -->
