@@ -100,9 +100,9 @@ func smallestRangeI(nums []int, k int) int {
 
 ```ts
 function smallestRangeI(nums: number[], k: number): number {
-    const max = nums.reduce((r, v) => Math.max(r, v));
-    const min = nums.reduce((r, v) => Math.min(r, v));
-    return Math.max(max - min - k * 2, 0);
+    const mx = Math.max(...nums);
+    const mi = Math.min(...nums);
+    return Math.max(mx - mi - k * 2, 0);
 }
 ```
 
