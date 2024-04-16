@@ -98,6 +98,10 @@ markdown_extensions:
   - pymdownx.tilde
   - attr_list
   - md_in_html
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
 
 extra_javascript:
   - javascripts/katex.js 
