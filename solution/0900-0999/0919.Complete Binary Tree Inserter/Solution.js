@@ -15,7 +15,7 @@ var CBTInserter = function (root) {
         return;
     }
     const q = [root];
-    while (q.length > 0) {
+    while (q.length) {
         const t = [];
         for (const node of q) {
             this.tree.push(node);

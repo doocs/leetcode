@@ -27,7 +27,7 @@ public:
             }
         }
     }
-    
+
     int insert(int val) {
         auto p = tree[(tree.size() - 1) / 2];
         auto node = new TreeNode(val);
@@ -39,7 +39,7 @@ public:
         }
         return p->val;
     }
-    
+
     TreeNode* get_root() {
         return tree[0];
     }

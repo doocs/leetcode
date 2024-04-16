@@ -32,7 +32,7 @@ class CBTInserter {
             }
         }
     }
-    
+
     public int insert(int val) {
         TreeNode p = tree.get((tree.size() - 1) / 2);
         TreeNode node = new TreeNode(val);
@@ -44,7 +44,7 @@ class CBTInserter {
         }
         return p.val;
     }
-    
+
     public TreeNode get_root() {
         return tree.get(0);
     }

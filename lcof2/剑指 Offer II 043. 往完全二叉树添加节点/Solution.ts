@@ -20,7 +20,7 @@ class CBTInserter {
             return;
         }
         const q: TreeNode[] = [root];
-        while (q.length > 0) {
+        while (q.length) {
             const t: TreeNode[] = [];
             for (const node of q) {
                 this.tree.push(node);
