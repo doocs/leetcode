@@ -16,7 +16,7 @@ class Solution {
         }
         return n == 1;
     }
-    
+
     private int find(int x) {
         if (p[x] != x) {
             p[x] = find(p[x]);
