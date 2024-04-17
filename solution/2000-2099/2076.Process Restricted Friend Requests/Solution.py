@@ -2,27 +2,25 @@ class Solution:
     def friendRequests(
         self, n: int, restrictions: List[List[int]], requests: List[List[int]]
     ) -> List[bool]:
-        p = list(range(n))
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        p = list(range(n))
         ans = []
-        i = 0
         for u, v in requests:
-            if find(u) == find(v):
+            pu, pv = find(u), find(v)
+            if pu == pv:
                 ans.append(True)
             else:
-                valid = True
+                ok = True
                 for x, y in restrictions:
-                    if (find(u) == find(x) and find(v) == find(y)) or (
-                        find(u) == find(y) and find(v) == find(x)
-                    ):
-                        valid = False
+                    px, py = find(x), find(y)
+                    if (pu == px and pv == py) or (pu == py and pv == px):
+                        ok = False
                         break
-                ans.append(valid)
-                if valid:
-                    p[find(u)] = find(v)
+                ans.append(ok)
+                if ok:
+                    p[pu] = pv
         return ans

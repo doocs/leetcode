@@ -6,27 +6,25 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        boolean[] ans = new boolean[requests.length];
-        int i = 0;
-        for (int[] req : requests) {
-            int u = req[0], v = req[1];
-            if (find(u) == find(v)) {
-                ans[i++] = true;
+        int m = requests.length;
+        boolean[] ans = new boolean[m];
+        for (int i = 0; i < m; ++i) {
+            int u = requests[i][0], v = requests[i][1];
+            int pu = find(u), pv = find(v);
+            if (pu == pv) {
+                ans[i] = true;
             } else {
-                boolean valid = true;
-                for (int[] res : restrictions) {
-                    int x = res[0], y = res[1];
-                    if ((find(u) == find(x) && find(v) == find(y))
-                        || (find(u) == find(y) && find(v) == find(x))) {
-                        valid = false;
+                boolean ok = true;
+                for (var r : restrictions) {
+                    int px = find(r[0]), py = find(r[1]);
+                    if ((pu == px && pv == py) || (pu == py && pv == px)) {
+                        ok = false;
                         break;
                     }
                 }
-                if (valid) {
-                    p[find(u)] = find(v);
-                    ans[i++] = true;
-                } else {
-                    ans[i++] = false;
+                if (ok) {
+                    ans[i] = true;
+                    p[pu] = pv;
                 }
             }
         }

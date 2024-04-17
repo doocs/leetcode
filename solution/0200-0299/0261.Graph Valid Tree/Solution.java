@@ -6,12 +6,12 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        for (int[] e : edges) {
-            int a = e[0], b = e[1];
-            if (find(a) == find(b)) {
+        for (var e : edges) {
+            int pa = find(e[0]), pb = find(e[1]);
+            if (pa == pb) {
                 return false;
             }
-            p[find(a)] = find(b);
+            p[pa] = pb;
             --n;
         }
         return n == 1;
