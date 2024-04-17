@@ -260,7 +260,7 @@ class Solution {
         let n = matrix[0].count
         var rows = Array(repeating: false, count: m)
         var cols = Array(repeating: false, count: n)
-        
+
         for i in 0..<m {
             for j in 0..<n {
                 if matrix[i][j] == 0 {
@@ -269,7 +269,7 @@ class Solution {
                 }
             }
         }
-        
+
         for i in 0..<m {
             for j in 0..<n {
                 if rows[i] || cols[j] {

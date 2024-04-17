@@ -256,7 +256,7 @@ class Solution {
         var vis = Set<Int>()
         let pre = ListNode(0, head)
         var current: ListNode? = pre
-        
+
         while current?.next != nil {
             if vis.insert(current!.next!.val).inserted {
                 current = current?.next
@@ -264,7 +264,7 @@ class Solution {
                 current?.next = current?.next?.next
             }
         }
-        
+
         return head
     }
 }
