@@ -16,12 +16,19 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
     if (!root) {
         return 0;
     }
-    let ans = sumOfLeftLeaves(root.right);
-    if (root.left) {
-        if (root.left.left === root.left.right) {
-            ans += root.left.val;
-        } else {
-            ans += sumOfLeftLeaves(root.left);
+    let ans = 0;
+    const stk: TreeNode[] = [root];
+    while (stk.length) {
+        const { left, right } = stk.pop()!;
+        if (left) {
+            if (left.left === left.right) {
+                ans += left.val;
+            } else {
+                stk.push(left);
+            }
+        }
+        if (right) {
+            stk.push(right);
         }
     }
     return ans;

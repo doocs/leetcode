@@ -42,29 +42,36 @@
 
 ## 解法
 
-### 方法一
+### 方法一：递归
+
+我们首先判断 `root` 是否为空，如果为空则返回 $0$。
+
+否则，我们递归调用 `sumOfLeftLeaves` 函数计算 `root` 的右子树中所有左叶子之和，并将结果赋给答案变量 $ans$。然后我们判断 `root` 的左子节点是否存在，如果存在，我们判断其是否为叶子节点，如果是叶子节点，则将其值加到答案变量 $ans$ 中，否则我们递归调用 `sumOfLeftLeaves` 函数计算 `root` 的左子树中所有左叶子之和，并将结果加到答案变量 $ans$ 中。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
 
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def sumOfLeftLeaves(self, root: TreeNode) -> int:
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
-        res = 0
-        if root.left and root.left.left is None and root.left.right is None:
-            res += root.left.val
-        res += self.sumOfLeftLeaves(root.left)
-        res += self.sumOfLeftLeaves(root.right)
-        return res
+        ans = self.sumOfLeftLeaves(root.right)
+        if root.left:
+            if root.left.left == root.left.right:
+                ans += root.left.val
+            else:
+                ans += self.sumOfLeftLeaves(root.left)
+        return ans
 ```
 
 ```java
@@ -74,7 +81,13 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
@@ -82,13 +95,15 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        int res = 0;
-        if (root.left != null && root.left.left == null && root.left.right == null) {
-            res += root.left.val;
+        int ans = sumOfLeftLeaves(root.right);
+        if (root.left != null) {
+            if (root.left.left == root.left.right) {
+                ans += root.left.val;
+            } else {
+                ans += sumOfLeftLeaves(root.left);
+            }
         }
-        res += sumOfLeftLeaves(root.left);
-        res += sumOfLeftLeaves(root.right);
-        return res;
+        return ans;
     }
 }
 ```
@@ -137,13 +152,15 @@ func sumOfLeftLeaves(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	res := 0
-	if root.Left != nil && root.Left.Left == nil && root.Left.Right == nil {
-		res += root.Left.Val
+	ans := sumOfLeftLeaves(root.Right)
+	if root.Left != nil {
+		if root.Left.Left == root.Left.Right {
+			ans += root.Left.Val
+		} else {
+			ans += sumOfLeftLeaves(root.Left)
+		}
 	}
-	res += sumOfLeftLeaves(root.Left)
-	res += sumOfLeftLeaves(root.Right)
-	return res
+	return ans
 }
 ```
 
@@ -162,22 +179,19 @@ func sumOfLeftLeaves(root *TreeNode) int {
  * }
  */
 
-const dfs = (root: TreeNode | null, isLeft: boolean) => {
+function sumOfLeftLeaves(root: TreeNode | null): number {
     if (!root) {
         return 0;
     }
-    const { val, left, right } = root;
-    if (!left && !right) {
-        if (isLeft) {
-            return val;
+    let ans = sumOfLeftLeaves(root.right);
+    if (root.left) {
+        if (root.left.left === root.left.right) {
+            ans += root.left.val;
+        } else {
+            ans += sumOfLeftLeaves(root.left);
         }
-        return 0;
     }
-    return dfs(left, true) + dfs(right, false);
-};
-
-function sumOfLeftLeaves(root: TreeNode | null): number {
-    return dfs(root, false);
+    return ans;
 }
 ```
 
@@ -235,26 +249,106 @@ impl Solution {
  * };
  */
 
-int dfs(struct TreeNode* root, int isLeft) {
+int sumOfLeftLeaves(struct TreeNode* root) {
     if (!root) {
         return 0;
     }
-    if (!root->left && !root->right) {
-        return isLeft ? root->val : 0;
+    int ans = sumOfLeftLeaves(root->right);
+    if (root->left) {
+        if (!root->left->left && !root->left->right) {
+            ans += root->left->val;
+        } else {
+            ans += sumOfLeftLeaves(root->left);
+        }
     }
-    return dfs(root->left, 1) + dfs(root->right, 0);
-}
-
-int sumOfLeftLeaves(struct TreeNode* root) {
-    return dfs(root, 0);
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+### 方法二：栈
+
+我们也可以将方法一的递归改为迭代，使用栈来模拟递归的过程。
+
+与方法一类似，我们首先判断 `root` 是否为空，如果为空则返回 $0$。
+
+否则，我们初始化答案变量 $ans$ 为 $0$，然后初始化栈 $stk$，将 `root` 加入栈中。
+
+当栈不为空时，我们弹出栈顶元素 `root`，如果 `root` 的左子节点存在，我们判断其是否为叶子节点，如果是叶子节点，则将其值加到答案变量 $ans$ 中，否则我们将其左子节点加入栈中。然后我们判断 `root` 的右子节点是否存在，如果存在，我们将其加入栈中。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        ans = 0
+        stk = [root]
+        while stk:
+            root = stk.pop()
+            if root.left:
+                if root.left.left == root.left.right:
+                    ans += root.left.val
+                else:
+                    stk.append(root.left)
+            if root.right:
+                stk.append(root.right)
+        return ans
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        stk.push(root);
+        int ans = 0;
+        while (!stk.isEmpty()) {
+            root = stk.pop();
+            if (root.left != null) {
+                if (root.left.left == root.left.right) {
+                    ans += root.left.val;
+                } else {
+                    stk.push(root.left);
+                }
+            }
+            if (root.right != null) {
+                stk.push(root.right);
+            }
+        }
+        return ans;
+    }
+}
+```
 
 ```cpp
 /**
@@ -292,6 +386,76 @@ public:
         return ans;
     }
 };
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func sumOfLeftLeaves(root *TreeNode) (ans int) {
+	if root == nil {
+		return 0
+	}
+	stk := []*TreeNode{root}
+	for len(stk) > 0 {
+		root = stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if root.Left != nil {
+			if root.Left.Left == root.Left.Right {
+				ans += root.Left.Val
+			} else {
+				stk = append(stk, root.Left)
+			}
+		}
+		if root.Right != nil {
+			stk = append(stk, root.Right)
+		}
+	}
+	return
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function sumOfLeftLeaves(root: TreeNode | null): number {
+    if (!root) {
+        return 0;
+    }
+    let ans = 0;
+    const stk: TreeNode[] = [root];
+    while (stk.length) {
+        const { left, right } = stk.pop()!;
+        if (left) {
+            if (left.left === left.right) {
+                ans += left.val;
+            } else {
+                stk.push(left);
+            }
+        }
+        if (right) {
+            stk.push(right);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
