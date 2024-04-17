@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 393 场周赛(2024-04-14 10:30, 90 分钟) 参赛人数 4218
+
+- [3114. 替换字符可以得到的最晚时间](/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README.md)
+- [3115. 素数的最大距离](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
+- [3116. 单面值组合的第 K 小金额](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md)
+- [3117. 划分数组得到最小的值之和](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md)
+
+#### 第 128 场双周赛(2024-04-13 22:30, 90 分钟) 参赛人数 2653
+
+- [3110. 字符串的分数](/solution/3100-3199/3110.Score%20of%20a%20String/README.md)
+- [3111. 覆盖所有点的最少矩形数目](/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README.md)
+- [3112. 访问消失节点的最少时间](/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/README.md)
+- [3113. 边界元素是最大值的子数组数目](/solution/3100-3199/3113.Find%20the%20Number%20of%20Subarrays%20Where%20Boundary%20Elements%20Are%20Maximum/README.md)
+
 #### 第 392 场周赛(2024-04-07 10:30, 90 分钟) 参赛人数 3193
 
 - [3105. 最长的严格递增或递减子数组](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README.md)

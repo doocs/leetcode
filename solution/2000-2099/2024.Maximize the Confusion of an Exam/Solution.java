@@ -1,18 +1,23 @@
 class Solution {
+    private char[] s;
+    private int k;
+
     public int maxConsecutiveAnswers(String answerKey, int k) {
-        return Math.max(get('T', k, answerKey), get('F', k, answerKey));
+        s = answerKey.toCharArray();
+        this.k = k;
+        return Math.max(f('T'), f('F'));
     }
 
-    public int get(char c, int k, String answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.length()) {
-            if (answerKey.charAt(r++) == c) {
-                --k;
+    private int f(char c) {
+        int cnt = 0, ans = 0;
+        for (int i = 0, j = 0; i < s.length; ++i) {
+            cnt += s[i] == c ? 1 : 0;
+            while (cnt > k) {
+                cnt -= s[j] == c ? 1 : 0;
+                ++j;
             }
-            if (k < 0 && answerKey.charAt(l++) == c) {
-                ++k;
-            }
+            ans = Math.max(ans, i - j + 1);
         }
-        return r - l;
+        return ans;
     }
 }

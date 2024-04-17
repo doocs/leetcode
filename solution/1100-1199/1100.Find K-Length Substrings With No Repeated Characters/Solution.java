@@ -1,17 +1,20 @@
 class Solution {
     public int numKLenSubstrNoRepeats(String s, int k) {
         int n = s.length();
-        if (k > n || k > 26) {
+        if (n < k) {
             return 0;
         }
-        int[] cnt = new int[128];
-        int ans = 0;
-        for (int i = 0, j = 0; i < n; ++i) {
-            ++cnt[s.charAt(i)];
-            while (cnt[s.charAt(i)] > 1 || i - j + 1 > k) {
-                cnt[s.charAt(j++)]--;
+        Map<Character, Integer> cnt = new HashMap<>(k);
+        for (int i = 0; i < k; ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
+        }
+        int ans = cnt.size() == k ? 1 : 0;
+        for (int i = k; i < n; ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
+            if (cnt.merge(s.charAt(i - k), -1, Integer::sum) == 0) {
+                cnt.remove(s.charAt(i - k));
             }
-            ans += i - j + 1 == k ? 1 : 0;
+            ans += cnt.size() == k ? 1 : 0;
         }
         return ans;
     }

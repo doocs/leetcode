@@ -1,14 +1,12 @@
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
-        x = sum(nums) - x
+        s = sum(nums) - x
         vis = {0: -1}
-        ans = inf
-        s, n = 0, len(nums)
+        mx, t = -1, 0
         for i, v in enumerate(nums):
-            s += v
-            if s not in vis:
-                vis[s] = i
-            if s - x in vis:
-                j = vis[s - x]
-                ans = min(ans, n - (i - j))
-        return -1 if ans == inf else ans
+            t += v
+            if t not in vis:
+                vis[t] = i
+            if t - s in vis:
+                mx = max(mx, i - vis[t - s])
+        return -1 if mx == -1 else len(nums) - mx

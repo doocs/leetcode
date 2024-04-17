@@ -4,22 +4,21 @@
  * @return {boolean}
  */
 var validTree = function (n, edges) {
-    let p = new Array(n);
-    for (let i = 0; i < n; ++i) {
-        p[i] = i;
-    }
-    function find(x) {
-        if (p[x] != x) {
+    const p = Array.from({ length: n }, (_, i) => i);
+    const find = x => {
+        if (p[x] !== x) {
             p[x] = find(p[x]);
         }
         return p[x];
-    }
+    };
     for (const [a, b] of edges) {
-        if (find(a) == find(b)) {
+        const pa = find(a);
+        const pb = find(b);
+        if (pa === pb) {
             return false;
         }
-        p[find(a)] = find(b);
+        p[pa] = pb;
         --n;
     }
-    return n == 1;
+    return n === 1;
 };

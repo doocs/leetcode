@@ -1,14 +1,15 @@
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
         p = list(range(n))
         for a, b in edges:
-            if find(a) == find(b):
+            pa, pb = find(a), find(b)
+            if pa == pb:
                 return False
-            p[find(a)] = find(b)
+            p[pa] = pb
             n -= 1
         return n == 1

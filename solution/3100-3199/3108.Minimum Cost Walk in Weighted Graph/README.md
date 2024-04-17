@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3108.Minimum%20Cost%20Walk%20in%20Weighted%20Graph/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:位运算,并查集,图,数组 -->
 
 ## 题目描述
 

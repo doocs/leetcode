@@ -2,7 +2,7 @@
 
 [English Version](/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README_EN.md)
 
-<!-- tags:数组,前缀和 -->
+<!-- tags:数组,哈希表,前缀和 -->
 
 ## 题目描述
 

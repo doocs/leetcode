@@ -59,11 +59,13 @@
 
 ### Solution 1: Quick Thinking
 
-We observe that operation 2 can move all $1$s to the end of the string, and operation 1 can change all `0000..000` strings to `111..110`.
+We observe that operation $2$ can move all $1$s to the end of the string, and operation $1$ can change all `0000..000` strings to `111..110`.
 
-Therefore, to get the maximum binary string, we should move all $1$s that are not at the beginning to the end of the string, making the string in the form of `111..11...00..11`, and then use operation 1 to change the middle `000..00` to `111..10`. In this way, we can finally get a binary string that contains at most one $0$, which is the maximum binary string we are looking for.
+Therefore, to get the maximum binary string, we should move all $1$s that are not at the beginning to the end of the string, making the string in the form of `111..11...000..00..11`. Then, with the help of operation $1$, we change the middle `000..00` to `111..10`. In this way, we can finally get a binary string that contains at most one $0$, which is the maximum binary string we are looking for.
 
-The time complexity is $O(n)$, where $n$ is the length of the string `binary`. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+In the code implementation, we first judge whether the string contains $0$. If it does not, we directly return the original string. Otherwise, we find the position $k$ of the first $0$, add the number of $0$s after this position, and the position of $0$ in the modified string is obtained. The rest of the positions are all $1$s.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -103,7 +105,9 @@ class Solution {
 public:
     string maximumBinaryString(string binary) {
         int k = binary.find('0');
-        if (k == binary.npos) return binary;
+        if (k == binary.npos) {
+            return binary;
+        }
         int n = binary.size();
         for (int i = k + 1; i < n; ++i) {
             if (binary[i] == '0') {
@@ -132,6 +136,47 @@ func maximumBinaryString(binary string) string {
 	}
 	ans[k] = '0'
 	return string(ans)
+}
+```
+
+```ts
+function maximumBinaryString(binary: string): string {
+    let k = binary.indexOf('0');
+    if (k === -1) {
+        return binary;
+    }
+    k += binary.slice(k + 1).split('0').length - 1;
+    return '1'.repeat(k) + '0' + '1'.repeat(binary.length - k - 1);
+}
+```
+
+```rust
+impl Solution {
+    pub fn maximum_binary_string(binary: String) -> String {
+        if let Some(k) = binary.find('0') {
+            let k =
+                k +
+                binary[k + 1..]
+                    .chars()
+                    .filter(|&c| c == '0')
+                    .count();
+            return format!("{}{}{}", "1".repeat(k), "0", "1".repeat(binary.len() - k - 1));
+        }
+        binary
+    }
+}
+```
+
+```cs
+public class Solution {
+    public string MaximumBinaryString(string binary) {
+        int k = binary.IndexOf('0');
+        if (k == -1) {
+            return binary;
+        }
+        k += binary.Substring(k + 1).Count(c => c == '0');
+        return new string('1', k) + '0' + new string('1', binary.Length - k - 1);
+    }
 }
 ```
 

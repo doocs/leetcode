@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3105.Longest%20Strictly%20Increasing%20or%20Strictly%20Decreasing%20Subarray/README.md)
 
-<!-- tags: -->
+<!-- tags:Array -->
 
 ## Description
 

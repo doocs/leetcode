@@ -447,8 +447,6 @@ def run():
     # 生成分类题目列表
     generate_category_readme(ls, "Database")
     generate_category_readme(ls, "JavaScript")
-    generate_category_summary(ls, "Database")
-    generate_category_summary(ls, "JavaScript")
 
     refresh(ls)
     # 格式化

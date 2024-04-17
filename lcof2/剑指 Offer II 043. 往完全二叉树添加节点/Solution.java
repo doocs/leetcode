@@ -14,29 +14,29 @@
  * }
  */
 class CBTInserter {
-    private List<TreeNode> tree;
+    private List<TreeNode> tree = new ArrayList<>();
 
     public CBTInserter(TreeNode root) {
-        tree = new ArrayList<>();
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            TreeNode node = q.pollFirst();
-            tree.add(node);
-            if (node.left != null) {
-                q.offer(node.left);
-            }
-            if (node.right != null) {
-                q.offer(node.right);
+            for (int i = q.size(); i > 0; --i) {
+                TreeNode node = q.poll();
+                tree.add(node);
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
             }
         }
     }
 
-    public int insert(int v) {
-        int pid = (tree.size() - 1) >> 1;
-        TreeNode node = new TreeNode(v);
+    public int insert(int val) {
+        TreeNode p = tree.get((tree.size() - 1) / 2);
+        TreeNode node = new TreeNode(val);
         tree.add(node);
-        TreeNode p = tree.get(pid);
         if (p.left == null) {
             p.left = node;
         } else {
@@ -53,6 +53,6 @@ class CBTInserter {
 /**
  * Your CBTInserter object will be instantiated and called as such:
  * CBTInserter obj = new CBTInserter(root);
- * int param_1 = obj.insert(v);
+ * int param_1 = obj.insert(val);
  * TreeNode param_2 = obj.get_root();
  */

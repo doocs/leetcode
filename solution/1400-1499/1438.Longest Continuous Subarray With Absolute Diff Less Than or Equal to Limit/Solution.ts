@@ -4,7 +4,7 @@ function longestSubarray(nums: number[], limit: number): number {
     let j = 0;
     for (let i = 0; i < nums.length; ++i) {
         ts.add(nums[i]);
-        while (ts.last() - ts.first() > limit) {
+        while (ts.last()! - ts.first()! > limit) {
             ts.delete(nums[j++]);
         }
         ans = Math.max(ans, i - j + 1);
