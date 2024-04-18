@@ -5,6 +5,16 @@ on:
     branches:
       - main
       - docs
+    paths: 
+      - package.json
+      - requirements.txt
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
   workflow_dispatch:
 
 env:
@@ -12,6 +22,10 @@ env:
 
 permissions:
   contents: write
+
+concurrency: 
+  group: ${{github.workflow}} - ${{github.ref}}
+  cancel-in-progress: true
 
 jobs:
   deploy:

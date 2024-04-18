@@ -1,8 +1,32 @@
 name: clang-format-linter
 
 on:
-  push: {}
-  pull_request: {}
+  push: 
+    paths: 
+      - package.json
+      - requirements.txt
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
+  pull_request: 
+    paths: 
+      - package.json
+      - requirements.txt
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
+
+concurrency: 
+  group: ${{github.workflow}} - ${{github.ref}}
+  cancel-in-progress: true
 
 jobs:
   build:
