@@ -219,7 +219,7 @@ class Solution {
         var left = leftDummy
         var right = rightDummy
         var head = head
-        
+
         while let current = head {
             if current.val < x {
                 left.next = current
@@ -230,10 +230,10 @@ class Solution {
             }
             head = head?.next
         }
-        
+
         right.next = nil
         left.next = rightDummy.next
-        
+
         return leftDummy.next
     }
 }
