@@ -12,6 +12,8 @@ class Solution:
                 k = 0
         ans = 0
         for k in range(n - 1, 0, -1):
+            if cnt[k] == 0:
+                continue
             t = min(budget // (k + 1), cnt[k])
             ans += t * k
             budget -= t * (k + 1)
