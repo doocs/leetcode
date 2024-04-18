@@ -88,6 +88,8 @@ hooks:
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
@@ -96,12 +98,12 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-  - attr_list
-  - md_in_html
+  - pymdownx.emoji
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
+  
 
 extra_javascript:
   - javascripts/katex.js 
