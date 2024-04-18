@@ -16,6 +16,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: github.repository == 'doocs/leetcode'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
