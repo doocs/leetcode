@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3115.Maximum%20Prime%20Difference/README.md)
 
-<!-- tags: -->
+<!-- tags:Array,Math,Number Theory -->
 
 ## Description
 

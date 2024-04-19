@@ -29,7 +29,7 @@
 <pre>
 <strong>输入：</strong>num = "1101111"
 <strong>输出：</strong>[11,0,11,11]
-<strong>解释：</strong>输出[110,1,111]也可以。</pre>
+<strong>解释：</strong>输出 [110,1,111] 也可以。</pre>
 
 <p><strong>示例 2：</strong></p>
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README.md)
 
-<!-- tags: -->
+<!-- tags:Greedy,Array,Sorting -->
 
 ## Description
 

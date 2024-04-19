@@ -2,7 +2,7 @@
 
 [中文文档](/solution/1200-1299/1201.Ugly%20Number%20III/README.md)
 
-<!-- tags:Math,Binary Search,Number Theory -->
+<!-- tags:Math,Binary Search,Combinatorics,Number Theory -->
 
 ## Description
 

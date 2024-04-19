@@ -74,7 +74,7 @@
 | 2803 | [阶乘生成器](/solution/2800-2899/2803.Factorial%20Generator/README.md)                                                                                |      | 简单 | 🔒   |
 | 2804 | [数组原型的 forEach 方法](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)                                                             |      | 简单 | 🔒   |
 | 2805 | [自定义间隔](/solution/2800-2899/2805.Custom%20Interval/README.md)                                                                                    |      | 中等 | 🔒   |
-| 2821 | [延迟每个 Promise 对象的解析](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)                                      |      | 简单 | 🔒   |
+| 2821 | [延迟每个 Promise 对象的解析](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)                                      |      | 中等 | 🔒   |
 | 2822 | [对象反转](/solution/2800-2899/2822.Inversion%20of%20Object/README.md)                                                                                |      | 简单 | 🔒   |
 | 2823 | [深度对象筛选](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)                                                                             |      | 中等 | 🔒   |
 

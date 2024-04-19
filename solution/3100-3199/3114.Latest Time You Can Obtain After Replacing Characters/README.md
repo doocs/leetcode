@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3114.Latest%20Time%20You%20Can%20Obtain%20After%20Replacing%20Characters/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:字符串,枚举 -->
 
 ## 题目描述
 

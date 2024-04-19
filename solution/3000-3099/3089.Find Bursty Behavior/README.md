@@ -22,7 +22,7 @@ post_id 是这张表的主键（有不同值的列）。
 这张表的每一行包含 post_id，user_id 和 post_date。
 </pre>
 
-<p>编写一个解决方案来找到在 <code>2024</code> 年 2 月期间在发布模式中表现出 <strong>突发行为</strong> 的用户。<strong>突发行为</strong>&nbsp;指用户在&nbsp;<code>2024</code> 年 2 月 <strong>任何</strong> <strong>连续 7 天</strong> 的时段中发帖频率是其 <strong>平均</strong> 每周发帖频率的 <strong>至少两倍</strong>。</p>
+<p>编写一个解决方案来找到在 <code>2024</code> 年 2 月期间在发帖行为中表现出 <strong>突发行为</strong> 的用户。<strong>突发行为</strong>&nbsp;指用户在&nbsp;<code>2024</code> 年 2 月 <strong>存在一个</strong> <strong>连续 7 天</strong> 的时段中发帖频率是其 <strong>平均</strong> 每周发帖频率的 <strong>至少两倍</strong>。</p>
 
 <p><strong>注意：</strong>&nbsp;在你的统计中只包含 2 月 <code>1</code> 日 到 2 月 <code>28</code> 日，也就是说你应该把 2 月记为正好 <code>4</code> 周。</p>
 

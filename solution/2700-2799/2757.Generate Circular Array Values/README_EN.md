@@ -6,7 +6,11 @@
 
 ## Description
 
-<p>Given a <strong>circular</strong> array <code>arr</code> and an integer&nbsp;<code>startIndex</code>, return a generator object&nbsp;<code>gen</code> that yields values from <code>arr</code>. The first time <code>gen.next()</code> is called on the generator, it should should yield&nbsp;<code>arr[startIndex]</code>. Each subsequent time&nbsp;<code>gen.next()</code>&nbsp;is called, an integer <code>jump</code>&nbsp;will be passed into the function (Ex: <code>gen.next(-3)</code>).</p>
+<p>Given a <strong>circular</strong> array <code>arr</code> and an integer&nbsp;<code>startIndex</code>, return a generator object&nbsp;<code>gen</code> that yields values from <code>arr</code>.</p>
+
+<p>The first time <code>gen.next()</code> is called on the generator, it should should yield&nbsp;<code>arr[startIndex]</code>.</p>
+
+<p>Each subsequent time&nbsp;<code>gen.next()</code>&nbsp;is called, an integer <code>jump</code>&nbsp;will be passed into the function (Ex: <code>gen.next(-3)</code>).</p>
 
 <ul>
 	<li>If&nbsp;<code>jump</code>&nbsp;is positive, the index should increase by that value, however if the current index is the last index, it should instead jump to the first index.</li>

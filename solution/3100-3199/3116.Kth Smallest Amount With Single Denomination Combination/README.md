@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:位运算,数组,数学,二分查找,组合数学,数论 -->
 
 ## 题目描述
 

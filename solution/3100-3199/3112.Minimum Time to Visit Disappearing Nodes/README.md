@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:图,数组,最短路,堆（优先队列） -->
 
 ## 题目描述
 

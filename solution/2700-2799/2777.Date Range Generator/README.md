@@ -8,7 +8,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>现给定起始日期 <code>start</code> 、结束日期 <code>end</code> 和正整数 <code>step</code> ，返回一个生成器对象，该生成器对象按照从 <code>start</code> 到 <code>end</code>（包括 start 和 end ）的范围生成日期。所有日期都以字符串格式 <code>YYYY-MM-DD</code> 表示。<code>step</code> 的值表示连续生成的日期之间的天数间隔。</p>
+<p>现给定起始日期 <code>start</code> 、结束日期 <code>end</code> 和正整数 <code>step</code> ，返回一个生成器对象，该生成器对象按照从 <code>start</code> 到 <code>end</code>（包括 start 和 end ）的范围生成日期。</p>
+
+<p><code>step</code> 的值表示连续生成的日期之间的天数间隔。</p>
+
+<p>所有日期都以字符串格式 <code>YYYY-MM-DD</code> 表示。</p>
 
 <p>&nbsp;</p>
 
@@ -52,8 +56,9 @@ g.next().value // '2023-04-10'
 
 <ul>
 	<li><code>new Date(start) &lt;= new Date(end)</code></li>
-	<li><code>0 &lt;= 结束日期与开始日期之间的天数差 &lt;= 1000</code></li>
-	<li><code>1 &lt;= step &lt;= 100</code></li>
+	<li><code>start</code>&nbsp;和&nbsp;<code>end</code>&nbsp;的日期格式是&nbsp;<code>YYYY-MM-DD</code></li>
+	<li><code>0 &lt;= 结束日期与开始日期之间的天数差 &lt;= 1500</code></li>
+	<li><code>1 &lt;= step &lt;= 1000</code></li>
 </ul>
 
 ## 解法

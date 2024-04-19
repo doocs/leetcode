@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3110.Score%20of%20a%20String/README.md)
 
-<!-- tags: -->
+<!-- tags:String -->
 
 ## Description
 
