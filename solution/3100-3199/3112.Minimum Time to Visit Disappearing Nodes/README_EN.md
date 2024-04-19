@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/README.md)
 
-<!-- tags: -->
+<!-- tags:Graph,Array,Shortest Path,Heap (Priority Queue) -->
 
 ## Description
 

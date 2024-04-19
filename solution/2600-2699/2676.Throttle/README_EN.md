@@ -10,7 +10,13 @@
 
 <p>A <strong>throttled</strong> function is first called without delay and then, for a time interval of <code>t</code> milliseconds, can&#39;t be executed but should store the latest function arguments provided to call <code>fn</code> with them after the end of the delay.</p>
 
-<p>For instance, <code>t = 50ms</code>, and the function was called at <code>30ms</code>, <code>40ms</code>, and <code>60ms</code>. The first function call would block calling functions for the following <code>t</code> milliseconds. The second function call would save arguments, and the third call arguments should overwrite currently stored arguments from the second call because the second and third calls are called before <code>80ms</code>. Once the delay has passed, the throttled function should be called with the latest arguments provided during the delay period, and it should also create another delay period of <code>80ms + t</code>.</p>
+<p>For instance, <code>t = 50ms</code>, and the function was called at <code>30ms</code>, <code>40ms</code>, and <code>60ms</code>.</p>
+
+<p>At <code>30ms</code>, without delay, the&nbsp;<strong>throttled</strong> function <code>fn</code> should be called with the arguments, and calling the <strong>throttled</strong> function <code>fn</code> should be blocked for the following <code>t</code> milliseconds.</p>
+
+<p>At <code>40ms</code>, the function should just save arguments.</p>
+
+<p>At <code>60ms</code>, arguments should overwrite currently stored arguments from the second call because the second and third calls are made before <code>80ms</code>. Once the delay has passed, the <strong>throttled</strong> function <code>fn</code> should be called with the latest arguments provided during the delay period, and it should also create another delay period of <code>80ms + t</code>.</p>
 
 <p><img alt="Throttle Diagram" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2676.Throttle/images/screen-shot-2023-04-08-at-120313-pm.png" style="width: 1156px; height: 372px;" />The above diagram&nbsp;shows how throttle&nbsp;will transform&nbsp;events. Each rectangle represents 100ms and the throttle&nbsp;time is 400ms. Each color represents a different set of inputs.</p>
 

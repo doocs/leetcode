@@ -2,7 +2,7 @@
 
 [English Version](/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README_EN.md)
 
-<!-- tags:数组,二分查找,排序 -->
+<!-- tags:数组,双指针,二分查找,排序 -->
 
 ## 题目描述
 

@@ -2,7 +2,7 @@
 
 [中文文档](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README.md)
 
-<!-- tags:Array,Hash Table,String -->
+<!-- tags:Bit Manipulation,Array,Hash Table,String -->
 
 ## Description
 

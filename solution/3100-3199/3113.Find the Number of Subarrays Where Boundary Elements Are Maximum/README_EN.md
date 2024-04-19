@@ -2,7 +2,7 @@
 
 [中文文档](/solution/3100-3199/3113.Find%20the%20Number%20of%20Subarrays%20Where%20Boundary%20Elements%20Are%20Maximum/README.md)
 
-<!-- tags: -->
+<!-- tags:Stack,Array,Binary Search,Monotonic Stack -->
 
 ## Description
 

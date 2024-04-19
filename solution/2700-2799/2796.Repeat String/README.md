@@ -25,9 +25,9 @@
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>str = "code", times = 3
+<b>输入：</b>str = "code", times = 3
 <b>输出：</b>codecodecode"
-<strong>Explanation:</strong> "code" 被重复了 3 次
+<b>解释：</b> "code" 被重复了 3 次
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -46,6 +46,10 @@
 	<li><code>1 &lt;= times &lt;=&nbsp;10<sup>5</sup></code></li>
 	<li><code>1 &lt;= str.length &lt;= 1000</code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶</strong>：为了简化分析，让我们假设连接字符串是一个常数时间操作 <code>O(1)</code>。考虑到这个假设，您能编写时间复杂度为 <code>O(log n)</code>&nbsp;的算法吗？</p>
 
 ## 解法
 

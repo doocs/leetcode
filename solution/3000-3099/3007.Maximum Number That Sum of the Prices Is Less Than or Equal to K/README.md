@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数&nbsp;<code>k</code>&nbsp;和一个整数&nbsp;<code>x</code>&nbsp;。整数&nbsp;<code>num</code>&nbsp;的价值是由它的二进制表示中，从最低有效位开始，<code>x</code>，<code>2x</code>，<code>3x</code>，以此类推，这些位置上&nbsp;<strong>设置位</strong>&nbsp;的数目来计算。下面的表格包含了如何计算价值的例子。</p>
+<p>给你一个整数&nbsp;<code>k</code>&nbsp;和一个整数&nbsp;<code>x</code>&nbsp;。整数&nbsp;<code>num</code>&nbsp;的价值是它的二进制表示中在&nbsp;<code>x</code>，<code>2x</code>，<code>3x</code>&nbsp;等位置处&nbsp;<strong><span data-keyword="set-bit">设置位</span></strong>&nbsp;的数目（从最低有效位开始）。下面的表格包含了如何计算价值的例子。</p>
 
 <table border="1">
 	<tbody>

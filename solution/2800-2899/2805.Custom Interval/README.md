@@ -10,7 +10,7 @@
 
 <p><strong>函数</strong>&nbsp;<code>customInterval</code></p>
 
-<p>给定一个函数 <code>fn</code>、一个数字 <code>delay</code> 和一个数字 <code>period</code>，返回一个数字 <code>id</code>。<code>customInterval</code> 是一个函数，它应该根据公式 <code>delay + period * count</code> 在间隔中执行提供的函数 <code>fn</code>，公式中的 <code>count</code> 表示从初始值 0 开始执行间隔的次数。</p>
+<p>给定一个函数 <code>fn</code>、一个数字 <code>delay</code> 和一个数字 <code>period</code>，返回一个数字 <code>id</code>。<code>customInterval</code> 是一个函数，它应该根据公式 <code>delay + period * count</code> 在间隔中执行提供的函数 <code>fn</code>，公式中的 <code>count</code> 表示从初始值 <code>0</code> 开始执行间隔的次数。</p>
 
 <p><strong>函数</strong> <code>customClearInterval</code></p>
 

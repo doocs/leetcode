@@ -2,7 +2,7 @@
 
 [English Version](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README_EN.md)
 
-<!-- tags: -->
+<!-- tags:位运算,线段树,队列,数组,二分查找,动态规划 -->
 
 ## 题目描述
 

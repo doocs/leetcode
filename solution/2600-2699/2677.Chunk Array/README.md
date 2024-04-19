@@ -8,7 +8,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个数组&nbsp;<code>arr</code>&nbsp;和一个块大小&nbsp;<code>size</code>&nbsp;，返回一个 <strong>分块</strong>&nbsp;的数组。<strong>分块</strong>&nbsp;的数组包含了&nbsp;<code>arr</code>&nbsp;中的原始元素，但是每个子数组的长度都是&nbsp;<code>size</code>&nbsp;。如果&nbsp;<code>arr.length</code>&nbsp;不能被&nbsp;<code>size</code>&nbsp;整除，那么最后一个子数组的长度可能小于&nbsp;<code>size</code>&nbsp;。</p>
+<p>给定一个数组&nbsp;<code>arr</code>&nbsp;和一个块大小&nbsp;<code>size</code>&nbsp;，返回一个 <strong>分块</strong>&nbsp;的数组。</p>
+
+<p><strong>分块</strong>&nbsp;的数组包含了&nbsp;<code>arr</code>&nbsp;中的原始元素，但是每个子数组的长度都是&nbsp;<code>size</code>&nbsp;。如果&nbsp;<code>arr.length</code>&nbsp;不能被&nbsp;<code>size</code>&nbsp;整除，那么最后一个子数组的长度可能小于&nbsp;<code>size</code>&nbsp;。</p>
 
 <p>你可以假设该数组是&nbsp;<code>JSON.parse</code>&nbsp;的输出结果。换句话说，它是有效的JSON。</p>
 

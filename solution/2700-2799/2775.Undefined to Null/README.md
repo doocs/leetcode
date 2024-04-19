@@ -8,7 +8,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>编写一个名为 <code>undefinedToNull</code> 的函数，该函数接受一个深层嵌套的对象或数组 <code>obj</code> ，并创建该对象的副本，将其中的任何 <code>undefined</code> 值替换为 <code>null</code> 。</p>
+<p>给定一个深层嵌套的对象或数组 <code>obj</code> ，并创建该对象&nbsp;<code>obj</code> 的副本，将其中的任何 <code>undefined</code> 值替换为 <code>null</code> 。</p>
 
 <p>当使用 <code>JSON.stringify()</code> 将对象转换为 JSON 字符串时，<code>undefined</code> 值与&nbsp;<code>null</code> 值的处理方式不同。该函数有助于确保序列化数据不会出现意外错误。</p>
 

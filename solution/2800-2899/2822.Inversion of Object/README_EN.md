@@ -8,7 +8,11 @@
 
 <p>Given an object or an array&nbsp;<code>obj</code>, return an inverted object or array&nbsp;<code>invertedObj</code>.</p>
 
-<p>The <code>invertedObj</code> should have the keys of <code>obj</code> as values and the values of <code>obj</code> as keys.&nbsp;The indices of array&nbsp;should be treated as keys. It is guaranteed that the values in <code>obj</code> are only strings. The function should handle duplicates, meaning that if there are multiple keys in <code>obj</code> with the same value, the <code>invertedObj</code> should map the value to an array containing all corresponding keys.</p>
+<p>The <code>invertedObj</code> should have the keys of <code>obj</code> as values and the values of <code>obj</code> as keys.&nbsp;The indices of array&nbsp;should be treated as keys.</p>
+
+<p>The function should handle duplicates, meaning that if there are multiple keys in <code>obj</code> with the same value, the <code>invertedObj</code> should map the value to an array containing all corresponding keys.</p>
+
+<p>It is guaranteed that the values in <code>obj</code> are only strings.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
