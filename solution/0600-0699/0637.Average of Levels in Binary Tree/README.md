@@ -245,8 +245,8 @@ impl Solution {
  * @return {number[]}
  */
 var averageOfLevels = function (root) {
-    let q = [root];
-    let ans = [];
+    const q = [root];
+    const ans = [];
     while (q.length) {
         const n = q.length;
         let s = 0;
