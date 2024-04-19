@@ -1,4 +1,4 @@
-# [2805. 自定义间隔](https://leetcode.cn/problems/custom-interval)
+# [2805. 自定义间隔 🔒](https://leetcode.cn/problems/custom-interval)
 
 [English Version](/solution/2800-2899/2805.Custom%20Interval/README_EN.md)
 

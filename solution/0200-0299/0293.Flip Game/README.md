@@ -1,4 +1,4 @@
-# [293. 翻转游戏](https://leetcode.cn/problems/flip-game)
+# [293. 翻转游戏 🔒](https://leetcode.cn/problems/flip-game)
 
 [English Version](/solution/0200-0299/0293.Flip%20Game/README_EN.md)
 

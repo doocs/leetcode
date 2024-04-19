@@ -1,4 +1,4 @@
-# [2803. 阶乘生成器](https://leetcode.cn/problems/factorial-generator)
+# [2803. 阶乘生成器 🔒](https://leetcode.cn/problems/factorial-generator)
 
 [English Version](/solution/2800-2899/2803.Factorial%20Generator/README_EN.md)
 

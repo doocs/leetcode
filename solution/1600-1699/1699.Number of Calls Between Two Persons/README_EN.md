@@ -1,4 +1,4 @@
-# [1699. Number of Calls Between Two Persons](https://leetcode.com/problems/number-of-calls-between-two-persons)
+# [1699. Number of Calls Between Two Persons 🔒](https://leetcode.com/problems/number-of-calls-between-two-persons)
 
 [中文文档](/solution/1600-1699/1699.Number%20of%20Calls%20Between%20Two%20Persons/README.md)
 

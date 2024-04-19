@@ -1,6 +1,6 @@
-# [2676. 节流](https://leetcode.cn/problems/throttle)
+# [2676. 节流 🔒](https://leetcode.cn/problems/throttle)
 
-[English Version](/solution/2600-2699/2676.节流/README_EN.md)
+[English Version](/solution/2600-2699/2676.节流🔒/README_EN.md)
 
 <!-- tags: -->
 

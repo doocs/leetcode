@@ -1,4 +1,4 @@
-# [2777. Date Range Generator](https://leetcode.com/problems/date-range-generator)
+# [2777. Date Range Generator 🔒](https://leetcode.com/problems/date-range-generator)
 
 [中文文档](/solution/2700-2799/2777.Date%20Range%20Generator/README.md)
 

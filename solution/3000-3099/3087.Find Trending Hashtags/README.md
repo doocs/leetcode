@@ -1,4 +1,4 @@
-# [3087. 查找热门话题标签](https://leetcode.cn/problems/find-trending-hashtags)
+# [3087. 查找热门话题标签 🔒](https://leetcode.cn/problems/find-trending-hashtags)
 
 [English Version](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md)
 

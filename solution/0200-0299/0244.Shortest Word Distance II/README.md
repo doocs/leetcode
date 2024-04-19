@@ -1,4 +1,4 @@
-# [244. 最短单词距离 II](https://leetcode.cn/problems/shortest-word-distance-ii)
+# [244. 最短单词距离 II 🔒](https://leetcode.cn/problems/shortest-word-distance-ii)
 
 [English Version](/solution/0200-0299/0244.Shortest%20Word%20Distance%20II/README_EN.md)
 

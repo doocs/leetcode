@@ -1,4 +1,4 @@
-# [2994. 发生在周五的交易 II](https://leetcode.cn/problems/friday-purchases-ii)
+# [2994. 发生在周五的交易 II 🔒](https://leetcode.cn/problems/friday-purchases-ii)
 
 [English Version](/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)
 

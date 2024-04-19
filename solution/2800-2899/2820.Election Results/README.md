@@ -1,4 +1,4 @@
-# [2820. 选举结果](https://leetcode.cn/problems/election-results)
+# [2820. 选举结果 🔒](https://leetcode.cn/problems/election-results)
 
 [English Version](/solution/2800-2899/2820.Election%20Results/README_EN.md)
 

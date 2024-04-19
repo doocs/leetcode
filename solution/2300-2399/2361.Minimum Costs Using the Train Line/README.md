@@ -1,4 +1,4 @@
-# [2361. 乘坐火车路线的最少费用](https://leetcode.cn/problems/minimum-costs-using-the-train-line)
+# [2361. 乘坐火车路线的最少费用 🔒](https://leetcode.cn/problems/minimum-costs-using-the-train-line)
 
 [English Version](/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README_EN.md)
 

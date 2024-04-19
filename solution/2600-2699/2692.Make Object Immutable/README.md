@@ -1,4 +1,4 @@
-# [2692. 使对象不可变](https://leetcode.cn/problems/make-object-immutable)
+# [2692. 使对象不可变 🔒](https://leetcode.cn/problems/make-object-immutable)
 
 [English Version](/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md)
 

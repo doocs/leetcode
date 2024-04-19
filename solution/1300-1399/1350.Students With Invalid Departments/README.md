@@ -1,4 +1,4 @@
-# [1350. 院系无效的学生](https://leetcode.cn/problems/students-with-invalid-departments)
+# [1350. 院系无效的学生 🔒](https://leetcode.cn/problems/students-with-invalid-departments)
 
 [English Version](/solution/1300-1399/1350.Students%20With%20Invalid%20Departments/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [1715. Count Apples and Oranges](https://leetcode.com/problems/count-apples-and-oranges)
+# [1715. Count Apples and Oranges 🔒](https://leetcode.com/problems/count-apples-and-oranges)
 
 [中文文档](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README.md)
 

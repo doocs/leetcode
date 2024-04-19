@@ -1,4 +1,4 @@
-# [1956. 感染 K 种病毒所需的最短时间](https://leetcode.cn/problems/minimum-time-for-k-virus-variants-to-spread)
+# [1956. 感染 K 种病毒所需的最短时间 🔒](https://leetcode.cn/problems/minimum-time-for-k-virus-variants-to-spread)
 
 [English Version](/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README_EN.md)
 

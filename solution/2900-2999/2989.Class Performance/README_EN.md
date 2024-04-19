@@ -1,4 +1,4 @@
-# [2989. Class Performance](https://leetcode.com/problems/class-performance)
+# [2989. Class Performance 🔒](https://leetcode.com/problems/class-performance)
 
 [中文文档](/solution/2900-2999/2989.Class%20Performance/README.md)
 

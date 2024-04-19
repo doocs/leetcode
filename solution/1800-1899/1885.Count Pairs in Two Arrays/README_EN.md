@@ -1,4 +1,4 @@
-# [1885. Count Pairs in Two Arrays](https://leetcode.com/problems/count-pairs-in-two-arrays)
+# [1885. Count Pairs in Two Arrays 🔒](https://leetcode.com/problems/count-pairs-in-two-arrays)
 
 [中文文档](/solution/1800-1899/1885.Count%20Pairs%20in%20Two%20Arrays/README.md)
 

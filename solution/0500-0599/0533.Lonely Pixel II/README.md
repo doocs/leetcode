@@ -1,4 +1,4 @@
-# [533. 孤独像素 II](https://leetcode.cn/problems/lonely-pixel-ii)
+# [533. 孤独像素 II 🔒](https://leetcode.cn/problems/lonely-pixel-ii)
 
 [English Version](/solution/0500-0599/0533.Lonely%20Pixel%20II/README_EN.md)
 

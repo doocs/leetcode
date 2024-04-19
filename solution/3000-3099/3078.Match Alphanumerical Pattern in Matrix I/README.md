@@ -1,4 +1,4 @@
-# [3078. 矩阵中的字母数字模式匹配 I](https://leetcode.cn/problems/match-alphanumerical-pattern-in-matrix-i)
+# [3078. 矩阵中的字母数字模式匹配 I 🔒](https://leetcode.cn/problems/match-alphanumerical-pattern-in-matrix-i)
 
 [English Version](/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README_EN.md)
 

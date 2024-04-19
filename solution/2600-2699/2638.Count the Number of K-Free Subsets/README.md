@@ -1,4 +1,4 @@
-# [2638. 统计 K-Free 子集的总数](https://leetcode.cn/problems/count-the-number-of-k-free-subsets)
+# [2638. 统计 K-Free 子集的总数 🔒](https://leetcode.cn/problems/count-the-number-of-k-free-subsets)
 
 [English Version](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README_EN.md)
 

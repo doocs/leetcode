@@ -1,4 +1,4 @@
-# [1088. Confusing Number II](https://leetcode.com/problems/confusing-number-ii)
+# [1088. Confusing Number II 🔒](https://leetcode.com/problems/confusing-number-ii)
 
 [中文文档](/solution/1000-1099/1088.Confusing%20Number%20II/README.md)
 

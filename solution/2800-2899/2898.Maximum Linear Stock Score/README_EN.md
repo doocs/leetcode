@@ -1,4 +1,4 @@
-# [2898. Maximum Linear Stock Score](https://leetcode.com/problems/maximum-linear-stock-score)
+# [2898. Maximum Linear Stock Score 🔒](https://leetcode.com/problems/maximum-linear-stock-score)
 
 [中文文档](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README.md)
 

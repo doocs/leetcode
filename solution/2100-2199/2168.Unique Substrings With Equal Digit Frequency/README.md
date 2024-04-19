@@ -1,4 +1,4 @@
-# [2168. 每个数字的频率都相同的独特子字符串的数量](https://leetcode.cn/problems/unique-substrings-with-equal-digit-frequency)
+# [2168. 每个数字的频率都相同的独特子字符串的数量 🔒](https://leetcode.cn/problems/unique-substrings-with-equal-digit-frequency)
 
 [English Version](/solution/2100-2199/2168.Unique%20Substrings%20With%20Equal%20Digit%20Frequency/README_EN.md)
 

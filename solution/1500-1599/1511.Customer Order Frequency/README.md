@@ -1,4 +1,4 @@
-# [1511. 消费者下单频率](https://leetcode.cn/problems/customer-order-frequency)
+# [1511. 消费者下单频率 🔒](https://leetcode.cn/problems/customer-order-frequency)
 
 [English Version](/solution/1500-1599/1511.Customer%20Order%20Frequency/README_EN.md)
 

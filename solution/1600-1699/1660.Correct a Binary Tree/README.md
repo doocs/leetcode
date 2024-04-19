@@ -1,4 +1,4 @@
-# [1660. 纠正二叉树](https://leetcode.cn/problems/correct-a-binary-tree)
+# [1660. 纠正二叉树 🔒](https://leetcode.cn/problems/correct-a-binary-tree)
 
 [English Version](/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README_EN.md)
 

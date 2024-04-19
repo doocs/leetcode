@@ -1,4 +1,4 @@
-# [1682. Longest Palindromic Subsequence II](https://leetcode.com/problems/longest-palindromic-subsequence-ii)
+# [1682. Longest Palindromic Subsequence II 🔒](https://leetcode.com/problems/longest-palindromic-subsequence-ii)
 
 [中文文档](/solution/1600-1699/1682.Longest%20Palindromic%20Subsequence%20II/README.md)
 

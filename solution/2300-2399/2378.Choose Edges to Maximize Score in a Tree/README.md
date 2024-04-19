@@ -1,4 +1,4 @@
-# [2378. 选择边来最大化树的得分](https://leetcode.cn/problems/choose-edges-to-maximize-score-in-a-tree)
+# [2378. 选择边来最大化树的得分 🔒](https://leetcode.cn/problems/choose-edges-to-maximize-score-in-a-tree)
 
 [English Version](/solution/2300-2399/2378.Choose%20Edges%20to%20Maximize%20Score%20in%20a%20Tree/README_EN.md)
 

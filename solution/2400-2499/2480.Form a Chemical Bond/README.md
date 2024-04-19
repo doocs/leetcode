@@ -1,4 +1,4 @@
-# [2480. 形成化学键](https://leetcode.cn/problems/form-a-chemical-bond)
+# [2480. 形成化学键 🔒](https://leetcode.cn/problems/form-a-chemical-bond)
 
 [English Version](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md)
 

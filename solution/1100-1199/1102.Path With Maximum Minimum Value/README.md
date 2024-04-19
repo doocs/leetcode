@@ -1,4 +1,4 @@
-# [1102. 得分最高的路径](https://leetcode.cn/problems/path-with-maximum-minimum-value)
+# [1102. 得分最高的路径 🔒](https://leetcode.cn/problems/path-with-maximum-minimum-value)
 
 [English Version](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README_EN.md)
 

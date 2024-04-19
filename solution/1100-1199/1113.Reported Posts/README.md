@@ -1,4 +1,4 @@
-# [1113. 报告的记录](https://leetcode.cn/problems/reported-posts)
+# [1113. 报告的记录 🔒](https://leetcode.cn/problems/reported-posts)
 
 [English Version](/solution/1100-1199/1113.Reported%20Posts/README_EN.md)
 

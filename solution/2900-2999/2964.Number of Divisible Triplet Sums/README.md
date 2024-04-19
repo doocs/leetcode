@@ -1,4 +1,4 @@
-# [2964. 可被整除的三元组数量](https://leetcode.cn/problems/number-of-divisible-triplet-sums)
+# [2964. 可被整除的三元组数量 🔒](https://leetcode.cn/problems/number-of-divisible-triplet-sums)
 
 [English Version](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README_EN.md)
 

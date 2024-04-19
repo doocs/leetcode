@@ -1,4 +1,4 @@
-# [2214. 通关游戏所需的最低生命值](https://leetcode.cn/problems/minimum-health-to-beat-game)
+# [2214. 通关游戏所需的最低生命值 🔒](https://leetcode.cn/problems/minimum-health-to-beat-game)
 
 [English Version](/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README_EN.md)
 

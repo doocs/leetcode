@@ -1,4 +1,4 @@
-# [2254. 设计视频共享平台](https://leetcode.cn/problems/design-video-sharing-platform)
+# [2254. 设计视频共享平台 🔒](https://leetcode.cn/problems/design-video-sharing-platform)
 
 [English Version](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md)
 

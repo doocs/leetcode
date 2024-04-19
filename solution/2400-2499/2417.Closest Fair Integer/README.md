@@ -1,4 +1,4 @@
-# [2417. 最近的公平整数](https://leetcode.cn/problems/closest-fair-integer)
+# [2417. 最近的公平整数 🔒](https://leetcode.cn/problems/closest-fair-integer)
 
 [English Version](/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md)
 

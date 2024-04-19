@@ -1,4 +1,4 @@
-# [2647. 把三角形染成红色](https://leetcode.cn/problems/color-the-triangle-red)
+# [2647. 把三角形染成红色 🔒](https://leetcode.cn/problems/color-the-triangle-red)
 
 [English Version](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)
 

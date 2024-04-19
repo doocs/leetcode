@@ -1,4 +1,4 @@
-# [246. 中心对称数](https://leetcode.cn/problems/strobogrammatic-number)
+# [246. 中心对称数 🔒](https://leetcode.cn/problems/strobogrammatic-number)
 
 [English Version](/solution/0200-0299/0246.Strobogrammatic%20Number/README_EN.md)
 
@@ -42,7 +42,7 @@
 
 我们定义一个数组 $d$，其中 $d[i]$ 表示数字 $i$ 旋转 180° 之后的数字。如果 $d[i]$ 为 $-1$，表示数字 $i$ 不能旋转 180° 得到一个数字。
 
-定义两个指针 $i$ 和 $j$，分别指向字符串的左右两端，然后不断向中间移动指针，判断 $d[num[i]]$ 和 $num[j]$ 是否相等，如果不相等，说明该字符串不是中心对称数，直接返回 $false$ 即可。如果 $i \gt j$，说明遍历完了字符串，返回 $true$。
+定义两个指针 $i$ 和 $j$，分别指向字符串的左右两端，然后不断向中间移动指针，判断 $d[num[i]]$ 和 $num[j]$ 是否相等，如果不相等，说明该字符串不是中心对称数 🔒，直接返回 $false$ 即可。如果 $i \gt j$，说明遍历完了字符串，返回 $true$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串的长度。
 

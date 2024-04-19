@@ -1,4 +1,4 @@
-# [2229. 检查数组是否连贯](https://leetcode.cn/problems/check-if-an-array-is-consecutive)
+# [2229. 检查数组是否连贯 🔒](https://leetcode.cn/problems/check-if-an-array-is-consecutive)
 
 [English Version](/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README_EN.md)
 

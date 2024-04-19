@@ -1,4 +1,4 @@
-# [1064. 不动点](https://leetcode.cn/problems/fixed-point)
+# [1064. 不动点 🔒](https://leetcode.cn/problems/fixed-point)
 
 [English Version](/solution/1000-1099/1064.Fixed%20Point/README_EN.md)
 
@@ -55,9 +55,9 @@
 
 题目给定的数组是按升序排列的，因此我们可以使用二分查找的方法找出最小的满足 $arr[i]$ 等于 $i$ 的下标 $i$。
 
-我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$。每一次，我们找到当前的中间位置 $mid$，如果中间位置满足 $arr[mid] \geq mid$，那么我们就确定了最小的不动点的位置一定不会出现在下标大于 $mid$ 的位置，因此我们令 $right=mid$；如果中间位置满足 $arr[mid] \lt mid$，那么最小的不动点一定出现在下标大于 $mid$ 的位置，因此我们令 $left=mid+1$。
+我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$。每一次，我们找到当前的中间位置 $mid$，如果中间位置满足 $arr[mid] \geq mid$，那么我们就确定了最小的不动点 🔒 的位置一定不会出现在下标大于 $mid$ 的位置，因此我们令 $right=mid$；如果中间位置满足 $arr[mid] \lt mid$，那么最小的不动点 🔒 一定出现在下标大于 $mid$ 的位置，因此我们令 $left=mid+1$。
 
-最后，如果我们没有找到最小的不动点，那么我们返回 $-1$。
+最后，如果我们没有找到最小的不动点 🔒，那么我们返回 $-1$。
 
 时间复杂度 $O(\log n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 

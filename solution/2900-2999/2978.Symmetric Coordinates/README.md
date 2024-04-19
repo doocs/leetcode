@@ -1,4 +1,4 @@
-# [2978. 对称坐标](https://leetcode.cn/problems/symmetric-coordinates)
+# [2978. 对称坐标 🔒](https://leetcode.cn/problems/symmetric-coordinates)
 
 [English Version](/solution/2900-2999/2978.Symmetric%20Coordinates/README_EN.md)
 

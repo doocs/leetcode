@@ -1,4 +1,4 @@
-# [2821. 延迟每个 Promise 对象的解析](https://leetcode.cn/problems/delay-the-resolution-of-each-promise)
+# [2821. 延迟每个 Promise 对象的解析 🔒](https://leetcode.cn/problems/delay-the-resolution-of-each-promise)
 
 [English Version](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md)
 

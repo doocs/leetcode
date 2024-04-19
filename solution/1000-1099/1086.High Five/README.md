@@ -1,4 +1,4 @@
-# [1086. 前五科的均分](https://leetcode.cn/problems/high-five)
+# [1086. 前五科的均分 🔒](https://leetcode.cn/problems/high-five)
 
 [English Version](/solution/1000-1099/1086.High%20Five/README_EN.md)
 

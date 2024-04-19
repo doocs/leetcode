@@ -1,4 +1,4 @@
-# [1182. 与目标颜色间的最短距离](https://leetcode.cn/problems/shortest-distance-to-target-color)
+# [1182. 与目标颜色间的最短距离 🔒](https://leetcode.cn/problems/shortest-distance-to-target-color)
 
 [English Version](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md)
 

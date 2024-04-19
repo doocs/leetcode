@@ -1,4 +1,4 @@
-# [1762. 能看到海景的建筑物](https://leetcode.cn/problems/buildings-with-an-ocean-view)
+# [1762. 能看到海景的建筑物 🔒](https://leetcode.cn/problems/buildings-with-an-ocean-view)
 
 [English Version](/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README_EN.md)
 

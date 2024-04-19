@@ -1,4 +1,4 @@
-# [2394. 开除员工](https://leetcode.cn/problems/employees-with-deductions)
+# [2394. 开除员工 🔒](https://leetcode.cn/problems/employees-with-deductions)
 
 [English Version](/solution/2300-2399/2394.Employees%20With%20Deductions/README_EN.md)
 

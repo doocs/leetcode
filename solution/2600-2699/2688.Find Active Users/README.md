@@ -1,4 +1,4 @@
-# [2688. 查找活跃用户](https://leetcode.cn/problems/find-active-users)
+# [2688. 查找活跃用户 🔒](https://leetcode.cn/problems/find-active-users)
 
 [English Version](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)
 

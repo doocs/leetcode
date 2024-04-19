@@ -1,4 +1,4 @@
-# [311. 稀疏矩阵的乘法](https://leetcode.cn/problems/sparse-matrix-multiplication)
+# [311. 稀疏矩阵的乘法 🔒](https://leetcode.cn/problems/sparse-matrix-multiplication)
 
 [English Version](/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README_EN.md)
 

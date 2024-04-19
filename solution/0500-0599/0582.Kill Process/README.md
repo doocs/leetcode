@@ -1,4 +1,4 @@
-# [582. 杀掉进程](https://leetcode.cn/problems/kill-process)
+# [582. 杀掉进程 🔒](https://leetcode.cn/problems/kill-process)
 
 [English Version](/solution/0500-0599/0582.Kill%20Process/README_EN.md)
 

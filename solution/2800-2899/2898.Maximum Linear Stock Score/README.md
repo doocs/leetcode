@@ -1,4 +1,4 @@
-# [2898. 最大线性股票得分](https://leetcode.cn/problems/maximum-linear-stock-score)
+# [2898. 最大线性股票得分 🔒](https://leetcode.cn/problems/maximum-linear-stock-score)
 
 [English Version](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README_EN.md)
 

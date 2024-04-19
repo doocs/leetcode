@@ -1,4 +1,4 @@
-# [305. 岛屿数量 II](https://leetcode.cn/problems/number-of-islands-ii)
+# [305. 岛屿数量 II 🔒](https://leetcode.cn/problems/number-of-islands-ii)
 
 [English Version](/solution/0300-0399/0305.Number%20of%20Islands%20II/README_EN.md)
 

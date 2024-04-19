@@ -1,4 +1,4 @@
-# [1056. Confusing Number](https://leetcode.com/problems/confusing-number)
+# [1056. Confusing Number 🔒](https://leetcode.com/problems/confusing-number)
 
 [中文文档](/solution/1000-1099/1056.Confusing%20Number/README.md)
 

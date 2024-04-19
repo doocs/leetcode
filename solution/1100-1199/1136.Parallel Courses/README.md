@@ -1,4 +1,4 @@
-# [1136. 并行课程](https://leetcode.cn/problems/parallel-courses)
+# [1136. 并行课程 🔒](https://leetcode.cn/problems/parallel-courses)
 
 [English Version](/solution/1100-1199/1136.Parallel%20Courses/README_EN.md)
 

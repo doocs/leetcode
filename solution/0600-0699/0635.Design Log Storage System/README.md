@@ -1,4 +1,4 @@
-# [635. 设计日志存储系统](https://leetcode.cn/problems/design-log-storage-system)
+# [635. 设计日志存储系统 🔒](https://leetcode.cn/problems/design-log-storage-system)
 
 [English Version](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README_EN.md)
 

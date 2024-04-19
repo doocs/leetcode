@@ -1,4 +1,4 @@
-# [2743. 计算没有重复字符的子字符串数量](https://leetcode.cn/problems/count-substrings-without-repeating-character)
+# [2743. 计算没有重复字符的子字符串数量 🔒](https://leetcode.cn/problems/count-substrings-without-repeating-character)
 
 [English Version](/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README_EN.md)
 

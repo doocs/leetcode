@@ -1,4 +1,4 @@
-# [2674. 拆分循环链表](https://leetcode.cn/problems/split-a-circular-linked-list)
+# [2674. 拆分循环链表 🔒](https://leetcode.cn/problems/split-a-circular-linked-list)
 
 [English Version](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README_EN.md)
 
