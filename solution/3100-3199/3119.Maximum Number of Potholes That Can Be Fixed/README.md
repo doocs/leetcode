@@ -94,6 +94,8 @@ class Solution:
             t = min(budget // (k + 1), cnt[k])
             ans += t * k
             budget -= t * (k + 1)
+            if budget == 0:
+                break
             cnt[k - 1] += cnt[k] - t
         return ans
 ```
@@ -114,7 +116,7 @@ class Solution {
             }
         }
         int ans = 0;
-        for (k = n - 1; k > 0; --k) {
+        for (k = n - 1; k > 0 && budget > 0; --k) {
             int t = Math.min(budget / (k + 1), cnt[k]);
             ans += t * k;
             budget -= t * (k + 1);
@@ -142,7 +144,7 @@ public:
             }
         }
         int ans = 0;
-        for (k = n - 1; k; --k) {
+        for (k = n - 1; k && budget; --k) {
             int t = min(budget / (k + 1), cnt[k]);
             ans += t * k;
             budget -= t * (k + 1);
@@ -167,7 +169,7 @@ func maxPotholes(road string, budget int) (ans int) {
 			k = 0
 		}
 	}
-	for k = n - 1; k > 0; k-- {
+	for k = n - 1; k > 0 && budget > 0; k-- {
 		t := min(budget/(k+1), cnt[k])
 		ans += t * k
 		budget -= t * (k + 1)
@@ -192,13 +194,76 @@ function maxPotholes(road: string, budget: number): number {
         }
     }
     let ans = 0;
-    for (k = n - 1; k; --k) {
+    for (k = n - 1; k && budget; --k) {
         const t = Math.min(Math.floor(budget / (k + 1)), cnt[k]);
         ans += t * k;
         budget -= t * (k + 1);
         cnt[k - 1] += cnt[k] - t;
     }
     return ans;
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_potholes(road: String, budget: i32) -> i32 {
+        let mut cs: Vec<char> = road.chars().collect();
+        cs.push('.');
+        let n = cs.len();
+        let mut cnt: Vec<i32> = vec![0; n];
+        let mut k = 0;
+
+        for c in cs.iter() {
+            if *c == 'x' {
+                k += 1;
+            } else if k > 0 {
+                cnt[k] += 1;
+                k = 0;
+            }
+        }
+
+        let mut ans = 0;
+        let mut budget = budget;
+
+        for k in (1..n).rev() {
+            if budget == 0 {
+                break;
+            }
+            let t = std::cmp::min(budget / ((k as i32) + 1), cnt[k]);
+            ans += t * (k as i32);
+            budget -= t * ((k as i32) + 1);
+            cnt[k - 1] += cnt[k] - t;
+        }
+
+        ans
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int MaxPotholes(string road, int budget) {
+        road += '.';
+        int n = road.Length;
+        int[] cnt = new int[n];
+        int k = 0;
+        foreach (char c in road) {
+            if (c == 'x') {
+                ++k;
+            } else if (k > 0) {
+                ++cnt[k];
+                k = 0;
+            }
+        }
+        int ans = 0;
+        for (k = n - 1; k > 0 && budget > 0; --k) {
+            int t = Math.Min(budget / (k + 1), cnt[k]);
+            ans += t * k;
+            budget -= t * (k + 1);
+            cnt[k - 1] += cnt[k] - t;
+        }
+        return ans;
+    }
 }
 ```
 

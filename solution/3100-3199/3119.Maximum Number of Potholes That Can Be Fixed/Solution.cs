@@ -1,10 +1,10 @@
-class Solution {
-    public int maxPotholes(String road, int budget) {
-        road += ".";
-        int n = road.length();
+public class Solution {
+    public int MaxPotholes(string road, int budget) {
+        road += '.';
+        int n = road.Length;
         int[] cnt = new int[n];
         int k = 0;
-        for (char c : road.toCharArray()) {
+        foreach (char c in road) {
             if (c == 'x') {
                 ++k;
             } else if (k > 0) {
@@ -14,7 +14,7 @@ class Solution {
         }
         int ans = 0;
         for (k = n - 1; k > 0 && budget > 0; --k) {
-            int t = Math.min(budget / (k + 1), cnt[k]);
+            int t = Math.Min(budget / (k + 1), cnt[k]);
             ans += t * k;
             budget -= t * (k + 1);
             cnt[k - 1] += cnt[k] - t;

@@ -17,5 +17,7 @@ class Solution:
             t = min(budget // (k + 1), cnt[k])
             ans += t * k
             budget -= t * (k + 1)
+            if budget == 0:
+                break
             cnt[k - 1] += cnt[k] - t
         return ans

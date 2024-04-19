@@ -11,7 +11,7 @@ func maxPotholes(road string, budget int) (ans int) {
 			k = 0
 		}
 	}
-	for k = n - 1; k > 0; k-- {
+	for k = n - 1; k > 0 && budget > 0; k-- {
 		t := min(budget/(k+1), cnt[k])
 		ans += t * k
 		budget -= t * (k + 1)

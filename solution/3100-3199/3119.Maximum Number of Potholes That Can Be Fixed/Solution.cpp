@@ -14,7 +14,7 @@ public:
             }
         }
         int ans = 0;
-        for (k = n - 1; k; --k) {
+        for (k = n - 1; k && budget; --k) {
             int t = min(budget / (k + 1), cnt[k]);
             ans += t * k;
             budget -= t * (k + 1);
