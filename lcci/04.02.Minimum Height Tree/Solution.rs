@@ -19,23 +19,22 @@
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    fn dfs(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
-        if start >= end {
+    fn dfs(nums: &Vec<i32>, l: usize, r: usize) -> Option<Rc<RefCell<TreeNode>>> {
+        if l >= r {
             return None;
         }
-        let mid = start + (end - start) / 2;
+        let mid = (l + r) >> 1;
         Some(
             Rc::new(
                 RefCell::new(TreeNode {
                     val: nums[mid],
-                    left: Self::dfs(nums, start, mid),
-                    right: Self::dfs(nums, mid + 1, end),
+                    left: Self::dfs(nums, l, mid),
+                    right: Self::dfs(nums, mid + 1, r),
                 })
             )
         )
     }
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        let end = nums.len();
-        Self::dfs(&nums, 0, end)
+        Self::dfs(&nums, 0, nums.len())
     }
 }
