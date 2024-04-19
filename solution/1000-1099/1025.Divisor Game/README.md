@@ -104,6 +104,12 @@ func divisorGame(n int) bool {
 }
 ```
 
+```js
+var divisorGame = function (n) {
+    return n % 2 === 0;
+};
+```
+
 <!-- tabs:end -->
 
 <!-- end -->
