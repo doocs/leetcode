@@ -47,41 +47,42 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Binary Search
+
+We notice that if Koko can eat all the bananas at a speed of $k$ within $h$ hours, then she can also eat all the bananas at a speed of $k' > k$ within $h$ hours. This shows monotonicity, so we can use binary search to find the smallest $k$ that satisfies the condition.
+
+We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \max(\text{piles})$. For each binary search, we take the middle value $mid = \frac{l + r}{2}$, and then calculate the time $s$ required to eat bananas at a speed of $mid$. If $s \leq h$, it means that the speed of $mid$ can meet the condition, and we update the right boundary $r$ to $mid$; otherwise, we update the left boundary $l$ to $mid + 1$. Finally, when $l = r$, we find the smallest $k$ that satisfies the condition.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length and maximum value of the array `piles` respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 ```python
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        left, right = 1, int(1e9)
-        while left < right:
-            mid = (left + right) >> 1
-            s = sum((x + mid - 1) // mid for x in piles)
-            if s <= h:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        def check(k: int) -> bool:
+            return sum((x + k - 1) // k for x in piles) <= h
+
+        return 1 + bisect_left(range(1, max(piles) + 1), True, key=check)
 ```
 
 ```java
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        int left = 1, right = (int) 1e9;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
+        int l = 1, r = (int) 1e9;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int s = 0;
             for (int x : piles) {
                 s += (x + mid - 1) / mid;
             }
             if (s <= h) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -90,30 +91,31 @@ class Solution {
 class Solution {
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
-        int left = 1, right = 1e9;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 1, r = ranges::max(piles);
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int s = 0;
-            for (int& x : piles) s += (x + mid - 1) / mid;
-            if (s <= h)
-                right = mid;
-            else
-                left = mid + 1;
+            for (int x : piles) {
+                s += (x + mid - 1) / mid;
+            }
+            if (s <= h) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return left;
+        return l;
     }
 };
 ```
 
 ```go
 func minEatingSpeed(piles []int, h int) int {
-	return sort.Search(1e9, func(i int) bool {
-		if i == 0 {
-			return false
-		}
+	return 1 + sort.Search(slices.Max(piles), func(k int) bool {
+		k++
 		s := 0
 		for _, x := range piles {
-			s += (x + i - 1) / i
+			s += (x + k - 1) / k
 		}
 		return s <= h
 	})
@@ -122,46 +124,59 @@ func minEatingSpeed(piles []int, h int) int {
 
 ```ts
 function minEatingSpeed(piles: number[], h: number): number {
-    let left = 1;
-    let right = Math.max(...piles);
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let s = 0;
-        for (const x of piles) {
-            s += Math.ceil(x / mid);
-        }
+    let [l, r] = [1, Math.max(...piles)];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        const s = piles.map(x => Math.ceil(x / mid)).reduce((a, b) => a + b);
         if (s <= h) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_eating_speed(piles: Vec<i32>, h: i32) -> i32 {
+        let mut l = 1;
+        let mut r = *piles.iter().max().unwrap_or(&0);
+        while l < r {
+            let mid = (l + r) >> 1;
+            let mut s = 0;
+            for x in piles.iter() {
+                s += (x + mid - 1) / mid;
+            }
+            if s <= h {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
 }
 ```
 
 ```cs
 public class Solution {
     public int MinEatingSpeed(int[] piles, int h) {
-        int left = 1, right = piles.Max();
-        while (left < right)
-        {
-            int mid = (left + right) >> 1;
+        int l = 1, r = (int) 1e9;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int s = 0;
-            foreach (int pile in piles)
-            {
-                s += (pile + mid - 1) / mid;
+            foreach (int x in piles) {
+                s += (x + mid - 1) / mid;
             }
-            if (s <= h)
-            {
-                right = mid;
-            }
-            else
-            {
-                left = mid + 1;
+            if (s <= h) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
