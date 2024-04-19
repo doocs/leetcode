@@ -65,7 +65,21 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the shortest time considering the first $i$ roads and exactly skipping $j$ rest times. Initially, $f[0][0]=0$, and the rest $f[i][j]=\infty$.
+
+Since we can choose to skip or not skip the rest time of the $i$-th road, we can list the state transition equation:
+
+$$
+f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \text{Do not skip the rest time of the $i$-th road} \\ f[i-1][j-1]+\frac{d_i}{s} & \text{Skip the rest time of the $i$-th road} \end{aligned}\right.
+$$
+
+Where $\lceil x\rceil$ represents rounding $x$ up. It should be noted that since we need to ensure that exactly $j$ rest times are skipped, we must have $j\le i$; moreover, if $j=0$, no rest time can be skipped.
+
+Due to the possible precision error brought by floating-point operations and rounding up, we introduce a constant $eps = 10^{-8}$ to represent a very small positive real number. We subtract $eps$ before rounding the floating-point number, and finally, when comparing $f[n][j]$ and $hoursBefore$, we need to add $eps$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of roads.
 
 <!-- tabs:start -->
 
@@ -84,6 +98,24 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i - 1][j - 1] + x / speed)
         for j in range(n + 1):
             if f[n][j] <= hoursBefore + eps:
+                return j
+        return -1
+```
+
+```python
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        f = [[inf] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(dist, 1):
+            for j in range(i + 1):
+                if j < i:
+                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
+                if j:
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
+        for j in range(n + 1):
+            if f[n][j] <= hoursBefore * speed:
                 return j
         return -1
 ```
@@ -201,30 +233,6 @@ function minSkips(dist: number[], speed: number, hoursBefore: number): number {
     }
     return -1;
 }
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
-        n = len(dist)
-        f = [[inf] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        for i, x in enumerate(dist, 1):
-            for j in range(i + 1):
-                if j < i:
-                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
-                if j:
-                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
-        for j in range(n + 1):
-            if f[n][j] <= hoursBefore * speed:
-                return j
-        return -1
 ```
 
 <!-- tabs:end -->

@@ -12,7 +12,7 @@ function maxPotholes(road: string, budget: number): number {
         }
     }
     let ans = 0;
-    for (k = n - 1; k; --k) {
+    for (k = n - 1; k && budget; --k) {
         const t = Math.min(Math.floor(budget / (k + 1)), cnt[k]);
         ans += t * k;
         budget -= t * (k + 1);
