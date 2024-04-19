@@ -305,11 +305,11 @@ class TripleInOne {
 
 /**
  * Your TripleInOne object will be instantiated and called as such:
- * var obj = TripleInOne(stackSize)
+ * let obj = TripleInOne(stackSize)
  * obj.push(stackNum,value)
- * var param_2 = obj.pop(stackNum)
- * var param_3 = obj.peek(stackNum)
- * var param_4 = obj.isEmpty(stackNum)
+ * let param_2 = obj.pop(stackNum)
+ * let param_3 = obj.peek(stackNum)
+ * let param_4 = obj.isEmpty(stackNum)
  */
 ```
 
