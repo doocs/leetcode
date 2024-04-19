@@ -38,7 +38,11 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: BFS Level Order Traversal
+
+We can use the BFS level order traversal method. For each level, we store the values of the current level's nodes into a list, and then add the list to the result array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
