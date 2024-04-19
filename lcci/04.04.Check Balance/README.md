@@ -16,7 +16,7 @@
 函数 $dfs(root)$ 的执行逻辑如下：
 
 -   如果 $root$ 为空，则返回 $0$；
--   否则，我们递归调用 $dfs(root.left)$ 和 $dfs(root.right)$，并判断 $dfs(root.left)$ 和 $dfs(root.right)$ 的返回值是否为 $-1$，如果不为 $-1$，则判断 $abs(dfs(root.left) - dfs(root.right)) <= 1$ 是否成立，如果成立，则返回 $max(dfs(root.left), dfs(root.right)) + 1$，否则返回 $-1$。
+-   否则，我们递归调用 $dfs(root.left)$ 和 $dfs(root.right)$，并判断 $dfs(root.left)$ 和 $dfs(root.right)$ 的返回值是否为 $-1$，如果不为 $-1$，则判断 $abs(dfs(root.left) - dfs(root.right)) \leq 1$ 是否成立，如果成立，则返回 $max(dfs(root.left), dfs(root.right)) + 1$，否则返回 $-1$。
 
 在主函数中，我们只需要调用 $dfs(root)$，并判断其返回值是否为 $-1$，如果不为 $-1$，则返回 `true`，否则返回 `false`。
 
@@ -37,12 +37,13 @@ class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
         def dfs(root: TreeNode):
             if root is None:
-                return 0, True
-            a, b = dfs(root.left)
-            c, d = dfs(root.right)
-            return max(a, c) + 1, abs(a - c) <= 1 and b and d
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return max(l, r) + 1
 
-        return dfs(root)[1]
+        return dfs(root) >= 0
 ```
 
 ```java
@@ -164,34 +165,6 @@ function isBalanced(root: TreeNode | null): boolean {
     };
     return dfs(root) >= 0;
 }
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        def dfs(root: TreeNode):
-            if root is None:
-                return 0
-            l, r = dfs(root.left), dfs(root.right)
-            if l == -1 or r == -1 or abs(l - r) > 1:
-                return -1
-            return max(l, r) + 1
-
-        return dfs(root) >= 0
 ```
 
 <!-- tabs:end -->
