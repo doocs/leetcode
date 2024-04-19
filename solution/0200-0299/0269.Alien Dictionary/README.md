@@ -1,4 +1,4 @@
-# [269. 火星词典](https://leetcode.cn/problems/alien-dictionary)
+# [269. 火星词典 🔒](https://leetcode.cn/problems/alien-dictionary)
 
 [English Version](/solution/0200-0299/0269.Alien%20Dictionary/README_EN.md)
 

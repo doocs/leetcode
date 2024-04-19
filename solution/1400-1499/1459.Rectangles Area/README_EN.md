@@ -1,4 +1,4 @@
-# [1459. Rectangles Area](https://leetcode.com/problems/rectangles-area)
+# [1459. Rectangles Area 🔒](https://leetcode.com/problems/rectangles-area)
 
 [中文文档](/solution/1400-1499/1459.Rectangles%20Area/README.md)
 

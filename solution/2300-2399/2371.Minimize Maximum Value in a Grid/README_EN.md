@@ -1,4 +1,4 @@
-# [2371. Minimize Maximum Value in a Grid](https://leetcode.com/problems/minimize-maximum-value-in-a-grid)
+# [2371. Minimize Maximum Value in a Grid 🔒](https://leetcode.com/problems/minimize-maximum-value-in-a-grid)
 
 [中文文档](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README.md)
 

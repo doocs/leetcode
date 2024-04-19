@@ -1,4 +1,4 @@
-# [1940. Longest Common Subsequence Between Sorted Arrays](https://leetcode.com/problems/longest-common-subsequence-between-sorted-arrays)
+# [1940. Longest Common Subsequence Between Sorted Arrays 🔒](https://leetcode.com/problems/longest-common-subsequence-between-sorted-arrays)
 
 [中文文档](/solution/1900-1999/1940.Longest%20Common%20Subsequence%20Between%20Sorted%20Arrays/README.md)
 

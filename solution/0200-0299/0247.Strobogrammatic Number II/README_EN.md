@@ -1,4 +1,4 @@
-# [247. Strobogrammatic Number II](https://leetcode.com/problems/strobogrammatic-number-ii)
+# [247. Strobogrammatic Number II 🔒](https://leetcode.com/problems/strobogrammatic-number-ii)
 
 [中文文档](/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md)
 

@@ -1,4 +1,4 @@
-# [2046. 给按照绝对值排序的链表排序](https://leetcode.cn/problems/sort-linked-list-already-sorted-using-absolute-values)
+# [2046. 给按照绝对值排序的链表排序 🔒](https://leetcode.cn/problems/sort-linked-list-already-sorted-using-absolute-values)
 
 [English Version](/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README_EN.md)
 

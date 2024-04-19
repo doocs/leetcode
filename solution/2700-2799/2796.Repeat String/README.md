@@ -1,4 +1,4 @@
-# [2796. 重复字符串](https://leetcode.cn/problems/repeat-string)
+# [2796. 重复字符串 🔒](https://leetcode.cn/problems/repeat-string)
 
 [English Version](/solution/2700-2799/2796.Repeat%20String/README_EN.md)
 

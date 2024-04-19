@@ -1,4 +1,4 @@
-# [3060. 时间范围内的用户活动](https://leetcode.cn/problems/user-activities-within-time-bounds)
+# [3060. 时间范围内的用户活动 🔒](https://leetcode.cn/problems/user-activities-within-time-bounds)
 
 [English Version](/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README_EN.md)
 

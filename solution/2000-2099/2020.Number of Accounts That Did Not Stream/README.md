@@ -1,4 +1,4 @@
-# [2020. 无流量的帐户数](https://leetcode.cn/problems/number-of-accounts-that-did-not-stream)
+# [2020. 无流量的帐户数 🔒](https://leetcode.cn/problems/number-of-accounts-that-did-not-stream)
 
 [English Version](/solution/2000-2099/2020.Number%20of%20Accounts%20That%20Did%20Not%20Stream/README_EN.md)
 

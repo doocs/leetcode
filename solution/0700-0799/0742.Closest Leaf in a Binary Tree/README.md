@@ -1,4 +1,4 @@
-# [742. 二叉树最近的叶节点](https://leetcode.cn/problems/closest-leaf-in-a-binary-tree)
+# [742. 二叉树最近的叶节点 🔒](https://leetcode.cn/problems/closest-leaf-in-a-binary-tree)
 
 [English Version](/solution/0700-0799/0742.Closest%20Leaf%20in%20a%20Binary%20Tree/README_EN.md)
 

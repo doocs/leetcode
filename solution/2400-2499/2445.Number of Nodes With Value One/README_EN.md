@@ -1,4 +1,4 @@
-# [2445. Number of Nodes With Value One](https://leetcode.com/problems/number-of-nodes-with-value-one)
+# [2445. Number of Nodes With Value One 🔒](https://leetcode.com/problems/number-of-nodes-with-value-one)
 
 [中文文档](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README.md)
 

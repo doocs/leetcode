@@ -1,4 +1,4 @@
-# [2252. 表的动态旋转](https://leetcode.cn/problems/dynamic-pivoting-of-a-table)
+# [2252. 表的动态旋转 🔒](https://leetcode.cn/problems/dynamic-pivoting-of-a-table)
 
 [English Version](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md)
 

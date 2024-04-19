@@ -1,4 +1,4 @@
-# [1256. 加密数字](https://leetcode.cn/problems/encode-number)
+# [1256. 加密数字 🔒](https://leetcode.cn/problems/encode-number)
 
 [English Version](/solution/1200-1299/1256.Encode%20Number/README_EN.md)
 

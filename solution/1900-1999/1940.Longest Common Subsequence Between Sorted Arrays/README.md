@@ -1,4 +1,4 @@
-# [1940. 排序数组之间的最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence-between-sorted-arrays)
+# [1940. 排序数组之间的最长公共子序列 🔒](https://leetcode.cn/problems/longest-common-subsequence-between-sorted-arrays)
 
 [English Version](/solution/1900-1999/1940.Longest%20Common%20Subsequence%20Between%20Sorted%20Arrays/README_EN.md)
 

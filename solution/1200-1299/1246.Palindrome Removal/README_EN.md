@@ -1,4 +1,4 @@
-# [1246. Palindrome Removal](https://leetcode.com/problems/palindrome-removal)
+# [1246. Palindrome Removal 🔒](https://leetcode.com/problems/palindrome-removal)
 
 [中文文档](/solution/1200-1299/1246.Palindrome%20Removal/README.md)
 

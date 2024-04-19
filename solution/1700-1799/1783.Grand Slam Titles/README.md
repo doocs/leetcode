@@ -1,4 +1,4 @@
-# [1783. 大满贯数量](https://leetcode.cn/problems/grand-slam-titles)
+# [1783. 大满贯数量 🔒](https://leetcode.cn/problems/grand-slam-titles)
 
 [English Version](/solution/1700-1799/1783.Grand%20Slam%20Titles/README_EN.md)
 

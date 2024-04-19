@@ -1,4 +1,4 @@
-# [568. Maximum Vacation Days](https://leetcode.com/problems/maximum-vacation-days)
+# [568. Maximum Vacation Days 🔒](https://leetcode.com/problems/maximum-vacation-days)
 
 [中文文档](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README.md)
 

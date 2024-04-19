@@ -1,4 +1,4 @@
-# [2152. 穿过所有点的所需最少直线数量](https://leetcode.cn/problems/minimum-number-of-lines-to-cover-points)
+# [2152. 穿过所有点的所需最少直线数量 🔒](https://leetcode.cn/problems/minimum-number-of-lines-to-cover-points)
 
 [English Version](/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README_EN.md)
 

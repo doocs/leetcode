@@ -1,4 +1,4 @@
-# [3062. 链表游戏的获胜者](https://leetcode.cn/problems/winner-of-the-linked-list-game)
+# [3062. 链表游戏的获胜者 🔒](https://leetcode.cn/problems/winner-of-the-linked-list-game)
 
 [English Version](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md)
 

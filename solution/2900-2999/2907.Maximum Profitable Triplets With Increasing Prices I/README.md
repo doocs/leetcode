@@ -1,4 +1,4 @@
-# [2907. 价格递增的最大利润三元组 I](https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-i)
+# [2907. 价格递增的最大利润三元组 I 🔒](https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-i)
 
 [English Version](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README_EN.md)
 

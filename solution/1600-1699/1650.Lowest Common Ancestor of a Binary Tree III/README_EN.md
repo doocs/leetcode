@@ -1,4 +1,4 @@
-# [1650. Lowest Common Ancestor of a Binary Tree III](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii)
+# [1650. Lowest Common Ancestor of a Binary Tree III 🔒](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii)
 
 [中文文档](/solution/1600-1699/1650.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20III/README.md)
 

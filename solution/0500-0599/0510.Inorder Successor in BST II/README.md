@@ -1,4 +1,4 @@
-# [510. 二叉搜索树中的中序后继 II](https://leetcode.cn/problems/inorder-successor-in-bst-ii)
+# [510. 二叉搜索树中的中序后继 II 🔒](https://leetcode.cn/problems/inorder-successor-in-bst-ii)
 
 [English Version](/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README_EN.md)
 

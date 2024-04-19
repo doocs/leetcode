@@ -1,4 +1,4 @@
-# [2668. Find Latest Salaries](https://leetcode.com/problems/find-latest-salaries)
+# [2668. Find Latest Salaries 🔒](https://leetcode.com/problems/find-latest-salaries)
 
 [中文文档](/solution/2600-2699/2668.Find%20Latest%20Salaries/README.md)
 

@@ -1,4 +1,4 @@
-# [314. 二叉树的垂直遍历](https://leetcode.cn/problems/binary-tree-vertical-order-traversal)
+# [314. 二叉树的垂直遍历 🔒](https://leetcode.cn/problems/binary-tree-vertical-order-traversal)
 
 [English Version](/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README_EN.md)
 

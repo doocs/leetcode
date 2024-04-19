@@ -1,4 +1,4 @@
-# [531. 孤独像素 I](https://leetcode.cn/problems/lonely-pixel-i)
+# [531. 孤独像素 I 🔒](https://leetcode.cn/problems/lonely-pixel-i)
 
 [English Version](/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md)
 

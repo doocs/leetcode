@@ -1,4 +1,4 @@
-# [615. 平均工资：部门与公司比较](https://leetcode.cn/problems/average-salary-departments-vs-company)
+# [615. 平均工资：部门与公司比较 🔒](https://leetcode.cn/problems/average-salary-departments-vs-company)
 
 [English Version](/solution/0600-0699/0615.Average%20Salary%20Departments%20VS%20Company/README_EN.md)
 

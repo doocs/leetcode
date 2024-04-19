@@ -1,4 +1,4 @@
-# [2297. 跳跃游戏 VIII](https://leetcode.cn/problems/jump-game-viii)
+# [2297. 跳跃游戏 VIII 🔒](https://leetcode.cn/problems/jump-game-viii)
 
 [English Version](/solution/2200-2299/2297.Jump%20Game%20VIII/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2072. The Winner University](https://leetcode.com/problems/the-winner-university)
+# [2072. The Winner University 🔒](https://leetcode.com/problems/the-winner-university)
 
 [中文文档](/solution/2000-2099/2072.The%20Winner%20University/README.md)
 

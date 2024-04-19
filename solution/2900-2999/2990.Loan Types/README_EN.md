@@ -1,4 +1,4 @@
-# [2990. Loan Types](https://leetcode.com/problems/loan-types)
+# [2990. Loan Types 🔒](https://leetcode.com/problems/loan-types)
 
 [中文文档](/solution/2900-2999/2990.Loan%20Types/README.md)
 

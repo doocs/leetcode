@@ -1,4 +1,4 @@
-# [2847. 给定数字乘积的最小数字](https://leetcode.cn/problems/smallest-number-with-given-digit-product)
+# [2847. 给定数字乘积的最小数字 🔒](https://leetcode.cn/problems/smallest-number-with-given-digit-product)
 
 [English Version](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README_EN.md)
 

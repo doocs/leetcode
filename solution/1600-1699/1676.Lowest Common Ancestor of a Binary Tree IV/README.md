@@ -1,4 +1,4 @@
-# [1676. 二叉树的最近公共祖先 IV](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree-iv)
+# [1676. 二叉树的最近公共祖先 IV 🔒](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree-iv)
 
 [English Version](/solution/1600-1699/1676.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree%20IV/README_EN.md)
 

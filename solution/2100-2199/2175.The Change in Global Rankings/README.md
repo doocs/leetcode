@@ -1,4 +1,4 @@
-# [2175. 世界排名的变化](https://leetcode.cn/problems/the-change-in-global-rankings)
+# [2175. 世界排名的变化 🔒](https://leetcode.cn/problems/the-change-in-global-rankings)
 
 [English Version](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README_EN.md)
 

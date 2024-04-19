@@ -1,4 +1,4 @@
-# [2387. 行排序矩阵的中位数](https://leetcode.cn/problems/median-of-a-row-wise-sorted-matrix)
+# [2387. 行排序矩阵的中位数 🔒](https://leetcode.cn/problems/median-of-a-row-wise-sorted-matrix)
 
 [English Version](/solution/2300-2399/2387.Median%20of%20a%20Row%20Wise%20Sorted%20Matrix/README_EN.md)
 

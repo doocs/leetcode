@@ -1,4 +1,4 @@
-# [3056. 快照分析](https://leetcode.cn/problems/snaps-analysis)
+# [3056. 快照分析 🔒](https://leetcode.cn/problems/snaps-analysis)
 
 [English Version](/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md)
 

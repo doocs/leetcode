@@ -1,4 +1,4 @@
-# [2548. 填满背包的最大价格](https://leetcode.cn/problems/maximum-price-to-fill-a-bag)
+# [2548. 填满背包的最大价格 🔒](https://leetcode.cn/problems/maximum-price-to-fill-a-bag)
 
 [English Version](/solution/2500-2599/2548.Maximum%20Price%20to%20Fill%20a%20Bag/README_EN.md)
 

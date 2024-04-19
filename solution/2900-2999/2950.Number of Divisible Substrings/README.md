@@ -1,4 +1,4 @@
-# [2950. 可整除子串的数量](https://leetcode.cn/problems/number-of-divisible-substrings)
+# [2950. 可整除子串的数量 🔒](https://leetcode.cn/problems/number-of-divisible-substrings)
 
 [English Version](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md)
 

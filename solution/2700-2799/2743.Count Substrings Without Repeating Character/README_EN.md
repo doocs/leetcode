@@ -1,4 +1,4 @@
-# [2743. Count Substrings Without Repeating Character](https://leetcode.com/problems/count-substrings-without-repeating-character)
+# [2743. Count Substrings Without Repeating Character 🔒](https://leetcode.com/problems/count-substrings-without-repeating-character)
 
 [中文文档](/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README.md)
 

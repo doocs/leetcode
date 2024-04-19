@@ -1,4 +1,4 @@
-# [266. 回文排列](https://leetcode.cn/problems/palindrome-permutation)
+# [266. 回文排列 🔒](https://leetcode.cn/problems/palindrome-permutation)
 
 [English Version](/solution/0200-0299/0266.Palindrome%20Permutation/README_EN.md)
 

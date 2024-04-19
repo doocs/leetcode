@@ -1,4 +1,4 @@
-# [3058. 没有共同朋友的朋友](https://leetcode.cn/problems/friends-with-no-mutual-friends)
+# [3058. 没有共同朋友的朋友 🔒](https://leetcode.cn/problems/friends-with-no-mutual-friends)
 
 [English Version](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)
 
@@ -65,9 +65,9 @@ Friends 表：
 
 ### 方法一：子查询
 
-我们先把所有的朋友关系都列出来，记录在 `T` 表中。然后再找出 没有共同朋友的朋友对。
+我们先把所有的朋友关系都列出来，记录在 `T` 表中。然后再找出 没有共同朋友的朋友 🔒 对。
 
-接下来，我们可以使用子查询来找出没有共同朋友的朋友对，即这个朋友对不属于其他某个人的朋友。
+接下来，我们可以使用子查询来找出没有共同朋友的朋友 🔒 对，即这个朋友对不属于其他某个人的朋友。
 
 <!-- tabs:start -->
 

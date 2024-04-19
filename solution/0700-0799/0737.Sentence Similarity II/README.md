@@ -1,4 +1,4 @@
-# [737. 句子相似性 II](https://leetcode.cn/problems/sentence-similarity-ii)
+# [737. 句子相似性 II 🔒](https://leetcode.cn/problems/sentence-similarity-ii)
 
 [English Version](/solution/0700-0799/0737.Sentence%20Similarity%20II/README_EN.md)
 

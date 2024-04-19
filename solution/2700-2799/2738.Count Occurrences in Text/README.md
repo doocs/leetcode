@@ -1,4 +1,4 @@
-# [2738. 统计文本中单词的出现次数](https://leetcode.cn/problems/count-occurrences-in-text)
+# [2738. 统计文本中单词的出现次数 🔒](https://leetcode.cn/problems/count-occurrences-in-text)
 
 [English Version](/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README_EN.md)
 

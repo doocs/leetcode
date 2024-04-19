@@ -1,4 +1,4 @@
-# [2198. Number of Single Divisor Triplets](https://leetcode.com/problems/number-of-single-divisor-triplets)
+# [2198. Number of Single Divisor Triplets 🔒](https://leetcode.com/problems/number-of-single-divisor-triplets)
 
 [中文文档](/solution/2100-2199/2198.Number%20of%20Single%20Divisor%20Triplets/README.md)
 

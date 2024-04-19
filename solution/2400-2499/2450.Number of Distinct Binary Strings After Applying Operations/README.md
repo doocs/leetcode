@@ -1,4 +1,4 @@
-# [2450. 应用操作后不同二进制字符串的数量](https://leetcode.cn/problems/number-of-distinct-binary-strings-after-applying-operations)
+# [2450. 应用操作后不同二进制字符串的数量 🔒](https://leetcode.cn/problems/number-of-distinct-binary-strings-after-applying-operations)
 
 [English Version](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README_EN.md)
 

@@ -1,4 +1,4 @@
-# [2253. 动态取消表的旋转](https://leetcode.cn/problems/dynamic-unpivoting-of-a-table)
+# [2253. 动态取消表的旋转 🔒](https://leetcode.cn/problems/dynamic-unpivoting-of-a-table)
 
 [English Version](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README_EN.md)
 

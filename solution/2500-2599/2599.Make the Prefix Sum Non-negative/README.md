@@ -1,4 +1,4 @@
-# [2599. 使前缀和数组非负](https://leetcode.cn/problems/make-the-prefix-sum-non-negative)
+# [2599. 使前缀和数组非负 🔒](https://leetcode.cn/problems/make-the-prefix-sum-non-negative)
 
 [English Version](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README_EN.md)
 

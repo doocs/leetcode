@@ -1,4 +1,4 @@
-# [1152. 用户网站访问行为分析](https://leetcode.cn/problems/analyze-user-website-visit-pattern)
+# [1152. 用户网站访问行为分析 🔒](https://leetcode.cn/problems/analyze-user-website-visit-pattern)
 
 [English Version](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md)
 

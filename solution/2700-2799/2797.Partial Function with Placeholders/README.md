@@ -1,4 +1,4 @@
-# [2797. 带有占位符的部分函数](https://leetcode.cn/problems/partial-function-with-placeholders)
+# [2797. 带有占位符的部分函数 🔒](https://leetcode.cn/problems/partial-function-with-placeholders)
 
 [English Version](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md)
 

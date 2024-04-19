@@ -1,4 +1,4 @@
-# [3061. Calculate Trapping Rain Water](https://leetcode.com/problems/calculate-trapping-rain-water)
+# [3061. Calculate Trapping Rain Water 🔒](https://leetcode.com/problems/calculate-trapping-rain-water)
 
 [中文文档](/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md)
 

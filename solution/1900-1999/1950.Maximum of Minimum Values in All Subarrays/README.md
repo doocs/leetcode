@@ -1,4 +1,4 @@
-# [1950. 所有子数组最小值中的最大值](https://leetcode.cn/problems/maximum-of-minimum-values-in-all-subarrays)
+# [1950. 所有子数组最小值中的最大值 🔒](https://leetcode.cn/problems/maximum-of-minimum-values-in-all-subarrays)
 
 [English Version](/solution/1900-1999/1950.Maximum%20of%20Minimum%20Values%20in%20All%20Subarrays/README_EN.md)
 

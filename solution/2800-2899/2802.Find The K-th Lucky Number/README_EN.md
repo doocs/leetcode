@@ -1,4 +1,4 @@
-# [2802. Find The K-th Lucky Number](https://leetcode.com/problems/find-the-k-th-lucky-number)
+# [2802. Find The K-th Lucky Number 🔒](https://leetcode.com/problems/find-the-k-th-lucky-number)
 
 [中文文档](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README.md)
 

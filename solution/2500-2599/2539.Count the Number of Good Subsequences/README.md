@@ -1,4 +1,4 @@
-# [2539. 好子序列的个数](https://leetcode.cn/problems/count-the-number-of-good-subsequences)
+# [2539. 好子序列的个数 🔒](https://leetcode.cn/problems/count-the-number-of-good-subsequences)
 
 [English Version](/solution/2500-2599/2539.Count%20the%20Number%20of%20Good%20Subsequences/README_EN.md)
 

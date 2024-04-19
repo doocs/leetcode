@@ -1,4 +1,4 @@
-# [1730. 获取食物的最短路径](https://leetcode.cn/problems/shortest-path-to-get-food)
+# [1730. 获取食物的最短路径 🔒](https://leetcode.cn/problems/shortest-path-to-get-food)
 
 [English Version](/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README_EN.md)
 

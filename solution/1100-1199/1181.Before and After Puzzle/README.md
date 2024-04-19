@@ -1,4 +1,4 @@
-# [1181. 前后拼接](https://leetcode.cn/problems/before-and-after-puzzle)
+# [1181. 前后拼接 🔒](https://leetcode.cn/problems/before-and-after-puzzle)
 
 [English Version](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README_EN.md)
 

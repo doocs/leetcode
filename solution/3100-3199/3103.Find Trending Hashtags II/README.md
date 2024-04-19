@@ -1,4 +1,4 @@
-# [3103. 查找热门话题标签 II](https://leetcode.cn/problems/find-trending-hashtags-ii)
+# [3103. 查找热门话题标签 II 🔒](https://leetcode.cn/problems/find-trending-hashtags-ii)
 
 [English Version](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README_EN.md)
 
