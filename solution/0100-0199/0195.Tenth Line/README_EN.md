@@ -52,4 +52,15 @@ Line 10
 
 ## Solutions
 
+### Solution 1: sed
+
+<!-- tabs:start -->
+
+```bash
+# Read from the file file.txt and output the tenth line to stdout.
+sed -n 10p file.txt
+```
+
+<!-- tabs:end -->
+
 <!-- end -->
