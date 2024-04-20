@@ -66,6 +66,7 @@ code_dict = {
     "dart": ("Dart", "dart"),
     "nim": ("Nim", "nim"),
     "sql": ("MySQL", "sql"),
+    "sh": ("Shell", "bash"),
 }
 
 mapping = {lang: name for name, lang in code_dict.values()}
@@ -144,8 +145,8 @@ for dir in dirs:
                 num = num[:-3] + ".1"
             num = ".".join([x.strip(" ").lstrip("0") for x in num.split(".")])
             rat = -1
-            if target_dir == 'lc' and num in rating_dict:
-                rat = int(rating_dict[num]['Rating'])
+            if target_dir == "lc" and num in rating_dict:
+                rat = int(rating_dict[num]["Rating"])
                 print(f"Rating: {num} {rat}")
             is_en = "README_EN" in p
             if is_en:
