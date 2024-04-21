@@ -43,7 +43,13 @@
 
 ## Solutions
 
-### Solution 1
+### Solution 1: Two Pointers Simulation
+
+We define an array $d$, where $d[i]$ represents the number after rotating the digit $i$ by 180°. If $d[i]$ is $-1$, it means that the digit $i$ cannot be rotated 180° to get a valid digit.
+
+We define two pointers $i$ and $j$, pointing to the left and right ends of the string, respectively. Then we continuously move the pointers towards the center, checking whether $d[num[i]]$ and $num[j]$ are equal. If they are not equal, it means that the string is not a strobogrammatic number, and we can directly return $false$. If $i > j$, it means that we have traversed the entire string, and we return $true$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
