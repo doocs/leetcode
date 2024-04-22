@@ -2104,6 +2104,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2093  |  [Minimum Cost to Reach City With Discounts](/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  🔒  |
 |  2094  |  [Finding 3-Digit Even Numbers](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`,`Sorting`  |  Easy  |  Weekly Contest 270  |
 |  2095  |  [Delete the Middle Node of a Linked List](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |  Weekly Contest 270  |
+|  2096  |  [Step-By-Step Directions From a Binary Tree Node to Another](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README_EN.md)  |  `Tree`,`Depth-First Search`,`String`,`Binary Tree`  |  Medium  |  Weekly Contest 270  |
 |  2097  |  [Valid Arrangement of Pairs](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md)  |  `Depth-First Search`,`Graph`,`Eulerian Circuit`  |  Hard  |  Weekly Contest 270  |
 |  2098  |  [Subsequence of Size K With the Largest Even Sum](/solution/2000-2099/2098.Subsequence%20of%20Size%20K%20With%20the%20Largest%20Even%20Sum/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  🔒  |
 |  2099  |  [Find Subsequence of Length K With the Largest Sum](/solution/2000-2099/2099.Find%20Subsequence%20of%20Length%20K%20With%20the%20Largest%20Sum/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`,`Heap (Priority Queue)`  |  Easy  |  Biweekly Contest 67  |
@@ -2234,6 +2235,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2224  |  [Minimum Number of Operations to Convert Time](/solution/2200-2299/2224.Minimum%20Number%20of%20Operations%20to%20Convert%20Time/README_EN.md)  |  `Greedy`,`String`  |  Easy  |  Weekly Contest 287  |
 |  2225  |  [Find Players With Zero or One Losses](/solution/2200-2299/2225.Find%20Players%20With%20Zero%20or%20One%20Losses/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Sorting`  |  Medium  |  Weekly Contest 287  |
 |  2226  |  [Maximum Candies Allocated to K Children](/solution/2200-2299/2226.Maximum%20Candies%20Allocated%20to%20K%20Children/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 287  |
+|  2227  |  [Encrypt and Decrypt Strings](/solution/2200-2299/2227.Encrypt%20and%20Decrypt%20Strings/README_EN.md)  |  `Design`,`Trie`,`Array`,`Hash Table`,`String`  |  Hard  |  Weekly Contest 287  |
 |  2228  |  [Users With Two Purchases Within Seven Days](/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  2229  |  [Check if an Array Is Consecutive](/solution/2200-2299/2229.Check%20if%20an%20Array%20Is%20Consecutive/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Easy  |  🔒  |
 |  2230  |  [The Users That Are Eligible for Discount](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
@@ -3130,6 +3132,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3121  |  [Count the Number of Special Characters II](/solution/3100-3199/3121.Count%20the%20Number%20of%20Special%20Characters%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 394  |
 |  3122  |  [Minimum Number of Operations to Satisfy Conditions](/solution/3100-3199/3122.Minimum%20Number%20of%20Operations%20to%20Satisfy%20Conditions/README_EN.md)  |    |  Medium  |  Weekly Contest 394  |
 |  3123  |  [Find Edges in Shortest Paths](/solution/3100-3199/3123.Find%20Edges%20in%20Shortest%20Paths/README_EN.md)  |    |  Hard  |  Weekly Contest 394  |
+|  3124  |  [Find Longest Calls](/solution/3100-3199/3124.Find%20Longest%20Calls/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
